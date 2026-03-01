@@ -4,23 +4,19 @@ The following table provides an overview of the process to enable IPv6 for your 
 
 ###### Contents
 
-- [Step 1: Associate an IPv6 CIDR block with your VPC and
-  subnets](#vpc-migrate-ipv6-cidr "#vpc-migrate-ipv6-cidr")
+- [Step 1: Associate an IPv6 CIDR block with your VPC and subnets](#vpc-migrate-ipv6-cidr "#vpc-migrate-ipv6-cidr")
 - [Step 2: Update your route tables](#vpc-migrate-ipv6-routes "#vpc-migrate-ipv6-routes")
 - [Step 3: Update your security group rules](#vpc-migrate-ipv6-sg-rules "#vpc-migrate-ipv6-sg-rules")
-- [Step 4: Assign IPv6 addresses to your
-  instances](#vpc-migrate-assign-ipv6-address "#vpc-migrate-assign-ipv6-address")
+- [Step 4: Assign IPv6 addresses to your instances](#vpc-migrate-assign-ipv6-address "#vpc-migrate-assign-ipv6-address")
 
-| Step                                                                                                                      | Notes                                                                                                                                                                                                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Step 1: Associate an IPv6 CIDR block with your VPC and<br>subnets](#vpc-migrate-ipv6-cidr "#vpc-migrate-ipv6-cidr")      | Associate an Amazon-provided or BYOIP IPv6 CIDR block with your VPC<br>and with your subnets.                                                                                                                                                                                                                   |
-| [Step 2: Update your route tables](#vpc-migrate-ipv6-routes "#vpc-migrate-ipv6-routes")                                   | Update your route tables to route your IPv6 traffic. For a public<br>subnet, create a route that routes all IPv6 traffic from the subnet to the<br>internet gateway. For a private subnet, create a route that routes all<br>internet-bound IPv6 traffic from the subnet to an egress-only internet<br>gateway. |
-| [Step 3: Update your security group rules](#vpc-migrate-ipv6-sg-rules "#vpc-migrate-ipv6-sg-rules")                       | Update your security group rules to include rules for IPv6 addresses.<br>This enables IPv6 traffic to flow to and from your instances. If you've<br>created custom network ACL rules to control the flow of traffic to and<br>from your subnet, you must include rules for IPv6 traffic.                        |
-| [Step 4: Assign IPv6 addresses to your<br>instances](#vpc-migrate-assign-ipv6-address "#vpc-migrate-assign-ipv6-address") | Assign IPv6 addresses to your instances from the IPv6 address range<br>of your subnet.                                                                                                                                                                                                                          |
+| Step                                                                                                                   | Notes                                                                                                                                                                                                                                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Step 1: Associate an IPv6 CIDR block with your VPC and subnets](#vpc-migrate-ipv6-cidr "#vpc-migrate-ipv6-cidr")      | Associate an Amazon-provided or BYOIP IPv6 CIDR block with your VPC<br>and with your subnets.                                                                                                                                                                                                                   |
+| [Step 2: Update your route tables](#vpc-migrate-ipv6-routes "#vpc-migrate-ipv6-routes")                                | Update your route tables to route your IPv6 traffic. For a public<br>subnet, create a route that routes all IPv6 traffic from the subnet to the<br>internet gateway. For a private subnet, create a route that routes all<br>internet-bound IPv6 traffic from the subnet to an egress-only internet<br>gateway. |
+| [Step 3: Update your security group rules](#vpc-migrate-ipv6-sg-rules "#vpc-migrate-ipv6-sg-rules")                    | Update your security group rules to include rules for IPv6 addresses.<br>This enables IPv6 traffic to flow to and from your instances. If you've<br>created custom network ACL rules to control the flow of traffic to and<br>from your subnet, you must include rules for IPv6 traffic.                        |
+| [Step 4: Assign IPv6 addresses to your instances](#vpc-migrate-assign-ipv6-address "#vpc-migrate-assign-ipv6-address") | Assign IPv6 addresses to your instances from the IPv6 address range<br>of your subnet.                                                                                                                                                                                                                          |
 
-## Step 1: Associate an IPv6 CIDR block with your VPC and
-
-subnets
+## Step 1: Associate an IPv6 CIDR block with your VPC and subnets
 
 You can associate an IPv6 CIDR block with your VPC, and then associate a
 `/64` CIDR block from that range with each subnet.
@@ -145,9 +141,7 @@ default network ACL or if you've created a custom network ACL, you must manually
 add rules for IPv6 traffic. For more information, see
 [Add and delete rules](create-network-acl.md#Rules "create-network-acl.md#Rules").
 
-## Step 4: Assign IPv6 addresses to your
-
-instances
+## Step 4: Assign IPv6 addresses to your instances
 
 All current generation instance types support IPv6. If your instance type does not support
 IPv6, you must resize the instance to a supported instance type before you can assign an IPv6

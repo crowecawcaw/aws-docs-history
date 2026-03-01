@@ -252,9 +252,7 @@ You can perform the tasks described on this page using the command line.
 - [assign-private-nat-gateway-address](../../../cli/latest/reference/ec2/assign-private-nat-gateway-address.md "../../../cli/latest/reference/ec2/assign-private-nat-gateway-address.md") (AWS CLI)
 - [Register-EC2PrivateNatGatewayAddress](../../../powershell/latest/reference/items/Register-EC2PrivateNatGatewayAddress.md "../../../powershell/latest/reference/items/Register-EC2PrivateNatGatewayAddress.md") (AWS Tools for Windows PowerShell)
 
-###### Associate Elastic IP addresses and private IPv4 addresses with a public NAT
-
-gateway
+###### Associate Elastic IP addresses and private IPv4 addresses with a public NAT gateway
 
 - [associate-nat-gateway-address](../../../cli/latest/reference/ec2/associate-nat-gateway-address.md "../../../cli/latest/reference/ec2/associate-nat-gateway-address.md") (AWS CLI)
 - [Register-EC2NatGatewayAddress](../../../powershell/latest/reference/items/Register-EC2NatGatewayAddress.md "../../../powershell/latest/reference/items/Register-EC2NatGatewayAddress.md") (AWS Tools for Windows PowerShell)

@@ -23,6 +23,5 @@ There are quotas related to VPC subnet sharing. For more information, see [VPC s
 - [Shared subnet prerequisites](vpc-share-prerequisites.md "vpc-share-prerequisites.md")
 - [Working with shared subnets](vpc-sharing-share-subnet-working-with.md "vpc-sharing-share-subnet-working-with.md")
 - [Billing and metering for owner and participants](vpc-share-billing.md "vpc-share-billing.md")
-- [Responsibilities and permissions for owners and
-  participants](vpc-share-limitations.md "vpc-share-limitations.md")
+- [Responsibilities and permissions for owners and participants](vpc-share-limitations.md "vpc-share-limitations.md")
 - [AWS resources and shared VPC subnets](vpc-sharing-service-behavior.md "vpc-sharing-service-behavior.md")

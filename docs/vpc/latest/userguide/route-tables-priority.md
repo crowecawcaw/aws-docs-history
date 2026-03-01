@@ -36,9 +36,7 @@ other traffic from the subnet uses the internet gateway.
 | 172.31.0.0/16 | pcx-11223344556677889 |
 | 0.0.0.0/0     | igw-12345678901234567 |
 
-## Route priority for static and dynamically
-
-propagated routes
+## Route priority for static and dynamically propagated routes
 
 If you've attached a virtual private gateway to your VPC and enabled route
 propagation on your subnet route table, routes representing your Site-to-Site VPN connection
@@ -70,9 +68,7 @@ internet gateway.
 | 172.31.0.0/24 | vgw-11223344556677889 | Yes        |
 | 172.31.0.0/24 | igw-12345678901234567 | No         |
 
-## Route priority for prefix
-
-lists
+## Route priority for prefix lists
 
 If your route table references a prefix list, the following rules apply:
 

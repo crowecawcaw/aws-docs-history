@@ -4,15 +4,11 @@ The middlebox routing wizard is available in the Amazon VPC console.
 
 ###### Contents
 
-- [1. Create routes using the
-  middlebox routing wizard](#creating-routing-console "#creating-routing-console")
+- [1. Create routes using the middlebox routing wizard](#creating-routing-console "#creating-routing-console")
 - [2. Modify middlebox routes](#modify-route "#modify-route")
-- [3. Delete the middlebox routing wizard
-  configuration](#deleting-routing-console "#deleting-routing-console")
+- [3. Delete the middlebox routing wizard configuration](#deleting-routing-console "#deleting-routing-console")
 
-## 1. Create routes using the
-
-middlebox routing wizard
+## 1. Create routes using the middlebox routing wizard
 
 ###### To create routes using the middlebox routing wizard
 
@@ -94,9 +90,7 @@ following operations:
    Verify the routes, and then in the confirmation dialog box, choose
    **Update routes**.
 
-## 3. Delete the middlebox routing wizard
-
-configuration
+## 3. Delete the middlebox routing wizard configuration
 
 If you decide that you no longer want the middlebox routing wizard configuration, you must
 manually delete the route tables.

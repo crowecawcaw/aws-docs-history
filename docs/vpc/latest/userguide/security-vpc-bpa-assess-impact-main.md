@@ -1,6 +1,4 @@
-# Assess impact of VPC BPA and
-
-monitor VPC BPA
+# Assess impact of VPC BPA and monitor VPC BPA
 
 This section contains information on you can assess the impact of VPC BPA before you turn it on and how you monitor if traffic is being blocked after you turn it on.
 

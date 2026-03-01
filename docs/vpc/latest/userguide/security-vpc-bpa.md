@@ -31,6 +31,5 @@ Exclusions can have either of the following modes:
 ###### Contents
 
 - [VPC BPA basics](security-vpc-bpa-basics.md "security-vpc-bpa-basics.md")
-- [Assess impact of VPC BPA and
-  monitor VPC BPA](security-vpc-bpa-assess-impact-main.md "security-vpc-bpa-assess-impact-main.md")
+- [Assess impact of VPC BPA and monitor VPC BPA](security-vpc-bpa-assess-impact-main.md "security-vpc-bpa-assess-impact-main.md")
 - [Advanced example](security-vpc-bpa-example.md "security-vpc-bpa-example.md")

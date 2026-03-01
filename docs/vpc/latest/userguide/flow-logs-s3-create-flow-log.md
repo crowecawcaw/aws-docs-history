@@ -1,6 +1,4 @@
-# Create a flow log that publishes to
-
-Amazon S3
+# Create a flow log that publishes to Amazon S3
 
 After you have created and configured your Amazon S3 bucket, you can create flow logs
 for your network interfaces, subnets, and VPCs.
@@ -68,8 +66,7 @@ The bucket cannot use `AWSLogs` as a subfolder name, as this
 is a reserved term.
 
 If you own the bucket, we automatically create a resource policy and
-attach it to the bucket. For more information, see [Amazon S3 bucket permissions for flow
-logs](flow-logs-s3-permissions.md "flow-logs-s3-permissions.md"). 7. For **Log record format**, specify the format for the
+attach it to the bucket. For more information, see [Amazon S3 bucket permissions for flow logs](flow-logs-s3-permissions.md "flow-logs-s3-permissions.md"). 7. For **Log record format**, specify the format for the
 flow log record.
 
     * To use the default flow log record format, choose **AWS

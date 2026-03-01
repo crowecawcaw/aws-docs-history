@@ -10,15 +10,13 @@ For information about flow log record format, see [Flow log records](flow-log-re
 
 - [Accepted and rejected traffic](#flow-log-example-accepted-rejected "#flow-log-example-accepted-rejected")
 - [No data and skipped records](#flow-log-example-no-data "#flow-log-example-no-data")
-- [Security group and network ACL
-  rules](#flow-log-example-security-groups "#flow-log-example-security-groups")
+- [Security group and network ACL rules](#flow-log-example-security-groups "#flow-log-example-security-groups")
 - [IPv6 traffic](#flow-log-example-ipv6 "#flow-log-example-ipv6")
 - [TCP flag sequence](#flow-log-example-tcp-flag "#flow-log-example-tcp-flag")
 - [Traffic through a zonal NAT gateway](#flow-log-example-nat "#flow-log-example-nat")
 - [Traffic through a regional NAT gateway](#flow-log-example-regional-nat "#flow-log-example-regional-nat")
 - [Traffic through a transit gateway](#flow-log-example-tgw "#flow-log-example-tgw")
-- [Service name, traffic path, and flow
-  direction](#flow-log-example-traffic-path "#flow-log-example-traffic-path")
+- [Service name, traffic path, and flow direction](#flow-log-example-traffic-path "#flow-log-example-traffic-path")
 
 ## Accepted and rejected traffic
 
@@ -62,9 +60,7 @@ the aggregation interval.
 
 Some flow log records may be skipped during the aggregation interval (see _log-status_ in [Available fields](flow-log-records.md#flow-logs-fields "flow-log-records.md#flow-logs-fields")). This may be caused by an internal AWS capacity constraint or internal error. If you are using AWS Cost Explorer to view VPC flow log charges and some flow logs are skipped during the flow log aggregation interval, the number of flow logs reported in AWS Cost Explorer will be higher than the number of flow logs published by Amazon VPC.
 
-## Security group and network ACL
-
-rules
+## Security group and network ACL rules
 
 If you're using flow logs to diagnose overly restrictive or permissive security
 group rules or network ACL rules, be aware of the statefulness of these resources.
@@ -329,9 +325,7 @@ A.
 3 eni-22222222222222222 123456789010 vpc-abcdefab012345678 subnet-22222222bbbbbbbbb - 10.40.2.236 10.40.2.31 80 39812 6 19 IPv4 10.40.2.236 10.20.33.164 ACCEPT OK
 ```
 
-## Service name, traffic path, and flow
-
-direction
+## Service name, traffic path, and flow direction
 
 The following is an example of the fields for a custom flow log record.
 

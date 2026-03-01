@@ -30,10 +30,8 @@ to Amazon S3. For more information, open [Amazon CloudWatch Pricing](https://aws
 ###### Contents
 
 - [Flow log files](flow-logs-s3-path.md "flow-logs-s3-path.md")
-- [Amazon S3 bucket permissions for flow
-  logs](flow-logs-s3-permissions.md "flow-logs-s3-permissions.md")
+- [Amazon S3 bucket permissions for flow logs](flow-logs-s3-permissions.md "flow-logs-s3-permissions.md")
 - [Required key policy for use with SSE-KMS](flow-logs-s3-cmk-policy.md "flow-logs-s3-cmk-policy.md")
 - [Amazon S3 log file permissions](flow-logs-file-permissions.md "flow-logs-file-permissions.md")
-- [Create a flow log that publishes to
-  Amazon S3](flow-logs-s3-create-flow-log.md "flow-logs-s3-create-flow-log.md")
+- [Create a flow log that publishes to Amazon S3](flow-logs-s3-create-flow-log.md "flow-logs-s3-create-flow-log.md")
 - [View flow log records with Amazon S3](view-flow-log-records-s3.md "view-flow-log-records-s3.md")

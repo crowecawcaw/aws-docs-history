@@ -20,22 +20,17 @@ steps when you're done with this example.
 
 ###### Contents
 
-- [Deploy CloudFormation template
-  (optional)](#security-vpc-bpa-example-deploy-cfn "#security-vpc-bpa-example-deploy-cfn")
+- [Deploy CloudFormation template (optional)](#security-vpc-bpa-example-deploy-cfn "#security-vpc-bpa-example-deploy-cfn")
 - [View the impact of VPC BPA with Network Access Analyzer](#vpc-bpa-naa "#vpc-bpa-naa")
-- [Scenario 1 - Connect to instances without VPC BPA
-  turned on](#vpc-bpa-scenario-1-connect-scen1 "#vpc-bpa-scenario-1-connect-scen1")
-- [Scenario 2 - Turn on VPC BPA in Bidirectional
-  mode](#vpc-bpa-scenario-1-connect-scen2 "#vpc-bpa-scenario-1-connect-scen2")
+- [Scenario 1 - Connect to instances without VPC BPA turned on](#vpc-bpa-scenario-1-connect-scen1 "#vpc-bpa-scenario-1-connect-scen1")
+- [Scenario 2 - Turn on VPC BPA in Bidirectional mode](#vpc-bpa-scenario-1-connect-scen2 "#vpc-bpa-scenario-1-connect-scen2")
 - [Scenario 3 - Change VPC BPA to Ingress-only mode](#vpc-bpa-scenario-3 "#vpc-bpa-scenario-3")
 - [Scenario 4 - Create an exclusion](#vpc-bpa-scenario-4 "#vpc-bpa-scenario-4")
 - [Scenario 5 - Modify exclusion mode](#vpc-bpa-scenario-5 "#vpc-bpa-scenario-5")
 - [Scenario 6 - Modify VPC BPA mode](#vpc-bpa-scenario-6 "#vpc-bpa-scenario-6")
 - [Cleanup](#vpc-bpa-scenario-cleanup "#vpc-bpa-scenario-cleanup")
 
-## Deploy CloudFormation template
-
-(optional)
+## Deploy CloudFormation template (optional)
 
 To demonstrate how this feature works, you need a VPC, subnets, instances, and
 other resources. To make it easier to complete this demonstration, we’ve provided an
@@ -693,9 +688,7 @@ on resources in your VPCs.
 
 The impact analysis is complete.
 
-## Scenario 1 - Connect to instances without VPC BPA
-
-turned on
+## Scenario 1 - Connect to instances without VPC BPA turned on
 
 In this section, EC2 instances in public subnets A and B are reachable from
 the internet through the internet gateway, which allows both inbound and outbound
@@ -873,9 +866,7 @@ PING www.amazon.com(2600:9000:25f3:ee00:7:49a5:5fd4:b121 (2600:9000:25f3:ee00:7:
 
 Note that the ping is successful and traffic is not blocked.
 
-## Scenario 2 - Turn on VPC BPA in Bidirectional
-
-mode
+## Scenario 2 - Turn on VPC BPA in Bidirectional mode
 
 In this section you'll turn on VPC BPA and block traffic to and from the
 internet gateways in your account.

@@ -67,13 +67,10 @@ Follow the steps in this section to configure DNS64 and NAT64 to enable communic
 
 ###### Contents
 
-- [Enable communication with IPv4-only services on the internet with the
-  AWS CLI](#nat-gateway-nat64-dns64-walkthrough-internet "#nat-gateway-nat64-dns64-walkthrough-internet")
+- [Enable communication with IPv4-only services on the internet with the AWS CLI](#nat-gateway-nat64-dns64-walkthrough-internet "#nat-gateway-nat64-dns64-walkthrough-internet")
 - [Enable communication with IPv4-only services in your on-premises environment](#nat-gateway-nat64-dns64-walkthrough-on-prem "#nat-gateway-nat64-dns64-walkthrough-on-prem")
 
-### Enable communication with IPv4-only services on the internet with the
-
-AWS CLI
+### Enable communication with IPv4-only services on the internet with the AWS CLI
 
 If you have a subnet with IPv6-only workloads that needs to communicate with IPv4-only services outside the subnet,
 this example shows you how to enable these IPv6-only services to communicate with IPv4-only services on the internet.

@@ -5,9 +5,7 @@ collected by CloudWatch Logs. For more information about monitoring log data and
 filters, see [Creating metrics
 from log events using filter](../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md "../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md") in the _Amazon CloudWatch Logs User Guide_.
 
-## Example: Create a CloudWatch metric
-
-filter and alarm for a flow log
+## Example: Create a CloudWatch metric filter and alarm for a flow log
 
 In this example, you have a flow log for `eni-1a2b3c4d`. You want
 to create an alarm that alerts you if there have been 10 or more rejected
@@ -16,9 +14,7 @@ period. First, you must create a metric filter that matches the pattern of the
 traffic for which to create the alarm. Then, you can create an alarm for the
 metric filter.
 
-###### To create a metric filter for rejected SSH traffic and create an alarm
-
-for the filter
+###### To create a metric filter for rejected SSH traffic and create an alarm for the filter
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").

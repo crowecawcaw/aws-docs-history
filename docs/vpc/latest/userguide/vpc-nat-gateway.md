@@ -22,7 +22,7 @@ When you create a NAT gateway, you specify one of the following connectivity typ
   gateway. You can attach an internet gateway to a VPC with a private NAT gateway, but if you
   route traffic from the private NAT gateway to the internet gateway, the internet gateway
   drops the traffic.
-  A NAT gateway is for use with IPv4 or IPv6 traffic (using [DNS64 and NAT64](nat-gateway-nat64-dns64.md "nat-gateway-nat64-dns64.md") ). Another option for enabling outbound-only internet
+  A NAT gateway is for use with IPv4 or IPv6 traffic (using [DNS64 and NAT64](nat-gateway-nat64-dns64.md "nat-gateway-nat64-dns64.md")). Another option for enabling outbound-only internet
   communication over IPv6 is using an [egress-only internet gateway](egress-only-internet-gateway.md "egress-only-internet-gateway.md").
 
 Both private and public NAT gateways map the source private IPv4 address of the instances to the private IPv4 address of the NAT gateway, but in the case of a public NAT gateway, the internet gateway then maps the private IPv4 address of the public

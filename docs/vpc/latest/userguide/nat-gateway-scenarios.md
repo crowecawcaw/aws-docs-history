@@ -204,8 +204,7 @@ PING ietf.org (4.31.198.44) 56(84) bytes of data.
 ```
 
 Press **Ctrl+C** on your keyboard to cancel the `ping`
-command. If the `ping` command fails, see [Instances cannot access the
-internet](nat-gateway-troubleshooting.md#nat-gateway-troubleshooting-no-internet-connection "nat-gateway-troubleshooting.md#nat-gateway-troubleshooting-no-internet-connection"). 3. (Optional) If you no longer require your instances, terminate them. For more information, see
+command. If the `ping` command fails, see [Instances cannot access the internet](nat-gateway-troubleshooting.md#nat-gateway-troubleshooting-no-internet-connection "nat-gateway-troubleshooting.md#nat-gateway-troubleshooting-no-internet-connection"). 3. (Optional) If you no longer require your instances, terminate them. For more information, see
 [Terminate your
 instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md "../../../AWSEC2/latest/UserGuide/terminating-instances.md") in the
 _Amazon EC2 User Guide_.

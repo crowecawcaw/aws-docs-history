@@ -7,8 +7,7 @@ gateway for your private subnet and to configure routing for the subnet.
 
 - [1. Create an egress-only internet gateway](#egress-only-internet-gateway-create "#egress-only-internet-gateway-create")
 - [2. Create a custom route table](#egress-only-internet-gateway-routing "#egress-only-internet-gateway-routing")
-- [3. Delete an egress-only internet
-  gateway](#egress-only-internet-gateway-delete "#egress-only-internet-gateway-delete")
+- [3. Delete an egress-only internet gateway](#egress-only-internet-gateway-delete "#egress-only-internet-gateway-delete")
 - [Command line overview](#egress-only-internet-gateway-api-cli "#egress-only-internet-gateway-api-cli")
 
 ## 1. Create an egress-only internet gateway
@@ -39,9 +38,7 @@ To send traffic destined outside the VPC to the egress-only internet gateway, yo
 must create a custom route table, add a route that sends traffic to the gateway, and
 then associate it with your subnet.
 
-###### To create a custom route table and add a route to the egress-only internet
-
-gateway
+###### To create a custom route table and add a route to the egress-only internet gateway
 
 1. Open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
@@ -67,9 +64,7 @@ to add a route for the egress-only internet gateway.
 
 For more information about route tables, see [Configure route tables](VPC_Route_Tables.md "VPC_Route_Tables.md").
 
-## 3. Delete an egress-only internet
-
-gateway
+## 3. Delete an egress-only internet gateway
 
 If you no longer need an egress-only internet gateway, you can delete it. Any
 route in a route table that points to the deleted egress-only internet gateway

@@ -5,10 +5,8 @@ The following are possible issues you might have when working with flow logs.
 ###### Issues
 
 - [Incomplete flow log records](#flow-logs-troubleshooting-incomplete-records "#flow-logs-troubleshooting-incomplete-records")
-- [Flow log is active, but no
-  flow log records or log group](#flow-logs-troubleshooting-no-log-group "#flow-logs-troubleshooting-no-log-group")
-- ['LogDestinationNotFoundException'
-  or 'Access Denied for LogDestination' error](#flow-logs-troubleshooting-not-found "#flow-logs-troubleshooting-not-found")
+- [Flow log is active, but no flow log records or log group](#flow-logs-troubleshooting-no-log-group "#flow-logs-troubleshooting-no-log-group")
+- ['LogDestinationNotFoundException' or 'Access Denied for LogDestination' error](#flow-logs-troubleshooting-not-found "#flow-logs-troubleshooting-not-found")
 - [Exceeding the Amazon S3 bucket policy limit](#flow-logs-troubleshooting-policy-limit "#flow-logs-troubleshooting-policy-limit")
 - [LogDestination undeliverable](#flow-logs-troubleshooting-kms-id "#flow-logs-troubleshooting-kms-id")
 - [Flow logs data size mismatch with billing data](#flow-logs-data-size-mismatch "#flow-logs-data-size-mismatch")
@@ -60,9 +58,7 @@ The following are possible error values for the status:
 - `Unknown error`: An internal error has occurred in the flow
   logs service.
 
-## Flow log is active, but no
-
-flow log records or log group
+## Flow log is active, but no flow log records or log group
 
 ###### Problem
 
@@ -83,9 +79,7 @@ log files in your Amazon S3 bucket.
 Wait a few minutes for the log group to be created, or for traffic to be
 recorded.
 
-## 'LogDestinationNotFoundException'
-
-or 'Access Denied for LogDestination' error
+## 'LogDestinationNotFoundException' or 'Access Denied for LogDestination' error
 
 ###### Problem
 

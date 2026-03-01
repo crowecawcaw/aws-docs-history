@@ -8,12 +8,9 @@ it and how you can work with it.
 - [Regional availability](#security-vpc-bpa-reg-avail "#security-vpc-bpa-reg-avail")
 - [AWS service impact and support](#security-vpc-bpa-service-support "#security-vpc-bpa-service-support")
 - [VPC BPA limitations](#security-vpc-bpa-limits "#security-vpc-bpa-limits")
-- [Control access to VPC BPA with an IAM
-  policy](#security-vpc-bpa-iam-example "#security-vpc-bpa-iam-example")
-- [Enable VPC BPA bidirectional mode
-  for your account](#security-vpc-bpa-enable-bidir "#security-vpc-bpa-enable-bidir")
-- [Change VPC BPA mode to
-  ingress-only](#security-vpc-bpa-ingress-only "#security-vpc-bpa-ingress-only")
+- [Control access to VPC BPA with an IAM policy](#security-vpc-bpa-iam-example "#security-vpc-bpa-iam-example")
+- [Enable VPC BPA bidirectional mode for your account](#security-vpc-bpa-enable-bidir "#security-vpc-bpa-enable-bidir")
+- [Change VPC BPA mode to ingress-only](#security-vpc-bpa-ingress-only "#security-vpc-bpa-ingress-only")
 - [Create and delete exclusions](#security-vpc-bpa-exclusions "#security-vpc-bpa-exclusions")
 - [Enable VPC BPA at the Organization level](#security-vpc-bpa-exclusions-orgs "#security-vpc-bpa-exclusions-orgs")
 
@@ -90,15 +87,11 @@ services and resources, is not blocked or impacted by VPC BPA:
 VPC BPA ingress-only mode is not supported in Local Zones (LZs) where NAT
 gateways and egress-only internet gateways are not allowed.
 
-## Control access to VPC BPA with an IAM
-
-policy
+## Control access to VPC BPA with an IAM policy
 
 For examples of IAM policies that allow/deny access to the VPC BPA feature, see [Block public access to VPCs and subnets](vpc-policy-examples.md#vpc-bpa-example-iam "vpc-policy-examples.md#vpc-bpa-example-iam").
 
-## Enable VPC BPA bidirectional mode
-
-for your account
+## Enable VPC BPA bidirectional mode for your account
 
 VPC BPA bidirectional mode blocks all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets). For more information about exclusions, see [Create and delete exclusions](#security-vpc-bpa-exclusions "#security-vpc-bpa-exclusions").
 
@@ -144,9 +137,7 @@ and the status to be updated. 2. View the status of VPC BPA:
 aws ec2 --region `us-east-2` describe-vpc-block-public-access-options
 ```
 
-## Change VPC BPA mode to
-
-ingress-only
+## Change VPC BPA mode to ingress-only
 
 VPC BPA ingress-only mode blocks all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.
 

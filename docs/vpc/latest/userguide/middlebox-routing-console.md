@@ -16,14 +16,12 @@ The middlebox routing wizard can help you configure routing for the following sc
 
 - [Middlebox routing wizard prerequisites](#routing-console-rules "#routing-console-rules")
 - [Redirect VPC traffic to a security appliance](working-with-routing-console.md "working-with-routing-console.md")
-- [Middlebox routing wizard
-  considerations](#console-routes-considerations "#console-routes-considerations")
+- [Middlebox routing wizard considerations](#console-routes-considerations "#console-routes-considerations")
 - [Middlebox scenarios](middlebox-routing-examples.md "middlebox-routing-examples.md")
 
 ## Middlebox routing wizard prerequisites
 
-Review [Middlebox routing wizard
-considerations](#console-routes-considerations "#console-routes-considerations"). Then, make sure that you
+Review [Middlebox routing wizard considerations](#console-routes-considerations "#console-routes-considerations"). Then, make sure that you
 have the following information before you use the middlebox routing wizard.
 
 - The VPC.
@@ -32,9 +30,7 @@ have the following information before you use the middlebox routing wizard.
 - The middlebox network interface or Gateway Load Balancer endpoint.
 - The destination subnet for the traffic.
 
-## Middlebox routing wizard
-
-considerations
+## Middlebox routing wizard considerations
 
 Take the following into consideration when you use the middlebox routing wizard:
 

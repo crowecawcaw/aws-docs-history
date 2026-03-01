@@ -5,16 +5,11 @@ might encounter when working with Amazon VPC and IAM.
 
 ###### Issues
 
-- [I am not authorized to
-  perform an action in Amazon VPC](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow
-  people outside of my AWS account to access my Amazon VPC resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform an action in Amazon VPC](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to allow people outside of my AWS account to access my Amazon VPC resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I am not authorized to
-
-perform an action in Amazon VPC
+## I am not authorized to perform an action in Amazon VPC
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then
 you must contact your administrator for assistance. Your administrator is the person
@@ -31,9 +26,7 @@ User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: 
 In this case, Mateo asks his administrator to update the policy to allow him to
 access the subnet.
 
-## I am not authorized to perform
-
-iam:PassRole
+## I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Amazon VPC.
 
@@ -52,9 +45,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow
-
-people outside of my AWS account to access my Amazon VPC resources
+## I want to allow people outside of my AWS account to access my Amazon VPC resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

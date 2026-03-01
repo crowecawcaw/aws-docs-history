@@ -11,11 +11,9 @@ documents, see [Creating IAM policies](../../../IAM/latest/UserGuide/access_poli
 
 ###### Contents
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [Use the Amazon VPC console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Create a VPC with a public
-  subnet](#vpc-public-subnet-iam "#vpc-public-subnet-iam")
+- [Create a VPC with a public subnet](#vpc-public-subnet-iam "#vpc-public-subnet-iam")
 - [Modify and delete VPC resources](#modify-vpc-resources-iam "#modify-vpc-resources-iam")
 - [Manage security groups](#vpc-security-groups-iam "#vpc-security-groups-iam")
 - [Manage security group rules](#vpc-security-group-rules-iam "#vpc-security-group-rules-iam")
@@ -24,9 +22,7 @@ documents, see [Creating IAM policies](../../../IAM/latest/UserGuide/access_poli
 - [Block public access to VPCs and subnets](#vpc-bpa-example-iam "#vpc-bpa-example-iam")
 - [Additional Amazon VPC policy examples](#security-iam-additional-examples "#security-iam-additional-examples")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon VPC resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -137,9 +133,7 @@ You don't need to allow minimum console permissions for roles that are making
 calls only to the AWS CLI or the AWS API. Instead, allow access only to actions that
 match the API operation that the role needs to perform.
 
-## Create a VPC with a public
-
-subnet
+## Create a VPC with a public subnet
 
 The following example enables roles to create VPCs, subnets, route tables, and
 internet gateways. Roles can also attach an internet gateway to a VPC and create

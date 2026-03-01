@@ -7,8 +7,7 @@ This section describes how to work with customer-managed prefix lists.
 - [Create a prefix list](#create-managed-prefix-list "#create-managed-prefix-list")
 - [View prefix lists](#view-managed-prefix-lists "#view-managed-prefix-lists")
 - [View the entries for a prefix list](#view-managed-prefix-list-entries "#view-managed-prefix-list-entries")
-- [View associations (references) for your prefix
-  list](#view-managed-prefix-list-associations "#view-managed-prefix-list-associations")
+- [View associations (references) for your prefix list](#view-managed-prefix-list-associations "#view-managed-prefix-list-associations")
 - [Modify a prefix list](#modify-managed-prefix-list "#modify-managed-prefix-list")
 - [Resize a prefix list](#resize-managed-prefix-list "#resize-managed-prefix-list")
 - [Restore a previous version of a prefix list](#restore-managed-prefix-list "#restore-managed-prefix-list")
@@ -86,9 +85,7 @@ and AWS-managed prefix lists.
 
 Use the [get-managed-prefix-list-entries](../../../cli/latest/reference/ec2/get-managed-prefix-list-entries.md "../../../cli/latest/reference/ec2/get-managed-prefix-list-entries.md") command.
 
-## View associations (references) for your prefix
-
-list
+## View associations (references) for your prefix list
 
 You can view the IDs and owners of the resources that are associated with your
 prefix list. Associated resources are resources that reference your prefix list in

@@ -10,10 +10,8 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 - [Actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")
 - [Resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")
 - [Condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys")
-- [Amazon VPC
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Amazon VPC resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
 - [IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
   With IAM identity-based policies, you can specify allowed or denied actions. For
   some actions, you can specify the resources and conditions under which actions are
@@ -128,9 +126,7 @@ Amazon EC2](../../../service-authorization/latest/reference/list_amazonec2.md#am
 which actions and resources you can use a condition key, see [Actions
 defined by Amazon EC2](../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-actions-as-permissions").
 
-## Amazon VPC
-
-resource-based policies
+## Amazon VPC resource-based policies
 
 Resource-based policies are JSON policy documents that specify what actions a
 specified principal can perform on the Amazon VPC resource and under what
@@ -148,9 +144,7 @@ required. For more information, see [Cross
 account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Authorization based on
-
-tags
+## Authorization based on tags
 
 You can attach tags to Amazon VPC resources or pass tags in a request. To
 control access based on tags, you provide tag information in the [condition
@@ -166,9 +160,7 @@ on the tags on that resource, see [Launch instances into a specific VPC](vpc-pol
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts "../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts") is an entity within
 your AWS account that has specific permissions.
 
-### Use temporary
-
-credentials
+### Use temporary credentials
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security
@@ -186,9 +178,7 @@ view but not edit the permissions for service-linked roles.
 [Transit
 gateways](../tgw/service-linked-roles.md "../tgw/service-linked-roles.md") support service-linked roles.
 
-### Service
-
-roles
+### Service roles
 
 This feature allows a service to assume a [service role](../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts "../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts") on your behalf. This role allows the service to access
 resources in other services to complete an action on your behalf. Service roles

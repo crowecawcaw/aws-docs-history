@@ -8,23 +8,15 @@ creating or using a NAT gateway.
 - [NAT gateway creation fails](#nat-gateway-troubleshooting-failed "#nat-gateway-troubleshooting-failed")
 - [NAT gateway quota](#nat-gateway-troubleshooting-quota "#nat-gateway-troubleshooting-quota")
 - [Elastic IP address quota](#nat-gateway-troubleshooting-limits "#nat-gateway-troubleshooting-limits")
-- [Availability Zone is
-  unsupported](#nat-gateway-troubleshooting-unsupported-az "#nat-gateway-troubleshooting-unsupported-az")
-- [NAT gateway is no longer
-  visible](#nat-gateway-troubleshooting-gateway-removed "#nat-gateway-troubleshooting-gateway-removed")
-- [NAT gateway doesn't respond to a ping
-  command](#nat-gateway-troubleshooting-ping "#nat-gateway-troubleshooting-ping")
-- [Instances cannot access the
-  internet](#nat-gateway-troubleshooting-no-internet-connection "#nat-gateway-troubleshooting-no-internet-connection")
-- [TCP connection to a destination
-  fails](#nat-gateway-troubleshooting-tcp-issues "#nat-gateway-troubleshooting-tcp-issues")
-- [Traceroute output does not display NAT
-  gateway private IP address](#nat-gateway-troubleshooting-traceroute "#nat-gateway-troubleshooting-traceroute")
-- [Internet connection drops after 350
-  seconds](#nat-gateway-troubleshooting-timeout "#nat-gateway-troubleshooting-timeout")
+- [Availability Zone is unsupported](#nat-gateway-troubleshooting-unsupported-az "#nat-gateway-troubleshooting-unsupported-az")
+- [NAT gateway is no longer visible](#nat-gateway-troubleshooting-gateway-removed "#nat-gateway-troubleshooting-gateway-removed")
+- [NAT gateway doesn't respond to a ping command](#nat-gateway-troubleshooting-ping "#nat-gateway-troubleshooting-ping")
+- [Instances cannot access the internet](#nat-gateway-troubleshooting-no-internet-connection "#nat-gateway-troubleshooting-no-internet-connection")
+- [TCP connection to a destination fails](#nat-gateway-troubleshooting-tcp-issues "#nat-gateway-troubleshooting-tcp-issues")
+- [Traceroute output does not display NAT gateway private IP address](#nat-gateway-troubleshooting-traceroute "#nat-gateway-troubleshooting-traceroute")
+- [Internet connection drops after 350 seconds](#nat-gateway-troubleshooting-timeout "#nat-gateway-troubleshooting-timeout")
 - [IPsec connection cannot be established](#nat-gateway-troubleshooting-ipsec "#nat-gateway-troubleshooting-ipsec")
-- [Cannot initiate more
-  connections](#nat-gateway-troubleshooting-simultaneous-connections "#nat-gateway-troubleshooting-simultaneous-connections")
+- [Cannot initiate more connections](#nat-gateway-troubleshooting-simultaneous-connections "#nat-gateway-troubleshooting-simultaneous-connections")
 
 ## NAT gateway creation fails
 
@@ -110,9 +102,7 @@ If you've reached your Elastic IP address quota, you can disassociate an Elastic
 IP address from another resource. Alternatively, you can request an increase in
 the [Elastic IPs quota](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-0263D0A3 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-0263D0A3") using the Service Quotas console.
 
-## Availability Zone is
-
-unsupported
+## Availability Zone is unsupported
 
 ###### Problem
 
@@ -131,9 +121,7 @@ gateway in a different Availability Zone and use it for private subnets in the
 constrained zone. You can also move your resources to an unconstrained Availability
 Zone so that your resources and your NAT gateway are in the same zone.
 
-## NAT gateway is no longer
-
-visible
+## NAT gateway is no longer visible
 
 ###### Problem
 
@@ -151,9 +139,7 @@ deleted.
 Review the information in [NAT gateway creation fails](#nat-gateway-troubleshooting-failed "#nat-gateway-troubleshooting-failed"), and try creating a new
 NAT gateway.
 
-## NAT gateway doesn't respond to a ping
-
-command
+## NAT gateway doesn't respond to a ping command
 
 ###### Problem
 
@@ -170,9 +156,7 @@ internet.
 
 To test that your NAT gateway is working, see [Test the public NAT gateway](nat-gateway-scenarios.md#public-nat-gateway-testing "nat-gateway-scenarios.md#public-nat-gateway-testing").
 
-## Instances cannot access the
-
-internet
+## Instances cannot access the internet
 
 ###### Problem
 
@@ -229,9 +213,7 @@ You can enable flow logs to help you diagnose dropped connections because of net
   instances in the private subnet (assuming that security group rules allow this).
 - Ensure that your connection is using a TCP, UDP, or ICMP protocol only.
 
-## TCP connection to a destination
-
-fails
+## TCP connection to a destination fails
 
 ###### Problem
 
@@ -292,9 +274,7 @@ previous failure is likely because `tcp_tw_recycle` is enabled on the remote
 server. If possible, contact the owner of the remote server to verify if this option is
 enabled and request for it to be disabled.
 
-## Traceroute output does not display NAT
-
-gateway private IP address
+## Traceroute output does not display NAT gateway private IP address
 
 ###### Problem
 
@@ -316,9 +296,7 @@ following information:
 - Ensure that there isn't a more specific route that's sending internet traffic to
   other devices, such as a virtual private gateway or an internet gateway.
 
-## Internet connection drops after 350
-
-seconds
+## Internet connection drops after 350 seconds
 
 ###### Problem
 
@@ -356,9 +334,7 @@ You can use NAT-Traversal (NAT-T) to encapsulate IPsec traffic in UDP, which is 
 supported protocol for NAT gateways. Ensure that you test your NAT-T and IPsec
 configuration to verify that your IPsec traffic is not dropped.
 
-## Cannot initiate more
-
-connections
+## Cannot initiate more connections
 
 ###### Problem
 

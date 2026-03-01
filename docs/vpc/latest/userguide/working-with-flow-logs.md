@@ -47,10 +47,8 @@ You can create flow logs for your VPCs, subnets, or network interfaces. When
 you create a flow log, you must specify a destination for the flow log. For more
 information, see the following:
 
-- [Create a flow log that publishes
-  to CloudWatch Logs](flow-logs-cwl-create-flow-log.md "flow-logs-cwl-create-flow-log.md")
-- [Create a flow log that publishes to
-  Amazon S3](flow-logs-s3-create-flow-log.md "flow-logs-s3-create-flow-log.md")
+- [Create a flow log that publishes to CloudWatch Logs](flow-logs-cwl-create-flow-log.md "flow-logs-cwl-create-flow-log.md")
+- [Create a flow log that publishes to Amazon S3](flow-logs-s3-create-flow-log.md "flow-logs-s3-create-flow-log.md")
 - [Create a flow log that publishes to Amazon Data Firehose](flow-logs-firehose-create-flow-log.md "flow-logs-firehose-create-flow-log.md")
 
 ## 3. Tag a flow log

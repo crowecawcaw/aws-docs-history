@@ -256,8 +256,7 @@ instance by using the NAT instance as a bastion server.
 ###### Tasks
 
 - [Step 1: Update the NAT instance security group](#nat-test-security "#nat-test-security")
-- [Step 2: Launch a test instance in the private
-  subnet](#nat-test-launch-instance "#nat-test-launch-instance")
+- [Step 2: Launch a test instance in the private subnet](#nat-test-launch-instance "#nat-test-launch-instance")
 - [Step 3: Ping an ICMP-enabled website](#nat-test-ping "#nat-test-ping")
 - [Step 4: Clean up](#nat-test-clean-up "#nat-test-clean-up")
 
@@ -289,9 +288,7 @@ bastion server, add a rule to allow outbound SSH traffic to the private subnet.
    **Type**. Choose **Anywhere - IPv4** for
    **Destination**. Choose **Save rules**.
 
-### Step 2: Launch a test instance in the private
-
-subnet
+### Step 2: Launch a test instance in the private subnet
 
 Launch an instance into your private subnet. You must allow SSH access from the NAT instance,
 and you must use the same key pair that you used for the NAT instance.

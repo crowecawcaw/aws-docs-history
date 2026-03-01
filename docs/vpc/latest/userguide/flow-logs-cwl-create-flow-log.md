@@ -1,6 +1,4 @@
-# Create a flow log that publishes
-
-to CloudWatch Logs
+# Create a flow log that publishes to CloudWatch Logs
 
 You can create flow logs for your VPCs, subnets, or network interfaces. If you
 perform these steps as a user using a particular IAM role, ensure that the role has permissions to use the

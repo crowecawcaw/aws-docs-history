@@ -53,9 +53,7 @@ the main route table. For an example of why you might do that, see [Replace the 
    table, but are not associated with any route table, so they are implicitly
    associated with the main route table for the VPC.
 
-###### To determine which gateways are explicitly associated using the
-
-console
+###### To determine which gateways are explicitly associated using the console
 
 1. Open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").

@@ -37,17 +37,13 @@ AWS RAM console, or the AWS CLI.
   [Enable sharing with AWS Organizations](../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs "../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs") in the
   _AWS RAM User Guide_.
 
-###### To create a resource share and share a prefix list using the AWS RAM
-
-console
+###### To create a resource share and share a prefix list using the AWS RAM console
 
 Follow the steps in [Create a resource share](../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-create "../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-create") in the _AWS RAM User Guide_.
 For **Select resource type**, choose **Prefix
 Lists**, and then select the check box for your prefix list.
 
-###### To add a prefix list to an existing resource share using the AWS RAM
-
-console
+###### To add a prefix list to an existing resource share using the AWS RAM console
 
 To add a managed prefix that you own to an existing resource share, follow the
 steps in [Updating a resource share](../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-update "../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-update") in the
@@ -113,9 +109,7 @@ owner.
 Owners can identify the consumer-owned resources that are referencing a shared
 prefix list.
 
-###### To identify references to a shared prefix list using the Amazon VPC
-
-console
+###### To identify references to a shared prefix list using the Amazon VPC console
 
 1. Open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").

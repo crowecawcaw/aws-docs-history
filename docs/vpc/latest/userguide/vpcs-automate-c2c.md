@@ -1,6 +1,4 @@
-# Generate infrastructure-as-code from your VPC console
-
-actions with Console-to-Code
+# Generate infrastructure-as-code from your VPC console actions with Console-to-Code
 
 The console provides a guided path for creating resources and testing prototypes. If you
 want to create the same resources at scale, you’ll need automation code. Console-to-Code is a feature

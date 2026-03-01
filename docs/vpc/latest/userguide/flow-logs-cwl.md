@@ -35,8 +35,7 @@ logs to CloudWatch Logs. For more information, open [Amazon CloudWatch Pricing](
 ###### Contents
 
 - [IAM role for publishing flow logs to CloudWatch Logs](flow-logs-iam-role.md "flow-logs-iam-role.md")
-- [Create a flow log that publishes
-  to CloudWatch Logs](flow-logs-cwl-create-flow-log.md "flow-logs-cwl-create-flow-log.md")
+- [Create a flow log that publishes to CloudWatch Logs](flow-logs-cwl-create-flow-log.md "flow-logs-cwl-create-flow-log.md")
 - [View flow log records with CloudWatch Logs](view-flow-log-records-cwl.md "view-flow-log-records-cwl.md")
 - [Search flow log records](search-flow-log-records-cwl.md "search-flow-log-records-cwl.md")
 - [Process flow log records in CloudWatch Logs](process-records-cwl.md "process-records-cwl.md")
