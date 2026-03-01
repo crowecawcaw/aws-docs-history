@@ -14,16 +14,12 @@ To learn more about security best practices in AWS, see [Best Practices for Secu
 - [Periodically backup your simulation state](#security_best-practice_backup-simulation-state "#security_best-practice_backup-simulation-state")
 - [Maintain your apps and SDKs](#security_best-practice_maintain-apps-and-sdks "#security_best-practice_maintain-apps-and-sdks")
 
-##
-
-Encrypt communications between your apps and their clients
+## Encrypt communications between your apps and their clients
 
 SimSpace Weaver doesn't manage communications between your apps and their clients.
 You should implement some form of authentication and encryption for client sessions.
 
-##
-
-Periodically backup your simulation state
+## Periodically backup your simulation state
 
 SimSpace Weaver doesn't save your simulation state. Simulations that are stopped (as
 a result of an API call, console option, or system crash) do not save their state and have
@@ -35,9 +31,7 @@ AWS offers highly reliable and available cloud
 [database](https://aws.amazon.com/products/databases/ "https://aws.amazon.com/products/databases/") services that you can use to
 save your simulation state.
 
-##
-
-Maintain your apps and SDKs
+## Maintain your apps and SDKs
 
 Maintain your apps, local installations of the AWS software development kits (SDKs), and
 the SimSpace Weaver app SDK. You can download and install new versions of the AWS SDKs. Test new

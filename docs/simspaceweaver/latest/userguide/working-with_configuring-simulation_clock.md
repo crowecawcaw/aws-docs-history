@@ -69,22 +69,16 @@ You still specify `tick_rate: "unlimited"` in your schema.
 For more information about SimSpace Weaver Local, see
 [Local development in SimSpace Weaver](working-with_local-development.md "working-with_local-development.md").
 
-## Frequently asked
+## Frequently asked questions about the clock
 
-questions about the clock
-
-### Q1. Can I change
-
-a STARTED simulation to use a different tick rate?
+### Q1. Can I change a STARTED simulation to use a different tick rate?
 
 You can't change the tick rate of a simulation that already exists in the AWS Cloud
 at any stage of its life cycle. You also can't change the tick rate of a simulation running in
 SimSpace Weaver Local. You can set the `tick_rate` in the schema and start a new
 simulation from that schema.
 
-### Q2. Can I run
-
-my simulation with an unlimited tick rate in a version earlier than 1.14?
+### Q2. Can I run my simulation with an unlimited tick rate in a version earlier than 1.14?
 
 No, unlimited tick rate isn't supported in versions before 1.14.0.
 

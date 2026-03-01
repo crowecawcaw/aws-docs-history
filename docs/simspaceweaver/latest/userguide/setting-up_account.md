@@ -65,9 +65,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Add permissions to use
-
-SimSpace Weaver
+## Add permissions to use SimSpace Weaver
 
 To provide access, add permissions to your users, groups, or roles:
 

@@ -21,9 +21,7 @@ for city planning, to design traffic routing, and to plan environmental hazard
 response. You can use your own geospatial data sources as the building blocks
 for your environments.
 
-###### Create immersive
-
-and interactive experiences
+###### Create immersive and interactive experiences
 
 Create simulation experiences that multiple users can participate and interact in.
 Use popular development tools such as Unreal Engine and Unity to build

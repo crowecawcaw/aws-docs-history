@@ -5,9 +5,7 @@ For more information, see [AWS SimSpace Weaver end of support](simspaceweaver-en
 
 # Frequently asked questions about custom containers
 
-## Q1. What do I do if I want to change
-
-the contents of my container?
+## Q1. What do I do if I want to change the contents of my container?
 
 - For a running simulation – You can't change the
   container for a running simulation. You must build a new container and start a new
@@ -15,14 +13,11 @@ the contents of my container?
 - For a new simulation – Build a new container,
   upload it to Amazon Elastic Container Registry (Amazon ECR), and start a new simulation that uses that container.
 
-## Q2. How can I change the container image
-
-for my simulation?
+## Q2. How can I change the container image for my simulation?
 
 - For a running simulation – You can't change the
   container for a running simulation. You must start a new simulation that uses the
   new container.
 - For a new simulation – Specify the new
   container image in your project's simulation schema. For more information, see
-  [Modify a project
-  to use a custom container](working-with_custom-containers_modify-project.md "working-with_custom-containers_modify-project.md").
+  [Modify a project to use a custom container](working-with_custom-containers_modify-project.md "working-with_custom-containers_modify-project.md").

@@ -57,9 +57,7 @@ export PYTHONPATH=$PYTHONPATH:$LD_LIBRARY_PATH:/roapp/lib
 
 ## Troubleshooting for version 1.15.1
 
-### After updating a 1.15.0 Python simulation,
-
-it fails to start in the AWS Cloud
+### After updating a 1.15.0 Python simulation, it fails to start in the AWS Cloud
 
 Symptoms: After approximately 5-10 minutes after you start the simulation,
 the simulation management log reports an `internal error` and the simulation status

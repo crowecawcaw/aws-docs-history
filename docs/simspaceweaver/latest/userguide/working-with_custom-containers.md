@@ -25,7 +25,6 @@ hosted outside Amazon ECR. For more information about Amazon ECR, see _[Amazon E
 ###### Topics
 
 - [Create a custom container](working-with_custom-containers_create.md "working-with_custom-containers_create.md")
-- [Modify a project
-  to use a custom container](working-with_custom-containers_modify-project.md "working-with_custom-containers_modify-project.md")
+- [Modify a project to use a custom container](working-with_custom-containers_modify-project.md "working-with_custom-containers_modify-project.md")
 - [Frequently asked questions about custom containers](working-with_custom-containers_faq.md "working-with_custom-containers_faq.md")
 - [Troubleshooting custom containers](working-with_custom-containers_troubleshooting.md "working-with_custom-containers_troubleshooting.md")

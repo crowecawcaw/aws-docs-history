@@ -46,17 +46,12 @@ spatial domain and assign 1 partition to each app instance.
 
 ###### Topics
 
-- [Resource
-  requirements for spatial domains](#working-with_configuring-simulation_domains_spatial_resources "#working-with_configuring-simulation_domains_spatial_resources")
+- [Resource requirements for spatial domains](#working-with_configuring-simulation_domains_spatial_resources "#working-with_configuring-simulation_domains_spatial_resources")
 - [Multiple spatial domains](#working-with_configuring-simulation_domains_spatial_multiple "#working-with_configuring-simulation_domains_spatial_multiple")
-- [Frequently asked
-  questions about spatial domains](#working-with_configuring-simulation_domains_spatial_faq "#working-with_configuring-simulation_domains_spatial_faq")
-- [Troubleshooting
-  spatial domains](#working-with_configuring-simulation_domains_spatial_troubleshooting "#working-with_configuring-simulation_domains_spatial_troubleshooting")
+- [Frequently asked questions about spatial domains](#working-with_configuring-simulation_domains_spatial_faq "#working-with_configuring-simulation_domains_spatial_faq")
+- [Troubleshooting spatial domains](#working-with_configuring-simulation_domains_spatial_troubleshooting "#working-with_configuring-simulation_domains_spatial_troubleshooting")
 
-## Resource
-
-requirements for spatial domains
+## Resource requirements for spatial domains
 
 You can assign up to 17 compute resource units for each worker.
 You specify the number of compute resource units that each spatial app uses in the `app_config`
@@ -126,9 +121,7 @@ For more information about SimSpace Weaver Local, see [Local development in SimS
 SimSpace Weaver supports up to 5 domains for
 each simulation. This includes all spatial, custom, and service domains.
 
-### Configure
-
-multiple spatial domains
+### Configure multiple spatial domains
 
 To configure more than 1 spatial domain, add the other spatial domain
 definitions as separate named sections in your schema. Each domain must
@@ -175,9 +168,7 @@ domains:
 
 ```
 
-### Placing
-
-spatial domains together
+### Placing spatial domains together
 
 In some scenarios, you might want to place partitions for a spatial domain
 on workers next to partitions from another domain. This can improve performance
@@ -215,13 +206,9 @@ placement_constraints:
   For more information about placement groups, see
   [Partitioning strategies](working-with_configuring-simulation_partitioning-strategies.md#working-with_configuring-simulation_partitioning-strategies_placement-groups "working-with_configuring-simulation_partitioning-strategies.md#working-with_configuring-simulation_partitioning-strategies_placement-groups").
 
-## Frequently asked
+## Frequently asked questions about spatial domains
 
-questions about spatial domains
-
-### Q1. How can I add
-
-another spatial domain to an existing simulation?
+### Q1. How can I add another spatial domain to an existing simulation?
 
 - For a running simulation – You can't change the
   configuration for a running simulation. Change the domain configuration in the schema,
@@ -230,9 +217,7 @@ another spatial domain to an existing simulation?
   configuration to the schema, upload the schema and app zips, and start the new
   simulation.
 
-## Troubleshooting
-
-spatial domains
+## Troubleshooting spatial domains
 
 The might get the following error when you try to start your simulation but your domain
 configuration is invalid.

@@ -3,9 +3,7 @@ will end support for AWS SimSpace Weaver. After May 20, 2026, you will
 no longer be able to access the SimSpace Weaver console or SimSpace Weaver resources.
 For more information, see [AWS SimSpace Weaver end of support](simspaceweaver-end-of-support.md "simspaceweaver-end-of-support.md").
 
-# PathfindingSample console
-
-client fails to connect
+# PathfindingSample console client fails to connect
 
 You might get the following error from the console client when you connect to the
 `PathfindingSample` simulation described in the tutorials in [Getting started with SimSpace Weaver](getting-started.md "getting-started.md"). This error occurs

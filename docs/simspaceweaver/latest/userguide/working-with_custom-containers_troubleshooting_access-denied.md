@@ -3,9 +3,7 @@ will end support for AWS SimSpace Weaver. After May 20, 2026, you will
 no longer be able to access the SimSpace Weaver console or SimSpace Weaver resources.
 For more information, see [AWS SimSpace Weaver end of support](simspaceweaver-end-of-support.md "simspaceweaver-end-of-support.md").
 
-# AccessDeniedException when
-
-uploading your image to Amazon Elastic Container Registry (Amazon ECR)
+# AccessDeniedException when uploading your image to Amazon Elastic Container Registry (Amazon ECR)
 
 If you get an `AccessDeniedException` error when you try to
 upload your container image to Amazon ECR, your IAM identity (user or role)

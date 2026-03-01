@@ -3,9 +3,7 @@ will end support for AWS SimSpace Weaver. After May 20, 2026, you will
 no longer be able to access the SimSpace Weaver console or SimSpace Weaver resources.
 For more information, see [AWS SimSpace Weaver end of support](simspaceweaver-end-of-support.md "simspaceweaver-end-of-support.md").
 
-# Identity-based policy
-
-examples for AWS SimSpace Weaver
+# Identity-based policy examples for AWS SimSpace Weaver
 
 By default, users and roles don't have permission to create or modify SimSpace Weaver
 resources. To grant users permission to perform actions on the
@@ -19,18 +17,12 @@ For details about actions and resource types defined by SimSpace Weaver, includi
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the SimSpace Weaver
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Allow users
-  to create and run simulations](#security_iam_id-based-policy-examples-basic-service-use "#security_iam_id-based-policy-examples-basic-service-use")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the SimSpace Weaver console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Allow users to create and run simulations](#security_iam_id-based-policy-examples-basic-service-use "#security_iam_id-based-policy-examples-basic-service-use")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete SimSpace Weaver resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -63,9 +55,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the SimSpace Weaver
-
-console
+## Using the SimSpace Weaver console
 
 To access the AWS SimSpace Weaver console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the SimSpace Weaver resources
@@ -82,9 +72,7 @@ SimSpace Weaver `ConsoleAccess` or `ReadOnly` AWS managed policy to
 the entities. For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -124,9 +112,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Allow users
-
-to create and run simulations
+## Allow users to create and run simulations
 
 This example IAM policy provides the basic
 permissions required to create and run simulations in SimSpace Weaver.

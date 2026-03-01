@@ -5,9 +5,7 @@ For more information, see [AWS SimSpace Weaver end of support](simspaceweaver-en
 
 # SimSpace Weaver logs in Amazon CloudWatch Logs
 
-## Accessing your SimSpace Weaver
-
-logs
+## Accessing your SimSpace Weaver logs
 
 All the logs generated from your SimSpace Weaver simulations are stored in Amazon CloudWatch Logs.
 To access your logs, you can use the **CloudWatch logs** button

@@ -69,9 +69,7 @@ api.receive_messages(
 Messages consist of a transaction (similar to other Weaver API calls), a payload,
 and a destination.
 
-### Message
-
-payload
+### Message payload
 
 The message payload is a flexible data structure of up to 256 bytes. We
 recommend the following as a best practice for creating your message
@@ -85,9 +83,7 @@ payloads.
    message.
 3. Create the `MessagePayload` object.
 
-### Message
-
-destination
+### Message destination
 
 The destination of a message is defined by the
 `MessageEndpoint` object. This includes both

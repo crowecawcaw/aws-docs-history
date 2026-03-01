@@ -3,9 +3,7 @@ will end support for AWS SimSpace Weaver. After May 20, 2026, you will
 no longer be able to access the SimSpace Weaver console or SimSpace Weaver resources.
 For more information, see [AWS SimSpace Weaver end of support](simspaceweaver-end-of-support.md "simspaceweaver-end-of-support.md").
 
-# Detailed tutorial: Learn the details while
-
-building the sample application
+# Detailed tutorial: Learn the details while building the sample application
 
 The [quick start tutorial](getting-started_quickstart.md "getting-started_quickstart.md") covered how to
 build, start, stop, and delete a sample simulation using `quick-start.py` and
@@ -64,9 +62,7 @@ simulation_properties:
 
 6. Save the file and exit your text editor.
 
-## Step 2: Start your
-
-simulation
+## Step 2: Start your simulation
 
 As show in the [quick start tutorial](getting-started_quickstart.md "getting-started_quickstart.md"),
 the most basic steps to launch a sample simulation are:
@@ -360,9 +356,7 @@ start-simulation` AWS CLI call. For more information, see the
 - --name NAME
   - What name the simulation will have. Defaults to the value of 'PROJECT_NAME'-date-time in config.py.
 
-## Step 3: Check the logs
-
-(optional)
+## Step 3: Check the logs (optional)
 
 SimSpace Weaver writes simulation management messages and the console output
 from your apps to Amazon CloudWatch Logs. For more information on working with logs, see

@@ -7,7 +7,5 @@ For more information, see [AWS SimSpace Weaver end of support](simspaceweaver-en
 
 ###### Topics
 
-- [AccessDeniedException when
-  uploading your image to Amazon Elastic Container Registry (Amazon ECR)](working-with_custom-containers_troubleshooting_access-denied.md "working-with_custom-containers_troubleshooting_access-denied.md")
-- [A simulation that uses a custom container
-  fails to start](working-with_custom-containers_troubleshooting_no-start.md "working-with_custom-containers_troubleshooting_no-start.md")
+- [AccessDeniedException when uploading your image to Amazon Elastic Container Registry (Amazon ECR)](working-with_custom-containers_troubleshooting_access-denied.md "working-with_custom-containers_troubleshooting_access-denied.md")
+- [A simulation that uses a custom container fails to start](working-with_custom-containers_troubleshooting_no-start.md "working-with_custom-containers_troubleshooting_no-start.md")

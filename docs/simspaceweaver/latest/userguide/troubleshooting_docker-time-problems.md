@@ -3,9 +3,7 @@ will end support for AWS SimSpace Weaver. After May 20, 2026, you will
 no longer be able to access the SimSpace Weaver console or SimSpace Weaver resources.
 For more information, see [AWS SimSpace Weaver end of support](simspaceweaver-end-of-support.md "simspaceweaver-end-of-support.md").
 
-# Problems related to time when
-
-using Docker
+# Problems related to time when using Docker
 
 If you are using Docker and you receive time-related errors while
 running scripts from the SimSpace Weaver app SDK, the cause could be that your

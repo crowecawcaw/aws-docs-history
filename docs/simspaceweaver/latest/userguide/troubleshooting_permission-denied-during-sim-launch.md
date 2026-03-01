@@ -3,9 +3,7 @@ will end support for AWS SimSpace Weaver. After May 20, 2026, you will
 no longer be able to access the SimSpace Weaver console or SimSpace Weaver resources.
 For more information, see [AWS SimSpace Weaver end of support](simspaceweaver-end-of-support.md "simspaceweaver-end-of-support.md").
 
-# Permission denied
-
-during simulation start
+# Permission denied during simulation start
 
 When you start a simulation, you might get an error message indicating that permission
 was denied or that there was an error accessing your app artifacts. This problem can

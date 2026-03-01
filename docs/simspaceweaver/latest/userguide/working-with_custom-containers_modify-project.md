@@ -3,9 +3,7 @@ will end support for AWS SimSpace Weaver. After May 20, 2026, you will
 no longer be able to access the SimSpace Weaver console or SimSpace Weaver resources.
 For more information, see [AWS SimSpace Weaver end of support](simspaceweaver-end-of-support.md "simspaceweaver-end-of-support.md").
 
-# Modify a project
-
-to use a custom container
+# Modify a project to use a custom container
 
 These instructions assume that you already know how to use AWS SimSpace Weaver and want
 to make your app storage and development workflows in the AWS Cloud

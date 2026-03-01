@@ -17,8 +17,7 @@ or arrival time guarantees.
 - [Using the messaging APIs](working-with_messaging_using.md "working-with_messaging_using.md")
 - [When to use messaging](working-with_messaging_when-to-use.md "working-with_messaging_when-to-use.md")
 - [Tips when working with messaging](working-with_messaging_tips.md "working-with_messaging_tips.md")
-- [Messaging errors and
-  troubleshooting](working-with_messaging_troubleshooting.md "working-with_messaging_troubleshooting.md")
+- [Messaging errors and troubleshooting](working-with_messaging_troubleshooting.md "working-with_messaging_troubleshooting.md")
 
 ## Use cases for messaging
 

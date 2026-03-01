@@ -3,9 +3,7 @@ will end support for AWS SimSpace Weaver. After May 20, 2026, you will
 no longer be able to access the SimSpace Weaver console or SimSpace Weaver resources.
 For more information, see [AWS SimSpace Weaver end of support](simspaceweaver-end-of-support.md "simspaceweaver-end-of-support.md").
 
-# Messaging errors and
-
-troubleshooting
+# Messaging errors and troubleshooting
 
 You might experience the following errors when you use the messaging APIs.
 
@@ -13,9 +11,7 @@ You might experience the following errors when you use the messaging APIs.
 
 These errors can occur before an app sends a message.
 
-### Domain name
-
-check
+### Domain name check
 
 Sending a message to an invalid endpoint results in the following
 error:
@@ -30,9 +26,7 @@ app hasn't joined the simulation yet. Use the
 custom app has launched before you send a message to it. This behavior is the
 same in SimSpace Weaver Local and the AWS Cloud.
 
-### Position
-
-check
+### Position check
 
 Trying to resolve an endpoint with a valid domain name but an invalid position
 results in the following error.
@@ -45,15 +39,11 @@ We suggest using the `MessageEndpointResolver` in
 the `MessageUtils` library contained in the
 SimSpace Weaver app SDK.
 
-## Message
-
-sending errors
+## Message sending errors
 
 The following errors can occur as an app sends a message.
 
-### Message sending
-
-limit per app, per tick, exceeded
+### Message sending limit per app, per tick, exceeded
 
 The current limit for the number of messages that can be sent per app per
 simulation tick is 128. Subsequent calls on the same tick will fail with the
@@ -69,9 +59,7 @@ than the 256 byte limit to lower the number of outbound messages.
 
 This behavior is the same in SimSpace Weaver Local and in the AWS Cloud.
 
-### Message
-
-payload size limit exceeded
+### Message payload size limit exceeded
 
 The current limit for message payload size is 256 bytes in both
 SimSpace Weaver Local and in the AWS Cloud. Sending a message with a payload larger
@@ -98,9 +86,7 @@ ManifoldError::InvalidArgument { "Destination is the same as source" }
 
 This behavior is the same in SimSpace Weaver Local and the AWS Cloud.
 
-### Best effort
-
-messaging
+### Best effort messaging
 
 SimSpace Weaver doesn't guarantee message delivery. The service will try to
 complete delivery of messages on the subsequent simulation tick, but messages

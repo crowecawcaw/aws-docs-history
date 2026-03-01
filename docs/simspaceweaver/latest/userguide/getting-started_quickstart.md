@@ -78,8 +78,7 @@ By default, this will launch a simulation with a single partition on a single wo
 
 ###### Note
 
-See [Detailed tutorial: Learn the details while
-building the sample application](getting-started_detailed.md "getting-started_detailed.md") for an in-depth explanation of what this script does.
+See [Detailed tutorial: Learn the details while building the sample application](getting-started_detailed.md "getting-started_detailed.md") for an in-depth explanation of what this script does.
 
 ## Step 2: Quick-start with the Unreal Engine client (option 2)
 

@@ -25,5 +25,4 @@ simulation.
 ###### Topics
 
 - [Quick start tutorial for SimSpace Weaver](getting-started_quickstart.md "getting-started_quickstart.md")
-- [Detailed tutorial: Learn the details while
-  building the sample application](getting-started_detailed.md "getting-started_detailed.md")
+- [Detailed tutorial: Learn the details while building the sample application](getting-started_detailed.md "getting-started_detailed.md")

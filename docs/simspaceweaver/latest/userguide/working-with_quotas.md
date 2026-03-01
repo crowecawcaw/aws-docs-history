@@ -162,9 +162,7 @@ exceeding limits. They might not apply to your specific app design.
 You should monitor your metrics frequently and slow down operations that are close to
 reaching a limit.
 
-### Avoid
-
-exceeding subscription limits and transfer limits
+### Avoid exceeding subscription limits and transfer limits
 
 If possible, design your simulation to reduce the number of remote
 subscriptions and entity transfers. You can use
