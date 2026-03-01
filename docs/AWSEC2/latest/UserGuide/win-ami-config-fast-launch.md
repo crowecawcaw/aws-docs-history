@@ -1,6 +1,4 @@
-# Use EC2 Fast Launch for your
-
-Windows instances
+# Use EC2 Fast Launch for your Windows instances
 
 When you configure a Windows Server AMI for EC2 Fast Launch, Amazon EC2 creates
 a set of pre-provisioned snapshots to use for faster launching, as follows.
@@ -51,13 +49,11 @@ more about associated resource costs and how to manage them, see
 
 - [Key terms](#win-fast-launch-key-terms "#win-fast-launch-key-terms")
 - [EC2 Fast Launch prerequisites for Windows](win-start-fast-launch-prereqs.md "win-start-fast-launch-prereqs.md")
-- [Configure EC2 Fast Launch settings for your
-  Amazon EC2 Windows Server AMI](win-fast-launch-configure.md "win-fast-launch-configure.md")
+- [Configure EC2 Fast Launch settings for your Amazon EC2 Windows Server AMI](win-fast-launch-configure.md "win-fast-launch-configure.md")
 - [View AMIs with EC2 Fast Launch enabled](win-view-fast-launch.md "win-view-fast-launch.md")
 - [Manage costs for EC2 Fast Launch underlying resources](win-fast-launch-manage-costs.md "win-fast-launch-manage-costs.md")
 - [Monitor EC2 Fast Launch](win-fast-launch-monitor.md "win-fast-launch-monitor.md")
-- [Service-linked role for
-  EC2 Fast Launch](slr-windows-fast-launch.md "slr-windows-fast-launch.md")
+- [Service-linked role for EC2 Fast Launch](slr-windows-fast-launch.md "slr-windows-fast-launch.md")
 - [Troubleshoot Windows EC2 Fast Launch](win-fast-launch-troubleshoot.md "win-fast-launch-troubleshoot.md")
 
 ## Key terms

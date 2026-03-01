@@ -15,9 +15,7 @@ For more information about the prerequisites to connect using RDP, see [Prerequi
 
 Windows
 
-###### To map the remote session drive to your local drive on your local
-
-Windows computer
+###### To map the remote session drive to your local drive on your local Windows computer
 
 1. Open the Remote Desktop Connection client.
 2. Choose **Show Options**.
@@ -48,9 +46,7 @@ instance.
 
 macOS X
 
-###### To map the remote session drive to your local folder on your local
-
-macOS X computer
+###### To map the remote session drive to your local folder on your local macOS X computer
 
 1. Open the Remote Desktop Connection client.
 2. Browse to the RDP file that you downloaded from the Amazon EC2 console

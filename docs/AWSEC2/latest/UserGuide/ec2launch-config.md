@@ -1,6 +1,4 @@
-# Configure the EC2Launch v1 agent on your Windows
-
-instance
+# Configure the EC2Launch v1 agent on your Windows instance
 
 After your instance has been initialized the first time, you can configure EC2Launch
 to run again and perform different start-up tasks.
@@ -10,10 +8,8 @@ to run again and perform different start-up tasks.
 - [Configure initialization tasks](#ec2launch-inittasks "#ec2launch-inittasks")
 - [Schedule EC2Launch to run on every boot](#run-on-every-boot "#run-on-every-boot")
 - [Initialize drives and map drive letters](#ec2launch-mapping "#ec2launch-mapping")
-- [Send Windows event logs to the EC2
-  console](#ec2launch-sendlogs "#ec2launch-sendlogs")
-- [Send Windows is ready message after a
-  successful boot](#ec2launch-sendwinisready "#ec2launch-sendwinisready")
+- [Send Windows event logs to the EC2 console](#ec2launch-sendlogs "#ec2launch-sendlogs")
+- [Send Windows is ready message after a successful boot](#ec2launch-sendwinisready "#ec2launch-sendwinisready")
 
 ## Configure initialization tasks
 
@@ -170,9 +166,7 @@ To initialize the disks each time the instance boots, add the
 C:\ProgramData\Amazon\EC2-Windows\Launch\Scripts\InitializeDisks.ps1 -Schedule
 ```
 
-## Send Windows event logs to the EC2
-
-console
+## Send Windows event logs to the EC2 console
 
 Specify settings in the `EventLogConfig.json` file to send
 Windows Event logs to EC2 console logs.
@@ -208,9 +202,7 @@ C:\ProgramData\Amazon\EC2-Windows\Launch\Scripts\SendEventLogs.ps1 -Schedule
 The logs can take three minutes or more to appear in the EC2 console
 logs.
 
-## Send Windows is ready message after a
-
-successful boot
+## Send Windows is ready message after a successful boot
 
 The EC2Config service sent the "Windows is ready" message to the EC2 console after
 every boot. EC2Launch sends this message only after the initial boot. For backwards

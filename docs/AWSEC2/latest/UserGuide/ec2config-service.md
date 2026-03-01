@@ -1,6 +1,4 @@
-# Use the EC2Config service to perform tasks during EC2 legacy Windows
-
-operating system instance launch
+# Use the EC2Config service to perform tasks during EC2 legacy Windows operating system instance launch
 
 ###### Note
 

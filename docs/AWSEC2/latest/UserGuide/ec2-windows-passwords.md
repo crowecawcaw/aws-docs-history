@@ -13,9 +13,7 @@ For Windows Server 2016 and later AMIs, `Password never expires` is disabled
 for the local administrator. For AMI versions prior to Windows Server 2016,
 `Password never expires` is enabled for the local administrator.
 
-## Change the Administrator password after
-
-connecting
+## Change the Administrator password after connecting
 
 When you connect to an instance the first time, we recommend that you change the
 Administrator password from its default value. Use the following procedure to change the

@@ -8,8 +8,7 @@ For more information, see [Windows Sysprep phases](ami-create-win-sysprep.md#sys
 
 - [Windows Sysprep actions](#sysprep-actions "#sysprep-actions")
 - [Post Sysprep](#sysprep-post "#sysprep-post")
-- [Run Windows Sysprep with the EC2Config
-  service](#sysprep-gui-procedure "#sysprep-gui-procedure")
+- [Run Windows Sysprep with the EC2Config service](#sysprep-gui-procedure "#sysprep-gui-procedure")
 
 ## Windows Sysprep actions
 
@@ -209,12 +208,9 @@ EC2Config then performs the following actions:
    - UserData
    - AWS Systems Manager (Systems Manager)
 
-For more information about Windows plug-ins, see [Use the EC2Config service to perform tasks during EC2 legacy Windows
-operating system instance launch](ec2config-service.md "ec2config-service.md").
+For more information about Windows plug-ins, see [Use the EC2Config service to perform tasks during EC2 legacy Windows operating system instance launch](ec2config-service.md "ec2config-service.md").
 
-## Run Windows Sysprep with the EC2Config
-
-service
+## Run Windows Sysprep with the EC2Config service
 
 Use the following procedure to create a standardized AMI using Windows Sysprep and the
 EC2Config service.

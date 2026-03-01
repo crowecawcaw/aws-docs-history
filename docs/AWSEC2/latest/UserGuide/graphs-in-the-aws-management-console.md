@@ -16,8 +16,7 @@ The following graphs are available:
 - Summary Status (Any)
 - Summary Status Instance (Count)
 - Summary Status System (Count)
-  For more information about the metrics and the data they provide to the graphs, see [CloudWatch metrics that are available for your
-  instances](viewing_metrics_with_cloudwatch.md "viewing_metrics_with_cloudwatch.md").
+  For more information about the metrics and the data they provide to the graphs, see [CloudWatch metrics that are available for your instances](viewing_metrics_with_cloudwatch.md "viewing_metrics_with_cloudwatch.md").
 
 ###### Graph metrics using the CloudWatch console
 

@@ -126,8 +126,7 @@ shows the EBS volume that is the root volume, `/dev/sda1`.
 
 Note that this example block device mapping is used in the example commands and APIs in
 this topic. You can find example commands and APIs that create block device mappings in
-[Specify a block device mapping for an AMI](ami-block-device-mapping.md#create-ami-bdm "ami-block-device-mapping.md#create-ami-bdm") and [Update the block device mapping when launching an
-instance](instance-block-device-mapping.md#Using_OverridingAMIBDM "instance-block-device-mapping.md#Using_OverridingAMIBDM").
+[Specify a block device mapping for an AMI](ami-block-device-mapping.md#create-ami-bdm "ami-block-device-mapping.md#create-ami-bdm") and [Update the block device mapping when launching an instance](instance-block-device-mapping.md#Using_OverridingAMIBDM "instance-block-device-mapping.md#Using_OverridingAMIBDM").
 
 ### How devices are made available in the operating system
 

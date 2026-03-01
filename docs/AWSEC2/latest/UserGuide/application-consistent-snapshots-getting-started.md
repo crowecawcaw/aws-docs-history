@@ -1,13 +1,10 @@
-# Manage VSS components package
-
-for Windows VSS based EBS snapshots
+# Manage VSS components package for Windows VSS based EBS snapshots
 
 Before you create VSS based EBS snapshots, ensure that you have the latest version of the VSS
 components package installed on your Windows instance. There are several ways that you can install
 the `AwsVssComponents` package onto an existing instance, as follows:
 
-- (Recommended) [Run the
-  AWSEC2-VssInstallAndSnapshot command document (recommended)](create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot "create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot"). This automatically
+- (Recommended) [Run the AWSEC2-VssInstallAndSnapshot command document (recommended)](create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot "create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot"). This automatically
   installs or updates if needed every time it runs.
 - [Manually install the VSS components on an EC2 Windows instance](#install-vss-comps "#install-vss-comps").
 - [Update the VSS components package on your EC2 Windows instance](#update-vss-comps "#update-vss-comps").
@@ -50,8 +47,7 @@ instances.
 To automatically install or update the `AwsVssComponents`
 package whenever you create application-consistent snapshots, we recommend that
 you use Systems Manager to run the `AWSEC2-VssInstallAndSnapshot` document. For
-more information, see [Run the
-AWSEC2-VssInstallAndSnapshot command document (recommended)](create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot "create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot").
+more information, see [Run the AWSEC2-VssInstallAndSnapshot command document (recommended)](create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot "create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot").
 
 To install the VSS components on an Amazon EC2 Windows instance, follow the steps for
 your preferred environment.
@@ -202,8 +198,7 @@ We recommend that you use Systems Manager to run the `AWSEC2-VssInstallAndSnapsh
 command document, which automatically installs or updates the
 `AwsVssComponents` package before it creates the
 application-consistent snapshots. For more information, see
-[Run the
-AWSEC2-VssInstallAndSnapshot command document (recommended)](create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot "create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot").
+[Run the AWSEC2-VssInstallAndSnapshot command document (recommended)](create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot "create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot").
 
 To create a Systems Manager State Manager association, follow the steps for your preferred
 environment.

@@ -16,9 +16,7 @@ enough available capacity for the instance type that you are launching.
 
 Console
 
-###### To launch an instance onto a specific Dedicated Host from the Dedicated Hosts
-
-page
+###### To launch an instance onto a specific Dedicated Host from the Dedicated Hosts page
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -66,9 +64,7 @@ The **Tenancy** and
 based on the host that you selected. 8. Configure the remaining instance options as needed. For more
 information, see [Reference for Amazon EC2 instance configuration parameters](ec2-instance-launch-parameters.md "ec2-instance-launch-parameters.md"). 9. Choose **Launch instance**.
 
-###### To launch an instance onto a Dedicated Host using the Launch Instance
-
-wizard
+###### To launch an instance onto a Dedicated Host using the Launch Instance wizard
 
 1.  Open the Amazon EC2 console at
     [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").

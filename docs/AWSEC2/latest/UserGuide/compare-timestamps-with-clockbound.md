@@ -1,6 +1,4 @@
-# Compare timestamps for your Linux
-
-instances
+# Compare timestamps for your Linux instances
 
 If you're using the Amazon Time Sync Service, you can compare the timestamps on your Amazon EC2 Linux
 instances with ClockBound to determine the true time of an event. ClockBound measures

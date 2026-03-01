@@ -1,6 +1,4 @@
-# Improve network performance between EC2 instances with ENA
-
-Express
+# Improve network performance between EC2 instances with ENA Express
 
 ENA Express is powered by AWS Scalable Reliable Datagram (SRD) technology.
 SRD is a high performance network transport protocol that uses dynamic routing
@@ -48,15 +46,11 @@ from ENA Express as follows:
 ###### Topics
 
 - [How ENA Express works](#ena-express-how-it-works "#ena-express-how-it-works")
-- [Supported instance types for ENA
-  Express](#ena-express-supported-instance-types "#ena-express-supported-instance-types")
+- [Supported instance types for ENA Express](#ena-express-supported-instance-types "#ena-express-supported-instance-types")
 - [Prerequisites for Linux instances](#ena-express-prereq-linux "#ena-express-prereq-linux")
-- [Tune performance for ENA Express settings on Linux
-  instances](#ena-express-tune "#ena-express-tune")
-- [Review ENA Express settings for your EC2
-  instance](ena-express-list-view.md "ena-express-list-view.md")
-- [Configure ENA Express settings for your EC2
-  instance](ena-express-configure.md "ena-express-configure.md")
+- [Tune performance for ENA Express settings on Linux instances](#ena-express-tune "#ena-express-tune")
+- [Review ENA Express settings for your EC2 instance](ena-express-list-view.md "ena-express-list-view.md")
+- [Configure ENA Express settings for your EC2 instance](ena-express-configure.md "ena-express-configure.md")
 
 ## How ENA Express works
 
@@ -69,8 +63,7 @@ receiving instances and the communication between them must meet all of the foll
 requirements:
 
 - Both sending and receiving instance types are supported. See the
-  [Supported instance types for ENA
-  Express](#ena-express-supported-instance-types "#ena-express-supported-instance-types")
+  [Supported instance types for ENA Express](#ena-express-supported-instance-types "#ena-express-supported-instance-types")
   table for more information.
 - Both sending and receiving instances must have ENA Express configured. If there are differences in the configuration, you can run into situations
   where traffic defaults to standard ENA transmission. The following scenario shows what can happen.
@@ -113,12 +106,9 @@ network interface remains.
 After you've enabled ENA Express for the network interface attachments on both the
 sending instance and the receiving instance, you can use ENA Express metrics to help
 ensure that your instances take full advantage of the performance improvements that SRD
-technology provides. For more information about ENA Express metrics, see [Metrics for ENA
-Express](monitoring-network-performance-ena.md#network-performance-metrics-ena-express "monitoring-network-performance-ena.md#network-performance-metrics-ena-express").
+technology provides. For more information about ENA Express metrics, see [Metrics for ENA Express](monitoring-network-performance-ena.md#network-performance-metrics-ena-express "monitoring-network-performance-ena.md#network-performance-metrics-ena-express").
 
-## Supported instance types for ENA
-
-Express
+## Supported instance types for ENA Express
 
 The following instance types support ENA Express.
 
@@ -194,6 +184,8 @@ General purpose
 | `m8gb.16xlarge`    | arm64        |
 | `m8gb.24xlarge`    | arm64        |
 | `m8gb.48xlarge`    | arm64        |
+| `m8gb.metal-24xl`  | arm64        |
+| `m8gb.metal-48xl`  | arm64        |
 | `m8gd.12xlarge`    | arm64        |
 | `m8gd.16xlarge`    | arm64        |
 | `m8gd.24xlarge`    | arm64        |
@@ -205,6 +197,8 @@ General purpose
 | `m8gn.16xlarge`    | arm64        |
 | `m8gn.24xlarge`    | arm64        |
 | `m8gn.48xlarge`    | arm64        |
+| `m8gn.metal-24xl`  | arm64        |
+| `m8gn.metal-48xl`  | arm64        |
 | `m8i.24xlarge`     | x86_64       |
 | `m8i.32xlarge`     | x86_64       |
 | `m8i.48xlarge`     | x86_64       |
@@ -498,6 +492,7 @@ Storage optimized
 | `i8g.24xlarge`    | arm64        |
 | `i8g.48xlarge`    | arm64        |
 | `i8g.metal-24xl`  | arm64        |
+| `i8g.metal-48xl`  | arm64        |
 | `i8ge.12xlarge`   | arm64        |
 | `i8ge.18xlarge`   | arm64        |
 | `i8ge.24xlarge`   | arm64        |
@@ -548,9 +543,7 @@ instance as follows.
   The ENA driver for the Amazon Linux distribution disables byte queue
   limits by default.
 
-## Tune performance for ENA Express settings on Linux
-
-instances
+## Tune performance for ENA Express settings on Linux instances
 
 To check your Linux instance configuration for optimal ENA Express performance, you
 can run the following script that's available on the Amazon GitHub repository:

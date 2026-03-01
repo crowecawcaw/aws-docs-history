@@ -6,17 +6,12 @@ Windows instance.
 ###### Connection issues
 
 - [Remote Desktop can't connect to the remote computer](#rdp-issues "#rdp-issues")
-- [Error using the macOS RDP
-  client](#troubleshoot-instance-connect-mac-rdp "#troubleshoot-instance-connect-mac-rdp")
-- [RDP displays a black screen instead of the
-  desktop](#rdp-black-screen "#rdp-black-screen")
-- [Unable to remotely log on to an instance with a user that is not
-  an administrator](#remote-failure "#remote-failure")
+- [Error using the macOS RDP client](#troubleshoot-instance-connect-mac-rdp "#troubleshoot-instance-connect-mac-rdp")
+- [RDP displays a black screen instead of the desktop](#rdp-black-screen "#rdp-black-screen")
+- [Unable to remotely log on to an instance with a user that is not an administrator](#remote-failure "#remote-failure")
 - [Troubleshooting Remote Desktop issues using AWS Systems Manager](#Troubleshooting-Remote-Desktop-Connection-issues-using-AWS-Systems-Manager "#Troubleshooting-Remote-Desktop-Connection-issues-using-AWS-Systems-Manager")
-- [Enable Remote Desktop on an
-  EC2 instance with remote registry](#troubleshooting-windows-rdp-remote-registry "#troubleshooting-windows-rdp-remote-registry")
-- [I've lost my private key. How can I connect to
-  my Windows instance?](#replacing-lost-key-pair-windows "#replacing-lost-key-pair-windows")
+- [Enable Remote Desktop on an EC2 instance with remote registry](#troubleshooting-windows-rdp-remote-registry "#troubleshooting-windows-rdp-remote-registry")
+- [I've lost my private key. How can I connect to my Windows instance?](#replacing-lost-key-pair-windows "#replacing-lost-key-pair-windows")
 
 ## Remote Desktop can't connect to the remote computer
 
@@ -42,8 +37,7 @@ not work`, try typing them manually when prompted. It's possible
   that you missed a character or got an extra white space character when you
   copied the password.
 - Verify that the instance has passed status checks. For more information,
-  see [Status checks for Amazon EC2
-  instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md") and [Troubleshoot Amazon EC2 Linux instances with failed status checks](TroubleshootingInstances.md "TroubleshootingInstances.md").
+  see [Status checks for Amazon EC2 instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md") and [Troubleshoot Amazon EC2 Linux instances with failed status checks](TroubleshootingInstances.md "TroubleshootingInstances.md").
 - Verify that the route table for the subnet has a route that sends all
   traffic destined outside the VPC to the internet gateway for the VPC. For
   more information, see [Creating a
@@ -83,9 +77,7 @@ Services session has ended. Another user connected to the remote
 computer, so your connection was lost.` By default, you are
   allowed two concurrent RDP sessions to your instance.
 
-## Error using the macOS RDP
-
-client
+## Error using the macOS RDP client
 
 If you are connecting to a Windows Server instance using the Remote Desktop Connection
 client from the Microsoft website, you may get the following error:
@@ -97,9 +89,7 @@ Remote Desktop Connection cannot verify the identity of the computer that you wa
 Download the Microsoft Remote Desktop app from the Mac App Store and use the app
 to connect to your instance.
 
-## RDP displays a black screen instead of the
-
-desktop
+## RDP displays a black screen instead of the desktop
 
 Try the following to resolve this issue:
 
@@ -124,9 +114,7 @@ Try the following to resolve this issue:
   select the **Monitoring** tab. If you need to change the
   instance type to a larger size, see [Amazon EC2 instance type changes](ec2-instance-resize.md "ec2-instance-resize.md").
 
-## Unable to remotely log on to an instance with a user that is not
-
-an administrator
+## Unable to remotely log on to an instance with a user that is not an administrator
 
 If you are not able to remotely log on to a Windows instance with a user that is not an
 administrator account, ensure that you have granted the user the right to log on
@@ -310,9 +298,7 @@ _AWS Systems Manager User Guide_.
    **Executed Steps**, choose the
    **Step ID**.
 
-## Enable Remote Desktop on an
-
-EC2 instance with remote registry
+## Enable Remote Desktop on an EC2 instance with remote registry
 
 If your unreachable instance is not managed by AWS Systems Manager Session Manager, then
 you can use remote registry to enable Remote Desktop.
@@ -367,9 +353,7 @@ the unreachable instance. When attaching the volume to the unreachable instance,
 enter the device name that you saved earlier in the **device**
 field. 16. Restart the unreachable instance.
 
-## I've lost my private key. How can I connect to
-
-my Windows instance?
+## I've lost my private key. How can I connect to my Windows instance?
 
 When you connect to a newly-launched Windows instance, you decrypt the password for the
 Administrator account using the private key for the key pair that you specified when you

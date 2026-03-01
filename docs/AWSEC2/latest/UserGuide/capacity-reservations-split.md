@@ -1,6 +1,4 @@
-# Split off capacity from an existing
-
-Capacity Reservation
+# Split off capacity from an existing Capacity Reservation
 
 You can split off capacity from an existing Capacity Reservation to create a new reservation. By
 splitting capacity, you allocate a portion of the original reservation to a specific
@@ -23,9 +21,7 @@ in your reservation). For example: if you split 4 instances from a Capacity Rese
 instances and 3 available instances, then the 3 available instances and 1 used instance
 will be split into a new reservation.
 
-## Prerequisites for splitting
-
-capacity
+## Prerequisites for splitting capacity
 
 As a prerequisite, your Capacity Reservation must meet the following requirements:
 
@@ -71,9 +67,7 @@ reservation to a new one:
 
 Splitting capacity from a Capacity Block isn't supported.
 
-## Control access for
-
-splitting Capacity Reservations using tags
+## Control access for splitting Capacity Reservations using tags
 
 You can use tags to control access to Amazon EC2 resources, including splitting
 capacity from an existing Capacity Reservation to create a new Capacity Reservation. For more information, see

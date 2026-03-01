@@ -1,6 +1,4 @@
-# Scheduled events for Amazon EC2
-
-instances
+# Scheduled events for Amazon EC2 instances
 
 To ensure infrastructure reliability and performance, AWS can schedule events to
 reboot, stop, and retire your instances. These events do not occur frequently.
@@ -125,16 +123,10 @@ NotBeforeDeadline : 2020-04-05T11:00:00.000Z
 
 ###### Contents
 
-- [Manage Amazon EC2 instances scheduled to
-  stop or retire](schedevents_actions_retire.md "schedevents_actions_retire.md")
-- [Manage Amazon EC2 instances scheduled for
-  reboot](schedevents_actions_reboot.md "schedevents_actions_reboot.md")
-- [Manage Amazon EC2 instances scheduled
-  for maintenance](schedevents_actions_maintenance.md "schedevents_actions_maintenance.md")
-- [View scheduled events that affect your
-  Amazon EC2 instances](viewing_scheduled_events.md "viewing_scheduled_events.md")
-- [Customize scheduled
-  event notifications for your EC2 instances](customizing_scheduled_event_notifications.md "customizing_scheduled_event_notifications.md")
+- [Manage Amazon EC2 instances scheduled to stop or retire](schedevents_actions_retire.md "schedevents_actions_retire.md")
+- [Manage Amazon EC2 instances scheduled for reboot](schedevents_actions_reboot.md "schedevents_actions_reboot.md")
+- [Manage Amazon EC2 instances scheduled for maintenance](schedevents_actions_maintenance.md "schedevents_actions_maintenance.md")
+- [View scheduled events that affect your Amazon EC2 instances](viewing_scheduled_events.md "viewing_scheduled_events.md")
+- [Customize scheduled event notifications for your EC2 instances](customizing_scheduled_event_notifications.md "customizing_scheduled_event_notifications.md")
 - [Reschedule a scheduled event for an EC2 instance](reschedule-event.md "reschedule-event.md")
-- [Create custom event windows for scheduled events
-  that affect your Amazon EC2 instances](event-windows.md "event-windows.md")
+- [Create custom event windows for scheduled events that affect your Amazon EC2 instances](event-windows.md "event-windows.md")

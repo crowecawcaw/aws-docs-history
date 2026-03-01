@@ -53,9 +53,7 @@ instance 4, and are therefore closer to each other than they are to instance 4.
 There are no instances running under network node 7 (NN7) in this example, and
 therefore the API output won't include NN7.
 
-## How to interpret the
-
-DescribeInstanceTopology output
+## How to interpret the DescribeInstanceTopology output
 
 You can describe the instance topology using the [DescribeInstanceTopology](../APIReference/API_DescribeInstanceTopology.md "../APIReference/API_DescribeInstanceTopology.md") API. The output provides a hierarchical view
 of the underlying network topology for an instance.
@@ -212,9 +210,7 @@ Capacity Reservation.
 }
 ```
 
-## Differences between DescribeInstanceTopology and
-
-DescribeCapacityReservationTopology
+## Differences between DescribeInstanceTopology and DescribeCapacityReservationTopology
 
 The following table compares the key differences between the
 DescribeInstanceTopology and DescribeCapacityReservationTopology APIs:

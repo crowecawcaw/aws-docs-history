@@ -54,8 +54,7 @@ After a reservation ends, the reserved capacity is released from your account an
 you can no longer target instances to the Capacity Reservation. Instances running in the reserved
 capacity continue to run uninterrupted. If instances targeting a Capacity Reservation are stopped,
 you can't restart them until you remove their Capacity Reservation targeting preference or configure
-them to target a different Capacity Reservation. For more information, see [Modify the Capacity Reservation settings of your
-instance](capacity-reservations-modify-instance.md "capacity-reservations-modify-instance.md").
+them to target a different Capacity Reservation. For more information, see [Modify the Capacity Reservation settings of your instance](capacity-reservations-modify-instance.md "capacity-reservations-modify-instance.md").
 
 ## Commitment duration
 

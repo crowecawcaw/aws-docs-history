@@ -14,18 +14,12 @@ template, see [Store instance launch parameters in Amazon EC2 launch templates](
 
 ###### Topics
 
-- [Launch an Amazon EC2 instance
-  using a launch template](#launch-instance-from-launch-template "#launch-instance-from-launch-template")
-- [Launch instances in an Amazon EC2 Auto Scaling group using a
-  launch template](#launch-templates-as "#launch-templates-as")
-- [Launch an EC2 Fleet using a launch
-  template](#launch-templates-ec2-fleet "#launch-templates-ec2-fleet")
-- [Launch a Spot Fleet using a launch
-  template](#launch-templates-spot-fleet "#launch-templates-spot-fleet")
+- [Launch an Amazon EC2 instance using a launch template](#launch-instance-from-launch-template "#launch-instance-from-launch-template")
+- [Launch instances in an Amazon EC2 Auto Scaling group using a launch template](#launch-templates-as "#launch-templates-as")
+- [Launch an EC2 Fleet using a launch template](#launch-templates-ec2-fleet "#launch-templates-ec2-fleet")
+- [Launch a Spot Fleet using a launch template](#launch-templates-spot-fleet "#launch-templates-spot-fleet")
 
-## Launch an Amazon EC2 instance
-
-using a launch template
+## Launch an Amazon EC2 instance using a launch template
 
 You can use the parameters contained in a launch template to launch an Amazon EC2
 instance. After selecting the launch template, but before launching the instance,
@@ -136,9 +130,7 @@ If the instance fails to launch or the state immediately goes to
 
 PowerShell
 
-###### To launch an instance from a launch template using the
-
-AWS Tools for PowerShell
+###### To launch an instance from a launch template using the AWS Tools for PowerShell
 
 - Use the [New-EC2Instance](../../../powershell/latest/reference/Index.md "../../../powershell/latest/reference/Index.md") command and specify the
   `-LaunchTemplate` parameter. Optionally specify
@@ -242,9 +234,7 @@ New-EC2Instance `
 If the instance fails to launch or the state immediately goes to
 `terminated` instead of `running`, see [Troubleshoot Amazon EC2 instance launch issues](troubleshooting-launch.md "troubleshooting-launch.md").
 
-## Launch instances in an Amazon EC2 Auto Scaling group using a
-
-launch template
+## Launch instances in an Amazon EC2 Auto Scaling group using a launch template
 
 You can create an Auto Scaling group and specify a launch template to use for the group.
 When Amazon EC2 Auto Scaling launches instances in the Auto Scaling group, it uses the launch parameters
@@ -261,9 +251,7 @@ guidance to help you create a template that you can use with Amazon EC2 Auto Sca
 - For the instructions, see Create an Auto Scaling group using a launch
   template in the _Amazon EC2 Auto Scaling User Guide_.
 
-###### To create or update an Auto Scaling group with a launch template using the
-
-AWS CLI
+###### To create or update an Auto Scaling group with a launch template using the AWS CLI
 
 - Use the [create-auto-scaling-group](../../../cli/latest/reference/autoscaling/create-auto-scaling-group.md "../../../cli/latest/reference/autoscaling/create-auto-scaling-group.md") or the [update-auto-scaling-group](../../../cli/latest/reference/autoscaling/update-auto-scaling-group.md "../../../cli/latest/reference/autoscaling/update-auto-scaling-group.md") command and specify the
   `--launch-template` parameter.
@@ -281,9 +269,7 @@ _Amazon EC2 Auto Scaling User Guide_:
 - [Update an
   Auto Scaling group](../../../autoscaling/ec2/userguide/update-auto-scaling-group.md "../../../autoscaling/ec2/userguide/update-auto-scaling-group.md")
 
-## Launch an EC2 Fleet using a launch
-
-template
+## Launch an EC2 Fleet using a launch template
 
 A launch template is a requirement when creating an EC2 Fleet request. When Amazon EC2
 fulfills the EC2 Fleet request, it uses the launch parameters defined in the associated
@@ -296,9 +282,7 @@ launch template. For more information, see [Create an EC2 Fleet](create-ec2-flee
   `--launch-template-configs` parameter to specify the launch
   template and any overrides for the launch template.
 
-## Launch a Spot Fleet using a launch
-
-template
+## Launch a Spot Fleet using a launch template
 
 A launch template is optional when creating a Spot Fleet request. If you don't use a
 launch template, you can manually specify the launch parameters. If you use a launch
@@ -318,8 +302,7 @@ that are specified in the launch template. For more information, see [Create a S
    then, from the field to the right, choose the launch template
    version.
 6. Configure your Spot Fleet by selecting different options on this screen. For
-   more information about the options, see [Create a Spot Fleet request using defined
-   parameters](create-spot-fleet.md#create-spot-fleet-advanced "create-spot-fleet.md#create-spot-fleet-advanced").
+   more information about the options, see [Create a Spot Fleet request using defined parameters](create-spot-fleet.md#create-spot-fleet-advanced "create-spot-fleet.md#create-spot-fleet-advanced").
 7. When you're ready to create your Spot Fleet, choose
    **Launch**.
 

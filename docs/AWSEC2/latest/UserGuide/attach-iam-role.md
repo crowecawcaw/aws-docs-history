@@ -3,9 +3,47 @@
 You can create an IAM role and attach it to an instance during or after launch.
 You can also replace or detach IAM roles.
 
-To attach an IAM role to an instance at launch using the Amazon EC2 console, expand
-**Advanced details**. For **IAM instance profile**,
-select the IAM role.
+###### Creating and attaching an IAM role during instance launch (Recommended)
+
+1. During EC2 instance launch, expand **Advanced details**.
+2. In the **IAM instance profile** section, choose
+   **Create new IAM role**.
+3. An inline role creation form opens, allowing you to:
+   - Specify **Role name** (for example, `EC2-S3-Access-Role`)
+   - Define permissions by selecting AWS managed policies or creating custom
+     policies for your instance
+
+   For example, to grant S3 access, select the `AmazonS3ReadOnlyAccess`
+   managed policy
+   - Review the trust policy that allows `ec2.amazonaws.com` to assume the role
+   - Add optional tags for metadata
+
+4. Choose **Create role**.
+
+The newly created role is automatically selected and will be attached to your
+instance via an instance profile when the instance launches.
+
+###### Note
+
+When you create a role using the console during instance launch, an instance
+profile with the same name as the role is automatically created. The instance
+profile is a container that passes IAM role information to the instance at launch.
+
+###### Important
+
+- You can only attach one IAM role to an instance, but you can attach the
+  same role to many instances.
+- Associate least privilege IAM policies that restrict access to the specific
+  API calls the application requires.
+  For more information about creating and using IAM roles, see
+  [Roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")
+  in the _IAM User Guide_.
+
+###### Attaching an existing IAM role during instance launch
+
+To attach an existing IAM role to an instance at launch using the Amazon EC2 console,
+expand **Advanced details**. For **IAM instance profile**,
+select the IAM role from the dropdown list.
 
 ###### Note
 

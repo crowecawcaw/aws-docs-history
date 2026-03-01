@@ -1,6 +1,4 @@
-# Unlimited mode for
-
-burstable performance instances
+# Unlimited mode for burstable performance instances
 
 A burstable performance instance configured as `unlimited` can sustain high
 CPU utilization for any period of time whenever required. The hourly instance price
@@ -25,8 +23,7 @@ baseline, you incur charges for surplus credits. If you launch
 Spot Instances as `unlimited` and plan to use them immediately and for a short
 duration, with no idle time for accruing CPU credits, you incur charges for surplus
 credits. We recommend that you launch your Spot Instances in [standard](burstable-performance-instances-standard-mode.md "burstable-performance-instances-standard-mode.md") mode to avoid
-paying higher costs. For more information, see [Surplus credits can incur
-charges](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits") and [Launch burstable performance instances](how-spot-instances-work.md#burstable-spot-instances "how-spot-instances-work.md#burstable-spot-instances").
+paying higher costs. For more information, see [Surplus credits can incur charges](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits") and [Launch burstable performance instances](how-spot-instances-work.md#burstable-spot-instances "how-spot-instances-work.md#burstable-spot-instances").
 
 ###### Note
 
@@ -35,25 +32,16 @@ T3 instances launched on a Dedicated Host launch as `standard` by default;
 
 ###### Contents
 
-- [Unlimited mode
-  concepts for burstable instances](burstable-performance-instances-unlimited-mode-concepts.md "burstable-performance-instances-unlimited-mode-concepts.md")
-  - [How Unlimited
-    burstable performance instances work](burstable-performance-instances-unlimited-mode-concepts.md#how-burstable-performance-instances-unlimited-works "burstable-performance-instances-unlimited-mode-concepts.md#how-burstable-performance-instances-unlimited-works")
-  - [When to use unlimited mode versus fixed
-    CPU](burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode "burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode")
-  - [Surplus credits can incur
-    charges](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits")
-  - [How much does
-    unlimited burstable performance cost?](burstable-performance-instances-unlimited-mode-concepts.md#how-much-does-unlimited-burstable-performance-cost "burstable-performance-instances-unlimited-mode-concepts.md#how-much-does-unlimited-burstable-performance-cost")
-  - [No launch credits for T2 Unlimited
-    instances](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-no-launch-credits "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-no-launch-credits")
+- [Unlimited mode concepts for burstable instances](burstable-performance-instances-unlimited-mode-concepts.md "burstable-performance-instances-unlimited-mode-concepts.md")
+  - [How Unlimited burstable performance instances work](burstable-performance-instances-unlimited-mode-concepts.md#how-burstable-performance-instances-unlimited-works "burstable-performance-instances-unlimited-mode-concepts.md#how-burstable-performance-instances-unlimited-works")
+  - [When to use unlimited mode versus fixed CPU](burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode "burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode")
+  - [Surplus credits can incur charges](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits")
+  - [How much does unlimited burstable performance cost?](burstable-performance-instances-unlimited-mode-concepts.md#how-much-does-unlimited-burstable-performance-cost "burstable-performance-instances-unlimited-mode-concepts.md#how-much-does-unlimited-burstable-performance-cost")
+  - [No launch credits for T2 Unlimited instances](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-no-launch-credits "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-no-launch-credits")
   - [Enable unlimited mode](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-enabling "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-enabling")
-  - [What happens to credits when
-    switching between Unlimited and Standard](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-switching-and-credits "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-switching-and-credits")
+  - [What happens to credits when switching between Unlimited and Standard](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-switching-and-credits "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-switching-and-credits")
   - [Monitor credit usage](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-monitoring-credit-usage "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-monitoring-credit-usage")
 
 - [Unlimited mode examples for burstable instances](unlimited-mode-examples.md "unlimited-mode-examples.md")
-  - [Example 1: Explain credit use with T3
-    Unlimited](unlimited-mode-examples.md#t3_unlimited_example "unlimited-mode-examples.md#t3_unlimited_example")
-  - [Example 2: Explain credit use with T2
-    Unlimited](unlimited-mode-examples.md#t2_unlimited_example "unlimited-mode-examples.md#t2_unlimited_example")
+  - [Example 1: Explain credit use with T3 Unlimited](unlimited-mode-examples.md#t3_unlimited_example "unlimited-mode-examples.md#t3_unlimited_example")
+  - [Example 2: Explain credit use with T2 Unlimited](unlimited-mode-examples.md#t2_unlimited_example "unlimited-mode-examples.md#t2_unlimited_example")

@@ -17,9 +17,7 @@ Reserved Instances per month, calculated as follows:
   are in the `pending`, `stopping`, `stopped`, and
   `hibernated` states do not count towards your quota.
 
-## View the number of
-
-Reserved Instances you have purchased
+## View the number of Reserved Instances you have purchased
 
 The number of Reserved Instances that you purchase is indicated by the **Instance
 count** field (console) or the `InstanceCount` parameter
@@ -149,9 +147,7 @@ Reserved Instances. For example, if you already have 20 running On-Demand Instan
 Reserved Instances, you can launch a further 20 On-Demand Instances that match the specifications of your
 zonal Reserved Instances, giving you a total of 40 running instances.
 
-## View your Reserved Instance quotas and request a quota
-
-increase
+## View your Reserved Instance quotas and request a quota increase
 
 The Amazon EC2 console provides quota information. You can also request an increase in
 your quotas. For more information, see [View your current quotas](ec2-resource-limits.md#view-limits "ec2-resource-limits.md#view-limits") and [Request an increase](ec2-resource-limits.md#request-increase "ec2-resource-limits.md#request-increase").

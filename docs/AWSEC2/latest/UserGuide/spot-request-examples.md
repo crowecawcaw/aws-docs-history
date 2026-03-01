@@ -12,12 +12,9 @@ is a legacy API with no planned investment. For more information, see
 ###### Examples
 
 - [Example 1: Launch Spot Instances](#spot-launch-specification1 "#spot-launch-specification1")
-- [Example 2: Launch Spot Instances in the specified
-  Availability Zone](#spot-launch-specification2 "#spot-launch-specification2")
-- [Example 3: Launch Spot Instances in the specified
-  subnet](#spot-launch-specification3 "#spot-launch-specification3")
-- [Example 4: Launch a Dedicated
-  Spot Instance](#spot-launch-specification4 "#spot-launch-specification4")
+- [Example 2: Launch Spot Instances in the specified Availability Zone](#spot-launch-specification2 "#spot-launch-specification2")
+- [Example 3: Launch Spot Instances in the specified subnet](#spot-launch-specification3 "#spot-launch-specification3")
+- [Example 4: Launch a Dedicated Spot Instance](#spot-launch-specification4 "#spot-launch-specification4")
 
 ## Example 1: Launch Spot Instances
 
@@ -37,9 +34,7 @@ default subnet of the selected Availability Zone.
 }
 ```
 
-## Example 2: Launch Spot Instances in the specified
-
-Availability Zone
+## Example 2: Launch Spot Instances in the specified Availability Zone
 
 The following example includes an Availability Zone. Amazon EC2 launches the
 instances in the default subnet of the specified Availability Zone.
@@ -59,9 +54,7 @@ instances in the default subnet of the specified Availability Zone.
 }
 ```
 
-## Example 3: Launch Spot Instances in the specified
-
-subnet
+## Example 3: Launch Spot Instances in the specified subnet
 
 The following example includes a subnet. Amazon EC2 launches the instances in the
 specified subnet. If the VPC is a nondefault VPC, the instance does not receive
@@ -105,9 +98,7 @@ previous code block.
 }
 ```
 
-## Example 4: Launch a Dedicated
-
-Spot Instance
+## Example 4: Launch a Dedicated Spot Instance
 
 The following example requests Spot Instance with a tenancy of `dedicated`.
 A Dedicated Spot Instance must be launched in a VPC.

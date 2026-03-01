@@ -1,6 +1,4 @@
-# Describe a Spot Fleet request, its instances, and event
-
-history
+# Describe a Spot Fleet request, its instances, and event history
 
 You can describe your Spot Fleet configuration, the instances in your Spot Fleet, and the event
 history of your Spot Fleet.
@@ -32,9 +30,7 @@ aws ec2 describe-spot-fleet-requests \
     --spot-fleet-request-ids `sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE`
 ```
 
-###### To describe the running instances for the specified Spot Fleet
-
-request
+###### To describe the running instances for the specified Spot Fleet request
 
 Use the [describe-spot-fleet-instances](../../../cli/latest/reference/ec2/describe-spot-fleet-instances.md "../../../cli/latest/reference/ec2/describe-spot-fleet-instances.md") command.
 
@@ -63,9 +59,7 @@ Use the [Get-EC2SpotFleetRequest](../../../powershell/latest/reference/items/Get
 Get-EC2SpotFleetRequest
 ```
 
-###### To describe the running instances for the specified Spot Fleet
-
-request
+###### To describe the running instances for the specified Spot Fleet request
 
 Use the [Get-EC2SpotFleetInstance](../../../powershell/latest/reference/items/Get-EC2SpotFleetInstance.md "../../../powershell/latest/reference/items/Get-EC2SpotFleetInstance.md") cmdlet.
 

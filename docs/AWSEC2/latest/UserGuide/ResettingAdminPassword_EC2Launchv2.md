@@ -1,18 +1,14 @@
-# Reset Windows admin password for
-
-EC2 instance using EC2Launch v2
+# Reset Windows admin password for EC2 instance using EC2Launch v2
 
 If you have lost your Windows administrator password and are using a supported Windows AMI
 that includes the EC2Launch v2 agent, you can use EC2Launch v2 to generate a new
 password.
 
 If you are using a Windows Server 2016 or later AMI that does not include the EC2Launch v2
-agent, see [Reset Windows admin password for
-EC2 instance using EC2Launch](ResettingAdminPassword_EC2Launch.md "ResettingAdminPassword_EC2Launch.md").
+agent, see [Reset Windows admin password for EC2 instance using EC2Launch](ResettingAdminPassword_EC2Launch.md "ResettingAdminPassword_EC2Launch.md").
 
 If you are using a Windows Server AMI earlier than Windows Server 2016 that does not
-include the EC2Launch v2 agent, see [Reset Windows admin password for
-EC2 instance using EC2Config](ResettingAdminPassword_EC2Config.md "ResettingAdminPassword_EC2Config.md").
+include the EC2Launch v2 agent, see [Reset Windows admin password for EC2 instance using EC2Config](ResettingAdminPassword_EC2Config.md "ResettingAdminPassword_EC2Config.md").
 
 ###### Note
 
@@ -30,20 +26,13 @@ in the _AWS Systems Manager User Guide_.
 To reset your Windows administrator password using EC2Launch v2, you need to do the
 following:
 
-- [Step 1: Verify that the EC2Launch v2 agent
-  is running](#resetting-password-ec2launchv2-step1 "#resetting-password-ec2launchv2-step1")
-- [Step 2: Detach the root volume from the
-  instance](#resetting-password-ec2launchv2-step2 "#resetting-password-ec2launchv2-step2")
-- [Step 3: Attach the volume to a temporary
-  instance](#resetting-password-ec2launchv2-step3 "#resetting-password-ec2launchv2-step3")
-- [Step 4: Delete the .run-once
-  file](#resetting-password-ec2launchv2-step4 "#resetting-password-ec2launchv2-step4")
-- [Step 5: Restart the original
-  instance](#resetting-password-ec2launchv2-step5 "#resetting-password-ec2launchv2-step5")
+- [Step 1: Verify that the EC2Launch v2 agent is running](#resetting-password-ec2launchv2-step1 "#resetting-password-ec2launchv2-step1")
+- [Step 2: Detach the root volume from the instance](#resetting-password-ec2launchv2-step2 "#resetting-password-ec2launchv2-step2")
+- [Step 3: Attach the volume to a temporary instance](#resetting-password-ec2launchv2-step3 "#resetting-password-ec2launchv2-step3")
+- [Step 4: Delete the .run-once file](#resetting-password-ec2launchv2-step4 "#resetting-password-ec2launchv2-step4")
+- [Step 5: Restart the original instance](#resetting-password-ec2launchv2-step5 "#resetting-password-ec2launchv2-step5")
 
-## Step 1: Verify that the EC2Launch v2 agent
-
-is running
+## Step 1: Verify that the EC2Launch v2 agent is running
 
 Before you attempt to reset the administrator password, verify that the EC2Launch v2 agent is installed and running. You use the
 EC2Launch v2 agent to reset the administrator password later in this section.
@@ -63,12 +52,9 @@ EC2Launch v2 agent to reset the administrator password later in this section.
 
 If the system log output is empty, or if the EC2Launch v2 agent is not
 running, troubleshoot the instance using the Instance Console Screenshot
-service. For more information, see [Capture a screenshot of an unreachable
-instance](troubleshoot-unreachable-instance.md#instance-console-screenshot "troubleshoot-unreachable-instance.md#instance-console-screenshot").
+service. For more information, see [Capture a screenshot of an unreachable instance](troubleshoot-unreachable-instance.md#instance-console-screenshot "troubleshoot-unreachable-instance.md#instance-console-screenshot").
 
-## Step 2: Detach the root volume from the
-
-instance
+## Step 2: Detach the root volume from the instance
 
 You can't use EC2Launch v2 to reset an administrator password if the volume on which the password is stored is attached to
 an instance as the root volume. You must detach the volume from the original instance before you can attach it to a temporary
@@ -123,9 +109,7 @@ instance as a secondary volume.
    remainder of this procedure, all references to the original instance apply to
    the new instance that you created.
 
-## Step 3: Attach the volume to a temporary
-
-instance
+## Step 3: Attach the volume to a temporary instance
 
 Next, launch a temporary instance and attach the volume to it as a secondary volume. This is
 the instance you use to modify the configuration file.
@@ -167,9 +151,7 @@ the instance you use to modify the configuration file.
    3. For **Device**, type `xvdf` (if
       it isn't already there), and choose **Attach**.
 
-## Step 4: Delete the .run-once
-
-file
+## Step 4: Delete the .run-once file
 
 You must now delete the `.run-once` file from the offline
 volume attached to the instance. This directs EC2Launch v2 to run all tasks with a
@@ -190,9 +172,7 @@ The file path in the secondary volume that you attached will be similar to
 
 Any scripts set to run once will be triggered by this action.
 
-## Step 5: Restart the original
-
-instance
+## Step 5: Restart the original instance
 
 After you have deleted the `.run-once` file, reattach the volume to the
 original instance as the root volume and connect to the instance using its key pair

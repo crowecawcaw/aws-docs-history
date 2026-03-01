@@ -1,6 +1,4 @@
-# Install NVIDIA gaming drivers (G7e, G6, G6e, G5, and G4dn
-
-instances)
+# Install NVIDIA gaming drivers (G7e, G6, G6e, G5, and G4dn instances)
 
 These drivers are available to AWS customers only. By downloading them, you agree to use the
 downloaded software only to develop AMIs for use with the RTX PRO 6000 Blackwell, NVIDIA L4, NVIDIA L40S,

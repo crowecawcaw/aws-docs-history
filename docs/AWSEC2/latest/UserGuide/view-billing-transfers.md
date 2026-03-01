@@ -1,6 +1,4 @@
-# View billing assignment requests for
-
-shared EC2 Capacity Reservations
+# View billing assignment requests for shared EC2 Capacity Reservations
 
 A Capacity Reservation owner can view only the most recent billing assignment request that
 they initiated. And consumer accounts can view only the most recent billing

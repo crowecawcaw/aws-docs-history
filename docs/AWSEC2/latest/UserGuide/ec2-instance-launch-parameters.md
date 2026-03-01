@@ -105,8 +105,7 @@ catalog.
 
 The AWS Marketplace is an online store where you can buy software that runs
 on AWS, including AMIs. For more information about launching an
-instance from the AWS Marketplace, see [Launch an Amazon EC2 instance from an AWS Marketplace
-AMI](launch-marketplace-console.md "launch-marketplace-console.md"). In
+instance from the AWS Marketplace, see [Launch an Amazon EC2 instance from an AWS Marketplace AMI](launch-marketplace-console.md "launch-marketplace-console.md"). In
 **Community AMIs**, you can find AMIs that
 AWS community members have made available for others to use. AMIs
 from Amazon or a verified partner are marked **Verified
@@ -172,8 +171,7 @@ If you created your AWS account on or after July 15, 2025, you can use
 **c7i-flex.large**, and **m7i-flex.large**
 instance types for 6 months or until your credits are used up.
 
-For more information, see [Free Tier benefits before and after July
-15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison").
+For more information, see [Free Tier benefits before and after July 15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison").
 
 - **Compare instance types**: You can compare different
   instance types by the following attributes: number of vCPUs, architecture,
@@ -412,8 +410,7 @@ follows:
 - **Delete on termination**: For Amazon EBS volumes, choose
   **Yes** to delete the volume when the instance is
   terminated, or choose **No** to keep the volume. For more
-  information, see [Preserve data when an instance is
-  terminated](preserving-volumes-on-termination.md "preserving-volumes-on-termination.md").
+  information, see [Preserve data when an instance is terminated](preserving-volumes-on-termination.md "preserving-volumes-on-termination.md").
 - **Encrypted**: If the instance type supports EBS encryption,
   you can choose **Yes** to enable encryption for the volume. If
   you have enabled encryption by default in this Region, encryption is enabled for
@@ -461,17 +458,14 @@ specify any additional parameters for the instance.
   record), IPv6 address (AAAA record), or both. For more information, see [EC2 instance hostnames and domains](ec2-instance-naming.md "ec2-instance-naming.md").
 - **Instance auto-recovery**: When enabled, recovers your
   instance if system status checks fail. This setting is enabled by default at
-  launch for supported instance types. For more information, see [Configure simplified automatic recovery on
-  an Amazon EC2 instance](instance-configuration-recovery.md "instance-configuration-recovery.md").
+  launch for supported instance types. For more information, see [Configure simplified automatic recovery on an Amazon EC2 instance](instance-configuration-recovery.md "instance-configuration-recovery.md").
 - **Shutdown behavior**: Select whether the instance should
-  stop or terminate when shut down. For more information, see [Change instance
-  initiated shutdown behavior](Using_ChangingInstanceInitiatedShutdownBehavior.md "Using_ChangingInstanceInitiatedShutdownBehavior.md").
+  stop or terminate when shut down. For more information, see [Change instance initiated shutdown behavior](Using_ChangingInstanceInitiatedShutdownBehavior.md "Using_ChangingInstanceInitiatedShutdownBehavior.md").
 - **Stop - Hibernate behavior**: To enable hibernation, choose
   **Enable**. This field is available only if your instance
   meets the hibernation prerequisites. For more information, see [Hibernate your Amazon EC2 instance](Hibernate.md "Hibernate.md").
 - **Termination protection**: To prevent accidental
-  termination, choose **Enable**. For more information, see [Change instance termination
-  protection](Using_ChangingDisableAPITermination.md "Using_ChangingDisableAPITermination.md").
+  termination, choose **Enable**. For more information, see [Change instance termination protection](Using_ChangingDisableAPITermination.md "Using_ChangingDisableAPITermination.md").
 - **Stop protection**: To prevent accidental stopping, choose
   **Enable**. For more information, see [Enable stop protection](ec2-stop-protection.md "ec2-stop-protection.md").
 - **Detailed CloudWatch monitoring**: Choose
@@ -504,8 +498,7 @@ specify any additional parameters for the instance.
   open Capacity Reservation (**Open**), a specific Capacity Reservation (**Target by
   ID**), or a Capacity Reservation group (**Target by group**). To
   specify that a Capacity Reservation should not be used, choose **None**. For
-  more information, see [Launch instances into an existing
-  Capacity Reservation](capacity-reservations-launch.md "capacity-reservations-launch.md").
+  more information, see [Launch instances into an existing Capacity Reservation](capacity-reservations-launch.md "capacity-reservations-launch.md").
 - **Tenancy**: Choose whether to run your instance on shared
   hardware (**Shared**), isolated, dedicated hardware
   (**Dedicated**), or on a Dedicated Host (**Dedicated
@@ -535,8 +528,7 @@ specify any additional parameters for the instance.
   number of vCPUs during launch. Set the number of CPU cores and threads per core.
   For more information, see [CPU options for Amazon EC2 instances](instance-optimize-cpu.md "instance-optimize-cpu.md").
 - **Metadata accessible**: You can enable or disable access to
-  the Instance Metadata Service (IMDS). For more information, see [Configure instance metadata options
-  for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md").
+  the Instance Metadata Service (IMDS). For more information, see [Configure instance metadata options for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md").
 - **Metadata IPv6 endpoint**: You can enable the instance to
   use the IMDS IPv6 address `[fd00:ec2::254]` to retrieve
   instance metadata. This option is only available if you are launching
@@ -544,12 +536,10 @@ specify any additional parameters for the instance.
   information about retrieving instance metadata, see [Access instance metadata for an EC2 instance](instancedata-data-retrieval.md "instancedata-data-retrieval.md").
 - **Metadata version**: If you enable access to the
   IMDS, you can choose to require the use of Instance Metadata Service Version 2 when requesting
-  instance metadata. For more information, see [Configure instance metadata options
-  for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md").
+  instance metadata. For more information, see [Configure instance metadata options for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md").
 - **Metadata response hop limit**: If you enable the
   IMDS, you can set the allowable number of network hops for the metadata
-  token. For more information, see [Configure instance metadata options
-  for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md").
+  token. For more information, see [Configure instance metadata options for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md").
 - **Allow tags in metadata**: If you select **Enable**, the instance will allow access to all of its
   tags from its metadata. If no value is specified, then by default, access to the
   tags in instance metadata is not allowed. For more information, see [Enable access to tags in instance metadata](work-with-tags-in-IMDS.md#allow-access-to-tags-in-IMDS "work-with-tags-in-IMDS.md#allow-access-to-tags-in-IMDS").

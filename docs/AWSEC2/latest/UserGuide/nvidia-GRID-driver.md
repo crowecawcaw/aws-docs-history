@@ -1,6 +1,4 @@
-# Install NVIDIA GRID drivers (G7e, G6, Gr6, G6e, G6f, Gr6f, G5,
-
-G4dn, and G3 instances)
+# Install NVIDIA GRID drivers (G7e, G6, Gr6, G6e, G6f, Gr6f, G5, G4dn, and G3 instances)
 
 These downloads are available to AWS customers only. By downloading, in order to adhere
 to requirements of the AWS solution referred to in the NVIDIA GRID Cloud End User

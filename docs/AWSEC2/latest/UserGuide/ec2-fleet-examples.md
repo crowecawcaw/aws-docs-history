@@ -13,33 +13,20 @@ For more information about the configuration parameters, see [create-fleet](../.
 
 ###### Examples
 
-- [Example 1: Launch Spot Instances as the default
-  purchasing option](#ec2-fleet-config1 "#ec2-fleet-config1")
-- [Example 2: Launch On-Demand Instances as the default
-  purchasing option](#ec2-fleet-config2 "#ec2-fleet-config2")
-- [Example 3: Launch On-Demand Instances as the primary
-  capacity](#ec2-fleet-config3 "#ec2-fleet-config3")
-- [Example 4: Launch On-Demand Instances using multiple
-  Capacity Reservations](#ec2-fleet-config5 "#ec2-fleet-config5")
-- [Example 5: Launch On-Demand Instances using Capacity Reservations when the
-  total target capacity exceeds the number of unused Capacity Reservations](#ec2-fleet-config6 "#ec2-fleet-config6")
-- [Example 6: Launch On-Demand Instances using targeted
-  Capacity Reservations](#ec2-fleet-config7 "#ec2-fleet-config7")
-- [Example 7: Configure Capacity Rebalancing to
-  launch replacement Spot Instances](#ec2-fleet-config8 "#ec2-fleet-config8")
-- [Example 8: Launch Spot Instances in a
-  capacity-optimized fleet](#ec2-fleet-config9 "#ec2-fleet-config9")
-- [Example 9: Launch Spot Instances in a
-  capacity-optimized fleet with priorities](#ec2-fleet-config10 "#ec2-fleet-config10")
-- [Example 10: Launch Spot Instances in a
-  price-capacity-optimized fleet](#ec2-fleet-config11 "#ec2-fleet-config11")
-- [Example 11: Configure attribute-based instance
-  type selection](#ec2-fleet-config12 "#ec2-fleet-config12")
+- [Example 1: Launch Spot Instances as the default purchasing option](#ec2-fleet-config1 "#ec2-fleet-config1")
+- [Example 2: Launch On-Demand Instances as the default purchasing option](#ec2-fleet-config2 "#ec2-fleet-config2")
+- [Example 3: Launch On-Demand Instances as the primary capacity](#ec2-fleet-config3 "#ec2-fleet-config3")
+- [Example 4: Launch On-Demand Instances using multiple Capacity Reservations](#ec2-fleet-config5 "#ec2-fleet-config5")
+- [Example 5: Launch On-Demand Instances using Capacity Reservations when the total target capacity exceeds the number of unused Capacity Reservations](#ec2-fleet-config6 "#ec2-fleet-config6")
+- [Example 6: Launch On-Demand Instances using targeted Capacity Reservations](#ec2-fleet-config7 "#ec2-fleet-config7")
+- [Example 7: Configure Capacity Rebalancing to launch replacement Spot Instances](#ec2-fleet-config8 "#ec2-fleet-config8")
+- [Example 8: Launch Spot Instances in a capacity-optimized fleet](#ec2-fleet-config9 "#ec2-fleet-config9")
+- [Example 9: Launch Spot Instances in a capacity-optimized fleet with priorities](#ec2-fleet-config10 "#ec2-fleet-config10")
+- [Example 10: Launch Spot Instances in a price-capacity-optimized fleet](#ec2-fleet-config11 "#ec2-fleet-config11")
+- [Example 11: Configure attribute-based instance type selection](#ec2-fleet-config12 "#ec2-fleet-config12")
   For more CLI examples for fleets of type `instant`, see [Configure an EC2 Fleet of type instant](instant-fleet.md "instant-fleet.md").
 
-## Example 1: Launch Spot Instances as the default
-
-purchasing option
+## Example 1: Launch Spot Instances as the default purchasing option
 
 The following example specifies the minimum parameters required in an EC2 Fleet: a
 launch template, target capacity, and default purchasing option. The launch template
@@ -65,9 +52,7 @@ which results in the fleet launching 2 Spot Instances.
 }
 ```
 
-## Example 2: Launch On-Demand Instances as the default
-
-purchasing option
+## Example 2: Launch On-Demand Instances as the default purchasing option
 
 The following example specifies the minimum parameters required in an EC2 Fleet: a
 launch template, target capacity, and default purchasing option. The launch template
@@ -93,9 +78,7 @@ the fleet is 2 instances, and the default purchasing option is
 }
 ```
 
-## Example 3: Launch On-Demand Instances as the primary
-
-capacity
+## Example 3: Launch On-Demand Instances as the primary capacity
 
 The following example specifies the total target capacity of 2 instances for the
 fleet, and a target capacity of 1 On-Demand Instance. The default purchasing option is
@@ -124,9 +107,7 @@ which results in the fleet launching 1 Spot Instance.
 }
 ```
 
-## Example 4: Launch On-Demand Instances using multiple
-
-Capacity Reservations
+## Example 4: Launch On-Demand Instances using multiple Capacity Reservations
 
 You can configure a fleet to use On-Demand Capacity Reservations first when launching On-Demand Instances by setting
 the usage strategy for Capacity Reservations to `use-capacity-reservations-first`. This
@@ -287,9 +268,7 @@ all of the `m5.large` and `m4.xlarge` Capacity Reservations were used, with 3
 }
 ```
 
-## Example 5: Launch On-Demand Instances using Capacity Reservations when the
-
-total target capacity exceeds the number of unused Capacity Reservations
+## Example 5: Launch On-Demand Instances using Capacity Reservations when the total target capacity exceeds the number of unused Capacity Reservations
 
 You can configure a fleet to use On-Demand Capacity Reservations first when launching On-Demand Instances by setting
 the usage strategy for Capacity Reservations to `use-capacity-reservations-first`. This
@@ -453,9 +432,7 @@ all of the Capacity Reservations in all of the pools were used.
 }
 ```
 
-## Example 6: Launch On-Demand Instances using targeted
-
-Capacity Reservations
+## Example 6: Launch On-Demand Instances using targeted Capacity Reservations
 
 You can configure a fleet to use `targeted` On-Demand Capacity Reservations first when
 launching On-Demand Instances by setting the usage strategy for Capacity Reservations to
@@ -598,9 +575,7 @@ all of the Capacity Reservations in all of the pools were used.
 }
 ```
 
-## Example 7: Configure Capacity Rebalancing to
-
-launch replacement Spot Instances
+## Example 7: Configure Capacity Rebalancing to launch replacement Spot Instances
 
 The following example configures the EC2 Fleet to launch a replacement Spot Instance when Amazon EC2
 emits a rebalance recommendation for a Spot Instance in the fleet. To configure the automatic
@@ -608,8 +583,7 @@ replacement of Spot Instances, for `ReplacementStrategy`, specify
 `launch-before-terminate`. To configure the time delay from when the
 new replacement Spot Instances are launched to when the old Spot Instances are automatically deleted,
 for `termination-delay`, specify a value in seconds. For more
-information, see [Configuration
-options](ec2-fleet-capacity-rebalance.md#ec2-fleet-capacity-rebalance-config-options "ec2-fleet-capacity-rebalance.md#ec2-fleet-capacity-rebalance-config-options").
+information, see [Configuration options](ec2-fleet-capacity-rebalance.md#ec2-fleet-capacity-rebalance-config-options "ec2-fleet-capacity-rebalance.md#ec2-fleet-capacity-rebalance-config-options").
 
 ###### Note
 
@@ -623,8 +597,7 @@ Spot capacity pools specified in the EC2 Fleet request. We recommend that you co
 the fleet with a diversified set of instance types and Availability Zones, and for
 `AllocationStrategy`, specify `capacity-optimized`. For
 more information about what you should consider when configuring an EC2 Fleet for
-Capacity Rebalancing, see [Use Capacity Rebalancing in EC2 Fleet and Spot Fleet
-to replace at-risk Spot Instances](ec2-fleet-capacity-rebalance.md "ec2-fleet-capacity-rebalance.md").
+Capacity Rebalancing, see [Use Capacity Rebalancing in EC2 Fleet and Spot Fleet to replace at-risk Spot Instances](ec2-fleet-capacity-rebalance.md "ec2-fleet-capacity-rebalance.md").
 
 ```
 {
@@ -676,9 +649,7 @@ to replace at-risk Spot Instances](ec2-fleet-capacity-rebalance.md "ec2-fleet-ca
 }
 ```
 
-## Example 8: Launch Spot Instances in a
-
-capacity-optimized fleet
+## Example 8: Launch Spot Instances in a capacity-optimized fleet
 
 The following example demonstrates how to configure an EC2 Fleet with a Spot
 allocation strategy that optimizes for capacity. To optimize for capacity, you must
@@ -730,9 +701,7 @@ instances that are launching.
 }
 ```
 
-## Example 9: Launch Spot Instances in a
-
-capacity-optimized fleet with priorities
+## Example 9: Launch Spot Instances in a capacity-optimized fleet with priorities
 
 The following example demonstrates how to configure an EC2 Fleet with a Spot
 allocation strategy that optimizes for capacity while using priority on a
@@ -801,9 +770,7 @@ but optimizes for capacity first.
 }
 ```
 
-## Example 10: Launch Spot Instances in a
-
-price-capacity-optimized fleet
+## Example 10: Launch Spot Instances in a price-capacity-optimized fleet
 
 The following example demonstrates how to configure an EC2 Fleet with a Spot
 allocation strategy that optimizes for both capacity and lowest price. To optimize
@@ -864,9 +831,7 @@ priced.
 }
 ```
 
-## Example 11: Configure attribute-based instance
-
-type selection
+## Example 11: Configure attribute-based instance type selection
 
 The following example demonstrates how to configure an EC2 Fleet to use attribute-based
 instance type selection for identifying instance types. To specify the required

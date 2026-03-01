@@ -9,14 +9,11 @@ instance, see [NVIDIA drivers](install-nvidia-driver.md "install-nvidia-driver.m
 
 ###### Contents
 
-- [AMD Radeon Pro
-  Software for Enterprise Driver](install-amd-driver.md#amd-radeon-pro-software-for-enterprise-driver "install-amd-driver.md#amd-radeon-pro-software-for-enterprise-driver")
+- [AMD Radeon Pro Software for Enterprise Driver](install-amd-driver.md#amd-radeon-pro-software-for-enterprise-driver "install-amd-driver.md#amd-radeon-pro-software-for-enterprise-driver")
 - [AMIs with the AMD driver installed](install-amd-driver.md#preinstalled-amd-driver "install-amd-driver.md#preinstalled-amd-driver")
 - [AMD driver download](install-amd-driver.md#download-amd-driver "install-amd-driver.md#download-amd-driver")
 
-## AMD Radeon Pro
-
-Software for Enterprise Driver
+## AMD Radeon Pro Software for Enterprise Driver
 
 The AMD Radeon Pro Software for Enterprise Driver is built to deliver support for
 professional-grade graphics use cases. Using the driver, you can configure your

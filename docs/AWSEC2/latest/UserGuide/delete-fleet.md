@@ -1,6 +1,4 @@
-# Delete an EC2 Fleet request and the instances in the
-
-fleet
+# Delete an EC2 Fleet request and the instances in the fleet
 
 If you no longer require an EC2 Fleet request, you can delete it. After you delete a fleet
 request, all Spot requests associated with the fleet are canceled, so that no new Spot Instances
@@ -18,8 +16,7 @@ EC2 Fleet must terminate the instances when the fleet is deleted. A deleted
 After you terminate an instance, you can no longer connect to it, and it can't be recovered.
 All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
 deleted and can't be recovered. All data stored on instance store volumes is permanently lost.
-For more information, see [How instance termination
-works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
+For more information, see [How instance termination works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
 
 Before you terminate an instance, ensure that you have backed up all data that you need to
 retain after the termination to persistent storage.
@@ -126,9 +123,7 @@ Remove-EC2Fleet `
     -TerminateInstance $false
 ```
 
-## Troubleshoot when a fleet fails to
-
-delete
+## Troubleshoot when a fleet fails to delete
 
 If an EC2 Fleet request fails to delete, `UnsuccessfulFleetDeletions` in the output
 returns the ID of the EC2 Fleet request, an error code, and an error message.

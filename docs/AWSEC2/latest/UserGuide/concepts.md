@@ -229,9 +229,7 @@ Removes the cost of unused minutes and seconds from your bill.
 For a complete list of charges and prices for Amazon EC2 and more information about the purchase
 models, see [Amazon EC2 pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/").
 
-### Estimates, billing, and cost
-
-optimization
+### Estimates, billing, and cost optimization
 
 To create estimates for your AWS use cases, use the [AWS Pricing Calculator](https://calculator.aws/#/ "https://calculator.aws/#/").
 

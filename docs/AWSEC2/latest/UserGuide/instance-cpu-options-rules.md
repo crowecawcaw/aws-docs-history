@@ -1,20 +1,16 @@
-# Rules for specifying CPU options for an
-
-Amazon EC2 instance
+# Rules for specifying CPU options for an Amazon EC2 instance
 
 To specify the CPU options for your instance, be aware of the following rules:
 
 - You can't specify CPU options for bare metal instances.
 - You can specify CPU options both during and after instance launch.
 - To configure CPU options, you must specify both the number of CPU cores and
-  threads per core in the request. For example requests, see [Specify CPU options for an Amazon EC2
-  instance](instance-specify-cpu-options.md "instance-specify-cpu-options.md").
+  threads per core in the request. For example requests, see [Specify CPU options for an Amazon EC2 instance](instance-specify-cpu-options.md "instance-specify-cpu-options.md").
 - The number of vCPUs for the instance is the number of CPU cores multiplied by
   the threads per core. To specify a custom number of vCPUs, you must specify a
   valid number of CPU cores and threads per core for the instance type. You cannot
   exceed the default number of vCPUs for the instance. For more information, see
-  [Supported CPU options for Amazon EC2
-  instance types](cpu-options-supported-instances-values.md "cpu-options-supported-instances-values.md").
+  [Supported CPU options for Amazon EC2 instance types](cpu-options-supported-instances-values.md "cpu-options-supported-instances-values.md").
 - To disable simultaneous multithreading (SMT), also referred to as
   hyper-threading, specify one thread per core.
 - In the console, when you [change the

@@ -1,6 +1,4 @@
-# Unlimited mode
-
-concepts for burstable instances
+# Unlimited mode concepts for burstable instances
 
 The `unlimited` mode is a credit configuration option for burstable
 performance instances. It can be enabled or disabled at any time for a running or
@@ -8,9 +6,7 @@ stopped instance. You can [set unlimited as the default credit option](burstable
 per AWS Region, per burstable performance instance family, so that all new burstable
 performance instances in the account launch using the default credit option.
 
-## How Unlimited
-
-burstable performance instances work
+## How Unlimited burstable performance instances work
 
 If a burstable performance instance configured as `unlimited` depletes
 its CPU credit balance, it can spend _surplus_
@@ -35,9 +31,7 @@ vCPU-hour.
 For more information about the baseline utilization per vCPU for each instance
 type and how many credits each instance type earns, see the [credit table](burstable-credits-baseline-concepts.md#burstable-performance-instances-credit-table "burstable-credits-baseline-concepts.md#burstable-performance-instances-credit-table").
 
-## When to use unlimited mode versus fixed
-
-CPU
+## When to use unlimited mode versus fixed CPU
 
 When determining whether you should use a burstable performance instance in
 `unlimited` mode, such as T3, or a fixed performance instance, such as
@@ -117,9 +111,7 @@ compared to the similarly-sized M5 instance types.
 | `t3.xlarge`      | 52.5%                                            |
 | `t3.2xlarge`     | 52.5%                                            |
 
-## Surplus credits can incur
-
-charges
+## Surplus credits can incur charges
 
 If the average CPU utilization of an instance is at or below the baseline, the
 instance incurs no additional charges. Because an instance earns a [maximum number of
@@ -144,21 +136,15 @@ occurs:
 Spent surplus credits are tracked by the CloudWatch metric
 `CPUSurplusCreditBalance`. Surplus credits that are charged are tracked
 by the CloudWatch metric `CPUSurplusCreditsCharged`. For more information, see
-[Additional CloudWatch metrics for
-burstable performance instances](burstable-performance-instances-monitoring-cpu-credits.md#burstable-performance-instances-cw-metrics "burstable-performance-instances-monitoring-cpu-credits.md#burstable-performance-instances-cw-metrics").
+[Additional CloudWatch metrics for burstable performance instances](burstable-performance-instances-monitoring-cpu-credits.md#burstable-performance-instances-cw-metrics "burstable-performance-instances-monitoring-cpu-credits.md#burstable-performance-instances-cw-metrics").
 
-## How much does
+## How much does unlimited burstable performance cost?
 
-unlimited burstable performance cost?
-
-If you use surplus credits and they're not paid down by earned credits (see [Surplus credits can incur
-charges](#unlimited-mode-surplus-credits "#unlimited-mode-surplus-credits")), you pay a flat additional rate
+If you use surplus credits and they're not paid down by earned credits (see [Surplus credits can incur charges](#unlimited-mode-surplus-credits "#unlimited-mode-surplus-credits")), you pay a flat additional rate
 per vCPU-hour for the surplus credits. The rate is listed in the [T2/T3/T4g Unlimited Mode Pricing](https://aws.amazon.com/ec2/pricing/on-demand/#T2.2FT3.2FT4g_Unlimited_Mode_Pricing "https://aws.amazon.com/ec2/pricing/on-demand/#T2.2FT3.2FT4g_Unlimited_Mode_Pricing") section on the _Amazon EC2 On-Demand
 Pricing_ page.
 
-## No launch credits for T2 Unlimited
-
-instances
+## No launch credits for T2 Unlimited instances
 
 T2 Standard instances receive [launch
 credits](burstable-performance-instances-standard-mode-concepts.md#launch-credits "burstable-performance-instances-standard-mode-concepts.md#launch-credits"), but T2 Unlimited instances do not. A T2 Unlimited instance can burst
@@ -180,8 +166,7 @@ CPU as needed to burst beyond the baseline and for as long as needed.
 
 You can switch from `unlimited` to `standard`, and from
 `standard` to `unlimited`, at any time on a running or
-stopped instance. For more information, see [Configure the credit specification at launch](burstable-performance-instances-how-to.md#launch-burstable-performance-instances "burstable-performance-instances-how-to.md#launch-burstable-performance-instances") and [Manage the credit specification
-of a burstable performance instance](burstable-performance-instances-how-to.md#modify-burstable-performance-instances "burstable-performance-instances-how-to.md#modify-burstable-performance-instances").
+stopped instance. For more information, see [Configure the credit specification at launch](burstable-performance-instances-how-to.md#launch-burstable-performance-instances "burstable-performance-instances-how-to.md#launch-burstable-performance-instances") and [Manage the credit specification of a burstable performance instance](burstable-performance-instances-how-to.md#modify-burstable-performance-instances "burstable-performance-instances-how-to.md#modify-burstable-performance-instances").
 
 You can set `unlimited` as the default credit option at the account
 level per AWS Region, per burstable performance instance family, so that all new
@@ -192,9 +177,7 @@ You can check whether your burstable performance instance is configured as
 `unlimited` or `standard` using the Amazon EC2 console or the
 AWS CLI. For more information, see [Configure burstable performance instances](burstable-performance-instances-how-to.md "burstable-performance-instances-how-to.md").
 
-## What happens to credits when
-
-switching between Unlimited and Standard
+## What happens to credits when switching between Unlimited and Standard
 
 `CPUCreditBalance` is a CloudWatch metric that tracks the number of credits
 accrued by an instance. `CPUSurplusCreditBalance` is a CloudWatch metric that
@@ -222,5 +205,4 @@ following occurs:
 
 To see if your instance is spending more credits than the baseline provides, you
 can use CloudWatch metrics to track usage, and you can set up hourly alarms to be notified
-of credit usage. For more information, see [Monitor CPU
-credits for burstable instances](burstable-performance-instances-monitoring-cpu-credits.md "burstable-performance-instances-monitoring-cpu-credits.md").
+of credit usage. For more information, see [Monitor CPU credits for burstable instances](burstable-performance-instances-monitoring-cpu-credits.md "burstable-performance-instances-monitoring-cpu-credits.md").

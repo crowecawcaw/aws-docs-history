@@ -29,9 +29,7 @@ filters provided in the **Search** field.
 5. (Optional) Add filters to scope your search to AMIs that meet
    your requirements.
 
-###### To find a shared public AMI from a [verified
-
-provider](sharing-amis.md#verified-ami-provider "sharing-amis.md#verified-ami-provider")
+###### To find a shared public AMI from a [verified provider](sharing-amis.md#verified-ami-provider "sharing-amis.md#verified-ami-provider")
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").

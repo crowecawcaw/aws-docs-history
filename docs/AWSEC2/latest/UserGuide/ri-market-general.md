@@ -39,8 +39,7 @@ For information about buying Reserved Instances on the Reserved Instance Marketp
 - [Lifecycle of a listing](#ri-market-concepts-sold-partial "#ri-market-concepts-sold-partial")
 - [After your Reserved Instance is sold](#ri-market-concepts-sold "#ri-market-concepts-sold")
 - [Getting paid](#ri-market-sold-gettingpaid "#ri-market-sold-gettingpaid")
-- [Information shared with the
-  buyer](#ri-market-seller-disclosure "#ri-market-seller-disclosure")
+- [Information shared with the buyer](#ri-market-seller-disclosure "#ri-market-seller-disclosure")
 
 ## Restrictions and limitations
 
@@ -417,9 +416,7 @@ You receive a cash disbursement for your Reserved Instances through a wire trans
 into your bank account. AWS charges a service fee of 12 percent of the total
 upfront price of each Reserved Instance you sell in the Reserved Instance Marketplace.
 
-## Information shared with the
-
-buyer
+## Information shared with the buyer
 
 When you sell in the Reserved Instance Marketplace, AWS shares your company’s legal name on the
 buyer’s statement in accordance with US regulations. In addition, if the buyer calls

@@ -8,12 +8,9 @@ detail pages in the following list.
 For more information about AWS Windows AMIs, see the [AWS
 Windows AMI reference](../../../ec2/latest/windows-ami-reference/windows-amis.md "../../../ec2/latest/windows-ami-reference/windows-amis.md").
 
-- [Use the EC2Launch v2 agent to perform tasks during EC2 Windows
-  instance launch](ec2launch-v2.md "ec2launch-v2.md")
-- [Use the EC2Launch v1 agent to perform tasks during EC2 Windows
-  instance launch](ec2launch.md "ec2launch.md")
-- [Use the EC2Config service to perform tasks during EC2 legacy Windows
-  operating system instance launch](ec2config-service.md "ec2config-service.md")
+- [Use the EC2Launch v2 agent to perform tasks during EC2 Windows instance launch](ec2launch-v2.md "ec2launch-v2.md")
+- [Use the EC2Launch v1 agent to perform tasks during EC2 Windows instance launch](ec2launch.md "ec2launch.md")
+- [Use the EC2Config service to perform tasks during EC2 legacy Windows operating system instance launch](ec2config-service.md "ec2config-service.md")
 
 ###### Content
 

@@ -25,7 +25,7 @@ You can get the public DNS for your instance from the Amazon EC2 console. Check 
 **Public IPv4 DNS** column of the
 **Instances** pane. If this column is hidden, choose the
 settings icon (
-![The gear icon.](images/settings-icon.png)
+![The gear icon.](/images/AWSEC2/latest/UserGuide/images/settings-icon.png)
 ) in the top-right corner of the screen, and select
 **Public IPv4 DNS**. You can also find the public DNS in the
 instance information section of the **Instances** pane. When you
@@ -115,8 +115,7 @@ For information about how key pairs work when using Amazon EC2, see [Amazon EC2 
 
 Get the fully-qualified path to the location on your computer of the
 `.pem` file for the key pair that you specified when you launched the
-instance. For more information, see [Identify the public key specified at
-launch](describe-keys.md#identify-key-pair-specified-at-launch "describe-keys.md#identify-key-pair-specified-at-launch").
+instance. For more information, see [Identify the public key specified at launch](describe-keys.md#identify-key-pair-specified-at-launch "describe-keys.md#identify-key-pair-specified-at-launch").
 
 If you can't find your private key file, see [I've lost my private key. How can I connect to my instance?](TroubleshootingInstancesConnecting.md#replacing-lost-key-pair "TroubleshootingInstancesConnecting.md#replacing-lost-key-pair")
 

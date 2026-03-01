@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Capacity Reservation Fleet
+# Using service-linked roles for Capacity Reservation Fleet
 
 On-Demand Capacity Reservation Fleet uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts "../../../IAM/latest/UserGuide/id_roles.md#id_roles_terms-and-concepts"). A service-linked role is a unique type of IAM
 role that is linked directly to Capacity Reservation Fleet. Service-linked roles are predefined
@@ -18,9 +16,7 @@ You can delete a service-linked role only after first deleting their related
 resources. This protects your Capacity Reservation Fleet resources because you can't
 inadvertently remove permission to access the resources.
 
-## Service-linked role permissions for
-
-Capacity Reservation Fleet
+## Service-linked role permissions for Capacity Reservation Fleet
 
 Capacity Reservation Fleet uses the service-linked role named
 **AWSServiceRoleForEC2CapacityReservationFleet** to create, describe, modify, and cancel Capacity Reservations in a Capacity Reservation Fleet on your behalf.
@@ -38,9 +34,7 @@ group, or role) to create, edit, or delete a service-linked role. For more
 information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Create a service-linked role for
-
-Capacity Reservation Fleet
+## Create a service-linked role for Capacity Reservation Fleet
 
 You don't need to manually create a service-linked role. When you
 create a Capacity Reservation Fleet using the
@@ -61,9 +55,7 @@ because various entities might reference the role. However, you can edit the
 description of the role using IAM. For more information, see [Edit a service-linked role description](../../../IAM/latest/UserGuide/id_roles_update-service-linked-role.md#edit-service-linked-role-iam-console "../../../IAM/latest/UserGuide/id_roles_update-service-linked-role.md#edit-service-linked-role-iam-console") in the
 _IAM User Guide_.
 
-## Delete a service-linked role for
-
-Capacity Reservation Fleet
+## Delete a service-linked role for Capacity Reservation Fleet
 
 If you no longer need to use a feature or service that requires a
 service-linked role, we recommend that you delete that role. That way you don’t
@@ -86,9 +78,7 @@ minutes and try the operation again.
    AWSServiceRoleForEC2CapacityReservationFleet service-linked role. For more information, see [Delete a service-linked role](../../../IAM/latest/UserGuide/id_roles_manage_delete.md#id_roles_manage_delete_slr "../../../IAM/latest/UserGuide/id_roles_manage_delete.md#id_roles_manage_delete_slr") in the
    _IAM User Guide_.
 
-## Supported Regions for Capacity Reservation Fleet service-linked
-
-roles
+## Supported Regions for Capacity Reservation Fleet service-linked roles
 
 Capacity Reservation Fleet supports using service-linked roles in all of the Regions where
 the service is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/ec2-service.md#ec2_region "../../../general/latest/gr/ec2-service.md#ec2_region").

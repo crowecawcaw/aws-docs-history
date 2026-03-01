@@ -1,6 +1,4 @@
-# Share an AMI with organizations and
-
-organizational units
+# Share an AMI with organizations and organizational units
 
 [AWS Organizations](../../../organizations/latest/userguide/orgs_integrate_services_list.md "../../../organizations/latest/userguide/orgs_integrate_services_list.md") is an account management service that enables
 you to consolidate multiple AWS accounts into an organization that you create and

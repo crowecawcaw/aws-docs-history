@@ -14,10 +14,9 @@ registry key by adding the following values to the DNS suffix search list:
   specific launch agent version:
 
 - For information about the `setDnsSuffix` task and how to configure
-  DNS suffixes in EC2Launch v2, see [setDnsSuffix](ec2launch-v2-task-definitions.md#ec2launch-v2-setdnssuffix "ec2launch-v2-task-definitions.md#ec2launch-v2-setdnssuffix") .
+  DNS suffixes in EC2Launch v2, see [setDnsSuffix](ec2launch-v2-task-definitions.md#ec2launch-v2-setdnssuffix "ec2launch-v2-task-definitions.md#ec2launch-v2-setdnssuffix").
 - For information about DNS suffix list setup and how to enable or disable
-  devolution for EC2Launch v1, see [Configure the EC2Launch v1 agent on your Windows
-  instance](ec2launch-config.md "ec2launch-config.md").
+  devolution for EC2Launch v1, see [Configure the EC2Launch v1 agent on your Windows instance](ec2launch-config.md "ec2launch-config.md").
 - For information about DNS suffix list setup and how to enable or disable
   devolution for EC2Config, see [EC2Config settings files](ec2config-service.md#UsingConfigXML_WinAMI "ec2config-service.md#UsingConfigXML_WinAMI").
 

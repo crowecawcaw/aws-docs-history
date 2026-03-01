@@ -1,6 +1,4 @@
-# View CPU threads and cores for an Amazon EC2
-
-instance
+# View CPU threads and cores for an Amazon EC2 instance
 
 You can view the CPU options for an existing instance by describing the instance.
 

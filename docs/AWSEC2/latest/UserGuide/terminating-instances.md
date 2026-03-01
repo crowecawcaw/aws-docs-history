@@ -7,8 +7,7 @@
 After you terminate an instance, you can no longer connect to it, and it can't be recovered.
 All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
 deleted and can't be recovered. All data stored on instance store volumes is permanently lost.
-For more information, see [How instance termination
-works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
+For more information, see [How instance termination works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
 
 Before you terminate an instance, ensure that you have backed up all data that you need to
 retain after the termination to persistent storage.
@@ -26,25 +25,16 @@ For more information, see [Differences between instance states](ec2-instance-lif
 
 ###### Contents
 
-- [How instance termination
-  works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md")
+- [How instance termination works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md")
 - [Methods for terminating an instance](instance-terminate-methods.md "instance-terminate-methods.md")
-- [Terminate an instance with a graceful OS
-  shutdown](#terminating-instances-console "#terminating-instances-console")
-- [Terminate an instance and
-  bypass the graceful OS shutdown](#terminating-instances-bypass-graceful-os-shutdown "#terminating-instances-bypass-graceful-os-shutdown")
-- [Troubleshoot instance
-  termination](#troubleshoot-instance-terminate "#troubleshoot-instance-terminate")
-- [Change instance termination
-  protection](Using_ChangingDisableAPITermination.md "Using_ChangingDisableAPITermination.md")
-- [Change instance
-  initiated shutdown behavior](Using_ChangingInstanceInitiatedShutdownBehavior.md "Using_ChangingInstanceInitiatedShutdownBehavior.md")
-- [Preserve data when an instance is
-  terminated](preserving-volumes-on-termination.md "preserving-volumes-on-termination.md")
+- [Terminate an instance with a graceful OS shutdown](#terminating-instances-console "#terminating-instances-console")
+- [Terminate an instance and bypass the graceful OS shutdown](#terminating-instances-bypass-graceful-os-shutdown "#terminating-instances-bypass-graceful-os-shutdown")
+- [Troubleshoot instance termination](#troubleshoot-instance-terminate "#troubleshoot-instance-terminate")
+- [Change instance termination protection](Using_ChangingDisableAPITermination.md "Using_ChangingDisableAPITermination.md")
+- [Change instance initiated shutdown behavior](Using_ChangingInstanceInitiatedShutdownBehavior.md "Using_ChangingInstanceInitiatedShutdownBehavior.md")
+- [Preserve data when an instance is terminated](preserving-volumes-on-termination.md "preserving-volumes-on-termination.md")
 
-## Terminate an instance with a graceful OS
-
-shutdown
+## Terminate an instance with a graceful OS shutdown
 
 You can terminate an instance using the default terminate method, which includes an attempt
 at a graceful OS shutdown. For more information, see [Methods for terminating an instance](instance-terminate-methods.md "instance-terminate-methods.md").
@@ -88,9 +78,7 @@ Use the [Remove-EC2Instance](../../../powershell/latest/reference/items/Remove-E
 Remove-EC2Instance -InstanceId `i-1234567890abcdef0`
 ```
 
-## Terminate an instance and
-
-bypass the graceful OS shutdown
+## Terminate an instance and bypass the graceful OS shutdown
 
 You can bypass the graceful OS shutdown when terminating an instance. For more information,
 see [Methods for terminating an instance](instance-terminate-methods.md "instance-terminate-methods.md").
@@ -144,9 +132,7 @@ Remove-EC2Instance `
     -SkipOsShutdown $true
 ```
 
-## Troubleshoot instance
-
-termination
+## Troubleshoot instance termination
 
 The requester must have permission to call `ec2:TerminateInstances`. For
 more information, see [Example policies to work

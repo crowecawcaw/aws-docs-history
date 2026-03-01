@@ -1,6 +1,4 @@
-# Use Capacity Rebalancing in EC2 Fleet and Spot Fleet
-
-to replace at-risk Spot Instances
+# Use Capacity Rebalancing in EC2 Fleet and Spot Fleet to replace at-risk Spot Instances
 
 With Capacity Rebalancing, your EC2 Fleet or Spot Fleet can maintain the desired Spot capacity by
 proactively replacing Spot Instances at risk of interruption. When a Spot Instance is at an elevated risk
@@ -13,37 +11,29 @@ Capacity Rebalancing helps you maintain workload availability by proactively
 augmenting your fleet with new Spot Instances before running instances are interrupted by
 Amazon EC2.
 
-###### To configure EC2 Fleet to use Capacity Rebalancing to launch a replacement
-
-Spot Instance
+###### To configure EC2 Fleet to use Capacity Rebalancing to launch a replacement Spot Instance
 
 Use the [create-fleet](../../../cli/latest/reference/ec2/create-fleet.md "../../../cli/latest/reference/ec2/create-fleet.md")
 command and the relevant parameters in the
 `MaintenanceStrategies` structure. For an example JSON configuration,
-see [Example 7: Configure Capacity Rebalancing to
-launch replacement Spot Instances](ec2-fleet-examples.md#ec2-fleet-config8 "ec2-fleet-examples.md#ec2-fleet-config8").
+see [Example 7: Configure Capacity Rebalancing to launch replacement Spot Instances](ec2-fleet-examples.md#ec2-fleet-config8 "ec2-fleet-examples.md#ec2-fleet-config8").
 
-###### To configure Spot Fleet to use Capacity Rebalancing to launch a replacement
-
-Spot Instance
+###### To configure Spot Fleet to use Capacity Rebalancing to launch a replacement Spot Instance
 
 You can use the Amazon EC2 console or the AWS CLI to configure Capacity
 Rebalancing.
 
 (Console) When creating the Spot Fleet, select the **Capacity rebalance**
-checkbox. For more information, see step 6.d. in [Create a Spot Fleet request using defined
-parameters](create-spot-fleet.md#create-spot-fleet-advanced "create-spot-fleet.md#create-spot-fleet-advanced").
+checkbox. For more information, see step 6.d. in [Create a Spot Fleet request using defined parameters](create-spot-fleet.md#create-spot-fleet-advanced "create-spot-fleet.md#create-spot-fleet-advanced").
 
 (AWS CLI) Use the [request-spot-fleet](../../../cli/latest/reference/ec2/request-spot-fleet.md "../../../cli/latest/reference/ec2/request-spot-fleet.md")
 command and the relevant parameters in the `SpotMaintenanceStrategies`
-structure. For an example JSON configuration, see [Example 8: Configure Capacity Rebalancing to launch
-replacement Spot Instances](spot-fleet-examples.md#fleet-config8 "spot-fleet-examples.md#fleet-config8").
+structure. For an example JSON configuration, see [Example 8: Configure Capacity Rebalancing to launch replacement Spot Instances](spot-fleet-examples.md#fleet-config8 "spot-fleet-examples.md#fleet-config8").
 
 ###### Topics
 
 - [Limitations](#ec2-fleet-capacity-rebalance-limitations "#ec2-fleet-capacity-rebalance-limitations")
-- [Configuration
-  options](#ec2-fleet-capacity-rebalance-config-options "#ec2-fleet-capacity-rebalance-config-options")
+- [Configuration options](#ec2-fleet-capacity-rebalance-config-options "#ec2-fleet-capacity-rebalance-config-options")
 - [Considerations](#ec2-fleet-capacity-rebalance-considerations "#ec2-fleet-capacity-rebalance-considerations")
 
 ## Limitations
@@ -54,9 +44,7 @@ replacement Spot Instances](spot-fleet-examples.md#fleet-config8 "spot-fleet-exa
   setting. To change the Capacity Rebalancing setting, you must delete the
   fleet and create a new fleet.
 
-## Configuration
-
-options
+## Configuration options
 
 The `ReplacementStrategy` for EC2 Fleet and Spot Fleet supports the following two
 values:
@@ -103,8 +91,7 @@ as possible**
 
 Configure your fleet to use multiple instance types and Availability
 Zones. This provides the flexibility to launch Spot Instances in various Spot
-capacity pools. For more information, see [Be flexible about instance types and Availability
-Zones](spot-best-practices.md#be-instance-type-flexible "spot-best-practices.md#be-instance-type-flexible").
+capacity pools. For more information, see [Be flexible about instance types and Availability Zones](spot-best-practices.md#be-instance-type-flexible "spot-best-practices.md#be-instance-type-flexible").
 
 **Avoid an elevated risk of interruption of
 replacement Spot Instances**
@@ -114,8 +101,7 @@ To avoid an elevated risk of interruption, we recommend the
 `capacity-optimized-prioritized` allocation strategy.
 These strategies ensure that replacement Spot Instances are launched in the most
 optimal Spot capacity pools, and are therefore less likely to be
-interrupted in the near future. For more information, see [Use the price and capacity optimized
-allocation strategy](spot-best-practices.md#use-capacity-optimized-allocation-strategy "spot-best-practices.md#use-capacity-optimized-allocation-strategy").
+interrupted in the near future. For more information, see [Use the price and capacity optimized allocation strategy](spot-best-practices.md#use-capacity-optimized-allocation-strategy "spot-best-practices.md#use-capacity-optimized-allocation-strategy").
 
 If you use the `lowest-price` allocation strategy, your
 replacement Spot Instances might be at an elevated risk of interruption. This is
@@ -233,8 +219,7 @@ automatically terminate the instances that receive a rebalance
 recommendation.
 
 You can set up notifications using Amazon EventBridge or instance metadata. For
-more information, see [Monitor rebalance recommendation
-signals](rebalance-recommendations.md#monitor-rebalance-recommendations "rebalance-recommendations.md#monitor-rebalance-recommendations").
+more information, see [Monitor rebalance recommendation signals](rebalance-recommendations.md#monitor-rebalance-recommendations "rebalance-recommendations.md#monitor-rebalance-recommendations").
 
 **The fleet does not count instances that receive a
 rebalance recommendation when calculating fulfilled capacity during

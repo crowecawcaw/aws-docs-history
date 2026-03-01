@@ -33,12 +33,10 @@ in a `stopped` (hibernated) state. For more information, see [Terminate Amazon E
 
 - [How it works](instance-hibernate-overview.md "instance-hibernate-overview.md")
 - [Prerequisites](hibernating-prerequisites.md "hibernating-prerequisites.md")
-- [Configure a Linux AMI to support
-  hibernation](hibernation-enabled-AMI.md "hibernation-enabled-AMI.md")
+- [Configure a Linux AMI to support hibernation](hibernation-enabled-AMI.md "hibernation-enabled-AMI.md")
 - [Enable instance
   hibernation](enabling-hibernation.md "enabling-hibernation.md")
-- [Disable KASLR on an instance (Ubuntu
-  only)](hibernation-disable-kaslr.md "hibernation-disable-kaslr.md")
+- [Disable KASLR on an instance (Ubuntu only)](hibernation-disable-kaslr.md "hibernation-disable-kaslr.md")
 - [Hibernate an instance](hibernating-instances.md "hibernating-instances.md")
 - [Start a hibernated
   instance](hibernating-resuming.md "hibernating-resuming.md")

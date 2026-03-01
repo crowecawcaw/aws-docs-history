@@ -26,11 +26,8 @@ until they're interrupted or you terminate them.
 - [Spot Fleet request states](spot-fleet-states.md "spot-fleet-states.md")
 - [Spot Fleet permissions](spot-fleet-prerequisites.md "spot-fleet-prerequisites.md")
 - [Create a Spot Fleet](create-spot-fleet.md "create-spot-fleet.md")
-- [Tag a new or existing Spot Fleet request and the instances
-  and volumes it launches](tag-spot-fleet.md "tag-spot-fleet.md")
-- [Describe a Spot Fleet request, its instances, and event
-  history](manage-spot-fleet.md "manage-spot-fleet.md")
+- [Tag a new or existing Spot Fleet request and the instances and volumes it launches](tag-spot-fleet.md "tag-spot-fleet.md")
+- [Describe a Spot Fleet request, its instances, and event history](manage-spot-fleet.md "manage-spot-fleet.md")
 - [Modify a Spot Fleet request](modify-spot-fleet.md "modify-spot-fleet.md")
 - [Cancel (delete) a Spot Fleet request](cancel-spot-fleet.md "cancel-spot-fleet.md")
-- [Understand automatic scaling for
-  Spot Fleet](spot-fleet-automatic-scaling.md "spot-fleet-automatic-scaling.md")
+- [Understand automatic scaling for Spot Fleet](spot-fleet-automatic-scaling.md "spot-fleet-automatic-scaling.md")

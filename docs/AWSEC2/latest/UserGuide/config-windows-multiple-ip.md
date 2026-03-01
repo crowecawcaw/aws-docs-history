@@ -21,8 +21,7 @@ vary based on the operating system of the Windows instance.
 
 - Assign the secondary private IPv4 address to the network interface for the instance.
   You can assign the secondary private IPv4 address when you launch the instance, or after
-  the instance is running. For more information, see [Assign secondary IP addresses to an
-  instance](instance-secondary-ip-addresses.md#assign-secondary-ip-address "instance-secondary-ip-addresses.md#assign-secondary-ip-address").
+  the instance is running. For more information, see [Assign secondary IP addresses to an instance](instance-secondary-ip-addresses.md#assign-secondary-ip-address "instance-secondary-ip-addresses.md#assign-secondary-ip-address").
 
 ## Step 1: Configure static IP addressing in your instance
 

@@ -12,18 +12,14 @@ instance that has an EBS root volume. To protect data from instance store
 volumes, back it up to persistent storage before the instance is stopped or
 terminated.
 
-## Manually recover EBS-backed
-
-instances
+## Manually recover EBS-backed instances
 
 For EBS-backed instances that could not be automatically recovered, we
 recommend that you manually stop and start the instances to recover them onto a
 new Dedicated Host. For more information about stopping your instance, and about the
 changes that occur in your instance configuration when it's stopped, see [Stop and start Amazon EC2 instances](Stop_Start.md "Stop_Start.md").
 
-## Manually recover instances with
-
-instance store root volumes
+## Manually recover instances with instance store root volumes
 
 For instances with instance store root volumes that could not be automatically recovered,
 we recommend that you do the following:

@@ -84,8 +84,7 @@ available for that instance type.
 To determine whether packets were dropped because the network traffic for your
 instance exceeded the maximum number of connections that can be tracked, use the
 `conntrack_allowance_exceeded` network performance metric. For more
-information, see [Monitor network performance for ENA
-settings on your EC2 instance](monitoring-network-performance-ena.md "monitoring-network-performance-ena.md").
+information, see [Monitor network performance for ENA settings on your EC2 instance](monitoring-network-performance-ena.md "monitoring-network-performance-ena.md").
 
 With Elastic Load Balancing, if you exceed the maximum number of connections that can be tracked per instance,
 we recommend that you scale either the number of instances registered with the

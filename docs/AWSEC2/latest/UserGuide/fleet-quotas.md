@@ -31,12 +31,9 @@ deleted or canceled the request, the fleet request enters the
 and the instances continue to run until they are interrupted or you terminate them
 manually. If you terminate the instances, the fleet request enters the
 `deleted_terminating` (EC2 Fleet) or `cancelled_terminating` (
-Spot Fleet) state and does not count towards this quota. For more information, see [Delete an EC2 Fleet request and the instances in the
-fleet](delete-fleet.md "delete-fleet.md") and [Cancel (delete) a Spot Fleet request](cancel-spot-fleet.md "cancel-spot-fleet.md").
+Spot Fleet) state and does not count towards this quota. For more information, see [Delete an EC2 Fleet request and the instances in the fleet](delete-fleet.md "delete-fleet.md") and [Cancel (delete) a Spot Fleet request](cancel-spot-fleet.md "cancel-spot-fleet.md").
 
-## Request a quota increase for target
-
-capacity
+## Request a quota increase for target capacity
 
 If you need more than the default quota for target capacity, you can request a
 quota increase.

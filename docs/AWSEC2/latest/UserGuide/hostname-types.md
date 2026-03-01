@@ -333,8 +333,7 @@ You can see the hostname types, resource name and IP name, in the Amazon EC2 con
 ###### Contents
 
 - [When creating an EC2 instance](#instance-naming-presence-create "#instance-naming-presence-create")
-- [When viewing the details of an existing EC2
-  instance](#instance-naming-presence-view "#instance-naming-presence-view")
+- [When viewing the details of an existing EC2 instance](#instance-naming-presence-view "#instance-naming-presence-view")
 
 #### When creating an EC2 instance
 
@@ -344,8 +343,7 @@ section explains the scenarios in which you see the hostname types resource name
 
 ##### Scenario 1
 
-You create an EC2 instance in the wizard (see [Launch an EC2 instance using the launch
-instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md")) and, when you configure the details,
+You create an EC2 instance in the wizard (see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md")) and, when you configure the details,
 you choose a subnet that you configured to be IPv6-only.
 
 In this case, the **Hostname type** of **Resource
@@ -360,8 +358,7 @@ of this EC2 instance.
 
 ##### Scenario 2
 
-You create an EC2 instance in the wizard (see [Launch an EC2 instance using the launch
-instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md")) and, when you configure the details,
+You create an EC2 instance in the wizard (see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md")) and, when you configure the details,
 you choose a subnet configured with an IPv4 CIDR block or both an IPv4 and IPv6
 CIDR block ("dual stack").
 
@@ -384,9 +381,7 @@ the options for this instance depending on the subnet settings:
   name resolve to the IPv6 GUA address (AAAA record) of this EC2 instance.
   This option is not selected by default.
 
-#### When viewing the details of an existing EC2
-
-instance
+#### When viewing the details of an existing EC2 instance
 
 You can see the hostname values for an existing EC2 instance in the
 **Details** tab for the EC2 instance:
@@ -407,8 +402,7 @@ resource name format.
 
 ### Choosing between resource names and IP names
 
-When you launch an EC2 instance (see [Launch an EC2 instance using the launch
-instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md")), if you choose a **Hostname
+When you launch an EC2 instance (see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md")), if you choose a **Hostname
 type** of **Resource name**, the EC2 instance launches
 with a hostname in the resource name format. In such cases, the DNS record for this EC2
 instance can also point to the resource name. This gives you the flexibility to choose

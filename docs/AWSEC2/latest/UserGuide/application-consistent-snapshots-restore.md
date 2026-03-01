@@ -1,6 +1,4 @@
-# Use the AWS VSS solution to restore
-
-data for your instance
+# Use the AWS VSS solution to restore data for your instance
 
 You can restore EBS volumes for a Windows instance from VSS based snapshots created
 by the AWS VSS solution. If your AWS VSS solution snapshots contain backups of a Microsoft SQL Server database,
@@ -15,9 +13,7 @@ SQL Server application or disconnecting any active connections.
 For detailed instructions on how to use the Microsoft SQL Server database runbook, see [Restore
 from VSS based snapshots](../../../sql-server-ec2/latest/userguide/ms-ssdb-ec2-restore-vss.md "../../../sql-server-ec2/latest/userguide/ms-ssdb-ec2-restore-vss.md") in the _Microsoft SQL Server on Amazon EC2 User Guide_.
 
-## Customize a script to restore EBS volumes from
-
-AWS VSS solution snapshots
+## Customize a script to restore EBS volumes from AWS VSS solution snapshots
 
 You can use the `RestoreVssSnapshotSampleScript.ps1` script as a
 model to create your own custom script that restores EBS volumes from AWS VSS solution snapshots.

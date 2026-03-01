@@ -1,6 +1,4 @@
-# Which is the best fleet method to
-
-use?
+# Which is the best fleet method to use?
 
 As a general best practice, we recommend launching fleets of Spot and On-Demand Instances with
 Amazon EC2 Auto Scaling because it provides additional features you can use to manage your fleet. The

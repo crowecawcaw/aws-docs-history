@@ -7,23 +7,17 @@ Linux instance.
 
 - [Common causes for connection issues](#TroubleshootingInstancesCommonCauses "#TroubleshootingInstancesCommonCauses")
 - [Error connecting to your instance: Connection timed out](#TroubleshootingInstancesConnectionTimeout "#TroubleshootingInstancesConnectionTimeout")
-- [Error: unable to load key ... Expecting:
-  ANY PRIVATE KEY](#troubleshoot-instance-connect-key-file "#troubleshoot-instance-connect-key-file")
-- [Error: User key not recognized by
-  server](#TroubleshootingInstancesServerError "#TroubleshootingInstancesServerError")
+- [Error: unable to load key ... Expecting: ANY PRIVATE KEY](#troubleshoot-instance-connect-key-file "#troubleshoot-instance-connect-key-file")
+- [Error: User key not recognized by server](#TroubleshootingInstancesServerError "#TroubleshootingInstancesServerError")
 - [Error: Permission denied or connection closed by [instance] port 22](#TroubleshootingInstancesConnectingSSH "#TroubleshootingInstancesConnectingSSH")
 - [Error: Unprotected private key file](#troubleshoot-unprotected-key "#troubleshoot-unprotected-key")
-- [Error: Private key must begin with
-  "-----BEGIN RSA PRIVATE KEY-----" and end with "-----END RSA PRIVATE KEY-----"](#troubleshoot-private-key-file-format "#troubleshoot-private-key-file-format")
+- [Error: Private key must begin with "-----BEGIN RSA PRIVATE KEY-----" and end with "-----END RSA PRIVATE KEY-----"](#troubleshoot-private-key-file-format "#troubleshoot-private-key-file-format")
 - [Error: Host key verification failed](#troubleshoot-host-key-verification-failed "#troubleshoot-host-key-verification-failed")
-- [Error: Server refused our key
-  or No supported authentication methods available](#TroubleshootingInstancesConnectingPuTTY "#TroubleshootingInstancesConnectingPuTTY")
+- [Error: Server refused our key or No supported authentication methods available](#TroubleshootingInstancesConnectingPuTTY "#TroubleshootingInstancesConnectingPuTTY")
 - [Cannot ping instance](#troubleshoot-instance-ping "#troubleshoot-instance-ping")
 - [Error: Server unexpectedly closed network connection](#troubleshoot-ssh "#troubleshoot-ssh")
-- [Error: Host key validation failed for
-  EC2 Instance Connect](#troubleshoot-host-key-validation "#troubleshoot-host-key-validation")
-- [Can't connect to Ubuntu instance using
-  EC2 Instance Connect](#troubleshoot-eic-ubuntu "#troubleshoot-eic-ubuntu")
+- [Error: Host key validation failed for EC2 Instance Connect](#troubleshoot-host-key-validation "#troubleshoot-host-key-validation")
+- [Can't connect to Ubuntu instance using EC2 Instance Connect](#troubleshoot-eic-ubuntu "#troubleshoot-eic-ubuntu")
 - [I've lost my private key. How can I connect to my instance?](#replacing-lost-key-pair "#replacing-lost-key-pair")
 
 ## Common causes for connection issues
@@ -247,9 +241,7 @@ following:**
   information, see [Configure IPv6 on your instances](../../../vpc/latest/userguide/vpc-migrate-ipv6.md#vpc-migrate-ipv6-dhcpv6 "../../../vpc/latest/userguide/vpc-migrate-ipv6.md#vpc-migrate-ipv6-dhcpv6") in the _Amazon VPC User Guide_.
 - Your local computer must have an IPv6 address, and must be configured to use IPv6.
 
-## Error: unable to load key ... Expecting:
-
-ANY PRIVATE KEY
+## Error: unable to load key ... Expecting: ANY PRIVATE KEY
 
 If you try to connect to your instance and get the error message, `unable to load key
  ... Expecting: ANY PRIVATE KEY`, the file in which the private key is stored is
@@ -257,21 +249,16 @@ incorrectly configured. If the private key file ends in `.pem`, it might still b
 incorrectly configured. A possible cause for an incorrectly configured private key file is a
 missing certificate.
 
-###### If the private key file is incorrectly configured, follow these steps to resolve the
-
-error
+###### If the private key file is incorrectly configured, follow these steps to resolve the error
 
 1. Create a new key pair. For more information, see [Create a key pair using Amazon EC2](create-key-pairs.md#having-ec2-create-your-key-pair "create-key-pairs.md#having-ec2-create-your-key-pair").
 
 ###### Note
 
 Alternatively, you can create a new key pair using a third-party tool. For more
-information, see [Create a key pair using
-a third-party tool and import the public key to Amazon EC2](create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws "create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws"). 2. Add the new key pair to your instance. For more information, see [I've lost my private key. How can I connect to my instance?](#replacing-lost-key-pair "#replacing-lost-key-pair"). 3. Connect to your instance using the new key pair.
+information, see [Create a key pair using a third-party tool and import the public key to Amazon EC2](create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws "create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws"). 2. Add the new key pair to your instance. For more information, see [I've lost my private key. How can I connect to my instance?](#replacing-lost-key-pair "#replacing-lost-key-pair"). 3. Connect to your instance using the new key pair.
 
-## Error: User key not recognized by
-
-server
+## Error: User key not recognized by server
 
 ###### If you use SSH to connect to your instance
 
@@ -510,9 +497,7 @@ icacls.exe `$path` /inheritance:r
 
 5. You should be able to connect to your Linux instance from Windows using SSH.
 
-## Error: Private key must begin with
-
-"-----BEGIN RSA PRIVATE KEY-----" and end with "-----END RSA PRIVATE KEY-----"
+## Error: Private key must begin with "-----BEGIN RSA PRIVATE KEY-----" and end with "-----END RSA PRIVATE KEY-----"
 
 If you use a third-party tool, such as **ssh-keygen**, to create an RSA key
 pair, it generates the private key in the OpenSSH key format. When you connect to your instance,
@@ -542,9 +527,7 @@ fingerprint](connection-prereqs-general.md#connection-prereqs-fingerprint "conne
 key from the `known_hosts` file. For instructions, refer to the
 documentation for the Linux distribution in use on your instance.
 
-## Error: Server refused our key
-
-_or_ No supported authentication methods available
+## Error: Server refused our key _or_ No supported authentication methods available
 
 If you use PuTTY to connect to your instance and get either of the following errors,
 **`Error: Server refused our key`** or **`Error: No
@@ -603,9 +586,7 @@ clients when they do not receive any data within a specified period of time. Set
 
 If you still experience issues after enabling keepalives, try to disable Nagle's algorithm on the Connection page of the PuTTY Configuration.
 
-## Error: Host key validation failed for
-
-EC2 Instance Connect
+## Error: Host key validation failed for EC2 Instance Connect
 
 If you rotate your instance host keys, the new host keys are not automatically
 uploaded to the AWS trusted host keys database. This causes host key validation to fail
@@ -619,9 +600,7 @@ instances.
 
 Amazon Linux 2
 
-###### To resolve the host key validation failed error on an Amazon Linux 2
-
-instance
+###### To resolve the host key validation failed error on an Amazon Linux 2 instance
 
 1. Connect to your instance using SSH.
 
@@ -659,9 +638,7 @@ instance.
 
 Ubuntu
 
-###### To resolve the host key validation failed error on an Ubuntu
-
-instance
+###### To resolve the host key validation failed error on an Ubuntu instance
 
 1. Connect to your instance using SSH.
 
@@ -697,9 +674,7 @@ Note that a successful call results in no output.
 You can now use the EC2 Instance Connect browser-based client to connect to your
 instance.
 
-## Can't connect to Ubuntu instance using
-
-EC2 Instance Connect
+## Can't connect to Ubuntu instance using EC2 Instance Connect
 
 If you use EC2 Instance Connect to connect to your Ubuntu instance and you get an error when
 attempting to connect, you can use the following information to try to fix the
@@ -751,32 +726,22 @@ my Amazon EC2 instance if I lost my SSH key pair after its initial launch?](http
 pair
 
 - [Step 1: Create a new key pair](#step-1-create-new-key-pair "#step-1-create-new-key-pair")
-- [Step 2: Get information about the
-  original instance and its root volume](#step-2-get-info-about-original-instance "#step-2-get-info-about-original-instance")
+- [Step 2: Get information about the original instance and its root volume](#step-2-get-info-about-original-instance "#step-2-get-info-about-original-instance")
 - [Step 3: Stop the original instance](#step-3-stop-original-instance "#step-3-stop-original-instance")
 - [Step 4: Launch a temporary instance](#step-4-launch-temp-instance "#step-4-launch-temp-instance")
-- [Step 5: Detach the
-  root volume from the original instance and attach it to the temporary instance](#step-5-detach-root-volume-and-attach-to-temp-instance "#step-5-detach-root-volume-and-attach-to-temp-instance")
-- [Step 6: Add the new public
-  key to authorized_keys on the original volume mounted to the temporary
-  instance](#step-6-add-new-public-key-to-authorized_keys "#step-6-add-new-public-key-to-authorized_keys")
-- [Step 7:
-  Unmount and detach the original volume from the temporary instance, and reattach it to the
-  original instance](#step-7-unmount-detach-volume-and-reattach-to-original-instance "#step-7-unmount-detach-volume-and-reattach-to-original-instance")
-- [Step 8: Connect to the original
-  instance using the new key pair](#step-8-connect-to-original-instance "#step-8-connect-to-original-instance")
+- [Step 5: Detach the root volume from the original instance and attach it to the temporary instance](#step-5-detach-root-volume-and-attach-to-temp-instance "#step-5-detach-root-volume-and-attach-to-temp-instance")
+- [Step 6: Add the new public key to authorized_keys on the original volume mounted to the temporary instance](#step-6-add-new-public-key-to-authorized_keys "#step-6-add-new-public-key-to-authorized_keys")
+- [Step 7: Unmount and detach the original volume from the temporary instance, and reattach it to the original instance](#step-7-unmount-detach-volume-and-reattach-to-original-instance "#step-7-unmount-detach-volume-and-reattach-to-original-instance")
+- [Step 8: Connect to the original instance using the new key pair](#step-8-connect-to-original-instance "#step-8-connect-to-original-instance")
 - [Step 9: Clean up](#step-9-clean-up "#step-9-clean-up")
 
 ### Step 1: Create a new key pair
 
 Create a new key pair using either the Amazon EC2 console or a third-party tool. If you want
 to name your new key pair exactly the same as the lost private key, you must first delete
-the existing key pair. For information about creating a new key pair, see [Create a key pair using Amazon EC2](create-key-pairs.md#having-ec2-create-your-key-pair "create-key-pairs.md#having-ec2-create-your-key-pair") or [Create a key pair using
-a third-party tool and import the public key to Amazon EC2](create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws "create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws").
+the existing key pair. For information about creating a new key pair, see [Create a key pair using Amazon EC2](create-key-pairs.md#having-ec2-create-your-key-pair "create-key-pairs.md#having-ec2-create-your-key-pair") or [Create a key pair using a third-party tool and import the public key to Amazon EC2](create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws "create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws").
 
-### Step 2: Get information about the
-
-original instance and its root volume
+### Step 2: Get information about the original instance and its root volume
 
 Make note of the following information because you'll need it to complete this
 procedure.
@@ -829,9 +794,7 @@ To keep data from instance store volumes, be sure to back it up to persistent st
    as the original instance.
 7. In the **Summary** panel, choose **Launch**.
 
-### Step 5: Detach the
-
-root volume from the original instance and attach it to the temporary instance
+### Step 5: Detach the root volume from the original instance and attach it to the temporary instance
 
 1. In the navigation pane, choose **Volumes** and select the root
    volume for the original instance (you made note of its volume ID in a
@@ -852,10 +815,7 @@ If you launched your original instance from an AWS Marketplace AMI and your volu
 AWS Marketplace codes, you must first stop the temporary instance before you can attach the
 volume.
 
-### Step 6: Add the new public
-
-key to `authorized_keys` on the original volume mounted to the temporary
-instance
+### Step 6: Add the new public key to `authorized_keys` on the original volume mounted to the temporary instance
 
 1. Connect to the temporary instance.
 2. From the temporary instance, mount the volume that you attached to the instance so
@@ -979,10 +939,7 @@ them.
 `[ec2-user ~]$` `sudo chown `222:500` /mnt/tempvol/home/`ec2-user`/.ssh/authorized_keys`
 ```
 
-### Step 7:
-
-Unmount and detach the original volume from the temporary instance, and reattach it to the
-original instance
+### Step 7: Unmount and detach the original volume from the temporary instance, and reattach it to the original instance
 
 1. From the temporary instance, unmount the volume that you attached so that you can
    reattach it to the original instance. For example, use the following command to unmount
@@ -1013,9 +970,7 @@ If you don't specify the same device name as the original attachment, you cannot
 start the original instance. Amazon EC2 expects the root volume at
 `sda1` or `/dev/xvda`.
 
-### Step 8: Connect to the original
-
-instance using the new key pair
+### Step 8: Connect to the original instance using the new key pair
 
 Select the original instance, choose **Instance state**,
 **Start instance**. After the instance enters the `running`

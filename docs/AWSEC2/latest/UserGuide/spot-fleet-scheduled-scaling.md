@@ -1,6 +1,4 @@
-# Scheduled scaling: Scale Spot Fleet on a
-
-schedule
+# Scheduled scaling: Scale Spot Fleet on a schedule
 
 Scaling your fleet on a schedule enables you to scale your application in response
 to predictable changes in demand. By creating _scheduled
@@ -17,8 +15,7 @@ needs change, you can edit or delete scheduled actions.
 - The Spot Fleet request must have a request type of `maintain`.
   Automatic scaling is not supported for requests of type
   `request`.
-- Configure the [IAM permissions required for Spot Fleet
-  automatic scaling](spot-fleet-auto-scaling-IAM.md "spot-fleet-auto-scaling-IAM.md").
+- Configure the [IAM permissions required for Spot Fleet automatic scaling](spot-fleet-auto-scaling-IAM.md "spot-fleet-auto-scaling-IAM.md").
 - Review the [Considerations](spot-fleet-automatic-scaling.md#considerations-for-spot-fleet-automatic-scaling "spot-fleet-automatic-scaling.md#considerations-for-spot-fleet-automatic-scaling").
 
 ###### To create a one-time scheduled action

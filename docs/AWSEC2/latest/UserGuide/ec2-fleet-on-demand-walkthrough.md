@@ -1,6 +1,4 @@
-# Tutorial: Configure EC2 Fleet to use On-Demand Instances
-
-as the primary capacity
+# Tutorial: Configure EC2 Fleet to use On-Demand Instances as the primary capacity
 
 This tutorial uses a fictitious company called ABC Online to illustrate the process of
 requesting an EC2 Fleet with On-Demand as the primary capacity, and Spot capacity if
@@ -23,16 +21,12 @@ following requirements for their EC2 Fleet:
 - Spot Instance capacity – To enhance performance, but at a lower price, ABC
   Online plans to provision 5 Spot Instances.
 
-## Verify
-
-permissions
+## Verify permissions
 
 Before creating an EC2 Fleet, ABC Online verifies that it has an IAM role with the
 required permissions. For more information, see [EC2 Fleet prerequisites](ec2-fleet-prerequisites.md "ec2-fleet-prerequisites.md").
 
-## Create a
-
-launch template
+## Create a launch template
 
 Next, ABC Online creates a launch template. The launch template ID is used in the
 following step. For more information, see [Create an Amazon EC2 launch template](create-launch-template.md "create-launch-template.md").

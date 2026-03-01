@@ -38,5 +38,4 @@ You can't use Capacity Reservation groups in a Wavelength Zone.
    subnet in the Wavelength Zone (for example `subnet-123abc |
 us-east-1-wl1-bos-wlz-1`), and for **Capacity Reservation**, choose the specification (either `open` or
    target it by ID) that's required for the Capacity Reservation that you created in the Wavelength.
-   For more information, see [Launch instances into an existing
-   Capacity Reservation](capacity-reservations-launch.md "capacity-reservations-launch.md").
+   For more information, see [Launch instances into an existing Capacity Reservation](capacity-reservations-launch.md "capacity-reservations-launch.md").

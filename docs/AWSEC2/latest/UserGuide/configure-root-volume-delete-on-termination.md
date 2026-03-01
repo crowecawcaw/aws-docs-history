@@ -7,14 +7,11 @@ attribute to `false`. You can do so either at instance launch or later on.
 
 ###### Tasks
 
-- [Configure the root volume to persist during
-  instance launch](#Using_ChangeRootDeviceVolumeToPersist "#Using_ChangeRootDeviceVolumeToPersist")
+- [Configure the root volume to persist during instance launch](#Using_ChangeRootDeviceVolumeToPersist "#Using_ChangeRootDeviceVolumeToPersist")
 - [Configure the root volume to persist for an existing instance](#set-deleteOnTermination-aws-cli "#set-deleteOnTermination-aws-cli")
 - [Confirm that a root volume is configured to persist](#Using_ConfirmRootDeviceVolumeToPersist "#Using_ConfirmRootDeviceVolumeToPersist")
 
-## Configure the root volume to persist during
-
-instance launch
+## Configure the root volume to persist during instance launch
 
 You can configure the root volume to persist when you launch an instance.
 

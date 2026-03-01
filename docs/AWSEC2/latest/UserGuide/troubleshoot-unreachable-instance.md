@@ -7,13 +7,10 @@ Windows instances, troubleshoot by reviewing screenshots returned by the service
 
 - [Instance reboot](#instance-console-rebooting "#instance-console-rebooting")
 - [Instance console output](#instance-console-console-output "#instance-console-console-output")
-- [Capture a screenshot of an unreachable
-  instance](#instance-console-screenshot "#instance-console-screenshot")
+- [Capture a screenshot of an unreachable instance](#instance-console-screenshot "#instance-console-screenshot")
 - [Common screenshots for Windows instances](ics-common.md "ics-common.md")
-- [Instance recovery when a host computer
-  fails](#instance-machine-failure "#instance-machine-failure")
-- [Instance
-  appeared offline and unexpectedly rebooted](#troubleshoot-unavailable-instance-unexpected-reboot "#troubleshoot-unavailable-instance-unexpected-reboot")
+- [Instance recovery when a host computer fails](#instance-machine-failure "#instance-machine-failure")
+- [Instance appeared offline and unexpectedly rebooted](#troubleshoot-unavailable-instance-unexpected-reboot "#troubleshoot-unavailable-instance-unexpected-reboot")
 
 ## Instance reboot
 
@@ -75,9 +72,7 @@ Use the [Get-EC2ConsoleOutput](../../../powershell/latest/reference/items/Get-EC
 Get-EC2ConsoleOutput -InstanceId `i-1234567890abcdef0`
 ```
 
-## Capture a screenshot of an unreachable
-
-instance
+## Capture a screenshot of an unreachable instance
 
 If you are unable to connect to your instance, you can capture a
 screenshot of your instance and view it as an image. The image can provide visibility as
@@ -140,17 +135,13 @@ Use the [Get-EC2ConsoleScreenshot](../../../powershell/latest/reference/items/Ge
 Get-EC2ConsoleScreenshot -InstanceId `i-1234567890abcdef0`
 ```
 
-## Instance recovery when a host computer
-
-fails
+## Instance recovery when a host computer fails
 
 If there is an unrecoverable issue with the hardware of an underlying host computer,
 AWS may schedule an instance stop event. You are notified of such an event ahead of
 time by email.
 
-###### To recover an Amazon EBS-backed instance running on a host computer that
-
-failed
+###### To recover an Amazon EBS-backed instance running on a host computer that failed
 
 1. Back up any important data on your instance store volumes to Amazon EBS or
    Amazon S3.
@@ -160,9 +151,7 @@ failed
 
 For more information, see [Stop and start Amazon EC2 instances](Stop_Start.md "Stop_Start.md").
 
-###### To recover an instance with an instance store root volume running on a host
-
-computer that failed
+###### To recover an instance with an instance store root volume running on a host computer that failed
 
 1. Create an AMI from the instance.
 2. Upload the image to Amazon S3.
@@ -171,9 +160,7 @@ computer that failed
 5. Launch a new instance from the AMI.
 6. Restore any important data to the new instance.
 
-## Instance
-
-appeared offline and unexpectedly rebooted
+## Instance appeared offline and unexpectedly rebooted
 
 If your instance appears to have been offline and then unexpectedly rebooted, it might
 have undergone automatic instance recovery. This happens when AWS detects that the
@@ -183,8 +170,7 @@ instance.
 
 During the recovery process, AWS attempts to restore the instance's availability by
 migrating it to different hardware. To verify whether automatic instance recovery
-occurred for your instance, see [Verify if automatic instance recovery
-occurred](verify-if-automatic-recovery-occurred.md "verify-if-automatic-recovery-occurred.md").
+occurred for your instance, see [Verify if automatic instance recovery occurred](verify-if-automatic-recovery-occurred.md "verify-if-automatic-recovery-occurred.md").
 
 ###### Note
 

@@ -19,8 +19,7 @@ We reserve specific device names for root volumes. For more information, see
 ###### Contents
 
 - [Instances with an Amazon EBS root volume](#root-volume-ebs-backed "#root-volume-ebs-backed")
-- [Instances with an instance store root volume
-  (Linux instances only)](#root-volume-instance-store-backed "#root-volume-instance-store-backed")
+- [Instances with an instance store root volume (Linux instances only)](#root-volume-instance-store-backed "#root-volume-instance-store-backed")
 - [Keep an Amazon EBS root volume after an Amazon EC2 instance terminates](configure-root-volume-delete-on-termination.md "configure-root-volume-delete-on-termination.md")
 - [Replace the root volume for an Amazon EC2 instance without stopping it](replace-root.md "replace-root.md")
 
@@ -59,9 +58,7 @@ one of these methods:
   4.  Detach the remaining Amazon EBS volumes from the old instance.
   5.  Reattach the Amazon EBS volumes to the new instance.
 
-## Instances with an instance store root volume
-
-(Linux instances only)
+## Instances with an instance store root volume (Linux instances only)
 
 ###### Note
 

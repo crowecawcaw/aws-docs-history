@@ -1,6 +1,4 @@
-# Increase the size of an EBS volume on your Mac
-
-instance
+# Increase the size of an EBS volume on your Mac instance
 
 You can increase the size of your Amazon EBS volumes on your Mac instance. For more information, see
 [Amazon EBS Elastic Volumes](../../../ebs/latest/userguide/ebs-modify-volume.md "../../../ebs/latest/userguide/ebs-modify-volume.md")

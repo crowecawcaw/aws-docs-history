@@ -48,8 +48,7 @@ Amazon EC2 Mac instances natively support the macOS operating system.
 - [Launch a Mac instance using the AWS Management Console or the AWS CLI](mac-instance-launch.md "mac-instance-launch.md")
 - [Connect to your Mac instance using SSH or a GUI](connect-to-mac-instance.md "connect-to-mac-instance.md")
 - [Update the operating system and software on Amazon EC2 Mac instances](mac-instance-updates.md "mac-instance-updates.md")
-- [Increase the size of an EBS volume on your Mac
-  instance](mac-instance-increase-volume.md "mac-instance-increase-volume.md")
+- [Increase the size of an EBS volume on your Mac instance](mac-instance-increase-volume.md "mac-instance-increase-volume.md")
 - [Stop or terminate your Amazon EC2 Mac instance](mac-instance-stop.md "mac-instance-stop.md")
 - [Configure System Integrity Protection for Amazon EC2 Mac instances](mac-sip-settings.md "mac-sip-settings.md")
 - [Find supported macOS versions for your Amazon EC2 Mac Dedicated Host](macos-firmware-visibility.md "macos-firmware-visibility.md")

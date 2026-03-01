@@ -6,9 +6,7 @@ are different depending on whether you created your account before July 15, 2025
 or after July 15, 2025. For more information, see [Explore AWS services with
 AWS Free Tier](../../../awsaccountbilling/latest/aboutv2/free-tier.md "../../../awsaccountbilling/latest/aboutv2/free-tier.md") in the _AWS Billing User Guide_.
 
-## Free Tier benefits before and after July
-
-15, 2025
+## Free Tier benefits before and after July 15, 2025
 
 The following table compares your Free Tier benefits based on your AWS account
 creation date:
@@ -45,9 +43,7 @@ aws ec2 describe-images \
     --output text | sort
 ```
 
-## Track Free Tier usage for accounts
-
-created before July 15, 2025
+## Track Free Tier usage for accounts created before July 15, 2025
 
 ###### Note
 
@@ -109,8 +105,7 @@ follows:
    - To check if you have resources in other Regions that might be incurring charges, in the
      **EC2 Free Tier** box, choose **View Global
      EC2 resources** to open the **EC2 Global
-     View**. For more information, see [View resources across Regions using AWS Global
-     View](global-view.md "global-view.md").
+     View**. For more information, see [View resources across Regions using AWS Global View](global-view.md "global-view.md").
 
 6. To view your resource usage for all AWS services under the AWS Free Tier,
    at the bottom of the **EC2 Free Tier** box, choose

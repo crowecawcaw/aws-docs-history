@@ -101,6 +101,8 @@ The following instances support dynamic allocation of multiple ENA queues.
 | `m8gb.16xlarge`     | 16                               | 64                               | 256                             |
 | `m8gb.24xlarge`     | 16                               | 128                              | 384                             |
 | `m8gb.48xlarge`     | 32                               | 128                              | 768 \*                          |
+| `m8gb.metal-24xl`   | 32                               | 128                              | 768                             |
+| `m8gb.metal-48xl`   | 32                               | 128                              | 768 \*                          |
 | **M8gn**            |
 | `m8gn.medium`       | 1                                | 1                                | 2                               |
 | `m8gn.large`        | 2                                | 2                                | 6                               |
@@ -112,6 +114,8 @@ The following instances support dynamic allocation of multiple ENA queues.
 | `m8gn.16xlarge`     | 16                               | 64                               | 256                             |
 | `m8gn.24xlarge`     | 16                               | 128                              | 384                             |
 | `m8gn.48xlarge`     | 32                               | 128                              | 768 \*                          |
+| `m8gn.metal-24xl`   | 32                               | 128                              | 768                             |
+| `m8gn.metal-48xl`   | 32                               | 128                              | 768 \*                          |
 | **M8i**             |
 | `m8i.large`         | 2                                | 2                                | 6                               |
 | `m8i.xlarge`        | 4                                | 4                                | 16                              |

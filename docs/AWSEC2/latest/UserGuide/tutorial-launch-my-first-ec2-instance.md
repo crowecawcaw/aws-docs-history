@@ -1,6 +1,4 @@
-# Tutorial 1: Launch my very first
-
-Amazon EC2 instance
+# Tutorial 1: Launch my very first Amazon EC2 instance
 
 |                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -10,9 +8,7 @@ Amazon EC2 instance
 | **Cost**               | Free Tier eligible<br>When you create your AWS account, you can get started with Amazon EC2<br>for free using the [AWS Free Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/").<br>If you created your AWS account before July 15, 2025, it's less<br>than 12 months old, and you haven't already exceeded the Free Tier<br>benefits for Amazon EC2, it won't cost you anything to complete this<br>tutorial, because we help you select options that are within the<br>Free Tier benefits. Otherwise, you'll incur the standard Amazon EC2<br>usage fees from the time that you launch the instance (even if it<br>remains idle) until you terminate it.<br>If you created your AWS account on or after July 15, 2025, it's<br>less than 6 months old, and you haven't used up all your credits, it<br>won't cost you anything to complete this tutorial, because we help<br>you select options that are within the Free Tier benefits.<br>For information on how to determine whether<br>you're eligible for the Free Tier, see [Track your Free Tier usage for Amazon EC2](ec2-free-tier-usage.md "ec2-free-tier-usage.md"). |
 | **Prerequisites**      | • You must have an AWS account, configure a user with<br>administrator access, and use the administrator user to sign<br>into the AWS Management Console. Not sure how to do this? Try this<br>tutorial: [Setting<br>Up Your AWS Environment](https://aws.amazon.com/getting-started/guides/setup-environment/ "https://aws.amazon.com/getting-started/guides/setup-environment/")<br>• You must have general familiarity with the AWS console.<br>Not sure where to start? Try this getting started guide:<br>[Getting Started with the AWS Management Console](https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-management-console/ "https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-management-console/")                                                                                                                                                                                                                                                                                                                                                                                   |
 
-## Tutorial
-
-overview
+## Tutorial overview
 
 This tutorial is designed for beginners with no prior experience using Amazon EC2.
 We'll guide you through the steps for creating—we call it _launching_—your very first EC2 instance using the
@@ -25,18 +21,12 @@ instance.
 This tutorial is divided into the following short tasks. You must complete each
 task before moving to the next one.
 
-- [Task 1: Launch your
-  instance](#task-1-quickly-launch-instance "#task-1-quickly-launch-instance")
-- [Task 2: Find your
-  instance](#task-2-find-your-first-instance-in-the-console "#task-2-find-your-first-instance-in-the-console")
-- [Task 3: View your
-  instance configuration](#task-3-view-your-first-instance-configuration "#task-3-view-your-first-instance-configuration")
-- [Task 4: Terminate your
-  instance](#task-4-terminate-your-first-instance "#task-4-terminate-your-first-instance")
+- [Task 1: Launch your instance](#task-1-quickly-launch-instance "#task-1-quickly-launch-instance")
+- [Task 2: Find your instance](#task-2-find-your-first-instance-in-the-console "#task-2-find-your-first-instance-in-the-console")
+- [Task 3: View your instance configuration](#task-3-view-your-first-instance-configuration "#task-3-view-your-first-instance-configuration")
+- [Task 4: Terminate your instance](#task-4-terminate-your-first-instance "#task-4-terminate-your-first-instance")
 
-## Task 1: Launch your
-
-instance
+## Task 1: Launch your instance
 
 In this task, you'll take the quickest path to launching your instance by doing
 only the essentials. We'll use the EC2 launch instance wizard, a web-based form that
@@ -86,9 +76,7 @@ Amazon EC2 quickly launches your instance using the default settings. A
 **Congratulations!** You've successfully launched
 your very first EC2 instance!
 
-## Task 2: Find your
-
-instance
+## Task 2: Find your instance
 
 In this task, you'll locate the instance that you just launched in the EC2
 console.
@@ -108,9 +96,7 @@ navigation pane. 2. **Locate your instance:**
 In the **Name** column, find your instance by the name
 you gave it.
 
-## Task 3: View your
-
-instance configuration
+## Task 3: View your instance configuration
 
 In this task, you'll become familiar with viewing your instance's configuration
 details.
@@ -163,9 +149,7 @@ Ctrl+F or command+F on your keyboard.
 Take a few more minutes to explore the other instance configuration fields. When
 you're ready, proceed to the next task.
 
-## Task 4: Terminate your
-
-instance
+## Task 4: Terminate your instance
 
 ###### Warning
 
@@ -174,8 +158,7 @@ instance
 After you terminate an instance, you can no longer connect to it, and it can't be recovered.
 All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
 deleted and can't be recovered. All data stored on instance store volumes is permanently lost.
-For more information, see [How instance termination
-works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
+For more information, see [How instance termination works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
 
 Before you terminate an instance, ensure that you have backed up all data that you need to
 retain after the termination to persistent storage.
@@ -210,9 +193,7 @@ widening the column.
 Once the instance has shut down, Amazon EC2 deletes the instance, and it
 disappears from the **Instances** page.
 
-## Key
-
-takeaways
+## Key takeaways
 
 In this tutorial, you covered the following key concepts:
 
@@ -228,9 +209,7 @@ In this tutorial, you covered the following key concepts:
   instance, while the instance name is an optional tag that you can assign for
   easier identification.
 
-## Next
-
-steps
+## Next steps
 
 To build confidence in launching and terminating instances, consider repeating the
 steps in this tutorial. Be sure to terminate any instances that you launch to

@@ -1,6 +1,4 @@
-# Configure simplified automatic recovery on
-
-an Amazon EC2 instance
+# Configure simplified automatic recovery on an Amazon EC2 instance
 
 ###### Important
 
@@ -28,8 +26,7 @@ Simplified automatic recovery is enabled by default on all supported instances d
 instance launch. However, it can only operate if an instance is in the `running`
 state, there are no service events listed in the AWS Health Dashboard, and there is available capacity
 for the instance type. In some situations, such as significant outages, capacity constraints
-might cause recovery attempts to fail. For more information, see [Troubleshoot
-simplified automatic recovery failures](#ec2-instance-recover-simplified-auto-recovery-troubleshooting "#ec2-instance-recover-simplified-auto-recovery-troubleshooting").
+might cause recovery attempts to fail. For more information, see [Troubleshoot simplified automatic recovery failures](#ec2-instance-recover-simplified-auto-recovery-troubleshooting "#ec2-instance-recover-simplified-auto-recovery-troubleshooting").
 
 You can disable simplified automatic recovery during or after launch, and re-enable it
 later if required.
@@ -46,15 +43,11 @@ Automatic instance recovery mechanisms are designed for _individual instances_. 
 
 ###### Contents
 
-- [Requirements for enabling
-  simplified automatic recovery](#requirements-for-simplified-automatic-recovery "#requirements-for-simplified-automatic-recovery")
+- [Requirements for enabling simplified automatic recovery](#requirements-for-simplified-automatic-recovery "#requirements-for-simplified-automatic-recovery")
 - [Configure simplified automatic recovery](#set-recovery-behavior "#set-recovery-behavior")
-- [Troubleshoot
-  simplified automatic recovery failures](#ec2-instance-recover-simplified-auto-recovery-troubleshooting "#ec2-instance-recover-simplified-auto-recovery-troubleshooting")
+- [Troubleshoot simplified automatic recovery failures](#ec2-instance-recover-simplified-auto-recovery-troubleshooting "#ec2-instance-recover-simplified-auto-recovery-troubleshooting")
 
-## Requirements for enabling
-
-simplified automatic recovery
+## Requirements for enabling simplified automatic recovery
 
 Simplified automatic recovery can be enabled on instances that meet the following
 criteria:
@@ -192,9 +185,7 @@ Edit-EC2InstanceMaintenanceOption `
     -AutoRecovery Enabled
 ```
 
-## Troubleshoot
-
-simplified automatic recovery failures
+## Troubleshoot simplified automatic recovery failures
 
 If simplified automatic recovery fails to recover your instance, consider the following
 issues:

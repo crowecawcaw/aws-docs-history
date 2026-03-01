@@ -1,6 +1,4 @@
-# Connect to an Amazon EC2 instance using
-
-EC2 Instance Connect Endpoint
+# Connect to an Amazon EC2 instance using EC2 Instance Connect Endpoint
 
 You can use EC2 Instance Connect Endpoint to connect to an Amazon EC2 instance that supports SSH or
 RDP.
@@ -8,8 +6,7 @@ RDP.
 ###### Prerequisites
 
 - You must have the required IAM permission to connect to an EC2 Instance Connect Endpoint.
-  For more information, see [Permissions to use EC2 Instance Connect Endpoint to connect to
-  instances](permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel "permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel").
+  For more information, see [Permissions to use EC2 Instance Connect Endpoint to connect to instances](permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel "permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel").
 - The EC2 Instance Connect Endpoint must be in one of the following states:
   - **create-complete** for a new endpoint
   - **update-in-progress**,
@@ -30,24 +27,17 @@ RDP.
   instance must have EC2 Instance Connect installed. For more information, see [Install
   EC2 Instance Connect](ec2-instance-connect-set-up.md "ec2-instance-connect-set-up.md").
 - Ensure that the security group of the instance allows inbound SSH traffic from
-  the EC2 Instance Connect Endpoint. For more information, see [Target instance security group
-  rules](eice-security-groups.md#resource-security-group-rules "eice-security-groups.md#resource-security-group-rules").
+  the EC2 Instance Connect Endpoint. For more information, see [Target instance security group rules](eice-security-groups.md#resource-security-group-rules "eice-security-groups.md#resource-security-group-rules").
 
 ###### Connection options
 
-- [Connect to your Linux instance using
-  the Amazon EC2 console](#connect-using-the-ec2-console "#connect-using-the-ec2-console")
-- [Connect to your Linux instance using
-  SSH](#eic-connect-using-ssh "#eic-connect-using-ssh")
-- [Connect to your Linux instance with its
-  instance ID using the AWS CLI](#eic-connect-using-cli "#eic-connect-using-cli")
-- [Connect to your Windows instance using
-  RDP](#eic-connect-using-rdp "#eic-connect-using-rdp")
+- [Connect to your Linux instance using the Amazon EC2 console](#connect-using-the-ec2-console "#connect-using-the-ec2-console")
+- [Connect to your Linux instance using SSH](#eic-connect-using-ssh "#eic-connect-using-ssh")
+- [Connect to your Linux instance with its instance ID using the AWS CLI](#eic-connect-using-cli "#eic-connect-using-cli")
+- [Connect to your Windows instance using RDP](#eic-connect-using-rdp "#eic-connect-using-rdp")
 - [Troubleshoot](#troubleshoot-eice "#troubleshoot-eice")
 
-## Connect to your Linux instance using
-
-the Amazon EC2 console
+## Connect to your Linux instance using the Amazon EC2 console
 
 You can connect to an instance using the Amazon EC2 console (a browser-based client) as
 follows.
@@ -83,9 +73,7 @@ specified in the IAM policy. If you don't have access to the IAM policy,
 contact your administrator. 10. Choose **Connect**. This opens a terminal window for your
 instance.
 
-## Connect to your Linux instance using
-
-SSH
+## Connect to your Linux instance using SSH
 
 You can use SSH to connect to your Linux instance, and use the
 `open-tunnel` command to establish a private tunnel. You can use
@@ -134,9 +122,7 @@ To allow multiple connections to an instance, first run the [open-tunnel](../../
 new TCP connections, and then use `ssh` to create a new TCP
 connection and a private tunnel to your instance.
 
-###### To allow multiple connections to your instance using SSH and the
-
-`open-tunnel` command
+###### To allow multiple connections to your instance using SSH and the `open-tunnel` command
 
 1. Run the following command to start listening for new TCP connections
    on the specified port on your local machine.
@@ -173,9 +159,7 @@ You might also see the following:
 [1] Closing tcp connection.
 ```
 
-## Connect to your Linux instance with its
-
-instance ID using the AWS CLI
+## Connect to your Linux instance with its instance ID using the AWS CLI
 
 If you only know your instance ID, you can use the [ec2-instance-connect
 ssh](../../../cli/latest/reference/ec2-instance-connect/ssh.md "../../../cli/latest/reference/ec2-instance-connect/ssh.md") AWS CLI command to connect to your instance using an SSH client. For
@@ -227,9 +211,7 @@ If you get an error, make sure that you're using AWS CLI version 2. The
 information, see [About
 AWS CLI version 2](../../../cli/latest/userguide/cli-chap-welcome.md#welcome-versions-v2 "../../../cli/latest/userguide/cli-chap-welcome.md#welcome-versions-v2") in the _AWS Command Line Interface User Guide_.
 
-## Connect to your Windows instance using
-
-RDP
+## Connect to your Windows instance using RDP
 
 You can use Remote Desktop Protocol (RDP) over EC2 Instance Connect Endpoint to connect to a
 Windows instance without a public IPv4 address or public DNS name.
@@ -290,8 +272,7 @@ instance.
   private key, verify that your instance has a public key and that you
   have the corresponding private key.
 - IAM permissions – Verify that you have the required IAM
-  permissions. For more information, see [Grant permissions to use
-  EC2 Instance Connect Endpoint](permissions-for-ec2-instance-connect-endpoint.md "permissions-for-ec2-instance-connect-endpoint.md").
+  permissions. For more information, see [Grant permissions to use EC2 Instance Connect Endpoint](permissions-for-ec2-instance-connect-endpoint.md "permissions-for-ec2-instance-connect-endpoint.md").
 
 For more troubleshooting tips for Linux instances, see [Troubleshoot issues connecting to your Amazon EC2 Linux instance](TroubleshootingInstancesConnecting.md "TroubleshootingInstancesConnecting.md"). For troubleshooting
 tips for Windows instances, see [Troubleshoot issues connecting to your Amazon EC2 Windows instance](troubleshoot-connect-windows-instance.md "troubleshoot-connect-windows-instance.md").

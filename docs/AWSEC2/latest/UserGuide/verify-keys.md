@@ -13,9 +13,7 @@ If you're trying to verify the fingerprint of your Linux EC2 instance, not the f
 of your key pair, see [Get the instance
 fingerprint](connection-prereqs-general.md#connection-prereqs-fingerprint "connection-prereqs-general.md#connection-prereqs-fingerprint").
 
-## How the fingerprints are
-
-calculated
+## How the fingerprints are calculated
 
 Amazon EC2 uses different hash functions to calculate the fingerprints for RSA and ED25519
 key pairs. Furthermore, for RSA key pairs, Amazon EC2 calculates the fingerprints differently
@@ -35,9 +33,7 @@ MD5 hash function. This is true regardless of how you created the key pair, for 
 using a third-party tool or by generating a new public key from an existing private key
 created using Amazon EC2.
 
-## When using the same key pair
-
-in different Regions
+## When using the same key pair in different Regions
 
 If you plan to use the same key pair to connect to instances in different AWS Regions,
 you must import the public key to all of the Regions in which you'll use it. If you use
@@ -55,9 +51,7 @@ other Regions.
   created by Amazon EC2 or imported to Amazon EC2, because the same SHA-256 hash function is used
   to calculate the fingerprint.
 
-## Generate a fingerprint from the
-
-private key
+## Generate a fingerprint from the private key
 
 Use one of the following commands to generate a fingerprint from the private key on your
 local machine.

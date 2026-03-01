@@ -21,18 +21,12 @@ corresponding instance parameter is used.
 
 ###### Tasks
 
-- [Create a launch template
-  by specifying parameters](#create-launch-template-define-parameters "#create-launch-template-define-parameters")
-- [Create a
-  launch template from an existing launch template](#create-launch-template-from-existing-launch-template "#create-launch-template-from-existing-launch-template")
-- [Create a launch template from
-  an instance](#create-launch-template-from-instance "#create-launch-template-from-instance")
-- [Use a Systems Manager parameter
-  instead of an AMI ID](#use-an-ssm-parameter-instead-of-an-ami-id "#use-an-ssm-parameter-instead-of-an-ami-id")
+- [Create a launch template by specifying parameters](#create-launch-template-define-parameters "#create-launch-template-define-parameters")
+- [Create a launch template from an existing launch template](#create-launch-template-from-existing-launch-template "#create-launch-template-from-existing-launch-template")
+- [Create a launch template from an instance](#create-launch-template-from-instance "#create-launch-template-from-instance")
+- [Use a Systems Manager parameter instead of an AMI ID](#use-an-ssm-parameter-instead-of-an-ami-id "#use-an-ssm-parameter-instead-of-an-ami-id")
 
-## Create a launch template
-
-by specifying parameters
+## Create a launch template by specifying parameters
 
 To create a launch template, you must specify the launch template name and at
 least one instance configuration parameter.
@@ -74,8 +68,7 @@ Console
    include in launch template** selected, or choose
    the operating system (OS) for the instance, and then choose an
    AMI. Alternatively, you can specify a Systems Manager parameter instead of
-   specifying an AMI. For more information, see [Use a Systems Manager parameter
-   instead of an AMI ID](#use-an-ssm-parameter-instead-of-an-ami-id "#use-an-ssm-parameter-instead-of-an-ami-id").
+   specifying an AMI. For more information, see [Use a Systems Manager parameter instead of an AMI ID](#use-an-ssm-parameter-instead-of-an-ami-id "#use-an-ssm-parameter-instead-of-an-ami-id").
 
 An AMI is a template that contains the operating system and
 software required to launch an instance. 5. Under **Instance type**, you can either keep
@@ -89,8 +82,7 @@ attributes.
 Specifying instance attributes is supported only when the
 launch template is used by Auto Scaling groups, EC2 Fleet, and Spot Fleet to
 launch instances. For more information, see [Create mixed instances group using attribute-based instance
-type selection](../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md "../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md") and [Specify attributes for
-instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md").
+type selection](../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md "../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md") and [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md").
 
 If you plan to use the launch template in the [launch instance
 wizard](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md") or with the [RunInstances API](../APIReference/API_RunInstances.md "../APIReference/API_RunInstances.md"), you can't specify instance
@@ -138,8 +130,7 @@ If you created your AWS account on or after July 15,
 **m7i-flex.large** instance types for 6
 months or until your credits are used up.
 
-For more information, see [Free Tier benefits before and after July
-15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison"). 6. Under **Key pair (login)**, for **Key
+For more information, see [Free Tier benefits before and after July 15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison"). 6. Under **Key pair (login)**, for **Key
 pair name**, either keep **Don't include in
 launch template** selected, or choose an existing
 key pair, or create a new one. 7. Under **Network settings**, you can either
@@ -294,9 +285,7 @@ LaunchTemplateName   : TemplateForWebServer
 Tags                 : {purpose}
 ```
 
-## Create a
-
-launch template from an existing launch template
+## Create a launch template from an existing launch template
 
 You can clone an existing launch template and then adjust the parameters to create
 a new launch template. However, you can only do this when using the Amazon EC2 console.
@@ -305,9 +294,7 @@ see [Reference for Amazon EC2 instance configuration parameters](ec2-instance-la
 
 Console
 
-###### To create a launch template from an existing launch
-
-template
+###### To create a launch template from an existing launch template
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -332,9 +319,7 @@ template
 8. Adjust any launch parameters as required, and then choose
    **Create launch template**.
 
-## Create a launch template from
-
-an instance
+## Create a launch template from an instance
 
 You can clone the parameters of an existing Amazon EC2 instance and then adjust the
 parameters to create a launch template. For a description of each parameter, see
@@ -441,12 +426,9 @@ aws ec2 get-launch-template-data \
 - Use the [create-launch-template](../../../cli/latest/reference/ec2/create-launch-template.md "../../../cli/latest/reference/ec2/create-launch-template.md") command to create a launch
   template using the output from the previous procedure. For more
   information about creating a launch template using the AWS CLI,
-  see [Create a launch template
-  by specifying parameters](#create-launch-template-define-parameters "#create-launch-template-define-parameters").
+  see [Create a launch template by specifying parameters](#create-launch-template-define-parameters "#create-launch-template-define-parameters").
 
-## Use a Systems Manager parameter
-
-instead of an AMI ID
+## Use a Systems Manager parameter instead of an AMI ID
 
 Instead of specifying an AMI ID in your launch templates, you can specify an
 AWS Systems Manager parameter. If the AMI ID changes, you can update the AMI ID in one place
@@ -472,9 +454,7 @@ launch template, the AMI ID resolves to the new
 
 ![Using Systems Manager parameters in the Parameter Store to update a launch template.](images/launch-template-ami-alias.png)
 
-### Systems Manager parameter format for
-
-AMI IDs
+### Systems Manager parameter format for AMI IDs
 
 Launch templates require that user-defined Systems Manager parameters adhere to the
 following format when used in place of an AMI ID:
@@ -488,9 +468,7 @@ For more information about creating a valid parameter for an AMI ID, see
 [Creating Systems Manager parameters](../../../systems-manager/latest/userguide/sysman-paramstore-su-create.md "../../../systems-manager/latest/userguide/sysman-paramstore-su-create.md") in the
 _AWS Systems Manager User Guide_.
 
-### Systems Manager parameter
-
-format in launch templates
+### Systems Manager parameter format in launch templates
 
 To use a Systems Manager parameter in place of an AMI ID in a launch template, you must
 use one of the following formats when specifying the parameter in the launch
@@ -533,9 +511,7 @@ parameter by using either of the following formats:
 Specifying the version or label is optional. If a version or label is not
 specified, the latest version of the parameter is used.
 
-### Specify a
-
-Systems Manager parameter in a launch template
+### Specify a Systems Manager parameter in a launch template
 
 You can specify a Systems Manager parameter in a launch template instead of an AMI ID
 when you create a launch template or a new version of a launch template.
@@ -588,8 +564,7 @@ Console
     and then choose **Create launch
     template**.
 
-For more information, see [Create a launch template
-by specifying parameters](#create-launch-template-define-parameters "#create-launch-template-define-parameters").
+For more information, see [Create a launch template by specifying parameters](#create-launch-template-define-parameters "#create-launch-template-define-parameters").
 
 AWS CLI
 
@@ -665,9 +640,7 @@ entered in the required format
 }
 ```
 
-### Verify that a launch template gets
-
-the correct AMI ID
+### Verify that a launch template gets the correct AMI ID
 
 ###### To resolve the Systems Manager parameter to the actual AMI ID
 

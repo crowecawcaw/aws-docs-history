@@ -132,9 +132,7 @@ encryption between instances, the following requirements must be met:
 An additional layer of encryption is automatically provided at the physical layer for all
 traffic before it leaves AWS secured facilities, as previously noted in this section.
 
-###### To view the instance types that encrypt in-transit traffic between instances using the
-
-AWS CLI
+###### To view the instance types that encrypt in-transit traffic between instances using the AWS CLI
 
 Use the following [describe-instance-types](../../../cli/latest/reference/ec2/describe-instance-types.md "../../../cli/latest/reference/ec2/describe-instance-types.md") command.
 

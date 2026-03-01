@@ -10,15 +10,12 @@ succeed.
 
 ###### To use the Spot placement score feature, follow these steps:
 
-- [Step 1: Specify your Spot
-  requirements](#sps-specify-requirements "#sps-specify-requirements")
+- [Step 1: Specify your Spot requirements](#sps-specify-requirements "#sps-specify-requirements")
 - [Step 2: Filter the Spot placement score response](#get-sps "#get-sps")
 - [Step 3: Review the recommendations](#sps-recommendations "#sps-recommendations")
 - [Step 4: Use the recommendations](#sps-use-recommendations "#sps-use-recommendations")
 
-## Step 1: Specify your Spot
-
-requirements
+## Step 1: Specify your Spot requirements
 
 First, you specify your desired target Spot capacity and your compute
 requirements, as follows:
@@ -119,8 +116,7 @@ to get the best results:
 If you used attribute-based instance type selection in your Spot placement score request, you can use
 attribute-based instance type selection to configure your Auto Scaling group, EC2 Fleet,
 or Spot Fleet. For more information, see [Create mixed instances group using attribute-based instance type
-selection](../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md "../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md") and [Specify attributes for
-instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md").
+selection](../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md "../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md") and [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md").
 
 ###### Note
 

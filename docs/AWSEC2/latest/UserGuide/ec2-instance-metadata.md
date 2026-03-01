@@ -1,6 +1,4 @@
-# Use instance metadata to manage your EC2
-
-instance
+# Use instance metadata to manage your EC2 instance
 
 _Instance metadata_ is data about your instance that you can use to
 configure or manage the running instance. Instance metadata includes the following:
@@ -31,8 +29,7 @@ call, the user data is available to all instances in that reservation. Each
 instance that is part of the same reservation has a unique
 `ami-launch-index` number, so that you can write code that
 controls what the instances do. For example, the first host might elect itself
-as the original node in a cluster. For a detailed AMI launch example, see [Identify each instance launched in a single
-request](AMI-launch-index-examples.md "AMI-launch-index-examples.md").
+as the original node in a cluster. For a detailed AMI launch example, see [Identify each instance launched in a single request](AMI-launch-index-examples.md "AMI-launch-index-examples.md").
 
 ###### Important
 
@@ -47,11 +44,9 @@ or long-lived encryption keys, as user data.
 - [Instance metadata categories](#instancedata-data-categories "#instancedata-data-categories")
 - [Dynamic data categories](#dynamic-data-categories "#dynamic-data-categories")
 - [Access instance metadata for an EC2 instance](instancedata-data-retrieval.md "instancedata-data-retrieval.md")
-- [Configure the Instance Metadata Service
-  options](configuring-instance-metadata-options.md "configuring-instance-metadata-options.md")
+- [Configure the Instance Metadata Service options](configuring-instance-metadata-options.md "configuring-instance-metadata-options.md")
 - [Run commands when you launch an EC2 instance with user data input](user-data.md "user-data.md")
-- [Identify each instance launched in a single
-  request](AMI-launch-index-examples.md "AMI-launch-index-examples.md")
+- [Identify each instance launched in a single request](AMI-launch-index-examples.md "AMI-launch-index-examples.md")
 
 ## Instance metadata categories
 
@@ -92,7 +87,7 @@ metadata.
 | `block-device-mapping/root`                                   | The virtual devices or partitions associated with the root devices or<br>partitions on the virtual device, where the root (/ or C:) file system<br>is associated with the given instance.                                                                                                                                                                                                                                                                                                                                                                                            | 2007-12-15                         |
 | `block-device-mapping/swap`                                   | The virtual devices associated with `swap`. Not always<br>present.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2007-12-15                         |
 | `events/maintenance/history`                                  | If there are completed or canceled maintenance events for the<br>instance, contains a JSON string with information about the<br>events.                                                                                                                                                                                                                                                                                                                                                                                                                                              | 2018-08-17                         |
-| `events/maintenance/scheduled`                                | If there are active maintenance events for the instance, contains a<br>JSON string with information about the events. For more information, see<br>[View scheduled events that affect your<br>Amazon EC2 instances](viewing_scheduled_events.md "viewing_scheduled_events.md").                                                                                                                                                                                                                                                                                                      | 2018-08-17                         |
+| `events/maintenance/scheduled`                                | If there are active maintenance events for the instance, contains a<br>JSON string with information about the events. For more information, see<br>[View scheduled events that affect your Amazon EC2 instances](viewing_scheduled_events.md "viewing_scheduled_events.md").                                                                                                                                                                                                                                                                                                         | 2018-08-17                         |
 | `events/recommendations/rebalance`                            | The approximate time, in UTC, when the EC2 instance rebalance<br>recommendation notification is emitted for the instance. The following<br>is an example of the metadata for this category: `{"noticeTime":<br>"2020-11-05T08:22:00Z"}`. This category is available only<br>after the notification is emitted. For more information, see [EC2 instance rebalance recommendations](rebalance-recommendations.md "rebalance-recommendations.md").                                                                                                                                      | 2020-10-27                         |
 | `hostname`                                                    | If the EC2 instance is using IP-based naming (IPBN), this is the<br>private IPv4 DNS hostname of the instance. If the EC2 instance is using<br>Resource-based naming (RBN), this is the RBN. In cases where multiple<br>network interfaces are present, this refers to the eth0 device (the<br>device for which the device number is 0). For more information about<br>IPBN and RBN, see [EC2 instance hostnames and domains](ec2-instance-naming.md "ec2-instance-naming.md").                                                                                                      | 1.0                                |
 | `iam/info`                                                    | If there is an IAM role associated with the instance, contains<br>information about the last time the instance profile was updated,<br>including the instance's LastUpdated date, InstanceProfileArn, and<br>InstanceProfileId. Otherwise, not present.                                                                                                                                                                                                                                                                                                                              | 2012-01-12                         |

@@ -1,6 +1,4 @@
-# Customize scheduled
-
-event notifications for your EC2 instances
+# Customize scheduled event notifications for your EC2 instances
 
 You can customize scheduled event notifications to include tags in the email
 notification. This makes it easier to identify the affected resource (instances or
@@ -26,8 +24,7 @@ associated with the affected resource.
 
 - [Include tags in event notifications](#register-tags "#register-tags")
 - [Remove tags from event notifications](#deregister-tags "#deregister-tags")
-- [View the tags to be included in event
-  notifications](#view-tags "#view-tags")
+- [View the tags to be included in event notifications](#view-tags "#view-tags")
 
 ## Include tags in event notifications
 
@@ -171,17 +168,13 @@ Unregister-EC2InstanceEventNotificationAttribute `
     -InstanceTagAttribute_InstanceTagKey `tag_key_3`
 ```
 
-## View the tags to be included in event
-
-notifications
+## View the tags to be included in event notifications
 
 You can view the tags that are to be included in event notifications.
 
 Console
 
-###### To view the tags that are to be included in event
-
-notifications
+###### To view the tags that are to be included in event notifications
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").

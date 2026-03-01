@@ -15,10 +15,8 @@ _default credit specification_:
 ###### Tasks
 
 - [Configure the credit specification at launch](#launch-burstable-performance-instances "#launch-burstable-performance-instances")
-- [Configure an Auto Scaling group to
-  set the credit specification as unlimited](#burstable-performance-instances-auto-scaling-grp "#burstable-performance-instances-auto-scaling-grp")
-- [Manage the credit specification
-  of a burstable performance instance](#modify-burstable-performance-instances "#modify-burstable-performance-instances")
+- [Configure an Auto Scaling group to set the credit specification as unlimited](#burstable-performance-instances-auto-scaling-grp "#burstable-performance-instances-auto-scaling-grp")
+- [Manage the credit specification of a burstable performance instance](#modify-burstable-performance-instances "#modify-burstable-performance-instances")
 - [Manage the default credit specification for an account](#burstable-performance-instance-set-default-credit-specification-for-account "#burstable-performance-instance-set-default-credit-specification-for-account")
 
 ## Configure the credit specification at launch
@@ -27,8 +25,7 @@ You can launch your T instances with a credit specification of `unlimited`
 or `standard`.
 
 The following procedures describe how to use the EC2 console or the AWS CLI. For
-information about using an Auto Scaling group, see [Configure an Auto Scaling group to
-set the credit specification as unlimited](#burstable-performance-instances-auto-scaling-grp "#burstable-performance-instances-auto-scaling-grp").
+information about using an Auto Scaling group, see [Configure an Auto Scaling group to set the credit specification as unlimited](#burstable-performance-instances-auto-scaling-grp "#burstable-performance-instances-auto-scaling-grp").
 
 Console
 
@@ -64,9 +61,7 @@ cmdlet with the `-CreditSpecification_CpuCredit` parameter.
 -CreditSpecification_CpuCredit unlimited
 ```
 
-## Configure an Auto Scaling group to
-
-set the credit specification as unlimited
+## Configure an Auto Scaling group to set the credit specification as unlimited
 
 When T instances are launched or started, they require CPU credits for a good
 bootstrapping experience. If you use an Auto Scaling group to launch your instances, we
@@ -74,9 +69,7 @@ recommend that you configure your instances as `unlimited`. If you do, the
 instances use surplus credits when they are automatically launched or restarted by the
 Auto Scaling group. Using surplus credits prevents performance restrictions.
 
-### Create a launch
-
-template
+### Create a launch template
 
 You must use a _launch template_ for launching
 instances as `unlimited` in an Auto Scaling group. A launch configuration does not
@@ -189,16 +182,13 @@ Use the [Update-ASAutoScalingGroup](../../../powershell/latest/reference/items/U
 `-LaunchTemplate_LaunchTemplateId` or
 `-LaunchTemplate_LaunchTemplateName` parameter.
 
-## Manage the credit specification
-
-of a burstable performance instance
+## Manage the credit specification of a burstable performance instance
 
 You can switch the credit specification of a running or stopped T instance at any
 time between `unlimited` and `standard`.
 
 Note that in `unlimited` mode, an instance can spend surplus credits,
-which might incur an additional charge. For more information, see [Surplus credits can incur
-charges](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits").
+which might incur an additional charge. For more information, see [Surplus credits can incur charges](burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits "burstable-performance-instances-unlimited-mode-concepts.md#unlimited-mode-surplus-credits").
 
 Console
 

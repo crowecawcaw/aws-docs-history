@@ -23,8 +23,7 @@ instance does not cleanly shut down within a few minutes, Amazon EC2 performs a 
 Furthermore, AWS CloudTrail creates an API record of when your instance was rebooted.
 
 This topic describes how to perform a user-initiated reboot. For information about reboots
-performed by AWS, see [Automatic instance recovery](ec2-instance-recover.md "ec2-instance-recover.md") and [Manage Amazon EC2 instances scheduled for
-reboot](schedevents_actions_reboot.md "schedevents_actions_reboot.md").
+performed by AWS, see [Automatic instance recovery](ec2-instance-recover.md "ec2-instance-recover.md") and [Manage Amazon EC2 instances scheduled for reboot](schedevents_actions_reboot.md "schedevents_actions_reboot.md").
 
 ###### Important
 

@@ -26,9 +26,7 @@ they're interrupted or you terminate them.
 - [EC2 Fleet request states](EC2-fleet-states.md "EC2-fleet-states.md")
 - [EC2 Fleet prerequisites](ec2-fleet-prerequisites.md "ec2-fleet-prerequisites.md")
 - [Create an EC2 Fleet](create-ec2-fleet.md "create-ec2-fleet.md")
-- [Tag a new or existing EC2 Fleet request and the instances and
-  volumes it launches](tag-ec2-fleet.md "tag-ec2-fleet.md")
+- [Tag a new or existing EC2 Fleet request and the instances and volumes it launches](tag-ec2-fleet.md "tag-ec2-fleet.md")
 - [Describe an EC2 Fleet, its instances, and its events](describe-ec2-fleet.md "describe-ec2-fleet.md")
 - [Modify an EC2 Fleet](modify-ec2-fleet.md "modify-ec2-fleet.md")
-- [Delete an EC2 Fleet request and the instances in the
-  fleet](delete-fleet.md "delete-fleet.md")
+- [Delete an EC2 Fleet request and the instances in the fleet](delete-fleet.md "delete-fleet.md")

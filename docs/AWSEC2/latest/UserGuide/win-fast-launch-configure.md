@@ -1,6 +1,4 @@
-# Configure EC2 Fast Launch settings for your
-
-Amazon EC2 Windows Server AMI
+# Configure EC2 Fast Launch settings for your Amazon EC2 Windows Server AMI
 
 You can configure EC2 Fast Launch for Windows AMIs that you own, or AMIs
 that are shared with you from the AWS Management Console, API, SDKs, CloudFormation, or AWS Command Line Interface (AWS CLI).

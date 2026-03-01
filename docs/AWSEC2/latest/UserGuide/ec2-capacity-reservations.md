@@ -1,6 +1,4 @@
-# Reserve compute capacity with EC2
-
-On-Demand Capacity Reservations
+# Reserve compute capacity with EC2 On-Demand Capacity Reservations
 
 Amazon EC2 Capacity Reservations allow you to reserve compute capacity for your Amazon EC2 instances in a specific
 Availability Zone for any duration. If you have strict capacity requirements for current or
@@ -58,23 +56,18 @@ Capacity Reservations that you create and manage.
 ###### Contents
 
 - [Concepts for Amazon EC2 Capacity Reservations](cr-concepts.md "cr-concepts.md")
-- [Differences between Capacity Reservations, Reserved Instances,
-  and Savings Plans](#capacity-reservations-differences "#capacity-reservations-differences")
+- [Differences between Capacity Reservations, Reserved Instances, and Savings Plans](#capacity-reservations-differences "#capacity-reservations-differences")
 - [Supported platforms](#capacity-reservations-platforms "#capacity-reservations-platforms")
 - [Quotas](#capacity-reservations-limits "#capacity-reservations-limits")
 - [Limitations](#capacity-reservations-limitations "#capacity-reservations-limitations")
 - [Capacity Reservation pricing and billing](capacity-reservations-pricing-billing.md "capacity-reservations-pricing-billing.md")
 - [Create a Capacity Reservation](capacity-reservations-create.md "capacity-reservations-create.md")
 - [View the state of a Capacity Reservation](capacity-reservations-view.md "capacity-reservations-view.md")
-- [Launch instances into an existing
-  Capacity Reservation](capacity-reservations-launch.md "capacity-reservations-launch.md")
+- [Launch instances into an existing Capacity Reservation](capacity-reservations-launch.md "capacity-reservations-launch.md")
 - [Modify an active Capacity Reservation](capacity-reservations-modify.md "capacity-reservations-modify.md")
-- [Modify the Capacity Reservation settings of your
-  instance](capacity-reservations-modify-instance.md "capacity-reservations-modify-instance.md")
-- [Move capacity between Capacity
-  Reservations](capacity-reservations-move.md "capacity-reservations-move.md")
-- [Split off capacity from an existing
-  Capacity Reservation](capacity-reservations-split.md "capacity-reservations-split.md")
+- [Modify the Capacity Reservation settings of your instance](capacity-reservations-modify-instance.md "capacity-reservations-modify-instance.md")
+- [Move capacity between Capacity Reservations](capacity-reservations-move.md "capacity-reservations-move.md")
+- [Split off capacity from an existing Capacity Reservation](capacity-reservations-split.md "capacity-reservations-split.md")
 - [Cancel a Capacity Reservation](capacity-reservations-release.md "capacity-reservations-release.md")
 - [Use Capacity Reservations with cluster placement groups](cr-cpg.md "cr-cpg.md")
 - [Capacity Reservation groups](create-cr-group.md "create-cr-group.md")
@@ -83,15 +76,12 @@ Capacity Reservations that you create and manage.
 - [Capacity Reservations on AWS Outposts](capacity-reservations-outposts.md "capacity-reservations-outposts.md")
 - [Shared Capacity Reservations](capacity-reservation-sharing.md "capacity-reservation-sharing.md")
 - [Capacity Reservation Fleets](cr-fleets.md "cr-fleets.md")
-- [Monitor Capacity Reservations usage with CloudWatch
-  metrics](capacity-reservation-cw-metrics.md "capacity-reservation-cw-metrics.md")
+- [Monitor Capacity Reservations usage with CloudWatch metrics](capacity-reservation-cw-metrics.md "capacity-reservation-cw-metrics.md")
 - [Monitor Capacity Reservation underutilization](cr-eventbridge.md "cr-eventbridge.md")
 - [Monitor state changes for future-dated Capacity Reservations](monitor-fcr-state.md "monitor-fcr-state.md")
 - [Interruptible Capacity Reservations](interruptible-capacity-reservations.md "interruptible-capacity-reservations.md")
 
-## Differences between Capacity Reservations, Reserved Instances,
-
-and Savings Plans
+## Differences between Capacity Reservations, Reserved Instances, and Savings Plans
 
 The following table highlights key differences between Capacity Reservations, Reserved Instances, and Savings Plans:
 

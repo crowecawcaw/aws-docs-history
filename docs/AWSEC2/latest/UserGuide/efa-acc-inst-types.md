@@ -34,9 +34,7 @@ Instance launch
    **Device index = 1**, and **Interface type = EFA with ENA**
    or **EFA-only**.
 
-###### To specify EFAs during instance launch using the [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../../../cli/latest/reference/ec2/run-instances.md")
-
-command
+###### To specify EFAs during instance launch using the [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../../../cli/latest/reference/ec2/run-instances.md") command
 
 For `--network-interfaces`, specify the required number of network interfaces.
 For the primary network interface, specify `NetworkCardIndex=0`, `DeviceIndex=0`,
@@ -101,9 +99,7 @@ Launch templates
    **Device index = 1**, and **Interface type = EFA with ENA**
    or **EFA-only**.
 
-###### To add EFAs to a launch template using the [create-launch-template](../../../cli/latest/reference/ec2/create-launch-template.md "../../../cli/latest/reference/ec2/create-launch-template.md")
-
-command
+###### To add EFAs to a launch template using the [create-launch-template](../../../cli/latest/reference/ec2/create-launch-template.md "../../../cli/latest/reference/ec2/create-launch-template.md") command
 
 For `NetworkInterfaces`, specify the required number of network interfaces.
 For the primary network interface, specify `NetworkCardIndex=0`, `DeviceIndex=0`,

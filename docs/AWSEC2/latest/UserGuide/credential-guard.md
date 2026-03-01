@@ -21,8 +21,7 @@ Your Windows instance must meet the following prerequisites to utilize Credentia
 **Amazon Machine Images (AMIs)**
 
 The AMI must be preconfigured to enable NitroTPM and UEFI Secure
-Boot. For more information on supported AMIs, see [Requirements for using NitroTPM with Amazon EC2
-instances](enable-nitrotpm-prerequisites.md "enable-nitrotpm-prerequisites.md").
+Boot. For more information on supported AMIs, see [Requirements for using NitroTPM with Amazon EC2 instances](enable-nitrotpm-prerequisites.md "enable-nitrotpm-prerequisites.md").
 
 **Memory integrity**
 

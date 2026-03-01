@@ -1,15 +1,11 @@
-# Use Amazon EC2 launch
-
-templates to control launching Amazon EC2 instances
+# Use Amazon EC2 launch templates to control launching Amazon EC2 instances
 
 You can control the configuration of your Amazon EC2 instances by specifying that users can
 only launch instances if they use a launch template, and that they can only use a
 specific launch template. You can also control who can create, modify, describe, and
 delete launch templates and launch template versions.
 
-## Use launch templates to control
-
-launch parameters
+## Use launch templates to control launch parameters
 
 A launch template can contain all or some of the parameters to configure an
 instance at launch. However, when you launch an instance using a launch template,
@@ -36,17 +32,14 @@ template, and that they can only use a specific launch template. You can also
 control the launch parameters that users can override in the launch template. For
 example policies, see [Launch templates](ExamplePolicies_EC2.md#iam-example-runinstances-launch-templates "ExamplePolicies_EC2.md#iam-example-runinstances-launch-templates").
 
-## Control the use of launch
-
-templates
+## Control the use of launch templates
 
 By default, users do not have permissions to work with launch templates. You can
 create a policy that grants users permissions to create, modify, describe, and
 delete launch templates and launch template versions. You can also apply
 resource-level permissions to some launch template actions to control a user's
 ability to use specific resources for those actions. For more information, see the
-following example policies: [Example: Work with launch
-templates](ExamplePolicies_EC2.md#iam-example-launch-templates "ExamplePolicies_EC2.md#iam-example-launch-templates").
+following example policies: [Example: Work with launch templates](ExamplePolicies_EC2.md#iam-example-launch-templates "ExamplePolicies_EC2.md#iam-example-launch-templates").
 
 Take care when granting users permissions to use the
 `ec2:CreateLaunchTemplate` and
@@ -56,9 +49,7 @@ launch template. To restrict the resources that are used to launch an instance,
 ensure that you grant permissions to create launch templates and launch template
 versions only to appropriate administrators.
 
-## Important security
-
-concerns when using launch templates with EC2 Fleet or Spot Fleet
+## Important security concerns when using launch templates with EC2 Fleet or Spot Fleet
 
 To use launch templates, you must grant your users permissions to create, modify,
 describe, and delete launch templates and launch template versions. You can control
@@ -90,6 +81,4 @@ information and an example IAM policy, see [Using an IAM role
 to grant permissions to applications running on Amazon EC2 instances](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2.md") in the
 _IAM User Guide_.
 
-For more information, see [Control the use of launch
-templates](#launch-template-permissions "#launch-template-permissions") and [Example: Work with launch
-templates](ExamplePolicies_EC2.md#iam-example-launch-templates "ExamplePolicies_EC2.md#iam-example-launch-templates").
+For more information, see [Control the use of launch templates](#launch-template-permissions "#launch-template-permissions") and [Example: Work with launch templates](ExamplePolicies_EC2.md#iam-example-launch-templates "ExamplePolicies_EC2.md#iam-example-launch-templates").

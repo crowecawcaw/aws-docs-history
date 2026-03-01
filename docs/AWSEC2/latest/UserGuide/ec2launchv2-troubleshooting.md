@@ -10,41 +10,26 @@ about viewing Windows event logs, and console log output and messages.
 - [Windows event logs](#ec2launchv2-windows-event-logs "#ec2launchv2-windows-event-logs")
 - [EC2Launch v2 console log output](#ec2launchv2-console-output "#ec2launchv2-console-output")
 
-## Common troubleshooting
-
-scenarios
+## Common troubleshooting scenarios
 
 This section shows common troubleshooting scenarios and steps for
 resolution.
 
 ###### Scenarios
 
-- [Service fails to set the
-  wallpaper](#ec2launchv2-troubleshooting-wallpaper "#ec2launchv2-troubleshooting-wallpaper")
-- [Service fails to run
-  user data](#ec2launchv2-troubleshooting-user-data "#ec2launchv2-troubleshooting-user-data")
-- [Service runs a task only
-  one time](#ec2launchv2-troubleshooting-task-once "#ec2launchv2-troubleshooting-task-once")
-- [Service fails to run a
-  task](#ec2launchv2-troubleshooting-task-failed "#ec2launchv2-troubleshooting-task-failed")
-- [Service
-  runs user data more than once](#ec2launchv2-troubleshooting-user-data-more-than-once "#ec2launchv2-troubleshooting-user-data-more-than-once")
-- [Scheduled tasks from EC2Launch v1 fail to run after migration to
-  EC2Launch v2](#ec2launchv2-troubleshooting-scheduled-tasks-migration "#ec2launchv2-troubleshooting-scheduled-tasks-migration")
-- [Service initializes
-  an EBS volume that is not empty](#ec2launchv2-troubleshooting-ebs-initialize "#ec2launchv2-troubleshooting-ebs-initialize")
-- [setWallpaper task is not enabled but the wallpaper resets
-  at reboot](#ec2launchv2-troubleshooting-wallpaper-resets "#ec2launchv2-troubleshooting-wallpaper-resets")
-- [Service
-  stuck in running status](#ec2launchv2-troubleshooting-service-stuck-running "#ec2launchv2-troubleshooting-service-stuck-running")
-- [Invalid agent-config.yml prevents opening
-  EC2Launch v2 settings dialog box](#ec2launchv2-troubleshooting-invalid-agent-config "#ec2launchv2-troubleshooting-invalid-agent-config")
-- [task:executeScript should be unique and only invoked
-  once](#ec2launchv2-troubleshooting-executescript "#ec2launchv2-troubleshooting-executescript")
+- [Service fails to set the wallpaper](#ec2launchv2-troubleshooting-wallpaper "#ec2launchv2-troubleshooting-wallpaper")
+- [Service fails to run user data](#ec2launchv2-troubleshooting-user-data "#ec2launchv2-troubleshooting-user-data")
+- [Service runs a task only one time](#ec2launchv2-troubleshooting-task-once "#ec2launchv2-troubleshooting-task-once")
+- [Service fails to run a task](#ec2launchv2-troubleshooting-task-failed "#ec2launchv2-troubleshooting-task-failed")
+- [Service runs user data more than once](#ec2launchv2-troubleshooting-user-data-more-than-once "#ec2launchv2-troubleshooting-user-data-more-than-once")
+- [Scheduled tasks from EC2Launch v1 fail to run after migration to EC2Launch v2](#ec2launchv2-troubleshooting-scheduled-tasks-migration "#ec2launchv2-troubleshooting-scheduled-tasks-migration")
+- [Service initializes an EBS volume that is not empty](#ec2launchv2-troubleshooting-ebs-initialize "#ec2launchv2-troubleshooting-ebs-initialize")
+- [setWallpaper task is not enabled but the wallpaper resets at reboot](#ec2launchv2-troubleshooting-wallpaper-resets "#ec2launchv2-troubleshooting-wallpaper-resets")
+- [Service stuck in running status](#ec2launchv2-troubleshooting-service-stuck-running "#ec2launchv2-troubleshooting-service-stuck-running")
+- [Invalid agent-config.yml prevents opening EC2Launch v2 settings dialog box](#ec2launchv2-troubleshooting-invalid-agent-config "#ec2launchv2-troubleshooting-invalid-agent-config")
+- [task:executeScript should be unique and only invoked once](#ec2launchv2-troubleshooting-executescript "#ec2launchv2-troubleshooting-executescript")
 
-### Service fails to set the
-
-wallpaper
+### Service fails to set the wallpaper
 
 ###### Resolution
 
@@ -53,9 +38,7 @@ Menu\Programs\Startup\setwallpaper.lnk` exists.
 2. Check `%ProgramData%\Amazon\EC2Launch\log\agent.log` to see
    if any errors occurred.
 
-### Service fails to run
-
-user data
+### Service fails to run user data
 
 **Possible cause**: Service may have failed
 before running user data.
@@ -71,9 +54,7 @@ before running user data.
    `%ProgramData%\Amazon\EC2Launch\log\agent.log` for
    specific errors.
 
-### Service runs a task only
-
-one time
+### Service runs a task only one time
 
 ###### Resolution
 
@@ -83,9 +64,7 @@ one time
 3. Set the frequency of the task to `always` if you want it to
    run the task every time EC2Launch v2 runs.
 
-### Service fails to run a
-
-task
+### Service fails to run a task
 
 ###### Resolution
 
@@ -95,9 +74,7 @@ task
    `"%ProgramFiles%\Amazon\EC2Launch\EC2Launch.exe" run` to
    see if the tasks succeed.
 
-### Service
-
-runs user data more than once
+### Service runs user data more than once
 
 ###### Resolution
 
@@ -136,9 +113,7 @@ domain.
 <persist>false</persist>
 ```
 
-### Scheduled tasks from EC2Launch v1 fail to run after migration to
-
-EC2Launch v2
+### Scheduled tasks from EC2Launch v1 fail to run after migration to EC2Launch v2
 
 ###### Resolution
 
@@ -148,12 +123,9 @@ EC2Launch v2. To configure these tasks, edit the [agent-config.yml](ec2launch-v2
 example, if an instance has a scheduled task that runs
 `InitializeDisks.ps1`, then after you run the migration tool,
 you must specify the volumes you want to initialize in the EC2Launch v2
-settings dialog box. See Step 6 of the procedure to [Change settings using the EC2Launch v2 settings dialog
-box](ec2launch-v2-settings.md#ec2launch-v2-ui "ec2launch-v2-settings.md#ec2launch-v2-ui").
+settings dialog box. See Step 6 of the procedure to [Change settings using the EC2Launch v2 settings dialog box](ec2launch-v2-settings.md#ec2launch-v2-ui "ec2launch-v2-settings.md#ec2launch-v2-ui").
 
-### Service initializes
-
-an EBS volume that is not empty
+### Service initializes an EBS volume that is not empty
 
 ###### Resolution
 
@@ -169,9 +141,7 @@ data, do not rely on EC2Launch v2 empty drive detection. Instead, specify
 volumes that you would like to initialize in the [EC2Launch v2 settings dialog box](ec2launch-v2-settings.md#ec2launch-v2-ui "ec2launch-v2-settings.md#ec2launch-v2-ui") (see
 step 6) or in the [agent-config.yml](ec2launch-v2-task-definitions.md#ec2launch-v2-initializevolume "ec2launch-v2-task-definitions.md#ec2launch-v2-initializevolume").
 
-### `setWallpaper` task is not enabled but the wallpaper resets
-
-at reboot
+### `setWallpaper` task is not enabled but the wallpaper resets at reboot
 
 The `setWallpaper` task creates the `setwallpaper.lnk`
 shortcut file in the startup folder of each existing user. This shortcut file
@@ -206,9 +176,7 @@ foreach ($userDir in (Get-ChildItem "C:\Users" -Force -Directory).FullName)
 }
 ```
 
-### Service
-
-stuck in running status
+### Service stuck in running status
 
 **Description**
 
@@ -240,9 +208,7 @@ Try the following steps to resolve this issue:
   custom scripts to perform launch agent tasks and invoke them as
   scheduled tasks.
 
-### Invalid `agent-config.yml` prevents opening
-
-EC2Launch v2 settings dialog box
+### Invalid `agent-config.yml` prevents opening EC2Launch v2 settings dialog box
 
 ###### Description
 
@@ -262,9 +228,7 @@ configuration file does not follow the supported schema, the dialog box will sho
 3. You can also start over by deleting `agent-config.yml`.
    EC2Launch v2 settings generates an empty configuration file.
 
-### `task:executeScript should be unique and only invoked
-
-once`
+### `task:executeScript should be unique and only invoked once`
 
 ###### Description
 
@@ -313,10 +277,8 @@ event.
 ###### Topics
 
 - [Event ID format](#ec2launchv2-windows-event-logs-format "#ec2launchv2-windows-event-logs-format")
-- [Event ID
-  examples](#ec2launchv2-windows-event-logs-id-examples "#ec2launchv2-windows-event-logs-id-examples")
-- [Windows event log
-  schema](#ec2launch-v2-windows-event-logs-schema "#ec2launch-v2-windows-event-logs-schema")
+- [Event ID examples](#ec2launchv2-windows-event-logs-id-examples "#ec2launchv2-windows-event-logs-id-examples")
+- [Windows event log schema](#ec2launch-v2-windows-event-logs-schema "#ec2launch-v2-windows-event-logs-schema")
 
 ### Event ID format
 
@@ -336,9 +298,7 @@ definitions.
 | T (Task)               | The tasks represented by the corresponding two values are<br>different for each stage. To view the complete list of<br>events, see [Windows<br>Event log schema](#ec2launch-v2-windows-event-logs-schema "#ec2launch-v2-windows-event-logs-schema"). |
 | L (Level of the event) | 0<br>• Success<br>1<br>• Informational<br>2<br>• Warning<br>3<br>• Error                                                                                                                                                                             |
 
-### Event ID
-
-examples
+### Event ID examples
 
 The following are example event IDs.
 
@@ -348,9 +308,7 @@ The following are example event IDs.
 - `6013` - Set wallpaper task in PostReady Local Data stage
   encountered an error
 
-### Windows event log
-
-schema
+### Windows event log schema
 
 | MessageId/Event Id | Event message                                           |
 | ------------------ | ------------------------------------------------------- |
@@ -407,13 +365,10 @@ information about instance console output and how to access it, see [Instance co
 
 ###### Outputs
 
-- [EC2Launch v2 console log
-  output](#ec2launchv2-console-log-output "#ec2launchv2-console-log-output")
+- [EC2Launch v2 console log output](#ec2launchv2-console-log-output "#ec2launchv2-console-log-output")
 - [EC2Launch v2 console log messages](#ec2launchv2-console-log-messages "#ec2launchv2-console-log-messages")
 
-### EC2Launch v2 console log
-
-output
+### EC2Launch v2 console log output
 
 The following is sample console log output for EC2Launch v2. Some values in this example are substituted
 with representative text surrounded by curly braces.

@@ -14,10 +14,8 @@ the [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../c
 ###### Contents
 
 - [Overview](#byoip-onboarding-overview "#byoip-onboarding-overview")
-- [Create a private key and generate an X.509
-  certificate](#byoip-certificate "#byoip-certificate")
-- [Upload the X.509 certificate to the RDAP
-  record in your RIR](#byoip-add-certificate "#byoip-add-certificate")
+- [Create a private key and generate an X.509 certificate](#byoip-certificate "#byoip-certificate")
+- [Upload the X.509 certificate to the RDAP record in your RIR](#byoip-add-certificate "#byoip-add-certificate")
 - [Create a ROA object in your RIR](#byoip-create-roa-object "#byoip-create-roa-object")
 
 ## Overview
@@ -52,9 +50,7 @@ be repeated if splitting a contiguous block across several different AWS Regions
 Bringing on an address range has no effect on any address ranges that you brought on
 previously.
 
-## Create a private key and generate an X.509
-
-certificate
+## Create a private key and generate an X.509 certificate
 
 Use the following procedure to create a self-signed X.509 certificate and add it
 to the RDAP record for your RIR. This key pair is used to authenticate the address
@@ -262,9 +258,7 @@ The output should be a long, PEM-encoded string without line breaks,
 prefaced by `-----BEGIN CERTIFICATE-----` and followed by
 `-----END CERTIFICATE-----`.
 
-## Upload the X.509 certificate to the RDAP
-
-record in your RIR
+## Upload the X.509 certificate to the RDAP record in your RIR
 
 Add the certificate that you previously created to the RDAP record for your RIR.
 Be sure to include the `-----BEGIN CERTIFICATE-----` and `-----END

@@ -1,20 +1,14 @@
-# Configure instance metadata options
-
-for new instances
+# Configure instance metadata options for new instances
 
 You can configure the following instance metadata options for new
 instances.
 
 ###### Options
 
-- [Require the use of
-  IMDSv2](#configure-IMDS-new-instances "#configure-IMDS-new-instances")
-- [Enable the
-  IMDS IPv4 and IPv6 endpoints](#configure-IMDS-new-instances-ipv4-ipv6-endpoints "#configure-IMDS-new-instances-ipv4-ipv6-endpoints")
-- [Turn
-  off access to instance metadata](#configure-IMDS-new-instances--turn-off-instance-metadata "#configure-IMDS-new-instances--turn-off-instance-metadata")
-- [Allow
-  access to tags in instance metadata](#configure-IMDS-new-instances-tags-in-instance-metadata "#configure-IMDS-new-instances-tags-in-instance-metadata")
+- [Require the use of IMDSv2](#configure-IMDS-new-instances "#configure-IMDS-new-instances")
+- [Enable the IMDS IPv4 and IPv6 endpoints](#configure-IMDS-new-instances-ipv4-ipv6-endpoints "#configure-IMDS-new-instances-ipv4-ipv6-endpoints")
+- [Turn off access to instance metadata](#configure-IMDS-new-instances--turn-off-instance-metadata "#configure-IMDS-new-instances--turn-off-instance-metadata")
+- [Allow access to tags in instance metadata](#configure-IMDS-new-instances-tags-in-instance-metadata "#configure-IMDS-new-instances-tags-in-instance-metadata")
 
 ###### Note
 
@@ -28,27 +22,20 @@ account. This topic describes how to configure the settings directly within an
 account. For information about using declarative policies, see [Declarative policies](../../../organizations/latest/userguide/orgs_manage_policies_declarative.md "../../../organizations/latest/userguide/orgs_manage_policies_declarative.md") in the _AWS Organizations User
 Guide._
 
-## Require the use of
-
-IMDSv2
+## Require the use of IMDSv2
 
 You can use the following methods to require the use of IMDSv2 on your
 new instances.
 
 ###### To require IMDSv2
 
-- [Set IMDSv2 as the
-  default for the account](#set-imdsv2-account-defaults "#set-imdsv2-account-defaults")
-- [Configure
-  the instance at launch](#configure-IMDS-new-instances-instance-settings "#configure-IMDS-new-instances-instance-settings")
-- [Configure
-  the AMI](#configure-IMDS-new-instances-ami-configuration "#configure-IMDS-new-instances-ami-configuration")
-- [Use an IAM
-  policy](#configure-IMDS-new-instances-iam-policy "#configure-IMDS-new-instances-iam-policy")
+- [Set IMDSv2 as the default for the account](#set-imdsv2-account-defaults "#set-imdsv2-account-defaults")
+- [Enforce IMDSv2 at the account level](#enforce-imdsv2-at-the-account-level "#enforce-imdsv2-at-the-account-level")
+- [Configure the instance at launch](#configure-IMDS-new-instances-instance-settings "#configure-IMDS-new-instances-instance-settings")
+- [Configure the AMI](#configure-IMDS-new-instances-ami-configuration "#configure-IMDS-new-instances-ami-configuration")
+- [Use an IAM policy](#configure-IMDS-new-instances-iam-policy "#configure-IMDS-new-instances-iam-policy")
 
-### Set IMDSv2 as the
-
-default for the account
+### Set IMDSv2 as the default for the account
 
 You can set the default version for the instance metadata service (IMDS)
 at the account level for each AWS Region. This means that when you launch
@@ -56,8 +43,7 @@ a _new_ instance, the instance metadata
 version is automatically set to the account-level default. However, you can
 manually override the value at launch or after launch. For more information
 about how the account-level settings and manual overrides affect an
-instance, see [Order of precedence
-for instance metadata options](configuring-instance-metadata-options.md#instance-metadata-options-order-of-precedence "configuring-instance-metadata-options.md#instance-metadata-options-order-of-precedence").
+instance, see [Order of precedence for instance metadata options](configuring-instance-metadata-options.md#instance-metadata-options-order-of-precedence "configuring-instance-metadata-options.md#instance-metadata-options-order-of-precedence").
 
 ###### Note
 
@@ -84,14 +70,11 @@ following are the default values for the instance:
 
 Before setting the account default to IMDSv2, ensure that your
 instances do not depend on IMDSv1. For more information, see
-[Recommended path to
-requiring IMDSv2](instance-metadata-transition-to-version-2.md#recommended-path-for-requiring-imdsv2 "instance-metadata-transition-to-version-2.md#recommended-path-for-requiring-imdsv2").
+[Recommended path to requiring IMDSv2](instance-metadata-transition-to-version-2.md#recommended-path-for-requiring-imdsv2 "instance-metadata-transition-to-version-2.md#recommended-path-for-requiring-imdsv2").
 
 Console
 
-###### To set IMDSv2 as the default for the account for
-
-the specified Region
+###### To set IMDSv2 as the default for the account for the specified Region
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -124,9 +107,7 @@ the specified Region
 
 AWS CLI
 
-###### To set IMDSv2 as the default for the account for
-
-the specified Region
+###### To set IMDSv2 as the default for the account for the specified Region
 
 Use the [modify-instance-metadata-defaults](../../../cli/latest/reference/ec2/modify-instance-metadata-defaults.md "../../../cli/latest/reference/ec2/modify-instance-metadata-defaults.md") command and
 specify the Region in which to modify the IMDS account level
@@ -155,9 +136,7 @@ The following is example output.
 }
 ```
 
-###### To view the default account settings for the instance
-
-metadata options for the specified Region
+###### To view the default account settings for the instance metadata options for the specified Region
 
 Use the [get-instance-metadata-defaults](../../../cli/latest/reference/ec2/get-instance-metadata-defaults.md "../../../cli/latest/reference/ec2/get-instance-metadata-defaults.md") command and
 specify the Region.
@@ -185,9 +164,7 @@ account. A value of `declarative-policy` would mean
 the settings were configured by a declarative policy. For more
 information, see [Declarative policies](../../../organizations/latest/userguide/orgs_manage_policies_declarative.md "../../../organizations/latest/userguide/orgs_manage_policies_declarative.md") in the _AWS Organizations User Guide_.
 
-###### To set IMDSv2 as the default for the account for
-
-all Regions
+###### To set IMDSv2 as the default for the account for all Regions
 
 Use the [modify-instance-metadata-defaults](../../../cli/latest/reference/ec2/modify-instance-metadata-defaults.md "../../../cli/latest/reference/ec2/modify-instance-metadata-defaults.md") command to
 modify the IMDS account level settings for all Regions.
@@ -232,9 +209,7 @@ eu-west-3                True
 ...
 ```
 
-###### To view the default account settings for the instance
-
-metadata options for all Regions
+###### To view the default account settings for the instance metadata options for all Regions
 
 Use the [get-instance-metadata-defaults](../../../cli/latest/reference/ec2/get-instance-metadata-defaults.md "../../../cli/latest/reference/ec2/get-instance-metadata-defaults.md") command.
 
@@ -269,11 +244,9 @@ eu-west-3        ACCOUNTLEVEL   2       required
 
 PowerShell
 
-###### To set IMDSv2 as the default for the account for
+###### To set IMDSv2 as the default for the account for the specified Region
 
-the specified Region
-
-Use the [Edit-EC2InstanceMetadataDefault](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataDefault.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataDefault.md") command and
+Use the [Edit-EC2InstanceMetadataDefault](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataDefault.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataDefault.md") cmdlet and
 specify the Region in which to modify the IMDS account level
 settings. Include `-HttpToken` set to
 `required` and
@@ -298,11 +271,9 @@ The following is example output.
 True
 ```
 
-###### To view the default account settings for the instance
+###### To view the default account settings for the instance metadata options for the specified Region
 
-metadata options for the specified Region
-
-Use the [Get-EC2InstanceMetadataDefault](../../../powershell/latest/reference/items/Get-EC2InstanceMetadataDefault.md "../../../powershell/latest/reference/items/Get-EC2InstanceMetadataDefault.md") command and
+Use the [Get-EC2InstanceMetadataDefault](../../../powershell/latest/reference/items/Get-EC2InstanceMetadataDefault.md "../../../powershell/latest/reference/items/Get-EC2InstanceMetadataDefault.md") cmdlet and
 specify the Region.
 
 ```
@@ -318,11 +289,9 @@ HttpTokens              : required
 InstanceMetadataTags    :
 ```
 
-###### To set IMDSv2 as the default for the account for
+###### To set IMDSv2 as the default for the account for all Regions
 
-all Regions
-
-Use the [Edit-EC2InstanceMetadataDefault](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataDefault.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataDefault.md") Cmdlet to
+Use the [Edit-EC2InstanceMetadataDefault](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataDefault.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataDefault.md") cmdlet to
 modify the IMDS account level settings for all Regions.
 Include `-HttpToken` set to `required`
 and `-HttpPutResponseHopLimit` set to
@@ -358,11 +327,9 @@ eu-west-3          True
 ...
 ```
 
-###### To view the default account settings for the instance
+###### To view the default account settings for the instance metadata options for all Regions
 
-metadata options for all Regions
-
-Use the [Get-EC2InstanceMetadataDefault](../../../powershell/latest/reference/items/Get-EC2InstanceMetadataDefault.md "../../../powershell/latest/reference/items/Get-EC2InstanceMetadataDefault.md") Cmdlet.
+Use the [Get-EC2InstanceMetadataDefault](../../../powershell/latest/reference/items/Get-EC2InstanceMetadataDefault.md "../../../powershell/latest/reference/items/Get-EC2InstanceMetadataDefault.md") cmdlet.
 
 ```
 (Get-EC2Region).RegionName | `
@@ -387,9 +354,318 @@ eu-west-3                            2 required
 ...
 ```
 
-### Configure
+### Enforce IMDSv2 at the account level
 
-the instance at launch
+You can enforce the use of IMDSv2 at the account level for each AWS Region. When
+enforced, instances can only launch if they're configured to require
+IMDSv2. This enforcement applies regardless of how the instance or
+AMI is configured.
+
+###### Note
+
+Before enabling IMDSv2 enforcement at the account level, ensure that your
+applications and AMIs support IMDSv2. For more information, see
+[Recommended path to requiring IMDSv2](instance-metadata-transition-to-version-2.md#recommended-path-for-requiring-imdsv2 "instance-metadata-transition-to-version-2.md#recommended-path-for-requiring-imdsv2"). If
+IMDSv2 enforcement is enabled and `httpTokens` is not
+set to `required` in either the instance configuration at
+launch, the account settings, or the AMI configuration, the instance
+launch will fail. For troubleshooting information, see [Launching an IMDSv1-enabled instance fails](troubleshooting-launch.md#launching-an-imdsv1-enabled-instance-fails "troubleshooting-launch.md#launching-an-imdsv1-enabled-instance-fails").
+
+###### Note
+
+This setting does not change the IMDS version of existing instances, but blocks enabling
+IMDSv1 on existing instances that currently have IMDSv1
+disabled.
+
+Console
+
+###### To enforce IMDSv2 for the account in the specified Region
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. To change the AWS Region, use the Region selector in the top right corner of the
+   page.
+3. In the navigation pane, choose **EC2 Dashboard**.
+4. Under **Account attributes**, choose **Data protection and security**.
+5. Next to **IMDS defaults**, choose **Manage**.
+6. On the **Manage IMDS defaults** page, do the following:
+   1. For **Metadata version**, choose **V2 only (token
+      required)**.
+   2. For **Enforce IMDSv2**, choose
+      **Enabled**.
+   3. Choose **Update**.
+
+AWS CLI
+
+###### To enforce IMDSv2 for the account in the specified Region
+
+Use the [modify-instance-metadata-defaults](../../../cli/latest/reference/ec2/modify-instance-metadata-defaults.md "../../../cli/latest/reference/ec2/modify-instance-metadata-defaults.md") command and
+specify the Region in which to enforce IMDSv2.
+
+```
+aws ec2 modify-instance-metadata-defaults \
+    --region `us-east-1` \
+    --http-tokens required \
+    --http-tokens-enforced enabled
+```
+
+The following is example output.
+
+```
+{
+"Return": true
+}
+```
+
+###### To view the IMDSv2 enforcement setting for the account in a specific Region
+
+Use the [get-instance-metadata-defaults](../../../cli/latest/reference/ec2/get-instance-metadata-defaults.md "../../../cli/latest/reference/ec2/get-instance-metadata-defaults.md") command and
+specify the Region.
+
+```
+aws ec2 get-instance-metadata-defaults --region `us-east-1`
+```
+
+The following is example output.
+
+```
+{
+    "AccountLevel": {
+        "HttpTokens": "required",
+        "HttpTokensEnforced": "enabled"
+    },
+    "ManagedBy": "account"
+}
+```
+
+The `ManagedBy` field indicates the entity that configured the settings. In
+this example, `account` indicates that the settings
+were configured directly in the account. A value of
+`declarative-policy` would mean the settings were
+configured by a declarative policy. For more information, see
+[Declarative policies](../../../organizations/latest/userguide/orgs_manage_policies_declarative.md "../../../organizations/latest/userguide/orgs_manage_policies_declarative.md") in the _AWS Organizations User Guide_.
+
+###### To enforce IMDSv2 for the account for all Regions
+
+Use the [modify-instance-metadata-defaults](../../../cli/latest/reference/ec2/modify-instance-metadata-defaults.md "../../../cli/latest/reference/ec2/modify-instance-metadata-defaults.md") command to
+enforce IMDSv2 in all Regions.
+
+```
+echo -e "Region          \t Modified" ; \
+echo -e "--------------  \t ---------" ; \
+for region in $(
+    aws ec2 describe-regions \
+        --region us-east-1 \
+        --query "Regions[*].[RegionName]" \
+        --output text
+    );
+    do (output=$(
+        aws ec2 modify-instance-metadata-defaults \
+            --region $region \
+            --http-tokens-enforced enabled \
+            --output text)
+        echo -e "$region        \t $output"
+    );
+done
+
+```
+
+The following is example output.
+
+```
+Region                   Modified
+--------------           ---------
+ap-south-1               True
+eu-north-1               True
+eu-west-3                True
+...
+```
+
+###### To view the IMDSv2 enforcement settings for the account in all Regions
+
+Use the [get-instance-metadata-defaults](../../../cli/latest/reference/ec2/get-instance-metadata-defaults.md "../../../cli/latest/reference/ec2/get-instance-metadata-defaults.md") command.
+
+```
+echo -e "Region   \t Level           HttpTokensEnforced" ; \
+echo -e "-------------- \t ------------   ----------------" ; \
+for region in $(
+    aws ec2 describe-regions \
+        --region us-east-1 \
+        --query "Regions[*].[RegionName]" \
+        --output text
+    );
+    do (output=$(
+        aws ec2 get-instance-metadata-defaults \
+            --region $region \
+            --query 'AccountLevel.HttpTokensEnforced' \
+            --output text)
+        echo -e "$region \t ACCOUNTLEVEL $output"
+    );
+done
+```
+
+The following is example output.
+
+```
+Region           Level          HttpTokensEnforced
+--------------   ------------   ------------------
+ap-south-1       ACCOUNTLEVEL   enabled
+eu-north-1       ACCOUNTLEVEL   enabled
+eu-west-3        ACCOUNTLEVEL   enabled
+...
+```
+
+PowerShell
+
+###### To enforce IMDSv2 for the account in the specified Region
+
+Use the [Edit-EC2InstanceMetadataDefault](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataDefault.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataDefault.md") cmdlet and
+specify the Region in which to enforce IMDSv2.
+
+```
+Edit-EC2InstanceMetadataDefault `
+    -Region `us-east-1` `
+    -HttpToken required `
+    -HttpPutResponseHopLimit 2
+```
+
+The following is example output.
+
+```
+@{
+    Return = $true
+}
+```
+
+###### To view the IMDSv2 enforcement setting for the account in a specific Region
+
+Use the Get-EC2InstanceMetadataDefault command and specify the Region.
+
+```
+Get-EC2InstanceMetadataDefault -Region `us-east-1`
+```
+
+The following is example output.
+
+```
+@{
+    AccountLevel = @{
+        HttpTokens = "required"
+        HttpTokensEnforced = "enabled"
+    }
+    ManagedBy = "account"
+}
+```
+
+The `ManagedBy` field indicates the entity that configured the settings. In
+this example, `account` indicates that the settings
+were configured directly in the account. A value of
+`declarative-policy` would mean the settings were
+configured by a declarative policy. For more information, see
+[Declarative policies](../../../organizations/latest/userguide/orgs_manage_policies_declarative.md "../../../organizations/latest/userguide/orgs_manage_policies_declarative.md") in the _AWS Organizations User Guide_.
+
+###### To enforce IMDSv2 for the account for all Regions
+
+Use the [modify-instance-metadata-defaults](../../../cli/latest/reference/ec2/modify-instance-metadata-defaults.md "../../../cli/latest/reference/ec2/modify-instance-metadata-defaults.md") command to
+enforce IMDSv2 in all Regions.
+
+```
+echo -e "Region          \t Modified" ; \
+echo -e "--------------  \t ---------" ; \
+for region in $(
+    aws ec2 describe-regions \
+        --region us-east-1 \
+        --query "Regions[*].[RegionName]" \
+        --output text
+    );
+    do (output=$(
+        aws ec2 modify-instance-metadata-defaults \
+            --region $region \
+            --http-tokens-enforced enabled \
+            --output text)
+        echo -e "$region        \t $output"
+    );
+done
+
+```
+
+The following is example output.
+
+```
+Region                   Modified
+--------------           ---------
+ap-south-1               True
+eu-north-1               True
+eu-west-3                True
+...
+```
+
+###### To set IMDSv2 as the default for the account for all Regions
+
+Use the [Edit-EC2InstanceMetadataDefault](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataDefault.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataDefault.md") cmdlet to
+modify the IMDS account level settings for all Regions.
+Include `-HttpToken` set to `required`
+and `-HttpPutResponseHopLimit` set to
+`2` if your instances will host containers.
+Otherwise, specify `-1` to indicate no
+preference. When `-1` (no preference) is
+specified, at launch, the value defaults to `2`
+if the AMI has the setting `ImdsSupport: v2.0`;
+otherwise it defaults to `1`.
+
+```
+(Get-EC2Region).RegionName | `
+    ForEach-Object {
+    [PSCustomObject]@{
+        Region   = $_
+        Modified = (Edit-EC2InstanceMetadataDefault `
+                -Region $_ `
+                -HttpToken required `
+                -HttpPutResponseHopLimit `2`)
+    }
+} | `
+Format-Table Region, Modified -AutoSize
+```
+
+Expected output
+
+```
+Region         Modified
+------         --------
+ap-south-1         True
+eu-north-1         True
+eu-west-3          True
+...
+```
+
+###### To view the default account settings for the instance metadata options for all Regions
+
+Use the [Get-EC2InstanceMetadataDefault](../../../powershell/latest/reference/items/Get-EC2InstanceMetadataDefault.md "../../../powershell/latest/reference/items/Get-EC2InstanceMetadataDefault.md") cmdlet.
+
+```
+(Get-EC2Region).RegionName | `
+    ForEach-Object {
+    [PSCustomObject]@{
+        Region = $_
+        HttpPutResponseHopLimit = (Get-EC2InstanceMetadataDefault -Region $_).HttpPutResponseHopLimit
+        HttpTokens              = (Get-EC2InstanceMetadataDefault -Region $_).HttpTokens
+    }
+} | `
+Format-Table -AutoSize
+```
+
+Example output
+
+```
+Region         HttpPutResponseHopLimit HttpTokens
+------         ----------------------- ----------
+ap-south-1                           2 required
+eu-north-1                           2 required
+eu-west-3                            2 required
+...
+```
+
+### Configure the instance at launch
 
 When you [launch an
 instance](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md"), you can configure the instance to require the use of
@@ -410,9 +686,7 @@ setting the hop limit to `2`. For more information, see [Instance metadata acces
 
 Console
 
-###### To require the use of IMDSv2 on a new
-
-instance
+###### To require the use of IMDSv2 on a new instance
 
 - When launching a new instance in the Amazon EC2 console,
   expand **Advanced details**, and do the
@@ -431,9 +705,7 @@ instance
 
 AWS CLI
 
-###### To require the use of IMDSv2 on a new
-
-instance
+###### To require the use of IMDSv2 on a new instance
 
 The following [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../../../cli/latest/reference/ec2/run-instances.md") example launches a
 `c6i.large` instance with
@@ -460,11 +732,9 @@ aws ec2 run-instances \
 
 PowerShell
 
-###### To require the use of IMDSv2 on a new
+###### To require the use of IMDSv2 on a new instance
 
-instance
-
-The following [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Instance.md "../../../powershell/latest/reference/items/New-EC2Instance.md") Cmdlet example launches a
+The following [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Instance.md "../../../powershell/latest/reference/items/New-EC2Instance.md") cmdlet example launches a
 `c6i.large` instance with
 `MetadataOptions_HttpEndpoint` set to
 `enabled` and the
@@ -490,9 +760,7 @@ To specify the metadata options for an instance using CloudFormation,
 see the [AWS::EC2::LaunchTemplate MetadataOptions](../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-metadataoptions.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-metadataoptions.md") property
 in the _AWS CloudFormation User Guide_.
 
-### Configure
-
-the AMI
+### Configure the AMI
 
 When you register a new AMI or modify an existing AMI, you can set the
 `imds-support` parameter to `v2.0`. Instances
@@ -538,7 +806,7 @@ aws ec2 register-image \
 ```
 
 PowerShell
-The following [Register-EC2Image](../../../powershell/latest/reference/items/Register-EC2Image.md "../../../powershell/latest/reference/items/Register-EC2Image.md") Cmdlet example registers an AMI
+The following [Register-EC2Image](../../../powershell/latest/reference/items/Register-EC2Image.md "../../../powershell/latest/reference/items/Register-EC2Image.md") cmdlet example registers an AMI
 using the specified snapshot of an EBS root volume as device
 `/dev/xvda`. Specify `v2.0` for the
 `ImdsSupport` parameter so that instances
@@ -583,7 +851,7 @@ aws ec2 modify-image-attribute \
 ```
 
 PowerShell
-The following [Edit-EC2ImageAttribute](../../../powershell/latest/reference/items/Edit-EC2ImageAttribute.md "../../../powershell/latest/reference/items/Edit-EC2ImageAttribute.md") Cmdlet example modifies an
+The following [Edit-EC2ImageAttribute](../../../powershell/latest/reference/items/Edit-EC2ImageAttribute.md "../../../powershell/latest/reference/items/Edit-EC2ImageAttribute.md") cmdlet example modifies an
 existing AMI for IMDSv2 only. Specify `v2.0`
 for the `imds-support` parameter so that instances
 launched from this AMI will require that IMDSv2 is used
@@ -595,25 +863,39 @@ Edit-EC2ImageAttribute `
     **-ImdsSupport 'v2.0'**
 ```
 
-### Use an IAM
+### Use an IAM policy
 
-policy
+You can create an IAM policy that does one of the following:
 
-You can create an IAM policy that prevents users from launching new
-instances unless they require IMDSv2 on the new instance.
+- Prevents users from launching new instances unless they require
+  IMDSv2 on the new instance.
+- Prevents users from calling the ModifyInstanceMetadataOptions API
+  to change the metadata options of a running instance. Restrict
+  access to the ModifyInstanceMetadataOptions httpTokens property to
+  prevent unintended updates of running instances.
+- Prevent users from calling the ModifyInstanceMetadataDefaults API
+  to change the account default settings of both httpTokens and
+  httpTokensEnforced. Restricting access to these two properties will
+  ensure that only authorized roles can modify the account
+  defaults.
 
-###### To enforce the use of IMDSv2 on all new instances by using an
-
-IAM policy
+###### To enforce the use of IMDSv2 on all new instances by using an IAM policy
 
 To ensure that users can only launch instances that require the use of
-IMDSv2 when requesting instance metadata, you can specify that
-the condition to require IMDSv2 must be met before an instance
-can be launched. For the example IAM policy, see [Work with instance metadata](ExamplePolicies_EC2.md#iam-example-instance-metadata "ExamplePolicies_EC2.md#iam-example-instance-metadata").
+IMDSv2 when requesting instance metadata, do the
+following:
 
-## Enable the
+- Restrict access to both `ModifyInstanceMetadataOptions`
+  and `ModifyInstanceMetadataDefaults` API, and more
+  specifically the `httpTokens` and
+  `httpTokensEnforced` properties.
+- Then, set the account default to `httpTokens =
+required` and `httpTokensEnforced =
+enabled`.
 
-IMDS IPv4 and IPv6 endpoints
+For the example IAM policy, see [Work with instance metadata](ExamplePolicies_EC2.md#iam-example-instance-metadata "ExamplePolicies_EC2.md#iam-example-instance-metadata").
+
+## Enable the IMDS IPv4 and IPv6 endpoints
 
 The IMDS has two endpoints on an instance: IPv4 (`169.254.169.254`)
 and IPv6 (`[fd00:ec2::254]`). When you enable the IMDS, the IPv4
@@ -669,7 +951,7 @@ PowerShell
 
 ###### To enable the IMDS IPv6 endpoint at instance launch
 
-The following [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Instance.md "../../../powershell/latest/reference/items/New-EC2Instance.md") Cmdlet example launches a
+The following [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Instance.md "../../../powershell/latest/reference/items/New-EC2Instance.md") cmdlet example launches a
 `c6i.large` instance with the IPv6 endpoint
 enabled for the IMDS. To enable the IPv6 endpoint,
 specify `MetadataOptions_HttpProtocolIpv6` as
@@ -686,14 +968,11 @@ New-EC2Instance `
     -MetadataOptions_HttpProtocolIpv6 enabled
 ```
 
-## Turn
-
-off access to instance metadata
+## Turn off access to instance metadata
 
 You can turn off access to the instance metadata by disabling the IMDS when
 you launch an instance. You can turn on access later by re-enabling the IMDS.
-For more information, see [Turn on access
-to instance metadata](configuring-IMDS-existing-instances.md#enable-instance-metadata-on-existing-instances "configuring-IMDS-existing-instances.md#enable-instance-metadata-on-existing-instances").
+For more information, see [Turn on access to instance metadata](configuring-IMDS-existing-instances.md#enable-instance-metadata-on-existing-instances "configuring-IMDS-existing-instances.md#enable-instance-metadata-on-existing-instances").
 
 ###### Important
 
@@ -726,9 +1005,7 @@ For more information, see [Advanced details](ec2-instance-launch-parameters.md#l
 
 AWS CLI
 
-###### To turn off access to instance metadata at launch at
-
-launch
+###### To turn off access to instance metadata at launch at launch
 
 Launch the instance with `--metadata-options` set
 to `HttpEndpoint=disabled`.
@@ -743,11 +1020,9 @@ aws ec2 run-instances \
 
 PowerShell
 
-###### To turn off access to instance metadata at launch at
+###### To turn off access to instance metadata at launch at launch
 
-launch
-
-The following [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Instance.md "../../../powershell/latest/reference/items/New-EC2Instance.md") Cmdlet example launches an instance
+The following [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Instance.md "../../../powershell/latest/reference/items/New-EC2Instance.md") cmdlet example launches an instance
 with `MetadataOptions_HttpEndpoint` set to
 `disabled`.
 
@@ -763,9 +1038,7 @@ To specify the metadata options for an instance using CloudFormation, see
 the [AWS::EC2::LaunchTemplate MetadataOptions](../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-metadataoptions.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-metadataoptions.md") property in
 the _CloudFormation User Guide_.
 
-## Allow
-
-access to tags in instance metadata
+## Allow access to tags in instance metadata
 
 By default, instance tags are not accessible in the instance metadata. For
 each instance, you must explicitly allow access. If access is allowed, instance

@@ -1,6 +1,4 @@
-# Upgrade an EC2 Windows instance to a newer version of
-
-Windows Server
+# Upgrade an EC2 Windows instance to a newer version of Windows Server
 
 If it's time to upgrade the Windows Server operating system on your EC2 Windows instance
 from an earlier version, you can use one of the following methods.

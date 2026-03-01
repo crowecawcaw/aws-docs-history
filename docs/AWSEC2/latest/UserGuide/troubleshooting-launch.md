@@ -7,11 +7,11 @@ The following are troubleshooting tips to help you solve issues when launching a
 - [Invalid device name](#troubleshooting-launch-devicename "#troubleshooting-launch-devicename")
 - [Instance limit exceeded](#troubleshooting-launch-limit "#troubleshooting-launch-limit")
 - [Insufficient instance capacity](#troubleshooting-launch-capacity "#troubleshooting-launch-capacity")
-- [The requested configuration is currently not supported.
-  Please check the documentation for supported configurations.](#troubleshooting-instance-configuration "#troubleshooting-instance-configuration")
+- [The requested configuration is currently not supported. Please check the documentation for supported configurations.](#troubleshooting-instance-configuration "#troubleshooting-instance-configuration")
 - [Instance terminates immediately](#troubleshooting-launch-internal "#troubleshooting-launch-internal")
 - [Insufficient permissions](#troubleshooting-launch-permissions "#troubleshooting-launch-permissions")
 - [High CPU usage shortly after Windows starts (Windows instances only)](#high-cpu-issue "#high-cpu-issue")
+- [Launching an IMDSv1-enabled instance fails](#launching-an-imdsv1-enabled-instance-fails "#launching-an-imdsv1-enabled-instance-fails")
 
 ## Invalid device name
 
@@ -92,9 +92,7 @@ To resolve the issue, try the following:
 - If you are launching instances into a cluster placement group, you can get an insufficient
   capacity error.
 
-## The requested configuration is currently not supported.
-
-Please check the documentation for supported configurations.
+## The requested configuration is currently not supported. Please check the documentation for supported configurations.
 
 ### Description
 
@@ -252,3 +250,33 @@ values include the following:
 
 After you modify the user data for your instance, you can run it. For more
 information, see [Run commands on your Windows instance at launch](user-data.md "user-data.md").
+
+## Launching an IMDSv1-enabled instance fails
+
+### Description
+
+You get an `UnsupportedOperation` exception with the following message:
+
+`You can't launch instances with IMDSv1 because httpTokensEnforced is
+ enabled for this account. Either launch the instance with httpTokens=required or
+ contact your account owner to disable httpTokensEnforced using the
+ ModifyInstanceMetadataDefaults API or the account settings in the EC2
+ console.`
+
+### Cause
+
+This error is thrown when you attempt to launch a new instance to be IMDSv1 enabled
+(`httpTokens = optional`) in an account where the EC2 account
+settings or an AWS Organization declarative policy enforces the use of
+IMDSv2 (`httpTokensEnforced = enabled`).
+
+### Solution
+
+If you’re ready to use IMDSv2 only, launch your instance with IMDSv1
+disabled (`httpTokens = required`). To check if you’re ready, see [Transition to using Instance Metadata Service Version 2](instance-metadata-transition-to-version-2.md "instance-metadata-transition-to-version-2.md").
+
+If you still require IMDSv1 support on new or existing instances, you'll need to
+disable IMDSv2 enforcement for the account in the Region. To disable
+IMDSv2 enforcement, set `HttpTokensEnforced` to
+`disabled`. For more information, see [ModifyInstanceMetadataDefaults](../APIReference/API_ModifyInstanceMetadataDefaults.md "../APIReference/API_ModifyInstanceMetadataDefaults.md") in the Amazon EC2 API Reference. If you prefer to
+configure this setting using the console, see [Enforce IMDSv2 at the account level](configuring-IMDS-new-instances.md#enforce-imdsv2-at-the-account-level "configuring-IMDS-new-instances.md#enforce-imdsv2-at-the-account-level").

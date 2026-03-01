@@ -5,14 +5,10 @@ The following examples explain credit use for instances that are configured as
 
 ###### Examples
 
-- [Example 1: Explain credit use with T3
-  Unlimited](#t3_unlimited_example "#t3_unlimited_example")
-- [Example 2: Explain credit use with T2
-  Unlimited](#t2_unlimited_example "#t2_unlimited_example")
+- [Example 1: Explain credit use with T3 Unlimited](#t3_unlimited_example "#t3_unlimited_example")
+- [Example 2: Explain credit use with T2 Unlimited](#t2_unlimited_example "#t2_unlimited_example")
 
-## Example 1: Explain credit use with T3
-
-Unlimited
+## Example 1: Explain credit use with T3 Unlimited
 
 In this example, you see the CPU utilization of a `t3.nano` instance
 launched as `unlimited`, and how it spends _earned_ and _surplus_ credits to
@@ -79,9 +75,7 @@ instance earns 144 credits, which it uses to pay down the
 
 ![The t3 instance earned 144 credits after 24 hours.](images/t3_unlimited_graph.png)
 
-## Example 2: Explain credit use with T2
-
-Unlimited
+## Example 2: Explain credit use with T2 Unlimited
 
 In this example, you see the CPU utilization of a `t2.nano` instance
 launched as `unlimited`, and how it spends _earned_ and _surplus_ credits to

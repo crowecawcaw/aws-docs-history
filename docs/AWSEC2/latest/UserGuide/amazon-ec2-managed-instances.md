@@ -22,8 +22,7 @@ you to categorize them within your AWS environment.
 
 - [Billing for managed instances](#billing-for-ec2-managed-instances "#billing-for-ec2-managed-instances")
 - [Identify managed instances](#identify-ec2-managed-instances "#identify-ec2-managed-instances")
-- [Get started with managed
-  instances](#get-started-with-ec2-managed-instances "#get-started-with-ec2-managed-instances")
+- [Get started with managed instances](#get-started-with-ec2-managed-instances "#get-started-with-ec2-managed-instances")
 
 ## Billing for managed instances
 
@@ -146,9 +145,7 @@ cmdlet. This example displays only the IDs of the managed instances.
 (Get-EC2Instance -Filter @{Name="operator.managed"; Values="true"}).Instances.InstanceId
 ```
 
-## Get started with managed
-
-instances
+## Get started with managed instances
 
 For guidance on using managed instances, see [Automate cluster infrastructure with EKS
 Auto Mode](../../../eks/latest/userguide/automode.md "../../../eks/latest/userguide/automode.md") in the _Amazon EKS User Guide_.

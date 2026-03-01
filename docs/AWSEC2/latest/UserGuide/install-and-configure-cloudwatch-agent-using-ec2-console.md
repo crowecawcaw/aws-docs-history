@@ -1,6 +1,4 @@
-# Install and configure the CloudWatch
-
-agent using the Amazon EC2 console to add additional metrics
+# Install and configure the CloudWatch agent using the Amazon EC2 console to add additional metrics
 
 |                                                                                                                                     |
 | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -119,9 +117,7 @@ CloudWatch agent on your selected instances.
   instances must be Linux instances, have the SSM Agent installed, have the required IAM
   permissions, and be running.
 
-###### Then you can [use the
-
-feature](#install-and-configure-cw-agent-procedure "#install-and-configure-cw-agent-procedure")
+###### Then you can [use the feature](#install-and-configure-cw-agent-procedure "#install-and-configure-cw-agent-procedure")
 
 1. **Select your instances** – In the Amazon EC2
    console, you select the instances on which to install and configure the CloudWatch agent. You

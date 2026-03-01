@@ -1,33 +1,25 @@
-# Transition to using
-
-Instance Metadata Service Version 2
+# Transition to using Instance Metadata Service Version 2
 
 If you want to configure your instances to only accept Instance Metadata Service Version 2 (IMDSv2) calls,
 we recommend that you use the following tools and transition path.
 
 ###### Topics
 
-- [Tools for transitioning to
-  IMDSv2](#tools-for-transitioning-to-imdsv2 "#tools-for-transitioning-to-imdsv2")
-- [Recommended path to
-  requiring IMDSv2](#recommended-path-for-requiring-imdsv2 "#recommended-path-for-requiring-imdsv2")
+- [Tools for transitioning to IMDSv2](#tools-for-transitioning-to-imdsv2 "#tools-for-transitioning-to-imdsv2")
+- [Recommended path to requiring IMDSv2](#recommended-path-for-requiring-imdsv2 "#recommended-path-for-requiring-imdsv2")
 
-## Tools for transitioning to
-
-IMDSv2
+## Tools for transitioning to IMDSv2
 
 The following tools can help you identify, monitor, and manage the transition of your
 software from IMDSv1 to IMDSv2. For the instructions on how to use
-these tools, see [Recommended path to
-requiring IMDSv2](#recommended-path-for-requiring-imdsv2 "#recommended-path-for-requiring-imdsv2").
+these tools, see [Recommended path to requiring IMDSv2](#recommended-path-for-requiring-imdsv2 "#recommended-path-for-requiring-imdsv2").
 
 **AWS software**
 
 The latest versions of the AWS CLI and AWS SDKs support IMDSv2. To use
 IMDSv2, update your EC2 instances to use the latest versions.
 For the minimum AWS SDK versions that support IMDSv2, see
-[Use a supported AWS
-SDK](configuring-instance-metadata-service.md#use-a-supported-sdk-version-for-imdsv2 "configuring-instance-metadata-service.md#use-a-supported-sdk-version-for-imdsv2").
+[Use a supported AWS SDK](configuring-instance-metadata-service.md#use-a-supported-sdk-version-for-imdsv2 "configuring-instance-metadata-service.md#use-a-supported-sdk-version-for-imdsv2").
 
 All Amazon Linux 2 and Amazon Linux 2023 software packages support IMDSv2. Amazon Linux 2023
 disables IMDSv1 by default.
@@ -60,28 +52,34 @@ number of times an IMDSv1 call was attempted and rejected. By
 tracking this metric, you can ascertain whether your software needs to
 be updated to use IMDSv2.
 
+For each EC2 instance, these metrics are mutually exclusive. When IMDSv1 is
+enabled (`httpTokens = optional`), only
+`MetadataNoToken` emits. When IMDSv1 is disabled
+(`httpTokens = required`), only
+`MetadataNoTokenRejected` emits. For when to use these
+metrics, see [Recommended path to requiring IMDSv2](#recommended-path-for-requiring-imdsv2 "#recommended-path-for-requiring-imdsv2").
+
 For more information, see [Instance metrics](viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics "viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics").
 
 **Launch APIs**
 
-New instances: Use the [RunInstances](../APIReference/API_RunInstances.md "../APIReference/API_RunInstances.md") API to launch new instances that require the
-use of IMDSv2. For more information, see [Configure instance metadata options
-for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md").
+**New instances:** Use the [RunInstances](../APIReference/API_RunInstances.md "../APIReference/API_RunInstances.md") API to
+launch new instances that require the use of IMDSv2. For more
+information, see [Configure instance metadata options for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md").
 
-Existing instances: Use the [ModifyInstanceMetadataOptions](../APIReference/API_ModifyInstanceMetadataOptions.md "../APIReference/API_ModifyInstanceMetadataOptions.md") API to require the use of
-IMDSv2 on existing instances. For more information, see [Modify instance metadata
-options for existing instances](configuring-IMDS-existing-instances.md "configuring-IMDS-existing-instances.md").
+**Existing instances:** Use the [ModifyInstanceMetadataOptions](../APIReference/API_ModifyInstanceMetadataOptions.md "../APIReference/API_ModifyInstanceMetadataOptions.md") API to require the use of
+IMDSv2 on existing instances. For more information, see [Modify instance metadata options for existing instances](configuring-IMDS-existing-instances.md "configuring-IMDS-existing-instances.md").
 
-New instances launched by Auto Scaling groups: To require the use of IMDSv2 on all new
-instances launched by Auto Scaling groups, your Auto Scaling groups can use either a
-launch template or a launch configuration. When you [create a launch
-template](../../../cli/latest/reference/ec2/create-launch-template.md "../../../cli/latest/reference/ec2/create-launch-template.md") or [create a launch configuration](../../../cli/latest/reference/autoscaling/create-launch-configuration.md "../../../cli/latest/reference/autoscaling/create-launch-configuration.md"), you must configure the
+**New instances launched by Auto Scaling groups:** To require the
+use of IMDSv2 on all new instances launched by Auto Scaling groups, your
+Auto Scaling groups can use either a launch template or a launch configuration.
+When you [create a launch template](../../../cli/latest/reference/ec2/create-launch-template.md "../../../cli/latest/reference/ec2/create-launch-template.md") or [create a launch configuration](../../../cli/latest/reference/autoscaling/create-launch-configuration.md "../../../cli/latest/reference/autoscaling/create-launch-configuration.md"), you must configure the
 `MetadataOptions` parameters to require the use of
 IMDSv2. The Auto Scaling group launches new instances using the new
 launch template or launch configuration, but existing instances are not
 affected.
 
-Existing instances in an Auto Scaling group: Use the [ModifyInstanceMetadataOptions](../APIReference/API_ModifyInstanceMetadataOptions.md "../APIReference/API_ModifyInstanceMetadataOptions.md") API to require the use of
+**Existing instances in an Auto Scaling group:** Use the [ModifyInstanceMetadataOptions](../APIReference/API_ModifyInstanceMetadataOptions.md "../APIReference/API_ModifyInstanceMetadataOptions.md") API to require the use of
 IMDSv2 on existing instances, or terminate the instances and the
 Auto Scaling group will launch new replacement instances with the instance
 metadata options settings that are defined in the new launch template or
@@ -94,16 +92,35 @@ AMIs configured with the `ImdsSupport` parameter set to
 by default. Amazon Linux 2023 is configured with `ImdsSupport =
  v2.0`.
 
-New AMIs: Use the [register-image](../../../cli/latest/reference/ec2/register-image.md "../../../cli/latest/reference/ec2/register-image.md") CLI command to set the
-`ImdsSupport` parameter to `v2.0` when
-creating a new AMI.
+**New AMIs:** Use the [register-image](../../../cli/latest/reference/ec2/register-image.md "../../../cli/latest/reference/ec2/register-image.md")
+CLI command to set the `ImdsSupport` parameter to
+`v2.0` when creating a new AMI.
 
-Existing AMIs: Use the [modify-image-attribute](../../../cli/latest/reference/ec2/modify-image-attribute.md "../../../cli/latest/reference/ec2/modify-image-attribute.md") CLI command to set the
+**Existing AMIs:** Use the [modify-image-attribute](../../../cli/latest/reference/ec2/modify-image-attribute.md "../../../cli/latest/reference/ec2/modify-image-attribute.md") CLI command to set the
 `ImdsSupport` parameter to `v2.0` when
 modifying an existing AMI.
 
-For more information, see [Configure
-the AMI](configuring-IMDS-new-instances.md#configure-IMDS-new-instances-ami-configuration "configuring-IMDS-new-instances.md#configure-IMDS-new-instances-ami-configuration").
+For more information, see [Configure the AMI](configuring-IMDS-new-instances.md#configure-IMDS-new-instances-ami-configuration "configuring-IMDS-new-instances.md#configure-IMDS-new-instances-ami-configuration").
+
+**Account-level controls**
+
+You can configure default values for all the instance metadata options at the account
+level. The default values are automatically applied when you launch an
+instance. For more information. see [Set IMDSv2 as the default for the account](configuring-IMDS-new-instances.md#set-imdsv2-account-defaults "configuring-IMDS-new-instances.md#set-imdsv2-account-defaults").
+
+You can also enforce the requirement to use IMDSv2 at the account level. When
+IMDSv2 enforcement is enabled:
+
+- **New instances:** Instances configured to launch with
+  IMDSv1 enabled will fail to launch
+- **Existing instances with IMDSv1 disabled:**
+  Attempts to enable IMDSv1 on existing instances will be
+  prevented.
+- **Existing instances with IMDSv1 enabled:**
+  Existing instances with IMDSv1 already enabled will not
+  be affected.
+
+For more information, see [Enforce IMDSv2 at the account level](configuring-IMDS-new-instances.md#enforce-imdsv2-at-the-account-level "configuring-IMDS-new-instances.md#enforce-imdsv2-at-the-account-level").
 
 **IAM policies and SCPs**
 
@@ -112,7 +129,7 @@ to control users as follows:
 
 - Can't launch an instance using the [RunInstances](../APIReference/API_RunInstances.md "../APIReference/API_RunInstances.md") API unless the instance is
   configured to use IMDSv2.
-- Can't modify a running instance using the [ModifyInstanceMetadataOptions](../APIReference/API_ModifyInstanceMetadataOptions.md "../APIReference/API_ModifyInstanceMetadataOptions.md") API to re-enable
+- Can't modify an existing instance using the [ModifyInstanceMetadataOptions](../APIReference/API_ModifyInstanceMetadataOptions.md "../APIReference/API_ModifyInstanceMetadataOptions.md") API to re-enable
   IMDSv1.
 
 The IAM policy or SCP must contain the following IAM condition
@@ -145,29 +162,24 @@ information on SCPs, see [Service control policies](../../../organizations/lates
 
 **Declarative Policies**
 
-Use Declarative Policies (a feature of AWS Organizations) to centrally set and enforce
-IMDSv2 as the default IMDS version across your organization. For
-an example policy, see the **Instance Metadata
-Defaults** tab in the [Supported declarative policies](../../../organizations/latest/userguide/orgs_manage_policies_declarative_syntax.md#declarative-policy-examples "../../../organizations/latest/userguide/orgs_manage_policies_declarative_syntax.md#declarative-policy-examples") section in the _AWS Organizations User Guide_.
+Use Declarative Policies (a feature of AWS Organizations) to centrally set IMDS account
+defaults, including IMDSv2 enforcement, across your
+organization. For an example policy, see the **Instance
+Metadata** tab in the [Supported declarative policies](../../../organizations/latest/userguide/orgs_manage_policies_declarative_syntax.md#declarative-policy-examples "../../../organizations/latest/userguide/orgs_manage_policies_declarative_syntax.md#declarative-policy-examples") section in the _AWS Organizations User Guide_.
 
-## Recommended path to
-
-requiring IMDSv2
+## Recommended path to requiring IMDSv2
 
 ###### Using the above tools, we recommend the following path for transitioning to
 
 IMDSv2:
 
-- [Step 1: Identify instances with IMDSv2=optional and
-  audit IMDSv1 usage](#path-step-1 "#path-step-1")
+- [Step 1: Identify instances with IMDSv2=optional and audit IMDSv1 usage](#path-step-1 "#path-step-1")
 - [Step 2: Update software to IMDSv2](#path-step-2 "#path-step-2")
 - [Step 3: Require IMDSv2 on instances](#path-step-3 "#path-step-3")
 - [Step 4: Set IMDSv2=required as the default](#path-step-4 "#path-step-4")
 - [Step 5: Enforce instances to require IMDSv2](#path-step-5 "#path-step-5")
 
-### Step 1: Identify instances with IMDSv2=optional and
-
-audit IMDSv1 usage
+### Step 1: Identify instances with IMDSv2=optional and audit IMDSv1 usage
 
 To assess your IMDSv2 migration scope, identify instances that are configured to
 allow either IMDSv1 or IMDSv2, and audit IMDSv1
@@ -285,8 +297,7 @@ Amazon EC2 console
      instance**.
 
 
-    For more information, see [Configure
-     the instance at launch](configuring-IMDS-new-instances.md#configure-IMDS-new-instances-instance-settings "configuring-IMDS-new-instances.md#configure-IMDS-new-instances-instance-settings").
+    For more information, see [Configure the instance at launch](configuring-IMDS-new-instances.md#configure-IMDS-new-instances-instance-settings "configuring-IMDS-new-instances.md#configure-IMDS-new-instances-instance-settings").
 
 AWS CLI
 AWS CLI: Use the [run-instances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-instances.html") command and specify that IMDSv2
@@ -322,21 +333,52 @@ specify `--http-tokens required` and
 `--http-put-response-hop-limit
  `2``.
 
-For more information, see [Set IMDSv2 as the
-default for the account](configuring-IMDS-new-instances.md#set-imdsv2-account-defaults "configuring-IMDS-new-instances.md#set-imdsv2-account-defaults"). 2. **Alternatively, set organization-level default using a Declarative
+For more information, see [Set IMDSv2 as the default for the account](configuring-IMDS-new-instances.md#set-imdsv2-account-defaults "configuring-IMDS-new-instances.md#set-imdsv2-account-defaults"). 2. **Alternatively, set organization-level default using a Declarative
 Policy:**
 
 Use a Declarative Policy to set the organization default for IMDSv2 to
-required. For an example policy, see the **Instance Metadata
-Defaults** tab in the [Supported declarative policies](../../../organizations/latest/userguide/orgs_manage_policies_declarative_syntax.md#declarative-policy-examples "../../../organizations/latest/userguide/orgs_manage_policies_declarative_syntax.md#declarative-policy-examples") section in the _AWS Organizations User Guide_.
+required. For an example policy, see the **Instance
+Metadata** tab in the [Supported declarative policies](../../../organizations/latest/userguide/orgs_manage_policies_declarative_syntax.md#declarative-policy-examples "../../../organizations/latest/userguide/orgs_manage_policies_declarative_syntax.md#declarative-policy-examples") section in the _AWS Organizations User Guide_.
 
 ### Step 5: Enforce instances to require IMDSv2
 
-Use the following IAM or SCP condition keys to enforce IMDSv2 usage:
+Once you’ve confirmed that there is no dependency on IMDSv1 on any of your
+instances, we recommend that you enforce IMDSv2 on all new
+instances.
 
-- `ec2:MetadataHttpTokens`
-- `ec2:MetadataHttpPutResponseHopLimit`
-- `ec2:MetadataHttpEndpoint`
+Use one of the following options to enforce IMDSv2:
+
+1. **Enforce IMDSv2 with an account property**
+
+You can enforce the use of IMDSv2 at the account level for each AWS Region.
+When enforced, instances can only launch if they're configured to
+require IMDSv2. This enforcement applies regardless of how the
+instance or AMI is configured. For more information, see [Enforce IMDSv2 at the account level](configuring-IMDS-new-instances.md#enforce-imdsv2-at-the-account-level "configuring-IMDS-new-instances.md#enforce-imdsv2-at-the-account-level"). To apply this
+setting at an organization level, set a Declarative Policy. For an
+example policy, see the **Instance Metadata** tab in
+the [Supported declarative policies](../../../organizations/latest/userguide/orgs_manage_policies_declarative_syntax.md#declarative-policy-examples "../../../organizations/latest/userguide/orgs_manage_policies_declarative_syntax.md#declarative-policy-examples") section in the _AWS Organizations User Guide_.
+
+To prevent a reversal of enforcement, you should use an IAM policy to prevent access to
+the [ModifyInstanceMetadataDefaults](../APIReference/API_ModifyInstanceMetadataDefaults.md "../APIReference/API_ModifyInstanceMetadataDefaults.md") API. For more information,
+see [Use an IAM policy](configuring-IMDS-new-instances.md#configure-IMDS-new-instances-iam-policy "configuring-IMDS-new-instances.md#configure-IMDS-new-instances-iam-policy").
+
+###### Note
+
+This setting does not change the IMDS version of existing
+instances, but blocks enabling IMDSv1 on existing instances
+that currently have IMDSv1 disabled.
+
+###### Warning
+
+If IMDSv2 enforcement is enabled and `httpTokens` is not set to
+`required` in either the instance configuration at
+launch, the account settings, or the AMI configuration, the instance
+launch will fail. For troubleshooting information, see [Launching an IMDSv1-enabled instance fails](troubleshooting-launch.md#launching-an-imdsv1-enabled-instance-fails "troubleshooting-launch.md#launching-an-imdsv1-enabled-instance-fails"). 2. **Alternatively, enforce IMDSv2 by using the following IAM
+or SCP condition keys:**
+
+    * `ec2:MetadataHttpTokens`
+    * `ec2:MetadataHttpPutResponseHopLimit`
+    * `ec2:MetadataHttpEndpoint`
 
 These condition keys control the use of the [RunInstances](../APIReference/API_RunInstances.md "../APIReference/API_RunInstances.md") and the [ModifyInstanceMetadataOptions](../APIReference/API_ModifyInstanceMetadataOptions.md "../APIReference/API_ModifyInstanceMetadataOptions.md") APIs and corresponding CLIs. If a
 policy is created, and a parameter in the API call does not match the state

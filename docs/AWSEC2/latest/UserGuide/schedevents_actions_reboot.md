@@ -1,6 +1,4 @@
-# Manage Amazon EC2 instances scheduled for
-
-reboot
+# Manage Amazon EC2 instances scheduled for reboot
 
 When AWS must perform tasks such as installing updates or maintaining the
 underlying host, it can schedule an instance reboot. During the scheduled reboot,
@@ -22,9 +20,7 @@ depending on the event, as follows:
 
   To check what type of event is scheduled for your instance, see [Determine the event type](monitoring-instances-status-check_sched.md#scheduled-event-type "monitoring-instances-status-check_sched.md#scheduled-event-type").
 
-## Actions you
-
-can take
+## Actions you can take
 
 When you receive a scheduled `instance-reboot` or
 `system-reboot` event notification, you can take one of the
@@ -127,9 +123,7 @@ A reboot with migration takes longer than an in-place reboot:
 Instances that receive a `system-reboot` event notification are
 enabled for user-initiated reboot migration by default.
 
-### Requirements for enabling
-
-reboot migration
+### Requirements for enabling reboot migration
 
 Reboot migration can be enabled on instances that meet the following
 criteria:
@@ -142,9 +136,7 @@ migration.
 
 Console
 
-###### To view the instance types that support enabling
-
-reboot migration
+###### To view the instance types that support enabling reboot migration
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -161,9 +153,7 @@ enabling reboot migration.
 
 AWS CLI
 
-###### To view the instance types that support enabling
-
-reboot migration
+###### To view the instance types that support enabling reboot migration
 
 Use the [describe-instance-types](../../../cli/latest/reference/ec2/describe-instance-types.md "../../../cli/latest/reference/ec2/describe-instance-types.md") command with the
 `reboot-migration-support`
@@ -178,9 +168,7 @@ aws ec2 describe-instance-types \
 
 PowerShell
 
-###### To view the instance types that support enabling
-
-reboot migration
+###### To view the instance types that support enabling reboot migration
 
 Use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md")
 cmdlet with the `reboot-migration-support` filter.
@@ -211,9 +199,7 @@ with the following characteristics:
 - Networking: Instances using an Elastic Fabric Adapter
 - Auto Scaling: Instances that are part of an Auto Scaling group
 
-### Steps for enabling or
-
-disabling reboot migration
+### Steps for enabling or disabling reboot migration
 
 When an instance receives a `system-reboot` event, it is enabled
 for reboot migration by default. You can disable reboot migration so that
@@ -221,8 +207,7 @@ during a user-initiated reboot, the instance stays on the same hardware
 (in-place reboot).
 
 The `default` configuration doesn't enable reboot migration for an
-unsupported instance. For more information, see [Requirements for enabling
-reboot migration](#requirements-for-reboot-migration "#requirements-for-reboot-migration").
+unsupported instance. For more information, see [Requirements for enabling reboot migration](#requirements-for-reboot-migration "#requirements-for-reboot-migration").
 
 You can disable or enable reboot migration on a running or stopped
 instance.

@@ -1,6 +1,4 @@
-# Upgrade PV drivers on EC2 Windows
-
-instances
+# Upgrade PV drivers on EC2 Windows instances
 
 We recommend that you install the latest PV drivers to improve the stability and
 performance of your EC2 Windows instances. The directions on this page help you download
@@ -22,20 +20,13 @@ system requirements.
 
 ###### Contents
 
-- [Upgrade Windows Server instances (AWS
-  PV upgrade) with Distributor](#aws-pv-upgrade-distributor "#aws-pv-upgrade-distributor")
-- [Upgrade Windows Server instances (AWS PV upgrade)
-  manually](#aws-pv-upgrade "#aws-pv-upgrade")
-- [Upgrade a domain controller (AWS PV
-  upgrade)](#aws-pv-upgrade-dc "#aws-pv-upgrade-dc")
-- [Upgrade Windows Server 2008 and 2008 R2
-  instances (Red Hat to Citrix PV upgrade)](#win2008-citrix-upgrade "#win2008-citrix-upgrade")
-- [Upgrade your Citrix Xen guest agent
-  service](#citrix-pv-guest-agent-upgrade "#citrix-pv-guest-agent-upgrade")
+- [Upgrade Windows Server instances (AWS PV upgrade) with Distributor](#aws-pv-upgrade-distributor "#aws-pv-upgrade-distributor")
+- [Upgrade Windows Server instances (AWS PV upgrade) manually](#aws-pv-upgrade "#aws-pv-upgrade")
+- [Upgrade a domain controller (AWS PV upgrade)](#aws-pv-upgrade-dc "#aws-pv-upgrade-dc")
+- [Upgrade Windows Server 2008 and 2008 R2 instances (Red Hat to Citrix PV upgrade)](#win2008-citrix-upgrade "#win2008-citrix-upgrade")
+- [Upgrade your Citrix Xen guest agent service](#citrix-pv-guest-agent-upgrade "#citrix-pv-guest-agent-upgrade")
 
-## Upgrade Windows Server instances (AWS
-
-PV upgrade) with Distributor
+## Upgrade Windows Server instances (AWS PV upgrade) with Distributor
 
 You can use Distributor, a capability of AWS Systems Manager, to install or upgrade the
 AWS PV driver package. The installation or upgrade can be performed one time, or
@@ -45,8 +36,7 @@ package.
 
 ###### Important
 
-If your instance is a domain controller, see [Upgrade a domain controller (AWS PV
-upgrade)](#aws-pv-upgrade-dc "#aws-pv-upgrade-dc"). The upgrade process for domain
+If your instance is a domain controller, see [Upgrade a domain controller (AWS PV upgrade)](#aws-pv-upgrade-dc "#aws-pv-upgrade-dc"). The upgrade process for domain
 controller instances is different than standard editions of Windows.
 
 1. We recommend that you create a backup in case you need to roll back your
@@ -117,9 +107,7 @@ If you previously applied a static IP address or DNS configuration to the networ
 interface, you might need to reapply the static IP address or DNS configuration
 after upgrading AWS PV drivers.
 
-## Upgrade Windows Server instances (AWS PV upgrade)
-
-manually
+## Upgrade Windows Server instances (AWS PV upgrade) manually
 
 Use the following procedure to perform an in-place upgrade of AWS PV drivers, or
 to upgrade from Citrix PV drivers to AWS PV drivers on Windows Server 2008 R2,
@@ -134,8 +122,7 @@ page.
 
 ###### Important
 
-If your instance is a domain controller, see [Upgrade a domain controller (AWS PV
-upgrade)](#aws-pv-upgrade-dc "#aws-pv-upgrade-dc"). The upgrade process for domain
+If your instance is a domain controller, see [Upgrade a domain controller (AWS PV upgrade)](#aws-pv-upgrade-dc "#aws-pv-upgrade-dc"). The upgrade process for domain
 controller instances is different than standard editions of Windows.
 
 ###### To upgrade AWS PV drivers manually
@@ -223,9 +210,7 @@ If you previously applied a static IP address or DNS configuration to the networ
 interface, you might need to reapply the static IP address or DNS configuration
 after upgrading AWS PV drivers.
 
-## Upgrade a domain controller (AWS PV
-
-upgrade)
+## Upgrade a domain controller (AWS PV upgrade)
 
 Use the following procedure on a domain controller to perform either an in-place
 upgrade of AWS PV drivers, or to upgrade from Citrix PV drivers to AWS PV
@@ -321,9 +306,7 @@ TCP Offloading issues with Citrix drivers are not present in the AWS PV
 drivers. As a result, TCP Offloading provides better performance with AWS PV
 drivers.
 
-## Upgrade Windows Server 2008 and 2008 R2
-
-instances (Red Hat to Citrix PV upgrade)
+## Upgrade Windows Server 2008 and 2008 R2 instances (Red Hat to Citrix PV upgrade)
 
 Before you start upgrading your Red Hat drivers to Citrix PV drivers, make sure
 you do the following:
@@ -409,9 +392,7 @@ Paravirtualize** in the Windows taskbar.
 
 ![PVUpgrade log file.](images/win2008-pvupgrade-log.png)
 
-## Upgrade your Citrix Xen guest agent
-
-service
+## Upgrade your Citrix Xen guest agent service
 
 If you are using Citrix PV drivers on Windows Server, you can upgrade the Citrix
 Xen guest agent service. This Windows service handles tasks such as shutdown and

@@ -33,9 +33,7 @@ the target AMI are available as before. For more information, see
 **CopyImage** in the table under [Actions defined by Amazon EC2](../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-actions-as-permissions") in the _Service
 Authorization Reference_.
 
-## Example IAM policy for copying
-
-an EBS-backed AMI and tagging the target AMI and snapshots
+## Example IAM policy for copying an EBS-backed AMI and tagging the target AMI and snapshots
 
 The following example policy grants you permission to copy any EBS-backed AMI and
 tag the target AMI and its backing snapshots.
@@ -68,9 +66,7 @@ JSON
 
 ```
 
-## Example IAM policy for copying an EBS-backed AMI but denying tagging the new
-
-snapshots
+## Example IAM policy for copying an EBS-backed AMI but denying tagging the new snapshots
 
 The `ec2:CopySnapshot` permission is automatically granted when you get the
 `ec2:CopyImage` permission. Permission to tag the new backing
@@ -106,9 +102,7 @@ JSON
 
 ```
 
-## Example IAM policy for copying
-
-an Amazon S3-backed AMI and tagging the target AMI
+## Example IAM policy for copying an Amazon S3-backed AMI and tagging the target AMI
 
 The following example policy grants you permission to copy any Amazon S3-backed AMI in the
 specified source bucket to the specified Region, and tag the target AMI.

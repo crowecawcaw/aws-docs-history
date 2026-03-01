@@ -1,15 +1,11 @@
-# Move capacity between Capacity
-
-Reservations
+# Move capacity between Capacity Reservations
 
 You can move capacity from one Capacity Reservation to another to redistribute your reserved compute
 resources as needed. For example, if you need additional capacity in a reservation with
 growing usage, and you have capacity available in another reservation, then you can
 reallocate that capacity between the two reservations.
 
-## Prerequisites for moving
-
-capacity
+## Prerequisites for moving capacity
 
 As a prerequisite, the two Capacity Reservations must meet the following requirements:
 

@@ -9,8 +9,7 @@ and then associated it with the new resource.
 
 - [Allocate an Elastic IP address](#using-instance-addressing-eips-allocating "#using-instance-addressing-eips-allocating")
 - [Associate an Elastic IP address](#using-instance-addressing-eips-associating "#using-instance-addressing-eips-associating")
-- [Disassociate an Elastic IP
-  address](#using-instance-addressing-eips-associating-different "#using-instance-addressing-eips-associating-different")
+- [Disassociate an Elastic IP address](#using-instance-addressing-eips-associating-different "#using-instance-addressing-eips-associating-different")
 
 ## Allocate an Elastic IP address
 
@@ -213,9 +212,7 @@ Register-EC2Address `
     -AllocationId `eipalloc-64d5890a`
 ```
 
-## Disassociate an Elastic IP
-
-address
+## Disassociate an Elastic IP address
 
 You can disassociate an Elastic IP address from an instance or network interface at any time. After you disassociate the Elastic IP address,
 you can associate it with another resource.

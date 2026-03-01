@@ -26,8 +26,7 @@ following best practices.
   and recovery. For more information, see [Root volume type](ComponentsAMIs.md#storage-for-the-root-device "ComponentsAMIs.md#storage-for-the-root-device").
 - Use separate Amazon EBS volumes for the operating system versus your data. Ensure that
   the volume with your data persists after instance termination. For more information,
-  see [Preserve data when an instance is
-  terminated](preserving-volumes-on-termination.md "preserving-volumes-on-termination.md").
+  see [Preserve data when an instance is terminated](preserving-volumes-on-termination.md "preserving-volumes-on-termination.md").
 - Use the instance store available for your instance to store temporary data.
   Remember that the data stored in instance store is deleted when you stop, hibernate,
   or terminate your instance. If you use instance store for database storage, ensure
@@ -38,8 +37,7 @@ following best practices.
 ###### Resource management
 
 - Use instance metadata and custom resource tags to track and identify your AWS
-  resources. For more information, see [Use instance metadata to manage your EC2
-  instance](ec2-instance-metadata.md "ec2-instance-metadata.md") and [Tag your Amazon EC2 resources](Using_Tags.md "Using_Tags.md").
+  resources. For more information, see [Use instance metadata to manage your EC2 instance](ec2-instance-metadata.md "ec2-instance-metadata.md") and [Tag your Amazon EC2 resources](Using_Tags.md "Using_Tags.md").
 - View your current limits for Amazon EC2. Plan to request any limit increases in advance
   of the time that you'll need them. For more information, see [Amazon EC2 service quotas](ec2-resource-limits.md "ec2-resource-limits.md").
 - Use AWS Trusted Advisor to inspect your AWS environment, and then make

@@ -19,8 +19,7 @@ Console
 2. In the navigation pane, choose **Outposts**.
    Select the Outpost and then choose **Actions**,
    **Allocate Dedicated Host**.
-3. Configure the Dedicated Host as needed. For more information, see [Allocate an Amazon EC2 Dedicated Host for use in
-   your account](dedicated-hosts-allocating.md "dedicated-hosts-allocating.md").
+3. Configure the Dedicated Host as needed. For more information, see [Allocate an Amazon EC2 Dedicated Host for use in your account](dedicated-hosts-allocating.md "dedicated-hosts-allocating.md").
 
 ###### Note
 
@@ -52,8 +51,7 @@ The value that you specify for
 **Quantity** must be equal to the
 number of asset IDs that you specify. For example, if you
 specify 3 asset IDs, then Quantity must also be 3. 6. Configure the remaining Dedicated Host settings as needed. For more
-information, see [Allocate an Amazon EC2 Dedicated Host for use in
-your account](dedicated-hosts-allocating.md "dedicated-hosts-allocating.md"). 7. Choose **Allocate**.
+information, see [Allocate an Amazon EC2 Dedicated Host for use in your account](dedicated-hosts-allocating.md "dedicated-hosts-allocating.md"). 7. Choose **Allocate**.
 
 AWS CLI
 

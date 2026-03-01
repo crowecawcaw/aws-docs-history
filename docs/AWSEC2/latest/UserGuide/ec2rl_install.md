@@ -34,8 +34,7 @@ Otherwise, you can install the bundled build, which includes a minimal copy of P
 ```
 
 2. (_Optional_) Verify the signature of the EC2Rescue for Linux installation file.
-   For more information, see [(Optional) Verify the signature of
-   EC2Rescue for Linux](#ec2rl_verify "#ec2rl_verify").
+   For more information, see [(Optional) Verify the signature of EC2Rescue for Linux](#ec2rl_verify "#ec2rl_verify").
 3. Download the sha256 hash file:
 
 ```
@@ -65,9 +64,7 @@ Otherwise, you can install the bundled build, which includes a minimal copy of P
 
 For a link to the download and a list of limitations, see [EC2Rescue for Linux](https://github.com/awslabs/aws-ec2rescue-linux/blob/master/README.md "https://github.com/awslabs/aws-ec2rescue-linux/blob/master/README.md") on github.
 
-## (Optional) Verify the signature of
-
-EC2Rescue for Linux
+## (Optional) Verify the signature of EC2Rescue for Linux
 
 The following is the recommended process of verifying the validity of the
 EC2Rescue for Linux package for Linux-based operating systems.

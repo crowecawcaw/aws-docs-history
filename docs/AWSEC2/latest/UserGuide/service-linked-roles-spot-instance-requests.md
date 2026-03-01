@@ -61,9 +61,7 @@ If you no longer need to use Spot Instances, we recommend that you delete the
 deleted from your account, Amazon EC2 will create the role again if you request
 Spot Instances.
 
-## Grant access to customer managed keys for
-
-use with encrypted AMIs and EBS snapshots
+## Grant access to customer managed keys for use with encrypted AMIs and EBS snapshots
 
 If you specify an [encrypted AMI](AMIEncryption.md "AMIEncryption.md") or an
 encrypted Amazon EBS snapshot for your Spot Instances and you use a customer managed key for encryption, you
@@ -76,9 +74,7 @@ more information, see [Using Grants](../../../kms/latest/developerguide/grants.m
 and [Using Key Policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md")
 in the _AWS Key Management Service Developer Guide_.
 
-###### To grant the **AWSServiceRoleForEC2Spot** role permissions to use the
-
-customer managed key
+###### To grant the **AWSServiceRoleForEC2Spot** role permissions to use the customer managed key
 
 - Use the [create-grant](../../../cli/latest/reference/kms/create-grant.md "../../../cli/latest/reference/kms/create-grant.md") command to add a grant to the customer managed key and to
   specify the principal (the **AWSServiceRoleForEC2Spot**

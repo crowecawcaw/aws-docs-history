@@ -1,6 +1,4 @@
-# Allocate an Amazon EC2 Dedicated Host for use in
-
-your account
+# Allocate an Amazon EC2 Dedicated Host for use in your account
 
 To begin using a Dedicated Host, you must first allocate it in your account. After you
 allocate the Dedicated Host, the Dedicated Host capacity is made available in your account immediately

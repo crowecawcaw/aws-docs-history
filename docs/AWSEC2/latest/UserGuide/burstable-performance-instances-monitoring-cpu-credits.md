@@ -1,22 +1,15 @@
-# Monitor CPU
-
-credits for burstable instances
+# Monitor CPU credits for burstable instances
 
 EC2 sends metrics to Amazon CloudWatch. You can see the CPU credit metrics in the Amazon EC2
 per-instance metrics of the CloudWatch console or by using the AWS CLI to list the metrics for each
-instance. For more information, see [CloudWatch metrics that are available for your
-instances](viewing_metrics_with_cloudwatch.md "viewing_metrics_with_cloudwatch.md").
+instance. For more information, see [CloudWatch metrics that are available for your instances](viewing_metrics_with_cloudwatch.md "viewing_metrics_with_cloudwatch.md").
 
 ###### Contents
 
-- [Additional CloudWatch metrics for
-  burstable performance instances](#burstable-performance-instances-cw-metrics "#burstable-performance-instances-cw-metrics")
-- [Calculate CPU
-  credit usage](#burstable-performance-instances-calculating-credit-use "#burstable-performance-instances-calculating-credit-use")
+- [Additional CloudWatch metrics for burstable performance instances](#burstable-performance-instances-cw-metrics "#burstable-performance-instances-cw-metrics")
+- [Calculate CPU credit usage](#burstable-performance-instances-calculating-credit-use "#burstable-performance-instances-calculating-credit-use")
 
-## Additional CloudWatch metrics for
-
-burstable performance instances
+## Additional CloudWatch metrics for burstable performance instances
 
 Burstable performance instances have these additional CloudWatch metrics, which are updated
 every five minutes:
@@ -37,8 +30,7 @@ The last two metrics apply only to instances configured as
 `unlimited`.
 
 The following table describes the CloudWatch metrics for burstable performance instances.
-For more information, see [CloudWatch metrics that are available for your
-instances](viewing_metrics_with_cloudwatch.md "viewing_metrics_with_cloudwatch.md").
+For more information, see [CloudWatch metrics that are available for your instances](viewing_metrics_with_cloudwatch.md "viewing_metrics_with_cloudwatch.md").
 
 | Metric                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -47,9 +39,7 @@ instances](viewing_metrics_with_cloudwatch.md "viewing_metrics_with_cloudwatch.m
 | `CPUSurplusCreditBalance`  | The number of surplus credits that have been spent by an<br>`unlimited` instance when its `CPUCreditBalance`<br>value is zero.<br>The `CPUSurplusCreditBalance` value is paid down by earned<br>CPU credits. If the number of surplus credits exceeds the maximum number<br>of credits that the instance can earn in a 24-hour period, the spent<br>surplus credits above the maximum incur an additional charge.<br>Units: Credits (vCPU-minutes)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `CPUSurplusCreditsCharged` | The number of spent surplus credits that are not paid down by earned<br>CPU credits, and which thus incur an additional charge.<br>Spent surplus credits are charged when any of the following occurs:<br>• The spent surplus credits exceed the maximum number of credits<br>that the instance can earn in a 24-hour period. Spent surplus<br>credits above the maximum are charged at the end of the<br>hour.<br>• The instance is stopped or terminated.<br>• The instance is switched from `unlimited` to<br>`standard`.<br>Units: Credits (vCPU-minutes)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-## Calculate CPU
-
-credit usage
+## Calculate CPU credit usage
 
 The CPU credit usage of instances is calculated using the instance CloudWatch metrics
 described in the preceding table.
@@ -58,9 +48,7 @@ Amazon EC2 sends the metrics to CloudWatch every five minutes. A reference to th
 previous value of the metric, sent _five minutes
 ago_.
 
-### Calculate CPU
-
-credit usage for Standard instances
+### Calculate CPU credit usage for Standard instances
 
 - The CPU credit balance increases if CPU utilization is below the baseline,
   when the credits spent are less than the credits earned in the prior
@@ -111,9 +99,7 @@ value:
 CPUCreditBalance = 2 + [0.5 - 1] = 1.5
 ```
 
-### Calculate CPU
-
-credit usage for Unlimited instances
+### Calculate CPU credit usage for Unlimited instances
 
 When a burstable performance instance needs to burst above the baseline, it always
 spends accrued credits before spending surplus credits. When it depletes its accrued

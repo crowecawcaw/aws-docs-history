@@ -21,8 +21,7 @@ application performance and tune it as required.
 
 ###### Contents
 
-- [Volume limits for instances built on the Nitro
-  System](volume_limits.md#nitro-system-limits "volume_limits.md#nitro-system-limits")
+- [Volume limits for instances built on the Nitro System](volume_limits.md#nitro-system-limits "volume_limits.md#nitro-system-limits")
   - [Dedicated EBS volume limit](volume_limits.md#dedicated-limit "volume_limits.md#dedicated-limit")
   - [Shared EBS volume limit](volume_limits.md#shared-limit "volume_limits.md#shared-limit")
 
@@ -30,9 +29,7 @@ application performance and tune it as required.
   - [Linux instances](volume_limits.md#linux-specific-volume-limits "volume_limits.md#linux-specific-volume-limits")
   - [Windows instances](volume_limits.md#windows-specific-volume-limits "volume_limits.md#windows-specific-volume-limits")
 
-## Volume limits for instances built on the Nitro
-
-System
+## Volume limits for instances built on the Nitro System
 
 The volume limits for instances built on the Nitro System depend on the instance
 type. Some Nitro instance types have a **dedicated EBS volume
@@ -127,8 +124,7 @@ and Amazon EBS volumes.
 We recommend that you do not that attach more than 26 volumes to a Xen-based Windows
 instance with AWS PV or Citrix PV drivers, as it is likely to cause performance issues.
 To determine which PV drivers your instance is using, or to upgrade your Windows instance
-from Red Hat to Citrix PV drivers, see [Upgrade PV drivers on EC2 Windows
-instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
+from Red Hat to Citrix PV drivers, see [Upgrade PV drivers on EC2 Windows instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
 
 ###### Important
 
@@ -136,5 +132,4 @@ Attaching more than the following number of volumes to a Xen-based Windows insta
 supported on a best effort basis only and is not guaranteed.
 
 For more information about how device names are related to volumes, see
-[How volumes are attached and mapped for Amazon EC2 Windows
-instances](ec2-windows-volumes.md "ec2-windows-volumes.md").
+[How volumes are attached and mapped for Amazon EC2 Windows instances](ec2-windows-volumes.md "ec2-windows-volumes.md").

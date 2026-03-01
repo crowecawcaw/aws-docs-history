@@ -1,6 +1,4 @@
-# Install EC2 Instance Connect on your EC2
-
-instances
+# Install EC2 Instance Connect on your EC2 instances
 
 To connect to a Linux instance using EC2 Instance Connect, the instance must have
 EC2 Instance Connect installed. Installing EC2 Instance Connect configures the SSH daemon on the
@@ -15,9 +13,7 @@ If you configured the `AuthorizedKeysCommand` and
 EC2 Instance Connect installation will not update them. As a result, you can't use
 EC2 Instance Connect.
 
-## Install
-
-prerequisites
+## Install prerequisites
 
 Before you install EC2 Instance Connect, ensure that you meet the following
 prerequisites.
@@ -40,8 +36,7 @@ installation is required.
 - **Verify the general prerequisites for
   EC2 Instance Connect.**
 
-For more information, see [Prerequisites for
-EC2 Instance Connect](ec2-instance-connect-prerequisites.md "ec2-instance-connect-prerequisites.md").
+For more information, see [Prerequisites for EC2 Instance Connect](ec2-instance-connect-prerequisites.md "ec2-instance-connect-prerequisites.md").
 
 - **Verify the prerequisites for connecting to your
   instance using an SSH client on your local machine.**
@@ -55,9 +50,7 @@ You can get the ID of your instance using the Amazon EC2 console (from the
 [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md")
 (AWS Tools for Windows PowerShell) command.
 
-## Manually install
-
-EC2 Instance Connect
+## Manually install EC2 Instance Connect
 
 ###### Note
 
@@ -76,9 +69,7 @@ operating system of your instance.
 
 Amazon Linux 2
 
-###### To install EC2 Instance Connect on an instance launched with
-
-Amazon Linux 2
+###### To install EC2 Instance Connect on an instance launched with Amazon Linux 2
 
 1. Connect to your instance using SSH.
 
@@ -141,9 +132,7 @@ you will not be able to use EC2 Instance Connect.
 
 CentOS
 
-###### To install EC2 Instance Connect on an instance launched with
-
-CentOS
+###### To install EC2 Instance Connect on an instance launched with CentOS
 
 1. Connect to your instance using SSH.
 
@@ -294,9 +283,7 @@ you will not be able to use EC2 Instance Connect.
 
 macOS
 
-###### To install EC2 Instance Connect on an instance launched with
-
-macOS
+###### To install EC2 Instance Connect on an instance launched with macOS
 
 1. Connect to your instance using SSH.
 
@@ -366,9 +353,7 @@ you will not be able to use EC2 Instance Connect.
 
 RHEL
 
-###### To install EC2 Instance Connect on an instance launched with Red Hat
-
-Enterprise Linux (RHEL)
+###### To install EC2 Instance Connect on an instance launched with Red Hat Enterprise Linux (RHEL)
 
 1. Connect to your instance using SSH.
 
@@ -519,9 +504,7 @@ you will not be able to use EC2 Instance Connect.
 
 Ubuntu
 
-###### To install EC2 Instance Connect on an instance launched with Ubuntu
-
-16.04 or later
+###### To install EC2 Instance Connect on an instance launched with Ubuntu 16.04 or later
 
 1. Connect to your instance using SSH.
 

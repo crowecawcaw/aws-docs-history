@@ -1,6 +1,4 @@
-# View resources across Regions using AWS Global
-
-View
+# View resources across Regions using AWS Global View
 
 AWS Global View enables you to view some of your Amazon EC2 and Amazon VPC resources across a
 single AWS Region, or across multiple Regions in a single console. AWS Global View
@@ -15,7 +13,10 @@ Using AWS Global View, you can view a global summary of the following resources
 across all of the Regions for which your AWS account is enabled.
 
 - Auto Scaling groups
+- Availability Zones
 - Capacity Reservations and Capacity Blocks
+- DB clusters
+- DB instances
 - DHCP option set
 - Egress-only internet gateways
 - Elastic IPs
@@ -26,7 +27,9 @@ across all of the Regions for which your AWS account is enabled.
 - NAT gateways
 - Network ACLs
 - Network interfaces
+- Outposts
 - Route tables
+- S3 buckets
 - Security groups
 - Subnets
 - Volumes
@@ -66,7 +69,14 @@ JSON
  "ec2:DescribeVolumes",
  "ec2:DescribeVpcs",
  "ec2:DescribeVpcEndpoints",
- "ec2:DescribeVpcPeeringConnections"
+ "ec2:DescribeVpcPeeringConnections",
+ "ec2:DescribeAvailabilityZones",
+ "ec2:DescribeVpcEndpointServiceConfigurations",
+ "ec2:DescribeManagedPrefixLists",
+ "outposts:ListOutposts",
+ "rds:DescribeDBInstances",
+ "rds:DescribeDBClusters",
+ "s3:ListAllMyBuckets"
  ],
  "Resource": "*"
  }]

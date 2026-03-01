@@ -17,15 +17,11 @@ for an instance backup.
 
 ###### Contents
 
-- [EC2Launch answer and batch files
-  for Windows Sysprep](#ec2launch-sysprep-answer-batch "#ec2launch-sysprep-answer-batch")
+- [EC2Launch answer and batch files for Windows Sysprep](#ec2launch-sysprep-answer-batch "#ec2launch-sysprep-answer-batch")
 - [Run Windows Sysprep with EC2Launch](#ec2launch-sysprep-running "#ec2launch-sysprep-running")
-- [Update metadata/KMS routes for Server 2016 and later when
-  launching a custom AMI](#update-metadata-KMS "#update-metadata-KMS")
+- [Update metadata/KMS routes for Server 2016 and later when launching a custom AMI](#update-metadata-KMS "#update-metadata-KMS")
 
-## EC2Launch answer and batch files
-
-for Windows Sysprep
+## EC2Launch answer and batch files for Windows Sysprep
 
 The EC2Launch answer file and batch files for Windows Sysprep include the
 following:
@@ -140,9 +136,7 @@ changes from `Running` to `Stopping`, and then to
 `Stopped`. At this point, it is safe to create an AMI from this
 instance.
 
-## Update metadata/KMS routes for Server 2016 and later when
-
-launching a custom AMI
+## Update metadata/KMS routes for Server 2016 and later when launching a custom AMI
 
 To update metadata/KMS routes for Server 2016 and later when launching a
 custom AMI, do one of the following:

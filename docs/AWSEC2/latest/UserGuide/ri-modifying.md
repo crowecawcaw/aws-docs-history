@@ -19,8 +19,7 @@ the modification request results in two new reservations: one for 5 instances in
 
 You can also _merge_ two or more Reserved Instances into a single Reserved Instance. For
 example, if you have four `t2.small` Reserved Instances of one instance each, you can
-merge them to create one `t2.large` Reserved Instance. For more information, see [Support for modifying instance
-sizes](#ri-modification-instancemove "#ri-modification-instancemove").
+merge them to create one `t2.large` Reserved Instance. For more information, see [Support for modifying instance sizes](#ri-modification-instancemove "#ri-modification-instancemove").
 
 After modification, the benefit of the Reserved Instances is applied only to instances that match
 the new parameters. For example, if you change the Availability Zone of a reservation,
@@ -59,17 +58,12 @@ changes you made, if needed.
 
 ###### Contents
 
-- [Requirements and restrictions for
-  modification](#ri-modification-limits "#ri-modification-limits")
-- [Support for modifying instance
-  sizes](#ri-modification-instancemove "#ri-modification-instancemove")
+- [Requirements and restrictions for modification](#ri-modification-limits "#ri-modification-limits")
+- [Support for modifying instance sizes](#ri-modification-instancemove "#ri-modification-instancemove")
 - [Submit modification requests](#ri-modification-process "#ri-modification-process")
-- [Troubleshoot modification
-  requests](#ri-modification-process-messages "#ri-modification-process-messages")
+- [Troubleshoot modification requests](#ri-modification-process-messages "#ri-modification-process-messages")
 
-## Requirements and restrictions for
-
-modification
+## Requirements and restrictions for modification
 
 You can modify these attributes as follows.
 
@@ -77,7 +71,7 @@ You can modify these attributes as follows.
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Change **Availability Zones**<br>within the same Region                        | Linux and Windows                                                                                                                                                                                                                                                                                                                                                                     | -                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Change the \*_scope_<br>• from<br>Availability Zone to Region and vice versa   | Linux and Windows                                                                                                                                                                                                                                                                                                                                                                     | A zonal Reserved Instance is scoped to an Availability Zone and reserves<br>capacity in that Availability Zone. If you change the scope from<br>Availability Zone to Region (in other words, from zonal to<br>regional), you lose the capacity reservation benefit.<br>A regional Reserved Instance is scoped to a Region. Your<br>Reserved Instance discount can apply to instances running in any<br>Availability Zone in that Region. Furthermore, the Reserved<br>Instance discount applies to instance usage across all sizes in<br>the selected instance family. If you change the scope from<br>Region to Availability Zone (in other words, from regional to<br>zonal), you lose Availability Zone flexibility and instance size<br>flexibility (if applicable).<br>For more information, see [How Reserved Instance discounts are applied](apply_ri.md "apply_ri.md"). |
-| Change the **instance size**<br>within the same instance family and generation | Linux/UNIX only<br>Instance size flexibility is not available for Reserved Instances on the<br>other platforms, which include Linux with SQL Server Standard,<br>Linux with SQL Server Web, Linux with SQL Server Enterprise, Red<br>Hat Enterprise Linux, SUSE Linux, Windows, Windows with SQL<br>Standard, Windows with SQL Server Enterprise, and Windows with<br>SQL Server Web. | The reservation must use default tenancy. Some instance<br>families are not supported, because there are no other sizes<br>available. For more information, see [Support for modifying instance<br>sizes](#ri-modification-instancemove "#ri-modification-instancemove")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Change the **instance size**<br>within the same instance family and generation | Linux/UNIX only<br>Instance size flexibility is not available for Reserved Instances on the<br>other platforms, which include Linux with SQL Server Standard,<br>Linux with SQL Server Web, Linux with SQL Server Enterprise, Red<br>Hat Enterprise Linux, SUSE Linux, Windows, Windows with SQL<br>Standard, Windows with SQL Server Enterprise, and Windows with<br>SQL Server Web. | The reservation must use default tenancy. Some instance<br>families are not supported, because there are no other sizes<br>available. For more information, see [Support for modifying instance sizes](#ri-modification-instancemove "#ri-modification-instancemove")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 ###### Requirements
 
@@ -91,8 +85,7 @@ met:
 - There cannot be a pending modification request
 - The Reserved Instance is not listed in the Reserved Instance Marketplace
 - There must be a match between the instance size footprint of the original
-  reservation and the new configuration. For more information, see [Support for modifying instance
-  sizes](#ri-modification-instancemove "#ri-modification-instancemove").
+  reservation and the new configuration. For more information, see [Support for modifying instance sizes](#ri-modification-instancemove "#ri-modification-instancemove").
 - The original Reserved Instances are all Standard Reserved Instances or all Convertible Reserved Instances, not some of each
   type
 - The original Reserved Instances must expire within the same hour, if they are Standard
@@ -101,9 +94,7 @@ met:
   flexibility. For the list of Reserved Instances that don't support instance size
   flexibility, see [Instance size flexibility](apply_ri.md#ri-instance-size-flexibility "apply_ri.md#ri-instance-size-flexibility").
 
-## Support for modifying instance
-
-sizes
+## Support for modifying instance sizes
 
 You can modify the instance size of a Reserved Instance if the following requirements are
 met.
@@ -131,14 +122,10 @@ are not the same as the original Reserved Instance.
 
 ###### Contents
 
-- [Instance size
-  footprint](#ri-modification-instance-size-footprint "#ri-modification-instance-size-footprint")
-- [Normalization factors for
-  bare metal instances](#ri-normalization-factor-bare-metal-2 "#ri-normalization-factor-bare-metal-2")
+- [Instance size footprint](#ri-modification-instance-size-footprint "#ri-modification-instance-size-footprint")
+- [Normalization factors for bare metal instances](#ri-normalization-factor-bare-metal-2 "#ri-normalization-factor-bare-metal-2")
 
-### Instance size
-
-footprint
+### Instance size footprint
 
 Each Reserved Instance has an _instance size footprint_, which is
 determined by the normalization factor of the instance size and the number of
@@ -205,9 +192,7 @@ with two `t2.nano` instances (.5 units) and the other with three
 
 ![Modifying Reserved Instances.](images/ri-modify-divide.png)
 
-### Normalization factors for
-
-bare metal instances
+### Normalization factors for bare metal instances
 
 You can modify a reservation with `metal` instances using other
 sizes within the same instance family. Similarly, you can modify a reservation
@@ -370,9 +355,7 @@ Get-EC2ReservedInstancesModification `
     Select Status
 ```
 
-## Troubleshoot modification
-
-requests
+## Troubleshoot modification requests
 
 If the target configuration settings that you requested were unique, you receive a
 message that your request is being processed. At this point, Amazon EC2 has only

@@ -31,8 +31,7 @@ see [UEFI Secure Boot](../../../linux/al2023/ug/uefi-secure-boot.md "../../../li
 in the _AL2023 User Guide_. Older versions of Amazon Linux
 AMIs aren't enabled for UEFI Secure Boot. To use a supported AMI, you
 must perform a number of configuration steps on your own Linux AMI. For
-more information, see [Create a Linux AMI with custom UEFI Secure
-Boot keys](create-ami-with-uefi-secure-boot.md "create-ami-with-uefi-secure-boot.md").
+more information, see [Create a Linux AMI with custom UEFI Secure Boot keys](create-ami-with-uefi-secure-boot.md "create-ami-with-uefi-secure-boot.md").
 
 ###### Windows AMIs
 

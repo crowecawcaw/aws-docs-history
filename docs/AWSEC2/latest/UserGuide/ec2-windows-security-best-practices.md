@@ -67,8 +67,7 @@ that you implement the following best practices:
   more information, see [Reboot your Amazon EC2 instance](ec2-instance-reboot.md "ec2-instance-reboot.md").
 
 For information about how to upgrade or migrate a Windows instance to a newer
-version of Windows Server, see [Upgrade an EC2 Windows instance to a newer version of
-Windows Server](serverupgrade.md "serverupgrade.md").
+version of Windows Server, see [Upgrade an EC2 Windows instance to a newer version of Windows Server](serverupgrade.md "serverupgrade.md").
 
 ###### Configure Windows Update
 
@@ -85,9 +84,7 @@ your instance type, you should update the AWS PV, Amazon ENA, and AWS NVMe drive
 - Use the AWS Systems Manager Automation runbook [AWSSupport-UpgradeWindowsAWSDrivers](../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-upgradewindowsawsdrivers.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-upgradewindowsawsdrivers.md") to easily apply the updates across
   your instances.
 
-###### Launch instances using
-
-the latest Windows AMIs
+###### Launch instances using the latest Windows AMIs
 
 AWS releases new Windows AMIs each month, which contain the latest OS patches, drivers,
 and launch agents. You should leverage the latest AMI when you launch new instances or when
@@ -101,9 +98,7 @@ you build your own custom images.
   [Specialized Windows AMIs](../../../ec2/latest/windows-ami-reference/specialized-windows-amis.md "../../../ec2/latest/windows-ami-reference/specialized-windows-amis.md")
   in the _AWS Windows AMI Reference_.
 
-###### Test
-
-system/application performance before migration
+###### Test system/application performance before migration
 
 Migrating enterprise applications to AWS can involve many variables and
 configurations. Always performance test the EC2 solution to ensure that:
@@ -133,8 +128,7 @@ Agents**.
 | 2019            | ✓            | ✓            |
 | 2022            |              | ✓            |
 
-- For more information about updating to EC2Launch v2, see [Install the latest version of
-  EC2Launch v2](ec2launch-v2-install.md "ec2launch-v2-install.md").
+- For more information about updating to EC2Launch v2, see [Install the latest version of EC2Launch v2](ec2launch-v2-install.md "ec2launch-v2-install.md").
 - For information to manually update EC2Config, see [Install the latest version of EC2Config](UsingConfig_Install.md "UsingConfig_Install.md").
 - For information to manually update EC2Launch, see [Install the latest version of EC2Launch](ec2launch-download.md "ec2launch-download.md").
 

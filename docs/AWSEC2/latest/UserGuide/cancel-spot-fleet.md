@@ -14,8 +14,7 @@ its instances. These include both On-Demand Instances and Spot Instances.
 After you terminate an instance, you can no longer connect to it, and it can't be recovered.
 All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
 deleted and can't be recovered. All data stored on instance store volumes is permanently lost.
-For more information, see [How instance termination
-works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
+For more information, see [How instance termination works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
 
 Before you terminate an instance, ensure that you have backed up all data that you need to
 retain after the termination to persistent storage.
@@ -79,9 +78,7 @@ The following is example output.
 }
 ```
 
-###### To cancel (delete) a Spot Fleet request without terminating its
-
-instances
+###### To cancel (delete) a Spot Fleet request without terminating its instances
 
 Modify the previous example by using the
 `--no-terminate-instances` option instead.
@@ -120,9 +117,7 @@ Stop-EC2SpotFleetRequest `
     -TerminateInstance $true
 ```
 
-###### To cancel (delete) a Spot Fleet request without terminating its
-
-instances
+###### To cancel (delete) a Spot Fleet request without terminating its instances
 
 Modify the previous example by changing the value of the
 `-TerminateInstance` parameter.

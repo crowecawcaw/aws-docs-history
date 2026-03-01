@@ -1,6 +1,4 @@
-# Share an AMI with specific AWS
-
-accounts
+# Share an AMI with specific AWS accounts
 
 You can share an AMI with specific AWS accounts without making the AMI public. All you
 need are the AWS account IDs.

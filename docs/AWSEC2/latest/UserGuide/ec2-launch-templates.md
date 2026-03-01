@@ -25,14 +25,9 @@ launch parameters from version 2 would be used if no other version were specifie
 
 ###### Contents
 
-- [Restrictions for Amazon EC2 launch
-  templates](launch-template-restrictions.md "launch-template-restrictions.md")
-- [IAM permissions required for Amazon EC2
-  launch templates](permissions-for-launch-templates.md "permissions-for-launch-templates.md")
-- [Use Amazon EC2 launch
-  templates to control launching Amazon EC2 instances](use-launch-templates-to-control-launching-instances.md "use-launch-templates-to-control-launching-instances.md")
+- [Restrictions for Amazon EC2 launch templates](launch-template-restrictions.md "launch-template-restrictions.md")
+- [IAM permissions required for Amazon EC2 launch templates](permissions-for-launch-templates.md "permissions-for-launch-templates.md")
+- [Use Amazon EC2 launch templates to control launching Amazon EC2 instances](use-launch-templates-to-control-launching-instances.md "use-launch-templates-to-control-launching-instances.md")
 - [Create an Amazon EC2 launch template](create-launch-template.md "create-launch-template.md")
-- [Modify a launch template (manage
-  launch template versions)](manage-launch-template-versions.md "manage-launch-template-versions.md")
-- [Delete a launch template or a launch template
-  version](delete-launch-template.md "delete-launch-template.md")
+- [Modify a launch template (manage launch template versions)](manage-launch-template-versions.md "manage-launch-template-versions.md")
+- [Delete a launch template or a launch template version](delete-launch-template.md "delete-launch-template.md")

@@ -1,6 +1,4 @@
-# Requirements for using NitroTPM with Amazon EC2
-
-instances
+# Requirements for using NitroTPM with Amazon EC2 instances
 
 To launch an instance with NitroTPM enabled, you must meet the following requirements.
 

@@ -541,5 +541,4 @@ You can use the following option to list all stopped instances whose type is
 
 Amazon EC2 Global View enables you to view and search for Amazon EC2 and Amazon VPC resources
 in a single AWS Region, or across multiple Regions simultaneously in a single
-console. For more information, see [View resources across Regions using AWS Global
-View](global-view.md "global-view.md").
+console. For more information, see [View resources across Regions using AWS Global View](global-view.md "global-view.md").

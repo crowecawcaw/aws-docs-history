@@ -58,12 +58,10 @@ relationship between these software components.
 The process for taking application-consistent, VSS based EBS snapshot scripts consists
 of the following steps.
 
-1. Complete the [Prerequisites to create Windows VSS
-   based EBS snapshots](application-consistent-snapshots-prereqs.md "application-consistent-snapshots-prereqs.md").
+1. Complete the [Prerequisites to create Windows VSS based EBS snapshots](application-consistent-snapshots-prereqs.md "application-consistent-snapshots-prereqs.md").
 2. Enter parameters for the `AWSEC2-VssInstallAndSnapshot` SSM document
    and run this document by using Run Command. For more information, see
-   [Run the
-   AWSEC2-VssInstallAndSnapshot command document (recommended)](create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot "create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot").
+   [Run the AWSEC2-VssInstallAndSnapshot command document (recommended)](create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot "create-vss-snapshots-ssm.md#create-with-AWSEC2-VssInstallAndSnapshot").
 3. The Windows VSS service on your instance coordinates all ongoing I/O operations
    for running applications.
 4. The system flushes all I/O buffers and temporarily pauses all I/O operations.
@@ -77,5 +75,4 @@ of the following steps.
 8. If you need to restore from a snapshot, you can use the standard EBS process
    of creating a volume from a snapshot, or you can restore all volumes to an
    instance by using a sample script, as described in
-   [Use the AWS VSS solution to restore
-   data for your instance](application-consistent-snapshots-restore.md "application-consistent-snapshots-restore.md").
+   [Use the AWS VSS solution to restore data for your instance](application-consistent-snapshots-restore.md "application-consistent-snapshots-restore.md").

@@ -8,8 +8,7 @@ For more information, see [Windows Sysprep phases](ami-create-win-sysprep.md#sys
 
 - [Windows Sysprep actions](#sysprep-actions-ec2launchv2 "#sysprep-actions-ec2launchv2")
 - [Post Sysprep](#sysprep-post-ec2launchv2 "#sysprep-post-ec2launchv2")
-- [Run Windows Sysprep with
-  EC2Launch v2](#sysprep-gui-procedure-ec2launchv2 "#sysprep-gui-procedure-ec2launchv2")
+- [Run Windows Sysprep with EC2Launch v2](#sysprep-gui-procedure-ec2launchv2 "#sysprep-gui-procedure-ec2launchv2")
 
 ## Windows Sysprep actions
 
@@ -151,12 +150,9 @@ EC2Launch v2 then performs the following actions:
    instance system logs.
 4. Executes all tasks in the `PostReady` stage.
 
-For more information about EC2Launch v2 , see [Use the EC2Launch v2 agent to perform tasks during EC2 Windows
-instance launch](ec2launch-v2.md "ec2launch-v2.md").
+For more information about EC2Launch v2 , see [Use the EC2Launch v2 agent to perform tasks during EC2 Windows instance launch](ec2launch-v2.md "ec2launch-v2.md").
 
-## Run Windows Sysprep with
-
-EC2Launch v2
+## Run Windows Sysprep with EC2Launch v2
 
 Use the following procedure to create a standardized AMI using Windows Sysprep with
 EC2Launch v2.
@@ -167,8 +163,7 @@ EC2Launch v2.
    1. From the Windows **Start** menu, search for and choose
       **Amazon EC2Launch settings**. For more information
       about the options and settings in the Amazon **EC2Launch
-      settings** dialog box, see [Configure EC2Launch v2 settings for Windows
-      instances](ec2launch-v2-settings.md "ec2launch-v2-settings.md").
+      settings** dialog box, see [Configure EC2Launch v2 settings for Windows instances](ec2launch-v2-settings.md "ec2launch-v2-settings.md").
    2. If you've made changes, choose **Save** before you
       shut down.
 

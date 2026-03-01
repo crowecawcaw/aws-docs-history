@@ -42,8 +42,7 @@ following benefits:
   for a wide variety of workloads, like ELB-backed applications, containerized workloads,
   and queue processing jobs.
   You can use EC2 Fleet of type _instant_ to launch instances
-  into Capacity Blocks. For more information, see [Tutorial:
-  Configure your EC2 Fleet to launch instances into Capacity Blocks](ec2-fleet-launch-instances-capacity-blocks-walkthrough.md "ec2-fleet-launch-instances-capacity-blocks-walkthrough.md").
+  into Capacity Blocks. For more information, see [Tutorial: Configure your EC2 Fleet to launch instances into Capacity Blocks](ec2-fleet-launch-instances-capacity-blocks-walkthrough.md "ec2-fleet-launch-instances-capacity-blocks-walkthrough.md").
 
 AWS services like Amazon EC2 Auto Scaling and Amazon EMR use EC2 Fleet of type _instant_ to launch EC2 instances.
 
@@ -91,8 +90,7 @@ use cases. For more information about using the EC2 CreateFleet API parameters, 
 ###### Examples
 
 - [Example 1: Launch Spot Instances with the capacity-optimized allocation strategy](#instant-fleet-example-1 "#instant-fleet-example-1")
-- [Example 2: Launch a single Spot Instance with the capacity-optimized
-  allocation strategy](#instant-fleet-example-2 "#instant-fleet-example-2")
+- [Example 2: Launch a single Spot Instance with the capacity-optimized allocation strategy](#instant-fleet-example-2 "#instant-fleet-example-2")
 - [Example 3: Launch Spot Instances using instance weighting](#instant-fleet-example-3 "#instant-fleet-example-3")
 - [Example 4: Launch Spot Instances within single Availability Zone](#instant-fleet-example-4 "#instant-fleet-example-4")
 - [Example 5: Launch Spot Instances of single instance type within single Availability zone](#instant-fleet-example-5 "#instant-fleet-example-5")
@@ -188,9 +186,7 @@ and launch template overrides.
 }
 ```
 
-### Example 2: Launch a single Spot Instance with the capacity-optimized
-
-allocation strategy
+### Example 2: Launch a single Spot Instance with the capacity-optimized allocation strategy
 
 You can optimally launch one Spot Instance at a time by making multiple EC2 Fleet API calls of
 type `instant`, by setting the TotalTargetCapacity to 1.
@@ -278,8 +274,7 @@ allocation strategy, to launch a Spot Instance from the most-available capacity 
 
 The following examples use instance weighting, which means that the price is per unit hour instead of per instance hour. Each launch configuration lists a different instance type and a different weight based on how many units of the workload can run on the instance assuming a unit of the workload requires a 15 GB of memory and 4 vCPUs. For example an m5.xlarge (4 vCPUs and 16 GB of memory) can run one unit and is weighted 1, m5.2xlarge (8 vCPUs and 32 GB of memory) can run 2 units and is weighted 2, and so on. The total target capacity is set to 40 units. The default purchasing option is spot, and the allocation strategy is capacity-optimized, which results in either 40 m5.xlarge (40 divided by 1), 20 m5.2xlarge (40 divided by 2), 10 m5.4xlarge (40 divided by 4), 5 m5.8xlarge (40 divided by 8), or a mix of the instance types with weights adding up to the desired capacity based on the capacity-optimized allocation strategy.
 
-For more information, see [Use instance weighting to manage cost and
-performance of your EC2 Fleet or Spot Fleet](ec2-fleet-instance-weighting.md "ec2-fleet-instance-weighting.md").
+For more information, see [Use instance weighting to manage cost and performance of your EC2 Fleet or Spot Fleet](ec2-fleet-instance-weighting.md "ec2-fleet-instance-weighting.md").
 
 ```
 {
@@ -1102,8 +1097,7 @@ the Systems Manager parameter will resolve to an AMI ID.
 
 In this example, the Systems Manager parameter is specified in a valid format:
 `resolve:ssm:golden-ami`. There are other valid formats for the Systems
-Manager parameter. For more information, see [Use a Systems Manager parameter
-instead of an AMI ID](create-launch-template.md#use-an-ssm-parameter-instead-of-an-ami-id "create-launch-template.md#use-an-ssm-parameter-instead-of-an-ami-id").
+Manager parameter. For more information, see [Use a Systems Manager parameter instead of an AMI ID](create-launch-template.md#use-an-ssm-parameter-instead-of-an-ami-id "create-launch-template.md#use-an-ssm-parameter-instead-of-an-ami-id").
 
 ###### Note
 

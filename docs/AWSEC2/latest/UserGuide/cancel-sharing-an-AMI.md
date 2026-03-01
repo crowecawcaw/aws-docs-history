@@ -16,8 +16,7 @@ in any AMI lists in the EC2 console or in the output for [describe-images](../..
 ###### Topics
 
 - [Limitations](#cancel-sharing-an-AMI-limitations "#cancel-sharing-an-AMI-limitations")
-- [Cancel having an AMI shared with your
-  account](#cancel-image-launch-permission "#cancel-image-launch-permission")
+- [Cancel having an AMI shared with your account](#cancel-image-launch-permission "#cancel-image-launch-permission")
 
 ## Limitations
 
@@ -34,9 +33,7 @@ in any AMI lists in the EC2 console or in the output for [describe-images](../..
   variable](../../../cli/latest/userguide/cli-configure-envvars.md "../../../cli/latest/userguide/cli-configure-envvars.md").
 - Only the AWS CLI and SDKs support removing your account from the launch permissions of an AMI. The EC2 console does not currently support this action.
 
-## Cancel having an AMI shared with your
-
-account
+## Cancel having an AMI shared with your account
 
 ###### Note
 

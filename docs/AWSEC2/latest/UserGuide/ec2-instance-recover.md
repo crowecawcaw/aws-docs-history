@@ -34,9 +34,7 @@ after launch. Having one of these mechanisms configured makes your instance more
 resilient.
 
 Simplified automatic recovery and Amazon CloudWatch action based recovery are only available on
-supported instances. For more information, see [Requirements for enabling
-simplified automatic recovery](instance-configuration-recovery.md#requirements-for-simplified-automatic-recovery "instance-configuration-recovery.md#requirements-for-simplified-automatic-recovery") and [Requirements for
-enabling CloudWatch action based recovery](cloudwatch-recovery.md#requirements-for-cloudwatch-action-based-recovery "cloudwatch-recovery.md#requirements-for-cloudwatch-action-based-recovery").
+supported instances. For more information, see [Requirements for enabling simplified automatic recovery](instance-configuration-recovery.md#requirements-for-simplified-automatic-recovery "instance-configuration-recovery.md#requirements-for-simplified-automatic-recovery") and [Requirements for enabling CloudWatch action based recovery](cloudwatch-recovery.md#requirements-for-cloudwatch-action-based-recovery "cloudwatch-recovery.md#requirements-for-cloudwatch-action-based-recovery").
 
 ###### Warning
 
@@ -52,20 +50,14 @@ instances_. For guidance on building a resilient _system_, see [Build a resilien
 
 ###### Topics
 
-- [Key concepts of automatic
-  instance recovery](#ec2-automatic-instance-recovery-key-concepts "#ec2-automatic-instance-recovery-key-concepts")
-- [Differences between simplified automatic recovery and CloudWatch
-  action based recovery](#differences "#differences")
+- [Key concepts of automatic instance recovery](#ec2-automatic-instance-recovery-key-concepts "#ec2-automatic-instance-recovery-key-concepts")
+- [Differences between simplified automatic recovery and CloudWatch action based recovery](#differences "#differences")
 - [Build a resilient system](#instance-recovery-build-a-resilient-system "#instance-recovery-build-a-resilient-system")
-- [Verify if automatic instance recovery
-  occurred](verify-if-automatic-recovery-occurred.md "verify-if-automatic-recovery-occurred.md")
-- [Configure simplified automatic recovery on
-  an Amazon EC2 instance](instance-configuration-recovery.md "instance-configuration-recovery.md")
+- [Verify if automatic instance recovery occurred](verify-if-automatic-recovery-occurred.md "verify-if-automatic-recovery-occurred.md")
+- [Configure simplified automatic recovery on an Amazon EC2 instance](instance-configuration-recovery.md "instance-configuration-recovery.md")
 - [Configure CloudWatch action based recovery on an EC2 instance](cloudwatch-recovery.md "cloudwatch-recovery.md")
 
-## Key concepts of automatic
-
-instance recovery
+## Key concepts of automatic instance recovery
 
 Automatic instance recovery is an Amazon EC2 feature that automatically restores instance
 availability when underlying hardware or software failures occur, enhancing the resilience and
@@ -145,9 +137,7 @@ on the configured recovery mechanism and its outcome:
   - Success event: `AWS_EC2_INSTANCE_AUTO_RECOVERY_SUCCESS`
   - Failure event: `AWS_EC2_INSTANCE_AUTO_RECOVERY_FAILURE`
 
-## Differences between simplified automatic recovery and CloudWatch
-
-action based recovery
+## Differences between simplified automatic recovery and CloudWatch action based recovery
 
 The following table compares the key differences between simplified automatic recovery and
 CloudWatch action based recovery.

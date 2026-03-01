@@ -5,9 +5,7 @@ and to reduce unexpected hardware behavior or failures that can disrupt the oper
 of your Windows instance. The ENA architecture keeps device or driver failures as
 transparent to the operating system as possible.
 
-## Collect diagnostic information
-
-on the instance
+## Collect diagnostic information on the instance
 
 The steps to open Windows operating system (OS) tools vary, depending on what
 version of the OS is installed on your instance. In the following sections, we use
@@ -105,8 +103,7 @@ The following table shows event messages that the ENA Windows driver generates.
 The ENA Windows driver publishes network performance metrics from the instances where
 metrics are enabled. You can view and enable metrics on the instance using the native
 Performance Monitor application. For more information about the metrics that the ENA
-Windows driver produces, see [Monitor network performance for ENA
-settings on your EC2 instance](monitoring-network-performance-ena.md "monitoring-network-performance-ena.md").
+Windows driver produces, see [Monitor network performance for ENA settings on your EC2 instance](monitoring-network-performance-ena.md "monitoring-network-performance-ena.md").
 
 On instances where ENA metrics are enabled, and the Amazon CloudWatch agent is installed, CloudWatch
 collects the metrics that are associated with the counters in Windows Performance
@@ -489,8 +486,7 @@ The first step in your root cause analysis is to review the
 diagnostic information for the instance that is not performing as
 expected, to determine if there are errors that might be causing
 the issue. For more information, see the
-[Collect diagnostic information
-on the instance](#ts-ena-drv-collect-diagnostics "#ts-ena-drv-collect-diagnostics") section.
+[Collect diagnostic information on the instance](#ts-ena-drv-collect-diagnostics "#ts-ena-drv-collect-diagnostics") section.
 
 You might need to modify the default operating system configuration
 to achieve maximum network performance on instances with enhanced

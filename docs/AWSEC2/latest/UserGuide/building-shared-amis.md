@@ -10,8 +10,7 @@ carefully and take time to consider where you might expose sensitive data.
 
 ###### Contents
 
-- [Disable password-based remote
-  logins for the root user](#public-amis-disable-password-logins-for-root "#public-amis-disable-password-logins-for-root")
+- [Disable password-based remote logins for the root user](#public-amis-disable-password-logins-for-root "#public-amis-disable-password-logins-for-root")
 - [Disable local root access](#restrict-root-access "#restrict-root-access")
 - [Remove SSH host key pairs](#remove-ssh-host-key-pairs "#remove-ssh-host-key-pairs")
 - [Install public key credentials](#public-amis-install-credentials "#public-amis-install-credentials")
@@ -20,9 +19,7 @@ carefully and take time to consider where you might expose sensitive data.
   If you are building AMIs for AWS Marketplace, see [Best
   practices for building AMIs](../../../marketplace/latest/userguide/best-practices-for-building-your-amis.md "../../../marketplace/latest/userguide/best-practices-for-building-your-amis.md") in the _AWS Marketplace Seller Guide_ for guidelines, policies, and best practices.
 
-## Disable password-based remote
-
-logins for the root user
+## Disable password-based remote logins for the root user
 
 Using a fixed root password for a public AMI is a security risk that can quickly
 become known. Even relying on users to change the password after the first login

@@ -654,8 +654,7 @@ $env:SystemDrive/Users/<user>/AppData/Roaming/Microsoft/Windows/Start Menu/Progr
 ###### Note
 
 When you remove the `setWallpaper` task, it does not delete this
-shortcut file. For more information, see [setWallpaper task is not enabled but the wallpaper resets
-at reboot](ec2launchv2-troubleshooting.md#ec2launchv2-troubleshooting-wallpaper-resets "ec2launchv2-troubleshooting.md#ec2launchv2-troubleshooting-wallpaper-resets").
+shortcut file. For more information, see [setWallpaper task is not enabled but the wallpaper resets at reboot](ec2launchv2-troubleshooting.md#ec2launchv2-troubleshooting-wallpaper-resets "ec2launchv2-troubleshooting.md#ec2launchv2-troubleshooting-wallpaper-resets").
 
 **Stages:** You can configure wallpaper during the
 `PreReady` and `UserData` stages.

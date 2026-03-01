@@ -1,6 +1,4 @@
-# Create custom event windows for scheduled events
-
-that affect your Amazon EC2 instances
+# Create custom event windows for scheduled events that affect your Amazon EC2 instances
 
 You can define custom event windows that recur weekly for scheduled events that
 reboot, stop, or terminate your Amazon EC2 instances. You can associate one or more

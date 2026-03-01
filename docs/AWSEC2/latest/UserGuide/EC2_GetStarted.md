@@ -262,8 +262,7 @@ For more information, see [Localized Names for Administrator Account in Windows]
 After you terminate an instance, you can no longer connect to it, and it can't be recovered.
 All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
 deleted and can't be recovered. All data stored on instance store volumes is permanently lost.
-For more information, see [How instance termination
-works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
+For more information, see [How instance termination works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
 
 Before you terminate an instance, ensure that you have backed up all data that you need to
 retain after the termination to persistent storage.
@@ -296,8 +295,7 @@ the console display yourself.
 After you start your instance, you might want to explore the following next steps:
 
 - Explore the Amazon EC2 core concepts with the introductory tutorials. For more information, see
-  [Tutorials for launching EC2
-  instances](ec2-instance-launch-tutorials.md "ec2-instance-launch-tutorials.md").
+  [Tutorials for launching EC2 instances](ec2-instance-launch-tutorials.md "ec2-instance-launch-tutorials.md").
 - Learn how to track your Amazon EC2 Free Tier usage using the console. For more information,
   see [Track your Free Tier usage for Amazon EC2](ec2-free-tier-usage.md "ec2-free-tier-usage.md").
 - Configure a CloudWatch alarm to notify you if your usage exceeds the Free Tier (for accounts

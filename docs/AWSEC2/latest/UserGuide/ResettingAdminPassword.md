@@ -30,9 +30,6 @@ Systems Manager Run Command](ec2rw-ssm.md "ec2rw-ssm.md").
 
 ###### Contents
 
-- [Reset Windows admin password for
-  EC2 instance using EC2Launch v2](ResettingAdminPassword_EC2Launchv2.md "ResettingAdminPassword_EC2Launchv2.md")
-- [Reset Windows admin password for
-  EC2 instance using EC2Launch](ResettingAdminPassword_EC2Launch.md "ResettingAdminPassword_EC2Launch.md")
-- [Reset Windows admin password for
-  EC2 instance using EC2Config](ResettingAdminPassword_EC2Config.md "ResettingAdminPassword_EC2Config.md")
+- [Reset Windows admin password for EC2 instance using EC2Launch v2](ResettingAdminPassword_EC2Launchv2.md "ResettingAdminPassword_EC2Launchv2.md")
+- [Reset Windows admin password for EC2 instance using EC2Launch](ResettingAdminPassword_EC2Launch.md "ResettingAdminPassword_EC2Launch.md")
+- [Reset Windows admin password for EC2 instance using EC2Config](ResettingAdminPassword_EC2Config.md "ResettingAdminPassword_EC2Config.md")

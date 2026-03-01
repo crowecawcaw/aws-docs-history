@@ -20,8 +20,7 @@ You can create an EC2 Instance Connect Endpoint to allow secure connection to yo
 ###### Prerequisites
 
 You must have the required IAM permissions to create an EC2 Instance Connect Endpoint. For more
-information, see [Permissions to create, describe,
-modify, and delete EC2 Instance Connect Endpoints](permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint "permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint").
+information, see [Permissions to create, describe, modify, and delete EC2 Instance Connect Endpoints](permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint "permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint").
 
 Console
 

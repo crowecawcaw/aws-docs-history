@@ -51,24 +51,21 @@ the _AWS Managed Policy Reference_.
 ## AWS managed policy: AWSEC2CapacityReservationFleetRolePolicy
 
 This policy is attached to the service-linked role named **AWSServiceRoleForEC2CapacityReservationFleet**
-to allow the service to create, modify, and cancel Capacity Reservations in a Capacity Reservation Fleet on your behalf. For more information, see [Using service-linked roles for
-Capacity Reservation Fleet](using-service-linked-roles.md "using-service-linked-roles.md").
+to allow the service to create, modify, and cancel Capacity Reservations in a Capacity Reservation Fleet on your behalf. For more information, see [Using service-linked roles for Capacity Reservation Fleet](using-service-linked-roles.md "using-service-linked-roles.md").
 
 To view the permissions for this policy, see [AWSEC2CapacityReservationFleetRolePolicy](../../../aws-managed-policy/latest/reference/AWSEC2CapacityReservationFleetRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSEC2CapacityReservationFleetRolePolicy.md") in the _AWS Managed Policy Reference_.
 
 ## AWS managed policy: AWSEC2FleetServiceRolePolicy
 
 This policy is attached to the service-linked role named **AWSServiceRoleForEC2Fleet**
-to allow EC2 Fleet to request, launch, terminate, and tag instances on your behalf. For more information, see [Service-linked role for
-EC2 Fleet](ec2-fleet-prerequisites.md#ec2-fleet-service-linked-role "ec2-fleet-prerequisites.md#ec2-fleet-service-linked-role").
+to allow EC2 Fleet to request, launch, terminate, and tag instances on your behalf. For more information, see [Service-linked role for EC2 Fleet](ec2-fleet-prerequisites.md#ec2-fleet-service-linked-role "ec2-fleet-prerequisites.md#ec2-fleet-service-linked-role").
 
 To view the permissions for this policy, see [AWSEC2FleetServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSEC2FleetServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSEC2FleetServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
 
 ## AWS managed policy: AWSEC2SpotFleetServiceRolePolicy
 
 This policy is attached to the service-linked role named **AWSServiceRoleForEC2SpotFleet**
-to allow Spot Fleet to launch and manage instances on your behalf. For more information, see [Service-linked role for
-Spot Fleet](spot-fleet-prerequisites.md#service-linked-roles-spot-fleet-requests "spot-fleet-prerequisites.md#service-linked-roles-spot-fleet-requests").
+to allow Spot Fleet to launch and manage instances on your behalf. For more information, see [Service-linked role for Spot Fleet](spot-fleet-prerequisites.md#service-linked-roles-spot-fleet-requests "spot-fleet-prerequisites.md#service-linked-roles-spot-fleet-requests").
 
 To view the permissions for this policy, see [AWSEC2SpotFleetServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSEC2SpotFleetServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSEC2SpotFleetServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
 
@@ -87,9 +84,7 @@ manage VSS snapshots on your behalf.
 
 To view the permissions for this policy, see [AWSEC2VssSnapshotPolicy](../../../aws-managed-policy/latest/reference/AWSEC2VssSnapshotPolicy.md "../../../aws-managed-policy/latest/reference/AWSEC2VssSnapshotPolicy.md") in the _AWS Managed Policy Reference_.
 
-## AWS managed policy:
-
-DeclarativePoliciesEC2Report
+## AWS managed policy: DeclarativePoliciesEC2Report
 
 This policy is attached to the service-linked role named
 `AWSServiceRoleForDeclarativePoliciesEC2Report` to provide access to
@@ -133,8 +128,7 @@ To view the permissions for this policy, see [AWSEC2CapacityManagerServiceRolePo
 
 This policy is attached to the service-linked role named **AWSServiceRoleForEC2FastLaunch**
 to allow Amazon EC2 to create and manage a set of pre-provisioned snapshots that reduce the time it takes
-to launch instances from your EC2 Fast Launch-enabled AMI. For more information, see [Service-linked role for
-EC2 Fast Launch](slr-windows-fast-launch.md "slr-windows-fast-launch.md").
+to launch instances from your EC2 Fast Launch-enabled AMI. For more information, see [Service-linked role for EC2 Fast Launch](slr-windows-fast-launch.md "slr-windows-fast-launch.md").
 
 To view the permissions for this policy, see [EC2FastLaunchServiceRolePolicy](../../../aws-managed-policy/latest/reference/EC2FastLaunchServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/EC2FastLaunchServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
 

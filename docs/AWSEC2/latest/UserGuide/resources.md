@@ -22,10 +22,8 @@ Amazon EC2 Global View.
 
 ###### Contents
 
-- [Select a Region for your Amazon EC2
-  resources](using-regions-availability-zones-setup.md "using-regions-availability-zones-setup.md")
+- [Select a Region for your Amazon EC2 resources](using-regions-availability-zones-setup.md "using-regions-availability-zones-setup.md")
 - [Find your Amazon EC2 resources](Using_Filtering.md "Using_Filtering.md")
-- [View resources across Regions using AWS Global
-  View](global-view.md "global-view.md")
+- [View resources across Regions using AWS Global View](global-view.md "global-view.md")
 - [Tag your Amazon EC2 resources](Using_Tags.md "Using_Tags.md")
 - [Amazon EC2 service quotas](ec2-resource-limits.md "ec2-resource-limits.md")

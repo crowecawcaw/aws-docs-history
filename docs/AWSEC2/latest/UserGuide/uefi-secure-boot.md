@@ -10,8 +10,6 @@ prevents unauthorized modification of the instance boot flow.
 
 - [How UEFI Secure Boot works with Amazon EC2 instances](how-uefi-secure-boot-works.md "how-uefi-secure-boot-works.md")
 - [Requirements for UEFI Secure Boot on Amazon EC2](launch-instance-with-uefi-sb.md "launch-instance-with-uefi-sb.md")
-- [Verify whether an Amazon EC2 instance is enabled for
-  UEFI Secure Boot](verify-uefi-secure-boot.md "verify-uefi-secure-boot.md")
-- [Create a Linux AMI with custom UEFI Secure
-  Boot keys](create-ami-with-uefi-secure-boot.md "create-ami-with-uefi-secure-boot.md")
+- [Verify whether an Amazon EC2 instance is enabled for UEFI Secure Boot](verify-uefi-secure-boot.md "verify-uefi-secure-boot.md")
+- [Create a Linux AMI with custom UEFI Secure Boot keys](create-ami-with-uefi-secure-boot.md "create-ami-with-uefi-secure-boot.md")
 - [Create the AWS binary blob for UEFI Secure Boot](aws-binary-blob-creation.md "aws-binary-blob-creation.md")

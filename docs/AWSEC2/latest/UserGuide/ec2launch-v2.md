@@ -1,6 +1,4 @@
-# Use the EC2Launch v2 agent to perform tasks during EC2 Windows
-
-instance launch
+# Use the EC2Launch v2 agent to perform tasks during EC2 Windows instance launch
 
 All supported instances of Amazon EC2 that are launched from AWS Windows Server 2022 and
 Windows Server 2025 AMIs include the EC2Launch v2 launch agent (`EC2Launch.exe`) by
@@ -77,8 +75,7 @@ Task frequency determines when tasks should run, depending on the boot
 context. Most tasks have only one allowed frequency. You can specify a
 frequency for `executeScript` tasks.
 
-You will see the following frequencies in the [EC2Launch v2 task
-configuration](ec2launch-v2-settings.md#ec2launch-v2-task-configuration "ec2launch-v2-settings.md#ec2launch-v2-task-configuration").
+You will see the following frequencies in the [EC2Launch v2 task configuration](ec2launch-v2-settings.md#ec2launch-v2-task-configuration "ec2launch-v2-settings.md#ec2launch-v2-task-configuration").
 
 - Once – The task runs once, when the AMI has booted for the
   first time (finished Sysprep).
@@ -129,8 +126,7 @@ After
 - YAML user data version 1.0 (legacy version
   for backwards compatibility)
 
-For example stages and tasks, see [Example:
-agent-config.yml](ec2launch-v2-settings.md#ec2launch-v2-example-agent-config "ec2launch-v2-settings.md#ec2launch-v2-example-agent-config").
+For example stages and tasks, see [Example: agent-config.yml](ec2launch-v2-settings.md#ec2launch-v2-example-agent-config "ec2launch-v2-settings.md#ec2launch-v2-example-agent-config").
 
 When you use user data, you must specify a list of tasks for the launch
 agent to run. The stage is implied. For example tasks, see [Example: user data](ec2launch-v2-settings.md#ec2launch-v2-example-user-data "ec2launch-v2-settings.md#ec2launch-v2-example-user-data").
@@ -145,8 +141,7 @@ sequentially.
 You can invoke a task to perform an action on an instance. You can
 configure tasks in the `agent-config.yml` file or through
 user data. For a list of available tasks for EC2Launch v2, see [EC2Launch v2 tasks](#ec2launch-v2-tasks "#ec2launch-v2-tasks"). For task
-configuration schema and details, see [EC2Launch v2 task
-configuration](ec2launch-v2-settings.md#ec2launch-v2-task-configuration "ec2launch-v2-settings.md#ec2launch-v2-task-configuration").
+configuration schema and details, see [EC2Launch v2 task configuration](ec2launch-v2-settings.md#ec2launch-v2-task-configuration "ec2launch-v2-settings.md#ec2launch-v2-task-configuration").
 
 **User data**
 
@@ -181,8 +176,7 @@ EC2Launch v2 can perform the following tasks at each boot:
 - Send the RDP certificate thumbprint to the Amazon EC2 console.
 - Dynamically extend the operating system partition to include any unpartitioned
   space.
-- Run user data. For more information about specifying user data, see [EC2Launch v2 task
-  configuration](ec2launch-v2-settings.md#ec2launch-v2-task-configuration "ec2launch-v2-settings.md#ec2launch-v2-task-configuration").
+- Run user data. For more information about specifying user data, see [EC2Launch v2 task configuration](ec2launch-v2-settings.md#ec2launch-v2-task-configuration "ec2launch-v2-settings.md#ec2launch-v2-task-configuration").
 - Set non-persistent static routes to reach the metadata service and AWS KMS
   servers.
 - Set non-boot partitions to `mbr` or `gpt`.
@@ -328,10 +322,8 @@ msiexec /i ".\AmazonEC2Launch.msi" Remove="Telemetry" /q
 
 ###### More topics for EC2Launch v2
 
-- [Install the latest version of
-  EC2Launch v2](ec2launch-v2-install.md "ec2launch-v2-install.md")
-- [Configure EC2Launch v2 settings for Windows
-  instances](ec2launch-v2-settings.md "ec2launch-v2-settings.md")
+- [Install the latest version of EC2Launch v2](ec2launch-v2-install.md "ec2launch-v2-install.md")
+- [Configure EC2Launch v2 settings for Windows instances](ec2launch-v2-settings.md "ec2launch-v2-settings.md")
 - [Task definitions for EC2Launch v2 startup tasks](ec2launch-v2-task-definitions.md "ec2launch-v2-task-definitions.md")
 - [Troubleshoot issues with the EC2Launch v2 agent](ec2launchv2-troubleshooting.md "ec2launchv2-troubleshooting.md")
 - [EC2Launch v2 version histories](ec2launchv2-versions.md "ec2launchv2-versions.md")

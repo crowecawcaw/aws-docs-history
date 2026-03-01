@@ -29,8 +29,7 @@ AWS Health Dashboard, depending on the outcome:
 However, CloudWatch action based recovery can only operate if an instance is in the
 `running` state, there are no service events listed in the AWS Health Dashboard, and there
 is available capacity for the instance type. In some situations, such as significant outages,
-capacity constraints might cause recovery attempts to fail. For more information, see [Troubleshoot CloudWatch action
-based recovery failures](#ec2-instance-recover-cloudwatch-troubleshooting "#ec2-instance-recover-cloudwatch-troubleshooting").
+capacity constraints might cause recovery attempts to fail. For more information, see [Troubleshoot CloudWatch action based recovery failures](#ec2-instance-recover-cloudwatch-troubleshooting "#ec2-instance-recover-cloudwatch-troubleshooting").
 
 ###### Warning
 
@@ -45,16 +44,11 @@ Automatic instance recovery mechanisms are designed for _individual instances_. 
 
 ###### Contents
 
-- [Requirements for
-  enabling CloudWatch action based recovery](#requirements-for-cloudwatch-action-based-recovery "#requirements-for-cloudwatch-action-based-recovery")
-- [Configure CloudWatch action based
-  recovery](#ec2-instance-recover-cloudwatch-configure "#ec2-instance-recover-cloudwatch-configure")
-- [Troubleshoot CloudWatch action
-  based recovery failures](#ec2-instance-recover-cloudwatch-troubleshooting "#ec2-instance-recover-cloudwatch-troubleshooting")
+- [Requirements for enabling CloudWatch action based recovery](#requirements-for-cloudwatch-action-based-recovery "#requirements-for-cloudwatch-action-based-recovery")
+- [Configure CloudWatch action based recovery](#ec2-instance-recover-cloudwatch-configure "#ec2-instance-recover-cloudwatch-configure")
+- [Troubleshoot CloudWatch action based recovery failures](#ec2-instance-recover-cloudwatch-troubleshooting "#ec2-instance-recover-cloudwatch-troubleshooting")
 
-## Requirements for
-
-enabling CloudWatch action based recovery
+## Requirements for enabling CloudWatch action based recovery
 
 CloudWatch action based recovery can be enabled on instances that meet the following
 criteria:
@@ -131,9 +125,7 @@ Get-EC2InstanceType `
     Select InstanceType | Sort-Object InstanceType
 ```
 
-## Configure CloudWatch action based
-
-recovery
+## Configure CloudWatch action based recovery
 
 To configure CloudWatch action based recovery for an EC2 instance, create a CloudWatch alarm that
 monitors the `StatusCheckFailed_System` metric for the specified instance. Set
@@ -145,9 +137,7 @@ You can configure the alarm using either the Amazon EC2 console or the CloudWatc
 instructions, see [Add recover actions to Amazon CloudWatch alarms](UsingAlarmActions.md#AddingRecoverActions "UsingAlarmActions.md#AddingRecoverActions") in this user guide, or [Adding recover actions to Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/UsingAlarmActions.md#AddingRecoverActions "../../../AmazonCloudWatch/latest/monitoring/UsingAlarmActions.md#AddingRecoverActions") in the _Amazon CloudWatch User
 Guide_.
 
-## Troubleshoot CloudWatch action
-
-based recovery failures
+## Troubleshoot CloudWatch action based recovery failures
 
 If CloudWatch action based recovery fails to recover your instance, consider the following
 issues:

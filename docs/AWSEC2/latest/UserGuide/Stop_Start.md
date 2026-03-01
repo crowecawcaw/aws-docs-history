@@ -14,8 +14,7 @@ instance does not cleanly shut down within a few minutes, Amazon EC2 performs a 
 Furthermore, AWS CloudTrail creates an API record of when your instance was stopped.
 
 This topic describes how to perform a user-initiated stop. For information about a stop
-performed by AWS, see [Manage Amazon EC2 instances scheduled to
-stop or retire](schedevents_actions_retire.md "schedevents_actions_retire.md").
+performed by AWS, see [Manage Amazon EC2 instances scheduled to stop or retire](schedevents_actions_retire.md "schedevents_actions_retire.md").
 
 When you stop an instance, it is not deleted. If you decide that you no longer need an
 instance, you can terminate it. For more information, see [Terminate Amazon EC2 instances](terminating-instances.md "terminating-instances.md"). If you want to
@@ -33,13 +32,10 @@ lifecycle actions, see [Differences between instance states](ec2-instance-lifecy
   and start](#stop-start-ec2-instances-on-a-schedule "#stop-start-ec2-instances-on-a-schedule")
 - [Find
   running and stopped instances](#find-running-and-stopped-instances-in-globalview "#find-running-and-stopped-instances-in-globalview")
-- [Find the initial and most recent launch
-  times](#find-initial-launch-time "#find-initial-launch-time")
+- [Find the initial and most recent launch times](#find-initial-launch-time "#find-initial-launch-time")
 - [Enable stop protection](ec2-stop-protection.md "ec2-stop-protection.md")
 
-## Manually stop and start your
-
-instances
+## Manually stop and start your instances
 
 You can stop and start your Amazon EBS-backed instances (instances with EBS root volumes).
 You can't stop and start instances with an instance store root volume.
@@ -61,8 +57,7 @@ operation. The instance remains running.
 
 You can initiate a shutdown using the OS **shutdown** or
 **poweroff** commands. When you use an OS command, the instance stops
-by default. You can change this behavior. For more information, see [Change instance
-initiated shutdown behavior](Using_ChangingInstanceInitiatedShutdownBehavior.md "Using_ChangingInstanceInitiatedShutdownBehavior.md").
+by default. You can change this behavior. For more information, see [Change instance initiated shutdown behavior](Using_ChangingInstanceInitiatedShutdownBehavior.md "Using_ChangingInstanceInitiatedShutdownBehavior.md").
 
 ###### Note
 
@@ -72,15 +67,11 @@ If you stopped an Amazon EBS-backed instance and it appears "stuck" in the
 
 ###### Stop and start methods
 
-- [Stop an instance with a
-  graceful OS shutdown](#stop-instance-with-graceful-os-shutdown "#stop-instance-with-graceful-os-shutdown")
-- [Stop an instance and
-  bypass the graceful OS shutdown](#stop-instance-bypass-graceful-os-shutdown "#stop-instance-bypass-graceful-os-shutdown")
+- [Stop an instance with a graceful OS shutdown](#stop-instance-with-graceful-os-shutdown "#stop-instance-with-graceful-os-shutdown")
+- [Stop an instance and bypass the graceful OS shutdown](#stop-instance-bypass-graceful-os-shutdown "#stop-instance-bypass-graceful-os-shutdown")
 - [Start an instance](#start-ec2-instance "#start-ec2-instance")
 
-### Stop an instance with a
-
-graceful OS shutdown
+### Stop an instance with a graceful OS shutdown
 
 You can stop an instance using the default stop method, which includes an attempt
 at a graceful OS shutdown. For more information, see [Default stop](instance-stop-methods.md#ec2-instance-default-stop "instance-stop-methods.md#ec2-instance-default-stop").
@@ -121,13 +112,10 @@ Use the [Stop-EC2Instance](../../../powershell/latest/reference/items/Stop-EC2In
 Stop-EC2Instance -InstanceId `i-1234567890abcdef0`
 ```
 
-### Stop an instance and
-
-bypass the graceful OS shutdown
+### Stop an instance and bypass the graceful OS shutdown
 
 You can bypass the graceful OS shutdown when stopping an instance. For more
-information, see [Stop with skip OS
-shutdown](instance-stop-methods.md#ec2-instance-stop-with-skip-os-shutdown "instance-stop-methods.md#ec2-instance-stop-with-skip-os-shutdown").
+information, see [Stop with skip OS shutdown](instance-stop-methods.md#ec2-instance-stop-with-skip-os-shutdown "instance-stop-methods.md#ec2-instance-stop-with-skip-os-shutdown").
 
 ###### Warning
 
@@ -217,9 +205,7 @@ Use the [Start-EC2Instance](../../../powershell/latest/reference/items/Start-EC2
 Start-EC2Instance -InstanceId `i-1234567890abcdef0`
 ```
 
-## Automatically stop and start
-
-your instances
+## Automatically stop and start your instances
 
 You can automate stopping and starting instances with the following services:
 
@@ -248,15 +234,12 @@ instances only when they are needed. Note that Amazon EC2 Auto Scaling
 terminates, rather than stops, unneeded instances. To set up Auto Scaling
 groups, see [Get started with Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.md "../../../autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.md").
 
-## Find all running and
-
-stopped instances
+## Find all running and stopped instances
 
 You can find all of your running and stopped instances across all AWS Regions on a
 single page using [Amazon EC2 Global
 View](https://console.aws.amazon.com/ec2globalview/home "https://console.aws.amazon.com/ec2globalview/home"). This capability is especially useful for taking inventory and finding
-forgotten instances. For information about how to use Global View, see [View resources across Regions using AWS Global
-View](global-view.md "global-view.md").
+forgotten instances. For information about how to use Global View, see [View resources across Regions using AWS Global View](global-view.md "global-view.md").
 
 Alternatively, you can run a command or cmdlet in each Region where you have
 instances.
@@ -340,9 +323,7 @@ i-09453945dcf1529e9 t2.micro     10.0.143.213
 i-08fd74f3f1595fdbd m7i.4xlarge  10.0.1.103
 ```
 
-## Find the initial and most recent launch
-
-times
+## Find the initial and most recent launch times
 
 When you describe an instance, the launch time for the instance is its most recent
 launch time. After you stop and start an instance, the launch time reflects the new

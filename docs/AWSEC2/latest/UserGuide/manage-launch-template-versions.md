@@ -1,6 +1,4 @@
-# Modify a launch template (manage
-
-launch template versions)
+# Modify a launch template (manage launch template versions)
 
 Launch templates are immutable; after you create a launch template, you can't modify
 it. Instead, you can create a new version of the launch template that includes any
@@ -11,16 +9,11 @@ describe a launch template version, and [delete versions](delete-launch-template
 
 ###### Tasks
 
-- [Create a launch template
-  version](#create-launch-template-version "#create-launch-template-version")
-- [Set the default launch
-  template version](#set-default-launch-template-version "#set-default-launch-template-version")
-- [Describe a launch template
-  version](#describe-launch-template-version "#describe-launch-template-version")
+- [Create a launch template version](#create-launch-template-version "#create-launch-template-version")
+- [Set the default launch template version](#set-default-launch-template-version "#set-default-launch-template-version")
+- [Describe a launch template version](#describe-launch-template-version "#describe-launch-template-version")
 
-## Create a launch template
-
-version
+## Create a launch template version
 
 When you create a launch template version, you can specify new launch parameters
 or use an existing version as the base for the new version. For a description of
@@ -90,9 +83,7 @@ New-EC2LaunchTemplateVersion `
     )
 ```
 
-## Set the default launch
-
-template version
+## Set the default launch template version
 
 You can set the default version for the launch template. When you launch an
 instance from a launch template and do not specify a version, the instance is
@@ -137,9 +128,7 @@ Edit-EC2LaunchTemplate `
     -DefaultVersion `2`
 ```
 
-## Describe a launch template
-
-version
+## Describe a launch template version
 
 Using the console, you can view all the versions of the selected launch template,
 or get a list of the launch templates whose latest or default version matches a
@@ -189,9 +178,7 @@ aws ec2 describe-launch-template-versions \
     --versions `1 3`
 ```
 
-###### To describe the latest and default launch template versions
-
-in your account
+###### To describe the latest and default launch template versions in your account
 
 Use the [describe-launch-template-versions](../../../cli/latest/reference/ec2/describe-launch-template-versions.md "../../../cli/latest/reference/ec2/describe-launch-template-versions.md") command and
 specify `$Latest`, `$Default`, or both.
@@ -219,9 +206,7 @@ Get-EC2TemplateVersion `
     -Version `1,3`
 ```
 
-###### To describe the latest and default launch template versions
-
-in your account
+###### To describe the latest and default launch template versions in your account
 
 Use the [Get-EC2TemplateVersion](../../../powershell/latest/reference/items/Get-EC2TemplateVersion.md "../../../powershell/latest/reference/items/Get-EC2TemplateVersion.md") Cmdlet and specify
 `$Latest`, `$Default`, or both. You

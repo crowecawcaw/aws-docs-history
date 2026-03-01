@@ -11,8 +11,7 @@ Console
 ###### To enable host recovery at allocation
 
 When allocating a Dedicated Host using the Amazon EC2 console, for **Host recovery**,
-choose **Enable**. For more information, see [Allocate an Amazon EC2 Dedicated Host for use in
-your account](dedicated-hosts-allocating.md "dedicated-hosts-allocating.md").
+choose **Enable**. For more information, see [Allocate an Amazon EC2 Dedicated Host for use in your account](dedicated-hosts-allocating.md "dedicated-hosts-allocating.md").
 
 AWS CLI
 

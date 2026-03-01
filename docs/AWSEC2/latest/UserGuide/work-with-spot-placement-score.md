@@ -9,10 +9,8 @@ Ensure that you have the required permissions. For more information, see [Requir
 
 ###### Options
 
-- [Calculate using instance
-  attributes](#sps-specify-instance-attributes-console "#sps-specify-instance-attributes-console")
-- [Calculate using instance
-  types](#sps-specify-instance-types-console "#sps-specify-instance-types-console")
+- [Calculate using instance attributes](#sps-specify-instance-attributes-console "#sps-specify-instance-attributes-console")
+- [Calculate using instance types](#sps-specify-instance-types-console "#sps-specify-instance-types-console")
 - [Calculate using the AWS CLI](#calculate-sps-cli "#calculate-sps-cli")
   **Looking for an automated solution?** Instead of following the
   manual steps in this user guide, you can build a Spot placement score tracker dashboard that
@@ -20,9 +18,7 @@ Ensure that you have the required permissions. For more information, see [Requir
   [Guidance for Building a Spot Placement Score Tracker Dashboard on
   AWS](https://aws.amazon.com/solutions/guidance/building-a-spot-placement-score-tracker-dashboard-on-aws/ "https://aws.amazon.com/solutions/guidance/building-a-spot-placement-score-tracker-dashboard-on-aws/").
 
-## Calculate using instance
-
-attributes
+## Calculate using instance attributes
 
 ###### To calculate a Spot placement score by specifying instance attributes
 
@@ -73,9 +69,7 @@ attributes
     score, choose **Edit**, make the necessary adjustments, and
     then choose **Calculate placement scores**.
 
-## Calculate using instance
-
-types
+## Calculate using instance types
 
 ###### To calculate a Spot placement score by specifying instance types
 
@@ -317,19 +311,12 @@ When using the AWS CLI, you can use the following example configurations.
 
 ###### Example configurations
 
-- [Example: Specify
-  instance types and target capacity](#example-config-instance-type-override "#example-config-instance-type-override")
-- [Example:
-  Specify instance types, and target capacity in terms of memory](#example-config-instance-type-memory-unit-override "#example-config-instance-type-memory-unit-override")
-- [Example: Specify attributes for attribute-based instance type
-  selection](#example-config-attribute-based-instance-type-selection "#example-config-attribute-based-instance-type-selection")
-- [Example: Specify attributes
-  for attribute-based instance type selection and return a scored list of
-  Availability Zones](#example-config-sps-singleAZ "#example-config-sps-singleAZ")
+- [Example: Specify instance types and target capacity](#example-config-instance-type-override "#example-config-instance-type-override")
+- [Example: Specify instance types, and target capacity in terms of memory](#example-config-instance-type-memory-unit-override "#example-config-instance-type-memory-unit-override")
+- [Example: Specify attributes for attribute-based instance type selection](#example-config-attribute-based-instance-type-selection "#example-config-attribute-based-instance-type-selection")
+- [Example: Specify attributes for attribute-based instance type selection and return a scored list of Availability Zones](#example-config-sps-singleAZ "#example-config-sps-singleAZ")
 
-#### Example: Specify
-
-instance types and target capacity
+#### Example: Specify instance types and target capacity
 
 The following example configuration specifies three different instance
 types and a target Spot capacity of 500 Spot Instances.
@@ -345,9 +332,7 @@ types and a target Spot capacity of 500 Spot Instances.
 }
 ```
 
-#### Example:
-
-Specify instance types, and target capacity in terms of memory
+#### Example: Specify instance types, and target capacity in terms of memory
 
 The following example configuration specifies three different instance
 types and a target Spot capacity of 500,000 MiB of memory, where the number
@@ -365,9 +350,7 @@ of Spot Instances to launch must provide a total of 500,000 MiB of memory.
 }
 ```
 
-#### Example: Specify attributes for attribute-based instance type
-
-selection
+#### Example: Specify attributes for attribute-based instance type selection
 
 The following example configuration is configured for attribute-based
 instance type selection, and is followed by a text explanation of the
@@ -424,10 +407,7 @@ for the target capacity. In the example, the target capacity is
 of 5000 vCPUs, where the number of Spot Instances to launch must provide a total
 of 5000 vCPUs.
 
-#### Example: Specify attributes
-
-for attribute-based instance type selection and return a scored list of
-Availability Zones
+#### Example: Specify attributes for attribute-based instance type selection and return a scored list of Availability Zones
 
 The following example configuration is configured for attribute-based
 instance type selection. By specifying `"SingleAvailabilityZone":

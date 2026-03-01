@@ -14,8 +14,7 @@ By default, you can use either IMDSv1 or IMDSv2, or both.
 
 You can configure the Instance Metadata Service (IMDS) on each instance to only accept
 IMDSv2 calls, which will cause IMDSv1 calls to fail. For information
-about how to configure your instance to use IMDSv2, see [Configure the Instance Metadata Service
-options](configuring-instance-metadata-options.md "configuring-instance-metadata-options.md").
+about how to configure your instance to use IMDSv2, see [Configure the Instance Metadata Service options](configuring-instance-metadata-options.md "configuring-instance-metadata-options.md").
 
 The `PUT` or `GET` headers are unique to IMDSv2. If
 these headers are present in the request, then the request is intended for
@@ -29,8 +28,7 @@ Service](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-r
 ###### Topics
 
 - [How Instance Metadata Service Version 2 works](#instance-metadata-v2-how-it-works "#instance-metadata-v2-how-it-works")
-- [Use a supported AWS
-  SDK](#use-a-supported-sdk-version-for-imdsv2 "#use-a-supported-sdk-version-for-imdsv2")
+- [Use a supported AWS SDK](#use-a-supported-sdk-version-for-imdsv2 "#use-a-supported-sdk-version-for-imdsv2")
 - [Examples for IMDSv2](#instance-metadata-retrieval-examples "#instance-metadata-retrieval-examples")
 - [Examples for IMDSv1](#instance-metadata-retrieval-examples-imdsv1 "#instance-metadata-retrieval-examples-imdsv1")
 
@@ -162,12 +160,9 @@ By default, the response to `PUT` requests has a response hop limit
 (time to live) of `1` at the IP protocol level. If you need a bigger hop
 limit, you can adjust it by using the [modify-instance-metadata-options](../../../cli/latest/reference/ec2/modify-instance-metadata-options.md "../../../cli/latest/reference/ec2/modify-instance-metadata-options.md") AWS CLI command. For example, you might
 need a bigger hop limit for backward compatibility with container services running
-on the instance. For more information, see [Modify instance metadata
-options for existing instances](configuring-IMDS-existing-instances.md "configuring-IMDS-existing-instances.md").
+on the instance. For more information, see [Modify instance metadata options for existing instances](configuring-IMDS-existing-instances.md "configuring-IMDS-existing-instances.md").
 
-## Use a supported AWS
-
-SDK
+## Use a supported AWS SDK
 
 To use IMDSv2, your EC2 instances must use an AWS SDK version that
 supports using IMDSv2. The latest versions of all the AWS SDKs support

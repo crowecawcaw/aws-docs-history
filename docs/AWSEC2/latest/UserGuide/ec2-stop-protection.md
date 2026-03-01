@@ -1,6 +1,4 @@
-# Enable stop protection for your EC2
-
-instances
+# Enable stop protection for your EC2 instances
 
 To prevent an instance from being accidentally stopped, you can enable stop protection
 for the instance. Stop protection also protects your instance from accidental
@@ -43,16 +41,11 @@ while the instance is stopped.
 
 ###### Stop protection tasks
 
-- [Enable stop protection for an
-  instance at launch](#enable-stop-protection-at-launch "#enable-stop-protection-at-launch")
-- [Enable stop
-  protection for a running or stopped instance](#enable-stop-protection-on-running-or-stopped-instance "#enable-stop-protection-on-running-or-stopped-instance")
-- [Disable
-  stop protection for a running or stopped instance](#disable-stop-protection-on-running-or-stopped-instance "#disable-stop-protection-on-running-or-stopped-instance")
+- [Enable stop protection for an instance at launch](#enable-stop-protection-at-launch "#enable-stop-protection-at-launch")
+- [Enable stop protection for a running or stopped instance](#enable-stop-protection-on-running-or-stopped-instance "#enable-stop-protection-on-running-or-stopped-instance")
+- [Disable stop protection for a running or stopped instance](#disable-stop-protection-on-running-or-stopped-instance "#disable-stop-protection-on-running-or-stopped-instance")
 
-## Enable stop protection for an
-
-instance at launch
+## Enable stop protection for an instance at launch
 
 You can enable stop protection for an instance when launching the instance.
 
@@ -93,9 +86,7 @@ following parameter.
 -DisableApiStop $true
 ```
 
-## Enable stop
-
-protection for a running or stopped instance
+## Enable stop protection for a running or stopped instance
 
 You can enable stop protection for an instance while the instance is running or
 stopped.
@@ -139,18 +130,14 @@ Edit-EC2InstanceAttribute `
     -DisableApiStop $true
 ```
 
-## Disable
-
-stop protection for a running or stopped instance
+## Disable stop protection for a running or stopped instance
 
 You can disable stop protection for a running or stopped instance using one of the
 following methods.
 
 Console
 
-###### To disable stop protection for a running or stopped
-
-instance
+###### To disable stop protection for a running or stopped instance
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -165,9 +152,7 @@ instance
 
 AWS CLI
 
-###### To disable stop protection for a running or stopped
-
-instance
+###### To disable stop protection for a running or stopped instance
 
 Use the [modify-instance-attribute](../../../cli/latest/reference/ec2/modify-instance-attribute.md "../../../cli/latest/reference/ec2/modify-instance-attribute.md") command.
 

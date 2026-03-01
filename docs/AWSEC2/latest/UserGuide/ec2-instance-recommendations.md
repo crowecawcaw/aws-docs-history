@@ -98,8 +98,7 @@ Before changing an instance type, consider the following:
 - Compute Optimizer might supply recommendations for burstable performance instances, which are T3,
   T3a, and T2 instances. If you periodically burst above the baseline, make sure that you
   can continue to do so based on the vCPUs of the new instance type. For more information,
-  see [Key concepts for burstable
-  performance instances](burstable-credits-baseline-concepts.md "burstable-credits-baseline-concepts.md").
+  see [Key concepts for burstable performance instances](burstable-credits-baseline-concepts.md "burstable-credits-baseline-concepts.md").
 - If you’ve purchased a Reserved Instance, your On-Demand Instance might be billed as a Reserved Instance. Before you change
   your current instance type, first evaluate the impact on Reserved Instance utilization and
   coverage.

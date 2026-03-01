@@ -1,6 +1,4 @@
-# Monitor billing assignment requests
-
-for shared Capacity Reservations
+# Monitor billing assignment requests for shared Capacity Reservations
 
 Amazon EC2 sends Amazon EventBridge events when the state of a billing assignment request
 changes.

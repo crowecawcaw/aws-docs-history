@@ -1,6 +1,4 @@
-# Use the EC2Launch v1 agent to perform tasks during EC2 Windows
-
-instance launch
+# Use the EC2Launch v1 agent to perform tasks during EC2 Windows instance launch
 
 Amazon managed AMIs for Windows Server 2016 and 2019 include a set of Windows Powershell
 scripts called EC2Launch. EC2Launch performs tasks during the initial instance boot. For
@@ -48,8 +46,7 @@ boot:
 If a custom AMI is created from this instance, these routes are captured
 as part of the OS configuration and any new instances launched from the AMI
 will retain the same routes, regardless of subnet placement. In order to
-update the routes, see [Update metadata/KMS routes for Server 2016 and later when
-launching a custom AMI](ec2launch-sysprep.md#update-metadata-KMS "ec2launch-sysprep.md#update-metadata-KMS").
+update the routes, see [Update metadata/KMS routes for Server 2016 and later when launching a custom AMI](ec2launch-sysprep.md#update-metadata-KMS "ec2launch-sysprep.md#update-metadata-KMS").
 
 The following tasks help to maintain backward compatibility with the EC2Config
 service. You can also configure EC2Launch to perform these tasks during startup:
@@ -153,6 +150,5 @@ follows:
 ###### More topics for EC2Launch
 
 - [Install the latest version of EC2Launch](ec2launch-download.md "ec2launch-download.md")
-- [Configure the EC2Launch v1 agent on your Windows
-  instance](ec2launch-config.md "ec2launch-config.md")
+- [Configure the EC2Launch v1 agent on your Windows instance](ec2launch-config.md "ec2launch-config.md")
 - [EC2Launch version history](ec2launch-version-details.md "ec2launch-version-details.md")

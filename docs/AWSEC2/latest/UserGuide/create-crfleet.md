@@ -14,8 +14,7 @@ priority for each of those instance types. For more information, see [Allocation
 
 The **AWSServiceRoleForEC2CapacityReservationFleet** service-linked role is
 automatically created in your account the first time that you create a
-Capacity Reservation Fleet. For more information, see [Using service-linked roles for
-Capacity Reservation Fleet](using-service-linked-roles.md "using-service-linked-roles.md").
+Capacity Reservation Fleet. For more information, see [Using service-linked roles for Capacity Reservation Fleet](using-service-linked-roles.md "using-service-linked-roles.md").
 
 Currently, Capacity Reservation Fleets support the `open` instance matching criteria
 only.

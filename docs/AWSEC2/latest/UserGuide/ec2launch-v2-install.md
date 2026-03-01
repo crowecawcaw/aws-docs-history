@@ -1,6 +1,4 @@
-# Install the latest version of
-
-EC2Launch v2
+# Install the latest version of EC2Launch v2
 
 You can use one of the following methods to install the
 EC2Launch v2 agent on your EC2 instance:

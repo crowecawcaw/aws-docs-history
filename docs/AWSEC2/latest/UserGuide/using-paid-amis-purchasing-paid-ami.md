@@ -9,8 +9,7 @@ asked to log into AWS, and then you can purchase the AMI.
 ## Purchase a paid AMI using the console
 
 You can purchase a paid AMI by using the Amazon EC2 launch
-wizard. For more information, see [Launch an Amazon EC2 instance from an AWS Marketplace
-AMI](launch-marketplace-console.md "launch-marketplace-console.md").
+wizard. For more information, see [Launch an Amazon EC2 instance from an AWS Marketplace AMI](launch-marketplace-console.md "launch-marketplace-console.md").
 
 ## Subscribe to a product using AWS Marketplace
 
@@ -24,5 +23,4 @@ to subscribe to products in the AWS Marketplace:
   [AMI-based products in AWS Marketplace](../../../marketplace/latest/buyerguide/buyer-server-products.md "../../../marketplace/latest/buyerguide/buyer-server-products.md").
 - Amazon EC2 launch wizard: You can search for an AMI and
   launch an instance directly from the wizard. For more information, see
-  [Launch an Amazon EC2 instance from an AWS Marketplace
-  AMI](launch-marketplace-console.md "launch-marketplace-console.md").
+  [Launch an Amazon EC2 instance from an AWS Marketplace AMI](launch-marketplace-console.md "launch-marketplace-console.md").

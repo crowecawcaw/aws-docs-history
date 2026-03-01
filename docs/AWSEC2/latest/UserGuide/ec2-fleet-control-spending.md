@@ -1,6 +1,4 @@
-# Set a spending limit for your EC2 Fleet or
-
-Spot Fleet
+# Set a spending limit for your EC2 Fleet or Spot Fleet
 
 You can set a limit on how much you're willing to spend per hour on your EC2 Fleet or Spot Fleet.
 When your spending limit is reached, the fleet stops launching instances, even if the
@@ -25,8 +23,7 @@ limit.
 
 (Console) When creating the Spot Fleet, select the **Set maximum cost for Spot Instances**
 checkbox, and then enter a value for **Set your max cost (per hour)**.
-For more information, see step 6.e. in [Create a Spot Fleet request using defined
-parameters](create-spot-fleet.md#create-spot-fleet-advanced "create-spot-fleet.md#create-spot-fleet-advanced").
+For more information, see step 6.e. in [Create a Spot Fleet request using defined parameters](create-spot-fleet.md#create-spot-fleet-advanced "create-spot-fleet.md#create-spot-fleet-advanced").
 
 (AWS CLI) Use the [request-spot-fleet](../../../cli/latest/reference/ec2/request-spot-fleet.md "../../../cli/latest/reference/ec2/request-spot-fleet.md")
 command and the following parameters:
@@ -72,9 +69,7 @@ willing to pay, the fleet launches only 8 On-Demand Instances (below the On-Dema
 capacity) because launching more would exceed the `MaxTotalPrice` for
 On-Demand Instances.
 
-## Burstable performance
-
-instances
+## Burstable performance instances
 
 If you launch your Spot Instances using a [burstable performance instance type](burstable-performance-instances.md "burstable-performance-instances.md"), and if you plan to use your
 burstable performance Spot Instances immediately and for a short duration, with no idle time
@@ -88,8 +83,7 @@ you terminate the instance.
 Unlimited mode is suitable for burstable performance Spot Instances only if the instance
 runs long enough to accrue CPU credits for bursting. Otherwise, paying for surplus
 credits makes burstable performance Spot Instances more expensive than using other instances.
-For more information, see [When to use unlimited mode versus fixed
-CPU](burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode "burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode").
+For more information, see [When to use unlimited mode versus fixed CPU](burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode "burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode").
 
 Launch credits are meant to provide a productive initial launch experience for T2
 instances by providing sufficient compute resources to configure the instance.

@@ -23,8 +23,7 @@ tenancy hardware. They provide a baseline CPU performance with the ability to bu
 above the baseline level. To burst above the baseline, the instance spends credits that
 it has accrued in its CPU credit balance. When the accrued credits are depleted, CPU
 utilization is lowered to the baseline level. For more information about
-`standard` mode, see [How standard
-burstable performance instances work](burstable-performance-instances-standard-mode-concepts.md#how-burstable-performance-instances-standard-works "burstable-performance-instances-standard-mode-concepts.md#how-burstable-performance-instances-standard-works").
+`standard` mode, see [How standard burstable performance instances work](burstable-performance-instances-standard-mode-concepts.md#how-burstable-performance-instances-standard-works "burstable-performance-instances-standard-mode-concepts.md#how-burstable-performance-instances-standard-works").
 
 T3 Dedicated Hosts support all of the features offered by Amazon EC2 Dedicated Hosts, including multiple
 instance sizes on a single host, Host resource groups, and BYOL.

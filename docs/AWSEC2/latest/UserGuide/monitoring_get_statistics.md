@@ -1,6 +1,4 @@
-# Statistics for CloudWatch metrics for your
-
-instances
+# Statistics for CloudWatch metrics for your instances
 
 You can get statistics for the CloudWatch metrics for your instances. _Statistics_ are metric data aggregations over
 specified periods of time. CloudWatch provides statistics based on the metric data points provided

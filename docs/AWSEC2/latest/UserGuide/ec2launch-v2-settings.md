@@ -1,23 +1,16 @@
-# Configure EC2Launch v2 settings for Windows
-
-instances
+# Configure EC2Launch v2 settings for Windows instances
 
 This section contains information about how to configure settings for EC2Launch v2.
 
 ###### Topics include:
 
-- [Change settings using the EC2Launch v2 settings dialog
-  box](#ec2launch-v2-ui "#ec2launch-v2-ui")
+- [Change settings using the EC2Launch v2 settings dialog box](#ec2launch-v2-ui "#ec2launch-v2-ui")
 - [Configure EC2Launch v2 using the CLI](#ec2launch-v2-cli "#ec2launch-v2-cli")
-- [EC2Launch v2 task
-  configuration](#ec2launch-v2-task-configuration "#ec2launch-v2-task-configuration")
-- [EC2Launch v2 exit codes and
-  reboots](#ec2launch-v2-exit-codes-reboots "#ec2launch-v2-exit-codes-reboots")
+- [EC2Launch v2 task configuration](#ec2launch-v2-task-configuration "#ec2launch-v2-task-configuration")
+- [EC2Launch v2 exit codes and reboots](#ec2launch-v2-exit-codes-reboots "#ec2launch-v2-exit-codes-reboots")
 - [EC2Launch v2 and Sysprep](#ec2launch-v2-sysprep "#ec2launch-v2-sysprep")
 
-## Change settings using the EC2Launch v2 settings dialog
-
-box
+## Change settings using the EC2Launch v2 settings dialog box
 
 The following procedure describes how to use the EC2Launch v2 settings dialog box
 to enable or disable settings.
@@ -26,8 +19,7 @@ to enable or disable settings.
 
 If you improperly configure custom tasks in the agent-config.yml file, and
 you attempt to open the Amazon EC2Launch settings dialog box, you will
-receive an error. For example schema, see [Example:
-agent-config.yml](#ec2launch-v2-example-agent-config "#ec2launch-v2-example-agent-config").
+receive an error. For example schema, see [Example: agent-config.yml](#ec2launch-v2-example-agent-config "#ec2launch-v2-example-agent-config").
 
 1. Launch and connect to your Windows instance.
 2. From the Start menu, choose **All Programs**, and then
@@ -566,31 +558,23 @@ both.
 Displays help for the **wallpaper**
 command.
 
-## EC2Launch v2 task
-
-configuration
+## EC2Launch v2 task configuration
 
 This section includes the configuration schema, tasks, details, and examples for
 `agent-config.yml` and user data.
 
 ###### Tasks and examples
 
-- [Schema:
-  agent-config.yml](#ec2launch-v2-schema-agent-config "#ec2launch-v2-schema-agent-config")
-- [Configure EC2Launch v2 user data
-  scripts that run during launch or reboot](#ec2launch-v2-schema-user-data "#ec2launch-v2-schema-user-data")
+- [Schema: agent-config.yml](#ec2launch-v2-schema-agent-config "#ec2launch-v2-schema-agent-config")
+- [Configure EC2Launch v2 user data scripts that run during launch or reboot](#ec2launch-v2-schema-user-data "#ec2launch-v2-schema-user-data")
 
-### Schema:
-
-`agent-config.yml`
+### Schema: `agent-config.yml`
 
 The structure of the `agent-config.yml` file is shown below. Note
 that a task cannot be repeated in the same stage. For task properties, see the
 task descriptions that follow.
 
-#### Document
-
-structure: agent-config.yml
+#### Document structure: agent-config.yml
 
 **JSON**
 
@@ -629,9 +613,7 @@ config:
 ...
 ```
 
-#### Example:
-
-`agent-config.yml`
+#### Example: `agent-config.yml`
 
 The following example shows settings for the `agent-config.yml`
 configuration file.
@@ -672,9 +654,7 @@ config:
   - task: startSsm
 ```
 
-### Configure EC2Launch v2 user data
-
-scripts that run during launch or reboot
+### Configure EC2Launch v2 user data scripts that run during launch or reboot
 
 The following JSON and YAML examples show the document structure for user
 data. Amazon EC2 parses each task named in the `tasks` array that you
@@ -685,9 +665,7 @@ requirements. For details, see the [Task definitions for EC2Launch v2 startup ta
 
 A task must only appear once in the user data tasks array.
 
-#### Document
-
-structure: user data
+#### Document structure: user data
 
 **JSON**
 
@@ -792,9 +770,7 @@ tag to your user data.
 
 The detach tag is not supported on previous launch agents.
 
-#### Change log: user
-
-data
+#### Change log: user data
 
 The following table lists changes for user data, and cross-references them
 to the EC2Launch v2 agent version that applies.
@@ -807,9 +783,7 @@ to the EC2Launch v2 agent version that applies.
 \* When used with the default `agent-config.yml`
 file.
 
-## EC2Launch v2 exit codes and
-
-reboots
+## EC2Launch v2 exit codes and reboots
 
 You can use EC2Launch v2 to define how exit codes are handled by your scripts. By
 default, the exit code of the last command that is run in a script is reported as
@@ -828,8 +802,7 @@ status will be inconsistent. For example, it may get stuck in a restart loop or 
 perform the restart.
 
 If you are using an XML user data format that is compatible with older agents, the
-user data may run more times than you intend it to. For more information, see [Service
-runs user data more than once](ec2launchv2-troubleshooting.md#ec2launchv2-troubleshooting-user-data-more-than-once "ec2launchv2-troubleshooting.md#ec2launchv2-troubleshooting-user-data-more-than-once") in the
+user data may run more times than you intend it to. For more information, see [Service runs user data more than once](ec2launchv2-troubleshooting.md#ec2launchv2-troubleshooting-user-data-more-than-once "ec2launchv2-troubleshooting.md#ec2launchv2-troubleshooting-user-data-more-than-once") in the
 Troubleshooting section.
 
 ## EC2Launch v2 and Sysprep

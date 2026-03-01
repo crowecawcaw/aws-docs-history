@@ -1,6 +1,4 @@
-# Identify each instance launched in a single
-
-request
+# Identify each instance launched in a single request
 
 This example demonstrates how you can use both user data and instance metadata to
 configure your Amazon EC2 instances.

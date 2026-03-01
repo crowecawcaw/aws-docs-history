@@ -1,6 +1,4 @@
-# Cancel or revoke billing assignment
-
-requests for shared EC2 Capacity Reservations
+# Cancel or revoke billing assignment requests for shared EC2 Capacity Reservations
 
 Only the Capacity Reservation owner can cancel a `pending` billing assignment
 request. If a pending request is cancelled, it enters the `cancelled`
@@ -13,8 +11,7 @@ billing from the assigned account. If billing is revoked, the request enters the
 is reassigned to Capacity Reservation owner.
 
 When a request is cancelled or revoked, Amazon EventBridge events are sent to the
-Capacity Reservation owner and specified consumer account. For more information, see [Monitor billing assignment requests
-for shared Capacity Reservations](billing-ownership-events.md "billing-ownership-events.md").
+Capacity Reservation owner and specified consumer account. For more information, see [Monitor billing assignment requests for shared Capacity Reservations](billing-ownership-events.md "billing-ownership-events.md").
 
 Console
 

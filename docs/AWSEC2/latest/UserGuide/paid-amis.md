@@ -32,11 +32,9 @@ Marketplace](https://aws.amazon.com/marketplace/partners/management-tour "https:
 - [Find a paid AMI](using-paid-amis-finding-paid-ami.md "using-paid-amis-finding-paid-ami.md")
 - [Purchase a paid AMI in the AWS Marketplace](using-paid-amis-purchasing-paid-ami.md "using-paid-amis-purchasing-paid-ami.md")
 - [Retrieve the AWS Marketplace product code from your instance](get-product-code.md "get-product-code.md")
-- [Use paid support for supported AWS Marketplace
-  offerings](using-paid-amis-support.md "using-paid-amis-support.md")
+- [Use paid support for supported AWS Marketplace offerings](using-paid-amis-support.md "using-paid-amis-support.md")
 - [Bills for paid and supported AMIs](#using-paid-amis-bills "#using-paid-amis-bills")
-- [Manage your AWS Marketplace
-  subscriptions](marketplace-manage-subscriptions.md "marketplace-manage-subscriptions.md")
+- [Manage your AWS Marketplace subscriptions](marketplace-manage-subscriptions.md "marketplace-manage-subscriptions.md")
 
 ## Sell your AMI in the AWS Marketplace
 

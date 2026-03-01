@@ -5,8 +5,7 @@ You can monitor Capacity Reservation underutilization using the following:
 ###### Topics
 
 - [Amazon EventBridge events](#cr-underutilization-events "#cr-underutilization-events")
-- [Email and AWS Health Dashboard
-  notifications](#monitor-cr-utilization "#monitor-cr-utilization")
+- [Email and AWS Health Dashboard notifications](#monitor-cr-utilization "#monitor-cr-utilization")
 
 ## Amazon EventBridge events
 
@@ -169,9 +168,7 @@ Confirmation`. Follow the directions to confirm your
    again.
 10. Choose **Create rule**.
 
-## Email and AWS Health Dashboard
-
-notifications
+## Email and AWS Health Dashboard notifications
 
 AWS Health sends the following email and Health Dashboard notifications when capacity
 utilization for Capacity Reservations in your account drops below 20 percent.

@@ -4,25 +4,18 @@
 
 place:
 
-- [Launch
-  template](#ec2-fleet-prerequisites-launch-template "#ec2-fleet-prerequisites-launch-template")
-- [Service-linked role for
-  EC2 Fleet](#ec2-fleet-service-linked-role "#ec2-fleet-service-linked-role")
-- [Grant access to
-  customer managed keys for use with encrypted AMIs and EBS snapshots](#ec2-fleet-service-linked-roles-access-to-cmks "#ec2-fleet-service-linked-roles-access-to-cmks")
+- [Launch template](#ec2-fleet-prerequisites-launch-template "#ec2-fleet-prerequisites-launch-template")
+- [Service-linked role for EC2 Fleet](#ec2-fleet-service-linked-role "#ec2-fleet-service-linked-role")
+- [Grant access to customer managed keys for use with encrypted AMIs and EBS snapshots](#ec2-fleet-service-linked-roles-access-to-cmks "#ec2-fleet-service-linked-roles-access-to-cmks")
 - [Permissions for EC2 Fleet users](#ec2-fleet-iam-users "#ec2-fleet-iam-users")
 
-## Launch
-
-template
+## Launch template
 
 A launch template specifies the configuration information about the instances
 to launch, such as the instance type and Availability Zone. For more information
 about launch templates, see [Store instance launch parameters in Amazon EC2 launch templates](ec2-launch-templates.md "ec2-launch-templates.md").
 
-## Service-linked role for
-
-EC2 Fleet
+## Service-linked role for EC2 Fleet
 
 The `AWSServiceRoleForEC2Fleet` role grants the EC2 Fleet permission to
 request, launch, terminate, and tag instances on your behalf. Amazon EC2 uses this
@@ -86,9 +79,7 @@ fleet.
 For more information, see [Service-linked
 roles](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md "../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md") in the _IAM User Guide_.
 
-## Grant access to
-
-customer managed keys for use with encrypted AMIs and EBS snapshots
+## Grant access to customer managed keys for use with encrypted AMIs and EBS snapshots
 
 If you specify an [encrypted AMI](AMIEncryption.md "AMIEncryption.md") or an
 encrypted Amazon EBS snapshot in your EC2 Fleet and you use an AWS KMS key for encryption,
@@ -102,9 +93,7 @@ more information, see [Using grants](../../../kms/latest/developerguide/grants.m
 and [Using key policies in
 AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the _AWS Key Management Service Developer Guide_.
 
-###### To grant the AWSServiceRoleForEC2Fleet role permissions to use the
-
-customer managed key
+###### To grant the AWSServiceRoleForEC2Fleet role permissions to use the customer managed key
 
 - Use the [create-grant](../../../cli/latest/reference/kms/create-grant.md "../../../cli/latest/reference/kms/create-grant.md") command to add a grant to the customer managed key and
   to specify the principal (the

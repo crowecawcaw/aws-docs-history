@@ -154,8 +154,7 @@ how to resolve them:
   source account can enable transfer for the Elastic IP address, but this
   exception occurs when the transfer account tries to accept the transfer.
   To resolve this issue, the source account must disassociate the Elastic
-  IP address. For more information, see [Disassociate an Elastic IP
-  address](working-with-eips.md#using-instance-addressing-eips-associating-different "working-with-eips.md#using-instance-addressing-eips-associating-different").
+  IP address. For more information, see [Disassociate an Elastic IP address](working-with-eips.md#using-instance-addressing-eips-associating-different "working-with-eips.md#using-instance-addressing-eips-associating-different").
 
 For any other exceptions, [contact
 Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").

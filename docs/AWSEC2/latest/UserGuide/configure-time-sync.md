@@ -1,6 +1,4 @@
-# Set the time reference on your EC2 instance or any
-
-internet-connected device to use the public Amazon Time Sync Service
+# Set the time reference on your EC2 instance or any internet-connected device to use the public Amazon Time Sync Service
 
 You can set your instance, or any internet-connected device such as your local
 computer or an on-prem server, to use the public Amazon Time Sync Service, which is accessible over the
@@ -13,9 +11,7 @@ For the best performance, we recommend using the _local_ Amazon Time Sync Servic
 
 Use the instructions for the operating system of your instance or device.
 
-###### To set your Linux instance or device to use the public Amazon Time Sync Service using
-
-chrony or ntpd
+###### To set your Linux instance or device to use the public Amazon Time Sync Service using chrony or ntpd
 
 1. Edit `/etc/chrony.conf` (if you use chrony) or
    `/etc/ntp.conf` (if you use ntpd) using a text editor as
@@ -80,8 +76,6 @@ chrony or ntpd
    server**.
 6. Next to **Server**, enter `time.aws.com`.
 
-###### To set your Windows Server instance or device to use the public
-
-Amazon Time Sync Service
+###### To set your Windows Server instance or device to use the public Amazon Time Sync Service
 
 - Follow [Microsoft's instructions](https://support.microsoft.com/en-us/kb/816042 "https://support.microsoft.com/en-us/kb/816042") to update your registry.

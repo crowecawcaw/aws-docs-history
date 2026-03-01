@@ -1,6 +1,4 @@
-# Connect to your Linux instance using a public IP address
-
-and EC2 Instance Connect
+# Connect to your Linux instance using a public IP address and EC2 Instance Connect
 
 Amazon EC2 Instance Connect provides a secure way to connect to your Linux instances over Secure Shell
 (SSH). With EC2 Instance Connect, you use AWS Identity and Access Management (IAM) [policies](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") and [principals](../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal "../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal") to control SSH access to your instances, removing the need to share

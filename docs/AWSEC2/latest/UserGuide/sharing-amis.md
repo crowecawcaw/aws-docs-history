@@ -32,14 +32,11 @@ the _AWS Marketplace Seller Guide_.
 
 - [Find shared AMIs to use for Amazon EC2 instances](usingsharedamis-finding.md "usingsharedamis-finding.md")
 - [Prepare to use shared AMIs for Linux](usingsharedamis-confirm.md "usingsharedamis-confirm.md")
-- [Control the discovery and use of AMIs in Amazon EC2 with
-  Allowed AMIs](ec2-allowed-amis.md "ec2-allowed-amis.md")
+- [Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs](ec2-allowed-amis.md "ec2-allowed-amis.md")
 - [Make your AMI publicly available for use in Amazon EC2](sharingamis-intro.md "sharingamis-intro.md")
 - [Understand block public access for AMIs](block-public-access-to-amis.md "block-public-access-to-amis.md")
-- [Share an AMI with organizations and
-  organizational units](share-amis-with-organizations-and-OUs.md "share-amis-with-organizations-and-OUs.md")
-- [Share an AMI with specific AWS
-  accounts](sharingamis-explicit.md "sharingamis-explicit.md")
+- [Share an AMI with organizations and organizational units](share-amis-with-organizations-and-OUs.md "share-amis-with-organizations-and-OUs.md")
+- [Share an AMI with specific AWS accounts](sharingamis-explicit.md "sharingamis-explicit.md")
 - [Cancel having an AMI shared with your AWS account](cancel-sharing-an-AMI.md "cancel-sharing-an-AMI.md")
 - [Recommendations for creating shared Linux AMIs](building-shared-amis.md "building-shared-amis.md")
 

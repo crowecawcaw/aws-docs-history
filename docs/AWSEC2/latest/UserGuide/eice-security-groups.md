@@ -10,14 +10,10 @@ EC2 Instance Connect Endpoint and the target instances.
 
 ###### Examples
 
-- [EC2 Instance Connect Endpoint security group
-  rules](#eice-security-group-rules "#eice-security-group-rules")
-- [Target instance security group
-  rules](#resource-security-group-rules "#resource-security-group-rules")
+- [EC2 Instance Connect Endpoint security group rules](#eice-security-group-rules "#eice-security-group-rules")
+- [Target instance security group rules](#resource-security-group-rules "#resource-security-group-rules")
 
-## EC2 Instance Connect Endpoint security group
-
-rules
+## EC2 Instance Connect Endpoint security group rules
 
 The security group rules for an EC2 Instance Connect Endpoint must allow outbound traffic
 destined for the target instances to leave the endpoint. You can specify either the
@@ -27,8 +23,7 @@ destination.
 Traffic to the endpoint originates from the EC2 Instance Connect Endpoint Service, and it is
 allowed regardless of the inbound rules for the endpoint security group. To control
 who can use EC2 Instance Connect Endpoint to connect to an instance, use an IAM policy. For more
-information, see [Permissions to use EC2 Instance Connect Endpoint to connect to
-instances](permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel "permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel").
+information, see [Permissions to use EC2 Instance Connect Endpoint to connect to instances](permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel "permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel").
 
 ###### Example outbound rule: Security group referencing
 
@@ -61,9 +56,7 @@ use the IPv6 address range of the VPC.
 | -------- | --------------- | ---------- | -------------------------------------- |
 | TCP      | `VPC IPv6 CIDR` | 22         | Allows outbound SSH traffic to the VPC |
 
-## Target instance security group
-
-rules
+## Target instance security group rules
 
 The security group rules for target instances must allow inbound traffic from the
 EC2 Instance Connect Endpoint. You can specify either the endpoint security group or an IPv4 or

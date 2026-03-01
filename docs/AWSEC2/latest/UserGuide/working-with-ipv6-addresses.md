@@ -1,6 +1,4 @@
-# Manage the IPv6 addresses for your EC2
-
-instances
+# Manage the IPv6 addresses for your EC2 instances
 
 If your VPC and subnet have IPv6 CIDR blocks associated with them, you can assign an
 IPv6 address to your instance during or after launch. You can access the IPv6 addresses
@@ -12,12 +10,9 @@ instead, see [Manage the IP addresses for your network interface](managing-netwo
 ###### Tasks
 
 - [Assign an IPv6 address to an instance](#assign-ipv6-address "#assign-ipv6-address")
-- [View the IPv6 addresses for an
-  instance](#view-ipv6-addresses "#view-ipv6-addresses")
-- [View IPv6 addresses using instance
-  metadata](#view-ipv6-addresses-imds "#view-ipv6-addresses-imds")
-- [Unassign an IPv6 address from an
-  instance](#unassign-ipv6-address "#unassign-ipv6-address")
+- [View the IPv6 addresses for an instance](#view-ipv6-addresses "#view-ipv6-addresses")
+- [View IPv6 addresses using instance metadata](#view-ipv6-addresses-imds "#view-ipv6-addresses-imds")
+- [Unassign an IPv6 address from an instance](#unassign-ipv6-address "#unassign-ipv6-address")
 
 ## Assign an IPv6 address to an instance
 
@@ -144,9 +139,7 @@ Register-EC2Ipv6AddressList `
     -Ipv6AddressCount 2
 ```
 
-## View the IPv6 addresses for an
-
-instance
+## View the IPv6 addresses for an instance
 
 You can view the IPv6 addresses for your instances.
 
@@ -198,9 +191,7 @@ The following is example output.
 2001:db8::1234:5678:1.2.3.4
 ```
 
-## View IPv6 addresses using instance
-
-metadata
+## View IPv6 addresses using instance metadata
 
 After you connect to your instance, you can retrieve the IPv6 addresses using
 instance metadata. First, you must get the MAC address of the instance from
@@ -249,9 +240,7 @@ Run the following cmdlet from your Windows instance.
 Invoke-RestMethod -Uri http://169.254.169.254/latest/meta-data/network/interfaces/macs/`mac-address`/ipv6s
 ```
 
-## Unassign an IPv6 address from an
-
-instance
+## Unassign an IPv6 address from an instance
 
 You can unassign an IPv6 address from an instance at any time.
 

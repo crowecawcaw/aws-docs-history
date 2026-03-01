@@ -51,8 +51,7 @@ Console
    **Enable**.
 3. In the **Summary panel**, review your instance configuration, and
    then choose **Launch instance**. For more
-   information, see [Launch an EC2 instance using the launch
-   instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+   information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 ###### To enable access to tags in instance metadata after instance launch
 

@@ -1,6 +1,4 @@
-# Connect to a Linux instance using
-
-EC2 Instance Connect
+# Connect to a Linux instance using EC2 Instance Connect
 
 The following instructions explain how to connect to your Linux instance using EC2 Instance Connect
 through the Amazon EC2 console, the AWS CLI, or an SSH client.
@@ -27,16 +25,12 @@ Before you begin, be sure to review the [prerequisites](ec2-instance-connect-pre
 
 ###### Connection options
 
-- [Connect using the Amazon EC2
-  console](#ec2-instance-connect-connecting-console "#ec2-instance-connect-connecting-console")
+- [Connect using the Amazon EC2 console](#ec2-instance-connect-connecting-console "#ec2-instance-connect-connecting-console")
 - [Connect using the AWS CLI](#connect-linux-inst-eic-cli-ssh "#connect-linux-inst-eic-cli-ssh")
-- [Connect using your own key
-  and SSH client](#ec2-instance-connect-connecting-aws-cli "#ec2-instance-connect-connecting-aws-cli")
+- [Connect using your own key and SSH client](#ec2-instance-connect-connecting-aws-cli "#ec2-instance-connect-connecting-aws-cli")
 - [Troubleshoot](#ic-troubleshoot "#ic-troubleshoot")
 
-## Connect using the Amazon EC2
-
-console
+## Connect using the Amazon EC2 console
 
 You can connect to an instance using EC2 Instance Connect through the Amazon EC2 console.
 
@@ -142,9 +136,7 @@ We also recommend regularly updating to the latest minor version of AWS CLI
 version 2 to access the latest features. For more information, see [About
 AWS CLI version 2](../../../cli/latest/userguide/cli-chap-welcome.md#welcome-versions-v2 "../../../cli/latest/userguide/cli-chap-welcome.md#welcome-versions-v2") in the _AWS Command Line Interface User Guide_.
 
-## Connect using your own key
-
-and SSH client
+## Connect using your own key and SSH client
 
 You can use your own SSH key and connect to your instance from the SSH client of
 your choice while using the EC2 Instance Connect API. This enables you to benefit from the
@@ -156,8 +148,7 @@ method works for instances with public and private IP addresses.
 - Requirements for key pairs
   - Supported types: RSA (OpenSSH and SSH2) and ED25519
   - Supported lengths: 2048 and 4096
-  - For more information, see [Create a key pair using
-    a third-party tool and import the public key to Amazon EC2](create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws "create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws").
+  - For more information, see [Create a key pair using a third-party tool and import the public key to Amazon EC2](create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws "create-key-pairs.md#how-to-generate-your-own-key-and-import-it-to-aws").
 
 - When connecting to an instance that has only private IP addresses, the
   local computer from which you are initiating the SSH session must have

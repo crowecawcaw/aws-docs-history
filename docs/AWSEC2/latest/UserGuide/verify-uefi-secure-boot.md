@@ -1,6 +1,4 @@
-# Verify whether an Amazon EC2 instance is enabled for
-
-UEFI Secure Boot
+# Verify whether an Amazon EC2 instance is enabled for UEFI Secure Boot
 
 You can use the following procedures to determine whether an Amazon EC2 is enabled for
 UEFI Secure Boot.

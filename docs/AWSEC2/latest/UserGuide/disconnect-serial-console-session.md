@@ -1,6 +1,4 @@
-# Disconnect from the EC2 Serial
-
-Console
+# Disconnect from the EC2 Serial Console
 
 If you no longer need to be connected to your instance's EC2 Serial Console, you can
 disconnect from it. When you disconnect from the serial console, any shell session running on

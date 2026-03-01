@@ -30,8 +30,7 @@ Attestable AMIs have the following requirements:
 - **Base operating system** – Amazon Linux 2023 and [NixOS](https://github.com/aws/nitrotpm-attestation-samples "https://github.com/aws/nitrotpm-attestation-samples")
 - **Architecture** – `x86_64` or `arm64` architecture
 - **TPM support** – NitroTPM must be enabled. For more information, see
-  [Requirements for using NitroTPM with Amazon EC2
-  instances](enable-nitrotpm-prerequisites.md "enable-nitrotpm-prerequisites.md").
+  [Requirements for using NitroTPM with Amazon EC2 instances](enable-nitrotpm-prerequisites.md "enable-nitrotpm-prerequisites.md").
 - **Boot mode** – UEFI boot mode must be enabled.
 
 ###### Topics

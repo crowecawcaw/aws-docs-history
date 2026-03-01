@@ -1,6 +1,4 @@
-# Modify instance metadata
-
-options for existing instances
+# Modify instance metadata options for existing instances
 
 You can modify the instance metadata options for existing instances.
 
@@ -33,9 +31,7 @@ instance, the instance is then ready to require IMDSv2.
 
 Console
 
-###### To require the use of IMDSv2 on an existing
-
-instance
+###### To require the use of IMDSv2 on an existing instance
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -56,9 +52,7 @@ instance
 
 AWS CLI
 
-###### To require the use of IMDSv2 on an existing
-
-instance
+###### To require the use of IMDSv2 on an existing instance
 
 Use the [modify-instance-metadata-options](../../../cli/latest/reference/ec2/modify-instance-metadata-options.md "../../../cli/latest/reference/ec2/modify-instance-metadata-options.md") CLI command and
 set the `http-tokens` parameter to
@@ -75,11 +69,9 @@ aws ec2 modify-instance-metadata-options \
 
 PowerShell
 
-###### To require the use of IMDSv2 on an existing
+###### To require the use of IMDSv2 on an existing instance
 
-instance
-
-Use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md") Cmdlet and set the
+Use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md") cmdlet and set the
 `HttpTokens` parameter to `required`.
 When you specify a value for `HttpTokens`, you must
 also set `HttpEndpoint` to
@@ -94,10 +86,34 @@ also set `HttpEndpoint` to
 
 ## Restore the use of IMDSv1
 
-When IMDSv2 is required, IMDSv1 will not work when requesting instance
-metadata. When IMDSv2 is optional, then both IMDSv2 and IMDSv1 will work.
-Therefore, to restore IMDSv1, make IMDSv2 optional by using one of the following
+When IMDSv2 is required on an instance, using an IMDSv1 request will fail.
+When IMDSv2 is optional, then both IMDSv2 and IMDSv1
+will work. Therefore, to restore IMDSv1, set IMDSv2 to optional
+(`httpTokens = optional`) using one of the following
 methods.
+
+The `httpTokensEnforced` IMDS property also prevents attempts to enable
+IMDSv1 on an existing instance. When enabled for an account in a Region,
+an attempt to set `httpTokens` to `optional` will result
+in an `UnsupportedOperation` exception. Fore more information, see
+[Troubleshooting](#troubleshoot-modifying-an-imdsv1-enabled-instance-fails "#troubleshoot-modifying-an-imdsv1-enabled-instance-fails").
+
+###### Important
+
+If your instance launches are failing due to IMDSv2 enforcement, you have two
+options to enable launches to succeed:
+
+- **Launch instances as IMDSv2-only** – If the
+  software running on the instances uses IMDSv2 only (no
+  dependency on IMDSv1), then you can launch the instances as
+  IMDSv2 only. To do this, configure IMDSv2 only by
+  setting `httpTokens = required` either in the launch
+  parameters or in the metadata defaults for the account in the
+  Region.
+- **Disable enforcement** – If your software still
+  depends on IMDSv1, set `httpTokensEnforced` to
+  `disabled` for the account in the Region. For more
+  information, see [Enforce IMDSv2 at the account level](configuring-IMDS-new-instances.md#enforce-imdsv2-at-the-account-level "configuring-IMDS-new-instances.md#enforce-imdsv2-at-the-account-level").
 
 Console
 
@@ -140,7 +156,7 @@ PowerShell
 
 ###### To restore the use of IMDSv1 on an instance
 
-You can use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md") Cmdlet with
+You can use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md") cmdlet with
 `HttpTokens` set to `optional` to
 restore the use of IMDSv1 when requesting instance
 metadata.
@@ -153,9 +169,7 @@ metadata.
 
 ```
 
-## Change the PUT response hop
-
-limit
+## Change the PUT response hop limit
 
 For existing instances, you can change the settings of the `PUT`
 response hop limit.
@@ -186,7 +200,7 @@ PowerShell
 
 ###### To change the PUT response hop limit
 
-Use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md") Cmdlet and set the
+Use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md") cmdlet and set the
 `HttpPutResponseHopLimit` parameter to the
 required number of hops. In the following example, the hop limit
 is set to `3`. Note that when specifying a value for
@@ -200,9 +214,7 @@ is set to `3`. Note that when specifying a value for
     -HttpEndpoint enabled).InstanceMetadataOptions
 ```
 
-## Enable the IMDS
-
-IPv4 and IPv6 endpoints
+## Enable the IMDS IPv4 and IPv6 endpoints
 
 The IMDS has two endpoints on an instance: IPv4 (`169.254.169.254`)
 and IPv6 (`[fd00:ec2::254]`). When you enable the IMDS, the IPv4
@@ -242,7 +254,7 @@ PowerShell
 
 ###### To enable the IMDS IPv6 endpoint for your instance
 
-Use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md") Cmdlet and set the
+Use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md") cmdlet and set the
 `HttpProtocolIpv6` parameter to
 `enabled`. Note that when specifying a value for
 `HttpProtocolIpv6`, you must also set
@@ -255,9 +267,7 @@ Use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/it
     -HttpEndpoint enabled).InstanceMetadataOptions
 ```
 
-## Turn on access
-
-to instance metadata
+## Turn on access to instance metadata
 
 You can turn on access to instance metadata by enabling the HTTP endpoint of
 the IMDS on your instance, regardless of which version of the
@@ -304,7 +314,7 @@ PowerShell
 
 ###### To turn on access to instance metadata
 
-Use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md") Cmdlet and set the
+Use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md") cmdlet and set the
 `HttpEndpoint` parameter to
 `enabled`.
 
@@ -314,9 +324,7 @@ Use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/it
     -HttpEndpoint enabled).InstanceMetadataOptions
 ```
 
-## Turn off
-
-access to instance metadata
+## Turn off access to instance metadata
 
 You can turn off access to instance metadata by disabling the HTTP endpoint of
 the IMDS on your instance, regardless of which version of the
@@ -363,7 +371,7 @@ PowerShell
 
 ###### To turn off access to instance metadata
 
-Use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md") Cmdlet and set the
+Use the [Edit-EC2InstanceMetadataOption](../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md "../../../powershell/latest/reference/items/Edit-EC2InstanceMetadataOption.md") cmdlet and set the
 `HttpEndpoint` parameter to
 `disabled`.
 
@@ -380,3 +388,36 @@ instance. For each instance, you must explicitly allow access. If access is
 allowed, instance tag _keys_ must comply with
 specific character restrictions, otherwise you get an error. For more
 information, see [Enable access to tags in instance metadata](work-with-tags-in-IMDS.md#allow-access-to-tags-in-IMDS "work-with-tags-in-IMDS.md#allow-access-to-tags-in-IMDS").
+
+## Troubleshooting
+
+### Modifying an IMDSv1-enabled instance fails
+
+#### Description
+
+You get the following error message:
+
+`You can't launch instances with IMDSv1 because httpTokensEnforced is
+ enabled for this account. Either launch the instance with httpTokens=required or
+ contact your account owner to disable httpTokensEnforced using the
+ ModifyInstanceMetadataDefaults API or the account settings in the EC2
+ console.`
+
+#### Cause
+
+This error is thrown when you attempt to modify an existing instance to be
+IMDSv1 enabled (`httpTokens = optional`) in an
+account where the EC2 account settings or an AWS Organization
+declarative policy enforces the use of IMDSv2
+(`httpTokensEnforced = enabled`).
+
+#### Solution
+
+If you require IMDSv1 support on existing instances, you'll need to disable
+IMDSv2 enforcement for the account in the Region. To disable
+IMDSv2 enforcement, set `HttpTokensEnforced` to
+`disabled`. For more information, see [ModifyInstanceMetadataDefaults](../APIReference/API_ModifyInstanceMetadataDefaults.md "../APIReference/API_ModifyInstanceMetadataDefaults.md") in the Amazon EC2 API Reference. If
+you prefer to configure this setting using the console, see [Enforce IMDSv2 at the account level](configuring-IMDS-new-instances.md#enforce-imdsv2-at-the-account-level "configuring-IMDS-new-instances.md#enforce-imdsv2-at-the-account-level").
+
+We recommend that you use IMDSv2 only (`httpTokens=required`). For
+more information, see [Transition to using Instance Metadata Service Version 2](instance-metadata-transition-to-version-2.md "instance-metadata-transition-to-version-2.md").

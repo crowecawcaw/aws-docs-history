@@ -1,6 +1,4 @@
-# Control the discovery and use of AMIs in Amazon EC2 with
-
-Allowed AMIs
+# Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs
 
 To control the discovery and use of Amazon Machine Images (AMIs) by users in your
 AWS account, you can use the _Allowed AMIs_ feature. You
@@ -49,11 +47,9 @@ discoverable and usable by users in your account.
 ###### Contents
 
 - [How Allowed AMIs works](#how-allowed-amis-works "#how-allowed-amis-works")
-- [Best practices for
-  implementing Allowed AMIs](#best-practice-for-implementing-allowed-amis "#best-practice-for-implementing-allowed-amis")
+- [Best practices for implementing Allowed AMIs](#best-practice-for-implementing-allowed-amis "#best-practice-for-implementing-allowed-amis")
 - [Required IAM permissions](#iam-permissions-for-allowed-amis "#iam-permissions-for-allowed-amis")
-- [Manage the settings for Allowed
-  AMIs](manage-settings-allowed-amis.md "manage-settings-allowed-amis.md")
+- [Manage the settings for Allowed AMIs](manage-settings-allowed-amis.md "manage-settings-allowed-amis.md")
 
 ## How Allowed AMIs works
 
@@ -104,8 +100,7 @@ The configuration has three levels:
 
 - [Allowed AMIs parameters](#allowed-amis-criteria "#allowed-amis-criteria")
 - [Allowed AMIs configuration](#allowed-amis-json-configuration "#allowed-amis-json-configuration")
-- [How criteria are
-  evaluated](#how-allowed-amis-criteria-are-evaluated "#how-allowed-amis-criteria-are-evaluated")
+- [How criteria are evaluated](#how-allowed-amis-criteria-are-evaluated "#how-allowed-amis-criteria-are-evaluated")
 - [Limits](#allowed-amis-json-configuration-limits "#allowed-amis-json-configuration-limits")
 - [Allowed AMIs operations](#allowed-amis-operations "#allowed-amis-operations")
 
@@ -185,8 +180,7 @@ parameters that can be specified:
 The following `ImageCriteria` example configures four
 `ImageCriterion`. An AMI is allowed if it matches any one of
 these `ImageCriterion`. For information about how the criteria are
-evaluated, see [How criteria are
-evaluated](#how-allowed-amis-criteria-are-evaluated "#how-allowed-amis-criteria-are-evaluated").
+evaluated, see [How criteria are evaluated](#how-allowed-amis-criteria-are-evaluated "#how-allowed-amis-criteria-are-evaluated").
 
 ```
 {
@@ -232,9 +226,7 @@ evaluated](#how-allowed-amis-criteria-are-evaluated "#how-allowed-amis-criteria-
 }
 ```
 
-### How criteria are
-
-evaluated
+### How criteria are evaluated
 
 The following table explains the evaluation rules that determine if an AMI is allowed,
 showing how the `AND` or `OR` operator is applied at each
@@ -358,9 +350,7 @@ In audit mode:
   allowed** next to AMIs that won't be discoverable or available
   to users in the account when Allowed AMIs is enabled.
 
-## Best practices for
-
-implementing Allowed AMIs
+## Best practices for implementing Allowed AMIs
 
 When implementing Allowed AMIs, consider these best practices to ensure a smooth
 transition and minimize potential disruptions to your AWS environment.
@@ -408,8 +398,7 @@ CLI: Run the [describe-instance-image-metadata](../../../cli/latest/reference/ec
 identify any instances that were launched with AMIs that don't meet the
 specified criteria.
 
-For the console and CLI instructions, see [Find instances launched from
-AMIs that aren't allowed](manage-settings-allowed-amis.md#identify-instances-with-allowed-AMIs "manage-settings-allowed-amis.md#identify-instances-with-allowed-AMIs"). 4. **Enable Allowed AMIs**
+For the console and CLI instructions, see [Find instances launched from AMIs that aren't allowed](manage-settings-allowed-amis.md#identify-instances-with-allowed-AMIs "manage-settings-allowed-amis.md#identify-instances-with-allowed-AMIs"). 4. **Enable Allowed AMIs**
 
 Once you've confirmed that the criteria will not adversely affect expected
 business processes, enable Allowed AMIs. 5. **Monitor instance launches**

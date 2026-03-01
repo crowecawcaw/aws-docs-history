@@ -56,9 +56,7 @@ For more information, see Specify instance user data at launch with the Launch W
 uses the AWS CLI, see [User data and the AWS CLI](#user-data-api-cli "#user-data-api-cli"). For a Windows example that
 uses the Tools for Windows PowerShell, see [User data and the Tools for Windows PowerShell](#user-data-powershell "#user-data-powershell").
 
-### View and update the instance user
-
-data
+### View and update the instance user data
 
 You can view the instance user data for any instance, and you can update the
 instance user data for a stopped instance.
@@ -549,10 +547,8 @@ depend on which services you are calling with the API. For more information, see
 ###### Script type
 
 - [Syntax for batch scripts](#user-data-batch-scripts "#user-data-batch-scripts")
-- [Syntax for Windows PowerShell
-  scripts](#user-data-powershell-scripts "#user-data-powershell-scripts")
-- [Syntax for YAML configuration
-  scripts](#user-data-yaml-scripts "#user-data-yaml-scripts")
+- [Syntax for Windows PowerShell scripts](#user-data-powershell-scripts "#user-data-powershell-scripts")
+- [Syntax for YAML configuration scripts](#user-data-yaml-scripts "#user-data-yaml-scripts")
 - [Base64 encoding](#user-data-base64-encoding "#user-data-base64-encoding")
 
 #### Syntax for batch scripts
@@ -597,9 +593,7 @@ The detach tag is not supported by previous launch agents.
 <detach>true</detach>
 ```
 
-#### Syntax for Windows PowerShell
-
-scripts
+#### Syntax for Windows PowerShell scripts
 
 The AWS Windows AMIs include the [AWS Tools for Windows PowerShell](https://aws.amazon.com/powershell/ "https://aws.amazon.com/powershell/"), so you can specify these cmdlets in user data. If you
 associate an IAM role with your instance, you don't need to specify credentials to
@@ -664,13 +658,10 @@ The detach tag is not supported by previous launch agents.
 <detach>true</detach>
 ```
 
-#### Syntax for YAML configuration
-
-scripts
+#### Syntax for YAML configuration scripts
 
 If you are using EC2Launch v2 to run scripts, you can use the YAML format. To view
-configuration tasks, details, and examples for EC2Launch v2, see [EC2Launch v2 task
-configuration](ec2launch-v2-settings.md#ec2launch-v2-task-configuration "ec2launch-v2-settings.md#ec2launch-v2-task-configuration").
+configuration tasks, details, and examples for EC2Launch v2, see [EC2Launch v2 task configuration](ec2launch-v2-settings.md#ec2launch-v2-task-configuration "ec2launch-v2-settings.md#ec2launch-v2-task-configuration").
 
 Specify a YAML script with the `executeScript` task.
 

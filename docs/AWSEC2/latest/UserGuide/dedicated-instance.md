@@ -78,8 +78,7 @@ Dedicated Instances support the following features and AWS service integrations:
 To reserve capacity for your Dedicated Instances, you can purchase Dedicated Reserved Instances or Capacity Reservations.
 For more information, see
 [Reserved Instances for Amazon EC2 overview](ec2-reserved-instances.md "ec2-reserved-instances.md") and
-[Reserve compute capacity with EC2
-On-Demand Capacity Reservations](ec2-capacity-reservations.md "ec2-capacity-reservations.md").
+[Reserve compute capacity with EC2 On-Demand Capacity Reservations](ec2-capacity-reservations.md "ec2-capacity-reservations.md").
 
 When you purchase a Dedicated Reserved Instance, you are purchasing the capacity to launch a
 Dedicated Instance at a much reduced usage fee; the price break in the usage charge
@@ -118,8 +117,7 @@ burstable nature of the T3 instance types, we recommend that you monitor how you
 instances use the CPU resources of the dedicated hardware for the best performance.
 T3 Dedicated Instances are intended for customers with diverse workloads that display random CPU
 behavior, but that ideally have average CPU usage at or below the baseline usages.
-For more information, see [Key concepts for burstable
-performance instances](burstable-credits-baseline-concepts.md "burstable-credits-baseline-concepts.md").
+For more information, see [Key concepts for burstable performance instances](burstable-credits-baseline-concepts.md "burstable-credits-baseline-concepts.md").
 
 Amazon EC2 has systems in place to identify and correct variability in performance.
 However, it is still possible to experience short-term variability if you launch

@@ -13,8 +13,7 @@ For instructions on how to connect to your instance after you have created a key
 
 - [Create a key pair using Amazon EC2](#having-ec2-create-your-key-pair "#having-ec2-create-your-key-pair")
 - [Create a key pair using AWS CloudFormation](#create-key-pair-cloudformation "#create-key-pair-cloudformation")
-- [Create a key pair using
-  a third-party tool and import the public key to Amazon EC2](#how-to-generate-your-own-key-and-import-it-to-aws "#how-to-generate-your-own-key-and-import-it-to-aws")
+- [Create a key pair using a third-party tool and import the public key to Amazon EC2](#how-to-generate-your-own-key-and-import-it-to-aws "#how-to-generate-your-own-key-and-import-it-to-aws")
 
 ## Create a key pair using Amazon EC2
 
@@ -181,9 +180,7 @@ CloudFormation tests for the required permission using a fabricated parameter na
 match any parameter in your account. Therefore, you might see a fabricated parameter name in
 the `AccessDeniedException` error message.
 
-## Create a key pair using
-
-a third-party tool and import the public key to Amazon EC2
+## Create a key pair using a third-party tool and import the public key to Amazon EC2
 
 Instead of using Amazon EC2 to create a key pair, you can create an RSA or ED25519 key pair
 by using a third-party tool and then import the public key to Amazon EC2.

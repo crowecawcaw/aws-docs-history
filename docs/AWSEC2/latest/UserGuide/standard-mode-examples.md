@@ -5,14 +5,10 @@ The following examples explain credit use when instances are configured as
 
 ###### Examples
 
-- [Example 1: Explain credit use with T3
-  Standard](#t3_standard_example "#t3_standard_example")
-- [Example 2: Explain credit use with T2
-  Standard](#t2-standard-example "#t2-standard-example")
+- [Example 1: Explain credit use with T3 Standard](#t3_standard_example "#t3_standard_example")
+- [Example 2: Explain credit use with T2 Standard](#t2-standard-example "#t2-standard-example")
 
-## Example 1: Explain credit use with T3
-
-Standard
+## Example 1: Explain credit use with T3 Standard
 
 In this example, you see how a `t3.nano` instance launched as
 `standard` earns, accrues, and spends _earned_ credits. You see how the credit balance reflects the accrued
@@ -79,9 +75,7 @@ instance earns 144 credits, which it accrues in its
 
 ![T3 Standard instance CPU utilization.](images/t3_standard_graph.png)
 
-## Example 2: Explain credit use with T2
-
-Standard
+## Example 2: Explain credit use with T2 Standard
 
 In this example, you see how a `t2.nano` instance launched as
 `standard` earns, accrues, and spends _launch_ and _earned_ credits. You see

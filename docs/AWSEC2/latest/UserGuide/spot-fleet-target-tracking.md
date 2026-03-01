@@ -1,6 +1,4 @@
-# Target tracking scaling: Scale Spot Fleet by
-
-targeting a value for a specific metric
+# Target tracking scaling: Scale Spot Fleet by targeting a value for a specific metric
 
 With target tracking scaling, you create a target tracking scaling policy by
 selecting a metric and setting a target value. Spot Fleet then creates and manages the
@@ -33,8 +31,7 @@ tracking scaling policy.
 - The Spot Fleet request must have a request type of `maintain`.
   Automatic scaling is not supported for requests of type
   `request`.
-- Configure the [IAM permissions required for Spot Fleet
-  automatic scaling](spot-fleet-auto-scaling-IAM.md "spot-fleet-auto-scaling-IAM.md").
+- Configure the [IAM permissions required for Spot Fleet automatic scaling](spot-fleet-auto-scaling-IAM.md "spot-fleet-auto-scaling-IAM.md").
 - Review the [Considerations](spot-fleet-automatic-scaling.md#considerations-for-spot-fleet-automatic-scaling "spot-fleet-automatic-scaling.md#considerations-for-spot-fleet-automatic-scaling").
 
 ###### To configure a target tracking policy

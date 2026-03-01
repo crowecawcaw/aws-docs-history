@@ -23,9 +23,7 @@ attribute.
 Ubuntu 16.04 and 18.04 ship with the Ubuntu custom kernel (`linux-aws` kernel
 package). To use a different kernel, contact [Support](https://console.aws.amazon.com/support "https://console.aws.amazon.com/support").
 
-###### To install the `linux-aws`
-
-kernel package (Ubuntu Trusty 14.04)
+###### To install the `linux-aws` kernel package (Ubuntu Trusty 14.04)
 
 1. Connect to your instance.
 2. Update the package cache and packages.
@@ -43,8 +41,7 @@ current version of `/boot/grub/menu.lst`. 3. [EBS-backed instance] From your loc
 the Amazon EC2 console or one of the following commands: [stop-instances](../../../cli/latest/reference/ec2/stop-instances.md "../../../cli/latest/reference/ec2/stop-instances.md") (AWS CLI) or [Stop-EC2Instance](../../../powershell/latest/reference/items/Stop-EC2Instance.md "../../../powershell/latest/reference/items/Stop-EC2Instance.md") (AWS Tools for Windows PowerShell).
 
 [Instance store-backed instance] You can't stop the instance to modify the
-attribute. Instead, proceed to this procedure: [To enable enhanced
-networking on Ubuntu (instance store-backed instances)](#enhanced-networking-ena-instance-store-ubuntu "#enhanced-networking-ena-instance-store-ubuntu"). 4. From your local computer, enable the enhanced networking attribute using
+attribute. Instead, proceed to this procedure: [To enable enhanced networking on Ubuntu (instance store-backed instances)](#enhanced-networking-ena-instance-store-ubuntu "#enhanced-networking-ena-instance-store-ubuntu"). 4. From your local computer, enable the enhanced networking attribute using
 one of the following commands:
 
     * [modify-instance-attribute](../../../cli/latest/reference/ec2/modify-instance-attribute.md "../../../cli/latest/reference/ec2/modify-instance-attribute.md")
@@ -71,9 +68,7 @@ one of the following commands:
 6. From your local computer, start the instance using the Amazon EC2 console or
    one of the following commands: [start-instances](../../../cli/latest/reference/ec2/start-instances.md "../../../cli/latest/reference/ec2/start-instances.md") (AWS CLI) or [Start-EC2Instance](../../../powershell/latest/reference/items/Start-EC2Instance.md "../../../powershell/latest/reference/items/Start-EC2Instance.md") (AWS Tools for Windows PowerShell).
 
-###### To enable enhanced
-
-networking on Ubuntu (instance store-backed instances)
+###### To enable enhanced networking on Ubuntu (instance store-backed instances)
 
 Follow the previous procedure until the step where you stop the instance.
 Create a new AMI as described in [Create an Amazon S3-backed AMI](creating-an-ami-instance-store.md "creating-an-ami-instance-store.md"), making sure to enable the
@@ -168,8 +163,7 @@ dracut -f -v
    the Amazon EC2 console or one of the following commands: [stop-instances](../../../cli/latest/reference/ec2/stop-instances.md "../../../cli/latest/reference/ec2/stop-instances.md") (AWS CLI), [Stop-EC2Instance](../../../powershell/latest/reference/items/Stop-EC2Instance.md "../../../powershell/latest/reference/items/Stop-EC2Instance.md") (AWS Tools for Windows PowerShell).
 
 [Instance store-backed instance] You can't stop the instance to modify the
-attribute. Instead, proceed to this procedure: [To enable
-enhanced networking on Linux (instance store–backed instances)](#other-linux-enhanced-networking-ena-instance-store "#other-linux-enhanced-networking-ena-instance-store"). 8. From your local computer, enable the enhanced networking
+attribute. Instead, proceed to this procedure: [To enable enhanced networking on Linux (instance store–backed instances)](#other-linux-enhanced-networking-ena-instance-store "#other-linux-enhanced-networking-ena-instance-store"). 8. From your local computer, enable the enhanced networking
 `enaSupport` attribute using one of the following
 commands:
 
@@ -209,9 +203,7 @@ installed.
 If you are unable to connect to your instance after enabling
 enhanced networking, see [Troubleshoot the ENA kernel driver on Linux](troubleshooting-ena.md "troubleshooting-ena.md").
 
-###### To enable
-
-enhanced networking on Linux (instance store–backed instances)
+###### To enable enhanced networking on Linux (instance store–backed instances)
 
 Follow the previous procedure until the step where you stop the instance.
 Create a new AMI as described in [Create an Amazon S3-backed AMI](creating-an-ami-instance-store.md "creating-an-ami-instance-store.md"), making sure to enable the
@@ -237,9 +229,7 @@ with production deployments. For production deployments, see [Ubuntu](#enhanced-
 Using DKMS voids the support agreement for your subscription. It should not be
 used for production deployments.
 
-###### To enable enhanced networking with ENA on Ubuntu (EBS-backed
-
-instances)
+###### To enable enhanced networking with ENA on Ubuntu (EBS-backed instances)
 
 1. Follow steps 1 and 2 in [Ubuntu](#enhanced-networking-ena-ubuntu "#enhanced-networking-ena-ubuntu").
 2. Install the `build-essential` packages to compile the

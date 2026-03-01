@@ -54,8 +54,7 @@ You can find an instance type that meets your needs using the Amazon EC2 console
    The file includes all instance types that match the filters you set.
 8. (Optional) To launch instances using an instance type that meet your needs, select the
    checkbox for the instance type and choose **Actions**, **Launch
-   instance**. For more information, see [Launch an EC2 instance using the launch
-   instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+   instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 ## Describe an instance type using the AWS CLI
 

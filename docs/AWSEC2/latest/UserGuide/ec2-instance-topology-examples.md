@@ -1,6 +1,4 @@
-# Examples for Amazon EC2 instance
-
-topology
+# Examples for Amazon EC2 instance topology
 
 You can use the [describe-instance-topology](../../../cli/latest/reference/ec2/describe-instance-topology.md "../../../cli/latest/reference/ec2/describe-instance-topology.md") command to describe the
 topology for your EC2 instances. And you can use the [describe-capacity-reservation-topology](../../../cli/latest/reference/ec2/describe-instance-topology.md "../../../cli/latest/reference/ec2/describe-instance-topology.md") command to
@@ -11,8 +9,7 @@ When you use the `describe-instance-topology` or
 filters, the response includes all your instances or Capacity Reservations (depending on the command
 used) that match the supported instance types for this command in the specified Region.
 You can specify the Region by including the `--region` parameter, or by
-setting a default Region. For more information about setting a default Region, see [Select a Region for your Amazon EC2
-resources](using-regions-availability-zones-setup.md "using-regions-availability-zones-setup.md").
+setting a default Region. For more information about setting a default Region, see [Select a Region for your Amazon EC2 resources](using-regions-availability-zones-setup.md "using-regions-availability-zones-setup.md").
 
 You can include parameters to return instances or Capacity Reservations that match specified instance
 or Capacity Reservation IDs or placement group names. You can also include filters to return instances
@@ -38,30 +35,20 @@ The following permissions are required:
 ###### Examples
 
 - [Example 1: DescribeInstanceTopology - Instance IDs](ec2-instance-topology-examples.md#instance-topology-ex1 "ec2-instance-topology-examples.md#instance-topology-ex1")
-- [Example 2: DescribeInstanceTopology - Placement group name
-  parameter](ec2-instance-topology-examples.md#instance-topology-ex2 "ec2-instance-topology-examples.md#instance-topology-ex2")
-- [Example 3: DescribeInstanceTopology - Instance type
-  filter](ec2-instance-topology-examples.md#instance-topology-ex3 "ec2-instance-topology-examples.md#instance-topology-ex3")
-  - [Example 3a – Exact match filter
-    for a specified instance type](ec2-instance-topology-examples.md#instance-topology-ex3a "ec2-instance-topology-examples.md#instance-topology-ex3a")
-  - [Example 3b – Wild card filter
-    for an instance family](ec2-instance-topology-examples.md#instance-topology-ex3b "ec2-instance-topology-examples.md#instance-topology-ex3b")
-  - [Example 3c – Combined instance
-    family and exact match filters](ec2-instance-topology-examples.md#instance-topology-ex3c "ec2-instance-topology-examples.md#instance-topology-ex3c")
+- [Example 2: DescribeInstanceTopology - Placement group name parameter](ec2-instance-topology-examples.md#instance-topology-ex2 "ec2-instance-topology-examples.md#instance-topology-ex2")
+- [Example 3: DescribeInstanceTopology - Instance type filter](ec2-instance-topology-examples.md#instance-topology-ex3 "ec2-instance-topology-examples.md#instance-topology-ex3")
+  - [Example 3a – Exact match filter for a specified instance type](ec2-instance-topology-examples.md#instance-topology-ex3a "ec2-instance-topology-examples.md#instance-topology-ex3a")
+  - [Example 3b – Wild card filter for an instance family](ec2-instance-topology-examples.md#instance-topology-ex3b "ec2-instance-topology-examples.md#instance-topology-ex3b")
+  - [Example 3c – Combined instance family and exact match filters](ec2-instance-topology-examples.md#instance-topology-ex3c "ec2-instance-topology-examples.md#instance-topology-ex3c")
 
 - [Example 4: DescribeInstanceTopology - Zone ID filter](ec2-instance-topology-examples.md#instance-topology-ex4 "ec2-instance-topology-examples.md#instance-topology-ex4")
-  - [Example 4a – Availability Zone
-    filter](ec2-instance-topology-examples.md#instance-topology-ex4a "ec2-instance-topology-examples.md#instance-topology-ex4a")
-  - [Example 4b – Local Zone
-    filter](ec2-instance-topology-examples.md#instance-topology-ex4b "ec2-instance-topology-examples.md#instance-topology-ex4b")
-  - [Example 4c – Combined
-    Availability Zone and Local Zone filters](ec2-instance-topology-examples.md#instance-topology-ex4c "ec2-instance-topology-examples.md#instance-topology-ex4c")
+  - [Example 4a – Availability Zone filter](ec2-instance-topology-examples.md#instance-topology-ex4a "ec2-instance-topology-examples.md#instance-topology-ex4a")
+  - [Example 4b – Local Zone filter](ec2-instance-topology-examples.md#instance-topology-ex4b "ec2-instance-topology-examples.md#instance-topology-ex4b")
+  - [Example 4c – Combined Availability Zone and Local Zone filters](ec2-instance-topology-examples.md#instance-topology-ex4c "ec2-instance-topology-examples.md#instance-topology-ex4c")
 
-- [Example 5: DescribeInstanceTopology - Instance type and zone ID
-  filters](ec2-instance-topology-examples.md#instance-topology-ex5 "ec2-instance-topology-examples.md#instance-topology-ex5")
+- [Example 5: DescribeInstanceTopology - Instance type and zone ID filters](ec2-instance-topology-examples.md#instance-topology-ex5 "ec2-instance-topology-examples.md#instance-topology-ex5")
 - [Example 6: DescribeCapacityReservationTopology - Capacity Reservation IDs](ec2-instance-topology-examples.md#instance-topology-ex6 "ec2-instance-topology-examples.md#instance-topology-ex6")
-- [Example 7: DescribeCapacityReservationTopology - Instance type
-  filter](ec2-instance-topology-examples.md#instance-topology-ex7 "ec2-instance-topology-examples.md#instance-topology-ex7")
+- [Example 7: DescribeCapacityReservationTopology - Instance type filter](ec2-instance-topology-examples.md#instance-topology-ex7 "ec2-instance-topology-examples.md#instance-topology-ex7")
 
 ## Example 1: DescribeInstanceTopology - Instance IDs
 
@@ -126,15 +113,11 @@ Get-EC2InstanceTopology `
     -InstanceId `i-1111111111example`, `i-2222222222example`
 ```
 
-## Example 2: DescribeInstanceTopology - Placement group name
-
-parameter
+## Example 2: DescribeInstanceTopology - Placement group name parameter
 
 AWS CLI
 
-###### To describe the topology of instances in a specific placement
-
-group
+###### To describe the topology of instances in a specific placement group
 
 Use the [describe-instance-topology](../../../cli/latest/reference/ec2/describe-instance-topology.md "../../../cli/latest/reference/ec2/describe-instance-topology.md") command
 with the `group-names` parameter. The output includes
@@ -185,9 +168,7 @@ The following is example output.
 
 PowerShell
 
-###### To describe the topology of instances in a specific placement
-
-group
+###### To describe the topology of instances in a specific placement group
 
 Use the [Get-EC2InstanceTopology](../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md "../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md") cmdlet.
 
@@ -196,23 +177,17 @@ Get-EC2InstanceTopology `
     -GroupName `ML-group`, `HPC-group`
 ```
 
-## Example 3: DescribeInstanceTopology - Instance type
-
-filter
+## Example 3: DescribeInstanceTopology - Instance type filter
 
 You can filter by a specified instance type (exact match) or filter by an instance
 family (using a wildcard). You can also combine a specified instance type filter and
 instance family filter.
 
-### Example 3a – Exact match filter
-
-for a specified instance type
+### Example 3a – Exact match filter for a specified instance type
 
 AWS CLI
 
-###### To describe the topology of instances with a specific
-
-instance type
+###### To describe the topology of instances with a specific instance type
 
 Use the [describe-instance-topology](../../../cli/latest/reference/ec2/describe-instance-topology.md "../../../cli/latest/reference/ec2/describe-instance-topology.md")
 command with the `instance-type` filter. The output
@@ -249,9 +224,7 @@ The following is example output.
 
 PowerShell
 
-###### To describe the topology of instances with a specific
-
-instance type
+###### To describe the topology of instances with a specific instance type
 
 Use the [Get-EC2InstanceTopology](../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md "../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md") cmdlet.
 
@@ -260,15 +233,11 @@ Get-EC2InstanceTopology `
     -Filter @{Name="instance-type"; Values="`trn1n.32xlarge`"}
 ```
 
-### Example 3b – Wild card filter
-
-for an instance family
+### Example 3b – Wild card filter for an instance family
 
 AWS CLI
 
-###### To describe the topology of instances with a specific
-
-instance family
+###### To describe the topology of instances with a specific instance family
 
 Use the [describe-instance-topology](../../../cli/latest/reference/ec2/describe-instance-topology.md "../../../cli/latest/reference/ec2/describe-instance-topology.md")
 command with the `instance-type` filter. The output
@@ -329,9 +298,7 @@ The following is example output.
 
 PowerShell
 
-###### To describe the topology of instances with a specific
-
-instance family
+###### To describe the topology of instances with a specific instance family
 
 Use the [Get-EC2InstanceTopology](../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md "../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md") cmdlet.
 
@@ -340,15 +307,11 @@ Get-EC2InstanceTopology `
     -Filter @{Name="instance-type"; Values="`trn1*`"}
 ```
 
-### Example 3c – Combined instance
-
-family and exact match filters
+### Example 3c – Combined instance family and exact match filters
 
 AWS CLI
 
-###### To describe the topology of instances with an instance family
-
-or instance type
+###### To describe the topology of instances with an instance family or instance type
 
 Use the [describe-instance-topology](../../../cli/latest/reference/ec2/describe-instance-topology.md "../../../cli/latest/reference/ec2/describe-instance-topology.md")
 command with the `instance-type` filter. The output
@@ -398,9 +361,7 @@ The following is example output.
 
 PowerShell
 
-###### To describe the topology of instances with an instance family
-
-or instance type
+###### To describe the topology of instances with an instance family or instance type
 
 Use the [Get-EC2InstanceTopology](../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md "../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md") cmdlet.
 
@@ -415,15 +376,11 @@ You can use the `zone-id` filter to filter by an Availability Zone or
 Local Zone. You can also combine an Availability Zone filter and Local Zone
 filter.
 
-### Example 4a – Availability Zone
-
-filter
+### Example 4a – Availability Zone filter
 
 AWS CLI
 
-###### To describe the topology of instances in a specific
-
-Availability Zone
+###### To describe the topology of instances in a specific Availability Zone
 
 Use the [describe-instance-topology](../../../cli/latest/reference/ec2/describe-instance-topology.md "../../../cli/latest/reference/ec2/describe-instance-topology.md")
 command with the `zone-id` filter. The output
@@ -460,9 +417,7 @@ The following is example output.
 
 PowerShell
 
-###### To describe the topology of instances in a specific
-
-Availability Zone
+###### To describe the topology of instances in a specific Availability Zone
 
 Use the [Get-EC2InstanceTopology](../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md "../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md") cmdlet.
 
@@ -471,15 +426,11 @@ Get-EC2InstanceTopology `
     -Filter @{Name="zone-id"; Values="`use1-az1`"}
 ```
 
-### Example 4b – Local Zone
-
-filter
+### Example 4b – Local Zone filter
 
 AWS CLI
 
-###### To describe the topology of instances in a specific Local
-
-Zone
+###### To describe the topology of instances in a specific Local Zone
 
 Use the [describe-instance-topology](../../../cli/latest/reference/ec2/describe-instance-topology.md "../../../cli/latest/reference/ec2/describe-instance-topology.md")
 command with the `zone-id` filter. The output
@@ -516,9 +467,7 @@ The following is example output.
 
 PowerShell
 
-###### To describe the topology of instances in a specific Local
-
-Zone
+###### To describe the topology of instances in a specific Local Zone
 
 Use the [Get-EC2InstanceTopology](../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md "../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md") cmdlet.
 
@@ -527,15 +476,11 @@ Get-EC2InstanceTopology `
     -Filter @{Name="zone-id"; Values="`use1-atl2-az1`"}
 ```
 
-### Example 4c – Combined
-
-Availability Zone and Local Zone filters
+### Example 4c – Combined Availability Zone and Local Zone filters
 
 AWS CLI
 
-###### To describe the topology of instances in a specific
-
-zone
+###### To describe the topology of instances in a specific zone
 
 Use the [describe-instance-topology](../../../cli/latest/reference/ec2/describe-instance-topology.md "../../../cli/latest/reference/ec2/describe-instance-topology.md")
 command with the `zone-id` filter. The output
@@ -585,9 +530,7 @@ The following is example output.
 
 PowerShell
 
-###### To describe the topology of instances in a specific
-
-zone
+###### To describe the topology of instances in a specific zone
 
 Use the [Get-EC2InstanceTopology](../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md "../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md") cmdlet.
 
@@ -596,17 +539,13 @@ Get-EC2InstanceTopology `
     -Filter @{Name="zone-id"; Values="`use1-az1`", "`use1-atl2-az1`"}
 ```
 
-## Example 5: DescribeInstanceTopology - Instance type and zone ID
-
-filters
+## Example 5: DescribeInstanceTopology - Instance type and zone ID filters
 
 You can combine filters in a single command.
 
 AWS CLI
 
-###### To describe the topology of instances with specific instance
-
-types, instance families, and zones
+###### To describe the topology of instances with specific instance types, instance families, and zones
 
 Use the [describe-instance-topology](../../../cli/latest/reference/ec2/describe-instance-topology.md "../../../cli/latest/reference/ec2/describe-instance-topology.md") command
 with the `instance-type` and `zone-id`
@@ -658,9 +597,7 @@ The following is example output.
 
 PowerShell
 
-###### To describe the topology of instances with specific instance
-
-types, instance families, and zones
+###### To describe the topology of instances with specific instance types, instance families, and zones
 
 Use the [Get-EC2InstanceTopology](../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md "../../../powershell/latest/reference/items/Get-EC2InstanceTopology.md") cmdlet.
 
@@ -730,9 +667,7 @@ Get-EC2CapacityReservationTopology `
     -CapacityReservationId `cr-1111111111example` `cr-2222222222example`
 ```
 
-## Example 7: DescribeCapacityReservationTopology - Instance type
-
-filter
+## Example 7: DescribeCapacityReservationTopology - Instance type filter
 
 You can filter by a specified instance type (exact match) or filter by an instance
 family (using a wildcard). You can also combine a specified instance type filter and
@@ -740,9 +675,7 @@ instance family filter.
 
 AWS CLI
 
-###### To describe the topology of Capacity Reservations with a specific instance
-
-type
+###### To describe the topology of Capacity Reservations with a specific instance type
 
 Use the [describe-capacity-reservation-topology](../../../cli/latest/reference/ec2/describe-capacity-reservation-topology.md "../../../cli/latest/reference/ec2/describe-capacity-reservation-topology.md")
 command with the `instance-type` filter. The response
@@ -777,9 +710,7 @@ The following is example output.
 
 PowerShell
 
-###### To describe the topology of Capacity Reservations with a specific instance
-
-type
+###### To describe the topology of Capacity Reservations with a specific instance type
 
 Use the [Get-EC2CapacityReservationTopology](../../../powershell/latest/reference/items/Get-EC2CapacityReservationTopology.md "../../../powershell/latest/reference/items/Get-EC2CapacityReservationTopology.md") cmdlet.
 

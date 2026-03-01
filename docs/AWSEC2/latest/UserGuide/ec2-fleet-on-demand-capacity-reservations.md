@@ -1,6 +1,4 @@
-# Use Capacity Reservations to reserve
-
-On-Demand capacity in EC2 Fleet
+# Use Capacity Reservations to reserve On-Demand capacity in EC2 Fleet
 
 With On-Demand Capacity Reservations, you can reserve compute capacity for your On-Demand Instances in a
 specified Availability Zone for any duration. You can configure an EC2 Fleet to use the Capacity Reservations
@@ -47,7 +45,6 @@ Capacity Reservations are configured as either `open` or
   specifically Examples 5 through 7.
 - For a tutorial that takes you through the steps for creating Capacity Reservations, using them in your
   fleet, and viewing how many Capacity Reservations are remaining, see [Tutorial: Configure EC2 Fleet to launch On-Demand Instances using targeted Capacity Reservations](ec2-fleet-launch-on-demand-instances-using-targeted-capacity-reservations-walkthrough.md "ec2-fleet-launch-on-demand-instances-using-targeted-capacity-reservations-walkthrough.md")
-- For information about configuring Capacity Reservations, see [Reserve compute capacity with EC2
-  On-Demand Capacity Reservations](ec2-capacity-reservations.md "ec2-capacity-reservations.md") and
+- For information about configuring Capacity Reservations, see [Reserve compute capacity with EC2 On-Demand Capacity Reservations](ec2-capacity-reservations.md "ec2-capacity-reservations.md") and
   the [On-Demand
   Capacity Reservation FAQs](https://aws.amazon.com/ec2/faqs/#On-Demand_Capacity_Reservation "https://aws.amazon.com/ec2/faqs/#On-Demand_Capacity_Reservation").

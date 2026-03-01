@@ -7,9 +7,7 @@ in the scenarios that follow, to help you create the appropriate actions.
 
 ![Manage Cloudwatch alarms page.](images/manage-cloudwatch-alarms.png)
 
-## Scenario 1: Stop idle development and test
-
-instances
+## Scenario 1: Stop idle development and test instances
 
 Create an alarm that stops an instance used for software development or testing when it
 has been idle for at least an hour.
@@ -39,9 +37,7 @@ idle for 24 hours.
 | 6       | 24              |
 | 7       | 1 Hour          |
 
-## Scenario 3: Send email about web servers with unusually
-
-high traffic
+## Scenario 3: Send email about web servers with unusually high traffic
 
 Create an alarm that sends email when an instance exceeds 10 GB of outbound network
 traffic per day.
@@ -56,9 +52,7 @@ traffic per day.
 | 6       | 24          |
 | 7       | 1 Hour      |
 
-## Scenario 4: Stop web servers with unusually high
-
-traffic
+## Scenario 4: Stop web servers with unusually high traffic
 
 Create an alarm that stops an instance and send a text message (SMS) if outbound traffic
 exceeds 1 GB per hour.
@@ -88,9 +82,7 @@ Create an alarm that stops an instance that fails three consecutive status check
 | 6       | 1                           |
 | 7       | 15 Minutes                  |
 
-## Scenario 6: Terminate instances when batch
-
-processing jobs are complete
+## Scenario 6: Terminate instances when batch processing jobs are complete
 
 Create an alarm that terminates an instance that runs batch jobs when it is no longer
 sending results data.

@@ -1,6 +1,4 @@
-# Option 3: Manually connect an instance to
-
-an RDS database by creating security groups
+# Option 3: Manually connect an instance to an RDS database by creating security groups
 
 The objective of Option 3 is to learn how to manually configure the connection between an
 EC2 instance and an RDS database by manually reproducing the configuration of the
@@ -103,8 +101,7 @@ use **t3.micro**, **t3.small**,
 **m7i-flex.large** instance types for 6 months or
 until your credits are used up.
 
-For more information, see [Free Tier benefits before and after July
-15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison"). 6. Under **Key pair (login)**, for **Key pair name**,
+For more information, see [Free Tier benefits before and after July 15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison"). 6. Under **Key pair (login)**, for **Key pair name**,
 choose your key pair. 7. Under **Network settings**, do the following:
 
     1. For **Network** and
@@ -157,8 +154,7 @@ choose your key pair. 7. Under **Network settings**, do the following:
 If the instance fails to launch or the state immediately goes to `terminated`
 instead of `running`, see [Troubleshoot Amazon EC2 instance launch issues](troubleshooting-launch.md "troubleshooting-launch.md").
 
-For more information about launching an instance, see [Launch an EC2 instance using the launch
-instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+For more information about launching an instance, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 ![This animation shows how to launch an EC2 instance. For the text version of this animation, see the steps in the preceding procedure.](images/tutorial-launch-instance.gif)
 
@@ -217,19 +213,14 @@ instance is available.
 
 ![This animation shows how to create a DB instance. For the text version of this animation, see the steps in the preceding procedure.](/images/AWSEC2/latest/UserGuide/images/tutorial-create-db-step2.gif)
 
-## Task 3: Manually connect
-
-your EC2 instance to your RDS database by creating security groups and assigning
-them to the instances
+## Task 3: Manually connect your EC2 instance to your RDS database by creating security groups and assigning them to the instances
 
 The objective of this task is to reproduce the connection configuration of the automatic
 connection feature by performing the following manually: You create two new
 security groups, and then add a security group each to the EC2 instance and the
 RDS database.
 
-###### To create two new security groups and assign one each to the EC2 instance and RDS
-
-database
+###### To create two new security groups and assign one each to the EC2 instance and RDS database
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -334,8 +325,7 @@ to prevent incurring unnecessary costs. For more information, see
 After you terminate an instance, you can no longer connect to it, and it can't be recovered.
 All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
 deleted and can't be recovered. All data stored on instance store volumes is permanently lost.
-For more information, see [How instance termination
-works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
+For more information, see [How instance termination works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
 
 Before you terminate an instance, ensure that you have backed up all data that you need to
 retain after the termination to persistent storage.

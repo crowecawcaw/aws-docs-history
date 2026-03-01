@@ -21,10 +21,8 @@ For more information, see [Spot Fleet permissions](spot-fleet-prerequisites.md "
 ###### Tasks
 
 - [Quickly create a Spot Fleet request](#create-spot-fleet-quick "#create-spot-fleet-quick")
-- [Create a Spot Fleet request using defined
-  parameters](#create-spot-fleet-advanced "#create-spot-fleet-advanced")
-- [Create a Spot Fleet that replaces unhealthy
-  Spot Instances](#spot-fleet-health-checks "#spot-fleet-health-checks")
+- [Create a Spot Fleet request using defined parameters](#create-spot-fleet-advanced "#create-spot-fleet-advanced")
+- [Create a Spot Fleet that replaces unhealthy Spot Instances](#spot-fleet-health-checks "#spot-fleet-health-checks")
 
 ## Quickly create a Spot Fleet request
 
@@ -49,9 +47,7 @@ console.
 7. Under **Your fleet request at a glance**, review your
    fleet configuration, and choose **Launch**.
 
-## Create a Spot Fleet request using defined
-
-parameters
+## Create a Spot Fleet request using defined parameters
 
 You can create a Spot Fleet by using parameters that you define.
 
@@ -236,15 +232,13 @@ Console
     replacement strategy. If you choose **Launch
     before terminate**, specify the delay (in
     seconds) before Amazon EC2 terminates the old instances. For
-    more information, see [Use Capacity Rebalancing in EC2 Fleet and Spot Fleet
-    to replace at-risk Spot Instances](ec2-fleet-capacity-rebalance.md "ec2-fleet-capacity-rebalance.md"). 5. (Optional) To control the amount you pay per hour for
+    more information, see [Use Capacity Rebalancing in EC2 Fleet and Spot Fleet to replace at-risk Spot Instances](ec2-fleet-capacity-rebalance.md "ec2-fleet-capacity-rebalance.md"). 5. (Optional) To control the amount you pay per hour for
     all the Spot Instances in your fleet, select **Set
     maximum cost for Spot Instances** and then enter the
     maximum total amount you're willing to pay per hour.
     When the maximum total amount is reached, Spot Fleet stops
     launching Spot Instances even if it hasn’t met the target
-    capacity. For more information, see [Set a spending limit for your EC2 Fleet or
-    Spot Fleet](ec2-fleet-control-spending.md "ec2-fleet-control-spending.md").
+    capacity. For more information, see [Set a spending limit for your EC2 Fleet or Spot Fleet](ec2-fleet-control-spending.md "ec2-fleet-control-spending.md").
 
 7.  For **Network**, do the following:
     1. For **Network**, choose an existing
@@ -268,8 +262,7 @@ Console
 8.  For **Instance type requirements**, you can
     either specify instance attributes and let Amazon EC2 identify the
     optimal instance types with these attributes, or you can specify
-    a list of instances. For more information, see [Specify attributes for
-    instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md").
+    a list of instances. For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md").
     1. If you choose **Specify instance attributes
        that match your compute requirements**,
        specify your instance attributes as follows:
@@ -311,8 +304,7 @@ Console
 
 9.  For **Allocation strategy**, choose a Spot
     allocation strategy and an On-Demand allocation strategy that
-    meets your needs. For more information, see [Use allocation strategies to determine
-    how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand capacity](ec2-fleet-allocation-strategy.md "ec2-fleet-allocation-strategy.md").
+    meets your needs. For more information, see [Use allocation strategies to determine how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand capacity](ec2-fleet-allocation-strategy.md "ec2-fleet-allocation-strategy.md").
 10. For **Your fleet request at a glance**,
     review your fleet configuration, and make any adjustments if
     necessary.
@@ -368,9 +360,7 @@ $launchConfig.LaunchTemplateSpecification $lcSpec
 $launchConfig.Overrides @($lcOverrides)
 ```
 
-## Create a Spot Fleet that replaces unhealthy
-
-Spot Instances
+## Create a Spot Fleet that replaces unhealthy Spot Instances
 
 Spot Fleet checks the health status of the Spot Instances in the fleet every two minutes. The
 health status of an instance is either `healthy` or
@@ -380,8 +370,7 @@ Spot Fleet determines the health status of an instance by using the status check
 provided by Amazon EC2. An instance is determined as `unhealthy` when the
 status of either the instance status check or the system status check is
 `impaired` for three consecutive health checks. For more information,
-see [Status checks for Amazon EC2
-instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
+see [Status checks for Amazon EC2 instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
 
 You can configure your fleet to replace unhealthy Spot Instances. After enabling health
 check replacement, a Spot Instance is replaced when it is reported as `unhealthy`.
@@ -404,8 +393,7 @@ Console
 
 ###### To configure a Spot Fleet to replace unhealthy Spot Instances
 
-1. Follow the steps for creating a Spot Fleet in [Create a Spot Fleet request using defined
-   parameters](#create-spot-fleet-advanced "#create-spot-fleet-advanced").
+1. Follow the steps for creating a Spot Fleet in [Create a Spot Fleet request using defined parameters](#create-spot-fleet-advanced "#create-spot-fleet-advanced").
 2. To configure the fleet to replace unhealthy Spot Instances, expand
    **Additional launch parameters**, and under
    **Health check**, select **Replace

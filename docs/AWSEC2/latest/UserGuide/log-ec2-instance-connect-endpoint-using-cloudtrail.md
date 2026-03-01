@@ -1,15 +1,11 @@
-# Log connections
-
-established over EC2 Instance Connect Endpoint
+# Log connections established over EC2 Instance Connect Endpoint
 
 You can log resource operations and audit connections established over the
 EC2 Instance Connect Endpoint with AWS CloudTrail logs.
 
 For more information about using AWS CloudTrail with Amazon EC2, see [Log Amazon EC2 API calls using AWS CloudTrail](monitor-with-cloudtrail.md "monitor-with-cloudtrail.md").
 
-## Log
-
-EC2 Instance Connect Endpoint API calls with AWS CloudTrail
+## Log EC2 Instance Connect Endpoint API calls with AWS CloudTrail
 
 EC2 Instance Connect Endpoint resource operations are logged to CloudTrail as management events. When
 the following API calls are made, the activity is recorded as a CloudTrail event in
@@ -23,9 +19,7 @@ You can view, search, and download recent events in your AWS account. For more
 information, see [Viewing events
 with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_.
 
-## Use AWS CloudTrail
-
-to audit users who connect to an instance using EC2 Instance Connect Endpoint
+## Use AWS CloudTrail to audit users who connect to an instance using EC2 Instance Connect Endpoint
 
 Connection attempts to instances via EC2 Instance Connect Endpoint are logged in CloudTrail in
 **Event history**. When a connection to an instance is

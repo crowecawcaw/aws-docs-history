@@ -1,6 +1,4 @@
-# Send a diagnostic interrupt to debug an
-
-unreachable Amazon EC2 instance
+# Send a diagnostic interrupt to debug an unreachable Amazon EC2 instance
 
 ###### Warning
 
@@ -141,9 +139,7 @@ to crash, see the documentation for your operating system:
 - [Ubuntu](https://ubuntu.com/server/docs/kernel-crash-dump "https://ubuntu.com/server/docs/kernel-crash-dump")
 - [Red Hat Enterprise Linux (RHEL)](https://access.redhat.com/solutions/6038 "https://access.redhat.com/solutions/6038")
 
-###### To configure Windows to generate a memory dump when a stop error
-
-occurs
+###### To configure Windows to generate a memory dump when a stop error occurs
 
 1. Connect to your instance.
 2. Open the **Control Panel** and choose

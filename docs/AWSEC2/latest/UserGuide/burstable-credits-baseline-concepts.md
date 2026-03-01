@@ -1,6 +1,4 @@
-# Key concepts for burstable
-
-performance instances
+# Key concepts for burstable performance instances
 
 Traditional Amazon EC2 instance types provide fixed CPU resources, while burstable
 performance instances provide a baseline level of CPU utilization with the ability to burst

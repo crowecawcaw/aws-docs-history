@@ -3,9 +3,7 @@
 You can manage AMI sharing with organizations and organization units (OU) to control whether
 they can launch Amazon EC2 instances.
 
-## View the organizations and OUs with which an
-
-AMI is shared
+## View the organizations and OUs with which an AMI is shared
 
 You can find the organizations and OUs with which you've shared your AMI.
 

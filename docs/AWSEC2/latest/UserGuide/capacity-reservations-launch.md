@@ -1,6 +1,4 @@
-# Launch instances into an existing
-
-Capacity Reservation
+# Launch instances into an existing Capacity Reservation
 
 You can only launch an instance into a Capacity Reservation that:
 

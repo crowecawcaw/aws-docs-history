@@ -19,8 +19,7 @@ snapshots that were created during the AMI creation process. You'll continue to 
 costs for these instances and storage costs for the snapshots. Therefore, to avoid incurring
 unnecessary costs, we recommend that you terminate any instances and delete any snapshots that
 you do not need. You can delete the snapshots either automatically during deregistration or
-manually after deregistration. For more information, see [Avoid costs from unused
-resources](#delete-unneeded-resources-to-avoid-unnecessary-costs "#delete-unneeded-resources-to-avoid-unnecessary-costs").
+manually after deregistration. For more information, see [Avoid costs from unused resources](#delete-unneeded-resources-to-avoid-unnecessary-costs "#delete-unneeded-resources-to-avoid-unnecessary-costs").
 
 For instances launched from an AMI that is subsequently deregistered, you can still view
 some high-level information about the AMI by using the
@@ -30,8 +29,7 @@ some high-level information about the AMI by using the
 
 - [Considerations](#deregister-ami-considerations "#deregister-ami-considerations")
 - [Deregister an AMI](#deregister-an-ami "#deregister-an-ami")
-- [Avoid costs from unused
-  resources](#delete-unneeded-resources-to-avoid-unnecessary-costs "#delete-unneeded-resources-to-avoid-unnecessary-costs")
+- [Avoid costs from unused resources](#delete-unneeded-resources-to-avoid-unnecessary-costs "#delete-unneeded-resources-to-avoid-unnecessary-costs")
 - [Protect an Amazon EC2 AMI from deregistration](ami-deregistration-protection.md "ami-deregistration-protection.md")
 
 ## Considerations
@@ -117,9 +115,7 @@ Unregister-EC2Image `
     -DeleteAssociatedSnapshots
 ```
 
-## Avoid costs from unused
-
-resources
+## Avoid costs from unused resources
 
 Deregistering an AMI doesn't, by default, delete all of the resources that are associated
 with the AMI. These resources include the snapshots for EBS-backed AMIs and the files in Amazon S3

@@ -14,8 +14,7 @@ the following cases:
   Alternatively, you can use the `AWSSupport-UpgradeWindowsAWSDrivers`
   automation document to automate the procedures described in Part 1, Part 2, and Part
 
-3.  If you choose to use the automated procedure, see [(Alternative) Upgrade the AWS PV, ENA, and NVMe
-    drivers using AWS Systems Manager](#auto-upgrade "#auto-upgrade"), and then continue with Part 4 and Part 5.
+3.  If you choose to use the automated procedure, see [(Alternative) Upgrade the AWS PV, ENA, and NVMe drivers using AWS Systems Manager](#auto-upgrade "#auto-upgrade"), and then continue with Part 4 and Part 5.
 
 For more information, see [Amazon EC2 Update — Additional Instance Types, Nitro System, and CPU
 Options](https://aws.amazon.com/blogs/aws/amazon-ec2-update-additional-instance-types-nitro-system-and-cpu-options/ "https://aws.amazon.com/blogs/aws/amazon-ec2-update-additional-instance-types-nitro-system-and-cpu-options/").
@@ -33,15 +32,11 @@ To migrate Linux instances, see [Amazon EC2 instance type changes](ec2-instance-
 - [Part 1: Install and upgrade AWS PV drivers](migrating-latest-types.md#upgrade-pv "migrating-latest-types.md#upgrade-pv")
 - [Part 2: Install and upgrade ENA](migrating-latest-types.md#upgrade-ena "migrating-latest-types.md#upgrade-ena")
 - [Part 3: Upgrade AWS NVMe drivers](migrating-latest-types.md#upgrade-nvme "migrating-latest-types.md#upgrade-nvme")
-- [Part 4: Update EC2Config and
-  EC2Launch](migrating-latest-types.md#upgdate-ec2config-ec2launch "migrating-latest-types.md#upgdate-ec2config-ec2launch")
-- [Part 5: Install the serial port
-  driver for bare metal instances](migrating-latest-types.md#install-serial-port-bare-metal "migrating-latest-types.md#install-serial-port-bare-metal")
+- [Part 4: Update EC2Config and EC2Launch](migrating-latest-types.md#upgdate-ec2config-ec2launch "migrating-latest-types.md#upgdate-ec2config-ec2launch")
+- [Part 5: Install the serial port driver for bare metal instances](migrating-latest-types.md#install-serial-port-bare-metal "migrating-latest-types.md#install-serial-port-bare-metal")
 - [Part 6: Update power management settings](migrating-latest-types.md#power-management "migrating-latest-types.md#power-management")
-- [Part 7: Update Intel chipset drivers for new
-  instance types](migrating-latest-types.md#power-management-intel-drivers "migrating-latest-types.md#power-management-intel-drivers")
-- [(Alternative) Upgrade the AWS PV, ENA, and NVMe
-  drivers using AWS Systems Manager](migrating-latest-types.md#auto-upgrade "migrating-latest-types.md#auto-upgrade")
+- [Part 7: Update Intel chipset drivers for new instance types](migrating-latest-types.md#power-management-intel-drivers "migrating-latest-types.md#power-management-intel-drivers")
+- [(Alternative) Upgrade the AWS PV, ENA, and NVMe drivers using AWS Systems Manager](migrating-latest-types.md#auto-upgrade "migrating-latest-types.md#auto-upgrade")
   **Before you begin**
 
 This procedure assumes that you have a [Xen-based instance](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type"), such as an M4 or C4,
@@ -87,11 +82,9 @@ Windows instances on AWS.
 
 Use the following procedure to perform an in-place upgrade of AWS PV drivers, or
 to upgrade from Citrix PV drivers to AWS PV drivers on Windows Server 2008 R2,
-Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, or Windows Server 2019. For more information, see [Upgrade PV drivers on EC2 Windows
-instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
+Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, or Windows Server 2019. For more information, see [Upgrade PV drivers on EC2 Windows instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
 
-To upgrade a Domain Controller, see [Upgrade a domain controller (AWS PV
-upgrade)](Upgrading_PV_drivers.md#aws-pv-upgrade-dc "Upgrading_PV_drivers.md#aws-pv-upgrade-dc").
+To upgrade a Domain Controller, see [Upgrade a domain controller (AWS PV upgrade)](Upgrading_PV_drivers.md#aws-pv-upgrade-dc "Upgrading_PV_drivers.md#aws-pv-upgrade-dc").
 
 ###### To perform an upgrade of or to AWS PV drivers
 
@@ -168,9 +161,7 @@ instance type before migrating to a Nitro-based instance type,
 it will not boot. For other supported Windows AMIs, you can change the
 instance type anytime after the device sysprep.
 
-## Part 4: Update EC2Config and
-
-EC2Launch
+## Part 4: Update EC2Config and EC2Launch
 
 For Windows instances, the latest EC2Config and EC2Launch utilities provide
 additional functionality and information when running on the Nitro system, including
@@ -209,12 +200,9 @@ To avoid installation errors, run the `install.ps1` script
 as an administrator. 5. If you made a backup of the EC2Launch configuration file, copy it to the
 `C:\ProgramData\Amazon\EC2-Windows\Launch\Config` directory.
 
-For more information, see [Use the EC2Launch v1 agent to perform tasks during EC2 Windows
-instance launch](ec2launch.md "ec2launch.md").
+For more information, see [Use the EC2Launch v1 agent to perform tasks during EC2 Windows instance launch](ec2launch.md "ec2launch.md").
 
-## Part 5: Install the serial port
-
-driver for bare metal instances
+## Part 5: Install the serial port driver for bare metal instances
 
 The `i3.metal` instance type uses a PCI-based serial device rather than
 an I/O port-based serial device. The latest Windows AMIs automatically use the
@@ -247,9 +235,7 @@ powercfg /setacvalueindex 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c 7516b95f-f776-446
 powercfg /setacvalueindex a1841308-3541-4fab-bc81-f71556f20b4a 7516b95f-f776-4464-8c53-06167f40cc99 3c0bc021-c8a8-4e07-a973-6b14cbcb2b7e 0
 ```
 
-## Part 7: Update Intel chipset drivers for new
-
-instance types
+## Part 7: Update Intel chipset drivers for new instance types
 
 The `u-6tb1.metal`, `u-9tb1.metal`, and
 `u-12tb1.metal` instance types use hardware that requires chipset
@@ -266,9 +252,7 @@ must install the drivers using the Intel Chipset INF Utility.
    drivers.
 5. Reboot the instance.
 
-## (Alternative) Upgrade the AWS PV, ENA, and NVMe
-
-drivers using AWS Systems Manager
+## (Alternative) Upgrade the AWS PV, ENA, and NVMe drivers using AWS Systems Manager
 
 The `AWSSupport-UpgradeWindowsAWSDrivers` automation document automates
 the steps described in Part 1, Part 2, and Part 3. This method can also repair an
@@ -283,12 +267,9 @@ perform an offline installation of the AWS drivers if explicitly requested.
 ###### Note
 
 This procedure will fail on a domain controller. To update drivers on a domain
-controller, see [Upgrade a domain controller (AWS PV
-upgrade)](Upgrading_PV_drivers.md#aws-pv-upgrade-dc "Upgrading_PV_drivers.md#aws-pv-upgrade-dc").
+controller, see [Upgrade a domain controller (AWS PV upgrade)](Upgrading_PV_drivers.md#aws-pv-upgrade-dc "Upgrading_PV_drivers.md#aws-pv-upgrade-dc").
 
-###### To automatically upgrade the AWS PV, ENA, and NVMe drivers using
-
-AWS Systems Manager
+###### To automatically upgrade the AWS PV, ENA, and NVMe drivers using AWS Systems Manager
 
 1. Open the Systems Manager console at [https://console.aws.amazon.com/systems-manager](https://console.aws.amazon.com/systems-manager "https://console.aws.amazon.com/systems-manager").
 2. Choose **Automation**, **Execute

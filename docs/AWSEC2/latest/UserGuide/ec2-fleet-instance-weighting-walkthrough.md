@@ -1,6 +1,4 @@
-# Tutorial: Configure EC2 Fleet to use
-
-instance weighting
+# Tutorial: Configure EC2 Fleet to use instance weighting
 
 This tutorial uses a fictitious company called Example Corp to illustrate the process
 of requesting an EC2 Fleet using instance weighting.
@@ -73,23 +71,17 @@ all three instance types. They could also use a global price per unit hour of $0
 and a specific price per unit hour of $0.9 in the `r3.8xlarge` launch
 specification.
 
-## Verify
-
-permissions
+## Verify permissions
 
 Before creating an EC2 Fleet, Example Corp verifies that it has an IAM role with the
 required permissions. For more information, see [EC2 Fleet prerequisites](ec2-fleet-prerequisites.md "ec2-fleet-prerequisites.md").
 
-## Create a
-
-launch template
+## Create a launch template
 
 Next, Example Corp creates a launch template. The launch template ID is used in
 the following step. For more information, see [Create an Amazon EC2 launch template](create-launch-template.md "create-launch-template.md").
 
-## Create the
-
-EC2 Fleet
+## Create the EC2 Fleet
 
 Example Corp creates a file, `config.json`, with the following
 configuration for its EC2 Fleet. In the following example, replace the resource

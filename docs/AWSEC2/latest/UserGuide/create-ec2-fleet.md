@@ -9,8 +9,7 @@ Availability Zone, and one or more security groups. You can optionally specify
 additional configurations, such as parameters to override the launch template
 configuration, allocation strategies for selecting Spot Instances and On-Demand Instances from the EC2
 capacity pools, and the maximum amount you're willing to pay for the fleet. For more
-information, see [Configuration options for your EC2 Fleet or
-Spot Fleet](ec2-fleet-configuration-strategies.md "ec2-fleet-configuration-strategies.md").
+information, see [Configuration options for your EC2 Fleet or Spot Fleet](ec2-fleet-configuration-strategies.md "ec2-fleet-configuration-strategies.md").
 
 The EC2 Fleet launches On-Demand Instances when capacity is available, and launches Spot Instances when your
 maximum price exceeds the Spot price and capacity is available.
@@ -48,17 +47,14 @@ To override the parameters specified in the launch template, you can specify one
 or more overrides. Each override can vary by instance type, Availability Zone,
 subnet, and maximum price, and can include a different weighted capacity. As an alternative to specifying an instance type, you can specify
 the attributes that an instance must have, and Amazon EC2 will identify all the
-instance types with those attributes. For more information, see [Specify attributes for
-instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md").
+instance types with those attributes. For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md").
 
 For EC2 Fleets of type `instant`, you can specify a Systems Manager
 parameter instead of the AMI ID. You can specify the Systems Manager parameter in
-the override or in the launch template. For more information, see [Use a Systems Manager parameter
-instead of an AMI ID](create-launch-template.md#use-an-ssm-parameter-instead-of-an-ami-id "create-launch-template.md#use-an-ssm-parameter-instead-of-an-ami-id").
+the override or in the launch template. For more information, see [Use a Systems Manager parameter instead of an AMI ID](create-launch-template.md#use-an-ssm-parameter-instead-of-an-ami-id "create-launch-template.md#use-an-ssm-parameter-instead-of-an-ami-id").
 
 You can specify the fleet parameters in a JSON file. For information about all the
-possible parameters you can specify, see [View all the EC2 Fleet configuration
-options](#ec2-fleet-cli-skeleton "#ec2-fleet-cli-skeleton").
+possible parameters you can specify, see [View all the EC2 Fleet configuration options](#ec2-fleet-cli-skeleton "#ec2-fleet-cli-skeleton").
 
 For fleet configuration examples, see [Example CLI configurations for EC2 Fleet](ec2-fleet-examples.md "ec2-fleet-examples.md").
 
@@ -216,9 +212,7 @@ launched no instances.
 }
 ```
 
-## Create an EC2 Fleet that replaces unhealthy
-
-Spot Instances
+## Create an EC2 Fleet that replaces unhealthy Spot Instances
 
 EC2 Fleet checks the health status of the instances in the fleet every two minutes. The
 health status of an instance is either `healthy` or
@@ -228,8 +222,7 @@ EC2 Fleet determines the health status of an instance by using the status checks
 provided by Amazon EC2. An instance is determined as `unhealthy` when the
 status of either the instance status check or the system status check is
 `impaired` for three consecutive health status checks. For more
-information, see [Status checks for Amazon EC2
-instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
+information, see [Status checks for Amazon EC2 instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
 
 You can configure your fleet to replace unhealthy Spot Instances. After setting
 `ReplaceUnhealthyInstances` to `true`, a Spot Instance is replaced
@@ -254,9 +247,7 @@ capacity for up to a few minutes while an unhealthy Spot Instance is being repla
 2. To configure the fleet to replace unhealthy Spot Instances, in the JSON file, for
    `ReplaceUnhealthyInstances`, specify `true`.
 
-## View all the EC2 Fleet configuration
-
-options
+## View all the EC2 Fleet configuration options
 
 To view the full list of EC2 Fleet configuration parameters, you can generate a JSON
 file. For a description of each parameter, see [create-fleet](../../../cli/latest/reference/ec2/create-fleet.md "../../../cli/latest/reference/ec2/create-fleet.md").

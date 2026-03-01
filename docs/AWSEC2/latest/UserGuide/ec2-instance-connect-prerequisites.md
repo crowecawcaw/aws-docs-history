@@ -1,6 +1,4 @@
-# Prerequisites for
-
-EC2 Instance Connect
+# Prerequisites for EC2 Instance Connect
 
 ###### The following are the prerequisites for installing and using
 
@@ -8,11 +6,9 @@ EC2 Instance Connect:
 
 - [Install EC2 Instance Connect](#eic-prereqs-install-eic-on-instance "#eic-prereqs-install-eic-on-instance")
 - [Ensure network connectivity](#eic-prereqs-network-access "#eic-prereqs-network-access")
-- [Allow inbound SSH
-  traffic](#ec2-instance-connect-setup-security-group "#ec2-instance-connect-setup-security-group")
+- [Allow inbound SSH traffic](#ec2-instance-connect-setup-security-group "#ec2-instance-connect-setup-security-group")
 - [Grant permissions](#eic-prereqs-grant-permissions "#eic-prereqs-grant-permissions")
-- [Install an SSH client on your local
-  computer](#eic-prereqs-install-ssh-client "#eic-prereqs-install-ssh-client")
+- [Install an SSH client on your local computer](#eic-prereqs-install-ssh-client "#eic-prereqs-install-ssh-client")
 - [Meet username requirements](#eic-prereqs-username "#eic-prereqs-username")
 
 ## Install EC2 Instance Connect
@@ -20,8 +16,7 @@ EC2 Instance Connect:
 To use EC2 Instance Connect to connect to an instance, the instance must have
 EC2 Instance Connect installed. You can either launch the instance using an AMI that comes
 pre-installed with EC2 Instance Connect, or you can install EC2 Instance Connect on instances that
-are launched with supported AMIs. For more information, see [Install EC2 Instance Connect on your EC2
-instances](ec2-instance-connect-set-up.md "ec2-instance-connect-set-up.md").
+are launched with supported AMIs. For more information, see [Install EC2 Instance Connect on your EC2 instances](ec2-instance-connect-set-up.md "ec2-instance-connect-set-up.md").
 
 ## Ensure network connectivity
 
@@ -45,12 +40,9 @@ If your instance does not have a public IPv4 or IPv6 address and you prefer not 
 configure the network access as described above, you can consider EC2 Instance Connect Endpoint as
 an alternative to EC2 Instance Connect. With EC2 Instance Connect Endpoint, you can connect to an instance
 using SSH or RDP even if the instance does not have a public IPv4 or IPv6 address.
-For more information, see [Connect to your Linux instance using
-the Amazon EC2 console](connect-using-eice.md#connect-using-the-ec2-console "connect-using-eice.md#connect-using-the-ec2-console").
+For more information, see [Connect to your Linux instance using the Amazon EC2 console](connect-using-eice.md#connect-using-the-ec2-console "connect-using-eice.md#connect-using-the-ec2-console").
 
-## Allow inbound SSH
-
-traffic
+## Allow inbound SSH traffic
 
 ###### When using the Amazon EC2 console to connect to an instance
 
@@ -71,8 +63,7 @@ The names of the EC2 Instance Connect prefix lists are as follows, with
 - IPv6 prefix list name:
   `com.amazonaws.`region`.ipv6.ec2-instance-connect`
 
-For the instructions for creating the security group, see [Task 2: Allow inbound traffic from the
-EC2 Instance Connect service to your instance](ec2-instance-connect-tutorial.md#eic-tut1-task2 "ec2-instance-connect-tutorial.md#eic-tut1-task2"). For more information, see [Available AWS-managed prefix lists](../../../vpc/latest/userguide/working-with-aws-managed-prefix-lists.md#available-aws-managed-prefix-lists "../../../vpc/latest/userguide/working-with-aws-managed-prefix-lists.md#available-aws-managed-prefix-lists") in the _Amazon VPC User Guide_.
+For the instructions for creating the security group, see [Task 2: Allow inbound traffic from the EC2 Instance Connect service to your instance](ec2-instance-connect-tutorial.md#eic-tut1-task2 "ec2-instance-connect-tutorial.md#eic-tut1-task2"). For more information, see [Available AWS-managed prefix lists](../../../vpc/latest/userguide/working-with-aws-managed-prefix-lists.md#available-aws-managed-prefix-lists "../../../vpc/latest/userguide/working-with-aws-managed-prefix-lists.md#available-aws-managed-prefix-lists") in the _Amazon VPC User Guide_.
 
 ###### When using the CLI or SSH to connect to an instance
 
@@ -85,12 +76,9 @@ information, see [Rules to connect to instances from your computer](security-gro
 ## Grant permissions
 
 You must grant the required permissions to every IAM user who will use
-EC2 Instance Connect to connect to an instance. For more information, see [Grant IAM permissions for
-EC2 Instance Connect](ec2-instance-connect-configure-IAM-role.md "ec2-instance-connect-configure-IAM-role.md").
+EC2 Instance Connect to connect to an instance. For more information, see [Grant IAM permissions for EC2 Instance Connect](ec2-instance-connect-configure-IAM-role.md "ec2-instance-connect-configure-IAM-role.md").
 
-## Install an SSH client on your local
-
-computer
+## Install an SSH client on your local computer
 
 If your users will connect using SSH, they must ensure that their local computer
 has an SSH client.

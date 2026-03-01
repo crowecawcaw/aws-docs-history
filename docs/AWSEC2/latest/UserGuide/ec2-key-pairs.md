@@ -38,6 +38,5 @@ your instance with an interactive one-click browser-based shell or the AWS Comma
 - [Create a key pair for your Amazon EC2 instance](create-key-pairs.md "create-key-pairs.md")
 - [Describe your key pairs](describe-keys.md "describe-keys.md")
 - [Delete your key pair](delete-key-pair.md "delete-key-pair.md")
-- [Add or replace a public key on your Linux
-  instance](replacing-key-pair.md "replacing-key-pair.md")
+- [Add or replace a public key on your Linux instance](replacing-key-pair.md "replacing-key-pair.md")
 - [Verify the fingerprint of your key pair](verify-keys.md "verify-keys.md")

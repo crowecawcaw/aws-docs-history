@@ -34,5 +34,4 @@ instance. Instance store volumes are included as part of the usage cost of the i
 - [Add instance store volumes to an EC2 instance](add-instance-store-volumes.md "add-instance-store-volumes.md")
 - [Enable instance store swap volume for M1 and C1 EC2 instances](instance-store-swap-volumes.md "instance-store-swap-volumes.md")
 - [Initialize instance store volumes on EC2 instances](disk-performance.md "disk-performance.md")
-- [Detailed performance statistics for
-  Amazon EC2 instance store volumes](nvme-detailed-performance-stats.md "nvme-detailed-performance-stats.md")
+- [Detailed performance statistics for Amazon EC2 instance store volumes](nvme-detailed-performance-stats.md "nvme-detailed-performance-stats.md")

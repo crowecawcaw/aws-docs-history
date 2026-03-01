@@ -5,22 +5,15 @@ instances.
 
 ###### Issues
 
-- [Unable to connect AWS Systems Manager Sessions Manager to a
-  Windows Server 2025 instance](#connect-sysmgr-win2025 "#connect-sysmgr-win2025")
-- [EBS volumes don't initialize on Windows Server
-  2016 and 2019](#init-disks-win2k16 "#init-disks-win2k16")
-- [Boot an EC2 Windows instance into Directory Services
-  Restore Mode (DSRM)](#boot-dsrm "#boot-dsrm")
-- [Instance loses network
-  connectivity or scheduled tasks don't run when expected](#instance-loses-network-connectivity "#instance-loses-network-connectivity")
+- [Unable to connect AWS Systems Manager Sessions Manager to a Windows Server 2025 instance](#connect-sysmgr-win2025 "#connect-sysmgr-win2025")
+- [EBS volumes don't initialize on Windows Server 2016 and 2019](#init-disks-win2k16 "#init-disks-win2k16")
+- [Boot an EC2 Windows instance into Directory Services Restore Mode (DSRM)](#boot-dsrm "#boot-dsrm")
+- [Instance loses network connectivity or scheduled tasks don't run when expected](#instance-loses-network-connectivity "#instance-loses-network-connectivity")
 - [Unable to get console output](#no-console-output "#no-console-output")
-- [Windows Server 2012 R2 not available on
-  the network](#server-2012-network-loss "#server-2012-network-loss")
+- [Windows Server 2012 R2 not available on the network](#server-2012-network-loss "#server-2012-network-loss")
 - [Disk signature collision](#disk-signature-collision "#disk-signature-collision")
 
-## Unable to connect AWS Systems Manager Sessions Manager to a
-
-Windows Server 2025 instance
+## Unable to connect AWS Systems Manager Sessions Manager to a Windows Server 2025 instance
 
 You may encounter an issue connecting AWS Systems Manager Sessions Manager to a Windows Server 2025 instance.
 To address this issue, log onto the instance, then navigate to `Settings > Apps > 
@@ -33,9 +26,7 @@ You can also use the following PowerShell command to perform the same action:
 `Start-Process -FilePath "$env:SystemRoot\system32\Dism.exe" -ArgumentList @('/Online', '/Add-Capability', '/CapabilityName:WMIC~~~~') -Wait; Restart-Service -Name AmazonSSMAgent`
 ```
 
-## EBS volumes don't initialize on Windows Server
-
-2016 and 2019
+## EBS volumes don't initialize on Windows Server 2016 and 2019
 
 Instances created from Amazon Machine Images (AMIs) for Windows Server 2016 and
 2019 use the EC2Launch v1 agent for a variety of startup tasks, including
@@ -90,9 +81,7 @@ If the volumes are offline, run the following command to bring all disks online.
 `PS C:\>` Get-Disk | Where-Object IsOffline -Eq $True | Set-Disk -IsOffline $False
 ```
 
-## Boot an EC2 Windows instance into Directory Services
-
-Restore Mode (DSRM)
+## Boot an EC2 Windows instance into Directory Services Restore Mode (DSRM)
 
 If an instance running Microsoft Active Directory experiences a system failure or
 other critical issues you can troubleshoot the instance by booting into a special
@@ -116,9 +105,7 @@ supported for DSRM.
 For information about how to enable enhanced networking, see [Enable enhanced networking with ENA on your EC2 instances](enhanced-networking-ena.md "enhanced-networking-ena.md"). For information about upgrading AWS PV drivers,
 see [Upgrade PV drivers on Windows instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
 
-### Configure an instance to boot into
-
-DSRM
+### Configure an instance to boot into DSRM
 
 EC2 Windows instances do not have network connectivity before the operating
 system is running. For this reason, you cannot press the F8 button on your
@@ -129,9 +116,7 @@ If you suspect that Active Directory has been corrupted and the instance is
 still running, you can configure the instance to boot into DSRM using either the
 System Configuration dialog box or the command prompt.
 
-###### To boot an online instance into DSRM using the System Configuration
-
-dialog box
+###### To boot an online instance into DSRM using the System Configuration dialog box
 
 1. In the **Run** dialog box, type `msconfig`
    and press Enter.
@@ -194,9 +179,7 @@ volume you just attached:
 13. (Optional) Delete or stop the temporary instance you created in this
     procedure.
 
-## Instance loses network
-
-connectivity or scheduled tasks don't run when expected
+## Instance loses network connectivity or scheduled tasks don't run when expected
 
 If you restart your instance and it loses network connectivity, it's possible that
 the instance has the wrong time.
@@ -219,8 +202,7 @@ instance uses UTC after you restart it.
 ###### To resolve time issues that cause a loss of network connectivity
 
 1. Ensure that you are running the recommended PV drivers. For more
-   information, see [Upgrade PV drivers on EC2 Windows
-   instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
+   information, see [Upgrade PV drivers on EC2 Windows instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
 2. Verify that the following registry key exists and is set to
    `1`:
    **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\RealTimeIsUniversal**
@@ -245,9 +227,7 @@ misconfigured configuration file, or that Windows failed to boot properly. To fi
 the issue, download and install the latest version of EC2Config. For more
 information, see [Install the latest version of EC2Config](UsingConfig_Install.md "UsingConfig_Install.md").
 
-## Windows Server 2012 R2 not available on
-
-the network
+## Windows Server 2012 R2 not available on the network
 
 For information about troubleshooting a Windows Server 2012 R2 instance that is
 not available on the network, see [Windows Server 2012 R2 loses network and storage connectivity after an instance reboot](pvdrivers-troubleshooting.md#server2012R2-instance-unavailable "pvdrivers-troubleshooting.md#server2012R2-instance-unavailable").

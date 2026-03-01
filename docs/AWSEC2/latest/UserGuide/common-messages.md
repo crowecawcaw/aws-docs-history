@@ -7,13 +7,11 @@ Amazon EC2 Windows instances.
 
 - ["Password is not available"](#password-not-available "#password-not-available")
 - ["Password not available yet"](#password-not-ready "#password-not-ready")
-- ["Cannot retrieve Windows
-  password"](#cannot-retrieve-password "#cannot-retrieve-password")
+- ["Cannot retrieve Windows password"](#cannot-retrieve-password "#cannot-retrieve-password")
 - ["Waiting for the metadata service"](#metadata-unavailable "#metadata-unavailable")
 - ["Unable to activate Windows"](#activate-windows "#activate-windows")
 - ["Windows is not genuine (0x80070005)"](#windows-not-genuine "#windows-not-genuine")
-- ["No Terminal Server License Servers available
-  to provide a license"](#no-license-servers "#no-license-servers")
+- ["No Terminal Server License Servers available to provide a license"](#no-license-servers "#no-license-servers")
 - ["Some settings are managed by your organization"](#some-settings-managed-by-org "#some-settings-managed-by-org")
 
 ## "Password is not available"
@@ -81,9 +79,7 @@ Portal has the `ec2:GetPasswordData` action allowed. For more information
 about IAM permissions, see [What is
 IAM?](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md").
 
-## "Cannot retrieve Windows
-
-password"
+## "Cannot retrieve Windows password"
 
 To retrieve the auto-generated password for the Administrator account, you must
 use the private key for the key pair that you specified when you launched the
@@ -102,8 +98,7 @@ making sure to specify a key pair.
 A Windows instance must obtain information from its instance metadata before it
 can activate itself. By default, the `WaitForMetaDataAvailable` setting
 ensures that the EC2Config service waits for the instance metadata to be accessible
-before continuing with the boot process. For more information, see [Use instance metadata to manage your EC2
-instance](ec2-instance-metadata.md "ec2-instance-metadata.md").
+before continuing with the boot process. For more information, see [Use instance metadata to manage your EC2 instance](ec2-instance-metadata.md "ec2-instance-metadata.md").
 
 If the instance is failing the instance reachability test, try the following to
 resolve this issue.
@@ -119,9 +114,7 @@ resolve this issue.
 - It's possible that the system has been configured with a static IP
   address. Try [creating a network interface](create-network-interface.md "create-network-interface.md")
   and [attaching it to the instance](network-interface-attachments.md#attach_eni "network-interface-attachments.md#attach_eni").
-- ###### To enable DHCP on a Windows instance that you can't connect
-
-  to
+- ###### To enable DHCP on a Windows instance that you can't connect to
   1.  Stop the affected instance and detach its root volume.
   2.  Launch a temporary instance in the same Availability Zone as the
       affected instance.
@@ -284,8 +277,7 @@ issue:
   service. For more information about installing this service, see
   [Install the latest version of EC2Config](UsingConfig_Install.md "UsingConfig_Install.md").
 - Check whether the Windows instance is running Red Hat PV drivers. If so,
-  update to Citrix PV drivers. For more information, see [Upgrade PV drivers on EC2 Windows
-  instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
+  update to Citrix PV drivers. For more information, see [Upgrade PV drivers on EC2 Windows instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
 - Verify that the firewall, IPSec, and proxy settings do not block outgoing
   traffic to the metadata service (`169.254.169.254`) or the AWS KMS
   servers (the addresses are specified in `TargetKMSServer`
@@ -406,9 +398,7 @@ the activation process, it reports that the copy of Windows is not genuine.
 
 Try the suggestions for ["Unable to activate Windows"](#activate-windows "#activate-windows").
 
-## "No Terminal Server License Servers available
-
-to provide a license"
+## "No Terminal Server License Servers available to provide a license"
 
 By default, Windows Server is licensed for two simultaneous users through Remote
 Desktop. If you need to provide more than two users with simultaneous access to your

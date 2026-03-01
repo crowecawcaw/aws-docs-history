@@ -30,9 +30,7 @@ managed policy, you can attach it to the IAM role that's attached to your EC2 Wi
 This policy enables the EC2 VSS solution to create and add tags to Amazon Machine Images (AMIs)
 and EBS Snapshots. To attach the policy, see [Attach the VSS snapshot managed policy to your instance profile role](#vss-snapshots-attach-policy "#vss-snapshots-attach-policy").
 
-### Permissions granted by
-
-AWSEC2VssSnapshotPolicy
+### Permissions granted by AWSEC2VssSnapshotPolicy
 
 The **AWSEC2VssSnapshotPolicy** policy includes the
 following Amazon EC2 permissions to allow Amazon EC2 to create and manage VSS snapshots on your behalf. You

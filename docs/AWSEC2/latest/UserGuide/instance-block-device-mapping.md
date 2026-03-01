@@ -15,16 +15,12 @@ merge with the block device mapping of the AMI.
 
 ###### Tasks
 
-- [Update the block device mapping when launching an
-  instance](#Using_OverridingAMIBDM "#Using_OverridingAMIBDM")
+- [Update the block device mapping when launching an instance](#Using_OverridingAMIBDM "#Using_OverridingAMIBDM")
 - [Update the block device mapping of a running instance](#update-instance-bdm "#update-instance-bdm")
 - [View the EBS volumes in an instance block device mapping](#view-instance-bdm "#view-instance-bdm")
-- [View the instance block device mapping for instance store
-  volumes](#bdm-instance-metadata "#bdm-instance-metadata")
+- [View the instance block device mapping for instance store volumes](#bdm-instance-metadata "#bdm-instance-metadata")
 
-## Update the block device mapping when launching an
-
-instance
+## Update the block device mapping when launching an instance
 
 You can add EBS volumes and instance store volumes to an instance when you launch it.
 Note that updating the block device mapping for an instance doesn't make a permanent change
@@ -49,8 +45,7 @@ Console
    and make whatever changes you need.
 5. In the **Summary** panel, review your instance configuration, and then
    choose **Launch instance**. For more information,
-   see [Launch an EC2 instance using the launch
-   instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+   see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 AWS CLI
 
@@ -269,9 +264,7 @@ cmdlet.
 (Get-EC2Instance -InstanceId `i-0bac57d7472c89bac`).Instances.BlockDeviceMappings
 ```
 
-## View the instance block device mapping for instance store
-
-volumes
+## View the instance block device mapping for instance store volumes
 
 The instance type determines the number and type of instance store volumes that are available to
 the instance. If the number of instance store volumes in a block device mapping exceeds the
@@ -309,8 +302,7 @@ Node             SN                   Model                                    N
 ```
 
 You can use Disk Management or PowerShell to list both EBS and instance store
-NVMe volumes. For more information, see [Map NVMe disks on Amazon EC2 Windows instance to
-volumes](windows-list-disks-nvme.md "windows-list-disks-nvme.md").
+NVMe volumes. For more information, see [Map NVMe disks on Amazon EC2 Windows instance to volumes](windows-list-disks-nvme.md "windows-list-disks-nvme.md").
 
 ### HDD or SSD instance store volumes
 
@@ -318,8 +310,7 @@ You can use instance metadata to query the HDD or SSD instance store volumes in 
 NVMe instance store volumes are not included.
 
 The base URI for all requests for instance metadata is
-`http://169.254.169.254/latest/`. For more information, see [Use instance metadata to manage your EC2
-instance](ec2-instance-metadata.md "ec2-instance-metadata.md").
+`http://169.254.169.254/latest/`. For more information, see [Use instance metadata to manage your EC2 instance](ec2-instance-metadata.md "ec2-instance-metadata.md").
 
 First, connect to your running instance. From the instance, use this query to get its
 block device mapping.

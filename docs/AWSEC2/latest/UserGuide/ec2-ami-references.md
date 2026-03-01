@@ -1,6 +1,4 @@
-# Identify your resources referencing specified
-
-AMIs
+# Identify your resources referencing specified AMIs
 
 You can identify your AWS resources that reference specified Amazon Machine Images (AMIs),
 regardless of whether the AMIs are public or private, or who owns them. This visibility
@@ -303,9 +301,7 @@ Get-EC2ImageReference `
     -IncludeAllResourceTypes
 ```
 
-###### To check AMI references for all supported resource types and specific
-
-options
+###### To check AMI references for all supported resource types and specific options
 
 Use the [Get-EC2ImageReference](../../../powershell/latest/reference/items/Get-EC2ImageReference.md "../../../powershell/latest/reference/items/Get-EC2ImageReference.md") cmdlet with both the
 `-IncludeAllResourceTypes` and `-ResourceType`

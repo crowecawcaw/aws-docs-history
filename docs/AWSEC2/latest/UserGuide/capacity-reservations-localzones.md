@@ -35,5 +35,4 @@ You can't use Capacity Reservation groups in a Local Zone.
    subnet in the Local Zone (for example `subnet-123abc |
 us-west-2-lax-1a`), and for **Capacity Reservation**, choose
    the specification (either `open` or target it by ID) that's required
-   for the Capacity Reservation that you created in the Local Zone. For more information, see [Launch instances into an existing
-   Capacity Reservation](capacity-reservations-launch.md "capacity-reservations-launch.md").
+   for the Capacity Reservation that you created in the Local Zone. For more information, see [Launch instances into an existing Capacity Reservation](capacity-reservations-launch.md "capacity-reservations-launch.md").

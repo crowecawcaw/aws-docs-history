@@ -1,6 +1,4 @@
-# Option 2: Automatically connect an instance to
-
-an RDS database using the RDS console
+# Option 2: Automatically connect an instance to an RDS database using the RDS console
 
 The objective of Option 2 is to explore the automatic connect feature in the RDS console
 that automatically configures the connection between your EC2 instance and RDS
@@ -11,8 +9,7 @@ you'll learn how to manually configure the connection.
 
 - [Before you begin](#option2-before-you-begin "#option2-before-you-begin")
 - [Task 1 (Optional): Launch an EC2 instance](#option2-task1-launch-ec2-instance "#option2-task1-launch-ec2-instance")
-- [Task 2: Create an RDS database and
-  automatically connect it to your EC2 instance](#option2-task2-create-rds-database "#option2-task2-create-rds-database")
+- [Task 2: Create an RDS database and automatically connect it to your EC2 instance](#option2-task2-create-rds-database "#option2-task2-create-rds-database")
 - [Task 3: Verify the connection configuration](#option2-task3-verify-connection-configuration "#option2-task3-verify-connection-configuration")
 - [Task 4 (Optional): Clean up](#option2-task3-cleanup "#option2-task3-cleanup")
 
@@ -102,8 +99,7 @@ use **t3.micro**, **t3.small**,
 **m7i-flex.large** instance types for 6 months or
 until your credits are used up.
 
-For more information, see [Free Tier benefits before and after July
-15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison"). 6. Under **Key pair (login)**, for **Key pair name**,
+For more information, see [Free Tier benefits before and after July 15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison"). 6. Under **Key pair (login)**, for **Key pair name**,
 choose your key pair. 7. Under **Network settings**, do the following:
 
     1. For **Network** and
@@ -157,14 +153,11 @@ choose your key pair. 7. Under **Network settings**, do the following:
 If the instance fails to launch or the state immediately goes to `terminated`
 instead of `running`, see [Troubleshoot Amazon EC2 instance launch issues](troubleshooting-launch.md "troubleshooting-launch.md").
 
-For more information about launching an instance, see [Launch an EC2 instance using the launch
-instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+For more information about launching an instance, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 ![This animation shows how to launch an EC2 instance. For the text version of this animation, see the steps in the preceding procedure.](images/tutorial-launch-instance.gif)
 
-## Task 2: Create an RDS database and
-
-automatically connect it to your EC2 instance
+## Task 2: Create an RDS database and automatically connect it to your EC2 instance
 
 The objective of this task is to create an RDS database and use the automatic connection feature
 in the RDS console to automatically configure the connection between your EC2 instance and your
@@ -339,8 +332,7 @@ manually configure the security groups that were automatically created in Option
 After you terminate an instance, you can no longer connect to it, and it can't be recovered.
 All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
 deleted and can't be recovered. All data stored on instance store volumes is permanently lost.
-For more information, see [How instance termination
-works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
+For more information, see [How instance termination works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
 
 Before you terminate an instance, ensure that you have backed up all data that you need to
 retain after the termination to persistent storage.

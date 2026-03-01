@@ -1,6 +1,4 @@
-# Change the time zone of your
-
-instance
+# Change the time zone of your instance
 
 Amazon EC2 instances are set to the UTC (Coordinated Universal Time) time zone by default.
 You can change the time on an instance to the local time zone or to another time zone in

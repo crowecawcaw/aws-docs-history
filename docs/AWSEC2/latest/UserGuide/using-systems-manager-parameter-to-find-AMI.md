@@ -137,8 +137,7 @@ Console
    **Select**.
 
 For more information about launching an instance using the launch
-instance wizard, see [Launch an EC2 instance using the launch
-instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+instance wizard, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 AWS CLI
 

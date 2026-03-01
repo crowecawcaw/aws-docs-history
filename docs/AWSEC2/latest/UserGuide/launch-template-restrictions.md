@@ -1,6 +1,4 @@
-# Restrictions for Amazon EC2 launch
-
-templates
+# Restrictions for Amazon EC2 launch templates
 
 The following restrictions apply to launch templates and launch template
 versions:

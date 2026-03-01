@@ -7,8 +7,7 @@
 After you terminate an instance, you can no longer connect to it, and it can't be recovered.
 All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
 deleted and can't be recovered. All data stored on instance store volumes is permanently lost.
-For more information, see [How instance termination
-works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
+For more information, see [How instance termination works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
 
 Before you terminate an instance, ensure that you have backed up all data that you need to
 retain after the termination to persistent storage.
@@ -32,8 +31,6 @@ on. For more information, see [Change instance termination protection](Using_Cha
 
 For instructions on how to use each method, see the following:
 
-- [Terminate an instance with a graceful OS
-  shutdown](terminating-instances.md#terminating-instances-console "terminating-instances.md#terminating-instances-console")
-- [Terminate an instance and
-  bypass the graceful OS shutdown](terminating-instances.md#terminating-instances-bypass-graceful-os-shutdown "terminating-instances.md#terminating-instances-bypass-graceful-os-shutdown")
+- [Terminate an instance with a graceful OS shutdown](terminating-instances.md#terminating-instances-console "terminating-instances.md#terminating-instances-console")
+- [Terminate an instance and bypass the graceful OS shutdown](terminating-instances.md#terminating-instances-bypass-graceful-os-shutdown "terminating-instances.md#terminating-instances-bypass-graceful-os-shutdown")
 - [Force terminate an instance](TroubleshootingInstancesShuttingDown.md#force-terminate-ec2-instance "TroubleshootingInstancesShuttingDown.md#force-terminate-ec2-instance")

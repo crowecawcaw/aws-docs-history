@@ -28,8 +28,7 @@ disable block public access for AMIs.
 ###### Topics
 
 - [Default settings](#block-public-access-to-amis-default-settings "#block-public-access-to-amis-default-settings")
-- [Manage the block public access setting for
-  AMIs](manage-block-public-access-for-amis.md "manage-block-public-access-for-amis.md")
+- [Manage the block public access setting for AMIs](manage-block-public-access-for-amis.md "manage-block-public-access-for-amis.md")
 
 ## Default settings
 

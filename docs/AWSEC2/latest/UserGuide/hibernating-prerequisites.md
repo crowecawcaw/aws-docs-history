@@ -13,8 +13,7 @@ hibernation](enabling-hibernation.md "enabling-hibernation.md").
 - [Instance RAM size](#instance-ram-size "#instance-ram-size")
 - [Root volume type](#hibernation-prereqs-root-volume-type "#hibernation-prereqs-root-volume-type")
 - [Root volume size](#hibernation-prereqs-ebs-root-volume-size "#hibernation-prereqs-ebs-root-volume-size")
-- [Root volume
-  encryption](#hibernation-prereqs-ebs-root-volume-encryption "#hibernation-prereqs-ebs-root-volume-encryption")
+- [Root volume encryption](#hibernation-prereqs-ebs-root-volume-encryption "#hibernation-prereqs-ebs-root-volume-encryption")
 - [EBS volume type](#hibernation-prereqs-ebs-volume-types "#hibernation-prereqs-ebs-volume-types")
 - [Spot Instance requests](#hibernation-prereqs-spot-request "#hibernation-prereqs-spot-request")
 
@@ -66,8 +65,7 @@ Nitro-based instances only.
 ³ We recommend disabling KASLR on instances with Ubuntu 22.04.2 LTS (Jammy
 Jellyfish), Ubuntu 20.04 LTS (Focal Fossa), Ubuntu 18.04 LTS (Bionic
 Beaver), and Ubuntu 16.04 LTS (Xenial Xerus). For more information, see
-[Disable KASLR on an instance (Ubuntu
-only)](hibernation-disable-kaslr.md "hibernation-disable-kaslr.md").
+[Disable KASLR on an instance (Ubuntu only)](hibernation-disable-kaslr.md "hibernation-disable-kaslr.md").
 
 ⁴ For the Ubuntu 16.04 LTS (Xenial Xerus) AMI, hibernation is not supported on
 `t3.nano` instance types. No patch will be made available
@@ -79,8 +77,7 @@ AMI, or the Ubuntu 18.04 LTS (Bionic Beaver) AMI.
 ⁵ Support for Ubuntu 18.04 LTS (Bionic Beaver) and Ubuntu 16.04 LTS
 (Xenial Xerus) has reached end of life.
 
-To configure your own AMI to support hibernation, see [Configure a Linux AMI to support
-hibernation](hibernation-enabled-AMI.md "hibernation-enabled-AMI.md").
+To configure your own AMI to support hibernation, see [Configure a Linux AMI to support hibernation](hibernation-enabled-AMI.md "hibernation-enabled-AMI.md").
 
 Support for other versions of Ubuntu and other operating systems is coming
 soon.
@@ -155,9 +152,7 @@ The root volume must be large enough to store the RAM contents and accommodate
 your expected usage, for example, OS or applications. If you enable hibernation,
 space is allocated on the root volume at launch to store the RAM.
 
-## Root volume
-
-encryption
+## Root volume encryption
 
 The root volume must be encrypted to ensure the protection of sensitive content
 that is in memory at the time of hibernation. When RAM data is moved to the EBS root

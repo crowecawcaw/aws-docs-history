@@ -1,13 +1,10 @@
-# Launch an Amazon EC2 instance from an AWS Marketplace
-
-AMI
+# Launch an Amazon EC2 instance from an AWS Marketplace AMI
 
 You can subscribe to an AWS Marketplace AMI and launch an instance from it using the Amazon EC2 console
 or a command line tool. For more information about AWS Marketplace AMIs, see [Paid AMIs in the AWS Marketplace for Amazon EC2 instances](paid-amis.md "paid-amis.md").
 
 To cancel your subscription to the AMI after launch, you must first terminate all
-instances that were launched from the AMI. For more information, see [Manage your AWS Marketplace
-subscriptions](marketplace-manage-subscriptions.md "marketplace-manage-subscriptions.md").
+instances that were launched from the AMI. For more information, see [Manage your AWS Marketplace subscriptions](marketplace-manage-subscriptions.md "marketplace-manage-subscriptions.md").
 
 ###### To launch an instance from an AWS Marketplace AMI using the Amazon EC2 console
 
@@ -74,8 +71,7 @@ more information about connecting to your instance, see [Connect to your EC2 ins
 
 Check the vendor's usage instructions carefully, as you might need
 to use a specific username to connect to your instance. For
-information about accessing your subscription details, see [Manage your AWS Marketplace
-subscriptions](marketplace-manage-subscriptions.md "marketplace-manage-subscriptions.md"). 13. If the instance fails to launch or the state immediately goes to
+information about accessing your subscription details, see [Manage your AWS Marketplace subscriptions](marketplace-manage-subscriptions.md "marketplace-manage-subscriptions.md"). 13. If the instance fails to launch or the state immediately goes to
 `terminated` instead of `running`, see [Troubleshoot Amazon EC2 instance launch issues](troubleshooting-launch.md "troubleshooting-launch.md").
 
 ###### To launch an instance from an AWS Marketplace AMI using a command line tool

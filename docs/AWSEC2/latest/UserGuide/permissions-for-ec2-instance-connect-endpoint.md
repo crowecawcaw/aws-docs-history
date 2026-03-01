@@ -1,6 +1,4 @@
-# Grant permissions to use
-
-EC2 Instance Connect Endpoint
+# Grant permissions to use EC2 Instance Connect Endpoint
 
 By default, IAM entities don't have permission to create, describe, or modify
 EC2 Instance Connect Endpoints. An IAM administrator can create IAM policies that grant the
@@ -14,16 +12,11 @@ have to EC2 Instance Connect Endpoints.
 
 ###### Examples
 
-- [Permissions to create, describe,
-  modify, and delete EC2 Instance Connect Endpoints](#iam-CreateInstanceConnectEndpoint "#iam-CreateInstanceConnectEndpoint")
-- [Permissions to use EC2 Instance Connect Endpoint to connect to
-  instances](#iam-OpenTunnel "#iam-OpenTunnel")
-- [Permissions to connect only from a specific IP
-  address range](#iam-sourceip "#iam-sourceip")
+- [Permissions to create, describe, modify, and delete EC2 Instance Connect Endpoints](#iam-CreateInstanceConnectEndpoint "#iam-CreateInstanceConnectEndpoint")
+- [Permissions to use EC2 Instance Connect Endpoint to connect to instances](#iam-OpenTunnel "#iam-OpenTunnel")
+- [Permissions to connect only from a specific IP address range](#iam-sourceip "#iam-sourceip")
 
-## Permissions to create, describe,
-
-modify, and delete EC2 Instance Connect Endpoints
+## Permissions to create, describe, modify, and delete EC2 Instance Connect Endpoints
 
 To create and modify an EC2 Instance Connect Endpoint, users require permissions for the
 following actions:
@@ -56,9 +49,7 @@ asterisk (`*`). The `ec2:Describe*` API actions do not support
 resource-level permissions. Therefore, the `*` wildcard is necessary in
 the `Resource` element.
 
-## Permissions to use EC2 Instance Connect Endpoint to connect to
-
-instances
+## Permissions to use EC2 Instance Connect Endpoint to connect to instances
 
 The `ec2-instance-connect:OpenTunnel` action grants permission to
 establish a TCP connection to an instance to connect over the EC2 Instance Connect Endpoint. You
@@ -92,8 +83,7 @@ tags as condition keys.
 If `maxTunnelDuration` is specified in the IAM policy and the
 value specified is less than 3,600 seconds (the default), then you must
 specify `--max-tunnel-duration` in the command when connecting to
-an instance. For information about how to connect to an instance, see [Connect to an Amazon EC2 instance using
-EC2 Instance Connect Endpoint](connect-using-eice.md "connect-using-eice.md").
+an instance. For information about how to connect to an instance, see [Connect to an Amazon EC2 instance using EC2 Instance Connect Endpoint](connect-using-eice.md "connect-using-eice.md").
 
 You can also grant a user access to establish connections to instances based on
 the presence of resource tags on the EC2 Instance Connect Endpoint. For more information, see
@@ -103,8 +93,7 @@ For Linux instances, the `ec2-instance-connect:SendSSHPublicKey` action
 grants permission to push the public key to an instance. The `ec2:osuser`
 condition specifies the name of the OS (operating system) user that can push the
 public key to an instance. Use the [default username for the
-AMI](connection-prereqs-general.md#connection-prereqs-get-info-about-instance "connection-prereqs-general.md#connection-prereqs-get-info-about-instance") that you used to launch the instance. For more information, see [Grant IAM permissions for
-EC2 Instance Connect](ec2-instance-connect-configure-IAM-role.md "ec2-instance-connect-configure-IAM-role.md").
+AMI](connection-prereqs-general.md#connection-prereqs-get-info-about-instance "connection-prereqs-general.md#connection-prereqs-get-info-about-instance") that you used to launch the instance. For more information, see [Grant IAM permissions for EC2 Instance Connect](ec2-instance-connect-configure-IAM-role.md "ec2-instance-connect-configure-IAM-role.md").
 
 **Example IAM policy**
 
@@ -220,9 +209,7 @@ JSONJSON
 
 ```
 
-## Permissions to connect only from a specific IP
-
-address range
+## Permissions to connect only from a specific IP address range
 
 The following example IAM policy allows an IAM principal to connect to an instance
 on condition they are connecting from an IP address within the IP address range

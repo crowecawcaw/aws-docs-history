@@ -39,8 +39,7 @@ instances are identified by a **true** value in the
 - [Connect to your EC2 instance](connect.md "connect.md")
 - [Amazon EC2 instance state changes](ec2-instance-lifecycle.md "ec2-instance-lifecycle.md")
 - [Automatic instance recovery](ec2-instance-recover.md "ec2-instance-recover.md")
-- [Use instance metadata to manage your EC2
-  instance](ec2-instance-metadata.md "ec2-instance-metadata.md")
+- [Use instance metadata to manage your EC2 instance](ec2-instance-metadata.md "ec2-instance-metadata.md")
 - [Detect whether a host is an EC2 instance](identify_ec2_instances.md "identify_ec2_instances.md")
 - [Instance identity documents for Amazon EC2 instances](instance-identity-documents.md "instance-identity-documents.md")
 - [STIG compliance for your EC2 instance](ec2-configure-stig.md "ec2-configure-stig.md")
@@ -48,7 +47,5 @@ instances are identified by a **true** value in the
 - [EC2 Capacity Manager](capacity-manager.md "capacity-manager.md")
 - [Manage device drivers for your EC2 instance](manage-device-drivers.md "manage-device-drivers.md")
 - [Configure your Amazon EC2 Windows instance](ec2-windows-instances.md "ec2-windows-instances.md")
-- [Upgrade an EC2 Windows instance to a newer version of
-  Windows Server](serverupgrade.md "serverupgrade.md")
-- [Tutorial: Connect an
-  Amazon EC2 instance to an Amazon RDS database](tutorial-connect-ec2-instance-to-rds-database.md "tutorial-connect-ec2-instance-to-rds-database.md")
+- [Upgrade an EC2 Windows instance to a newer version of Windows Server](serverupgrade.md "serverupgrade.md")
+- [Tutorial: Connect an Amazon EC2 instance to an Amazon RDS database](tutorial-connect-ec2-instance-to-rds-database.md "tutorial-connect-ec2-instance-to-rds-database.md")

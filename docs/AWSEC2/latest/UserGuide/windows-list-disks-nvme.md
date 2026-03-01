@@ -1,6 +1,4 @@
-# Map NVMe disks on Amazon EC2 Windows instance to
-
-volumes
+# Map NVMe disks on Amazon EC2 Windows instance to volumes
 
 With [Nitro-based instances](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type"), EBS volumes are exposed as NVMe devices. This topic
 explains how to view the **NVMe disks** that are available

@@ -1,6 +1,4 @@
-# Supported CPU options for Amazon EC2
-
-instance types
+# Supported CPU options for Amazon EC2 instance types
 
 The following tables list the instance types that support specifying CPU
 options.
@@ -12,8 +10,7 @@ options.
 - [Memory optimized instances](#cpu-options-mem-optimized "#cpu-options-mem-optimized")
 - [Storage optimized instances](#cpu-options-storage-optimized "#cpu-options-storage-optimized")
 - [Accelerated computing instances](#cpu-options-accelerated "#cpu-options-accelerated")
-- [High-performance computing
-  instances](#cpu-options-high-performance "#cpu-options-high-performance")
+- [High-performance computing instances](#cpu-options-high-performance "#cpu-options-high-performance")
 
 ## General purpose instances
 
@@ -1042,9 +1039,7 @@ options.
 | `vt1.6xlarge`        | 24            | 12                | 2                        | 6, 12                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | 1, 2                   |
 | `vt1.24xlarge`       | 96            | 48                | 2                        | 6, 12, 48                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 1, 2                   |
 
-## High-performance computing
-
-instances
+## High-performance computing instances
 
 | Instance type     | Default vCPUs | Default CPU cores | Default threads per core | Valid CPU cores                                                                                                         | Valid threads per core |
 | ----------------- | ------------- | ----------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------- | ---------------------- |

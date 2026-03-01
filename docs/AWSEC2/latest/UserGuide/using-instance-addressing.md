@@ -16,18 +16,14 @@ and does not traverse the public internet.
 
 - [Private IPv4 addresses](#concepts-private-addresses "#concepts-private-addresses")
 - [Public IPv4 addresses](#concepts-public-addresses "#concepts-public-addresses")
-- [Public IPv4 address
-  optimization](#concepts-public-ip-address-opt "#concepts-public-ip-address-opt")
+- [Public IPv4 address optimization](#concepts-public-ip-address-opt "#concepts-public-ip-address-opt")
 - [IPv6 addresses](#ipv6-addressing "#ipv6-addressing")
 - [Multiple IP addresses](#multiple-ip-addresses "#multiple-ip-addresses")
 - [EC2 instance hostnames](#amazon-dns "#amazon-dns")
 - [Link-local addresses](#link-local-addresses "#link-local-addresses")
-- [Manage the IPv4 addresses for your EC2
-  instances](working-with-ip-addresses.md "working-with-ip-addresses.md")
-- [Manage the IPv6 addresses for your EC2
-  instances](working-with-ipv6-addresses.md "working-with-ipv6-addresses.md")
-- [Secondary IP addresses for your EC2
-  instances](instance-secondary-ip-addresses.md "instance-secondary-ip-addresses.md")
+- [Manage the IPv4 addresses for your EC2 instances](working-with-ip-addresses.md "working-with-ip-addresses.md")
+- [Manage the IPv6 addresses for your EC2 instances](working-with-ipv6-addresses.md "working-with-ipv6-addresses.md")
+- [Secondary IP addresses for your EC2 instances](instance-secondary-ip-addresses.md "instance-secondary-ip-addresses.md")
 - [Configure secondary private IPv4 addresses for Windows instances](config-windows-multiple-ip.md "config-windows-multiple-ip.md")
 
 ## Private IPv4 addresses
@@ -139,9 +135,7 @@ _Amazon VPC IPAM User Guide_.
   charged for regional or Internet data transfer, depending on whether the
   instances are in the same Region.
 
-## Public IPv4 address
-
-optimization
+## Public IPv4 address optimization
 
 AWS charges for all public IPv4 addresses, including public IPv4 addresses
 associated with running instances and Elastic IP addresses. For more information, see the **Public IPv4 Address**
@@ -302,8 +296,7 @@ for an instance depends on the instance type. For more information, see [Maximum
   can reassign the secondary private IPv4 address of the primary network interface
   to another network interface.
 
-For more information, see [Secondary IP addresses for your EC2
-instances](instance-secondary-ip-addresses.md "instance-secondary-ip-addresses.md").
+For more information, see [Secondary IP addresses for your EC2 instances](instance-secondary-ip-addresses.md "instance-secondary-ip-addresses.md").
 
 ## EC2 instance hostnames
 

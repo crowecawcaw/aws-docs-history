@@ -19,13 +19,9 @@ For Amazon CloudWatch billing and cost information, see [CloudWatch billing and 
 
 - [Manage CloudWatch alarms for your EC2 instances in the Amazon EC2 console](ec2-instance-alarms.md "ec2-instance-alarms.md")
 - [Manage detailed monitoring for your EC2 instances](manage-detailed-monitoring.md "manage-detailed-monitoring.md")
-- [CloudWatch metrics that are available for your
-  instances](viewing_metrics_with_cloudwatch.md "viewing_metrics_with_cloudwatch.md")
-- [Install and configure the CloudWatch
-  agent using the Amazon EC2 console to add additional metrics](install-and-configure-cloudwatch-agent-using-ec2-console.md "install-and-configure-cloudwatch-agent-using-ec2-console.md")
-- [Statistics for CloudWatch metrics for your
-  instances](monitoring_get_statistics.md "monitoring_get_statistics.md")
+- [CloudWatch metrics that are available for your instances](viewing_metrics_with_cloudwatch.md "viewing_metrics_with_cloudwatch.md")
+- [Install and configure the CloudWatch agent using the Amazon EC2 console to add additional metrics](install-and-configure-cloudwatch-agent-using-ec2-console.md "install-and-configure-cloudwatch-agent-using-ec2-console.md")
+- [Statistics for CloudWatch metrics for your instances](monitoring_get_statistics.md "monitoring_get_statistics.md")
 - [View the monitoring graphs for your instances](graphs-in-the-aws-management-console.md "graphs-in-the-aws-management-console.md")
 - [Create a CloudWatch alarm for an instance](using-cloudwatch-createalarm.md "using-cloudwatch-createalarm.md")
-- [Create alarms that stop, terminate, reboot, or recover an
-  instance](UsingAlarmActions.md "UsingAlarmActions.md")
+- [Create alarms that stop, terminate, reboot, or recover an instance](UsingAlarmActions.md "UsingAlarmActions.md")

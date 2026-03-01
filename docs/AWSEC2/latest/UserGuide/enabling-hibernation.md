@@ -10,16 +10,11 @@ it.
 
 ###### Tasks
 
-- [Enable hibernation for
-  On-Demand Instances](#enable-hibernation-for-on-demand-instances "#enable-hibernation-for-on-demand-instances")
-- [Enable hibernation for
-  Spot Instances](#enable-hibernation-for-spot-instances "#enable-hibernation-for-spot-instances")
-- [View if an instance is
-  enabled for hibernation](#view-if-instance-is-enabled-for-hibernation "#view-if-instance-is-enabled-for-hibernation")
+- [Enable hibernation for On-Demand Instances](#enable-hibernation-for-on-demand-instances "#enable-hibernation-for-on-demand-instances")
+- [Enable hibernation for Spot Instances](#enable-hibernation-for-spot-instances "#enable-hibernation-for-spot-instances")
+- [View if an instance is enabled for hibernation](#view-if-instance-is-enabled-for-hibernation "#view-if-instance-is-enabled-for-hibernation")
 
-## Enable hibernation for
-
-On-Demand Instances
+## Enable hibernation for On-Demand Instances
 
 You can enable hibernation for your On-Demand Instances.
 
@@ -67,8 +62,7 @@ Console
 
 3.  In the **Summary** panel, review your
     instance configuration, and then choose **Launch
-    instance**. For more information, see [Launch an EC2 instance using the launch
-    instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+    instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 AWS CLI
 
@@ -158,9 +152,7 @@ If you enabled encryption by default in this AWS Region, you can
 omit `Encrypted = $true` from the block device
 mapping.
 
-## Enable hibernation for
-
-Spot Instances
+## Enable hibernation for Spot Instances
 
 You can enable hibernation for your Spot Instances. For more information about hibernating
 a Spot Instance on interruption, see [Spot Instance interruptions](spot-interruptions.md "spot-interruptions.md").
@@ -220,8 +212,7 @@ Console
 
 3.  In the **Summary** panel, review your
     instance configuration, and then choose **Launch
-    instance**. For more information, see [Launch an EC2 instance using the launch
-    instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+    instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 AWS CLI
 
@@ -326,9 +317,7 @@ If you enabled encryption by default in this AWS Region, you can
 omit `Encrypted = $true` from the block device
 mapping.
 
-## View if an instance is
-
-enabled for hibernation
+## View if an instance is enabled for hibernation
 
 You can check whether an instance is enabled for hibernation.
 

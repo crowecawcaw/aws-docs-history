@@ -18,11 +18,8 @@ The serial console is available at no additional cost.
 
 ###### Topics
 
-- [Prerequisites for the EC2 Serial
-  Console](ec2-serial-console-prerequisites.md "ec2-serial-console-prerequisites.md")
+- [Prerequisites for the EC2 Serial Console](ec2-serial-console-prerequisites.md "ec2-serial-console-prerequisites.md")
 - [Configure access to the EC2 Serial Console](configure-access-to-serial-console.md "configure-access-to-serial-console.md")
 - [Connect to the EC2 Serial Console](connect-to-serial-console.md "connect-to-serial-console.md")
-- [Disconnect from the EC2 Serial
-  Console](disconnect-serial-console-session.md "disconnect-serial-console-session.md")
-- [Troubleshoot your Amazon EC2 instance using the
-  EC2 Serial Console](troubleshoot-using-serial-console.md "troubleshoot-using-serial-console.md")
+- [Disconnect from the EC2 Serial Console](disconnect-serial-console-session.md "disconnect-serial-console-session.md")
+- [Troubleshoot your Amazon EC2 instance using the EC2 Serial Console](troubleshoot-using-serial-console.md "troubleshoot-using-serial-console.md")

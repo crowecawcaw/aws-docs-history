@@ -51,9 +51,7 @@ own experiments using the AWS FIS console.
 5. When you're ready to initiate the Spot Instance interruption, choose **Initiate
    interruption.**
 
-###### To initiate the interruption of one or more Spot Instances in a Spot Fleet request using the EC2
-
-console
+###### To initiate the interruption of one or more Spot Instances in a Spot Fleet request using the EC2 console
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -77,9 +75,7 @@ choose an existing role. To choose an existing role, choose
 **IAM role**, select the role to use. 6. When you're ready to initiate the Spot Instance interruption, choose **Initiate
 interruption.**
 
-###### To create more advanced experiments to test Spot Instance interruptions using the AWS FIS
-
-console
+###### To create more advanced experiments to test Spot Instance interruptions using the AWS FIS console
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").

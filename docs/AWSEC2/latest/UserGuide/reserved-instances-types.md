@@ -9,9 +9,7 @@ The configuration of a Reserved Instance comprises a single instance type, platf
 tenancy over a term. If your computing needs change, you might be able to modify or
 exchange your Reserved Instance.
 
-## Differences between Standard and
-
-Convertible Reserved Instances
+## Differences between Standard and Convertible Reserved Instances
 
 The following are the differences between Standard and Convertible Reserved Instances.
 

@@ -1,6 +1,4 @@
-# Grant IAM permissions for
-
-EC2 Instance Connect
+# Grant IAM permissions for EC2 Instance Connect
 
 To connect to an instance using EC2 Instance Connect, you must create an IAM policy that
 grants your users permissions for the following actions and condition:
@@ -26,9 +24,7 @@ For more information, see [Actions, resources, and condition keys for Amazon EC2
 For information about creating IAM policies, see [Creating IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md")
 in the _IAM User Guide_.
 
-## Allow
-
-users to connect to specific instances
+## Allow users to connect to specific instances
 
 The following IAM policy grants permission to connect to specific instances,
 identified by their resource ARNs.

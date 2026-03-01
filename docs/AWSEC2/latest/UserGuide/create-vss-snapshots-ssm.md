@@ -5,19 +5,14 @@ The following content introduces the command documents that are available, and t
 runtime parameters that the documents use to create your snapshots.
 
 Before you use any of the Systems Manager command documents, ensure that you've met all
-[Prerequisites to create Windows VSS
-based EBS snapshots](application-consistent-snapshots-prereqs.md "application-consistent-snapshots-prereqs.md").
+[Prerequisites to create Windows VSS based EBS snapshots](application-consistent-snapshots-prereqs.md "application-consistent-snapshots-prereqs.md").
 
 ###### Topics
 
-- [Parameters for Systems Manager VSS snapshot
-  documents](#create-vss-snapshots-ssm-params "#create-vss-snapshots-ssm-params")
-- [Run Systems Manager VSS snapshot
-  command documents](#create-vss-snapshots-ssm-methods "#create-vss-snapshots-ssm-methods")
+- [Parameters for Systems Manager VSS snapshot documents](#create-vss-snapshots-ssm-params "#create-vss-snapshots-ssm-params")
+- [Run Systems Manager VSS snapshot command documents](#create-vss-snapshots-ssm-methods "#create-vss-snapshots-ssm-methods")
 
-## Parameters for Systems Manager VSS snapshot
-
-documents
+## Parameters for Systems Manager VSS snapshot documents
 
 The Systems Manager documents that create VSS snapshots all use the following parameters, except
 where noted:
@@ -160,9 +155,7 @@ is already installed, the script skips the install step and moves on to the
 backup step. For a list of `AwsVssComponents` package versions
 and operating support, see [AWS VSS solution version history](vss-comps-history.md "vss-comps-history.md").
 
-## Run Systems Manager VSS snapshot
-
-command documents
+## Run Systems Manager VSS snapshot command documents
 
 You can create VSS based EBS snapshots with AWS Systems Manager command documents as follows.
 
@@ -195,8 +188,7 @@ When you select a command document, details populate below the list. 5. Select `
 **Document version** list. 6. Configure the **Command parameters** to define how
 `AWSEC2-VssInstallAndSnapshot` will install the
 `AwsVssComponents` package and back up with VSS snapshots
-or an AMI. For parameter details, see [Parameters for Systems Manager VSS snapshot
-documents](#create-vss-snapshots-ssm-params "#create-vss-snapshots-ssm-params"). 7. For **Target selection**, specify tags or select
+or an AMI. For parameter details, see [Parameters for Systems Manager VSS snapshot documents](#create-vss-snapshots-ssm-params "#create-vss-snapshots-ssm-params"). 7. For **Target selection**, specify tags or select
 instances manually to identify the instances on which to run this operation.
 
 ###### Note
@@ -223,8 +215,7 @@ EBS snapshots and get the status of your snapshot creation.
 Run the following command to create VSS based EBS snapshots. To
 create the snapshots, you must identify the instances with the
 `--instance-ids` parameter. For more information about
-other parameters that you can use, see [Parameters for Systems Manager VSS snapshot
-documents](#create-vss-snapshots-ssm-params "#create-vss-snapshots-ssm-params").
+other parameters that you can use, see [Parameters for Systems Manager VSS snapshot documents](#create-vss-snapshots-ssm-params "#create-vss-snapshots-ssm-params").
 
 ```
 aws ssm send-command \
@@ -304,8 +295,7 @@ Console
 When you select a command document, details populate below the list. 5. Select `Default version at runtime` from the
 **Document version** list. 6. Configure the **Command parameters** to define how
 `AWSEC2-CreateVssSnapshot` will back up with VSS snapshots
-or an AMI. For parameter details, see [Parameters for Systems Manager VSS snapshot
-documents](#create-vss-snapshots-ssm-params "#create-vss-snapshots-ssm-params"). 7. For **Target selection**, specify tags or select
+or an AMI. For parameter details, see [Parameters for Systems Manager VSS snapshot documents](#create-vss-snapshots-ssm-params "#create-vss-snapshots-ssm-params"). 7. For **Target selection**, specify tags or select
 instances manually to identify the instances on which to run this operation.
 
 ###### Note
@@ -332,8 +322,7 @@ EBS snapshots.
 Run the following command to create VSS based EBS snapshots. To
 create the snapshots, you must identify the instances with the
 `--instance-ids` parameter. For more information about
-other parameters that you can use, see [Parameters for Systems Manager VSS snapshot
-documents](#create-vss-snapshots-ssm-params "#create-vss-snapshots-ssm-params").
+other parameters that you can use, see [Parameters for Systems Manager VSS snapshot documents](#create-vss-snapshots-ssm-params "#create-vss-snapshots-ssm-params").
 
 ```
 aws ssm send-command \
@@ -358,8 +347,7 @@ Run the following command to create VSS based EBS snapshots. To
 create the snapshots, you must identify the instances with the
 `InstanceId` parameter. You can specify more than one instance
 to create snapshots for. For more information about
-other parameters that you can use, see [Parameters for Systems Manager VSS snapshot
-documents](#create-vss-snapshots-ssm-params "#create-vss-snapshots-ssm-params").
+other parameters that you can use, see [Parameters for Systems Manager VSS snapshot documents](#create-vss-snapshots-ssm-params "#create-vss-snapshots-ssm-params").
 
 ```
 Send-SSMCommand -DocumentName AWSEC2-CreateVssSnapshot -InstanceId "`i-01234567890abcdef`" -Parameter @{'ExcludeBootVolume'='False';'description'='`a_description`'

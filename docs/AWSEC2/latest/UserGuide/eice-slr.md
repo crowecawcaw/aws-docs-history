@@ -7,9 +7,7 @@ permissions that Amazon EC2 requires to call other AWS services on your behalf. 
 information, see [Service-linked
 roles](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md "../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md") in the _IAM User Guide_.
 
-## Service-linked role permissions for
-
-EC2 Instance Connect Endpoint
+## Service-linked role permissions for EC2 Instance Connect Endpoint
 
 Amazon EC2 uses **AWSServiceRoleForEC2InstanceConnect** to
 create and manage network interfaces in your account that are required by

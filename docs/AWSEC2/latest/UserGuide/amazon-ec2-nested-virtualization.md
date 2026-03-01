@@ -71,8 +71,7 @@ Console
 
 ###### To enable nested virtualization during instance launch
 
-1. Follow the [Launch an EC2 instance using the launch
-   instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md") procedure and configure your instance as needed.
+1. Follow the [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md") procedure and configure your instance as needed.
 2. Ensure a supported instance type is selected.
 3. Expand **Advanced details**, and for
    **Nested virtualization**, choose

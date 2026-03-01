@@ -5,8 +5,7 @@ with NitroTPM enabled. You must configure your Linux AMI with NitroTPM support
 when you register it. You can't configure NitroTPM support later on.
 
 For the list of Windows AMIs that are preconfigured for NitroTPM support, see
-[Requirements for using NitroTPM with Amazon EC2
-instances](enable-nitrotpm-prerequisites.md "enable-nitrotpm-prerequisites.md").
+[Requirements for using NitroTPM with Amazon EC2 instances](enable-nitrotpm-prerequisites.md "enable-nitrotpm-prerequisites.md").
 
 You must create an AMI with NitroTPM configured by using the [RegisterImage](../APIReference/API_RegisterImage.md "../APIReference/API_RegisterImage.md") API. You can't use the Amazon EC2 console or VM Import/Export.
 

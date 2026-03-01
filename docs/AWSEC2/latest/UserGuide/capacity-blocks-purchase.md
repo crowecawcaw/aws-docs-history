@@ -13,7 +13,7 @@ you specify the following.
   across Capacity Blocks.
 
 When you request a Capacity Block that matches your specifications, we provide the
-details of up to 3 available blocks. All Capacity Blocks end at 11:30AM UTC, so the
+details of up to 6 available blocks. All Capacity Blocks end at 11:30AM UTC, so the
 blocks starting on the same day will have durations that are the closest match to
 your desired duration. One block will have a duration that is slightly less than
 your desired duration, while the other will have a duration slightly greater than
@@ -39,8 +39,7 @@ information, see [Billing](capacity-blocks-pricing-billing.md#capacity-blocks-bi
 
 ###### Note
 
-To use `P6e-GB200` UltraServer Capacity Blocks, you must be opted in to the
-Dallas Local Zone (N. Virginia) Local Zone.
+To purchase and use Capacity Blocks in Local Zones, you must be opted in to the Local Zone.
 
 Console
 
@@ -103,7 +102,8 @@ aws ec2 describe-capacity-block-offerings \
 --instance-count `16` \
 --start-date-range `2023-08-14T00:00:00Z` \
 --end-date-range `2023-10-22-T00:00:00Z` \
---capacity-duration-hours `48`
+--capacity-duration-hours `48` \
+--all-availability-zones
 ```
 
 The following example finds UltraServer Capacity Blocks.
@@ -142,7 +142,8 @@ Get-EC2CapacityBlockOffering `
 -InstanceCount `16` `
 -CapacityDurationHour `48` `
 -StartDateRange `2023-08-14T00:00:00Z` `
--EndDateRange `2023-10-22-T00:00:00Z`
+-EndDateRange `2023-10-22-T00:00:00Z` `
+-AllAvailabilityZones `$true`
 ```
 
 The following example finds UltraServer Capacity Blocks.

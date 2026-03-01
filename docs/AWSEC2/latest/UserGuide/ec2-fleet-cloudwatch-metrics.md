@@ -1,6 +1,4 @@
-# Monitor your EC2 Fleet or Spot Fleet using
-
-CloudWatch
+# Monitor your EC2 Fleet or Spot Fleet using CloudWatch
 
 You can monitor your EC2 Fleet or Spot Fleet using the Amazon CloudWatch metrics described in this
 section.
@@ -43,9 +41,7 @@ To filter the data for your fleet, use the following dimensions.
 | `FleetRequestId`   | Filter the data by fleet request.     |
 | `InstanceType`     | Filter the data by instance type.     |
 
-## View the CloudWatch metrics for your EC2 Fleet or
-
-Spot Fleet
+## View the CloudWatch metrics for your EC2 Fleet or Spot Fleet
 
 You can view the CloudWatch metrics for your fleet using the Amazon CloudWatch console. These
 metrics are displayed as monitoring graphs. These graphs show data points if the

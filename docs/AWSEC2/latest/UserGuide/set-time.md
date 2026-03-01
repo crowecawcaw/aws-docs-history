@@ -78,14 +78,10 @@ event.
 
 ###### Topics
 
-- [Set the time reference on your EC2 instance to use
-  the local Amazon Time Sync Service](configure-ec2-ntp.md "configure-ec2-ntp.md")
-- [Set the time reference on your EC2 instance or any
-  internet-connected device to use the public Amazon Time Sync Service](configure-time-sync.md "configure-time-sync.md")
-- [Compare timestamps for your Linux
-  instances](compare-timestamps-with-clockbound.md "compare-timestamps-with-clockbound.md")
-- [Change the time zone of your
-  instance](change-time-zone-of-instance.md "change-time-zone-of-instance.md")
+- [Set the time reference on your EC2 instance to use the local Amazon Time Sync Service](configure-ec2-ntp.md "configure-ec2-ntp.md")
+- [Set the time reference on your EC2 instance or any internet-connected device to use the public Amazon Time Sync Service](configure-time-sync.md "configure-time-sync.md")
+- [Compare timestamps for your Linux instances](compare-timestamps-with-clockbound.md "compare-timestamps-with-clockbound.md")
+- [Change the time zone of your instance](change-time-zone-of-instance.md "change-time-zone-of-instance.md")
 
  
 

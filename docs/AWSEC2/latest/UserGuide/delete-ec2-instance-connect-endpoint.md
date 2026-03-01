@@ -3,8 +3,7 @@
 When you are finished with an EC2 Instance Connect Endpoint, you can delete it.
 
 You must have the required IAM permissions to create an EC2 Instance Connect Endpoint. For more
-information, see [Permissions to create, describe,
-modify, and delete EC2 Instance Connect Endpoints](permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint "permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint").
+information, see [Permissions to create, describe, modify, and delete EC2 Instance Connect Endpoints](permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint "permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint").
 
 When you delete an EC2 Instance Connect Endpoint using the console, it enters the
 **Deleting** state. If deletion is successful, the deleted endpoint

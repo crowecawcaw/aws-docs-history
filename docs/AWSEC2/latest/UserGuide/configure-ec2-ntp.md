@@ -1,6 +1,4 @@
-# Set the time reference on your EC2 instance to use
-
-the local Amazon Time Sync Service
+# Set the time reference on your EC2 instance to use the local Amazon Time Sync Service
 
 The local Amazon Time Sync Service either uses the Network Time Protocol (NTP), or provides a local
 Precision Time Protocol (PTP) hardware clock on [supported instances](#ptp-hardware-clock-requirements "#ptp-hardware-clock-requirements"). The PTP
@@ -40,8 +38,7 @@ instance does not require access to the internet.
 ###### Contents
 
 - [Connect to the IPv4 endpoint of the Amazon Time Sync Service](#configure-amazon-time-service-IPv4 "#configure-amazon-time-service-IPv4")
-- [Connect to the IPv6 endpoint of
-  the Amazon Time Sync Service](#configure-amazon-time-service-IPv6 "#configure-amazon-time-service-IPv6")
+- [Connect to the IPv6 endpoint of the Amazon Time Sync Service](#configure-amazon-time-service-IPv6 "#configure-amazon-time-service-IPv6")
 - [Connect to the PTP hardware clock](#connect-to-the-ptp-hardware-clock "#connect-to-the-ptp-hardware-clock")
 
 ## Connect to the IPv4 endpoint of the Amazon Time Sync Service
@@ -333,9 +330,7 @@ one second of accuracy:
 | HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | InputProvider       | 1                   |
 | HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | SpecialPollInterval | 900                 |
 
-## Connect to the IPv6 endpoint of
-
-the Amazon Time Sync Service
+## Connect to the IPv6 endpoint of the Amazon Time Sync Service
 
 This section explains how the steps described in [Connect to the IPv4 endpoint of the Amazon Time Sync Service](#configure-amazon-time-service-IPv4 "#configure-amazon-time-service-IPv4") differ if you are
 configuring your instance to use the local Amazon Time Sync Service through the IPv6 endpoint. It
@@ -425,9 +420,7 @@ local Amazon Time Sync Service through the PTP hardware clock using a direct PTP
 It requires adding a server entry for the PTP hardware clock in the
 `chrony` configuration file.
 
-###### To configure a direct PTP connection to the PTP hardware clock (Linux
-
-instances only)
+###### To configure a direct PTP connection to the PTP hardware clock (Linux instances only)
 
 1. **Install prerequisites**
 

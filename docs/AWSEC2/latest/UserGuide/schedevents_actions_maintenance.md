@@ -1,6 +1,4 @@
-# Manage Amazon EC2 instances scheduled
-
-for maintenance
+# Manage Amazon EC2 instances scheduled for maintenance
 
 When AWS must maintain the underlying host for an instance, it schedules the
 instance for maintenance. There are two types of maintenance events: network
@@ -19,9 +17,7 @@ maintenance and power maintenance.
   up to 1 hour for the instance status description to refresh. Completed maintenance
   events are displayed on the Amazon EC2 console dashboard for up to a week.
 
-## Actions
-
-you can take
+## Actions you can take
 
 ###### Actions you can take for instances with an EBS root volume
 
@@ -39,9 +35,7 @@ can take one of the following actions:
   operations on EC2 instances automatically in response to events in
   AWS Health](../../../health/latest/ug/automating-instance-actions.md "../../../health/latest/ug/automating-instance-actions.md") in the _AWS Health User Guide_.
 
-###### Actions you can take for instances with an instance store root
-
-volume
+###### Actions you can take for instances with an instance store root volume
 
 When you receive a `system-maintenance` event notification, you
 can take one of the following actions:

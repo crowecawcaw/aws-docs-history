@@ -1,6 +1,4 @@
-# Identify the root volume type determined by your
-
-AMI
+# Identify the root volume type determined by your AMI
 
 The AMI that you use to launch an EC2 instance determines the type of the root volume.
 The root volume of an EC2 instance is either an EBS volume or an instance store volume.

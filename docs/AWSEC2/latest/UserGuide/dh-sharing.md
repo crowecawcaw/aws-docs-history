@@ -78,9 +78,7 @@ For example, `use1-az1` is an Availability Zone ID for the
 `us-east-1` Region and it is the same location in every AWS
 account.
 
-###### To view the Availability Zone IDs for the Availability Zones in your
-
-account
+###### To view the Availability Zone IDs for the Availability Zones in your account
 
 1. Open the AWS RAM console at [https://console.aws.amazon.com/ram/home](https://console.aws.amazon.com/ram/home "https://console.aws.amazon.com/ram/home").
 2. The Availability Zone IDs for the current Region are displayed in the

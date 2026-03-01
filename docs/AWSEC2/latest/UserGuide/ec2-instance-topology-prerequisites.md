@@ -1,6 +1,4 @@
-# Prerequisites for Amazon EC2
-
-topology
+# Prerequisites for Amazon EC2 topology
 
 To describe your Amazon EC2 topology, ensure that your instances and Capacity Reservations meet the
 following prerequisites.

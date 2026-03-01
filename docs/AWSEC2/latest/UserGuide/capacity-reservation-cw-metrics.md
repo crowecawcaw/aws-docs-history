@@ -1,6 +1,4 @@
-# Monitor Capacity Reservations usage with CloudWatch
-
-metrics
+# Monitor Capacity Reservations usage with CloudWatch metrics
 
 With CloudWatch metrics, you can efficiently monitor your Capacity Reservations and identify unused capacity
 by setting CloudWatch alarms to notify you when usage thresholds are met. This can help you
@@ -16,8 +14,7 @@ more information about creating alarms, see [Creating Amazon CloudWatch Alarms](
 
 - [Capacity Reservation usage metrics](#capacity-reservation-usage-metrics "#capacity-reservation-usage-metrics")
 - [Capacity Reservation metric dimensions](#capacity-reservation-dimensions "#capacity-reservation-dimensions")
-- [View CloudWatch metrics for
-  Capacity Reservations](#viewing-capacity-reservation-metrics "#viewing-capacity-reservation-metrics")
+- [View CloudWatch metrics for Capacity Reservations](#viewing-capacity-reservation-metrics "#viewing-capacity-reservation-metrics")
 
 ## Capacity Reservation usage metrics
 
@@ -47,9 +44,7 @@ table within the selected Region and account.
 | `InstancePlatform`      | This dimension filters the specified metric data for the<br>identified platform.                                     |
 | `Tenancy`               | This dimension filters the specified metric for the identified<br>tenancy.                                           |
 
-## View CloudWatch metrics for
-
-Capacity Reservations
+## View CloudWatch metrics for Capacity Reservations
 
 Metrics are grouped first by the service namespace, and then by the supported
 dimensions. You can use the following procedures to view the metrics for your Capacity Reservations.

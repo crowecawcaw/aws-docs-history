@@ -5,43 +5,31 @@ check. First determine whether your applications are exhibiting any problems. If
 the instance is not running your applications as expected, review the status check information
 and the system logs.
 
-For examples of problems that can cause status checks to fail, see [Status checks for Amazon EC2
-instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
+For examples of problems that can cause status checks to fail, see [Status checks for Amazon EC2 instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
 
 ###### Contents
 
 - [Review status check information](#InitialSteps "#InitialSteps")
 - [Retrieve the system logs](#troubleshooting-retrieve-system-logs "#troubleshooting-retrieve-system-logs")
-- [Troubleshoot system log errors for Linux
-  instances](#system-log-errors-linux "#system-log-errors-linux")
+- [Troubleshoot system log errors for Linux instances](#system-log-errors-linux "#system-log-errors-linux")
 - [Out of memory: kill process](#MemoryOOM "#MemoryOOM")
 - [ERROR: mmu_update failed (Memory management update failed)](#MemoryMMU "#MemoryMMU")
 - [I/O error (block device failure)](#DeviceBlock "#DeviceBlock")
-- [I/O ERROR: neither local nor remote disk (Broken distributed
-  block device)](#DeviceDistributed "#DeviceDistributed")
-- [request_module: runaway loop modprobe (Looping legacy kernel
-  modprobe on older Linux versions)](#KernelLoop "#KernelLoop")
-- ["FATAL: kernel too old" and "fsck: No such file or
-  directory while trying to open /dev" (Kernel and AMI mismatch)](#KernelOld "#KernelOld")
-- ["FATAL: Could not load /lib/modules" or
-  "BusyBox" (Missing kernel modules)](#KernelMissing "#KernelMissing")
+- [I/O ERROR: neither local nor remote disk (Broken distributed block device)](#DeviceDistributed "#DeviceDistributed")
+- [request_module: runaway loop modprobe (Looping legacy kernel modprobe on older Linux versions)](#KernelLoop "#KernelLoop")
+- ["FATAL: kernel too old" and "fsck: No such file or directory while trying to open /dev" (Kernel and AMI mismatch)](#KernelOld "#KernelOld")
+- ["FATAL: Could not load /lib/modules" or "BusyBox" (Missing kernel modules)](#KernelMissing "#KernelMissing")
 - [ERROR Invalid kernel (EC2 incompatible kernel)](#KernelInvalid "#KernelInvalid")
-- [fsck: No such file or directory while trying to open... (File
-  system not found)](#FilesystemFschk "#FilesystemFschk")
+- [fsck: No such file or directory while trying to open... (File system not found)](#FilesystemFschk "#FilesystemFschk")
 - [General error mounting filesystems (failed mount)](#FilesystemGeneral "#FilesystemGeneral")
-- [VFS: Unable to mount root fs on unknown-block (Root
-  filesystem mismatch)](#FilesystemKernel "#FilesystemKernel")
-- [Error: Unable to determine major/minor number of root
-  device... (Root file system/device mismatch)](#FilesystemError "#FilesystemError")
+- [VFS: Unable to mount root fs on unknown-block (Root filesystem mismatch)](#FilesystemKernel "#FilesystemKernel")
+- [Error: Unable to determine major/minor number of root device... (Root file system/device mismatch)](#FilesystemError "#FilesystemError")
 - [XENBUS: Device with no driver...](#FilesystemXenbus "#FilesystemXenbus")
-- [... days without being checked, check forced (File system
-  check required)](#FilesystemCheck "#FilesystemCheck")
+- [... days without being checked, check forced (File system check required)](#FilesystemCheck "#FilesystemCheck")
 - [fsck died with exit status... (Missing device)](#FilesystemFschkDied "#FilesystemFschkDied")
 - [GRUB prompt (grubdom>)](#OpSystemGrub "#OpSystemGrub")
-- [Bringing up interface eth0: Device eth0 has different MAC
-  address than expected, ignoring. (Hard-coded MAC address)](#OpSystemBringing "#OpSystemBringing")
-- [Unable to load SELinux Policy. Machine is in enforcing mode.
-  Halting now. (SELinux misconfiguration)](#OpSystemUnable "#OpSystemUnable")
+- [Bringing up interface eth0: Device eth0 has different MAC address than expected, ignoring. (Hard-coded MAC address)](#OpSystemBringing "#OpSystemBringing")
+- [Unable to load SELinux Policy. Machine is in enforcing mode. Halting now. (SELinux misconfiguration)](#OpSystemUnable "#OpSystemUnable")
 - [XENBUS: Timeout connecting to devices (Xenbus timeout)](#OpSystemXenbus "#OpSystemXenbus")
 
 ## Review status check information
@@ -59,8 +47,7 @@ instances](monitoring-system-instance-status-check.md "monitoring-system-instanc
 If a status check has failed, you can try one of the following options:
 
 - Create an alarm to recover the instance in response to the failed status check. For more
-  information, see [Create alarms that stop, terminate, reboot, or recover an
-  instance](UsingAlarmActions.md "UsingAlarmActions.md").
+  information, see [Create alarms that stop, terminate, reboot, or recover an instance](UsingAlarmActions.md "UsingAlarmActions.md").
 - (Instance status checks) If you changed the instance type to a [Nitro-based instance](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type"),
   status checks fail if you migrated from an
   instance that does not have the required ENA and NVMe drivers. For more information, see [Compatibility for changing the instance type](resize-limitations.md "resize-limitations.md").
@@ -104,9 +91,7 @@ unnecessary information from the logs.
    statements below to troubleshoot your issue.
 7. If your issue is not resolved, you can post your issue to [AWS re:Post](https://repost.aws/ "https://repost.aws/").
 
-## Troubleshoot system log errors for Linux
-
-instances
+## Troubleshoot system log errors for Linux instances
 
 For Linux instances that have failed an instance status check, such as the instance
 reachability check, verify that you followed the steps above to retrieve the system log. The
@@ -121,40 +106,30 @@ resolve the issue for each error.
 **Device Errors**
 
 - [I/O error (block device failure)](#DeviceBlock "#DeviceBlock")
-- [I/O ERROR: neither local nor remote disk (Broken distributed
-  block device)](#DeviceDistributed "#DeviceDistributed")
+- [I/O ERROR: neither local nor remote disk (Broken distributed block device)](#DeviceDistributed "#DeviceDistributed")
 
 **Kernel Errors**
 
-- [request_module: runaway loop modprobe (Looping legacy kernel
-  modprobe on older Linux versions)](#KernelLoop "#KernelLoop")
-- ["FATAL: kernel too old" and "fsck: No such file or
-  directory while trying to open /dev" (Kernel and AMI mismatch)](#KernelOld "#KernelOld")
-- ["FATAL: Could not load /lib/modules" or
-  "BusyBox" (Missing kernel modules)](#KernelMissing "#KernelMissing")
+- [request_module: runaway loop modprobe (Looping legacy kernel modprobe on older Linux versions)](#KernelLoop "#KernelLoop")
+- ["FATAL: kernel too old" and "fsck: No such file or directory while trying to open /dev" (Kernel and AMI mismatch)](#KernelOld "#KernelOld")
+- ["FATAL: Could not load /lib/modules" or "BusyBox" (Missing kernel modules)](#KernelMissing "#KernelMissing")
 - [ERROR Invalid kernel (EC2 incompatible kernel)](#KernelInvalid "#KernelInvalid")
 
 **File System Errors**
 
-- [fsck: No such file or directory while trying to open... (File
-  system not found)](#FilesystemFschk "#FilesystemFschk")
+- [fsck: No such file or directory while trying to open... (File system not found)](#FilesystemFschk "#FilesystemFschk")
 - [General error mounting filesystems (failed mount)](#FilesystemGeneral "#FilesystemGeneral")
-- [VFS: Unable to mount root fs on unknown-block (Root
-  filesystem mismatch)](#FilesystemKernel "#FilesystemKernel")
-- [Error: Unable to determine major/minor number of root
-  device... (Root file system/device mismatch)](#FilesystemError "#FilesystemError")
+- [VFS: Unable to mount root fs on unknown-block (Root filesystem mismatch)](#FilesystemKernel "#FilesystemKernel")
+- [Error: Unable to determine major/minor number of root device... (Root file system/device mismatch)](#FilesystemError "#FilesystemError")
 - [XENBUS: Device with no driver...](#FilesystemXenbus "#FilesystemXenbus")
-- [... days without being checked, check forced (File system
-  check required)](#FilesystemCheck "#FilesystemCheck")
+- [... days without being checked, check forced (File system check required)](#FilesystemCheck "#FilesystemCheck")
 - [fsck died with exit status... (Missing device)](#FilesystemFschkDied "#FilesystemFschkDied")
 
 **Operating System Errors**
 
 - [GRUB prompt (grubdom>)](#OpSystemGrub "#OpSystemGrub")
-- [Bringing up interface eth0: Device eth0 has different MAC
-  address than expected, ignoring. (Hard-coded MAC address)](#OpSystemBringing "#OpSystemBringing")
-- [Unable to load SELinux Policy. Machine is in enforcing mode.
-  Halting now. (SELinux misconfiguration)](#OpSystemUnable "#OpSystemUnable")
+- [Bringing up interface eth0: Device eth0 has different MAC address than expected, ignoring. (Hard-coded MAC address)](#OpSystemBringing "#OpSystemBringing")
+- [Unable to load SELinux Policy. Machine is in enforcing mode. Halting now. (SELinux misconfiguration)](#OpSystemUnable "#OpSystemUnable")
 - [XENBUS: Timeout connecting to devices (Xenbus timeout)](#OpSystemXenbus "#OpSystemXenbus")
 
 ## Out of memory: kill process
@@ -253,9 +228,7 @@ example:
 | Amazon EBS-backed      | Use the following procedure:<br>1. Stop the instance.<br>2. Detach the volume.<br>3. Attempt to recover the volume.<br>NoteIt's good practice to snapshot your Amazon EBS volumes often. This dramatically<br>decreases the risk of data loss as a result of failure.<br>4. Re-attach the volume to the instance.<br>5. Start the instance. |
 | Instance store-backed  | Terminate the instance and launch a new instance.<br>NoteData cannot be recovered. Recover from backups.<br>NoteIt's a good practice to use either Amazon S3 or Amazon EBS for backups. Instance store volumes<br>are directly tied to single host and single disk failures.                                                                |
 
-## I/O ERROR: neither local nor remote disk (Broken distributed
-
-block device)
+## I/O ERROR: neither local nor remote disk (Broken distributed block device)
 
 An input/output error on the device is indicated by a system log entry similar to the
 following example:
@@ -289,9 +262,7 @@ Terminate the instance and launch a new instance.
 For an Amazon EBS-backed instance you can recover data from a recent snapshot by creating an
 image from it. Any data added after the snapshot cannot be recovered.
 
-## request_module: runaway loop modprobe (Looping legacy kernel
-
-modprobe on older Linux versions)
+## request_module: runaway loop modprobe (Looping legacy kernel modprobe on older Linux versions)
 
 This condition is indicated by a system log similar to the one shown below. Using an
 unstable or old Linux kernel (for example, 2.6.16-xenU) can cause an interminable loop condition
@@ -326,9 +297,7 @@ request_module: runaway loop modprobe binfmt-464c
 | Amazon EBS-backed      | Use a newer kernel, either GRUB-based or static, using one of the following<br>options:<br>Option 1: Terminate the instance and launch a new instance, specifying the<br>`-kernel` and `-ramdisk` parameters.<br>Option 2:<br>1. Stop the instance.<br>2. Modify the kernel and ramdisk attributes to use a newer kernel.<br>3. Start the instance. |
 | Instance store-backed  | Terminate the instance and launch a new instance, specifying the `-kernel`<br>and `-ramdisk` parameters.                                                                                                                                                                                                                                            |
 
-## "FATAL: kernel too old" and "fsck: No such file or
-
-directory while trying to open /dev" (Kernel and AMI mismatch)
+## "FATAL: kernel too old" and "fsck: No such file or directory while trying to open /dev" (Kernel and AMI mismatch)
 
 This condition is indicated by a system log similar to the one shown below.
 
@@ -351,9 +320,7 @@ Incompatible kernel and userland
 | Amazon EBS-backed      | Use the following procedure:<br>1. Stop the instance.<br>2. Modify the configuration to use a newer kernel.<br>3. Start the instance.                         |
 | Instance store-backed  | Use the following procedure:<br>1. Create an AMI that uses a newer kernel.<br>2. Terminate the instance.<br>3. Start a new instance from the AMI you created. |
 
-## "FATAL: Could not load /lib/modules" or
-
-"BusyBox" (Missing kernel modules)
+## "FATAL: Could not load /lib/modules" or "BusyBox" (Missing kernel modules)
 
 This condition is indicated by a system log similar to the one shown below.
 
@@ -451,9 +418,7 @@ One or both of the following conditions can cause this problem:
 | Amazon EBS-backed      | Use the following procedure:<br>1. Stop the instance.<br>2. Replace with working kernel.<br>3. Install a fallback kernel.<br>4. Modify the AMI by correcting the kernel.                                                                                                                                                 |
 | Instance store-backed  | Use the following procedure:<br>1. Terminate the instance and launch a new instance with the correct kernel.<br>2. Create an AMI with the correct kernel.<br>3. (Optional) Seek technical assistance for data recovery using [Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/"). |
 
-## fsck: No such file or directory while trying to open... (File
-
-system not found)
+## fsck: No such file or directory while trying to open... (File system not found)
 
 This condition is indicated by a system log similar to the one shown below.
 
@@ -563,9 +528,7 @@ Press enter for maintenance
 | Amazon EBS-backed      | Use the following procedure:<br>1. Stop the instance.<br>2. Detach the root volume.<br>3. Attach the root volume to a known working instance.<br>4. Run filesystem check (fsck -a /dev/...).<br>5. Fix any errors.<br>6. Detach the volume from the known working instance.<br>7. Attach the volume to the stopped instance.<br>8. Start the instance.<br>9. Recheck the instance status. |
 | Instance store-backed  | Try one of the following:<br>• Start a new instance.<br>• (Optional) Seek technical assistance for data recovery using [Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").                                                                                                                                                                        |
 
-## VFS: Unable to mount root fs on unknown-block (Root
-
-filesystem mismatch)
+## VFS: Unable to mount root fs on unknown-block (Root filesystem mismatch)
 
 This condition is indicated by a system log similar to the one shown below.
 
@@ -594,9 +557,7 @@ Registering block device major 8
 | Amazon EBS-backed      | Do one of the following:<br>• Stop and then restart the instance.<br>• Modify root volume to attach at the correct device point, possible /dev/sda1<br>instead of /dev/sda.<br>• Stop and modify to use modern kernel.<br>• Refer to the documentation for your Linux distribution to check for known update<br>bugs. Change or reinstall the kernel. |
 | Instance store-backed  | Terminate the instance and launch a new instance using a modern kernel.                                                                                                                                                                                                                                                                               |
 
-## Error: Unable to determine major/minor number of root
-
-device... (Root file system/device mismatch)
+## Error: Unable to determine major/minor number of root device... (Root file system/device mismatch)
 
 This condition is indicated by a system log similar to the one shown below.
 
@@ -670,9 +631,7 @@ sh: can't access tty; job control turned off
 | Amazon EBS-backed      | Use the following procedure:<br>1. Stop the instance.<br>2. Detach the volume.<br>3. Fix the device mapping problem.<br>4. Start the instance.<br>5. Modify the AMI to address device mapping issues. |
 | Instance store-backed  | Use the following procedure:<br>1. Create an AMI with the appropriate fix (map block device correctly).<br>2. Terminate the instance and launch a new instance using the AMI you created.             |
 
-## ... days without being checked, check forced (File system
-
-check required)
+## ... days without being checked, check forced (File system check required)
 
 This condition is indicated by a system log similar to the one shown below.
 
@@ -755,9 +714,7 @@ This condition is indicated by a system log similar to the one shown below.
 | Amazon EBS-backed      | Option 1: Modify the AMI and relaunch the instance:<br>1. Modify the source AMI to create a GRUB configuration file at the standard location<br>(/boot/grub/menu.lst).<br>2. Verify that your version of GRUB supports the underlying file system type and<br>upgrade GRUB if necessary.<br>3. Pick the appropriate GRUB image, (hd0-1st drive or hd00 – 1st drive, 1st<br>partition).<br>4. Terminate the instance and launch a new one using the AMI that you created.<br>Option 2: Fix the existing instance:<br>1. Stop the instance.<br>2. Detach the root filesystem.<br>3. Attach the root filesystem to a known working instance.<br>4. Mount filesystem.<br>5. Create a GRUB configuration file.<br>6. Verify that your version of GRUB supports the underlying file system type and<br>upgrade GRUB if necessary.<br>7. Detach filesystem.<br>8. Attach to the original instance.<br>9. Modify kernel attribute to use the appropriate GRUB image (1st disk or 1st<br>partition on 1st disk).<br>10. Start the instance. |
 | Instance store-backed  | Option 1: Modify the AMI and relaunch the instance:<br>1. Create the new AMI with a GRUB configuration file at the standard location<br>(/boot/grub/menu.lst).<br>2. Pick the appropriate GRUB image, (hd0-1st drive or hd00 – 1st drive, 1st<br>partition).<br>3. Verify that your version of GRUB supports the underlying file system type and<br>upgrade GRUB if necessary.<br>4. Terminate the instance and launch a new instance using the AMI you created.<br>Option 2: Terminate the instance and launch a new instance, specifying the correct<br>kernel.<br>NoteTo recover data from the existing instance, contact [Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").                                                                                                                                                                                                                                                                                                           |
 
-## Bringing up interface eth0: Device eth0 has different MAC
-
-address than expected, ignoring. (Hard-coded MAC address)
+## Bringing up interface eth0: Device eth0 has different MAC address than expected, ignoring. (Hard-coded MAC address)
 
 This condition is indicated by a system log similar to the one shown below.
 
@@ -782,9 +739,7 @@ There is a hardcoded interface MAC in the AMI configuration
 | Amazon EBS-backed      | Do one of the following:<br>• Modify the AMI to remove the hardcoding and relaunch the instance.<br>• Modify the instance to remove the hardcoded MAC address.<br>OR<br>Use the following procedure:<br>1. Stop the instance.<br>2. Detach the root volume.<br>3. Attach the volume to another instance and modify the volume to remove the hardcoded<br>MAC address.<br>4. Attach the volume to the original instance.<br>5. Start the instance. |
 | Instance store-backed  | Do one of the following:<br>• Modify the instance to remove the hardcoded MAC address.<br>• Terminate the instance and launch a new instance.                                                                                                                                                                                                                                                                                                     |
 
-## Unable to load SELinux Policy. Machine is in enforcing mode.
-
-Halting now. (SELinux misconfiguration)
+## Unable to load SELinux Policy. Machine is in enforcing mode. Halting now. (SELinux misconfiguration)
 
 This condition is indicated by a system log similar to the one shown below.
 

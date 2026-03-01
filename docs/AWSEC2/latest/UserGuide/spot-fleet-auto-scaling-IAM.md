@@ -1,6 +1,4 @@
-# IAM permissions required for Spot Fleet
-
-automatic scaling
+# IAM permissions required for Spot Fleet automatic scaling
 
 Automatic scaling for Spot Fleet is made possible by a combination of the Amazon EC2,
 Amazon CloudWatch, and Application Auto Scaling APIs. Spot Fleet requests are created with Amazon EC2, alarms are

@@ -143,8 +143,7 @@ terminate the instance.
 Unlimited mode is suitable for burstable performance Spot Instances only if the instance runs long
 enough to accrue CPU credits for bursting. Otherwise, paying for surplus credits makes
 burstable performance Spot Instances more expensive than using other instances. For more
-information, see [When to use unlimited mode versus fixed
-CPU](burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode "burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode").
+information, see [When to use unlimited mode versus fixed CPU](burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode "burstable-performance-instances-unlimited-mode-concepts.md#when-to-use-unlimited-mode").
 
 T2 instances, when configured in [Standard mode](burstable-performance-instances-standard-mode.md "burstable-performance-instances-standard-mode.md"), get
 [launch credits](burstable-performance-instances-standard-mode-concepts.md#launch-credits "burstable-performance-instances-standard-mode-concepts.md#launch-credits"). T2 instances are the only burstable performance instances that get

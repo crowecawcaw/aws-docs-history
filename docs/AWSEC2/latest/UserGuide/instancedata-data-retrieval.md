@@ -2,8 +2,7 @@
 
 You can access EC2 instance metadata from inside of the instance itself or from the
 EC2 console, API, SDKs, or the AWS CLI. To get the current instance metadata settings for
-an instance from the console or command line, see [Query instance metadata options
-for existing instances](#query-IMDS-existing-instances "#query-IMDS-existing-instances").
+an instance from the console or command line, see [Query instance metadata options for existing instances](#query-IMDS-existing-instances "#query-IMDS-existing-instances").
 
 You can also modify user data for instances with an EBS root volume. The
 instance must be in the stopped state. For console directions, see [Update the instance user data](user-data.md#user-data-modify "user-data.md#user-data-modify"). For a
@@ -17,7 +16,15 @@ data.
 
 ## Instance metadata access considerations
 
-To avoid problems with instance metadata retrieval, consider the following.
+To avoid problems with instance metadata, consider the following.
+
+**Instance launch failures due to IMDSv2 enforcement
+(`HttpTokensEnforced=enabled`)**
+
+Before enabling IMDSv2 enforcement, you need all your software on the instance to
+support IMDSv2, after which you can change the default to disable
+IMDSv1 (`httpTokens=required`), after which you can
+enable enforcement. For more information, [Transition to using Instance Metadata Service Version 2](instance-metadata-transition-to-version-2.md "instance-metadata-transition-to-version-2.md").
 
 **Command format**
 
@@ -76,8 +83,7 @@ configuration to pass settings (such as the AWS Region) directly to the
 container, or consider increasing the hop limit to 2. For information about
 the hop limit impact, see [Add defense in depth against open firewalls, reverse proxies, and SSRF
 vulnerabilities with enhancements to the EC2 Instance Metadata
-Service](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/ "https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/"). For information about changing the hop limit, see [Change the PUT response hop
-limit](configuring-IMDS-existing-instances.md#modify-PUT-response-hop-limit "configuring-IMDS-existing-instances.md#modify-PUT-response-hop-limit").
+Service](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/ "https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/"). For information about changing the hop limit, see [Change the PUT response hop limit](configuring-IMDS-existing-instances.md#modify-PUT-response-hop-limit "configuring-IMDS-existing-instances.md#modify-PUT-response-hop-limit").
 
 **Packets per second (PPS) limit**
 There is a 1024 packet per second (PPS) limit to services that use [link-local](using-instance-addressing.md#link-local-addresses "using-instance-addressing.md#link-local-addresses") addresses. This limit includes the aggregate of [Route 53 Resolver DNS Queries](../../../vpc/latest/userguide/AmazonDNS-concepts.md#vpc-dns-limits "../../../vpc/latest/userguide/AmazonDNS-concepts.md#vpc-dns-limits"), Instance Metadata Service (IMDS) requests, [Amazon Time Service Network Time Protocol (NTP)](set-time.md "set-time.md") requests, and [Windows Licensing Service (for Microsoft Windows based instances)](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com/windows/resources/licensing/") requests.
@@ -110,9 +116,7 @@ There is a 1024 packet per second (PPS) limit to services that use [link-local](
 - User data is an instance attribute. If you create an AMI from an instance, the
   instance user data is not included in the AMI.
 
-## Access instance metadata from within an
-
-EC2 instance
+## Access instance metadata from within an EC2 instance
 
 Because your instance metadata is available from your running instance, you do not
 need to use the Amazon EC2 console or the AWS CLI. This can be helpful when you're writing
@@ -341,9 +345,7 @@ New-Item $file -ItemType file
 <persist>true</persist>`
 ```
 
-## Query instance metadata options
-
-for existing instances
+## Query instance metadata options for existing instances
 
 You can query the instance metadata options for your existing instances.
 
@@ -384,11 +386,10 @@ aws ec2 describe-instances \
 
 PowerShell
 
-###### To query the instance metadata options for an existing
+###### To query the instance metadata options for an existing instance using the Tools for PowerShell
 
-instance using the Tools for PowerShell
-
-Use the [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md") Cmdlet.
+Use the [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md")
+cmdlet.
 
 ```
 (Get-EC2Instance `

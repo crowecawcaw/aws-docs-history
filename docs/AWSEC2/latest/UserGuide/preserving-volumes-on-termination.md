@@ -1,14 +1,10 @@
-# Preserve data when an instance is
-
-terminated
+# Preserve data when an instance is terminated
 
 When an Amazon EC2 instance is terminated, you can preserve the data on your instance store
 volumes or Amazon EBS volumes. This topic explains how to ensure your data persists beyond
 instance termination.
 
-## How
-
-instance termination affects root and data volumes
+## How instance termination affects root and data volumes
 
 ###### Instance store volumes
 
@@ -36,9 +32,7 @@ After an instance terminates, you can take a snapshot of the preserved
 volume or attach it to another instance. To avoid incurring charges, you
 must delete the volume.
 
-## Default deletion
-
-behavior for EBS volumes
+## Default deletion behavior for EBS volumes
 
 The default `DeleteOnTermination` value differs depending on the volume
 type, whether the volume was attached at launch or after, and the method (console or
@@ -52,9 +46,7 @@ CLI) used to attach the volume:
 | Data volume | At launch     | CLI                  | Delete                                   |
 | Data volume | After launch  | Console and CLI      | Preserve                                 |
 
-## Check volume persistence
-
-settings
+## Check volume persistence settings
 
 The default value at launch for an EBS volume is determined by the
 `DeleteOnTermination` attribute set on the AMI. You can change the
@@ -77,9 +69,7 @@ launch an instance.
      instance is terminated. Any volumes not deleted continue to incur
      charges.
 
-## Change the root volume to persist
-
-at launch
+## Change the root volume to persist at launch
 
 You can change the `DeleteOnTermination` attribute of an EBS root
 volume when you launch an instance. You can also use the following procedure for a
@@ -87,9 +77,7 @@ data volume.
 
 Console
 
-###### To change the root volume of an instance to persist at
-
-launch
+###### To change the root volume of an instance to persist at launch
 
 1. Follow the procedure to [launch an
    instance](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md"), but don't launch the instance until you've
@@ -103,14 +91,11 @@ launch
    **No**.
 5. In the **Summary** panel, review your
    instance configuration, and then choose **Launch
-   instance**. For more information, see [Launch an EC2 instance using the launch
-   instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+   instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 AWS CLI
 
-###### To change the root volume of an instance to persist at
-
-launch
+###### To change the root volume of an instance to persist at launch
 
 Use the [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../../../cli/latest/reference/ec2/run-instances.md") command to change the value of
 `DeleteOnTermination` in the block device
@@ -139,9 +124,7 @@ example `/dev/sda1` or `/dev/xvda`, and for
 
 PowerShell
 
-###### To change the root volume of an instance to persist at
-
-launch
+###### To change the root volume of an instance to persist at launch
 
 Use the [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Instance.md "../../../powershell/latest/reference/items/New-EC2Instance.md") cmdlet to change the value of
 `DeleteOnTermination` in the block device
@@ -165,9 +148,7 @@ $bdm.DeviceName = "`/dev/sda1`"
 $bdm.Ebs = $ebd
 ```
 
-## Change the root volume of a
-
-running instance to persist
+## Change the root volume of a running instance to persist
 
 You can change the EBS root volume of a running instance to persist. You can also
 use the following procedure for a data volume.

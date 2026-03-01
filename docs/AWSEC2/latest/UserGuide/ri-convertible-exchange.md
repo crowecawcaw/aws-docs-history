@@ -15,16 +15,13 @@ You can't exchange Standard Reserved Instances, but you can modify them. For mor
 
 ###### Contents
 
-- [Requirements for exchanging
-  Convertible Reserved Instances](#riconvertible-exchange-limits "#riconvertible-exchange-limits")
+- [Requirements for exchanging Convertible Reserved Instances](#riconvertible-exchange-limits "#riconvertible-exchange-limits")
 - [Calculate Convertible Reserved Instances exchanges](#riconvertible-exchange-cost "#riconvertible-exchange-cost")
 - [Merge Convertible Reserved Instances](#ri-merge-convertible "#ri-merge-convertible")
 - [Exchange a portion of a Convertible Reserved Instance](#ri-split-convertible "#ri-split-convertible")
 - [Submit exchange requests](#ri-exchange-process "#ri-exchange-process")
 
-## Requirements for exchanging
-
-Convertible Reserved Instances
+## Requirements for exchanging Convertible Reserved Instances
 
 If the following conditions are met, Amazon EC2 processes your exchange request. Your
 Convertible Reserved Instance must be:
@@ -187,8 +184,7 @@ instance:
    `m3.medium` Convertible Reserved Instance.
 
 ![Modify and exchange Reserved Instances.](images/ri-split-cri-single.png)
-For more information, see [Support for modifying instance
-sizes](ri-modifying.md#ri-modification-instancemove "ri-modifying.md#ri-modification-instancemove") and [Submit exchange requests](#ri-exchange-process "#ri-exchange-process").
+For more information, see [Support for modifying instance sizes](ri-modifying.md#ri-modification-instancemove "ri-modifying.md#ri-modification-instancemove") and [Submit exchange requests](#ri-exchange-process "#ri-exchange-process").
 
 ## Submit exchange requests
 

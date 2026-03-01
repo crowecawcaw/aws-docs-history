@@ -1,6 +1,4 @@
-# Tag a new or existing Spot Fleet request and the instances
-
-and volumes it launches
+# Tag a new or existing Spot Fleet request and the instances and volumes it launches
 
 To help categorize and manage your Spot Fleet requests and the instances and volumes that it
 launches, you can tag them with custom metadata. You can assign a tag to a Spot Fleet request
@@ -25,8 +23,7 @@ For more information about how tags work, see [Tag your Amazon EC2 resources](Us
 ###### Contents
 
 - [Prerequisite](#tag-spot-fleet-prereqs "#tag-spot-fleet-prereqs")
-- [Tag a new Spot Fleet and the instances
-  and volumes that it launches](#tag-new-spot-fleet-and-resources "#tag-new-spot-fleet-and-resources")
+- [Tag a new Spot Fleet and the instances and volumes that it launches](#tag-new-spot-fleet-and-resources "#tag-new-spot-fleet-and-resources")
 - [Tag an existing Spot Fleet](#tag-existing-spot-fleet "#tag-existing-spot-fleet")
 - [View Spot Fleet request tags](#view-spot-fleet-tags "#view-spot-fleet-tags")
 
@@ -99,16 +96,11 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-## Tag a new Spot Fleet and the instances
+## Tag a new Spot Fleet and the instances and volumes that it launches
 
-and volumes that it launches
+###### To tag a new Spot Fleet request and the instances and volumes that it launches using the console
 
-###### To tag a new Spot Fleet request and the instances and volumes that it launches
-
-using the console
-
-1. Follow the [Create a Spot Fleet request using defined
-   parameters](create-spot-fleet.md#create-spot-fleet-advanced "create-spot-fleet.md#create-spot-fleet-advanced") procedure.
+1. Follow the [Create a Spot Fleet request using defined parameters](create-spot-fleet.md#create-spot-fleet-advanced "create-spot-fleet.md#create-spot-fleet-advanced") procedure.
 2. The way you add a tag depends on whether you manually configured the fleet
    or used a launch template.
    - If you manually configured the fleet, do the following:
@@ -140,9 +132,7 @@ using the console
    [launch
    template](create-launch-template.md "create-launch-template.md").
 
-###### To tag a new Spot Fleet request and the instances and volumes that it launches
-
-using the AWS CLI
+###### To tag a new Spot Fleet request and the instances and volumes that it launches using the AWS CLI
 
 To tag a Spot Fleet request when you create it, and to tag the instances and volumes
 when they are launched by the fleet, configure the Spot Fleet request configuration as

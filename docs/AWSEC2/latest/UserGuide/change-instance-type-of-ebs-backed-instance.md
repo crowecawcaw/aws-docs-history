@@ -15,8 +15,7 @@ For more information, see [Compatibility for changing the instance type](resize-
   If your instance has a public IPv4 address, that is not an Elastic IP, we release the address and give your instance a new public IPv4 address. For more information on IP address behavior throughout the lifecycle of an instance, see [Differences between instance states](ec2-instance-lifecycle.md#lifecycle-differences "ec2-instance-lifecycle.md#lifecycle-differences").
 - You can't change the instance type of a [Spot Instance](using-spot-instances-request.md#stopping-a-spot-instance "using-spot-instances-request.md#stopping-a-spot-instance").
 - [Windows instances] We recommend that you update the AWS PV driver package before
-  changing the instance type. For more information, see [Upgrade PV drivers on EC2 Windows
-  instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
+  changing the instance type. For more information, see [Upgrade PV drivers on EC2 Windows instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
 - If your instance is in an Auto Scaling group, the Amazon EC2 Auto Scaling service marks the stopped
   instance as unhealthy, and might terminate it and launch a replacement instance. To
   prevent this, you can suspend the scaling processes for the group while you're changing

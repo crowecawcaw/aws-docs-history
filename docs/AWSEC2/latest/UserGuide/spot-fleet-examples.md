@@ -20,32 +20,20 @@ your launch template or launch specification.
 
 ###### Examples
 
-- [Example 1: Launch Spot Instances using the lowest-priced
-  Availability Zone in the Region](#fleet-config1 "#fleet-config1")
-- [Example 2: Launch Spot Instances using the lowest-priced
-  Availability Zone from a list](#fleet-config2 "#fleet-config2")
-- [Example 3: Launch Spot Instances using the lowest-priced
-  instance type from a list](#fleet-config3 "#fleet-config3")
+- [Example 1: Launch Spot Instances using the lowest-priced Availability Zone in the Region](#fleet-config1 "#fleet-config1")
+- [Example 2: Launch Spot Instances using the lowest-priced Availability Zone from a list](#fleet-config2 "#fleet-config2")
+- [Example 3: Launch Spot Instances using the lowest-priced instance type from a list](#fleet-config3 "#fleet-config3")
 - [Example 4. Override the price for the request](#fleet-config4 "#fleet-config4")
-- [Example 5: Launch a Spot Fleet using the diversified
-  allocation strategy](#fleet-config5 "#fleet-config5")
-- [Example 6: Launch a Spot Fleet using instance
-  weighting](#fleet-config6 "#fleet-config6")
+- [Example 5: Launch a Spot Fleet using the diversified allocation strategy](#fleet-config5 "#fleet-config5")
+- [Example 6: Launch a Spot Fleet using instance weighting](#fleet-config6 "#fleet-config6")
 - [Example 7: Launch a Spot Fleet using On-Demand capacity](#fleet-config7 "#fleet-config7")
-- [Example 8: Configure Capacity Rebalancing to launch
-  replacement Spot Instances](#fleet-config8 "#fleet-config8")
-- [Example 9: Launch Spot Instances in a
-  capacity-optimized fleet](#fleet-config9 "#fleet-config9")
-- [Example 10: Launch Spot Instances in a
-  capacity-optimized fleet with priorities](#fleet-config10 "#fleet-config10")
-- [Example 11: Launch Spot Instances in a
-  priceCapacityOptimized fleet](#fleet-config11 "#fleet-config11")
-- [Example 12: Configure attribute-based instance type
-  selection](#fleet-config12 "#fleet-config12")
+- [Example 8: Configure Capacity Rebalancing to launch replacement Spot Instances](#fleet-config8 "#fleet-config8")
+- [Example 9: Launch Spot Instances in a capacity-optimized fleet](#fleet-config9 "#fleet-config9")
+- [Example 10: Launch Spot Instances in a capacity-optimized fleet with priorities](#fleet-config10 "#fleet-config10")
+- [Example 11: Launch Spot Instances in a priceCapacityOptimized fleet](#fleet-config11 "#fleet-config11")
+- [Example 12: Configure attribute-based instance type selection](#fleet-config12 "#fleet-config12")
 
-## Example 1: Launch Spot Instances using the lowest-priced
-
-Availability Zone in the Region
+## Example 1: Launch Spot Instances using the lowest-priced Availability Zone in the Region
 
 The following example specifies a single launch specification without an
 Availability Zone or subnet. The Spot Fleet launches the instances in the lowest-priced
@@ -74,9 +62,7 @@ On-Demand price.
 }
 ```
 
-## Example 2: Launch Spot Instances using the lowest-priced
-
-Availability Zone from a list
+## Example 2: Launch Spot Instances using the lowest-priced Availability Zone from a list
 
 The following examples specify two launch specifications with different
 Availability Zones or subnets, but the same instance type and AMI.
@@ -171,9 +157,7 @@ using the network interface.
   `...`
 ```
 
-## Example 3: Launch Spot Instances using the lowest-priced
-
-instance type from a list
+## Example 3: Launch Spot Instances using the lowest-priced instance type from a list
 
 The following examples specify two launch configurations with different instance
 types, but the same AMI and Availability Zone or subnet. The Spot Fleet launches the
@@ -321,16 +305,13 @@ price.
 }
 ```
 
-## Example 5: Launch a Spot Fleet using the diversified
-
-allocation strategy
+## Example 5: Launch a Spot Fleet using the diversified allocation strategy
 
 The following example uses the `diversified` allocation strategy. The
 launch specifications have different instance types but the same AMI and
 Availability Zone or subnet. The Spot Fleet distributes the 30 instances across the three
 launch specifications, such that there are 10 instances of each type. For more
-information, see [Use allocation strategies to determine
-how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand capacity](ec2-fleet-allocation-strategy.md "ec2-fleet-allocation-strategy.md").
+information, see [Use allocation strategies to determine how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand capacity](ec2-fleet-allocation-strategy.md "ec2-fleet-allocation-strategy.md").
 
 **Availability Zone**
 
@@ -462,9 +443,7 @@ unique subnets (each mapping to a different zone).
 }
 ```
 
-## Example 6: Launch a Spot Fleet using instance
-
-weighting
+## Example 6: Launch a Spot Fleet using instance weighting
 
 The following examples use instance weighting, which means that the price is per
 unit hour instead of per instance hour. Each launch configuration lists a different
@@ -482,8 +461,7 @@ If the `c3.xlarge` request is successful, Spot provisions 7 of these
 instances. Divide 20 by 3 for a total of 6.66 instances, then round up to 7
 instances.
 
-For more information, see [Use instance weighting to manage cost and
-performance of your EC2 Fleet or Spot Fleet](ec2-fleet-instance-weighting.md "ec2-fleet-instance-weighting.md").
+For more information, see [Use instance weighting to manage cost and performance of your EC2 Fleet or Spot Fleet](ec2-fleet-instance-weighting.md "ec2-fleet-instance-weighting.md").
 
 **Availability Zone**
 
@@ -580,9 +558,7 @@ capacity and availability.
 }
 ```
 
-## Example 8: Configure Capacity Rebalancing to launch
-
-replacement Spot Instances
+## Example 8: Configure Capacity Rebalancing to launch replacement Spot Instances
 
 The following example configures the Spot Fleet to launch a replacement Spot Instance when Amazon EC2
 emits a rebalance recommendation for a Spot Instance in the fleet. To configure the automatic
@@ -590,8 +566,7 @@ replacement of Spot Instances, for `ReplacementStrategy`, specify
 `launch-before-terminate`. To configure the time delay from the
 launch of the new replacement Spot Instances to the automatic deletion of the old Spot Instances, for
 `termination-delay`, specify a value in seconds. For more
-information, see [Configuration
-options](ec2-fleet-capacity-rebalance.md#ec2-fleet-capacity-rebalance-config-options "ec2-fleet-capacity-rebalance.md#ec2-fleet-capacity-rebalance-config-options").
+information, see [Configuration options](ec2-fleet-capacity-rebalance.md#ec2-fleet-capacity-rebalance-config-options "ec2-fleet-capacity-rebalance.md#ec2-fleet-capacity-rebalance-config-options").
 
 ###### Note
 
@@ -605,8 +580,7 @@ Spot capacity pools specified in the Spot Fleet request. We recommend that you c
 the fleet with a diversified set of instance types and Availability Zones, and for
 `AllocationStrategy`, specify `capacityOptimized`. For
 more information about what you should consider when configuring a Spot Fleet for Capacity
-Rebalancing, see [Use Capacity Rebalancing in EC2 Fleet and Spot Fleet
-to replace at-risk Spot Instances](ec2-fleet-capacity-rebalance.md "ec2-fleet-capacity-rebalance.md").
+Rebalancing, see [Use Capacity Rebalancing in EC2 Fleet and Spot Fleet to replace at-risk Spot Instances](ec2-fleet-capacity-rebalance.md "ec2-fleet-capacity-rebalance.md").
 
 ```
 {
@@ -655,9 +629,7 @@ to replace at-risk Spot Instances](ec2-fleet-capacity-rebalance.md "ec2-fleet-ca
 }
 ```
 
-## Example 9: Launch Spot Instances in a
-
-capacity-optimized fleet
+## Example 9: Launch Spot Instances in a capacity-optimized fleet
 
 The following example demonstrates how to configure a Spot Fleet with a Spot allocation
 strategy that optimizes for capacity. To optimize for capacity, you must set
@@ -699,9 +671,7 @@ instances that are launching.
 }
 ```
 
-## Example 10: Launch Spot Instances in a
-
-capacity-optimized fleet with priorities
+## Example 10: Launch Spot Instances in a capacity-optimized fleet with priorities
 
 The following example demonstrates how to configure a Spot Fleet with a Spot allocation
 strategy that optimizes for capacity while using priority on a best-effort
@@ -762,9 +732,7 @@ but optimizes for capacity first.
 }
 ```
 
-## Example 11: Launch Spot Instances in a
-
-priceCapacityOptimized fleet
+## Example 11: Launch Spot Instances in a priceCapacityOptimized fleet
 
 The following example demonstrates how to configure a Spot Fleet with a Spot allocation
 strategy that optimizes for both capacity and lowest price. To optimize for capacity
@@ -811,9 +779,7 @@ that are launching while also choosing the pool that is the lowest priced.
 }
 ```
 
-## Example 12: Configure attribute-based instance type
-
-selection
+## Example 12: Configure attribute-based instance type selection
 
 The following example demonstrates how to configure a Spot Fleet to use attribute-based
 instance type selection for identifying instance types. To specify the required

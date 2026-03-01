@@ -1,6 +1,4 @@
-# Detailed performance statistics for
-
-Amazon EC2 instance store volumes
+# Detailed performance statistics for Amazon EC2 instance store volumes
 
 Amazon EC2 provides real-time, high-resolution performance statistics for NVMe instance store volumes
 attached to Nitro-based Amazon EC2 instances. These statistics are presented as aggregated counters that

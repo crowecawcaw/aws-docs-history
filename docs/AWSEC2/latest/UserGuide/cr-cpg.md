@@ -16,8 +16,7 @@ accounts. For more information, see [Sharing Capacity Reservations in cluster pl
 ###### Topics
 
 - [Limitations](#cr-cpg-limitations "#cr-cpg-limitations")
-- [Work with Capacity Reservations in cluster placement
-  groups](#work-with-crs-cpgs "#work-with-crs-cpgs")
+- [Work with Capacity Reservations in cluster placement groups](#work-with-crs-cpgs "#work-with-crs-cpgs")
 - [Sharing Capacity Reservations in cluster placement groups](#cpg-cr-sharing "#cpg-cr-sharing")
 
 ## Limitations
@@ -39,9 +38,7 @@ Keep the following in mind when creating Capacity Reservations in cluster placem
   Capacity Reservations. You must cancel all Capacity Reservations in the cluster placement group before you
   can delete it.
 
-## Work with Capacity Reservations in cluster placement
-
-groups
+## Work with Capacity Reservations in cluster placement groups
 
 To start using Capacity Reservations with cluster placement groups, perform the following
 steps.
@@ -53,16 +50,11 @@ Steps 2 and 3, specify the ARN of the existing cluster placement group.
 
 ###### Tasks
 
-- [Step 1: (Conditional) Create a
-  cluster placement group for use with a Capacity Reservation](#create-cpg "#create-cpg")
-- [Step 2: Create a Capacity Reservation in a cluster placement
-  group](#create-cr-in-cpg "#create-cr-in-cpg")
-- [Step 3: Launch instances into Capacity Reservations in a
-  cluster placement group](#launch-instance-into-cpg "#launch-instance-into-cpg")
+- [Step 1: (Conditional) Create a cluster placement group for use with a Capacity Reservation](#create-cpg "#create-cpg")
+- [Step 2: Create a Capacity Reservation in a cluster placement group](#create-cr-in-cpg "#create-cr-in-cpg")
+- [Step 3: Launch instances into Capacity Reservations in a cluster placement group](#launch-instance-into-cpg "#launch-instance-into-cpg")
 
-### Step 1: (_Conditional_) Create a
-
-cluster placement group for use with a Capacity Reservation
+### Step 1: (_Conditional_) Create a cluster placement group for use with a Capacity Reservation
 
 Perform this step only if you need to create a new cluster placement group. To
 use an existing cluster placement group, skip this step and then for Steps 2 and
@@ -117,9 +109,7 @@ New-EC2PlacementGroup `
 Make a note of the placement group ARN returned in the output,
 because you'll need it for the next step.
 
-### Step 2: Create a Capacity Reservation in a cluster placement
-
-group
+### Step 2: Create a Capacity Reservation in a cluster placement group
 
 You create a Capacity Reservation in a cluster placement group in the same way that you create any Capacity Reservation.
 However, you must also specify the ARN of the cluster placement group in which
@@ -205,9 +195,7 @@ Add-EC2CapacityReservation `
     -PlacementGroupArn "`placement_group_arn`"
 ```
 
-### Step 3: Launch instances into Capacity Reservations in a
-
-cluster placement group
+### Step 3: Launch instances into Capacity Reservations in a cluster placement group
 
 You can launch an instance into a Capacity Reservation that is in a cluster placement group with one of
 the following options:
@@ -270,8 +258,7 @@ Console
 
 3. In the **Summary** panel, review your
    instance configuration, and then choose **Launch
-   instance**. For more information, see [Launch an EC2 instance using the launch
-   instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+   instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 AWS CLI
 

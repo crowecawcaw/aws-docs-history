@@ -1,6 +1,4 @@
-# Manage the IPv4 addresses for your EC2
-
-instances
+# Manage the IPv4 addresses for your EC2 instances
 
 You can assign a public IPv4 address to your instance when you launch it. You can view
 the IPv4 addresses for your instance in the console through either the
@@ -10,11 +8,9 @@ page.
 ###### Tasks
 
 - [Assign a public IPv4 address at launch](#public-ip-addresses "#public-ip-addresses")
-- [Assign a private IPv4 address at
-  launch](#assign-private-ipv4-address "#assign-private-ipv4-address")
+- [Assign a private IPv4 address at launch](#assign-private-ipv4-address "#assign-private-ipv4-address")
 - [View the primary IPv4 address](#view-instance-ipv4-addresses "#view-instance-ipv4-addresses")
-- [View the IPv4 addresses using
-  instance metadata](#view-instance-ipv4-addresses-imds "#view-instance-ipv4-addresses-imds")
+- [View the IPv4 addresses using instance metadata](#view-instance-ipv4-addresses-imds "#view-instance-ipv4-addresses-imds")
 
 ## Assign a public IPv4 address at launch
 
@@ -73,16 +69,13 @@ Use the [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Inst
 -AssociatePublicIp $true
 ```
 
-## Assign a private IPv4 address at
-
-launch
+## Assign a private IPv4 address at launch
 
 You can specify a private IPv4 address from the IPv4 address range of the subnet,
 or let Amazon EC2 chose one for you. This address is assigned to the primary network
 interface.
 
-To assign IPv4 addresses after launch, see [Assign secondary IP addresses to an
-instance](instance-secondary-ip-addresses.md#assign-secondary-ip-address "instance-secondary-ip-addresses.md#assign-secondary-ip-address").
+To assign IPv4 addresses after launch, see [Assign secondary IP addresses to an instance](instance-secondary-ip-addresses.md#assign-secondary-ip-address "instance-secondary-ip-addresses.md#assign-secondary-ip-address").
 
 Console
 
@@ -178,13 +171,10 @@ The following is example output.
 10.251.50.12
 ```
 
-## View the IPv4 addresses using
-
-instance metadata
+## View the IPv4 addresses using instance metadata
 
 You can get the IPv4 addresses for your instance by retrieving instance metadata.
-For more information, see [Use instance metadata to manage your EC2
-instance](ec2-instance-metadata.md "ec2-instance-metadata.md").
+For more information, see [Use instance metadata to manage your EC2 instance](ec2-instance-metadata.md "ec2-instance-metadata.md").
 
 ###### To view the IPv4 addresses using instance metadata
 

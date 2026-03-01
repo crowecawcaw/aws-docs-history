@@ -1,6 +1,4 @@
-# Understand automatic scaling for
-
-Spot Fleet
+# Understand automatic scaling for Spot Fleet
 
 _Automatic scaling_ enables your Spot Fleet to increase or decrease its
 target capacity based on demand. With automatic scaling, a Spot Fleet can either launch
@@ -68,7 +66,6 @@ When using automatic scaling for your Spot Fleet, consider the following:
   metrics with a 5-minute frequency can result in slower response time and
   scaling on stale metric data. To send metric data for your instances to CloudWatch
   in 1-minute periods, you must specifically enable detailed monitoring. For
-  more information, see [Manage detailed monitoring for your EC2 instances](manage-detailed-monitoring.md "manage-detailed-monitoring.md") and [Create a Spot Fleet request using defined
-  parameters](create-spot-fleet.md#create-spot-fleet-advanced "create-spot-fleet.md#create-spot-fleet-advanced").
+  more information, see [Manage detailed monitoring for your EC2 instances](manage-detailed-monitoring.md "manage-detailed-monitoring.md") and [Create a Spot Fleet request using defined parameters](create-spot-fleet.md#create-spot-fleet-advanced "create-spot-fleet.md#create-spot-fleet-advanced").
 - **AWS CLI** – If you use the AWS CLI for
   configuring scaling for Spot Fleet, you'll use the [application-autoscaling](../../../cli/latest/reference/application-autoscaling.md "../../../cli/latest/reference/application-autoscaling.md") commands.

@@ -13,8 +13,7 @@ file systems to your Amazon EC2 instances at launch:
 ###### Note
 
 - This functionality is available in the new launch instance wizard only. For
-  more information, see [Launch an EC2 instance using the launch
-  instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md")
+  more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md")
 - Amazon FSx for Windows File Server and Amazon FSx for Lustre file systems can't be
   mounted at
   launch. You must mount these file systems manually after

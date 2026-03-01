@@ -1,6 +1,4 @@
-# How EC2 instance stop and start
-
-works
+# How EC2 instance stop and start works
 
 When you stop an Amazon EC2 instance, changes are registered at the operating system (OS)
 level of the instance, some resources are lost, and some resources persist. When you
@@ -10,10 +8,8 @@ start an instance, changes are registered at the instance level.
 
 - [What happens when you stop an instance](#what-happens-stop "#what-happens-stop")
 - [What happens when you start an instance](#what-happens-start "#what-happens-start")
-- [Test application response to stop and
-  start](#test-stop-start-instance "#test-stop-start-instance")
-- [Costs related to instance stop and
-  start](#ec2-stop-start-costs "#ec2-stop-start-costs")
+- [Test application response to stop and start](#test-stop-start-instance "#test-stop-start-instance")
+- [Costs related to instance stop and start](#ec2-stop-start-costs "#ec2-stop-start-costs")
 
 ## What happens when you stop an instance
 
@@ -43,8 +39,7 @@ default stop method. Note that some aspects might vary depending on which [stop 
 - [Windows instances] When you stop and start a Windows instance, the launch
   agent performs tasks on the instance, such as changing the drive letters for
   any attached Amazon EBS volumes. For more information about these defaults and
-  how you can change them, see [Use the EC2Launch v2 agent to perform tasks during EC2 Windows
-  instance launch](ec2launch-v2.md "ec2launch-v2.md").
+  how you can change them, see [Use the EC2Launch v2 agent to perform tasks during EC2 Windows instance launch](ec2launch-v2.md "ec2launch-v2.md").
 
 ###### Resources lost
 
@@ -104,17 +99,13 @@ see [Stop or terminate your Amazon EC2 Mac instance](mac-instance-stop.md "mac-i
   again. Starting the instances may migrate them to hardware that has capacity
   for all of the requested instances.
 
-## Test application response to stop and
-
-start
+## Test application response to stop and start
 
 You can use AWS Fault Injection Service to test how your application responds when your instance
 is stopped and started. For more information, see the [AWS Fault Injection Service User
 Guide](../../../fis/latest/userguide/what-is.md "../../../fis/latest/userguide/what-is.md").
 
-## Costs related to instance stop and
-
-start
+## Costs related to instance stop and start
 
 The following costs are associated with stopping and starting an instance.
 

@@ -76,16 +76,12 @@ policies](../../../organizations/latest/userguide/orgs_manage_policies_declarati
 
 ###### Contents
 
-- [Grant permission to users to manage
-  account access](configure-access-to-serial-console.md#sc-account-access-permissions "configure-access-to-serial-console.md#sc-account-access-permissions")
-- [View account access status to the serial
-  console](configure-access-to-serial-console.md#sc-view-account-access "configure-access-to-serial-console.md#sc-view-account-access")
+- [Grant permission to users to manage account access](configure-access-to-serial-console.md#sc-account-access-permissions "configure-access-to-serial-console.md#sc-account-access-permissions")
+- [View account access status to the serial console](configure-access-to-serial-console.md#sc-view-account-access "configure-access-to-serial-console.md#sc-view-account-access")
 - [Grant account access to the serial console](configure-access-to-serial-console.md#sc-grant-account-access "configure-access-to-serial-console.md#sc-grant-account-access")
 - [Deny account access to the serial console](configure-access-to-serial-console.md#sc-deny-account-access "configure-access-to-serial-console.md#sc-deny-account-access")
 
-### Grant permission to users to manage
-
-account access
+### Grant permission to users to manage account access
 
 To allow your users to manage account access to the EC2 serial console, you need to
 grant them the required IAM permissions.
@@ -116,9 +112,7 @@ JSON
 For more information, see [Creating IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in
 the _IAM User Guide_.
 
-### View account access status to the serial
-
-console
+### View account access status to the serial console
 
 Console
 
@@ -300,16 +294,11 @@ instances.
 
 ###### Example IAM policies
 
-- [Explicitly allow access to the serial
-  console](#iam-explicitly-allow-access "#iam-explicitly-allow-access")
-- [Explicitly deny access to the serial
-  console](#serial-console-IAM-policy "#serial-console-IAM-policy")
-- [Use resource tags to control access to the serial
-  console](#iam-resource-tags "#iam-resource-tags")
+- [Explicitly allow access to the serial console](#iam-explicitly-allow-access "#iam-explicitly-allow-access")
+- [Explicitly deny access to the serial console](#serial-console-IAM-policy "#serial-console-IAM-policy")
+- [Use resource tags to control access to the serial console](#iam-resource-tags "#iam-resource-tags")
 
-### Explicitly allow access to the serial
-
-console
+### Explicitly allow access to the serial console
 
 By default, no one has access to the serial console. To grant access to the serial
 console, you need to configure a policy to explicitly allow access. We recommend
@@ -352,9 +341,7 @@ JSON
 
 ```
 
-### Explicitly deny access to the serial
-
-console
+### Explicitly deny access to the serial console
 
 The following IAM policy allows access to the serial console of all instances, denoted
 by the `*` (asterisk), and explicitly denies access to the serial console of a
@@ -390,9 +377,7 @@ JSON
 
 ```
 
-### Use resource tags to control access to the serial
-
-console
+### Use resource tags to control access to the serial console
 
 You can use resource tags to control access to the serial console of an
 instance.

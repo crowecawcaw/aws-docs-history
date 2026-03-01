@@ -1,25 +1,17 @@
-# Troubleshoot Amazon EC2 instance
-
-hibernation
+# Troubleshoot Amazon EC2 instance hibernation
 
 Use this information to help diagnose and fix issues that you might encounter when
 hibernating an instance.
 
 ###### Hibernation issues
 
-- [Can't hibernate immediately after
-  launch](#hibernate-troubleshooting-1 "#hibernate-troubleshooting-1")
-- [Takes too long to transition from
-  stopping to stopped, and memory state not restored
-  after start](#hibernate-troubleshooting-2 "#hibernate-troubleshooting-2")
+- [Can't hibernate immediately after launch](#hibernate-troubleshooting-1 "#hibernate-troubleshooting-1")
+- [Takes too long to transition from stopping to stopped, and memory state not restored after start](#hibernate-troubleshooting-2 "#hibernate-troubleshooting-2")
 - [Instance "stuck" in the stopping state](#hibernate-troubleshooting-3 "#hibernate-troubleshooting-3")
-- [Can’t start Spot Instance immediately after
-  hibernate](#hibernate-troubleshooting-4 "#hibernate-troubleshooting-4")
+- [Can’t start Spot Instance immediately after hibernate](#hibernate-troubleshooting-4 "#hibernate-troubleshooting-4")
 - [Resume Spot Instances failed](#hibernate-troubleshooting-5 "#hibernate-troubleshooting-5")
 
-## Can't hibernate immediately after
-
-launch
+## Can't hibernate immediately after launch
 
 If you try to hibernate an instance too quickly after you've launched it, you get
 an error.
@@ -27,10 +19,7 @@ an error.
 You must wait for about two minutes for Linux instances and about five minutes for
 Windows instances after launch before hibernating.
 
-## Takes too long to transition from
-
-stopping to stopped, and memory state not restored
-after start
+## Takes too long to transition from stopping to stopped, and memory state not restored after start
 
 If it takes a long time for your hibernating instance to transition from the
 `stopping` state to `stopped`, and if the memory state is
@@ -55,8 +44,7 @@ If the last log line from the `hibinit-agent` is `hibinit-agent:
 If you do not see any logs from these processes, your AMI might not support
 hibernation. For information about supported AMIs, see [Prerequisites for EC2 instance hibernation](hibernating-prerequisites.md "hibernating-prerequisites.md").
 If you used your own Linux AMI, make sure that you followed the instructions for
-[Configure a Linux AMI to support
-hibernation](hibernation-enabled-AMI.md "hibernation-enabled-AMI.md").
+[Configure a Linux AMI to support hibernation](hibernation-enabled-AMI.md "hibernation-enabled-AMI.md").
 
 ###### Windows Server 2016 and later
 
@@ -115,9 +103,7 @@ If you hibernated your instance and it appears "stuck" in the
 `stopping` state, you can forcibly stop it. For more information, see
 [Troubleshoot Amazon EC2 instance stop issues](TroubleshootingInstancesStopping.md "TroubleshootingInstancesStopping.md").
 
-## Can’t start Spot Instance immediately after
-
-hibernate
+## Can’t start Spot Instance immediately after hibernate
 
 If you try to start a Spot Instance within two minutes of hibernating it, you might get the
 following error:

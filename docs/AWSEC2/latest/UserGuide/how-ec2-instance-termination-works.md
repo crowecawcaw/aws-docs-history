@@ -1,6 +1,4 @@
-# How instance termination
-
-works
+# How instance termination works
 
 When you terminate an instance, changes are registered at the operating system (OS)
 level of the instance, some resources are lost, and some resources persist.
@@ -37,8 +35,7 @@ the **Delete on termination** setting of each volume.
     Any volumes that are not deleted on instance
     termination continue to incur charges. You can change
     the setting so that a volume is deleted or persists on
-    instance termination. For more information, see [Preserve data when an instance is
-    terminated](preserving-volumes-on-termination.md "preserving-volumes-on-termination.md").
+    instance termination. For more information, see [Preserve data when an instance is terminated](preserving-volumes-on-termination.md "preserving-volumes-on-termination.md").
 
 - **Protection against accidental
   termination**
@@ -57,9 +54,7 @@ the **Delete on termination** setting of each volume.
 - **Bare metal instances** – x86 bare
   metal instances don't support cooperative shutdown.
 
-## What happens when you terminate an
-
-instance
+## What happens when you terminate an instance
 
 ###### Changes registered at the OS level
 
@@ -88,9 +83,7 @@ instance
 - EBS data volumes (attached at launch or after) if the `DeleteOnTermination`
   attribute is set to `false`.
 
-## Test application response to instance
-
-termination
+## Test application response to instance termination
 
 You can use AWS Fault Injection Service to test how your application responds when your instance is
 terminated. For more information, see the [AWS Fault Injection Service User Guide](../../../fis/latest/userguide/what-is.md "../../../fis/latest/userguide/what-is.md").

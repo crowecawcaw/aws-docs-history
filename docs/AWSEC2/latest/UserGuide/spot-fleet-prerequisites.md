@@ -16,12 +16,9 @@ roles.
 ###### Permissions and roles
 
 - [Grant permission to users for Spot Fleet](#spot-fleet-iam-users "#spot-fleet-iam-users")
-- [Service-linked role for
-  Spot Fleet](#service-linked-roles-spot-fleet-requests "#service-linked-roles-spot-fleet-requests")
-- [Service-linked role for
-  Spot Instances](#service-linked-roles-spot-instances "#service-linked-roles-spot-instances")
-- [IAM role for tagging a
-  Spot Fleet](#spot-fleet-service-linked-role "#spot-fleet-service-linked-role")
+- [Service-linked role for Spot Fleet](#service-linked-roles-spot-fleet-requests "#service-linked-roles-spot-fleet-requests")
+- [Service-linked role for Spot Instances](#service-linked-roles-spot-instances "#service-linked-roles-spot-instances")
+- [IAM role for tagging a Spot Fleet](#spot-fleet-service-linked-role "#spot-fleet-service-linked-role")
 
 ## Grant permission to users for Spot Fleet
 
@@ -147,9 +144,7 @@ IAM console, you must add the following actions to the policy:
      - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
      - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-## Service-linked role for
-
-Spot Fleet
+## Service-linked role for Spot Fleet
 
 Amazon EC2 uses service-linked roles for the permissions that it requires to call other
 AWS services on your behalf. A service-linked role is a unique type of IAM role
@@ -166,8 +161,7 @@ instances on your behalf.
 
 If you specify an [encrypted AMI](AMIEncryption.md "AMIEncryption.md") or an
 encrypted Amazon EBS snapshot in your Spot Fleet, you must grant the **AWSServiceRoleForEC2SpotFleet** role permission to use the CMK so
-that Amazon EC2 can launch instances on your behalf. For more information, see [Grant access to
-CMKs for use with encrypted AMIs and EBS snapshots](#spot-fleet-service-linked-roles-access-to-cmks "#spot-fleet-service-linked-roles-access-to-cmks").
+that Amazon EC2 can launch instances on your behalf. For more information, see [Grant access to CMKs for use with encrypted AMIs and EBS snapshots](#spot-fleet-service-linked-roles-access-to-cmks "#spot-fleet-service-linked-roles-access-to-cmks").
 
 ### Permissions granted by AWSServiceRoleForEC2SpotFleet
 
@@ -191,9 +185,7 @@ Amazon EC2 uses this service-linked role to complete the following actions:
 - `elasticloadbalancing:RegisterTargets` - Register the
   specified targets with the specified target group
 
-### Create the
-
-service-linked role
+### Create the service-linked role
 
 Under most circumstances, you don't need to manually create a service-linked
 role. Amazon EC2 creates the **AWSServiceRoleForEC2SpotFleet**
@@ -208,9 +200,7 @@ _IAM User Guide_.
 If you use the AWS CLI or an API to create a Spot Fleet, you must first ensure that
 this role exists.
 
-###### To create the AWSServiceRoleForEC2SpotFleet role for Spot Fleet using the
-
-console
+###### To create the AWSServiceRoleForEC2SpotFleet role for Spot Fleet using the console
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -238,9 +228,7 @@ console
 6. On the **Name, review, and create** page, choose
    **Create role**.
 
-###### To create the AWSServiceRoleForEC2SpotFleet role for Spot Fleet using the
-
-AWS CLI
+###### To create the AWSServiceRoleForEC2SpotFleet role for Spot Fleet using the AWS CLI
 
 Use the [create-service-linked-role](../../../cli/latest/reference/iam/create-service-linked-role.md "../../../cli/latest/reference/iam/create-service-linked-role.md") command as follows.
 
@@ -254,9 +242,7 @@ deleted from your account, Amazon EC2 will create the role again if you request 
 Spot Fleet using the console. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/id_roles_manage_delete.md#id_roles_manage_delete_slr "../../../IAM/latest/UserGuide/id_roles_manage_delete.md#id_roles_manage_delete_slr") in the
 _IAM User Guide_.
 
-### Grant access to
-
-CMKs for use with encrypted AMIs and EBS snapshots
+### Grant access to CMKs for use with encrypted AMIs and EBS snapshots
 
 If you specify an [encrypted AMI](AMIEncryption.md "AMIEncryption.md") or an
 encrypted Amazon EBS snapshot in your Spot Fleet request and you use a customer managed key for
@@ -270,9 +256,7 @@ more information, see [Using Grants](../../../kms/latest/developerguide/grants.m
 and [Using Key Policies in
 AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the _AWS Key Management Service Developer Guide_.
 
-###### To grant the AWSServiceRoleForEC2SpotFleet role permissions to use the
-
-CMK
+###### To grant the AWSServiceRoleForEC2SpotFleet role permissions to use the CMK
 
 - Use the [create-grant](../../../cli/latest/reference/kms/create-grant.md "../../../cli/latest/reference/kms/create-grant.md") command to add a grant to the CMK and to
   specify the principal (the
@@ -292,21 +276,16 @@ aws kms create-grant \
     --operations "Decrypt" "Encrypt" "GenerateDataKey" "GenerateDataKeyWithoutPlaintext" "CreateGrant" "DescribeKey" "ReEncryptFrom" "ReEncryptTo"
 ```
 
-## Service-linked role for
-
-Spot Instances
+## Service-linked role for Spot Instances
 
 Amazon EC2 uses the service-linked role named **AWSServiceRoleForEC2Spot** to launch and manage Spot Instances on your behalf.
 For more information, see [Service-linked role for Spot Instance requests](service-linked-roles-spot-instance-requests.md "service-linked-roles-spot-instance-requests.md").
 
-## IAM role for tagging a
-
-Spot Fleet
+## IAM role for tagging a Spot Fleet
 
 The `aws-ec2-spot-fleet-tagging-role` IAM role grants the Spot Fleet
 permission to tag the Spot Fleet request, instances, and volumes. For more information,
-see [Tag a new or existing Spot Fleet request and the instances
-and volumes it launches](tag-spot-fleet.md "tag-spot-fleet.md").
+see [Tag a new or existing Spot Fleet request and the instances and volumes it launches](tag-spot-fleet.md "tag-spot-fleet.md").
 
 ###### Important
 
@@ -345,9 +324,7 @@ permission to your existing policy.
 9. Review the information on the page, and then choose **Create
    role**.
 
-### Cross-service
-
-confused deputy prevention
+### Cross-service confused deputy prevention
 
 The [confused deputy
 problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") is a security issue where an entity that doesn't have
@@ -356,9 +333,7 @@ the action. We recommend that you use the [`aws:SourceArn`](../../../IAM/latest/
 the `aws-ec2-spot-fleet-tagging-role` trust policy to limit the
 permissions that Spot Fleet gives another service to the resource.
 
-###### To add the aws:SourceArn and aws:SourceAccount condition keys to the
-
-`aws-ec2-spot-fleet-tagging-role` trust policy
+###### To add the aws:SourceArn and aws:SourceAccount condition keys to the `aws-ec2-spot-fleet-tagging-role` trust policy
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

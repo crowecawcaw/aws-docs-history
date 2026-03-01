@@ -19,14 +19,12 @@ Region, in order to benefit from the billing discount.
 ###### Reserved Instances topics
 
 - [Reserved Instance example scenario](#ri-example-scenario "#ri-example-scenario")
-- [Key variables that determine Reserved Instance
-  pricing](#ri-key-pricing-variables "#ri-key-pricing-variables")
+- [Key variables that determine Reserved Instance pricing](#ri-key-pricing-variables "#ri-key-pricing-variables")
 - [Regional and zonal Reserved Instances (scope)](reserved-instances-scope.md "reserved-instances-scope.md")
 - [Types of Reserved Instances (offering classes)](reserved-instances-types.md "reserved-instances-types.md")
 - [How Reserved Instance discounts are applied](apply_ri.md "apply_ri.md")
 - [Use your Reserved Instances](using-reserved-instances.md "using-reserved-instances.md")
-- [How billing works with
-  Reserved Instances](concepts-reserved-instances-application.md "concepts-reserved-instances-application.md")
+- [How billing works with Reserved Instances](concepts-reserved-instances-application.md "concepts-reserved-instances-application.md")
 - [Buy Reserved Instances for Amazon EC2](ri-market-concepts-buying.md "ri-market-concepts-buying.md")
 - [Sell Reserved Instances for Amazon EC2 in the Reserved Instance Marketplace](ri-market-general.md "ri-market-general.md")
 - [Modify Reserved Instances](ri-modifying.md "ri-modifying.md")
@@ -47,15 +45,11 @@ that match the attributes of this Reserved Instance. In the final step, you laun
 matches the attributes of the C4 Reserved Instance, and the billing benefit is immediately
 applied.
 
-## Key variables that determine Reserved Instance
-
-pricing
+## Key variables that determine Reserved Instance pricing
 
 The Reserved Instance pricing is determined by the following key variables.
 
-### Instance
-
-attributes
+### Instance attributes
 
 A Reserved Instance has four instance attributes that determine its price.
 

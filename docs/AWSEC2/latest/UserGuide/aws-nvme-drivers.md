@@ -300,9 +300,7 @@ NVMe driver package one time or with scheduled updates.
 5.  If the installer does not reboot your instance, reboot the
     instance.
 
-## Configure SCSI persistent
-
-reservations for Windows instances
+## Configure SCSI persistent reservations for Windows instances
 
 After AWS NVMe driver version `1.5.0` or later has been installed, you
 can enable or disable SCSI persistent reservations using the Windows registry for

@@ -29,9 +29,7 @@ Spot Instance request.
 - If you use the launch instance wizard or `run-instances` to request Spot Instances, see [To grant a user the permission to tag resources when using the launch instance wizard or run-instances](#iam-run-instances "#iam-run-instances").
 - If you use the `request-spot-instances` command to request Spot Instances, see [To grant a user the permission to tag resources when using request-spot-instances](#iam-request-spot-instances "#iam-request-spot-instances").
 
-###### To grant a user the permission to tag resources when using the launch
-
-instance wizard or run-instances
+###### To grant a user the permission to tag resources when using the launch instance wizard or run-instances
 
 Create a IAM policy that includes the following:
 
@@ -109,9 +107,7 @@ rules apply to the IAM policy:
 For example IAM policies, including policies that are not supported for Spot Instance requests,
 see [Work with Spot Instances](ExamplePolicies_EC2.md#iam-example-spot-instances "ExamplePolicies_EC2.md#iam-example-spot-instances").
 
-###### To grant a user the permission to tag resources when using
-
-request-spot-instances
+###### To grant a user the permission to tag resources when using request-spot-instances
 
 Create a IAM policy that includes the following:
 
@@ -222,9 +218,7 @@ console.
 4. Choose the **Tags** tab and choose **Create
    Tag**.
 
-###### To tag an existing Spot Instance using the
-
-console
+###### To tag an existing Spot Instance using the console
 
 After your Spot Instance request has launched your Spot Instance, you can add tags to the instance using the
 console. For more information, see [Add tags using the console](Using_Tags_Console.md#adding-or-deleting-tags "Using_Tags_Console.md#adding-or-deleting-tags").

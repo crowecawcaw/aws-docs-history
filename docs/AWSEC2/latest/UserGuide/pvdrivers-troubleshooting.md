@@ -1,22 +1,16 @@
-# Troubleshoot PV drivers on Windows
-
-instances
+# Troubleshoot PV drivers on Windows instances
 
 The following are solutions to issues that you might encounter with older Amazon EC2 images
 and PV drivers.
 
 ###### Contents
 
-- [Windows Server 2012 R2 loses
-  network and storage connectivity after an instance reboot](#server2012R2-instance-unavailable "#server2012R2-instance-unavailable")
+- [Windows Server 2012 R2 loses network and storage connectivity after an instance reboot](#server2012R2-instance-unavailable "#server2012R2-instance-unavailable")
 - [TCP offloading](#citrix-tcp-offloading "#citrix-tcp-offloading")
 - [Time synchronization](#citrix-time-sync "#citrix-time-sync")
-- [Workloads that leverage
-  more than 20,000 disk IOPS experience degradation due to CPU bottlenecks](#pvdriver-troubleshooting-cpu-bottlenecks "#pvdriver-troubleshooting-cpu-bottlenecks")
+- [Workloads that leverage more than 20,000 disk IOPS experience degradation due to CPU bottlenecks](#pvdriver-troubleshooting-cpu-bottlenecks "#pvdriver-troubleshooting-cpu-bottlenecks")
 
-## Windows Server 2012 R2 loses
-
-network and storage connectivity after an instance reboot
+## Windows Server 2012 R2 loses network and storage connectivity after an instance reboot
 
 ###### Important
 
@@ -43,8 +37,7 @@ your instance to reboot with network connectivity enabled.
 
 - [Choose how to fix problems](#choose-fix "#choose-fix")
 - [Method 1 - Enhanced networking](#plug-n-play-fix-method1 "#plug-n-play-fix-method1")
-- [Method 2 - Registry
-  configuration](#plug-n-play-fix-method2 "#plug-n-play-fix-method2")
+- [Method 2 - Registry configuration](#plug-n-play-fix-method2 "#plug-n-play-fix-method2")
 - [Run the remediation script](#plug-n-play-script "#plug-n-play-script")
 
 ### Choose how to fix problems
@@ -89,9 +82,7 @@ driver version is the same as the latest version listed in the Driver
 Version History table. For more information, see [AWS PV driver package history](xen-drivers-overview.md#pv-driver-history "xen-drivers-overview.md#pv-driver-history"). 10. Stop the instance and change the instance back to its original
 instance type. 11. Start the instance and resume normal use.
 
-### Method 2 - Registry
-
-configuration
+### Method 2 - Registry configuration
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -250,12 +241,9 @@ agent.
 To determine whether you have the updated Citrix Xen guest agent, check whether
 the `C:\Program Files\Citrix\XenGuestAgent.exe` file is from
 March 2013. If the date on this file is earlier than that, update the Citrix Xen
-guest agent service. For more information, see [Upgrade your Citrix Xen guest agent
-service](Upgrading_PV_drivers.md#citrix-pv-guest-agent-upgrade "Upgrading_PV_drivers.md#citrix-pv-guest-agent-upgrade").
+guest agent service. For more information, see [Upgrade your Citrix Xen guest agent service](Upgrading_PV_drivers.md#citrix-pv-guest-agent-upgrade "Upgrading_PV_drivers.md#citrix-pv-guest-agent-upgrade").
 
-## Workloads that leverage
-
-more than 20,000 disk IOPS experience degradation due to CPU bottlenecks
+## Workloads that leverage more than 20,000 disk IOPS experience degradation due to CPU bottlenecks
 
 You can be affected by this issue if you are using Windows instances running AWS
 PV drivers that leverage more than 20,000 IOPS, and you experience bug check code
@@ -284,8 +272,7 @@ Before you begin this troubleshooting procedure, verify the following
 prerequisites:
 
     * Your instance uses AWS PV drivers version 8.4.0 or later. To
-     upgrade, see [Upgrade PV drivers on EC2 Windows
-     instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
+     upgrade, see [Upgrade PV drivers on EC2 Windows instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
     * You have RDP access to the instance. For steps to connect to your
      Windows instance using RDP, see [Connect to your Windows instance using an RDP client](connect-rdp.md "connect-rdp.md").
     * You have administrator access on the instance.
@@ -407,9 +394,7 @@ completion.
     ```
     4. Reboot your instance.
 
-###### Distribute
-
-both preparation and completion
+###### Distribute both preparation and completion
 
 Set `NotifierDistributed` and `DpcRedirection`
 registry keys to always distribute both the preparation and completion

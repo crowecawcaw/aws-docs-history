@@ -26,8 +26,7 @@ The AMI creation process is different for Amazon EBS-backed AMIs. For more infor
 - [Create an AMI from an Amazon Linux instance](#amazon_linux_instructions "#amazon_linux_instructions")
 - [Set up the Amazon EC2 AMI tools](set-up-ami-tools.md "set-up-ami-tools.md")
 - [Amazon EC2 AMI tools reference](ami-tools-commands.md "ami-tools-commands.md")
-- [Convert your Amazon S3-backed AMI to an
-  EBS-backed AMI](Using_ConvertingS3toEBS.md "Using_ConvertingS3toEBS.md")
+- [Convert your Amazon S3-backed AMI to an EBS-backed AMI](Using_ConvertingS3toEBS.md "Using_ConvertingS3toEBS.md")
 
 ## Overview of AMI creation
 

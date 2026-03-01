@@ -187,7 +187,9 @@ the number of network interfaces that an instance type supports, see
 | `m6in.32xlarge`        | 2                       |
 | `m6in.metal`           | 2                       |
 | `m8gb.48xlarge`        | 2                       |
+| `m8gb.metal-48xl`      | 2                       |
 | `m8gn.48xlarge`        | 2                       |
+| `m8gn.metal-48xl`      | 2                       |
 | `p4d.24xlarge`         | 4                       |
 | `p4de.24xlarge`        | 4                       |
 | `p5.48xlarge`          | 32                      |

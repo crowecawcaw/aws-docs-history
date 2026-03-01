@@ -14,9 +14,7 @@ problems that can cause host-level health checks to fail include:
 Dedicated Host auto recovery does not occur when the host is scheduled for
 retirement.
 
-## Dedicated Host auto
-
-recovery
+## Dedicated Host auto recovery
 
 When a system power or network connectivity failure is detected on your Dedicated Host,
 Dedicated Host auto recovery is initiated and Amazon EC2 **automatically
@@ -96,9 +94,7 @@ with instance store root volumes, the Dedicated Host is not released. Instead, i
 marked for retirement and enters the `permanent-failure`
 state.
 
-## Scenarios without
-
-Dedicated Host auto recovery
+## Scenarios without Dedicated Host auto recovery
 
 **Dedicated Host auto recovery does not occur when the host is
 scheduled for retirement**. You will receive a retirement

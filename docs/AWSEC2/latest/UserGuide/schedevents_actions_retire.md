@@ -1,6 +1,4 @@
-# Manage Amazon EC2 instances scheduled to
-
-stop or retire
+# Manage Amazon EC2 instances scheduled to stop or retire
 
 When AWS detects irreparable failure of the underlying host for your instance,
 it schedules the instance to either stop or terminate, depending on the instance's
@@ -40,9 +38,7 @@ notification, you can take one of the following actions:
   AWS Health](../../../health/latest/ug/automating-instance-actions.md "../../../health/latest/ug/automating-instance-actions.md") in the
   _AWS Health User Guide_.
 
-###### Actions you can take for instances with an instance store root
-
-volume
+###### Actions you can take for instances with an instance store root volume
 
 When you receive a scheduled `system-retirement` event
 notification, and you want to retain your data, you can take the following

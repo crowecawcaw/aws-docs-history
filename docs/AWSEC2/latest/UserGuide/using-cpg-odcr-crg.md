@@ -1,6 +1,4 @@
-# Using Capacity Reservation in cluster placement groups with a Capacity Reservation
-
-group
+# Using Capacity Reservation in cluster placement groups with a Capacity Reservation group
 
 Amazon EC2 provides different launch methods for you to use Capacity Reservations in a cluster placement group
 with a Capacity Reservation group. You can choose one of the following methods to target a Capacity Reservation

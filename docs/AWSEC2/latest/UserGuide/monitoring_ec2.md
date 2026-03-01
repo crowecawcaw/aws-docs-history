@@ -23,8 +23,7 @@ In addition, we provide the following:
       + Hardware issues on the physical host that impact network
        reachability
 
-  For more information, see [Status checks for Amazon EC2
-  instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
+  For more information, see [Status checks for Amazon EC2 instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
 
 - **Instance status checks** – Monitor the software
   and network configuration of your individual instance. These checks detect
@@ -40,8 +39,7 @@ In addition, we provide the following:
       + Corrupted file system
       + Incompatible kernel
 
-  For more information, see [Status checks for Amazon EC2
-  instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
+  For more information, see [Status checks for Amazon EC2 instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md").
 
 - **Amazon CloudWatch alarms** – Watch a single metric over a
   time period you specify, and perform one or more actions based on the value

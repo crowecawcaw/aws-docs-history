@@ -1,6 +1,4 @@
-# Monitor the status of your Amazon EC2
-
-instances
+# Monitor the status of your Amazon EC2 instances
 
 You can monitor the status of your instances by viewing status checks and scheduled events
 for your instances.
@@ -17,9 +15,6 @@ time of each event.
 
 ###### Contents
 
-- [Status checks for Amazon EC2
-  instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md")
-- [State change events for Amazon EC2
-  instances](monitoring-instance-state-changes.md "monitoring-instance-state-changes.md")
-- [Scheduled events for Amazon EC2
-  instances](monitoring-instances-status-check_sched.md "monitoring-instances-status-check_sched.md")
+- [Status checks for Amazon EC2 instances](monitoring-system-instance-status-check.md "monitoring-system-instance-status-check.md")
+- [State change events for Amazon EC2 instances](monitoring-instance-state-changes.md "monitoring-instance-state-changes.md")
+- [Scheduled events for Amazon EC2 instances](monitoring-instances-status-check_sched.md "monitoring-instances-status-check_sched.md")

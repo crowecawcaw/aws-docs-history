@@ -1,10 +1,7 @@
-# Review ENA Express settings for your EC2
-
-instance
+# Review ENA Express settings for your EC2 instance
 
 You can verify the ENA Express settings by instance or by network interface. To update
-the ENA Express settings, see [Configure ENA Express settings for your EC2
-instance](ena-express-configure.md "ena-express-configure.md").
+the ENA Express settings, see [Configure ENA Express settings for your EC2 instance](ena-express-configure.md "ena-express-configure.md").
 
 Console
 

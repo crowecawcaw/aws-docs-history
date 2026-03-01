@@ -1,22 +1,15 @@
-# Specify CPU options for an Amazon EC2
-
-instance
+# Specify CPU options for an Amazon EC2 instance
 
 You can specify CPU options during or after instance launch.
 
 ###### Tasks
 
-- [Disable
-  simultaneous multithreading](#cpu-options-disable-simultaneous-multithreading "#cpu-options-disable-simultaneous-multithreading")
-- [Specify a custom number of
-  vCPUs at launch](#cpu-options-customize-vCPUs-launch "#cpu-options-customize-vCPUs-launch")
-- [Specify a custom
-  number of vCPUs in a launch template](#cpu-options-customize-vCPUs-launch-template "#cpu-options-customize-vCPUs-launch-template")
+- [Disable simultaneous multithreading](#cpu-options-disable-simultaneous-multithreading "#cpu-options-disable-simultaneous-multithreading")
+- [Specify a custom number of vCPUs at launch](#cpu-options-customize-vCPUs-launch "#cpu-options-customize-vCPUs-launch")
+- [Specify a custom number of vCPUs in a launch template](#cpu-options-customize-vCPUs-launch-template "#cpu-options-customize-vCPUs-launch-template")
 - [Change CPU options for your EC2 instance](#change-vCPUs-after-launch "#change-vCPUs-after-launch")
 
-## Disable
-
-simultaneous multithreading
+## Disable simultaneous multithreading
 
 To disable simultaneous multithreading (SMT), also known as hyper-threading,
 specify 1 thread per core.
@@ -25,8 +18,7 @@ Console
 
 ###### To disable SMT during instance launch
 
-1. Follow the [Launch an EC2 instance using the launch
-   instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md") procedure and
+1. Follow the [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md") procedure and
    configure your instance as needed.
 2. Expand **Advanced details**, and select the
    **Specify CPU options** checkbox.
@@ -38,8 +30,7 @@ Console
    choose **1**.
 5. In the **Summary** panel, review your
    instance configuration, and then choose **Launch
-   instance**. For more information, see [Launch an EC2 instance using the launch
-   instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+   instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 AWS CLI
 
@@ -86,9 +77,7 @@ New-EC2Instance `
 To disable SMT for an existing instance, follow the process shown in [Change CPU options for your EC2 instance](#change-vCPUs-after-launch "#change-vCPUs-after-launch"), and change the number of
 threads that run per core to `1`.
 
-## Specify a custom number of
-
-vCPUs at launch
+## Specify a custom number of vCPUs at launch
 
 You can customize the number of CPU cores and threads per core when you launch an
 instance from the EC2 console or AWS CLI. The examples in this section use an
@@ -107,12 +96,9 @@ vCPUs.
 
 Console
 
-###### To specify a custom number of vCPUs during instance
+###### To specify a custom number of vCPUs during instance launch
 
-launch
-
-1. Follow the [Launch an EC2 instance using the launch
-   instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md") procedure and
+1. Follow the [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md") procedure and
    configure your instance as needed.
 2. Expand **Advanced details**, and select the
    **Specify CPU options** checkbox.
@@ -125,14 +111,11 @@ launch
 
 4. In the **Summary** panel, review your
    instance configuration, and then choose **Launch
-   instance**. For more information, see [Launch an EC2 instance using the launch
-   instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+   instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 AWS CLI
 
-###### To specify a custom number of vCPUs during instance
-
-launch
+###### To specify a custom number of vCPUs during instance launch
 
 Use the [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../../../cli/latest/reference/ec2/run-instances.md") AWS CLI command and specify the number of
 CPU cores and number of threads in the `--cpu-options`
@@ -160,9 +143,7 @@ aws ec2 run-instances \
 
 PowerShell
 
-###### To specify a custom number of vCPUs during instance
-
-launch
+###### To specify a custom number of vCPUs during instance launch
 
 Use the [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Instance.md "../../../powershell/latest/reference/items/New-EC2Instance.md") command and specify the number of
 CPU cores and number of threads in the `-CpuOptions`
@@ -188,9 +169,7 @@ New-EC2Instance `
     -KeyName '`my-key-pair`'
 ```
 
-## Specify a custom
-
-number of vCPUs in a launch template
+## Specify a custom number of vCPUs in a launch template
 
 You can customize the number of CPU cores and threads per core for the instance in
 a launch template. The examples in this section use an `r5.4xlarge`
@@ -210,8 +189,7 @@ Console
 
 ###### To specify a custom number of vCPUs in a launch template
 
-1. Follow the [Create a launch template
-   by specifying parameters](create-launch-template.md#create-launch-template-define-parameters "create-launch-template.md#create-launch-template-define-parameters")
+1. Follow the [Create a launch template by specifying parameters](create-launch-template.md#create-launch-template-define-parameters "create-launch-template.md#create-launch-template-define-parameters")
    procedure and configure your launch template as needed.
 2. Expand **Advanced details**, and select the
    **Specify CPU options** checkbox.

@@ -1,6 +1,4 @@
-# Map non-NVMe disks on Amazon EC2 Windows instance
-
-to volumes
+# Map non-NVMe disks on Amazon EC2 Windows instance to volumes
 
 For instances launched from a Windows AMI that uses AWS PV or Citrix PV drivers,
 you can use the relationships described on this page to map your Windows disks to your
@@ -12,8 +10,7 @@ the block device mappings used by Amazon EC2.
 ###### Note
 
 If you launch an instance If your Windows AMI uses Red Hat PV drivers, you can
-update your instance to use the Citrix drivers. For more information, see [Upgrade PV drivers on EC2 Windows
-instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
+update your instance to use the Citrix drivers. For more information, see [Upgrade PV drivers on EC2 Windows instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
 
 ###### Topics
 

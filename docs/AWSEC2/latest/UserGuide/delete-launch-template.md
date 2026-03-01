@@ -1,6 +1,4 @@
-# Delete a launch template or a launch template
-
-version
+# Delete a launch template or a launch template version
 
 If you no longer require a launch template, you can delete it. Deleting a launch
 template deletes all of its versions. If you only want to delete a specific version of a
@@ -10,9 +8,7 @@ template.
 Deleting a launch template or launch template version doesn't affect any instances
 that you've launched from the launch template.
 
-## Delete a launch template
-
-and all of its versions
+## Delete a launch template and all of its versions
 
 If you no longer require a launch template, including all of its versions, you can
 delete the launch template. Deleting a launch template deletes all of its
@@ -55,9 +51,7 @@ PowerShell prompts for a confirmation.
 Remove-EC2LaunchTemplate -LaunchTemplateId `lt-0123456789example` -Force
 ```
 
-## Delete a launch template
-
-version
+## Delete a launch template version
 
 If you no longer require a launch template version, you can delete it.
 

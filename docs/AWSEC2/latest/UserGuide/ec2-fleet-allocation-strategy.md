@@ -1,6 +1,4 @@
-# Use allocation strategies to determine
-
-how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand capacity
+# Use allocation strategies to determine how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand capacity
 
 When you use multiple capacity pools (each comprising an instance type and Availability
 Zone) in an EC2 Fleet or Spot Fleet, you can use an _allocation
@@ -11,20 +9,13 @@ On-Demand Instances.
 
 ###### Topics
 
-- [Allocation
-  strategies for Spot Instances](#ec2-fleet-allocation-strategies-for-spot-instances "#ec2-fleet-allocation-strategies-for-spot-instances")
-- [Allocation
-  strategies for On-Demand Instances](#ec2-fleet-allocation-strategies-for-on-demand-instances "#ec2-fleet-allocation-strategies-for-on-demand-instances")
-- [Choose the appropriate Spot
-  allocation strategy](#ec2-fleet-allocation-use-cases "#ec2-fleet-allocation-use-cases")
-- [Maintain target capacity for
-  Spot Instances](#ec2-fleet-maintain-fleet-capacity "#ec2-fleet-maintain-fleet-capacity")
-- [Prioritize instance types for
-  On-Demand capacity](#ec2-fleet-on-demand-priority "#ec2-fleet-on-demand-priority")
+- [Allocation strategies for Spot Instances](#ec2-fleet-allocation-strategies-for-spot-instances "#ec2-fleet-allocation-strategies-for-spot-instances")
+- [Allocation strategies for On-Demand Instances](#ec2-fleet-allocation-strategies-for-on-demand-instances "#ec2-fleet-allocation-strategies-for-on-demand-instances")
+- [Choose the appropriate Spot allocation strategy](#ec2-fleet-allocation-use-cases "#ec2-fleet-allocation-use-cases")
+- [Maintain target capacity for Spot Instances](#ec2-fleet-maintain-fleet-capacity "#ec2-fleet-maintain-fleet-capacity")
+- [Prioritize instance types for On-Demand capacity](#ec2-fleet-on-demand-priority "#ec2-fleet-on-demand-priority")
 
-## Allocation
-
-strategies for Spot Instances
+## Allocation strategies for Spot Instances
 
 Your launch configuration determines all the possible Spot capacity pools
 (instance types and Availability Zones) from which EC2 Fleet or Spot Fleet can launch Spot Instances.
@@ -158,9 +149,7 @@ price** allocation strategy and only when using the AWS CLI.
 The parameter name is `InstancePoolsToUseCount` for both EC2 Fleet
 and Spot Fleet.
 
-## Allocation
-
-strategies for On-Demand Instances
+## Allocation strategies for On-Demand Instances
 
 Your launch configuration determines all the possible capacity pools (instance
 types and Availability Zones) from which EC2 Fleet or Spot Fleet can launch On-Demand Instances. However,
@@ -189,12 +178,9 @@ The fleet uses the priority that you assigned to each launch template
 override, launching instance types in order of the highest priority
 first. This strategy can't be used with attribute-based instance type
 selection. For an example of how to use this allocation strategy, see
-[Prioritize instance types for
-On-Demand capacity](#ec2-fleet-on-demand-priority "#ec2-fleet-on-demand-priority").
+[Prioritize instance types for On-Demand capacity](#ec2-fleet-on-demand-priority "#ec2-fleet-on-demand-priority").
 
-## Choose the appropriate Spot
-
-allocation strategy
+## Choose the appropriate Spot allocation strategy
 
 You can optimize your fleet for your use case by choosing the appropriate Spot
 allocation strategy.
@@ -226,14 +212,10 @@ rate.
 For example JSON configurations that use the **price capacity
 optimized** allocation strategy, see the following:
 
-- EC2 Fleet – [Example 10: Launch Spot Instances in a
-  price-capacity-optimized fleet](ec2-fleet-examples.md#ec2-fleet-config11 "ec2-fleet-examples.md#ec2-fleet-config11")
-- Spot Fleet – [Example 11: Launch Spot Instances in a
-  priceCapacityOptimized fleet](spot-fleet-examples.md#fleet-config11 "spot-fleet-examples.md#fleet-config11")
+- EC2 Fleet – [Example 10: Launch Spot Instances in a price-capacity-optimized fleet](ec2-fleet-examples.md#ec2-fleet-config11 "ec2-fleet-examples.md#ec2-fleet-config11")
+- Spot Fleet – [Example 11: Launch Spot Instances in a priceCapacityOptimized fleet](spot-fleet-examples.md#fleet-config11 "spot-fleet-examples.md#fleet-config11")
 
-### When workloads have a
-
-high cost of interruption
+### When workloads have a high cost of interruption
 
 You can optionally use the **capacity optimized** strategy if
 you run workloads that either use similarly priced instance types, or where the
@@ -258,30 +240,22 @@ a launch template.
 For example JSON configurations that use the **capacity
 optimized** allocation strategy, see the following:
 
-- EC2 Fleet – [Example 8: Launch Spot Instances in a
-  capacity-optimized fleet](ec2-fleet-examples.md#ec2-fleet-config9 "ec2-fleet-examples.md#ec2-fleet-config9")
-- Spot Fleet – [Example 9: Launch Spot Instances in a
-  capacity-optimized fleet](spot-fleet-examples.md#fleet-config9 "spot-fleet-examples.md#fleet-config9")
+- EC2 Fleet – [Example 8: Launch Spot Instances in a capacity-optimized fleet](ec2-fleet-examples.md#ec2-fleet-config9 "ec2-fleet-examples.md#ec2-fleet-config9")
+- Spot Fleet – [Example 9: Launch Spot Instances in a capacity-optimized fleet](spot-fleet-examples.md#fleet-config9 "spot-fleet-examples.md#fleet-config9")
 
 For example JSON configurations that use the **capacity optimized
 prioritized** allocation strategy, see the following:
 
-- EC2 Fleet – [Example 9: Launch Spot Instances in a
-  capacity-optimized fleet with priorities](ec2-fleet-examples.md#ec2-fleet-config10 "ec2-fleet-examples.md#ec2-fleet-config10")
-- Spot Fleet – [Example 10: Launch Spot Instances in a
-  capacity-optimized fleet with priorities](spot-fleet-examples.md#fleet-config10 "spot-fleet-examples.md#fleet-config10")
+- EC2 Fleet – [Example 9: Launch Spot Instances in a capacity-optimized fleet with priorities](ec2-fleet-examples.md#ec2-fleet-config10 "ec2-fleet-examples.md#ec2-fleet-config10")
+- Spot Fleet – [Example 10: Launch Spot Instances in a capacity-optimized fleet with priorities](spot-fleet-examples.md#fleet-config10 "spot-fleet-examples.md#fleet-config10")
 
-### When your workload
-
-is time flexible and capacity availability is not a factor
+### When your workload is time flexible and capacity availability is not a factor
 
 If your fleet is small or runs for a short time, you can use **price
 capacity optimized** to maximize cost savings while still
 considering capacity availability.
 
-### When your fleet is
-
-large or runs for a long time
+### When your fleet is large or runs for a long time
 
 If your fleet is large or runs for a long time, you can improve the
 availability of your fleet by distributing the Spot Instances across multiple pools using
@@ -295,9 +269,7 @@ not launch Spot Instances into any pools with a Spot price that is equal to or h
 than the [On-Demand
 price](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/").
 
-## Maintain target capacity for
-
-Spot Instances
+## Maintain target capacity for Spot Instances
 
 After Spot Instances are terminated due to a change in the Spot price or available capacity
 of a Spot capacity pool, a fleet of type `maintain` launches replacement
@@ -315,9 +287,7 @@ instances are launched, as follows:
 - If the allocation strategy is **diversified**, the fleet
   distributes the replacement Spot Instances across the remaining pools.
 
-## Prioritize instance types for
-
-On-Demand capacity
+## Prioritize instance types for On-Demand capacity
 
 When an EC2 Fleet or Spot Fleet attempts to fulfill your On-Demand capacity, it defaults to
 launching the lowest priced instance type first. If the On-Demand allocation

@@ -25,9 +25,7 @@ Console
    - If there is no value, the instances launched from the AMI
      use the default value of the instance type.
 
-###### To determine the boot mode parameter of an AMI when launching an
-
-instance
+###### To determine the boot mode parameter of an AMI when launching an instance
 
 When launching an instance using the launch instance wizard, at the
 step to select an AMI, inspect the **Boot mode** field.

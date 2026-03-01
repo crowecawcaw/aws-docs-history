@@ -99,8 +99,7 @@ Keep the following in mind when selecting a device name:
   volumes drive letters going from Z: to A:. Red Hat drivers assign instance store
   volumes drive letters going from D: to Z:. For more information, see
   [Windows launch agents on Amazon EC2 Windows instances](configure-launch-agents.md "configure-launch-agents.md"), and
-  [How volumes are attached and mapped for Amazon EC2 Windows
-  instances](ec2-windows-volumes.md "ec2-windows-volumes.md").
+  [How volumes are attached and mapped for Amazon EC2 Windows instances](ec2-windows-volumes.md "ec2-windows-volumes.md").
 - (Linux instances) Depending on the block device driver of the kernel, the device could be
   attached with a different name than you specified. For example, if you specify a
   device name of `/dev/sdh`, your device could be renamed

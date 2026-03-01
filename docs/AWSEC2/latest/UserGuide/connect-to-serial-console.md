@@ -2,8 +2,7 @@
 
 You can connect to the serial console of your EC2 instance by using the Amazon EC2 console or
 through SSH. After connecting to the serial console, you can use it for troubleshooting boot,
-network configuration, and other issues. For more information about troubleshooting, see [Troubleshoot your Amazon EC2 instance using the
-EC2 Serial Console](troubleshoot-using-serial-console.md "troubleshoot-using-serial-console.md").
+network configuration, and other issues. For more information about troubleshooting, see [Troubleshoot your Amazon EC2 instance using the EC2 Serial Console](troubleshoot-using-serial-console.md "troubleshoot-using-serial-console.md").
 
 ###### Considerations
 
@@ -26,15 +25,11 @@ closing the browser page.
 
 ###### Topics
 
-- [Connect using the browser-based
-  client](#sc-connect-browser-based-client "#sc-connect-browser-based-client")
+- [Connect using the browser-based client](#sc-connect-browser-based-client "#sc-connect-browser-based-client")
 - [Connect using your own key and SSH client](#sc-connect-SSH "#sc-connect-SSH")
-- [EC2 Serial Console endpoints and
-  fingerprints](#sc-endpoints-and-fingerprints "#sc-endpoints-and-fingerprints")
+- [EC2 Serial Console endpoints and fingerprints](#sc-endpoints-and-fingerprints "#sc-endpoints-and-fingerprints")
 
-## Connect using the browser-based
-
-client
+## Connect using the browser-based client
 
 You can connect to your EC2 instance's serial console by using the browser-based client.
 You do this by selecting the instance in the Amazon EC2 console and choosing to connect to the
@@ -46,9 +41,7 @@ input.
 
 Before connecting, make sure you have completed the [prerequisites](ec2-serial-console-prerequisites.md "ec2-serial-console-prerequisites.md").
 
-###### To connect to your instance's serial port using the browser-based client (Amazon EC2
-
-console)
+###### To connect to your instance's serial port using the browser-based client (Amazon EC2 console)
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -139,8 +132,7 @@ ID and port 0. In the following example, the username is
 `i-001234a4bf70dec41EXAMPLE.port0`.
 
 The endpoint of the serial console service is different for each Region. See the
-[EC2 Serial Console endpoints and
-fingerprints](#sc-endpoints-and-fingerprints "#sc-endpoints-and-fingerprints") table for each Region's endpoint. In
+[EC2 Serial Console endpoints and fingerprints](#sc-endpoints-and-fingerprints "#sc-endpoints-and-fingerprints") table for each Region's endpoint. In
 the following example, the serial console service is in the us-east-1 Region.
 
 ```
@@ -164,8 +156,7 @@ someone might be attempting a "man-in-the-middle" attack. If they match, you can
 confidently connect to the serial console.
 
 The following fingerprint is for the serial console service in the us-east-1 Region.
-For the fingerprints for each Region, see [EC2 Serial Console endpoints and
-fingerprints](#sc-endpoints-and-fingerprints "#sc-endpoints-and-fingerprints").
+For the fingerprints for each Region, see [EC2 Serial Console endpoints and fingerprints](#sc-endpoints-and-fingerprints "#sc-endpoints-and-fingerprints").
 
 ```
 SHA256:dXwn5ma/xadVMeBZGEru5l2gx+yI5LDiJaLUcz0FMmw
@@ -203,9 +194,7 @@ issues with connecting to the serial console:
 6. (Linux instances only) At the `Password` prompt, enter the password, and
    then press **Enter**.
 
-## EC2 Serial Console endpoints and
-
-fingerprints
+## EC2 Serial Console endpoints and fingerprints
 
 The following are the service endpoints and fingerprints for EC2 Serial Console. To
 connect programmatically to an instance's serial console, you use an EC2 Serial Console

@@ -6,9 +6,7 @@ You can [set standard as the default credit option](burstable-performance-instan
 per AWS Region, per burstable performance instance family, so that all new burstable
 performance instances in the account launch using the default credit option.
 
-## How standard
-
-burstable performance instances work
+## How standard burstable performance instances work
 
 When a burstable performance instance configured as `standard` is in a
 running state, it continuously earns (at a millisecond-level resolution) a set rate
@@ -77,8 +75,7 @@ increases over time based on your usage.
 ###### Tip
 
 To ensure that your workloads always get the performance they need, switch to
-[Unlimited mode for
-burstable performance instances](burstable-performance-instances-unlimited-mode.md "burstable-performance-instances-unlimited-mode.md") or consider
+[Unlimited mode for burstable performance instances](burstable-performance-instances-unlimited-mode.md "burstable-performance-instances-unlimited-mode.md") or consider
 using a larger instance size.
 
 ## Differences between launch credits and earned credits

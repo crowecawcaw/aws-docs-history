@@ -14,7 +14,5 @@ efficiency.
 
 ###### Topics
 
-- [Monitor your EC2 Fleet or Spot Fleet using
-  CloudWatch](ec2-fleet-cloudwatch-metrics.md "ec2-fleet-cloudwatch-metrics.md")
-- [Monitor and programmatically
-  respond to the events emitted by your EC2 Fleet or Spot Fleet using Amazon EventBridge](monitor-ec2-fleet-using-eventbridge.md "monitor-ec2-fleet-using-eventbridge.md")
+- [Monitor your EC2 Fleet or Spot Fleet using CloudWatch](ec2-fleet-cloudwatch-metrics.md "ec2-fleet-cloudwatch-metrics.md")
+- [Monitor and programmatically respond to the events emitted by your EC2 Fleet or Spot Fleet using Amazon EventBridge](monitor-ec2-fleet-using-eventbridge.md "monitor-ec2-fleet-using-eventbridge.md")

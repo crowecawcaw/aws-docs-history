@@ -1,6 +1,4 @@
-# Monitor network performance for ENA
-
-settings on your EC2 instance
+# Monitor network performance for ENA settings on your EC2 instance
 
 The Elastic Network Adapter (ENA) driver publishes network performance metrics from the
 instances where they are enabled. You can use these metrics to troubleshoot instance
@@ -35,14 +33,10 @@ maximums for the following for each instance:
 
 - [Requirements](#network-performance-metrics-requirements "#network-performance-metrics-requirements")
 - [Metrics for the ENA driver](#network-performance-metrics "#network-performance-metrics")
-- [View the network performance metrics
-  for your instance](#view-network-performance-metrics "#view-network-performance-metrics")
-- [Metrics for ENA
-  Express](#network-performance-metrics-ena-express "#network-performance-metrics-ena-express")
-- [Network performance metrics with the
-  DPDK driver for ENA](#network-performance-metrics-dpdk "#network-performance-metrics-dpdk")
-- [Metrics on instances running
-  FreeBSD](#network-performance-metrics-freebsd "#network-performance-metrics-freebsd")
+- [View the network performance metrics for your instance](#view-network-performance-metrics "#view-network-performance-metrics")
+- [Metrics for ENA Express](#network-performance-metrics-ena-express "#network-performance-metrics-ena-express")
+- [Network performance metrics with the DPDK driver for ENA](#network-performance-metrics-dpdk "#network-performance-metrics-dpdk")
+- [Metrics on instances running FreeBSD](#network-performance-metrics-freebsd "#network-performance-metrics-freebsd")
 
 ## Requirements
 
@@ -105,9 +99,7 @@ later, this limit can also include egress fragment drops that exceed 1024 PPS fo
 proxy mode is enabled for the Linux driver, egress fragment drops bypass the 1024 PPS limit that usually applies
 and are counted within standard PPS allowances. Fragment proxy mode is disabled by default.
 
-## View the network performance metrics
-
-for your instance
+## View the network performance metrics for your instance
 
 The procedure that you use depends on the operating system of the instance.
 
@@ -162,9 +154,7 @@ lodctr /m:EnaPerfCounters.man
    **Add**.
 5. Choose **OK**.
 
-## Metrics for ENA
-
-Express
+## Metrics for ENA Express
 
 ENA Express is powered by AWS Scalable Reliable Datagram (SRD) technology.
 SRD is a high performance network transport protocol that uses dynamic routing
@@ -224,8 +214,7 @@ configured to use it. The prior value is retained for UDP traffic.
 The number of network as follows:
 
 - Both sending and receiving instance types are supported. See the
-  [Supported instance types for ENA
-  Express](ena-express.md#ena-express-supported-instance-types "ena-express.md#ena-express-supported-instance-types")
+  [Supported instance types for ENA Express](ena-express.md#ena-express-supported-instance-types "ena-express.md#ena-express-supported-instance-types")
   table for more information.
 - Both sending and receiving instances must have ENA Express configured.
 - The sending and receiving instances must run in the same Availability Zone.
@@ -312,9 +301,7 @@ Metrics stop accruing if ENA Express is deactivated, but persist as long as the
 instance is still running. Metrics reset if the instance reboots or is terminated,
 or if the network interface is detached from the instance.
 
-## Network performance metrics with the
-
-DPDK driver for ENA
+## Network performance metrics with the DPDK driver for ENA
 
 The ENA driver version 2.2.0 and later supports network metrics reporting. DPDK 20.11
 includes the ENA driver 2.2.0 and is the first DPDK version to support this
@@ -416,9 +403,7 @@ For more information about the example application and using it to retrieve exte
 statistics. see [Testpmd
 Application User Guide](https://doc.dpdk.org/guides/testpmd_app_ug/ "https://doc.dpdk.org/guides/testpmd_app_ug/") in the DPDK documentation.
 
-## Metrics on instances running
-
-FreeBSD
+## Metrics on instances running FreeBSD
 
 Starting with version 2.3.0, the ENA FreeBSD driver supports collecting
 network performance metrics on instances running FreeBSD. To enable the

@@ -33,17 +33,12 @@ number of steps, as follows:
 
 - [Step 1: Create Capacity Reservations](#ec2-fleet-odcr-step1 "#ec2-fleet-odcr-step1")
 - [Step 2: Create a Capacity Reservation resource group](#ec2-fleet-odcr-step2 "#ec2-fleet-odcr-step2")
-- [Step 3: Add the Capacity Reservations to the Capacity Reservation resource
-  group](#ec2-fleet-odcr-step3 "#ec2-fleet-odcr-step3")
-- [(Optional) Step 4: View the Capacity Reservations in the
-  resource group](#ec2-fleet-odcr-step4 "#ec2-fleet-odcr-step4")
-- [Step 5: Create a launch template that
-  specifies that the Capacity Reservation targets a specific resource group](#ec2-fleet-odcr-step5 "#ec2-fleet-odcr-step5")
-- [(Optional) Step 6: Describe the launch
-  template](#ec2-fleet-odcr-step6 "#ec2-fleet-odcr-step6")
+- [Step 3: Add the Capacity Reservations to the Capacity Reservation resource group](#ec2-fleet-odcr-step3 "#ec2-fleet-odcr-step3")
+- [(Optional) Step 4: View the Capacity Reservations in the resource group](#ec2-fleet-odcr-step4 "#ec2-fleet-odcr-step4")
+- [Step 5: Create a launch template that specifies that the Capacity Reservation targets a specific resource group](#ec2-fleet-odcr-step5 "#ec2-fleet-odcr-step5")
+- [(Optional) Step 6: Describe the launch template](#ec2-fleet-odcr-step6 "#ec2-fleet-odcr-step6")
 - [Step 7: Create an EC2 Fleet](#ec2-fleet-odcr-step7 "#ec2-fleet-odcr-step7")
-- [(Optional) Step 8: View the number of
-  remaining unused Capacity Reservations](#ec2-fleet-odcr-step8 "#ec2-fleet-odcr-step8")
+- [(Optional) Step 8: View the number of remaining unused Capacity Reservations](#ec2-fleet-odcr-step8 "#ec2-fleet-odcr-step8")
 
 ## Step 1: Create Capacity Reservations
 
@@ -89,8 +84,7 @@ cr-54321abcdef567890
 
 Use the `resource-groups` service and the [create-group](../../../cli/latest/reference/resource-groups/create-group.md "../../../cli/latest/reference/resource-groups/create-group.md") command to create a Capacity Reservation resource group. In this example,
 the resource group is named `my-cr-group`. For information about why you
-must create a resource group, see [Use Capacity Reservations to reserve
-On-Demand capacity in EC2 Fleet](ec2-fleet-on-demand-capacity-reservations.md "ec2-fleet-on-demand-capacity-reservations.md").
+must create a resource group, see [Use Capacity Reservations to reserve On-Demand capacity in EC2 Fleet](ec2-fleet-on-demand-capacity-reservations.md "ec2-fleet-on-demand-capacity-reservations.md").
 
 ```
 aws resource-groups create-group \
@@ -98,9 +92,7 @@ aws resource-groups create-group \
     --configuration '{"Type":"AWS::EC2::CapacityReservationPool"}' '{"Type":"AWS::ResourceGroups::Generic", "Parameters": [{"Name": "allowed-resource-types", "Values": ["AWS::EC2::CapacityReservation"]}]}'
 ```
 
-## Step 3: Add the Capacity Reservations to the Capacity Reservation resource
-
-group
+## Step 3: Add the Capacity Reservations to the Capacity Reservation resource group
 
 Use the `resource-groups` service and the [group-resources](../../../cli/latest/reference/resource-groups/group-resources.md "../../../cli/latest/reference/resource-groups/group-resources.md") command to add the Capacity Reservations that you created in Step 1 to
 the Capacity Reservations resource group. Note that you must reference the On-Demand Capacity Reservations by their
@@ -126,9 +118,7 @@ Example output
 }
 ```
 
-## (Optional) Step 4: View the Capacity Reservations in the
-
-resource group
+## (Optional) Step 4: View the Capacity Reservations in the resource group
 
 Use the `resource-groups` service and the [list-group-resources](../../../cli/latest/reference/resource-groups/list-group-resources.md "../../../cli/latest/reference/resource-groups/list-group-resources.md") command to optionally describe the resource group
 to view its Capacity Reservations.
@@ -154,9 +144,7 @@ Example output
 }
 ```
 
-## Step 5: Create a launch template that
-
-specifies that the Capacity Reservation targets a specific resource group
+## Step 5: Create a launch template that specifies that the Capacity Reservation targets a specific resource group
 
 Use the [create-launch-template](../../../cli/latest/reference/ec2/create-launch-template.md "../../../cli/latest/reference/ec2/create-launch-template.md") command to create a launch template in which to
 specify the Capacity Reservations to use. In this example, the fleet will use `targeted`
@@ -176,9 +164,7 @@ aws ec2 create-launch-template \
         }'
 ```
 
-## (Optional) Step 6: Describe the launch
-
-template
+## (Optional) Step 6: Describe the launch template
 
 Use the [describe-launch-template-versions](../../../cli/latest/reference/ec2/describe-launch-template-versions.md "../../../cli/latest/reference/ec2/describe-launch-template-versions.md") command to optionally describe the launch
 template to view its configuration.
@@ -281,9 +267,7 @@ the following 10 instances are launched to meet the target capacity:
   Zone), the fleet launches the remaining 4 On-Demand Instances into either of the
   pools.
 
-## (Optional) Step 8: View the number of
-
-remaining unused Capacity Reservations
+## (Optional) Step 8: View the number of remaining unused Capacity Reservations
 
 After the fleet is launched, you can optionally run [describe-capacity-reservations](../../../cli/latest/reference/ec2/describe-capacity-reservations.md "../../../cli/latest/reference/ec2/describe-capacity-reservations.md") to see how many unused Capacity Reservations are
 remaining. In this example, you should see the following response, which shows that

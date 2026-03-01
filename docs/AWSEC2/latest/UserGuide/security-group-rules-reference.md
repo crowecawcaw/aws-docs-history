@@ -14,8 +14,7 @@ for specific kinds of access.
 - [Web server rules](#sg-rules-web-server "#sg-rules-web-server")
 - [Database server rules](#sg-rules-db-server "#sg-rules-db-server")
 - [Rules to connect to instances from your computer](#sg-rules-local-access "#sg-rules-local-access")
-- [Rules to connect to instances from an instance with the
-  same security group](#sg-rules-other-instances "#sg-rules-other-instances")
+- [Rules to connect to instances from an instance with the same security group](#sg-rules-other-instances "#sg-rules-other-instances")
 - [Rules for ping/ICMP](#sg-rules-ping "#sg-rules-ping")
 - [DNS server rules](#sg-rules-dns "#sg-rules-dns")
 - [Amazon EFS rules](#sg-rules-efs "#sg-rules-efs")
@@ -78,9 +77,7 @@ allow SSH access (for Linux instances) or RDP access (for Windows instances).
 | TCP           | 6               | 22 (SSH)   | The public IPv4 address of your computer, or a range of IP addresses in your local<br>network. If your VPC is enabled for IPv6 and your instance has an<br>IPv6 address, you can enter an IPv6 address or range. |
 | TCP           | 6               | 3389 (RDP) | The public IPv4 address of your computer, or a range of IP addresses in your local<br>network. If your VPC is enabled for IPv6 and your instance has an<br>IPv6 address, you can enter an IPv6 address or range. |
 
-## Rules to connect to instances from an instance with the
-
-same security group
+## Rules to connect to instances from an instance with the same security group
 
 To allow instances that are associated with the same security group to communicate
 with each other, you must explicitly add rules for this.

@@ -1,6 +1,4 @@
-# Troubleshoot your Amazon EC2 instance using the
-
-EC2 Serial Console
+# Troubleshoot your Amazon EC2 instance using the EC2 Serial Console
 
 By using EC2 Serial Console, you can troubleshoot boot, network configuration, and other
 issues by connecting to your instance's serial port.
@@ -155,9 +153,7 @@ The `h` command outputs something similar to the following.
 The command that you use for sending a break request might be different
 depending on the SSH client that you're using.
 
-## (Windows instances) Use SAC to troubleshoot your
-
-instance
+## (Windows instances) Use SAC to troubleshoot your instance
 
 The Special Admin Console (SAC) capability of Windows provides a way to troubleshoot a
 Windows instance. By connecting to the instance's serial console and using SAC, you can

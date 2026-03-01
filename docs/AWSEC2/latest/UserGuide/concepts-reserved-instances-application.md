@@ -1,6 +1,4 @@
-# How billing works with
-
-Reserved Instances
+# How billing works with Reserved Instances
 
 All Reserved Instances provide you with a discount compared to On-Demand pricing. With Reserved Instances, you
 pay for the entire term regardless of actual use. You can choose to pay for your Reserved Instance
@@ -18,8 +16,7 @@ charged the standard pricing. For information, see [AWS Free Tier](https://aws.a
 
 - [Usage billing](#hourly-billing "#hourly-billing")
 - [Viewing your bill](#ri-market-buyer-billing "#ri-market-buyer-billing")
-- [Reserved Instances and consolidated
-  billing](#concepts-reserved-instances-billing "#concepts-reserved-instances-billing")
+- [Reserved Instances and consolidated billing](#concepts-reserved-instances-billing "#concepts-reserved-instances-billing")
 - [Reserved Instance discount pricing tiers](#reserved-instances-discounts "#reserved-instances-discounts")
 
 ## Usage billing
@@ -83,9 +80,7 @@ You can also track your Reserved Instance utilization using the AWS Cost and Usa
 For more information, see [Understanding your
 reservations](../../../cur/latest/userguide/understanding-ri.md "../../../cur/latest/userguide/understanding-ri.md").
 
-## Reserved Instances and consolidated
-
-billing
+## Reserved Instances and consolidated billing
 
 The pricing benefits of Reserved Instances are shared when the purchasing account is part of a
 set of accounts billed under one consolidated billing payer account. The instance
@@ -104,8 +99,7 @@ longer benefit from the Reserved Instance billing discount.
 
 Zonal Reserved Instances reserve capacity only for the owning account and cannot be shared
 with other AWS accounts. If you need to share capacity with other
-AWS accounts, use [Reserve compute capacity with EC2
-On-Demand Capacity Reservations](ec2-capacity-reservations.md "ec2-capacity-reservations.md").
+AWS accounts, use [Reserve compute capacity with EC2 On-Demand Capacity Reservations](ec2-capacity-reservations.md "ec2-capacity-reservations.md").
 
 ## Reserved Instance discount pricing tiers
 
@@ -130,8 +124,7 @@ The following rules apply:
 - [Calculate Reserved Instance pricing discounts](#pricing-discounts "#pricing-discounts")
 - [Buy with a discount tier](#buying-discount-tier "#buying-discount-tier")
 - [Crossing pricing tiers](#crossing-pricing-tiers "#crossing-pricing-tiers")
-- [Consolidated billing for pricing
-  tiers](#consolidating-billing "#consolidating-billing")
+- [Consolidated billing for pricing tiers](#consolidating-billing "#consolidating-billing")
 
 ### Calculate Reserved Instance pricing discounts
 
@@ -224,14 +217,11 @@ each set of reservations in a tier. Consequently, the ID returned by your
 purchase CLI command or API action is different from the actual ID of the new
 Reserved Instances.
 
-### Consolidated billing for pricing
-
-tiers
+### Consolidated billing for pricing tiers
 
 A consolidated billing account aggregates the list value of member accounts
 within a Region. When the list value of all active Reserved Instances for the consolidated
 billing account reaches a discount pricing tier, any Reserved Instances purchased after this
 point by any member of the consolidated billing account are charged at the
 discounted rate (as long as the list value for that consolidated account stays
-above the discount pricing tier threshold). For more information, see [Reserved Instances and consolidated
-billing](#concepts-reserved-instances-billing "#concepts-reserved-instances-billing").
+above the discount pricing tier threshold). For more information, see [Reserved Instances and consolidated billing](#concepts-reserved-instances-billing "#concepts-reserved-instances-billing").

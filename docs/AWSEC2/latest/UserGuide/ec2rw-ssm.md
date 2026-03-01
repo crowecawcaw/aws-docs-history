@@ -111,15 +111,11 @@ the AWS CLI, see [send-command](../../../cli/latest/reference/ssm/send-command.m
 
 ###### Examples
 
-- [Attempt to fix all identified issues on an offline root
-  volume](#ec2rw-ssm-exam1 "#ec2rw-ssm-exam1")
-- [Collect logs from the current Amazon EC2 Windows
-  instance](#ec2rw-ssm-exam2 "#ec2rw-ssm-exam2")
+- [Attempt to fix all identified issues on an offline root volume](#ec2rw-ssm-exam1 "#ec2rw-ssm-exam1")
+- [Collect logs from the current Amazon EC2 Windows instance](#ec2rw-ssm-exam2 "#ec2rw-ssm-exam2")
 - [Reset the local Administrator password](#ec2rw-ssm-exam4 "#ec2rw-ssm-exam4")
 
-### Attempt to fix all identified issues on an offline root
-
-volume
+### Attempt to fix all identified issues on an offline root volume
 
 Attempt to fix all identified issues on an offline root volume attached to an Amazon EC2
 Windows instance:
@@ -128,9 +124,7 @@ Windows instance:
 aws ssm send-command --instance-ids "`i-0cb2b964d3e14fd9f`" --document-name "AWSSupport-RunEC2RescueForWindowsTool" --parameters "Command=FixAll, Parameters='`xvdf`'" --output text
 ```
 
-### Collect logs from the current Amazon EC2 Windows
-
-instance
+### Collect logs from the current Amazon EC2 Windows instance
 
 Collect all logs from the current online Amazon EC2 Windows instance and upload them to an
 Amazon S3 bucket:

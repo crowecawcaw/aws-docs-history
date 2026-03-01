@@ -23,10 +23,8 @@ Rebalance recommendations are only supported for Spot Instances that are launche
 ###### Contents
 
 - [Rebalance actions you can take](#rebalancing-actions "#rebalancing-actions")
-- [Monitor rebalance recommendation
-  signals](#monitor-rebalance-recommendations "#monitor-rebalance-recommendations")
-- [Services that use the rebalance recommendation
-  signal](#services-using-rebalance-rec-signal "#services-using-rebalance-rec-signal")
+- [Monitor rebalance recommendation signals](#monitor-rebalance-recommendations "#monitor-rebalance-recommendations")
+- [Services that use the rebalance recommendation signal](#services-using-rebalance-rec-signal "#services-using-rebalance-rec-signal")
 
 ## Rebalance actions you can take
 
@@ -54,13 +52,10 @@ You can configure Auto Scaling groups, EC2 Fleet, or Spot Fleet to automatically
 when a rebalance recommendation signal is emitted. For more information,
 see [Use Capacity
 Rebalancing to handle Amazon EC2 Spot interruptions](../../../autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.md") in the _Amazon EC2 Auto Scaling User Guide_,
-and [Use Capacity Rebalancing in EC2 Fleet and Spot Fleet
-to replace at-risk Spot Instances](ec2-fleet-capacity-rebalance.md "ec2-fleet-capacity-rebalance.md")
+and [Use Capacity Rebalancing in EC2 Fleet and Spot Fleet to replace at-risk Spot Instances](ec2-fleet-capacity-rebalance.md "ec2-fleet-capacity-rebalance.md")
 in this user guide.
 
-## Monitor rebalance recommendation
-
-signals
+## Monitor rebalance recommendation signals
 
 You can monitor the rebalance recommendation signal so that, when it is emitted, you can
 take the actions that are specified in the preceding section. The rebalance
@@ -269,9 +264,7 @@ If the signal has not been emitted for the instance,
 `events/recommendations/rebalance` is not present and you receive
 an HTTP 404 error when you try to retrieve it.
 
-## Services that use the rebalance recommendation
-
-signal
+## Services that use the rebalance recommendation signal
 
 Amazon EC2 Auto Scaling, EC2 Fleet, and Spot Fleet use the rebalance recommendation signal to make it easy for you to
 maintain workload availability by proactively augmenting your fleet with a new Spot Instance
@@ -282,6 +275,5 @@ availability of your Spot Instances. For more information, see the following:
 - [Use
   Capacity Rebalancing to handle Amazon EC2 Spot interruptions](../../../autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.md") in the
   _Amazon EC2 Auto Scaling User Guide_
-- [Use Capacity Rebalancing in EC2 Fleet and Spot Fleet
-  to replace at-risk Spot Instances](ec2-fleet-capacity-rebalance.md "ec2-fleet-capacity-rebalance.md") in the EC2 Fleet and Spot Fleet topic in
+- [Use Capacity Rebalancing in EC2 Fleet and Spot Fleet to replace at-risk Spot Instances](ec2-fleet-capacity-rebalance.md "ec2-fleet-capacity-rebalance.md") in the EC2 Fleet and Spot Fleet topic in
   this user guide

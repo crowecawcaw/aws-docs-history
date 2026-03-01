@@ -1,6 +1,4 @@
-# View scheduled events that affect your
-
-Amazon EC2 instances
+# View scheduled events that affect your Amazon EC2 instances
 
 In addition to receiving notification of scheduled events in email, you can check
 for scheduled events.
@@ -88,9 +86,7 @@ NotBefore    : 5/23/2015 12:00:00 AM
 
 Instance metadata
 
-###### To view scheduled events for your instances using instance
-
-metadata
+###### To view scheduled events for your instances using instance metadata
 
 You can retrieve information about active maintenance events for
 your instances from the [instance metadata](ec2-instance-metadata.md "ec2-instance-metadata.md") by using Instance Metadata Service Version 2 or
@@ -125,9 +121,7 @@ system reboot event, in JSON format.
 ]
 ```
 
-###### To view event history about completed or canceled events for your
-
-instances using instance metadata
+###### To view event history about completed or canceled events for your instances using instance metadata
 
 You can retrieve information about completed or canceled events
 for your instances from [instance metadata](ec2-instance-metadata.md "ec2-instance-metadata.md") by using Instance Metadata Service Version 2 or

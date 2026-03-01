@@ -46,8 +46,7 @@ _IAM User Guide_.
 
 You can apply resource-level permissions to your IAM policies to control the users'
 ability to attach, replace, or detach IAM roles for an instance. For more information,
-see [Supported resource-level
-permissions for Amazon EC2 API actions](iam-policies-for-amazon-ec2.md#ec2-supported-iam-actions-resources "iam-policies-for-amazon-ec2.md#ec2-supported-iam-actions-resources") and the following example:
+see [Supported resource-level permissions for Amazon EC2 API actions](iam-policies-for-amazon-ec2.md#ec2-supported-iam-actions-resources "iam-policies-for-amazon-ec2.md#ec2-supported-iam-actions-resources") and the following example:
 [Example: Work with IAM roles](ExamplePolicies_EC2.md#iam-example-iam-roles "ExamplePolicies_EC2.md#iam-example-iam-roles").
 
 ###### Contents

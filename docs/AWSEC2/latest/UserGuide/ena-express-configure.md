@@ -1,10 +1,7 @@
-# Configure ENA Express settings for your EC2
-
-instance
+# Configure ENA Express settings for your EC2 instance
 
 You can configure ENA Express for supported EC2 instance types without needing to
-install any additional software. For more information, see [Supported instance types for ENA
-Express](ena-express.md#ena-express-supported-instance-types "ena-express.md#ena-express-supported-instance-types").
+install any additional software. For more information, see [Supported instance types for ENA Express](ena-express.md#ena-express-supported-instance-types "ena-express.md#ena-express-supported-instance-types").
 
 Console
 
@@ -82,9 +79,7 @@ AWS CLI
 Use the [attach-network-interface](../../../cli/latest/reference.md "../../../cli/latest/reference.md") command, as
 shown in the following examples.
 
-###### Example 1: Use ENA Express for TCP traffic, but not UDP
-
-traffic
+###### Example 1: Use ENA Express for TCP traffic, but not UDP traffic
 
 This example configures `EnaSrdEnabled` as
 `true`, and allows `EnaSrdUdpEnabled` to
@@ -98,9 +93,7 @@ aws ec2 attach-network-interface \
     --ena-srd-specification 'EnaSrdEnabled=true'
 ```
 
-###### Example 2: Use ENA Express for both TCP traffic and UDP
-
-traffic
+###### Example 2: Use ENA Express for both TCP traffic and UDP traffic
 
 This example configures both `EnaSrdEnabled` and
 `EnaSrdUdpEnabled` as `true`.
@@ -113,16 +106,12 @@ aws ec2 attach-network-interface \
     --ena-srd-specification 'EnaSrdEnabled=true,EnaSrdUdpSpecification={EnaSrdUdpEnabled=true}'
 ```
 
-###### To update ENA Express settings for a network interface
-
-attachment
+###### To update ENA Express settings for a network interface attachment
 
 Use the [modify-network-interface-attribute](../../../cli/latest/reference/modify-network-interface-attribute.md "../../../cli/latest/reference/modify-network-interface-attribute.md")
 command as shown in the following examples.
 
-###### Example 1: Use ENA Express for TCP traffic, but not UDP
-
-traffic
+###### Example 1: Use ENA Express for TCP traffic, but not UDP traffic
 
 This example configures `EnaSrdEnabled` as
 `true`, and allows `EnaSrdUdpEnabled` to
@@ -135,9 +124,7 @@ aws ec2 modify-network-interface-attribute \
     --ena-srd-specification 'EnaSrdEnabled=true'
 ```
 
-###### Example 2: Use ENA Express for both TCP traffic and UDP
-
-traffic
+###### Example 2: Use ENA Express for both TCP traffic and UDP traffic
 
 This example configures both `EnaSrdEnabled` and
 `EnaSrdUdpEnabled` as `true`.
@@ -166,9 +153,7 @@ PowerShell
 Use the [Add-EC2NetworkInterface](../../../powershell/latest/reference/items/Add-EC2NetworkInterface.md "../../../powershell/latest/reference/items/Add-EC2NetworkInterface.md") cmdlet as shown
 in the following examples.
 
-###### Example 1: Use ENA Express for TCP traffic, but not UDP
-
-traffic
+###### Example 1: Use ENA Express for TCP traffic, but not UDP traffic
 
 This example configures `EnaSrdEnabled` as
 `true`, and allows `EnaSrdUdpEnabled` to
@@ -182,9 +167,7 @@ Add-EC2NetworkInterface `
     -EnaSrdSpecification_EnaSrdEnabled $true
 ```
 
-###### Example 2: Use ENA Express for both TCP traffic and UDP
-
-traffic
+###### Example 2: Use ENA Express for both TCP traffic and UDP traffic
 
 This example configures both `EnaSrdEnabled` and
 `EnaSrdUdpEnabled` as `true`.
@@ -198,16 +181,12 @@ Add-EC2NetworkInterface `
     -EnaSrdUdpSpecification_EnaSrdUdpEnabled $true
 ```
 
-###### To configure ENA Express settings for your network interface
-
-attachment
+###### To configure ENA Express settings for your network interface attachment
 
 Use the [Edit-EC2NetworkInterfaceAttribute](../../../powershell/latest/reference/items/Edit-EC2NetworkInterfaceAttribute.md "../../../powershell/latest/reference/items/Edit-EC2NetworkInterfaceAttribute.md") cmdlet
 as shown in the following examples.
 
-###### Example 1: Use ENA Express for TCP traffic, but not UDP
-
-traffic
+###### Example 1: Use ENA Express for TCP traffic, but not UDP traffic
 
 This example configures `EnaSrdEnabled` as
 `true`, and allows `EnaSrdUdpEnabled` to
@@ -226,9 +205,7 @@ Select-Object `
 Format-List
 ```
 
-###### Example 2: Use ENA Express for both TCP traffic and UDP
-
-traffic
+###### Example 2: Use ENA Express for both TCP traffic and UDP traffic
 
 This example configures both `EnaSrdEnabled` and
 `EnaSrdUdpEnabled` as `true`.
@@ -263,9 +240,7 @@ Select-Object `
 Format-List
 ```
 
-## Configure ENA Express at
-
-launch
+## Configure ENA Express at launch
 
 You can use one of the following methods to configure ENA Express directly when
 you launch an instance. The specified links refer you to the AWS Management Console instructions

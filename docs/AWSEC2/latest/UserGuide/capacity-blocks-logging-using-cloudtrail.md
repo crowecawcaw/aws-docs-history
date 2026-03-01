@@ -1,6 +1,4 @@
-# Logging Capacity Blocks API calls
-
-with AWS CloudTrail
+# Logging Capacity Blocks API calls with AWS CloudTrail
 
 Capacity Blocks is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, role, or an AWS service in Capacity Blocks. CloudTrail captures API calls for
@@ -14,9 +12,7 @@ request was made, who made the request, when it was made, and additional details
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
 
-## Capacity Blocks information in
-
-CloudTrail
+## Capacity Blocks information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity
 occurs in Capacity Blocks, that activity is recorded in a CloudTrail event along with other
@@ -56,9 +52,7 @@ identity information helps you determine the following:
 
 For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding Capacity Blocks log
-
-file entries
+## Understanding Capacity Blocks log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

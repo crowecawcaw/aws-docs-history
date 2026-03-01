@@ -1,6 +1,4 @@
-# Disable KASLR on an instance (Ubuntu
-
-only)
+# Disable KASLR on an instance (Ubuntu only)
 
 To run hibernation on a newly launched instance with Ubuntu 16.04 LTS (Xenial Xerus),
 Ubuntu 18.04 LTS (Bionic Beaver) released with serial number 20190722.1 or later, or

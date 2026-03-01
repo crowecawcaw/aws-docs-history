@@ -1,6 +1,4 @@
-# Tutorial: Complete the configuration
-
-required to connect to your instance using EC2 Instance Connect
+# Tutorial: Complete the configuration required to connect to your instance using EC2 Instance Connect
 
 To connect to your instance using EC2 Instance Connect in the Amazon EC2 console, you first need
 to complete the prerequisite configuration that will allow you to successfully connect
@@ -11,16 +9,14 @@ complete the prerequisite configuration.
 
 In this tutorial, you'll complete the following four tasks:
 
-- [Task 1: Grant permissions required to use
-  EC2 Instance Connect](#eic-tut1-task1 "#eic-tut1-task1")
+- [Task 1: Grant permissions required to use EC2 Instance Connect](#eic-tut1-task1 "#eic-tut1-task1")
 
 First you'll create an IAM policy that contains the IAM permissions that allow
 you to push a public key to the instance metadata. You'll attach this policy to
 your IAM identity (user, user group, or role) so that your IAM identity gets
 these permissions.
 
-- [Task 2: Allow inbound traffic from the
-  EC2 Instance Connect service to your instance](#eic-tut1-task2 "#eic-tut1-task2")
+- [Task 2: Allow inbound traffic from the EC2 Instance Connect service to your instance](#eic-tut1-task2 "#eic-tut1-task2")
 
 Then you'll create a security group that allows traffic from the EC2 Instance Connect
 service to your instance. This is required when you use EC2 Instance Connect in the
@@ -38,9 +34,7 @@ Finally, you'll use EC2 Instance Connect in the Amazon EC2 console to connect to
 instance. If you can connect, then you can be sure that the prerequisite
 configuration you completed in Tasks 1, 2, and 3 were successful.
 
-## Task 1: Grant permissions required to use
-
-EC2 Instance Connect
+## Task 1: Grant permissions required to use EC2 Instance Connect
 
 When you connect to an instance using EC2 Instance Connect, the EC2 Instance Connect API pushes
 an SSH public key to the [instance
@@ -87,12 +81,9 @@ The IAM policy created in this tutorial is a highly permissive policy; it
 allows you to connect to any instance using any AMI username. We're using this
 highly permissive policy to keep the tutorial simple and focused on the specific
 configurations that this tutorial is teaching. However, in a production
-environment, we recommend that your IAM policy is configured to provide [least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege"). For example IAM policies, see [Grant IAM permissions for
-EC2 Instance Connect](ec2-instance-connect-configure-IAM-role.md "ec2-instance-connect-configure-IAM-role.md").
+environment, we recommend that your IAM policy is configured to provide [least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege"). For example IAM policies, see [Grant IAM permissions for EC2 Instance Connect](ec2-instance-connect-configure-IAM-role.md "ec2-instance-connect-configure-IAM-role.md").
 
-###### To create and attach an IAM policy that allows you to use EC2 Instance Connect to
-
-connect to your instances
+###### To create and attach an IAM policy that allows you to use EC2 Instance Connect to connect to your instances
 
 1. **First create the IAM policy**
    1. Open the IAM console at
@@ -145,9 +136,7 @@ connect to your instances
 
 ![This animation shows how to attach an IAM policy to an IAM identity. For the text version of this animation, see the steps in the preceding procedure.](images/eic-tut1-task1-attach-iam-policy.gif)
 
-## Task 2: Allow inbound traffic from the
-
-EC2 Instance Connect service to your instance
+## Task 2: Allow inbound traffic from the EC2 Instance Connect service to your instance
 
 When you use EC2 Instance Connect in the Amazon EC2 console to connect to an instance, the
 traffic that must be allowed to reach the instance is traffic from the EC2 Instance Connect
@@ -171,9 +160,7 @@ code:
 You'll create a security group that allows inbound SSH traffic on port 22 from the IPv4
 prefix list in the Region in which your instance is located.
 
-###### To create a security group that allows inbound traffic from the EC2 Instance Connect
-
-service to your instance
+###### To create a security group that allows inbound traffic from the EC2 Instance Connect service to your instance
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -224,9 +211,7 @@ Because you'll use EC2 Instance Connect to connect to your instance, which pushe
 key to your instance's metadata, you won't need to specify an SSH key when you
 launch your instance.
 
-###### To launch an instance that can use EC2 Instance Connect in the Amazon EC2 console for
-
-connection
+###### To launch an instance that can use EC2 Instance Connect in the Amazon EC2 console for connection
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -288,8 +273,7 @@ be successful.
 **Steps to connect to your instance**
 
 Use the following steps to connect to your instance. To view an animation of the
-steps, see [View an animation: Connect to
-your instance](#eic-tut1-task4-animation "#eic-tut1-task4-animation").
+steps, see [View an animation: Connect to your instance](#eic-tut1-task4-animation "#eic-tut1-task4-animation").
 
 ###### To connect an instance using EC2 Instance Connect in the Amazon EC2 console
 

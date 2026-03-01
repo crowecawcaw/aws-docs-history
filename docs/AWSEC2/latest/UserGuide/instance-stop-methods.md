@@ -13,20 +13,16 @@ the key differences between the stop methods:
 
 For instructions on how to use each method, see the following:
 
-- [Stop an instance with a
-  graceful OS shutdown](Stop_Start.md#stop-instance-with-graceful-os-shutdown "Stop_Start.md#stop-instance-with-graceful-os-shutdown")
-- [Stop an instance and
-  bypass the graceful OS shutdown](Stop_Start.md#stop-instance-bypass-graceful-os-shutdown "Stop_Start.md#stop-instance-bypass-graceful-os-shutdown")
+- [Stop an instance with a graceful OS shutdown](Stop_Start.md#stop-instance-with-graceful-os-shutdown "Stop_Start.md#stop-instance-with-graceful-os-shutdown")
+- [Stop an instance and bypass the graceful OS shutdown](Stop_Start.md#stop-instance-bypass-graceful-os-shutdown "Stop_Start.md#stop-instance-bypass-graceful-os-shutdown")
 - [Force stop an instance](TroubleshootingInstancesStopping.md#force-stop-instance "TroubleshootingInstancesStopping.md#force-stop-instance")
 
 ###### Stop methods:
 
 - [Default stop](#ec2-instance-default-stop "#ec2-instance-default-stop")
-- [Stop with skip OS
-  shutdown](#ec2-instance-stop-with-skip-os-shutdown "#ec2-instance-stop-with-skip-os-shutdown")
+- [Stop with skip OS shutdown](#ec2-instance-stop-with-skip-os-shutdown "#ec2-instance-stop-with-skip-os-shutdown")
 - [Force stop](#ec2-instance-force-stop "#ec2-instance-force-stop")
-- [Force stop with skip
-  OS shutdown](#ec2-instance-force-stop-with-skip-os-shutdown "#ec2-instance-force-stop-with-skip-os-shutdown")
+- [Force stop with skip OS shutdown](#ec2-instance-force-stop-with-skip-os-shutdown "#ec2-instance-force-stop-with-skip-os-shutdown")
   The following sections provide more detailed information about the four different
   user-initiated stop methods.
 
@@ -55,9 +51,7 @@ attempt during the same state transition session will not perform a graceful OS
 shutdown. Bypassing the graceful OS shutdown is irreversible for the instance's
 current session.
 
-## Stop with skip OS
-
-shutdown
+## Stop with skip OS shutdown
 
 When bypassing the graceful OS shutdown is required, the stop with skip OS
 shutdown method can be used to stop an instance and bypass the graceful OS shutdown,
@@ -112,9 +106,7 @@ post-stop writes to EBS volumes or other shared resources.
 **When to use:** Second stop attempt when an instance remains
 stuck after a default stop. For more information, see [Troubleshoot Amazon EC2 instance stop issues](TroubleshootingInstancesStopping.md "TroubleshootingInstancesStopping.md").
 
-## Force stop with skip
-
-OS shutdown
+## Force stop with skip OS shutdown
 
 When force stopping and bypassing the graceful OS shutdown is required, the force
 stop with skip OS shutdown method can be used to bring an instance to the

@@ -114,14 +114,10 @@ JSON
 
 ###### Examples
 
-- [Example: Describe, launch, stop, start, and terminate
-  all instances](#iam-example-instances-all "#iam-example-instances-all")
-- [Example: Describe all instances, and stop, start,
-  and terminate only particular instances](#iam-example-instances-specific "#iam-example-instances-specific")
+- [Example: Describe, launch, stop, start, and terminate all instances](#iam-example-instances-all "#iam-example-instances-all")
+- [Example: Describe all instances, and stop, start, and terminate only particular instances](#iam-example-instances-specific "#iam-example-instances-specific")
 
-### Example: Describe, launch, stop, start, and terminate
-
-all instances
+### Example: Describe, launch, stop, start, and terminate all instances
 
 The following policy grants users permissions to use the API actions specified in the
 `Action` element. The `Resource` element uses a \* wildcard
@@ -160,9 +156,7 @@ JSON
 
 ```
 
-### Example: Describe all instances, and stop, start,
-
-and terminate only particular instances
+### Example: Describe all instances, and stop, start, and terminate only particular instances
 
 The following policy allows users to describe all instances, to start and
 stop only instances i-1234567890abcdef0 and i-0598c7d356eba48d7,
@@ -1657,9 +1651,7 @@ JSON
 
 ```
 
-## Example: Allow a specific instance to view
-
-resources in other AWS services
+## Example: Allow a specific instance to view resources in other AWS services
 
 The following is an example of a policy that you might attach to an IAM role. The
 policy allows an instance to view resources in various AWS services. It uses the
@@ -1696,9 +1688,7 @@ JSON
 
 ```
 
-## Example: Work with launch
-
-templates
+## Example: Work with launch templates
 
 The following policy allows users to create a launch template version and modify a
 launch template, but only for a specific launch template
@@ -1787,9 +1777,7 @@ Auto Scaling group that is configured to use the `Latest` or `Default` launch
 template, the permissions are not checked when a new version of the launch template is
 created. For permissions to be checked, you must configure the Auto Scaling group to use a _specific version_ of the launch template.
 
-###### To enforce the use of IMDSv2 on instances launched by Auto Scaling groups, the
-
-following additional steps are required:
+###### To enforce the use of IMDSv2 on instances launched by Auto Scaling groups, the following additional steps are required:
 
 1. Disable the use of launch configurations for all accounts in your organization by
    using either service control policies (SCPs) or IAM permissions boundaries for new
@@ -1817,19 +1805,13 @@ following additional steps are required:
 
 ###### Examples
 
-- [Require the use of
-  IMDSv2](#iam-example-instance-metadata-requireIMDSv2 "#iam-example-instance-metadata-requireIMDSv2")
-- [Deny opt-out of
-  IMDSv2](#iam-example-instance-metadata-denyoptoutIMDSv2 "#iam-example-instance-metadata-denyoptoutIMDSv2")
+- [Require the use of IMDSv2](#iam-example-instance-metadata-requireIMDSv2 "#iam-example-instance-metadata-requireIMDSv2")
+- [Deny opt-out of IMDSv2](#iam-example-instance-metadata-denyoptoutIMDSv2 "#iam-example-instance-metadata-denyoptoutIMDSv2")
 - [Specify maximum hop limit](#iam-example-instance-metadata-maxHopLimit "#iam-example-instance-metadata-maxHopLimit")
-- [Limit who can modify the
-  instance metadata options](#iam-example-instance-metadata-limit-modify-IMDS-options "#iam-example-instance-metadata-limit-modify-IMDS-options")
-- [Require role
-  credentials to be retrieved from IMDSv2](#iam-example-instance-metadata-require-roles-to-use-IMDSv2-credentials "#iam-example-instance-metadata-require-roles-to-use-IMDSv2-credentials")
+- [Limit who can modify the instance metadata options](#iam-example-instance-metadata-limit-modify-IMDS-options "#iam-example-instance-metadata-limit-modify-IMDS-options")
+- [Require role credentials to be retrieved from IMDSv2](#iam-example-instance-metadata-require-roles-to-use-IMDSv2-credentials "#iam-example-instance-metadata-require-roles-to-use-IMDSv2-credentials")
 
-### Require the use of
-
-IMDSv2
+### Require the use of IMDSv2
 
 The following policy specifies that you can’t call the RunInstances API unless the
 instance is also opted in to require the use of IMDSv2 (indicated by
@@ -1859,9 +1841,7 @@ JSON
 
 ```
 
-### Deny opt-out of
-
-IMDSv2
+### Deny opt-out of IMDSv2
 
 The following policy specifies that you cannot call the
 `ModifyInstanceMetadataOptions` API and allow the option of
@@ -1920,9 +1900,7 @@ JSON
 
 ```
 
-### Limit who can modify the
-
-instance metadata options
+### Limit who can modify the instance metadata options
 
 The following policy permits only users with the role `ec2-imds-admins` to make
 changes to the instance metadata options. If any principal other than the
@@ -1932,9 +1910,7 @@ error. This statement could be used to control the use of the
 ModifyInstanceMetadataOptions API; there are currently no fine-grained access
 controls (conditions) for the ModifyInstanceMetadataOptions API.
 
-### Require role
-
-credentials to be retrieved from IMDSv2
+### Require role credentials to be retrieved from IMDSv2
 
 The following policy specifies that if this policy is applied to a role, and the role is
 assumed by the EC2 service and the resulting credentials are used to sign a request, then the

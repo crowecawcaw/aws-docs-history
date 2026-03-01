@@ -257,9 +257,7 @@ latest enhanced networking drivers.
 The following procedure provides the general steps for compiling the
 `ixgbevf` module on an Ubuntu instance.
 
-###### To install the `linux-aws`
-
-kernel package
+###### To install the `linux-aws` kernel package
 
 1. Connect to your instance.
 2. Update the package cache and packages.

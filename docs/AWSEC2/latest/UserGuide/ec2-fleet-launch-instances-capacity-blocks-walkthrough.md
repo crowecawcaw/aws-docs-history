@@ -1,6 +1,4 @@
-# Tutorial:
-
-Configure your EC2 Fleet to launch instances into Capacity Blocks
+# Tutorial: Configure your EC2 Fleet to launch instances into Capacity Blocks
 
 This tutorial walks you through the steps that you must perform so that your EC2 Fleet launches
 instances into Capacity Blocks.

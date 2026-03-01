@@ -25,14 +25,12 @@ needs. Otherwise, you can create your own custom policies. For more information,
 
 - [Policy syntax](#policy-syntax "#policy-syntax")
 - [Actions for Amazon EC2](#UsingWithEC2_Actions "#UsingWithEC2_Actions")
-- [Supported resource-level
-  permissions for Amazon EC2 API actions](#ec2-supported-iam-actions-resources "#ec2-supported-iam-actions-resources")
+- [Supported resource-level permissions for Amazon EC2 API actions](#ec2-supported-iam-actions-resources "#ec2-supported-iam-actions-resources")
 - [Amazon Resource Names (ARNs) for Amazon EC2](#EC2_ARN_Format "#EC2_ARN_Format")
 - [Condition keys for Amazon EC2](#amazon-ec2-keys "#amazon-ec2-keys")
 - [Control access using attribute-based access](#control-access-with-tags "#control-access-with-tags")
 - [Grant permissions to users, groups, and roles](#granting-iam-permissions "#granting-iam-permissions")
-- [Check that users have the required
-  permissions](#check-required-permissions "#check-required-permissions")
+- [Check that users have the required permissions](#check-required-permissions "#check-required-permissions")
 
 ## Policy syntax
 
@@ -70,8 +68,7 @@ There are various elements that make up a statement:
   in your policy that can be created or modified by the action. You
   specify a resource using an Amazon Resource Name (ARN) or using the
   wildcard (\*) to indicate that the statement applies to all resources.
-  For more information, see [Supported resource-level
-  permissions for Amazon EC2 API actions](#ec2-supported-iam-actions-resources "#ec2-supported-iam-actions-resources").
+  For more information, see [Supported resource-level permissions for Amazon EC2 API actions](#ec2-supported-iam-actions-resources "#ec2-supported-iam-actions-resources").
 - **Condition**: Conditions are optional. They can be
   used to control when your policy is in effect. For more information
   about specifying conditions for Amazon EC2, see [Condition keys for Amazon EC2](#amazon-ec2-keys "#amazon-ec2-keys").
@@ -117,9 +114,7 @@ To specify all Amazon EC2 API actions, use the \* wildcard as follows:
 For a list of Amazon EC2 actions, see [Actions defined by Amazon EC2](../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-actions-as-permissions") in the
 _Service Authorization Reference_.
 
-## Supported resource-level
-
-permissions for Amazon EC2 API actions
+## Supported resource-level permissions for Amazon EC2 API actions
 
 _Resource-level permissions_ refers to the ability to
 specify which resources users are allowed to perform actions on. Amazon EC2 has
@@ -439,8 +434,7 @@ Use `ec2:SourceInstanceARN` to specify the ARN
 of the instance from which a request is made. This is an
 [AWS global condition key](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md"), which means that you
 can use it with services other than Amazon EC2. For a policy example,
-see [Example: Allow a specific instance to view
-resources in other AWS services](ExamplePolicies_EC2.md#iam-example-source-instance "ExamplePolicies_EC2.md#iam-example-source-instance").
+see [Example: Allow a specific instance to view resources in other AWS services](ExamplePolicies_EC2.md#iam-example-source-instance "ExamplePolicies_EC2.md#iam-example-source-instance").
 
 ## Control access using attribute-based access
 
@@ -491,9 +485,7 @@ in the _IAM User Guide_.
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-## Check that users have the required
-
-permissions
+## Check that users have the required permissions
 
 After you've created an IAM policy, we recommend that you check whether it
 grants users the permissions to use the particular API actions and resources

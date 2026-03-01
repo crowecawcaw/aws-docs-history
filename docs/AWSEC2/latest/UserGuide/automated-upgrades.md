@@ -188,9 +188,7 @@ document, you must perform the following tasks:
   5.  Create an Amazon EBS snapshot of the 6 GB volume created in step 2
       above.
 
-### Windows Server upgrade
-
-limitations
+### Windows Server upgrade limitations
 
 This automation doesn't support upgrading Windows domain controllers,
 clusters, or Windows desktop operating systems. In addition, this automation
@@ -202,9 +200,7 @@ installed:
 - Remote Desktop Virtualization Host (RDVH)
 - Remote Desktop Web Access (RDWA)
 
-### Steps to perform an automated upgrade of Windows
-
-Server
+### Steps to perform an automated upgrade of Windows Server
 
 Follow these steps to upgrade your Windows Server instance using the [AWSEC2-CloneInstanceAndUpgradeWindows](../../../systems-manager-automation-runbooks/latest/userguide/automation-awsec2-CloneInstanceAndUpgradeWindows.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awsec2-CloneInstanceAndUpgradeWindows.md") automation runbook.
 
@@ -363,9 +359,7 @@ document, you must perform the following tasks:
     5. Create an Amazon EBS snapshot of the 6 GB volume created in
        step 2.
 
-### SQL Server automated upgrade
-
-limitations
+### SQL Server automated upgrade limitations
 
 The following limitations apply when using the [AWSEC2-CloneInstanceAndUpgradeSQLServer](../../../systems-manager-automation-runbooks/latest/userguide/automation-awsec2-CloneInstanceAndUpgradeSQLServer.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awsec2-CloneInstanceAndUpgradeSQLServer.md") runbook to perform an
 automated upgrade:

@@ -70,9 +70,7 @@ which defines and exports the user-space API of OFI. For more information, see
 the [Libfabric OpenFabrics](https://ofiwg.github.io/libfabric/ "https://ofiwg.github.io/libfabric/")
 website.
 
-### Differences between ENA, EFA, and EFA-only network
-
-interfaces
+### Differences between ENA, EFA, and EFA-only network interfaces
 
 Amazon EC2 provides two types of network interfaces:
 
@@ -123,9 +121,13 @@ Nitro v6
 | m8gb.16xlarge              | Yes               | Yes                |
 | m8gb.24xlarge              | Yes               | Yes                |
 | m8gb.48xlarge              | Yes               | Yes                |
+| m8gb.metal-24xl            | Yes               | Yes                |
+| m8gb.metal-48xl            | Yes               | Yes                |
 | m8gn.16xlarge              | Yes               | Yes                |
 | m8gn.24xlarge              | Yes               | Yes                |
 | m8gn.48xlarge              | Yes               | Yes                |
+| m8gn.metal-24xl            | Yes               | Yes                |
+| m8gn.metal-48xl            | Yes               | Yes                |
 | m8i.48xlarge               | Yes               | Yes                |
 | m8i.96xlarge               | Yes               | Yes                |
 | m8i.metal-48xl             | Yes               | Yes                |
@@ -237,6 +239,7 @@ Nitro v5
 | i7ie.48xlarge              | Yes               | No                 |
 | i7ie.metal-48xl            | Yes               | No                 |
 | i8g.48xlarge               | No                | No                 |
+| i8g.metal-48xl             | No                | No                 |
 | Accelerated Computing      |
 | p5en.48xlarge              | Yes               | Yes                |
 | p6e-gb200.36xlarge         | Yes               | Yes                |

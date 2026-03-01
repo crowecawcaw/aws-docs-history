@@ -1,12 +1,9 @@
-# Troubleshoot
-
-Windows VSS based EBS snapshots
+# Troubleshoot Windows VSS based EBS snapshots
 
 Before you try any other troubleshooting steps, we recommend that you verify the
 following details.
 
-- Ensure that you've met all [Prerequisites to create Windows VSS
-  based EBS snapshots](application-consistent-snapshots-prereqs.md "application-consistent-snapshots-prereqs.md").
+- Ensure that you've met all [Prerequisites to create Windows VSS based EBS snapshots](application-consistent-snapshots-prereqs.md "application-consistent-snapshots-prereqs.md").
 - Verify that you're using the latest [Windows OS version support](vss-comps-history.md#windows-version-support "vss-comps-history.md#windows-version-support") of the
   `AwsVssComponents` package for your operating system. The issue
   that you've observed might have been addressed in newer versions.
@@ -16,10 +13,8 @@ following details.
 - [Check log files](#general-log-files "#general-log-files")
 - [Collect additional diagnostic logs](#vss-ts-collect-diagnostic-logs "#vss-ts-collect-diagnostic-logs")
 - [Use VSS on instances with proxy configured](#general-using-vss-with-proxy "#general-using-vss-with-proxy")
-- [Error: Thaw pipe connection timed out, error on thaw,
-  timeout waiting for VSS Freeze, or other timeout errors](#error-thaw "#error-thaw")
-- [Error: Cannot invoke method. Method invocation is supported only on core
-  types in this language mode](#error-invoke "#error-invoke")
+- [Error: Thaw pipe connection timed out, error on thaw, timeout waiting for VSS Freeze, or other timeout errors](#error-thaw "#error-thaw")
+- [Error: Cannot invoke method. Method invocation is supported only on core types in this language mode](#error-invoke "#error-invoke")
 
 ## Check log files
 
@@ -107,9 +102,7 @@ on your instance:
   instance. For more information about configuring WinHTTP proxy, see [Netsh Commands for Windows Hypertext Transfer Protocol
   (WINHTTP)](<https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731131(v=ws.10)> "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731131(v=ws.10)") on the Microsoft website.
 
-## Error: Thaw pipe connection timed out, error on thaw,
-
-timeout waiting for VSS Freeze, or other timeout errors
+## Error: Thaw pipe connection timed out, error on thaw, timeout waiting for VSS Freeze, or other timeout errors
 
 The EC2 Windows VSS Provider might time out due to activity or services on the
 instance preventing VSS based snapshots from proceeding in a timely manner.
@@ -168,9 +161,7 @@ of the backup. The following actions can help you take a successful snapshot:
   - Try closing memory or CPU intensive applications before taking snapshots.
   - Try taking snapshots during periods of lower instance activity.
 
-## Error: Cannot invoke method. Method invocation is supported only on core
-
-types in this language mode
+## Error: Cannot invoke method. Method invocation is supported only on core types in this language mode
 
 You will encounter this error when the PowerShell language
 mode is not set to `FullLanguage`. The `AWSEC2-CreateVssSnapshot`

@@ -1,6 +1,4 @@
-# Option 1: Automatically connect an instance to
-
-an RDS database using the EC2 console
+# Option 1: Automatically connect an instance to an RDS database using the EC2 console
 
 The objective of Option 1 is to explore the automatic connection feature in the EC2 console
 that automatically configures the connection between your EC2 instance and RDS
@@ -10,13 +8,10 @@ you'll learn how to manually configure the connection.
 ###### Tasks
 
 - [Before you begin](#option1-before-you-begin "#option1-before-you-begin")
-- [Task 1 (Optional):
-  Create an RDS database](#option1-task1-create-rds-database "#option1-task1-create-rds-database")
+- [Task 1 (Optional): Create an RDS database](#option1-task1-create-rds-database "#option1-task1-create-rds-database")
 - [Task 2 (Optional): Launch an EC2 instance](#option1-task2-launch-ec2-instance "#option1-task2-launch-ec2-instance")
-- [Task 3: Automatically
-  connect your EC2 instance to your RDS database](#option1-task3-connect-ec2-instance-to-rds-database "#option1-task3-connect-ec2-instance-to-rds-database")
-- [Task 4: Verify the connection
-  configuration](#option1-task4-verify-connection-configuration "#option1-task4-verify-connection-configuration")
+- [Task 3: Automatically connect your EC2 instance to your RDS database](#option1-task3-connect-ec2-instance-to-rds-database "#option1-task3-connect-ec2-instance-to-rds-database")
+- [Task 4: Verify the connection configuration](#option1-task4-verify-connection-configuration "#option1-task4-verify-connection-configuration")
 - [Task 5 (Optional): Clean up](#option2-task5-cleanup "#option2-task5-cleanup")
 
 ## Before you begin
@@ -43,9 +38,7 @@ You'll need the following to complete this tutorial:
   - `ec2:ModifyNetworkInterfaceAttribute`
   - `ec2:RevokeSecurityGroupEgress`
 
-## Task 1 (_Optional_):
-
-Create an RDS database
+## Task 1 (_Optional_): Create an RDS database
 
 ###### Note
 
@@ -201,8 +194,7 @@ use **t3.micro**, **t3.small**,
 **m7i-flex.large** instance types for 6 months or
 until your credits are used up.
 
-For more information, see [Free Tier benefits before and after July
-15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison"). 7. Under **Key pair (login)**, for **Key pair name**,
+For more information, see [Free Tier benefits before and after July 15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison"). 7. Under **Key pair (login)**, for **Key pair name**,
 choose your key pair. 8. Under **Network settings**, do the following:
 
     1. For **Network** and
@@ -257,14 +249,11 @@ choose your key pair. 8. Under **Network settings**, do the following:
 If the instance fails to launch or the state immediately goes to `terminated`
 instead of `running`, see [Troubleshoot Amazon EC2 instance launch issues](troubleshooting-launch.md "troubleshooting-launch.md").
 
-For more information about launching an instance, see [Launch an EC2 instance using the launch
-instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+For more information about launching an instance, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 ![This animation shows how to launch an EC2 instance. For the text version of this animation, see the steps in the preceding procedure.](images/tutorial-launch-instance.gif)
 
-## Task 3: Automatically
-
-connect your EC2 instance to your RDS database
+## Task 3: Automatically connect your EC2 instance to your RDS database
 
 The objective of this task is to use the automatic connection feature in the EC2 console
 to automatically configure the connection between your EC2 instance and your RDS
@@ -302,9 +291,7 @@ each other. 4. Choose **Connect**.
 
 ![This animation shows how to select an existing EC2 instance in the EC2 console and use the automatic connection feature to connect the EC2 instance to an RDS database. For the text version of this animation, see the steps in the preceding procedure.](images/tutorial-connect-new-ec2-rds.gif)
 
-## Task 4: Verify the connection
-
-configuration
+## Task 4: Verify the connection configuration
 
 The objective of this task is to verify that the two security groups were created and
 assigned to the instance and database.
@@ -404,8 +391,7 @@ manually configure the security groups that were automatically created in Option
 After you terminate an instance, you can no longer connect to it, and it can't be recovered.
 All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
 deleted and can't be recovered. All data stored on instance store volumes is permanently lost.
-For more information, see [How instance termination
-works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
+For more information, see [How instance termination works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
 
 Before you terminate an instance, ensure that you have backed up all data that you need to
 retain after the termination to persistent storage.

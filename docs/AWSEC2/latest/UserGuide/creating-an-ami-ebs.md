@@ -193,8 +193,7 @@ following information:
     		 deleted. If you clear **Delete on
     		 termination**, when you terminate the
     		 instance, the EBS volume is not deleted. For more
-    		 information, see [Preserve data when an instance is
-    		 terminated](preserving-volumes-on-termination.md "preserving-volumes-on-termination.md").
+    		 information, see [Preserve data when an instance is terminated](preserving-volumes-on-termination.md "preserving-volumes-on-termination.md").
     	2. To add an EBS volume, choose **Add
     	 volume** (which adds a new row). For
     	 **Storage type**, choose

@@ -19,8 +19,7 @@ Using AMI ancestry helps you:
 - [How AMI ancestry works](#how-ami-ancestry-works "#how-ami-ancestry-works")
 - [Considerations](#ami-ancestry-conditions "#ami-ancestry-conditions")
 - [View AMI ancestry](#view-ami-ancestry "#view-ami-ancestry")
-- [Identify the source
-  AMI](#identify-source-ami-used-to-create-new-ami "#identify-source-ami-used-to-create-new-ami")
+- [Identify the source AMI](#identify-source-ami-used-to-create-new-ami "#identify-source-ami-used-to-create-new-ami")
 
 ## How AMI ancestry works
 
@@ -185,9 +184,7 @@ ImageAncestryEntries : {
 }
 ```
 
-## Identify the source
-
-AMI
+## Identify the source AMI
 
 If you only need to identify the immediate parent (source) AMI used to create an AMI,
 you can use the following methods.

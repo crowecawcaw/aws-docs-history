@@ -52,8 +52,7 @@ With instance size flexibility, the Reserved Instance discount applies to instan
 instances that have the same [family](../../../ec2/latest/instancetypes/instance-type-names.md "../../../ec2/latest/instancetypes/instance-type-names.md"). The Reserved Instance is
 applied from the smallest to the largest instance size within the instance family
 based on the normalization factor. For an example of how the Reserved Instance discount is
-applied, see [Scenario 2: Reserved Instances in a single account using the
-normalization factor](#ri-usage-ex2 "#ri-usage-ex2").
+applied, see [Scenario 2: Reserved Instances in a single account using the normalization factor](#ri-usage-ex2 "#ri-usage-ex2").
 
 ### Limitations
 
@@ -71,9 +70,7 @@ normalization factor](#ri-usage-ex2 "#ri-usage-ex2").
     SQL Server Web, RHEL, and SUSE Linux Enterprise Server
   - Reserved Instances with dedicated tenancy
 
-### Instance size flexibility determined
-
-by normalization factor
+### Instance size flexibility determined by normalization factor
 
 Instance size flexibility is determined by the normalization factor of the
 instance size. The discount applies either fully or partially to running
@@ -125,9 +122,7 @@ usage of the instance.
 The normalization factor is also applied when modifying Reserved Instances. For more
 information, see [Modify Reserved Instances](ri-modifying.md "ri-modifying.md").
 
-#### Normalization factor
-
-for bare metal instances
+#### Normalization factor for bare metal instances
 
 Instance size flexibility also applies to bare metal instances within the
 instance family. If you have regional Amazon Linux/Unix Reserved Instances with shared
@@ -185,12 +180,9 @@ in that Region, the billing benefit is applied in full to the
 applied.
 
 - [Scenario 1: Reserved Instances in a single account](#ri-usage-ex1 "#ri-usage-ex1")
-- [Scenario 2: Reserved Instances in a single account using the
-  normalization factor](#ri-usage-ex2 "#ri-usage-ex2")
-- [Scenario 3: Regional Reserved Instances in linked
-  accounts](#ri-usage-ex3 "#ri-usage-ex3")
-- [Scenario 4: Zonal Reserved Instances in a linked
-  account](#ri-usage-ex4 "#ri-usage-ex4")
+- [Scenario 2: Reserved Instances in a single account using the normalization factor](#ri-usage-ex2 "#ri-usage-ex2")
+- [Scenario 3: Regional Reserved Instances in linked accounts](#ri-usage-ex3 "#ri-usage-ex3")
+- [Scenario 4: Zonal Reserved Instances in a linked account](#ri-usage-ex4 "#ri-usage-ex4")
 
 ### Scenario 1: Reserved Instances in a single account
 
@@ -248,9 +240,7 @@ applies to 50% of `c4.xlarge` usage. The remaining
 `c4.xlarge` usage is charged at the On-Demand
 rate.
 
-### Scenario 2: Reserved Instances in a single account using the
-
-normalization factor
+### Scenario 2: Reserved Instances in a single account using the normalization factor
 
 You are running the following On-Demand Instances in account A:
 
@@ -297,14 +287,11 @@ instance is equivalent to 8 normalized units/hour. The remaining
 `m3.xlarge` usage is charged at the On-Demand
 rate.
 
-### Scenario 3: Regional Reserved Instances in linked
-
-accounts
+### Scenario 3: Regional Reserved Instances in linked accounts
 
 Reserved Instances are first applied to usage within the purchasing account, followed by
 qualifying usage in any other account in the organization. For more information,
-see [Reserved Instances and consolidated
-billing](concepts-reserved-instances-application.md#concepts-reserved-instances-billing "concepts-reserved-instances-application.md#concepts-reserved-instances-billing"). For regional Reserved Instances
+see [Reserved Instances and consolidated billing](concepts-reserved-instances-application.md#concepts-reserved-instances-billing "concepts-reserved-instances-application.md#concepts-reserved-instances-billing"). For regional Reserved Instances
 that offer instance size flexibility, the benefit is applied from the smallest
 to the largest instance size within the instance family.
 
@@ -348,9 +335,7 @@ The regional Reserved Instance benefits are applied in the following way:
   instance size than the `c4.2xlarge` instance. There is no
   capacity reservation because the Reserved Instances are regional Reserved Instances.
 
-### Scenario 4: Zonal Reserved Instances in a linked
-
-account
+### Scenario 4: Zonal Reserved Instances in a linked account
 
 In general, Reserved Instances that are owned by an account are applied first to usage in
 that account. However, if there are qualifying, unused Reserved Instances for a specific
@@ -400,5 +385,4 @@ reservations](../../../cur/latest/userguide/understanding-ri.md "../../../cur/la
 
 Zonal Reserved Instances reserve capacity only for the owning account and cannot be shared
 with other AWS accounts. If you need to share capacity with other
-AWS accounts, use [Reserve compute capacity with EC2
-On-Demand Capacity Reservations](ec2-capacity-reservations.md "ec2-capacity-reservations.md").
+AWS accounts, use [Reserve compute capacity with EC2 On-Demand Capacity Reservations](ec2-capacity-reservations.md "ec2-capacity-reservations.md").

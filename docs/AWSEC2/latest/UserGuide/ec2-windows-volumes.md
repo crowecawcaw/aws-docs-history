@@ -1,6 +1,4 @@
-# How volumes are attached and mapped for Amazon EC2 Windows
-
-instances
+# How volumes are attached and mapped for Amazon EC2 Windows instances
 
 ###### Note
 

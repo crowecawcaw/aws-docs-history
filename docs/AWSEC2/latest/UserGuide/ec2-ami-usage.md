@@ -18,5 +18,4 @@ usage:
 
 - [View your AMI usage](your-ec2-ami-usage.md "your-ec2-ami-usage.md")
 - [Check when an Amazon EC2 AMI was last used](ami-last-launched-time.md "ami-last-launched-time.md")
-- [Identify your resources referencing specified
-  AMIs](ec2-ami-references.md "ec2-ami-references.md")
+- [Identify your resources referencing specified AMIs](ec2-ami-references.md "ec2-ami-references.md")

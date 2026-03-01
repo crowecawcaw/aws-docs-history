@@ -1,6 +1,4 @@
-# Manage the settings for Allowed
-
-AMIs
+# Manage the settings for Allowed AMIs
 
 You can manage the settings for Allowed AMIs. These settings are per Region per
 account.
@@ -10,12 +8,9 @@ account.
 - [Enable Allowed AMIs](#enable-allowed-amis-criteria "#enable-allowed-amis-criteria")
 - [Set the Allowed AMIs criteria](#update-allowed-amis-criteria "#update-allowed-amis-criteria")
 - [Disable Allowed AMIs](#disable-allowed-amis-criteria "#disable-allowed-amis-criteria")
-- [Get the Allowed AMIs
-  criteria](#identify-allowed-amis-state-and-criteria "#identify-allowed-amis-state-and-criteria")
-- [Find AMIs that are
-  allowed](#identify-amis-that-meet-allowed-amis-criteria "#identify-amis-that-meet-allowed-amis-criteria")
-- [Find instances launched from
-  AMIs that aren't allowed](#identify-instances-with-allowed-AMIs "#identify-instances-with-allowed-AMIs")
+- [Get the Allowed AMIs criteria](#identify-allowed-amis-state-and-criteria "#identify-allowed-amis-state-and-criteria")
+- [Find AMIs that are allowed](#identify-amis-that-meet-allowed-amis-criteria "#identify-amis-that-meet-allowed-amis-criteria")
+- [Find instances launched from AMIs that aren't allowed](#identify-instances-with-allowed-AMIs "#identify-instances-with-allowed-AMIs")
 
 ## Enable Allowed AMIs
 
@@ -166,9 +161,7 @@ Use the [Disable-EC2AllowedImagesSetting](../../../powershell/latest/reference/i
 Disable-EC2AllowedImagesSetting
 ```
 
-## Get the Allowed AMIs
-
-criteria
+## Get the Allowed AMIs criteria
 
 You can get the current state of the Allowed AMIs setting and the Allowed AMIs
 criteria.
@@ -274,9 +267,7 @@ MaximumDaysSinceCreated  : 300
 MaximumDaysSinceDeprecated: 0
 ```
 
-## Find AMIs that are
-
-allowed
+## Find AMIs that are allowed
 
 You can find the AMIs that are allowed or not allowed by the current Allowed AMIs
 criteria.
@@ -401,18 +392,14 @@ ami-001112565ffcafa5e
 ami-0011e45aaee9fba88
 ```
 
-## Find instances launched from
-
-AMIs that aren't allowed
+## Find instances launched from AMIs that aren't allowed
 
 You can identify the instances that were launched using an AMI that does not meet
 the Allowed AMIs criteria.
 
 Console
 
-###### To check whether an instance was launched using an AMI that isn't
-
-allowed
+###### To check whether an instance was launched using an AMI that isn't allowed
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").

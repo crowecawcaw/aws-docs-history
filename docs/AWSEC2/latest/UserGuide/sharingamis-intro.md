@@ -7,14 +7,12 @@ make an AMI public, helping to prevent unauthorized access and potential misuse 
 data. Note that enabling block public access does not affect your AMIs that are already
 publicly available; they remain publicly available. For more information, see [Understand block public access for AMIs](block-public-access-to-amis.md "block-public-access-to-amis.md").
 
-To allow only specific accounts to use your AMI to launch instances, see [Share an AMI with specific AWS
-accounts](sharingamis-explicit.md "sharingamis-explicit.md").
+To allow only specific accounts to use your AMI to launch instances, see [Share an AMI with specific AWS accounts](sharingamis-explicit.md "sharingamis-explicit.md").
 
 ###### Contents
 
 - [Considerations](#considerations-for-sharing-public-AMIs "#considerations-for-sharing-public-AMIs")
-- [Share an AMI with all AWS accounts
-  (share publicly)](#share-an-ami-publicly "#share-an-ami-publicly")
+- [Share an AMI with all AWS accounts (share publicly)](#share-an-ami-publicly "#share-an-ami-publicly")
 
 ## Considerations
 
@@ -61,9 +59,7 @@ Consider the following before making an AMI public.
   instances using the AMI are billed for the instances that they
   launch.
 
-## Share an AMI with all AWS accounts
-
-(share publicly)
+## Share an AMI with all AWS accounts (share publicly)
 
 After you make an AMI public, it is available in **Community AMIs** in the
 console, which you can access from the **AMI Catalog** in the left

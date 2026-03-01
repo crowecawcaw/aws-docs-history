@@ -26,8 +26,7 @@ matching Savings Plans or Regional Reserved Instance.
 After you cancel a Capacity Reservation, instances that target it can no longer launch. Modify these
 instances so that they either target a different Capacity Reservation, launch into any open Capacity Reservation with
 matching attributes and sufficient capacity, or avoid launching into a Capacity Reservation. For more
-information, see [Modify the Capacity Reservation settings of your
-instance](capacity-reservations-modify-instance.md "capacity-reservations-modify-instance.md").
+information, see [Modify the Capacity Reservation settings of your instance](capacity-reservations-modify-instance.md "capacity-reservations-modify-instance.md").
 
 Console
 

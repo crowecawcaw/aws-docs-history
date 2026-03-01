@@ -7,8 +7,7 @@ The following illustration represents the transitions between instance states.
 
 ![The instance lifecycle.](images/instance_lifecycle.png)
 You can receive notifications when your instances change states. For more information, see
-[State change events for Amazon EC2
-instances](monitoring-instance-state-changes.md "monitoring-instance-state-changes.md").
+[State change events for Amazon EC2 instances](monitoring-instance-state-changes.md "monitoring-instance-state-changes.md").
 
 ## Billing by instance state
 
@@ -153,5 +152,4 @@ hibernating, and terminating your instance.
 
 Operating system shutdown commands always terminate an instance with an instance store
 root volume. You can control whether operating system shutdown commands stop or
-terminate an instance with an EBS root volume. For more information, see [Change instance
-initiated shutdown behavior](Using_ChangingInstanceInitiatedShutdownBehavior.md "Using_ChangingInstanceInitiatedShutdownBehavior.md").
+terminate an instance with an EBS root volume. For more information, see [Change instance initiated shutdown behavior](Using_ChangingInstanceInitiatedShutdownBehavior.md "Using_ChangingInstanceInitiatedShutdownBehavior.md").

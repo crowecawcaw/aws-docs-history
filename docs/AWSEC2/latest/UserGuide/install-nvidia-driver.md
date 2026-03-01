@@ -12,15 +12,12 @@ instead.
 ###### Topics
 
 - [Types of NVIDIA drivers](#nvidia-driver-types "#nvidia-driver-types")
-- [Available drivers by instance
-  type](#nvidia-driver-instance-type "#nvidia-driver-instance-type")
+- [Available drivers by instance type](#nvidia-driver-instance-type "#nvidia-driver-instance-type")
 - [Installation options](#nvidia-installation-options "#nvidia-installation-options")
 - [Use AMIs that include NVIDIA drivers](preinstalled-nvidia-driver.md "preinstalled-nvidia-driver.md")
 - [Install NVIDIA public drivers](public-nvidia-driver.md "public-nvidia-driver.md")
-- [Install NVIDIA GRID drivers (G7e, G6, Gr6, G6e, G6f, Gr6f, G5,
-  G4dn, and G3 instances)](nvidia-GRID-driver.md "nvidia-GRID-driver.md")
-- [Install NVIDIA gaming drivers (G7e, G6, G6e, G5, and G4dn
-  instances)](nvidia-gaming-driver.md "nvidia-gaming-driver.md")
+- [Install NVIDIA GRID drivers (G7e, G6, Gr6, G6e, G6f, Gr6f, G5, G4dn, and G3 instances)](nvidia-GRID-driver.md "nvidia-GRID-driver.md")
+- [Install NVIDIA gaming drivers (G7e, G6, G6e, G5, and G4dn instances)](nvidia-gaming-driver.md "nvidia-gaming-driver.md")
 
 ## Types of NVIDIA drivers
 
@@ -70,9 +67,7 @@ supported with Tesla drivers.
 - NVENC for video encoding and NVDEC for video decoding
 - Windows-only APIs: DirectX, Direct2D, DirectX Video Acceleration, DirectX Raytracing
 
-## Available drivers by instance
-
-type
+## Available drivers by instance type
 
 The following table summarizes the supported NVIDIA drivers for each GPU instance
 type.
@@ -112,7 +107,5 @@ instance.
 
 1. [Use AMIs that include NVIDIA drivers](preinstalled-nvidia-driver.md "preinstalled-nvidia-driver.md")
 2. [Install NVIDIA public drivers](public-nvidia-driver.md "public-nvidia-driver.md")
-3. [Install NVIDIA GRID drivers (G7e, G6, Gr6, G6e, G6f, Gr6f, G5,
-   G4dn, and G3 instances)](nvidia-GRID-driver.md "nvidia-GRID-driver.md")
-4. [Install NVIDIA gaming drivers (G7e, G6, G6e, G5, and G4dn
-   instances)](nvidia-gaming-driver.md "nvidia-gaming-driver.md")
+3. [Install NVIDIA GRID drivers (G7e, G6, Gr6, G6e, G6f, Gr6f, G5, G4dn, and G3 instances)](nvidia-GRID-driver.md "nvidia-GRID-driver.md")
+4. [Install NVIDIA gaming drivers (G7e, G6, G6e, G5, and G4dn instances)](nvidia-gaming-driver.md "nvidia-gaming-driver.md")

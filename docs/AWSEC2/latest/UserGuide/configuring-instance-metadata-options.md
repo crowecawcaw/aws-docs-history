@@ -1,6 +1,4 @@
-# Configure the Instance Metadata Service
-
-options
+# Configure the Instance Metadata Service options
 
 The Instance Metadata Service (IMDS) runs locally on every EC2 instance. The _instance metadata options_ refer to a set of configurations
 that control the accessibility and behavior of the IMDS on an EC2
@@ -50,12 +48,9 @@ these issues, see the information about container environments under [Instance m
 You can enable or disable access to the instance's tags from an instance's
 metadata. For more information, see [View tags for your EC2 instances using instance metadata](work-with-tags-in-IMDS.md "work-with-tags-in-IMDS.md").
 
-To view an instance's current configuration, see [Query instance metadata options
-for existing instances](instancedata-data-retrieval.md#query-IMDS-existing-instances "instancedata-data-retrieval.md#query-IMDS-existing-instances").
+To view an instance's current configuration, see [Query instance metadata options for existing instances](instancedata-data-retrieval.md#query-IMDS-existing-instances "instancedata-data-retrieval.md#query-IMDS-existing-instances").
 
-## Where to configure
-
-instance metadata options
+## Where to configure instance metadata options
 
 Instance metadata options can be configured at different levels, as
 follows:
@@ -77,13 +72,9 @@ follows:
   a running or stopped instance. Note that changes may be restricted by an IAM
   or SCP policy.
 
-For more information, see [Configure instance metadata options
-for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md") and [Modify instance metadata
-options for existing instances](configuring-IMDS-existing-instances.md "configuring-IMDS-existing-instances.md").
+For more information, see [Configure instance metadata options for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md") and [Modify instance metadata options for existing instances](configuring-IMDS-existing-instances.md "configuring-IMDS-existing-instances.md").
 
-## Order of precedence
-
-for instance metadata options
+## Order of precedence for instance metadata options
 
 The value for each instance metadata option is determined at instance launch,
 following a hierarchical order of precedence. The hierarchy, with the highest
@@ -110,8 +101,21 @@ configuration from the AMI.
 You can change the value of any metadata option after launch on a running or
 stopped instance, unless changes are restricted by an IAM or SCP policy.
 
-**Determine values for metadata options – Example
-1**
+###### Note
+
+The account-level IMDSv2 enforcement setting is evaluated after the order of
+precedence has determined the instance's IMDS settings. When IMDSv2
+enforcement is enabled, instances enabled with IMDSv1 will fail. For
+more information about enforcement, see [Enforce IMDSv2 at the account level](configuring-IMDS-new-instances.md#enforce-imdsv2-at-the-account-level "configuring-IMDS-new-instances.md#enforce-imdsv2-at-the-account-level").
+
+###### Warning
+
+If IMDSv2 enforcement is enabled and `httpTokens` has not been set to
+`required` in either the instance configuration at launch, the
+account settings, or the AMI configuration, your launch will fail.
+
+**Example 1 – Determine values for metadata
+options**
 
 In this example, an EC2 instance is launched into a Region where the
 `HttpPutResponseHopLimit` is set to `1` at the account
@@ -148,8 +152,8 @@ These values were determined as follows:
   account-level setting `HttpPutResponseHopLimit: 1`, which has
   higher precedence.
 
-**Determine values for metadata options – Example
-2**
+**Example 2 – Determine values for metadata
+options**
 
 In this example, the EC2 instance is launched with the same settings as in the
 previous Example 1, but with `HttpTokens` set to `optional`
@@ -172,21 +176,45 @@ precedence. Even though the AMI was configured with `ImdsSupport: v2.0`
 specified on the instance at launch (`HttpTokens` set to
 `optional`) took precedence.
 
-### Set the instance metadata
+**Example 3 – Determine values for metadata options with
+HttpTokensEnforced enabled**
 
-version
+In this example, the account in the Region has `HttpTokens = required` and
+`HttpTokensEnforced = enabled`.
 
-When an instance is launched, the value for the instance _metadata version_ is either `IMDSv1 or IMDSv2
- (token optional)` or `IMDSv2 only (token required)`.
+Consider the following EC2 instance launch attempts:
 
-At instance launch, you can either manually specify the value for the metadata
-version, or use the default value. If you manually specify the value, it
-overrides any defaults. If you opt not to manually specify the value, it will be
-determined by a combination of default settings, as outlined in the following
-table.
+- Launch attempt with `HttpTokens` set to `optional` – The
+  launch fails because the account-level enforcement is enabled
+  (`HttpTokensEnforced = enabled`) and the launch parameter
+  takes precedence over the account default.
+- Launch attempt with `HttpTokens` set to `required` – The
+  launch succeeds because it complies with the account-level enforcement.
+- Launch attempt with no `HttpTokens` value specified – The launch
+  succeeds because the value defaults to `required` based on the
+  account settings.
 
-The table shows how the metadata version for an instance at launch (indicated
-by **Resulting instance configuration** in column 4) is
+### Set the instance metadata version
+
+When an instance is launched, the value for the instance _metadata
+version_ is either **IMDSv1 or IMDSv2 (token
+optional)** (`httpTopkens=optional`) or **IMDSv2
+only (token required) (`httpTopkens=required`)** .
+
+At instance launch, you can either manually specify the value for the metadata version, or
+use the default value. If you manually specify the value, it overrides any
+defaults. If you opt not to manually specify the value, it will be determined by
+a combination of default settings.
+
+The following flowchart shows how the metadata version for an instance at launch is
+determined by the settings at the different levels of the configuration and
+where enforcement is evaluated. The table that follows provides the specific
+settings at each level.
+
+![A flowchart that shows the evaluation points for the instance metadata version and IMDSv2 enforcement.](images/imds-defaults-launch-flow.png)
+
+The table shows how the metadata version for an instance at launch (indicated by
+**Resulting instance configuration** in column 4) is
 determined by the settings at the different levels of configuration. The order
 of precedence is from left to right, where the first column takes the highest
 precedence, as follows:
@@ -220,9 +248,7 @@ precedence, as follows:
 | Not set                   | V2 only               | null        | V2 only                          |
 | Not set                   | V1 or V2              | null        | V1 or V2                         |
 
-## Use IAM condition keys to restrict
-
-instance metadata options
+## Use IAM condition keys to restrict instance metadata options
 
 You can use IAM condition keys in an IAM policy or SCP as follows:
 
@@ -233,10 +259,8 @@ You can use IAM condition keys in an IAM policy or SCP as follows:
 
 ###### Tasks
 
-- [Configure instance metadata options
-  for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md")
-- [Modify instance metadata
-  options for existing instances](configuring-IMDS-existing-instances.md "configuring-IMDS-existing-instances.md")
+- [Configure instance metadata options for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md")
+- [Modify instance metadata options for existing instances](configuring-IMDS-existing-instances.md "configuring-IMDS-existing-instances.md")
 
 ###### Note
 

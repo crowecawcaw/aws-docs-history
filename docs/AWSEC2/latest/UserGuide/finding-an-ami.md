@@ -62,8 +62,7 @@ can select an AMI from the list and view its properties on the
 instance store or by Amazon EBS and that you are aware of the effects of this
 difference. For more information, see [Root volume type](ComponentsAMIs.md#storage-for-the-root-device "ComponentsAMIs.md#storage-for-the-root-device"). 7. To launch an instance from this AMI, select it and then choose
 **Launch instance from image**. For more information about
-launching an instance using the console, see [Launch an EC2 instance using the launch
-instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md"). If you're not ready to launch
+launching an instance using the console, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md"). If you're not ready to launch
 the instance now, make note of the AMI ID for later.
 
 AWS CLI

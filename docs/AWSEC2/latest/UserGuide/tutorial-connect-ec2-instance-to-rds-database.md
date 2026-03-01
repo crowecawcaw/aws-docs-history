@@ -1,6 +1,4 @@
-# Tutorial: Connect an
-
-Amazon EC2 instance to an Amazon RDS database
+# Tutorial: Connect an Amazon EC2 instance to an Amazon RDS database
 
 ## Tutorial objective
 
@@ -10,22 +8,19 @@ Amazon EC2 instance and an Amazon RDS database by using the AWS Management Conso
 There are different options for configuring the connection. In this tutorial, we explore the
 following three options:
 
-- [Option 1: Automatically connect an instance to
-  an RDS database using the EC2 console](tutorial-ec2-rds-option1.md "tutorial-ec2-rds-option1.md")
+- [Option 1: Automatically connect an instance to an RDS database using the EC2 console](tutorial-ec2-rds-option1.md "tutorial-ec2-rds-option1.md")
 
 Use the automatic connection feature in the EC2 console to automatically configure the
 connection between your EC2 instance and your RDS database to allow traffic
 between the EC2 instance and the RDS database.
 
-- [Option 2: Automatically connect an instance to
-  an RDS database using the RDS console](tutorial-ec2-rds-option2.md "tutorial-ec2-rds-option2.md")
+- [Option 2: Automatically connect an instance to an RDS database using the RDS console](tutorial-ec2-rds-option2.md "tutorial-ec2-rds-option2.md")
 
 Use the automatic connection feature in the RDS console to automatically configure the
 connection between your EC2 instance and your RDS database to allow traffic
 between the EC2 instance and the RDS database.
 
-- [Option 3: Manually connect an instance to
-  an RDS database by creating security groups](tutorial-ec2-rds-option3.md "tutorial-ec2-rds-option3.md")
+- [Option 3: Manually connect an instance to an RDS database by creating security groups](tutorial-ec2-rds-option3.md "tutorial-ec2-rds-option3.md")
 
 Configure the connection between your EC2 instance to your RDS database by manually
 configuring and assigning the security groups to reproduce the configuration
@@ -147,8 +142,7 @@ By completing this tutorial, you might incur costs for the AWS resources that yo
 
 You can use Amazon EC2 under the [Free Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/") provided
 your AWS account qualifies for the Free Tier and you configure your resources
-according to the Free Tier requirements. For more information, [Free Tier benefits before and after July
-15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison").
+according to the Free Tier requirements. For more information, [Free Tier benefits before and after July 15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison").
 
 If your EC2 instance and your RDS database are in different Availability Zones, you will
 incur data transfer fees. To avoid incurring these fees, the EC2 instance and the RDS

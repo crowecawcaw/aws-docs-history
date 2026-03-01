@@ -5,8 +5,7 @@ The onboarding process for BYOIP includes the following tasks, depending on your
 ###### Tasks
 
 - [Provision a publicly advertisable address range in AWS](#byoip-provision "#byoip-provision")
-- [Provision an IPv6 address range that's
-  not publicly advertisable](#byoip-provision-non-public "#byoip-provision-non-public")
+- [Provision an IPv6 address range that's not publicly advertisable](#byoip-provision-non-public "#byoip-provision-non-public")
 - [Advertise the address range through AWS](#byoip-advertise "#byoip-advertise")
 - [Deprovision the address range](#byoip-deprovision "#byoip-deprovision")
 - [Validate your BYOIP](#byoip-validation "#byoip-validation")
@@ -91,9 +90,7 @@ If there are issues during provisioning and the status goes to
 `provision-byoip-cidr` command again after the issues have
 been resolved.
 
-## Provision an IPv6 address range that's
-
-not publicly advertisable
+## Provision an IPv6 address range that's not publicly advertisable
 
 By default, an address range is provisioned to be publicly advertisable to the
 internet. You can provision an IPv6 address range that will not be publicly

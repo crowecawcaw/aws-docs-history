@@ -8,10 +8,8 @@ launch parameters that you configure manually at launch.
 ###### Topics
 
 - [Features and benefits](#ec2-fleet-features-and-benefits "#ec2-fleet-features-and-benefits")
-- [Which is the best fleet method to
-  use?](which-fleet-method-to-use.md "which-fleet-method-to-use.md")
-- [Configuration options for your EC2 Fleet or
-  Spot Fleet](ec2-fleet-configuration-strategies.md "ec2-fleet-configuration-strategies.md")
+- [Which is the best fleet method to use?](which-fleet-method-to-use.md "which-fleet-method-to-use.md")
+- [Configuration options for your EC2 Fleet or Spot Fleet](ec2-fleet-configuration-strategies.md "ec2-fleet-configuration-strategies.md")
 - [Work with EC2 Fleet](manage-ec2-fleet.md "manage-ec2-fleet.md")
 - [Work with Spot Fleet](work-with-spot-fleets.md "work-with-spot-fleets.md")
 - [Monitor your EC2 Fleet or Spot Fleet](fleet-monitor.md "fleet-monitor.md")

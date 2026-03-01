@@ -27,8 +27,7 @@ workloads. For more information, see the [NCCL](https://developer.nvidia.com/ncc
 - [Step 9: Install your machine learning applications](#nccl-start-base-app "#nccl-start-base-app")
 - [Step 10: Create an EFA and NCCL-enabled AMI](#nccl-start-base-ami "#nccl-start-base-ami")
 - [Step 11: Terminate the temporary instance](#nccl-start-base-terminate "#nccl-start-base-terminate")
-- [Step 12: Launch EFA and NCCL-enabled instances into a cluster
-  placement group](#nccl-start-base-cluster "#nccl-start-base-cluster")
+- [Step 12: Launch EFA and NCCL-enabled instances into a cluster placement group](#nccl-start-base-cluster "#nccl-start-base-cluster")
 - [Step 13: Enable passwordless SSH](#nccl-start-base-passwordless "#nccl-start-base-passwordless")
 
 ## Step 1: Prepare an EFA-enabled security group
@@ -814,9 +813,7 @@ You can terminate the instance to stop incurring charges for it.
    **Instance state**, **Terminate instance**.
 4. When prompted for confirmation, choose **Terminate**.
 
-## Step 12: Launch EFA and NCCL-enabled instances into a cluster
-
-placement group
+## Step 12: Launch EFA and NCCL-enabled instances into a cluster placement group
 
 Launch your EFA and NCCL-enabled instances into a cluster placement group using the EFA-enabled
 AMI and the EFA-enabled security group that you created earlier.

@@ -1,6 +1,4 @@
-# Specify attributes for
-
-instance type selection for EC2 Fleet or Spot Fleet
+# Specify attributes for instance type selection for EC2 Fleet or Spot Fleet
 
 When you create an EC2 Fleet or Spot Fleet, you must specify one or more instance types for
 configuring the On-Demand Instances and Spot Instances in the fleet. As an alternative to manually specifying the
@@ -45,12 +43,9 @@ Attribute-based instance type selection has the following benefits:
 - [Considerations](#ec2fleet-abs-considerations "#ec2fleet-abs-considerations")
 - [Create an EC2 Fleet with attribute-based instance type selection](#abs-create-ec2-fleet "#abs-create-ec2-fleet")
 - [Create a Spot Fleet with attribute-based instance type selection](#abs-create-spot-fleet "#abs-create-spot-fleet")
-- [Examples of EC2 Fleet configurations that are
-  valid and not valid](#ec2fleet-abs-example-configs "#ec2fleet-abs-example-configs")
-- [Examples of Spot Fleet configurations that are
-  valid and not valid](#spotfleet-abs-example-configs "#spotfleet-abs-example-configs")
-- [Preview
-  instance types with specified attributes](#ec2fleet-get-instance-types-from-instance-requirements "#ec2fleet-get-instance-types-from-instance-requirements")
+- [Examples of EC2 Fleet configurations that are valid and not valid](#ec2fleet-abs-example-configs "#ec2fleet-abs-example-configs")
+- [Examples of Spot Fleet configurations that are valid and not valid](#spotfleet-abs-example-configs "#spotfleet-abs-example-configs")
+- [Preview instance types with specified attributes](#ec2fleet-get-instance-types-from-instance-requirements "#ec2fleet-get-instance-types-from-instance-requirements")
 
 ## How attribute-based instance type selection works
 
@@ -61,15 +56,11 @@ attributes.
 
 ###### Topics
 
-- [Types of instance
-  attributes](#ef-abs-instance-attribute-types "#ef-abs-instance-attribute-types")
+- [Types of instance attributes](#ef-abs-instance-attribute-types "#ef-abs-instance-attribute-types")
 - [Where to configure attribute-based instance type selection](#ef-abs-where-to-configure "#ef-abs-where-to-configure")
-- [How EC2 Fleet or Spot Fleet uses attribute-based instance type selection when provisioning a
-  fleet](#how-ef-uses-abs "#how-ef-uses-abs")
+- [How EC2 Fleet or Spot Fleet uses attribute-based instance type selection when provisioning a fleet](#how-ef-uses-abs "#how-ef-uses-abs")
 
-### Types of instance
-
-attributes
+### Types of instance attributes
 
 There are several instance attributes that you can specify to express your compute
 requirements, such as:
@@ -110,9 +101,7 @@ different instance types can use x86 and Arm-based processors.
 
 - (Spot Fleet only) In a launch specification
 
-### How EC2 Fleet or Spot Fleet uses attribute-based instance type selection when provisioning a
-
-fleet
+### How EC2 Fleet or Spot Fleet uses attribute-based instance type selection when provisioning a fleet
 
 EC2 Fleet or Spot Fleet provisions a fleet in the following way:
 
@@ -173,17 +162,12 @@ specify a high percentage value, such as `999999`.
 
 ###### Topics
 
-- [How the lowest priced
-  instance type is identified](#ec2fleet-abs-price-protection-lowest-priced "#ec2fleet-abs-price-protection-lowest-priced")
-- [On-Demand Instance price
-  protection](#ec2fleet-abs-on-demand-price-protection "#ec2fleet-abs-on-demand-price-protection")
+- [How the lowest priced instance type is identified](#ec2fleet-abs-price-protection-lowest-priced "#ec2fleet-abs-price-protection-lowest-priced")
+- [On-Demand Instance price protection](#ec2fleet-abs-on-demand-price-protection "#ec2fleet-abs-on-demand-price-protection")
 - [Spot Instance price protection](#ec2fleet-abs-spot-price-protection "#ec2fleet-abs-spot-price-protection")
-- [Specify the price protection
-  threshold](#ec2fleet-abs-specify-price-protection "#ec2fleet-abs-specify-price-protection")
+- [Specify the price protection threshold](#ec2fleet-abs-specify-price-protection "#ec2fleet-abs-specify-price-protection")
 
-### How the lowest priced
-
-instance type is identified
+### How the lowest priced instance type is identified
 
 Amazon EC2 determines the price to base the price threshold on by identifying the
 instance type with the lowest price from those that match your specified attributes.
@@ -199,9 +183,7 @@ It does this in the following way:
   types that match your attributes, and identifies the lowest priced instance
   type.
 
-### On-Demand Instance price
-
-protection
+### On-Demand Instance price protection
 
 The price protection threshold for On-Demand instance types is calculated
 _as a percentage higher_ than the identified
@@ -254,9 +236,7 @@ any Spot instance types that cost more than `0.266`. We do not
 recommend using this parameter because Spot prices can fluctuate, and
 therefore your price protection threshold might also fluctuate.
 
-### Specify the price protection
-
-threshold
+### Specify the price protection threshold
 
 ###### To specify the price protection threshold using the AWS CLI
 
@@ -276,9 +256,7 @@ attribute-based instance type selection, and then do the following:
 
 For more information, see [Create an EC2 Fleet with attribute-based instance type selection](#abs-create-ec2-fleet "#abs-create-ec2-fleet") or [Create a Spot Fleet with attribute-based instance type selection](#abs-create-spot-fleet "#abs-create-spot-fleet").
 
-###### (Spot Fleet only) To specify the price protection threshold using the
-
-console
+###### (Spot Fleet only) To specify the price protection threshold using the console
 
 While creating a Spot Fleet in the console, configure the fleet for attribute-based
 instance type selection, and then do the following:
@@ -519,8 +497,7 @@ Console
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. In the navigation pane, choose **Spot Requests**, and
    then choose **Request Spot Instances**.
-3. Follow the steps to create a Spot Fleet. For more information, see [Create a Spot Fleet request using defined
-   parameters](create-spot-fleet.md#create-spot-fleet-advanced "create-spot-fleet.md#create-spot-fleet-advanced").
+3. Follow the steps to create a Spot Fleet. For more information, see [Create a Spot Fleet request using defined parameters](create-spot-fleet.md#create-spot-fleet-advanced "create-spot-fleet.md#create-spot-fleet-advanced").
 
 While creating the Spot Fleet, configure the fleet for attribute-based instance type selection as
 follows:
@@ -621,9 +598,7 @@ Request-EC2SpotFleet `
     -SpotFleetRequestConfig_LaunchTemplateConfig $launchTemplateConfig
 ```
 
-## Examples of EC2 Fleet configurations that are
-
-valid and not valid
+## Examples of EC2 Fleet configurations that are valid and not valid
 
 If you use the AWS CLI to create an EC2 Fleet, you must make sure that your fleet
 configuration is valid. The following examples show configurations that are valid and
@@ -641,27 +616,15 @@ Configurations are considered not valid when they contain the following:
 
 ###### Example configurations
 
-- [Valid configuration: Single launch template
-  with overrides](#ef-abs-example-config1 "#ef-abs-example-config1")
-- [Valid configuration: Single launch template
-  with multiple InstanceRequirements](#ef-abs-example-config2 "#ef-abs-example-config2")
-- [Valid configuration: Two launch templates,
-  each with overrides](#ef-abs-example-config3 "#ef-abs-example-config3")
-- [Valid configuration: Only
-  InstanceRequirements specified, no overlapping attribute
-  values](#ef-abs-example-config4 "#ef-abs-example-config4")
-- [Configuration not valid:
-  Overrides contain InstanceRequirements and
-  InstanceType](#ef-abs-example-config5 "#ef-abs-example-config5")
-- [Configuration not valid: Two
-  Overrides contain InstanceRequirements and
-  InstanceType](#ef-abs-example-config6 "#ef-abs-example-config6")
-- [Configuration not valid: Overlapping
-  attribute values](#ef-abs-example-config7 "#ef-abs-example-config7")
+- [Valid configuration: Single launch template with overrides](#ef-abs-example-config1 "#ef-abs-example-config1")
+- [Valid configuration: Single launch template with multiple InstanceRequirements](#ef-abs-example-config2 "#ef-abs-example-config2")
+- [Valid configuration: Two launch templates, each with overrides](#ef-abs-example-config3 "#ef-abs-example-config3")
+- [Valid configuration: Only InstanceRequirements specified, no overlapping attribute values](#ef-abs-example-config4 "#ef-abs-example-config4")
+- [Configuration not valid: Overrides contain InstanceRequirements and InstanceType](#ef-abs-example-config5 "#ef-abs-example-config5")
+- [Configuration not valid: Two Overrides contain InstanceRequirements and InstanceType](#ef-abs-example-config6 "#ef-abs-example-config6")
+- [Configuration not valid: Overlapping attribute values](#ef-abs-example-config7 "#ef-abs-example-config7")
 
-### Valid configuration: Single launch template
-
-with overrides
+### Valid configuration: Single launch template with overrides
 
 The following configuration is valid. It contains one launch template and one
 `Overrides` structure containing one
@@ -729,9 +692,7 @@ the target capacity unit type is `vcpu`, which together specify a
 desired target capacity of 5,000 vCPUs. EC2 Fleet will launch enough instances so
 that the total number of vCPUs in the fleet is 5,000 vCPUs.
 
-### Valid configuration: Single launch template
-
-with multiple InstanceRequirements
+### Valid configuration: Single launch template with multiple InstanceRequirements
 
 The following configuration is valid. It contains one launch template and one
 `Overrides` structure containing two
@@ -783,9 +744,7 @@ overlap—the first `InstanceRequirements` structure specifies a
 }
 ```
 
-### Valid configuration: Two launch templates,
-
-each with overrides
+### Valid configuration: Two launch templates, each with overrides
 
 The following configuration is valid. It contains two launch templates, each with
 one `Overrides` structure containing one
@@ -841,10 +800,7 @@ fleet.
 }
 ```
 
-### Valid configuration: Only
-
-`InstanceRequirements` specified, no overlapping attribute
-values
+### Valid configuration: Only `InstanceRequirements` specified, no overlapping attribute values
 
 The following configuration is valid. It contains two
 `LaunchTemplateSpecification` structures, each with a launch template
@@ -905,10 +861,7 @@ overlap—the first `InstanceRequirements` structure specifies a
 }
 ```
 
-### Configuration not valid:
-
-`Overrides` contain `InstanceRequirements` and
-`InstanceType`
+### Configuration not valid: `Overrides` contain `InstanceRequirements` and `InstanceType`
 
 The following configuration is not valid. The `Overrides` structure
 contains both `InstanceRequirements` and `InstanceType`. For
@@ -950,10 +903,7 @@ or `InstanceType`, but not both.
 
 ```
 
-### Configuration not valid: Two
-
-`Overrides` contain `InstanceRequirements` and
-`InstanceType`
+### Configuration not valid: Two `Overrides` contain `InstanceRequirements` and `InstanceType`
 
 The following configuration is not valid. The `Overrides` structures
 contain both `InstanceRequirements` and `InstanceType`. You
@@ -1002,9 +952,7 @@ but not both, even if they're in different `Overrides` structures.
 }
 ```
 
-### Configuration not valid: Overlapping
-
-attribute values
+### Configuration not valid: Overlapping attribute values
 
 The following configuration is not valid. The two
 `InstanceRequirements` structures each contain `"VCpuCount":
@@ -1054,9 +1002,7 @@ result in duplicate capacity pools.
 
 ```
 
-## Examples of Spot Fleet configurations that are
-
-valid and not valid
+## Examples of Spot Fleet configurations that are valid and not valid
 
 If you use the AWS CLI to create a Spot Fleet, you must make sure that your fleet
 configuration is valid. The following examples show configurations that are valid and
@@ -1074,27 +1020,15 @@ Configurations are considered not valid when they contain the following:
 
 ###### Example configurations
 
-- [Valid configuration: Single launch template
-  with overrides](#sf-abs-example-config1 "#sf-abs-example-config1")
-- [Valid configuration: Single launch template
-  with multiple InstanceRequirements](#sf-abs-example-config2 "#sf-abs-example-config2")
-- [Valid configuration: Two launch templates,
-  each with overrides](#sf-abs-example-config3 "#sf-abs-example-config3")
-- [Valid configuration: Only
-  InstanceRequirements specified, no overlapping attribute
-  values](#sf-abs-example-config4 "#sf-abs-example-config4")
-- [Configuration not valid:
-  Overrides contain InstanceRequirements and
-  InstanceType](#sf-abs-example-config5 "#sf-abs-example-config5")
-- [Configuration not valid: Two
-  Overrides contain InstanceRequirements and
-  InstanceType](#sf-abs-example-config6 "#sf-abs-example-config6")
-- [Configuration not valid: Overlapping
-  attribute values](#sf-abs-example-config7 "#sf-abs-example-config7")
+- [Valid configuration: Single launch template with overrides](#sf-abs-example-config1 "#sf-abs-example-config1")
+- [Valid configuration: Single launch template with multiple InstanceRequirements](#sf-abs-example-config2 "#sf-abs-example-config2")
+- [Valid configuration: Two launch templates, each with overrides](#sf-abs-example-config3 "#sf-abs-example-config3")
+- [Valid configuration: Only InstanceRequirements specified, no overlapping attribute values](#sf-abs-example-config4 "#sf-abs-example-config4")
+- [Configuration not valid: Overrides contain InstanceRequirements and InstanceType](#sf-abs-example-config5 "#sf-abs-example-config5")
+- [Configuration not valid: Two Overrides contain InstanceRequirements and InstanceType](#sf-abs-example-config6 "#sf-abs-example-config6")
+- [Configuration not valid: Overlapping attribute values](#sf-abs-example-config7 "#sf-abs-example-config7")
 
-### Valid configuration: Single launch template
-
-with overrides
+### Valid configuration: Single launch template with overrides
 
 The following configuration is valid. It contains one launch template and one
 `Overrides` structure containing one
@@ -1164,9 +1098,7 @@ the target capacity unit type is `vcpu`, which together specify a
 desired target capacity of 5,000 vCPUs. Spot Fleet will launch enough instances
 so that the total number of vCPUs in the fleet is 5,000 vCPUs.
 
-### Valid configuration: Single launch template
-
-with multiple InstanceRequirements
+### Valid configuration: Single launch template with multiple InstanceRequirements
 
 The following configuration is valid. It contains one launch template and one
 `Overrides` structure containing two
@@ -1221,9 +1153,7 @@ overlap—the first `InstanceRequirements` structure specifies a
 }
 ```
 
-### Valid configuration: Two launch templates,
-
-each with overrides
+### Valid configuration: Two launch templates, each with overrides
 
 The following configuration is valid. It contains two launch templates, each with
 one `Overrides` structure containing one
@@ -1282,10 +1212,7 @@ fleet.
 }
 ```
 
-### Valid configuration: Only
-
-`InstanceRequirements` specified, no overlapping attribute
-values
+### Valid configuration: Only `InstanceRequirements` specified, no overlapping attribute values
 
 The
 following configuration is valid. It contains two
@@ -1350,10 +1277,7 @@ overlap—the first `InstanceRequirements` structure specifies a
 }
 ```
 
-### Configuration not valid:
-
-`Overrides` contain `InstanceRequirements` and
-`InstanceType`
+### Configuration not valid: `Overrides` contain `InstanceRequirements` and `InstanceType`
 
 The following configuration is not valid. The `Overrides` structure
 contains both `InstanceRequirements` and `InstanceType`. For
@@ -1398,10 +1322,7 @@ or `InstanceType`, but not both.
 
 ```
 
-### Configuration not valid: Two
-
-`Overrides` contain `InstanceRequirements` and
-`InstanceType`
+### Configuration not valid: Two `Overrides` contain `InstanceRequirements` and `InstanceType`
 
 The following configuration is not valid. The `Overrides` structures
 contain both `InstanceRequirements` and `InstanceType`. You
@@ -1453,9 +1374,7 @@ but not both, even if they're in different `Overrides` structures.
 }
 ```
 
-### Configuration not valid: Overlapping
-
-attribute values
+### Configuration not valid: Overlapping attribute values
 
 The following configuration is not valid. The two
 `InstanceRequirements` structures each contain `"VCpuCount":
@@ -1508,9 +1427,7 @@ result in duplicate capacity pools.
 
 ```
 
-## Preview
-
-instance types with specified attributes
+## Preview instance types with specified attributes
 
 You can use the [get-instance-types-from-instance-requirements](../../../cli/latest/reference/ec2/get-instance-types-from-instance-requirements.md "../../../cli/latest/reference/ec2/get-instance-types-from-instance-requirements.md") command to preview
 the instance types that match the attributes that you specify. This is especially useful
@@ -1518,9 +1435,7 @@ for working out what attributes to specify in your request configuration without
 launching any instances. Note that the command does not consider available
 capacity.
 
-###### To preview a list of instance types by specifying attributes using the
-
-AWS CLI
+###### To preview a list of instance types by specifying attributes using the AWS CLI
 
 1. (Optional) To generate all of the possible attributes that can be specified,
    use the [get-instance-types-from-instance-requirements](../../../cli/latest/reference/ec2/get-instance-types-from-instance-requirements.md "../../../cli/latest/reference/ec2/get-instance-types-from-instance-requirements.md") command and the

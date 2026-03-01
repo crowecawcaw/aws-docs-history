@@ -73,15 +73,11 @@ or until your credits are used up. For more information, see [AWS Free Tier](htt
 ###### Contents
 
 - [Best practices](#burstable-performance-instances-best-practices "#burstable-performance-instances-best-practices")
-- [Key concepts for burstable
-  performance instances](burstable-credits-baseline-concepts.md "burstable-credits-baseline-concepts.md")
-- [Unlimited mode for
-  burstable performance instances](burstable-performance-instances-unlimited-mode.md "burstable-performance-instances-unlimited-mode.md")
-- [Standard mode for burstable
-  performance instances](burstable-performance-instances-standard-mode.md "burstable-performance-instances-standard-mode.md")
+- [Key concepts for burstable performance instances](burstable-credits-baseline-concepts.md "burstable-credits-baseline-concepts.md")
+- [Unlimited mode for burstable performance instances](burstable-performance-instances-unlimited-mode.md "burstable-performance-instances-unlimited-mode.md")
+- [Standard mode for burstable performance instances](burstable-performance-instances-standard-mode.md "burstable-performance-instances-standard-mode.md")
 - [Configure burstable performance instances](burstable-performance-instances-how-to.md "burstable-performance-instances-how-to.md")
-- [Monitor CPU
-  credits for burstable instances](burstable-performance-instances-monitoring-cpu-credits.md "burstable-performance-instances-monitoring-cpu-credits.md")
+- [Monitor CPU credits for burstable instances](burstable-performance-instances-monitoring-cpu-credits.md "burstable-performance-instances-monitoring-cpu-credits.md")
 
 ## Best practices
 

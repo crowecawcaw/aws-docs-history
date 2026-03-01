@@ -1,6 +1,4 @@
-# Create alarms that stop, terminate, reboot, or recover an
-
-instance
+# Create alarms that stop, terminate, reboot, or recover an instance
 
 Using Amazon CloudWatch alarm actions, you can create alarms that automatically stop, terminate,
 reboot, or recover your instances. You can use the stop or terminate actions to help you save
@@ -129,8 +127,7 @@ For example, you might want to terminate an instance when it has completed its w
 don’t need the instance again. If you might want to use the instance later, you should stop
 the instance instead of terminating it. Data on instance store volumes is lost when the
 instance is terminated. For information about enabling and disabling termination protection
-for an instance, see [Change instance termination
-protection](Using_ChangingDisableAPITermination.md "Using_ChangingDisableAPITermination.md").
+for an instance, see [Change instance termination protection](Using_ChangingDisableAPITermination.md "Using_ChangingDisableAPITermination.md").
 
 ###### To create an alarm to terminate an idle instance (Amazon EC2 console)
 

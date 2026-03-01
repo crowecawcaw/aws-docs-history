@@ -1,27 +1,19 @@
-# Secondary IP addresses for your EC2
-
-instances
+# Secondary IP addresses for your EC2 instances
 
 The first IPv4 address assigned to a network interface is known as the primary IP
 address. Secondary IP addresses are additional IPv4 address assigned to a network
 interface. For more information, see [Multiple IP addresses](using-instance-addressing.md#multiple-ip-addresses "using-instance-addressing.md#multiple-ip-addresses").
 
 You can also assign multiple IPv6 addresses to an instance. For more information, see
-[Manage the IPv6 addresses for your EC2
-instances](working-with-ipv6-addresses.md "working-with-ipv6-addresses.md").
+[Manage the IPv6 addresses for your EC2 instances](working-with-ipv6-addresses.md "working-with-ipv6-addresses.md").
 
 ###### Tasks
 
-- [Assign secondary IP addresses to an
-  instance](#assign-secondary-ip-address "#assign-secondary-ip-address")
-- [Configure the operating system to use secondary IP
-  addresses](#StepTwoConfigOS "#StepTwoConfigOS")
-- [Unassign a secondary IP address from
-  an instance](#unassign-secondary-ip-address "#unassign-secondary-ip-address")
+- [Assign secondary IP addresses to an instance](#assign-secondary-ip-address "#assign-secondary-ip-address")
+- [Configure the operating system to use secondary IP addresses](#StepTwoConfigOS "#StepTwoConfigOS")
+- [Unassign a secondary IP address from an instance](#unassign-secondary-ip-address "#unassign-secondary-ip-address")
 
-## Assign secondary IP addresses to an
-
-instance
+## Assign secondary IP addresses to an instance
 
 You can assign secondary IP addresses to the network interface for an instance as
 you launch the instance, or after the instance is running.
@@ -129,9 +121,7 @@ Register-EC2PrivateIpAddress `
     -SecondaryPrivateIpAddressCount 1
 ```
 
-## Configure the operating system to use secondary IP
-
-addresses
+## Configure the operating system to use secondary IP addresses
 
 After you assign a secondary IP address to your instance, you must configure the
 operating system on your instance to recognize the additional private IPv4
@@ -162,9 +152,7 @@ address.
 
 For more information, see [Configure secondary private IPv4 addresses for Windows instances](config-windows-multiple-ip.md "config-windows-multiple-ip.md").
 
-## Unassign a secondary IP address from
-
-an instance
+## Unassign a secondary IP address from an instance
 
 If you no longer require a secondary IP address, you can unassign it from the
 instance or the network interface. When a secondary private IPv4 address is
@@ -173,9 +161,7 @@ disassociated.
 
 Console
 
-###### To unassign a secondary private IPv4 address from an
-
-instance
+###### To unassign a secondary private IPv4 address from an instance
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").

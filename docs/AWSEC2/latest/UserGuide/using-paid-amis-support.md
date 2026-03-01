@@ -1,6 +1,4 @@
-# Use paid support for supported AWS Marketplace
-
-offerings
+# Use paid support for supported AWS Marketplace offerings
 
 Amazon EC2 also enables developers to offer support for software (or
 derived AMIs). Developers can create support products that you can sign up to use.

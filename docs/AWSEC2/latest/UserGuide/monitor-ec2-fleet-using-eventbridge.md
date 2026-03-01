@@ -1,6 +1,4 @@
-# Monitor and programmatically
-
-respond to the events emitted by your EC2 Fleet or Spot Fleet using Amazon EventBridge
+# Monitor and programmatically respond to the events emitted by your EC2 Fleet or Spot Fleet using Amazon EventBridge
 
 When the state of an EC2 Fleet or Spot Fleet changes, it emits a notification. The
 notification is made available as an event that is sent to Amazon EventBridge (formerly known
@@ -26,14 +24,11 @@ For instructions on how to describe a fleet's event history, see [Describe the e
 
 ###### Topics
 
-- [Create Amazon EventBridge rules to
-  monitor EC2 Fleet or Spot Fleet events](#fleet_create-eventbridge-rules "#fleet_create-eventbridge-rules")
+- [Create Amazon EventBridge rules to monitor EC2 Fleet or Spot Fleet events](#fleet_create-eventbridge-rules "#fleet_create-eventbridge-rules")
 - [EC2 Fleet event types](#ec2-fleet-event-types "#ec2-fleet-event-types")
 - [Spot Fleet event types](#spot-fleet-event-types "#spot-fleet-event-types")
 
-## Create Amazon EventBridge rules to
-
-monitor EC2 Fleet or Spot Fleet events
+## Create Amazon EventBridge rules to monitor EC2 Fleet or Spot Fleet events
 
 When a state change notification is emitted for an EC2 Fleet or Spot Fleet, it is sent as
 an event to Amazon EventBridge as a JSON file. If EventBridge detects an event pattern that
@@ -64,14 +59,10 @@ For the list of EC2 Fleet and Spot Fleet events and example event data, see [EC2
 
 ###### Examples
 
-- [Create an EventBridge rule to send
-  a notification](#eventbridge-send-notification "#eventbridge-send-notification")
-- [Create an EventBridge rule to trigger
-  a Lambda function](#eventbridge-trigger-lambda "#eventbridge-trigger-lambda")
+- [Create an EventBridge rule to send a notification](#eventbridge-send-notification "#eventbridge-send-notification")
+- [Create an EventBridge rule to trigger a Lambda function](#eventbridge-trigger-lambda "#eventbridge-trigger-lambda")
 
-### Create an EventBridge rule to send
-
-a notification
+### Create an EventBridge rule to send a notification
 
 The following example creates an EventBridge rule to send an email, text message,
 or mobile push notification every time that Amazon EC2 emits an EC2 Fleet state change
@@ -84,9 +75,7 @@ rule.
 Before creating the EventBridge rule, you must create the Amazon SNS topic for the
 email, text message, or mobile push notification.
 
-###### To create an EventBridge rule to send a notification when an EC2 Fleet state
-
-changes
+###### To create an EventBridge rule to send a notification when an EC2 Fleet state changes
 
 1.  Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2.  Choose **Create rule**.
@@ -183,9 +172,7 @@ For more information, see [Amazon EventBridge rules](../../../eventbridge/latest
 and [Amazon EventBridge event
 patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") in the _Amazon EventBridge User Guide_
 
-### Create an EventBridge rule to trigger
-
-a Lambda function
+### Create an EventBridge rule to trigger a Lambda function
 
 The following example creates an EventBridge rule to trigger a Lambda function
 every time that Amazon EC2 emits an EC2 Fleet instance change notification for when an
@@ -206,9 +193,7 @@ Before creating the EventBridge rule, you must create the Lambda function.
 For more information, see [Create your first Lambda function](../../../lambda/latest/dg/getting-started.md "../../../lambda/latest/dg/getting-started.md") in the
 _AWS Lambda Developer Guide_.
 
-###### To create an EventBridge rule to trigger a Lambda function when an instance
-
-in an EC2 Fleet changes state
+###### To create an EventBridge rule to trigger a Lambda function when an instance in an EC2 Fleet changes state
 
 1.  Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2.  Choose **Create rule**.
@@ -319,10 +304,8 @@ sub-types.
 ###### Event types
 
 - [EC2 Fleet State Change](#ec2-fleet-state-change "#ec2-fleet-state-change")
-- [EC2 Fleet Spot
-  Instance Request Change](#ec2-fleet-spot-instance-request-change "#ec2-fleet-spot-instance-request-change")
-- [EC2 Fleet Instance
-  Change](#ec2-fleet-instance-change "#ec2-fleet-instance-change")
+- [EC2 Fleet Spot Instance Request Change](#ec2-fleet-spot-instance-request-change "#ec2-fleet-spot-instance-request-change")
+- [EC2 Fleet Instance Change](#ec2-fleet-instance-change "#ec2-fleet-instance-change")
 - [EC2 Fleet Information](#ec2-fleet-info "#ec2-fleet-info")
 - [EC2 Fleet Error](#ec2-fleet-config-not-valid "#ec2-fleet-config-not-valid")
 
@@ -402,9 +385,7 @@ launch the target number of instances.
 
 The EC2 Fleet request is in the process of being fulfilled.
 
-### EC2 Fleet Spot
-
-Instance Request Change
+### EC2 Fleet Spot Instance Request Change
 
 EC2 Fleet sends an `EC2 Fleet Spot Instance Request Change` event to
 Amazon EventBridge when a Spot Instance request in the fleet changes state.
@@ -451,9 +432,7 @@ You stopped the Spot Instance.
 
 The Spot Instance request is submitted.
 
-### EC2 Fleet Instance
-
-Change
+### EC2 Fleet Instance Change
 
 EC2 Fleet sends an `EC2 Fleet Instance Change` event to Amazon EventBridge
 when an instance in the fleet changes state.
@@ -607,18 +586,13 @@ sub-types.
 
 ###### Event types
 
-- [EC2 Spot Fleet State
-  Change](#spot-fleet-state-change "#spot-fleet-state-change")
-- [EC2 Spot Fleet
-  Spot Instance Request Change](#spot-fleet-spot-instance-request-change "#spot-fleet-spot-instance-request-change")
-- [EC2 Spot Fleet Instance
-  Change](#spot-fleet-instance-change "#spot-fleet-instance-change")
+- [EC2 Spot Fleet State Change](#spot-fleet-state-change "#spot-fleet-state-change")
+- [EC2 Spot Fleet Spot Instance Request Change](#spot-fleet-spot-instance-request-change "#spot-fleet-spot-instance-request-change")
+- [EC2 Spot Fleet Instance Change](#spot-fleet-instance-change "#spot-fleet-instance-change")
 - [EC2 Spot Fleet Information](#spot-fleet-info "#spot-fleet-info")
 - [EC2 Spot Fleet Error](#spot-fleet-config-not-valid "#spot-fleet-config-not-valid")
 
-### EC2 Spot Fleet State
-
-Change
+### EC2 Spot Fleet State Change
 
 Spot Fleet sends an `EC2 Spot Fleet State Change` event to Amazon EventBridge
 when a Spot Fleet changes state.
@@ -694,9 +668,7 @@ launch the target number of instances.
 
 The Spot Fleet request is in the process of being fulfilled.
 
-### EC2 Spot Fleet
-
-Spot Instance Request Change
+### EC2 Spot Fleet Spot Instance Request Change
 
 Spot Fleet sends an `EC2 Spot Fleet Spot Instance Request Change`
 event to Amazon EventBridge when a Spot Instance request in the fleet changes state.
@@ -743,9 +715,7 @@ You stopped the Spot Instance.
 
 The Spot Instance request is submitted.
 
-### EC2 Spot Fleet Instance
-
-Change
+### EC2 Spot Fleet Instance Change
 
 Spot Fleet sends an `EC2 Spot Fleet Instance Change` event to
 Amazon EventBridge when an instance in the fleet changes state.

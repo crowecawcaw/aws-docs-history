@@ -1,6 +1,4 @@
-# Prerequisites to create Windows VSS
-
-based EBS snapshots
+# Prerequisites to create Windows VSS based EBS snapshots
 
 You can create VSS based EBS snapshots with Systems Manager Run Command, AWS Backup, or Amazon Data Lifecycle Manager. The following
 prerequisites apply for all solutions.

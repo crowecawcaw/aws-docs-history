@@ -1,6 +1,4 @@
-# Convert your Amazon S3-backed AMI to an
-
-EBS-backed AMI
+# Convert your Amazon S3-backed AMI to an EBS-backed AMI
 
 You can convert an Amazon S3-backed Linux AMI that you own to an Amazon EBS-backed Linux AMI.
 
@@ -11,8 +9,7 @@ You can't convert an AMI that you don't own.
 ###### To convert an Amazon S3-backed AMI to an Amazon EBS-backed AMI
 
 1. Launch an Amazon Linux instance from an Amazon EBS-backed AMI. For more information, see
-   [Launch an EC2 instance using the launch
-   instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+   [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
    Amazon Linux instances have the AWS CLI and AMI tools pre-installed.
 2. Upload the X.509 private key that you used to bundle your Amazon S3-backed AMI to your
    instance. We use this key to ensure that only you and Amazon EC2 can access your

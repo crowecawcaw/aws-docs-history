@@ -1,6 +1,4 @@
-# Change instance termination
-
-protection
+# Change instance termination protection
 
 To prevent your instance from being accidentally terminated using the Amazon EC2 API,
 whether you call `TerminateInstances` directly or using another interface
@@ -14,8 +12,7 @@ The `DisableApiTermination` attribute doesn't prevent you from terminating
 an instance by initiating shutdown from the instance (for example, by using an operating
 system command for system shutdown) when the
 `InstanceInitiatedShutdownBehavior` attribute is set to
-`terminate`. For more information, see [Change instance
-initiated shutdown behavior](Using_ChangingInstanceInitiatedShutdownBehavior.md "Using_ChangingInstanceInitiatedShutdownBehavior.md").
+`terminate`. For more information, see [Change instance initiated shutdown behavior](Using_ChangingInstanceInitiatedShutdownBehavior.md "Using_ChangingInstanceInitiatedShutdownBehavior.md").
 
 ###### Considerations
 
@@ -102,9 +99,7 @@ Edit-EC2InstanceAttribute `
     -DisableApiTermination $false
 ```
 
-## Terminate multiple instances with termination
-
-protection
+## Terminate multiple instances with termination protection
 
 If you terminate multiple instances across multiple Availability Zones in the same
 request, and one or more of the specified instances are enabled for termination

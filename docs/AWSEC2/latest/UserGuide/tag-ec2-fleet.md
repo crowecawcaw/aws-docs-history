@@ -1,6 +1,4 @@
-# Tag a new or existing EC2 Fleet request and the instances and
-
-volumes it launches
+# Tag a new or existing EC2 Fleet request and the instances and volumes it launches
 
 To help categorize and manage your EC2 Fleet requests and the instances and volumes that it
 launches, you can tag them with custom metadata. You can assign a tag to an EC2 Fleet request

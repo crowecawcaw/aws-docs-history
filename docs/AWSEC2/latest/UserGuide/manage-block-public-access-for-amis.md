@@ -1,14 +1,10 @@
-# Manage the block public access setting for
-
-AMIs
+# Manage the block public access setting for AMIs
 
 You can manage the block public access setting for your AMIs to control whether
 they can be publicly shared. You can enable, disable, or view the current block
 public access state for your AMIs using the Amazon EC2 console or the AWS CLI.
 
-## View the block public access state for
-
-AMIs
+## View the block public access state for AMIs
 
 To see whether the public sharing of your AMIs is blocked in your account, you can view
 the state for block public access for AMIs. You must view the state in each
@@ -140,9 +136,7 @@ eu-west-3      block-new-sharing
 ...
 ```
 
-## Enable block public access for
-
-AMIs
+## Enable block public access for AMIs
 
 To prevent the public sharing of your AMIs, enable block public access for AMIs at the
 account level. You must enable block public access for AMIs in each AWS Region
@@ -281,9 +275,7 @@ eu-west-3      block-new-sharing
 ...
 ```
 
-## Disable block public access for
-
-AMIs
+## Disable block public access for AMIs
 
 To allow the users in your account to publicly share your AMIs, disable block public
 access at the account level. You must disable block public access for AMIs in

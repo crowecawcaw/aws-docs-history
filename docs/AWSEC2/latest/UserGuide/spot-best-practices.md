@@ -39,15 +39,11 @@ follow these best practices to have the best experience using the Spot service.
 ###### Spot best practices
 
 - [Prepare individual instances for interruptions](#prep-instances-for-interruptions "#prep-instances-for-interruptions")
-- [Be flexible about instance types and Availability
-  Zones](#be-instance-type-flexible "#be-instance-type-flexible")
+- [Be flexible about instance types and Availability Zones](#be-instance-type-flexible "#be-instance-type-flexible")
 - [Use attribute-based instance type selection](#use-attribute-based-instance-type-selection "#use-attribute-based-instance-type-selection")
-- [Use Spot placement scores to identify optimal Regions and Availability
-  Zones](#use-spot-placement-scores-to-identify-optimal-regions-and-availability-zones "#use-spot-placement-scores-to-identify-optimal-regions-and-availability-zones")
-- [Use EC2 Auto Scaling groups or EC2 Fleet to manage your
-  aggregate capacity](#use-sf-asg-for-aggregate-capacity "#use-sf-asg-for-aggregate-capacity")
-- [Use the price and capacity optimized
-  allocation strategy](#use-capacity-optimized-allocation-strategy "#use-capacity-optimized-allocation-strategy")
+- [Use Spot placement scores to identify optimal Regions and Availability Zones](#use-spot-placement-scores-to-identify-optimal-regions-and-availability-zones "#use-spot-placement-scores-to-identify-optimal-regions-and-availability-zones")
+- [Use EC2 Auto Scaling groups or EC2 Fleet to manage your aggregate capacity](#use-sf-asg-for-aggregate-capacity "#use-sf-asg-for-aggregate-capacity")
+- [Use the price and capacity optimized allocation strategy](#use-capacity-optimized-allocation-strategy "#use-capacity-optimized-allocation-strategy")
 - [Use integrated AWS services to manage your Spot Instances](#use-integrated-aws-services "#use-integrated-aws-services")
 - [Which is the best Spot request method to use?](#which-spot-request-method-to-use "#which-spot-request-method-to-use")
 
@@ -73,15 +69,12 @@ resumes the instances when we have available capacity.
 We recommend that you create a rule in [Amazon EventBridge](../../../eventbridge/index.md "../../../eventbridge/index.md") that captures the rebalance
 recommendations and interruption notifications, and then triggers a checkpoint for
 the progress of your workload or gracefully handles the interruption. For more
-information, see [Monitor rebalance recommendation
-signals](rebalance-recommendations.md#monitor-rebalance-recommendations "rebalance-recommendations.md#monitor-rebalance-recommendations"). For a detailed example that
+information, see [Monitor rebalance recommendation signals](rebalance-recommendations.md#monitor-rebalance-recommendations "rebalance-recommendations.md#monitor-rebalance-recommendations"). For a detailed example that
 walks you through how to create and use event rules, see [Taking Advantage of Amazon EC2 Spot Instance Interruption Notices](https://aws.amazon.com/blogs/compute/taking-advantage-of-amazon-ec2-spot-instance-interruption-notices/ "https://aws.amazon.com/blogs/compute/taking-advantage-of-amazon-ec2-spot-instance-interruption-notices/").
 
 For more information, see [EC2 instance rebalance recommendations](rebalance-recommendations.md "rebalance-recommendations.md") and [Spot Instance interruptions](spot-interruptions.md "spot-interruptions.md").
 
-## Be flexible about instance types and Availability
-
-Zones
+## Be flexible about instance types and Availability Zones
 
 A Spot capacity pool is a set of unused EC2 instances with the same instance type (for
 example, `m5.large`) and Availability Zone (for example, us-east-1a). You
@@ -121,13 +114,10 @@ flexible about the instance types they run on, such as High Performance Computin
 
 For more information, see [Create mixed instances group using attribute-based instance type
 selection](../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md "../../../autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.md") in the _Amazon EC2 Auto Scaling User Guide_ and
-[Specify attributes for
-instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md") in this
+[Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](ec2-fleet-attribute-based-instance-type-selection.md "ec2-fleet-attribute-based-instance-type-selection.md") in this
 guide.
 
-## Use Spot placement scores to identify optimal Regions and Availability
-
-Zones
+## Use Spot placement scores to identify optimal Regions and Availability Zones
 
 Spot Instances are unused EC2 capacity, and this capacity fluctuates based on EC2 supply and demand.
 As a result, you might not always get the exact Spot capacity that you require in a
@@ -151,9 +141,7 @@ interruption.
 You can use the Spot placement score feature in the Amazon EC2 console, AWS CLI, or an SDK. For more information,
 see [Spot placement score](spot-placement-score.md "spot-placement-score.md").
 
-## Use EC2 Auto Scaling groups or EC2 Fleet to manage your
-
-aggregate capacity
+## Use EC2 Auto Scaling groups or EC2 Fleet to manage your aggregate capacity
 
 Spot enables you to think in terms of aggregate capacity—in units that include
 vCPUs, memory, storage, or network throughput—rather than thinking in terms
@@ -164,9 +152,7 @@ need only specify the instance types and target capacity based on your applicati
 needs. For more information, see [Auto Scaling groups](../../../autoscaling/ec2/userguide/auto-scaling-groups.md "../../../autoscaling/ec2/userguide/auto-scaling-groups.md")
 in the _Amazon EC2 Auto Scaling User Guide_ and [Create an EC2 Fleet](create-ec2-fleet.md "create-ec2-fleet.md") in this user guide.
 
-## Use the price and capacity optimized
-
-allocation strategy
+## Use the price and capacity optimized allocation strategy
 
 Allocation strategies in Auto Scaling groups help you to provision your target capacity without the
 need to manually look for the Spot capacity pools with spare capacity. We recommend
@@ -177,8 +163,7 @@ also have the lowest possible price. You can also take advantage of the
 Spot Instance capacity is sourced from pools with optimal capacity, this decreases the
 possibility that your Spot Instances are reclaimed. For more information, see [Allocation strategies
 for multiple instance types](../../../autoscaling/ec2/userguide/allocation-strategies.md "../../../autoscaling/ec2/userguide/allocation-strategies.md") in the _Amazon EC2 Auto Scaling User Guide_ and
-[When workloads have a
-high cost of interruption](ec2-fleet-allocation-strategy.md#ec2-fleet-strategy-capacity-optimized "ec2-fleet-allocation-strategy.md#ec2-fleet-strategy-capacity-optimized") in this user guide.
+[When workloads have a high cost of interruption](ec2-fleet-allocation-strategy.md#ec2-fleet-strategy-capacity-optimized "ec2-fleet-allocation-strategy.md#ec2-fleet-strategy-capacity-optimized") in this user guide.
 
 ## Use integrated AWS services to manage your Spot Instances
 

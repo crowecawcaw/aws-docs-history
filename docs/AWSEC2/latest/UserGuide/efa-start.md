@@ -19,8 +19,7 @@ or up to 256 parallel MPI processes with Intel MPI.
 - [Step 7. Confirm installation](#efa-start-test "#efa-start-test")
 - [Step 8: Install your HPC application](#efa-start-hpc-app "#efa-start-hpc-app")
 - [Step 9: Create an EFA-enabled AMI](#efa-start-ami "#efa-start-ami")
-- [Step 10: Launch EFA-enabled instances into a cluster
-  placement group](#efa-start-instances "#efa-start-instances")
+- [Step 10: Launch EFA-enabled instances into a cluster placement group](#efa-start-instances "#efa-start-instances")
 - [Step 11: Terminate the temporary instance](#efa-start-terminate "#efa-start-terminate")
 - [Step 12: Enable passwordless SSH](#efa-start-passwordless "#efa-start-passwordless")
 
@@ -121,8 +120,7 @@ can launch your EFA-enabled instances.
 
 Consider requiring the use of IMDSv2 for the temporary instance as well as the AMI that you will create in [Step 9](#efa-start-ami "#efa-start-ami")
 unless you have already [set IMDSv2 as the default for the account](configuring-IMDS-new-instances.md#set-imdsv2-account-defaults "configuring-IMDS-new-instances.md#set-imdsv2-account-defaults"). For more information about IMDSv2 configuration
-steps, see [Configure instance metadata options
-for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md").
+steps, see [Configure instance metadata options for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md").
 
 ## Step 3: Install the EFA software
 
@@ -606,9 +604,7 @@ you can reuse to launch your EFA-enabled instances.
    `pending` to `available` before continuing to the next
    step.
 
-## Step 10: Launch EFA-enabled instances into a cluster
-
-placement group
+## Step 10: Launch EFA-enabled instances into a cluster placement group
 
 Launch your EFA-enabled instances into a cluster placement group using the EFA-enabled
 AMI that you created in **Step 7**, and the

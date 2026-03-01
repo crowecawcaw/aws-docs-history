@@ -9,14 +9,12 @@ behavior of instance retirement:
   hardware.
 - If your instance root volume is an instance store volume, the instance is
   terminated, and can't be used again.
-  For more information about the types of instance events, see [Scheduled events for Amazon EC2
-  instances](monitoring-instances-status-check_sched.md "monitoring-instances-status-check_sched.md").
+  For more information about the types of instance events, see [Scheduled events for Amazon EC2 instances](monitoring-instances-status-check_sched.md "monitoring-instances-status-check_sched.md").
 
 ###### Contents
 
 - [Identify instances scheduled for retirement](#instance-retirement-identify "#instance-retirement-identify")
-- [Actions to take for EBS-backed
-  instances scheduled for retirement](#instance-retirement-actions-EBS "#instance-retirement-actions-EBS")
+- [Actions to take for EBS-backed instances scheduled for retirement](#instance-retirement-actions-EBS "#instance-retirement-actions-EBS")
 - [Actions to take for instance-store backed instances scheduled for retirement](#instance-retirement-actions-instance-store "#instance-retirement-actions-instance-store")
 
 ## Identify instances scheduled for retirement
@@ -92,9 +90,7 @@ cmdlet. Repeat in each Region where you have running instances.
 Get-EC2InstanceStatus -Filter @{Name="event.code"; Values="instance-retirement"}
 ```
 
-## Actions to take for EBS-backed
-
-instances scheduled for retirement
+## Actions to take for EBS-backed instances scheduled for retirement
 
 To preserve the data on your retiring instance, you can perform one of the following
 actions. It's important that you take this action before the instance retirement date to
@@ -136,8 +132,7 @@ After you create an AMI from your instance, you can use the AMI to launch a
 replacement instance. From the Amazon EC2 console, select your new AMI and then choose
 **Launch instance from AMI**. Configure the parameters for your
 instance and then choose **Launch instance**. For more information
-about each field, see [Launch an EC2 instance using the launch
-instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+about each field, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 ## Actions to take for instance-store backed instances scheduled for retirement
 
@@ -172,12 +167,10 @@ Create an Amazon S3-backed AMI from your instance using the AMI tools, as descri
 in [Create an Amazon S3-backed AMI](creating-an-ami-instance-store.md "creating-an-ami-instance-store.md"). From the Amazon EC2 console, select
 your new AMI and then choose **Launch instance from AMI**.
 Configure the parameters for your instance and then choose **Launch
-instance**. For more information about each field, see [Launch an EC2 instance using the launch
-instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+instance**. For more information about each field, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 ###### Convert your instance to an EBS-backed instance
 
 Transfer your data to an EBS volume, take a snapshot of the volume, and then create
 AMI from the snapshot. You can launch a replacement instance from your new AMI. For
-more information, see [Convert your Amazon S3-backed AMI to an
-EBS-backed AMI](Using_ConvertingS3toEBS.md "Using_ConvertingS3toEBS.md").
+more information, see [Convert your Amazon S3-backed AMI to an EBS-backed AMI](Using_ConvertingS3toEBS.md "Using_ConvertingS3toEBS.md").

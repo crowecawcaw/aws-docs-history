@@ -124,9 +124,7 @@ After you terminate an instance, it remains visible for a short while before bei
 The state shows as `terminated`. If the entry is not deleted after
 several hours, contact Support.
 
-## Error: The instance may not be terminated. Modify its
-
-'disableApiTermination' instance attribute
+## Error: The instance may not be terminated. Modify its 'disableApiTermination' instance attribute
 
 If you try to terminate an instance and get the `The instance `i-1234567890abcdef0` may not be 
  terminated. Modify its 'disableApiTermination' instance attribute` error message, it indicates that the instance
@@ -135,8 +133,7 @@ terminated.
 
 You must disable termination protection before you can terminate the instance.
 
-For more information, see [Change instance termination
-protection](Using_ChangingDisableAPITermination.md "Using_ChangingDisableAPITermination.md").
+For more information, see [Change instance termination protection](Using_ChangingDisableAPITermination.md "Using_ChangingDisableAPITermination.md").
 
 ## Instances automatically launched or terminated
 

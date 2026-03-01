@@ -44,9 +44,7 @@ begin your in-place upgrade.
   drivers. If the instance is running Red Hat drivers, you must manually [upgrade those drivers](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md")
   first.
 
-## Upgrade an instance in-place with AWS PV, Intel
-
-Network Adapter, or the Enhanced Networking drivers
+## Upgrade an instance in-place with AWS PV, Intel Network Adapter, or the Enhanced Networking drivers
 
 Use the following procedure to upgrade a Windows Server instance using the AWS
 PV, Intel Network Adapter, or the Enhanced Networking network drivers.
@@ -60,8 +58,7 @@ PV, Intel Network Adapter, or the Enhanced Networking network drivers.
    backup. For more information, see [Create an Amazon EBS-backed AMI](creating-an-ami-ebs.md "creating-an-ami-ebs.md").
 2. Ensure that your Windows Server instance is using the latest network
    drivers.
-   1. To update your AWS PV driver, see [Upgrade PV drivers on EC2 Windows
-      instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
+   1. To update your AWS PV driver, see [Upgrade PV drivers on EC2 Windows instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
    2. To update your ENA driver, see
       [Install the ENA driver on EC2 Windows instances](ena-adapter-driver-install-upgrade-win.md "ena-adapter-driver-install-upgrade-win.md").
    3. To update your Intel drivers, see [Enhanced networking with the Intel 82599 VF interface](sriov-networking.md "sriov-networking.md")
@@ -74,9 +71,7 @@ PV, Intel Network Adapter, or the Enhanced Networking network drivers.
 5. If you are upgrading from Windows Server 2012 or 2012 R2 to Windows Server
    2016 or later, perform the following on your instance before you proceed.
    1. Uninstall the EC2Config service. For more information, see [Windows Service administration for EC2Launch v2 and EC2Config agents](launch-agents-service-admin.md "launch-agents-service-admin.md").
-   2. Install EC2Launch v1 or the EC2Launch v2 agent. For more information, see [Use the EC2Launch v1 agent to perform tasks during EC2 Windows
-      instance launch](ec2launch.md "ec2launch.md") and [Use the EC2Launch v2 agent to perform tasks during EC2 Windows
-      instance launch](ec2launch-v2.md "ec2launch-v2.md").
+   2. Install EC2Launch v1 or the EC2Launch v2 agent. For more information, see [Use the EC2Launch v1 agent to perform tasks during EC2 Windows instance launch](ec2launch.md "ec2launch.md") and [Use the EC2Launch v2 agent to perform tasks during EC2 Windows instance launch](ec2launch-v2.md "ec2launch-v2.md").
    3. Install the AWS Systems Manager SSM Agent. For more information, see
       [Manually install SSM Agent on Amazon EC2 for Windows Server](../../../systems-manager/latest/userguide/manually-install-ssm-agent-windows.md "../../../systems-manager/latest/userguide/manually-install-ssm-agent-windows.md")
       in the _AWS Systems Manager User Guide_.
@@ -182,9 +177,7 @@ If the instance has not passed all status checks after several hours, see [Troub
 1. Log in to the instance to initiate an upgrade for the .NET Framework and
    reboot the system when prompted.
 2. If you haven't already done so in a prior step, install the EC2Launch v1 or
-   EC2Launch v2 agent. For more information, see [Use the EC2Launch v1 agent to perform tasks during EC2 Windows
-   instance launch](ec2launch.md "ec2launch.md") and [Use the EC2Launch v2 agent to perform tasks during EC2 Windows
-   instance launch](ec2launch-v2.md "ec2launch-v2.md").
+   EC2Launch v2 agent. For more information, see [Use the EC2Launch v1 agent to perform tasks during EC2 Windows instance launch](ec2launch.md "ec2launch.md") and [Use the EC2Launch v2 agent to perform tasks during EC2 Windows instance launch](ec2launch-v2.md "ec2launch-v2.md").
 3. If you upgraded to Windows Server 2012 R2, we recommend that you upgrade
    the PV drivers to AWS PV drivers. If you upgraded on a Nitro-based
    instance, we recommend that you install or upgrade the NVME and ENA drivers.

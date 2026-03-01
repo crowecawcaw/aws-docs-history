@@ -1,6 +1,4 @@
-# Status checks for Amazon EC2
-
-instances
+# Status checks for Amazon EC2 instances
 
 With instance status monitoring, you can quickly determine whether Amazon EC2 has detected
 any problems that might prevent your instances from running applications. Amazon EC2 performs
@@ -20,8 +18,7 @@ When a status check fails, the corresponding CloudWatch metric for status checks
 incremented. For more information, see [Status check metrics](viewing_metrics_with_cloudwatch.md#status-check-metrics "viewing_metrics_with_cloudwatch.md#status-check-metrics"). You can use these metrics to create CloudWatch
 alarms that are triggered based on the result of the status checks. For example, you can
 create an alarm to warn you if status checks fail on a specific instance. For more
-information, see [Create CloudWatch alarms for Amazon EC2
-instances that fail status checks](creating_status_check_alarms.md "creating_status_check_alarms.md").
+information, see [Create CloudWatch alarms for Amazon EC2 instances that fail status checks](creating_status_check_alarms.md "creating_status_check_alarms.md").
 
 You can also create an Amazon CloudWatch alarm that monitors an Amazon EC2 instance and
 automatically recovers the instance if it becomes impaired due to an underlying issue.
@@ -31,8 +28,7 @@ For more information, see [Automatic instance recovery](ec2-instance-recover.md 
 
 - [Types of status checks](#types-of-instance-status-checks "#types-of-instance-status-checks")
 - [View status checks for Amazon EC2 instances](viewing_status.md "viewing_status.md")
-- [Create CloudWatch alarms for Amazon EC2
-  instances that fail status checks](creating_status_check_alarms.md "creating_status_check_alarms.md")
+- [Create CloudWatch alarms for Amazon EC2 instances that fail status checks](creating_status_check_alarms.md "creating_status_check_alarms.md")
 
 ## Types of status checks
 

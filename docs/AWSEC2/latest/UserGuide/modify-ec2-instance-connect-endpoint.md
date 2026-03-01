@@ -4,8 +4,7 @@ You can modify existing EC2 Instance Connect Endpoints using the AWS CLI or an S
 doesn't support endpoint modification.
 
 Before you begin, you must have the required IAM permissions. For more
-information, see [Permissions to create, describe,
-modify, and delete EC2 Instance Connect Endpoints](permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint "permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint").
+information, see [Permissions to create, describe, modify, and delete EC2 Instance Connect Endpoints](permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint "permissions-for-ec2-instance-connect-endpoint.md#iam-CreateInstanceConnectEndpoint").
 
 ## Parameters you can modify
 

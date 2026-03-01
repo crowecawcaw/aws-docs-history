@@ -1,6 +1,4 @@
-# Modify the Capacity Reservation settings of your
-
-instance
+# Modify the Capacity Reservation settings of your instance
 
 You can modify the following Capacity Reservation settings for a stopped instance at any time:
 

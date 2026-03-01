@@ -7,8 +7,7 @@ key material and identify the public key that was specified at launch.
 
 - [Describe your key pairs](#describe-public-key "#describe-public-key")
 - [Retrieve the public key material](#retrieving-the-public-key "#retrieving-the-public-key")
-- [Identify the public key specified at
-  launch](#identify-key-pair-specified-at-launch "#identify-key-pair-specified-at-launch")
+- [Identify the public key specified at launch](#identify-key-pair-specified-at-launch "#identify-key-pair-specified-at-launch")
 
 ## Describe your key pairs
 
@@ -159,9 +158,7 @@ Run the following cmdlet from your Windows instance.
 Invoke-RestMethod -uri  http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key
 ```
 
-## Identify the public key specified at
-
-launch
+## Identify the public key specified at launch
 
 If you specify a public key when you launch an instance, the public key name is
 recorded by the instance. The public key name reported for an instance does not

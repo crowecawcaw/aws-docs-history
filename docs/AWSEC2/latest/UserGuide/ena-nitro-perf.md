@@ -35,8 +35,7 @@ When a connection is established between a Nitro based instance and another
 endpoint, the Nitro card evaluates the full flow for the first packet that's sent or
 received between the two endpoints. For subsequent packets of the same flow, full
 reevaluation is usually not necessary. However, there are exceptions. For more
-information about the exceptions, see [Packets that don't use hardware
-acceleration](#ena-nitro-perf-exceptions "#ena-nitro-perf-exceptions").
+information about the exceptions, see [Packets that don't use hardware acceleration](#ena-nitro-perf-exceptions "#ena-nitro-perf-exceptions").
 
 The following properties define the two endpoints and the packet flow between them.
 These five properties together are known as a 5-tuple flow.
@@ -62,9 +61,7 @@ summarize end to end network packet flow.
   apply. Then it forwards the packet to its next hop destination on the
   network.
 
-## Design your network for optimal
-
-performance
+## Design your network for optimal performance
 
 To take advantage of your Nitro system's performance capabilities, you must understand
 what your network processing needs are and how those needs affect the workload for your
@@ -84,9 +81,7 @@ The remainder of this section will focus on application and infrastructure desig
 considerations to help ensure that packets flow within the accelerated path as much as
 possible.
 
-### Network design considerations for
-
-the Nitro system
+### Network design considerations for the Nitro system
 
 When you configure network traffic for your instance, there are many aspects to
 consider that can affect PPS performance. After a flow is established, the majority
@@ -98,9 +93,7 @@ To get the best performance from your Nitro card, you should carefully consider
 the pros and cons of the following configuration details for your infrastructure and
 applications.
 
-#### Infrastructure
-
-considerations
+#### Infrastructure considerations
 
 Your infrastructure configuration can affect your packet flow and processing
 efficiency. The following list includes some important considerations.
@@ -155,9 +148,7 @@ enabled, it can result in performance limitations by restricting the
 number of bytes passed to Nitro before all fragments are
 processed.
 
-#### Application design
-
-considerations
+#### Application design considerations
 
 There are aspects of application design and configuration that can affect your
 processing efficiency. The following list includes some important
@@ -178,8 +169,7 @@ The resulting packet fragments are considered exceptions, and are
 normally processed at the standard rate (not accelerated). This can
 cause variations in your performance. However, you can override the
 standard behavior for outbound fragmented packets with the fragment
-proxy mode setting. For more information, see [Maximize network performance on your Nitro
-system](#ena-nitro-perf-maximize "#ena-nitro-perf-maximize"). We recommended that
+proxy mode setting. For more information, see [Maximize network performance on your Nitro system](#ena-nitro-perf-maximize "#ena-nitro-perf-maximize"). We recommended that
 you evaluate your topology when you configure MTU.
 
 **Protocol trade-offs**
@@ -258,9 +248,7 @@ is required except for connections that are automatically
 tracked to ensure symmetric routing when there are multiple
 valid reply paths.
 
-#### Packets that don't use hardware
-
-acceleration
+#### Packets that don't use hardware acceleration
 
 Not all packets can take advantage of hardware acceleration. Handling these
 exceptions involves some processing overhead which is necessary to ensure the
@@ -276,8 +264,7 @@ packets that exceed network MTU are normally handled as exceptions,
 and can't take advantage of hardware acceleration. However, you can
 bypass egress fragment limitations with the fragment proxy mode,
 depending on your driver version. For more information, see actions
-you can take in the [Maximize network performance on your Nitro
-system](#ena-nitro-perf-maximize "#ena-nitro-perf-maximize") section.
+you can take in the [Maximize network performance on your Nitro system](#ena-nitro-perf-maximize "#ena-nitro-perf-maximize") section.
 
 **Idle connections**
 
@@ -314,9 +301,7 @@ performance on NitroV3 or earlier platforms, ensure that either the
 default gateway router used matches between both ENIs, or those ENIs
 are in different subnets.
 
-## Maximize network performance on your Nitro
-
-system
+## Maximize network performance on your Nitro system
 
 You can maximize your network performance on Nitro system by adjusting network
 settings.
@@ -335,8 +320,7 @@ instance, we recommend that you take the following steps to help ensure that you
 have the best outcome:
 
 1. Understand the pros and cons of the actions that you can take to improve
-   performance by reviewing [Network design considerations for
-   the Nitro system](#ena-nitro-perf-considerations "#ena-nitro-perf-considerations").
+   performance by reviewing [Network design considerations for the Nitro system](#ena-nitro-perf-considerations "#ena-nitro-perf-considerations").
 
 For more considerations and best practices for your instance configuration
 on Linux, see [ENA Linux Driver Best Practices and Performance Optimization
@@ -389,5 +373,4 @@ multiple ENA queues. For more information, see [ENA queues](ena-queues.md "ena-q
 
 You can use Ethtool metrics on Linux instances to monitor instance networking
 performance indicators such as bandwidth, packet rate, and connection tracking. For
-more information, see [Monitor network performance for ENA
-settings on your EC2 instance](monitoring-network-performance-ena.md "monitoring-network-performance-ena.md").
+more information, see [Monitor network performance for ENA settings on your EC2 instance](monitoring-network-performance-ena.md "monitoring-network-performance-ena.md").

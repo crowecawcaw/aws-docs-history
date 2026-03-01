@@ -9,8 +9,7 @@ These security credentials are temporary and we rotate them automatically. We ma
 new credentials available at least five minutes before the expiration of the old
 credentials.
 
-For more information about instance metadata, see [Use instance metadata to manage your EC2
-instance](ec2-instance-metadata.md "ec2-instance-metadata.md").
+For more information about instance metadata, see [Use instance metadata to manage your EC2 instance](ec2-instance-metadata.md "ec2-instance-metadata.md").
 
 ###### Warning
 

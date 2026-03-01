@@ -1,6 +1,4 @@
-# Accept or reject billing of a
-
-shared EC2 Capacity Reservation
+# Accept or reject billing of a shared EC2 Capacity Reservation
 
 If you receive a billing assignment request for a Capacity Reservation that is shared with
 you, you can either accept or reject it. The request remains in the
@@ -21,8 +19,7 @@ the Capacity Reservation owner.
 
 When a request is accepted or rejected, an Amazon EventBridge event is sent to the
 Capacity Reservation owner's account. When a request expires, an Amazon EventBridge event is sent to
-the Capacity Reservation owner and the consumer account. For more information, see [Monitor billing assignment requests
-for shared Capacity Reservations](billing-ownership-events.md "billing-ownership-events.md").
+the Capacity Reservation owner and the consumer account. For more information, see [Monitor billing assignment requests for shared Capacity Reservations](billing-ownership-events.md "billing-ownership-events.md").
 
 Console
 

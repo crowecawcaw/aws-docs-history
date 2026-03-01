@@ -40,9 +40,7 @@ with the AWS Management Console, follow these steps:
 5. To restart your instance, choose **Start instance**
    from the **Instance state** menu.
 
-## Step 2: Install or upgrade your
-
-ENA driver
+## Step 2: Install or upgrade your ENA driver
 
 You can install or upgrade your ENA driver with AWS Systems Manager Distributor, or with
 PowerShell cmdlets. For further instructions, select the tab that matches the method
@@ -110,9 +108,7 @@ a specific version. To install the ENA driver, follow these steps.
 `PS C:\>` `Restart-Computer`
 ```
 
-## Step 3 (optional): Verify the
-
-ENA driver version after installation
+## Step 3 (optional): Verify the ENA driver version after installation
 
 To ensure that the ENA driver package was successfully installed on your instance,
 you can verify the new version as follows:

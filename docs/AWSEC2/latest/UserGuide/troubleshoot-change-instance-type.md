@@ -31,9 +31,7 @@ the following:
 2. Change the instance type of the affected instance.
 3. Start all the instances in the cluster placement group.
 
-## Application or website not
-
-reachable from the internet after changing instance type
+## Application or website not reachable from the internet after changing instance type
 
 **Possible cause: Public IPv4 address is released**
 

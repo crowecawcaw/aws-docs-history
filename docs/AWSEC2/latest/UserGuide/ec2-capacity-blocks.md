@@ -46,8 +46,7 @@ Capacity Blocks.
 - [Share Capacity Blocks](capacity-blocks-share.md "capacity-blocks-share.md")
 - [Create a resource group for UltraServer Capacity Blocks](cb-group.md "cb-group.md")
 - [Monitor Capacity Blocks using EventBridge](capacity-blocks-monitor.md "capacity-blocks-monitor.md")
-- [Logging Capacity Blocks API calls
-  with AWS CloudTrail](capacity-blocks-logging-using-cloudtrail.md "capacity-blocks-logging-using-cloudtrail.md")
+- [Logging Capacity Blocks API calls with AWS CloudTrail](capacity-blocks-logging-using-cloudtrail.md "capacity-blocks-logging-using-cloudtrail.md")
 
 ## Supported instance types and Regions
 
@@ -90,6 +89,7 @@ AWS Regions.
   - Asia Pacific (Mumbai) — `ap-south-1`
   - Asia Pacific (Sydney) — `ap-southeast-2`
   - Asia Pacific (Jakarta) — `ap-southeast-3`
+  - US East (Atlanta) Local Zone — `us-east-1-atl-2a`
 
 - **`p5e.48xlarge`**
   - US East (N. Virginia) — `us-east-1`
@@ -104,6 +104,7 @@ AWS Regions.
   - Asia Pacific (Seoul) — `ap-northeast-2`
   - Asia Pacific (Mumbai) — `ap-south-1`
   - Asia Pacific (Jakarta) — `ap-southeast-3`
+  - US West (Phoenix) Local Zone — `us-west-2-phx-2a`
 
 - **`p4d.24xlarge`**
   - US East (N. Virginia) — `us-east-1`
@@ -137,7 +138,7 @@ AWS Regions.
   - US East (Ohio) — `us-east-2`
 
 - **`P6e-GB200`**
-  - Dallas Local Zone (N. Virginia) — `us-east-1-dfw-2a`
+  - US East (Dallas) Local Zone — `us-east-1-dfw-2a`
 
 ## Supported platforms
 
@@ -164,8 +165,7 @@ Before you use Capacity Blocks, consider the following details and limitations.
   onto your UltraServer Capacity Block.
 - For `P6e-GB200` UltraServer Capacity Blocks, you must terminate your instances
   at least 60 minutes before the Capacity Block end time.
-- To use `P6e-GB200` UltraServer Capacity Blocks, you must be opted in to the
-  Dallas Local Zone (N. Virginia) Local Zone.
+- To purchase and use Capacity Blocks in Local Zones, you must be opted in to the Local Zone.
 - Each Capacity Block can have up to 64 instances, and you can have up to 256
   instances across Capacity Blocks.
 - You can describe Capacity Block offerings that can start in as soon as 30
@@ -211,9 +211,13 @@ of the Capacity Block reservation. With scheduled scaling, AWS automatically
 handles retries for you, so you don't need to worry about implementing retry
 logic to handle transient failures.
 
+- Enhance ML workflows with AWS Parallel Computing Service. For more information, see
+  [Capacity Blocks support for AWS Parallel Computing Service](https://aws.amazon.com/blogs/hpc/announcing-capacity-blocks-support-for-aws-parallel-computing-service/ "https://aws.amazon.com/blogs/hpc/announcing-capacity-blocks-support-for-aws-parallel-computing-service/").
 - Enhance ML workflows with AWS ParallelCluster. For more information, see
-  [Enhancing ML workflows with AWS ParallelCluster and Amazon EC2
-  Capacity Blocks for ML](https://aws.amazon.com/blogs/hpc/enhancing-ml-workflows-with-aws-parallelcluster-and-amazon-ec2-capacity-blocks-for-ml/ "https://aws.amazon.com/blogs/hpc/enhancing-ml-workflows-with-aws-parallelcluster-and-amazon-ec2-capacity-blocks-for-ml/").
+  [Enhancing ML workflows with AWS ParallelCluster and Amazon EC2 Capacity Blocks for ML](https://aws.amazon.com/blogs/hpc/enhancing-ml-workflows-with-aws-parallelcluster-and-amazon-ec2-capacity-blocks-for-ml/ "https://aws.amazon.com/blogs/hpc/enhancing-ml-workflows-with-aws-parallelcluster-and-amazon-ec2-capacity-blocks-for-ml/").
 
-For more information about AWS ParallelCluster, see [What is
-AWS ParallelCluster](../../../parallelcluster/latest/ug/what-is-aws-parallelcluster.md "../../../parallelcluster/latest/ug/what-is-aws-parallelcluster.md").
+For more information about AWS Parallel Computing Service, see
+[What is AWS Parallel Computing Service](../../../pcs/latest/userguide/what-is-service.md "../../../pcs/latest/userguide/what-is-service.md").
+
+For more information about AWS ParallelCluster, see
+[What is AWS ParallelCluster](../../../parallelcluster/latest/ug/what-is-aws-parallelcluster.md "../../../parallelcluster/latest/ug/what-is-aws-parallelcluster.md").

@@ -1,6 +1,4 @@
-# Step scaling: Scale Spot Fleet using step
-
-scaling policies
+# Step scaling: Scale Spot Fleet using step scaling policies
 
 With step scaling policies, you specify CloudWatch alarms to trigger the scaling
 process. For example, if you want to scale out when CPU utilization reaches a
@@ -33,8 +31,7 @@ instance receives a Spot Instance interruption notice.
 - The Spot Fleet request must have a request type of `maintain`.
   Automatic scaling is not supported for requests of type
   `request`.
-- Configure the [IAM permissions required for Spot Fleet
-  automatic scaling](spot-fleet-auto-scaling-IAM.md "spot-fleet-auto-scaling-IAM.md").
+- Configure the [IAM permissions required for Spot Fleet automatic scaling](spot-fleet-auto-scaling-IAM.md "spot-fleet-auto-scaling-IAM.md").
 - Consider which CloudWatch metrics are important to your application. You can
   create CloudWatch alarms based on metrics provided by AWS or your own custom
   metrics.

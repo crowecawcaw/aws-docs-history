@@ -22,8 +22,7 @@ launch instance wizard, when creating a launch template, or on the **Instance
 types** page.
 
 Use the following instructions to get suggestions and guidance for EC2 instance types
-using the EC2 instance type finder in the Amazon EC2 console. To view an animation of the steps, see [View an animation: Get instance
-type suggestions using the EC2 instance type finder](#use-ec2-instance-type-finder-animation "#use-ec2-instance-type-finder-animation").
+using the EC2 instance type finder in the Amazon EC2 console. To view an animation of the steps, see [View an animation: Get instance type suggestions using the EC2 instance type finder](#use-ec2-instance-type-finder-animation "#use-ec2-instance-type-finder-animation").
 
 ###### To get instance type suggestions using the EC2 instance type finder
 

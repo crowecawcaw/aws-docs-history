@@ -1,6 +1,4 @@
-# Tutorial 2: Launch a test EC2
-
-instance and connect to it
+# Tutorial 2: Launch a test EC2 instance and connect to it
 
 |                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -8,11 +6,9 @@ instance and connect to it
 | **EC2 experience**     | Beginner                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | **Duration**           | 30 minutes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | **Cost**               | Free Tier eligible<br>When you create your AWS account, you can get started with Amazon EC2<br>for free using the [AWS Free Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/").<br>If you created your AWS account before July 15, 2025, it's less<br>than 12 months old, and you haven't already exceeded the Free Tier<br>benefits for Amazon EC2, it won't cost you anything to complete this<br>tutorial, because we help you select options that are within the<br>Free Tier benefits. Otherwise, you'll incur the standard Amazon EC2<br>usage fees from the time that you launch the instance (even if it<br>remains idle) until you terminate it.<br>If you created your AWS account on or after July 15, 2025, it's<br>less than 6 months old, and you haven't used up all your credits, it<br>won't cost you anything to complete this tutorial, because we help<br>you select options that are within the Free Tier benefits.<br>For information on how to determine whether<br>you're eligible for the Free Tier, see [Track your Free Tier usage for Amazon EC2](ec2-free-tier-usage.md "ec2-free-tier-usage.md"). |
-| **Prerequisites**      | Complete [Tutorial 1: Launch my very first<br>Amazon EC2 instance](tutorial-launch-my-first-ec2-instance.md "tutorial-launch-my-first-ec2-instance.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **Prerequisites**      | Complete [Tutorial 1: Launch my very first Amazon EC2 instance](tutorial-launch-my-first-ec2-instance.md "tutorial-launch-my-first-ec2-instance.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-## Tutorial
-
-overview
+## Tutorial overview
 
 This tutorial is designed for beginners who want to launch an EC2 instance that
 they can use for testing purposes.
@@ -33,27 +29,17 @@ Linux instances.
 This tutorial is divided into the following short tasks. You must complete each
 task before moving to the next one.
 
-- [Task 1:
-  Familiarize yourself with key components for launching an instance](#tut2-task-1-familiarize-with-the-tutorial-components "#tut2-task-1-familiarize-with-the-tutorial-components")
-- [Task 2: Review a technical
-  diagram](#tut2-task-2-technical-diagram "#tut2-task-2-technical-diagram")
+- [Task 1: Familiarize yourself with key components for launching an instance](#tut2-task-1-familiarize-with-the-tutorial-components "#tut2-task-1-familiarize-with-the-tutorial-components")
+- [Task 2: Review a technical diagram](#tut2-task-2-technical-diagram "#tut2-task-2-technical-diagram")
 - [Task 3: Create a key pair](#tut2-task-3-create-key-pair "#tut2-task-3-create-key-pair")
-- [Task 4: Launch your test
-  instance](#tut2-task-4-launch-test-instance "#tut2-task-4-launch-test-instance")
-- [Task 5: Find your
-  instance](#tut2-task-5-find-test-instance-in-the-console "#tut2-task-5-find-test-instance-in-the-console")
-- [Task 6: View your
-  instance configuration](#tut2-task-6-view-test-instance-configuration "#tut2-task-6-view-test-instance-configuration")
-- [Task 7:
-  Familiarize yourself with key components for connecting to an instance](#tut2-task-7-familiarize-with-connection-components "#tut2-task-7-familiarize-with-connection-components")
-- [Task 8: Connect to your
-  instance](#tut2-task-8-connect-to-test-ec2-instance "#tut2-task-8-connect-to-test-ec2-instance")
-- [Task 9: Stop your
-  instance](#tut2-task-9-stop-test-ec2-instance "#tut2-task-9-stop-test-ec2-instance")
+- [Task 4: Launch your test instance](#tut2-task-4-launch-test-instance "#tut2-task-4-launch-test-instance")
+- [Task 5: Find your instance](#tut2-task-5-find-test-instance-in-the-console "#tut2-task-5-find-test-instance-in-the-console")
+- [Task 6: View your instance configuration](#tut2-task-6-view-test-instance-configuration "#tut2-task-6-view-test-instance-configuration")
+- [Task 7: Familiarize yourself with key components for connecting to an instance](#tut2-task-7-familiarize-with-connection-components "#tut2-task-7-familiarize-with-connection-components")
+- [Task 8: Connect to your instance](#tut2-task-8-connect-to-test-ec2-instance "#tut2-task-8-connect-to-test-ec2-instance")
+- [Task 9: Stop your instance](#tut2-task-9-stop-test-ec2-instance "#tut2-task-9-stop-test-ec2-instance")
 
-## Task 1:
-
-Familiarize yourself with key components for launching an instance
+## Task 1: Familiarize yourself with key components for launching an instance
 
 In this task, you'll explore the key components required to launch an EC2
 instance. These are the AMI, instance type, key pair, security group, network (VPC
@@ -118,9 +104,7 @@ the components until you're more familiar with them.
   makes it easier to distinguish between instances, it's not required when
   launching an instance.
 
-## Task 2: Review a technical
-
-diagram
+## Task 2: Review a technical diagram
 
 In this task, you'll become familiar with a typical technical diagram that we use
 in the AWS documentation. The following diagram represents the configuration for
@@ -269,9 +253,7 @@ these permissions, you won’t be able to connect using this key pair.
 **Congratulations!** You've successfully created a
 key pair!
 
-## Task 4: Launch your test
-
-instance
+## Task 4: Launch your test instance
 
 In this task, you'll quickly launch a test instance using the EC2 launch instance
 wizard. You'll configure the main instance configuration settings for a Linux
@@ -384,9 +366,7 @@ specified. If you didn't specify a setting, the default is used. A
 **Congratulations!** You've successfully launched
 your test instance!
 
-## Task 5: Find your
-
-instance
+## Task 5: Find your instance
 
 In this task, you'll locate the instance that you just launched in the EC2
 console.
@@ -405,9 +385,7 @@ navigation pane. 2. **Locate your instance:**
 In the **Name** column, find your instance by the name
 you gave it.
 
-## Task 6: View your
-
-instance configuration
+## Task 6: View your instance configuration
 
 In this task, you'll become familiar with viewing your instance's configuration
 details.
@@ -480,9 +458,7 @@ Ctrl+F or command+F on your keyboard.
 Take a few more minutes to explore the other instance configuration fields. When
 you're ready, proceed to the next task.
 
-## Task 7:
-
-Familiarize yourself with key components for connecting to an instance
+## Task 7: Familiarize yourself with key components for connecting to an instance
 
 In this task, you'll explore the key components required to connect to an EC2
 instance. These are the connection protocol, public DNS, security group, key pair,
@@ -556,9 +532,7 @@ access to your EC2 instance. You can now control the instance from your computer
 if you were sitting right in front of it. You can run commands, install software,
 and manage files—just like you would on your local machine.
 
-## Task 8: Connect to your
-
-instance
+## Task 8: Connect to your instance
 
 In this task, you'll connect to your instance using an SSH client on your
 computer. In the previous task, we introduced the components for connecting to an
@@ -651,9 +625,7 @@ instance's public DNS.
 **Congratulations!** You've successfully connected to
 your instance!
 
-## Task 9: Stop your
-
-instance
+## Task 9: Stop your instance
 
 In this task, you'll stop your instance to preserve your Free Tier benefits. When
 your instance is stopped, you stop incurring costs for it. If you created your
@@ -685,9 +657,7 @@ If you think the instance state has changed from
 don't see it yet, choose the refresh icon (above the table) to refresh the
 **Instances** table.
 
-## Key
-
-takeaways
+## Key takeaways
 
 In this tutorial, you covered the following key concepts:
 

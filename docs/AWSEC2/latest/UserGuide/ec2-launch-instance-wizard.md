@@ -1,6 +1,4 @@
-# Launch an EC2 instance using the launch
-
-instance wizard in the console
+# Launch an EC2 instance using the launch instance wizard in the console
 
 You can launch an Amazon EC2 instance using the launch instance wizard in the Amazon EC2 console.
 The wizard provides default values for the launch parameters, which you can either accept or
@@ -19,8 +17,7 @@ For a description of each parameter in the launch instance wizard, see [Referenc
 ###### Topics
 
 - [Quickly launch an instance](#liw-quickly-launch-instance "#liw-quickly-launch-instance")
-- [Launch an instance using
-  defined parameters](#liw-launch-instance-with-defined-parameters "#liw-launch-instance-with-defined-parameters")
+- [Launch an instance using defined parameters](#liw-launch-instance-with-defined-parameters "#liw-launch-instance-with-defined-parameters")
 
 ## Quickly launch an instance
 
@@ -51,17 +48,13 @@ For a description of each parameter in the launch instance wizard, see [Referenc
 7. In the **Summary** panel, choose **Launch
    instance**.
 
-## Launch an instance using
-
-defined parameters
+## Launch an instance using defined parameters
 
 If you're launching an instance that you'll use in production, you'll need to
 configure the instance to suit your requirements. For a description of each parameter in
 the launch instance wizard, see [Reference for Amazon EC2 instance configuration parameters](ec2-instance-launch-parameters.md "ec2-instance-launch-parameters.md").
 
-###### To launch an instance by defining all the launch parameters using the launch
-
-instance wizard
+###### To launch an instance by defining all the launch parameters using the launch instance wizard
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -117,8 +110,7 @@ If you created your AWS account on or after July 15, 2025, you can use
 **m7i-flex.large** instance types for 6 months or until
 your credits are used up.
 
-For more information, see [Free Tier benefits before and after July
-15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison"). 7. Under **Key pair (login)**, for **Key pair
+For more information, see [Free Tier benefits before and after July 15, 2025](ec2-free-tier-usage.md#ec2-free-tier-comparison "ec2-free-tier-usage.md#ec2-free-tier-comparison"). 7. Under **Key pair (login)**, for **Key pair
 name**, choose an existing key pair or create a new one. If you do
 not require a key pair to connect to your instance, you can choose
 **Proceed without a key pair (not recommended)**. 8. Under **Network settings**, you can keep the defaults if

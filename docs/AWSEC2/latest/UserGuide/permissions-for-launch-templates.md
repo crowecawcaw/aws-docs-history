@@ -1,6 +1,4 @@
-# IAM permissions required for Amazon EC2
-
-launch templates
+# IAM permissions required for Amazon EC2 launch templates
 
 You can use IAM permissions to control whether users can list, view, create, or
 delete launch templates or launch template versions.
@@ -27,10 +25,8 @@ example:
 - [ec2:DescribeLaunchTemplates](#permissions-for-launch-templates-view "#permissions-for-launch-templates-view")
 - [ec2:DescribeLaunchTemplateVersions](#permissions-for-launch-template-versions-view "#permissions-for-launch-template-versions-view")
 - [ec2:DeleteLaunchTemplate](#permissions-for-launch-templates-delete "#permissions-for-launch-templates-delete")
-- [Control versioning
-  permissions](#permissions-for-launch-template-versions "#permissions-for-launch-template-versions")
-- [Control access to tags on
-  launch templates](#permissions-for-launch-templates-tags "#permissions-for-launch-templates-tags")
+- [Control versioning permissions](#permissions-for-launch-template-versions "#permissions-for-launch-template-versions")
+- [Control access to tags on launch templates](#permissions-for-launch-templates-tags "#permissions-for-launch-templates-tags")
 
 ## ec2:CreateLaunchTemplate
 
@@ -188,9 +184,7 @@ You can specify multiple ARNs by enclosing them in a list, or you can specify a
 `Condition` element to allow the principal to delete any launch
 template in the account.
 
-## Control versioning
-
-permissions
+## Control versioning permissions
 
 For trusted administrators, you can grant access for creating and deleting
 versions of a launch template, and for changing the default version of a launch
@@ -319,9 +313,7 @@ template in the account.
 }
 ```
 
-## Control access to tags on
-
-launch templates
+## Control access to tags on launch templates
 
 You can use condition keys to limit tagging permissions when the resource is a
 launch template. For example, the following IAM policy allows removing only the

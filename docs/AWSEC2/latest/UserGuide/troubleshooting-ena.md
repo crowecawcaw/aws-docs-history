@@ -561,8 +561,7 @@ sudo rmmod ena && sudo modprobe ena force_large_llq_header=0
 ```
 
 For more information about optimal configuration for ENA Express, see
-[Improve network performance between EC2 instances with ENA
-Express](ena-express.md "ena-express.md").
+[Improve network performance between EC2 instances with ENA Express](ena-express.md "ena-express.md").
 
 - **Code 2: ENA Express ENI with sub-optimal Tx queue
   depth is not recommended**
@@ -587,8 +586,7 @@ ethtool -G `interface` tx `depth`
 ```
 
 For more information about optimal configuration for ENA Express, see
-[Improve network performance between EC2 instances with ENA
-Express](ena-express.md "ena-express.md").
+[Improve network performance between EC2 instances with ENA Express](ena-express.md "ena-express.md").
 
 - **Code 3: ENA with regular LLQ size and Tx packet
   traffic exceeds the maximum header supported size**

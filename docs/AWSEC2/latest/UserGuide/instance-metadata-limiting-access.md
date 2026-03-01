@@ -1,6 +1,4 @@
-# Limit access to the Instance
-
-Metadata Service
+# Limit access to the Instance Metadata Service
 
 You can consider using local firewall rules to disable access from some or all
 processes to the Instance Metadata Service (IMDS).

@@ -37,9 +37,7 @@ the key pair `my_ec2_private_key.pem`.
 
 Ubuntu
 
-###### To uninstall EC2 Instance Connect on an instance launched using an Ubuntu
-
-AMI
+###### To uninstall EC2 Instance Connect on an instance launched using an Ubuntu AMI
 
 1. Connect to your instance using SSH. Specify the SSH key pair you
    used for your instance when you launched it and the default username

@@ -1,15 +1,11 @@
-# How Amazon EC2 instance hibernation
-
-works
+# How Amazon EC2 instance hibernation works
 
 The following diagram shows a basic overview of the hibernation process for EC2
 instances.
 
 ![Overview of the hibernation flow.](images/hibernation-flow.png)
 
-## What happens when you hibernate an
-
-instance
+## What happens when you hibernate an instance
 
 When you hibernate an instance, the following happens:
 
@@ -84,9 +80,7 @@ see [Differences between instance states](ec2-instance-lifecycle.md#lifecycle-di
   can perform a shutdown or a reboot to apply the necessary upgrades and
   security patches.
 
-## Considerations for hibernating a
-
-Spot Instance
+## Considerations for hibernating a Spot Instance
 
 - If _you_ hibernate your Spot Instance, you can
   restart it provided capacity is available and the Spot price is less than or

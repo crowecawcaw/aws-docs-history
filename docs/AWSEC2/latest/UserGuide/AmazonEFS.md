@@ -95,8 +95,7 @@ then do the following:
 
 9. Configure any other instance configuration settings as needed.
 10. In the **Summary** panel, review your instance configuration, and then choose
-    **Launch instance**. For more information, see [Launch an EC2 instance using the launch
-    instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
+    **Launch instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md").
 
 ## Test the EFS file system
 

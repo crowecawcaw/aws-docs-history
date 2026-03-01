@@ -1,6 +1,4 @@
-# Assign billing of a shared EC2 Capacity Reservation
-
-to another account
+# Assign billing of a shared EC2 Capacity Reservation to another account
 
 To assign billing of the available capacity of a shared Capacity Reservation to another
 account, the Capacity Reservation owner must initiate a request to the required account. In the
@@ -17,8 +15,7 @@ account only if:
   request.
 
 When a Capacity Reservation owner initiates a request, an Amazon EventBridge event is sent to the
-requested account. For more information, see [Monitor billing assignment requests
-for shared Capacity Reservations](billing-ownership-events.md "billing-ownership-events.md").
+requested account. For more information, see [Monitor billing assignment requests for shared Capacity Reservations](billing-ownership-events.md "billing-ownership-events.md").
 
 Console
 

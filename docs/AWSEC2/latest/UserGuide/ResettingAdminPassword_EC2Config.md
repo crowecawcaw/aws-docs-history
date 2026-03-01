@@ -1,13 +1,10 @@
-# Reset Windows admin password for
-
-EC2 instance using EC2Config
+# Reset Windows admin password for EC2 instance using EC2Config
 
 If you have lost your Windows administrator password and are using a Windows AMI
 before Windows Server 2016, you can use the EC2Config agent to generate a new
 password.
 
-If you are using a Windows Server 2016 or later AMI, see [Reset Windows admin password for
-EC2 instance using EC2Launch](ResettingAdminPassword_EC2Launch.md "ResettingAdminPassword_EC2Launch.md") or, you can use the [EC2Rescue tool](Windows-Server-EC2Rescue.md "Windows-Server-EC2Rescue.md"), which uses the EC2Launch
+If you are using a Windows Server 2016 or later AMI, see [Reset Windows admin password for EC2 instance using EC2Launch](ResettingAdminPassword_EC2Launch.md "ResettingAdminPassword_EC2Launch.md") or, you can use the [EC2Rescue tool](Windows-Server-EC2Rescue.md "Windows-Server-EC2Rescue.md"), which uses the EC2Launch
 service to generate a new password.
 
 ###### Note
@@ -25,20 +22,13 @@ in the _AWS Systems Manager User Guide_.
 
 To reset your Windows administrator password using EC2Config, you need to do the following:
 
-- [Step 1: Verify that the EC2Config service
-  is running](#resetting-password-ec2config-step1 "#resetting-password-ec2config-step1")
-- [Step 2: Detach the root volume from the
-  instance](#resetting-password-ec2config-step2 "#resetting-password-ec2config-step2")
-- [Step 3: Attach the volume to a temporary
-  instance](#resetting-password-ec2config-step3 "#resetting-password-ec2config-step3")
-- [Step 4: Modify the configuration
-  file](#resetting-password-ec2config-step4 "#resetting-password-ec2config-step4")
-- [Step 5: Restart the original
-  instance](#resetting-password-ec2config-step5 "#resetting-password-ec2config-step5")
+- [Step 1: Verify that the EC2Config service is running](#resetting-password-ec2config-step1 "#resetting-password-ec2config-step1")
+- [Step 2: Detach the root volume from the instance](#resetting-password-ec2config-step2 "#resetting-password-ec2config-step2")
+- [Step 3: Attach the volume to a temporary instance](#resetting-password-ec2config-step3 "#resetting-password-ec2config-step3")
+- [Step 4: Modify the configuration file](#resetting-password-ec2config-step4 "#resetting-password-ec2config-step4")
+- [Step 5: Restart the original instance](#resetting-password-ec2config-step5 "#resetting-password-ec2config-step5")
 
-## Step 1: Verify that the EC2Config service
-
-is running
+## Step 1: Verify that the EC2Config service is running
 
 Before you attempt to reset the administrator password, verify that the EC2Config service is installed and running. You use the
 EC2Config service to reset the administrator password later in this section.
@@ -58,12 +48,9 @@ EC2Config service to reset the administrator password later in this section.
 
 If the system log output is empty, or if the EC2Config service is not
 running, troubleshoot the instance using the Instance Console Screenshot
-service. For more information, see [Capture a screenshot of an unreachable
-instance](troubleshoot-unreachable-instance.md#instance-console-screenshot "troubleshoot-unreachable-instance.md#instance-console-screenshot").
+service. For more information, see [Capture a screenshot of an unreachable instance](troubleshoot-unreachable-instance.md#instance-console-screenshot "troubleshoot-unreachable-instance.md#instance-console-screenshot").
 
-## Step 2: Detach the root volume from the
-
-instance
+## Step 2: Detach the root volume from the instance
 
 You can't use EC2Config to reset an administrator password if the volume on which the password is stored is attached to
 an instance as the root volume. You must detach the volume from the original instance before you can attach it to a temporary
@@ -118,9 +105,7 @@ instance as a secondary volume.
    remainder of this procedure, all references to the original instance apply to
    the new instance that you created.
 
-## Step 3: Attach the volume to a temporary
-
-instance
+## Step 3: Attach the volume to a temporary instance
 
 Next, launch a temporary instance and attach the volume to it as a secondary volume. This is the instance you use to modify
 the configuration file.
@@ -162,9 +147,7 @@ the configuration file.
    3. For **Device**, type `xvdf` (if
       it isn't already there), and choose **Attach**.
 
-## Step 4: Modify the configuration
-
-file
+## Step 4: Modify the configuration file
 
 After you have attached the volume to the temporary instance as a secondary volume, modify the `Ec2SetPassword` plugin in the configuration file.
 
@@ -194,9 +177,7 @@ Files\Amazon\Ec2ConfigService\Settings\config.xml`
       changes to **available**, continue with the next
       step.
 
-## Step 5: Restart the original
-
-instance
+## Step 5: Restart the original instance
 
 After you have modified the configuration file, reattach the volume to the original instance as
 the root volume and connect to the instance using its key pair to retrieve the administrator password.

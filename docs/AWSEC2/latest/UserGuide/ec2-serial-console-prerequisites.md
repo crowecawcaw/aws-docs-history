@@ -1,31 +1,24 @@
-# Prerequisites for the EC2 Serial
-
-Console
+# Prerequisites for the EC2 Serial Console
 
 ###### To connect to the EC2 Serial Console and use your chosen tool for
 
 troubleshooting, the following prerequisites must be met:
 
 - [AWS Regions](#sc-prereqs-regions "#sc-prereqs-regions")
-- [Wavelength Zones and AWS
-  Outposts](#sc-prereqs-wavelength-zones-outposts "#sc-prereqs-wavelength-zones-outposts")
+- [Wavelength Zones and AWS Outposts](#sc-prereqs-wavelength-zones-outposts "#sc-prereqs-wavelength-zones-outposts")
 - [Local Zones](#sc-prereqs-local-zones "#sc-prereqs-local-zones")
 - [Instance types](#sc-prereqs-instance-types "#sc-prereqs-instance-types")
 - [Grant access](#sc-prereqs-configure-ec2-serial-console "#sc-prereqs-configure-ec2-serial-console")
-- [Support for browser-based
-  client](#sc-prereqs-for-browser-based-connection "#sc-prereqs-for-browser-based-connection")
+- [Support for browser-based client](#sc-prereqs-for-browser-based-connection "#sc-prereqs-for-browser-based-connection")
 - [Instance state](#sc-prereqs-instance-state "#sc-prereqs-instance-state")
 - [Amazon EC2 Systems Manager](#sc-prereqs-ssm "#sc-prereqs-ssm")
-- [Configure your chosen
-  troubleshooting tool](#sc-prereqs-configure-troubleshooting-tool "#sc-prereqs-configure-troubleshooting-tool")
+- [Configure your chosen troubleshooting tool](#sc-prereqs-configure-troubleshooting-tool "#sc-prereqs-configure-troubleshooting-tool")
 
 ## AWS Regions
 
 Supported in all AWS Regions except Asia Pacific (Taipei).
 
-## Wavelength Zones and AWS
-
-Outposts
+## Wavelength Zones and AWS Outposts
 
 Not supported.
 
@@ -57,9 +50,7 @@ instances.
 You must complete the configuration tasks to grant access to the EC2 Serial Console. For
 more information, see [Configure access to the EC2 Serial Console](configure-access-to-serial-console.md "configure-access-to-serial-console.md").
 
-## Support for browser-based
-
-client
+## Support for browser-based client
 
 To connect to the serial console [using
 the browser-based client](connect-to-serial-console.md#sc-connect-browser-based-client "connect-to-serial-console.md#sc-connect-browser-based-client"), your browser must support WebSocket. If your browser does
@@ -82,9 +73,7 @@ If the instance uses Amazon EC2 Systems Manager, then SSM Agent version 3.0.854.
 installed on the instance. For information about SSM Agent, see [Working with SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") in
 the _AWS Systems Manager User Guide_.
 
-## Configure your chosen
-
-troubleshooting tool
+## Configure your chosen troubleshooting tool
 
 To troubleshoot your instance using the serial console, you can use GRUB or SysRq on Linux
 instances, and Special Admin Console (SAC) on Windows instances. Before you can use these

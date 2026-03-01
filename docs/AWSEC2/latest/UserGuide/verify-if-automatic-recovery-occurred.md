@@ -1,6 +1,4 @@
-# Verify if automatic instance recovery
-
-occurred
+# Verify if automatic instance recovery occurred
 
 If your instance appears to have been offline and then unexpectedly rebooted, it might
 have undergone [automatic instance
@@ -30,9 +28,7 @@ succeeded or failed.
      - Success event: `AWS_EC2_INSTANCE_AUTO_RECOVERY_SUCCESS`
      - Failure event: `AWS_EC2_INSTANCE_AUTO_RECOVERY_FAILURE`
 
-## Monitor system status checks with
-
-CloudWatch
+## Monitor system status checks with CloudWatch
 
 You can verify if an underlying hardware or software issue was detected for your
 instance by checking the [StatusCheckFailed_System](viewing_metrics_with_cloudwatch.md#status-check-metrics "viewing_metrics_with_cloudwatch.md#status-check-metrics") metric in CloudWatch. The metric value indicates whether a

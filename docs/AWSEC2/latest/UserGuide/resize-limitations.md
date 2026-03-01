@@ -58,8 +58,7 @@ appropriate.
 
 When you resize an instance with ENA Express enabled, the new instance
 type must also support ENA Express. For a list of instance types that support
-ENA Express, see [Supported instance types for ENA
-Express](ena-express.md#ena-express-supported-instance-types "ena-express.md#ena-express-supported-instance-types").
+ENA Express, see [Supported instance types for ENA Express](ena-express.md#ena-express-supported-instance-types "ena-express.md#ena-express-supported-instance-types").
 
 To change from an instance type that supports ENA Express to an instance type
 that does not support it, ensure that ENA Express is not currently enabled before

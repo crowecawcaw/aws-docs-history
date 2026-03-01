@@ -67,8 +67,7 @@ Securing Your EC2 Instance](https://aws.amazon.com/articles/tips-for-securing-yo
 To enable users SSH access to your EC2 instance using a Linux system user, you must share
 the SSH key with the user. Alternatively, you can use EC2 Instance Connect to
 provide access to users without the need to share and manage SSH keys. For more
-information, see [Connect to your Linux instance using a public IP address
-and EC2 Instance Connect](connect-linux-inst-eic.md "connect-linux-inst-eic.md").
+information, see [Connect to your Linux instance using a public IP address and EC2 Instance Connect](connect-linux-inst-eic.md "connect-linux-inst-eic.md").
 
 ## Create a user
 

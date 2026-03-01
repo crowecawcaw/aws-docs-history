@@ -18,8 +18,7 @@ Dedicated Hosts.
 ###### Migration steps
 
 - [Step 1: Identify your Xen-based Dedicated Hosts](#identify-xen-hosts "#identify-xen-hosts")
-- [Step 2: Migrate Xen-based instances to Nitro-based
-  instance types](#migrate-dh-instances "#migrate-dh-instances")
+- [Step 2: Migrate Xen-based instances to Nitro-based instance types](#migrate-dh-instances "#migrate-dh-instances")
 - [Step 3: Allocate a Nitro-based Dedicated Host](#allocate-nitro-host "#allocate-nitro-host")
 - [Step 4: Move migrated instances to new Nitro-based Dedicated Host](#move-instances "#move-instances")
 - [Step 5: Release unused Xen-based Dedicated Host](#release-xen-instances "#release-xen-instances")
@@ -43,9 +42,7 @@ Nitro-based Dedicated Hosts.
 3. In the **Search field**, use the **Instance family**
    filter to search for the Xen-based Dedicated Hosts above. For example, _Instance family = m3_.
 
-## Step 2: Migrate Xen-based instances to Nitro-based
-
-instance types
+## Step 2: Migrate Xen-based instances to Nitro-based instance types
 
 Instances that run on Xen-based Dedicated Hosts are also Xen-based. You must migrate these
 instances to Nitro-based instance types before you can move them to Nitro-based

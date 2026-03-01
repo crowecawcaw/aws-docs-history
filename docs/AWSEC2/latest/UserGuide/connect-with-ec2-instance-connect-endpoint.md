@@ -1,6 +1,4 @@
-# Connect to your instances using
-
-a private IP address and EC2 Instance Connect Endpoint
+# Connect to your instances using a private IP address and EC2 Instance Connect Endpoint
 
 EC2 Instance Connect Endpoint allows you to connect securely to an instance from the internet, without
 using a bastion host, or requiring that your virtual private cloud (VPC) has direct internet
@@ -114,8 +112,7 @@ Before you begin, consider the following.
 - Each EC2 Instance Connect Endpoint can support up to 20 concurrent connections.
 - The maximum duration for an established TCP connection is 1 hour (3,600
   seconds). You can specify the maximum allowed duration in an IAM policy, which
-  can be up to 3,600 seconds. For more information, see [Permissions to use EC2 Instance Connect Endpoint to connect to
-  instances](permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel "permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel").
+  can be up to 3,600 seconds. For more information, see [Permissions to use EC2 Instance Connect Endpoint to connect to instances](permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel "permissions-for-ec2-instance-connect-endpoint.md#iam-OpenTunnel").
 
 The duration of the connection is not determined by the duration of your IAM
 credentials. If your IAM credentials expire, the connection continues to persist

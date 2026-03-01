@@ -22,8 +22,7 @@ available to use.
   Capacity Block is located.
 - Your instance can't launch using an AMI with a different platform than
   the platform for your Capacity Block.
-- To use `P6e-GB200` UltraServer Capacity Blocks, you must be opted in to the
-  Dallas Local Zone (N. Virginia) Local Zone.
+- To use Capacity Blocks in Local Zones, you must be opted in to the Local Zone.
 
 Console
 
@@ -119,8 +118,7 @@ New-EC2Instance `
 - To create a launch template targeting a Capacity Block, see
   [Store instance launch parameters in Amazon EC2 launch templates](ec2-launch-templates.md "ec2-launch-templates.md").
 - To launch instances into a Capacity Block using EC2 Fleet, see
-  [Tutorial:
-  Configure your EC2 Fleet to launch instances into Capacity Blocks](ec2-fleet-launch-instances-capacity-blocks-walkthrough.md "ec2-fleet-launch-instances-capacity-blocks-walkthrough.md").
+  [Tutorial: Configure your EC2 Fleet to launch instances into Capacity Blocks](ec2-fleet-launch-instances-capacity-blocks-walkthrough.md "ec2-fleet-launch-instances-capacity-blocks-walkthrough.md").
 - To set up an EKS managed node group with a Capacity Block, see
   [Create a managed node group with Capacity Blocks for ML](../../../eks/latest/userguide/capacity-blocks-mng.md "../../../eks/latest/userguide/capacity-blocks-mng.md") in the
   **Amazon EKS User Guide**.
