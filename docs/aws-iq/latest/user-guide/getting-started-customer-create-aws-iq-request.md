@@ -3,9 +3,7 @@ will end support for AWS IQ. After May 28, 2026, you will
 no longer be able to access the AWS IQ console or AWS IQ resources.
 For more information, see [AWS IQ end of support](../experts-user-guide/aws-iq-end-of-support.md "../experts-user-guide/aws-iq-end-of-support.md") in the _AWS IQ User Guide for Experts_.
 
-# Getting started with AWS IQ
-
-requests
+# Getting started with AWS IQ requests
 
 In AWS IQ, you create a request with detailed information about what you want an AWS
 Certified expert to do for you. This topic provides guidelines for creating requests.
@@ -19,8 +17,7 @@ To create a request in AWS IQ, you need the following:
   proposals and payments from experts.
 - Either an AWS account root user or an IAM user account with `IAMFullAccess`
   permissions to grant experts permission to your AWS account. To learn more about required
-  account permissions, see [Setting up account permissions to use
-  AWS IQ](set-up-account-permissions-to-use-aws-iq.md "set-up-account-permissions-to-use-aws-iq.md").
+  account permissions, see [Setting up account permissions to use AWS IQ](set-up-account-permissions-to-use-aws-iq.md "set-up-account-permissions-to-use-aws-iq.md").
 - One of the following supported browsers: Google Chrome (version 72 or higher), Mozilla
   Firefox (version 66 or higher), or Apple Safari (version 10 or higher).
 
@@ -94,9 +91,7 @@ not sure where to start. We'd like someone to migrate our site to AWS. We think 
 use Amazon Lightsail but are open to other options. Ideally we'd like this project finished
 within 2 weeks.
 
-### Selecting your preferred expert company
-
-location
+### Selecting your preferred expert company location
 
 Experts are based in [eligible
 jurisdictions](../../../marketplace/latest/userguide/user-guide-for-sellers.md#eligible-jurisdictions "../../../marketplace/latest/userguide/user-guide-for-sellers.md#eligible-jurisdictions") supported by AWS Marketplace.
@@ -107,9 +102,7 @@ from any location can respond to you.
 
 If you don't have a preference, select **Anywhere**.
 
-### Providing your name and
-
-email address
+### Providing your name and email address
 
 To complete your request, add your preferred name and email address. AWS IQ sends
 notifications to your email address, which is not shared with experts. AWS IQ uses your
@@ -133,9 +126,7 @@ request, you get an email notification.
 You can make more than one request at the same time. To view all your requests, choose
 **Requests** in the navigation trail.
 
-## Stop receiving responses to a
-
-request
+## Stop receiving responses to a request
 
 If you've received enough responses or you've found the expert you want to work with, you
 can hide your request. To stop getting responses, turn off the **Accepting new

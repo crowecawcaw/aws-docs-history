@@ -17,15 +17,11 @@ call and screen sharing options. You can also see information about the expert w
 
 Choose from among the following next steps:
 
-- [View details and reviews about an
-  expert](#view-details-reviews-about-experts "#view-details-reviews-about-experts")
+- [View details and reviews about an expert](#view-details-reviews-about-experts "#view-details-reviews-about-experts")
 - [Chat with an expert](#chat-with-expert "#chat-with-expert")
-- [Compare experts who responded to your
-  request](#compare-experts-responded-to-request "#compare-experts-responded-to-request")
+- [Compare experts who responded to your request](#compare-experts-responded-to-request "#compare-experts-responded-to-request")
 
-## View details and reviews about an
-
-expert
+## View details and reviews about an expert
 
 Each AWS Certified expert provides a summary of his or her qualifications, AWS
 Certifications, hourly rates, and professional experience.
@@ -63,12 +59,9 @@ The following chat features are not currently supported:
 - Hyperlinks. You can provide a plain text link, and the expert can copy and paste the link
   into a browser.
 
-For more information, see: [Using chat, video calls, and screen sharing in
-AWS IQ](chat-video-calls-screen-sharing.md "chat-video-calls-screen-sharing.md").
+For more information, see: [Using chat, video calls, and screen sharing in AWS IQ](chat-video-calls-screen-sharing.md "chat-video-calls-screen-sharing.md").
 
-## Compare experts who responded to your
-
-request
+## Compare experts who responded to your request
 
 When two or more experts respond to your request, you can compare the experts in AWS IQ by
 viewing their information in your request card in AWS IQ.

@@ -8,8 +8,7 @@ For more information, see [AWS IQ end of support](../experts-user-guide/aws-iq-e
 In AWS IQ, customers who need help create a _request_ that provides
 AWS Certified experts with information about what they need.
 
-To get started, follow the steps in [Getting started with AWS IQ
-requests](getting-started-customer-create-aws-iq-request.md "getting-started-customer-create-aws-iq-request.md").
+To get started, follow the steps in [Getting started with AWS IQ requests](getting-started-customer-create-aws-iq-request.md "getting-started-customer-create-aws-iq-request.md").
 
 ###### Important
 

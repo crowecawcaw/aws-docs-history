@@ -42,9 +42,7 @@ You review and accept or decline the payment type as part of the proposal agreem
 AWS IQ console. We suggest that you clarify milestones and payment schedules when an expert
 creates a proposal.
 
-## Approve a milestone payment
-
-request
+## Approve a milestone payment request
 
 Experts request payment as work is completed using milestone payments. Follow this process
 when you receive a notification to approve a payment.

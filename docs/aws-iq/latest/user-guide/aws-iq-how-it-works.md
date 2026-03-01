@@ -11,8 +11,7 @@ In this section, learn about creating and managing AWS IQ request.
 
 - [Creating a request in AWS IQ](create-request.md "create-request.md")
 - [Managing responses to your requests](request-responses.md "request-responses.md")
-- [Using chat, video calls, and screen sharing in
-  AWS IQ](chat-video-calls-screen-sharing.md "chat-video-calls-screen-sharing.md")
+- [Using chat, video calls, and screen sharing in AWS IQ](chat-video-calls-screen-sharing.md "chat-video-calls-screen-sharing.md")
 - [Direct messaging](customer-direct-messaging.md "customer-direct-messaging.md")
 - [Working with proposals in AWS IQ](working-with-proposals.md "working-with-proposals.md")
 - [Permissions requests in AWS IQ](permissions-requests.md "permissions-requests.md")

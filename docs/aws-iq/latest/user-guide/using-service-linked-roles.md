@@ -18,14 +18,10 @@ service.
 
 - [AWSServiceRoleForAWSIQPermission](#first-concept-chapter "#first-concept-chapter")
 - [AWSServiceRoleForAWSIQContract](#second-concept-chapter "#second-concept-chapter")
-- [Creating a service-linked role for AWS
-  IQ](#creating-a-service-linked-role-iq "#creating-a-service-linked-role-iq")
-- [Editing a service-linked role for AWS
-  IQ](#editing-a-service-linked-role-iq "#editing-a-service-linked-role-iq")
-- [Deleting a service-linked role for AWS
-  IQ](#deleting-a-service-linked-role-iq "#deleting-a-service-linked-role-iq")
-- [Supported Regions for AWS IQ
-  service-linked roles](#supported-regions-for-service-linked-roles-iq "#supported-regions-for-service-linked-roles-iq")
+- [Creating a service-linked role for AWS IQ](#creating-a-service-linked-role-iq "#creating-a-service-linked-role-iq")
+- [Editing a service-linked role for AWS IQ](#editing-a-service-linked-role-iq "#editing-a-service-linked-role-iq")
+- [Deleting a service-linked role for AWS IQ](#deleting-a-service-linked-role-iq "#deleting-a-service-linked-role-iq")
+- [Supported Regions for AWS IQ service-linked roles](#supported-regions-for-service-linked-roles-iq "#supported-regions-for-service-linked-roles-iq")
 
 ## `AWSServiceRoleForAWSIQPermission`
 
@@ -63,30 +59,22 @@ IQ to complete the following actions on the specified resources:
 You must configure permissions to allow an IAM entity such as a user, group, or role to
 create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions").
 
-## Creating a service-linked role for AWS
-
-IQ
+## Creating a service-linked role for AWS IQ
 
 In AWS IQ, AWS Marketplace creates the service-linked role for you when you set up integration with
 AWS License Manager. For more information, see [Creating a service-linked role for AWS Marketplace](../../../marketplace/latest/buyerguide/buyer-using-service-linked-roles-license-manager.md#buyer-creating-service-linked-role "../../../marketplace/latest/buyerguide/buyer-using-service-linked-roles-license-manager.md#buyer-creating-service-linked-role").
 
-## Editing a service-linked role for AWS
-
-IQ
+## Editing a service-linked role for AWS IQ
 
 In AWS IQ, AWS Marketplace doesn't allow you to edit the service-linked role. For more information,
 see [Editing a service-linked role for AWS Marketplace](../../../marketplace/latest/buyerguide/buyer-using-service-linked-roles-license-manager.md#buyer-editing-service-linked-role "../../../marketplace/latest/buyerguide/buyer-using-service-linked-roles-license-manager.md#buyer-editing-service-linked-role").
 
-## Deleting a service-linked role for AWS
-
-IQ
+## Deleting a service-linked role for AWS IQ
 
 If you don't need to use a feature or service that requires a service-linked role, we
 recommend deleting that role. For more information, see [Deleting a service-linked role for AWS Marketplace](../../../marketplace/latest/buyerguide/buyer-using-service-linked-roles-license-manager.md#buyer-delete-service-linked-role "../../../marketplace/latest/buyerguide/buyer-using-service-linked-roles-license-manager.md#buyer-delete-service-linked-role").
 
-## Supported Regions for AWS IQ
-
-service-linked roles
+## Supported Regions for AWS IQ service-linked roles
 
 AWS IQ, through AWS Marketplace, supports using service-linked roles in all of the AWS Regions
 where service is available. For more information, see [AWS Marketplace Regions and Endpoints](../../../general/latest/gr/aws-marketplace.md#aws-marketplace_region "../../../general/latest/gr/aws-marketplace.md#aws-marketplace_region").

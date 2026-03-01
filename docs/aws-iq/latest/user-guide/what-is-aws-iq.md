@@ -30,8 +30,7 @@ expert.
 
 To sign up and create a request, follow the guidance in our getting started topic. The
 guidance helps you create your first request and provides suggested wording to help explain your
-needs to AWS Certified experts. For more information, see [Getting started with AWS IQ
-requests](getting-started-customer-create-aws-iq-request.md "getting-started-customer-create-aws-iq-request.md").
+needs to AWS Certified experts. For more information, see [Getting started with AWS IQ requests](getting-started-customer-create-aws-iq-request.md "getting-started-customer-create-aws-iq-request.md").
 
 ## Customers and experts
 
@@ -63,8 +62,6 @@ For more information, see
 
 To learn more about AWS IQ, see the following:
 
-- [Getting started with AWS IQ
-  requests](getting-started-customer-create-aws-iq-request.md "getting-started-customer-create-aws-iq-request.md")
+- [Getting started with AWS IQ requests](getting-started-customer-create-aws-iq-request.md "getting-started-customer-create-aws-iq-request.md")
 - [How AWS IQ works](aws-iq-how-it-works.md "aws-iq-how-it-works.md")
-- [Setting up account permissions to use
-  AWS IQ](set-up-account-permissions-to-use-aws-iq.md "set-up-account-permissions-to-use-aws-iq.md")
+- [Setting up account permissions to use AWS IQ](set-up-account-permissions-to-use-aws-iq.md "set-up-account-permissions-to-use-aws-iq.md")

@@ -29,7 +29,6 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 
 ###### Topics
 
-- [Setting up account permissions to use
-  AWS IQ](set-up-account-permissions-to-use-aws-iq.md "set-up-account-permissions-to-use-aws-iq.md")
+- [Setting up account permissions to use AWS IQ](set-up-account-permissions-to-use-aws-iq.md "set-up-account-permissions-to-use-aws-iq.md")
 - [Using service-linked roles in AWS IQ](using-service-linked-roles.md "using-service-linked-roles.md")
 - [Monitoring Experts' Activity in AWS IQ](activity-log-monitoring-experts.md "activity-log-monitoring-experts.md")

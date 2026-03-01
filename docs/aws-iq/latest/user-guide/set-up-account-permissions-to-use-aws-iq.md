@@ -3,9 +3,7 @@ will end support for AWS IQ. After May 28, 2026, you will
 no longer be able to access the AWS IQ console or AWS IQ resources.
 For more information, see [AWS IQ end of support](../experts-user-guide/aws-iq-end-of-support.md "../experts-user-guide/aws-iq-end-of-support.md") in the _AWS IQ User Guide for Experts_.
 
-# Setting up account permissions to use
-
-AWS IQ
+# Setting up account permissions to use AWS IQ
 
 Through AWS IQ, you can post requests, engage with experts, grant experts temporary access
 to your AWS account, and pay experts for projects. As a result, AWS IQ requires that you
@@ -21,9 +19,7 @@ If necessary, you (or your AWS account administrator) can create an IAM user wit
 required managed policies. You can also attach the required managed policies to an existing
 IAM user.
 
-## Create an IAM user with managed
-
-policies
+## Create an IAM user with managed policies
 
 You or your AWS account administrator can create an IAM user with the **AWSIQFullAccess** and **IAMFullAccess** managed policies on your AWS account.
 
@@ -44,9 +40,7 @@ Review**. 9. Choose **Create user**. 10. Choose **Show** to show the password, a
 secure location. Or, choose **Send email** to send the login instructions
 to yourself in an email message.
 
-## Attach managed
-
-policies to an existing IAM user
+## Attach managed policies to an existing IAM user
 
 If you already have an IAM user, you can attach the **IAMFullAccess** and **AWSIQFullAccess** managed policies to the user by following this
 procedure.
