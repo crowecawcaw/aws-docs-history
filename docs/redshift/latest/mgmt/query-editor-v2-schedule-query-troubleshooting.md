@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Troubleshooting set up
-
-of scheduling a query
+# Troubleshooting set up of scheduling a query
 
 Consider the following if you have issues scheduling a query.
 
@@ -33,8 +31,7 @@ used to schedule the query must have the equivalent of managed policy
 View the SYS_QUERY_HISTORY system view for details about why the query
 failed. A common issue is that the database user or role that was used to
 run the query might not have the required privilege to run the SQL. For more
-information, see [Authenticating a
-scheduled query](query-editor-v2-schedule-query-authentication.md "query-editor-v2-schedule-query-authentication.md").
+information, see [Authenticating a scheduled query](query-editor-v2-schedule-query-authentication.md "query-editor-v2-schedule-query-authentication.md").
 
 The following SQL queries the SYS_QUERY_HISTORY view to return failed
 queries.
@@ -45,5 +42,4 @@ FROM sys_query_history
 WHERE status = 'failed';
 ```
 
-To find out details for a specific failing scheduled query, see [Viewing the
-results of a scheduled query with AWS CloudShell](query-editor-v2-schedule-query-troubleshooting-cloudshell.md "query-editor-v2-schedule-query-troubleshooting-cloudshell.md").
+To find out details for a specific failing scheduled query, see [Viewing the results of a scheduled query with AWS CloudShell](query-editor-v2-schedule-query-troubleshooting-cloudshell.md "query-editor-v2-schedule-query-troubleshooting-cloudshell.md").

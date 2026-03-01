@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Configuration options for the Amazon Redshift
-
-Python connector
+# Configuration options for the Amazon Redshift Python connector
 
 Following, you can find descriptions for the options that you can specify for the
 Amazon Redshift Python connector. The options below apply to the latest available connector

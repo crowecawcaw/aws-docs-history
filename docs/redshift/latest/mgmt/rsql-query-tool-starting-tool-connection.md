@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Connect to a cluster with
-
-Amazon Redshift RSQL
+# Connect to a cluster with Amazon Redshift RSQL
 
 With Amazon Redshift, you can connect to a cluster and interact with it using RSQL. This is a
 command-line tool that provides a secure way to query data, create database objects,
@@ -109,9 +107,7 @@ Type "help" for help.
 (testcluster) user1@dev=#
 ```
 
-### Using Single
-
-sign-on DSN
+### Using Single sign-on DSN
 
 You can configure a DSN for single sign-on authentication. The following
 shows an example of a DSN-connection configuration that uses Okta single
@@ -177,9 +173,7 @@ client_id=<Azure idp client uuid>
 client_secret=<Azure idp client secret>
 ```
 
-### Using a
-
-DSN connection with an IAM profile
+### Using a DSN connection with an IAM profile
 
 You can connect to Amazon Redshift using your configured IAM profile. The IAM profile
 must have privileges to call `GetClusterCredentials`. The
@@ -262,9 +256,7 @@ Type "help" for help.
 (testcluster) testuser@dev=>
 ```
 
-### Using a DSN connection with the default credential provider
-
-chain
+### Using a DSN connection with the default credential provider chain
 
 To connect using the default credential provider chain, specify only the
 IAM property, and Amazon Redshift RSQL will attempt to acquire credentials in the order

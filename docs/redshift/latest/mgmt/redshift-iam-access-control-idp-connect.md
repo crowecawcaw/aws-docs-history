@@ -2,16 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Connect Redshift with AWS IAM Identity Center
-
-for a single sign-on experience
+# Connect Redshift with AWS IAM Identity Center for a single sign-on experience
 
 You can manage user and group access to Amazon Redshift data warehouses through trusted-identity
 propagation.
 
 [Trusted identity propagation](../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md") is an AWS IAM Identity Center feature that administrators of connected AWS services can use to grant and audit access to service data. Access to this data is based on user attributes such as group associations. Setting up trusted identity propagation requires collaboration between the administrators of connected AWS services and the IAM Identity Center administrators. For more information, see [Prerequisites and considerations](../../../singlesignon/latest/userguide/trustedidentitypropagation-overall-prerequisites.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-overall-prerequisites.md").
 
-To illustrate one end-to-end case, you can use an Amazon Quick Suite dashboard or
+To illustrate one end-to-end case, you can use an Amazon Quick dashboard or
 Amazon Redshift query editor v2 to access Redshift. Access in this case is based on AWS IAM Identity Center groups.
 Redshift can determine who a user is and their group memberships. AWS IAM Identity Center also makes it
 possible to connect and manage identities through a third-party identity provider (IdP) like
@@ -31,14 +29,12 @@ fully delete the user that was removed from an AWS IAM Identity Center or IdP. F
 about how to drop a user, see [DROP USER](../dg/r_DROP_USER.md "../dg/r_DROP_USER.md") in the
 _Amazon Redshift Database Developer Guide_.
 
-## Benefits of Redshift
-
-integration with AWS IAM Identity Center
+## Benefits of Redshift integration with AWS IAM Identity Center
 
 Using AWS IAM Identity Center with Redshift can benefit your organization in the following
 ways:
 
-- Dashboard authors in Amazon Quick Suite can connect to Redshift data
+- Dashboard authors in Amazon Quick can connect to Redshift data
   sources without having to re-enter passwords or requiring an administrator to set up
   IAM roles with complex permissions.
 - AWS IAM Identity Center provides a central location for your workforce users in AWS. You can
@@ -59,9 +55,7 @@ ways:
   you to meet compliance regulations through auditing user access in
   AWS CloudTrail.
 
-## Administrator personas for connecting
-
-applications
+## Administrator personas for connecting applications
 
 The following are personas that are key to connecting analytics applications to the
 AWS IAM Identity Center managed application for Redshift:
@@ -73,17 +67,13 @@ AWS IAM Identity Center managed application for Redshift:
 - **Data administrator** – Configures fine-grained
   access to data. Users and groups in AWS IAM Identity Center can map to specific permissions.
 
-## Connecting to Amazon Redshift with AWS IAM Identity Center
+## Connecting to Amazon Redshift with AWS IAM Identity Center through Amazon Quick
 
-through Amazon Quick Suite
+The following shows how to use Quick to authenticate with Redshift when it's connected
+to and access is managed through AWS IAM Identity Center: [Authorizing connections from Quick to Amazon Redshift
+clusters](../../../quick/latest/userguide/enabling-access-redshift.md "../../../quick/latest/userguide/enabling-access-redshift.md"). These steps apply to Amazon Redshift Serverless too.
 
-The following shows how to use Quick Suite to authenticate with Redshift when it's connected
-to and access is managed through AWS IAM Identity Center: [Authorizing connections from Quick Suite to Amazon Redshift
-clusters](../../../quicksuite/latest/user/enabling-access-redshift.md "../../../quicksuite/latest/user/enabling-access-redshift.md"). These steps apply to Amazon Redshift Serverless too.
-
-## Connecting to Amazon Redshift with AWS IAM Identity Center
-
-through Amazon Redshift query editor v2
+## Connecting to Amazon Redshift with AWS IAM Identity Center through Amazon Redshift query editor v2
 
 Upon completing the steps to set up an AWS IAM Identity Center connection with Redshift, the user
 can access the database and appropriate objects in the database through their AWS

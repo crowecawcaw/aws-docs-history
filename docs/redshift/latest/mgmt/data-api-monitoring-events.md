@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Monitoring events for the
-
-Amazon Redshift Data API in Amazon EventBridge
+# Monitoring events for the Amazon Redshift Data API in Amazon EventBridge
 
 You can monitor Data API events in EventBridge, which delivers a stream of real-time
 data from your own applications, software-as-a-service (SaaS) applications, and
@@ -25,9 +23,7 @@ of the following values:
 - FINISHED – The query has finished running.
   Events are delivered on a guaranteed basis. For more information, see [Events from AWS services](../../../eventbridge/latest/userguide/eb-service-event.md "../../../eventbridge/latest/userguide/eb-service-event.md") in the _Amazon EventBridge User Guide_.
 
-## Example for Data API
-
-finished event
+## Example for Data API finished event
 
 The following example shows an event for the Data API when the
 `ExecuteStatement` API operation finished. In this example, a

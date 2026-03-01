@@ -63,9 +63,7 @@ The [Amazon Redshift pricing
 calculator](https://calculator.aws/#/addService/Redshift "https://calculator.aws/#/addService/Redshift") is helpful for estimating pricing. You enter the compute
 resources you need and it provides a preview of the cost.
 
-## Setting Max capacity to
-
-control costs for compute resources
+## Setting Max capacity to control costs for compute resources
 
 The Max capacity setting serves as the RPU ceiling that Amazon Redshift Serverless can
 scale up to. It helps control your cost for compute resources. In a similar way to
@@ -74,9 +72,7 @@ sets a ceiling on RPU usage. That way, it helps your spending adhere to your pla
 Max capacity applies
 specifically to each workgroup and it limits compute usage at all times.
 
-### How Max capacity
-
-differs from RPU hour usage limits
+### How Max capacity differs from RPU hour usage limits
 
 The purpose of both maximum RPU hour limits and the Max capacity setting is
 to control cost. But they achieve this through different means. The following
@@ -97,9 +93,7 @@ points explain the difference:
 You can use Max capacity exclusively, or you can compliment it with actions
 from maximum RPU hour usage limits.
 
-### A Max capacity
-
-use case
+### A Max capacity use case
 
 Each workgroup can have a different Max capacity setting. It helps you enforce
 budgeting requirements. To illustrate how this works, assume the following:
@@ -115,9 +109,7 @@ RPUs. When you do this, you can be sure that compute capacity won't exceed this
 upper
 bound.
 
-### Usage notes for Max
-
-capacity
+### Usage notes for Max capacity
 
 These notes can help you set Max capacity appropriately:
 
@@ -135,9 +127,7 @@ These notes can help you set Max capacity appropriately:
   Amazon Redshift Serverless summary data using the dashboard](serverless-dashboard.md "serverless-dashboard.md").
 - The top Max capacity setting is 5632 RPUs.
 
-### How to set Max
-
-capacity
+### How to set Max capacity
 
 You can set Max capacity in the console. For an existing workgroup, you can
 change the setting under **Workgroup configuration**. You
@@ -160,9 +150,7 @@ like the following:
 aws redshift-serverless update-workgroup --workgroup-name myworkgroup --max-capacity -1
 ```
 
-## Monitoring Amazon Redshift Serverless usage
-
-and cost
+## Monitoring Amazon Redshift Serverless usage and cost
 
 There are several ways you can estimate usage and billing for Amazon Redshift Serverless.
 System views can be helpful because the system metadata, including query and usage
@@ -170,9 +158,7 @@ data, is timely and you don't have to do any setup to query it. CloudWatch can a
 useful for monitoring usage for your Amazon Redshift Serverless instance, and has additional
 features to provide insights and set actions.
 
-### Visualizing usage by
-
-querying a system view
+### Visualizing usage by querying a system view
 
 Query the SYS_SERVERLESS_USAGE system table to track usage and get the charges
 for queries:
@@ -189,9 +175,7 @@ order by 1
 This query provides the cost per day incurred for Amazon Redshift Serverless, based on
 usage.
 
-#### Usage notes for
-
-determining usage and cost
+#### Usage notes for determining usage and cost
 
 - You pay for the workloads you run in RPU-hours on a per-second
   basis, with a 60-second minimum charge.
@@ -227,9 +211,7 @@ The compute_seconds column:
 For more information about monitoring tables and views, see [Monitoring queries and
 workloads with Amazon Redshift Serverless](serverless-monitoring.md "serverless-monitoring.md").
 
-### Visualizing usage with
-
-CloudWatch
+### Visualizing usage with CloudWatch
 
 You can use the metrics available in CloudWatch to track usage. The metrics
 generated for CloudWatch are `ComputeSeconds`, indicating the total RPU

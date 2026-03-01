@@ -7,9 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Download a previous version of the Amazon Redshift ODBC driver version 2.x only if your tool
 requires a specific version of the driver.
 
-## Use previous ODBC driver versions
-
-for Microsoft Windows
+## Use previous ODBC driver versions for Microsoft Windows
 
 The following are the previous versions of the Amazon Redshift ODBC driver version 2.x
 for Microsoft Windows:
@@ -37,9 +35,7 @@ for Microsoft Windows:
 - [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.0.0.3/AmazonRedshiftODBC64-2.0.0.3.msi](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.0.0.3/AmazonRedshiftODBC64-2.0.0.3.msi "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.0.0.3/AmazonRedshiftODBC64-2.0.0.3.msi")
 - [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.0.0.1/AmazonRedshiftODBC64-2.0.0.1.msi](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.0.0.1/AmazonRedshiftODBC64-2.0.0.1.msi "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.0.0.1/AmazonRedshiftODBC64-2.0.0.1.msi")
 
-## Use previous ODBC driver versions
-
-for Linux
+## Use previous ODBC driver versions for Linux
 
 The following are the previous versions of the Amazon Redshift ODBC driver version 2.x
 for Linux:
@@ -68,9 +64,7 @@ for Linux:
 - [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.0.0.3/AmazonRedshiftODBC-64-bit-2.0.0.3.x86_64.rpm](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.0.0.3/AmazonRedshiftODBC-64-bit-2.0.0.3.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.0.0.3/AmazonRedshiftODBC-64-bit-2.0.0.3.x86_64.rpm")
 - [https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.0.0.1/AmazonRedshiftODBC-64-bit-2.0.0.1.x86_64.rpm](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.0.0.1/AmazonRedshiftODBC-64-bit-2.0.0.1.x86_64.rpm "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/2.0.0.1/AmazonRedshiftODBC-64-bit-2.0.0.1.x86_64.rpm")
 
-## Use previous ODBC driver versions
-
-for Apple macOS
+## Use previous ODBC driver versions for Apple macOS
 
 The following are the previous versions of the Amazon Redshift ODBC driver version 2.x
 for Apple macOS:

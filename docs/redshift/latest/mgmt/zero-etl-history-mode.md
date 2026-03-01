@@ -27,8 +27,7 @@ If you want to reuse the same table name on the source, you must DROP or RENAME 
 corresponding `DroppedState` table before it can be replicated to Amazon Redshift. Make sure
 to do so before you create the table on the source.
 
-For information about what to consider when using history mode, see [Considerations when using history
-mode on the target](zero-etl.md#zero-etl-considerations-history-mode "zero-etl.md#zero-etl-considerations-history-mode").
+For information about what to consider when using history mode, see [Considerations when using history mode on the target](zero-etl.md#zero-etl-considerations-history-mode "zero-etl.md#zero-etl-considerations-history-mode").
 
 ###### To manage history mode for a zero-ETL integration
 

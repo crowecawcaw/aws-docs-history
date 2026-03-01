@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Viewing queries and loads for Multi-AZ
-
-data warehouses
+# Viewing queries and loads for Multi-AZ data warehouses
 
 You can view information on queries that ran in the past 7 days irrespective of the
 type, size, and status (pause or resume) of your cluster.

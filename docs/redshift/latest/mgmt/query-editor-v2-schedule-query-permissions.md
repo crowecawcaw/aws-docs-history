@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Setting up permissions to
-
-schedule a query
+# Setting up permissions to schedule a query
 
 To schedule queries, the AWS Identity and Access Management (IAM) user defining the schedule and the IAM role
 associated with the schedule must be configured with the IAM permissions to use

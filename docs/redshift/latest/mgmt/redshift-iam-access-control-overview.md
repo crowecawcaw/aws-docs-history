@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Overview of managing access permissions
-
-to your Amazon Redshift resources
+# Overview of managing access permissions to your Amazon Redshift resources
 
 Every AWS resource is owned by an AWS account, and permissions to create or access the
 resources are governed by permissions policies. An account administrator can attach
@@ -20,16 +18,12 @@ _IAM User Guide_.
 When granting permissions, you decide who is getting the permissions, which resources they
 get permissions for, and the specific actions that you want to allow on those resources.
 
-## Amazon Redshift resources and
-
-operations
+## Amazon Redshift resources and operations
 
 Amazon Redshift provides service-specific resources, actions, and condition context keys for use in
 IAM permission policies.
 
-### Amazon Redshift, Amazon Redshift Serverless,
-
-Amazon Redshift Data API, and Amazon Redshift query editor v2 access permissions
+### Amazon Redshift, Amazon Redshift Serverless, Amazon Redshift Data API, and Amazon Redshift query editor v2 access permissions
 
 When you set up [Access control](redshift-iam-authentication-access-control.md#redshift-iam-accesscontrol "redshift-iam-authentication-access-control.md#redshift-iam-accesscontrol"), you write permission policies that you can
 attach to an IAM identity (identity-based policies). For detailed reference information,
@@ -53,8 +47,7 @@ _Service Authorization Reference_ with `[permission only]`.
 The _Service Authorization Reference_ contains information about which API
 operations can be used in an IAM policy. It also includes the AWS resource for which
 you can grant the permissions, and condition keys that you can include for fine-grained
-access control. For more information about conditions, see [Using IAM policy conditions for
-fine-grained access control](#redshift-policy-resources.conditions "#redshift-policy-resources.conditions").
+access control. For more information about conditions, see [Using IAM policy conditions for fine-grained access control](#redshift-policy-resources.conditions "#redshift-policy-resources.conditions").
 
 You specify the actions in the policy's `Action` field, the resource value
 in the policy's `Resource` field, and conditions in the policy's
@@ -62,9 +55,7 @@ in the policy's `Resource` field, and conditions in the policy's
 `redshift:` prefix followed by the API operation name (for example,
 `redshift:CreateCluster`).
 
-## Understanding resource
-
-ownership
+## Understanding resource ownership
 
 A _resource owner_ is the AWS account that created a resource. That
 is, the resource owner is the AWS account of the _principal entity_
@@ -82,9 +73,7 @@ creates the resource. The following examples illustrate how this works:
   this method isn't recommended. We recommend creating an IAM role and attaching
   permissions to the role, then assigning the role to a user.
 
-## Managing access to
-
-resources
+## Managing access to resources
 
 A _permissions policy_ describes who has access to what. The
 following section explains the available options for creating permissions policies.
@@ -102,9 +91,7 @@ _identity-based_ policies (IAM policies) and policies attached to a
 resource are referred to as _resource-based_ policies. Amazon Redshift supports
 only identity-based policies (IAM policies).
 
-### Identity-based policies (IAM
-
-policies)
+### Identity-based policies (IAM policies)
 
 You can assign permissions by attaching polices to an IAM role and then assigning
 that role to a user or group. The following is an example policy that containing
@@ -133,25 +120,19 @@ JSON
 
 ```
 
-For more information about using identity-based policies with Amazon Redshift, see [Using identity-based policies
-(IAM policies) for Amazon Redshift](redshift-iam-access-control-identity-based.md "redshift-iam-access-control-identity-based.md"). For more information about
+For more information about using identity-based policies with Amazon Redshift, see [Using identity-based policies (IAM policies) for Amazon Redshift](redshift-iam-access-control-identity-based.md "redshift-iam-access-control-identity-based.md"). For more information about
 users, groups, roles, and permissions, see [Identities
 (users, groups, and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in the _IAM User Guide_.
 
-### Resource-based
-
-policies
+### Resource-based policies
 
 Other services, such as Amazon S3, also support resource-based permissions policies. For
 example, you can attach a policy to an S3 bucket to manage access permissions to that
 bucket. Amazon Redshift doesn't support resource-based policies.
 
-## Specifying policy elements:
+## Specifying policy elements: Actions, effects, resources, and principals
 
-Actions, effects, resources, and principals
-
-For each Amazon Redshift resource (see [Amazon Redshift resources and
-operations](#redshift-iam-accesscontrol.actions-and-resources "#redshift-iam-accesscontrol.actions-and-resources")), the service defines a
+For each Amazon Redshift resource (see [Amazon Redshift resources and operations](#redshift-iam-accesscontrol.actions-and-resources "#redshift-iam-accesscontrol.actions-and-resources")), the service defines a
 set of API operations (see [Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md")). To
 grant permissions for these API operations, Amazon Redshift defines a set of actions that you can
 specify in a policy. Performing an API operation can require permissions for more than one
@@ -161,8 +142,7 @@ The following are the basic policy elements:
 
 - **Resource** – In a policy, you use an Amazon
   Resource Name (ARN) to identify the resource to which the policy applies. For more
-  information, see [Amazon Redshift resources and
-  operations](#redshift-iam-accesscontrol.actions-and-resources "#redshift-iam-accesscontrol.actions-and-resources").
+  information, see [Amazon Redshift resources and operations](#redshift-iam-accesscontrol.actions-and-resources "#redshift-iam-accesscontrol.actions-and-resources").
 - **Action** – You use action keywords to identify
   resource operations that you want to allow or deny. For example, the
   `redshift:DescribeClusters` permission allows the user permissions to
@@ -182,12 +162,9 @@ To learn more about IAM policy syntax and descriptions, see [AWS IAM policy refe
 _IAM User Guide_.
 
 For a table showing all of the Amazon Redshift API actions and the resources that they apply
-to, see [Amazon Redshift, Amazon Redshift Serverless,
-Amazon Redshift Data API, and Amazon Redshift query editor v2 access permissions](#redshift-policy-resources.resource-permissions "#redshift-policy-resources.resource-permissions").
+to, see [Amazon Redshift, Amazon Redshift Serverless, Amazon Redshift Data API, and Amazon Redshift query editor v2 access permissions](#redshift-policy-resources.resource-permissions "#redshift-policy-resources.resource-permissions").
 
-## Specifying conditions in a
-
-policy
+## Specifying conditions in a policy
 
 When you grant permissions, you can use the access policy language to specify the
 conditions when a policy should take effect. For example, you might want a policy to be
@@ -200,14 +177,10 @@ To identify conditions where a permissions policy applies, include a
 create a policy that permits a user to create a cluster using the
 `redshift:CreateCluster` action, and you can add a `Condition`
 element to restrict that user to only create the cluster in a specific region. For details,
-see [Using IAM policy conditions for
-fine-grained access control](#redshift-policy-resources.conditions "#redshift-policy-resources.conditions"). For a list showing all of
-condition key values and the Amazon Redshift actions and resources that they apply to, see [Amazon Redshift, Amazon Redshift Serverless,
-Amazon Redshift Data API, and Amazon Redshift query editor v2 access permissions](#redshift-policy-resources.resource-permissions "#redshift-policy-resources.resource-permissions").
+see [Using IAM policy conditions for fine-grained access control](#redshift-policy-resources.conditions "#redshift-policy-resources.conditions"). For a list showing all of
+condition key values and the Amazon Redshift actions and resources that they apply to, see [Amazon Redshift, Amazon Redshift Serverless, Amazon Redshift Data API, and Amazon Redshift query editor v2 access permissions](#redshift-policy-resources.resource-permissions "#redshift-policy-resources.resource-permissions").
 
-### Using IAM policy conditions for
-
-fine-grained access control
+### Using IAM policy conditions for fine-grained access control
 
 In Amazon Redshift, you can use condition keys to restrict access to resources based on the tags
 for those resources. The following are common Amazon Redshift condition keys.
@@ -221,8 +194,7 @@ for those resources. The following are common Amazon Redshift condition keys.
 For information on tags, see [Tag resources in Amazon Redshift](amazon-redshift-tagging.md "amazon-redshift-tagging.md").
 
 For a list of the API actions that support the `redshift:RequestTag` and
-`redshift:ResourceTag` condition keys, see [Amazon Redshift, Amazon Redshift Serverless,
-Amazon Redshift Data API, and Amazon Redshift query editor v2 access permissions](#redshift-policy-resources.resource-permissions "#redshift-policy-resources.resource-permissions").
+`redshift:ResourceTag` condition keys, see [Amazon Redshift, Amazon Redshift Serverless, Amazon Redshift Data API, and Amazon Redshift query editor v2 access permissions](#redshift-policy-resources.resource-permissions "#redshift-policy-resources.resource-permissions").
 
 The following condition keys can be used with the Amazon Redshift GetClusterCredentials
 action.
@@ -233,9 +205,7 @@ action.
 | `redshift:DbName`          | Restricts database names that can be specified.                  |
 | `redshift:DbUser`          | Restricts database user names that can be specified.             |
 
-#### Example 1:
-
-Restricting access by using the aws:ResourceTag condition key
+#### Example 1: Restricting access by using the aws:ResourceTag condition key
 
 Use the following IAM policy to let a user modify an Amazon Redshift cluster only for a
 specific AWS account in the `us-west-2` region with a tag named
@@ -261,9 +231,7 @@ JSON
 
 ```
 
-#### Example 2:
-
-Restricting access by using the aws:RequestTag condition key
+#### Example 2: Restricting access by using the aws:RequestTag condition key
 
 Use the following IAM policy to let a user create an Amazon Redshift cluster only if the
 command to create the cluster includes a tag named `usage` and a tag value of

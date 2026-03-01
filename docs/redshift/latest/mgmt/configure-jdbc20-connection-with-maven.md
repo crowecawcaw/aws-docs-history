@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Configuring a JDBC
-
-connection with Apache Maven
+# Configuring a JDBC connection with Apache Maven
 
 Apache Maven is a software project management and comprehension tool. The AWS SDK for Java
 supports Apache Maven projects. For more information, see [Using
@@ -54,8 +52,7 @@ For a Maven Central repository, add the following to your
 
 Amazon Redshift offers drivers for tools that are compatible with the JDBC 4.2
 API. For information about the
-functionality supported by these drivers, see [Download the Amazon Redshift JDBC driver, version
-2.1](jdbc20-download-driver.md "jdbc20-download-driver.md").
+functionality supported by these drivers, see [Download the Amazon Redshift JDBC driver, version 2.1](jdbc20-download-driver.md "jdbc20-download-driver.md").
 
 Replace `driver-version` in the
 following example with your driver version, for example

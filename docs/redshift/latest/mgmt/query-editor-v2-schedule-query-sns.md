@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Monitoring the scheduled
-
-query
+# Monitoring the scheduled query
 
 For the Amazon SNS topic that you specify to send email notifications, create the Amazon SNS
 topic using the query editor v2 by navigating to the **SNS notifications**

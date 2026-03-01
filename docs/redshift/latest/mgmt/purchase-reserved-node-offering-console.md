@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Purchasing a reserved
-
-node
+# Purchasing a reserved node
 
 You can use the AWS Management Console or the AWS CLI to purchase reserved node offerings, and to
 view current and past reservations.
@@ -38,9 +36,7 @@ discontinued node type.
 
 AWS CLI
 
-###### To upgrade a reserved node
-
-reservation with the AWS CLI
+###### To upgrade a reserved node reservation with the AWS CLI
 
 1. Obtain a list of ReservedNodeOfferingID's for offerings that meet
    your requirements for payment type, term, and charges. The following

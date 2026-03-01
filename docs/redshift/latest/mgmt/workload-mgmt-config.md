@@ -27,9 +27,7 @@ default WLM configuration. To modify the WLM configuration, create a new paramet
 and then associate that parameter group with any clusters that require your custom WLM
 configuration.
 
-## WLM dynamic and static
-
-properties
+## WLM dynamic and static properties
 
 The WLM configuration properties are either dynamic or static. You can apply
 dynamic properties to the database without a cluster reboot, but static properties
@@ -37,9 +35,7 @@ require a cluster reboot for changes to take effect. For more information about
 static and dynamic properties, see [WLM dynamic and static
 configuration properties](../dg/cm-c-wlm-dynamic-properties.md "../dg/cm-c-wlm-dynamic-properties.md").
 
-## Properties for the WLM configuration
-
-parameter
+## Properties for the WLM configuration parameter
 
 You can configure WLM by using the Amazon Redshift console, the AWS CLI, the Amazon Redshift API, or
 one of the AWS SDKs. WLM configuration uses several properties to define queue
@@ -356,9 +352,7 @@ For more information about each of these properties and strategies for configuri
 query queues, see [Implementing
 workload management](../dg/cm-c-implementing-workload-management.md "../dg/cm-c-implementing-workload-management.md") in the _Amazon Redshift Database Developer Guide_.
 
-## Configuring the
-
-WLM parameter using the AWS CLI
+## Configuring the WLM parameter using the AWS CLI
 
 To configure WLM, you modify the `wlm_json_configuration` parameter.
 The maximum size of the `wlm_json_configuration` property value is 8000
@@ -437,9 +431,7 @@ for your queues, even if you only want to change one property within a queue. Th
 is because the entire JSON structure is passed in as a string as the value for the
 `wlm_json_configuration` parameter.
 
-### Formatting the AWS CLI
-
-command
+### Formatting the AWS CLI command
 
 The `wlm_json_configuration` parameter requires a specific format
 when you use the AWS CLI. The format that you use depends on your client operating
@@ -626,9 +618,7 @@ aws redshift modify-cluster-parameter-group
 
 ```
 
-#### Configuring WLM by using the AWS CLI in
-
-the command line with a JSON file
+#### Configuring WLM by using the AWS CLI in the command line with a JSON file
 
 You can modify the `wlm_json_configuration` parameter using the
 AWS CLI and pass in the value of the `parameters` argument as a
@@ -666,10 +656,7 @@ the content of the `modify_pg.json` JSON file.
 
 ```
 
-#### Rules for configuring WLM by using
-
-the AWS CLI in the command line on the Linux and macOS X operating
-systems
+#### Rules for configuring WLM by using the AWS CLI in the command line on the Linux and macOS X operating systems
 
 Follow these rules to run an AWS CLI command with parameters on one
 line:
@@ -693,10 +680,7 @@ line:
   one queue's curly brace (}) and the beginning of the next
   queue's curly brace ({).
 
-#### Rules for configuring WLM by
-
-using the AWS CLI in Windows PowerShell on Microsoft Windows operating
-systems
+#### Rules for configuring WLM by using the AWS CLI in Windows PowerShell on Microsoft Windows operating systems
 
 Follow these rules to run an AWS CLI command with parameters on one
 line:
@@ -723,9 +707,7 @@ line:
   one queue's curly brace (}) and the beginning of the next
   queue's curly brace ({).
 
-#### Rules for configuring WLM by using the
-
-command prompt on Windows operating systems
+#### Rules for configuring WLM by using the command prompt on Windows operating systems
 
 Follow these rules to run an AWS CLI command with parameters on one
 line:

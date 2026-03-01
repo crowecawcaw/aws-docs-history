@@ -69,9 +69,7 @@ compute nodes:
 - Purchase three offerings, and specify one compute node for each of the
   offerings.
 
-## Comparing pricing among reserved node
-
-offerings
+## Comparing pricing among reserved node offerings
 
 Amazon Redshift provides several payment options for offerings. The payment option that you
 choose affects the payment schedule and the discounted rate that you are charged for the
@@ -165,9 +163,7 @@ those nodes as unused.
   In this example, the console only displays six used nodes, and fourteen unused
   nodes.
 
-## Reserved nodes and consolidated
-
-billing
+## Reserved nodes and consolidated billing
 
 The pricing benefits of Reserved Nodes are shared when the purchasing account is part
 of a set of accounts billed under one consolidated billing payer account. The hourly

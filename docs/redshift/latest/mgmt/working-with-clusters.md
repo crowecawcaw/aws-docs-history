@@ -48,8 +48,7 @@ and paying for compute and managed storage independently. With RA3, you choose t
 number of nodes based on your performance requirements and only pay for the managed
 storage that you use. Size your RA3 cluster based on the amount of data you process
 daily. You launch clusters that use the RA3 node types in a virtual private cloud (VPC).
-For more information, see [Creating a Redshift provisioned
-cluster or Amazon Redshift Serverless workgroup in a VPC](getting-started-cluster-in-vpc.md "getting-started-cluster-in-vpc.md").
+For more information, see [Creating a Redshift provisioned cluster or Amazon Redshift Serverless workgroup in a VPC](getting-started-cluster-in-vpc.md "getting-started-cluster-in-vpc.md").
 
 Amazon Redshift managed storage uses large, high-performance SSDs in each RA3 node for fast local
 storage and Amazon S3 for longer-term durable storage. If the data in a node grows beyond the
@@ -67,8 +66,7 @@ cluster. For datasets under 1 TB (compressed), we recommend DC2 node types for t
 performance at the lowest price. If you expect your data to grow, we recommend using RA3
 nodes so you can size compute and storage independently to achieve improved price and
 performance. You launch clusters that use the DC2 node types in a virtual private cloud
-(VPC). For more information, see [Creating a Redshift provisioned
-cluster or Amazon Redshift Serverless workgroup in a VPC](getting-started-cluster-in-vpc.md "getting-started-cluster-in-vpc.md").
+(VPC). For more information, see [Creating a Redshift provisioned cluster or Amazon Redshift Serverless workgroup in a VPC](getting-started-cluster-in-vpc.md "getting-started-cluster-in-vpc.md").
 
 Node types are available in different sizes. Node size and the number of nodes
 determine the total storage for a cluster. For more information, see [Node type details](#rs-node-type-info "#rs-node-type-info").
@@ -223,8 +221,7 @@ we recommend doing one of two things. You can configure an inbound rule that ena
 the hosts to negotiate packet size. Alternatively, you can disable TCP/IP jumbo
 frames by setting the maximum transmission unit (MTU) to 1500 on the network
 interface (NIC) of your Amazon EC2 instances. For more information about these
-approaches, see [Queries appear to hang and sometimes fail
-to reach the cluster](troubleshooting-connections.md#connecting-drop-issues "troubleshooting-connections.md#connecting-drop-issues").
+approaches, see [Queries appear to hang and sometimes fail to reach the cluster](troubleshooting-connections.md#connecting-drop-issues "troubleshooting-connections.md#connecting-drop-issues").
 
 ### Amazon Virtual Private Cloud (Amazon VPC)
 
@@ -276,8 +273,7 @@ is named **<`clustername`>-default-alarms
 **examplecluster-default-alarms (notify@example.com)**.
 
 For more information about configuring and editing the default disk space alarm, see
-[Creating a cluster](create-cluster.md "create-cluster.md") and [Creating a disk space
-alarm](rs-mgmt-edit-default-disk-space-alarm.md "rs-mgmt-edit-default-disk-space-alarm.md").
+[Creating a cluster](create-cluster.md "create-cluster.md") and [Creating a disk space alarm](rs-mgmt-edit-default-disk-space-alarm.md "rs-mgmt-edit-default-disk-space-alarm.md").
 
 ###### Note
 
@@ -297,10 +293,10 @@ provides a description for each cluster status.
 | `available, resize-cleanup`  | An elastic resize operation is completing data transfer to the new<br>cluster nodes. The cluster is running and available for read and write<br>queries, but cluster operations, such as creating a snapshot, are not<br>available.                                                                                                               |
 | `cancelling-resize`          | The resize operation is being cancelled.                                                                                                                                                                                                                                                                                                          |
 | `creating`                   | Amazon Redshift is creating the cluster. For more information, see [Creating a cluster](create-cluster.md "create-cluster.md").                                                                                                                                                                                                                   |
-| `deleting`                   | Amazon Redshift is deleting the cluster. For more information, see [Shutting down and deleting a<br>cluster](rs-mgmt-shutdown-delete-cluster.md "rs-mgmt-shutdown-delete-cluster.md").                                                                                                                                                            |
-| `final-snapshot`             | Amazon Redshift is taking a final snapshot of the cluster before deleting it.<br>For more information, see [Shutting down and deleting a<br>cluster](rs-mgmt-shutdown-delete-cluster.md "rs-mgmt-shutdown-delete-cluster.md").                                                                                                                    |
+| `deleting`                   | Amazon Redshift is deleting the cluster. For more information, see [Shutting down and deleting a cluster](rs-mgmt-shutdown-delete-cluster.md "rs-mgmt-shutdown-delete-cluster.md").                                                                                                                                                               |
+| `final-snapshot`             | Amazon Redshift is taking a final snapshot of the cluster before deleting it.<br>For more information, see [Shutting down and deleting a cluster](rs-mgmt-shutdown-delete-cluster.md "rs-mgmt-shutdown-delete-cluster.md").                                                                                                                       |
 | `hardware-failure`           | The cluster suffered a hardware failure.<br>If you have a single-node cluster, the node cannot be replaced. To<br>recover your cluster, restore a snapshot. For more information, see<br>[Amazon Redshift snapshots and backups](working-with-snapshots.md "working-with-snapshots.md").                                                          |
-| `incompatible-hsm`           | Amazon Redshift cannot connect to the hardware security module (HSM). Check the<br>HSM configuration between the cluster and HSM. For more information, see<br>[Encryption using hardware security<br>modules](working-with-db-encryption.md#working-with-HSM "working-with-db-encryption.md#working-with-HSM").                                  |
+| `incompatible-hsm`           | Amazon Redshift cannot connect to the hardware security module (HSM). Check the<br>HSM configuration between the cluster and HSM. For more information, see<br>[Encryption using hardware security modules](working-with-db-encryption.md#working-with-HSM "working-with-db-encryption.md#working-with-HSM").                                     |
 | `incompatible-network`       | There is an issue with the underlying network configuration. Make<br>sure that the VPC in which you launched the cluster exists and its<br>settings are correct. For more information, see [Redshift resources in a VPC](managing-clusters-vpc.md "managing-clusters-vpc.md").                                                                    |
 | `incompatible-parameters`    | There is an issue with one or more parameter values in the associated<br>parameter group, and the parameter value or values cannot be applied.<br>Modify the parameter group and update any invalid values. For more<br>information, see [Amazon Redshift parameter groups](working-with-parameter-groups.md "working-with-parameter-groups.md"). |
 | `incompatible-restore`       | There was an issue restoring the cluster from the snapshot. Try<br>restoring the cluster again with a different snapshot. For more<br>information, see [Amazon Redshift snapshots and backups](working-with-snapshots.md "working-with-snapshots.md").                                                                                            |

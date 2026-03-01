@@ -39,6 +39,5 @@ To report issues for Amazon Redshift RSQL, write to
 
 ###### Topics
 
-- [Getting started with Amazon Redshift
-  RSQL](rsql-query-tool-getting-started.md "rsql-query-tool-getting-started.md")
+- [Getting started with Amazon Redshift RSQL](rsql-query-tool-getting-started.md "rsql-query-tool-getting-started.md")
 - [Amazon Redshift RSQL change log](rsql-query-tool-changelog.md "rsql-query-tool-changelog.md")

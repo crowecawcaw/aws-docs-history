@@ -16,8 +16,7 @@ policy. This requirement applies whether you select the **Amazon Redshift Read
 Only** AWS managed policy or create a custom policy in IAM. Users who
 have the **Amazon Redshift Full Access** policy already have the necessary
 permission to terminate queries and loads. For more information about actions in IAM
-policies for Amazon Redshift, see [Managing access to
-resources](redshift-iam-access-control-overview.md#redshift-iam-accesscontrol-managingaccess "redshift-iam-access-control-overview.md#redshift-iam-accesscontrol-managingaccess").
+policies for Amazon Redshift, see [Managing access to resources](redshift-iam-access-control-overview.md#redshift-iam-accesscontrol-managingaccess "redshift-iam-access-control-overview.md#redshift-iam-accesscontrol-managingaccess").
 
 ###### To end a running query
 

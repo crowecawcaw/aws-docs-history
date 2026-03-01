@@ -18,9 +18,7 @@ and 8191-8215. The default is 5439. Currently, you can only change ports with th
 operation `UpdateWorkgroup` and the AWS CLI operation
 `update-workgroup`.
 
-## Connecting to
-
-Amazon Redshift Serverless
+## Connecting to Amazon Redshift Serverless
 
 You can connect to a database (named `dev`) in Amazon Redshift Serverless with
 the following syntax.
@@ -35,9 +33,7 @@ For example, the following connection string specifies Region us-east-1.
 default.123456789012.us-east-1.redshift-serverless.amazonaws.com:5439/dev
 ```
 
-## Connecting to Amazon Redshift Serverless
-
-through JDBC drivers
+## Connecting to Amazon Redshift Serverless through JDBC drivers
 
 You can use one of the following methods to connect to Amazon Redshift Serverless with your
 preferred SQL client using the Amazon Redshift-provided JDBC driver version 2.x driver.
@@ -98,9 +94,7 @@ jdbc:redshift:iam://redshift-serverless-default:us-east-1/dev
 
 For more information about drivers, see [Configuring connections in Amazon Redshift](configuring-connections.md "configuring-connections.md").
 
-### Finding your JDBC and
-
-ODBC connection string
+### Finding your JDBC and ODBC connection string
 
 To connect to your workgroup with your SQL client tool, you must have the JDBC
 or ODBC connection string. You can find the connection string in the Amazon Redshift Serverless
@@ -121,9 +115,7 @@ console, on a workgroup's details page.
    to the appropriate connection string to copy the connection
    string.
 
-## Connecting to Amazon Redshift Serverless with the Data
-
-API
+## Connecting to Amazon Redshift Serverless with the Data API
 
 You can also use the Amazon Redshift Data API to connect to Amazon Redshift Serverless. Use the
 `workgroup-name` parameter instead of the
@@ -134,13 +126,9 @@ other examples, see [Getting Started with Redshift Data API](https://github.com/
 `quick-start` and `use-cases` folders in
 _GitHub_.
 
-## Connecting with SSL to
+## Connecting with SSL to Amazon Redshift Serverless
 
-Amazon Redshift Serverless
-
-### Configuring a secure connection to
-
-Amazon Redshift Serverless
+### Configuring a secure connection to Amazon Redshift Serverless
 
 To support SSL connections, Redshift Serverless creates and installs an [AWS Certificate Manager (ACM)](https://aws.amazon.com/certificate-manager/ "https://aws.amazon.com/certificate-manager/")
 issued SSL certificate for each workgroup.
@@ -174,8 +162,7 @@ and `https://s3.cn-north-1.amazonaws.com.cn/redshift-downloads-cn/redshift-ssl-c
 
 Redshift Serverless has changed the way that SSL certificates are managed. You might
 need to update your current trust root CA certificates to continue to connect to
-your workgroups using SSL. For more information about ACM certificates for SSL connections, see [Transitioning to ACM
-certificates for SSL connections](connecting-transitioning-to-acm-certs.md "connecting-transitioning-to-acm-certs.md").
+your workgroups using SSL. For more information about ACM certificates for SSL connections, see [Transitioning to ACM certificates for SSL connections](connecting-transitioning-to-acm-certs.md "connecting-transitioning-to-acm-certs.md").
 
 By default, workgroup databases accept a connection whether it uses SSL or not.
 
@@ -212,9 +199,7 @@ you connect from a SQL client tool that uses ECDHE to encrypt communication betw
 the client and server, Amazon Redshift uses the provided cipher list to make the
 appropriate connection. For more information, see [Elliptic curve diffie—hellman](https://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman "https://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman") on Wikipedia and [Ciphers](https://www.openssl.org/ "https://www.openssl.org/") on the OpenSSL website.
 
-#### Configuring a FIPS-compliant SSL connection to
-
-Amazon Redshift Serverless
+#### Configuring a FIPS-compliant SSL connection to Amazon Redshift Serverless
 
 To create a new workgroup that uses a FIPS-compliant SSL connection, use the
 `create-workgroup` command and set the `use_fips_ssl` and
@@ -246,28 +231,20 @@ aws redshift-serverless update-workgroup \
 For more information about configuring Redshift Serverless to use FIPS-compliant connections, see
 [use_fips_ssl](../dg/use_fips_ssl.md "../dg/use_fips_ssl.md") in the _Amazon Redshift Database Developer Guide_.
 
-## Connecting to Amazon Redshift Serverless from an Amazon Redshift
-
-managed VPC endpoint
+## Connecting to Amazon Redshift Serverless from an Amazon Redshift managed VPC endpoint
 
 ### Connecting to Amazon Redshift Serverless from other VPC endpoints
 
 For information about setting up or configuring a managed-VPC endpoint for an Amazon Redshift Serverless workgroup, see [Working with Redshift-managed VPC endpoints](managing-cluster-cross-vpc.md "managing-cluster-cross-vpc.md").
 
-## Connecting to Amazon Redshift Serverless
-
-from an interface VPC endpoint (AWS PrivateLink)
+## Connecting to Amazon Redshift Serverless from an interface VPC endpoint (AWS PrivateLink)
 
 For information about connecting to Amazon Redshift Serverless from an interface VPC
 endpoint (AWS PrivateLink), see [Interface VPC endpoints](security-network-isolation.md#security-private-link "security-network-isolation.md#security-private-link").
 
-## Connecting to Amazon Redshift Serverless from a
+## Connecting to Amazon Redshift Serverless from a Redshift VPC endpoint in another account
 
-Redshift VPC endpoint in another account
-
-### Connecting to Amazon Redshift Serverless
-
-from a cross VPC endpoint
+### Connecting to Amazon Redshift Serverless from a cross VPC endpoint
 
 Amazon Redshift Serverless is provisioned in a VPC. You can grant access to a VPC in another
 account to access Amazon Redshift Serverless in your account. This is similar to a connection from a
@@ -289,9 +266,7 @@ easier database collaboration. Users don't have to be provisioned in the
 account that contains the database to access it, which reduces configuration steps and saves
 time.
 
-#### Permissions required to grant access
-
-to a VPC in another account
+#### Permissions required to grant access to a VPC in another account
 
 To grant access or change the access allowed, the grantor requires an assigned permissions policy with the following permissions:
 
@@ -363,9 +338,7 @@ role
 that has the permissions listed. The procedures also assume that the
 workgroup has an IAM role attached with appropriate resource permissions.
 
-#### Granting VPC
-
-access to other accounts, using the console
+#### Granting VPC access to other accounts, using the console
 
 This procedure
 shows the steps for configuring
@@ -407,9 +380,7 @@ at any time.
 After access is granted, a database administrator for the grantee can check the
 console to determine if they have access.
 
-###### Using the console to confirm that access is granted for you to access another
-
-account
+###### Using the console to confirm that access is granted for you to access another account
 
 1. In the Amazon Redshift Serverless workgroup properties, on the **Data
    access** tab, there is a list called **Authorized

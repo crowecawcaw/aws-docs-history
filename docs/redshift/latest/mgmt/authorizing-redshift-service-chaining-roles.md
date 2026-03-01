@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Chaining IAM roles in
-
-Amazon Redshift
+# Chaining IAM roles in Amazon Redshift
 
 When you attach a role to your cluster, your cluster can assume that role to access
 Amazon S3, Amazon Athena, AWS Glue, and AWS Lambda on your behalf. If a role attached to your cluster
@@ -111,8 +109,7 @@ JSON
 ###### Note
 
 To restrict role chaining authorization to specific users, define a condition. For
-more information, see [Restricting access to IAM
-roles](authorizing-redshift-service-database-users.md "authorizing-redshift-service-database-users.md").
+more information, see [Restricting access to IAM roles](authorizing-redshift-service-database-users.md "authorizing-redshift-service-database-users.md").
 
 When you run an UNLOAD, COPY, CREATE EXTERNAL FUNCTION, or CREATE EXTERNAL SCHEMA
 command, you chain roles by including a comma-separated list of role ARNs in the

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Viewing cluster metrics during load
-
-operations
+# Viewing cluster metrics during load operations
 
 When you view cluster performance during load operations, you can identify queries
 that are consuming resources and act to mitigate their effect. You can terminate a
@@ -20,8 +18,7 @@ your AWS Identity and Access Management (IAM) policy. This requirement applies w
 custom policy in IAM. Users who have the **Amazon Redshift Full
 Access** policy already have the necessary permission to terminate
 queries and loads. For more information about actions in IAM policies for
-Amazon Redshift, see [Managing access to
-resources](redshift-iam-access-control-overview.md#redshift-iam-accesscontrol-managingaccess "redshift-iam-access-control-overview.md#redshift-iam-accesscontrol-managingaccess").
+Amazon Redshift, see [Managing access to resources](redshift-iam-access-control-overview.md#redshift-iam-accesscontrol-managingaccess "redshift-iam-access-control-overview.md#redshift-iam-accesscontrol-managingaccess").
 
 ###### To display cluster performance during load operations
 

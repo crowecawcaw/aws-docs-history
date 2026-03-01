@@ -27,8 +27,7 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 ###### Important
 
 Amazon Redshift has a collection of best practices for managing permissions, identities and secure access. We recommend that
-you get familiar with these as you get started with Amazon Redshift. For more information, see [Identity and access management in
-Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
+you get familiar with these as you get started with Amazon Redshift. For more information, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
 
 - Cluster connectivity – Amazon Redshift security groups
   specify the AWS instances that are authorized to connect to an Amazon Redshift cluster in
@@ -50,8 +49,7 @@ The drivers authenticate database users based on AWS Identity and Access Managem
 (IAM) authentication. If you already manage user identities outside of AWS, you can use a
 SAML 2.0-compliant identity provider (IdP) to manage access to Amazon Redshift resources. You use an
 IAM role to configure your IdP and AWS to permit your federated users to generate temporary
-database credentials and log on to Amazon Redshift databases. For more information, see [Using IAM authentication to
-generate database user credentials](generating-user-credentials.md "generating-user-credentials.md").
+database credentials and log on to Amazon Redshift databases. For more information, see [Using IAM authentication to generate database user credentials](generating-user-credentials.md "generating-user-credentials.md").
 This documentation helps you understand how to apply the shared responsibility model when
 using Amazon Redshift. The following topics show you how to configure Amazon Redshift to meet your
 security and compliance objectives. You also learn how to use other AWS services that help you
@@ -60,13 +58,10 @@ to monitor and secure your Amazon Redshift resources.
 ###### Topics
 
 - [Data protection in Amazon Redshift](security-data-protection.md "security-data-protection.md")
-- [Identity and access management in
-  Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md")
-- [Managing Amazon Redshift admin passwords
-  using AWS Secrets Manager](redshift-secrets-manager-integration.md "redshift-secrets-manager-integration.md")
+- [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md")
+- [Managing Amazon Redshift admin passwords using AWS Secrets Manager](redshift-secrets-manager-integration.md "redshift-secrets-manager-integration.md")
 - [Logging and monitoring in Amazon Redshift](security-incident-response.md "security-incident-response.md")
 - [Compliance validation for Amazon Redshift](security-compliance.md "security-compliance.md")
 - [Resilience in Amazon Redshift](security-disaster-recovery-resiliency.md "security-disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  Amazon Redshift](security-network-isolation.md "security-network-isolation.md")
+- [Infrastructure security in Amazon Redshift](security-network-isolation.md "security-network-isolation.md")
 - [Configuration and vulnerability analysis in Amazon Redshift](security-vulnerability-analysis-and-management.md "security-vulnerability-analysis-and-management.md")

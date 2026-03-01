@@ -11,7 +11,5 @@ system requirements, see the [Amazon Redshift ODBC connector installation and co
 
 ###### Topics
 
-- [Downloading and installing the Amazon Redshift ODBC
-  driver](odbc-driver-windows-how-to-install.md "odbc-driver-windows-how-to-install.md")
-- [Creating a system DSN entry for an ODBC
-  connection](create-dsn-odbc-windows.md "create-dsn-odbc-windows.md")
+- [Downloading and installing the Amazon Redshift ODBC driver](odbc-driver-windows-how-to-install.md "odbc-driver-windows-how-to-install.md")
+- [Creating a system DSN entry for an ODBC connection](create-dsn-odbc-windows.md "create-dsn-odbc-windows.md")

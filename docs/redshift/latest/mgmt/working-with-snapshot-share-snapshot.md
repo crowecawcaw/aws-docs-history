@@ -141,9 +141,7 @@ and you can later revoke that access when it is no longer required.
 4. Enter the account or accounts to share with in the **Manage
    access** section, then choose **Save**.
 
-## Security considerations for sharing
-
-encrypted snapshots
+## Security considerations for sharing encrypted snapshots
 
 When you provide access to an encrypted snapshot, Redshift requires that the AWS
 KMS customer managed key used to create the snapshot is shared with the account or
@@ -164,9 +162,7 @@ console.
 If you're using a default KMS key, you don't need to take action or change anything in AWS KMS
 in order to share a snapshot.
 
-### Allowing access to
-
-the AWS KMS key for an encrypted snapshot
+### Allowing access to the AWS KMS key for an encrypted snapshot
 
 To share the AWS KMS customer managed key for an encrypted snapshot, update
 the key policy by performing the following steps:

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Configuring a connection for JDBC driver version 2.x for
-
-Amazon Redshift
+# Configuring a connection for JDBC driver version 2.x for Amazon Redshift
 
 You can use a JDBC driver version 2.x connection to connect to your Amazon Redshift cluster from
 many third-party SQL client tools. The Amazon Redshift JDBC connector provides an open source
@@ -25,25 +23,16 @@ For more information about the syntax of the connection URL, see [Building the c
 
 ###### Topics
 
-- [Download the Amazon Redshift JDBC driver, version
-  2.1](jdbc20-download-driver.md "jdbc20-download-driver.md")
-- [Installing the Amazon Redshift JDBC driver, version
-  2.2](jdbc20-install-driver.md "jdbc20-install-driver.md")
+- [Download the Amazon Redshift JDBC driver, version 2.1](jdbc20-download-driver.md "jdbc20-download-driver.md")
+- [Installing the Amazon Redshift JDBC driver, version 2.2](jdbc20-install-driver.md "jdbc20-install-driver.md")
 - [Getting the JDBC URL](jdbc20-obtain-url.md "jdbc20-obtain-url.md")
 - [Building the connection URL](jdbc20-build-connection-url.md "jdbc20-build-connection-url.md")
-- [Configuring a JDBC
-  connection with Apache Maven](configure-jdbc20-connection-with-maven.md "configure-jdbc20-connection-with-maven.md")
-- [Configuring authentication and
-  SSL](jdbc20-configure-authentication-ssl.md "jdbc20-configure-authentication-ssl.md")
+- [Configuring a JDBC connection with Apache Maven](configure-jdbc20-connection-with-maven.md "configure-jdbc20-connection-with-maven.md")
+- [Configuring authentication and SSL](jdbc20-configure-authentication-ssl.md "jdbc20-configure-authentication-ssl.md")
 - [Configuring logging](jdbc20-configuring-logging.md "jdbc20-configuring-logging.md")
 - [Data type conversions](jdbc20-data-type-mapping.md "jdbc20-data-type-mapping.md")
-- [Using prepared statement
-  support](jdbc20-prepared-statement-support.md "jdbc20-prepared-statement-support.md")
-- [Differences between the 2.2 and 1.x
-  versions of the JDBC driver](jdbc20-jdbc10-driver-differences.md "jdbc20-jdbc10-driver-differences.md")
-- [Creating initialization (.ini) files for JDBC driver
-  version 2.x](jdbc20-ini-file.md "jdbc20-ini-file.md")
-- [Options for JDBC driver version 2.x
-  configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md")
-- [Previous versions of JDBC driver
-  version 2.x](jdbc20-previous-driver-version-20.md "jdbc20-previous-driver-version-20.md")
+- [Using prepared statement support](jdbc20-prepared-statement-support.md "jdbc20-prepared-statement-support.md")
+- [Differences between the 2.2 and 1.x versions of the JDBC driver](jdbc20-jdbc10-driver-differences.md "jdbc20-jdbc10-driver-differences.md")
+- [Creating initialization (.ini) files for JDBC driver version 2.x](jdbc20-ini-file.md "jdbc20-ini-file.md")
+- [Options for JDBC driver version 2.x configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md")
+- [Previous versions of JDBC driver version 2.x](jdbc20-previous-driver-version-20.md "jdbc20-previous-driver-version-20.md")

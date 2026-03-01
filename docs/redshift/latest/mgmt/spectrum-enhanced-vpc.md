@@ -30,23 +30,16 @@ resources to direct traffic to your Amazon S3 buckets.
 Amazon Redshift Serverless supports enhanced VPC routing for queries to external tables on Amazon S3. For more information about configuration,
 see [Loading in data from Amazon S3](../gsg/new-user-serverless.md#serverless-load-data-from-s3 "../gsg/new-user-serverless.md#serverless-load-data-from-s3") in the Amazon Redshift Serverless Getting Started Guide.
 
-## Permissions policy configuration when using
-
-Amazon Redshift Spectrum
+## Permissions policy configuration when using Amazon Redshift Spectrum
 
 Consider the following when using Redshift Spectrum:
 
-- [Amazon S3 bucket access
-  policies and IAM roles](#spectrum-enhanced-vpc-considerations-policies "#spectrum-enhanced-vpc-considerations-policies")
-- [Permissions for assuming the IAM
-  role](#spectrum-enhanced-vpc-considerations-cluster-role "#spectrum-enhanced-vpc-considerations-cluster-role")
-- [Logging and
-  auditing Amazon S3 access](#spectrum-enhanced-vpc-considerations-logging-s3 "#spectrum-enhanced-vpc-considerations-logging-s3")
+- [Amazon S3 bucket access policies and IAM roles](#spectrum-enhanced-vpc-considerations-policies "#spectrum-enhanced-vpc-considerations-policies")
+- [Permissions for assuming the IAM role](#spectrum-enhanced-vpc-considerations-cluster-role "#spectrum-enhanced-vpc-considerations-cluster-role")
+- [Logging and auditing Amazon S3 access](#spectrum-enhanced-vpc-considerations-logging-s3 "#spectrum-enhanced-vpc-considerations-logging-s3")
 - [Access to AWS Glue or Amazon Athena](#spectrum-enhanced-vpc-considerations-glue-access "#spectrum-enhanced-vpc-considerations-glue-access")
 
-### Amazon S3 bucket access
-
-policies and IAM roles
+### Amazon S3 bucket access policies and IAM roles
 
 You can control access to data in your Amazon S3 buckets by using a bucket policy
 attached to the bucket and by using an IAM role attached to a provisioned cluster.
@@ -60,8 +53,7 @@ For the IAM role that is granted access to the bucket, use a trust
 relationship that allows the role to be assumed only by the Amazon Redshift service
 principal. When attached to your cluster, the role can be used only in the
 context of Amazon Redshift and can't be shared outside of the cluster. For more
-information, see [Restricting access to IAM
-roles](authorizing-redshift-service-database-users.md "authorizing-redshift-service-database-users.md").
+information, see [Restricting access to IAM roles](authorizing-redshift-service-database-users.md "authorizing-redshift-service-database-users.md").
 A service control policy (SCP) can also be used to further restrict the role, see
 [Prevent IAM users and roles from making specified changes, with an exception for a specified admin role](../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_general.md#example-scp-restricts-with-exception "../../../organizations/latest/userguide/orgs_manage_policies_scps_examples_general.md#example-scp-restricts-with-exception")
 in the _AWS Organizations User Guide_.
@@ -104,9 +96,7 @@ JSON
 
 ```
 
-### Permissions for assuming the IAM
-
-role
+### Permissions for assuming the IAM role
 
 The role attached to your cluster should have a trust relationship that
 permits it to be assumed only by the Amazon Redshift service, as shown following.
@@ -131,9 +121,7 @@ JSON
 
 For more information, see [IAM Policies for Redshift Spectrum](../dg/c-spectrum-iam-policies.md "../dg/c-spectrum-iam-policies.md") in the _Amazon Redshift Database Developer Guide_.
 
-### Logging and
-
-auditing Amazon S3 access
+### Logging and auditing Amazon S3 access
 
 One benefit of using Amazon Redshift enhanced VPC routing is that all COPY and UNLOAD
 traffic is logged in the VPC flow logs. Traffic originating from Redshift Spectrum

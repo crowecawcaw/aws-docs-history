@@ -10,5 +10,4 @@ Amazon Redshift Serverless.
 
 The following sections provide details about how you can use AWS Identity and Access Management (IAM) and
 Amazon Redshift to help secure your resources by controlling who can access them. For more
-information, see [Identity and access management in
-Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
+information, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").

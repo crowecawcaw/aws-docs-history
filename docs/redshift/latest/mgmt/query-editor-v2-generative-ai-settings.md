@@ -8,8 +8,7 @@ A user with the right IAM permissions can view and change **Generative SQL setti
 This administrator must have permission `sqlworkbench:UpdateAccountQSqlSettings` in their IAM policy,
 in addition to other permissions specified in the AWS managed policy for query editor v2.
 For more information about managed policies, see
-[Permissions
-required to use the query editor v2](redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor-v2 "redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor-v2") .
+[Permissions required to use the query editor v2](redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor-v2 "redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor-v2").
 
 ###### For an administrator to turn on generative SQL chat for all users in the account
 
@@ -24,8 +23,7 @@ After you turn on Amazon Q generative SQL, you can view the number of prompts le
 The query editor v2 administrator can enable users in the account to use Amazon Q Developer Pro tier.
 To use the Pro tier, set up your users with IAM Identity Center and subscribe each user to Amazon Q Developer Pro tier.
 For information about setting up IAM Identity Center with Amazon Redshift, see
-[Connect Redshift with AWS IAM Identity Center
-for a single sign-on experience](redshift-iam-access-control-idp-connect.md "redshift-iam-access-control-idp-connect.md").
+[Connect Redshift with AWS IAM Identity Center for a single sign-on experience](redshift-iam-access-control-idp-connect.md "redshift-iam-access-control-idp-connect.md").
 For information about Amazon Q Developer pricing, see
 [Amazon Q Developer pricing](https://aws.amazon.com/q/developer/pricing/ "https://aws.amazon.com/q/developer/pricing/").
 

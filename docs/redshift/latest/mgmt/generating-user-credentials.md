@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Using IAM authentication to
-
-generate database user credentials
+# Using IAM authentication to generate database user credentials
 
 You can generate temporary database credentials based on permissions granted through an
 AWS Identity and Access Management (IAM) permissions policy to manage the access that your users have to your Amazon Redshift

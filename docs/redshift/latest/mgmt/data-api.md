@@ -35,20 +35,16 @@ Before you use the Amazon Redshift Data API, review the following steps:
    information about authorization, see [Authorizing access to the Amazon Redshift Data API](data-api-access.md "data-api-access.md").
 2. Determine if you plan to call the Data API with authentication
    credentials from Secrets Manager, temporary credentials, or use AWS IAM Identity Center. For more
-   information, see [Choosing database
-   authentication credentials when calling the Amazon Redshift Data API](#data-api-calling-considerations-authentication "#data-api-calling-considerations-authentication").
+   information, see [Choosing database authentication credentials when calling the Amazon Redshift Data API](#data-api-calling-considerations-authentication "#data-api-calling-considerations-authentication").
 3. Set up a secret if you use Secrets Manager for authentication credentials. For more
    information, see [Storing database credentials in AWS Secrets Manager](data-api-secrets.md "data-api-secrets.md").
 4. Review the considerations and limitations when calling the Data API. For
-   more information, see [Considerations when calling the
-   Amazon Redshift Data API](#data-api-calling-considerations "#data-api-calling-considerations").
+   more information, see [Considerations when calling the Amazon Redshift Data API](#data-api-calling-considerations "#data-api-calling-considerations").
 5. Call the Data API from the AWS Command Line Interface (AWS CLI), from your own code, or
    using the query editor in the Amazon Redshift console. For examples of calling from the
    AWS CLI, see [Calling the Data API](data-api-calling.md "data-api-calling.md").
 
-## Considerations when calling the
-
-Amazon Redshift Data API
+## Considerations when calling the Amazon Redshift Data API
 
 Consider the following when calling the Data API:
 
@@ -125,9 +121,7 @@ _AWS Step Functions Developer Guide_.
 }
 ```
 
-## Choosing database
-
-authentication credentials when calling the Amazon Redshift Data API
+## Choosing database authentication credentials when calling the Amazon Redshift Data API
 
 When you call the Data API, you use one of the following authentication
 methods for some API operations. Each method requires a different combination of
@@ -136,8 +130,7 @@ parameters.
 **AWS IAM Identity Center**
 
 The Data API can be accessed with a single sign-on user registered in
-AWS IAM Identity Center. For information about the steps to set up IAM Identity Center, see [Using Data API with trusted
-identity propagation](data-api-trusted-identity-propagation.md "data-api-trusted-identity-propagation.md").
+AWS IAM Identity Center. For information about the steps to set up IAM Identity Center, see [Using Data API with trusted identity propagation](data-api-trusted-identity-propagation.md "data-api-trusted-identity-propagation.md").
 
 **AWS Secrets Manager**
 
@@ -176,15 +169,12 @@ With this method, choose one of the following options:
   Also, permission to call the
   `redshift:GetClusterCredentials` operation is
   required. For information about how to join database groups when
-  connecting with this method, see [Joining database groups when connecting to a
-  cluster](data-api-dbgroups.md "data-api-dbgroups.md").
+  connecting with this method, see [Joining database groups when connecting to a cluster](data-api-dbgroups.md "data-api-dbgroups.md").
 
 With this method, you can also supply a `region` value that
 specifies the AWS Region where your data is located.
 
-## Mapping JDBC data types when
-
-calling the Amazon Redshift Data API
+## Mapping JDBC data types when calling the Amazon Redshift Data API
 
 The following table maps Java Database Connectivity (JDBC) data types to the data
 types you specify in Data API calls.
@@ -208,9 +198,7 @@ data type.
 Currently, the Data API doesn't support arrays of universal unique
 identifiers (UUIDs).
 
-## Running SQL statements with
-
-parameters when calling the Amazon Redshift Data API
+## Running SQL statements with parameters when calling the Amazon Redshift Data API
 
 You can control the SQL text submitted to the database engine by calling the Data API
 operation using parameters for parts of the SQL statement. Named parameters provide a
@@ -292,9 +280,7 @@ attr >= :val1`, `WHERE attr BETWEEN :val1 AND
 - Only the `execute-statement` operation supports SQL statements with
   parameters.
 
-## Running SQL statements
-
-with an idempotency token when calling the Amazon Redshift Data API
+## Running SQL statements with an idempotency token when calling the Amazon Redshift Data API
 
 When you make a mutating API request, the request typically returns a result before
 the operation's asynchronous workflows have completed. Operations might also time out or
@@ -347,9 +333,7 @@ requests, and provides retry recommendations.
 For information about Amazon Redshift response codes, see [Common Errors](../APIReference/CommonErrors.md "../APIReference/CommonErrors.md") in the
 _Amazon Redshift API Reference_.
 
-## Running SQL statements
-
-with session reuse when calling the Amazon Redshift Data API
+## Running SQL statements with session reuse when calling the Amazon Redshift Data API
 
 When you make an API request to run a SQL statement, the session where the SQL runs is
 usually terminated when the SQL is finished. To keep the session active for a specified
@@ -421,9 +405,7 @@ aws redshift-data execute-statement
 
 ```
 
-## Fetching the results of
-
-SQL statements
+## Fetching the results of SQL statements
 
 You use different Data API operations to fetch SQL results depending on the
 result format. When you call `ExecuteStatement` and

@@ -14,8 +14,7 @@ key is used to encrypt resources. Alternatively, an administrator can use a cust
 by choosing the Amazon Resource Name (ARN) for the key in the configuration page.
 
 After configuring an account, AWS KMS encryption settings can't be changed. For more
-information about creating and using a customer managed key with query editor v2, see [Creating an AWS KMS customer managed key to
-use with query editor v2](#query-editor-v2-kms-key "#query-editor-v2-kms-key"). The
+information about creating and using a customer managed key with query editor v2, see [Creating an AWS KMS customer managed key to use with query editor v2](#query-editor-v2-kms-key "#query-editor-v2-kms-key"). The
 administrator can also optionally choose an S3 bucket and path that is used for some
 features, such as loading data from a file. For more information, see [Loading data from a local file setup and workflow](query-editor-v2-loading-data-local.md "query-editor-v2-loading-data-local.md").
 
@@ -50,9 +49,7 @@ can also manage tags by using the AWS Resource Groups Tag Editor.
 You can set up IAM roles with IAM policies to share
 queries with others in your same AWS account in the AWS Region.
 
-## Creating an AWS KMS customer managed key to
-
-use with query editor v2
+## Creating an AWS KMS customer managed key to use with query editor v2
 
 **To create a symmetric encryption
 customer managed key**:
@@ -195,8 +192,7 @@ As new features are added to query editor v2, the AWS managed policies are updat
 needed. If you create your own policy based on the permissions allowed and denied in
 the provided managed policies, edit your policies to keep them up to date with
 changes to the managed policies. For more information about managed policies in
-Amazon Redshift, see [AWS managed policies for
-Amazon Redshift](redshift-iam-access-control-identity-based.md#redshift-policy-resources.managed-policies "redshift-iam-access-control-identity-based.md#redshift-policy-resources.managed-policies").
+Amazon Redshift, see [AWS managed policies for Amazon Redshift](redshift-iam-access-control-identity-based.md#redshift-policy-resources.managed-policies "redshift-iam-access-control-identity-based.md#redshift-policy-resources.managed-policies").
 
 To provide access, add permissions to your users, groups, or roles:
 
@@ -225,9 +221,7 @@ recommend that before administrators delete a permission set, that users of that
 permission set export query editor resources such as notebooks and queries as a
 backup.
 
-## Setting up principal tags to
-
-connect a cluster or workgroup from query editor v2
+## Setting up principal tags to connect a cluster or workgroup from query editor v2
 
 To connect to your cluster or workgroup using the federated user option, either
 set up your IAM role or user with principal tags. Or, set up your identity
@@ -292,8 +286,7 @@ the tags during role chaining.
 
 ```
 
-For more information about setting up query editor v2, see [Permissions
-required to use the query editor v2](redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor-v2 "redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor-v2") .
+For more information about setting up query editor v2, see [Permissions required to use the query editor v2](redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor-v2 "redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor-v2").
 
 For information about how to set up Active Directory Federation
 Services (AD FS), see the blog post: [Federate access to Amazon Redshift query editor v2 with Active Directory Federation Services (AD

@@ -53,8 +53,7 @@ You can't pause the following types of clusters:
 - If you're managing your admin credentials using AWS Secrets Manager and pause your
   cluster, your cluster's secret won't be deleted and you'll continue to be billed
   for the secret. For more information on managing your Redshift admin password
-  with AWS Secrets Manager, see [Managing Amazon Redshift admin passwords
-  using AWS Secrets Manager](redshift-secrets-manager-integration.md "redshift-secrets-manager-integration.md").
+  with AWS Secrets Manager, see [Managing Amazon Redshift admin passwords using AWS Secrets Manager](redshift-secrets-manager-integration.md "redshift-secrets-manager-integration.md").
 - No-backup tables on the cluster are restored on resume for RA3 instance types.
   They aren't restored on resume for DC2 instance types. For more information about
   no-backup tables, see [Excluding tables from snapshots](working-with-snapshots.md#snapshots-no-backup-tables "working-with-snapshots.md#snapshots-no-backup-tables").

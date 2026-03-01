@@ -2,17 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Integrating your application or
-
-tool with OAuth using a trusted token issuer
+# Integrating your application or tool with OAuth using a trusted token issuer
 
 You can add functionality to client tools you create to connect to Redshift by means
 of the AWS IAM Identity Center connection. If you already configured Redshift integration to AWS
 IAM Identity Center, use the properties detailed in this section to set up a connection.
 
-## Authentication plugin for
-
-connecting to Redshift using AWS IAM Identity Center
+## Authentication plugin for connecting to Redshift using AWS IAM Identity Center
 
 You can use AWS IAM Identity Center to connect to Amazon Redshift using the following driver plugins:
 
@@ -53,11 +49,9 @@ You must enter these values in the connection properties of the tool you create 
 connect with. For more information, see the connection options documentation for each
 respective driver:
 
-- [Options for JDBC driver version 2.x
-  configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md")
+- [Options for JDBC driver version 2.x configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md")
 - [ODBC driver options](odbc20-configuration-options.md "odbc20-configuration-options.md")
-- [Configuration options for the Amazon Redshift
-  Python connector](python-configuration-options.md "python-configuration-options.md")
+- [Configuration options for the Amazon Redshift Python connector](python-configuration-options.md "python-configuration-options.md")
 
 ### Authenticating with `IdpTokenAuthPlugin`
 
@@ -82,8 +76,6 @@ You must enter these values in the connection properties of the tool you create 
 connect with. For more information, see the connection options documentation for each
 respective driver:
 
-- [Options for JDBC driver version 2.x
-  configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md")
+- [Options for JDBC driver version 2.x configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md")
 - [ODBC driver options](odbc20-configuration-options.md "odbc20-configuration-options.md")
-- [Configuration options for the Amazon Redshift
-  Python connector](python-configuration-options.md "python-configuration-options.md")
+- [Configuration options for the Amazon Redshift Python connector](python-configuration-options.md "python-configuration-options.md")

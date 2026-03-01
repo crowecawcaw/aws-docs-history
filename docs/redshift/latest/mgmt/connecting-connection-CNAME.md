@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Custom domain names for client
-
-connections
+# Custom domain names for client connections
 
 You can create a custom domain name, also known as a custom URL, for both your Amazon Redshift
 cluster and Amazon Redshift Serverless workgroup. It's an easy-to-read DNS record that routes SQL

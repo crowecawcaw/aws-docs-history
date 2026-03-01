@@ -39,9 +39,7 @@ tasks:
     which are displayed, choose the **Preferences**
     icon.
 
-## Cluster performance
-
-graphs
+## Cluster performance graphs
 
 The following examples show some of the graphs that are displayed in the new
 Amazon Redshift console.

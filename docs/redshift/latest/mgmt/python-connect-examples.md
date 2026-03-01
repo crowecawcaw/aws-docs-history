@@ -2,29 +2,21 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Examples of using the Amazon Redshift Python
-
-connector
+# Examples of using the Amazon Redshift Python connector
 
 Following are examples of how to use the Amazon Redshift Python connector. To run them, you
 must first install the Python connector. For more information on installing the Amazon Redshift
 Python connector, see [Installing the Amazon Redshift Python connector](python-driver-install.md "python-driver-install.md"). For more information on configuration
-options you can use with the Python connector, see [Configuration options for the Amazon Redshift
-Python connector](python-configuration-options.md "python-configuration-options.md").
+options you can use with the Python connector, see [Configuration options for the Amazon Redshift Python connector](python-configuration-options.md "python-configuration-options.md").
 
 ###### Topics
 
-- [Connecting to and querying an Amazon Redshift
-  cluster using AWS credentials](#python-connect-cluster "#python-connect-cluster")
+- [Connecting to and querying an Amazon Redshift cluster using AWS credentials](#python-connect-cluster "#python-connect-cluster")
 - [Enabling autocommit](#python-connect-enable-autocommit "#python-connect-enable-autocommit")
-- [Configuring cursor
-  paramstyle](#python-connect-config-paramstyle "#python-connect-config-paramstyle")
-- [Using COPY to copy data from an Amazon S3
-  bucket and UNLOAD to write data to it](#python-connect-copy-unload-s3 "#python-connect-copy-unload-s3")
+- [Configuring cursor paramstyle](#python-connect-config-paramstyle "#python-connect-config-paramstyle")
+- [Using COPY to copy data from an Amazon S3 bucket and UNLOAD to write data to it](#python-connect-copy-unload-s3 "#python-connect-copy-unload-s3")
 
-## Connecting to and querying an Amazon Redshift
-
-cluster using AWS credentials
+## Connecting to and querying an Amazon Redshift cluster using AWS credentials
 
 The following example guides you through connecting to an Amazon Redshift cluster using
 your AWS credentials, then querying a table and retrieving the query
@@ -78,9 +70,7 @@ transaction is not in progress.
 >>>  conn.autocommit = False
 ```
 
-## Configuring cursor
-
-paramstyle
+## Configuring cursor paramstyle
 
 The paramstyle for a cursor can be modified via cursor.paramstyle. The default
 paramstyle used is `format`. Valid values for paramstyle are
@@ -117,9 +107,7 @@ sql = 'insert into foo(bar, jar) VALUES(%(bar)s, %(jar)s)'
 cursor.execute(sql, {"bar": 1, "jar": "hello world"})
 ```
 
-## Using COPY to copy data from an Amazon S3
-
-bucket and UNLOAD to write data to it
+## Using COPY to copy data from an Amazon S3 bucket and UNLOAD to write data to it
 
 The following example shows how to copy data from an Amazon S3 bucket into a table and
 then unload from that table back into the bucket.

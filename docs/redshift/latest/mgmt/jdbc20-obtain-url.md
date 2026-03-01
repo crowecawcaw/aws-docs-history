@@ -39,9 +39,7 @@ must be URL encoded:
 
 `jdbc:redshift://redshift.company.us-west-1.redshift.amazonaws.com:9000/dev;UID=amazon;PWD=password%3Apassword`
 
-For information about how to get your JDBC connection, see [Finding your cluster connection
-string](connecting-connection-string.md "connecting-connection-string.md").
+For information about how to get your JDBC connection, see [Finding your cluster connection string](connecting-connection-string.md "connecting-connection-string.md").
 
 If the client computer fails to connect to the database, you can troubleshoot possible
-issues. For more information, see [Troubleshooting connection issues in
-Amazon Redshift](troubleshooting-connections.md "troubleshooting-connections.md").
+issues. For more information, see [Troubleshooting connection issues in Amazon Redshift](troubleshooting-connections.md "troubleshooting-connections.md").

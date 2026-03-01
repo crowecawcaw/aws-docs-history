@@ -36,9 +36,7 @@ These are common reasons to allow access using a Redshift-managed VPC endpoint:
    the Redshift-managed VPC endpoint.
    You can do this using the Amazon Redshift console, the AWS CLI, or the Amazon Redshift API.
 
-## Considerations when using
-
-Redshift-managed VPC endpoints
+## Considerations when using Redshift-managed VPC endpoints
 
 ###### Note
 
@@ -54,8 +52,7 @@ When using Redshift-managed VPC endpoints, keep the following in mind:
 - For provisioned clusters, make sure that the cluster is enabled for either
   cluster relocation or Multi-AZ. For information about requirements to turn on
   cluster relocation, see [Relocating a cluster](managing-cluster-recovery.md "managing-cluster-recovery.md"). For information about enabling
-  Multi-AZ, see [Setting up Multi-AZ when creating a new
-  cluster](create-cluster-multi-az.md "create-cluster-multi-az.md").
+  Multi-AZ, see [Setting up Multi-AZ when creating a new cluster](create-cluster-multi-az.md "create-cluster-multi-az.md").
 - Make sure that the cluster or workgroup to access through its security group
   is available within the valid port ranges 5431-5455 and 8191-8215. The default
   is 5439.

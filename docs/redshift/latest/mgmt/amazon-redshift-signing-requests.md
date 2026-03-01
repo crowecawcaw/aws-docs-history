@@ -9,8 +9,7 @@ signature. This topic explains how to sign your requests.
 
 If you are using one of the AWS Software Development Kits (SDKs) or the AWS Command Line Interface, request signing is
 handled automatically, and you can skip this section. For more
-information about using AWS SDKs, see [Using the Amazon Redshift management interfaces for provisioned
-clusters](using-aws-sdk.md "using-aws-sdk.md"). For more information about using the Amazon Redshift
+information about using AWS SDKs, see [Using the Amazon Redshift management interfaces for provisioned clusters](using-aws-sdk.md "using-aws-sdk.md"). For more information about using the Amazon Redshift
 Command Line Interface, go to [Amazon Redshift command
 line reference](../../../cli/latest/reference/redshift/index.md "../../../cli/latest/reference/redshift/index.md").
 

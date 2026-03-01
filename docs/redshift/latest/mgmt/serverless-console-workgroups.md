@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Viewing properties for a
-
-workgroup
+# Viewing properties for a workgroup
 
 In Amazon Redshift Serverless, a workgroup is a collection of compute resources available for
 use. When you choose Amazon Redshift Serverless, in the AWS console, you can choose
@@ -119,8 +117,7 @@ panels:
 
 The **Tabs** tab has the **Tags** panel,
 which shows any tags that you created for your workgroup. For more
-information about tagging resources, see [Tagging resources in
-Amazon Redshift Serverless](serverless-tagging-resources.md "serverless-tagging-resources.md").
+information about tagging resources, see [Tagging resources in Amazon Redshift Serverless](serverless-tagging-resources.md "serverless-tagging-resources.md").
 
 ## Managed workgroup properties
 

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Changing
-
-the AWS KMS key for a namespace
+# Changing the AWS KMS key for a namespace
 
 In Amazon Redshift, encryption protects data at rest. Amazon Redshift Serverless uses AWS KMS key
 encryption automatically to encrypt both your Amazon Redshift Serverless resources and

@@ -10,8 +10,7 @@ or with an Amazon Redshift Serverless workgroup.
 
 ###### Topics
 
-- [Custom domain names for client
-  connections](connecting-connection-CNAME.md "connecting-connection-CNAME.md")
+- [Custom domain names for client connections](connecting-connection-CNAME.md "connecting-connection-CNAME.md")
 - [Redshift-managed VPC endpoints](managing-cluster-cross-vpc.md "managing-cluster-cross-vpc.md")
 - [Redshift resources in a VPC](managing-clusters-vpc.md "managing-clusters-vpc.md")
 - [Controlling network traffic with Redshift enhanced VPC routing](enhanced-vpc-routing.md "enhanced-vpc-routing.md")

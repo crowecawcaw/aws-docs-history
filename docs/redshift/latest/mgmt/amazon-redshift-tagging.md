@@ -44,8 +44,7 @@ the following resource types in Amazon Redshift:
 - Integration (zero-ETL integration)
   To use tagging from the Amazon Redshift console, your user can attach the AWS managed policy
   `AmazonRedshiftFullAccess`. For an example IAM policy with limited tagging
-  permissions that you can attach to an Amazon Redshift console user, see [Example 7: Allow a
-  user to tag resources with the Amazon Redshift console](redshift-iam-access-control-identity-based.md#redshift-policy-example-allow-tagging-with-console "redshift-iam-access-control-identity-based.md#redshift-policy-example-allow-tagging-with-console"). For more information
+  permissions that you can attach to an Amazon Redshift console user, see [Example 7: Allow a user to tag resources with the Amazon Redshift console](redshift-iam-access-control-identity-based.md#redshift-policy-example-allow-tagging-with-console "redshift-iam-access-control-identity-based.md#redshift-policy-example-allow-tagging-with-console"). For more information
   about tagging, see [What is AWS Resource
   Groups?](../../../ARG/latest/userguide/welcome.md "../../../ARG/latest/userguide/welcome.md").
 

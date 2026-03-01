@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Configuring security group
-
-communication settings for an Amazon Redshift cluster or an Amazon Redshift Serverless workgroup
+# Configuring security group communication settings for an Amazon Redshift cluster or an Amazon Redshift Serverless workgroup
 
 This topic helps you configure your security groups to route and receive network
 traffic appropriately. The following are a couple common use cases:
@@ -28,9 +26,7 @@ This is because they can vary at a granular level, depending on whether the sour
 of traffic is the internet or a private security group, and because security
 requirements vary.
 
-## Public accessibility with default
-
-or custom security group configuration
+## Public accessibility with default or custom security group configuration
 
 If you are creating or you already have a cluster or workgroup, perform the
 following configuration steps to make it publicly accessible. This applies both to
@@ -85,9 +81,7 @@ Amazon Redshift Serverless domain as the host, enter the following:
 rsql -h `workgroup-name`.`account-id`.`region`.amazonaws.com -U `admin` -d dev -p 5439
 ```
 
-## Private accessibility with default or
-
-custom security group configuration
+## Private accessibility with default or custom security group configuration
 
 When you don't communicate through the internet to your cluster or workgroup,
 it's referred to as _privately_ accessible. If you chose the

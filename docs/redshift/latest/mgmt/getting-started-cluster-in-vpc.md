@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Creating a Redshift provisioned
-
-cluster or Amazon Redshift Serverless workgroup in a VPC
+# Creating a Redshift provisioned cluster or Amazon Redshift Serverless workgroup in a VPC
 
 The following are the general steps how you can deploy a cluster or workgroup in your
 virtual private cloud (VPC).
@@ -33,8 +31,7 @@ programmatically. For more information, see [Subnets for Redshift resources](wor
 associate with the cluster or workgroup. You can enable a client outside the VPC
 (on the public internet) to connect to the cluster. To do this, you associate
 the cluster with a VPC security group that grants inbound access. For more
-information, see [Configuring security group
-communication settings for an Amazon Redshift cluster or an Amazon Redshift Serverless workgroup](rs-security-group-public-private.md "rs-security-group-public-private.md"). 4. Follow the steps to create a cluster in the Redshift provisioned console or a
+information, see [Configuring security group communication settings for an Amazon Redshift cluster or an Amazon Redshift Serverless workgroup](rs-security-group-public-private.md "rs-security-group-public-private.md"). 4. Follow the steps to create a cluster in the Redshift provisioned console or a
 workgroup or in the Amazon Redshift Serverless console. In **Network and
 security**, specify the **Virtual private cloud
 (VPC)**, **Cluster subnet group**, and

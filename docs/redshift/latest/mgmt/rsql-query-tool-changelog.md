@@ -85,9 +85,7 @@ Bug Fixes
   OS.
 - Fixed crash when checking ssl information.
 
-## Amazon Redshift RSQL
-
-previous versions
+## Amazon Redshift RSQL previous versions
 
 Choose one of the links to download the version of Amazon Redshift RSQL you need,
 based on your operating system.

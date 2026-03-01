@@ -11,9 +11,7 @@ You can add up to four usage limits to control usage for each of the following:
 - Redshift Spectrum usage
 - Cross-Region data sharing
 
-##
-
-Setting a usage limit for a provisioned cluster
+## Setting a usage limit for a provisioned cluster
 
 Following is the procedure for
 setting a usage limit on a provisioned cluster:

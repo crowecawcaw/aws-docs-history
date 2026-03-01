@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Viewing query history
-
-data
+# Viewing query history data
 
 You can use query history metrics in Amazon Redshift to do the following:
 
@@ -17,8 +15,7 @@ You can use query history metrics in Amazon Redshift to do the following:
   timeline. When **Query ID** and other properties are
   displayed in a row below the graph, then you can choose the query to see
   query details. Details include, for example, the query's SQL statement,
-  execution details, and query plan. For more information, see [Viewing and analyzing
-  query details](performance-metrics-query-execution-details.md "performance-metrics-query-execution-details.md").
+  execution details, and query plan. For more information, see [Viewing and analyzing query details](performance-metrics-query-execution-details.md "performance-metrics-query-execution-details.md").
 - Determine if your load jobs complete successfully and meet your service
   level agreements (SLAs).
 
@@ -88,9 +85,7 @@ Consider the following when working with the query history graphs:
   navigating from the left navigator **Queries** icon,
   **Queries and loads**. For more information, see [Viewing queries and loads](performance-metrics-queries.md "performance-metrics-queries.md").
 
-## Query history
-
-graphs
+## Query history graphs
 
 The following examples show graphs that are displayed in the new Amazon Redshift console.
 

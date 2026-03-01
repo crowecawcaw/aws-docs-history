@@ -14,11 +14,9 @@ SQL clients over JDBC/ODBC:
 - Amazon Redshift supports Secure Sockets Layer (SSL) connections to encrypt data and
   server certificates to validate the server certificate that the client connects to. The client
   connects to the leader node of an Amazon Redshift cluster. For more information, see
-  [Configuring security options for
-  connections](connecting-ssl-support.md "connecting-ssl-support.md").
+  [Configuring security options for connections](connecting-ssl-support.md "connecting-ssl-support.md").
 - To support SSL connections, Amazon Redshift creates and installs AWS Certificate Manager (ACM)
-  issued certificates on each cluster. For more information, see [Transitioning to ACM
-  certificates for SSL connections](connecting-transitioning-to-acm-certs.md "connecting-transitioning-to-acm-certs.md").
+  issued certificates on each cluster. For more information, see [Transitioning to ACM certificates for SSL connections](connecting-transitioning-to-acm-certs.md "connecting-transitioning-to-acm-certs.md").
 - To protect your data in transit within the AWS Cloud, Amazon Redshift uses hardware accelerated SSL
   to communicate with Amazon S3 or Amazon DynamoDB for COPY, UNLOAD, backup, and restore
   operations.

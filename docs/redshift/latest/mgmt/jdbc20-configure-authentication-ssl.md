@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Configuring authentication and
-
-SSL
+# Configuring authentication and SSL
 
 To protect data from unauthorized access, Amazon Redshift data stores require all connections to
 be authenticated using user credentials. Some data stores also require connections to be
@@ -38,16 +36,13 @@ more information about the syntax of the connection URL, see [Building the conne
 _SSL_ indicates TLS/SSL, both Transport Layer Security and Secure
 Sockets Layer. The driver supports industry-standard versions of TLS/SSL.
 
-## Configuring IAM
-
-authentication
+## Configuring IAM authentication
 
 If you are connecting to a Amazon Redshift server using IAM authentication, set the
 following properties as part of your data source connection string.
 
 For more
-information on IAM authentication, see [Identity and access management in
-Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
+information on IAM authentication, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
 
 To use IAM authentication, use one of the following connection string
 formats:
@@ -74,9 +69,7 @@ variable: `AWS_CREDENTIAL_PROFILES_FILE`
 For more information about profiles, see [Working with AWS
 Credentials](../../../sdk-for-java/v1/developer-guide/credentials.md "../../../sdk-for-java/v1/developer-guide/credentials.md") in the _AWS SDK for Java_.
 
-## Using instance profile
-
-credentials
+## Using instance profile credentials
 
 If you are running an application on an Amazon EC2 instance that is associated with an
 IAM role, you can connect using the instance profile credentials.
@@ -153,5 +146,4 @@ can also include:
   identity provider when using the SAML, Azure AD, or AWS IAM Identity Center services
   through a browser plugin.
 
-For information on additional connection string properties, see [Options for JDBC driver version 2.x
-configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md").
+For information on additional connection string properties, see [Options for JDBC driver version 2.x configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md").

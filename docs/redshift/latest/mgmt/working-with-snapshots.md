@@ -40,9 +40,7 @@ and on premises. For more information, see [AWS Backup integration with Amazon R
 For information on AWS Backup, see
 [What is AWS Backup?](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md") in the _AWS Backup Developer Guide_.
 
-## Working with snapshots and backups in
-
-Amazon Redshift Serverless
+## Working with snapshots and backups in Amazon Redshift Serverless
 
 Amazon Redshift Serverless, like a provisioned cluster, enables you to take a backup as a
 point-in-time representation of the objects and data in the namespace. There are two types
@@ -212,8 +210,7 @@ create-snapshot-schedule --schedule-identifier "my-test" --schedule-definition "
 You can take a manual snapshot any time. By default, manual snapshots are retained
 indefinitely, even after you delete your cluster. You can specify the retention period when
 you create a manual snapshot, or you can change the retention period by modifying the
-snapshot. For more information about changing the retention period, see [Modifying the manual snapshot retention
-period](snapshot-manual-retention-period.md "snapshot-manual-retention-period.md").
+snapshot. For more information about changing the retention period, see [Modifying the manual snapshot retention period](snapshot-manual-retention-period.md "snapshot-manual-retention-period.md").
 
 If a snapshot is deleted, you can't start any new operations that reference that
 snapshot. However, if a restore operation is in progress, that restore operation will run

@@ -147,19 +147,13 @@ the editor, such as `sample_data_dev`.
 
 ###### Topics
 
-- [Example: Setting
-  session variables](#query-editor-v2-example-set-session-variable "#query-editor-v2-example-set-session-variable")
-- [Example: Top event by total
-  sales](#query-editor-v2-example-top-event-sales "#query-editor-v2-example-top-event-sales")
+- [Example: Setting session variables](#query-editor-v2-example-set-session-variable "#query-editor-v2-example-set-session-variable")
+- [Example: Top event by total sales](#query-editor-v2-example-top-event-sales "#query-editor-v2-example-top-event-sales")
 - [Example: Sales greater than a specific parameter](#query-editor-v2-example-sales-qtysold-greater-than-parameter "#query-editor-v2-example-sales-qtysold-greater-than-parameter")
-- [Example: Create a
-  temporary table](#query-editor-v2-example-create-temporary-table "#query-editor-v2-example-create-temporary-table")
-- [Example:
-  Selecting from a temporary table](#query-editor-v2-example-select-from-temporary-table "#query-editor-v2-example-select-from-temporary-table")
+- [Example: Create a temporary table](#query-editor-v2-example-create-temporary-table "#query-editor-v2-example-create-temporary-table")
+- [Example: Selecting from a temporary table](#query-editor-v2-example-select-from-temporary-table "#query-editor-v2-example-select-from-temporary-table")
 
-### Example: Setting
-
-session variables
+### Example: Setting session variables
 
 The following command sets the `search_path` server configuration
 parameter to _public_ for the session. For more information, see
@@ -170,9 +164,7 @@ parameter to _public_ for the session. For more information, see
 set search_path to public;
 ```
 
-### Example: Top event by total
-
-sales
+### Example: Top event by total sales
 
 The following query finds the event with the most sales.
 
@@ -233,9 +225,7 @@ salesid	qtysold
 ...
 ```
 
-### Example: Create a
-
-temporary table
+### Example: Create a temporary table
 
 The following statement creates the temporary table
 _eventsalestemp_ by selecting information from the
@@ -250,9 +240,7 @@ group by eventname;
 
 ```
 
-### Example:
-
-Selecting from a temporary table
+### Example: Selecting from a temporary table
 
 The following statement selects events, total orders, and total sales from the
 temporary table _eventsalestemp_, ordered by total orders.

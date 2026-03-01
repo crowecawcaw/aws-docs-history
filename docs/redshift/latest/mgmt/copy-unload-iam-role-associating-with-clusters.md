@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Associating IAM
-
-roles with clusters
+# Associating IAM roles with clusters
 
 After you have created an IAM role that authorizes Amazon Redshift to access other AWS
 services for you, you must associate that role with an Amazon Redshift cluster. You must
@@ -69,9 +67,7 @@ or UNLOAD command or other Amazon Redshift commands.
 For more information on IAM policies, see [Overview of IAM policies](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in
 the _IAM User Guide_.
 
-## Managing IAM role
-
-association with a cluster
+## Managing IAM role association with a cluster
 
 You can associate an IAM role with an Amazon Redshift cluster when you create the
 cluster. Or you can modify an existing cluster and add or remove one or more IAM
@@ -163,9 +159,7 @@ aws redshift modify-cluster-iam-roles \
     --remove-iam-roles "arn:aws:iam::123456789012:role/RedshiftCopyUnload"
 ```
 
-### Listing IAM role associations for a cluster using the
-
-AWS CLI
+### Listing IAM role associations for a cluster using the AWS CLI
 
 To list all of the IAM roles that are associated with an Amazon Redshift
 cluster, and the status of the IAM role association, call the

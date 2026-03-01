@@ -231,9 +231,7 @@ Classic resize handles use cases where the change in cluster size or node type
 isn't supported by elastic resize. When you perform a classic resize, Amazon Redshift creates a
 target cluster and migrates your data and metadata to it from the source cluster.
 
-### Classic resize to RA3 can provide
-
-better availability
+### Classic resize to RA3 can provide better availability
 
 Classic resize has been enhanced when the target node type is RA3. It does
 this by using a backup and restore operation between the source and target
@@ -241,9 +239,7 @@ cluster. When the resize begins, the source cluster restarts and is unavailable
 for a few minutes. After that, the cluster is available for read and write
 operations while the resize continues in the background.
 
-#### Checking your
-
-cluster
+#### Checking your cluster
 
 To ensure you have the best performance and results when you perform a
 classic resize to an RA3 cluster, complete this checklist. When you don't
@@ -270,9 +266,7 @@ snapshot that is no more than 10 hours old. If not, take a
 snapshot. 3. The snapshot used to perform the classic resize can't be used for
 a table restore or other purpose. 4. The cluster must be in a VPC.
 
-#### Sorting and distribution operations
-
-that result from classic resize to RA3
+#### Sorting and distribution operations that result from classic resize to RA3
 
 During classic resize to RA3, tables with KEY distribution that are
 migrated as EVEN distribution are converted back to their original
@@ -305,9 +299,7 @@ tables](../dg/t_Reclaiming_storage_space202.md "../dg/t_Reclaiming_storage_space
 [Data
 warehouse system architecture](../dg/c_high_level_system_architecture.md "../dg/c_high_level_system_architecture.md").
 
-#### Classic resize steps when the
-
-target cluster is RA3
+#### Classic resize steps when the target cluster is RA3
 
 Classic resize consists of the following steps, when the target cluster
 type is RA3 and you've met the prerequisites detailed in the previous
@@ -345,9 +337,7 @@ types isn't supported. This is to prevent a customer from resizing to a
 node type that's deprecated or soon to be deprecated. This applies for
 both elastic resize and classic resize.
 
-#### Monitoring a classic resize when the
-
-target cluster is RA3
+#### Monitoring a classic resize when the target cluster is RA3
 
 To monitor a classic resize of a provisioned cluster in progress,
 including KEY distribution, use
@@ -359,9 +349,7 @@ data.
 Drop tables that you don't need when you perform a classic resize. When
 you do this, existing tables can be distributed more quickly.
 
-### Classic resize steps when the target
-
-cluster isn't RA3
+### Classic resize steps when the target cluster isn't RA3
 
 Classic resize consists of the following, when the target node type is
 anything other than RA3, like DC2, for instance.
@@ -400,9 +388,7 @@ additional data slices that result from the classic resize. This use of
 additional capacity can occur even when the number of nodes in the cluster
 stays the same.
 
-### Elastic resize vs classic
-
-resize
+### Elastic resize vs classic resize
 
 The following table compares behavior between the two resize types.
 
@@ -413,9 +399,7 @@ The following table compares behavior between the two resize types.
 | **Session and query<br>retention**   | Elastic resize retains sessions and queries when the node<br>type is the same in the source cluster and target. If you choose<br>a new node type, queries are dropped.                                                                   | Classic resize doesn't retain sessions and queries. Queries<br>are dropped.                                                                                | When queries are dropped, you can expect some performance<br>degradation. It's best to perform a resize operation during a<br>period of light use.                                                                                                                                                                                          |
 | **Cancelling a resize<br>operation** | You can't cancel an elastic resize.                                                                                                                                                                                                      | You can cancel a classic resize operation before it<br>completes by choosing **Cancel resize**<br>from the cluster details in the Amazon Redshift console. | The amount of time it takes to cancel a resize depends<br>on the stage of the resize operation when you cancel. When<br>you do this, the cluster isn't available until the<br>cancel operation completes. If the resize operation is in<br>the final stage, you can't cancel.<br>For classic resize to an RA3 cluster, you can't<br>cancel. |
 
-### Scheduling a
-
-resize
+### Scheduling a resize
 
 You can schedule resize operations for your cluster to scale up to anticipate
 high use or to scale down for cost savings. Scheduling works for both elastic
@@ -426,9 +410,7 @@ schedule a resize. For more information, see [create-scheduled-action](../../../
 or [CreateScheduledAction](../APIReference/API_CreateScheduledAction.md "../APIReference/API_CreateScheduledAction.md") in the
 _Amazon Redshift API Reference_.
 
-### Snapshot,
-
-restore, and resize
+### Snapshot, restore, and resize
 
 [Elastic
 resize](#elastic-resize "#elastic-resize") is the fastest method to resize an Amazon Redshift cluster. If

@@ -68,13 +68,10 @@ Following are some instances where having a higher base capacity is beneficial:
 For more information about Amazon Redshift Serverless quotas and limits, go to
 [Quotas for Amazon Redshift Serverless objects](amazon-redshift-limits.md#serverless-limits-account "amazon-redshift-limits.md#serverless-limits-account").
 
-## Considerations and limitations
-
-for Amazon Redshift Serverless capacity
+## Considerations and limitations for Amazon Redshift Serverless capacity
 
 The following are considerations and limitations for Amazon Redshift Serverless
-capacity. For general Redshift Serverless considerations, see [Considerations when using
-Amazon Redshift Serverless](serverless-usage-considerations.md "serverless-usage-considerations.md").
+capacity. For general Redshift Serverless considerations, see [Considerations when using Amazon Redshift Serverless](serverless-usage-considerations.md "serverless-usage-considerations.md").
 
 - Configurations of 4 base RPUs support managed storage capacity of up to 32 TB. If you're using
   more than 32 TB of managed storage, you can't set the base RPU to less than 8 RPUs.
@@ -287,9 +284,7 @@ order by end_time asc
 For step-by-step instructions for using these features, see
 [Configure monitoring, limits, and alarms in Amazon Redshift Serverless to keep costs predictable](https://aws.amazon.com/blogs/big-data/configure-monitoring-limits-and-alarms-in-amazon-redshift-serverless-to-keep-costs-predictable/ "https://aws.amazon.com/blogs/big-data/configure-monitoring-limits-and-alarms-in-amazon-redshift-serverless-to-keep-costs-predictable/") .
 
-### Considerations when using
-
-AI-driven scaling and optimization
+### Considerations when using AI-driven scaling and optimization
 
 Consider the following when using AI-driven scaling and optimization:
 

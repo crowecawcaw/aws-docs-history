@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Transitioning to ACM
-
-certificates for SSL connections
+# Transitioning to ACM certificates for SSL connections
 
 Amazon Redshift is replacing the SSL certificates on your clusters with [AWS Certificate Manager (ACM)](https://aws.amazon.com/certificate-manager/ "https://aws.amazon.com/certificate-manager/") issued
 certificates. ACM is a trusted public certificate authority (CA) that is trusted by
@@ -46,34 +44,25 @@ identity of the Amazon Redshift cluster when they connect to it. Your action is 
 update your SQL clients and applications to use an updated certificate bundle
 that includes the new trusted CA.
 
-- [Using the
-  latest Amazon Redshift ODBC or JDBC drivers](#connecting-transitioning-to-acm-latest-odbc-jdbc "#connecting-transitioning-to-acm-latest-odbc-jdbc")
-- [Using
-  earlier Amazon Redshift ODBC or JDBC drivers](#connecting-transitioning-to-acm-earlier-odbc-jdbc "#connecting-transitioning-to-acm-earlier-odbc-jdbc")
-- [Using other
-  SSL connection types](#connecting-transitioning-to-acm-other-ssl-types "#connecting-transitioning-to-acm-other-ssl-types")
+- [Using the latest Amazon Redshift ODBC or JDBC drivers](#connecting-transitioning-to-acm-latest-odbc-jdbc "#connecting-transitioning-to-acm-latest-odbc-jdbc")
+- [Using earlier Amazon Redshift ODBC or JDBC drivers](#connecting-transitioning-to-acm-earlier-odbc-jdbc "#connecting-transitioning-to-acm-earlier-odbc-jdbc")
+- [Using other SSL connection types](#connecting-transitioning-to-acm-other-ssl-types "#connecting-transitioning-to-acm-other-ssl-types")
 
-## Using the
-
-latest Amazon Redshift ODBC or JDBC drivers
+## Using the latest Amazon Redshift ODBC or JDBC drivers
 
 The preferred method is to use the latest Amazon Redshift ODBC or JDBC drivers. Amazon Redshift
 drivers beginning with ODBC version 1.3.7.1000 and JDBC version 1.2.8.1005
 automatically manage the transition from an Amazon Redshift self-signed certificate to an
-ACM certificate. To download the latest drivers, see [Configuring a connection for JDBC driver version 2.x for
-Amazon Redshift](jdbc20-install.md "jdbc20-install.md").
+ACM certificate. To download the latest drivers, see [Configuring a connection for JDBC driver version 2.x for Amazon Redshift](jdbc20-install.md "jdbc20-install.md").
 
 If you use the latest Amazon Redshift JDBC driver, it's best not to use
 `-Djavax.net.ssl.trustStore` in JVM options. If you must use
 `-Djavax.net.ssl.trustStore`, import the Redshift certificate
 authority bundle into the truststore it points to. For download information, see
 [SSL](connecting-ssl-support.md#connect-using-ssl "connecting-ssl-support.md#connect-using-ssl"). For
-more information, see [Importing the Amazon Redshift
-certificate authority bundle into a TrustStore](#importing-the-acm-bundle-to-truststore "#importing-the-acm-bundle-to-truststore").
+more information, see [Importing the Amazon Redshift certificate authority bundle into a TrustStore](#importing-the-acm-bundle-to-truststore "#importing-the-acm-bundle-to-truststore").
 
-## Using
-
-earlier Amazon Redshift ODBC or JDBC drivers
+## Using earlier Amazon Redshift ODBC or JDBC drivers
 
 - If your ODBC DSN is configured with `SSLCertPath`,
   overwrite the certificate file in the specified path.
@@ -86,26 +75,20 @@ the following:
 - If your JDBC connection string uses the `sslCert` option,
   remove the `sslCert` option. Then import the Redshift
   certificate authority bundle to your Java TrustStore. For download
-  information, see [SSL](connecting-ssl-support.md#connect-using-ssl "connecting-ssl-support.md#connect-using-ssl"). For more information, see [Importing the Amazon Redshift
-  certificate authority bundle into a TrustStore](#importing-the-acm-bundle-to-truststore "#importing-the-acm-bundle-to-truststore").
+  information, see [SSL](connecting-ssl-support.md#connect-using-ssl "connecting-ssl-support.md#connect-using-ssl"). For more information, see [Importing the Amazon Redshift certificate authority bundle into a TrustStore](#importing-the-acm-bundle-to-truststore "#importing-the-acm-bundle-to-truststore").
 - If you use the Java command line
   `-Djavax.net.ssl.trustStore` option, remove it from
   command line, if possible. Then import the Redshift certificate
   authority bundle to your Java TrustStore. For download information, see
-  [SSL](connecting-ssl-support.md#connect-using-ssl "connecting-ssl-support.md#connect-using-ssl"). For more information, see [Importing the Amazon Redshift
-  certificate authority bundle into a TrustStore](#importing-the-acm-bundle-to-truststore "#importing-the-acm-bundle-to-truststore").
+  [SSL](connecting-ssl-support.md#connect-using-ssl "connecting-ssl-support.md#connect-using-ssl"). For more information, see [Importing the Amazon Redshift certificate authority bundle into a TrustStore](#importing-the-acm-bundle-to-truststore "#importing-the-acm-bundle-to-truststore").
 
-### Importing the Amazon Redshift
-
-certificate authority bundle into a TrustStore
+### Importing the Amazon Redshift certificate authority bundle into a TrustStore
 
 You can use `redshift-keytool.jar` to import CA certificates in
 the Amazon Redshift Certificate Authority bundle into a Java TrustStore or your private
 truststore.
 
-###### To import the Amazon Redshift certificate authority bundle into a
-
-TrustStore
+###### To import the Amazon Redshift certificate authority bundle into a TrustStore
 
 1. Download [redshift-keytool.jar](https://s3.amazonaws.com/redshift-downloads/redshift-keytool.jar "https://s3.amazonaws.com/redshift-downloads/redshift-keytool.jar").
 2. Do one of the following:
@@ -123,9 +106,7 @@ TrustStore
    java -jar redshift-keytool.jar -k `<your_private_trust_store>` -p `<keystore_password>`
    ```
 
-## Using other
-
-SSL connection types
+## Using other SSL connection types
 
 Follow the steps in this section if you connect using any of the
 following:

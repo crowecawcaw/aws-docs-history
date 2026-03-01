@@ -87,8 +87,7 @@ jdbc:redshift://redshift.amazonaws.com:5439/dev;DSILogLevel=6;LogPath=/home/user
 
 Don't duplicate properties in the connection URL.
 
-For a complete list of the configuration options that you can specify, see [Options for JDBC driver version 2.x
-configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md").
+For a complete list of the configuration options that you can specify, see [Options for JDBC driver version 2.x configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md").
 
 ###### Note
 

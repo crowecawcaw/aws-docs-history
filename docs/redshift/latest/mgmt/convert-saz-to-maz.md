@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Converting a Single-AZ data warehouse to a Multi-AZ
-
-data warehouse
+# Converting a Single-AZ data warehouse to a Multi-AZ data warehouse
 
 By converting a Single-AZ data warehouse to a Multi-AZ data warehouse, your data
 warehouse will be highly available with 99.99% SLA guarantee. The performance of an
@@ -18,9 +16,7 @@ Amazon Redshift will not allow you to split existing compute resources while con
 from Single-AZ to Multi-AZ, or vice versa. This operation isn't supported to
 maintain consistent individual query performance.
 
-###### To convert a Single-AZ cluster to a Multi-AZ data warehouse using the
-
-console
+###### To convert a Single-AZ cluster to a Multi-AZ data warehouse using the console
 
 1. Sign in to the AWS Management Console and open the Amazon Redshift console at
    [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").

@@ -2,17 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Referencing the JDBC driver
-
-libraries
+# Referencing the JDBC driver libraries
 
 The JDBC application or Java code that you use to connect to your data must access
 the driver JAR files. In the application or code, specify all the JAR files that you
 extracted from the ZIP archive.
 
-## Using the driver in a JDBC
-
-application
+## Using the driver in a JDBC application
 
 JDBC applications usually provide a set of configuration options for adding a
 list of driver library files. Use the provided options to include all the JAR
@@ -20,9 +16,7 @@ files from the ZIP archive as part of the driver configuration in the
 application. For more information, see the documentation for your JDBC
 application.
 
-## Using the driver in Java
-
-code
+## Using the driver in Java code
 
 You must include all the driver library files in the class path. This is the
 path that the Java Runtime Environment searches for classes and other resource

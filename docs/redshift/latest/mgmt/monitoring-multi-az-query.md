@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Monitoring a query in a Multi-AZ
-
-deployment
+# Monitoring a query in a Multi-AZ deployment
 
 A Multi-AZ deployment uses compute resources that are deployed in both Availability
 Zones and can continue operating in the event that the resources in a given Availability

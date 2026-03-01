@@ -118,9 +118,7 @@ provisioned cluster or an Amazon Redshift Serverless workgroup. Another resource
 you understand security groups is [Security in your VPC](../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md "../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md") in the
 _Amazon VPC User Guide_
 
-###### Restoring a snapshot of a provisioned cluster or Serverless workgroup in a
-
-VPC
+###### Restoring a snapshot of a provisioned cluster or Serverless workgroup in a VPC
 
 A snapshot of a cluster or Serverless workgroup in a VPC can only be restored in a
 VPC, not outside the VPC. You can restore it in the same VPC or another VPC in your

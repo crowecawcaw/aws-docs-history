@@ -13,8 +13,7 @@ performance data graphs for a cluster are designed to give you access to data to
 your most common performance questions. For some performance data (see [Performance data in Amazon Redshift](metrics-listing.md "metrics-listing.md")), you can also use CloudWatch
 to further customize your metrics graphs. For example, you can choose longer times or
 combine metrics across clusters. For more information about working with the CloudWatch
-console, see [Performance metrics in the CloudWatch
-console](using-cloudwatch-console.md "using-cloudwatch-console.md").
+console, see [Performance metrics in the CloudWatch console](using-cloudwatch-console.md "using-cloudwatch-console.md").
 
 To learn how to monitor, isolate, and optimize your queries using the
 query monitoring features on the Amazon Redshift console, watch the following video.
@@ -22,19 +21,12 @@ query monitoring features on the Amazon Redshift console, watch the following vi
 ###### Topics
 
 - [Viewing cluster performance data](performance-metrics-perf.md "performance-metrics-perf.md")
-- [Viewing query history
-  data](performance-metrics-query-history.md "performance-metrics-query-history.md")
-- [Viewing database
-  performance data](performance-metrics-database-performance.md "performance-metrics-database-performance.md")
-- [Viewing workload
-  concurrency and concurrency scaling data](performance-metrics-concurrency-scaling.md "performance-metrics-concurrency-scaling.md")
+- [Viewing query history data](performance-metrics-query-history.md "performance-metrics-query-history.md")
+- [Viewing database performance data](performance-metrics-database-performance.md "performance-metrics-database-performance.md")
+- [Viewing workload concurrency and concurrency scaling data](performance-metrics-concurrency-scaling.md "performance-metrics-concurrency-scaling.md")
 - [Viewing automatic optimization data](performance-metrics-autonomics.md "performance-metrics-autonomics.md")
 - [Viewing queries and loads](performance-metrics-queries.md "performance-metrics-queries.md")
-- [Viewing and analyzing
-  query details](performance-metrics-query-execution-details.md "performance-metrics-query-execution-details.md")
-- [Viewing cluster performance as
-  queries run](performance-metrics-query-cluster.md "performance-metrics-query-cluster.md")
-- [Viewing cluster metrics during load
-  operations](performance-metrics-loads.md "performance-metrics-loads.md")
-- [Viewing the cluster workload
-  breakdown chart](analyze-workload-performance.md "analyze-workload-performance.md")
+- [Viewing and analyzing query details](performance-metrics-query-execution-details.md "performance-metrics-query-execution-details.md")
+- [Viewing cluster performance as queries run](performance-metrics-query-cluster.md "performance-metrics-query-cluster.md")
+- [Viewing cluster metrics during load operations](performance-metrics-loads.md "performance-metrics-loads.md")
+- [Viewing the cluster workload breakdown chart](analyze-workload-performance.md "analyze-workload-performance.md")

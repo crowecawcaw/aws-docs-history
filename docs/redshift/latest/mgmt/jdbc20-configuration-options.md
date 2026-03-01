@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Options for JDBC driver version 2.x
-
-configuration
+# Options for JDBC driver version 2.x configuration
 
 Following, you can find descriptions for the options that you can specify for version
 2.2 of the Amazon Redshift JDBC driver. Configuration options are not case sensitive.
@@ -616,8 +614,7 @@ The full path of the .ini file, including file name. For example:
 IniFile="C:\tools\rsjdbc.ini"
 ```
 
-For information about the .ini file, see [Creating initialization (.ini) files for JDBC driver
-version 2.x](jdbc20-ini-file.md "jdbc20-ini-file.md").
+For information about the .ini file, see [Creating initialization (.ini) files for JDBC driver version 2.x](jdbc20-ini-file.md "jdbc20-ini-file.md").
 
 This parameter is optional.
 
@@ -627,8 +624,7 @@ This parameter is optional.
 - Data Type – String
 
 The name of a section in the .ini file containing the configuration options. For
-information about the .ini file, see [Creating initialization (.ini) files for JDBC driver
-version 2.x](jdbc20-ini-file.md "jdbc20-ini-file.md").
+information about the .ini file, see [Creating initialization (.ini) files for JDBC driver version 2.x](jdbc20-ini-file.md "jdbc20-ini-file.md").
 
 The following example specifies the [Prod] section of the .ini file:
 

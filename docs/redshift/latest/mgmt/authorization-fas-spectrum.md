@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Using a federated identity to
-
-manage Amazon Redshift access to local resources and Amazon Redshift Spectrum external tables
+# Using a federated identity to manage Amazon Redshift access to local resources and Amazon Redshift Spectrum external tables
 
 Using identity federation in AWS with credentials provided from
 `GetDatabaseCredentials` can simplify authorization and access to local
@@ -32,9 +30,7 @@ The benefits of using federated credentials are the following:
 - You can query Amazon Redshift using a user with IAM permissions, rather than only with
   a role.
 
-## Preparing an
-
-identity to log in with federated identity
+## Preparing an identity to log in with federated identity
 
 Before logging in with federated identity, you must perform several preliminary
 steps. These instructions assume you have an existing Redshift Spectrum external schema that
@@ -132,9 +128,7 @@ ALTER SCHEMA my_schema owner to "IAM:my_user";
 SELECT * FROM my_schema.my_table;
 ```
 
-## Getting started with
-
-identity and authorization propagation to Redshift Spectrum
+## Getting started with identity and authorization propagation to Redshift Spectrum
 
 To pass a federated identity to query external tables, you set
 `SESSION` as the value for the `IAM_ROLE` query parameter
@@ -207,16 +201,13 @@ JDBC driver. The minimum driver version required for federated identity is
 2.1.0.9. You can get the JDBC driver from [Download the Amazon Redshift JDBC
 driver, version 2.x](jdbc20-download-driver.md "jdbc20-download-driver.md").
 
-### Additional
-
-resources
+### Additional resources
 
 These links provide additional information for managing access to external
 data.
 
 - You can still access Redshift Spectrum data using an IAM role. For more
-  information, see [Authorizing Amazon Redshift to access AWS services on
-  your behalf](authorizing-redshift-service.md "authorizing-redshift-service.md").
+  information, see [Authorizing Amazon Redshift to access AWS services on your behalf](authorizing-redshift-service.md "authorizing-redshift-service.md").
 - When you manage access to external tables with
   AWS Lake Formation, you can query them using Redshift Spectrum with
   federated IAM identities. You no longer have to manage

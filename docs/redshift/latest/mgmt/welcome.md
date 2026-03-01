@@ -17,9 +17,7 @@ easy-to-use, zero administration environment.
 Regardless of the size of the dataset, Amazon Redshift offers fast query performance using the
 same SQL-based tools and business intelligence applications that you use today.
 
-## Are you a first-time Amazon Redshift
-
-user?
+## Are you a first-time Amazon Redshift user?
 
 If you are a first-time user of Amazon Redshift, we recommend that you begin by reading the
 following sections:

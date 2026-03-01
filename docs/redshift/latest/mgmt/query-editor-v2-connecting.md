@@ -16,8 +16,7 @@ provide parameters required for one of the following authentication methods:
 With this method, connect to your Amazon Redshift data warehouse with your single
 sign-on credentials from your identity provider (IdP). Your cluster or
 workgroup must be enabled for IAM Identity Center in the Amazon Redshift console. For
-help setting up connections to IAM Identity Center, see [Connect Redshift with AWS IAM Identity Center
-for a single sign-on experience](redshift-iam-access-control-idp-connect.md "redshift-iam-access-control-idp-connect.md").
+help setting up connections to IAM Identity Center, see [Connect Redshift with AWS IAM Identity Center for a single sign-on experience](redshift-iam-access-control-idp-connect.md "redshift-iam-access-control-idp-connect.md").
 
 **Federated user**
 
@@ -38,8 +37,7 @@ following tags.
 These tags are forwarded to the
 `redshift:GetClusterCredentials`
 
-API to get credentials for your cluster. For more information, see [Setting up principal tags to
-connect a cluster or workgroup from query editor v2](query-editor-v2-getting-started.md#query-editor-v2-principal-tags-iam "query-editor-v2-getting-started.md#query-editor-v2-principal-tags-iam").
+API to get credentials for your cluster. For more information, see [Setting up principal tags to connect a cluster or workgroup from query editor v2](query-editor-v2-getting-started.md#query-editor-v2-principal-tags-iam "query-editor-v2-getting-started.md#query-editor-v2-principal-tags-iam").
 
 **Temporary credentials using a database user name**
 
@@ -74,8 +72,7 @@ With this method, instead of a database name, you provide a
 **Secret** stored in Secrets Manager that contains your database
 and sign-in credentials.
 
-For information about creating a secret, see [Creating a secret for
-database connection credentials](redshift-secrets-manager-integration-create.md "redshift-secrets-manager-integration-create.md").
+For information about creating a secret, see [Creating a secret for database connection credentials](redshift-secrets-manager-integration-create.md "redshift-secrets-manager-integration-create.md").
 
 When you select a cluster or workgroup with query editor v2, depending on the context, you can
 create, edit, and delete connections using the context (right-click) menu.

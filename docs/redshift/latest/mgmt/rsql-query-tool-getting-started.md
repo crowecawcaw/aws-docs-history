@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Getting started with Amazon Redshift
-
-RSQL
+# Getting started with Amazon Redshift RSQL
 
 Install Amazon Redshift RSQL on a computer with a Linux, macOS, or Microsoft Windows
 operating system.
@@ -20,9 +18,7 @@ operating system.
 
 See the change log and downloads for previous versions at [Amazon Redshift RSQL change log](rsql-query-tool-changelog.md "rsql-query-tool-changelog.md").
 
-## Install RSQL for
-
-Linux
+## Install RSQL for Linux
 
 Follow the steps below to install RSQL for Linux.
 
@@ -91,13 +87,10 @@ export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/lib
 7. Follow the steps in the installer to complete the installation.
    Agree to the terms of the license agreement.
 
-## Install RSQL for
-
-Windows
+## Install RSQL for Windows
 
 Follow the steps below to install RSQL for Windows.
 
-1. Install the ODBC driver: [Downloading and installing the Amazon Redshift ODBC
-   driver](odbc-driver-windows-how-to-install.md "odbc-driver-windows-how-to-install.md").
+1. Install the ODBC driver: [Downloading and installing the Amazon Redshift ODBC driver](odbc-driver-windows-how-to-install.md "odbc-driver-windows-how-to-install.md").
 2. Double-click the RSQL download file to run the installer, then follow the
    prompts to complete the installation.

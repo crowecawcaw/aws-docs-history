@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Configuring cross-Region snapshot copy
-
-for an AWS KMS–encrypted cluster
+# Configuring cross-Region snapshot copy for an AWS KMS–encrypted cluster
 
 When you launch an Amazon Redshift cluster,
 you can configure a snapshot copy grant for a root key in your account in the destination AWS Region.
@@ -14,8 +12,7 @@ AWS Region.
 
 The following procedure describes the process of enabling cross-Region snapshot copy for
 an AWS KMS-encrypted cluster. For more information about encryption in Amazon Redshift and snapshot
-copy grants, see [Copying AWS KMS–encrypted
-snapshots to another AWS Region](working-with-db-encryption.md#configure-snapshot-copy-grant "working-with-db-encryption.md#configure-snapshot-copy-grant").
+copy grants, see [Copying AWS KMS–encrypted snapshots to another AWS Region](working-with-db-encryption.md#configure-snapshot-copy-grant "working-with-db-encryption.md#configure-snapshot-copy-grant").
 
 ###### To configure a cross-Region snapshot for an AWS KMS–encrypted cluster
 

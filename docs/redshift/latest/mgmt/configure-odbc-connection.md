@@ -25,8 +25,7 @@ For installation and configuration information for Amazon Redshift ODBC drivers,
 
 - [Getting the ODBC URL](obtain-odbc-url.md "obtain-odbc-url.md")
 - [Using an Amazon Redshift ODBC driver on Microsoft Windows](install-odbc-driver-windows.md "install-odbc-driver-windows.md")
-- [Using an Amazon Redshift ODBC driver on
-  Linux](install-odbc-driver-linux.md "install-odbc-driver-linux.md")
+- [Using an Amazon Redshift ODBC driver on Linux](install-odbc-driver-linux.md "install-odbc-driver-linux.md")
 - [Using an Amazon Redshift ODBC driver on macOS X](install-odbc-driver-mac.md "install-odbc-driver-mac.md")
 - [ODBC driver options](configure-odbc-options.md "configure-odbc-options.md")
 - [Previous ODBC driver versions](odbc-previous-versions.md "odbc-previous-versions.md")

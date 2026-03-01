@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Amazon Redshift
-
-Integration with Amazon S3 Access Grants
+# Amazon Redshift Integration with Amazon S3 Access Grants
 
 Using integration with Amazon S3 Access Grants, you can seamlessly propagate
 your IAM Identity Center identities to control access to Amazon S3 data. This integration lets you authorize Amazon S3 data
@@ -39,14 +37,10 @@ To set up integration with integration with Amazon S3 Access Grants for Amazon R
 
 ###### Topics
 
-- [Setting up integration with Amazon S3 Access Grants
-  using the AWS Management Console](#redshift-iam-access-control-sso-s3idc-setup-console "#redshift-iam-access-control-sso-s3idc-setup-console")
-- [Enabling integration with Amazon S3 Access Grants
-  using the AWS CLI](#redshift-iam-access-control-sso-s3idc-setup-cli "#redshift-iam-access-control-sso-s3idc-setup-cli")
+- [Setting up integration with Amazon S3 Access Grants using the AWS Management Console](#redshift-iam-access-control-sso-s3idc-setup-console "#redshift-iam-access-control-sso-s3idc-setup-console")
+- [Enabling integration with Amazon S3 Access Grants using the AWS CLI](#redshift-iam-access-control-sso-s3idc-setup-cli "#redshift-iam-access-control-sso-s3idc-setup-cli")
 
-### Setting up integration with Amazon S3 Access Grants
-
-using the AWS Management Console
+### Setting up integration with Amazon S3 Access Grants using the AWS Management Console
 
 1. Open the Amazon Redshift console.
 2. Choose your cluster from the **Clusters** pane.
@@ -59,9 +53,7 @@ The **Identity provider integration** section doesn't appear if you don't have
 IAM Identity Center configured. For more information, see
 [Enabling AWS IAM Identity Center](../../../singlesignon/latest/userguide/get-set-up-for-idc.md "../../../singlesignon/latest/userguide/get-set-up-for-idc.md").
 
-### Enabling integration with Amazon S3 Access Grants
-
-using the AWS CLI
+### Enabling integration with Amazon S3 Access Grants using the AWS CLI
 
 1. To create a new Amazon Redshift IdC application with S3 integration enabled, do the following:
 

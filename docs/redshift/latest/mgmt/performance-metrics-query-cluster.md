@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Viewing cluster performance as
-
-queries run
+# Viewing cluster performance as queries run
 
 You can monitor the performance of your clusters as queries run to identify
 potential bottlenecks and optimize query execution. Viewing cluster performance as
@@ -25,5 +23,4 @@ optimize your provisioned clusters.
    **Schedules**, **Maintenance**, and **Properties** tabs.
 3. Choose the **Query monitoring** tab for more details.
 
-For more information, see [Viewing query history
-data](performance-metrics-query-history.md "performance-metrics-query-history.md").
+For more information, see [Viewing query history data](performance-metrics-query-history.md "performance-metrics-query-history.md").

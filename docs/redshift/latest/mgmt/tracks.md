@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Tracks for Amazon Redshift provisioned
-
-clusters and serverless workgroups
+# Tracks for Amazon Redshift provisioned clusters and serverless workgroups
 
 When Amazon Redshift releases a new version,
 it updates the version of your Amazon Redshift data warehouse (serverless workgroup or provisioned cluster). You can control whether
@@ -128,9 +126,7 @@ version.
 For provisioned clusters, the **Release status** column in the Amazon Redshift console list of
 Amazon Redshift data warehouses indicates whether one of your resources is available for upgrade.
 
-## Determining the workgroup or cluster
-
-version
+## Determining the workgroup or cluster version
 
 You can determine the Amazon Redshift serverless workgroup version or provisioned cluster version engine with the Amazon Redshift
 console.

@@ -27,9 +27,7 @@ You can create one or more namespaces and workgroups. Each namespace can have on
 workgroup associated with it. Conversely, each workgroup can be associated with only one
 namespace.
 
-## Workgroups and namespaces
-
-using the console
+## Workgroups and namespaces using the console
 
 Setting up Amazon Redshift Serverless involves walking through several configuration steps. When
 you follow the steps to set up Amazon Redshift Serverless, you create a namespace and workgroup, and
@@ -43,9 +41,7 @@ process, you specify settings for your workgroup and namespace.
 After you set up the environment, [Workgroup properties](serverless-console-workgroups.md#serverless-workgroup-describe "serverless-console-workgroups.md#serverless-workgroup-describe") and [Namespace properties](serverless-console-configure-namespace-working.md#serverless-console-namespace-config "serverless-console-configure-namespace-working.md#serverless-console-namespace-config") help you get familiar with
 the settings.
 
-## Workgroups and namespaces
-
-using the AWS Command Line Interface and Amazon Redshift Serverless API
+## Workgroups and namespaces using the AWS Command Line Interface and Amazon Redshift Serverless API
 
 Aside from using the AWS console, you can also use the AWS CLI or the Amazon Redshift Serverless
 API to interact with workgroups and namespaces. The table below lists the API and

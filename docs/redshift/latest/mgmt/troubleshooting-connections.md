@@ -2,16 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Troubleshooting connection issues in
-
-Amazon Redshift
+# Troubleshooting connection issues in Amazon Redshift
 
 If you have issues with connecting to your cluster from a SQL client tool, there are
 several things that you can check to narrow down the problem. If you are using SSL or
 server certificates, first remove this complexity while you troubleshoot the connection
 issue. Then add this back when you have found a solution. For more information, see
-[Configuring security options for
-connections](connecting-ssl-support.md "connecting-ssl-support.md").
+[Configuring security options for connections](connecting-ssl-support.md "connecting-ssl-support.md").
 
 For information about behavior changes in Amazon Redshift functionality that may affect your application, see
 [Behavior changes in Amazon Redshift](behavior-changes.md "behavior-changes.md").
@@ -20,17 +17,14 @@ For information about behavior changes in Amazon Redshift functionality that may
 
 Amazon Redshift has changed the way that SSL certificates are managed. If you have trouble
 connecting using SSL, you might need to update your current trust root CA
-certificates. For more information, see [Transitioning to ACM
-certificates for SSL connections](connecting-transitioning-to-acm-certs.md "connecting-transitioning-to-acm-certs.md").
+certificates. For more information, see [Transitioning to ACM certificates for SSL connections](connecting-transitioning-to-acm-certs.md "connecting-transitioning-to-acm-certs.md").
 
 The following section has some example error messages and possible solutions for
 connection issues. Because different SQL client tools provide different error messages,
 this is not a complete list, but should be a good starting point for troubleshooting
 issues.
 
-## Connecting from outside
-
-of Amazon EC2 and encountering a firewall timeout issue
+## Connecting from outside of Amazon EC2 and encountering a firewall timeout issue
 
 Your client connection to the database appears to hang or timeout when
 running long queries, such as a COPY command. In this case, you might observe
@@ -38,9 +32,7 @@ that the Amazon Redshift console displays that the query has completed, but the 
 tool itself still appears to be running the query. The results of the query
 might be missing or incomplete depending on when the connection stopped.
 
-### Possible
-
-solutions
+### Possible solutions
 
 This issue happens when you connect to Amazon Redshift from a machine other than an
 Amazon EC2 instance. In this case, idle connections are terminated by an intermediate
@@ -53,15 +45,11 @@ To avoid these timeouts, we recommend the following changes:
 - Increase client system values that deal with TCP/IP timeouts. Make
   these changes on the computer you are using to connect to your cluster.
   The timeout period should be adjusted for your client and network. For
-  more information, see [Change
-  TCP/IP timeout settings](#connecting-firewall-guidance.change-tcpip-settings "#connecting-firewall-guidance.change-tcpip-settings").
+  more information, see [Change TCP/IP timeout settings](#connecting-firewall-guidance.change-tcpip-settings "#connecting-firewall-guidance.change-tcpip-settings").
 - Optionally, set keepalive behavior at the DSN level. For more
-  information, see [Change DSN
-  timeout settings](#connecting-firewall-guidance.change-dsn-settings "#connecting-firewall-guidance.change-dsn-settings").
+  information, see [Change DSN timeout settings](#connecting-firewall-guidance.change-dsn-settings "#connecting-firewall-guidance.change-dsn-settings").
 
-### Change
-
-TCP/IP timeout settings
+### Change TCP/IP timeout settings
 
 To change TCP/IP timeout settings, configure the timeout settings according to
 the operating system that you use to connect to your cluster.
@@ -130,9 +118,7 @@ sysctl net.inet.tcp.keepinit
 sysctl net.inet.tcp.always_keepalive
 ```
 
-### Change DSN
-
-timeout settings
+### Change DSN timeout settings
 
 You can set keepalive behavior at the DSN level if you choose. You do this by
 adding or modifying the following parameters in the odbc.ini file:
@@ -159,9 +145,7 @@ behavior. On Windows, you can find the TCP/IP parameters in the registry in
 On Linux and macOS, you can find the TCP/IP parameters can be found in the
 sysctl.conf file.
 
-## Connection is refused or
-
-fails
+## Connection is refused or fails
 
 When your connection if refused or fails, you may receive an error similar to one of the following.
 
@@ -173,9 +157,7 @@ When your connection if refused or fails, you may receive an error similar to on
 - "Connection refused. Check that the hostname and port are correct and that
   the postmaster is accepting TCP/IP connections."
 
-### Possible
-
-solutions
+### Possible solutions
 
 Generally, when you receive an error message indicating that there is a failure to
 establish a connection, it is an issue with permission to access the cluster or with
@@ -204,16 +186,12 @@ In some cases, you might have a layer between your client and server, such as a
 firewall. In these cases, make sure that the firewall accepts inbound connections
 over the port that you configured for your cluster.
 
-## Client and driver are
-
-incompatible
+## Client and driver are incompatible
 
 If your client and driver are incompatible, you may receive an error that says, "The specified DSN contains an architecture mismatch between the Driver and
 Application."
 
-### Possible
-
-solutions
+### Possible solutions
 
 When you attempt to connect and get an error about an architecture mismatch, this
 means that the client tool and the driver aren't compatible. This occurs
@@ -223,17 +201,13 @@ driver. Sometimes 64-bit client tools can use 32-bit drivers, but you can't use
 32-bit applications with 64-bit drivers. Make sure that the driver and client tool
 are using the same version of the system architecture.
 
-## Queries appear to hang and sometimes fail
-
-to reach the cluster
+## Queries appear to hang and sometimes fail to reach the cluster
 
 You experience an issue with queries completing, where the queries appear to be
 running but hang in the SQL client tool. Sometimes the queries fail to appear in the
 cluster, such as in system tables or the Amazon Redshift console.
 
-### Possible
-
-solutions
+### Possible solutions
 
 This issue can happen due to packet drop. In this case, there is a difference in
 the maximum transmission unit (MTU) size in the network path between two Internet
@@ -249,15 +223,12 @@ one of the following:
   group with an inbound custom Internet Control Message Protocol (ICMP) rule
   that returns `Destination Unreachable`. The rule thus instructs
   the originating host to use the lowest MTU size along the network path. For
-  details on this approach, see [Configuring security groups to allow
-  ICMP "destination unreachable"](#configure-custom-icmp "#configure-custom-icmp").
+  details on this approach, see [Configuring security groups to allow ICMP "destination unreachable"](#configure-custom-icmp "#configure-custom-icmp").
 - If your cluster uses the EC2-Classic platform, or you can't allow the
   ICMP inbound rule, disable TCP/IP jumbo frames so that Ethernet v2 frames
   are used. For details on this approach, see [Configuring the MTU of an instance](#set-mtu "#set-mtu").
 
-### Configuring security groups to allow
-
-ICMP "destination unreachable"
+### Configuring security groups to allow ICMP "destination unreachable"
 
 When there is a difference in the MTU size in the network between two hosts,
 first make sure that your network settings don't block path MTU discovery
@@ -295,9 +266,7 @@ size. However, this option reduces your maximum network throughput for the
 instance entirely, not just for connections to Amazon Redshift. For more information, see
 the following procedures.
 
-###### To set MTU on a Microsoft Windows operating
-
-system
+###### To set MTU on a Microsoft Windows operating system
 
 If your client runs in a Microsoft Windows operating system, you can
 review and set the MTU value for the Ethernet adapter by using the
@@ -321,9 +290,7 @@ netsh interface ipv4 set subinterface "Ethernet" mtu=1500 store=persistent
 After you set this value, restart your computer for the changes to
 take effect.
 
-###### To set MTU on a Linux operating
-
-system
+###### To set MTU on a Linux operating system
 
 If your client runs in a Linux operating system, you can review and set
 the MTU value by using the `ip` command.

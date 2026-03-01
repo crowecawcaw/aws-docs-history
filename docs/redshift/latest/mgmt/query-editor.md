@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Querying a database using the Amazon Redshift query
-
-editor v1
+# Querying a database using the Amazon Redshift query editor v1
 
 Using the query editor is an easy way to run queries on databases hosted by your Amazon Redshift
 cluster. After creating your cluster, you can immediately run queries by using the query
@@ -26,8 +24,7 @@ custom IAM policy, make sure that you update it. Use
 - Permission to manage query editor statement results requires the statement
   owner user.
 - Permission to use Secrets Manager to connect to a database has been added.
-  For more information, see [Permissions
-  required to use the Amazon Redshift console query editor](redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor "redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor").
+  For more information, see [Permissions required to use the Amazon Redshift console query editor](redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor "redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor").
 
 When you connect to your cluster from the new query editor, you can use one of two
 authentication methods.

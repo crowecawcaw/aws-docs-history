@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Scenarios for
-
-Amazon Redshift using AWS SDKs
+# Scenarios for Amazon Redshift using AWS SDKs
 
 The following code examples show you how to implement common scenarios in Amazon Redshift
 with AWS SDKs. These scenarios show you how to accomplish specific tasks by calling multiple functions

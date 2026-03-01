@@ -11,9 +11,7 @@ connector:
 - Conda
 - Cloning the GitHub repository
 
-## Installing the Python connector from
-
-PyPI
+## Installing the Python connector from PyPI
 
 To install the Python connector from the Python Package Index (PyPI), you can use
 pip. To do this, run the following command.
@@ -37,9 +35,7 @@ Optionally, you can install pandas and NumPy with the connector.
 
 For more information on pip, see the [pip site](https://pip.pypa.io/en/stable/ "https://pip.pypa.io/en/stable/").
 
-## Installing the Python connector from
-
-Conda
+## Installing the Python connector from Conda
 
 You can install the Python connector from Anaconda.org.
 
@@ -47,9 +43,7 @@ You can install the Python connector from Anaconda.org.
 >>>conda install -c conda-forge redshift_connector
 ```
 
-## Installing the Python connector by
-
-cloning the GitHub repository from AWS
+## Installing the Python connector by cloning the GitHub repository from AWS
 
 To install the Python connector from source, clone the GitHub repository from
 AWS. After you install Python and virtualenv, set up your environment and install

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Viewing workload
-
-concurrency and concurrency scaling data
+# Viewing workload concurrency and concurrency scaling data
 
 By using concurrency scaling metrics in Amazon Redshift, you can do the following:
 
@@ -49,9 +47,7 @@ The tab includes the following graphs:
      of concurrency scaling clusters that have active query processing
      activity.
 
-## Workload
-
-concurrency graphs
+## Workload concurrency graphs
 
 The following examples show graphs that are displayed in the new Amazon Redshift console.
 To create similar graphs in Amazon CloudWatch, you can use the concurrency scaling and

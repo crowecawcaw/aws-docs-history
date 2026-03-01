@@ -14,14 +14,11 @@ During the migration operation, your cluster is available in read-only mode, and
 cluster status appears as **resizing**.
 
 If your cluster is configured to enable cross-AWS Region snapshot copy, you must
-disable it before changing encryption. For more information, see [Copying a snapshot to another AWS
-Region](cross-region-snapshot-copy.md "cross-region-snapshot-copy.md")
-and [Configuring cross-Region snapshot copy
-for an AWS KMS–encrypted cluster](xregioncopy-kms-encrypted-snapshot.md "xregioncopy-kms-encrypted-snapshot.md"). You can't enable hardware
+disable it before changing encryption. For more information, see [Copying a snapshot to another AWS Region](cross-region-snapshot-copy.md "cross-region-snapshot-copy.md")
+and [Configuring cross-Region snapshot copy for an AWS KMS–encrypted cluster](xregioncopy-kms-encrypted-snapshot.md "xregioncopy-kms-encrypted-snapshot.md"). You can't enable hardware
 security module (HSM) encryption by modifying the cluster. Instead, create a new,
 HSM-encrypted cluster and migrate your data to the new cluster. For more information,
-see [Migrating to an HSM-encrypted
-cluster](migrating-to-an-encrypted-cluster.md "migrating-to-an-encrypted-cluster.md").
+see [Migrating to an HSM-encrypted cluster](migrating-to-an-encrypted-cluster.md "migrating-to-an-encrypted-cluster.md").
 
 Amazon Redshift console
 

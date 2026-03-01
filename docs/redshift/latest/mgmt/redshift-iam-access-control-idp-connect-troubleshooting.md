@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Troubleshooting
-
-connections from Amazon Redshift query editor v2
+# Troubleshooting connections from Amazon Redshift query editor v2
 
 This list details errors that commonly occur and can help you to connect to your
 Redshift database with query editor v2, using an AWS IAM Identity Center identity.

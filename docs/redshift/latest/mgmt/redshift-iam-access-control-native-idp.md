@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Native identity provider (IdP)
-
-federation for Amazon Redshift
+# Native identity provider (IdP) federation for Amazon Redshift
 
 Managing identities and permissions for Amazon Redshift is made easier with native identity provider
 federation because it leverages your existing identity provider to simplify authentication and
@@ -22,9 +20,7 @@ For information about using session roles that are transferred from identity pro
 (IdP) groups, see [PG_GET_SESSION_ROLES](../dg/PG_GET_SESSION_ROLES.md "../dg/PG_GET_SESSION_ROLES.md") in the
 _Amazon Redshift Database Developer Guide_.
 
-## Native identity provider
-
-(IdP) federation
+## Native identity provider (IdP) federation
 
 To complete the preliminary setup between the identity provider and Amazon Redshift, you perform a
 couple of steps: First, you register Amazon Redshift as a third-party application with your identity

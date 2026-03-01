@@ -15,8 +15,7 @@ For more information about configuring a DSN, see [Using an Amazon Redshift ODBC
 
 In macOS X, you set driver configuration options in your
 `odbc.ini` and `amazon.redshiftodbc.ini` files, as
-described in [Use an ODBC driver manager to
-configure the driver](odbc-driver-configure-mac.md "odbc-driver-configure-mac.md"). Configuration options set
+described in [Use an ODBC driver manager to configure the driver](odbc-driver-configure-mac.md "odbc-driver-configure-mac.md"). Configuration options set
 in an `amazon.redshiftodbc.ini` file apply to all connections. In
 contrast, configuration options set in an `odbc.ini` file are
 specific to a connection. Configuration options set in `odbc.ini`

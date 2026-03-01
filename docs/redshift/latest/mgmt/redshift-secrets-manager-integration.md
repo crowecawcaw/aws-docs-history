@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Managing Amazon Redshift admin passwords
-
-using AWS Secrets Manager
+# Managing Amazon Redshift admin passwords using AWS Secrets Manager
 
 Amazon Redshift can integrate with AWS Secrets Manager to generate and manage your admin credentials
 inside an encrypted secret. With AWS Secrets Manager, you can replace your admin passwords with an API
@@ -36,15 +34,12 @@ retrieve the secret from AWS Secrets Manager using the Secrets Manager console o
 database with credentials in an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/retrieving-secrets_jdbc.md "../../../secretsmanager/latest/userguide/retrieving-secrets_jdbc.md") in the
 _AWS Secrets Manager User Guide_.
 
-## Permissions required
-
-for AWS Secrets Manager integration
+## Permissions required for AWS Secrets Manager integration
 
 Users must have the required permissions to perform operations related to AWS Secrets Manager
 integration. Create IAM policies that grant permissions to perform specific API
 operations on the specified resources they need. Then attach those policies to the IAM
-permission sets or roles that require those permissions. For more information, see [Identity and access management in
-Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
+permission sets or roles that require those permissions. For more information, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
 
 The user who specifies that Amazon Redshift manages the admin password in AWS Secrets Manager must have
 permissions to perform the following operations:
@@ -67,9 +62,7 @@ to the permissions listed above.
 - `kms:CreateGrant`
 - `kms:RetireGrant`
 
-## Admin
-
-password secret rotation
+## Admin password secret rotation
 
 By default, Amazon Redshift automatically rotates your secret every 30 days to ensure your
 credentials don’t stay the same for prolonged periods. When Amazon Redshift rotates an admin
@@ -81,9 +74,7 @@ You can rotate a secret immediately instead of waiting for a scheduled rotation 
 using AWS Secrets Manager. For more information on rotating secrets, see [Rotate AWS Secrets Manager
 secrets](../../../secretsmanager/latest/userguide/retrieving-secrets_jdbc.md "../../../secretsmanager/latest/userguide/retrieving-secrets_jdbc.md") in the _AWS Secrets Manager User Guide_.
 
-## Considerations
-
-using AWS Secrets Manager with Amazon Redshift
+## Considerations using AWS Secrets Manager with Amazon Redshift
 
 When using AWS Secrets Manager to manage your provisioned cluster or serverless namespace’s
 admin credentials, consider the following:

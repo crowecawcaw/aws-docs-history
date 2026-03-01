@@ -40,14 +40,11 @@ using AWS Backup see [Amazon Redshift snapshots and backups](working-with-snapsh
 
 ###### Topics
 
-- [Considerations for using AWS Backup
-  with Amazon Redshift](#managing-aws-backup-considerations "#managing-aws-backup-considerations")
+- [Considerations for using AWS Backup with Amazon Redshift](#managing-aws-backup-considerations "#managing-aws-backup-considerations")
 - [Limitations for using AWS Backup with Amazon Redshift](#managing-aws-backup-limitations "#managing-aws-backup-limitations")
 - [Managing AWS Backup with Amazon Redshift](#managing-aws-backup-overview "#managing-aws-backup-overview")
 
-## Considerations for using AWS Backup
-
-with Amazon Redshift
+## Considerations for using AWS Backup with Amazon Redshift
 
 Following are considerations for using AWS Backup with Amazon Redshift:
 
@@ -78,8 +75,7 @@ Following are considerations for using AWS Backup with Amazon Redshift:
   These permissions apply to the target data warehouse type, not to source snapshot type.
   For example, to restore a cluster snapshot to a namespace, you would need the
   `RestoreFromSnapshot` permission, not `RestoreFromClusterSnapshot`. For more information
-  on managing IAM policies, see [Identity and access management in
-  Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
+  on managing IAM policies, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
 
 ## Limitations for using AWS Backup with Amazon Redshift
 

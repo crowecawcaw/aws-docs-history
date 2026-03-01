@@ -73,9 +73,7 @@ When using Amazon Redshift relocation, be aware of the following limitations:
 You can manage the settings for cluster relocation using the Amazon Redshift
 console.
 
-### Turning off relocation when creating a new
-
-cluster
+### Turning off relocation when creating a new cluster
 
 Use the following procedure to turn off relocation when creating a new
 cluster.

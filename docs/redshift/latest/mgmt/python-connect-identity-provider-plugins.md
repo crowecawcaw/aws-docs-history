@@ -2,18 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Using identity provider
+# Using identity provider plugins
 
-plugins
+For general information on how to use identity provider plugins, see [Options for providing IAM credentials](options-for-providing-iam-credentials.md "options-for-providing-iam-credentials.md"). For more information about
+managing IAM identities, including best practices for IAM roles, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
 
-For general information on how to use identity provider plugins, see [Options for providing IAM
-credentials](options-for-providing-iam-credentials.md "options-for-providing-iam-credentials.md"). For more information about
-managing IAM identities, including best practices for IAM roles, see [Identity and access management in
-Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
-
-## Authentication using
-
-the ADFS identity provider plugin
+## Authentication using the ADFS identity provider plugin
 
 Following is an example of using the Active Directory Federation Service (ADFS)
 identity provider plugin to authenticate a user connecting to an Amazon Redshift
@@ -32,9 +26,7 @@ database.
 )
 ```
 
-## Authentication using the
-
-Azure identity provider plugin
+## Authentication using the Azure identity provider plugin
 
 Following is an example of authentication using the Azure identity provider
 plugin. You can create values for a `client_id` and
@@ -57,9 +49,7 @@ following.
 )
 ```
 
-## Authentication using the
-
-AWS IAM Identity Center identity provider plugin
+## Authentication using the AWS IAM Identity Center identity provider plugin
 
 Following is an example of authentication using the AWS IAM Identity Center identity provider
 plugin.
@@ -78,9 +68,7 @@ idc_client_display_name='Test Display Name',
 )
 ```
 
-## Authentication
-
-using Azure Browser identity provider plugin
+## Authentication using Azure Browser identity provider plugin
 
 Following is an example of using the Azure Browser identity provider plugin to
 authenticate a user connecting to an Amazon Redshift database.
@@ -100,9 +88,7 @@ are provided by the user.
 )
 ```
 
-## Authentication using the
-
-Okta identity provider plugin
+## Authentication using the Okta identity provider plugin
 
 Following is an example of authentication using the Okta identity provider plugin.
 You can obtain the values for `idp_host`, `app_id` and
@@ -123,9 +109,7 @@ You can obtain the values for `idp_host`, `app_id` and
 )
 ```
 
-## Authentication using
-
-JumpCloud with a generic SAML browser identity provider plugin
+## Authentication using JumpCloud with a generic SAML browser identity provider plugin
 
 Following is an example of using JumpCloud with a generic SAML browser identity
 provider plugin for authentication.

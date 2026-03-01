@@ -107,8 +107,7 @@ runtime to a fixed value, choose a value of 1–20. 7. Do one or more of the fol
     	+ **User groups**
     	+ **Query groups**
     	+ **User roles**
-    For more information about these properties, see [Properties for the WLM configuration
-     parameter](workload-mgmt-config.md#wlm-json-config-properties "workload-mgmt-config.md#wlm-json-config-properties").
+    For more information about these properties, see [Properties for the WLM configuration parameter](workload-mgmt-config.md#wlm-json-config-properties "workload-mgmt-config.md#wlm-json-config-properties").
 
 
     ###### Important
@@ -133,8 +132,7 @@ runtime to a fixed value, choose a value of 1–20. 7. Do one or more of the fol
 ###### Note
 
 Some changes require a cluster reboot regardless of this
-setting. For more information, see [WLM dynamic and static
-properties](workload-mgmt-config.md#wlm-dynamic-and-static-properties "workload-mgmt-config.md#wlm-dynamic-and-static-properties"). 9. Choose **Save**.
+setting. For more information, see [WLM dynamic and static properties](workload-mgmt-config.md#wlm-dynamic-and-static-properties "workload-mgmt-config.md#wlm-dynamic-and-static-properties"). 9. Choose **Save**.
 
 AWS CLI
 To configure Amazon Redshift parameters by using the AWS CLI, you use the [modify-cluster-parameter-group](../../../cli/latest/reference/redshift/modify-cluster-parameter-group.md "../../../cli/latest/reference/redshift/modify-cluster-parameter-group.md") command for a specific parameter
@@ -166,8 +164,7 @@ clusters, see [Rebooting a cluster](reboot-cluster.md "reboot-cluster.md").
 The `wlm_json_configuration` parameter contains some
 properties that are dynamic and do not require you to reboot associated
 clusters for the changes to be applied. For more information about
-dynamic and static properties, see [WLM dynamic and static
-properties](workload-mgmt-config.md#wlm-dynamic-and-static-properties "workload-mgmt-config.md#wlm-dynamic-and-static-properties").
+dynamic and static properties, see [WLM dynamic and static properties](workload-mgmt-config.md#wlm-dynamic-and-static-properties "workload-mgmt-config.md#wlm-dynamic-and-static-properties").
 
 The following syntax shows how to use the
 `modify-cluster-parameter-group` command to configure a

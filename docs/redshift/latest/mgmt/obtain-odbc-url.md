@@ -52,5 +52,4 @@ Driver={Amazon Redshift (x64)};
                     Port=5439
 ```
 
-For information about how to get your ODBC connection, see [Finding your cluster connection
-string](connecting-connection-string.md "connecting-connection-string.md").
+For information about how to get your ODBC connection, see [Finding your cluster connection string](connecting-connection-string.md "connecting-connection-string.md").

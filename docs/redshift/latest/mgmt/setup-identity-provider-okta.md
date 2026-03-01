@@ -8,9 +8,7 @@ You can use Okta as an identity provider (IdP) to access your Amazon Redshift cl
 This tutorial shows you how you can use Okta as an identity provider (IdP) to
 access your Amazon Redshift cluster.
 
-## Step 1: Set up Okta and
-
-your AWS account to trust each other
+## Step 1: Set up Okta and your AWS account to trust each other
 
 The following procedure describes how to set up a trust
 relationship.
@@ -82,12 +80,9 @@ relationship.
     created for SAML 2.0 federation on the IAM console. For detailed
     steps, see [Creating IAM Policies (Console)](../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-start "../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_create-start") in the
     _IAM User Guide_. For an Azure AD example,
-    see [Setting up JDBC or ODBC single
-    sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
+    see [Setting up JDBC or ODBC single sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
 
-## Step 2: Set up JDBC or
-
-ODBC for authentication to Okta
+## Step 2: Set up JDBC or ODBC for authentication to Okta
 
 JDBC
 
@@ -99,8 +94,7 @@ JDBC
 You can use any client that uses a JDBC driver to
 connect using Okta single sign-on or use a language like
 Java to connect using a script. For installation and
-configuration information, see [Configuring a connection for JDBC driver version 2.x for
-Amazon Redshift](jdbc20-install.md "jdbc20-install.md").
+configuration information, see [Configuring a connection for JDBC driver version 2.x for Amazon Redshift](jdbc20-install.md "jdbc20-install.md").
 
 For example, you can use SQLWorkbench/J as the client.
 When you configure SQLWorkbench/J, the URL of your

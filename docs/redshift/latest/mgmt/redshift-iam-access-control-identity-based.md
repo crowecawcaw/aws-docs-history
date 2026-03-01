@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Using identity-based policies
-
-(IAM policies) for Amazon Redshift
+# Using identity-based policies (IAM policies) for Amazon Redshift
 
 This topic provides examples of identity-based policies in which an account administrator
 can attach permissions policies to IAM identities (that is, users, groups, and roles).
@@ -13,8 +11,7 @@ can attach permissions policies to IAM identities (that is, users, groups, and r
 
 We recommend that you first review the introductory topics that explain the basic
 concepts and options available for you to manage access to your Amazon Redshift resources. For more
-information, see [Overview of managing access permissions
-to your Amazon Redshift resources](redshift-iam-access-control-overview.md "redshift-iam-access-control-overview.md").
+information, see [Overview of managing access permissions to your Amazon Redshift resources](redshift-iam-access-control-overview.md "redshift-iam-access-control-overview.md").
 
 The following shows an example of a permissions policy. The policy allows a user to
 create, delete, modify, and reboot all clusters, and then denies permission to delete or
@@ -69,9 +66,7 @@ The policy has two statements:
   clusters owned by the root AWS account where the cluster identifier begins with
   `production`.
 
-## AWS managed policies for
-
-Amazon Redshift
+## AWS managed policies for Amazon Redshift
 
 AWS addresses many common use cases by providing standalone IAM policies that are
 created and administered by AWS. Managed policies grant necessary permissions for common
@@ -86,9 +81,7 @@ that require those permissions.
 The following sections describe AWS managed policies, which you can attach to users in
 your account, and are specific to Amazon Redshift.
 
-## Amazon Redshift updates to AWS managed
-
-policies
+## Amazon Redshift updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Redshift since this service began
 tracking these changes. For automatic alerts about changes to this page, subscribe to the
@@ -256,17 +249,13 @@ You can also create your own custom IAM policies to allow permissions for Amazon
 operations and resources. You can attach these custom policies to the IAM roles or groups
 that require those permissions.
 
-## Permissions required to use
-
-Redshift Spectrum
+## Permissions required to use Redshift Spectrum
 
 Amazon Redshift Spectrum requires permissions to other AWS services to access resources. For details
 about permissions in IAM policies for Redshift Spectrum, see [IAM policies for Amazon Redshift Spectrum](../dg/c-spectrum-iam-policies.md "../dg/c-spectrum-iam-policies.md") in the
 _Amazon Redshift Database Developer Guide._
 
-## Permissions
-
-required to use the Amazon Redshift console
+## Permissions required to use the Amazon Redshift console
 
 For a user to work with the Amazon Redshift console, that user must have a minimum set of
 permissions that allows the user to describe the Amazon Redshift resources for their AWS account.
@@ -277,18 +266,14 @@ If you create an IAM policy that is more restrictive than the minimum required
 permissions, the console doesn't function as intended for users with that IAM policy.
 To ensure that those users can still use the Amazon Redshift console, also attach the
 `AmazonRedshiftReadOnlyAccess` managed policy to the user. How to do this is
-described in [AWS managed policies for
-Amazon Redshift](#redshift-policy-resources.managed-policies "#redshift-policy-resources.managed-policies").
+described in [AWS managed policies for Amazon Redshift](#redshift-policy-resources.managed-policies "#redshift-policy-resources.managed-policies").
 
-For information to give a user access to the query editor on the Amazon Redshift console, see [Permissions
-required to use the Amazon Redshift console query editor](#redshift-policy-resources.required-permissions.query-editor "#redshift-policy-resources.required-permissions.query-editor").
+For information to give a user access to the query editor on the Amazon Redshift console, see [Permissions required to use the Amazon Redshift console query editor](#redshift-policy-resources.required-permissions.query-editor "#redshift-policy-resources.required-permissions.query-editor").
 
 You don't need to allow minimum console permissions for users that are making calls only
 to the AWS CLI or the Amazon Redshift API.
 
-## Permissions
-
-required to use the Amazon Redshift console query editor
+## Permissions required to use the Amazon Redshift console query editor
 
 For a user to work with the Amazon Redshift query editor, that user must have a minimum set of
 permissions to Amazon Redshift and Amazon Redshift Data API operations. To connect to a database using a secret,
@@ -325,9 +310,7 @@ To allow a user to retrieve the results of SQL statements of others in the same 
 role, create your own policy without the condition to limit access to the current user. Also
 limit access to change a policy to an administrator.
 
-## Permissions
-
-required to use the query editor v2
+## Permissions required to use the query editor v2
 
 For a user to work with the Amazon Redshift query editor v2, that user must have a minimum set of permissions
 to Amazon Redshift, the query editor v2 operations, and other AWS services such as AWS Key Management Service, AWS Secrets Manager, and
@@ -387,8 +370,7 @@ assertion provided by your IdP.
 
 Follow the instructions for your Identity provider (IdP) to populate the SAML attribute
 with the content coming from your directory. For more information about Identity providers
-(IdPs) and Amazon Redshift, see [Using IAM authentication to
-generate database user credentials](generating-user-credentials.md "generating-user-credentials.md") and [Identity providers and
+(IdPs) and Amazon Redshift, see [Using IAM authentication to generate database user credentials](generating-user-credentials.md "generating-user-credentials.md") and [Identity providers and
 federation](../../../IAM/latest/UserGuide/id_roles_providers.md "../../../IAM/latest/UserGuide/id_roles_providers.md") in the _IAM User Guide_.
 
 The `sqlworkbench:CreateNotebookVersion` grants permission to get the current
@@ -405,9 +387,7 @@ notebook cells in the version. This user without the
 content of a notebook’s cells by first creating a version and then getting this created
 version.
 
-## Permissions required to use the Amazon Redshift
-
-scheduler
+## Permissions required to use the Amazon Redshift scheduler
 
 When you use the Amazon Redshift scheduler, you set up an IAM role with a trust relationship to
 the Amazon Redshift scheduler (`scheduler.redshift.amazonaws.com`) to allow the
@@ -483,9 +463,7 @@ The IAM role you create has trusted entities of
 also has an attached policy that allows a supported Amazon Redshift API action, such as,
 `"redshift:ResizeCluster"`.
 
-## Permissions required to use the
-
-Amazon EventBridge scheduler
+## Permissions required to use the Amazon EventBridge scheduler
 
 When you use the Amazon EventBridge scheduler, you set up an IAM role with a trust relationship
 to the EventBridge scheduler (`events.amazonaws.com`) to allow the scheduler
@@ -542,9 +520,7 @@ The IAM role that you create has a trusted entity of
 `events.amazonaws.com`. It also has an attached policy that allows supported Amazon Redshift
 Data API actions, such as, `"redshift-data:*"`.
 
-## Permissions required to use Amazon Redshift machine learning
-
-(ML)
+## Permissions required to use Amazon Redshift machine learning (ML)
 
 Following, you can find a description of the permissions required to use Amazon Redshift
 machine learning (ML) for different use cases.
@@ -1134,29 +1110,21 @@ JSON
 
 For more information about Amazon Redshift ML, see [Using machine learning in Amazon Redshift](../dg/machine_learning.md "../dg/machine_learning.md"), [CREATE MODEL](../dg/r_CREATE_MODEL.md "../dg/r_CREATE_MODEL.md"), or [CREATE EXTERNAL MODEL](../dg/r_create_external_model.md "../dg/r_create_external_model.md").
 
-## Permissions for streaming
-
-ingestion
+## Permissions for streaming ingestion
 
 Streaming ingestion works with two services. These are Kinesis Data Streams and Amazon MSK.
 
-### Permissions required to use
-
-streaming ingestion with Kinesis Data Streams
+### Permissions required to use streaming ingestion with Kinesis Data Streams
 
 A procedure with a managed-policy example is available at [Getting
 started with streaming ingestion from Amazon Kinesis Data Streams](../dg/materialized-view-streaming-ingestion-getting-started.md "../dg/materialized-view-streaming-ingestion-getting-started.md").
 
-### Permissions required to use
-
-streaming ingestion with Amazon MSK
+### Permissions required to use streaming ingestion with Amazon MSK
 
 A procedure with a managed-policy example is available at [Getting
 started with streaming ingestion from Amazon Managed Streaming for Apache Kafka](../dg/materialized-view-streaming-ingestion-getting-started-MSK.md "../dg/materialized-view-streaming-ingestion-getting-started-MSK.md").
 
-## Permissions required to use the data sharing
-
-API operations
+## Permissions required to use the data sharing API operations
 
 To control access to the data sharing API operations, use IAM action-based policies.
 For information about how to manage IAM policies, see [Managing IAM policies](../../../IAM/latest/UserGuide/access_policies_manage.md "../../../IAM/latest/UserGuide/access_policies_manage.md") in
@@ -1227,9 +1195,7 @@ Following is an IAM policy that prevents an entity from calling
 globally unique ID (GUID) for the owning cluster's namespace. It does this by
 specifying the name as an asterisk.
 
-## Resource
-
-policies for GetClusterCredentials
+## Resource policies for GetClusterCredentials
 
 To connect to a cluster database using a JDBC or ODBC connection with IAM database
 credentials, or to programmatically call the `GetClusterCredentials` action, you
@@ -1252,8 +1218,7 @@ allow the actions and permit access to the resources listed in the following tab
 | `DbGroups`                      | `redshift:JoinGroup`         | `dbgroup` |
 | `DbName`                        | NA                           | `dbname`  |
 
-For more information about resources, see [Amazon Redshift resources and
-operations](redshift-iam-access-control-overview.md#redshift-iam-accesscontrol.actions-and-resources "redshift-iam-access-control-overview.md#redshift-iam-accesscontrol.actions-and-resources").
+For more information about resources, see [Amazon Redshift resources and operations](redshift-iam-access-control-overview.md#redshift-iam-accesscontrol.actions-and-resources "redshift-iam-access-control-overview.md#redshift-iam-accesscontrol.actions-and-resources").
 
 You can also include the following conditions in your policy:
 
@@ -1267,14 +1232,10 @@ For SAML SSO integrations, you may be required to specify an IAM Policy using
 the `${redshift:DbUser}` variable. In those cases, we strongly
 recommend the use of a condition statement that ensures a caller cannot obtain
 credentials for a user which does not match their AWS userid. E.g. `"StringEquals":
- {"aws:userid":"AIDIODR4TAW7CSEXAMPLE:${redshift:DbUser}"}"`. See [Example 8: IAM policy for using
-GetClusterCredentials](#redshift-policy-examples-getclustercredentials "#redshift-policy-examples-getclustercredentials"). For more
-information about conditions, see [Specifying conditions in a
-policy](redshift-iam-access-control-overview.md#redshift-policy-resources.specifying-conditions "redshift-iam-access-control-overview.md#redshift-policy-resources.specifying-conditions")
+ {"aws:userid":"AIDIODR4TAW7CSEXAMPLE:${redshift:DbUser}"}"`. See [Example 8: IAM policy for using GetClusterCredentials](#redshift-policy-examples-getclustercredentials "#redshift-policy-examples-getclustercredentials"). For more
+information about conditions, see [Specifying conditions in a policy](redshift-iam-access-control-overview.md#redshift-policy-resources.specifying-conditions "redshift-iam-access-control-overview.md#redshift-policy-resources.specifying-conditions")
 
-## Customer managed policy
-
-examples
+## Customer managed policy examples
 
 In this section, you can find example user policies that grant permissions for various
 Amazon Redshift actions. These policies work when you are using the Amazon Redshift API, AWS SDKs, or the AWS CLI.
@@ -1284,9 +1245,7 @@ Amazon Redshift actions. These policies work when you are using the Amazon Redsh
 All examples use the US West (Oregon) Region (`us-west-2`) and contain
 fictitious account IDs.
 
-### Example 1: Allow user full
-
-access to all Amazon Redshift actions and resources
+### Example 1: Allow user full access to all Amazon Redshift actions and resources
 
 The following policy allows access to all Amazon Redshift actions on all resources.
 
@@ -1312,9 +1271,7 @@ JSON
 The value `redshift:*` in the `Action` element indicates all of
 the actions in Amazon Redshift.
 
-### Example 2: Deny a user
-
-access to a set of Amazon Redshift actions
+### Example 2: Deny a user access to a set of Amazon Redshift actions
 
 By default, all permissions are denied. However, sometimes you need to explicitly deny
 access to a specific action or set of actions. The following policy allows access to all
@@ -1349,9 +1306,7 @@ JSON
 
 ```
 
-### Example 3: Allow a user to
-
-manage clusters
+### Example 3: Allow a user to manage clusters
 
 The following policy allows a user to create, delete, modify, and reboot all clusters,
 and then denies permission to delete any clusters where the cluster name starts with
@@ -1391,9 +1346,7 @@ JSON
 
 ```
 
-### Example 4: Allow
-
-a user to authorize and revoke snapshot access
+### Example 4: Allow a user to authorize and revoke snapshot access
 
 The following policy allows a user, for example User A, to do the following:
 
@@ -1470,9 +1423,7 @@ JSON
 
 ```
 
-### Example 5: Allow a
-
-user to copy a cluster snapshot and restore a cluster from a snapshot
+### Example 5: Allow a user to copy a cluster snapshot and restore a cluster from a snapshot
 
 The following policy allows a user to copy any snapshot created from the cluster named
 `big-cluster-1`, and restore any snapshot where the snapshot name starts with
@@ -1510,9 +1461,7 @@ JSON
 
 ```
 
-### Example 6: Allow a user
-
-access to Amazon Redshift, and common actions and resources for related AWS services
+### Example 6: Allow a user access to Amazon Redshift, and common actions and resources for related AWS services
 
 The following example policy allows access to all actions and resources for
 Amazon Redshift, Amazon Simple Notification Service (Amazon SNS), and Amazon CloudWatch. It also allows specified actions on all
@@ -1583,9 +1532,7 @@ JSON
 
 ```
 
-### Example 7: Allow a
-
-user to tag resources with the Amazon Redshift console
+### Example 7: Allow a user to tag resources with the Amazon Redshift console
 
 The following example policy allows a user to tag resources with the Amazon Redshift console
 using the AWS Resource Groups. This policy can be attached to a user role that invokes the new or
@@ -1614,9 +1561,7 @@ JSON
 
 ```
 
-## Example 8: IAM policy for using
-
-GetClusterCredentials
+## Example 8: IAM policy for using GetClusterCredentials
 
 The following policy uses these sample parameter values:
 

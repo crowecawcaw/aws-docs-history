@@ -27,9 +27,7 @@ authentication method that can be used to connect to the Amazon Redshift ODBC dr
 | Browser Azure AD OAUTH2 | • Host<br>• Port<br>• Database<br>• IAM<br>• plugin_name<br>• IdP_Tenant<br>• Client_ID<br>• UID                                  | • ClusterID<br>• Region<br>• EndpointUrl<br>• IdP_Response_Timeout<br>• listen_port<br>• scope<br>• provider_name<br>Note<br>**ClusterID\*<br>• and **Region**<br>must be set in **Host\*<br>• if they are not set<br>separately.                                                |
 | AWS IAM Identity Center | • Host<br>• Database<br>• plugin_name<br>• idc_region<br>• issuer_url                                                             | • idc_client_display_name<br>• idp_response_timeout<br>• listen_port                                                                                                                                                                                                             |
 
-## Using an external credentials
-
-service
+## Using an external credentials service
 
 In addition to built-in support for AD FS, Azure AD, and Okta, the Windows version
 of the Amazon Redshift ODBC driver also provides support for other credentials services.

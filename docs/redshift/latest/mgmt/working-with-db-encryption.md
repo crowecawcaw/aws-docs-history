@@ -50,9 +50,7 @@ being restored, Amazon Redshift will delete the data warehouse. While a warehous
   you can use the backup to create a new data warehouse before the
   `inaccessible-kms-key` status warehouse is deleted.
 
-## Encryption process improvements for better
-
-performance and availability
+## Encryption process improvements for better performance and availability
 
 ### Encryption with RA3 nodes
 
@@ -69,17 +67,13 @@ workloads, you can improve performance and speed up the process by adding nodes 
 elastic resize. You can't use elastic resize when encryption is in process, so do it
 before you encrypt. Note that adding nodes typically results in higher cost.
 
-### Encryption with other node
-
-types
+### Encryption with other node types
 
 When you encrypt a cluster with DC2 nodes, you don't have the
 ability to run write queries, like with RA3 nodes. Only read queries can be
 run.
 
-### Usage notes for encryption with
-
-RA3 nodes
+### Usage notes for encryption with RA3 nodes
 
 The following insights and resources help you prepare for encryption and monitor
 the process.
@@ -124,19 +118,14 @@ MATERIALIZED VIEW](../dg/materialized-view-create-sql-command.md "../dg/material
 
 ###### Topics
 
-- [Encryption using
-  AWS KMS](#working-with-aws-kms "#working-with-aws-kms")
-- [Encryption using hardware security
-  modules](#working-with-HSM "#working-with-HSM")
+- [Encryption using AWS KMS](#working-with-aws-kms "#working-with-aws-kms")
+- [Encryption using hardware security modules](#working-with-HSM "#working-with-HSM")
 - [Encryption key rotation](#working-with-key-rotation "#working-with-key-rotation")
 - [Changing cluster encryption](changing-cluster-encryption.md "changing-cluster-encryption.md")
-- [Migrating to an HSM-encrypted
-  cluster](migrating-to-an-encrypted-cluster.md "migrating-to-an-encrypted-cluster.md")
+- [Migrating to an HSM-encrypted cluster](migrating-to-an-encrypted-cluster.md "migrating-to-an-encrypted-cluster.md")
 - [Rotating encryption keys](manage-key-rotation-console.md "manage-key-rotation-console.md")
 
-## Encryption using
-
-AWS KMS
+## Encryption using AWS KMS
 
 When you choose AWS KMS for key management with Amazon Redshift, there is a four-tier hierarchy
 of encryption keys. These keys, in hierarchical order, are the root key, a cluster
@@ -188,9 +177,7 @@ to encrypt and decrypt the data block keys as needed.
 For more information about creating Amazon Redshift clusters that are encrypted with AWS KMS
 keys, see [Creating a cluster](create-cluster.md "create-cluster.md").
 
-### Copying AWS KMS–encrypted
-
-snapshots to another AWS Region
+### Copying AWS KMS–encrypted snapshots to another AWS Region
 
 AWS KMS keys are specific to an AWS Region.
 If you want to enable copying of Amazon Redshift snapshots from an encrypted source cluster
@@ -199,8 +186,7 @@ you need to configure a grant for Amazon Redshift to use a root key in your acco
 This grant enables Amazon Redshift to encrypt snapshots in the destination AWS Region.
 If you want snapshots in destination encrypted by an AWS Region-owned key, you don't
 need to configure any grants in the destination AWS Region. For more information about
-cross-Region snapshot copy, see [Copying a snapshot to another AWS
-Region](cross-region-snapshot-copy.md "cross-region-snapshot-copy.md").
+cross-Region snapshot copy, see [Copying a snapshot to another AWS Region](cross-region-snapshot-copy.md "cross-region-snapshot-copy.md").
 
 ###### Note
 
@@ -231,8 +217,7 @@ This preceding process is only necessary if you enable copying of snapshots usin
 the AWS CLI, the Amazon Redshift API, or SDKs. If you use the console, Amazon Redshift provides the
 proper workflow to configure the grant when you enable cross-Region snapshot copy.
 For more information about configuring cross-Region snapshot copy for
-AWS KMS-encrypted clusters by using the console, see [Configuring cross-Region snapshot copy
-for an AWS KMS–encrypted cluster](xregioncopy-kms-encrypted-snapshot.md "xregioncopy-kms-encrypted-snapshot.md").
+AWS KMS-encrypted clusters by using the console, see [Configuring cross-Region snapshot copy for an AWS KMS–encrypted cluster](xregioncopy-kms-encrypted-snapshot.md "xregioncopy-kms-encrypted-snapshot.md").
 
 Before the snapshot is copied to the destination AWS Region, Amazon Redshift decrypts
 the snapshot using the root key in the source AWS Region and re-encrypts it
@@ -241,9 +226,7 @@ Amazon Redshift then copies the snapshot over a secure channel to the destinatio
 Region, decrypts the snapshot using the internally managed RSA key, and then
 re-encrypts the snapshot using the root key in the destination AWS Region.
 
-## Encryption using hardware security
-
-modules
+## Encryption using hardware security modules
 
 If you don't use AWS KMS for key management, you can use a hardware security module
 (HSM) for key management with Amazon Redshift.
@@ -280,9 +263,7 @@ state. The CEK-encrypted DEK is then passed to the HSM to be decrypted and passe
 to Amazon Redshift, where it can be loaded in memory again for use with the individual data
 block keys.
 
-### Configuring a trusted connection
-
-between Amazon Redshift and an HSM
+### Configuring a trusted connection between Amazon Redshift and an HSM
 
 When you opt to use an HSM for management of your cluster key, you need to
 configure a trusted network link between Amazon Redshift and your HSM. Doing this requires

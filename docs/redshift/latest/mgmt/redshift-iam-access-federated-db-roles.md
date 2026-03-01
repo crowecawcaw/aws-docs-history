@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Defining database roles to
-
-grant to federated users in Amazon Redshift Serverless
+# Defining database roles to grant to federated users in Amazon Redshift Serverless
 
 When you're part of an organization, you have a collection of associated roles. For
 instance, you have roles for your job function, like _programmer_ and
@@ -37,9 +35,7 @@ Passing database roles has a couple primary use cases:
   passed by means of a tag key and value.
   For more information about role-based access control, see [Role-based access control (RBAC)](../dg/t_Roles.md "../dg/t_Roles.md").
 
-## Defining
-
-database roles
+## Defining database roles
 
 Before you can pass roles to Amazon Redshift Serverless, you must configure database roles in
 your database and grant them appropriate permissions on database resources. For
@@ -47,16 +43,12 @@ instance, in a simple scenario, you can create a database role named
 _sales_ and grant it access to query tables with sales data. For
 more information about how to create database roles and grant permissions, see [CREATE ROLE](../dg/r_CREATE_ROLE.md "../dg/r_CREATE_ROLE.md") and [GRANT](../dg/r_GRANT.md "../dg/r_GRANT.md").
 
-## Use cases for
-
-defining database roles to grant to federated users
+## Use cases for defining database roles to grant to federated users
 
 These sections outline a couple use cases where passing database roles to
 Amazon Redshift Serverless can simplify access to database resources.
 
-### Signing
-
-in using an identity provider
+### Signing in using an identity provider
 
 The first use case assumes that your organization has user identities in an
 identity and access management service. This service can be cloud based, for
@@ -114,9 +106,7 @@ The essential part of the operation is that the `RedshiftDbRoles`
 session tag is assigned the roles in the initial authorization request. For more
 information about passing session tags, see [Passing session tags using AssumeRoleWithSAML](../../../IAM/latest/UserGuide/id_session-tags.md#id_session-tags_adding-assume-role-saml "../../../IAM/latest/UserGuide/id_session-tags.md#id_session-tags_adding-assume-role-saml").
 
-### Signing in
-
-using IAM credentials
+### Signing in using IAM credentials
 
 In the second use case, roles can be passed for a user and they can access a
 database client application through IAM credentials.
@@ -142,9 +132,7 @@ database client application through IAM credentials.
 When a user logs in, their role is added to the authorization request and
 passed to the database. It is mapped to an existing database role.
 
-## Additional
-
-resources
+## Additional resources
 
 As mentioned in the use cases, you can configure the trust relationship between
 your IdP and AWS. For more information, see [Configuring your SAML 2.0 IdP with relying party trust and adding

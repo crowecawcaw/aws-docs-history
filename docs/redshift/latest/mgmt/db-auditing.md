@@ -174,9 +174,7 @@ Using CloudWatch to view logs is a recommended alternative to storing log files 
 doesn't require much configuration, and it may suit your monitoring requirements,
 especially if you use it already to monitor other services and applications.
 
-### Log groups and log
-
-events in Amazon CloudWatch
+### Log groups and log events in Amazon CloudWatch
 
 After selecting which Amazon Redshift logs to export, you can monitor log events in
 Amazon CloudWatch Logs. A new log group is automatically created for Amazon Redshift Serverless, under the
@@ -203,9 +201,7 @@ In CloudWatch, you can search your log data with a query syntax that provides fo
 granularity and flexibility. For more information, see [CloudWatch Logs Insights query
 syntax](../../../AmazonCloudWatch/latest/logs/CWL_QuerySyntax.md "../../../AmazonCloudWatch/latest/logs/CWL_QuerySyntax.md").
 
-### Migrating to Amazon CloudWatch
-
-audit logging
+### Migrating to Amazon CloudWatch audit logging
 
 In any case where you are sending logs to Amazon S3 and you change the configuration,
 for example to send logs to CloudWatch, logs that remain in Amazon S3 are unaffected. You can
@@ -226,9 +222,7 @@ deleted or archived, based on your auditing needs. The plan that you create depe
 heavily on the type of data that you store, such as data subject to compliance or
 regulatory requirements. For more information about Amazon S3 pricing, go to [Amazon Simple Storage Service (S3) Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-#### Limitations when you
-
-enable logging to Amazon S3
+#### Limitations when you enable logging to Amazon S3
 
 Audit logging has the following constraints:
 
@@ -237,9 +231,7 @@ Audit logging has the following constraints:
 - The Amazon S3 buckets must have the S3 Object Lock feature turned
   off.
 
-#### Bucket permissions for Amazon Redshift
-
-audit logging
+#### Bucket permissions for Amazon Redshift audit logging
 
 When you turn on logging to Amazon S3, Amazon Redshift collects logging information and
 uploads it to log files stored in Amazon S3. You can use an existing bucket or a new
@@ -335,9 +327,7 @@ in the _AWS General Reference_.
 The Region-specific service-principal name corresponds to the Region where
 the cluster is located.
 
-##### Best
-
-practices for log files
+##### Best practices for log files
 
 When Redshift uploads log files to Amazon S3, large files can be uploaded in
 parts. If a multipart upload isn't successful, it's possible for parts of a
@@ -353,9 +343,7 @@ For more information about creating S3 buckets and adding bucket policies, see
 [Bucket
 policies for Amazon S3](../../../AmazonS3/latest/userguide/bucket-policies.md "../../../AmazonS3/latest/userguide/bucket-policies.md") in the _Amazon Simple Storage Service User Guide_.
 
-#### Bucket structure for Amazon Redshift
-
-audit logging
+#### Bucket structure for Amazon Redshift audit logging
 
 By default, Amazon Redshift organizes the log files in the Amazon S3 bucket by using the
 following bucket and object structure:
@@ -389,8 +377,7 @@ Amazon Redshift audit logging can be interrupted for the following reasons:
 
 - Amazon Redshift does not have permission to upload logs to the Amazon S3 bucket.
   Verify that the bucket is configured with the correct IAM policy. For more
-  information, see [Bucket permissions for Amazon Redshift
-  audit logging](#db-auditing-bucket-permissions "#db-auditing-bucket-permissions").
+  information, see [Bucket permissions for Amazon Redshift audit logging](#db-auditing-bucket-permissions "#db-auditing-bucket-permissions").
 - The bucket owner changed. When Amazon Redshift uploads logs, it verifies that
   the bucket owner is the same as when logging was enabled. If the bucket
   owner has changed, Amazon Redshift cannot upload logs until you configure another

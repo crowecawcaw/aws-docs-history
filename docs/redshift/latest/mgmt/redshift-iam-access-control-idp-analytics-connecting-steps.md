@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Querying data through
-
-AWS Lake Formation
+# Querying data through AWS Lake Formation
 
 Using AWS Lake Formation makes it easier to centrally govern and secure your data lake, and to
 provide data access. Configuring identity propagation to Lake Formation through AWS IAM Identity Center and
@@ -14,9 +12,7 @@ AWS IAM Identity Center. This section shows how to configure a couple use cases,
 lake and querying from a data share, that demonstrate how to leverage AWS IAM Identity Center with
 Redshift to connect to Lake Formation-governed resources.
 
-## Using an
-
-AWS IAM Identity Center and Redshift connection to query a data lake
+## Using an AWS IAM Identity Center and Redshift connection to query a data lake
 
 These steps cover a use case where you use AWS IAM Identity Center connected to Redshift to query
 a data lake that's governed by Lake Formation.
@@ -95,9 +91,7 @@ aws lakeformation grant-permissions ...
 SELECT * from my_external_schema.table1;
 ```
 
-## Using an
-
-AWS IAM Identity Center and Redshift connection to connect to a datashare
+## Using an AWS IAM Identity Center and Redshift connection to connect to a datashare
 
 You can access a datashare from a different Redshift data warehouse when access is
 managed through AWS IAM Identity Center. To do this, you run a query to set up an external database.

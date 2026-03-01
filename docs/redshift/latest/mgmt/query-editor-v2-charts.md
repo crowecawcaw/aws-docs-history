@@ -99,9 +99,7 @@ annotations.
 7. Choose **Refresh** to update the chart display. Choose
    **Full screen** to expand the chart display.
 
-## Example: Create a pie chart to
-
-visualize query results
+## Example: Create a pie chart to visualize query results
 
 The following example uses the _Sales_ table of
 the sample database. For more information, see [Sample database](../dg/c_sampledb.md "../dg/c_sampledb.md") in the
@@ -135,9 +133,7 @@ order by 3;
 
 ![Pie chart](images/pie-chart.png)
 
-## Example: Create a
-
-combination chart for comparing revenue and sales
+## Example: Create a combination chart for comparing revenue and sales
 
 Perform the steps in this example to create a chart that combines a bar chart for
 revenue data and a line graph for sales data. The following example uses the
@@ -190,9 +186,7 @@ for **Position**, choose **Right**.
 
 ![Revenue and sales chart](images/chart-revenue-sales.png)
 
-## Demo: Build visualizations
-
-using Amazon Redshift query editor v2
+## Demo: Build visualizations using Amazon Redshift query editor v2
 
 For a demo of how to build visualizations, watch the following
 video.

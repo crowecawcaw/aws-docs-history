@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Infrastructure security in
-
-Amazon Redshift
+# Infrastructure security in Amazon Redshift
 
 As a managed service, Amazon Redshift is protected by AWS global network security. For
 information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS
@@ -138,9 +136,7 @@ inbound and outbound access based on the origin and destination of network traff
 example is a range of IP addresses. For more information, see [Controlling Access to Services with
 VPC Endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
 
-### VPC endpoint
-
-policies for Amazon Redshift
+### VPC endpoint policies for Amazon Redshift
 
 You can create a policy for VPC endpoints for Amazon Redshift to specify the following:
 
@@ -153,16 +149,12 @@ with VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../..
 
 Following, you can find examples of VPC endpoint policies.
 
-#### Amazon Redshift Provisioned
-
-Endpoint Policy Examples
+#### Amazon Redshift Provisioned Endpoint Policy Examples
 
 Following, you can find examples of VPC endpoint policies for Amazon Redshift
 Provisioned.
 
-##### Example: VPC endpoint policy
-
-to deny all access from a specified AWS account
+##### Example: VPC endpoint policy to deny all access from a specified AWS account
 
 The following VPC endpoint policy denies the AWS account
 `123456789012` all access to
@@ -193,9 +185,7 @@ resources using this endpoint.
 
 ```
 
-##### Example: VPC endpoint policy
-
-to allow VPC access only to a specified IAM role
+##### Example: VPC endpoint policy to allow VPC access only to a specified IAM role
 
 The following VPC endpoint policy allows full access only to the IAM role
 `redshiftrole` in AWS account
@@ -223,9 +213,7 @@ access using the endpoint.
 This is only a sample. In most use cases we recommend attaching permissions
 for specific actions to narrow the scope of permissions.
 
-##### Example: VPC endpoint policy
-
-to allow VPC access only to a specified IAM principal (user)
+##### Example: VPC endpoint policy to allow VPC access only to a specified IAM principal (user)
 
 The following VPC endpoint policy allows full access only to the IAM user
 `redshiftadmin` in AWS account
@@ -254,9 +242,7 @@ This is only a sample. In most use cases we recommend attaching permissions to
 a role before assigning to a user. Additionally, we recommend using specific
 actions to narrow the scope of permissions.
 
-##### Example: VPC endpoint policy
-
-to allow read-only Amazon Redshift operations
+##### Example: VPC endpoint policy to allow read-only Amazon Redshift operations
 
 The following VPC endpoint policy allows only AWS account
 `123456789012` to perform the
@@ -315,9 +301,7 @@ _IAM User Guide._
 
 ```
 
-##### Example: VPC endpoint policy
-
-denying access to a specified cluster
+##### Example: VPC endpoint policy denying access to a specified cluster
 
 The following VPC endpoint policy allows full access for all accounts and
 principals. At the same time, it denies any access for AWS account
@@ -356,15 +340,11 @@ _IAM User Guide._
 
 ```
 
-#### Amazon Redshift Serverless Endpoint
-
-Policy Examples
+#### Amazon Redshift Serverless Endpoint Policy Examples
 
 Following, you can find examples of VPC endpoint policies for Redshift Serverless.
 
-##### Example: VPC
-
-endpoint policy to allow read-only Redshift Serverless operations
+##### Example: VPC endpoint policy to allow read-only Redshift Serverless operations
 
 The following VPC endpoint policy allows only AWS account
 `123456789012` to perform the
@@ -407,9 +387,7 @@ _IAM User Guide._
 
 ```
 
-##### Example: VPC
-
-endpoint policy denying access to a specified workgroup
+##### Example: VPC endpoint policy denying access to a specified workgroup
 
 The following VPC endpoint policy allows full access for all accounts and
 principals. At the same time, it denies any access for AWS account

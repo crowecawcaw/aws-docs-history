@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Viewing database
-
-performance data
+# Viewing database performance data
 
 You can use database performance metrics in Amazon Redshift to do the following:
 
@@ -59,9 +57,7 @@ the following graphs:
     * **Query wait time by queue** – The average
      duration of queries spent waiting by WLM queue.
 
-## Database
-
-performance graphs
+## Database performance graphs
 
 The following examples show graphs that are displayed in the new Amazon Redshift console.
 

@@ -29,9 +29,7 @@ This integration provides the following:
 - Amazon Redshift data types.
 - Connectivity to Amazon Redshift and Amazon Redshift Serverless.
 
-## Considerations and limitations
-
-when using the Spark connector
+## Considerations and limitations when using the Spark connector
 
 - The tempdir URI points to an Amazon S3 location. This temp directory is not
   cleaned up automatically and could add additional cost. We recommend using

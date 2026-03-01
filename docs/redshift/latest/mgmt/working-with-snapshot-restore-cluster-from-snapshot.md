@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Restoring a cluster
-
-from a snapshot
+# Restoring a cluster from a snapshot
 
 A snapshot contains data from any databases that are running on your cluster. It also
 contains information about your cluster, including the number of nodes, node type, and
@@ -82,8 +80,7 @@ these reasons:
   the new cluster. To determine the possible configurations available, you can use the
   Amazon Redshift console or the `describe-node-configuration-options` AWS CLI command
   with `action-type restore-cluster`. For more information about the
-  restoring using the Amazon Redshift console, see Restoring a cluster
-  from a snapshot.
+  restoring using the Amazon Redshift console, see Restoring a cluster from a snapshot.
   The following steps take a cluster with many nodes and consolidate it into a bigger node
   type with a smaller number of nodes using the AWS CLI. For this example, we start with a
   source cluster of 24 nodes. In this case, suppose that we

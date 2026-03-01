@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Generating
-
-database credentials for an IAM identity using the Amazon Redshift CLI or API
+# Generating database credentials for an IAM identity using the Amazon Redshift CLI or API
 
 To programmatically generate temporary database user credentials, Amazon Redshift provides
 the [get-cluster-credentials](../../../cli/latest/reference/redshift/get-cluster-credentials.md "../../../cli/latest/reference/redshift/get-cluster-credentials.md") command for the AWS Command Line Interface (AWS CLI) and the
@@ -12,8 +10,7 @@ the [get-cluster-credentials](../../../cli/latest/reference/redshift/get-cluster
 client with Amazon Redshift JDBC or ODBC drivers that manage the process of calling the
 `GetClusterCredentials` operation, retrieving the database user
 credentials, and establishing a connection between your SQL client and your Amazon
-Redshift database. For more information, see [JDBC
-and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+Redshift database. For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
 
 ###### Note
 
@@ -27,8 +24,7 @@ retrieve database user credentials, and connect to the database.
 ###### To generate and use temporary database credentials
 
 1. Create or modify a user or role with the required permissions. For more
-   information about IAM permissions, see [Step 3:
-   Create an IAM role with permissions to call GetClusterCredentialsWithIAM or GetClusterCredentials](generating-iam-credentials-steps.md#generating-iam-credentials-role-permissions "generating-iam-credentials-steps.md#generating-iam-credentials-role-permissions").
+   information about IAM permissions, see [Step 3: Create an IAM role with permissions to call GetClusterCredentialsWithIAM or GetClusterCredentials](generating-iam-credentials-steps.md#generating-iam-credentials-role-permissions "generating-iam-credentials-steps.md#generating-iam-credentials-role-permissions").
 2. As a user or role you authorized in the previous step, run the
    get-cluster-credentials CLI command or call the
    `GetClusterCredentials` API operation and provide the
@@ -118,7 +114,6 @@ non-SSL if there is any kind of failure. In that case, the first
 connection attempt might fail because the credentials are expired or
 invalid, then a second connection attempt fails because the connection
 is not SSL. If that occurs, the first error message might be missed. For
-more information about connecting to your cluster using SSL, see [Configuring security options for
-connections](connecting-ssl-support.md "connecting-ssl-support.md"). 6. If the connection doesn't use SSL, the connection attempt fails. 7. The cluster sends an `authentication` request to the SQL
+more information about connecting to your cluster using SSL, see [Configuring security options for connections](connecting-ssl-support.md "connecting-ssl-support.md"). 6. If the connection doesn't use SSL, the connection attempt fails. 7. The cluster sends an `authentication` request to the SQL
 client. 8. The SQL client then sends the temporary password to the cluster. 9. If the password is valid and has not expired, the cluster completes the
 connection.

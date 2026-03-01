@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Configuring security options for
-
-connections
+# Configuring security options for connections
 
 Amazon Redshift supports Secure Sockets Layer (SSL) connections to encrypt data and server
 certificates to validate the server certificate that the client connects to.
@@ -46,8 +44,7 @@ and
 
 Amazon Redshift has changed the way that SSL certificates are managed. You might need to
 update your current trust root CA certificates to continue to connect to your
-clusters using SSL. For more information, see [Transitioning to ACM
-certificates for SSL connections](connecting-transitioning-to-acm-certs.md "connecting-transitioning-to-acm-certs.md").
+clusters using SSL. For more information, see [Transitioning to ACM certificates for SSL connections](connecting-transitioning-to-acm-certs.md "connecting-transitioning-to-acm-certs.md").
 
 By default, cluster databases accept a connection whether it uses SSL or not. To
 configure your cluster to require an SSL connection, set the
@@ -66,8 +63,7 @@ To enable FIPS-compliant SSL mode, set both the `use_fips_ssl`
 parameter and the `require_SSL` parameter to `true` in the
 parameter group that is associated with the Amazon Redshift cluster or Redshift Serverless workgroup. For
 information about modifying a parameter group on a cluster, see [Amazon Redshift parameter groups](working-with-parameter-groups.md "working-with-parameter-groups.md"). For information about modifying
-a parameter group on a workgroup, see [Configuring a FIPS-compliant SSL connection to
-Amazon Redshift Serverless](serverless-connecting.md#serverless_secure-fips-ssl "serverless-connecting.md#serverless_secure-fips-ssl") .
+a parameter group on a workgroup, see [Configuring a FIPS-compliant SSL connection to Amazon Redshift Serverless](serverless-connecting.md#serverless_secure-fips-ssl "serverless-connecting.md#serverless_secure-fips-ssl").
 
 Amazon Redshift supports the Elliptic Curve Diffie—Hellman Ephemeral (ECDHE) key
 agreement protocol. With ECDHE, the client and server each have an elliptic curve
@@ -77,13 +73,10 @@ you connect from a SQL client tool that uses ECDHE to encrypt communication betw
 the client and server, Amazon Redshift uses the provided cipher list to make the
 appropriate connection. For more information, see [Elliptic curve diffie—hellman](https://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman "https://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman") on Wikipedia and [Ciphers](https://www.openssl.org/ "https://www.openssl.org/") on the OpenSSL website.
 
-## SSL and trust CA certificates in
-
-ODBC
+## SSL and trust CA certificates in ODBC
 
 If you connect using the latest Amazon Redshift ODBC drivers (version 1.3.7.1000 or later),
-you can skip this section. To download the latest drivers, see [Configuring a connection for ODBC driver version 2.x for
-Amazon Redshift](odbc20-install.md "odbc20-install.md").
+you can skip this section. To download the latest drivers, see [Configuring a connection for ODBC driver version 2.x for Amazon Redshift](odbc20-install.md "odbc20-install.md").
 
 You might need to update your current trust root CA certificates to continue to
 connect to your clusters using SSL. For more information, see [SSL](#connect-using-ssl "#connect-using-ssl").
@@ -142,9 +135,7 @@ setting combinations:
 | `verify-full`            | `true`               | The connection is encrypted and the server<br>certificate and hostname are verified.                                   |
 | `verify-full`            | `false`              | The connection is encrypted and the server<br>certificate and hostname are verified.                                   |
 
-### Connect using the server
-
-certificate with ODBC on Microsoft Windows
+### Connect using the server certificate with ODBC on Microsoft Windows
 
 If you want to connect to your cluster using SSL and the server certificate,
 first download the certificate to your client computer or Amazon EC2 instance. Then
@@ -160,12 +151,9 @@ configure the ODBC DSN.
    DNS alias. If you use a DNS alias, select `verify-ca`. Then
    choose **Save**.
 
-For more information about configuring the ODBC DSN, see [Configuring a connection for ODBC driver version 2.x for
-Amazon Redshift](odbc20-install.md "odbc20-install.md").
+For more information about configuring the ODBC DSN, see [Configuring a connection for ODBC driver version 2.x for Amazon Redshift](odbc20-install.md "odbc20-install.md").
 
-## SSL and server certificates in
-
-Java
+## SSL and server certificates in Java
 
 SSL provides one layer of security by encrypting data that moves between your
 client and cluster. Using a server certificate provides an extra layer of security
@@ -174,9 +162,7 @@ server certificate that is automatically installed on all clusters that you
 provision. For more information about using server certificates with JDBC, go to
 [Configuring the client](https://jdbc.postgresql.org/documentation/ssl/#configuring-the-client "https://jdbc.postgresql.org/documentation/ssl/#configuring-the-client") in the PostgreSQL documentation.
 
-### Connect using trust CA
-
-certificates in Java
+### Connect using trust CA certificates in Java
 
 ###### Important
 

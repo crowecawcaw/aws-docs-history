@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Creating temporary IAM
-
-credentials
+# Creating temporary IAM credentials
 
 In this section, you can find how to configure your system to generate temporary
 IAM-based database user credentials and log in to your database using the new
@@ -12,37 +10,30 @@ credentials.
 
 At a high level, the process flows as follows:
 
-1. [Step 1: Create an
-   IAM role for IAM single sign-on access](#generating-iam-credentials-sso-role "#generating-iam-credentials-sso-role")
+1. [Step 1: Create an IAM role for IAM single sign-on access](#generating-iam-credentials-sso-role "#generating-iam-credentials-sso-role")
 
 (Optional) You can authenticate users for access to an Amazon Redshift database by
-integrating IAM authentication and a third-party identity provider (IdP). 2. [Step 2: Configure SAML
-assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions")
+integrating IAM authentication and a third-party identity provider (IdP). 2. [Step 2: Configure SAML assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions")
 
 (Optional) To use IAM authentication using an IdP, you need to define a claim
 rule in your IdP application that maps users or groups in your organization to
 the IAM role. Optionally, you can include attribute elements to set
-`GetClusterCredentials` parameters. 3. [Step 3:
-Create an IAM role with permissions to call GetClusterCredentialsWithIAM or GetClusterCredentials](#generating-iam-credentials-role-permissions "#generating-iam-credentials-role-permissions")
+`GetClusterCredentials` parameters. 3. [Step 3: Create an IAM role with permissions to call GetClusterCredentialsWithIAM or GetClusterCredentials](#generating-iam-credentials-role-permissions "#generating-iam-credentials-role-permissions")
 
 Your SQL client application assumes the user when it calls the
 `GetClusterCredentials` operation. If you created an IAM role for
 identity provider access, you can add the necessary permission to that
-role. 4. [Step 4:
-Create a database user and database groups](#generating-iam-credentials-user-and-groups "#generating-iam-credentials-user-and-groups")
+role. 4. [Step 4: Create a database user and database groups](#generating-iam-credentials-user-and-groups "#generating-iam-credentials-user-and-groups")
 
 (Optional) By default, `GetClusterCredentials` returns credentials
 create a new user if the user name doesn't exist. You can also choose to
 specify user groups that users join at logon. By default, database users join
-the PUBLIC group. 5. [Step
-5: Configure a JDBC or ODBC connection to use IAM credentials](#generating-iam-credentials-configure-jdbc-odbc "#generating-iam-credentials-configure-jdbc-odbc")
+the PUBLIC group. 5. [Step 5: Configure a JDBC or ODBC connection to use IAM credentials](#generating-iam-credentials-configure-jdbc-odbc "#generating-iam-credentials-configure-jdbc-odbc")
 
 To connect to your Amazon Redshift database, you configure your SQL client to use an Amazon Redshift
 JDBC or ODBC driver.
 
-## Step 1: Create an
-
-IAM role for IAM single sign-on access
+## Step 1: Create an IAM role for IAM single sign-on access
 
 If you don't use an identity provider for single sign-on access, you can skip
 this step.
@@ -59,9 +50,7 @@ configuration. Doing this establishes trust between your AWS account and the IdP
 For steps to create a role, see [Creating a Role for SAML 2.0 Federation (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp_saml.md") in the
 _IAM User Guide_.
 
-## Step 2: Configure SAML
-
-assertions for your IdP
+## Step 2: Configure SAML assertions for your IdP
 
 After you create the IAM role, you define a claim rule in your IdP application to
 map users or groups in your organization to the IAM role. For more information, see
@@ -73,14 +62,12 @@ If you choose to use the optional `GetClusterCredentials` parameters
 have two options. You can set the values for the parameters with your JDBC or ODBC
 connection, or you can set the values by adding SAML attribute elements to your IdP.
 For more information about the `DbUser`, `AutoCreate`, and
-`DbGroups` parameters, see [Step
-5: Configure a JDBC or ODBC connection to use IAM credentials](#generating-iam-credentials-configure-jdbc-odbc "#generating-iam-credentials-configure-jdbc-odbc").
+`DbGroups` parameters, see [Step 5: Configure a JDBC or ODBC connection to use IAM credentials](#generating-iam-credentials-configure-jdbc-odbc "#generating-iam-credentials-configure-jdbc-odbc").
 
 ###### Note
 
 If you use an IAM policy variable `${redshift:DbUser}`, as
-described in [Resource
-policies for GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources "redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources")
+described in [Resource policies for GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources "redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources")
 the value for `DbUser` is replaced with the value retrieved by the
 API operation's request context. The Amazon Redshift drivers use the value for the
 `DbUser` variable provided by the connection URL, rather than the
@@ -89,8 +76,7 @@ value supplied as a SAML attribute.
 To help secure this configuration, we recommend that you use a condition in an
 IAM policy to validate the `DbUser` value by using
 `RoleSessionName`. You can find examples of how to set a
-condition using an IAM policy in [Example 8: IAM policy for using
-GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-examples-getclustercredentials "redshift-iam-access-control-identity-based.md#redshift-policy-examples-getclustercredentials").
+condition using an IAM policy in [Example 8: IAM policy for using GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-examples-getclustercredentials "redshift-iam-access-control-identity-based.md#redshift-policy-examples-getclustercredentials").
 
 To configure your IdP to set the `DbUser`, `AutoCreate`, and
 `DbGroups` parameters, include the following `Attribute`
@@ -145,9 +131,7 @@ connecting to the Amazon Redshift database.
 </Attribute>
 ```
 
-## Step 3:
-
-Create an IAM role with permissions to call GetClusterCredentialsWithIAM or GetClusterCredentials
+## Step 3: Create an IAM role with permissions to call GetClusterCredentialsWithIAM or GetClusterCredentials
 
 Your SQL client needs authorization to call the the `GetClusterCredentialsWithIAM` or `GetClusterCredentials` operation on
 your behalf. To provide that authorization, you create a user or role and attach a
@@ -251,12 +235,9 @@ level, while `GetClusterCredentials` gives credentials for a given username in t
    arn:aws:redshift:`region`:`account-id`:dbgroup:`cluster-name`/`dbgroup-name`
    ```
 
-For more information and examples, see [Resource
-policies for GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources "redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources").
+For more information and examples, see [Resource policies for GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources "redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources").
 
-## Step 4:
-
-Create a database user and database groups
+## Step 4: Create a database user and database groups
 
 Optionally, you can create a database user that you use to log in to the cluster
 database. If you create temporary user credentials for an existing user, you can
@@ -308,9 +289,7 @@ alter user temp_creds_user password disable;
 4. Use the [GRANT](../dg/r_GRANT.md "../dg/r_GRANT.md") command to
    define access privileges for the groups.
 
-## Step
-
-5: Configure a JDBC or ODBC connection to use IAM credentials
+## Step 5: Configure a JDBC or ODBC connection to use IAM credentials
 
 You can configure your SQL client with an Amazon Redshift JDBC or ODBC driver. This driver
 manages the process of creating database user credentials and establishing a
@@ -326,15 +305,11 @@ following SAML-based identity providers:
 - Microsoft Azure AD
 
 For the steps to set up Microsoft Azure AD as an identity provider, see
-[Setting up JDBC or ODBC single
-sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
+[Setting up JDBC or ODBC single sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
 
-###### To configure a JDBC connection to
+###### To configure a JDBC connection to use IAM credentials
 
-use IAM credentials
-
-1. Download the latest Amazon Redshift JDBC driver from the [Configuring a connection for JDBC driver version 2.x for
-   Amazon Redshift](jdbc20-install.md "jdbc20-install.md") page.
+1. Download the latest Amazon Redshift JDBC driver from the [Configuring a connection for JDBC driver version 2.x for Amazon Redshift](jdbc20-install.md "jdbc20-install.md") page.
 2. Create a JDBC URL with the IAM credentials options in one of the following
    formats. To use IAM authentication, add `iam:` to the Amazon Redshift JDBC
    URL following `jdbc:redshift:` as shown in the following
@@ -360,8 +335,7 @@ jdbc:redshift:iam://examplecluster.abc123xyz789.us-west-2.redshift.amazonaws.com
 
 3. Add JDBC options to provide IAM credentials. You use different
    combinations of JDBC options to provide IAM credentials. For details, see
-   [JDBC
-   and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+   [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
 
 The following URL specifies AccessKeyID and SecretAccessKey for a
 user.
@@ -389,18 +363,14 @@ options.
 jdbc:redshift:iam://examplecluster:us-west-2/dev?plugin_name=com.amazon.redshift.plugin.AzureCredentialsProvider&UID=user&PWD=password&idp_tenant=my_tenant&client_secret=my_secret&client_id=my_id
 ```
 
-###### To configure an ODBC connection to
-
-use IAM credentials
+###### To configure an ODBC connection to use IAM credentials
 
 In the following procedure, you can find steps only to configure IAM
 authentication. For steps to use standard authentication, using a database user
-name and password, see [Configuring a connection for ODBC driver version 2.x for
-Amazon Redshift](odbc20-install.md "odbc20-install.md").
+name and password, see [Configuring a connection for ODBC driver version 2.x for Amazon Redshift](odbc20-install.md "odbc20-install.md").
 
 1. Install and configure the latest Amazon Redshift OBDC driver for your operating
-   system. For more information, see [Configuring a connection for ODBC driver version 2.x for
-   Amazon Redshift](odbc20-install.md "odbc20-install.md") page.
+   system. For more information, see [Configuring a connection for ODBC driver version 2.x for Amazon Redshift](odbc20-install.md "odbc20-install.md") page.
 
 ###### Important
 
@@ -469,8 +439,7 @@ Setup window.
     	* **DbGroups**
 
 
-    	For more information, see [JDBC
-    	 and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+    	For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
 
 
 
@@ -512,8 +481,7 @@ Setup window.
     	* **DbGroups** (optional)
 
 
-    	For more information, see [JDBC
-    	 and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+    	For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
 
 
 
@@ -552,8 +520,7 @@ Setup window.
     	 elements for the `Role` attribute in
     	 the SAML assertion. To find the appropriate value
     	 for the preferred role, work with your IdP
-    	 administrator. For more information, see [Step 2: Configure SAML
-    	 assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions").
+    	 administrator. For more information, see [Step 2: Configure SAML assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions").
     (Optional) Provide details for options that the ODBC
      driver uses to call the
      `GetClusterCredentials` API operation:
@@ -564,8 +531,7 @@ Setup window.
     	* **DbUser**
     	* **User AutoCreate**
     	* **DbGroups**
-    For more information, see [JDBC
-     and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+    For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
 
 
 
@@ -606,8 +572,7 @@ Setup window.
     	 elements for the `Role` attribute in
     	 the SAML assertion. To find the appropriate value
     	 for the preferred role, work with your IdP
-    	 administrator. For more information, see [Step 2: Configure SAML
-    	 assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions").
+    	 administrator. For more information, see [Step 2: Configure SAML assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions").
     (Optional) Provide details for options that the ODBC
      driver uses to call the
      `GetClusterCredentials` API operation:
@@ -618,8 +583,7 @@ Setup window.
     	* **DbUser**
     	* **User AutoCreate**
     	* **DbGroups**
-    For more information, see [JDBC
-     and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+    For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
 
 
 
@@ -659,8 +623,7 @@ Setup window.
     	 the `Role` attribute in the SAML
     	 assertion. To find the appropriate value for the
     	 preferred role, work with your IdP administrator.
-    	 For more information, see [Step 2: Configure SAML
-    	 assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions").
+    	 For more information, see [Step 2: Configure SAML assertions for your IdP](#configuring-saml-assertions "#configuring-saml-assertions").
     	* **Okta App ID**
 
 
@@ -679,8 +642,7 @@ Setup window.
     	* **DbUser**
     	* **User AutoCreate**
     	* **DbGroups**
-    For more information, see [JDBC
-     and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+    For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
 
 
 
@@ -734,5 +696,4 @@ Setup window.
     	* **DbUser**
     	* **User AutoCreate**
     	* **DbGroups**
-    For more information, see [JDBC
-     and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").
+    For more information, see [JDBC and ODBC options for creating database user credentials](options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials "options-for-providing-iam-credentials.md#jdbc-and-odbc-options-for-database-credentials").

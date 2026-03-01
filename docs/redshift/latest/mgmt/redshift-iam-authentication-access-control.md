@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Identity and access management in
-
-Amazon Redshift
+# Identity and access management in Amazon Redshift
 
 Access to Amazon Redshift requires credentials that AWS can use to authenticate your requests.
 Those credentials must have permissions to access AWS resources, such as an Amazon Redshift cluster.
@@ -61,7 +59,5 @@ on.
 The following sections describe how to manage permissions for Amazon Redshift. We recommend that
 you read the overview first.
 
-- [Overview of managing access permissions
-  to your Amazon Redshift resources](redshift-iam-access-control-overview.md "redshift-iam-access-control-overview.md")
-- [Using identity-based policies
-  (IAM policies) for Amazon Redshift](redshift-iam-access-control-identity-based.md "redshift-iam-access-control-identity-based.md")
+- [Overview of managing access permissions to your Amazon Redshift resources](redshift-iam-access-control-overview.md "redshift-iam-access-control-overview.md")
+- [Using identity-based policies (IAM policies) for Amazon Redshift](redshift-iam-access-control-identity-based.md "redshift-iam-access-control-identity-based.md")

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Using an Amazon Redshift ODBC driver on
-
-Linux
+# Using an Amazon Redshift ODBC driver on Linux
 
 You install the Amazon Redshift ODBC driver on client computers accessing an Amazon Redshift
 data warehouse. Each computer where you install the driver must meet a list
@@ -14,5 +12,4 @@ requirements, see the [Amazon Redshift ODBC connector installation and configura
 ###### Topics
 
 - [rs-odbc-msi Amazon Redshift ODBC driver](odbc-driver-linux-how-to-install.md "odbc-driver-linux-how-to-install.md")
-- [Using an ODBC driver manager to
-  configure the driver](odbc-driver-configure-linux.md "odbc-driver-configure-linux.md")
+- [Using an ODBC driver manager to configure the driver](odbc-driver-configure-linux.md "odbc-driver-configure-linux.md")

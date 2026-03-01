@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Authorizing Amazon Redshift to access AWS services on
-
-your behalf
+# Authorizing Amazon Redshift to access AWS services on your behalf
 
 Some Amazon Redshift features require Amazon Redshift to access other AWS services on your behalf. For
 example, the [COPY](../dg/r_COPY.md "../dg/r_COPY.md") and [UNLOAD](../dg/r_UNLOAD.md "../dg/r_UNLOAD.md") commands can load or unload data into
@@ -29,28 +27,21 @@ To grant users programmatic access, choose one of the following options.
 Following, find out how to create an IAM role with the appropriate permissions to access
 other AWS services. You also need to associate the role with your cluster and specify the
 Amazon Resource Name (ARN) of the role when you run the Amazon Redshift command. For more information,
-see [Authorizing COPY, UNLOAD, CREATE EXTERNAL
-FUNCTION, and CREATE EXTERNAL SCHEMA operations using IAM roles](copy-unload-iam-role.md "copy-unload-iam-role.md").
+see [Authorizing COPY, UNLOAD, CREATE EXTERNAL FUNCTION, and CREATE EXTERNAL SCHEMA operations using IAM roles](copy-unload-iam-role.md "copy-unload-iam-role.md").
 
 In addition, a superuser can grant the ASSUMEROLE privilege to specific users and groups
 to provide access to a role for COPY and UNLOAD operations. For information, see [GRANT](../dg/r_GRANT.md "../dg/r_GRANT.md") in the
 _Amazon Redshift Database Developer Guide_.
 
-## Creating an IAM
+## Creating an IAM role to allow your Amazon Redshift cluster to access AWS services
 
-role to allow your Amazon Redshift cluster to access AWS services
-
-## Creating an IAM
-
-role with permissions
+## Creating an IAM role with permissions
 
 To create an IAM role to permit your Amazon Redshift cluster to communicate with other AWS
 services on your behalf, take the following steps. The values used in this section are
 examples, you can choose values based on your needs.
 
-###### To create an IAM role to allow Amazon Redshift
-
-to access AWS services
+###### To create an IAM role to allow Amazon Redshift to access AWS services
 
 1. Open the [IAM
    console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home").
@@ -79,11 +70,9 @@ Choose **Next: Review**. 8. For **Role name**, type a name for your role, for ex
 role\*\***. 9. The new role is available to all users on clusters that use the role. To
 restrict access to only specific users on specific clusters, or to clusters in
 specific regions, edit the trust relationship for the role. For more
-information, see [Restricting access to IAM
-roles](authorizing-redshift-service-database-users.md "authorizing-redshift-service-database-users.md"). 10. Associate the role with your cluster. You can associate an IAM role with a
+information, see [Restricting access to IAM roles](authorizing-redshift-service-database-users.md "authorizing-redshift-service-database-users.md"). 10. Associate the role with your cluster. You can associate an IAM role with a
 cluster when you create the cluster, or you add the role to an existing cluster.
-For more information, see [Associating IAM
-roles with clusters](copy-unload-iam-role-associating-with-clusters.md "copy-unload-iam-role-associating-with-clusters.md").
+For more information, see [Associating IAM roles with clusters](copy-unload-iam-role-associating-with-clusters.md "copy-unload-iam-role-associating-with-clusters.md").
 
 ###### Note
 

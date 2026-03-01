@@ -164,22 +164,16 @@ using this method to connect must be allowed IAM permission to
 from using this method, modify their IAM user or role to deny this
 permission.
 
-## Accessing Query profiler in the Amazon Redshift console
-
-to analyze a query
+## Accessing Query profiler in the Amazon Redshift console to analyze a query
 
 You can access Query Profiler for either Amazon Redshift serverless or Amazon Redshift provisioned. See the following sections for details:
 
 ###### Topics
 
-- [Accessing Query profiler in the Amazon Redshift console
-  for Amazon Redshift Serverless](#using-query-plan-profiler-accessing-serverless "#using-query-plan-profiler-accessing-serverless")
-- [Accessing Query profiler in the Amazon Redshift console
-  for Amazon Redshift Provisioned](#using-query-plan-profiler-accessing-provisioned "#using-query-plan-profiler-accessing-provisioned")
+- [Accessing Query profiler in the Amazon Redshift console for Amazon Redshift Serverless](#using-query-plan-profiler-accessing-serverless "#using-query-plan-profiler-accessing-serverless")
+- [Accessing Query profiler in the Amazon Redshift console for Amazon Redshift Provisioned](#using-query-plan-profiler-accessing-provisioned "#using-query-plan-profiler-accessing-provisioned")
 
-### Accessing Query profiler in the Amazon Redshift console
-
-for Amazon Redshift Serverless
+### Accessing Query profiler in the Amazon Redshift console for Amazon Redshift Serverless
 
 To access Query profiler for Amazon Redshift Serverless, do the following:
 
@@ -195,9 +189,7 @@ To access Query profiler for Amazon Redshift Serverless, do the following:
 If a query plan is available,
 you will see a list of child queries. Choose a query to view it in Query profiler.
 
-### Accessing Query profiler in the Amazon Redshift console
-
-for Amazon Redshift Provisioned
+### Accessing Query profiler in the Amazon Redshift console for Amazon Redshift Provisioned
 
 To access Query profiler for Amazon Redshift Provisioned, do the following:
 

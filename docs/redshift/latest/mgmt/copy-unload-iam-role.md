@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Authorizing COPY, UNLOAD, CREATE EXTERNAL
-
-FUNCTION, and CREATE EXTERNAL SCHEMA operations using IAM roles
+# Authorizing COPY, UNLOAD, CREATE EXTERNAL FUNCTION, and CREATE EXTERNAL SCHEMA operations using IAM roles
 
 You can use the [COPY](../dg/r_COPY.md "../dg/r_COPY.md") command to load (or
 import) data into Amazon Redshift and the [UNLOAD](../dg/r_UNLOAD.md "../dg/r_UNLOAD.md") command to unload (or export) data from Amazon Redshift. You can use the
@@ -21,8 +19,7 @@ When you run the CREATE EXTERNAL FUNCTION, you provide security credentials usin
 IAM role parameter. These credentials authorize your Amazon Redshift cluster to invoke Lambda
 functions from AWS Lambda. The preferred method to supply security credentials is to
 specify an AWS Identity and Access Management (IAM) role. For COPY and UNLOAD, you can provide temporary
-credentials. For information about creating an IAM role, see [Authorizing Amazon Redshift to access AWS services on
-your behalf](authorizing-redshift-service.md "authorizing-redshift-service.md").
+credentials. For information about creating an IAM role, see [Authorizing Amazon Redshift to access AWS services on your behalf](authorizing-redshift-service.md "authorizing-redshift-service.md").
 
 Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
 

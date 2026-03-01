@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Creating an IAM role as default for
-
-Amazon Redshift
+# Creating an IAM role as default for Amazon Redshift
 
 When you create IAM roles through the Redshift console, Amazon Redshift programmatically
 creates the roles in your AWS account and automatically attaches existing AWS
@@ -13,9 +11,7 @@ console and don't have to switch to the IAM console for role creation. For more
 granular control of permissions for an existing IAM role that was created in the
 Amazon Redshift console, you can attach a customized managed policy to the IAM role.
 
-## IAM roles created in the
-
-console
+## IAM roles created in the console
 
 When you use the Amazon Redshift console to create IAM roles, Amazon Redshift tracks all IAM
 roles created through the console. Amazon Redshift preselects the most recent default IAM
@@ -61,15 +57,11 @@ Using the Amazon Redshift console, you can do the following:
 
 - [Creating an IAM role as the default](#create-iam "#create-iam")
 - [Removing IAM roles from your cluster](#remove-iam "#remove-iam")
-- [Associating IAM roles with your
-  cluster](#associate-iam "#associate-iam")
+- [Associating IAM roles with your cluster](#associate-iam "#associate-iam")
 - [Setting an IAM role as the default](#set-default-iam "#set-default-iam")
-- [Making an IAM role no longer default for
-  your cluster](#clear-default-iam "#clear-default-iam")
+- [Making an IAM role no longer default for your cluster](#clear-default-iam "#clear-default-iam")
 
-## Permissions of the
-
-AmazonRedshiftAllCommandsFullAccess managed policy
+## Permissions of the AmazonRedshiftAllCommandsFullAccess managed policy
 
 The following example shows the permissions in the
 `AmazonRedshiftAllCommandsFullAccess` managed policy that allow
@@ -197,9 +189,7 @@ using federated queries.
 },
 ```
 
-## Managing IAM roles created for a
-
-cluster using the console
+## Managing IAM roles created for a cluster using the console
 
 To create, modify, and remove IAM roles created from the Amazon Redshift console, use
 the **Clusters** section in the console.
@@ -216,9 +206,7 @@ create another IAM role as the cluster default when an existing IAM role is
 currently assigned as the default, the new IAM role replaces the other one as
 default.
 
-###### To create a new cluster and an IAM role set as the default for the new
-
-cluster
+###### To create a new cluster and an IAM role set as the default for the new cluster
 
 1. Sign in to the AWS Management Console and open the Amazon Redshift console at
    [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
@@ -276,9 +264,7 @@ You can remove one or more IAM roles from your cluster.
 5. From **Manage IAM roles**, choose **Remove
    IAM roles**.
 
-### Associating IAM roles with your
-
-cluster
+### Associating IAM roles with your cluster
 
 You can associate one or more IAM roles with your cluster.
 
@@ -320,9 +306,7 @@ You can set an IAM role as the default for your cluster.
 6. When prompted, choose **Set default** to confirm
    making the specified IAM role as the default.
 
-### Making an IAM role no longer default for
-
-your cluster
+### Making an IAM role no longer default for your cluster
 
 You can make an IAM role no longer the default for your cluster.
 
@@ -343,15 +327,11 @@ You can make an IAM role no longer the default for your cluster.
 6. When prompted, choose **Clear default** to confirm
    clearing the specified IAM role as the default.
 
-## Managing IAM
-
-roles created on the cluster using the AWS CLI
+## Managing IAM roles created on the cluster using the AWS CLI
 
 You can manage IAM roles created on the cluster using the AWS CLI.
 
-### To create an Amazon Redshift cluster with an IAM
-
-role set as default
+### To create an Amazon Redshift cluster with an IAM role set as default
 
 To create an Amazon Redshift cluster with an IAM role set it as the default for the
 cluster, use the `aws redshift create-cluster` AWS CLI command.
@@ -395,9 +375,7 @@ The following snippet is an example of the response.
 }
 ```
 
-### To add one or more IAM roles to an
-
-Amazon Redshift cluster
+### To add one or more IAM roles to an Amazon Redshift cluster
 
 To add one or more IAM roles associated to the cluster, use the `aws
  redshift modify-cluster-iam-roles` AWS CLI command.
@@ -443,9 +421,7 @@ The following snippet is an example of the response.
 }
 ```
 
-### To remove one or more IAM roles
-
-from an Amazon Redshift cluster
+### To remove one or more IAM roles from an Amazon Redshift cluster
 
 To remove one or more IAM roles associated to the cluster, use the `aws
  redshift modify-cluster-iam-roles` AWS CLI command.
@@ -491,9 +467,7 @@ The following snippet is an example of the response.
 }
 ```
 
-### To set an associated
-
-IAM role as the default for the cluster
+### To set an associated IAM role as the default for the cluster
 
 To set an associated IAM role as the default for the cluster, use the
 `aws redshift modify-cluster-iam-roles` AWS CLI command.
@@ -531,9 +505,7 @@ The following snippet is an example of the response.
 }
 ```
 
-### To set an
-
-unassociated IAM role as the default for the cluster
+### To set an unassociated IAM role as the default for the cluster
 
 To set an unassociated IAM role as the default for the cluster, use the
 `aws redshift modify-cluster-iam-roles` AWS CLI command.
@@ -576,9 +548,7 @@ The following snippet is an example of the response.
 }
 ```
 
-### To restore a cluster from a snapshot and
-
-set an IAM role as the default for it
+### To restore a cluster from a snapshot and set an IAM role as the default for it
 
 When you restore your cluster from a snapshot, you can either associate an
 existing IAM role or create a new one and set it as the default for the

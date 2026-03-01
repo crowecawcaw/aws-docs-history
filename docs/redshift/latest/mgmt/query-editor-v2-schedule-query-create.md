@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Creating a query schedule with
-
-query editor v2
+# Creating a query schedule with query editor v2
 
 You can create a schedule to run a SQL statement with Amazon Redshift query editor v2. You create a
 schedule to run your SQL statement at the time intervals that match your business needs.
@@ -27,8 +25,7 @@ statement. 2. When you define the schedule, you provide the following informatio
     * The authentication values for either AWS Secrets Manager or temporary
      credentials to authorize access your cluster or workgroup. These
      authentication methods are supported by the Data API. For more
-     information, see [Authenticating a
-     scheduled query](query-editor-v2-schedule-query-authentication.md "query-editor-v2-schedule-query-authentication.md").
+     information, see [Authenticating a scheduled query](query-editor-v2-schedule-query-authentication.md "query-editor-v2-schedule-query-authentication.md").
     * The cluster or workgroup where your database resides.
     * The name of the database that contains the data to be queried.
     * The name of the scheduled query and its description. The query editor v2
@@ -66,8 +63,6 @@ A schedule query run is only available in the **Schedule
 history** list for 24 hours. Queries that run on a schedule don't
 appear in the **Query history** view of query editor v2.
 
-## Demo of scheduling a
-
-query
+## Demo of scheduling a query
 
 For a demo of scheduling a query, watch the following video.

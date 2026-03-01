@@ -9,9 +9,7 @@ connect to your cluster from SQL client tools. This section describes how to set
 JDBC, Python, and ODBC connections. It also describes how to use Secure Sockets Layer
 (SSL) and server certificates to encrypt communication between the client and server.
 
-## JDBC, Python, and ODBC drivers for
-
-Amazon Redshift
+## JDBC, Python, and ODBC drivers for Amazon Redshift
 
 To work with data in your cluster, you must have JDBC, Python, or ODBC drivers for
 connectivity from your client computer or instance. Code your applications to use
@@ -31,10 +29,7 @@ have the following advantages:
 - Improved performance in conjunction with Amazon Redshift enhancements.
 
 For more information about how to download the JDBC and ODBC drivers and
-configure connections to your cluster, see [Configuring a connection for JDBC driver version 2.x for
-Amazon Redshift](jdbc20-install.md "jdbc20-install.md"), [Amazon Redshift Python connector](python-redshift-driver.md "python-redshift-driver.md"), and [Configuring a connection for ODBC driver version 2.x for
-Amazon Redshift](odbc20-install.md "odbc20-install.md").
+configure connections to your cluster, see [Configuring a connection for JDBC driver version 2.x for Amazon Redshift](jdbc20-install.md "jdbc20-install.md"), [Amazon Redshift Python connector](python-redshift-driver.md "python-redshift-driver.md"), and [Configuring a connection for ODBC driver version 2.x for Amazon Redshift](odbc20-install.md "odbc20-install.md").
 
 For more information about managing IAM identities, including best practices for
-IAM roles, see [Identity and access management in
-Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
+IAM roles, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").

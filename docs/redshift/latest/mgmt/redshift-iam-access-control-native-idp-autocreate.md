@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Automatically creating
-
-Amazon Redshift roles for identity providers
+# Automatically creating Amazon Redshift roles for identity providers
 
 This feature allows you to automatically create roles in Redshift based on group
 membership from your Identity Provider (IdP). Auto-creating roles supports the Azure Active

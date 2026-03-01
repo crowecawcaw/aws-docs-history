@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Copying a snapshot to another AWS
-
-Region
+# Copying a snapshot to another AWS Region
 
 You can configure Amazon Redshift to automatically copy snapshots (automated or manual) for a
 cluster to another AWS Region. When a snapshot is created in the cluster's primary
@@ -50,5 +48,4 @@ restoration purposes.
 To copy snapshots for AWS KMS–encrypted clusters to another AWS Region, create a
 grant for Amazon Redshift to use a customer managed key in the destination AWS Region. Then choose that
 grant when you enable copying of snapshots in the source AWS Region. For more information
-about configuring snapshot copy grants, see [Copying AWS KMS–encrypted
-snapshots to another AWS Region](working-with-db-encryption.md#configure-snapshot-copy-grant "working-with-db-encryption.md#configure-snapshot-copy-grant").
+about configuring snapshot copy grants, see [Copying AWS KMS–encrypted snapshots to another AWS Region](working-with-db-encryption.md#configure-snapshot-copy-grant "working-with-db-encryption.md#configure-snapshot-copy-grant").

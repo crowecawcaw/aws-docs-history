@@ -7,9 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 The examples in this page cover different ways to pass a SQL statement to your
 data warehouse
 
-## Run a SQL
-
-statement
+## Run a SQL statement
 
 To run a SQL statement, use the `aws redshift-data
  execute-statement` AWS CLI command.
@@ -118,9 +116,7 @@ The following is an example of the response.
 }
 ```
 
-## Run a SQL
-
-statement with parameters
+## Run a SQL statement with parameters
 
 To run a SQL statement, use the `aws redshift-data
  execute-statement` AWS CLI command.
@@ -374,9 +370,7 @@ Provides the following results:
 
 ```
 
-## Run multiple SQL
-
-statements
+## Run multiple SQL statements
 
 To run multiple SQL statements with one command, use the `aws
  redshift-data batch-execute-statement` AWS CLI command.

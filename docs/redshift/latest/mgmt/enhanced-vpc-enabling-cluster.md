@@ -15,8 +15,7 @@ If you attach an Amazon S3 VPC endpoint, the VPC endpoint is used only
 for access to Amazon S3 buckets in the same AWS Region. To access buckets in another
 AWS Region (not using the VPC endpoint) or to access other AWS services, make
 your cluster or Serverless workgroup publicly accessible or use a [network address translation (NAT)
-gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md"). For more information, see [Creating a Redshift provisioned
-cluster or Amazon Redshift Serverless workgroup in a VPC](getting-started-cluster-in-vpc.md "getting-started-cluster-in-vpc.md").
+gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md"). For more information, see [Creating a Redshift provisioned cluster or Amazon Redshift Serverless workgroup in a VPC](getting-started-cluster-in-vpc.md "getting-started-cluster-in-vpc.md").
 
 - You must enable Domain Name Service (DNS) resolution in your VPC.
   Alternatively, if you're using your own DNS server, make sure that DNS requests

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Restoring a table from
-
-a snapshot
+# Restoring a table from a snapshot
 
 You can restore a single table from a snapshot instead of restoring an entire cluster.
 When you restore a single table from a snapshot, you specify the source snapshot, database,

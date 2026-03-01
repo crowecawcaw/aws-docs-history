@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Restricting access to IAM
-
-roles
+# Restricting access to IAM roles
 
 By default, IAM roles that are available to an Amazon Redshift cluster are available to all
 users on that cluster. You can choose to restrict IAM roles to specific Amazon Redshift database
@@ -13,9 +11,7 @@ users on specific clusters or to specific regions.
 To permit only specific database users to use an IAM role, take the following
 steps.
 
-###### To identify specific database users
-
-with access to an IAM role
+###### To identify specific database users with access to an IAM role
 
 1. Identify the Amazon Resource Name (ARN) for the database users in your Amazon Redshift
    cluster. The ARN for a database user is in the format:

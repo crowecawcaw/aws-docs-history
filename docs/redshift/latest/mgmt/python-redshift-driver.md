@@ -18,8 +18,7 @@ Python driver license agreement](https://github.com/aws/amazon-redshift-python-d
 
 The Amazon Redshift Python connector provides the following:
 
-- AWS Identity and Access Management (IAM) authentication. For more information, see [Identity and access management in
-  Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
+- AWS Identity and Access Management (IAM) authentication. For more information, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
 - Identity provider authentication using federated API access. Federated API access
   is supported for corporate identity providers such as the following:
   - Azure AD. For more information, see the AWS Big Data blog post [Federate Amazon Redshift access with Microsoft Azure AD single
@@ -40,16 +39,10 @@ The Amazon Redshift Python connector provides the following:
 ###### Topics
 
 - [Installing the Amazon Redshift Python connector](python-driver-install.md "python-driver-install.md")
-- [Configuration options for the Amazon Redshift
-  Python connector](python-configuration-options.md "python-configuration-options.md")
+- [Configuration options for the Amazon Redshift Python connector](python-configuration-options.md "python-configuration-options.md")
 - [Importing the Python connector](python-start-import.md "python-start-import.md")
-- [Integrating the Python connector with
-  NumPy](python-connect-integrate-numpy.md "python-connect-integrate-numpy.md")
-- [Integrating the Python connector with
-  pandas](python-connect-integrate-pandas.md "python-connect-integrate-pandas.md")
-- [Using identity provider
-  plugins](python-connect-identity-provider-plugins.md "python-connect-identity-provider-plugins.md")
-- [Examples of using the Amazon Redshift Python
-  connector](python-connect-examples.md "python-connect-examples.md")
-- [API reference for the Amazon Redshift Python
-  connector](python-api-reference.md "python-api-reference.md")
+- [Integrating the Python connector with NumPy](python-connect-integrate-numpy.md "python-connect-integrate-numpy.md")
+- [Integrating the Python connector with pandas](python-connect-integrate-pandas.md "python-connect-integrate-pandas.md")
+- [Using identity provider plugins](python-connect-identity-provider-plugins.md "python-connect-identity-provider-plugins.md")
+- [Examples of using the Amazon Redshift Python connector](python-connect-examples.md "python-connect-examples.md")
+- [API reference for the Amazon Redshift Python connector](python-api-reference.md "python-api-reference.md")

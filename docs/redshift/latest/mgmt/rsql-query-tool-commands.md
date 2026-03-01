@@ -617,9 +617,7 @@ select count(*) from lineitem limit 5;
 this is label LABELB
 ```
 
-## \IF (\ELSEIF, \ELSE,
-
-\ENDIF)
+## \IF (\ELSEIF, \ELSE, \ENDIF)
 
 `\IF` and related commands conditionally run portions of the input
 script. An extension of the PSQL `\if` (`\elif`,

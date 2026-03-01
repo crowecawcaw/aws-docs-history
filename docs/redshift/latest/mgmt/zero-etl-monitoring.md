@@ -6,9 +6,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 
 You can monitor your zero-ETL integrations by querying the system views or with Amazon EventBridge.
 
-## Monitoring zero-ETL integrations with Amazon Redshift system
-
-views
+## Monitoring zero-ETL integrations with Amazon Redshift system views
 
 You can monitor your zero-ETL integrations by querying the following system views in
 Amazon Redshift.
@@ -29,5 +27,4 @@ Amazon Redshift.
 ## Monitoring zero-ETL integrations with Amazon EventBridge
 
 Amazon Redshift sends integration-related events to Amazon EventBridge. For a list of events and their
-corresponding event IDs, see [Zero-ETL integration event notifications with
-Amazon EventBridge](integration-event-notifications.md "integration-event-notifications.md").
+corresponding event IDs, see [Zero-ETL integration event notifications with Amazon EventBridge](integration-event-notifications.md "integration-event-notifications.md").

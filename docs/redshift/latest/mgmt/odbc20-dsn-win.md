@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Creating a system DSN entry for an ODBC
-
-connection
+# Creating a system DSN entry for an ODBC connection
 
 After you download and install the ODBC driver, add a data source name (DSN) entry
 to the client computer or Amazon EC2 instance. SQL client tools can use this data source

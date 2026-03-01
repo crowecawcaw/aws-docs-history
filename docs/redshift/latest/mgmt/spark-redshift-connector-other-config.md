@@ -2,16 +2,12 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Other configuration
-
-options
+# Other configuration options
 
 On this page, you can find descriptions for the options that you can specify for the
 Amazon Redshift Spark connector.
 
-## Maximum size of
-
-string columns
+## Maximum size of string columns
 
 Redshift creates string columns as text columns when creating tables, which are
 stored as VARCHAR(256). If you want columns that support larger sizes, you can use
@@ -25,9 +21,7 @@ columnLengthMap.foreach { case (colName, length) =>
 }
 ```
 
-## Column
-
-type
+## Column type
 
 To set a column type, use the `redshift_type` field.
 
@@ -38,23 +32,17 @@ columnTypeMap.foreach { case (colName, colType) =>
 }
 ```
 
-## Compression encoding
-
-on a column
+## Compression encoding on a column
 
 To use a specific compression encoding on a column, use the encoding field. For a
 full list of support compression encodings, see [Compression
 encodings](../dg/c_Compression_encodings.md "../dg/c_Compression_encodings.md").
 
-## Description for
-
-a column
+## Description for a column
 
 To set a description, use the `description` field.
 
-## Authentication
-
-between Redshift and Amazon S3
+## Authentication between Redshift and Amazon S3
 
 By default, the result is unloaded to Amazon S3 in the parquet format. To unload the
 result as pipe-delimited text file, specify the following option.
@@ -63,17 +51,13 @@ result as pipe-delimited text file, specify the following option.
 .option("unload_s3_format", "TEXT")
 ```
 
-## Pushdown
-
-statements
+## Pushdown statements
 
 | Parameter                                                 | Required | Default | Description                                                                                                                                                                                                                                                                                                                                                                                         |
 | --------------------------------------------------------- | -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | spark.datasource.redshift.community.autopushdown.lazyMode | No       | True    | Specifies whether the connector should<br>lazily run pushdown statements Redshift.<br>If true, the spark connector retrieves all of the related<br>models and information before running the query, which generally<br>yields better performance.<br>If false, the spark connector runs pushdown statements<br>immediately in the main Spark driver thread and is serialized<br>across expressions. |
 
-## Connector
-
-parameters
+## Connector parameters
 
 The parameter map or `OPTIONS` in Spark SQL supports the following
 settings.

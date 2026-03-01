@@ -2,17 +2,13 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Creating a secret for
-
-database connection credentials
+# Creating a secret for database connection credentials
 
 You can create a Secrets Manager secret to store credentials used to connect to an Amazon Redshift
 provisioned cluster or Redshift Serverless namespace and workgroup. You can also use this secret when
 scheduling a query in Amazon Redshift query editor v2.
 
-###### To create a secret for a database in an Amazon Redshift provisioned cluster using the Secrets Manager
-
-console
+###### To create a secret for a database in an Amazon Redshift provisioned cluster using the Secrets Manager console
 
 1. Open the Secrets Manager console ([https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/")).
 2. Navigate to the list of **Secrets** and choose
@@ -48,9 +44,7 @@ The specific values of your credentials, engine, host, port, and cluster
 identifier are stored in the secret. Also, the secret is tagged with the tag key
 `Redshift`.
 
-###### To create a secret for a database in a Redshift Serverless namespace using the Redshift Serverless
-
-console
+###### To create a secret for a database in a Redshift Serverless namespace using the Redshift Serverless console
 
 1. Sign in to the AWS Management Console and open the Amazon Redshift console at
    [https://console.aws.amazon.com/redshiftv2/](https://console.aws.amazon.com/redshiftv2/ "https://console.aws.amazon.com/redshiftv2/").
@@ -71,9 +65,7 @@ console
    that starts with the string `Redshift` for the secret to be listed
    under AWS Secrets Manager on the management console.
 
-###### To create a secret for a database in a Redshift Serverless namespace using the Secrets Manager
-
-console
+###### To create a secret for a database in a Redshift Serverless namespace using the Secrets Manager console
 
 1. Open the Secrets Manager console ([https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/")).
 2. Navigate to the list of **Secrets** and choose

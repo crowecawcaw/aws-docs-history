@@ -7,9 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Configure Amazon Redshift to export audit log data. Logs can be exported to CloudWatch, or as files
 to Amazon S3 buckets.
 
-## Enabling audit logging using the
-
-console
+## Enabling audit logging using the console
 
 ###### To enable audit logging for a cluster
 

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Accessing Amazon Redshift Serverless
-
-database objects with database-role permissions
+# Accessing Amazon Redshift Serverless database objects with database-role permissions
 
 This procedure shows how to grant permission to query a table through an [Amazon Redshift database role](../dg/t_Roles.md "../dg/t_Roles.md"). The role is assigned by
 means of a tag that's attached to a user in IAM and passed to Amazon Redshift when they sign in.

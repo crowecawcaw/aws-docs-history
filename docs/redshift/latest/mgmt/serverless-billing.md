@@ -36,16 +36,12 @@ provisioned clusters. Snapshot replication and data sharing across AWS Regions a
 billed at the transfer rates outlined on the pricing page. For more information, see
 [Amazon Redshift pricing](https://aws.amazon.com//redshift/pricing/ "https://aws.amazon.com//redshift/pricing/").
 
-### Visualizing billing usage with
-
-CloudWatch
+### Visualizing billing usage with CloudWatch
 
 The metric `SnapshotStorage`, which tracks snapshot storage usage, is
 generated and sent to CloudWatch. For more information about CloudWatch, see [What is Amazon CloudWatch?](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md")
 
-## Using the Amazon Redshift Serverless free
-
-trial
+## Using the Amazon Redshift Serverless free trial
 
 Amazon Redshift Serverless offers a free trial. If you participate in the free trial, you can
 view the free trial credit balance in the Redshift console, and check free trial usage
@@ -105,9 +101,7 @@ autonomics when necessary even in periods of high user activity.
 In such cases, you can be billed for the time spent running
 autonomics. For more information, see [Allocating extra compute resources for automatic database optimization](../dg/t_extra-compute-autonomics.md "../dg/t_extra-compute-autonomics.md") in the _Amazon Redshift Database Developer Guide_.
 
-### Amazon Redshift Serverless best
-
-practices for keeping billing predictable
+### Amazon Redshift Serverless best practices for keeping billing predictable
 
 The following are best practices and built-in settings that help keep your billing
 consistent.
@@ -134,9 +128,7 @@ consistent.
     transaction is six hours before Amazon Redshift Serverless ends the session
     associated with the transaction. For more information, see [Quotas for Amazon Redshift Serverless objects](amazon-redshift-limits.md#serverless-limits-account "amazon-redshift-limits.md#serverless-limits-account").
 
-## Amazon Redshift Serverless billing with
-
-connection pooling
+## Amazon Redshift Serverless billing with connection pooling
 
 Amazon Redshift Serverless treats all incoming queries as billable user activity, including lightweight
 health-check queries sent by connection pools. This behavior applies regardless of

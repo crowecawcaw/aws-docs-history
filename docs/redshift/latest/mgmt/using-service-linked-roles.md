@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Using service-linked roles for
-
-Amazon Redshift
+# Using service-linked roles for Amazon Redshift
 
 Amazon Redshift uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to Amazon Redshift. Service-linked roles are predefined by Amazon Redshift and
@@ -29,9 +27,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-Linked Role** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Service-linked role permissions for
-
-Amazon Redshift
+## Service-linked role permissions for Amazon Redshift
 
 Amazon Redshift uses the service-linked role named **AWSServiceRoleForRedshift** –
 Allows Amazon Redshift to call AWS services on your behalf. This service-linked role is attached to the following managed policy: `AmazonRedshiftServiceLinkedRolePolicy`. For updates to this policy, see [AWS-managed (predefined) policies for Amazon Redshift](redshift-iam-access-control-identity-based.md#redshift-policy-resources.managed-policies "redshift-iam-access-control-identity-based.md#redshift-policy-resources.managed-policies").
@@ -314,9 +310,7 @@ Add the following policy statement to the permissions for that IAM entity:
 
 Alternatively, you can use an AWS managed policy to [provide full access](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonRedshiftFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonRedshiftFullAccess") to Amazon Redshift.
 
-## Creating a service-linked role for
-
-Amazon Redshift
+## Creating a service-linked role for Amazon Redshift
 
 You don't need to manually create an AWSServiceRoleForRedshift service-linked role. Amazon Redshift
 creates the service-linked role for you. If the AWSServiceRoleForRedshift service-linked role has been
@@ -330,9 +324,7 @@ service-linked roles, then Amazon Redshift created the AWSServiceRoleForRedshift
 learn more, see [A new
 role appeared in my IAM account](../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared "../../../IAM/latest/UserGuide/troubleshoot_roles.md#troubleshoot_roles_new-role-appeared").
 
-## Editing a service-linked role for
-
-Amazon Redshift
+## Editing a service-linked role for Amazon Redshift
 
 Amazon Redshift does not allow you to edit the AWSServiceRoleForRedshift service-linked role. After you
 create a service-linked role, you can't change the name of the role because various entities
@@ -341,17 +333,14 @@ console, the AWS Command Line Interface (AWS CLI), or IAM API. For more informat
 [Modifying a role](../../../IAM/latest/UserGuide/id_roles_manage_modify.md "../../../IAM/latest/UserGuide/id_roles_manage_modify.md") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Amazon Redshift
+## Deleting a service-linked role for Amazon Redshift
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don't have an unused entity that is not
 actively monitored or maintained.
 
 Before you can delete a service-linked role for an account, you must shut down and delete
-any clusters in the account. For more information, see [Shutting down and deleting a
-cluster](rs-mgmt-shutdown-delete-cluster.md "rs-mgmt-shutdown-delete-cluster.md").
+any clusters in the account. For more information, see [Shutting down and deleting a cluster](rs-mgmt-shutdown-delete-cluster.md "rs-mgmt-shutdown-delete-cluster.md").
 
 You can use the IAM console, the AWS CLI, or the IAM API to delete a service-linked role.
 For more information, see [Deleting a

@@ -74,9 +74,7 @@ col
 exit
 ```
 
-## HEADING and
-
-RTITLE
+## HEADING and RTITLE
 
 Enables users to specify a header that appears at the top of a report. Header
 specified by the `RSET RTITLE` command automatically includes the

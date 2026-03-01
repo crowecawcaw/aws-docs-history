@@ -2,17 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Granting permissions to
-
-Amazon Redshift Serverless
+# Granting permissions to Amazon Redshift Serverless
 
 To access other AWS services, Amazon Redshift Serverless requires permissions. Some Amazon Redshift
 features require Amazon Redshift to access other AWS services on your behalf. For your
 Amazon Redshift Serverless instance to act for you, supply security credentials to it. The
 preferred method to supply security credentials is to specify an AWS Identity and Access Management (IAM) role.
 You can also create an IAM role through the Amazon Redshift console and set it as the
-default. For more information, see [Creating an IAM role as default for
-Amazon Redshift](#serverless-default-iam-role "#serverless-default-iam-role").
+default. For more information, see [Creating an IAM role as default for Amazon Redshift](#serverless-default-iam-role "#serverless-default-iam-role").
 
 To access other AWS services, create an IAM role with the appropriate permissions.
 You also need to associate the role with Amazon Redshift Serverless. In addition, either specify
@@ -22,12 +19,9 @@ the `default` keyword.
 When changing the trust relationship for the IAM role in the [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"), make
 sure that it contains `redshift-serverless.amazonaws.com` and
 `redshift.amazonaws.com` as principal service names. For information
-about how to manage IAM roles to access other AWS services on your behalf, see [Authorizing Amazon Redshift to access AWS services on
-your behalf](authorizing-redshift-service.md "authorizing-redshift-service.md").
+about how to manage IAM roles to access other AWS services on your behalf, see [Authorizing Amazon Redshift to access AWS services on your behalf](authorizing-redshift-service.md "authorizing-redshift-service.md").
 
-## Creating an IAM role as default for
-
-Amazon Redshift
+## Creating an IAM role as default for Amazon Redshift
 
 When you create IAM roles through the Amazon Redshift console, Amazon Redshift programmatically
 creates the roles in your AWS account. Amazon Redshift also automatically attaches
@@ -41,8 +35,7 @@ attached. This IAM role allows Amazon Redshift to copy, unload, query, and analy
 for AWS resources in your IAM account. The related commands include COPY,
 UNLOAD, CREATE EXTERNAL FUNCTION, CREATE EXTERNAL TABLE, CREATE EXTERNAL SCHEMA,
 CREATE MODEL, and CREATE LIBRARY. For more information about how to create an IAM
-role as default for Amazon Redshift, see Creating an IAM role as default for
-Amazon Redshift.
+role as default for Amazon Redshift, see Creating an IAM role as default for Amazon Redshift.
 
 To get started creating an IAM role as default for Amazon Redshift, open the AWS Management Console,
 choose the Amazon Redshift console, and then choose **Redshift Serverless**
@@ -57,9 +50,7 @@ choose **Namespace configuration** for an existing workgroup. Under
 **Security and encryption**, you can edit the
 permissions.
 
-### Assigning IAM roles
-
-to a namespace
+### Assigning IAM roles to a namespace
 
 Each IAM role is an AWS identity with permissions policies that determine
 what actions each role can perform in
@@ -80,9 +71,7 @@ IAM roles to the namespace by populating `IAMRoles` with one or
 more roles. Specifically, you add ARNs for specific roles to the
 collection.
 
-#### Managing
-
-namespace associated IAM roles
+#### Managing namespace associated IAM roles
 
 On the AWS Management Console you can manage permissions policies for roles in
 AWS Identity and Access Management. You can manage IAM roles for the namespace, using settings

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Use an ODBC driver manager to
-
-configure the driver
+# Use an ODBC driver manager to configure the driver
 
 On macOS X operating systems, you use an ODBC driver manager to
 configure the ODBC connection settings. ODBC driver managers use configuration
@@ -67,9 +65,7 @@ manager can locate the files. For more information, see "Specifying the
 Locations of the Driver Configuration Files" in the
 [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
 
-## Creating a data source name macOS
-
-X operating systems
+## Creating a data source name macOS X operating systems
 
 When connecting to your data store using a data source name (DSN),
 configure the `odbc.ini` file to define DSNs. Set the properties
@@ -111,9 +107,7 @@ Database=dev
 locale=en-US
 ```
 
-## Configuring a connection
-
-without a DSN on macOS X operating systems
+## Configuring a connection without a DSN on macOS X operating systems
 
 To connect to your data store through a connection that doesn't have
 a DSN, define the driver in the `odbcinst.ini` file. Then provide
@@ -150,9 +144,7 @@ Description=Amazon Redshift ODBC Driver for macOS X
 Driver=/opt/amazon/redshift/lib/amazonredshiftodbc.dylib
 ```
 
-## Configuring
-
-environment variables
+## Configuring environment variables
 
 Use the correct ODBC driver manager to load the correct driver. To do
 this, set the library path environment variable. For more information, see
@@ -170,9 +162,7 @@ manager can locate the files. For more information, see "Specifying the
 Locations of the Driver Configuration Files" in _Amazon Redshift ODBC
 Connector Installation and Configuration Guide_.
 
-## Configuring connection
-
-features
+## Configuring connection features
 
 You can configure the following connection features for your ODBC
 setting:

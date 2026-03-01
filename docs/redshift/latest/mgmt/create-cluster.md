@@ -68,9 +68,7 @@ password**, you can choose from the following options:
 7. Choose **Create cluster** to create the cluster. The cluster
    might take several minutes to be ready to use.
 
-## Additional
-
-configurations
+## Additional configurations
 
 When you create a cluster, you can specify additional properties to customize it.
 You can find more details about some of these properties in the following list.
@@ -120,8 +118,7 @@ access to your keys](../../../kms/latest/developerguide/control-access.md "../..
 _AWS Key Management Service Developer Guide_.
 
 For more information about using AWS KMS encryption keys in
-Amazon Redshift, see [Encryption using
-AWS KMS](working-with-db-encryption.md#working-with-aws-kms "working-with-db-encryption.md#working-with-aws-kms").
+Amazon Redshift, see [Encryption using AWS KMS](working-with-db-encryption.md#working-with-aws-kms "working-with-db-encryption.md#working-with-aws-kms").
 
 - **HSM**
 
@@ -136,8 +133,7 @@ Amazon Redshift and the HSM to form a trusted connection over which the
 cluster key can be passed. The HSM connection and client
 certificate must be set up in Amazon Redshift before you launch a
 cluster. For more information about setting up HSM connections
-and client certificates, see [Encryption using hardware security
-modules](working-with-db-encryption.md#working-with-HSM "working-with-db-encryption.md#working-with-HSM").
+and client certificates, see [Encryption using hardware security modules](working-with-db-encryption.md#working-with-HSM "working-with-db-encryption.md#working-with-HSM").
 
 **Maintenance track**
 

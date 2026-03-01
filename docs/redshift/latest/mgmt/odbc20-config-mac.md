@@ -9,9 +9,7 @@ settings. ODBC driver managers use configuration files to define and configure O
 data sources and drivers. The ODBC driver manager that you use depends on the
 operating system that you use.
 
-## Configuring the ODBC driver using
-
-iODBC or unixODBC driver manager
+## Configuring the ODBC driver using iODBC or unixODBC driver manager
 
 The following files are required to configure the Amazon Redshift ODBC driver:
 
@@ -58,9 +56,7 @@ shell startup file (e.g., `~/.bash_profile` or `~/.zshrc`).
 For supported version of driver manager,
 see [here](odbc20-install-config-mac.md "odbc20-install-config-mac.md")
 
-### Configuring a connection using a data source
-
-name (DSN) on Apple macOS
+### Configuring a connection using a data source name (DSN) on Apple macOS
 
 When connecting to your data store using a data source name (DSN), configure
 the `odbc.ini` file to define data source names (DSNs). Set the
@@ -96,9 +92,7 @@ Database=dev
 locale=en-US
 ```
 
-### Configuring a connection without a DSN on
-
-Apple macOS
+### Configuring a connection without a DSN on Apple macOS
 
 To connect to your Redshift data warehouse through a connection that doesn't have a DSN,
 define the driver in the `odbcinst.ini` file. Then provide a DSN-less

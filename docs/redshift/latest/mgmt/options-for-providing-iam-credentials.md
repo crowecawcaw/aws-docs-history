@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Options for providing IAM
-
-credentials
+# Options for providing IAM credentials
 
 To provide IAM credentials for a JDBC or ODBC connection, choose one of the following
 options.
@@ -19,15 +17,13 @@ settings, you can put the values in a named profile. For more information, see
 
 Provide values for AccessKeyID, SecretAccessKey, and, optionally, SessionToken
 in the form of JDBC or ODBC settings. SessionToken is required only for an IAM
-role with temporary credentials. For more information, see [JDBC and ODBC options
-for providing IAM credentials](#jdbc-options-for-providing-iam-credentials "#jdbc-options-for-providing-iam-credentials").
+role with temporary credentials. For more information, see [JDBC and ODBC options for providing IAM credentials](#jdbc-options-for-providing-iam-credentials "#jdbc-options-for-providing-iam-credentials").
 
 - **Identity provider federation**
 
 When you use identity provider federation to enable users from an identity
 provider to authenticate to Amazon Redshift, specify the name of a credential provider
-plugin. For more information, see [Credentials provider
-plugins](#using-credentials-provider-plugin "#using-credentials-provider-plugin").
+plugin. For more information, see [Credentials provider plugins](#using-credentials-provider-plugin "#using-credentials-provider-plugin").
 
 The Amazon Redshift JDBC and ODBC drivers include plugins for the following SAML-based
 identity federation credential providers:
@@ -38,10 +34,8 @@ identity federation credential providers:
     + Microsoft Azure Active Directory (Azure AD)
 
 You can provide the plugin name and related values in the form of JDBC or ODBC
-settings or by using a profile. For more information, see [Options for JDBC driver version 2.x
-configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md").
-For more information, see [Step
-5: Configure a JDBC or ODBC connection to use IAM credentials](generating-iam-credentials-steps.md#generating-iam-credentials-configure-jdbc-odbc "generating-iam-credentials-steps.md#generating-iam-credentials-configure-jdbc-odbc").
+settings or by using a profile. For more information, see [Options for JDBC driver version 2.x configuration](jdbc20-configuration-options.md "jdbc20-configuration-options.md").
+For more information, see [Step 5: Configure a JDBC or ODBC connection to use IAM credentials](generating-iam-credentials-steps.md#generating-iam-credentials-configure-jdbc-odbc "generating-iam-credentials-steps.md#generating-iam-credentials-configure-jdbc-odbc").
 
 ## Using a configuration profile
 
@@ -52,8 +46,7 @@ named `config` or a file named `credentials` in a folder named
 `.aws` in your home directory.
 
 For a SAML-based credential provider plugin included with an Amazon Redshift JDBC or ODBC
-driver, you can use the settings described just preceding in [Credentials provider
-plugins](#using-credentials-provider-plugin "#using-credentials-provider-plugin"). If `plugin_name`
+driver, you can use the settings described just preceding in [Credentials provider plugins](#using-credentials-provider-plugin "#using-credentials-provider-plugin"). If `plugin_name`
 isn't used, the other options are ignored.
 
 The following example shows the ~/.aws/credentials file with two profiles.
@@ -83,9 +76,7 @@ For more information on using profiles for the JDBC driver, see [Specifying prof
 
 For more information on using profiles for the ODBC driver, see [Authentication methods](odbc20-authentication-ssl.md "odbc20-authentication-ssl.md").
 
-## JDBC and ODBC options
-
-for providing IAM credentials
+## JDBC and ODBC options for providing IAM credentials
 
 The following table lists the JDBC and ODBC options for providing IAM
 credentials.
@@ -94,12 +85,10 @@ credentials.
 | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Iam`                                                | For use only in an ODBC connection string. Set to<br>1 to use IAM authentication.                                                                                                                                                                                                                                                                                                                                 |
 | `AccessKeyID`<br>`SecretAccessKey`<br>`SessionToken` | The access key ID and secret access key for the<br>IAM role or user configured for IAM database authentication.<br>`SessionToken` is required only for an IAM role with<br>temporary credentials. SessionToken isn't used for a user. For more<br>information, see [Temporary Security Credentials](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md"). |
-| `plugin_name`                                        | The fully qualified name of a class that<br>implements a credentials provider. The Amazon Redshift JDBC driver includes<br>SAML-based credential provider plugins. If you provide<br>`plugin_name`, you can also provide other related<br>options. For more information, see [Credentials provider<br>plugins](#using-credentials-provider-plugin "#using-credentials-provider-plugin").                          |
+| `plugin_name`                                        | The fully qualified name of a class that<br>implements a credentials provider. The Amazon Redshift JDBC driver includes<br>SAML-based credential provider plugins. If you provide<br>`plugin_name`, you can also provide other related<br>options. For more information, see [Credentials provider plugins](#using-credentials-provider-plugin "#using-credentials-provider-plugin").                             |
 | `Profile`                                            | The name of a profile in an AWS credentials or<br>config file that contains values for the JDBC connection options.<br>For more information, see [Using a configuration profile](#using-configuration-profile "#using-configuration-profile").                                                                                                                                                                    |
 
-## JDBC
-
-and ODBC options for creating database user credentials
+## JDBC and ODBC options for creating database user credentials
 
 To use the Amazon Redshift JDBC or ODBC driver to create database user credentials, provide
 the database user name as a JDBC or ODBC option. Optionally, you can have the driver
@@ -109,14 +98,12 @@ database user groups the user joins at login.
 If you use an identity provider (IdP), work with your IdP administrator to
 determine the correct values for these options. Your IdP administrator can also
 configure your IdP to provide these options, in which case you don't need to provide
-them as JDBC or ODBC options. For more information, see [Step 2: Configure SAML
-assertions for your IdP](generating-iam-credentials-steps.md#configuring-saml-assertions "generating-iam-credentials-steps.md#configuring-saml-assertions").
+them as JDBC or ODBC options. For more information, see [Step 2: Configure SAML assertions for your IdP](generating-iam-credentials-steps.md#configuring-saml-assertions "generating-iam-credentials-steps.md#configuring-saml-assertions").
 
 ###### Note
 
 If you use an IAM policy variable `${redshift:DbUser}`, as
-described in [Resource
-policies for GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources "redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources")
+described in [Resource policies for GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources "redshift-iam-access-control-identity-based.md#redshift-policy-resources.getclustercredentials-resources")
 the value for `DbUser` is replaced with the value retrieved by the
 API operation's request context. The Amazon Redshift drivers use the value for the
 `DbUser` variable provided by the connection URL, rather than the
@@ -125,8 +112,7 @@ value supplied as a SAML attribute.
 To help secure this configuration, we recommend that you use a condition in an
 IAM policy to validate the `DbUser` value with the
 `RoleSessionName`. You can find examples of how to set a
-condition using an IAM policy in [Example 8: IAM policy for using
-GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-examples-getclustercredentials "redshift-iam-access-control-identity-based.md#redshift-policy-examples-getclustercredentials").
+condition using an IAM policy in [Example 8: IAM policy for using GetClusterCredentials](redshift-iam-access-control-identity-based.md#redshift-policy-examples-getclustercredentials "redshift-iam-access-control-identity-based.md#redshift-policy-examples-getclustercredentials").
 
 The following table lists the options for creating database user credentials.
 
@@ -136,16 +122,13 @@ The following table lists the options for creating database user credentials.
 | AutoCreate | Specify `true` to create a database user with the<br>name specified for DbUser if one does not exist. The default is<br>false.                                                                                                                                                                                                                                                                                             |
 | `DbGroups` | A comma-delimited list of the names of one or more<br>existing database groups the database user joins for the current<br>session. By default, the new user is added only to PUBLIC.                                                                                                                                                                                                                                       |
 
-## Credentials provider
-
-plugins
+## Credentials provider plugins
 
 Amazon Redshift uses credentials provider plugins for single sign-on authentication.
 
 To support single sign-on authentication, Amazon Redshift provides the Azure AD plugin for
 Microsoft Azure Active Directory. For information on how to configure this plugin,
-see [Setting up JDBC or ODBC single
-sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
+see [Setting up JDBC or ODBC single sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
 
 ### Multi-factor authentication
 
@@ -202,29 +185,25 @@ See the following sections:
 
 - Active Directory Federation Services (AD FS)
 
-For more information, see [Setting up JDBC or ODBC single
-sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
+For more information, see [Setting up JDBC or ODBC single sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
 
 - PingOne (Ping)
 
 Ping is supported only with the predetermined PingOne IdP Adapter
 using Forms authentication.
 
-For more information, see [Setting up JDBC or ODBC single
-sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
+For more information, see [Setting up JDBC or ODBC single sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
 
 - Okta
 
 Okta is supported only for the Okta-supplied application used with the
 AWS Management Console.
 
-For more information, see [Setting up JDBC or ODBC single
-sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
+For more information, see [Setting up JDBC or ODBC single sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
 
 - Microsoft Azure Active Directory
 
-For more information, see [Setting up JDBC or ODBC single
-sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
+For more information, see [Setting up JDBC or ODBC single sign-on authentication](setup-azure-ad-identity-provider.md "setup-azure-ad-identity-provider.md").
 
 ### Plugin options
 
@@ -237,7 +216,7 @@ isn't specified, the other options are ignored.
 | `plugin_name`    | For JDBC, the class name that implements a credentials<br>provider. Specify one of the following:<br>• For Active Directory Federation Services<br>`<br>com.amazon.redshift.plugin.AdfsCredentialsProvider<br>`<br>• For Okta<br>`<br>com.amazon.redshift.plugin.OktaCredentialsProvider<br>`<br>• For PingFederate<br>`<br>com.amazon.redshift.plugin.PingCredentialsProvider<br>`<br>• For Microsoft Azure Active Directory<br>`<br>com.amazon.redshift.plugin.AzureCredentialsProvider<br>`<br>• For SAML MFA<br>`<br>com.amazon.redshift.plugin.BrowserSamlCredentialsProvider<br>`<br>• For Microsoft Azure Active Directory single<br>sign-on with MFA<br>`<br>com.amazon.redshift.plugin.BrowserAzureCredentialsProvider<br>`<br>For ODBC, specify one of the<br>following:<br>• For Active Directory Federation Services:<br>`adfs`<br>• For Okta: `okta`<br>• For PingFederate: `ping`<br>• For Microsoft Azure Active Directory:<br>`azure`<br>• For SAML MFA: `browser saml`<br>• For Microsoft Azure Active Directory single<br>sign-on with MFA: `browser azure<br>ad` |
 | `idp_host`       | The name of the corporate identity provider<br>host. This name should not include any slashes (‘/’). For an<br>Okta identity provider, the value for `idp_host`<br>should end with `.okta.com`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `idp_port`       | The port used by the identity provider. The<br>default is 443. This port is ignored for Okta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `preferred_role` | A role Amazon Resource Name (ARN) from the<br>`AttributeValue` elements for the<br>`Role` attribute in the SAML assertion. To find<br>the appropriate value for the preferred role, work with your IdP<br>administrator. For more information, see [Step 2: Configure SAML<br>assertions for your IdP](generating-iam-credentials-steps.md#configuring-saml-assertions "generating-iam-credentials-steps.md#configuring-saml-assertions").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `preferred_role` | A role Amazon Resource Name (ARN) from the<br>`AttributeValue` elements for the<br>`Role` attribute in the SAML assertion. To find<br>the appropriate value for the preferred role, work with your IdP<br>administrator. For more information, see [Step 2: Configure SAML assertions for your IdP](generating-iam-credentials-steps.md#configuring-saml-assertions "generating-iam-credentials-steps.md#configuring-saml-assertions").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `user`           | A corporate user name, including the domain<br>when applicable. For example, for Active Directory, the domain<br>name is required in the format<br>_domain\username_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | password         | The corporate user's password. We<br>recommend not using this option. Instead, use your SQL client to<br>supply the password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `app_id`         | An ID for an Okta application. Used only with<br>Okta. The value for `app_id` follows<br>`amazon_aws` in the Okta application embed link.<br>To get this value, work with your IdP administrator. The<br>following is an example of an application embed link:<br>`https://example.okta.com/home/amazon_aws/0oa2hylwrpM8UGehd1t7/272`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |

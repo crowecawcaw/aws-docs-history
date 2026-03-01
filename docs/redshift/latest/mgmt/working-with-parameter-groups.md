@@ -42,8 +42,7 @@ parameter group that is already associated with a cluster or associate a differe
 group with a cluster. In these cases, you might need to restart the cluster for the updated
 parameter values to take effect. If the cluster fails and is restarted by Amazon Redshift, your changes
 are applied at that time. Changes aren't applied if your cluster is restarted during
-maintenance. For more information, see [WLM dynamic and static
-properties](workload-mgmt-config.md#wlm-dynamic-and-static-properties "workload-mgmt-config.md#wlm-dynamic-and-static-properties").
+maintenance. For more information, see [WLM dynamic and static properties](workload-mgmt-config.md#wlm-dynamic-and-static-properties "workload-mgmt-config.md#wlm-dynamic-and-static-properties").
 
 ## Default parameter values
 
@@ -68,7 +67,7 @@ in-depth information about each parameter. These are the default values for the
 | extra_float_digits               | 0                    | [extra_float_digits](../dg/r_extra_float_digits.md "../dg/r_extra_float_digits.md") in the<br>_Amazon Redshift Database Developer Guide_                                                    |
 | max_concurrency_scaling_clusters | 1                    | [max_concurrency_scaling_clusters](../dg/r_max_concurrency_scaling_clusters.md "../dg/r_max_concurrency_scaling_clusters.md") in the<br>_Amazon Redshift Database Developer Guide_          |
 | query_group                      | default              | [query_group](../dg/r_query_group.md "../dg/r_query_group.md") in the<br>_Amazon Redshift Database Developer Guide_                                                                         |
-| require_ssl                      | true                 | [Configuring security options for<br>connections](connecting-ssl-support.md "connecting-ssl-support.md") in this guide                                                                      |
+| require_ssl                      | true                 | [Configuring security options for connections](connecting-ssl-support.md "connecting-ssl-support.md") in this guide                                                                         |
 | search_path                      | $user, public        | [search_path](../dg/r_search_path.md "../dg/r_search_path.md") in the<br>_Amazon Redshift Database Developer Guide_                                                                         |
 | statement_timeout                | 0                    | [statement_timeout](../dg/r_statement_timeout.md "../dg/r_statement_timeout.md") in the<br>_Amazon Redshift Database Developer Guide_                                                       |
 | wlm_json_configuration           | [{"auto\_wlm":true}] | [Workload management](workload-mgmt-config.md "workload-mgmt-config.md") in this guide                                                                                                      |

@@ -11,9 +11,7 @@ provider (IdP) to access your Amazon Redshift cluster.
 To learn how to federate Amazon Redshift access with Microsoft Azure AD
 single sign-on, watch the following video.
 
-## Step 1: Set up Azure
-
-and your AWS account to trust each other
+## Step 1: Set up Azure and your AWS account to trust each other
 
 The following procedure describes how to set up a trust
 relationship.
@@ -232,15 +230,11 @@ This policy grants permissions as follows:
      also allows users to call `iam:ListRoles` to check which
      roles a user can assume.
 
-## Step 2: Set up JDBC or
-
-ODBC for authentication to Azure
+## Step 2: Set up JDBC or ODBC for authentication to Azure
 
 JDBC
 
-###### To set up JDBC for authentication to Microsoft Azure
-
-AD
+###### To set up JDBC for authentication to Microsoft Azure AD
 
 - Configure your database client to connect to your
   cluster through JDBC using your Azure AD single sign-on.
@@ -248,8 +242,7 @@ AD
 You can use any client that uses a JDBC driver to
 connect using Azure AD single sign-on or use a language
 like Java to connect using a script. For installation
-and configuration information, see [Configuring a connection for JDBC driver version 2.x for
-Amazon Redshift](jdbc20-install.md "jdbc20-install.md").
+and configuration information, see [Configuring a connection for JDBC driver version 2.x for Amazon Redshift](jdbc20-install.md "jdbc20-install.md").
 
 For example, you can use SQLWorkbench/J as the client.
 When you configure SQLWorkbench/J, the URL of your
@@ -370,9 +363,7 @@ following steps:
 
 ODBC
 
-###### To set up ODBC for authentication to Microsoft Azure
-
-AD
+###### To set up ODBC for authentication to Microsoft Azure AD
 
 - Configure your database client to connect to your
   cluster through ODBC using your Azure AD single sign-on.

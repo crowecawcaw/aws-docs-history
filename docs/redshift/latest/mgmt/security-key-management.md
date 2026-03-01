@@ -21,8 +21,7 @@ You can configure your environment to protect data with keys:
   The HSM can be on-premises or can be AWS CloudHSM. When you use an HSM, you
   must use client and server certificates to configure a trusted connection
   between Amazon Redshift and your HSM. Amazon Redshift supports only AWS CloudHSM Classic for
-  key management. For more information, see [Encryption using hardware security
-  modules](working-with-db-encryption.md#working-with-HSM "working-with-db-encryption.md#working-with-HSM"). For information about AWS CloudHSM, see
+  key management. For more information, see [Encryption using hardware security modules](working-with-db-encryption.md#working-with-HSM "working-with-db-encryption.md#working-with-HSM"). For information about AWS CloudHSM, see
   [What is AWS CloudHSM?](../../../cloudhsm/latest/userguide/introduction.md "../../../cloudhsm/latest/userguide/introduction.md")
 - You can rotate encryption keys for encrypted clusters.. For more information, see
   [Encryption key rotation](working-with-db-encryption.md#working-with-key-rotation "working-with-db-encryption.md#working-with-key-rotation").

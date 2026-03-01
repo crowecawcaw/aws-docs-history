@@ -18,27 +18,21 @@ more compute nodes. The type and number of compute nodes that you need depends o
 the size of your data, the number of queries you will run, and the query runtime
 performance that you need.
 
-### Creating and managing
-
-clusters
+### Creating and managing clusters
 
 Depending on your data warehousing needs, you can start with a small,
 single-node cluster and easily scale up to a larger, multi-node cluster as your
 requirements change. You can add or remove compute nodes to the cluster without
 any interruption to the service. For more information, see [Amazon Redshift provisioned clusters](working-with-clusters.md "working-with-clusters.md").
 
-### Reserving compute
-
-nodes
+### Reserving compute nodes
 
 If you intend to keep your cluster running for a year or longer, you can save
 money by reserving compute nodes for a one-year or three-year period. Reserving
 compute nodes offers significant savings compared to the hourly rates that you
 pay when you provision compute nodes on demand. For more information, see [Reserved nodes](purchase-reserved-node-instance.md "purchase-reserved-node-instance.md").
 
-### Creating cluster
-
-snapshots
+### Creating cluster snapshots
 
 Snapshots are point-in-time backups of a cluster. There are two types of
 snapshots: automated and manual. Amazon Redshift stores these snapshots internally in
@@ -47,9 +41,7 @@ you need to restore from a snapshot, Amazon Redshift creates a new cluster and i
 data from the snapshot that you specify. For more information about snapshots,
 see [Amazon Redshift snapshots and backups](working-with-snapshots.md "working-with-snapshots.md").
 
-## Cluster access and
-
-security
+## Cluster access and security
 
 There are several features related to cluster access and security in Amazon Redshift.
 These features help you to control access to your cluster, define connectivity
@@ -58,9 +50,7 @@ related to database access and security in Amazon Redshift. For more information
 database security, see [Managing
 Database Security](../dg/r_Database_objects.md "../dg/r_Database_objects.md") in the _Amazon Redshift Database Developer Guide_.
 
-### AWS accounts
-
-and IAM credentials
+### AWS accounts and IAM credentials
 
 By default, an Amazon Redshift cluster is only accessible to the AWS account that
 creates the cluster. The cluster is locked down so that no one else has access.
@@ -68,8 +58,7 @@ Within your AWS account, you use the AWS Identity and Access Management (IAM) se
 accounts and manage permissions for those accounts to control cluster
 operations. For more information, see [Security in Amazon Redshift](iam-redshift-user-mgmt.md "iam-redshift-user-mgmt.md"). For more information about
 managing IAM identities, including guidance and best practices for IAM
-roles, see [Identity and access management in
-Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
+roles, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
 
 ### Security groups
 
@@ -84,8 +73,7 @@ the cluster from SQL client tools via JDBC or ODBC, you use security groups:
 
 You cannot move a cluster to a VPC after it has been launched with
 EC2-Classic. However, you can restore an EC2-Classic snapshot to an
-EC2-VPC cluster using the Amazon Redshift console. For more information, see [Restoring a cluster
-from a snapshot](working-with-snapshot-restore-cluster-from-snapshot.md "working-with-snapshot-restore-cluster-from-snapshot.md").
+EC2-VPC cluster using the Amazon Redshift console. For more information, see [Restoring a cluster from a snapshot](working-with-snapshot-restore-cluster-from-snapshot.md "working-with-snapshot-restore-cluster-from-snapshot.md").
 
 - If you are using the EC2-Classic platform for your Amazon Redshift cluster,
   you must use Amazon Redshift security groups.
@@ -119,8 +107,7 @@ see [Amazon Redshift database encryption](working-with-db-encryption.md "working
 ### SSL connections
 
 You can use Secure Sockets Layer (SSL) encryption to encrypt the connection
-between your SQL client and your cluster. For more information, see [Configuring security options for
-connections](connecting-ssl-support.md "connecting-ssl-support.md").
+between your SQL client and your cluster. For more information, see [Configuring security options for connections](connecting-ssl-support.md "connecting-ssl-support.md").
 
 ## Monitoring clusters
 
@@ -130,9 +117,7 @@ subscriptions to track information of interest. Use the metrics in Amazon Redshi
 Amazon CloudWatch to learn about the health and performance of your clusters and
 databases.
 
-### Database audit
-
-logging
+### Database audit logging
 
 You can use the database audit logging feature to track information about
 authentication attempts, connections, disconnections, changes to database user
@@ -140,9 +125,7 @@ definitions, and queries run in the database. This information is useful for
 security and troubleshooting purposes in Amazon Redshift. The logs are stored in Amazon S3
 buckets. For more information, see [Database audit logging](db-auditing.md "db-auditing.md").
 
-### Events and
-
-notifications
+### Events and notifications
 
 Amazon Redshift tracks events and retains information about them for a period of
 several weeks in your AWS account. For each event, Amazon Redshift reports

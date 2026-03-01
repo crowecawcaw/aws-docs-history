@@ -2,18 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Restricting an IAM role to an
-
-AWS Region
+# Restricting an IAM role to an AWS Region
 
 You can restrict an IAM role to only be accessible in a certain AWS Region. By
 default, IAM roles for Amazon Redshift are not restricted to any single region.
 
 To restrict use of an IAM role by region, take the following steps.
 
-###### To identify permitted regions for an IAM
-
-role
+###### To identify permitted regions for an IAM role
 
 1. Open the [IAM console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home")
    at [https://console.aws.amazon.com/](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").

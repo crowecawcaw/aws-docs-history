@@ -49,9 +49,7 @@ and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/i
 - For information about adding an IAM policy to a user, see [Adding and
   removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md").
 
-## Run a query on a cluster
-
-that is owned by another account
+## Run a query on a cluster that is owned by another account
 
 To run a query on a cluster that is owned by another account, the owning
 account must provide an IAM role that the Data API can assume in the
@@ -98,10 +96,7 @@ JSON
 
 ```
 
-## Specify an IAM role that
-
-restricts resources to Redshift Serverless workgroups and Amazon Redshift clusters in an
-AWS account
+## Specify an IAM role that restricts resources to Redshift Serverless workgroups and Amazon Redshift clusters in an AWS account
 
 You can specify resource ARNs in your identity-based policy to control access
 to Redshift Serverless workgroups and Amazon Redshift clusters in an AWS account. This example shows
@@ -137,10 +132,7 @@ JSON
 
 ```
 
-## Configure an IAM policy
-
-that restricts access to SQL statement information to only the statement
-owner
+## Configure an IAM policy that restricts access to SQL statement information to only the statement owner
 
 By default, Amazon Redshift Data API treats the IAM role used when calling
 `ExecuteStatement` and `BatchExecuteStatement` as the
@@ -181,9 +173,7 @@ You can use the condition `statement-owner-iam-userid` with
 `GetStatementResult`, and `ListStatements`. For more
 information, see [Actions defined by Amazon Redshift Data API](../../../service-authorization/latest/reference/list_amazonredshiftdataapi.md#amazonredshiftdataapi-redshift-data_statement-owner-iam-userid "../../../service-authorization/latest/reference/list_amazonredshiftdataapi.md#amazonredshiftdataapi-redshift-data_statement-owner-iam-userid").
 
-## Configure an IAM policy that
-
-restricts access to SQL results to only the session owner
+## Configure an IAM policy that restricts access to SQL results to only the session owner
 
 By default, Amazon Redshift Data API treats the IAM role used when calling
 `ExecuteStatement` and `BatchExecuteStatement` as the

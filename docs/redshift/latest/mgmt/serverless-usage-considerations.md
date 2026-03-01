@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Considerations when using
-
-Amazon Redshift Serverless
+# Considerations when using Amazon Redshift Serverless
 
 For a list of AWS Regions where the Amazon Redshift Serverless is available, see the
 endpoints listed for [Redshift Serverless API](../../../general/latest/gr/redshift-service.md "../../../general/latest/gr/redshift-service.md") in
@@ -27,8 +25,7 @@ For information about Amazon Redshift Serverless SLAs, see [Amazon Redshift Serv
 _Track_ – When Amazon Redshift releases a new workgroup version, your
 workgroup is updated automatically. You can control whether your workgroup is updated to the most
 recent release or to the previous release. For information about tracks, see
-[Tracks for Amazon Redshift provisioned
-clusters and serverless workgroups](tracks.md "tracks.md").
+[Tracks for Amazon Redshift provisioned clusters and serverless workgroups](tracks.md "tracks.md").
 
 _Availability Zone IDs_ – When you configure your
 Amazon Redshift Serverless instance, open **Additional considerations**, and

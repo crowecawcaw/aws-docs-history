@@ -36,8 +36,7 @@ If you decrease the automated snapshot retention period, existing automated snap
 whose settings fall outside of the new retention period are deleted. For more
 information, see [Amazon Redshift snapshots and backups](working-with-snapshots.md "working-with-snapshots.md").
 
-For more information about cluster properties, see [Additional
-configurations](create-cluster.md#cluster-create-console-configuration "create-cluster.md#cluster-create-console-configuration").
+For more information about cluster properties, see [Additional configurations](create-cluster.md#cluster-create-console-configuration "create-cluster.md#cluster-create-console-configuration").
 
 ###### To modify a cluster
 

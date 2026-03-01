@@ -46,8 +46,7 @@ team as defined by tags. To share a notebook with your team, make sure that you
 have the principal tag `sqlworkbench-team` set to the same value as
 the rest of your team members in your account. For example, an administrator
 might set the value to `accounting-team` for everyone in the
-accounting department. For an example, see [Permissions
-required to use the query editor v2](redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor-v2 "redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor-v2") .
+accounting department. For an example, see [Permissions required to use the query editor v2](redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor-v2 "redshift-iam-access-control-identity-based.md#redshift-policy-resources.required-permissions.query-editor-v2").
 
 - ![Export](images/qev2-export.png)
 

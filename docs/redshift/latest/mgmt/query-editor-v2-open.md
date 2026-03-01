@@ -208,9 +208,7 @@ screens.
      change certain settings of all users in the account. For more
      information, see [Account settings](#query-editor-v2-settings "#query-editor-v2-settings").
 
-## Considerations when working with
-
-query editor v2
+## Considerations when working with query editor v2
 
 Consider the following when working with query editor v2.
 

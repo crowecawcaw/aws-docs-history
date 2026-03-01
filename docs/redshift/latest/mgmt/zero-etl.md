@@ -18,8 +18,7 @@ The following considerations apply to zero-ETL integrations with Amazon Redshift
   materialized views in the destination database. However, you can use materialized views on
   other tables in the target data warehouse.
 - Materialized views are supported when used in cross-database queries. For information
-  about creating materialized views with data replicated through zero-ETL integrations, see [Querying replicated data with materialized
-  views](zero-etl-using.md#zero-etl-using.transforming "zero-etl-using.md#zero-etl-using.transforming").
+  about creating materialized views with data replicated through zero-ETL integrations, see [Querying replicated data with materialized views](zero-etl-using.md#zero-etl-using.transforming "zero-etl-using.md#zero-etl-using.transforming").
 - By default, you can query tables only in the target data warehouse that are in the
   `Synced` state. To query tables in another state, set the database parameter
   `QUERY_ALL_STATES` to `TRUE`. For information about setting
@@ -62,9 +61,7 @@ zero-ETL integrations with Amazon Redshift](https://aws.amazon.com/blogs/databas
   the target Redshift tables, which are created under the public schema of the destination
   database (`ddb_rs_customerprofiles_zetl_db`).
 
-## Considerations when using history
-
-mode on the target
+## Considerations when using history mode on the target
 
 The following considerations apply when using history mode on the target database. For
 more information, see [History mode](zero-etl-history-mode.md "zero-etl-history-mode.md").
@@ -106,9 +103,7 @@ delete from schema.user_table where _record_delete_time <= '2024-09-10 12:34:56'
   tables in `Synced` state.
 - Materialized views for tables with history mode on are created as full recompute.
 
-## Considerations when the zero-ETL integration
-
-source is Aurora or Amazon RDS
+## Considerations when the zero-ETL integration source is Aurora or Amazon RDS
 
 The following considerations apply to Aurora and Amazon RDS zero-ETL integrations with Amazon Redshift.
 
@@ -144,9 +139,7 @@ For Aurora sources, also see [Limitations](../../../AmazonRDS/latest/AuroraUserG
 For Amazon RDS sources, also see [Limitations](../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.reqs-lims "../../../AmazonRDS/latest/UserGuide/zero-etl.md#zero-etl.reqs-lims") in
 the _Amazon RDS User Guide_.
 
-## Considerations when the zero-ETL integration source is
-
-DynamoDB
+## Considerations when the zero-ETL integration source is DynamoDB
 
 The following considerations apply to DynamoDB zero-ETL integrations with Amazon Redshift.
 
@@ -174,9 +167,7 @@ DATABASE](../dg/r_ALTER_DATABASE.md "../dg/r_ALTER_DATABASE.md") in the _Amazon 
 
 For Amazon DynamoDB sources, also see [Prerequisites and limitations](../../../amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.md#RedshiftforDynamoDB-zero-etl-prereqs "../../../amazondynamodb/latest/developerguide/RedshiftforDynamoDB-zero-etl.md#RedshiftforDynamoDB-zero-etl-prereqs") in the _Amazon DynamoDB Developer Guide_.
 
-## Considerations when the zero-ETL integration source is
-
-applications, such as, Salesforce, SAP, ServiceNow, and Zendesk
+## Considerations when the zero-ETL integration source is applications, such as, Salesforce, SAP, ServiceNow, and Zendesk
 
 The following considerations apply to source is applications, such as, Salesforce, SAP,
 ServiceNow, and Zendesk with Amazon Redshift.

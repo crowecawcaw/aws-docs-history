@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Creating an Amazon VPC endpoint (AWS PrivateLink)
-
-for the Data API
+# Creating an Amazon VPC endpoint (AWS PrivateLink) for the Data API
 
 Amazon Virtual Private Cloud (Amazon VPC) enables you to launch AWS resources, such as Amazon Redshift clusters and
 applications, into a virtual private cloud (VPC). AWS PrivateLink provides private
@@ -79,5 +77,4 @@ created.
 When you use an Amazon VPC endpoint in a Data API call, all traffic between your
 application and the Data API remains in the Amazon VPCs that contain them. You can
 use an Amazon VPC endpoint for any type of Data API call. For information about
-calling the Data API, see [Considerations when calling the
-Amazon Redshift Data API](data-api.md#data-api-calling-considerations "data-api.md#data-api-calling-considerations").
+calling the Data API, see [Considerations when calling the Amazon Redshift Data API](data-api.md#data-api-calling-considerations "data-api.md#data-api-calling-considerations").

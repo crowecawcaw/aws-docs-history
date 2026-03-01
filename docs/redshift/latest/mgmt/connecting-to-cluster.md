@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Connecting to an Amazon Redshift data
-
-warehouse using SQL client tools
+# Connecting to an Amazon Redshift data warehouse using SQL client tools
 
 You can connect to Amazon Redshift data warehouses from SQL client tools over Java Database
 Connectivity (JDBC), Python, and Open Database Connectivity (ODBC) connections. Amazon Redshift
@@ -23,9 +21,7 @@ to learn about connecting to your data . Finally, if you encounter issues when a
 connect to your data warehouse, you can review the troubleshooting information to identify
 solutions.
 
-## Recommendations for
-
-connecting with client tools
+## Recommendations for connecting with client tools
 
 If you connect to your Redshift cluster using an IP address, it can result in
 additional downtime when there is an outage or a connection loss and the cluster is
@@ -45,11 +41,7 @@ Amazon Redshift](configuring-connections.md "configuring-connections.md").
 ###### Topics
 
 - [Configuring connections in Amazon Redshift](configuring-connections.md "configuring-connections.md")
-- [Configuring security options for
-  connections](connecting-ssl-support.md "connecting-ssl-support.md")
-- [Connecting from client tools and
-  code](connecting-via-client-tools.md "connecting-via-client-tools.md")
-- [Using an authentication
-  profile to connect to Amazon Redshift](connecting-with-authentication-profiles.md "connecting-with-authentication-profiles.md")
-- [Troubleshooting connection issues in
-  Amazon Redshift](troubleshooting-connections.md "troubleshooting-connections.md")
+- [Configuring security options for connections](connecting-ssl-support.md "connecting-ssl-support.md")
+- [Connecting from client tools and code](connecting-via-client-tools.md "connecting-via-client-tools.md")
+- [Using an authentication profile to connect to Amazon Redshift](connecting-with-authentication-profiles.md "connecting-with-authentication-profiles.md")
+- [Troubleshooting connection issues in Amazon Redshift](troubleshooting-connections.md "troubleshooting-connections.md")

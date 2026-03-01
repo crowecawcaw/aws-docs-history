@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Setting up AWS IAM Identity Center
-
-integration with Amazon Redshift
+# Setting up AWS IAM Identity Center integration with Amazon Redshift
 
 Your Amazon Redshift cluster administrator or Amazon Redshift Serverless administrator must perform several
 steps to configure Redshift as an AWS IAM Identity Center enabled application. This makes it so
@@ -66,9 +64,7 @@ provider.
 For more information, see [Getting Started with AWS
 IAM Identity Center](../../../singlesignon/latest/userguide/get-started-enable-identity-center.md "../../../singlesignon/latest/userguide/get-started-enable-identity-center.md").
 
-## Configuring your identity
-
-provider to work with AWS IAM Identity Center
+## Configuring your identity provider to work with AWS IAM Identity Center
 
 The first step in controlling user and group identity management is to connect to
 AWS IAM Identity Center and configure your identity provider. You can use AWS IAM Identity Center itself as your
@@ -78,13 +74,9 @@ identity provider, see [Connect to an external identity provider](../../../singl
 guide_. Make sure at the end of this process that you have a small collection
 of users and groups added to AWS IAM Identity Center, for test purposes.
 
-### Administrative
+### Administrative Permissions
 
-Permissions
-
-#### Permissions
-
-required for Redshift/AWS IAM Identity Center application lifecycle management
+#### Permissions required for Redshift/AWS IAM Identity Center application lifecycle management
 
 You must create an IAM identity, which a Redshift administrator uses to
 configure Redshift for use with AWS IAM Identity Center. Most commonly, you would create an IAM
@@ -150,9 +142,7 @@ application**
 - `redshift:DeleteRedshiftIdcApplication` – Gives the ability
   to delete an existing Redshift AWS IAM Identity Center application.
 
-#### Permissions
-
-required for Redshift/query editor v2 application lifecycle management
+#### Permissions required for Redshift/query editor v2 application lifecycle management
 
 You must create an IAM identity, which a Redshift administrator uses to
 configure Redshift for use with AWS IAM Identity Center. Most commonly, you would create an IAM
@@ -204,9 +194,7 @@ In the Amazon Redshift SDK, the following APIs aren’t available:
   These actions are specific to performing AWS IAM Identity Center integration with Redshift
   QEV2 in the AWS console. For more information, see [Actions defined by Amazon Redshift](../../../service-authorization/latest/reference/list_amazonredshift.md#amazonredshift-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonredshift.md#amazonredshift-actions-as-permissions").
 
-#### Permissions required for the database administrator to connect new resources in the
-
-console
+#### Permissions required for the database administrator to connect new resources in the console
 
 These permissions are required to connect new provisioned clusters or
 Amazon Redshift Serverless workgroups during the creation process. If you have these
@@ -221,9 +209,7 @@ IAM Identity Center managed application for Redshift.
 As a best practice, we recommend attaching permissions policies to an IAM role and then assigning it to users and groups as
 needed. For more information, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
 
-## Setting up Redshift as an
-
-AWS managed application with AWS IAM Identity Center
+## Setting up Redshift as an AWS managed application with AWS IAM Identity Center
 
 Before AWS IAM Identity Center can manage identities for an Amazon Redshift provisioned cluster or an
 Amazon Redshift Serverless workgroup, the Redshift administrator must complete the steps to make
@@ -286,9 +272,7 @@ After configuration, you can include users and groups from AWS IAM Identity Cent
 choosing the **Users** or **Groups** tab and
 choosing **Assign**.
 
-## Enabling AWS IAM Identity Center
-
-integration for a new Amazon Redshift cluster or Amazon Redshift Serverless workgroup
+## Enabling AWS IAM Identity Center integration for a new Amazon Redshift cluster or Amazon Redshift Serverless workgroup
 
 Your database administrator configures new Redshift resources to work in alignment
 with AWS IAM Identity Center to make sign-in and data access easier. This is performed as part of the
@@ -327,12 +311,10 @@ properties. If your group names in AWS IAM Identity Center have spaces, it's req
 SQL when you create the matching role.
 
 After you enable the Redshift database and create roles, you are ready to connect to
-the database with Amazon Redshift query editor v2 or Amazon Quick Suite. The details are explained
+the database with Amazon Redshift query editor v2 or Amazon Quick. The details are explained
 further in sections that follow.
 
-### Setting up the
-
-default `RedshiftIdcApplication` using the API
+### Setting up the default `RedshiftIdcApplication` using the API
 
 Setup is performed by your identity administrator. Using the API, you create and
 populate a `RedshiftIdcApplication`, which represents the Redshift
@@ -387,9 +369,7 @@ response that's returned from the call to
    the Redshift managed application ARN from AWS IAM Identity Center. Doing this associates the
    cluster with the managed application in AWS IAM Identity Center.
 
-### Associating an
-
-AWS IAM Identity Center application with an existing cluster or workgroup
+### Associating an AWS IAM Identity Center application with an existing cluster or workgroup
 
 If you have an existing cluster or workgroup that you would like to enable for AWS
 IAM Identity Center integration, it is possible to do so, running SQL commands. You can also run SQL
@@ -404,9 +384,7 @@ DROP IDENTITY PROVIDER
 <provider_name> [ CASCADE ]
 ```
 
-## Setting up user
-
-permissions
+## Setting up user permissions
 
 An administrator configures permissions to various resources, based on users' identity
 attributes and group memberships, within their identity provider or within AWS IAM Identity Center

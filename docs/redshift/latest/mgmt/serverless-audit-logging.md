@@ -18,9 +18,7 @@ export in your Amazon Redshift Serverless configuration settings, on the console
 by choosing the **Namespace configuration** settings, under
 **Security and encryption**.
 
-## Log events in
-
-CloudWatch
+## Log events in CloudWatch
 
 After selecting which Redshift logs to export, you can monitor events in
 Amazon CloudWatch Logs. A new log group is automatically created for Amazon Redshift Serverless, in which
@@ -64,9 +62,7 @@ or the Amazon CloudWatch Logs API. For more information about searching and filt
 see [Searching and filtering log
 data](../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md "../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md").
 
-## CloudWatch
-
-metrics
+## CloudWatch metrics
 
 Amazon Redshift Serverless metrics are divided into compute metrics and data and storage
 metrics, falling under the workgroup and namespace dimension sets, respectively. For

@@ -24,5 +24,4 @@ and take automatic actions when appropriate:
 
 ###### Topics
 
-- [Monitoring events for the
-  Amazon Redshift Data API in Amazon EventBridge](data-api-monitoring-events.md "data-api-monitoring-events.md")
+- [Monitoring events for the Amazon Redshift Data API in Amazon EventBridge](data-api-monitoring-events.md "data-api-monitoring-events.md")

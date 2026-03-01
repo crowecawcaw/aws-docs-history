@@ -7,9 +7,7 @@ Existing Python UDFs will continue to function until June 30, 2026. For more inf
 Download a previous version of the Amazon Redshift ODBC driver only if your tool
 requires a specific version of the driver.
 
-## Previous ODBC driver
-
-versions for Windows
+## Previous ODBC driver versions for Windows
 
 The following are the 64-bit drivers:
 
@@ -27,9 +25,7 @@ The following are the 64-bit drivers:
 32-bit drivers are discontinued and previous versions are not
 supported.
 
-## Previous ODBC driver
-
-versions for Linux
+## Previous ODBC driver versions for Linux
 
 The following are the versions of the 64-bit driver:
 
@@ -49,9 +45,7 @@ The following are the versions of the 64-bit driver:
 32-bit drivers are discontinued and previous versions are not
 supported.
 
-## Previous ODBC driver
-
-versions for macOS X
+## Previous ODBC driver versions for macOS X
 
 The following are the versions of the Amazon Redshift ODBC driver for macOS X:
 

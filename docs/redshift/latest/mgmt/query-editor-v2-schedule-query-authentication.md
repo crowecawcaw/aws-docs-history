@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Authenticating a
-
-scheduled query
+# Authenticating a scheduled query
 
 When you schedule a query, you use one of the following authentication methods
 when the SQL runs. Each method requires a different combination of input on the
@@ -59,8 +57,7 @@ secret with the proper credentials when you created your cluster or
 workgroup. The secret must be tagged with the key
 `RedshiftDataFullAccess`. If the tag key is not already
 present, use the AWS Secrets Manager console to add it. For information about creating
-a secret, see [Creating a secret for
-database connection credentials](redshift-secrets-manager-integration-create.md "redshift-secrets-manager-integration-create.md").
+a secret, see [Creating a secret for database connection credentials](redshift-secrets-manager-integration-create.md "redshift-secrets-manager-integration-create.md").
 
 For more information about the minimum permissions, see [Creating and Managing Secrets
 with AWS Secrets Manager](../../../secretsmanager/latest/userguide/managing-secrets.md "../../../secretsmanager/latest/userguide/managing-secrets.md") in the

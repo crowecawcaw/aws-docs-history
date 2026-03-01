@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Considerations for using Amazon Redshift provisioned
-
-clusters
+# Considerations for using Amazon Redshift provisioned clusters
 
 After your cluster is created, you can find information in this section about regions
 where features are available, maintenance tasks, node types, and usage limits.
@@ -42,9 +40,7 @@ Amazon Redshift assigns a 30-minute maintenance window at random from an 8-hour 
 time per AWS Region, occurring on a random day of the week (Monday through Sunday,
 inclusive).
 
-#### Default maintenance
-
-windows
+#### Default maintenance windows
 
 The following list shows the time blocks for each AWS Region from which the
 default maintenance windows are assigned:
@@ -123,12 +119,10 @@ these updates.
 If a hardware update or other mandatory security update is scheduled during the
 upcoming maintenance window, Amazon Redshift sends you advance notifications under the
 _Pending_ category. To learn more about
-_Pending_ event notifications, see [Amazon Redshift provisioned cluster event
-notifications](working-with-event-notifications.md "working-with-event-notifications.md").
+_Pending_ event notifications, see [Amazon Redshift provisioned cluster event notifications](working-with-event-notifications.md "working-with-event-notifications.md").
 
 You can also choose to receive event notifications from Amazon Simple Notification Service (Amazon SNS). For
-more information about subscribing to event notifications from Amazon SNS, see [Amazon Redshift cluster event
-notification subscriptions](working-with-event-notifications-subscribe.md "working-with-event-notifications-subscribe.md").
+more information about subscribing to event notifications from Amazon SNS, see [Amazon Redshift cluster event notification subscriptions](working-with-event-notifications-subscribe.md "working-with-event-notifications-subscribe.md").
 
 If you defer your cluster's maintenance, the maintenance window following the
 period of deferment can't be deferred.
@@ -144,9 +138,7 @@ documentation:
 - [Cluster operations](managing-cluster-operations.md "managing-cluster-operations.md")
 - [Modifying a cluster](modify-cluster.md "modify-cluster.md")
 
-### Choosing cluster maintenance
-
-tracks
+### Choosing cluster maintenance tracks
 
 When Amazon Redshift releases a new cluster version, your cluster is updated during its
 maintenance window. You can control whether your cluster is updated to the most
@@ -157,12 +149,9 @@ maintenance window. When Amazon Redshift releases a new cluster version, that ve
 assigned to the _current_ track, and the previous
 version is assigned to the _trailing_ track.
 
-For information about cluster tracks, see [Tracks for Amazon Redshift provisioned
-clusters and serverless workgroups](tracks.md "tracks.md").
+For information about cluster tracks, see [Tracks for Amazon Redshift provisioned clusters and serverless workgroups](tracks.md "tracks.md").
 
-### Understanding how RA3 nodes
-
-separate compute and storage
+### Understanding how RA3 nodes separate compute and storage
 
 These sections detail tasks available for RA3 node types, showing their applicability
 to a collection of use cases and detailing their advantages over previously available
@@ -193,22 +182,19 @@ Consider choosing RA3 node types in these cases:
   performance needs.
 
 To use RA3 node types, your AWS Region must support RA3. For more information,
-see [RA3 node type availability in AWS
-Regions](#ra3-regions "#ra3-regions").
+see [RA3 node type availability in AWS Regions](#ra3-regions "#ra3-regions").
 
 ###### Important
 
 You can use ra3.xlplus node types only with cluster version 1.0.21262 or
 later. You can view the version of an existing cluster with the Amazon Redshift console.
-For more information, see [Determining the workgroup or cluster
-version](tracks.md#cluster-version "tracks.md#cluster-version").
+For more information, see [Determining the workgroup or cluster version](tracks.md#cluster-version "tracks.md#cluster-version").
 
 Make sure that you use the new Amazon Redshift console when working with RA3 node types.
 
 In addition, to use RA3 node types with Amazon Redshift operations that use the
 track, the maintenance track value must be set to a cluster version
-that supports RA3. For more information about tracks, see [Choosing cluster maintenance
-tracks](#rs-mgmt-maintenance-tracks "#rs-mgmt-maintenance-tracks").
+that supports RA3. For more information about tracks, see [Choosing cluster maintenance tracks](#rs-mgmt-maintenance-tracks "#rs-mgmt-maintenance-tracks").
 
 Consider the following when using single-node RA3 node types.
 
@@ -256,9 +242,7 @@ the following:
   through elastic resize. Elastic resize is quicker than classic resize.
   For more information, see [Resizing a cluster](resizing-cluster.md "resizing-cluster.md").
 
-### RA3 node type availability in AWS
-
-Regions
+### RA3 node type availability in AWS Regions
 
 The RA3 node types are available only in the following AWS Regions:
 
@@ -315,8 +299,7 @@ change the node type:
 
 DC2 snapshot, RA3 preserves hot block information of the DC2 workload and
 populates its local cache with the hottest blocks. For more information, see
-[Restoring a cluster
-from a snapshot](working-with-snapshot-restore-cluster-from-snapshot.md "working-with-snapshot-restore-cluster-from-snapshot.md").
+[Restoring a cluster from a snapshot](working-with-snapshot-restore-cluster-from-snapshot.md "working-with-snapshot-restore-cluster-from-snapshot.md").
 
 To keep the same endpoint for your applications and users, you can rename
 the new RA3 cluster with the same name as the original DC2 cluster. To
@@ -364,9 +347,7 @@ query performance.
 The minimum number of nodes for some RA3 node types is 2 nodes. Take this into
 consideration when creating an RA3 cluster.
 
-### Networking features supported by
-
-RA3 nodes
+### Networking features supported by RA3 nodes
 
 RA3 nodes support a collection of networking features not available to other node
 types. This section provides brief descriptions of each feature and links to additional
@@ -408,5 +389,4 @@ documentation:
 - **Custom domain name** – You can create a
   custom domain name, also known as a custom URL, for your Amazon Redshift cluster. It's an
   easy-to-read DNS record that routes SQL-client connections to your cluster
-  endpoint. For more information, see [Custom domain names for client
-  connections](connecting-connection-CNAME.md "connecting-connection-CNAME.md").
+  endpoint. For more information, see [Custom domain names for client connections](connecting-connection-CNAME.md "connecting-connection-CNAME.md").

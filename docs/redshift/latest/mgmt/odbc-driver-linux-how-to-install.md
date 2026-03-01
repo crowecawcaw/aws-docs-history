@@ -15,9 +15,7 @@ the driver files in the following directories:
 - `/opt/amazon/redshiftodbc/lib/32` (for the 32-bit
   driver)
 
-###### To install the Amazon Redshift
-
-ODBC driver
+###### To install the Amazon Redshift ODBC driver
 
 1.  Download one of the following, depending on the system
     architecture of your SQL client tool or application:
@@ -101,5 +99,4 @@ your Linux distribution.
 ###### Important
 
 When you have finished installing the drivers, configure them for use
-on your system. For more information on driver configuration, see [Using an ODBC driver manager to
-configure the driver](odbc-driver-configure-linux.md "odbc-driver-configure-linux.md").
+on your system. For more information on driver configuration, see [Using an ODBC driver manager to configure the driver](odbc-driver-configure-linux.md "odbc-driver-configure-linux.md").

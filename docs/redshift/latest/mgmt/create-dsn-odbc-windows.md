@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Creating a system DSN entry for an ODBC
-
-connection
+# Creating a system DSN entry for an ODBC connection
 
 After you download and install the ODBC driver, add a data source name
 (DSN) entry to the client computer or Amazon EC2 instance. SQL client tools use
@@ -19,15 +17,12 @@ another user account.
 
 For authentication using AWS Identity and Access Management (IAM) credentials or identity
 provider (IdP) credentials, additional steps are required. For more
-information, see [Step
-5: Configure a JDBC or ODBC connection to use IAM credentials](generating-iam-credentials-steps.md#generating-iam-credentials-configure-jdbc-odbc "generating-iam-credentials-steps.md#generating-iam-credentials-configure-jdbc-odbc").
+information, see [Step 5: Configure a JDBC or ODBC connection to use IAM credentials](generating-iam-credentials-steps.md#generating-iam-credentials-configure-jdbc-odbc "generating-iam-credentials-steps.md#generating-iam-credentials-configure-jdbc-odbc").
 
 For information about how to create a system DSN entry, see the
 [Amazon Redshift ODBC connector installation and configuration guide](https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf "https://s3.amazonaws.com/redshift-downloads/drivers/odbc/1.6.1.1000/Amazon+Redshift+ODBC+Connector+Install+Guide.pdf").
 
-###### To create a system DSN entry for an ODBC connection on
-
-Windows
+###### To create a system DSN entry for an ODBC connection on Windows
 
 1. In the **Start** menu, open **ODBC Data
    Sources**.
@@ -89,9 +84,7 @@ Authentication on Windows" in _Amazon Redshift ODBC Connector
 Installation and Configuration Guide_. 8. Under **SSL Settings**, specify a value for the
 following:
 
-###### SSL
-
-authentication
+###### SSL authentication
 
 Choose a mode for handling Secure Sockets Layer (SSL). In a
 test environment, you might use `prefer`. However,
@@ -119,8 +112,7 @@ connect to the Amazon Redshift database, you see the following message:
 **Connection successful**.
 
 If the client computer fails to connect to the database, you can
-troubleshoot possible issues. For more information, see [Troubleshooting connection issues in
-Amazon Redshift](troubleshooting-connections.md "troubleshooting-connections.md"). 13. Configure TCP keepalives on Windows to prevent connections from
+troubleshoot possible issues. For more information, see [Troubleshooting connection issues in Amazon Redshift](troubleshooting-connections.md "troubleshooting-connections.md"). 13. Configure TCP keepalives on Windows to prevent connections from
 timing out. For information about how to configure TCP keepalives on
 Windows, see _Amazon Redshift ODBC Connector Installation and
 Configuration Guide_. 14. To help troubleshooting, configure logging. For information about

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Migrating a provisioned cluster to
-
-Amazon Redshift Serverless
+# Migrating a provisioned cluster to Amazon Redshift Serverless
 
 You can migrate your existing provisioned clusters to Amazon Redshift Serverless, enabling
 on-demand and automatic scaling of compute resources. Migrating a provisioned cluster to
@@ -14,9 +12,7 @@ include running ad-hoc queries, periodic data processing jobs, or handling unpre
 workloads without over-provisioning resources. Perform the following set of tasks to migrate
 your provisioned Amazon Redshift cluster to the serverless deployment option.
 
-## Creating a snapshot of your provisioned
-
-cluster
+## Creating a snapshot of your provisioned cluster
 
 ###### Note
 
@@ -61,9 +57,7 @@ To restore a provisioned cluster snapshot to a serverless namespace:
 For more information about provisioned cluster snapshots, see [Amazon Redshift
 snapshots](working-with-snapshots.md "working-with-snapshots.md").
 
-## Connecting to Amazon Redshift Serverless using a
-
-driver
+## Connecting to Amazon Redshift Serverless using a driver
 
 To connect to Amazon Redshift Serverless with your preferred SQL client, you can use the
 Amazon Redshift provided [JDBC driver version 2.x](jdbc20-install.md "jdbc20-install.md"). We recommend connecting to Amazon Redshift using
@@ -79,9 +73,7 @@ Amazon Redshift Serverless API operation `GetWorkgroup` or the AWS CLI operation
 `get-workgroups` to return information about your workgroup, and then
 connect.
 
-### Connecting using
-
-password-based authentication
+### Connecting using password-based authentication
 
 To establish a connection using the Amazon Redshift JDBC driver version 2.x with password-based authentication, use the following syntax:
 
@@ -175,9 +167,7 @@ To establish a connection using the Amazon Redshift ODBC driver version 2.x with
 Driver={Amazon Redshift ODBC Driver (x64)}; IAM=true; Server=<`workgroup-name`>.<`account-number`>.<`aws-region`>.redshift-serverless.amazonaws.com; Database=`database-name`; Profile=`aws-profile-name`;
 ```
 
-### Connecting using IAM
-
-with the GetClusterCredentials API
+### Connecting using IAM with the GetClusterCredentials API
 
 ###### Note
 

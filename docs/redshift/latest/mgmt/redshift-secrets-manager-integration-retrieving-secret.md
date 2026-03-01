@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Retrieving the
-
-Amazon Resource Name (ARN) of the secret in Amazon Redshift
+# Retrieving the Amazon Resource Name (ARN) of the secret in Amazon Redshift
 
 You can view the Amazon Resource Name (ARN) for any secrets being managed by AWS Secrets Manager
 using the Amazon Redshift console. Once you have the secret’s ARN, you can view details about

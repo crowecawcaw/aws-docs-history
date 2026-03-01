@@ -2,18 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Authentication with the Spark
-
-connector
+# Authentication with the Spark connector
 
 The following diagram describes the authentication between Amazon S3, Amazon Redshift, the Spark
 driver, and Spark executors.
 
 ![This is a diagram of the spark connector authentication.](images/spark-connector-authentication.png)
 
-## Authentication between Redshift and
-
-Spark
+## Authentication between Redshift and Spark
 
 You can use the Amazon Redshift provided JDBC driver version 2.x driver to connect to
 Amazon Redshift with the Spark connector by specifying sign-in credentials. To use IAM,
@@ -77,9 +73,7 @@ df.write \
 
 ```
 
-## Authentication between Amazon S3 and
-
-Spark
+## Authentication between Amazon S3 and Spark
 
 If you’re using an IAM role to authenticate between Spark and Amazon S3, use one of
 the following methods:
@@ -121,9 +115,7 @@ sc._jsc.hadoopConfiguration().set("fs.s3n.awsSecretAccessKey", "YOUR_SECRET_ACCE
   encodes the key pair (`ACCESSKEY`,
   `SECRETKEY`).
 
-## Authentication between Redshift and
-
-Amazon S3
+## Authentication between Redshift and Amazon S3
 
 If you’re using the COPY and UNLOAD commands in your query, you also must grant
 Amazon S3 access to Amazon Redshift to run queries on your behalf. To do so, first [authorize Amazon Redshift
@@ -133,9 +125,7 @@ and UNLOAD operations using IAM roles](copy-unload-iam-role.md "copy-unload-iam-
 As a best practice, we recommend attaching permissions policies to an IAM role and then assigning it to users and groups as
 needed. For more information, see [Identity and access management in Amazon Redshift](redshift-iam-authentication-access-control.md "redshift-iam-authentication-access-control.md").
 
-## Integration with
-
-AWS Secrets Manager
+## Integration with AWS Secrets Manager
 
 You can retrieve your Redshift username and password credentials from a stored
 secret in AWS Secrets Manager. To automatically supply Redshift credentials, use the

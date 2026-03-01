@@ -2,18 +2,14 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Using an ODBC driver manager to configure the
-
-ODBC driver
+# Using an ODBC driver manager to configure the ODBC driver
 
 On Linux, you use an ODBC driver manager to configure the ODBC connection
 settings. ODBC driver managers use configuration files to define and configure ODBC
 data sources and drivers. The ODBC driver manager that you use depends on the
 operating system that you use.
 
-## Configuring the ODBC driver using
-
-unixODBC driver manager
+## Configuring the ODBC driver using unixODBC driver manager
 
 The following files are required to configure the Amazon Redshift ODBC driver:
 
@@ -84,9 +80,7 @@ export ODBCSYSINI=/usr/local/odbc
 export AMAZONREDSHIFTODBCINI=/etc/amazon.redshiftodbc.ini
 ```
 
-## Configuring a connection using a data source
-
-name (DSN) on Linux
+## Configuring a connection using a data source name (DSN) on Linux
 
 When connecting to your data store using a data source name (DSN), configure
 the `odbc.ini` file to define data source names (DSNs). Set the
@@ -125,9 +119,7 @@ locale=en-US
 
 ```
 
-## Configuring a connection without a DSN on
-
-Linux
+## Configuring a connection without a DSN on Linux
 
 To connect to your data store through a connection that doesn't have a DSN,
 define the driver in the `odbcinst.ini` file. Then provide a DSN-less

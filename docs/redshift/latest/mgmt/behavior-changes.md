@@ -16,18 +16,12 @@ The following describes upcoming behavior changes.
 
 ###### Topics
 
-- [Scalar Python UDFs will reach end of support after June
-  30, 2026](#python-udf-jun2026 "#python-udf-jun2026")
-- [Amazon Redshift won’t support functions that access consumer
-  information through datasharing after February 16, 2026](#datasharing-feb2026 "#datasharing-feb2026")
-- [Minimum Transport Layer Security (TLS) version changes
-  effective starting January 31, 2026](#tls-changes-jan2026 "#tls-changes-jan2026")
-- [Amazon Redshift won’t support the creation of new scalar
-  Python UDFs after October 30, 2025](#python-udf-oct2025 "#python-udf-oct2025")
+- [Scalar Python UDFs will reach end of support after June 30, 2026](#python-udf-jun2026 "#python-udf-jun2026")
+- [Amazon Redshift won’t support functions that access consumer information through datasharing after February 16, 2026](#datasharing-feb2026 "#datasharing-feb2026")
+- [Minimum Transport Layer Security (TLS) version changes effective starting January 31, 2026](#tls-changes-jan2026 "#tls-changes-jan2026")
+- [Amazon Redshift won’t support the creation of new scalar Python UDFs after October 30, 2025](#python-udf-oct2025 "#python-udf-oct2025")
 
-### Scalar Python UDFs will reach end of support after June
-
-30, 2026
+### Scalar Python UDFs will reach end of support after June 30, 2026
 
 Amazon Redshift will end support for Python UDFs after June 30, 2026. As an alternative, we
 recommend that you use Lambda UDFs.
@@ -47,17 +41,13 @@ For information on creating and using Lambda UDFs, see [Scalar Lambda UDFs](../d
 _Amazon Redshift Database Developer Guide_. For information on converting existing Python UDFs to
 Lambda UDFs, see the [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-### Amazon Redshift won’t support functions that access consumer
-
-information through datasharing after February 16, 2026
+### Amazon Redshift won’t support functions that access consumer information through datasharing after February 16, 2026
 
 Starting February 16, 2026, Amazon Redshift will no longer support the usage of
 `user_is_member_of` and related functions that access consumer user, role, or
 group information through datasharing.
 
-### Minimum Transport Layer Security (TLS) version changes
-
-effective starting January 31, 2026
+### Minimum Transport Layer Security (TLS) version changes effective starting January 31, 2026
 
 Beginning January 31, 2026, Amazon Redshift will enforce a minimum Transport Layer Security
 (TLS) version of 1.2. Incoming connections that use TLS versions 1.0 or 1.1 will be
@@ -88,9 +78,7 @@ We recommend using the latest version of the Amazon Redshift driver [3] if possi
 
 [3] [https://docs.aws.amazon.com/redshift/latest/mgmt/configuring-connections.html](configuring-connections.md "configuring-connections.md")
 
-### Amazon Redshift won’t support the creation of new scalar
-
-Python UDFs after October 30, 2025
+### Amazon Redshift won’t support the creation of new scalar Python UDFs after October 30, 2025
 
 Amazon Redshift will no longer support the creation of new Python UDFs after October 30, 2025.
 Existing Python UDFs will continue to function normally. We strongly recommend that you
@@ -115,22 +103,14 @@ Lambda UDFs, see the [blog post](https://aws.amazon.com/blogs/big-data/amazon-re
 
 ###### Topics
 
-- [Amazon Redshift uses up-to-date IANA Time Zone Database
-  after Aug 26, 2025](#timezone-changes-aug2025 "#timezone-changes-aug2025")
-- [Amazon Redshift Serverless RPU changes effective after August 15,
-  2025](#serverless-rpu-aug2025 "#serverless-rpu-aug2025")
-- [Database audit logging changes effective after
-  August 10, 2025](#audit-logging-aug2025 "#audit-logging-aug2025")
-- [Virtual Private Cloud Endpoint changes for serverless
-  workgroups effective after June 27, 2025](#VPCE-jun2025 "#VPCE-jun2025")
-- [Query monitoring changes effective after
-  May 2, 2025](#query-monitoring-changes-may2025 "#query-monitoring-changes-may2025")
-- [Security changes effective after January 10,
-  2025](#security-changes-jan2025 "#security-changes-jan2025")
+- [Amazon Redshift uses up-to-date IANA Time Zone Database after Aug 26, 2025](#timezone-changes-aug2025 "#timezone-changes-aug2025")
+- [Amazon Redshift Serverless RPU changes effective after August 15, 2025](#serverless-rpu-aug2025 "#serverless-rpu-aug2025")
+- [Database audit logging changes effective after August 10, 2025](#audit-logging-aug2025 "#audit-logging-aug2025")
+- [Virtual Private Cloud Endpoint changes for serverless workgroups effective after June 27, 2025](#VPCE-jun2025 "#VPCE-jun2025")
+- [Query monitoring changes effective after May 2, 2025](#query-monitoring-changes-may2025 "#query-monitoring-changes-may2025")
+- [Security changes effective after January 10, 2025](#security-changes-jan2025 "#security-changes-jan2025")
 
-### Amazon Redshift uses up-to-date IANA Time Zone Database
-
-after Aug 26, 2025
+### Amazon Redshift uses up-to-date IANA Time Zone Database after Aug 26, 2025
 
 Beginning Aug 26, 2025, Amazon Redshift calculates time zones by adopting the latest IANA Time
 Zone Database patches. This change alters how date and time conversions function for certain
@@ -164,25 +144,20 @@ The following is a list of updates for time zone and time period combinations:
 For more information on the IANA Time Zone Database, see [Time Zone Database](https://www.iana.org/time-zones "https://www.iana.org/time-zones")
 on the IANA Time Zone Database website.
 
-### Amazon Redshift Serverless RPU changes effective after August 15,
-
-2025
+### Amazon Redshift Serverless RPU changes effective after August 15, 2025
 
 Beginning August 15, 2025, the AWS account quota for Amazon Redshift Serverless base Redshift
 Processing Units (RPUs) is the greater of either 3,200 RPUs or 1.5 times your maximum
 aggregate base RPUs from the previous six months.
 
-### Database audit logging changes effective after
-
-August 10, 2025
+### Database audit logging changes effective after August 10, 2025
 
 Beginning August 10, 2025, Amazon Redshift is making a change to Database Audit Logging, which
 requires your action. Amazon Redshift logs information about connections and user activities in your
 database to Amazon S3 buckets and CloudWatch. After August 10, 2025, Amazon Redshift will discontinue database
 audit logging to your Amazon S3 buckets which have a bucket policy specifying a Redshift IAM
 USER. We recommend updating your policies to use the Redshift SERVICE-PRINCIPAL instead,
-within S3 bucket policies for audit logging. For information about audit logging, see [Bucket permissions for Amazon Redshift
-audit logging](db-auditing.md#db-auditing-bucket-permissions "db-auditing.md#db-auditing-bucket-permissions").
+within S3 bucket policies for audit logging. For information about audit logging, see [Bucket permissions for Amazon Redshift audit logging](db-auditing.md#db-auditing-bucket-permissions "db-auditing.md#db-auditing-bucket-permissions").
 
 To avoid any logging interruption, review and update your S3 bucket policies to grant
 access to the Redshift service-principal in the associated region prior to August 10, 2025.
@@ -190,9 +165,7 @@ For information about database audit logging, see [Log files in Amazon S3](db-au
 
 For questions or concerns, contact AWS support at the following link: [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support").
 
-### Virtual Private Cloud Endpoint changes for serverless
-
-workgroups effective after June 27, 2025
+### Virtual Private Cloud Endpoint changes for serverless workgroups effective after June 27, 2025
 
 Beginning June 27, 2025, Amazon Redshift is making a change to Virtual Private Cloud Endpoint
 (VPCE) support for serverless workgroups. Prior to this date, Amazon Redshift deploys with endpoints
@@ -200,21 +173,16 @@ into a single Availability Zone (AZ) during workgroup creation, and expands VPCE
 to three AZs over time. After this date, Amazon Redshift deploys VPCEs in up to three of the
 Availability Zones specified during workgroup creation.
 
-For more information, see [Considerations when using
-Amazon Redshift Serverless](serverless-usage-considerations.md "serverless-usage-considerations.md").
+For more information, see [Considerations when using Amazon Redshift Serverless](serverless-usage-considerations.md "serverless-usage-considerations.md").
 
 For questions or concerns, contact AWS support at the following link: [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support").
 
 ###### Topics
 
-- [Query monitoring changes effective after
-  May 2, 2025](#query-monitoring-changes-may2025 "#query-monitoring-changes-may2025")
-- [Security changes effective after January 10,
-  2025](#security-changes-jan2025 "#security-changes-jan2025")
+- [Query monitoring changes effective after May 2, 2025](#query-monitoring-changes-may2025 "#query-monitoring-changes-may2025")
+- [Security changes effective after January 10, 2025](#security-changes-jan2025 "#security-changes-jan2025")
 
-### Query monitoring changes effective after
-
-May 2, 2025
+### Query monitoring changes effective after May 2, 2025
 
 Effective May 2, 2025, we will no longer offer the Query CPU time
 (`max_query_cpu_time`) and Query CPU usage
@@ -239,9 +207,7 @@ actionable information. Some examples include:
 
 For a full list of supported metrics, see [Query monitoring metrics for Amazon Redshift Serverless.](../dg/cm-c-wlm-query-monitoring-rules.md#cm-c-wlm-query-monitoring-metrics-serverless "../dg/cm-c-wlm-query-monitoring-rules.md#cm-c-wlm-query-monitoring-metrics-serverless")
 
-### Security changes effective after January 10,
-
-2025
+### Security changes effective after January 10, 2025
 
 Security is our top priority at Amazon Web Services (AWS). To that end, we are further
 strengthening the security posture of Amazon Redshift environments by introducing enhanced security
@@ -269,8 +235,7 @@ the `PubliclyAccessible` parameter to true when you run
 `CreateCluster` or `RestoreFromClusterSnapshot` API operations.
 With a publicly accessible cluster, we recommend that you must use security groups or
 network access control lists (ACLs) to restrict access. For more information, see [VPC security groups](managing-vpc-security-groups.md "managing-vpc-security-groups.md")
-and [Configuring security group
-communication settings for an Amazon Redshift cluster or an Amazon Redshift Serverless workgroup](rs-security-group-public-private.md "rs-security-group-public-private.md").
+and [Configuring security group communication settings for an Amazon Redshift cluster or an Amazon Redshift Serverless workgroup](rs-security-group-public-private.md "rs-security-group-public-private.md").
 
 #### Encryption by default
 
@@ -314,8 +279,7 @@ create new workgroups with `require_ssl` set to `false` will be
 rejected. You can change the `require_ssl` value to `false` after
 the workgroup is created.
 
-For more information, see [Configuring security options for
-connections](connecting-ssl-support.md "connecting-ssl-support.md").
+For more information, see [Configuring security options for connections](connecting-ssl-support.md "connecting-ssl-support.md").
 
 Note that you will still have the ability to modify cluster or workgroup settings to
 change the default behavior, if needed for your specific use cases.

@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Creating
-
-a workgroup with a namespace
+# Creating a workgroup with a namespace
 
 Complete the following steps to create a workgroup. For more information about
 workgroup configuration, see [Workgroup properties](serverless-console-workgroups.md#serverless-workgroup-describe "serverless-console-workgroups.md#serverless-workgroup-describe").
@@ -45,9 +43,7 @@ workgroup configuration, see [Workgroup properties](serverless-console-workgroup
 8. Select the base RPU capacity that conforms with your
    requirements.
 
-## Choose a
-
-namespace
+## Choose a namespace
 
 1. Choose either **Create a new namespace**, and
    enter the namespace name, or **Add to an existing
@@ -67,9 +63,7 @@ namespace
    specifies different metadata. Choose **Continue**
    to review your choices.
 
-## Review
-
-workgroup selections
+## Review workgroup selections
 
 1. Review your settings under **Review and create**.
    It shows the settings you chose in the previous steps.

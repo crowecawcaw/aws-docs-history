@@ -2,9 +2,7 @@ Amazon Redshift will no longer support the creation of new Python UDFs starting 
 Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
 [blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
 
-# Configuring a connection for ODBC driver version 2.x for
-
-Amazon Redshift
+# Configuring a connection for ODBC driver version 2.x for Amazon Redshift
 
 You can use an ODBC connection to connect to your Amazon Redshift cluster from many third-party
 SQL client tools and applications. If your client tool supports JDBC, you can choose to use
@@ -22,10 +20,8 @@ log](https://github.com/aws/amazon-redshift-odbc-driver/blob/master/CHANGELOG.md
 ###### Topics
 
 - [Getting the ODBC URL](odbc20-getting-url.md "odbc20-getting-url.md")
-- [Using an Amazon Redshift ODBC driver on Microsoft
-  Windows](odbc20-install-config-win.md "odbc20-install-config-win.md")
-- [Using an Amazon Redshift ODBC driver on
-  Linux](odbc20-install-config-linux.md "odbc20-install-config-linux.md")
+- [Using an Amazon Redshift ODBC driver on Microsoft Windows](odbc20-install-config-win.md "odbc20-install-config-win.md")
+- [Using an Amazon Redshift ODBC driver on Linux](odbc20-install-config-linux.md "odbc20-install-config-linux.md")
 - [Using an Amazon Redshift ODBC driver on Apple macOS](odbc20-install-config-mac.md "odbc20-install-config-mac.md")
 - [Authentication methods](odbc20-authentication-ssl.md "odbc20-authentication-ssl.md")
 - [Data types conversions](odbc20-converting-data-types.md "odbc20-converting-data-types.md")

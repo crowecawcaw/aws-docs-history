@@ -12,5 +12,4 @@ requirements, see the [Amazon Redshift ODBC connector installation and configura
 ###### Topics
 
 - [Downloading and installing the Amazon Redshift ODBC driver](odbc-driver-mac-how-to-install.md "odbc-driver-mac-how-to-install.md")
-- [Use an ODBC driver manager to
-  configure the driver](odbc-driver-configure-mac.md "odbc-driver-configure-mac.md")
+- [Use an ODBC driver manager to configure the driver](odbc-driver-configure-mac.md "odbc-driver-configure-mac.md")
