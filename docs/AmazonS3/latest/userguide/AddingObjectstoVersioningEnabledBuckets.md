@@ -1,6 +1,4 @@
-# Adding objects to
-
-versioning-enabled buckets
+# Adding objects to versioning-enabled buckets
 
 After you enable versioning on a bucket, Amazon S3 automatically adds a unique version ID
 to every object stored (using `PUT`, `POST`, or `CopyObject`)

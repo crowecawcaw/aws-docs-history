@@ -121,9 +121,7 @@ aws s3control get-multi-region-access-point-routes
 --mrap `MultiRegionAccessPoint_ARN`
 ```
 
-## Initiating
-
-failover
+## Initiating failover
 
 When you initiate failover by choosing **Failover** in the
 **Failover configuration** section on your Multi-Region Access Point details page,
@@ -149,8 +147,7 @@ source bucket. Replica modification sync helps ensure that object metadata is
 also synchronized between buckets during two-way replication.
 
 For more information about configuring replication to support failover, see
-[Configuring replication for use
-with Multi-Region Access Points](MultiRegionAccessPointBucketReplication.md "MultiRegionAccessPointBucketReplication.md").
+[Configuring replication for use with Multi-Region Access Points](MultiRegionAccessPointBucketReplication.md "MultiRegionAccessPointBucketReplication.md").
 
 ###### To initiate failover between replicated buckets
 
@@ -187,9 +184,7 @@ Existing
 connections will continue until they reach a success or failure
 status.
 
-## Viewing your Amazon S3 Multi-Region Access Point routing
-
-controls
+## Viewing your Amazon S3 Multi-Region Access Point routing controls
 
 ###### To view the routing controls for your Amazon S3 Multi-Region Access Point
 

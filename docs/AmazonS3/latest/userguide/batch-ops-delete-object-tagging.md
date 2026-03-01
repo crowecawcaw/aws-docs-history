@@ -20,9 +20,7 @@ Running this job removes all object tag sets on every object listed in the manif
 
 To use the console to create a **Delete all object tags** job, see [Creating an S3 Batch Operations job](batch-ops-create-job.md "batch-ops-create-job.md").
 
-## Restrictions and
-
-limitations
+## Restrictions and limitations
 
 When you're using Batch Operations to delete object tags, the following restrictions and
 limitations apply:

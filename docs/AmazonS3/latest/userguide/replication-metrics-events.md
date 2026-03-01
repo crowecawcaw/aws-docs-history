@@ -1,6 +1,4 @@
-# Receiving replication failure events with Amazon S3
-
-Event Notifications
+# Receiving replication failure events with Amazon S3 Event Notifications
 
 If you've enabled S3 Replication metrics on your replication configuration, you can set up Amazon S3
 Event Notifications to notify you when objects don't replicate to their destination
@@ -23,8 +21,7 @@ and replication latency. For more information about S3 Replication metrics, see 
 - The `s3:Replication:OperationNotTracked` event type notifies you when an
   object that was eligible for live replication (either Same-Region Replication [SRR] or
   Cross-Region Replication [CRR]) is no longer being tracked by replication metrics.
-  For full descriptions of all the supported replication event types, see [Supported event types for SQS,
-  SNS, and Lambda](notification-how-to-event-types-and-destinations.md#supported-notification-event-types "notification-how-to-event-types-and-destinations.md#supported-notification-event-types").
+  For full descriptions of all the supported replication event types, see [Supported event types for SQS, SNS, and Lambda](notification-how-to-event-types-and-destinations.md#supported-notification-event-types "notification-how-to-event-types-and-destinations.md#supported-notification-event-types").
 
 For a list of the failure codes captured by S3 Event Notifications, see [Amazon S3 replication failure reasons](#replication-failure-codes "#replication-failure-codes").
 
@@ -99,8 +96,7 @@ by receiving the `s3:Replication:OperationFailedReplication` event with Amazon S
 Event Notifications and then looking at the `failureReason` value.
 
 You can also view these failure reasons in an S3 Batch Replication completion report.
-For more information, see [Batch Replication completion
-report](s3-batch-replication-batch.md#batch-replication-completion-report "s3-batch-replication-batch.md#batch-replication-completion-report").
+For more information, see [Batch Replication completion report](s3-batch-replication-batch.md#batch-replication-completion-report "s3-batch-replication-batch.md#batch-replication-completion-report").
 
 | Replication failure reason          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -141,7 +137,6 @@ report](s3-batch-replication-batch.md#batch-replication-completion-report "s3-ba
 
 ### Related topics
 
-[Setting up permissions for live
-replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md")
+[Setting up permissions for live replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md")
 
 [Troubleshooting replication](replication-troubleshoot.md "replication-troubleshoot.md")

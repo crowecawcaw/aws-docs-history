@@ -9,8 +9,7 @@ information about tags used for labeling objects, see [Categorizing your objects
 
 The _cost allocation report_ lists the AWS usage for your account by
 product category and linked account user. The report contains the same line items as the
-detailed billing report (see [Understanding your AWS billing and usage
-reports for Amazon S3](aws-usage-report-understand.md "aws-usage-report-understand.md")) and additional columns for your tag
+detailed billing report (see [Understanding your AWS billing and usage reports for Amazon S3](aws-usage-report-understand.md "aws-usage-report-understand.md")) and additional columns for your tag
 keys.
 
 AWS provides two types of cost allocation tags, an AWS-generated tag and user-defined
@@ -95,6 +94,5 @@ in the AWS CLI Command Reference.
 
 - [Using Cost Allocation
   Tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md") in the _AWS Billing User Guide_
-- [Understanding your AWS billing and usage
-  reports for Amazon S3](aws-usage-report-understand.md "aws-usage-report-understand.md")
+- [Understanding your AWS billing and usage reports for Amazon S3](aws-usage-report-understand.md "aws-usage-report-understand.md")
 - [AWS Billing reports for Amazon S3](aws-billing-reports.md "aws-billing-reports.md")

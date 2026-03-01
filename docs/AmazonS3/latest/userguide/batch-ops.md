@@ -18,8 +18,7 @@ of objects. Amazon S3 Batch Operations use the same Amazon S3 API operations tha
 For more information about using the Amazon S3 Express One Zone storage class with directory buckets,
 see [S3 Express One Zone](directory-bucket-high-performance.md#s3-express-one-zone "directory-bucket-high-performance.md#s3-express-one-zone") and
 [Working with directory buckets](directory-buckets-overview.md "directory-buckets-overview.md"). For more
-information about using Batch Operations with S3 Express One Zone and directory buckets, see [Using Batch Operations with
-directory buckets](directory-buckets-objects-Batch-Ops.md "directory-buckets-objects-Batch-Ops.md").
+information about using Batch Operations with S3 Express One Zone and directory buckets, see [Using Batch Operations with directory buckets](directory-buckets-objects-Batch-Ops.md "directory-buckets-objects-Batch-Ops.md").
 
 ## S3 Batch Operations basics
 
@@ -100,5 +99,4 @@ Batch Replication jobs per AWS account. To get started creating a Batch Operatio
 
 The following tutorial presents complete end-to-end procedures for some Batch Operations tasks.
 
-- [Tutorial: Batch-transcoding
-  videos with S3 Batch Operations](tutorial-s3-batchops-lambda-mediaconvert-video.md "tutorial-s3-batchops-lambda-mediaconvert-video.md")
+- [Tutorial: Batch-transcoding videos with S3 Batch Operations](tutorial-s3-batchops-lambda-mediaconvert-video.md "tutorial-s3-batchops-lambda-mediaconvert-video.md")

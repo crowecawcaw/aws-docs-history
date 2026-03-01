@@ -1,6 +1,4 @@
-# Metadata table limitations and
-
-restrictions
+# Metadata table limitations and restrictions
 
 Amazon S3 Metadata has the following limitations and restrictions:
 

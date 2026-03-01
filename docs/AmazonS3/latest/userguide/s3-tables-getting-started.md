@@ -17,8 +17,7 @@ Solutions Library.
 
 - [Step 1: Create a table bucket and integrate it with AWS analytics services](#s1-tables-tutorial-create-bucket "#s1-tables-tutorial-create-bucket")
 - [Step 2: Create a table namespace and a table](#s2-tables-tutorial-create-namespace-and-table "#s2-tables-tutorial-create-namespace-and-table")
-- [(Optional) Step 3: Grant Lake Formation permissions on your
-  table](#s3-tables-tutorial-create-table "#s3-tables-tutorial-create-table")
+- [(Optional) Step 3: Grant Lake Formation permissions on your table](#s3-tables-tutorial-create-table "#s3-tables-tutorial-create-table")
 - [Step 4: Query data with SQL in Athena](#s4-query-tables "#s4-query-tables")
 
 ## Step 1: Create a table bucket and integrate it with AWS analytics services
@@ -31,8 +30,7 @@ create a table bucket, see [Creating a table bucket](s3-tables-buckets-create.md
 By default, the Amazon S3 console automatically integrates your table buckets with Amazon SageMaker Lakehouse, which allows AWS analytics services to automatically discover and access your S3 Tables
 data. If you create your first table bucket programmatically by using the AWS Command Line Interface (AWS CLI), AWS SDKs,
 or REST API, you must manually complete the AWS analytics services integration. For more
-information, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
+information, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -56,8 +54,7 @@ the **Enable integration** checkbox is selected.
 If **Enable integration** is selected when you create your first table bucket
 by using the console, Amazon S3 attempts to integrate your table bucket with AWS analytics services.
 This integration allows you to use AWS analytics services to access all tables in the current
-Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md"). 7. Choose **Create bucket**.
+Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md"). 7. Choose **Create bucket**.
 
 ## Step 2: Create a table namespace and a table
 
@@ -161,9 +158,7 @@ definition:
 }
 ```
 
-## (Optional) Step 3: Grant Lake Formation permissions on your
-
-table
+## (Optional) Step 3: Grant Lake Formation permissions on your table
 
 For this step, you grant Lake Formation permissions on your new table to other IAM principals. These
 permissions allow principals other than you to access table bucket resources by using Athena and other

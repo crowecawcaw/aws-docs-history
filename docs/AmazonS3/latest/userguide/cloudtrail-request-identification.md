@@ -1,24 +1,16 @@
-# Identifying Amazon S3 requests using
-
-CloudTrail
+# Identifying Amazon S3 requests using CloudTrail
 
 In Amazon S3, you can identify requests using an AWS CloudTrail event log. AWS CloudTrail is the
 preferred way of identifying Amazon S3 requests, but if you are using Amazon S3 server access
-logs, see [Using Amazon S3 server access logs to
-identify requests](using-s3-access-logs-to-identify-requests.md "using-s3-access-logs-to-identify-requests.md").
+logs, see [Using Amazon S3 server access logs to identify requests](using-s3-access-logs-to-identify-requests.md "using-s3-access-logs-to-identify-requests.md").
 
 ###### Topics
 
-- [Identifying requests made to
-  Amazon S3 in a CloudTrail log](#identify-S3-requests-using-in-CTlog "#identify-S3-requests-using-in-CTlog")
-- [Identifying Amazon S3
-  Signature Version 2 requests by using CloudTrail](#cloudtrail-identification-sigv2-requests "#cloudtrail-identification-sigv2-requests")
-- [Identifying access to
-  S3 objects by using CloudTrail](#cloudtrail-identification-object-access "#cloudtrail-identification-object-access")
+- [Identifying requests made to Amazon S3 in a CloudTrail log](#identify-S3-requests-using-in-CTlog "#identify-S3-requests-using-in-CTlog")
+- [Identifying Amazon S3 Signature Version 2 requests by using CloudTrail](#cloudtrail-identification-sigv2-requests "#cloudtrail-identification-sigv2-requests")
+- [Identifying access to S3 objects by using CloudTrail](#cloudtrail-identification-object-access "#cloudtrail-identification-object-access")
 
-## Identifying requests made to
-
-Amazon S3 in a CloudTrail log
+## Identifying requests made to Amazon S3 in a CloudTrail log
 
 After you set up CloudTrail to deliver events to a bucket, you should start to see
 objects go to your destination bucket on the Amazon S3 console. These are formatted
@@ -34,9 +26,7 @@ For more information about CloudTrail and Athena, see [Creating the table for AW
 projection](../../../athena/latest/ug/cloudtrail-logs.md#create-cloudtrail-table-partition-projection "../../../athena/latest/ug/cloudtrail-logs.md#create-cloudtrail-table-partition-projection") in the _Amazon Athena User
 Guide_.
 
-## Identifying Amazon S3
-
-Signature Version 2 requests by using CloudTrail
+## Identifying Amazon S3 Signature Version 2 requests by using CloudTrail
 
 You can use a CloudTrail event log to identify which API signature version was used
 to sign a request in Amazon S3. This capability is important because support for
@@ -62,25 +52,16 @@ you must enable CloudTrail data events. (This feature is turned off by
 default.)
 
 AWS CloudTrail is the preferred method for identifying Signature Version 2 requests.
-If you're using Amazon S3 server-access logs, see [Identifying Signature
-Version 2 requests by using Amazon S3 access logs](using-s3-access-logs-to-identify-requests.md#using-s3-access-logs-to-identify-sigv2-requests "using-s3-access-logs-to-identify-requests.md#using-s3-access-logs-to-identify-sigv2-requests").
+If you're using Amazon S3 server-access logs, see [Identifying Signature Version 2 requests by using Amazon S3 access logs](using-s3-access-logs-to-identify-requests.md#using-s3-access-logs-to-identify-sigv2-requests "using-s3-access-logs-to-identify-requests.md#using-s3-access-logs-to-identify-sigv2-requests").
 
 ###### Topics
 
-- [Athena query examples
-  for identifying Amazon S3 Signature Version 2 requests](#ct-examples-identify-sigv2-requests "#ct-examples-identify-sigv2-requests")
-- [Partitioning Signature Version 2
-  data](#partitioning-sigv2-data "#partitioning-sigv2-data")
+- [Athena query examples for identifying Amazon S3 Signature Version 2 requests](#ct-examples-identify-sigv2-requests "#ct-examples-identify-sigv2-requests")
+- [Partitioning Signature Version 2 data](#partitioning-sigv2-data "#partitioning-sigv2-data")
 
-### Athena query examples
+### Athena query examples for identifying Amazon S3 Signature Version 2 requests
 
-for identifying Amazon S3 Signature Version 2 requests
-
-###### Example— Select all Signature Version 2 events, and print only
-
-`EventTime`, `S3_Action`,
-`Request_Parameters`, `Region`,
-`SourceIP`, and `UserAgent`
+###### Example— Select all Signature Version 2 events, and print only `EventTime`, `S3_Action`, `Request_Parameters`, `Region`, `SourceIP`, and `UserAgent`
 
 In the following Athena query, replace
 `s3_cloudtrail_events_db.cloudtrail_table`
@@ -96,9 +77,7 @@ LIMIT 10;
 
 ```
 
-###### Example— Select all requesters that are sending Signature Version 2
-
-traffic
+###### Example— Select all requesters that are sending Signature Version 2 traffic
 
 ```
 
@@ -110,9 +89,7 @@ Group by useridentity.arn
 
 ```
 
-### Partitioning Signature Version 2
-
-data
+### Partitioning Signature Version 2 data
 
 If you have a large amount of data to query, you can reduce the costs and
 running time of Athena by creating a partitioned table.
@@ -208,9 +185,7 @@ Group by useridentity.arn
 
 ```
 
-## Identifying access to
-
-S3 objects by using CloudTrail
+## Identifying access to S3 objects by using CloudTrail
 
 You can use your AWS CloudTrail event logs to identify Amazon S3 object access requests
 for data events such as `GetObject`, `DeleteObject`, and
@@ -226,23 +201,15 @@ for Amazon S3 from an AWS CloudTrail event log.
 
 ###### Topics
 
-- [Athena query
-  examples for identifying Amazon S3 object access requests](#ct-examples-identify-object-access-requests "#ct-examples-identify-object-access-requests")
+- [Athena query examples for identifying Amazon S3 object access requests](#ct-examples-identify-object-access-requests "#ct-examples-identify-object-access-requests")
 
-### Athena query
-
-examples for identifying Amazon S3 object access requests
+### Athena query examples for identifying Amazon S3 object access requests
 
 In the following Athena query examples, replace
 `s3_cloudtrail_events_db.cloudtrail_table`
 with your Athena details, and modify the date range as needed.
 
-###### Example— Select all events that have `PUT` object access
-
-requests, and print only `EventTime`,
-`EventSource`, `SourceIP`,
-`UserAgent`, `BucketName`,
-`object`, and `UserARN`
+###### Example— Select all events that have `PUT` object access requests, and print only `EventTime`, `EventSource`, `SourceIP`, `UserAgent`, `BucketName`, `object`, and `UserARN`
 
 ```
 SELECT
@@ -262,12 +229,7 @@ WHERE
 
 ```
 
-###### Example— Select all events that have `GET` object access
-
-requests, and print only `EventTime`,
-`EventSource`, `SourceIP`,
-`UserAgent`, `BucketName`,
-`object`, and `UserARN`
+###### Example— Select all events that have `GET` object access requests, and print only `EventTime`, `EventSource`, `SourceIP`, `UserAgent`, `BucketName`, `object`, and `UserARN`
 
 ```
 SELECT
@@ -286,13 +248,7 @@ WHERE
   AND eventTime BETWEEN '`2019-07-05T00:00:00Z`' and '`2019-07-06T00:00:00Z`'
 ```
 
-###### Example— Select all anonymous requester events to a bucket in a
-
-certain period and print only `EventTime`,
-`EventName`, `EventSource`,
-`SourceIP`, `UserAgent`,
-`BucketName`, `UserARN`, and
-`AccountID`
+###### Example— Select all anonymous requester events to a bucket in a certain period and print only `EventTime`, `EventName`, `EventSource`, `SourceIP`, `UserAgent`, `BucketName`, `UserARN`, and `AccountID`
 
 ```
 SELECT
@@ -311,9 +267,7 @@ WHERE
   AND eventTime BETWEEN '`2019-07-05T00:00:00Z`' and '`2019-07-06T00:00:00Z`'
 ```
 
-###### Example— Identify all requests that required an ACL for
-
-authorization
+###### Example— Identify all requests that required an ACL for authorization
 
 The following Amazon Athena query example shows how to identify all
 requests to your S3 buckets that required an access control list (ACL)
@@ -323,8 +277,7 @@ is `Yes`. If no ACLs were required, `aclRequired`
 is not present. You can use this information to migrate those ACL
 permissions to the appropriate bucket policies. After you've created
 these bucket policies, you can disable ACLs for these buckets. For more
-information about disabling ACLs, see [Prerequisites for
-disabling ACLs](object-ownership-migrating-acls-prerequisites.md "object-ownership-migrating-acls-prerequisites.md").
+information about disabling ACLs, see [Prerequisites for disabling ACLs](object-ownership-migrating-acls-prerequisites.md "object-ownership-migrating-acls-prerequisites.md").
 
 ```
 SELECT
@@ -354,5 +307,4 @@ WHERE
 - This query only retrieves information from the time at which
   logging was enabled.
 
-If you are using Amazon S3 server access logs, see [Identifying object access
-requests by using Amazon S3 access logs](using-s3-access-logs-to-identify-requests.md#using-s3-access-logs-to-identify-objects-access "using-s3-access-logs-to-identify-requests.md#using-s3-access-logs-to-identify-objects-access").
+If you are using Amazon S3 server access logs, see [Identifying object access requests by using Amazon S3 access logs](using-s3-access-logs-to-identify-requests.md#using-s3-access-logs-to-identify-objects-access "using-s3-access-logs-to-identify-requests.md#using-s3-access-logs-to-identify-objects-access").

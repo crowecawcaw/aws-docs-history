@@ -26,9 +26,7 @@ API operation, or the AWS SDKs.
 The Amazon S3 console limits the
 amount of data returned to 40 MB. To retrieve more data, use the AWS CLI or the API.
 
-## Requirements
-
-and limits
+## Requirements and limits
 
 The following are requirements for using Amazon S3 Select:
 
@@ -61,9 +59,7 @@ object:
 - You must use the data types that are specified in the object's schema.
 - Selecting on a repeated field returns only the last value.
 
-## Constructing a
-
-request
+## Constructing a request
 
 When you construct a request, you provide details of the object that is being queried
 by using an `InputSerialization` object. You provide details of how the
@@ -74,9 +70,7 @@ For more information about constructing an Amazon S3 Select request, see [Select
 _Amazon Simple Storage Service API Reference_. You can also see one of the SDK code examples
 in the following sections.
 
-### Requests using
-
-scan ranges
+### Requests using scan ranges
 
 With Amazon S3 Select, you can scan a subset of an object by specifying a range of
 bytes to query. This capability lets you parallelize scanning the whole object by

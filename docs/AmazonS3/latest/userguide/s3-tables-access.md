@@ -14,8 +14,7 @@ To access tables the IAM identity you use needs access to your table resources a
 
 ## Accessing tables through the Amazon SageMaker Lakehouse integration
 
-You can integrate S3 table buckets with Amazon SageMaker Lakehouse to access tables from AWS analytics services, such as Amazon Athena, Amazon Redshift, and Quick Suite. Amazon SageMaker Lakehouse unifies your data across Amazon S3 data lakes and Amazon Redshift data warehouses, so you can build analytics, machine learning (ML), and generative AI applications on a single copy of data. The integration populates the AWS Glue Data Catalog with your table resources, and federates access to these resources with AWS Lake Formation. For more information on integrating, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
+You can integrate S3 table buckets with Amazon SageMaker Lakehouse to access tables from AWS analytics services, such as Amazon Athena, Amazon Redshift, and Quick. Amazon SageMaker Lakehouse unifies your data across Amazon S3 data lakes and Amazon Redshift data warehouses, so you can build analytics, machine learning (ML), and generative AI applications on a single copy of data. The integration populates the AWS Glue Data Catalog with your table resources, and federates access to these resources with AWS Lake Formation. For more information on integrating, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 
 The integration enables fine-grained access control through AWS Lake Formation to provide additional security. Lake Formation uses a combination of its own permissions model and the IAM permissions model to control access to table resources and underlying data. This means that a request to access your table must pass permission checks by both IAM and Lake Formation. For more information, see [Lake Formation permissions overview](../../../lake-formation/latest/dg/lf-permissions-overview.md "../../../lake-formation/latest/dg/lf-permissions-overview.md") in the _AWS Lake Formation Developer Guide_.
 
@@ -24,7 +23,7 @@ The following AWS analytics services can access tables through this integration:
 - [Amazon Athena](s3-tables-integrating-athena.md "s3-tables-integrating-athena.md")
 - [Amazon Redshift](s3-tables-integrating-redshift.md "s3-tables-integrating-redshift.md")
 - [Amazon EMR](s3-tables-integrating-emr.md "s3-tables-integrating-emr.md")
-- [Quick Suite](s3-tables-integrating-quicksight.md "s3-tables-integrating-quicksight.md")
+- [Quick](s3-tables-integrating-quicksight.md "s3-tables-integrating-quicksight.md")
 - [Amazon Data Firehose](s3-tables-integrating-firehose.md "s3-tables-integrating-firehose.md")
 - [AWS Glue
   ETL](s3-tables-integrating-glue.md "s3-tables-integrating-glue.md")
@@ -63,8 +62,7 @@ The following AWS analytics services and query engines can access tables directl
 
 ### Accessing tables directly through the Amazon S3 Tables Catalog for Apache Iceberg
 
-You can also access tables directly from query engines like Apache Spark by using the S3 Tables client catalog, for more information, see [Accessing Amazon S3 tables with
-the Amazon S3 Tables Catalog for Apache Iceberg](s3-tables-client-catalog.md "s3-tables-client-catalog.md"). However, S3 recommends using the Amazon S3 Tables Iceberg REST endpoint for direct access because it supports more applications, without requiring language or engine-specific code.
+You can also access tables directly from query engines like Apache Spark by using the S3 Tables client catalog, for more information, see [Accessing Amazon S3 tables with the Amazon S3 Tables Catalog for Apache Iceberg](s3-tables-client-catalog.md "s3-tables-client-catalog.md"). However, S3 recommends using the Amazon S3 Tables Iceberg REST endpoint for direct access because it supports more applications, without requiring language or engine-specific code.
 
 The following query engines can access tables directly using the client catalog:
 

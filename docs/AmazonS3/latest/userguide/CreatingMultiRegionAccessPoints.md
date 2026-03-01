@@ -53,12 +53,8 @@ However, you can update the Multi-Region Access Point policy to deny all permiss
 ###### Topics
 
 - [Rules for naming Amazon S3 Multi-Region Access Points](multi-region-access-point-naming.md "multi-region-access-point-naming.md")
-- [Rules for choosing buckets for Amazon S3
-  Multi-Region Access Points](multi-region-access-point-buckets.md "multi-region-access-point-buckets.md")
-- [Create an Amazon S3
-  Multi-Region Access Point](multi-region-access-point-create-examples.md "multi-region-access-point-create-examples.md")
-- [Blocking public access
-  with Amazon S3 Multi-Region Access Points](multi-region-access-point-block-public-access.md "multi-region-access-point-block-public-access.md")
-- [Viewing Amazon S3 Multi-Region Access Points
-  configuration details](multi-region-access-point-view-examples.md "multi-region-access-point-view-examples.md")
+- [Rules for choosing buckets for Amazon S3 Multi-Region Access Points](multi-region-access-point-buckets.md "multi-region-access-point-buckets.md")
+- [Create an Amazon S3 Multi-Region Access Point](multi-region-access-point-create-examples.md "multi-region-access-point-create-examples.md")
+- [Blocking public access with Amazon S3 Multi-Region Access Points](multi-region-access-point-block-public-access.md "multi-region-access-point-block-public-access.md")
+- [Viewing Amazon S3 Multi-Region Access Points configuration details](multi-region-access-point-view-examples.md "multi-region-access-point-view-examples.md")
 - [Deleting a Multi-Region Access Point](multi-region-access-point-delete-examples.md "multi-region-access-point-delete-examples.md")

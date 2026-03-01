@@ -34,16 +34,11 @@ Alternatively, you can manually upload objects to your directory bucket.
 
 - [Prerequisites](#s3-express-tutorial-prerequisites "#s3-express-tutorial-prerequisites")
 - [Step 1: Configure a gateway VPC endpoint to reach S3 Express One Zone directory buckets](s3-express-tutorial-endpoints.md "s3-express-tutorial-endpoints.md")
-- [Step 2: Create a S3 Express One Zone directory
-  bucket](s3-express-tutorial-create-directory-bucket.md "s3-express-tutorial-create-directory-bucket.md")
-- [Step 3: Importing data into a S3 Express One Zone directory
-  bucket](s3-express-tutorial-Import.md "s3-express-tutorial-Import.md")
-- [Step 4: Manually upload objects to your S3 Express One Zone
-  directory bucket](s3-express-tutorial-Upload.md "s3-express-tutorial-Upload.md")
-- [Step 5: Empty your S3 Express One Zone directory
-  bucket](s3-express-tutoiral-Empty.md "s3-express-tutoiral-Empty.md")
-- [Step 6: Delete your S3 Express One Zone directory
-  bucket](s3-express-tutoiral-Delete.md "s3-express-tutoiral-Delete.md")
+- [Step 2: Create a S3 Express One Zone directory bucket](s3-express-tutorial-create-directory-bucket.md "s3-express-tutorial-create-directory-bucket.md")
+- [Step 3: Importing data into a S3 Express One Zone directory bucket](s3-express-tutorial-Import.md "s3-express-tutorial-Import.md")
+- [Step 4: Manually upload objects to your S3 Express One Zone directory bucket](s3-express-tutorial-Upload.md "s3-express-tutorial-Upload.md")
+- [Step 5: Empty your S3 Express One Zone directory bucket](s3-express-tutoiral-Empty.md "s3-express-tutoiral-Empty.md")
+- [Step 6: Delete your S3 Express One Zone directory bucket](s3-express-tutoiral-Delete.md "s3-express-tutoiral-Delete.md")
 - [Next steps](#s3-express-tutoiral-Next "#s3-express-tutoiral-Next")
 
 ## Prerequisites
@@ -55,10 +50,8 @@ permissions.
 ###### Substeps
 
 - [Create an AWS account](#s3-express-create-account "#s3-express-create-account")
-- [Create an IAM user in your
-  AWS account (console)](#s3-express-tutorial-user "#s3-express-tutorial-user")
-- [Create an IAM policy and attach it to
-  an IAM user or role (console)](#s3-express-tutorial-polict "#s3-express-tutorial-polict")
+- [Create an IAM user in your AWS account (console)](#s3-express-tutorial-user "#s3-express-tutorial-user")
+- [Create an IAM policy and attach it to an IAM user or role (console)](#s3-express-tutorial-polict "#s3-express-tutorial-polict")
 
 ### Create an AWS account
 
@@ -68,9 +61,7 @@ Amazon S3. You are charged only for the services that you use. For more informat
 pricing, see [S3
 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-### Create an IAM user in your
-
-AWS account (console)
+### Create an IAM user in your AWS account (console)
 
 AWS Identity and Access Management (IAM) is an AWS service that helps administrators securely control
 access to AWS resources. IAM administrators control who can be authenticated
@@ -99,9 +90,7 @@ using AWS IAM Identity Center to create users with temporary credentials, see [G
 
 IAM users have long-term credentials, which presents a security risk. To help mitigate this risk, we recommend that you provide these users with only the permissions they require to perform the task and that you remove these users when they are no longer needed.
 
-### Create an IAM policy and attach it to
-
-an IAM user or role (console)
+### Create an IAM policy and attach it to an IAM user or role (console)
 
 By default, users don't have permissions for directory buckets and S3 Express One
 Zone operations. To grant access permissions for directory buckets, you can use IAM

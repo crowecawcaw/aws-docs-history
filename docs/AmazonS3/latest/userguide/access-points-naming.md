@@ -73,9 +73,7 @@ The `-s3alias` and `-ext-s3alias` suffixes are reserved for access point alias n
 for bucket or access point names. For more information about Amazon S3 bucket-naming rules,
 see [General purpose bucket naming rules](bucketnamingrules.md "bucketnamingrules.md").
 
-### Access points aliases use cases and
-
-limitations
+### Access points aliases use cases and limitations
 
 When adopting access points, you can use access point alias names without requiring extensive code
 changes.
@@ -119,8 +117,7 @@ with your own information.
 - Aliases cannot be configured by customers.
 - Aliases cannot be deleted or modified or disabled on an access point.
 - You can use this access point alias name instead of an Amazon S3 bucket name in some
-  data plane operations. For a list of these operations, see [Access points compatibility with S3
-  operations](access-points-service-api-support.md#access-points-operations-support "access-points-service-api-support.md#access-points-operations-support").
+  data plane operations. For a list of these operations, see [Access points compatibility with S3 operations](access-points-service-api-support.md#access-points-operations-support "access-points-service-api-support.md#access-points-operations-support").
 - You can't use an access point alias name for Amazon S3 control plane operations. For a
   list of Amazon S3 control plane operations, see [Amazon S3
   Control](../API/API_Operations_AWS_S3_Control.md "../API/API_Operations_AWS_S3_Control.md") in the _Amazon Simple Storage Service API Reference_.

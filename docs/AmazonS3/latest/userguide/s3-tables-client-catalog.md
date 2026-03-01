@@ -1,6 +1,4 @@
-# Accessing Amazon S3 tables with
-
-the Amazon S3 Tables Catalog for Apache Iceberg
+# Accessing Amazon S3 tables with the Amazon S3 Tables Catalog for Apache Iceberg
 
 You can access S3 tables from open source query engines like Apache Spark by using the
 Amazon S3 Tables Catalog for Apache Iceberg client catalog. Amazon S3 Tables Catalog for Apache Iceberg is an open source library
@@ -11,9 +9,7 @@ S3 Tables API operations.
 Amazon S3 Tables Catalog for Apache Iceberg is distributed as a Maven JAR called
 `s3-tables-catalog-for-iceberg.jar`. You can build the client catalog JAR from the [AWS Labs GitHub repository](https://github.com/awslabs/s3-tables-catalog "https://github.com/awslabs/s3-tables-catalog") or download it from [Maven](https://mvnrepository.com/artifact/software.amazon.s3tables/s3-tables-catalog-for-iceberg "https://mvnrepository.com/artifact/software.amazon.s3tables/s3-tables-catalog-for-iceberg"). When connecting to tables, the client catalog JAR is used as a dependency when you initialize a Spark session for Apache Iceberg.
 
-## Using the Amazon S3 Tables Catalog for Apache Iceberg with
-
-Apache Spark
+## Using the Amazon S3 Tables Catalog for Apache Iceberg with Apache Spark
 
 You can use the Amazon S3 Tables Catalog for Apache Iceberg client catalog to connect to tables from
 open-source applications when you initialize a Spark session. In your session configuration you specify Iceberg and Amazon S3 dependencies, and create a custom catalog that uses your table bucket as the metadata warehouse.

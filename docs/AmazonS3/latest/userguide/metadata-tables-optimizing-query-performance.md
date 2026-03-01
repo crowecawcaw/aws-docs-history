@@ -1,6 +1,4 @@
-# Optimizing metadata table query
-
-performance
+# Optimizing metadata table query performance
 
 Because S3 Metadata is based on the Apache Iceberg table format, you can optimize the
 performance and cost of your journal

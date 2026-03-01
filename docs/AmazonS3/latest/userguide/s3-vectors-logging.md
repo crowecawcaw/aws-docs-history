@@ -42,9 +42,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _CloudTrail User
 Guide_.
 
-## CloudTrail management events for
-
-S3 Vectors
+## CloudTrail management events for S3 Vectors
 
 Management events provide information about management operations that are performed
 on resources in your AWS account. These are also known as control plane operations. By
@@ -70,9 +68,7 @@ The `eventSource` for S3 Vectors management events and data events is
 For more information about management events, see [Logging management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md") in the _CloudTrail User
 Guide_.
 
-## CloudTrail data events for
-
-S3 Vectors
+## CloudTrail data events for S3 Vectors
 
 Data events provide information about the resource operations performed on or in a
 resource. These are also known as data plane operations. By default, CloudTrail doesn't log
@@ -105,9 +101,7 @@ Vector data operations:
 The `eventSource` for S3 Vectors data events is
 `s3vectors.amazonaws.com`.
 
-## Enabling data event logging
-
-for S3 Vectors
+## Enabling data event logging for S3 Vectors
 
 You can enable data event logging for S3 Vectors resources when you create or update
 a CloudTrail trail. You can specify logging for all vector buckets and vector indexes in

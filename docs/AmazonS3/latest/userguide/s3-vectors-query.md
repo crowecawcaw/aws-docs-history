@@ -19,8 +19,7 @@ Amazon Bedrock automatically fetches data from your S3 data source, converts con
 generates embeddings, and stores them in your vector index. You can then query the knowledge
 base and generate responses based on chunks retrieved from your source data. For more
 information about how to query vectors from an Amazon Bedrock knowledge base in the console, see
-[(Optional) Integrate S3 Vectors with Amazon Bedrock
-Knowledge Bases](s3-vectors-getting-started.md#s3-vectors-bedrock-kb-tutorial "s3-vectors-getting-started.md#s3-vectors-bedrock-kb-tutorial").
+[(Optional) Integrate S3 Vectors with Amazon Bedrock Knowledge Bases](s3-vectors-getting-started.md#s3-vectors-bedrock-kb-tutorial "s3-vectors-getting-started.md#s3-vectors-bedrock-kb-tutorial").
 
 Furthermore, the open-source Amazon S3 Vectors Embed CLI tool provides a simplified way to perform semantic
 searches from the command line. This open source tool streamlines the

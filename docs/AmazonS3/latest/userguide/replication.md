@@ -34,21 +34,16 @@ _on-demand replication_.
 - [Why use replication?](#replication-scenario "#replication-scenario")
 - [When to use Cross-Region Replication](#crr-scenario "#crr-scenario")
 - [When to use Same-Region Replication](#srr-scenario "#srr-scenario")
-- [When to use two-way replication (bi-directional
-  replication)](#two-way-replication-scenario "#two-way-replication-scenario")
+- [When to use two-way replication (bi-directional replication)](#two-way-replication-scenario "#two-way-replication-scenario")
 - [When to use S3 Batch Replication](#batch-replication-scenario "#batch-replication-scenario")
-- [Workload requirements and live
-  replication](#replication-workload-requirements "#replication-workload-requirements")
+- [Workload requirements and live replication](#replication-workload-requirements "#replication-workload-requirements")
 - [What does Amazon S3 replicate?](replication-what-is-isnot-replicated.md "replication-what-is-isnot-replicated.md")
-- [Requirements and considerations for
-  replication](replication-requirements.md "replication-requirements.md")
+- [Requirements and considerations for replication](replication-requirements.md "replication-requirements.md")
 - [Setting up live replication overview](replication-how-setup.md "replication-how-setup.md")
 - [Managing or pausing live replication](disable-replication.md "disable-replication.md")
-- [Replicating existing objects with
-  Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md")
+- [Replicating existing objects with Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md")
 - [Troubleshooting replication](replication-troubleshoot.md "replication-troubleshoot.md")
-- [Monitoring replication with metrics, event notifications,
-  and statuses](replication-metrics.md "replication-metrics.md")
+- [Monitoring replication with metrics, event notifications, and statuses](replication-metrics.md "replication-metrics.md")
 
 ## Why use replication?
 
@@ -76,8 +71,7 @@ Replication can help you do the following:
   replicate your data in the same AWS Region or across different Regions within a
   predictable time frame, you can use S3 Replication Time Control (S3 RTC). S3 RTC replicates 99.99 percent of new
   objects stored in Amazon S3 within 15 minutes (backed by a service-level agreement). For more
-  information, see [Meeting compliance requirements with
-  S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
+  information, see [Meeting compliance requirements with S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
 
 ###### Note
 
@@ -130,9 +124,7 @@ AWS Region. SRR can help you do the following:
   Region. Same-Region Replication can help you automatically replicate critical data when
   compliance regulations don't allow the data to leave your country.
 
-## When to use two-way replication (bi-directional
-
-replication)
+## When to use two-way replication (bi-directional replication)
 
 - **Build shared datasets across multiple AWS Regions**
   – With replica modification sync, you can easily replicate metadata changes, such
@@ -172,16 +164,13 @@ you do the following:
   objects in destination buckets. Replicas of objects can be replicated only with
   Batch Replication.
 
-## Workload requirements and live
-
-replication
+## Workload requirements and live replication
 
 Depending on your workload requirements, some types of live replication will be better
 suited to your use case than others. Use the following table to determine which type of
 replication to use for your situation, and whether to use S3 Replication Time Control (S3 RTC) for your workload.
 S3 RTC replicates 99.99 percent of new objects stored in Amazon S3 within 15 minutes (backed by a
-service-level agreement, or SLA). For more information, see [Meeting compliance requirements with
-S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
+service-level agreement, or SLA). For more information, see [Meeting compliance requirements with S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
 
 | Workload requirement                                                                                  | S3 RTC (15-minute SLA) | Cross-Region Replication (CRR) | Same-Region Replication (SRR) |
 | ----------------------------------------------------------------------------------------------------- | ---------------------- | ------------------------------ | ----------------------------- |

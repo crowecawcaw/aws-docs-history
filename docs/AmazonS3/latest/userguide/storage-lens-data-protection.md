@@ -12,23 +12,16 @@ outliers and apply data-protection best practices across your S3 buckets.
 
 ###### Topics
 
-- [Identify buckets that don't use server-side
-  encryption with AWS KMS for default encryption (SSE-KMS)](#storage-lens-sse-kms "#storage-lens-sse-kms")
+- [Identify buckets that don't use server-side encryption with AWS KMS for default encryption (SSE-KMS)](#storage-lens-sse-kms "#storage-lens-sse-kms")
 - [Identify buckets that have S3 Versioning enabled](#storage-lens-data-protection-versioning "#storage-lens-data-protection-versioning")
-- [Identify requests that use AWS
-  Signature Version 2 (SigV2)](#storage-lens-data-protection-sigv "#storage-lens-data-protection-sigv")
-- [Count the total number
-  of replication rules for each bucket](#storage-lens-data-protection-replication-rule "#storage-lens-data-protection-replication-rule")
-- [Identify percentage of
-  Object Lock bytes](#storage-lens-data-protection-object-lock "#storage-lens-data-protection-object-lock")
+- [Identify requests that use AWS Signature Version 2 (SigV2)](#storage-lens-data-protection-sigv "#storage-lens-data-protection-sigv")
+- [Count the total number of replication rules for each bucket](#storage-lens-data-protection-replication-rule "#storage-lens-data-protection-replication-rule")
+- [Identify percentage of Object Lock bytes](#storage-lens-data-protection-object-lock "#storage-lens-data-protection-object-lock")
 
-## Identify buckets that don't use server-side
-
-encryption with AWS KMS for default encryption (SSE-KMS)
+## Identify buckets that don't use server-side encryption with AWS KMS for default encryption (SSE-KMS)
 
 With Amazon S3 default encryption, you can set the default encryption behavior for an S3
-bucket. For more information, see [Setting default server-side encryption behavior for Amazon S3
-buckets](bucket-encryption.md "bucket-encryption.md").
+bucket. For more information, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md").
 
 You can use the **SSE-KMS enabled bucket count** and **% SSE-KMS enabled buckets** metrics to identify buckets that
 use server-side encryption with AWS KMS keys (SSE-KMS) for default encryption. S3 Storage Lens
@@ -42,9 +35,7 @@ settings for these buckets to use SSE-KMS. In addition to SSE-KMS, you can use
 server-side encryption with Amazon S3 managed keys (SSE-S3) or customer-provided keys
 (SSE-C). For more information, see [Protecting data with encryption](UsingEncryption.md "UsingEncryption.md").
 
-### Step 1: Identify which buckets are
-
-using SSE-KMS for default encryption
+### Step 1: Identify which buckets are using SSE-KMS for default encryption
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -70,9 +61,7 @@ chart updates to display trends for SSE-KMS and encrypted bytes. 5. To view more
 7. You can now see which buckets have SSE-KMS enabled and which do
    not.
 
-### Step 2: Update bucket default
-
-encryption settings
+### Step 2: Update bucket default encryption settings
 
 Now that you've determined which buckets use SSE-KMS in the context of your
 **% encrypted bytes**, you can identify buckets that don't use
@@ -88,9 +77,7 @@ overwritten. You can use the **Versioning-enabled bucket count** metric
 to see which buckets use S3 Versioning. Then, you can take action in the S3 console to
 enable S3 Versioning for other buckets.
 
-### Step 1: Identify
-
-buckets that have S3 Versioning enabled
+### Step 1: Identify buckets that have S3 Versioning enabled
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -131,18 +118,14 @@ multiple dimensions by using any three metrics to represent the
 **X-axis**, **Y-axis**, and
 **Size** of the bubble.
 
-### Step 2: Enable
-
-S3 Versioning
+### Step 2: Enable S3 Versioning
 
 After you've identified buckets that have S3 Versioning enabled, you can identify
 buckets that have never had S3 Versioning enabled or are versioning suspended. Then,
 you can optionally enable versioning for these buckets in the S3 console. For more
 information, see [Enabling versioning on buckets](manage-versioning-examples.md "manage-versioning-examples.md").
 
-## Identify requests that use AWS
-
-Signature Version 2 (SigV2)
+## Identify requests that use AWS Signature Version 2 (SigV2)
 
 You can use the **All unsupported signature requests**
 metric to identify requests that use AWS Signature Version 2 (SigV2). This data can
@@ -161,9 +144,7 @@ dashboard, you must enable S3 Storage Lens **Advanced metrics and
 recommendations** and then select **Advanced data protection
 metrics**. For more information, see [Using the S3 console](storage_lens_editing.md#storage_lens_console_editing "storage_lens_editing.md#storage_lens_console_editing").
 
-### Step 1: Examine SigV2
-
-signing trends by AWS account, Region, and bucket
+### Step 1: Examine SigV2 signing trends by AWS account, Region, and bucket
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -192,9 +173,7 @@ signing trends by AWS account, Region, and bucket
    are available for queries for 15 months. For more information,
    see [Metrics selection](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection").
 
-### Step 2: Identify buckets
-
-that are accessed by applications through SigV2 requests
+### Step 2: Identify buckets that are accessed by applications through SigV2 requests
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -227,9 +206,7 @@ buckets that have SigV2 requests. Then, you can use this information to
 migrate your applications to SigV4. For more information, see [Authenticating Requests (AWS Signature Version 4)](../API/sig-v4-authenticating-requests.md "../API/sig-v4-authenticating-requests.md") in the
 _Amazon Simple Storage Service API Reference_.
 
-## Count the total number
-
-of replication rules for each bucket
+## Count the total number of replication rules for each bucket
 
 S3 Replication enables automatic, asynchronous copying of objects across Amazon S3
 buckets. Buckets that are configured for object replication can be owned by the same
@@ -246,9 +223,7 @@ S3 Storage Lens **Advanced metrics and recommendations** and then select
 **Advanced data protection metrics**. For more information, see
 [Using the S3 console](storage_lens_editing.md#storage_lens_console_editing "storage_lens_editing.md#storage_lens_console_editing").
 
-### Step 1: Count
-
-the total number of replication rules for each bucket
+### Step 1: Count the total number of replication rules for each bucket
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -276,16 +251,12 @@ the total number of replication rules for each bucket
    buckets to display in the list.
 9. Choose **Confirm**.
 
-### Step 2: Add
-
-replication rules
+### Step 2: Add replication rules
 
 After you have a per-bucket replication rule count, you can optionally create
 additional replication rules. For more information, see [Examples for configuring live replication](replication-example-walkthroughs.md "replication-example-walkthroughs.md").
 
-## Identify percentage of
-
-Object Lock bytes
+## Identify percentage of Object Lock bytes
 
 With S3 Object Lock, you can store objects by using a _write-once-read-many (WORM)_ model. You can use Object Lock to help
 prevent objects from being deleted or overwritten for a fixed amount of time or

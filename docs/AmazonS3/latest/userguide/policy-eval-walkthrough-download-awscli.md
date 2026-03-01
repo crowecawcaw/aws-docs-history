@@ -1,9 +1,6 @@
-# Setting up the tools for the
+# Setting up the tools for the walkthroughs
 
-walkthroughs
-
-The introductory examples (see [Walkthroughs that use policies to
-manage access to your Amazon S3 resources](example-walkthroughs-managing-access.md "example-walkthroughs-managing-access.md")) use the AWS Management Console to create
+The introductory examples (see [Walkthroughs that use policies to manage access to your Amazon S3 resources](example-walkthroughs-managing-access.md "example-walkthroughs-managing-access.md")) use the AWS Management Console to create
 resources and grant permissions. To test permissions, the examples use the command line
 tools, AWS Command Line Interface (AWS CLI) and AWS Tools for Windows PowerShell, so you don't need to write any code. To test
 permissions, you must set up one of these tools.

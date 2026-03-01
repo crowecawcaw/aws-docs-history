@@ -1,6 +1,4 @@
-# Using server-side encryption with Amazon S3 managed keys
-
-(SSE-S3)
+# Using server-side encryption with Amazon S3 managed keys (SSE-S3)
 
 ###### Important
 
@@ -50,9 +48,7 @@ JSON
 
 Server-side encryption encrypts only the object data, not the object metadata.
 
-## API support for server-side
-
-encryption
+## API support for server-side encryption
 
 All Amazon S3 buckets have encryption configured by default, and all new objects that are uploaded
 to an S3 bucket are automatically encrypted at rest. Server-side encryption with Amazon S3 managed keys (SSE-S3) is the default encryption
@@ -101,5 +97,4 @@ concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/de
 
 ###### Topics
 
-- [Specifying server-side encryption with Amazon S3 managed
-  keys (SSE-S3)](specifying-s3-encryption.md "specifying-s3-encryption.md")
+- [Specifying server-side encryption with Amazon S3 managed keys (SSE-S3)](specifying-s3-encryption.md "specifying-s3-encryption.md")

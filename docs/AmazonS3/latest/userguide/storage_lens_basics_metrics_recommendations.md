@@ -1,6 +1,4 @@
-# Understanding
-
-Amazon S3 Storage Lens
+# Understanding Amazon S3 Storage Lens
 
 ###### Important
 
@@ -38,8 +36,7 @@ understanding and using Amazon S3 Storage Lens.
 - [Dashboards](#storage_lens_basics_dashboards "#storage_lens_basics_dashboards")
 - [Account snapshot](#storage_lens_basics_account_snapshot "#storage_lens_basics_account_snapshot")
 - [Metrics export](#storage_lens_basics_metrics_export "#storage_lens_basics_metrics_export")
-- [Metrics export
-  destinations](#storage_lens_basics_metrics_export_destinations "#storage_lens_basics_metrics_export_destinations")
+- [Metrics export destinations](#storage_lens_basics_metrics_export_destinations "#storage_lens_basics_metrics_export_destinations")
 - [Home Region](#storage_lens_basics_home_region "#storage_lens_basics_home_region")
 - [Retention period](#storage_lens_basics_data_queries "#storage_lens_basics_data_queries")
 - [Metrics categories](#storage_lens_basics_metrics_types "#storage_lens_basics_metrics_types")
@@ -174,9 +171,7 @@ There are two types of metric exports available in Storage Lens:
 Storage Lens only generates metrics for [S3 general
 purpose buckets](UsingBucket.md "UsingBucket.md").
 
-### Metrics export
-
-destinations
+### Metrics export destinations
 
 When exporting Storage Lens metrics data, you can choose both an S3 general purpose
 bucket or an S3 table bucket as your destination. General purpose buckets provide broad
@@ -184,14 +179,12 @@ compatibility with existing tools and applications, offering flexibility to proc
 within your account, using your preferred analytics services. This option supports
 standard S3 access patterns and integrations for data analysis within individual buckets
 in your Region. In contrast, S3 table bucket lets you run immediate queries across
-multiple accounts and regions, create custom dashboards with Amazon Quick Suite, and join data with
+multiple accounts and regions, create custom dashboards with Amazon Quick, and join data with
 other AWS services or third-party tools, without the need for additional processing
 infrastructure. For example, you can combine Storage Lens metrics with S3 Metadata to
 analyze object activity patterns across your organization.
 
-#### S3 general purpose
-
-bucket
+#### S3 general purpose bucket
 
 Exporting Storage Lens metrics to an S3 general purpose bucket offers flexibility
 and continuity for storing your Storage Lens data. You can maintain existing workflows
@@ -216,7 +209,7 @@ organized in S3 Tables that are created in an AWS-managed S3 table bucket called
 `aws-s3` for optimal query performance, with customizable retention periods
 and encryption settings to meet your data management needs. With your metrics in
 S3 Tables, you can run queries across multiple accounts and Regions using SQL tools and
-AWS analytics services (like Amazon Athena, Amazon Quick Suite, Amazon EMR, and Amazon Redshift) to create custom
+AWS analytics services (like Amazon Athena, Amazon Quick, Amazon EMR, and Amazon Redshift) to create custom
 dashboards and generate deeper insights. For example, you can join S3 Storage Lens metrics with
 S3 Metadata to identify objects in prefixes that aren't showing any recent activity. Any
 data stored in an S3 table bucket incurs S3 Tables costs. For more information about
@@ -491,8 +484,7 @@ Advanced tier includes the following features:
     + Amazon CloudWatch publishing – Publishes S3 Storage Lens
      metrics to CloudWatch to create a unified view of your operational health in CloudWatch [dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md"). You can also use CloudWatch API operations and features, such as
      alarms and triggered actions, metric math, and anomaly detection, to monitor and
-     take action on S3 Storage Lens metrics. For more information, see [Monitor S3 Storage Lens metrics in
-     CloudWatch](storage_lens_view_metrics_cloudwatch.md "storage_lens_view_metrics_cloudwatch.md").
+     take action on S3 Storage Lens metrics. For more information, see [Monitor S3 Storage Lens metrics in CloudWatch](storage_lens_view_metrics_cloudwatch.md "storage_lens_view_metrics_cloudwatch.md").
     + Default metrics report – The default
      metrics report in S3 Storage Lens includes free metrics and prefix aggregation
      capabilities for top prefixes for object storage usage and activity trends across
@@ -573,9 +565,7 @@ that delegated administrator from aggregating new storage metrics.
 
 For more information, see [Amazon S3 Storage Lens and AWS Organizations](../../../organizations/latest/userguide/services-that-can-integrate-s3lens.md "../../../organizations/latest/userguide/services-that-can-integrate-s3lens.md") in the _AWS Organizations User Guide_.
 
-#### Amazon S3 Storage Lens service-linked
-
-roles
+#### Amazon S3 Storage Lens service-linked roles
 
 Along with AWS Organizations trusted access, Amazon S3 Storage Lens uses AWS Identity and Access Management (IAM)
 service-linked roles. A service-linked role is a unique type of IAM role that's linked
@@ -583,5 +573,4 @@ directly to S3 Storage Lens. Service-linked roles are predefined by S3 Storage L
 the permissions that it requires to collect daily storage and activity metrics from
 member accounts in your organization.
 
-For more information, see [Using service-linked roles for
-Amazon S3 Storage Lens](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information, see [Using service-linked roles for Amazon S3 Storage Lens](using-service-linked-roles.md "using-service-linked-roles.md").

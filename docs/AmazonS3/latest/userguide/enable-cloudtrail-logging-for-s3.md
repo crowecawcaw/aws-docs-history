@@ -1,6 +1,4 @@
-# Enabling CloudTrail event logging for
-
-S3 buckets and objects
+# Enabling CloudTrail event logging for S3 buckets and objects
 
 You can use CloudTrail data events to get information about bucket and object-level
 requests in Amazon S3. To enable CloudTrail data events for all of your buckets or for a list
@@ -38,15 +36,12 @@ account** check box to log all object-level events.
   AWS CloudTrail data event bucket. Configure the lifecycle configuration to
   periodically remove log files after the period of time you believe you
   need to audit them. Doing so reduces the amount of data that Athena
-  analyzes for each query. For more information, see [Setting an S3 Lifecycle configuration on a
-  bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
+  analyzes for each query. For more information, see [Setting an S3 Lifecycle configuration on a bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
 - For more information about logging format, see [Logging Amazon S3 API calls using AWS CloudTrail](cloudtrail-logging.md "cloudtrail-logging.md").
 - For examples of how to query CloudTrail logs, see the _AWS Big Data Blog_ post [Analyze Security, Compliance, and Operational Activity Using
   AWS CloudTrail and Amazon Athena](https://aws.amazon.com/blogs/big-data/aws-cloudtrail-and-amazon-athena-dive-deep-to-analyze-security-compliance-and-operational-activity/ "https://aws.amazon.com/blogs/big-data/aws-cloudtrail-and-amazon-athena-dive-deep-to-analyze-security-compliance-and-operational-activity/").
 
-## Enable logging for objects in a bucket using the
-
-console
+## Enable logging for objects in a bucket using the console
 
 You can use the AWS CloudTrail console to configure a CloudTrail trail to log data events for objects in
 an S3 bucket. CloudTrail supports logging Amazon S3 object-level API operations such as
@@ -59,8 +54,7 @@ AWS account. For more information, see [Logging Amazon S3 API calls using AWS Cl
 
 CloudTrail does not populate data events in the CloudTrail event history. Additionally, not all
 bucket-level actions are populated in the CloudTrail event history. For more information about the
-Amazon S3 bucket–level API actions tracked by CloudTrail logging, see [Amazon S3 bucket-level actions
-that are tracked by CloudTrail logging](cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking "cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking").
+Amazon S3 bucket–level API actions tracked by CloudTrail logging, see [Amazon S3 bucket-level actions that are tracked by CloudTrail logging](cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking "cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking").
 For more information about how to query CloudTrail logs, see the AWS Knowledge Center article about
 [using
 Amazon CloudWatch Logs filter patterns and Amazon Athena to query CloudTrail logs](https://aws.amazon.com/premiumsupport/knowledge-center/find-cloudtrail-object-level-events/ "https://aws.amazon.com/premiumsupport/knowledge-center/find-cloudtrail-object-level-events/").

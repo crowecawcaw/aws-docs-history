@@ -11,9 +11,7 @@ applies to all new objects in your Amazon S3 buckets, and comes at no cost to yo
 If you need more control over your encryption keys, such as managing key rotation and access
 policy grants, you can elect to use server-side encryption with AWS Key Management Service (AWS KMS) keys
 (SSE-KMS), or dual-layer server-side encryption with AWS KMS keys (DSSE-KMS). For more information
-about SSE-KMS, see [Specifying server-side encryption with AWS KMS
-(SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md"). For more information about DSSE-KMS, see [Using dual-layer server-side encryption with AWS KMS keys
-(DSSE-KMS)](UsingDSSEncryption.md "UsingDSSEncryption.md").
+about SSE-KMS, see [Specifying server-side encryption with AWS KMS (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md"). For more information about DSSE-KMS, see [Using dual-layer server-side encryption with AWS KMS keys (DSSE-KMS)](UsingDSSEncryption.md "UsingDSSEncryption.md").
 
 If you want to use a KMS key that is owned by a different account, you must have
 permission to use the key. For more information about cross-account permissions for KMS keys,
@@ -59,8 +57,7 @@ applies:
 ###### Note
 
 Objects uploaded before default encryption was enabled will not be encrypted. For
-information about encrypting existing objects, see [Setting default server-side encryption behavior for Amazon S3
-buckets](bucket-encryption.md "bucket-encryption.md").
+information about encrypting existing objects, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md").
 
 ###### To configure default encryption on an Amazon S3 bucket
 
@@ -91,12 +88,10 @@ buckets](bucket-encryption.md "bucket-encryption.md").
 
     Buckets and new objects are encrypted by default with SSE-S3, unless you specify
     another type of default encryption for your buckets. For more information about default
-    encryption, see [Setting default server-side encryption behavior for Amazon S3
-    buckets](bucket-encryption.md "bucket-encryption.md").
+    encryption, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md").
 
 For more information about using Amazon S3 server-side encryption to encrypt your data,
-see [Using server-side encryption with Amazon S3 managed keys
-(SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md"). 7. If you chose **Server-side encryption with AWS Key Management Service keys
+see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md"). 7. If you chose **Server-side encryption with AWS Key Management Service keys
 (SSE-KMS)** or **Dual-layer server-side encryption with AWS Key Management Service
 keys (DSSE-KMS)**, do the following:
 
@@ -137,10 +132,8 @@ keys (DSSE-KMS)**, do the following:
      *AWS Key Management Service Developer Guide*.
 
 
-    For more information about using SSE-KMS with Amazon S3, see [Using server-side encryption with AWS KMS keys
-     (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md"). For more
-     information about using DSSE-KMS, see [Using dual-layer server-side encryption with AWS KMS keys
-     (DSSE-KMS)](UsingDSSEncryption.md "UsingDSSEncryption.md").
+    For more information about using SSE-KMS with Amazon S3, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md"). For more
+     information about using DSSE-KMS, see [Using dual-layer server-side encryption with AWS KMS keys (DSSE-KMS)](UsingDSSEncryption.md "UsingDSSEncryption.md").
     2. When you configure your bucket to use default encryption with SSE-KMS, you can
      also enable an S3 Bucket Key. S3 Bucket Keys lower the cost of encryption by decreasing
      request traffic from Amazon S3 to AWS KMS. For more information, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucket-key.md "bucket-key.md").
@@ -158,8 +151,7 @@ keys (DSSE-KMS)**, do the following:
    These examples show you how to configure default encryption by using SSE-S3 or by using
    SSE-KMS with an S3 Bucket Key.
 
-For more information about default encryption, see [Setting default server-side encryption behavior for Amazon S3
-buckets](bucket-encryption.md "bucket-encryption.md"). For more information about using the AWS CLI to
+For more information about default encryption, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md"). For more information about using the AWS CLI to
 configure default encryption, see [put-bucket-encryption](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-encryption.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-encryption.html").
 
 ###### Example– Default encryption with SSE-S3

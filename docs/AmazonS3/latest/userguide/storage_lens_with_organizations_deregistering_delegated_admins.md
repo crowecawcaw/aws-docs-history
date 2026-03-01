@@ -1,6 +1,4 @@
-# Deregistering a
-
-delegated administrator for S3 Storage Lens
+# Deregistering a delegated administrator for S3 Storage Lens
 
 After enabling trusted access, you can also deregister delegate administrator access to
 accounts in your organization. Delegated administrator accounts allow other accounts besides

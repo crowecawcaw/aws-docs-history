@@ -22,23 +22,18 @@ not appear in the bucket metrics.
 
 ###### Topics
 
-- [Amazon S3 daily storage metrics for buckets in
-  CloudWatch](#s3-cloudwatch-metrics "#s3-cloudwatch-metrics")
+- [Amazon S3 daily storage metrics for buckets in CloudWatch](#s3-cloudwatch-metrics "#s3-cloudwatch-metrics")
 - [Amazon S3 request metrics in CloudWatch](#s3-request-cloudwatch-metrics "#s3-request-cloudwatch-metrics")
 - [S3 Replication metrics in CloudWatch](#s3-cloudwatch-replication-metrics "#s3-cloudwatch-replication-metrics")
-- [S3 Storage Lens metrics in
-  CloudWatch](#storage-lens-metrics-cloudwatch-publish "#storage-lens-metrics-cloudwatch-publish")
-- [S3 Object Lambda request metrics in
-  CloudWatch](#olap-cloudwatch-metrics "#olap-cloudwatch-metrics")
+- [S3 Storage Lens metrics in CloudWatch](#storage-lens-metrics-cloudwatch-publish "#storage-lens-metrics-cloudwatch-publish")
+- [S3 Object Lambda request metrics in CloudWatch](#olap-cloudwatch-metrics "#olap-cloudwatch-metrics")
 - [Amazon S3 dimensions in CloudWatch](#s3-cloudwatch-dimensions "#s3-cloudwatch-dimensions")
 - [S3 Replication dimensions in CloudWatch](#s3-replication-dimensions "#s3-replication-dimensions")
 - [S3 Storage Lens dimensions in CloudWatch](#storage-lens-dimensions "#storage-lens-dimensions")
 - [S3 Object Lambda request dimensions in CloudWatch](#olap-dimensions "#olap-dimensions")
 - [Amazon S3 usage metrics](#s3-service-quota-metrics "#s3-service-quota-metrics")
 
-## Amazon S3 daily storage metrics for buckets in
-
-CloudWatch
+## Amazon S3 daily storage metrics for buckets in CloudWatch
 
 The `AWS/S3` namespace includes the following daily storage metrics for
 buckets.
@@ -98,9 +93,7 @@ treatment** field to **Treat missing data as ignore
 | `OperationsPendingReplication` | The number of operations pending replication for a given<br>replication rule.<br>Units: Count<br>Valid statistics: Max                                                                                                                               |
 | `OperationsFailedReplication`  | The number of operations that failed to replicate for a given<br>replication rule.<br>Units: Count<br>Valid statistics: Sum (total number of failed operations),<br>Average (failure rate), Sample Count (total number of<br>replication operations) |
 
-## S3 Storage Lens metrics in
-
-CloudWatch
+## S3 Storage Lens metrics in CloudWatch
 
 You can publish S3 Storage Lens usage and activity metrics to Amazon CloudWatch to create a
 unified view of your operational health in [CloudWatch
@@ -112,9 +105,7 @@ recommendations.
 For a list of S3 Storage Lens metrics that are published to CloudWatch, see [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md"). For a complete list of
 dimensions, see [Dimensions](storage-lens-cloudwatch-metrics-dimensions.md#storage-lens-cloudwatch-dimensions "storage-lens-cloudwatch-metrics-dimensions.md#storage-lens-cloudwatch-dimensions").
 
-## S3 Object Lambda request metrics in
-
-CloudWatch
+## S3 Object Lambda request metrics in CloudWatch
 
 S3 Object Lambda includes the following request metrics.
 

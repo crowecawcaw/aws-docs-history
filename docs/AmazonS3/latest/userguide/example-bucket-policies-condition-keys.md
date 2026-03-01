@@ -4,13 +4,10 @@ You can use condition keys in bucket policies to control access to Amazon S3.
 
 ###### Topics
 
-- [Granting s3:PutObject permission
-  with a condition requiring the bucket owner to get full control](#grant-putobject-conditionally-1 "#grant-putobject-conditionally-1")
+- [Granting s3:PutObject permission with a condition requiring the bucket owner to get full control](#grant-putobject-conditionally-1 "#grant-putobject-conditionally-1")
 - [Granting s3:PutObject permission with a condition on the x-amz-acl header](#example-acl-header "#example-acl-header")
 
-## Granting s3:PutObject permission
-
-with a condition requiring the bucket owner to get full control
+## Granting s3:PutObject permission with a condition requiring the bucket owner to get full control
 
 The [PUT Object](../API/RESTObjectPUT.md "../API/RESTObjectPUT.md")
 operation allows access control list (ACL)–specific headers that you

@@ -6,15 +6,12 @@ jobs by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), AWS S
 
 ###### Topics
 
-- [Using the Amazon S3 console to manage your
-  S3 Batch Operations jobs](#batch-ops-manage-console "#batch-ops-manage-console")
+- [Using the Amazon S3 console to manage your S3 Batch Operations jobs](#batch-ops-manage-console "#batch-ops-manage-console")
 - [Listing jobs](batch-ops-list-jobs.md "batch-ops-list-jobs.md")
 - [Viewing job details](batch-ops-job-details.md "batch-ops-job-details.md")
 - [Assigning job priority](batch-ops-job-priority.md "batch-ops-job-priority.md")
 
-## Using the Amazon S3 console to manage your
-
-S3 Batch Operations jobs
+## Using the Amazon S3 console to manage your S3 Batch Operations jobs
 
 Using the console, you can manage your S3 Batch Operations jobs. For example, you can:
 

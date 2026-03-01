@@ -43,20 +43,17 @@ for AWS CLI and `CRT_MEMORY_BUFFER_DISABLED` for Java SDK.
 
 When you upload an object, the object is automatically encrypted using server-side
 encryption with Amazon S3 managed keys (SSE-S3) by default. When you download it, the object is
-decrypted. For more information, see [Setting default server-side encryption behavior for Amazon S3
-buckets](bucket-encryption.md "bucket-encryption.md") and [Protecting data with encryption](UsingEncryption.md "UsingEncryption.md").
+decrypted. For more information, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md") and [Protecting data with encryption](UsingEncryption.md "UsingEncryption.md").
 
 When you're uploading an object, if you want to use a different type of default encryption,
 you can also specify server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS) in your S3
 `PUT` requests or set the default encryption configuration in the destination
-bucket to use SSE-KMS to encrypt your data. For more information about SSE-KMS, see [Specifying server-side encryption with AWS KMS
-(SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md"). If you want
+bucket to use SSE-KMS to encrypt your data. For more information about SSE-KMS, see [Specifying server-side encryption with AWS KMS (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md"). If you want
 to use a KMS key that is owned by a different account, you must have permission to use the
 key. For more information about cross-account permissions for KMS keys, see [Creating KMS keys that other accounts can use](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md#cross-account-console "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md#cross-account-console") in the
 _AWS Key Management Service Developer Guide_.
 
-If you encounter an Access Denied (403 Forbidden) error in Amazon S3, see [Troubleshoot access denied (403
-Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md") to learn more
+If you encounter an Access Denied (403 Forbidden) error in Amazon S3, see [Troubleshoot access denied (403 Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md") to learn more
 about its common causes.
 
 ## Upload an object
@@ -122,8 +119,7 @@ message on the **Upload: status** page.
 1. To change access control list permissions, choose **Permissions**.
 2. Under **Access control list (ACL)**, edit the permissions.
 
-For information about object access permissions, see [Using the S3 console to set ACL
-permissions for an object](managing-acls.md#set-object-permissions "managing-acls.md#set-object-permissions"). You can grant
+For information about object access permissions, see [Using the S3 console to set ACL permissions for an object](managing-acls.md#set-object-permissions "managing-acls.md#set-object-permissions"). You can grant
 read access to your objects to the public (everyone in the world) for all of the files that
 you're uploading. However, we recommend not changing the default setting for public read
 access. Granting public read access is applicable to a small subset of use cases, such as
@@ -149,8 +145,7 @@ settings**, do the following.
     	 managed key (SSE-S3)**.
 
 
-    	For more information, see [Using server-side encryption with Amazon S3 managed keys
-    	 (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
+    	For more information, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
     	* To encrypt the uploaded files by using keys stored in AWS Key Management Service (AWS KMS), choose
     	 **AWS Key Management Service key (SSE-KMS)**. Then choose one of the following
     	 options for **AWS KMS key**:

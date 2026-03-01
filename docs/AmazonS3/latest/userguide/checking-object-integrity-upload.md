@@ -1,6 +1,4 @@
-# Checking object integrity for data
-
-uploads in Amazon S3
+# Checking object integrity for data uploads in Amazon S3
 
 Amazon S3 uses checksum values to verify data integrity during upload and download
 operations. When you upload data, AWS SDK and the AWS Management Console use your chosen
@@ -536,9 +534,7 @@ already-uploaded object to verify the integrity of the data.
 
 For information, see [Amazon S3 CLI FAQ](../../../cli/latest/topic/s3-faq.md "../../../cli/latest/topic/s3-faq.md") in the _AWS Command Line Interface User Guide_.
 
-## Using Content-MD5 when uploading
-
-objects
+## Using Content-MD5 when uploading objects
 
 Another way to verify the integrity of your object after uploading is to provide an
 MD5 digest of the object when you upload it. If you calculate the MD5 digest for your
@@ -551,9 +547,7 @@ it to the value that you provided. The request succeeds only if the two digests 
 Supplying an MD5 digest isn't required, but you can use it to verify the integrity of
 the object as part of the upload process.
 
-## Using Content-MD5 and the ETag
-
-to verify uploaded objects
+## Using Content-MD5 and the ETag to verify uploaded objects
 
 The entity tag (ETag) for an object represents a specific version of that object. Keep
 in mind that the ETag only reflects changes to the content of an object, not changes to
@@ -665,20 +659,15 @@ includes the following types of chunks (formatted in the listed order):
 Every chunked upload must end with a final CRLF (such as `\r\n`)
 to indicate the end of the request.
 
-For examples of chunked formatting, see [Examples: Chunked uploads
-with trailing checksums](#example-chunked-uploads-trailing "#example-chunked-uploads-trailing").
+For examples of chunked formatting, see [Examples: Chunked uploads with trailing checksums](#example-chunked-uploads-trailing "#example-chunked-uploads-trailing").
 
-#### Object body
-
-chunks
+#### Object body chunks
 
 Object body chunks are the chunks that contain the actual object data that is
 being uploaded to S3. These chunks have consistent size and format
 constraints.
 
-##### Object body
-
-chunk size
+##### Object body chunk size
 
 These chunks must contain at least 8,192 bytes (or 8 KiB) of object data,
 except for the final body chunk, which can be smaller. There is no explicit
@@ -686,9 +675,7 @@ maximum chunk size but you can expect all chunks to be smaller than the 5 GB
 maximum upload size. Chunk sizes can vary from one chunk to the next based
 on your client server implementation.
 
-##### Object body
-
-chunk format
+##### Object body chunk format
 
 Object body chunks begin with the hexadecimal encoding of the number of
 bytes in the object body chunk, followed by a CRLF (Carriage Return Line
@@ -751,9 +738,7 @@ byte at the largest memory address). The algorithm used to calculate this
 checksum is the same as the suffix for the header name (for example,
 `crc32`).
 
-##### Trailer chunk
-
-format
+##### Trailer chunk format
 
 Trailer chunks use the following format for unsigned payload
 requests:
@@ -778,17 +763,13 @@ value. For example:
 x-amz-checksum-`lowercase-checksum-algorithm-name`:`base64-checksum-value`\r\n\r\n
 ```
 
-#### Examples: Chunked uploads
-
-with trailing checksums
+#### Examples: Chunked uploads with trailing checksums
 
 Amazon S3 supports chunked uploads that use `aws-chunked` content
 encoding for `PutObject` and `UploadPart` requests with
 trailing checksums.
 
-###### Example 1 – Unsigned chunked `PutObject` request with a
-
-trailing CRC-32 checksum
+###### Example 1 – Unsigned chunked `PutObject` request with a trailing CRC-32 checksum
 
 The following is an example of a chunked `PutObject` request with
 a trailing CRC-32 checksum. In this example, the client uploads a 17 KB object
@@ -827,9 +808,7 @@ x-amz-checksum-crc32: YABb/g==
 The usage of the linefeed `\n` at the end of the checksum
 value might vary across clients.
 
-###### Example 2 – SigV4-signed chunked `PutObject` request with a
-
-trailing CRC-32 (`CRC32`) checksum
+###### Example 2 – SigV4-signed chunked `PutObject` request with a trailing CRC-32 (`CRC32`) checksum
 
 The following is an example of a chunked `PutObject` request with a
 trailing CRC-32 checksum. This request uses SigV4 payload signing. In this

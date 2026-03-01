@@ -17,12 +17,9 @@ Lambda.
 ###### Topics
 
 - [Using Lambda with Batch Operations](#batch-ops-invoke-lambda-using "#batch-ops-invoke-lambda-using")
-- [Creating a Lambda function to
-  use with S3 Batch Operations](#batch-ops-invoke-lambda-custom-functions "#batch-ops-invoke-lambda-custom-functions")
-- [Creating an S3 Batch Operations job that
-  invokes a Lambda function](#batch-ops-invoke-lambda-create-job "#batch-ops-invoke-lambda-create-job")
-- [Providing task-level
-  information in Lambda manifests](#storing-task-level-information-in-lambda "#storing-task-level-information-in-lambda")
+- [Creating a Lambda function to use with S3 Batch Operations](#batch-ops-invoke-lambda-custom-functions "#batch-ops-invoke-lambda-custom-functions")
+- [Creating an S3 Batch Operations job that invokes a Lambda function](#batch-ops-invoke-lambda-create-job "#batch-ops-invoke-lambda-create-job")
+- [Providing task-level information in Lambda manifests](#storing-task-level-information-in-lambda "#storing-task-level-information-in-lambda")
 - [S3 Batch Operations tutorial](#batch-ops-tutorials-lambda "#batch-ops-tutorials-lambda")
 
 ## Using Lambda with Batch Operations
@@ -50,9 +47,7 @@ version in the `FunctionARN` parameter when you create your job.
 
 A single AWS Lambda job with S3 Batch Operations can support a manifest with up to 20 billion objects.
 
-### Using Lambda and
-
-Batch Operations with directory buckets
+### Using Lambda and Batch Operations with directory buckets
 
 Directory buckets are a type of Amazon S3 bucket that's designed for workloads or
 performance-critical applications that require consistent single-digit millisecond
@@ -67,9 +62,7 @@ for [UserArguments](../API/API_control_LambdaInvokeOperation.md#AmazonS3-Type-co
 parameters of existing Lambda functions. For more information, see [Automate object processing in Amazon S3 directory buckets with S3 Batch Operations and
 AWS Lambda](https://aws.amazon.com/blogs/storage/automate-object-processing-in-amazon-s3-directory-buckets-with-s3-batch-operations-and-aws-lambda/ "https://aws.amazon.com/blogs/storage/automate-object-processing-in-amazon-s3-directory-buckets-with-s3-batch-operations-and-aws-lambda/") in the AWS Storage Blog.
 
-### Response and result
-
-codes
+### Response and result codes
 
 S3 Batch Operations invokes the Lambda function with one or more keys, each of which has
 a `TaskID` associated with it. S3 Batch Operations expects a per-key result
@@ -86,9 +79,7 @@ table contains the other possible result codes and values for the
 | `TemporaryFailure` | The task suffered a temporary failure and will be redriven before<br>the job completes. The result string is ignored. If this is the<br>final redrive, the error message is included in the final<br>report.  |
 | `PermanentFailure` | The task suffered a permanent failure. If you requested a<br>job-completion report, the task is marked as `Failed` and<br>includes the error message string. Result strings from failed tasks<br>are ignored. |
 
-## Creating a Lambda function to
-
-use with S3 Batch Operations
+## Creating a Lambda function to use with S3 Batch Operations
 
 This section provides example AWS Identity and Access Management (IAM) permissions that you must use with
 your Lambda function. It also contains an example Lambda function to use with
@@ -115,9 +106,7 @@ the completion report.
 For more information, see [Handler
 interfaces](../../../lambda/latest/dg/java-handler.md#java-handler-interfaces "../../../lambda/latest/dg/java-handler.md#java-handler-interfaces") in the _AWS Lambda User Guide_.
 
-### Example IAM
-
-permissions
+### Example IAM permissions
 
 The following are examples of the IAM permissions that are necessary to use a
 Lambda function with S3 Batch Operations.
@@ -173,9 +162,7 @@ JSON
 
 ```
 
-### Example request
-
-and response
+### Example request and response
 
 This section provides request and response examples for the Lambda function.
 
@@ -220,9 +207,7 @@ The following is a JSON example of a response for the Lambda function.
 }
 ```
 
-### Example Lambda
-
-function for S3 Batch Operations
+### Example Lambda function for S3 Batch Operations
 
 The following example Python Lambda removes a delete marker from a versioned
 object.
@@ -346,9 +331,7 @@ def lambda_handler(event, context):
 
 ```
 
-## Creating an S3 Batch Operations job that
-
-invokes a Lambda function
+## Creating an S3 Batch Operations job that invokes a Lambda function
 
 When creating an S3 Batch Operations job to invoke a Lambda function, you must provide the
 following:
@@ -376,9 +359,7 @@ aws s3control create-job
     --description "`Lambda Function`"
 ```
 
-## Providing task-level
-
-information in Lambda manifests
+## Providing task-level information in Lambda manifests
 
 When you use AWS Lambda functions with S3 Batch Operations, you might want additional data
 to accompany each task or key that's operated on. For example, you might want to have
@@ -399,7 +380,7 @@ the following examples.
 The maximum number of characters for the `key` field in the manifest is
 1,024.
 
-###### Example — Manifest substituting the "Amazon S3 keys" with JSON strings
+###### Example— Manifest substituting the "Amazon S3 keys" with JSON strings
 
 The URL-encoded version must be provided to S3 Batch Operations.
 
@@ -409,7 +390,7 @@ The URL-encoded version must be provided to S3 Batch Operations.
 `amzn-s3-demo-bucket`,{"origKey": "`object3key`", "newKey": "`newObject3Key`"}
 ```
 
-###### Example — Manifest URL-encoded
+###### Example— Manifest URL-encoded
 
 This URL-encoded version must be provided to S3 Batch Operations. The non-URL-encoded
 version does not work.
@@ -420,9 +401,7 @@ version does not work.
 `amzn-s3-demo-bucket`,%7B%22origKey%22%3A%20%22`object3key`%22%2C%20%22newKey%22%3A%20%22`newObject3Key`%22%7D
 ```
 
-###### Example — Lambda function with manifest format writing results to the job
-
-report
+###### Example— Lambda function with manifest format writing results to the job report
 
 This URL-encoded manifest example contains pipe-delimited object keys for the following Lambda function to parse.
 
@@ -542,5 +521,4 @@ tasks with Lambda. In this tutorial, you learn how to set up Batch Operations to
 function for batch-transcoding of videos stored in an S3 source bucket. The Lambda
 function calls AWS Elemental MediaConvert to transcode the videos.
 
-- [Tutorial: Batch-transcoding
-  videos with S3 Batch Operations](tutorial-s3-batchops-lambda-mediaconvert-video.md "tutorial-s3-batchops-lambda-mediaconvert-video.md")
+- [Tutorial: Batch-transcoding videos with S3 Batch Operations](tutorial-s3-batchops-lambda-mediaconvert-video.md "tutorial-s3-batchops-lambda-mediaconvert-video.md")

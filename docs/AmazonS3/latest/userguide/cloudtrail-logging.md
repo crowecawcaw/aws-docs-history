@@ -43,9 +43,7 @@ You can store your log files in your bucket for as long as you want, but you can
 define Amazon S3 Lifecycle rules to archive or delete log files automatically. By default,
 your log files are encrypted by using Amazon S3 server-side encryption (SSE).
 
-## Using CloudTrail logs with Amazon S3 server
-
-access logs and CloudWatch Logs
+## Using CloudTrail logs with Amazon S3 server access logs and CloudWatch Logs
 
 AWS CloudTrail logs provide a record of actions taken by a user, role, or an AWS
 service in Amazon S3, while Amazon S3 server access logs provide detailed records for the
@@ -100,9 +98,6 @@ For more information about CloudTrail and Amazon S3, see the following topics:
 ###### Topics
 
 - [Amazon S3 CloudTrail events](cloudtrail-logging-s3-info.md "cloudtrail-logging-s3-info.md")
-- [CloudTrail log file entries
-  for Amazon S3 and S3 on Outposts](cloudtrail-logging-understanding-s3-entries.md "cloudtrail-logging-understanding-s3-entries.md")
-- [Enabling CloudTrail event logging for
-  S3 buckets and objects](enable-cloudtrail-logging-for-s3.md "enable-cloudtrail-logging-for-s3.md")
-- [Identifying Amazon S3 requests using
-  CloudTrail](cloudtrail-request-identification.md "cloudtrail-request-identification.md")
+- [CloudTrail log file entries for Amazon S3 and S3 on Outposts](cloudtrail-logging-understanding-s3-entries.md "cloudtrail-logging-understanding-s3-entries.md")
+- [Enabling CloudTrail event logging for S3 buckets and objects](enable-cloudtrail-logging-for-s3.md "enable-cloudtrail-logging-for-s3.md")
+- [Identifying Amazon S3 requests using CloudTrail](cloudtrail-request-identification.md "cloudtrail-request-identification.md")

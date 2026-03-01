@@ -20,20 +20,13 @@ related to various Object Lock operations, see [Required permissions](object-loc
 
 ###### Topics
 
-- [Enable Object Lock when creating a new S3 general purpose
-  bucket](#object-lock-configure-new-bucket "#object-lock-configure-new-bucket")
-- [Enable Object Lock on an existing S3
-  bucket](#object-lock-configure-existing-bucket "#object-lock-configure-existing-bucket")
-- [Set or modify a legal hold on an S3
-  object](#object-lock-configure-set-legal-hold "#object-lock-configure-set-legal-hold")
-- [Set or modify a retention
-  period on an S3 object](#object-lock-configure-set-retention-period-object "#object-lock-configure-set-retention-period-object")
-- [Set or modify a default
-  retention period on an S3 bucket](#object-lock-configure-set-retention-period-bucket "#object-lock-configure-set-retention-period-bucket")
+- [Enable Object Lock when creating a new S3 general purpose bucket](#object-lock-configure-new-bucket "#object-lock-configure-new-bucket")
+- [Enable Object Lock on an existing S3 bucket](#object-lock-configure-existing-bucket "#object-lock-configure-existing-bucket")
+- [Set or modify a legal hold on an S3 object](#object-lock-configure-set-legal-hold "#object-lock-configure-set-legal-hold")
+- [Set or modify a retention period on an S3 object](#object-lock-configure-set-retention-period-object "#object-lock-configure-set-retention-period-object")
+- [Set or modify a default retention period on an S3 bucket](#object-lock-configure-set-retention-period-bucket "#object-lock-configure-set-retention-period-bucket")
 
-## Enable Object Lock when creating a new S3 general purpose
-
-bucket
+## Enable Object Lock when creating a new S3 general purpose bucket
 
 You can enable Object Lock when creating a new S3 general purpose bucket by using the Amazon S3 console,
 AWS Command Line Interface (AWS CLI), AWS SDKs, or Amazon S3 REST API.
@@ -90,9 +83,7 @@ For an interactive scenario demonstrating different Object Lock features using t
 
 For general information about using different AWS SDKs, see [Developing with Amazon S3 using the AWS SDKs](../API/sdk-general-information-section.md "../API/sdk-general-information-section.md") in the _Amazon S3 API Reference_.
 
-## Enable Object Lock on an existing S3
-
-bucket
+## Enable Object Lock on an existing S3 bucket
 
 You can enable Object Lock for an existing S3 bucket by using the Amazon S3 console, the AWS CLI, AWS SDKs, or Amazon S3 REST API.
 
@@ -141,9 +132,7 @@ For an interactive scenario demonstrating different Object Lock features using t
 
 For general information about using different AWS SDKs, see [Developing with Amazon S3 using the AWS SDKs](../API/sdk-general-information-section.md "../API/sdk-general-information-section.md") in the _Amazon S3 API Reference_.
 
-## Set or modify a legal hold on an S3
-
-object
+## Set or modify a legal hold on an S3 object
 
 You can set or remove a legal hold on an S3 object by using the Amazon S3 console, AWS CLI, AWS
 SDKs, or Amazon S3 REST API.
@@ -208,9 +197,7 @@ For an interactive scenario demonstrating different Object Lock features using t
 
 For general information about using different AWS SDKs, see [Developing with Amazon S3 using the AWS SDKs](../API/sdk-general-information-section.md "../API/sdk-general-information-section.md") in the _Amazon S3 API Reference_.
 
-## Set or modify a retention
-
-period on an S3 object
+## Set or modify a retention period on an S3 object
 
 You can set or modify a retention period on an S3 object by using the Amazon S3 console, AWS CLI,
 AWS SDKs, or Amazon S3 REST API.
@@ -274,9 +261,7 @@ For an interactive scenario demonstrating different Object Lock features using t
 
 For general information about using different AWS SDKs, see [Developing with Amazon S3 using the AWS SDKs](../API/sdk-general-information-section.md "../API/sdk-general-information-section.md") in the _Amazon S3 API Reference_.
 
-## Set or modify a default
-
-retention period on an S3 bucket
+## Set or modify a default retention period on an S3 bucket
 
 You can set or modify a default retention period on an S3 bucket by using the Amazon S3
 console, AWS CLI, AWS SDKs, or Amazon S3 REST API. You specify a duration, in either days or years,

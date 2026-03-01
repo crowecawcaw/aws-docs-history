@@ -1,6 +1,4 @@
-# Tutorial: Batch-transcoding
-
-videos with S3 Batch Operations
+# Tutorial: Batch-transcoding videos with S3 Batch Operations
 
 Video consumers use devices of all shapes, sizes, and vintages to enjoy media content.
 This wide array of devices presents a challenge for content creators and distributors.
@@ -41,20 +39,14 @@ follows:
 ###### Topics
 
 - [Prerequisites](#batchops-s3-prerequisites "#batchops-s3-prerequisites")
-- [Step 1: Create an S3 bucket for the output media
-  files](#batchops-s3-step1 "#batchops-s3-step1")
+- [Step 1: Create an S3 bucket for the output media files](#batchops-s3-step1 "#batchops-s3-step1")
 - [Step 2: Create an IAM role for MediaConvert](#batchops-s3-step2 "#batchops-s3-step2")
-- [Step 3: Create an IAM role for your Lambda
-  function](#batchops-s3-step3 "#batchops-s3-step3")
-- [Step 4: Create a Lambda function for video
-  transcoding](#batchops-s3-step4 "#batchops-s3-step4")
-- [Step 5: Configure Amazon S3 Inventory for your S3 source
-  bucket](#batchops-s3-step5 "#batchops-s3-step5")
-- [Step 6: Create an IAM role for
-  S3 Batch Operations](#batchops-s3-step6 "#batchops-s3-step6")
+- [Step 3: Create an IAM role for your Lambda function](#batchops-s3-step3 "#batchops-s3-step3")
+- [Step 4: Create a Lambda function for video transcoding](#batchops-s3-step4 "#batchops-s3-step4")
+- [Step 5: Configure Amazon S3 Inventory for your S3 source bucket](#batchops-s3-step5 "#batchops-s3-step5")
+- [Step 6: Create an IAM role for S3 Batch Operations](#batchops-s3-step6 "#batchops-s3-step6")
 - [Step 7: Create and run an S3 Batch Operations job](#batchops-s3-step7 "#batchops-s3-step7")
-- [Step 8: Check the output media files from your S3
-  destination bucket](#batchops-s3-step8 "#batchops-s3-step8")
+- [Step 8: Check the output media files from your S3 destination bucket](#batchops-s3-step8 "#batchops-s3-step8")
 - [Step 9: Clean up](#batchops-s3-step9 "#batchops-s3-step9")
 - [Next steps](#batchops-s3-next-steps "#batchops-s3-next-steps")
 
@@ -74,12 +66,9 @@ information, see [Creating a general purpose bucket](create-bucket-overview.md "
 For more information about uploading videos to the S3 source bucket, see [Uploading objects](upload-objects.md "upload-objects.md"). If you're uploading many
 large video files to S3, you might want to use [Amazon S3 Transfer Acceleration](https://aws.amazon.com/s3/transfer-acceleration "https://aws.amazon.com/s3/transfer-acceleration") to configure fast and
 secure file transfers. Transfer Acceleration can speed up video uploading to your S3 bucket
-for long-distance transfer of larger videos. For more information, see [Configuring fast, secure file transfers using
-Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
+for long-distance transfer of larger videos. For more information, see [Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
 
-## Step 1: Create an S3 bucket for the output media
-
-files
+## Step 1: Create an S3 bucket for the output media files
 
 In this step, you create an S3 destination bucket to store the converted output media
 files. You also create a Cross Origin Resource Sharing (CORS) configuration to allow
@@ -87,14 +76,10 @@ cross-origin access to the transcoded media files stored in your S3 destination 
 
 ###### Substeps
 
-- [Create a bucket for the output
-  media files](#batchops-s3-step1-create-bucket "#batchops-s3-step1-create-bucket")
-- [Add a CORS configuration to the S3 output
-  bucket](#batchops-s3-step1-cors "#batchops-s3-step1-cors")
+- [Create a bucket for the output media files](#batchops-s3-step1-create-bucket "#batchops-s3-step1-create-bucket")
+- [Add a CORS configuration to the S3 output bucket](#batchops-s3-step1-cors "#batchops-s3-step1-cors")
 
-### Create a bucket for the output
-
-media files
+### Create a bucket for the output media files
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -110,8 +95,7 @@ media files
 
 ###### Warning
 
-Before you complete this step, review [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md") to ensure that
+Before you complete this step, review [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md") to ensure that
 you understand and accept the risks involved with allowing public
 access. When you turn off Block Public Access settings to make your
 bucket public, anyone on the internet can access your bucket. We
@@ -119,14 +103,11 @@ recommend that you block all public access to your buckets.
 
 If you don’t want to clear the Block Public Access settings, you can
 use Amazon CloudFront to deliver the transcoded media files to viewers (end
-users). For more information, see [Tutorial: Hosting on-demand
-streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53](tutorial-s3-cloudfront-route53-video-streaming.md "tutorial-s3-cloudfront-route53-video-streaming.md"). 7. Select the check box next to **I acknowledge that the current
+users). For more information, see [Tutorial: Hosting on-demand streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53](tutorial-s3-cloudfront-route53-video-streaming.md "tutorial-s3-cloudfront-route53-video-streaming.md"). 7. Select the check box next to **I acknowledge that the current
 settings might result in this bucket and the objects within becoming
 public.** 8. Keep the remaining settings set to the defaults. 9. Choose **Create bucket**.
 
-### Add a CORS configuration to the S3 output
-
-bucket
+### Add a CORS configuration to the S3 output bucket
 
 A JSON CORS configuration defines a way for client web applications (video
 players in this context) that are loaded in one domain to play transcoded output
@@ -195,9 +176,7 @@ For more information about ARNs, see [Amazon Resource Names
 (ARNs)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") in the _AWS General
 Reference_.
 
-## Step 3: Create an IAM role for your Lambda
-
-function
+## Step 3: Create an IAM role for your Lambda function
 
 To batch-transcode videos with MediaConvert and S3 Batch Operations, you use a Lambda function to
 connect these two services to convert videos. This Lambda function must have an IAM
@@ -205,14 +184,10 @@ role that grants the Lambda function permissions to access MediaConvert and S3 B
 
 ###### Substeps
 
-- [Create an IAM role for your Lambda
-  function](#batchops-s3-step3-role "#batchops-s3-step3-role")
-- [Embed an inline policy for the
-  IAM role of your Lambda function](#batchops-s3-step3-inline-policy "#batchops-s3-step3-inline-policy")
+- [Create an IAM role for your Lambda function](#batchops-s3-step3-role "#batchops-s3-step3-role")
+- [Embed an inline policy for the IAM role of your Lambda function](#batchops-s3-step3-inline-policy "#batchops-s3-step3-inline-policy")
 
-### Create an IAM role for your Lambda
-
-function
+### Create an IAM role for your Lambda function
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the left navigation pane, choose **Roles**, and then
@@ -233,9 +208,7 @@ function
 8. (Optional) Add tags to the managed policy.
 9. Choose **Create role**.
 
-### Embed an inline policy for the
-
-IAM role of your Lambda function
+### Embed an inline policy for the IAM role of your Lambda function
 
 To grant permissions to the MediaConvert resource that's needed for the Lambda
 function to execute, you must use an inline policy.
@@ -313,9 +286,7 @@ JSON
 After you create an inline policy, it is automatically embedded in the
 IAM role of your Lambda function.
 
-## Step 4: Create a Lambda function for video
-
-transcoding
+## Step 4: Create a Lambda function for video transcoding
 
 In this section of the tutorial, you build a Lambda function using the SDK for Python to
 integrate with S3 Batch Operations and MediaConvert. To start transcoding the videos already stored
@@ -325,16 +296,11 @@ transcoding job for each video to MediaConvert.
 
 ###### Substeps
 
-- [Write Lambda function code and
-  create a deployment package](#batchops-s3-step4-write-function "#batchops-s3-step4-write-function")
-- [Create a Lambda function with an
-  execution role (console)](#batchops-s3-step4-create-function "#batchops-s3-step4-create-function")
-- [Deploy your Lambda function with
-  .zip file archives and configure the Lambda function (console)](#batchops-s3-step4-deploy-function "#batchops-s3-step4-deploy-function")
+- [Write Lambda function code and create a deployment package](#batchops-s3-step4-write-function "#batchops-s3-step4-write-function")
+- [Create a Lambda function with an execution role (console)](#batchops-s3-step4-create-function "#batchops-s3-step4-create-function")
+- [Deploy your Lambda function with .zip file archives and configure the Lambda function (console)](#batchops-s3-step4-deploy-function "#batchops-s3-step4-deploy-function")
 
-### Write Lambda function code and
-
-create a deployment package
+### Write Lambda function code and create a deployment package
 
 1. On your local machine, create a folder named
    `batch-transcode`.
@@ -1012,9 +978,7 @@ commands:
 `powershell Compress-Archive -update `job.json` `lambda.zip``
 ```
 
-### Create a Lambda function with an
-
-execution role (console)
+### Create a Lambda function with an execution role (console)
 
 1. Open the AWS Lambda console at
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
@@ -1036,9 +1000,7 @@ execution role (console)
 8. For the remaining settings, keep the defaults.
 9. Choose **Create function**.
 
-### Deploy your Lambda function with
-
-.zip file archives and configure the Lambda function (console)
+### Deploy your Lambda function with .zip file archives and configure the Lambda function (console)
 
 1. In the **Code Source** section of the page for the Lambda
    function that you created (for example,
@@ -1103,9 +1065,7 @@ function to run for an invocation before stopping it. The default is 3
 seconds. Pricing is based on the amount of memory configured and the amount
 of time that your code runs. For more information, see [AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/?icmpid=docs_console_unmapped "https://aws.amazon.com/lambda/pricing/?icmpid=docs_console_unmapped").
 
-## Step 5: Configure Amazon S3 Inventory for your S3 source
-
-bucket
+## Step 5: Configure Amazon S3 Inventory for your S3 source bucket
 
 After setting up the transcoding Lambda function, create an S3 Batch Operations job to
 transcode a set of videos. First, you need a list of input video objects that you want
@@ -1115,16 +1075,11 @@ objects, you can generate an S3 Inventory report for your S3 source bucket (for 
 
 ###### Substeps
 
-- [Create and configure a bucket for S3
-  Inventory reports for input videos](#batchops-s3-step5-bucket "#batchops-s3-step5-bucket")
-- [Configure Amazon S3 Inventory for your
-  S3 video source bucket](#batchops-s3-step5-inventory "#batchops-s3-step5-inventory")
-- [Check the inventory report for your S3
-  video source bucket](#batchops-s3-step5-manifest "#batchops-s3-step5-manifest")
+- [Create and configure a bucket for S3 Inventory reports for input videos](#batchops-s3-step5-bucket "#batchops-s3-step5-bucket")
+- [Configure Amazon S3 Inventory for your S3 video source bucket](#batchops-s3-step5-inventory "#batchops-s3-step5-inventory")
+- [Check the inventory report for your S3 video source bucket](#batchops-s3-step5-manifest "#batchops-s3-step5-manifest")
 
-### Create and configure a bucket for S3
-
-Inventory reports for input videos
+### Create and configure a bucket for S3 Inventory reports for input videos
 
 To store an S3 Inventory report that lists the objects of the S3 source bucket,
 create an S3 Inventory destination bucket, and then configure a bucket policy for
@@ -1191,9 +1146,7 @@ JSON
 
 13. Choose **Save changes**.
 
-### Configure Amazon S3 Inventory for your
-
-S3 video source bucket
+### Configure Amazon S3 Inventory for your S3 video source bucket
 
 To generate a flat file list of video objects and metadata, you must configure S3
 Inventory for your S3 video source bucket. These scheduled inventory reports can
@@ -1232,23 +1185,17 @@ destination bucket can be in a different AWS account.
 Under the **Destination** bucket field, the
 **Destination bucket permission** is added to the
 inventory destination bucket policy, allowing Amazon S3 to place data in the
-inventory destination bucket. For more information, see [Creating a destination bucket
-policy](configure-inventory.md#configure-inventory-destination-bucket-policy "configure-inventory.md#configure-inventory-destination-bucket-policy"). 10. For **Frequency**, choose
+inventory destination bucket. For more information, see [Creating a destination bucket policy](configure-inventory.md#configure-inventory-destination-bucket-policy "configure-inventory.md#configure-inventory-destination-bucket-policy"). 10. For **Frequency**, choose
 **Daily**. 11. For **Output format**, choose **CSV**. 12. For **Status**, choose **Enable**. 13. In the **Server-side encryption** section, choose
 **Disable** for this tutorial.
 
-For more information, see [Configuring inventory by using the S3
-console](configure-inventory.md#configure-inventory-console "configure-inventory.md#configure-inventory-console") and [Granting Amazon S3 permission to use your
-customer managed key for encryption](configure-inventory.md#configure-inventory-kms-key-policy "configure-inventory.md#configure-inventory-kms-key-policy"). 14. In the **Additional fields - _optional_** section, select
+For more information, see [Configuring inventory by using the S3 console](configure-inventory.md#configure-inventory-console "configure-inventory.md#configure-inventory-console") and [Granting Amazon S3 permission to use your customer managed key for encryption](configure-inventory.md#configure-inventory-kms-key-policy "configure-inventory.md#configure-inventory-kms-key-policy"). 14. In the **Additional fields - _optional_** section, select
 **Size**, **Last modified**, and
 **Storage class**. 15. Choose **Create**.
 
-For more information, see [Configuring inventory by using the S3
-console](configure-inventory.md#configure-inventory-console "configure-inventory.md#configure-inventory-console").
+For more information, see [Configuring inventory by using the S3 console](configure-inventory.md#configure-inventory-console "configure-inventory.md#configure-inventory-console").
 
-### Check the inventory report for your S3
-
-video source bucket
+### Check the inventory report for your S3 video source bucket
 
 When an inventory report is published, the manifest files are sent to the S3
 Inventory destination bucket.
@@ -1288,23 +1235,17 @@ folder with the corresponding generation date name, and then choose
 **manifest.json** page, choose
 **Download** or **Open**.
 
-## Step 6: Create an IAM role for
-
-S3 Batch Operations
+## Step 6: Create an IAM role for S3 Batch Operations
 
 To use S3 Batch Operations to do batch-transcoding, you must first create an IAM role to
 give Amazon S3 permissions to perform S3 Batch Operations.
 
 ###### Substeps
 
-- [Create an IAM policy for
-  S3 Batch Operations](#batchops-s3-step6-policy "#batchops-s3-step6-policy")
-- [Create an S3 Batch Operations IAM role and
-  attach permissions policies](#batchops-s3-step6-role "#batchops-s3-step6-role")
+- [Create an IAM policy for S3 Batch Operations](#batchops-s3-step6-policy "#batchops-s3-step6-policy")
+- [Create an S3 Batch Operations IAM role and attach permissions policies](#batchops-s3-step6-role "#batchops-s3-step6-role")
 
-### Create an IAM policy for
-
-S3 Batch Operations
+### Create an IAM policy for S3 Batch Operations
 
 You must create an IAM policy that gives S3 Batch Operations permission to read the
 input manifest, invoke the Lambda function, and write the S3 Batch Operations job
@@ -1389,9 +1330,7 @@ JSON
    `tutorial-s3batch-policy`.
 9. Choose **Create policy**.
 
-### Create an S3 Batch Operations IAM role and
-
-attach permissions policies
+### Create an S3 Batch Operations IAM role and attach permissions policies
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the left navigation pane, choose **Roles**, and then
@@ -1442,8 +1381,7 @@ you must specify parameters for this particular job.
 
 Before you start creating an S3 Batch Operations job, make sure that the
 **Create job from manifest** button is enabled. For more
-information, see [Check the inventory report for your S3
-video source bucket](#batchops-s3-step5-manifest "#batchops-s3-step5-manifest"). If the **Create job from
+information, see [Check the inventory report for your S3 video source bucket](#batchops-s3-step5-manifest "#batchops-s3-step5-manifest"). If the **Create job from
 manifest** button is disabled, the first inventory report has not been
 delivered and you must wait until the button is enabled. After you configure Amazon S3
 Inventory for your S3 source bucket in [Step
@@ -1453,14 +1391,10 @@ report.
 ###### Substeps
 
 - [Create an S3 Batch Operations job](#batchops-s3-step7-create-job "#batchops-s3-step7-create-job")
-- [Run the S3 Batch Operations job to invoke
-  your Lambda function](#batchops-s3-step7-run-job "#batchops-s3-step7-run-job")
-- [(Optional) Check your completion
-  report](#batchops-s3-step7-check-report "#batchops-s3-step7-check-report")
-- [(Optional) Monitor each Lambda
-  invocation in the Lambda console](#batchops-s3-step7-monitor-lambda "#batchops-s3-step7-monitor-lambda")
-- [(Optional) Monitor each
-  MediaConvert video-transcoding job in the MediaConvert console](#batchops-s3-step7-monitor-mediaconvert "#batchops-s3-step7-monitor-mediaconvert")
+- [Run the S3 Batch Operations job to invoke your Lambda function](#batchops-s3-step7-run-job "#batchops-s3-step7-run-job")
+- [(Optional) Check your completion report](#batchops-s3-step7-check-report "#batchops-s3-step7-check-report")
+- [(Optional) Monitor each Lambda invocation in the Lambda console](#batchops-s3-step7-monitor-lambda "#batchops-s3-step7-monitor-lambda")
+- [(Optional) Monitor each MediaConvert video-transcoding job in the MediaConvert console](#batchops-s3-step7-monitor-mediaconvert "#batchops-s3-step7-monitor-mediaconvert")
 
 ### Create an S3 Batch Operations job
 
@@ -1514,8 +1448,7 @@ bucket where the objects referenced in the manifest are located. 5. In the **Man
 10. In the **Additional options** section, keep the default
     settings.
 
-For more information about these options, see [Batch Operations job request
-elements](batch-ops-create-job.md#batch-ops-create-job-request-elements "batch-ops-create-job.md#batch-ops-create-job-request-elements"). 11. In the **Completion report** section, for **Path
+For more information about these options, see [Batch Operations job request elements](batch-ops-create-job.md#batch-ops-create-job-request-elements "batch-ops-create-job.md#batch-ops-create-job-request-elements"). 11. In the **Completion report** section, for **Path
 to completion report destination**, choose **Browse
 S3**. Find the bucket that you created for output media files
 in [Step 1](#batchops-s3-step1 "#batchops-s3-step1") (for example,
@@ -1525,8 +1458,7 @@ path**.
 
 For the remaining **Completion report** settings, keep
 the defaults. For more information about completion report settings, see
-[Batch Operations job request
-elements](batch-ops-create-job.md#batch-ops-create-job-request-elements "batch-ops-create-job.md#batch-ops-create-job-request-elements"). A completion
+[Batch Operations job request elements](batch-ops-create-job.md#batch-ops-create-job-request-elements "batch-ops-create-job.md#batch-ops-create-job-request-elements"). A completion
 report maintains a record of the job's details and the operations
 performed. 12. In the **Permissions** section, choose **Choose
 from existing IAM roles**. For **IAM
@@ -1541,9 +1473,7 @@ confirmation to run**. To see updates to the job's status,
 refresh the page. You can't run your job until its status is
 **Awaiting your confirmation to run**.
 
-### Run the S3 Batch Operations job to invoke
-
-your Lambda function
+### Run the S3 Batch Operations job to invoke your Lambda function
 
 Run your Batch Operations job to invoke your Lambda function for video transcoding. If
 your job fails, you can check your completion report to identify the cause.
@@ -1578,9 +1508,7 @@ after more than 1,000 operations have been attempted, the job automatically
 fails. To check your completion report to identify the cause of the
 failures, use the following optional procedure.
 
-### (Optional) Check your completion
-
-report
+### (Optional) Check your completion report
 
 You can use your completion report to determine which objects failed and the cause
 of the failures.
@@ -1596,9 +1524,7 @@ ending with the job ID of the S3 Batch Operations job that you created
 earlier. 3. Choose **results/**. 4. Select the check box next to the `.csv` file. 5. To view the job report, choose **Open** or
 **Download**.
 
-### (Optional) Monitor each Lambda
-
-invocation in the Lambda console
+### (Optional) Monitor each Lambda invocation in the Lambda console
 
 After the S3 Batch Operations job starts running, the job invokes the Lambda function
 for each input video object. S3 writes logs of each Lambda invocation to CloudWatch Logs. You
@@ -1632,9 +1558,7 @@ consuming most of your Lambda concurrency and potentially throttling
 other functions in your account. For more information, see [Managing Lambda
 reserved concurrency](../../../lambda/latest/dg/configuration-concurrency.md "../../../lambda/latest/dg/configuration-concurrency.md") in the _AWS Lambda Developer Guide_.
 
-### (Optional) Monitor each
-
-MediaConvert video-transcoding job in the MediaConvert console
+### (Optional) Monitor each MediaConvert video-transcoding job in the MediaConvert console
 
 A MediaConvert job does the work of transcoding a media file. When your S3 Batch Operations
 job invokes your Lambda function for each video, each Lambda function invocation
@@ -1658,9 +1582,7 @@ The object's detail page opens. 7. On the object's detail page, under **Object o
 choose the link under **Object URL** to watch the
 transcoded output media file.
 
-## Step 8: Check the output media files from your S3
-
-destination bucket
+## Step 8: Check the output media files from your S3 destination bucket
 
 ###### To check the output media files from your S3 destination bucket
 
@@ -1698,20 +1620,15 @@ charges.
 
 ###### Substeps
 
-- [Delete the S3 Inventory
-  configuration for your S3 source bucket](#batchops-s3-step9-delete-inventory "#batchops-s3-step9-delete-inventory")
+- [Delete the S3 Inventory configuration for your S3 source bucket](#batchops-s3-step9-delete-inventory "#batchops-s3-step9-delete-inventory")
 - [Delete the Lambda function](#batchops-s3-step9-delete-lambda "#batchops-s3-step9-delete-lambda")
 - [Delete the CloudWatch log group](#batchops-s3-step9-delete-cw "#batchops-s3-step9-delete-cw")
-- [Delete the IAM roles together with
-  the inline policies for the IAM roles](#batchops-s3-step9-delete-role "#batchops-s3-step9-delete-role")
-- [Delete the customer-managed IAM
-  policy](#batchops-s3-step9-delete-policy "#batchops-s3-step9-delete-policy")
+- [Delete the IAM roles together with the inline policies for the IAM roles](#batchops-s3-step9-delete-role "#batchops-s3-step9-delete-role")
+- [Delete the customer-managed IAM policy](#batchops-s3-step9-delete-policy "#batchops-s3-step9-delete-policy")
 - [Empty the S3 buckets](#batchops-s3-step9-empty-bucket "#batchops-s3-step9-empty-bucket")
 - [Delete the S3 buckets](#batchops-s3-step9-delete-bucket "#batchops-s3-step9-delete-bucket")
 
-### Delete the S3 Inventory
-
-configuration for your S3 source bucket
+### Delete the S3 Inventory configuration for your S3 source bucket
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -1752,9 +1669,7 @@ configuration for your S3 source bucket
 5. In the **Delete log group(s)** dialog box, choose
    **Delete**.
 
-### Delete the IAM roles together with
-
-the inline policies for the IAM roles
+### Delete the IAM roles together with the inline policies for the IAM roles
 
 To delete the IAM roles that you created in [Step 2](#batchops-s3-step2 "#batchops-s3-step2"), [Step 3](#batchops-s3-step3 "#batchops-s3-step3"), and [Step 6](#batchops-s3-step6 "#batchops-s3-step6"), do the following:
 
@@ -1766,9 +1681,7 @@ To delete the IAM roles that you created in [Step 2](#batchops-s3-step2 "#batcho
 4. In the confirmation dialog box, enter the required response in the text
    input field based on the prompt, and choose **Delete**.
 
-### Delete the customer-managed IAM
-
-policy
+### Delete the customer-managed IAM policy
 
 To delete the customer-managed IAM policy that you created in [Step 6](#batchops-s3-step6 "#batchops-s3-step6"), do the following:
 
@@ -1816,8 +1729,7 @@ After completing this tutorial, you can further explore other relevant use
 cases:
 
 - You can use Amazon CloudFront to stream the transcoded media files to viewers across
-  the globe. For more information, see [Tutorial: Hosting on-demand
-  streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53](tutorial-s3-cloudfront-route53-video-streaming.md "tutorial-s3-cloudfront-route53-video-streaming.md").
+  the globe. For more information, see [Tutorial: Hosting on-demand streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53](tutorial-s3-cloudfront-route53-video-streaming.md "tutorial-s3-cloudfront-route53-video-streaming.md").
 - You can transcode videos at the moment when you upload them to the S3 source
   bucket. To do so, you can configure an Amazon S3 event trigger that automatically
   invokes the Lambda function to transcode new objects in S3 with MediaConvert. For more

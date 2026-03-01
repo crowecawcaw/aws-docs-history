@@ -8,8 +8,7 @@ You can view properties for any Amazon S3 bucket you own. These settings include
 - **Tags** – An AWS tag is a key-value pair that holds metadata. You attach the tags to your Amazon S3 resources, such as buckets. You can tag resources when you create them or manage tags on existing resources. You can use tags for cost allocation to track storage costs by bucket tag in AWS Billing and Cost Management. You can also use tags for attribute-based access control (ABAC), to scale access permissions and grant access to S3 resources based on their tags. For more information, see [Using tags with S3 general purpose buckets](buckets-tagging.md "buckets-tagging.md").
 - **Default encryption** – Enabling default encryption provides
   you with automatic server-side encryption. Amazon S3 encrypts an object before saving it to a
-  disk and decrypts the object when you download it. For more information, see [Setting default server-side encryption behavior for Amazon S3
-  buckets](bucket-encryption.md "bucket-encryption.md").
+  disk and decrypts the object when you download it. For more information, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md").
 - **Server access logging** – Get detailed records for the
   requests that are made to your general purpose bucket with server access logging. By default, Amazon S3
   doesn't collect server access logs. For information about enabling server access
@@ -29,8 +28,7 @@ You can view properties for any Amazon S3 bucket you own. These settings include
   information, see [Locking objects with Object Lock](object-lock.md "object-lock.md").
 - **Requester Pays** – Enable Requester Pays if you want the
   requester (instead of the general purpose bucket owner) to pay for requests and data transfers. For more
-  information, see [Using Requester Pays general purpose buckets for storage
-  transfers and usage](RequesterPaysBuckets.md "RequesterPaysBuckets.md").
+  information, see [Using Requester Pays general purpose buckets for storage transfers and usage](RequesterPaysBuckets.md "RequesterPaysBuckets.md").
 - **Static website hosting** – You can host a static website on
   Amazon S3. For more information, see [Hosting a static website using Amazon S3](WebsiteHosting.md "WebsiteHosting.md").
   You can view bucket properties using the AWS Management Console, AWS CLI, or AWS SDKs
@@ -72,8 +70,7 @@ _AWS CLI Command Reference_.
 The following returns the default encryption configuration for the bucket
 `amzn-s3-demo-bucket1`. By default, all buckets have a default encryption configuration that
 uses server-side encryption with Amazon S3 managed keys (SSE-S3). For information about the
-bucket default encryption, see [Setting default server-side encryption behavior for Amazon S3
-buckets](bucket-encryption.md "bucket-encryption.md").
+bucket default encryption, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md").
 
 ```
 aws s3api get-bucket-encryption --bucket `amzn-s3-demo-bucket1`

@@ -1,6 +1,4 @@
-# Configuring a bucket lifecycle
-
-configuration to delete incomplete multipart uploads
+# Configuring a bucket lifecycle configuration to delete incomplete multipart uploads
 
 As a best practice, we recommend that you configure a lifecycle rule by using the
 `AbortIncompleteMultipartUpload` action to minimize your storage costs. For
@@ -50,8 +48,7 @@ To automatically manage incomplete multipart uploads, you can use the S3 console
 to create a lifecycle rule to expire incomplete multipart upload bytes from your
 bucket after a specified number of days. The following procedure shows you how to
 add a lifecycle rule to delete incomplete multipart uploads after 7 days. For more
-information about adding lifecycle rules, see [Setting an S3 Lifecycle configuration on a
-bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
+information about adding lifecycle rules, see [Setting an S3 Lifecycle configuration on a bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
 
 ###### To add a lifecycle rule to abort incomplete multipart uploads that are more than 7 days old
 

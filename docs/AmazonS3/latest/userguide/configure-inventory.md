@@ -16,12 +16,9 @@ source and destination buckets.
 ###### Topics
 
 - [Overview](#storage-inventory-setting-up "#storage-inventory-setting-up")
-- [Creating a destination bucket
-  policy](#configure-inventory-destination-bucket-policy "#configure-inventory-destination-bucket-policy")
-- [Granting Amazon S3 permission to use your
-  customer managed key for encryption](#configure-inventory-kms-key-policy "#configure-inventory-kms-key-policy")
-- [Configuring inventory by using the S3
-  console](#configure-inventory-console "#configure-inventory-console")
+- [Creating a destination bucket policy](#configure-inventory-destination-bucket-policy "#configure-inventory-destination-bucket-policy")
+- [Granting Amazon S3 permission to use your customer managed key for encryption](#configure-inventory-kms-key-policy "#configure-inventory-kms-key-policy")
+- [Configuring inventory by using the S3 console](#configure-inventory-console "#configure-inventory-console")
 - [Using the REST API to work with S3 Inventory](#rest-api-inventory "#rest-api-inventory")
 
 ## Overview
@@ -42,8 +39,7 @@ the following procedure for you: adding a bucket policy to the destination bucke
 
 You must create a bucket policy on the destination bucket that grants permissions to
 Amazon S3 to write objects to the bucket in the defined location. For an example policy, see
-[Grant permissions for S3 Inventory
-and S3 analytics](example-bucket-policies.md#example-bucket-policies-s3-inventory-1 "example-bucket-policies.md#example-bucket-policies-s3-inventory-1"). 2. **Configure an inventory to list the objects in a source bucket
+[Grant permissions for S3 Inventory and S3 analytics](example-bucket-policies.md#example-bucket-policies-s3-inventory-1 "example-bucket-policies.md#example-bucket-policies-s3-inventory-1"). 2. **Configure an inventory to list the objects in a source bucket
 and publish the list to a destination bucket.**
 
 When you configure an inventory list for a source bucket, you specify the destination
@@ -59,8 +55,7 @@ can include these optional metadata fields in their reports by using the
 
 For more information about the optional metadata fields available in S3 Inventory, see
 [OptionalFields](../API/API_PutBucketInventoryConfiguration.md#API_PutBucketInventoryConfiguration_RequestBody "../API/API_PutBucketInventoryConfiguration.md#API_PutBucketInventoryConfiguration_RequestBody") in the _Amazon Simple Storage Service API Reference_. For more information about restricting access to certain
-optional metadata fields in an inventory configuration, see [Control S3 Inventory report
-configuration creation](example-bucket-policies.md#example-bucket-policies-s3-inventory-2 "example-bucket-policies.md#example-bucket-policies-s3-inventory-2").
+optional metadata fields in an inventory configuration, see [Control S3 Inventory report configuration creation](example-bucket-policies.md#example-bucket-policies-s3-inventory-2 "example-bucket-policies.md#example-bucket-policies-s3-inventory-2").
 
 You can specify that the inventory list file be encrypted by using server-side
 encryption with an Amazon S3 managed key (SSE-S3) or an AWS Key Management Service (AWS KMS) customer managed key (SSE-KMS).
@@ -74,8 +69,7 @@ For more information about SSE-S3 and SSE-KMS, see [Protecting data with server-
 use SSE-KMS encryption, see Step 3.
 
     * For information about how to use the console to configure an inventory list, see
-     [Configuring inventory by using the S3
-     console](#configure-inventory-console "#configure-inventory-console").
+     [Configuring inventory by using the S3 console](#configure-inventory-console "#configure-inventory-console").
     * To use the Amazon S3 API to configure an inventory list, use the [PutBucketInventoryConfiguration](../API/RESTBucketPUTInventoryConfig.md "../API/RESTBucketPUTInventoryConfig.md") REST API operation or the
      equivalent from the AWS CLI or AWS SDKs.
 
@@ -94,8 +88,7 @@ your S3 Inventory report.
 The destination bucket that stores the inventory list file can be owned by a different
 AWS account than the account that owns the source bucket. If you use SSE-KMS encryption
 for the cross-account operations of Amazon S3 Inventory, we recommend that you use a fully
-qualified KMS key ARN when you configure S3 inventory. For more information, see [Using SSE-KMS encryption for cross-account
-operations](bucket-encryption.md#bucket-encryption-update-bucket-policy "bucket-encryption.md#bucket-encryption-update-bucket-policy") and [ServerSideEncryptionByDefault](../API/API_ServerSideEncryptionByDefault.md "../API/API_ServerSideEncryptionByDefault.md") in the _Amazon Simple Storage Service API Reference_.
+qualified KMS key ARN when you configure S3 inventory. For more information, see [Using SSE-KMS encryption for cross-account operations](bucket-encryption.md#bucket-encryption-update-bucket-policy "bucket-encryption.md#bucket-encryption-update-bucket-policy") and [ServerSideEncryptionByDefault](../API/API_ServerSideEncryptionByDefault.md "../API/API_ServerSideEncryptionByDefault.md") in the _Amazon Simple Storage Service API Reference_.
 
 ###### Note
 
@@ -105,9 +98,7 @@ default encryption settings are being used, you won’t be able to access your S
 Inventory report. To access S3 Inventory reports again, either provide a KMS key ARN in the
 S3 Inventory configuration or in the destination bucket’s encryption settings.
 
-## Creating a destination bucket
-
-policy
+## Creating a destination bucket policy
 
 If you create your inventory configuration through the Amazon S3 console, Amazon S3 automatically
 creates a bucket policy on the destination bucket that grants Amazon S3 write permission to the
@@ -149,8 +140,7 @@ JSON
 ```
 
 For more
-information, see [Grant permissions for S3 Inventory
-and S3 analytics](example-bucket-policies.md#example-bucket-policies-s3-inventory-1 "example-bucket-policies.md#example-bucket-policies-s3-inventory-1").
+information, see [Grant permissions for S3 Inventory and S3 analytics](example-bucket-policies.md#example-bucket-policies-s3-inventory-1 "example-bucket-policies.md#example-bucket-policies-s3-inventory-1").
 
 If an error occurs when you try to create the bucket policy, you are given instructions on
 how to fix it. For example, if you choose a destination bucket in another AWS account and
@@ -167,9 +157,7 @@ of the source bucket owner must be substituted in the policy.
 
 Ensure that there are no Deny statements added to the destination bucket policy that would prevent the delivery of inventory reports into this bucket. For more information, see [Why can't I generate an Amazon S3 Inventory Report?](https://repost.aws/knowledge-center/s3-inventory-report "https://repost.aws/knowledge-center/s3-inventory-report") .
 
-## Granting Amazon S3 permission to use your
-
-customer managed key for encryption
+## Granting Amazon S3 permission to use your customer managed key for encryption
 
 To grant Amazon S3 permission to use your AWS Key Management Service (AWS KMS) customer managed key for server-side encryption,
 you must use a key policy. To update your key policy so that you can use your customer managed key, use the following procedure.
@@ -221,9 +209,7 @@ see the following links in the _AWS Key Management Service Developer Guide_:
 
 Ensure that there are no Deny statements added to the destination bucket policy that would prevent the delivery of inventory reports into this bucket. For more information, see [Why can't I generate an Amazon S3 Inventory Report?](https://repost.aws/knowledge-center/s3-inventory-report "https://repost.aws/knowledge-center/s3-inventory-report") .
 
-## Configuring inventory by using the S3
-
-console
+## Configuring inventory by using the S3 console
 
 Use these instructions to configure inventory by using the S3 console.
 
@@ -259,8 +245,7 @@ your inventory reports together.
 Under the **Destination** bucket field, you see the
 **Destination bucket permission** statement that is added to the
 destination bucket policy to allow Amazon S3 to place data in that bucket. For more
-information, see [Creating a destination bucket
-policy](#configure-inventory-destination-bucket-policy "#configure-inventory-destination-bucket-policy"). 10. Under **Frequency**, choose how often the report will be generated,
+information, see [Creating a destination bucket policy](#configure-inventory-destination-bucket-policy "#configure-inventory-destination-bucket-policy"). 10. Under **Frequency**, choose how often the report will be generated,
 **Daily** or **Weekly**. 11. For **Output format**, choose one of the following formats for the
 report:
 
@@ -297,10 +282,8 @@ report:
 
     SSE-S3 uses one of the strongest block ciphers—256-bit Advanced Encryption
     Standard (AES-256) to encrypt each object. SSE-KMS provides you with more control over
-    your key. For more information about SSE-S3, see [Using server-side encryption with Amazon S3 managed keys
-    (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md"). For
-    more information about SSE-KMS, see [Using server-side encryption with AWS KMS keys
-    (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
+    your key. For more information about SSE-S3, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md"). For
+    more information about SSE-KMS, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
 
     ###### Note
 
@@ -358,8 +341,7 @@ report:
          storing the object.
         * **Intelligent-Tiering: Access tier** –
          Indicates the access tier (frequent or infrequent) of the object if it was stored in
-         the S3 Intelligent-Tiering storage class. For more information, see [Storage class for automatically optimizing data with
-         changing or unknown access patterns](storage-class-intro.md#sc-dynamic-data-access "storage-class-intro.md#sc-dynamic-data-access").
+         the S3 Intelligent-Tiering storage class. For more information, see [Storage class for automatically optimizing data with changing or unknown access patterns](storage-class-intro.md#sc-dynamic-data-access "storage-class-intro.md#sc-dynamic-data-access").
         * **ETag** – The entity tag (ETag) is a hash of the object.
          The ETag reflects changes only to the contents of an object, not to its metadata. The
          ETag might or might not be an MD5 digest of the object data. Whether it is depends on
@@ -388,8 +370,7 @@ report:
     For more information about the contents of an inventory report, see [Amazon S3 Inventory list](storage-inventory.md#storage-inventory-contents "storage-inventory.md#storage-inventory-contents").
 
 For more information about restricting access to certain optional metadata fields in
-an inventory configuration, see [Control S3 Inventory report
-configuration creation](example-bucket-policies.md#example-bucket-policies-s3-inventory-2 "example-bucket-policies.md#example-bucket-policies-s3-inventory-2"). 15. Choose **Create**.
+an inventory configuration, see [Control S3 Inventory report configuration creation](example-bucket-policies.md#example-bucket-policies-s3-inventory-2 "example-bucket-policies.md#example-bucket-policies-s3-inventory-2"). 15. Choose **Create**.
 
 ## Using the REST API to work with S3 Inventory
 

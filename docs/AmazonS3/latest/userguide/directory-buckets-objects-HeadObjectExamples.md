@@ -1,6 +1,4 @@
-# Retrieving object metadata
-
-from directory buckets
+# Retrieving object metadata from directory buckets
 
 The following AWS SDK and AWS CLI examples show how to use the `HeadObject` and `GetObjectAttributes`
 API operation to retrieve metadata from an object in an Amazon S3 directory bucket without

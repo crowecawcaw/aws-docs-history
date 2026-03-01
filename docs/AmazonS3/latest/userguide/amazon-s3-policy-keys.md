@@ -5,16 +5,13 @@ can use the optional `Condition` element, or `Condition` block, to
 specify conditions for when a policy is in effect.
 
 For policies that use Amazon S3 condition keys for object and bucket operations, see the
-following examples. For more information about condition keys, see [Policy
-condition keys for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys"). For a complete list of Amazon S3 actions, condition keys, and resources that you
+following examples. For more information about condition keys, see [Policy condition keys for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys"). For a complete list of Amazon S3 actions, condition keys, and resources that you
 can specify in policies, see [Actions, resources, and condition keys for Amazon S3](../../../service-authorization/latest/reference/list_amazons3.md "../../../service-authorization/latest/reference/list_amazons3.md") in the _Service Authorization
 Reference_.
 
 For more information about the permissions to S3 API operations by S3 resource types, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md").
 
-## Examples: Amazon S3 condition keys for object
-
-operations
+## Examples: Amazon S3 condition keys for object operations
 
 The following examples show how you can use
 Amazon S3‐specific condition keys for object operations. For a complete list of
@@ -36,26 +33,16 @@ see [Access control list (ACL) overview](acl-overview.md "acl-overview.md").
 
 ###### Topics
 
-- [Example 1: Granting s3:PutObject
-  permission requiring that objects be stored using server-side encryption](#putobject-require-sse-2 "#putobject-require-sse-2")
-- [Example 2: Granting s3:PutObject
-  permission to copy objects with a restriction on the copy source](#putobject-limit-copy-source-3 "#putobject-limit-copy-source-3")
-- [Example 3: Granting
-  access to a specific version of an object](#getobjectversion-limit-access-to-specific-version-3 "#getobjectversion-limit-access-to-specific-version-3")
-- [Example 4: Granting permissions based
-  on object tags](#example-object-tagging-access-control "#example-object-tagging-access-control")
-- [Example 5: Restricting access by the
-  AWS account ID of the bucket owner](#example-object-resource-account "#example-object-resource-account")
-- [Example 6: Requiring a minimum TLS
-  version](#example-object-tls-version "#example-object-tls-version")
-- [Example 7: Excluding certain
-  principals from a Deny statement](#example-exclude-principal-from-deny-statement "#example-exclude-principal-from-deny-statement")
-- [Example 8: Enforcing clients to
-  conditionally upload objects based on object key names or ETags](#example-conditional-writes-enforce "#example-conditional-writes-enforce")
+- [Example 1: Granting s3:PutObject permission requiring that objects be stored using server-side encryption](#putobject-require-sse-2 "#putobject-require-sse-2")
+- [Example 2: Granting s3:PutObject permission to copy objects with a restriction on the copy source](#putobject-limit-copy-source-3 "#putobject-limit-copy-source-3")
+- [Example 3: Granting access to a specific version of an object](#getobjectversion-limit-access-to-specific-version-3 "#getobjectversion-limit-access-to-specific-version-3")
+- [Example 4: Granting permissions based on object tags](#example-object-tagging-access-control "#example-object-tagging-access-control")
+- [Example 5: Restricting access by the AWS account ID of the bucket owner](#example-object-resource-account "#example-object-resource-account")
+- [Example 6: Requiring a minimum TLS version](#example-object-tls-version "#example-object-tls-version")
+- [Example 7: Excluding certain principals from a Deny statement](#example-exclude-principal-from-deny-statement "#example-exclude-principal-from-deny-statement")
+- [Example 8: Enforcing clients to conditionally upload objects based on object key names or ETags](#example-conditional-writes-enforce "#example-conditional-writes-enforce")
 
-### Example 1: Granting `s3:PutObject`
-
-permission requiring that objects be stored using server-side encryption
+### Example 1: Granting `s3:PutObject` permission requiring that objects be stored using server-side encryption
 
 Suppose that Account A owns a bucket. The account administrator wants to grant Jane, a
 user in Account A, permission to upload objects with the condition that Jane always
@@ -82,9 +69,7 @@ example. To use this example command, replace the `user input
 aws s3api put-object --bucket `amzn-s3-demo-bucket` --key `HappyFace.jpg` --body `c:\HappyFace.jpg` --server-side-encryption "`AES256`" --profile `AccountAadmin`
 ```
 
-### Example 2: Granting `s3:PutObject`
-
-permission to copy objects with a restriction on the copy source
+### Example 2: Granting `s3:PutObject` permission to copy objects with a restriction on the copy source
 
 In a `PUT` object request, when you specify a source object, the request is a
 copy operation (see [CopyObject](../API/RESTObjectCOPY.md "../API/RESTObjectCOPY.md")). Accordingly, the bucket owner can grant
@@ -173,9 +158,7 @@ command, replace the `user input
 }
 ````
 
-### Example 3: Granting
-
-access to a specific version of an object
+### Example 3: Granting access to a specific version of an object
 
 Suppose that Account A owns a versioning-enabled bucket. The bucket has several versions
 of the `HappyFace.jpg` object. The
@@ -240,15 +223,11 @@ object and saves it to the
 aws s3api get-object --bucket ``amzn-s3-demo-bucket`` --key `HappyFace.jpg` `OutputFile.jpg` --version-id `AaaHbAQitwiL_h47_44lRO2DDfLlBO5e` --profile `AccountADave`
 ```
 
-### Example 4: Granting permissions based
-
-on object tags
+### Example 4: Granting permissions based on object tags
 
 For examples of how to use object tagging condition keys with Amazon S3 operations, see [Tagging and access control policies](tagging-and-policies.md "tagging-and-policies.md").
 
-### Example 5: Restricting access by the
-
-AWS account ID of the bucket owner
+### Example 5: Restricting access by the AWS account ID of the bucket owner
 
 You can use either the `aws:ResourceAccount` or
 `s3:ResourceAccount` condition key to write IAM or virtual private
@@ -276,9 +255,7 @@ For more information about the `aws:ResourceAccount` and
 them, see [Limit access to Amazon S3 buckets owned by specific AWS accounts](https://aws.amazon.com/blogs/storage/limit-access-to-amazon-s3-buckets-owned-by-specific-aws-accounts/ "https://aws.amazon.com/blogs/storage/limit-access-to-amazon-s3-buckets-owned-by-specific-aws-accounts/") in the
 _AWS Storage Blog_.
 
-### Example 6: Requiring a minimum TLS
-
-version
+### Example 6: Requiring a minimum TLS version
 
 You can use the `s3:TlsVersion` condition key to write IAM, virtual private
 cloud endpoint (VPCE), or bucket policies that restrict user or application access
@@ -369,9 +346,7 @@ JSON
 
 ```
 
-### Example 7: Excluding certain
-
-principals from a `Deny` statement
+### Example 7: Excluding certain principals from a `Deny` statement
 
 The following bucket policy denies `s3:GetObject` access to the
 `amzn-s3-demo-bucket`, except to principals with the account number
@@ -408,9 +383,7 @@ JSON
 
 ```
 
-### Example 8: Enforcing clients to
-
-conditionally upload objects based on object key names or ETags
+### Example 8: Enforcing clients to conditionally upload objects based on object key names or ETags
 
 With conditional writes, you can add an additional header to your `WRITE`
 requests in order to specify preconditions for your S3 operation. This header
@@ -424,25 +397,18 @@ For bucket policy examples that use conditions in a bucket policy to enforce
 conditional writes, see
 [Enforce conditional writes on Amazon S3 buckets](conditional-writes-enforce.md "conditional-writes-enforce.md").
 
-## Examples: Amazon S3 condition keys for bucket
-
-operations
+## Examples: Amazon S3 condition keys for bucket operations
 
 The following example policies show how you can use Amazon S3 specific condition keys for
 bucket operations.
 
 ###### Topics
 
-- [Example 1: Granting s3:GetObject
-  permission with a condition on an IP address](#AvailableKeys-iamV2 "#AvailableKeys-iamV2")
-- [Example 2: Getting a list of objects in a bucket
-  with a specific prefix](#condition-key-bucket-ops-2 "#condition-key-bucket-ops-2")
-- [Example 3: Setting the maximum number of
-  keys](#example-numeric-condition-operators "#example-numeric-condition-operators")
+- [Example 1: Granting s3:GetObject permission with a condition on an IP address](#AvailableKeys-iamV2 "#AvailableKeys-iamV2")
+- [Example 2: Getting a list of objects in a bucket with a specific prefix](#condition-key-bucket-ops-2 "#condition-key-bucket-ops-2")
+- [Example 3: Setting the maximum number of keys](#example-numeric-condition-operators "#example-numeric-condition-operators")
 
-### Example 1: Granting `s3:GetObject`
-
-permission with a condition on an IP address
+### Example 1: Granting `s3:GetObject` permission with a condition on an IP address
 
 You can give authenticated users permission to use the `s3:GetObject`
 action if the request originates from a specific range of IP addresses (for example,
@@ -492,8 +458,7 @@ JSON
 You can also use other AWS‐wide condition keys in Amazon S3 policies. For
 example, you can specify the `aws:SourceVpce` and
 `aws:SourceVpc` condition keys in bucket policies for VPC
-endpoints. For specific examples, see [Controlling access from VPC
-endpoints with bucket policies](example-bucket-policies-vpc-endpoint.md "example-bucket-policies-vpc-endpoint.md").
+endpoints. For specific examples, see [Controlling access from VPC endpoints with bucket policies](example-bucket-policies-vpc-endpoint.md "example-bucket-policies-vpc-endpoint.md").
 
 ###### Note
 
@@ -506,9 +471,7 @@ Reference_.
 
 For more information about the permissions to S3 API operations by S3 resource types, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md").
 
-### Example 2: Getting a list of objects in a bucket
-
-with a specific prefix
+### Example 2: Getting a list of objects in a bucket with a specific prefix
 
 You can use the `s3:prefix` condition key to limit the response of the [ListObjectsV2](../API/API_ListObjectsV2.md "../API/API_ListObjectsV2.md") API operation to key names with a
 specific prefix. If you are the bucket owner, you can use this condition key to
@@ -648,9 +611,7 @@ up and using the AWS CLI, see [Developing with Amazon S3 using the AWS CLI](../A
 aws s3api list-objects --bucket ``amzn-s3-demo-bucket`` --prefix `projects` --profile `AccountA`
 ```
 
-### Example 3: Setting the maximum number of
-
-keys
+### Example 3: Setting the maximum number of keys
 
 You can use the `s3:max-keys` condition key to set the maximum number of keys
 that a requester can return in a [ListObjectsV2](../API/API_ListObjectsV2.md "../API/API_ListObjectsV2.md") or [ListObjectVersions](../API/API_ListObjectVersions.md "../API/API_ListObjectVersions.md") request. By default, these API

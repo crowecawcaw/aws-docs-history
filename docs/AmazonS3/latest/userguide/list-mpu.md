@@ -6,8 +6,7 @@ single object to Amazon S3. Multipart uploads move objects into Amazon S3 by mov
 object's data at a time. For more general information about multipart uploads, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md").
 
 For an end-to-end procedure on uploading an object with multipart upload with an additional checksum, see
-[Tutorial: Upload an object through multipart upload and
-verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md").
+[Tutorial: Upload an object through multipart upload and verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md").
 
 The following section show how to list in-progress multipart uploads with the AWS Command Line Interface,
 the Amazon S3 REST API, and AWS SDKs.

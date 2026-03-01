@@ -6,8 +6,7 @@ Progress events occur periodically and notify the listener that bytes have been 
 For more general information about multipart uploads, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md").
 
 For an end-to-end procedure on uploading an object with multipart upload with an additional checksum, see
-[Tutorial: Upload an object through multipart upload and
-verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md").
+[Tutorial: Upload an object through multipart upload and verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md").
 
 The following section show how to track a multipart upload with the AWS SDKs.
 

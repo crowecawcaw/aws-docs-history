@@ -7,8 +7,7 @@ location](access-grants-location.md "access-grants-location.md") in your S3 Acce
 
 The grantee can be an IAM user or role or a directory user or group. A
 directory user is a user from your corporate directory or external identity source that you [associated with your
-S3 Access Grants instance](access-grants-instance-idc.md "access-grants-instance-idc.md"). For more information, see [S3 Access Grants and corporate directory
-identities](access-grants-directory-ids.md "access-grants-directory-ids.md"). To create a grant for a specific directory user or group from IAM Identity Center, find
+S3 Access Grants instance](access-grants-instance-idc.md "access-grants-instance-idc.md"). For more information, see [S3 Access Grants and corporate directory identities](access-grants-directory-ids.md "access-grants-directory-ids.md"). To create a grant for a specific directory user or group from IAM Identity Center, find
 the GUID that IAM Identity Center uses to identify that user in IAM Identity Center, for example,
 `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`. For more information about how to use IAM Identity Center to view user information, see [View user and group assignments](../../../singlesignon/latest/userguide/get-started-view-assignments.md "../../../singlesignon/latest/userguide/get-started-view-assignments.md") in the _AWS IAM Identity Center user guide_.
 

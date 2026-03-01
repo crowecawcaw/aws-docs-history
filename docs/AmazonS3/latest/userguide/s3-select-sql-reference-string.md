@@ -8,16 +8,13 @@ Amazon S3 Select supports the following string functions.
 
 ###### Topics
 
-- [CHAR_LENGTH,
-  CHARACTER_LENGTH](#s3-select-sql-reference-char-length "#s3-select-sql-reference-char-length")
+- [CHAR_LENGTH, CHARACTER_LENGTH](#s3-select-sql-reference-char-length "#s3-select-sql-reference-char-length")
 - [LOWER](#s3-select-sql-reference-lower "#s3-select-sql-reference-lower")
 - [SUBSTRING](#s3-select-sql-reference-substring "#s3-select-sql-reference-substring")
 - [TRIM](#s3-select-sql-reference-trim "#s3-select-sql-reference-trim")
 - [UPPER](#s3-select-sql-reference-upper "#s3-select-sql-reference-upper")
 
-## CHAR_LENGTH,
-
-CHARACTER_LENGTH
+## CHAR_LENGTH, CHARACTER_LENGTH
 
 `CHAR_LENGTH` (or `CHARACTER_LENGTH`) counts the number of
 characters in the specified string.

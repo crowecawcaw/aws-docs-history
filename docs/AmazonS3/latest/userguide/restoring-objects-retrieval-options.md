@@ -1,68 +1,71 @@
 # Understanding archive retrieval options
 
-The following are the available retrieval options when restoring an archived object in
-Amazon S3:
+Amazon S3 has three archival storage classes - S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and
+S3 Glacier Deep Archive. While objects stored in the S3 Glacier Instant Retrieval storage class are
+immediately available using `GET`, to access data stored in the
+S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive storage classes you first
+need to retrieve data using the [RestoreObject](../API/RESTObjectPOSTrestore.md "../API/RESTObjectPOSTrestore.md")
+REST API. Restoring datasets made up of tens of millions of objects or hundreds of
+terabytes of data could take longer than typical restore times and need special
+considerations. For more information, see [Restoring large datasets](#restoring-objects-large-datasets "#restoring-objects-large-datasets").
 
-- **Expedited** – Quickly access your data
-  that is stored in the S3 Glacier Flexible Retrieval storage class or
-  S3 Intelligent-Tiering Archive Access tier. You can use this option when occasional urgent
-  requests for a subset of archives are required. For all but the largest archived
-  objects (250 MB+), data that is accessed by using expedited retrievals is
-  typically made available within 1–5 minutes.
+You can choose from three retrieval access options to restore your archived objects
+based on your desired retrieval speed – Expedited, Standard and Bulk.
+
+- **Expedited retrieval** – Quickly access
+  your data stored in the S3 Glacier Flexible Retrieval storage class or
+  S3 Intelligent-Tiering Archive Access tier. You can use this option for occasional urgent
+  requests for up to hundreds of objects. Objects under 250 megabytes in size are
+  typically made available within 1–5 minutes, and objects 250 megabytes or larger
+  in size are typically retrieved with up to 300 megabytes per second of retrieval
+  throughput. In addition, you have the option to purchase Provisioned Capacity
+  for Expedited retrievals. Provisioned Capacity helps ensure that Expedited
+  retrieval capacity is available when you need it. For more information, see
+  [Provisioned capacity](#restoring-objects-expedited-capacity "#restoring-objects-expedited-capacity").
 
 ###### Note
 
 Expedited retrievals are a premium feature and are charged at the
-Expedited request and retrieval rate.
+Expedited request and retrieval rate. For information about Amazon S3 pricing,
+see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
-
-Provisioned capacity helps ensure that retrieval capacity for expedited
-retrievals from S3 Glacier Flexible Retrieval is available when you need it. For
-more information, see [Provisioned capacity](#restoring-objects-expedited-capacity "#restoring-objects-expedited-capacity").
-
-- **Standard** – Access any of your archived
-  objects within several hours. Standard is the default option for retrieval
-  requests that do not specify the retrieval option. Standard retrievals typically
-  finish within 3–5 hours for objects stored in the S3 Glacier Flexible Retrieval
-  storage class or S3 Intelligent-Tiering Archive Access tier. These retrievals typically finish
-  within 12 hours for objects stored in the S3 Glacier Deep Archive
-  storage class or S3 Intelligent-Tiering Deep Archive Access tier. Standard retrievals are free for
-  objects that are stored in S3 Intelligent-Tiering.
+- **Standard retrieval** – Access your data
+  within several hours. Standard is the default option for requests that do not
+  specify the retrieval option. Standard retrievals typically finish within 3–5
+  hours for the S3 Glacier Flexible Retrieval storage class or S3 Intelligent-Tiering Archive Access
+  tier. Standard retrievals typically finish within 12 hours for the
+  S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive Access tier.
+  Standard retrievals are free for objects stored in the S3 Intelligent-Tiering
+  storage class.
 
 ###### Note
 
-    + For objects stored in the S3 Glacier Flexible Retrieval storage class or the
-     S3 Intelligent-Tiering Archive Access tier, Standard retrievals initiated by using the
-     S3 Batch Operations restore operation typically start within minutes and finish
-     within 3-5 hours.
-    + For objects in the S3 Glacier Deep Archive storage class or the
-     S3 Intelligent-Tiering Deep Archive Access tier, Standard retrievals initiated by using the
-     Batch Operations restore operation typically start within 9 hours and finish
-     within 12 hours.
+    + For objects stored in the S3 Glacier Flexible Retrieval storage class
+     or the S3 Intelligent-Tiering Archive Access tier, Standard retrievals initiated by
+     using the S3 Batch Operations restore operation typically start within
+     minutes and finish within 3-5 hours at a throughput of up to 1–2
+     petabytes per day.
+    + For objects in the S3 Glacier Deep Archive storage class
+     or the S3 Intelligent-Tiering Deep Archive Access tier, Standard retrievals initiated by
+     using Batch Operations typically start to complete within 9 hours at a
+     throughput of up to 1–2 petabytes per day.
 
-- **Bulk** – Access your data by using the
-  lowest-cost retrieval option in S3 Glacier storage classes. With Bulk retrievals, you can retrieve
-  large amounts, even petabytes, of data inexpensively.
-
-For objects that are stored in the S3 Glacier Flexible Retrieval storage class or
-the S3 Intelligent-Tiering Archive Access tier, Bulk retrievals typically finish within 5–12
-hours. For objects stored in the S3 Glacier Deep Archive storage class
-or the S3 Intelligent-Tiering Deep Archive Access tier, these retrievals typically finish within 48
-hours.
-
-Bulk retrievals are free for objects that are stored in the
-S3 Glacier Flexible Retrieval or S3 Intelligent-Tiering storage classes.
-The following table summarizes the archive retrieval options. For information about
-pricing, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+- **Bulk retrieval** – Access your data by
+  using the lowest-cost retrieval option in S3 Glacier storage classes. With Bulk
+  retrievals, you can retrieve large amounts of data inexpensively. For objects
+  stored in the S3 Glacier Flexible Retrieval storage class or the
+  S3 Intelligent-Tiering Archive Access tier, Bulk retrievals typically finish within 5–12 hours.
+  For objects stored in the S3 Glacier Deep Archive storage class or the
+  S3 Intelligent-Tiering Deep Archive Access tier, these retrievals typically finish within 48 hours.
+  Bulk retrievals are free for objects that are stored in the
+  S3 Glacier Flexible Retrieval or S3 Intelligent-Tiering storage classes.
+  The following table summarizes the archive retrieval options. For information about
+  pricing, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
 | Storage class or tier                                                  | Expedited     | Standard (with Batch Operations) | Standard (without Batch Operations) | Bulk            |
 | ---------------------------------------------------------------------- | ------------- | -------------------------------- | ----------------------------------- | --------------- |
 | S3 Glacier Flexible Retrieval or S3 Intelligent-Tiering Archive Access | 1–5 minutes   | Minutes–5 hours                  | 3–5 hours                           | 5–12 hours      |
 | S3 Glacier Deep Archive or S3 Intelligent-Tiering Deep Archive Access  | Not available | 9-12 hours                       | Within 12 hours                     | Within 48 hours |
-
-For any retrieval option, objects larger than 5 TB typically finish within 48 hours
-with up to 300 megabytes per second (MBps) of retrieval throughput.
 
 To make an `Expedited`, `Standard`, or `Bulk`
 retrieval, set the `Tier` request element in the [RestoreObject](../API/RESTObjectPOSTrestore.md "../API/RESTObjectPOSTrestore.md")
@@ -70,19 +73,41 @@ REST API operation request to the option that you want, or the equivalent in the
 AWS Command Line Interface (AWS CLI) or AWS SDKs. If you purchased provisioned capacity, all Expedited
 retrievals are automatically served through your provisioned capacity.
 
+## Restoring large datasets
+
+Restoring datasets made up of tens of millions of objects or hundreds of
+terabytes of data could take longer than typical restore times for any retrieval
+tier due to retrieval limits.
+
+When you initiate restore requests for objects that are stored in the
+S3 Glacier Flexible Retrieval, S3 Glacier Deep Archive, or
+S3 Intelligent-Tiering storage classes, a retrieval-requests quota is applied for
+your AWS account. S3 Glacier supports restore requests at a rate of 1,000
+transactions per second. If this rate is exceeded otherwise valid requests are
+throttled or rejected and Amazon S3 returns a `ThrottlingException` error. You
+can use S3 Batch Operations to retrieve many objects with a single request, which fully
+utilizes the restore request rate available in your account. For more information,
+see [Performing object operations in bulk with Batch Operations](batch-ops.md "batch-ops.md").
+
+After you initiate restore requests, S3 Glacier supports restoring large datasets
+at a throughput of up to 1–2 petabytes per day per customer account. For any
+retrieval option, objects larger than 5 terabytes will take longer to be restored
+with up to 300 megabytes per second of retrieval throughput. For example, a
+50-terabyte S3 Glacier Flexible Retrieval object could take up to 48 hours to complete.
+If you require increased restoration limits, you can contact AWS Support.
+
 ## Provisioned capacity
 
 Provisioned capacity helps ensure that your retrieval capacity for Expedited
 retrievals from S3 Glacier Flexible Retrieval is available when you need it. Each unit
 of capacity provides that at least three Expedited retrievals can be performed every
-5 minutes, and it provides up to 150 megabytes per second (MBps) of retrieval
+5 minutes, and it provides up to 300 megabytes per second of retrieval
 throughput.
 
-If your workload requires highly reliable and predictable access to a subset of
-your data in minutes, consider purchasing provisioned retrieval capacity. Without
-provisioned capacity, Expedited retrievals might not be accepted during periods of
-high demand. If you require access to Expedited retrievals under all circumstances,
-we recommend that you purchase provisioned retrieval capacity.
+Without provisioned capacity, Expedited retrievals might not be accepted during
+periods of high demand. For predictable, fast access to more of your data, consider
+using the [S3 Glacier Instant Retrieval](https://aws.amazon.com/s3/storage-classes/glacier/instant-retrieval/ "https://aws.amazon.com/s3/storage-classes/glacier/instant-retrieval/")
+storage class.
 
 Provisioned capacity units are allocated to an AWS account. Thus, the requester
 of the Expedited data retrieval should purchase the provisioned capacity unit, not
@@ -92,18 +117,3 @@ You can purchase provisioned capacity by using the Amazon S3 console, the Amazon
 console, the [Purchase
 Provisioned Capacity](../../../amazonglacier/latest/dev/api-PurchaseProvisionedCapacity.md "../../../amazonglacier/latest/dev/api-PurchaseProvisionedCapacity.md") REST API operation, the AWS SDKs, or the AWS CLI.
 For provisioned capacity pricing information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
-
-## S3 Glacier restore initiation
-
-request rates
-
-When you initiate restore requests for objects that are stored in the
-S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive storage class, a retrieval-requests
-quota is applied for your AWS account. S3 Glacier supports restore requests at a
-rate of 1,000 transactions per second. If this rate is exceeded otherwise valid
-requests are throttled or rejected and Amazon S3 returns a
-`ThrottlingException` error.
-
-Optionally, you can also use S3 Batch Operations to retrieve a large number of objects
-stored in S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive with a single request. For
-more information, see [Performing object operations in bulk with Batch Operations](batch-ops.md "batch-ops.md").

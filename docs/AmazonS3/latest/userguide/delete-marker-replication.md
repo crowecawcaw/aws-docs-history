@@ -1,6 +1,4 @@
-# Replicating delete markers between
-
-buckets
+# Replicating delete markers between buckets
 
 By default, when S3 Replication is enabled and an object is deleted in the source
 bucket, Amazon S3 adds a delete marker in the source bucket only. This action helps protect data
@@ -57,5 +55,4 @@ the prefix `Tax`.
 }
 ```
 
-For full instructions on creating replication rules through the AWS CLI, see [Configuring replication for buckets in the same
-account](replication-walkthrough1.md "replication-walkthrough1.md").
+For full instructions on creating replication rules through the AWS CLI, see [Configuring replication for buckets in the same account](replication-walkthrough1.md "replication-walkthrough1.md").

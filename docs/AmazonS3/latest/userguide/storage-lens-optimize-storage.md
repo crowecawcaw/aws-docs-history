@@ -23,10 +23,8 @@ dashboard to optimize your storage costs.
 - [Identify your largest S3 buckets](#identify-largest-s3-buckets "#identify-largest-s3-buckets")
 - [Uncover cold Amazon S3 buckets](#uncover-cold-buckets "#uncover-cold-buckets")
 - [Locate incomplete multipart uploads](#locate-incomplete-mpu "#locate-incomplete-mpu")
-- [Reduce the number of noncurrent
-  versions retained](#reduce-noncurrent-versions-retained "#reduce-noncurrent-versions-retained")
-- [Identify buckets that don't have
-  lifecycle rules and review lifecycle rule counts](#identify-missing-lifecycle-rules "#identify-missing-lifecycle-rules")
+- [Reduce the number of noncurrent versions retained](#reduce-noncurrent-versions-retained "#reduce-noncurrent-versions-retained")
+- [Identify buckets that don't have lifecycle rules and review lifecycle rule counts](#identify-missing-lifecycle-rules "#identify-missing-lifecycle-rules")
 
 ## Identify your largest S3 buckets
 
@@ -37,9 +35,7 @@ buckets in all of your organization's accounts, you can configure an AWS Organiz
 S3 Storage Lens dashboard. From this dashboard view, you can identify your largest
 buckets.
 
-### Step 1: Identify your
-
-largest buckets
+### Step 1: Identify your largest buckets
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -71,9 +67,7 @@ On the **Bucket** tab, you can see details such as the
 recent growth rate, the average object size, the largest prefixes, and the
 number of objects.
 
-### Step 2: Navigate to your buckets and
-
-investigate
+### Step 2: Navigate to your buckets and investigate
 
 After you've identified your largest S3 buckets, you can navigate to each bucket
 within the S3 console to view the objects in the bucket, understand its associated
@@ -108,9 +102,7 @@ To see activity metrics in your S3 Storage Lens dashboard, you must enable S3 St
 **Advanced metrics and recommendations** and then select
 **Activity metrics**. For more information, see [Using the S3 console](storage_lens_editing.md#storage_lens_console_editing "storage_lens_editing.md#storage_lens_console_editing").
 
-### Step 1: Identify active
-
-buckets
+### Step 1: Identify active buckets
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -154,9 +146,7 @@ data for your selected aggregation or filter. If you aggregated by storage
 class or another dimension, that new tab opens in your dashboard (for
 example, the **Storage class** tab).
 
-### Step 2: Investigate cold
-
-buckets
+### Step 2: Investigate cold buckets
 
 From here, you can identify the owners of cold buckets in your account or
 organization and find out if that storage is still needed. You can then optimize
@@ -191,9 +181,7 @@ multipart uploads that are older than a specific number of days. When you create
 lifecycle rule to expire incomplete multipart uploads, we recommend 7 days as a good
 starting point.
 
-### Step 1: Review overall trends for
-
-incomplete multipart uploads
+### Step 1: Review overall trends for incomplete multipart uploads
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -218,10 +206,7 @@ deeper levels of aggregation, using the **Account**,
 **Storage class** tabs for a deeper analysis of your
 data. For an example, see [Uncover cold Amazon S3 buckets](#uncover-cold-buckets "#uncover-cold-buckets").
 
-### Step 2: Identify buckets that have the
-
-most incomplete multipart upload bytes but don't have lifecycle rules to abort
-incomplete multipart uploads
+### Step 2: Identify buckets that have the most incomplete multipart upload bytes but don't have lifecycle rules to abort incomplete multipart uploads
 
 ###### Prerequisite
 
@@ -281,18 +266,13 @@ rules to abort incomplete multipart uploads. Then, you can navigate to these
 buckets in the S3 console and add lifecycle rules to delete abandoned
 incomplete multipart uploads.
 
-### Step 3: Add a lifecycle rule to delete
-
-incomplete multipart uploads after 7 days
+### Step 3: Add a lifecycle rule to delete incomplete multipart uploads after 7 days
 
 To automatically manage incomplete multipart uploads, you can use the S3 console
 to create a lifecycle configuration to expire incomplete multipart upload bytes from a
-bucket after a specified number of days. For more information, see [Configuring a bucket lifecycle
-configuration to delete incomplete multipart uploads](mpu-abort-incomplete-mpu-lifecycle-config.md "mpu-abort-incomplete-mpu-lifecycle-config.md").
+bucket after a specified number of days. For more information, see [Configuring a bucket lifecycle configuration to delete incomplete multipart uploads](mpu-abort-incomplete-mpu-lifecycle-config.md "mpu-abort-incomplete-mpu-lifecycle-config.md").
 
-## Reduce the number of noncurrent
-
-versions retained
+## Reduce the number of noncurrent versions retained
 
 When enabled, S3 Versioning retains multiple distinct copies of the same object that
 you can use to quickly recover data if an object is accidentally deleted or overwritten.
@@ -300,9 +280,7 @@ If you've enabled S3 Versioning without configuring lifecycle rules to transitio
 expire noncurrent versions, a large number of previous noncurrent versions can
 accumulate, which can have storage-cost implications. For more information, see [Retaining multiple versions of objects with S3 Versioning](Versioning.md "Versioning.md").
 
-### Step 1: Identify buckets
-
-with the most noncurrent object versions
+### Step 1: Identify buckets with the most noncurrent object versions
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -365,10 +343,7 @@ noncurrent versions:
      bytes** metric, along with other metrics related to
      noncurrent versions.
 
-### Step 2: Identify buckets
-
-that are missing transition and expiration lifecycle rules for managing
-noncurrent versions
+### Step 2: Identify buckets that are missing transition and expiration lifecycle rules for managing noncurrent versions
 
 ###### Prerequisite
 
@@ -414,21 +389,16 @@ noncurrent version bytes but are missing transition and expiration lifecycle
 rules. Then, you can navigate to these buckets in the S3 console and add
 lifecycle rules to these buckets.
 
-### Step 3: Add lifecycle
-
-rules to transition or expire noncurrent object versions
+### Step 3: Add lifecycle rules to transition or expire noncurrent object versions
 
 After you've determined which buckets require further investigation, you can
 navigate to the buckets within the S3 console and add a lifecycle rule to expire
 noncurrent versions after a specified number of days. Alternatively, to reduce costs
 while still retaining noncurrent versions, you can configure a lifecycle rule to
 transition noncurrent versions to one of the Amazon Glacier storage classes. For
-more information, see [Specifying a lifecycle rule
-for a versioning-enabled bucket](lifecycle-configuration-examples.md#lifecycle-config-conceptual-ex6 "lifecycle-configuration-examples.md#lifecycle-config-conceptual-ex6").
+more information, see [Specifying a lifecycle rule for a versioning-enabled bucket](lifecycle-configuration-examples.md#lifecycle-config-conceptual-ex6 "lifecycle-configuration-examples.md#lifecycle-config-conceptual-ex6").
 
-## Identify buckets that don't have
-
-lifecycle rules and review lifecycle rule counts
+## Identify buckets that don't have lifecycle rules and review lifecycle rule counts
 
 S3 Storage Lens provides S3 Lifecycle rule count metrics that you can use to identify buckets
 that are missing lifecycle rules. To find buckets that don't have lifecycle rules, you
@@ -446,9 +416,7 @@ enable S3 Storage Lens **Advanced metrics and recommendations**, and then
 select **Advanced cost optimization metrics**. For more
 information, see [Using the S3 console](storage_lens_editing.md#storage_lens_console_editing "storage_lens_editing.md#storage_lens_console_editing").
 
-### Step 1: Identify buckets
-
-without lifecycle rules
+### Step 1: Identify buckets without lifecycle rules
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -492,9 +460,7 @@ For an example, see [Uncover cold Amazon S3 buckets](#uncover-cold-buckets "#unc
 After you identify which buckets don't have lifecycle rules, you can also
 review specific lifecycle rule counts for your buckets.
 
-### Step 2: Review lifecycle
-
-rule counts for your buckets
+### Step 2: Review lifecycle rule counts for your buckets
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -535,11 +501,7 @@ lifecycle rules, for example, expiration or transition rules. Then, you can
 navigate to these buckets in the S3 console and add lifecycle rules to these
 buckets.
 
-### Step 3: Add lifecycle
-
-rules
+### Step 3: Add lifecycle rules
 
 After you've identified buckets with no lifecycle rules, you can add lifecycle
-rules. For more information, see [Setting an S3 Lifecycle configuration on a
-bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md") and [Examples of S3 Lifecycle
-configurations](lifecycle-configuration-examples.md "lifecycle-configuration-examples.md").
+rules. For more information, see [Setting an S3 Lifecycle configuration on a bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md") and [Examples of S3 Lifecycle configurations](lifecycle-configuration-examples.md "lifecycle-configuration-examples.md").

@@ -1,6 +1,4 @@
-# Integrating Amazon S3 Tables with AWS analytics
-
-services
+# Integrating Amazon S3 Tables with AWS analytics services
 
 This topic covers the prerequisites and procedures needed to integrate your Amazon S3 table buckets with AWS analytics services. For an overview of how the integration works, see [S3 Tables integration overview](s3-tables-integration-overview.md "s3-tables-integration-overview.md").
 

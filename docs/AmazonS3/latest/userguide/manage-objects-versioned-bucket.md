@@ -1,6 +1,4 @@
-# Working with objects in a
-
-versioning-enabled bucket
+# Working with objects in a versioning-enabled bucket
 
 Objects that are stored in an Amazon S3 bucket before you set the versioning state have a
 version ID of `null`. When you enable versioning, existing objects in your bucket
@@ -17,13 +15,8 @@ bucket. For more information about versioning, see [Retaining multiple versions 
 
 ###### Topics
 
-- [Adding objects to
-  versioning-enabled buckets](AddingObjectstoVersioningEnabledBuckets.md "AddingObjectstoVersioningEnabledBuckets.md")
-- [Listing objects in a
-  versioning-enabled bucket](list-obj-version-enabled-bucket.md "list-obj-version-enabled-bucket.md")
-- [Retrieving object versions from a
-  versioning-enabled bucket](RetrievingObjectVersions.md "RetrievingObjectVersions.md")
-- [Deleting object versions from a
-  versioning-enabled bucket](DeletingObjectVersions.md "DeletingObjectVersions.md")
-- [Configuring versioned object
-  permissions](VersionedObjectPermissionsandACLs.md "VersionedObjectPermissionsandACLs.md")
+- [Adding objects to versioning-enabled buckets](AddingObjectstoVersioningEnabledBuckets.md "AddingObjectstoVersioningEnabledBuckets.md")
+- [Listing objects in a versioning-enabled bucket](list-obj-version-enabled-bucket.md "list-obj-version-enabled-bucket.md")
+- [Retrieving object versions from a versioning-enabled bucket](RetrievingObjectVersions.md "RetrievingObjectVersions.md")
+- [Deleting object versions from a versioning-enabled bucket](DeletingObjectVersions.md "DeletingObjectVersions.md")
+- [Configuring versioned object permissions](VersionedObjectPermissionsandACLs.md "VersionedObjectPermissionsandACLs.md")

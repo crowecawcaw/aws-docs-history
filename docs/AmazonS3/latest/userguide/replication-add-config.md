@@ -16,8 +16,7 @@ To see your replication configuration version, you can use the
 `GetBucketReplication` API operation. For more information, see [GetBucketReplication](../API/API_GetBucketReplication.md "../API/API_GetBucketReplication.md") in the _Amazon Simple Storage Service API Reference_.
 
 For backward compatibility, Amazon S3 continues to support the XML V1 replication
-configuration format. If you've used the XML V1 replication configuration format, see [Backward compatibility
-considerations](#replication-backward-compat-considerations "#replication-backward-compat-considerations") for backward compatibility
+configuration format. If you've used the XML V1 replication configuration format, see [Backward compatibility considerations](#replication-backward-compat-considerations "#replication-backward-compat-considerations") for backward compatibility
 considerations.
 
 In the replication configuration XML file, you must specify an AWS Identity and Access Management (IAM) role and
@@ -39,8 +38,7 @@ one or more rules, as shown in the following example:
 Amazon S3 can't replicate objects without your permission. You grant permissions to Amazon S3 with
 the IAM role that you specify in the replication configuration. Amazon S3 assumes this IAM role
 to replicate objects on your behalf. You must grant the required permissions to the IAM role
-first. For more information about managing permissions, see [Setting up permissions for live
-replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
+first. For more information about managing permissions, see [Setting up permissions for live replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
 
 You add only one rule in a replication configuration in the following scenarios:
 
@@ -62,12 +60,9 @@ The following sections provide additional information.
 
 - [Basic rule configuration](#replication-config-min-rule-config "#replication-config-min-rule-config")
 - [Optional: Specifying a filter](#replication-config-optional-filter "#replication-config-optional-filter")
-- [Additional destination
-  configurations](#replication-config-optional-dest-config "#replication-config-optional-dest-config")
-- [Example replication
-  configurations](#replication-config-example-configs "#replication-config-example-configs")
-- [Backward compatibility
-  considerations](#replication-backward-compat-considerations "#replication-backward-compat-considerations")
+- [Additional destination configurations](#replication-config-optional-dest-config "#replication-config-optional-dest-config")
+- [Example replication configurations](#replication-config-example-configs "#replication-config-example-configs")
+- [Backward compatibility considerations](#replication-backward-compat-considerations "#replication-backward-compat-considerations")
 
 ## Basic rule configuration
 
@@ -90,8 +85,7 @@ In the `<Destination>` element configuration, you must provide the name
 of the destination bucket or buckets where you want Amazon S3 to replicate objects.
 
 The following example shows the minimum requirements for a V2 rule. For backward
-compatibility, Amazon S3 continues to support the XML V1 format. For more information, see [Backward compatibility
-considerations](#replication-backward-compat-considerations "#replication-backward-compat-considerations").
+compatibility, Amazon S3 continues to support the XML V1 format. For more information, see [Backward compatibility considerations](#replication-backward-compat-considerations "#replication-backward-compat-considerations").
 
 ```
 ...
@@ -211,9 +205,7 @@ operation, you must use S3 Batch Replication. For more information about Batch
 Replication, see [Replicating existing
 objects](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
 
-## Additional destination
-
-configurations
+## Additional destination configurations
 
 In the destination configuration, you specify the bucket or buckets where you want Amazon S3
 to replicate objects. You can set configurations to replicate objects from one source bucket
@@ -232,14 +224,11 @@ You can add the following options in the `<Destination>` element.
 ###### Topics
 
 - [Specify storage class](#storage-class-configuration "#storage-class-configuration")
-- [Add multiple destination
-  buckets](#multiple-destination-buckets-configuration "#multiple-destination-buckets-configuration")
-- [Specify different parameters for each
-  replication rule with multiple destination buckets](#replication-rule-configuration "#replication-rule-configuration")
+- [Add multiple destination buckets](#multiple-destination-buckets-configuration "#multiple-destination-buckets-configuration")
+- [Specify different parameters for each replication rule with multiple destination buckets](#replication-rule-configuration "#replication-rule-configuration")
 - [Change replica ownership](#replica-ownership-configuration "#replica-ownership-configuration")
 - [Enable S3 Replication Time Control](#rtc-configuration "#rtc-configuration")
-- [Replicate objects created with server-side
-  encryption by using AWS KMS](#sse-kms-configuration "#sse-kms-configuration")
+- [Replicate objects created with server-side encryption by using AWS KMS](#sse-kms-configuration "#sse-kms-configuration")
 
 ### Specify storage class
 
@@ -256,9 +245,7 @@ example.
 ...
 ```
 
-### Add multiple destination
-
-buckets
+### Add multiple destination buckets
 
 You can add multiple destination buckets in a single replication configuration, as
 follows.
@@ -290,9 +277,7 @@ follows.
 ...
 ```
 
-### Specify different parameters for each
-
-replication rule with multiple destination buckets
+### Specify different parameters for each replication rule with multiple destination buckets
 
 When adding multiple destination buckets in a single replication configuration, you
 can specify different parameters for each replication rule, as follows.
@@ -396,13 +381,10 @@ Only a value of `<Minutes>15</Minutes>` is accepted for the
 ...
 ```
 
-For more information, see [Meeting compliance requirements with
-S3 Replication Time Control](replication-time-control.md "replication-time-control.md"). For API examples, see [PutBucketReplication](../API/API_PutBucketReplication.md "../API/API_PutBucketReplication.md") in the
+For more information, see [Meeting compliance requirements with S3 Replication Time Control](replication-time-control.md "replication-time-control.md"). For API examples, see [PutBucketReplication](../API/API_PutBucketReplication.md "../API/API_PutBucketReplication.md") in the
 _Amazon Simple Storage Service API Reference_.
 
-### Replicate objects created with server-side
-
-encryption by using AWS KMS
+### Replicate objects created with server-side encryption by using AWS KMS
 
 Your source bucket might contain objects that were created with server-side encryption
 by using AWS Key Management Service (AWS KMS) keys (SSE-KMS). By default, Amazon S3 doesn't replicate these
@@ -428,12 +410,9 @@ elements.
 ...
 ```
 
-For more information, see [Replicating encrypted objects (SSE-S3,
-SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
+For more information, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
 
-## Example replication
-
-configurations
+## Example replication configurations
 
 To get started, you can add the following example replication configurations to your
 bucket, as appropriate.
@@ -623,9 +602,7 @@ In the following replication configuration, the rules specify the following:
 </ReplicationConfiguration>
 ```
 
-###### Example 3: Replication configuration with two rules with
-
-overlapping prefixes
+###### Example 3: Replication configuration with two rules with overlapping prefixes
 
 In this configuration, the two rules specify filters with overlapping key prefixes,
 `star` and
@@ -675,9 +652,7 @@ For example walkthroughs, see [Examples for configuring live replication](replic
 For more information about the XML structure of replication configuration, see [PutBucketReplication](../API/RESTBucketPUTreplication.md "../API/RESTBucketPUTreplication.md") in the
 _Amazon Simple Storage Service API Reference_.
 
-## Backward compatibility
-
-considerations
+## Backward compatibility considerations
 
 The latest version of the replication configuration XML format is V2. XML V2 replication
 configurations are those that contain the `<Filter>` element for rules, and
@@ -720,5 +695,4 @@ the following issues that affect backward compatibility:
   delete marker.
 
 In the replication configuration XML V2 format, you can enable delete marker replication for
-non-tag-based rules. For more information, see [Replicating delete markers between
-buckets](delete-marker-replication.md "delete-marker-replication.md").
+non-tag-based rules. For more information, see [Replicating delete markers between buckets](delete-marker-replication.md "delete-marker-replication.md").

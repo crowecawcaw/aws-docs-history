@@ -1,6 +1,4 @@
-# Managing S3 Object Lock using
-
-S3 Batch Operations
+# Managing S3 Object Lock using S3 Batch Operations
 
 You can use S3 Batch Operations to perform large-scale batch operations on Amazon S3 objects.
 S3 Batch Operations can perform a single operation on lists of Amazon S3 objects that you specify. A
@@ -19,13 +17,8 @@ see the following topics.
 
 ###### Topics
 
-- [Enabling S3 Object Lock using
-  S3 Batch Operations](batch-ops-object-lock.md "batch-ops-object-lock.md")
-- [Setting Object Lock retention using
-  Batch Operations](batch-ops-object-lock-retention.md "batch-ops-object-lock-retention.md")
-- [Using S3 Batch Operations with S3 Object Lock
-  retention compliance mode](batch-ops-compliance-mode.md "batch-ops-compliance-mode.md")
-- [Use S3 Batch Operations with S3 Object Lock
-  retention governance mode](batch-ops-governance-mode.md "batch-ops-governance-mode.md")
-- [Using S3 Batch Operations to turn off
-  S3 Object Lock legal holds](batch-ops-legal-hold-off.md "batch-ops-legal-hold-off.md")
+- [Enabling S3 Object Lock using S3 Batch Operations](batch-ops-object-lock.md "batch-ops-object-lock.md")
+- [Setting Object Lock retention using Batch Operations](batch-ops-object-lock-retention.md "batch-ops-object-lock-retention.md")
+- [Using S3 Batch Operations with S3 Object Lock retention compliance mode](batch-ops-compliance-mode.md "batch-ops-compliance-mode.md")
+- [Use S3 Batch Operations with S3 Object Lock retention governance mode](batch-ops-governance-mode.md "batch-ops-governance-mode.md")
+- [Using S3 Batch Operations to turn off S3 Object Lock legal holds](batch-ops-legal-hold-off.md "batch-ops-legal-hold-off.md")

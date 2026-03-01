@@ -1,6 +1,4 @@
-# IAM identity-based policies
-
-for directory buckets
+# IAM identity-based policies for directory buckets
 
 Before you can create directory buckets, you must grant the necessary permissions to your
 AWS Identity and Access Management (IAM) role or users. This example policy allows access to the

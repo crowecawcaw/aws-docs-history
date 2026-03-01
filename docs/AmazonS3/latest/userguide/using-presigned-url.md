@@ -1,6 +1,4 @@
-# Download and upload objects with presigned
-
-URLs
+# Download and upload objects with presigned URLs
 
 You can use presigned URLs to grant time-limited access to objects in Amazon S3 without updating
 your bucket policy. A presigned URL can be entered in a browser or used by a program to download
@@ -37,8 +35,7 @@ the following:
 
 - [Who can create a presigned URL](#who-presigned-url "#who-presigned-url")
 - [Expiration time for presigned URLs](#PresignedUrl-Expiration "#PresignedUrl-Expiration")
-- [Limiting presigned URL
-  capabilities](#PresignedUrlUploadObject-LimitCapabilities "#PresignedUrlUploadObject-LimitCapabilities")
+- [Limiting presigned URL capabilities](#PresignedUrlUploadObject-LimitCapabilities "#PresignedUrlUploadObject-LimitCapabilities")
 - [Frequently asked questions for presigned URLs](#PresignedUrlFAQ "#PresignedUrlFAQ")
 - [Sharing objects with presigned URLs](ShareObjectPreSignedURL.md "ShareObjectPreSignedURL.md")
 - [Uploading objects with presigned URLs](PresignedUrlUploadObject.md "PresignedUrlUploadObject.md")
@@ -91,9 +88,7 @@ expiration time, the download continues even if the expiration time passes durin
 download. However, if the connection drops and the client tries to restart the download
 after the expiration time passes, the download fails.
 
-## Limiting presigned URL
-
-capabilities
+## Limiting presigned URL capabilities
 
 The capabilities of a presigned URL are limited by the permissions of the user who created
 it. In essence, presigned URLs are bearer tokens that grant access to those who possess

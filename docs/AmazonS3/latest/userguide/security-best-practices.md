@@ -12,15 +12,11 @@ than prescriptions.
 
 ###### Topics
 
-- [Amazon S3 security best
-  practices](#security-best-practices-prevent "#security-best-practices-prevent")
-- [Amazon S3 monitoring and auditing best
-  practices](#security-best-practices-detect "#security-best-practices-detect")
+- [Amazon S3 security best practices](#security-best-practices-prevent "#security-best-practices-prevent")
+- [Amazon S3 monitoring and auditing best practices](#security-best-practices-detect "#security-best-practices-detect")
 - [Monitoring data security with managed AWS security services](#monitoring-data-security "#monitoring-data-security")
 
-## Amazon S3 security best
-
-practices
+## Amazon S3 security best practices
 
 The following best practices for Amazon S3 can help prevent security incidents.
 
@@ -74,8 +70,7 @@ After you disable ACLs, the following behaviors occur:
   status code `400 (Bad Request)` with the error code
   `AccessControlListNotSupported`.
 
-For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 **Ensure that
 your Amazon S3 buckets use the correct policies and are not publicly
@@ -95,8 +90,7 @@ access:
   Access settings across your entire organization with a single policy
   configuration.
 
-For more information, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+For more information, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 - Identify Amazon S3 bucket policies that allow a wildcard identity such
   as `"Principal": "*"` (which effectively means "anyone").
@@ -149,8 +143,7 @@ To learn more about blocking SSE-C, see [Blocking or unblocking SSE-C for a gene
 
 Bucket names must be unique across all AWS accounts in all of the AWS Regions within a partition. Once an AWS account creates a bucket, that bucket name can't be used by another AWS account in the same partition until the bucket is deleted.
 
-We recommend that you create bucket names that aren't predictable. Don't write code that assumes your chosen bucket name is available unless you have already created the bucket. One method for creating bucket names that aren't predictable is to append a Globally Unique Identifier (GUID) to your bucket name, for example, `amazon-s3-demo-bucket-a1b2c3d4-5678-90ab-cdef-example11111`. For more information, see [Creating a bucket that uses a GUID in the
-bucket name](bucketnamingrules.md#create-bucket-name-guid "bucketnamingrules.md#create-bucket-name-guid").
+We recommend that you create bucket names that aren't predictable. Don't write code that assumes your chosen bucket name is available unless you have already created the bucket. One method for creating bucket names that aren't predictable is to append a Globally Unique Identifier (GUID) to your bucket name, for example, `amazon-s3-demo-bucket-a1b2c3d4-5678-90ab-cdef-example11111`. For more information, see [Creating a bucket that uses a GUID in the bucket name](bucketnamingrules.md#create-bucket-name-guid "bucketnamingrules.md#create-bucket-name-guid").
 
 We recommend that you don't delete your buckets. All AWS Accounts now have a default bucket quota of 10,000 buckets, reducing the need to delete empty buckets from your account. If you delete a bucket, be aware that another AWS account in the same partition can use the same bucket name for a new bucket and can therefore potentially receive requests that are intended for the deleted bucket. If you want to prevent this, or if you want to continue to use the same bucket name, don't delete the bucket. We recommend that you empty the bucket and keep it. Instead of deleting the bucket, block any bucket requests as needed. For buckets no longer in active use, we recommend emptying the bucket of all objects to minimize costs while retaining the bucket itself. For more information, see [Deleting a general purpose bucket](delete-bucket.md "delete-bucket.md").
 
@@ -167,8 +160,7 @@ errors or malicious intent.
 The following tools are available to implement least privilege
 access:
 
-- [Policy actions
-  for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions") and [Permissions Boundaries for IAM Entities](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md")
+- [Policy actions for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions") and [Permissions Boundaries for IAM Entities](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md")
 - [How Amazon S3 works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [Access control list (ACL) overview](acl-overview.md "acl-overview.md")
 
@@ -235,8 +227,7 @@ For more information, see [Protecting data with server-side encryption](serv-sid
   stores the data itself.
 
 Amazon S3 provides multiple client-side encryption options. For more
-information, see [Protecting data by using client-side
-encryption](UsingClientSideEncryption.md "UsingClientSideEncryption.md").
+information, see [Protecting data by using client-side encryption](UsingClientSideEncryption.md "UsingClientSideEncryption.md").
 
 **Enforce encryption of data in transit**
 
@@ -308,8 +299,7 @@ Amazon S3 data:
 - You can help prevent data exfiltration by using a VPC that does
   not have an internet gateway.
 
-For more information, see [Controlling access from VPC
-endpoints with bucket policies](example-bucket-policies-vpc-endpoint.md "example-bucket-policies-vpc-endpoint.md").
+For more information, see [Controlling access from VPC endpoints with bucket policies](example-bucket-policies-vpc-endpoint.md "example-bucket-policies-vpc-endpoint.md").
 
 **Use managed AWS security services to monitor data security**
 
@@ -322,9 +312,7 @@ resources for organizations spanning thousands of accounts.
 
 For more information, see [Monitoring data security with managed AWS security services](#monitoring-data-security "#monitoring-data-security").
 
-## Amazon S3 monitoring and auditing best
-
-practices
+## Amazon S3 monitoring and auditing best practices
 
 The following best practices for Amazon S3 can help detect potential security weaknesses
 and incidents.
@@ -403,8 +391,7 @@ buckets. CloudTrail supports a subset of Amazon S3 object-level API operations, 
 `GetObject`, `DeleteObject`, and
 `PutObject`. For more information about how CloudTrail works with
 Amazon S3, see [Logging Amazon S3 API calls using AWS CloudTrail](cloudtrail-logging.md "cloudtrail-logging.md"). In the Amazon S3 console, you can also
-configure your S3 buckets to [Enabling CloudTrail event logging for
-S3 buckets and objects](enable-cloudtrail-logging-for-s3.md "enable-cloudtrail-logging-for-s3.md").
+configure your S3 buckets to [Enabling CloudTrail event logging for S3 buckets and objects](enable-cloudtrail-logging-for-s3.md "enable-cloudtrail-logging-for-s3.md").
 
 AWS Config provides a managed rule
 (`cloudtrail-s3-dataevents-enabled`) that you can use to

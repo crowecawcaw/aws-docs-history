@@ -15,9 +15,7 @@ information such as:
   By viewing an individual job's details, you can access a job's entire configuration.
   To view a job’s details, you can use the Amazon S3 console or the AWS Command Line Interface (AWS CLI).
 
-## Get an S3 Batch Operations job
-
-description in the Amazon S3 console
+## Get an S3 Batch Operations job description in the Amazon S3 console
 
 ###### To view a Batch Operations job description by using the console
 
@@ -27,9 +25,7 @@ description in the Amazon S3 console
    **Batch Operations**.
 3. Choose the job ID of the specific job to view its details.
 
-## Get an S3 Batch Operations job
-
-description in the AWS CLI
+## Get an S3 Batch Operations job description in the AWS CLI
 
 The following example gets the description of an S3 Batch Operations job by using the
 AWS CLI. To use the following example command, replace the `user

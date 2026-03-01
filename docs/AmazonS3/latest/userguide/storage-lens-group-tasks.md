@@ -29,13 +29,10 @@ to AWS resources](../../../IAM/latest/UserGuide/access_tags.md#access_tags_contr
 ###### Topics
 
 - [Creating a Storage Lens group](storage-lens-groups-create.md "storage-lens-groups-create.md")
-- [Attaching or removing S3 Storage Lens groups
-  to or from your dashboard](storage-lens-groups-dashboard-console.md "storage-lens-groups-dashboard-console.md")
-- [Visualizing your Storage Lens groups
-  data](storage-lens-groups-visualize.md "storage-lens-groups-visualize.md")
+- [Attaching or removing S3 Storage Lens groups to or from your dashboard](storage-lens-groups-dashboard-console.md "storage-lens-groups-dashboard-console.md")
+- [Visualizing your Storage Lens groups data](storage-lens-groups-visualize.md "storage-lens-groups-visualize.md")
 - [Updating a Storage Lens group](storage-lens-groups-update.md "storage-lens-groups-update.md")
-- [Managing AWS resource tags with Storage
-  Lens groups](storage-lens-groups-manage-tags.md "storage-lens-groups-manage-tags.md")
+- [Managing AWS resource tags with Storage Lens groups](storage-lens-groups-manage-tags.md "storage-lens-groups-manage-tags.md")
 - [Listing all Storage Lens groups](storage-lens-groups-list.md "storage-lens-groups-list.md")
 - [Viewing Storage Lens group details](storage-lens-groups-view.md "storage-lens-groups-view.md")
 - [Deleting a Storage Lens group](storage-lens-groups-delete.md "storage-lens-groups-delete.md")

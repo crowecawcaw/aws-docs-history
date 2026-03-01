@@ -1,6 +1,4 @@
-# Creating a metrics configuration
-
-that filters by prefix, object tag, or access point
+# Creating a metrics configuration that filters by prefix, object tag, or access point
 
 There are three types of Amazon CloudWatch metrics for Amazon S3: storage metrics, request
 metrics, and replication metrics. Storage metrics are reported once per day and are
@@ -80,8 +78,7 @@ tags, or access point. About 15 minutes after CloudWatch begins tracking these r
 see charts for the metrics on both the Amazon S3 and CloudWatch consoles. Request metrics are billed at
 the standard CloudWatch rate. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-You can also configure request metrics at the bucket level. For information, see [Creating a CloudWatch metrics
-configuration for all the objects in your bucket](configure-request-metrics-bucket.md "configure-request-metrics-bucket.md").
+You can also configure request metrics at the bucket level. For information, see [Creating a CloudWatch metrics configuration for all the objects in your bucket](configure-request-metrics-bucket.md "configure-request-metrics-bucket.md").
 
 1. Install and set up the AWS CLI. For instructions, see [Installing, updating, and uninstalling
    the AWS CLI](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md") in the _AWS Command Line Interface User Guide_.

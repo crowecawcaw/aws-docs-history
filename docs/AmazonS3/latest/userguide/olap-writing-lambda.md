@@ -8,29 +8,20 @@ This section details how to write AWS Lambda functions for use with Amazon S3 Ob
 
 To learn about complete end-to-end procedures for some S3 Object Lambda tasks, see the following:
 
-- [Tutorial: Transforming data for your
-  application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md "tutorial-s3-object-lambda-uppercase.md")
-- [Tutorial:
-  Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md")
+- [Tutorial: Transforming data for your application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md "tutorial-s3-object-lambda-uppercase.md")
+- [Tutorial: Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md")
 - [Tutorial: Using S3 Object Lambda to dynamically watermark images as they are retrieved](https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/olap-writing-lambda.html "https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/olap-writing-lambda.html")
 
 ###### Topics
 
-- [Working with GetObject
-  requests in Lambda](#olap-getobject-response "#olap-getobject-response")
-- [Working with HeadObject requests in
-  Lambda](#olap-headobject "#olap-headobject")
-- [Working with ListObjects requests in
-  Lambda](#olap-listobjects "#olap-listobjects")
-- [Working with ListObjectsV2
-  requests in Lambda](#olap-listobjectsv2 "#olap-listobjectsv2")
+- [Working with GetObject requests in Lambda](#olap-getobject-response "#olap-getobject-response")
+- [Working with HeadObject requests in Lambda](#olap-headobject "#olap-headobject")
+- [Working with ListObjects requests in Lambda](#olap-listobjects "#olap-listobjects")
+- [Working with ListObjectsV2 requests in Lambda](#olap-listobjectsv2 "#olap-listobjectsv2")
 - [Event context format and usage](olap-event-context.md "olap-event-context.md")
-- [Working with Range and
-  partNumber headers](range-get-olap.md "range-get-olap.md")
+- [Working with Range and partNumber headers](range-get-olap.md "range-get-olap.md")
 
-## Working with `GetObject`
-
-requests in Lambda
+## Working with `GetObject` requests in Lambda
 
 This section assumes that your Object Lambda Access Point is configured to call the Lambda function for
 `GetObject`. S3 Object Lambda includes the Amazon S3 API operation,
@@ -529,9 +520,7 @@ to be made from the invoked Lambda function, it must be made by an identity in t
 account. The call also must be completed before the Lambda function finishes
 execution.
 
-## Working with `HeadObject` requests in
-
-Lambda
+## Working with `HeadObject` requests in Lambda
 
 This section assumes that your Object Lambda Access Point is configured to call the Lambda function for
 `HeadObject`. Lambda will receive a JSON payload that contains a key
@@ -688,9 +677,7 @@ def lambda_handler(event, context):
         }
 ```
 
-## Working with `ListObjects` requests in
-
-Lambda
+## Working with `ListObjects` requests in Lambda
 
 This section assumes that your Object Lambda Access Point is configured to call the Lambda function for
 `ListObjects`. Lambda will receive the JSON payload with a new object
@@ -882,9 +869,7 @@ The following example shows the structure of the Lambda response JSON for
 }
 ```
 
-## Working with `ListObjectsV2`
-
-requests in Lambda
+## Working with `ListObjectsV2` requests in Lambda
 
 This section assumes that your Object Lambda Access Point is configured to call the Lambda function for
 `ListObjectsV2`. Lambda will receive the JSON payload with a new object

@@ -18,8 +18,7 @@ operations are `PutObject` and `CopyObject`.
 
 For more information about Regional and Zonal endpoints for directory buckets in Availability Zones, see [Regional and Zonal endpoints for directory buckets in an Availability Zone](endpoint-directory-buckets-AZ.md "endpoint-directory-buckets-AZ.md").
 
-For more information about Regional and Zonal endpoints for directory buckets in Local Zones, see [Concepts for directory buckets in
-Local Zones](s3-lzs-for-directory-buckets.md "s3-lzs-for-directory-buckets.md").
+For more information about Regional and Zonal endpoints for directory buckets in Local Zones, see [Concepts for directory buckets in Local Zones](s3-lzs-for-directory-buckets.md "s3-lzs-for-directory-buckets.md").
 
 | Region name           | Region           | Availability Zone IDs                  | Regional endpoint                                                                                              | Zonal endpoint                                                                                                                                                                                                                                                                                                                   |
 | --------------------- | ---------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

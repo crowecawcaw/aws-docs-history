@@ -13,8 +13,7 @@ increase, see [AWS Service Quotas](../../../general/latest/gr/aws_service_limits
 
 - [Creating access points with S3 buckets](#create-access-points "#create-access-points")
 - [Creating access points with Amazon FSx](#create-access-points-with-fsx "#create-access-points-with-fsx")
-- [Creating access points restricted to a virtual private
-  cloud](access-points-vpc.md "access-points-vpc.md")
+- [Creating access points restricted to a virtual private cloud](access-points-vpc.md "access-points-vpc.md")
 - [Managing public access to access points for general purpose buckets](access-points-bpa-settings.md "access-points-bpa-settings.md")
 
 ## Creating access points with S3 buckets
@@ -61,8 +60,7 @@ For information about using an FSx for OpenZFS volume as a data source, see [Cre
 or **virtual private cloud (VPC)**. If you choose **virtual private cloud (VPC)**,
 enter the **VPC ID** that you want to use with the access point.
 
-For more information about network origins for access points, see [Creating access points restricted to a virtual private
-cloud](access-points-vpc.md "access-points-vpc.md"). 8. Under **Block Public Access settings for this Access Point**,
+For more information about network origins for access points, see [Creating access points restricted to a virtual private cloud](access-points-vpc.md "access-points-vpc.md"). 8. Under **Block Public Access settings for this Access Point**,
 select the block public access settings that you want to apply to the access point. All
 block public access settings are enabled by default for new access points. We recommend that
 you keep all settings enabled unless you know that you have a specific need to

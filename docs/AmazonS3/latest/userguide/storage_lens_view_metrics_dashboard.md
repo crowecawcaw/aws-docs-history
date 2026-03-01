@@ -1,6 +1,4 @@
-# Viewing S3 Storage Lens metrics on the
-
-dashboards
+# Viewing S3 Storage Lens metrics on the dashboards
 
 In the Amazon S3 console, S3 Storage Lens provides an interactive default dashboard that you can use to
 visualize insights and trends in your data. You can also use this dashboard to flag outliers and
@@ -49,8 +47,7 @@ You can disable or delete any additional dashboards that you create.
 ###### Topics
 
 - [Viewing an Amazon S3 Storage Lens dashboard](#storage_lens_console_viewing "#storage_lens_console_viewing")
-- [Understanding your S3 Storage Lens
-  dashboard](#storage_lens_console_viewing_dashboard "#storage_lens_console_viewing_dashboard")
+- [Understanding your S3 Storage Lens dashboard](#storage_lens_console_viewing_dashboard "#storage_lens_console_viewing_dashboard")
 
 ## Viewing an Amazon S3 Storage Lens dashboard
 
@@ -101,9 +98,7 @@ data, do the following:
    **Buckets**, **Prefixes**, or **Storage Lens
    groups** tabs. For an example, see [Uncover cold Amazon S3 buckets](storage-lens-optimize-storage.md#uncover-cold-buckets "storage-lens-optimize-storage.md#uncover-cold-buckets").
 
-## Understanding your S3 Storage Lens
-
-dashboard
+## Understanding your S3 Storage Lens dashboard
 
 Your S3 Storage Lens dashboard has a primary **Overview** tab, and up to five
 additional tabs that represent each aggregation level:
@@ -137,8 +132,7 @@ metrics include the following metrics:
 - **Accounts** – The number of accounts whose storage is in
   scope. This value is **1** unless you are using AWS Organizations and your
   S3 Storage Lens has trusted access with a valid service-linked role. For more information, see
-  [Using service-linked roles for
-  Amazon S3 Storage Lens](using-service-linked-roles.md "using-service-linked-roles.md").
+  [Using service-linked roles for Amazon S3 Storage Lens](using-service-linked-roles.md "using-service-linked-roles.md").
 - **Buckets** – The total number of buckets in your
   account.
 
@@ -191,8 +185,7 @@ the two trends that you are tracking. You can optionally drill down into a data 
 of the charts for deeper analysis.
 
 For a walkthrough that uses the **Trends and distributions** section,
-see [Identify buckets that don't use server-side
-encryption with AWS KMS for default encryption (SSE-KMS)](storage-lens-data-protection.md#storage-lens-sse-kms "storage-lens-data-protection.md#storage-lens-sse-kms").
+see [Identify buckets that don't use server-side encryption with AWS KMS for default encryption (SSE-KMS)](storage-lens-data-protection.md#storage-lens-sse-kms "storage-lens-data-protection.md#storage-lens-sse-kms").
 
 ### Top N overview
 

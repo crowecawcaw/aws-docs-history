@@ -18,9 +18,7 @@ permission control and auditability.
 
 When creating a vector index within a vector bucket, you can optionally override the vector bucket level encryption settings and provide an encryption configuration (SSE-S3 or KMS) at the vector index level. If no specific encryption is specified upon vector index creation, the index will inherit the encryption configuration from the vector bucket it belongs to.
 
-## Setting server-side encryption behavior
-
-for Amazon S3 vector buckets and indexes
+## Setting server-side encryption behavior for Amazon S3 vector buckets and indexes
 
 Encryption configuration in S3 Vectors is a fundamental security setting to specify
 when you create a vector bucket. This design ensures that all vector data stored in
@@ -75,9 +73,7 @@ When using SSE-KMS with customer managed keys, you have complete control over wh
 can use the keys to encrypt and decrypt data. You can create detailed key policies
 that specify which users, roles, or services can access the keys.
 
-#### Important considerations for
-
-SSE-KMS
+#### Important considerations for SSE-KMS
 
 - **KMS key format requirements:**
   S3 Vectors requires that you specify KMS keys using the full Amazon

@@ -30,8 +30,7 @@ For detailed information about Amazon S3 usage charges for storage, data transfe
 see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/") and the [Amazon S3 FAQs](https://aws.amazon.com/s3/faqs/#billing "https://aws.amazon.com/s3/faqs/#billing").
 
 For information about understanding the codes and abbreviations used in the billing and
-usage reports for Amazon S3, see [Understanding your AWS billing and usage
-reports for Amazon S3](aws-usage-report-understand.md "aws-usage-report-understand.md").
+usage reports for Amazon S3, see [Understanding your AWS billing and usage reports for Amazon S3](aws-usage-report-understand.md "aws-usage-report-understand.md").
 
 ## More info
 

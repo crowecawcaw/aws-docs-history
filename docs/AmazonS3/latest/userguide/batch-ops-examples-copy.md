@@ -14,11 +14,8 @@ existing objects that have been encrypted by using server-side encryption with A
 
 ###### Copy Operation Examples
 
-- [Using an inventory report to copy
-  objects across AWS accounts](specify-batchjob-manifest-xaccount-inventory.md "specify-batchjob-manifest-xaccount-inventory.md")
-- [Using a CSV manifest to copy objects
-  across AWS accounts](specify-batchjob-manifest-xaccount-csv.md "specify-batchjob-manifest-xaccount-csv.md")
-- [Using Batch Operations to enable S3 Bucket Keys for
-  SSE-KMS](batch-ops-copy-example-bucket-key.md "batch-ops-copy-example-bucket-key.md")
+- [Using an inventory report to copy objects across AWS accounts](specify-batchjob-manifest-xaccount-inventory.md "specify-batchjob-manifest-xaccount-inventory.md")
+- [Using a CSV manifest to copy objects across AWS accounts](specify-batchjob-manifest-xaccount-csv.md "specify-batchjob-manifest-xaccount-csv.md")
+- [Using Batch Operations to enable S3 Bucket Keys for SSE-KMS](batch-ops-copy-example-bucket-key.md "batch-ops-copy-example-bucket-key.md")
   For examples that show the copy operation with tags using the AWS CLI and AWS SDK for Java, see
   [Creating a Batch Operations job with job tags used for labeling](batch-ops-tags-create.md "batch-ops-tags-create.md").

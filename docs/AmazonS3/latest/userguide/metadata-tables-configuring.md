@@ -20,20 +20,15 @@ To create a metadata table configuration, make sure that you have the necessary 
 permissions to create and manage metadata tables.
 
 To monitor updates to your metadata table configuration, you can use AWS CloudTrail. For more information,
-see [Amazon S3 bucket-level actions
-that are tracked by CloudTrail logging](cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking "cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking").
+see [Amazon S3 bucket-level actions that are tracked by CloudTrail logging](cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking "cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking").
 
 ###### Topics
 
-- [Setting up permissions for configuring metadata
-  tables](metadata-tables-permissions.md "metadata-tables-permissions.md")
-- [Creating metadata table
-  configurations](metadata-tables-create-configuration.md "metadata-tables-create-configuration.md")
+- [Setting up permissions for configuring metadata tables](metadata-tables-permissions.md "metadata-tables-permissions.md")
+- [Creating metadata table configurations](metadata-tables-create-configuration.md "metadata-tables-create-configuration.md")
 - [Controlling access to metadata tables](metadata-tables-access-control.md "metadata-tables-access-control.md")
 - [Expiring journal table records](metadata-tables-expire-journal-table-records.md "metadata-tables-expire-journal-table-records.md")
-- [Enabling or disabling live inventory
-  tables](metadata-tables-enable-disable-inventory-tables.md "metadata-tables-enable-disable-inventory-tables.md")
+- [Enabling or disabling live inventory tables](metadata-tables-enable-disable-inventory-tables.md "metadata-tables-enable-disable-inventory-tables.md")
 - [Viewing metadata table configurations](metadata-tables-view-configuration.md "metadata-tables-view-configuration.md")
-- [Deleting metadata table
-  configurations](metadata-tables-delete-configuration.md "metadata-tables-delete-configuration.md")
+- [Deleting metadata table configurations](metadata-tables-delete-configuration.md "metadata-tables-delete-configuration.md")
 - [Deleting metadata tables](metadata-tables-delete-table.md "metadata-tables-delete-table.md")

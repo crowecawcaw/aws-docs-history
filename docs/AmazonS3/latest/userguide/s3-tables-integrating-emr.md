@@ -17,9 +17,7 @@ AWS Glue Data Catalog, or you can use the open source Amazon S3 Tables Catalog f
 S3 Tables is supported on [Amazon EMR version 7.5](../../../emr/latest/ReleaseGuide/emr-release-components.md "../../../emr/latest/ReleaseGuide/emr-release-components.md")
 or higher.
 
-## Connecting to S3 table buckets with Spark on
-
-an Amazon EMR Iceberg cluster
+## Connecting to S3 table buckets with Spark on an Amazon EMR Iceberg cluster
 
 In this procedure, you set up an Amazon EMR cluster configured for Apache Iceberg and
 then launch a Spark session that connects to your table buckets. You can set this up

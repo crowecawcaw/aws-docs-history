@@ -8,18 +8,14 @@ return `REPLICA`.
 You can also use replication status values when you're creating S3 Batch Replication
 jobs. For example, you can use these status values to replicate objects that have either
 never been replicated or that have failed replication. For more information about using
-these values with Batch Replication, see [Using replication status
-information with Batch Replication jobs](#replication-status-batch-replication "#replication-status-batch-replication").
+these values with Batch Replication, see [Using replication status information with Batch Replication jobs](#replication-status-batch-replication "#replication-status-batch-replication").
 
 ###### Topics
 
 - [Replication status overview](#replication-status-overview "#replication-status-overview")
-- [Replication status if replicating to
-  multiple destination buckets](#replication-status-multiple-destinations "#replication-status-multiple-destinations")
-- [Replication status if
-  Amazon S3 replica modification sync is enabled](#replication-status-replica-mod-syn "#replication-status-replica-mod-syn")
-- [Using replication status
-  information with Batch Replication jobs](#replication-status-batch-replication "#replication-status-batch-replication")
+- [Replication status if replicating to multiple destination buckets](#replication-status-multiple-destinations "#replication-status-multiple-destinations")
+- [Replication status if Amazon S3 replica modification sync is enabled](#replication-status-replica-mod-syn "#replication-status-replica-mod-syn")
+- [Using replication status information with Batch Replication jobs](#replication-status-batch-replication "#replication-status-batch-replication")
 - [Finding replication status](#replication-status-usage "#replication-status-usage")
 
 ## Replication status overview
@@ -49,8 +45,7 @@ values for the object's replication status: `PENDING`,
 If object replication fails after you upload an object, you can't retry
 replication. You must upload the object again, or you must use
 S3 Batch Replication to replicate any failed objects. For more information
-about using Batch Replication, see [Replicating existing objects with
-Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
+about using Batch Replication, see [Replicating existing objects with Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
 
 Objects transition to a `FAILED` state for issues such as
 missing replication role permissions, AWS Key Management Service (AWS KMS) permissions, or
@@ -73,9 +68,7 @@ If an S3 Lifecycle configuration is enabled on the source bucket, Amazon S3 susp
 lifecycle actions until it marks the objects' status as either
 `COMPLETED` or `FAILED`.
 
-## Replication status if replicating to
-
-multiple destination buckets
+## Replication status if replicating to multiple destination buckets
 
 When you replicate objects to multiple destination buckets, the
 `x-amz-replication-status` header acts differently. The header of the
@@ -84,9 +77,7 @@ successful to all destinations. The header remains at the `PENDING` value
 until replication has completed for all destinations. If one or more destinations fail
 replication, the header returns `FAILED`.
 
-## Replication status if
-
-Amazon S3 replica modification sync is enabled
+## Replication status if Amazon S3 replica modification sync is enabled
 
 When your replication rules enable Amazon S3 replica modification sync, replicas can report
 statuses other than `REPLICA`. If metadata changes are in the process of
@@ -95,9 +86,7 @@ replicating, the `x-amz-replication-status` header returns
 returns `FAILED`. If metadata is replicated correctly, the replicas return
 the header `REPLICA`.
 
-## Using replication status
-
-information with Batch Replication jobs
+## Using replication status information with Batch Replication jobs
 
 When creating a Batch Replication job, you can optionally specify additional filters,
 such as the object creation date and replication status, to reduce the scope of the

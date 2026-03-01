@@ -1,6 +1,4 @@
-# How Amazon S3 authorizes a
-
-request for a bucket operation
+# How Amazon S3 authorizes a request for a bucket operation
 
 When Amazon S3 receives a request for a bucket operation, Amazon S3 converts all the relevant
 permissions into a set of policies to evaluate at run time. Relevant permissions include
@@ -33,9 +31,7 @@ operation.
 ![Illustration that shows the context-based evaluation for bucket operation.](images/AccessControlAuthorizationFlowBucketResource.png)
 The following examples illustrate the evaluation logic.
 
-## Example 1: Bucket operation requested
-
-by bucket owner
+## Example 1: Bucket operation requested by bucket owner
 
 In this example, the bucket owner sends a request for a bucket operation by using
 the root credentials of the AWS account.
@@ -50,9 +46,7 @@ Amazon S3 performs the context evaluation as follows:
    requester has permission to perform the operation. Amazon S3 authorizes the
    request.
 
-## Example 2: Bucket operation requested
-
-by an AWS account that is not the bucket owner
+## Example 2: Bucket operation requested by an AWS account that is not the bucket owner
 
 In this example, a request is made by using the root user credentials of
 AWS account 1111-1111-1111 for a bucket operation owned by AWS account
@@ -69,10 +63,7 @@ In this example, Amazon S3 evaluates the context as follows:
    1111-1111-1111 to perform the requested operation, Amazon S3 denies the request.
    Otherwise, Amazon S3 grants the request and performs the operation.
 
-## Example 3: Bucket operation requested
-
-by an IAM principal whose parent AWS account is also the bucket
-owner
+## Example 3: Bucket operation requested by an IAM principal whose parent AWS account is also the bucket owner
 
 In the example, the request is sent by Jill, an IAM user in AWS account
 1111-1111-1111, which also owns the bucket.
@@ -91,9 +82,7 @@ also evaluates the bucket policy and bucket ACL in the same context because
 they belong to the same account. 2. Because Amazon S3 evaluated the bucket policy and bucket ACL as part of the
 user context, it does not evaluate the bucket context.
 
-## Example 4: Bucket operation requested
-
-by an IAM principal whose parent AWS account is not the bucket owner
+## Example 4: Bucket operation requested by an IAM principal whose parent AWS account is not the bucket owner
 
 In this example, the request is sent by Jill, an IAM user whose parent
 AWS account is 1111-1111-1111, but the bucket is owned by another AWS account,

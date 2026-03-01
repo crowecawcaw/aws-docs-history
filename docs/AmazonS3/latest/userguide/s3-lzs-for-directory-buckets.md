@@ -1,6 +1,4 @@
-# Concepts for directory buckets in
-
-Local Zones
+# Concepts for directory buckets in Local Zones
 
 Before creating a directory bucket in a Local Zone, you must have the Local Zone ID where you want to create a bucket. You can find all Local Zone information by using the
 [DescribeAvailabilityZones](../../../AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.md "../../../AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.md") API operation. This API operation lists information about Local Zones, including their Local Zone IDs, parent Region names, network border
@@ -31,5 +29,4 @@ of API operations by endpoint type, see [Directory bucket API operations](s3-exp
 
 To access directory buckets in Local Zones from your virtual private cloud (VPC), you can use gateway VPC
 endpoints. There is no additional charge for using gateway endpoints. To configure gateway
-VPC endpoints to access directory buckets and objects in Local Zones, see [Private connectivity from your
-VPC](connectivity-lz-directory-buckets.md "connectivity-lz-directory-buckets.md").
+VPC endpoints to access directory buckets and objects in Local Zones, see [Private connectivity from your VPC](connectivity-lz-directory-buckets.md "connectivity-lz-directory-buckets.md").

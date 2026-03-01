@@ -6,8 +6,7 @@ presigned URL uses security credentials to grant time-limited permission to down
 URL can be entered in a browser or used by a program to download the object. The credentials
 used by the presigned URL are those of the AWS user who generated the URL.
 
-For general information about presigned URLs, see [Download and upload objects with presigned
-URLs](using-presigned-url.md "using-presigned-url.md").
+For general information about presigned URLs, see [Download and upload objects with presigned URLs](using-presigned-url.md "using-presigned-url.md").
 
 You can create a presigned URL for sharing an object without writing any code by using the Amazon S3
 console, AWS Explorer for Visual Studio (Windows), or AWS Toolkit for Visual Studio Code. You can also generate a presigned URL programmatically

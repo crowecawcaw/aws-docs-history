@@ -37,8 +37,7 @@ You use session tokens with only Zonal (object-level) operations (except for
 `CopyObject` and `HeadBucket`) to distribute the latency that’s
 associated with authorization over a number of requests in a session. For Regional endpoint
 API operations (bucket-level operations), you use IAM authorization, which doesn’t involve
-managing a session. For more information, see [Authorizing Regional endpoint API operations with IAM](s3-express-security-iam.md "s3-express-security-iam.md") and [Authorizing Zonal endpoint API operations with
-CreateSession](s3-express-create-session.md "s3-express-create-session.md").
+managing a session. For more information, see [Authorizing Regional endpoint API operations with IAM](s3-express-security-iam.md "s3-express-security-iam.md") and [Authorizing Zonal endpoint API operations with CreateSession](s3-express-create-session.md "s3-express-create-session.md").
 
 ## How API operations are authenticated and authorized
 
@@ -82,5 +81,4 @@ Access to bucket-level actions can be granted only in IAM identity-based policie
 ###### Topics
 
 - [Authorizing Regional endpoint API operations with IAM](s3-express-security-iam.md "s3-express-security-iam.md")
-- [Authorizing Zonal endpoint API operations with
-  CreateSession](s3-express-create-session.md "s3-express-create-session.md")
+- [Authorizing Zonal endpoint API operations with CreateSession](s3-express-create-session.md "s3-express-create-session.md")

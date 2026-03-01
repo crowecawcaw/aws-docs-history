@@ -1,6 +1,4 @@
-# Managing AWS resource tags
-
-with S3 Storage Lens
+# Managing AWS resource tags with S3 Storage Lens
 
 Each Amazon S3 Storage Lens dashboard is counted as an AWS resource with its own Amazon
 Resource Name (ARN). Therefore, when you configure your Storage Lens dashboard, you can
@@ -41,10 +39,7 @@ Also, be aware of the following limitations:
 
 ###### Topics
 
-- [Add AWS resource tags to a Storage Lens
-  dashboard](storage-lens-add-tags.md "storage-lens-add-tags.md")
-- [Retrieve AWS resource tags for a Storage Lens
-  dashboard](storage-lens-get-tags.md "storage-lens-get-tags.md")
+- [Add AWS resource tags to a Storage Lens dashboard](storage-lens-add-tags.md "storage-lens-add-tags.md")
+- [Retrieve AWS resource tags for a Storage Lens dashboard](storage-lens-get-tags.md "storage-lens-get-tags.md")
 - [Updating Storage Lens dashboard tags](storage-lens-update-tags.md "storage-lens-update-tags.md")
-- [Deleting AWS resource tags from
-  a S3 Storage Lens dashboard](storage-lens-dashboard-delete-tags.md "storage-lens-dashboard-delete-tags.md")
+- [Deleting AWS resource tags from a S3 Storage Lens dashboard](storage-lens-dashboard-delete-tags.md "storage-lens-dashboard-delete-tags.md")

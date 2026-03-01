@@ -1,6 +1,4 @@
-# Using an AWS KMS key to encrypt your
-
-metrics exports
+# Using an AWS KMS key to encrypt your metrics exports
 
 To grant Amazon S3 Storage Lens permission to encrypt your metrics exports by using a customer managed key,
 you must use a key policy. To update your key policy so that you can use a KMS key to
@@ -54,9 +52,7 @@ placeholders` with your information.
   You can also use the AWS KMS `PUT` key policy API operation ([PutKeyPolicy](../../../kms/latest/APIReference/API_PutKeyPolicy.md "../../../kms/latest/APIReference/API_PutKeyPolicy.md")) to copy the key policy to the customer managed keys that you want
   to use to encrypt the metrics exports by using the REST API, AWS CLI, and SDKs.
 
-## Additional permissions for S3 table
-
-bucket exports
+## Additional permissions for S3 table bucket exports
 
 All data in S3 tables including S3 Storage Lens metrics are encrypted with SSE-S3 encryption by
 default. You can choose to encrypt your Storage Lens metrics report with AWS KMS keys

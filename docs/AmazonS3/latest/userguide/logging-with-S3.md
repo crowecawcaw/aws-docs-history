@@ -37,8 +37,7 @@ information about each option, see the following sections:
 
 1. CloudTrail does not deliver logs for requests that fail authentication (in which the provided credentials are not valid) or that fail due to redirection (error code `301 Moved Permanently`). However, it does include logs for requests in which authorization fails (`AccessDenied`) and requests that are made by anonymous users.
 2. The S3 bucket owner receives CloudTrail logs when the account does not have full
-   access to the object in the request. For more information, see [Amazon S3 object-level actions
-   in cross-account scenarios](cloudtrail-logging-s3-info.md#cloudtrail-object-level-crossaccount "cloudtrail-logging-s3-info.md#cloudtrail-object-level-crossaccount").
+   access to the object in the request. For more information, see [Amazon S3 object-level actions in cross-account scenarios](cloudtrail-logging-s3-info.md#cloudtrail-object-level-crossaccount "cloudtrail-logging-s3-info.md#cloudtrail-object-level-crossaccount").
 3. S3 does not support delivery of CloudTrail logs or server access logs to the requester
    or the bucket owner for VPC endpoint requests when the VPC endpoint policy denies
    them or for requests that fail before the VPC policy is evaluated.

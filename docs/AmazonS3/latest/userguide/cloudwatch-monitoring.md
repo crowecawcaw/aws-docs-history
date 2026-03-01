@@ -53,9 +53,7 @@ AWS Region, and the total number of operations that failed replication.
 Replication rules that have S3 Replication Time Control (S3 RTC) or S3 Replication metrics enabled will
 publish replication metrics.
 
-For more information, see [Monitoring replication with metrics, event notifications,
-and statuses](replication-metrics.md "replication-metrics.md") or [Meeting compliance requirements with
-S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
+For more information, see [Monitoring replication with metrics, event notifications, and statuses](replication-metrics.md "replication-metrics.md") or [Meeting compliance requirements with S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
 
 **Amazon S3 Storage Lens metrics**
 
@@ -66,8 +64,7 @@ available for S3 Storage Lens dashboards upgraded to _advanced
 metrics and recommendations_. You can enable the CloudWatch publishing
 option for a new or existing dashboard configuration in S3 Storage Lens.
 
-For more information, see [Monitor S3 Storage Lens metrics in
-CloudWatch](storage_lens_view_metrics_cloudwatch.md "storage_lens_view_metrics_cloudwatch.md").
+For more information, see [Monitor S3 Storage Lens metrics in CloudWatch](storage_lens_view_metrics_cloudwatch.md "storage_lens_view_metrics_cloudwatch.md").
 
 All CloudWatch statistics are retained for a period of 15 months so that you can access
 historical information and gain a better perspective on how your web application or

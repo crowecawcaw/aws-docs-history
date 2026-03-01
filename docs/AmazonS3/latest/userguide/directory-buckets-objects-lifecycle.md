@@ -1,6 +1,4 @@
-# Working with S3 Lifecycle for
-
-directory buckets
+# Working with S3 Lifecycle for directory buckets
 
 S3 Lifecycle helps you store objects in S3 Express One Zone in directory buckets cost
 effectively by deleting expired objects on your behalf. To manage the lifecycle of your

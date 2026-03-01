@@ -9,9 +9,7 @@ recorded in a CloudTrail event. You can use AWS CloudTrail trail to log manageme
 and data events for directory buckets. For more information, see [Amazon S3 CloudTrail events](cloudtrail-logging-s3-info.md "cloudtrail-logging-s3-info.md") and [What is AWS CloudTrail?](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") in the _AWS CloudTrail User
 Guide_.
 
-## CloudTrail management events for directory
-
-buckets
+## CloudTrail management events for directory buckets
 
 By default, CloudTrail logs bucket-level actions for directory buckets as management
 events. The `eventsource` for CloudTrail management events for directory buckets is `s3express.amazonaws.com`.
@@ -40,9 +38,7 @@ Storage Service API Reference_.
 For more information on CloudTrail management events, see [Logging management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md") in the _AWS CloudTrail User
 Guide._
 
-## CloudTrail data events for directory
-
-buckets
+## CloudTrail data events for directory buckets
 
 Data events provide information about the resource operations performed on or in a
 resource (for example, reading or writing to an Amazon S3 object). These are also known

@@ -23,9 +23,7 @@ The following table compares AWS managed table buckets with customer-managed tab
 | **Encryption**        | You can change the default encryption (SSE-S3) settings only if you encrypted<br>the initial table with a customer managed AWS Key Management Service (AWS KMS) key | You can set bucket-level default encryption and modify it anytime |
 | **Maintenance**       | Managed by AWS services                                                                                                                                             | You can customize automated maintenance at the bucket level       |
 
-## Permissions to work with AWS managed table buckets and to query
-
-tables
+## Permissions to work with AWS managed table buckets and to query tables
 
 To work with AWS managed table buckets, you need permissions to create AWS managed table buckets and
 tables and to specify encryption settings for AWS managed tables. You also need permissions to query

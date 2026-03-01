@@ -1,13 +1,10 @@
-# Creating a CloudWatch metrics
-
-configuration for all the objects in your bucket
+# Creating a CloudWatch metrics configuration for all the objects in your bucket
 
 When you configure request metrics, you can create a CloudWatch metrics configuration
 for all the objects in your bucket, or you can filter by prefix, object tag, or
 access point. The procedures in this topic show you how to create a configuration
 for all the objects in your bucket. To create a configuration that filters by object
-tag, prefix, or access point, see [Creating a metrics configuration
-that filters by prefix, object tag, or access point](metrics-configurations-filter.md "metrics-configurations-filter.md").
+tag, prefix, or access point, see [Creating a metrics configuration that filters by prefix, object tag, or access point](metrics-configurations-filter.md "metrics-configurations-filter.md").
 
 There are three types of Amazon CloudWatch metrics for Amazon S3: storage metrics, request
 metrics, and replication metrics. Storage metrics are reported once per day and are
@@ -38,8 +35,7 @@ using the name `EntireBucket` for a filter that applies to all objects. 9. Under
 objects in the bucket**.
 
 You can also define a filter so that the metrics are only collected and reported on a
-subset of objects in the bucket. For more information, see [Creating a metrics configuration
-that filters by prefix, object tag, or access point](metrics-configurations-filter.md "metrics-configurations-filter.md"). 10. Choose **Save changes**. 11. On the **Request metrics** tab, under **Filters**, choose the filter that you just created.
+subset of objects in the bucket. For more information, see [Creating a metrics configuration that filters by prefix, object tag, or access point](metrics-configurations-filter.md "metrics-configurations-filter.md"). 10. Choose **Save changes**. 11. On the **Request metrics** tab, under **Filters**, choose the filter that you just created.
 
 After about 15 minutes, CloudWatch begins tracking these request metrics. You can see them on the **Request metrics** tab. You can see
 graphs for the metrics on the Amazon S3 or CloudWatch console. Request metrics are billed at the

@@ -41,18 +41,13 @@ AWS SDKs, or the Amazon S3 REST API.
 
 ###### Topics
 
-- [Viewing Storage Lens group aggregated
-  metrics](#storage-lens-group-aggregation "#storage-lens-group-aggregation")
+- [Viewing Storage Lens group aggregated metrics](#storage-lens-group-aggregation "#storage-lens-group-aggregation")
 - [Storage Lens groups permissions](#storage-lens-group-permissions "#storage-lens-group-permissions")
-- [Storage Lens groups
-  configuration](#storage-lens-groups-configuration "#storage-lens-groups-configuration")
+- [Storage Lens groups configuration](#storage-lens-groups-configuration "#storage-lens-groups-configuration")
 - [AWS resource tags](#storage-lens-group-resource-tags "#storage-lens-group-resource-tags")
-- [Storage Lens groups metrics
-  export](#storage-lens-groups-metrics-export "#storage-lens-groups-metrics-export")
+- [Storage Lens groups metrics export](#storage-lens-groups-metrics-export "#storage-lens-groups-metrics-export")
 
-## Viewing Storage Lens group aggregated
-
-metrics
+## Viewing Storage Lens group aggregated metrics
 
 You can view the aggregated metrics for your Storage Lens groups by attaching the
 groups to a dashboard. The Storage Lens groups that you want to attach must reside
@@ -63,8 +58,7 @@ To attach a Storage Lens group to a dashboard, you must specify the group in the
 configuration. If you have several Storage Lens groups, you can filter the
 **Storage Lens group aggregation** results to include or exclude
 only the groups that you want. For more information about attaching groups to your
-dashboards, see [Attaching or removing S3 Storage Lens groups
-to or from your dashboard](storage-lens-groups-dashboard-console.md "storage-lens-groups-dashboard-console.md").
+dashboards, see [Attaching or removing S3 Storage Lens groups to or from your dashboard](storage-lens-groups-dashboard-console.md "storage-lens-groups-dashboard-console.md").
 
 After you've attached your groups, you will see the additional Storage Lens group
 aggregation data in your dashboard within 48 hours.
@@ -139,9 +133,7 @@ replace `example-storage-lens-group` with an
 
 For more information about S3 Storage Lens permissions, see [Setting Amazon S3 Storage Lens permissions](storage_lens_iam_permissions.md "storage_lens_iam_permissions.md"). For more information about IAM policy language, see [Policies and permissions in Amazon S3](access-policy-language-overview.md "access-policy-language-overview.md").
 
-## Storage Lens groups
-
-configuration
+## Storage Lens groups configuration
 
 ### S3 Storage Lens group name
 
@@ -206,9 +198,7 @@ You can use the following filters in an S3 Storage Lens group:
   included objects in bytes. Only integers are supported. The maximum
   allowable value is 50 TB.
 
-### Storage Lens group object
-
-tags
+### Storage Lens group object tags
 
 You can [create a Storage Lens group](storage-lens-groups-create.md "storage-lens-groups-create.md") that includes up to 10 object tag filters. The
 following example includes two object tag key-value pairs as filters for a Storage
@@ -237,9 +227,7 @@ the object tag key-value pairs that you want to filter on.
 }
 ```
 
-### Logical operators
-
-(`And` or `Or`)
+### Logical operators (`And` or `Or`)
 
 To include multiple filter conditions in your Storage Lens group, you can use
 logical operators (either `And` or `Or`). In the following
@@ -317,14 +305,11 @@ Also, be aware of the following limitations:
 - The length of each tag key can't exceed 128 characters. The length of each tag
   value can't exceed 256 characters.
 
-## Storage Lens groups metrics
-
-export
+## Storage Lens groups metrics export
 
 S3 Storage Lens group metrics are included in the [Amazon S3 Storage Lens metrics export](storage_lens_understanding_metrics_export_schema.md "storage_lens_understanding_metrics_export_schema.md") for the dashboard that the Storage Lens group
 is attached to. For general information about the Storage Lens metrics export feature,
-see [Viewing Amazon S3 Storage Lens metrics using a data
-export](storage_lens_view_metrics_export.md "storage_lens_view_metrics_export.md").
+see [Viewing Amazon S3 Storage Lens metrics using a data export](storage_lens_view_metrics_export.md "storage_lens_view_metrics_export.md").
 
 Your metrics export for Storage Lens groups includes any S3 Storage Lens metrics that are in
 scope for the dashboard that you attached the Storage Lens group to. The export also

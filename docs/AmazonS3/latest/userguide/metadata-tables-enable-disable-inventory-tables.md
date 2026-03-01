@@ -1,6 +1,4 @@
-# Enabling or disabling live inventory
-
-tables
+# Enabling or disabling live inventory tables
 
 By default, your metadata table configuration contains a _journal
 table_, which records the events that occur for the objects in your bucket. The journal
@@ -14,8 +12,7 @@ and their versions in your bucket so that you can determine the latest state of 
 
 If you created your S3 Metadata configuration before July 15, 2025, you can't enable an inventory
 table on that configuration. We recommend that you delete and re-create your configuration so that you
-can create an inventory table and expire journal table records. For more information, see [Enabling inventory tables on metadata configurations
-created before July 15, 2025](metadata-tables-create-configuration.md#metadata-tables-migration "metadata-tables-create-configuration.md#metadata-tables-migration").
+can create an inventory table and expire journal table records. For more information, see [Enabling inventory tables on metadata configurations created before July 15, 2025](metadata-tables-create-configuration.md#metadata-tables-migration "metadata-tables-create-configuration.md#metadata-tables-migration").
 
 The inventory table contains the latest metadata for all objects in your bucket. You can use this
 table to simplify and speed up business workflows and big data jobs by identifying objects that you want
@@ -61,9 +58,7 @@ inventory table, see [Delete a metadata table](metadata-tables-delete-table.md#d
 When you re-enable the inventory table configuration, Amazon S3 creates a new inventory table, and you're
 charged again for backfilling the new inventory table.
 
-## Enable or disable
-
-inventory tables
+## Enable or disable inventory tables
 
 ###### To enable or disable inventory tables
 

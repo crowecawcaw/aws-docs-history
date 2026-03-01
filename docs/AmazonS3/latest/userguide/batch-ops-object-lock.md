@@ -1,6 +1,4 @@
-# Enabling S3 Object Lock using
-
-S3 Batch Operations
+# Enabling S3 Object Lock using S3 Batch Operations
 
 You can use Amazon S3 Batch Operations with S3 Object Lock to manage retention or enable
 a legal hold for many Amazon S3 objects at once. You specify the list of target objects in

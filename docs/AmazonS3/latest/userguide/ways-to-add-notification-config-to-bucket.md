@@ -1,6 +1,4 @@
-# Walkthrough: Configuring a
-
-bucket for notifications (SNS topic or SQS queue)
+# Walkthrough: Configuring a bucket for notifications (SNS topic or SQS queue)
 
 You can receive Amazon S3 notifications using Amazon Simple Notification Service (Amazon SNS) or Amazon Simple Queue Service (Amazon SQS). In
 this walkthrough, you add a notification configuration to your bucket using an Amazon SNS
@@ -15,12 +13,9 @@ FIFO queue, you can use Amazon EventBridge. For more information, see [Enabling 
 ###### Topics
 
 - [Walkthrough summary](#notification-walkthrough-summary "#notification-walkthrough-summary")
-- [Step 1: Create an Amazon SQS
-  queue](#step1-create-sqs-queue-for-notification "#step1-create-sqs-queue-for-notification")
-- [Step 2: Create an Amazon SNS
-  topic](#step1-create-sns-topic-for-notification "#step1-create-sns-topic-for-notification")
-- [Step 3: Add a notification configuration
-  to your bucket](#step2-enable-notification "#step2-enable-notification")
+- [Step 1: Create an Amazon SQS queue](#step1-create-sqs-queue-for-notification "#step1-create-sqs-queue-for-notification")
+- [Step 2: Create an Amazon SNS topic](#step1-create-sns-topic-for-notification "#step1-create-sns-topic-for-notification")
+- [Step 3: Add a notification configuration to your bucket](#step2-enable-notification "#step2-enable-notification")
 - [Step 4: Test the setup](#notification-walkthrough-1-test "#notification-walkthrough-1-test")
 
 ## Walkthrough summary
@@ -58,9 +53,7 @@ subscription.
 You attach an access policy to the topic to grant Amazon S3 permission to post
 messages. 3. Add notification configuration to a bucket.
 
-## Step 1: Create an Amazon SQS
-
-queue
+## Step 1: Create an Amazon SQS queue
 
 Follow the steps to create and subscribe to an Amazon Simple Queue Service (Amazon SQS) queue.
 
@@ -157,9 +150,7 @@ next step. The ARN is of the following format:
 arn:aws:sqs:`aws-region`:`account-id`:`queue-name`
 ```
 
-## Step 2: Create an Amazon SNS
-
-topic
+## Step 2: Create an Amazon SNS topic
 
 Follow the steps to create and subscribe to an Amazon SNS topic.
 
@@ -182,18 +173,14 @@ be of the following format:
 arn:aws:sns:`aws-region`:`account-id`:`topic-name`
 ```
 
-## Step 3: Add a notification configuration
-
-to your bucket
+## Step 3: Add a notification configuration to your bucket
 
 You can enable bucket notifications either by using the Amazon S3 console or
 programmatically by using AWS SDKs. Choose any one of the options to configure
 notifications on your bucket. This section provides code examples using the AWS
 SDKs for Java and .NET.
 
-### Option A: Enable
-
-notifications on a bucket using the console
+### Option A: Enable notifications on a bucket using the console
 
 Using the Amazon S3 console, add a notification configuration requesting Amazon S3 to do
 the following:
@@ -208,9 +195,7 @@ which you get via email.
 
 For instructions, see [Enabling and configuring event notifications using the Amazon S3 console](enable-event-notifications.md "enable-event-notifications.md").
 
-### Option B: Enable
-
-notifications on a bucket using the AWS SDKs
+### Option B: Enable notifications on a bucket using the AWS SDKs
 
 .NET
 The following C# code example provides a complete code listing

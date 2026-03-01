@@ -10,8 +10,7 @@ track job failures, and generate completion reports.
 - [Notifications and logging](#batch-ops-notifications "#batch-ops-notifications")
 - [Tracking job failures](#batch-ops-job-status-failure "#batch-ops-job-status-failure")
 - [Completion reports](#batch-ops-completion-report "#batch-ops-completion-report")
-- [Examples: Tracking an
-  S3 Batch Operations job in Amazon EventBridge through AWS CloudTrail](batch-ops-examples-event-bridge-cloud-trail.md "batch-ops-examples-event-bridge-cloud-trail.md")
+- [Examples: Tracking an S3 Batch Operations job in Amazon EventBridge through AWS CloudTrail](batch-ops-examples-event-bridge-cloud-trail.md "batch-ops-examples-event-bridge-cloud-trail.md")
 - [Examples: S3 Batch Operations completion reports](batch-ops-examples-reports.md "batch-ops-examples-reports.md")
 
 ## Job statuses
@@ -38,8 +37,7 @@ table describes the statuses and possible transitions between them.
 ## Updating job status
 
 The following AWS CLI and AWS SDK for Java examples update the status of a Batch Operations job. For
-more information about using the Amazon S3 console to manage Batch Operations jobs, see [Using the Amazon S3 console to manage your
-S3 Batch Operations jobs](batch-ops-managing-jobs.md#batch-ops-manage-console "batch-ops-managing-jobs.md#batch-ops-manage-console").
+more information about using the Amazon S3 console to manage Batch Operations jobs, see [Using the Amazon S3 console to manage your S3 Batch Operations jobs](batch-ops-managing-jobs.md#batch-ops-manage-console "batch-ops-managing-jobs.md#batch-ops-manage-console").
 
 To use the following example commands, replace the `user input
  placeholders` with your own information.
@@ -136,6 +134,5 @@ its tasks by using CloudTrail and Amazon CloudWatch. For more information, see t
 
 ###### Topics
 
-- [Examples: Tracking an
-  S3 Batch Operations job in Amazon EventBridge through AWS CloudTrail](batch-ops-examples-event-bridge-cloud-trail.md "batch-ops-examples-event-bridge-cloud-trail.md")
+- [Examples: Tracking an S3 Batch Operations job in Amazon EventBridge through AWS CloudTrail](batch-ops-examples-event-bridge-cloud-trail.md "batch-ops-examples-event-bridge-cloud-trail.md")
 - [Examples: S3 Batch Operations completion reports](batch-ops-examples-reports.md "batch-ops-examples-reports.md")

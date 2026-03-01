@@ -1,6 +1,4 @@
-# Blocking public access to your Amazon S3
-
-storage
+# Blocking public access to your Amazon S3 storage
 
 The Amazon S3 Block Public Access feature provides settings for access points, buckets, accounts, and
 AWS Organizations to help you manage public access to Amazon S3 resources. By default, new buckets, access points,
@@ -15,8 +13,7 @@ that are enforced regardless of how the resources are created.
 
 You can manage Block Public Access settings at multiple levels: organization level (using
 AWS Organizations), account level, and bucket and access point level. For instructions on configuring public
-block access, see [Configuring block public
-access](#configuring-block-public-access "#configuring-block-public-access").
+block access, see [Configuring block public access](#configuring-block-public-access "#configuring-block-public-access").
 
 When Amazon S3 receives a request to access a bucket or an object, it determines whether the
 bucket or the bucket owner's account has a block public access setting applied. If the
@@ -87,21 +84,14 @@ access:
 ###### Topics
 
 - [Block public access settings](#access-control-block-public-access-options "#access-control-block-public-access-options")
-- [Managing block public
-  access at organization level](#access-control-block-public-access-organization-level "#access-control-block-public-access-organization-level")
-- [Performing
-  block public access operations on an access point](#access-control-block-public-access-examples-access-point "#access-control-block-public-access-examples-access-point")
-- [The meaning of
-  "public"](#access-control-block-public-access-policy-status "#access-control-block-public-access-policy-status")
-- [Using IAM Access Analyzer for S3 to review public
-  buckets](#access-analyzer-public-info "#access-analyzer-public-info")
+- [Managing block public access at organization level](#access-control-block-public-access-organization-level "#access-control-block-public-access-organization-level")
+- [Performing block public access operations on an access point](#access-control-block-public-access-examples-access-point "#access-control-block-public-access-examples-access-point")
+- [The meaning of "public"](#access-control-block-public-access-policy-status "#access-control-block-public-access-policy-status")
+- [Using IAM Access Analyzer for S3 to review public buckets](#access-analyzer-public-info "#access-analyzer-public-info")
 - [Permissions](#access-control-block-public-access-permissions "#access-control-block-public-access-permissions")
-- [Configuring block public
-  access](#configuring-block-public-access "#configuring-block-public-access")
-- [Configuring block public
-  access settings for your account](configuring-block-public-access-account.md "configuring-block-public-access-account.md")
-- [Configuring block public access
-  settings for your S3 buckets](configuring-block-public-access-bucket.md "configuring-block-public-access-bucket.md")
+- [Configuring block public access](#configuring-block-public-access "#configuring-block-public-access")
+- [Configuring block public access settings for your account](configuring-block-public-access-account.md "configuring-block-public-access-account.md")
+- [Configuring block public access settings for your S3 buckets](configuring-block-public-access-bucket.md "configuring-block-public-access-bucket.md")
 
 ## Block public access settings
 
@@ -150,9 +140,7 @@ The following table contains the available settings.
   Therefore, removing a block public access setting causes a bucket or object
   with a public policy or ACL to again be publicly accessible.
 
-## Managing block public
-
-access at organization level
+## Managing block public access at organization level
 
 Organization-level block public access uses AWS Organizations policies to centrally manage S3 public
 access controls across your entire organization. When enabled, these policies
@@ -162,9 +150,7 @@ settings.
 For additional information on block public access at an organization level, see [S3 policy](../../../organizations/latest/userguide/orgs_manage_policies_s3.md "../../../organizations/latest/userguide/orgs_manage_policies_s3.md") in the _AWS Organizations user
 guide_.
 
-## Performing
-
-block public access operations on an access point
+## Performing block public access operations on an access point
 
 To perform block public access operations on an access point, use the AWS CLI service
 `s3control`.
@@ -175,17 +161,14 @@ You can't change an access point's block public access settings after creating t
 You can specify block public access settings for an access point only when creating the
 access point.
 
-## The meaning of
-
-"public"
+## The meaning of "public"
 
 ### ACLs
 
 Amazon S3 considers a bucket or object ACL public if it grants any
 permissions to members of the predefined `AllUsers` or
 `AuthenticatedUsers` groups. For more information
-about predefined groups, see [Amazon S3 predefined
-groups](acl-overview.md#specifying-grantee-predefined-groups "acl-overview.md#specifying-grantee-predefined-groups").
+about predefined groups, see [Amazon S3 predefined groups](acl-overview.md#specifying-grantee-predefined-groups "acl-overview.md#specifying-grantee-predefined-groups").
 
 ### Bucket policies
 
@@ -279,9 +262,7 @@ following.
 	}
 ```
 
-### How Amazon S3 evaluates a bucket
-
-policy that contains both public and non-public access grants
+### How Amazon S3 evaluates a bucket policy that contains both public and non-public access grants
 
 This example shows how Amazon S3 evaluates a bucket policy that contains both
 public and non-public access grants.
@@ -333,9 +314,7 @@ situations:
   considered public. However, the same statement in an access point policy would
   render the access point public.
 
-## Using IAM Access Analyzer for S3 to review public
-
-buckets
+## Using IAM Access Analyzer for S3 to review public buckets
 
 You can use IAM Access Analyzer for S3 to review buckets with bucket ACLs, bucket policies, or access point
 policies that grant public access. IAM Access Analyzer for S3 alerts you to buckets that are configured
@@ -384,16 +363,11 @@ The `DELETE` operations require the same permissions as the `PUT`
 operations. There are no separate permissions for the `DELETE`
 operations.
 
-## Configuring block public
-
-access
+## Configuring block public access
 
 For more information about configuring block public access for your AWS account, your Amazon S3
 buckets, and your access points, see the following topics:
 
-- [Configuring block public
-  access settings for your account](configuring-block-public-access-account.md "configuring-block-public-access-account.md")
-- [Configuring block public access
-  settings for your S3 buckets](configuring-block-public-access-bucket.md "configuring-block-public-access-bucket.md")
-- [Performing
-  block public access operations on an access point](#access-control-block-public-access-examples-access-point "#access-control-block-public-access-examples-access-point")
+- [Configuring block public access settings for your account](configuring-block-public-access-account.md "configuring-block-public-access-account.md")
+- [Configuring block public access settings for your S3 buckets](configuring-block-public-access-bucket.md "configuring-block-public-access-bucket.md")
+- [Performing block public access operations on an access point](#access-control-block-public-access-examples-access-point "#access-control-block-public-access-examples-access-point")

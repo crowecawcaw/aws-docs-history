@@ -1,6 +1,4 @@
-# How S3 Lifecycle interacts with other
-
-bucket configurations
+# How S3 Lifecycle interacts with other bucket configurations
 
 In addition to S3 Lifecycle configurations, you can associate other configurations with
 your bucket. This section explains how S3 Lifecycle configuration relates to other bucket
@@ -28,19 +26,14 @@ Amazon S3 follows these general rules:
 - When an object is eligible for both a S3 Glacier Flexible Retrieval and
   S3 Standard-IA (or S3 One Zone-IA) transition, Amazon S3 chooses the
   S3 Glacier Flexible Retrieval transition.
-  For examples, see [Examples of overlapping filters and
-  conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
+  For examples, see [Examples of overlapping filters and conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
 
-## S3 Lifecycle
-
-configuration on MFA-enabled buckets
+## S3 Lifecycle configuration on MFA-enabled buckets
 
 S3 Lifecycle configuration on multi-factor authentication buckets configured for MFA delete
 isn't supported. For more information, see [Configuring MFA delete](MultiFactorAuthenticationDelete.md "MultiFactorAuthenticationDelete.md").
 
-## S3 Lifecycle and
-
-logging
+## S3 Lifecycle and logging
 
 Amazon S3 Lifecycle actions aren't captured by AWS CloudTrail object level logging. CloudTrail
 captures API requests made to external Amazon S3 endpoints, whereas S3 Lifecycle actions

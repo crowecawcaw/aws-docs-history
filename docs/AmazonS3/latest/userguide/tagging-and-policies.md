@@ -106,9 +106,7 @@ JSON
 
 ```
 
-###### Example 3: Require a specific tag key and value
-
-when allowing users to add object tags
+###### Example 3: Require a specific tag key and value when allowing users to add object tags
 
 The following example policy grants a user permission to perform the
 `s3:PutObjectTagging` action, which allows a user to add tags to an existing

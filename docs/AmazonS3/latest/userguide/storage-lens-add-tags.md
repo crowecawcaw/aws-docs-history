@@ -1,6 +1,4 @@
-# Add AWS resource tags to a Storage Lens
-
-dashboard
+# Add AWS resource tags to a Storage Lens dashboard
 
 The following examples demonstrate how to add AWS resource tags to an S3 Storage Lens
 dashboard. You can add resource tags by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and

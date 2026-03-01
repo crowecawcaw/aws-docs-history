@@ -13,8 +13,7 @@ In this section, the topics explain how to use access points for directory bucke
 
 ###### Topics
 
-- [Access points for directory buckets naming rules, restrictions, and
-  limitations](access-points-directory-buckets-restrictions-limitations-naming-rules.md "access-points-directory-buckets-restrictions-limitations-naming-rules.md")
+- [Access points for directory buckets naming rules, restrictions, and limitations](access-points-directory-buckets-restrictions-limitations-naming-rules.md "access-points-directory-buckets-restrictions-limitations-naming-rules.md")
 - [Referencing access points for directory buckets](access-points-directory-buckets-naming.md "access-points-directory-buckets-naming.md")
 - [Object operations for access points for directory buckets](access-points-directory-buckets-service-api-support.md "access-points-directory-buckets-service-api-support.md")
 - [Configuring IAM policies for using access points for directory buckets](access-points-directory-buckets-policies.md "access-points-directory-buckets-policies.md")

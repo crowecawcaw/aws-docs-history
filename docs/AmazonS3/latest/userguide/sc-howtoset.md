@@ -125,16 +125,13 @@ aws s3 cp `object_S3_URI` `object_S3_URI` --storage-class `DEEP_ARCHIVE`
 
 ```
 
-## Restricting access policy permissions to a
-
-specific storage class
+## Restricting access policy permissions to a specific storage class
 
 When you grant access policy permissions for Amazon S3 operations, you can use the
 `s3:x-amz-storage-class` condition key to restrict which storage class to use
 when storing uploaded objects. For example, when you grant the `s3:PutObject`
 permission, you can restrict object uploads to a specific storage class. For an example
-policy, see [Example: Restricting object uploads to
-objects with a specific storage class](security_iam_service-with-iam.md#example-storage-class-condition-key "security_iam_service-with-iam.md#example-storage-class-condition-key").
+policy, see [Example: Restricting object uploads to objects with a specific storage class](security_iam_service-with-iam.md#example-storage-class-condition-key "security_iam_service-with-iam.md#example-storage-class-condition-key").
 
 For more information about using conditions in policies and a complete list of Amazon S3
 condition keys, see the following topics:

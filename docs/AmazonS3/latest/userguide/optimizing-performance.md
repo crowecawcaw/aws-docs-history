@@ -1,6 +1,4 @@
-# Best practices design patterns: optimizing Amazon S3
-
-performance
+# Best practices design patterns: optimizing Amazon S3 performance
 
 Your applications can easily achieve thousands of transactions per second in request
 performance when uploading and retrieving storage from Amazon S3. Amazon S3 automatically scales to high
@@ -30,8 +28,7 @@ single-digit millisecond latencies, use [Amazon CloudFront](../../../cloudfront/
 caching with Amazon S3.
 
 Additionally, if you want fast data transport over long distances between a client and an S3
-bucket, use [Configuring fast, secure file transfers using
-Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
+bucket, use [Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
 Transfer Acceleration uses the globally distributed edge locations in CloudFront to accelerate data
 transport over geographical distances. If your Amazon S3 workload uses server-side encryption with AWS KMS, see [AWS KMS Limits](../../../kms/latest/developerguide/limits.md "../../../kms/latest/developerguide/limits.md")
 in the AWS Key Management Service Developer Guide for information about the request rates supported for your use
@@ -39,8 +36,7 @@ case.
 
 The following topics describe best practice guidelines and design patterns for optimizing
 performance for applications that use Amazon S3.
-Refer to the [Performance guidelines for Amazon S3](optimizing-performance-guidelines.md "optimizing-performance-guidelines.md") and [Performance design patterns for
-Amazon S3](optimizing-performance-design-patterns.md "optimizing-performance-design-patterns.md") for the most current information
+Refer to the [Performance guidelines for Amazon S3](optimizing-performance-guidelines.md "optimizing-performance-guidelines.md") and [Performance design patterns for Amazon S3](optimizing-performance-design-patterns.md "optimizing-performance-design-patterns.md") for the most current information
 about performance optimization for Amazon S3.
 
 ###### Note

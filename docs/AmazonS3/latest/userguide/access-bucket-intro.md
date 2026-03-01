@@ -22,8 +22,7 @@ common use cases for accessing your data.
 - **Static websites** – You can use Amazon S3 to
   host a static website. In this use case, you can configure your S3 general purpose bucket to
   function like a website. For an example that walks you through the steps of
-  hosting a website on Amazon S3, see [Tutorial: Configuring a static website on
-  Amazon S3](HostingWebsiteOnS3Setup.md "HostingWebsiteOnS3Setup.md").
+  hosting a website on Amazon S3, see [Tutorial: Configuring a static website on Amazon S3](HostingWebsiteOnS3Setup.md "HostingWebsiteOnS3Setup.md").
 
 To host a static website with security settings like Block Public Access
 enabled, we recommend using Amazon CloudFront with Origin Access Control (OAC) and

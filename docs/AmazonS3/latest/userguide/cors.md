@@ -7,9 +7,7 @@ cross-origin access to your Amazon S3 resources.
 This section provides an overview of CORS. The subtopics describe how you can enable CORS
 using the Amazon S3 console, or programmatically by using the Amazon S3 REST API and the AWS SDKs.
 
-## Cross-origin resource sharing: Use-case
-
-scenarios
+## Cross-origin resource sharing: Use-case scenarios
 
 The following are example scenarios for using CORS.
 
@@ -36,9 +34,7 @@ from your S3 bucket. Again, browsers require a CORS check (also called a preflig
 for loading web fonts. You would configure the bucket that is hosting the web font to
 allow any origin to make these requests.
 
-## How does Amazon S3 evaluate the CORS configuration on a
-
-bucket?
+## How does Amazon S3 evaluate the CORS configuration on a bucket?
 
 When Amazon S3 receives a preflight request from a browser, it evaluates the CORS configuration
 for the bucket and uses the first `CORSRule` rule that matches the incoming browser

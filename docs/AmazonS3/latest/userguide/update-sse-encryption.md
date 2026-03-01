@@ -154,9 +154,7 @@ information, see [Update object encryption](batch-ops-update-encryption.md "batc
 You can update the server-side encryption type for an object through the AWS Command Line Interface (AWS CLI) AWS
 SDKs, or the Amazon S3 REST API.
 
-### Update encryption for an
-
-object
+### Update encryption for an object
 
 To run the following commands, you must have the AWS CLI installed and configured. If you don’t
 have the AWS CLI installed, see [Install or update to the latest version

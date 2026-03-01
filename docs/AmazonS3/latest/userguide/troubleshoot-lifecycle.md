@@ -5,30 +5,18 @@ rules.
 
 ###### Topics
 
-- [I ran a list operation on my bucket and saw
-  objects that I thought were expired or transitioned by a lifecycle rule.](#troubleshoot-lifecycle-1 "#troubleshoot-lifecycle-1")
-- [How do I monitor the actions taken by my
-  lifecycle rules?](#troubleshoot-lifecycle-2 "#troubleshoot-lifecycle-2")
-- [My S3 object count still increases, even
-  after setting up lifecycle rules on a versioning-enabled bucket.](#troubleshoot-lifecycle-3 "#troubleshoot-lifecycle-3")
-- [How do I empty my S3 bucket by using
-  lifecycle rules?](#troubleshoot-lifecycle-4 "#troubleshoot-lifecycle-4")
-- [My Amazon S3 bill increased after transitioning
-  objects to a lower-cost storage class.](#troubleshoot-lifecycle-5 "#troubleshoot-lifecycle-5")
-- [I’ve updated my bucket policy, but my S3
-  objects are still being deleted by expired lifecycle rules.](#troubleshoot-lifecycle-6 "#troubleshoot-lifecycle-6")
-- [Can I recover S3 objects that are expired by
-  S3 Lifecycle rules?](#troubleshoot-lifecycle-7 "#troubleshoot-lifecycle-7")
-- [Why are my expiration and transition lifecycle actions
-  not occurring?](#troubleshoot-lifecycle-failures "#troubleshoot-lifecycle-failures")
-- [How can I exclude a prefix from my lifecycle
-  rule?](#troubleshoot-lifecycle-8 "#troubleshoot-lifecycle-8")
-- [How can I include multiple prefixes in my
-  lifecycle rule?](#troubleshoot-lifecycle-9 "#troubleshoot-lifecycle-9")
+- [I ran a list operation on my bucket and saw objects that I thought were expired or transitioned by a lifecycle rule.](#troubleshoot-lifecycle-1 "#troubleshoot-lifecycle-1")
+- [How do I monitor the actions taken by my lifecycle rules?](#troubleshoot-lifecycle-2 "#troubleshoot-lifecycle-2")
+- [My S3 object count still increases, even after setting up lifecycle rules on a versioning-enabled bucket.](#troubleshoot-lifecycle-3 "#troubleshoot-lifecycle-3")
+- [How do I empty my S3 bucket by using lifecycle rules?](#troubleshoot-lifecycle-4 "#troubleshoot-lifecycle-4")
+- [My Amazon S3 bill increased after transitioning objects to a lower-cost storage class.](#troubleshoot-lifecycle-5 "#troubleshoot-lifecycle-5")
+- [I’ve updated my bucket policy, but my S3 objects are still being deleted by expired lifecycle rules.](#troubleshoot-lifecycle-6 "#troubleshoot-lifecycle-6")
+- [Can I recover S3 objects that are expired by S3 Lifecycle rules?](#troubleshoot-lifecycle-7 "#troubleshoot-lifecycle-7")
+- [Why are my expiration and transition lifecycle actions not occurring?](#troubleshoot-lifecycle-failures "#troubleshoot-lifecycle-failures")
+- [How can I exclude a prefix from my lifecycle rule?](#troubleshoot-lifecycle-8 "#troubleshoot-lifecycle-8")
+- [How can I include multiple prefixes in my lifecycle rule?](#troubleshoot-lifecycle-9 "#troubleshoot-lifecycle-9")
 
-## I ran a list operation on my bucket and saw
-
-objects that I thought were expired or transitioned by a lifecycle rule.
+## I ran a list operation on my bucket and saw objects that I thought were expired or transitioned by a lifecycle rule.
 
 S3 Lifecycle [object transitions](lifecycle-transition-general-considerations.md "lifecycle-transition-general-considerations.md") and [object
 expirations](lifecycle-expire-general-considerations.md "lifecycle-expire-general-considerations.md") are asynchronous operations. Therefore, there might be a delay
@@ -46,9 +34,7 @@ Amazon S3 doesn’t transition objects that are smaller than 128 KB from the S3 
 or S3 Standard-IA storage class to the S3 Intelligent-Tiering, S3 Standard-IA, or
 S3 One Zone-IA storage class.
 
-## How do I monitor the actions taken by my
-
-lifecycle rules?
+## How do I monitor the actions taken by my lifecycle rules?
 
 To monitor actions taken by lifecycle rules, you can use the following features:
 
@@ -75,9 +61,7 @@ size:
 - **Incomplete multipart upload bytes**
 - **Incomplete multipart upload object count**
 
-## My S3 object count still increases, even
-
-after setting up lifecycle rules on a versioning-enabled bucket.
+## My S3 object count still increases, even after setting up lifecycle rules on a versioning-enabled bucket.
 
 In a [versioning-enabled
 bucket](Versioning.md#versioning-states "Versioning.md#versioning-states"), when an object is expired, the object isn't completely deleted from
@@ -122,9 +106,7 @@ For more information, see [Lifecycle rules: Based on an object's age](../dev/int
   making them noncurrent. Noncurrent versions are then preserved and are not
   permanently expired.
 
-## How do I empty my S3 bucket by using
-
-lifecycle rules?
+## How do I empty my S3 bucket by using lifecycle rules?
 
 S3 Lifecycle rules are an effective tool to [empty an S3 bucket](empty-bucket.md "empty-bucket.md") with
 millions of objects. To delete a large number of objects from your S3 bucket, make sure
@@ -144,9 +126,7 @@ permanently deleted. Instead, a delete marker is added to the objects, making th
 noncurrent. Noncurrent versions are then preserved and are not permanently
 expired.
 
-## My Amazon S3 bill increased after transitioning
-
-objects to a lower-cost storage class.
+## My Amazon S3 bill increased after transitioning objects to a lower-cost storage class.
 
 There are several reasons that your bill might increase after transitioning objects to
 a lower-cost storage class:
@@ -192,9 +172,7 @@ classes. If you plan to transition a large number of objects, consider the
 request costs when transitioning to a lower tier. For more information, see
 [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-## I’ve updated my bucket policy, but my S3
-
-objects are still being deleted by expired lifecycle rules.
+## I’ve updated my bucket policy, but my S3 objects are still being deleted by expired lifecycle rules.
 
 `Deny` statements in a bucket policy don't prevent the expiration of the
 objects defined in a lifecycle rule. Lifecycle actions (such as transitions or
@@ -204,9 +182,7 @@ actions are performed by using internal S3 endpoints. (For more information, see
 To prevent your lifecycle rule from taking any action, you must edit, delete, or
 [disable the rule](lifecycle-configuration-examples.md#lifecycle-config-conceptual-ex2 "lifecycle-configuration-examples.md#lifecycle-config-conceptual-ex2").
 
-## Can I recover S3 objects that are expired by
-
-S3 Lifecycle rules?
+## Can I recover S3 objects that are expired by S3 Lifecycle rules?
 
 The only way to recover objects that are expired by S3 Lifecycle is through versioning,
 which must be in place before the objects become eligible for expiration. You cannot
@@ -225,9 +201,7 @@ bucket versioning state_ table in [Elements to describe lifecycle actions](intro
 If the S3 bucket is protected by [AWS Backup](../../../aws-backup/latest/devguide/s3-backups.md "../../../aws-backup/latest/devguide/s3-backups.md") or [S3 Replication](replication.md "replication.md"), you might also be able to use these features to
 recover your expired objects.
 
-## Why are my expiration and transition lifecycle actions
-
-not occurring?
+## Why are my expiration and transition lifecycle actions not occurring?
 
 For a versioning-enabled or versioning-suspended bucket, the following considerations guide how Amazon S3
 handles the Expiration action:
@@ -249,17 +223,13 @@ Lifecycle storage class transitions have the following constraints:
 - For versioning enabled or versioning suspended buckets, objects with a `PENDING`
   replication status can't be transitioned.
 
-## How can I exclude a prefix from my lifecycle
-
-rule?
+## How can I exclude a prefix from my lifecycle rule?
 
 S3 Lifecycle doesn't support excluding prefixes in your rules. Instead, use tags to tag
 all of the objects that you want to include in the rule. For more information about
 using tags in your lifecycle rules, see [Archiving all objects within one day after creation](lifecycle-configuration-examples.md#lifecycle-config-ex1 "lifecycle-configuration-examples.md#lifecycle-config-ex1").
 
-## How can I include multiple prefixes in my
-
-lifecycle rule?
+## How can I include multiple prefixes in my lifecycle rule?
 
 S3 Lifecycle doesn't support including multiple prefixes in your rules. Instead, use
 tags to tag all of the objects that you want to include in the rule. For more

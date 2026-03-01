@@ -22,8 +22,7 @@ department.
 
 Continuing with this example, you could write a policy that allows a user to update
 the priority of any job that has the desired tags, or cancel any job that has those
-tags. For more information, see [Controlling permissions for Batch Operations using job
-tags](batch-ops-job-tags-examples.md "batch-ops-job-tags-examples.md").
+tags. For more information, see [Controlling permissions for Batch Operations using job tags](batch-ops-job-tags-examples.md "batch-ops-job-tags-examples.md").
 
 You can add tags to new S3 Batch Operations jobs when you create them, or you can add them
 to existing jobs.

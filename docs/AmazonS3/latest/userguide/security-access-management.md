@@ -35,8 +35,7 @@ JSON-formatted policy that is attached to IAM users, groups, or roles in your
 AWS account. You can use identity-based policies to grant an IAM identity
 access to your buckets or objects. You can create IAM users, groups, and roles
 in your account and attach access policies to them. You can then grant access to
-AWS resources, including Amazon S3 resources. For more information, see [Identity-based policies for
-Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+AWS resources, including Amazon S3 resources. For more information, see [Identity-based policies for Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ###### S3 Access Grants
 
@@ -72,8 +71,7 @@ an object, and a bucket ACL is used to manage access to a bucket. With bucket
 policies, there is a single policy for the entire bucket, but object ACLs are
 specified for each object. We recommend that you keep ACLs turned off, except in
 circumstances where you must individually control access for each
-object. For more information about using ACLs, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+object. For more information about using ACLs, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 ###### Warning
 
@@ -88,7 +86,6 @@ Object Ownership is set to the _Bucket owner enforced
 setting_ and all ACLs are turned off. When ACLs are turned off,
 the bucket owner owns all of the objects in the bucket and exclusively manages
 access to data. To manage access, the bucket owner uses policies or another
-access management tool, excluding ACLs. For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+access management tool, excluding ACLs. For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 For a more comprehensive guide on Amazon S3 access control and additional best practices, see [Access control in Amazon S3](access-management.md "access-management.md").

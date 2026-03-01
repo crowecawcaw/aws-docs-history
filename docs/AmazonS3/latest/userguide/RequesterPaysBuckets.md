@@ -1,6 +1,4 @@
-# Using Requester Pays general purpose buckets for storage
-
-transfers and usage
+# Using Requester Pays general purpose buckets for storage transfers and usage
 
 In general, bucket owners pay for all Amazon S3 storage and data transfer costs that are
 associated with their bucket. However, you can configure a general purpose bucket to be a _Requester Pays_ bucket. With Requester Pays buckets, the
@@ -69,7 +67,5 @@ For more information about Requester Pays, see the following topics.
 ###### Topics
 
 - [Configuring Requester Pays on a bucket](RequesterPaysExamples.md "RequesterPaysExamples.md")
-- [Retrieving the requestPayment
-  configuration using the REST API](BucketPayerValues.md "BucketPayerValues.md")
-- [Downloading objects from Requester Pays
-  buckets](ObjectsinRequesterPaysBuckets.md "ObjectsinRequesterPaysBuckets.md")
+- [Retrieving the requestPayment configuration using the REST API](BucketPayerValues.md "BucketPayerValues.md")
+- [Downloading objects from Requester Pays buckets](ObjectsinRequesterPaysBuckets.md "ObjectsinRequesterPaysBuckets.md")

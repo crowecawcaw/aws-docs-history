@@ -5,16 +5,12 @@ replicated. You can check replication status in the Amazon S3 console on the sou
 **Management** tab, or by using the AWS CLI. For more information, see [Setting up S3 Tables replication](s3-tables-replication-setting-up.md "s3-tables-replication-setting-up.md").This topic explains how to monitor replication and understand the different status values
 that indicate whether replication is completed, in progress, or has failed.
 
-## Monitoring replication
-
-status
+## Monitoring replication status
 
 Replication jobs run continuously for your replicated tables. You can query the status of
 replication with the GetTableReplicationStatus API or view it in the Amazon S3 console.
 
-### To get the status of replication by using
-
-the AWS CLI
+### To get the status of replication by using the AWS CLI
 
 The following example gets the replication status using the GetTableReplicationStatus
 API.
@@ -59,9 +55,7 @@ Expected output:
 For more information, see [get-table-replication-status](../../../cli/latest/reference/s3tables/get-table-replication-status.md "../../../cli/latest/reference/s3tables/get-table-replication-status.md") in the _AWS CLI Command
 Reference_.
 
-### Understanding the
-
-response
+### Understanding the response
 
 The response contains the following elements:
 

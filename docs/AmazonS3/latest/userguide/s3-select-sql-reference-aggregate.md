@@ -14,9 +14,7 @@ Amazon S3 Select supports the following aggregate functions.
 | `MIN(`expression`)` | `INT`, `DECIMAL`                    | Same as the argument type.                                                                                               |
 | `SUM(`expression`)` | `INT`, `FLOAT`, `DOUBLE`, `DECIMAL` | `INT` for an `INT` argument, `FLOAT` for a floating-point<br>argument; otherwise, the same as the argument data type.    |
 
-## SUM
-
-example
+## SUM example
 
 To aggregate the total object sizes of a folder in an [S3 Inventory
 report](storage-inventory.md "storage-inventory.md"), use a `SUM` expression.

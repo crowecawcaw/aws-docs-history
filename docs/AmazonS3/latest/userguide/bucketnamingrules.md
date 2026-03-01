@@ -15,8 +15,7 @@ To create a general purpose bucket, see [Creating a general purpose bucket](crea
 - [General purpose buckets naming rules](#general-purpose-bucket-names "#general-purpose-bucket-names")
 - [Example general purpose bucket names](#bucket-names "#bucket-names")
 - [Best practices](#automatically-created-buckets "#automatically-created-buckets")
-- [Creating a bucket that uses a GUID in the
-  bucket name](#create-bucket-name-guid "#create-bucket-name-guid")
+- [Creating a bucket that uses a GUID in the bucket name](#create-bucket-name-guid "#create-bucket-name-guid")
 
 ## General purpose buckets naming rules
 
@@ -35,8 +34,7 @@ The following naming rules apply for general purpose buckets.
 - Bucket names must not end with the suffix `-s3alias`. This suffix
   is reserved for access point alias names. For more information, see [Access point aliases](access-points-naming.md#access-points-alias "access-points-naming.md#access-points-alias").
 - Bucket names must not end with the suffix `--ol-s3`. This suffix is
-  reserved for Object Lambda Access Point alias names. For more information, see [How to use a bucket-style alias for your S3 bucket
-  Object Lambda Access Point](olap-use.md#ol-access-points-alias "olap-use.md#ol-access-points-alias").
+  reserved for Object Lambda Access Point alias names. For more information, see [How to use a bucket-style alias for your S3 bucket Object Lambda Access Point](olap-use.md#ol-access-points-alias "olap-use.md#ol-access-points-alias").
 - Bucket names must not end with the suffix `.mrap`. This suffix is
   reserved for Multi-Region Access Point names. For more information, see [Rules for naming Amazon S3 Multi-Region Access Points](multi-region-access-point-naming.md "multi-region-access-point-naming.md").
 - Bucket names must not end with the suffix `--x-s3`. This suffix is
@@ -44,8 +42,7 @@ The following naming rules apply for general purpose buckets.
 - Bucket names must not end with the suffix `--table-s3`. This suffix
   is reserved for S3 Tables buckets. For more information, see [Amazon S3 table bucket, table, and namespace naming rules](s3-tables-buckets-naming.md "s3-tables-buckets-naming.md").
 - Buckets used with Amazon S3 Transfer Acceleration can't have periods (`.`) in
-  their names. For more information about Transfer Acceleration, see [Configuring fast, secure file transfers using
-  Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
+  their names. For more information about Transfer Acceleration, see [Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
 
 ###### Important
 
@@ -118,8 +115,7 @@ code assuming your chosen bucket name is available unless you have already creat
 the bucket. One method for creating bucket names that aren't predictable is to
 append a Globally Unique Identifier (GUID) to your bucket name, for example,
 `amzn-s3-demo-bucket-a1b2c3d4-5678-90ab-cdef-example11111`.
-For more information, see [Creating a bucket that uses a GUID in the
-bucket name](#create-bucket-name-guid "#create-bucket-name-guid").
+For more information, see [Creating a bucket that uses a GUID in the bucket name](#create-bucket-name-guid "#create-bucket-name-guid").
 
 ###### Avoid using periods (`.`) in bucket names
 
@@ -156,9 +152,7 @@ If you want to prevent this, or if you want to continue to use the same general 
 don't delete the general purpose bucket. We recommend that you empty the bucket and keep it, and
 instead, block any bucket requests as needed.
 
-## Creating a bucket that uses a GUID in the
-
-bucket name
+## Creating a bucket that uses a GUID in the bucket name
 
 The following examples show you how to create a general purpose bucket that uses a GUID at
 the end of the bucket name.

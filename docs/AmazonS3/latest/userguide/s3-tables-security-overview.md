@@ -47,5 +47,4 @@ control policies (SCPs)](../../../organizations/latest/userguide/orgs_manage_pol
 - [Protecting S3 table data with encryption](s3-tables-encryption.md "s3-tables-encryption.md")
 - [Access management for S3 Tables](s3-tables-setting-up.md "s3-tables-setting-up.md")
 - [VPC connectivity for S3 Tables](s3-tables-VPC.md "s3-tables-VPC.md")
-- [Security considerations and limitations for
-  S3 Tables](s3-tables-restrictions.md "s3-tables-restrictions.md")
+- [Security considerations and limitations for S3 Tables](s3-tables-restrictions.md "s3-tables-restrictions.md")

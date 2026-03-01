@@ -1,6 +1,4 @@
-# Performance design patterns for
-
-Amazon S3
+# Performance design patterns for Amazon S3
 
 When designing applications to upload and retrieve objects from Amazon S3, use our best
 practices design patterns for achieving the best performance for your application. We also
@@ -12,19 +10,13 @@ To optimize performance, you can use the following design patterns.
 
 ###### Topics
 
-- [Using caching for frequently accessed
-  content](#optimizing-performance-caching "#optimizing-performance-caching")
-- [Timeouts and retries for
-  latency-sensitive applications](#optimizing-performance-timeouts-retries "#optimizing-performance-timeouts-retries")
-- [Horizontal scaling and request
-  parallelization for high throughput](#optimizing-performance-parallelization "#optimizing-performance-parallelization")
-- [Using Amazon S3 Transfer Acceleration to
-  accelerate geographically disparate data transfers](#optimizing-performance-acceleration "#optimizing-performance-acceleration")
+- [Using caching for frequently accessed content](#optimizing-performance-caching "#optimizing-performance-caching")
+- [Timeouts and retries for latency-sensitive applications](#optimizing-performance-timeouts-retries "#optimizing-performance-timeouts-retries")
+- [Horizontal scaling and request parallelization for high throughput](#optimizing-performance-parallelization "#optimizing-performance-parallelization")
+- [Using Amazon S3 Transfer Acceleration to accelerate geographically disparate data transfers](#optimizing-performance-acceleration "#optimizing-performance-acceleration")
 - [Optimizing for high-request rate workloads](#optimizing-performance-high-request-rate "#optimizing-performance-high-request-rate")
 
-## Using caching for frequently accessed
-
-content
+## Using caching for frequently accessed content
 
 Many applications that store data in Amazon S3 serve a "working set" of data that is
 repeatedly requested by users. If a workload is sending repeated GET requests for a common
@@ -51,9 +43,7 @@ workflows and media delivery from Amazon S3. MediaStore provides end-to-end stor
 for video, and is recommended for performance-sensitive video workloads. For information
 about MediaStore, see the [AWS Elemental MediaStore User Guide](../../../mediastore/latest/ug.md "../../../mediastore/latest/ug.md").
 
-## Timeouts and retries for
-
-latency-sensitive applications
+## Timeouts and retries for latency-sensitive applications
 
 There are certain situations where an application receives a response from Amazon S3
 indicating that a retry is necessary. Amazon S3 maps bucket and object names to the object data
@@ -91,9 +81,7 @@ effective at reducing latency.
 If you are using AWS Key Management Service (AWS KMS) for server-side encryption, see [Quotas](../../../kms/latest/developerguide/limits.md "../../../kms/latest/developerguide/limits.md") in the _AWS Key Management Service Developer Guide_
 for information about the request rates that are supported for your use case.
 
-## Horizontal scaling and request
-
-parallelization for high throughput
+## Horizontal scaling and request parallelization for high throughput
 
 Amazon S3 is a very large distributed system. To help you take advantage of its scale, we
 encourage you to horizontally scale parallel requests to the Amazon S3 service endpoints. In
@@ -144,12 +132,9 @@ addresses being used for communication with Amazon S3, and we provide guidelines
 configurations to use. For more information about these guidelines, see
 [Making requests](../API/MakingRequests.md "../API/MakingRequests.md") in the _Amazon S3 API Reference_.
 
-## Using Amazon S3 Transfer Acceleration to
+## Using Amazon S3 Transfer Acceleration to accelerate geographically disparate data transfers
 
-accelerate geographically disparate data transfers
-
-[Configuring fast, secure file transfers using
-Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md") is
+[Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md") is
 effective at minimizing or eliminating the latency caused by geographic distance between
 globally dispersed clients and a regional application using Amazon S3. Transfer Acceleration uses
 the globally distributed edge locations in CloudFront for data transport. The AWS edge network

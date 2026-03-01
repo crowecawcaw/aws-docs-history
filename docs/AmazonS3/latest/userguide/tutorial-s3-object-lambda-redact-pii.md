@@ -1,6 +1,4 @@
-# Tutorial:
-
-Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend
+# Tutorial: Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend
 
 ###### Note
 
@@ -47,23 +45,17 @@ in the [AWS Serverless Application Repository](https://aws.amazon.com/serverless
 
 ###### Topics
 
-- [Prerequisites: Create an
-  IAM user with permissions](#ol-pii-prerequisites "#ol-pii-prerequisites")
+- [Prerequisites: Create an IAM user with permissions](#ol-pii-prerequisites "#ol-pii-prerequisites")
 - [Step 1: Create an S3 bucket](#ol-pii-step1 "#ol-pii-step1")
-- [Step 2: Upload a file to the S3
-  bucket](#ol-pii-step2 "#ol-pii-step2")
+- [Step 2: Upload a file to the S3 bucket](#ol-pii-step2 "#ol-pii-step2")
 - [Step 3: Create an S3 access point](#ol-pii-step3 "#ol-pii-step3")
-- [Step 4: Configure and deploy a
-  prebuilt Lambda function](#ol-pii-step4 "#ol-pii-step4")
+- [Step 4: Configure and deploy a prebuilt Lambda function](#ol-pii-step4 "#ol-pii-step4")
 - [Step 5: Create an S3 Object Lambda Access Point](#ol-pii-step5 "#ol-pii-step5")
-- [Step 6: Use the S3 Object Lambda Access Point to retrieve
-  the redacted file](#ol-pii-step6 "#ol-pii-step6")
+- [Step 6: Use the S3 Object Lambda Access Point to retrieve the redacted file](#ol-pii-step6 "#ol-pii-step6")
 - [Step 7: Clean up](#ol-pii-step7 "#ol-pii-step7")
 - [Next steps](#ol-pii-next-steps "#ol-pii-next-steps")
 
-## Prerequisites: Create an
-
-IAM user with permissions
+## Prerequisites: Create an IAM user with permissions
 
 Before you start this tutorial, you must have an AWS account
 that you can sign in to as an AWS Identity and Access Management user (IAM user) with correct
@@ -192,15 +184,12 @@ bucket**, keep the default settings
 We recommend that you keep all Block Public Access
 settings enabled unless you need to turn off one or more of
 them for your use case. For more information about blocking
-public access, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md"). 7. For the remaining settings, keep the defaults.
+public access, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md"). 7. For the remaining settings, keep the defaults.
 
 (Optional) If you want to configure additional bucket
 settings for your specific use case, see [Creating a general purpose bucket](create-bucket-overview.md "create-bucket-overview.md"). 8. Choose **Create bucket**.
 
-## Step 2: Upload a file to the S3
-
-bucket
+## Step 2: Upload a file to the S3 bucket
 
 Upload a text file containing known PII data of various types,
 such as names, banking information, phone numbers, and SSNs, to the
@@ -286,8 +275,7 @@ that bucket's name. 6. For **Network origin**, choose
 **Internet**.
 
 For more information about network origins for access points, see
-[Creating access points restricted to a virtual private
-cloud](access-points-vpc.md "access-points-vpc.md"). 7. By default, all block public access settings are turned on
+[Creating access points restricted to a virtual private cloud](access-points-vpc.md "access-points-vpc.md"). 7. By default, all block public access settings are turned on
 for your access point. We recommend that you keep **Block
 _all_ public
 access** enabled. For more information, see
@@ -301,9 +289,7 @@ keeping the default settings.
 (Optional) If you need to manage access to your access point, you
 can specify an access point policy. For more information, see [Policy examples for access points](access-points-policies.md#access-points-policy-examples "access-points-policies.md#access-points-policy-examples"). 9. Choose **Create access point**.
 
-## Step 4: Configure and deploy a
-
-prebuilt Lambda function
+## Step 4: Configure and deploy a prebuilt Lambda function
 
 To redact PII data, configure and deploy the prebuilt AWS Lambda
 function `ComprehendPiiRedactionS3ObjectLambda` for use
@@ -405,8 +391,7 @@ about all the fields in the event context, see [Event context format and usage](
    these two check boxes.
 
 For more information about how to use range or part
-numbers with S3 Object Lambda, see [Working with Range and
-partNumber headers](range-get-olap.md "range-get-olap.md"). 10. (Optional) Under **Payload - _optional_**, add
+numbers with S3 Object Lambda, see [Working with Range and partNumber headers](range-get-olap.md "range-get-olap.md"). 10. (Optional) Under **Payload - _optional_**, add
 JSON text to provide your Lambda function with additional
 information.
 
@@ -430,9 +415,7 @@ policy grants the `GetObject` API permission to
 use the specified Object Lambda Access Point. 13. Keep the remaining settings set to the defaults, and
 choose **Create Object Lambda Access Point**.
 
-## Step 6: Use the S3 Object Lambda Access Point to retrieve
-
-the redacted file
+## Step 6: Use the S3 Object Lambda Access Point to retrieve the redacted file
 
 Now, S3 Object Lambda is ready to redact PII data from your original file.
 
@@ -486,27 +469,17 @@ no longer accrue charges.
 
 ###### Substeps
 
-- [Delete the
-  Object Lambda Access Point](#ol-pii-step8-delete-olap "#ol-pii-step8-delete-olap")
-- [Delete the S3
-  access point](#ol-pii-step8-delete-ap "#ol-pii-step8-delete-ap")
-- [Delete the
-  Lambda function](#ol-pii-step8-delete-lambda-function "#ol-pii-step8-delete-lambda-function")
-- [Delete the CloudWatch
-  log group](#ol-pii-step8-delete-cloudwatch "#ol-pii-step8-delete-cloudwatch")
-- [Delete the original
-  file in the S3 source bucket](#ol-pii-step8-delete-file "#ol-pii-step8-delete-file")
-- [Delete the S3
-  source bucket](#ol-pii-step8-delete-bucket "#ol-pii-step8-delete-bucket")
-- [Delete the
-  IAM role for your Lambda function](#ol-pii-step8-delete-lambda-role "#ol-pii-step8-delete-lambda-role")
-- [Delete the
-  customer managed policy for your IAM user](#ol-pii-step8-delete-function-policy "#ol-pii-step8-delete-function-policy")
+- [Delete the Object Lambda Access Point](#ol-pii-step8-delete-olap "#ol-pii-step8-delete-olap")
+- [Delete the S3 access point](#ol-pii-step8-delete-ap "#ol-pii-step8-delete-ap")
+- [Delete the Lambda function](#ol-pii-step8-delete-lambda-function "#ol-pii-step8-delete-lambda-function")
+- [Delete the CloudWatch log group](#ol-pii-step8-delete-cloudwatch "#ol-pii-step8-delete-cloudwatch")
+- [Delete the original file in the S3 source bucket](#ol-pii-step8-delete-file "#ol-pii-step8-delete-file")
+- [Delete the S3 source bucket](#ol-pii-step8-delete-bucket "#ol-pii-step8-delete-bucket")
+- [Delete the IAM role for your Lambda function](#ol-pii-step8-delete-lambda-role "#ol-pii-step8-delete-lambda-role")
+- [Delete the customer managed policy for your IAM user](#ol-pii-step8-delete-function-policy "#ol-pii-step8-delete-function-policy")
 - [Delete the IAM user](#ol-pii-step8-delete-user "#ol-pii-step8-delete-user")
 
-### Delete the
-
-Object Lambda Access Point
+### Delete the Object Lambda Access Point
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -522,9 +495,7 @@ Object Lambda Access Point
    entering its name in the text field that appears, and
    then choose **Delete**.
 
-### Delete the S3
-
-access point
+### Delete the S3 access point
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -539,9 +510,7 @@ access point
    its name in the text field that appears, and then choose
    **Delete**.
 
-### Delete the
-
-Lambda function
+### Delete the Lambda function
 
 1. In the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"),
    choose **Functions** in the left
@@ -553,9 +522,7 @@ Lambda function
 4. In the **Delete function** dialog
    box, choose **Delete**.
 
-### Delete the CloudWatch
-
-log group
+### Delete the CloudWatch log group
 
 1. Open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
@@ -569,9 +536,7 @@ log group
 5. In the **Delete log group(s)** dialog
    box, choose **Delete**.
 
-### Delete the original
-
-file in the S3 source bucket
+### Delete the original file in the S3 source bucket
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -593,9 +558,7 @@ file in the S3 source bucket
    the text box.
 7. Choose **Delete objects**.
 
-### Delete the S3
-
-source bucket
+### Delete the S3 source bucket
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -612,9 +575,7 @@ source bucket
    the bucket name in the text field, and then choose
    **Delete bucket**.
 
-### Delete the
-
-IAM role for your Lambda function
+### Delete the IAM role for your Lambda function
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the left navigation pane, choose
@@ -630,9 +591,7 @@ IAM role for your Lambda function
    deletion. Then, choose
    **Delete**.
 
-### Delete the
-
-customer managed policy for your IAM user
+### Delete the customer managed policy for your IAM user
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the left navigation pane, choose
@@ -706,5 +665,4 @@ HIPAA-eligible NLP service, to analyze and extract data in a
 context-aware manner.
 
 For more information about how to transform data with S3 Object Lambda
-and your own Lambda function, see [Tutorial: Transforming data for your
-application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md "tutorial-s3-object-lambda-uppercase.md").
+and your own Lambda function, see [Tutorial: Transforming data for your application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md "tutorial-s3-object-lambda-uppercase.md").

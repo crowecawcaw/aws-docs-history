@@ -10,7 +10,7 @@ Editing this configuration requires the
 
 ###### Note
 
-You can track S3 Tables automated maintenance operations on your tables through CloudTrail logs, for more information, see [CloudTrail management events for S3 Tables maintenance](s3-tables-logging.md#s3-tables-maintenance-events "s3-tables-logging.md#s3-tables-maintenance-events") .
+You can track S3 Tables automated maintenance operations on your tables through CloudTrail logs, for more information, see [CloudTrail management events for S3 Tables maintenance](s3-tables-logging.md#s3-tables-maintenance-events "s3-tables-logging.md#s3-tables-maintenance-events").
 
 ###### Topics
 
@@ -53,9 +53,7 @@ S3 Tables supports these compaction strategies for tables:
 
 Compaction will incur additional costs. The `z-order` and `sort` compaction strategies may incur a higher cost than `binpack`. For more information, see the pricing information in the .[Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-###
-
-Compaction Examples
+### Compaction Examples
 
 The following examples show configurations for table compaction.
 
@@ -155,9 +153,7 @@ You can only configure snapshot management at the table level. For more informat
 see the pricing information in the [Amazon S3
 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-###
-
-Snapshot Management Examples
+### Snapshot Management Examples
 
 The following examples show configurations for table snapshot management.
 

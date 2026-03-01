@@ -1,6 +1,4 @@
-# Setting Object Lock retention using
-
-Batch Operations
+# Setting Object Lock retention using Batch Operations
 
 You can use Amazon S3 Batch Operations with S3 Object Lock to manage retention for many
 Amazon S3 objects at once. You specify the list of target objects in your manifest and submit

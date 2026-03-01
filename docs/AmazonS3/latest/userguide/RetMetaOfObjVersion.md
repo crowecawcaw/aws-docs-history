@@ -1,6 +1,4 @@
-# Retrieving the metadata of an object
-
-version
+# Retrieving the metadata of an object version
 
 If you only want to retrieve the metadata of an object (and not its content), you
 use the `HEAD` operation. By default, you get the metadata of the most

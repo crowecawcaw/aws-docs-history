@@ -17,8 +17,7 @@ You can use Amazon S3 S3 Glacier storage classes to provide cost-effective solut
 - [S3 Glacier Flexible Retrieval](#GFR "#GFR")
 - [S3 Glacier Deep Archive](#GDA "#GDA")
 - [Understanding archival storage in S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive](archival-storage.md "archival-storage.md")
-- [How these storage classes differ from the
-  Amazon Glacier service](#glacier-storage-vs-service "#glacier-storage-vs-service")
+- [How these storage classes differ from the Amazon Glacier service](#glacier-storage-vs-service "#glacier-storage-vs-service")
 
 ## Comparing the S3 Glacier storage classes
 
@@ -101,9 +100,7 @@ The minimum storage duration for objects in S3 Glacier Deep Archive storage clas
 
 S3 Glacier Deep Archive requires 40 KB of additional metadata for each object. This includes 32 KB of metadata required to identify and retrieve your data, which is charged at the default rate for S3 Glacier Deep Archive. An additional 8 KB data is required to maintain the user-defined name and metadata for archived objects, and is charged at the S3 Standard rate.
 
-## How these storage classes differ from the
-
-Amazon Glacier service
+## How these storage classes differ from the Amazon Glacier service
 
 The S3 Glacier storage classes are part of the Amazon S3 service and store data as objects in S3
 buckets. You can manage objects in these storage classes using the S3 console or

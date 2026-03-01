@@ -9,10 +9,8 @@ storage class for your objects.
 ###### Topics
 
 - [Storage classes for frequently accessed objects](#sc-freq-data-access "#sc-freq-data-access")
-- [Storage class for automatically optimizing data with
-  changing or unknown access patterns](#sc-dynamic-data-access "#sc-dynamic-data-access")
-- [Storage classes for infrequently accessed
-  objects](#sc-infreq-data-access "#sc-infreq-data-access")
+- [Storage class for automatically optimizing data with changing or unknown access patterns](#sc-dynamic-data-access "#sc-dynamic-data-access")
+- [Storage classes for infrequently accessed objects](#sc-infreq-data-access "#sc-infreq-data-access")
 - [Storage classes for rarely accessed objects](#sc-glacier "#sc-glacier")
 - [Storage class for Amazon S3 on Outposts](#s3-outposts "#s3-outposts")
 - [Comparing the Amazon S3 storage classes](#sc-compare "#sc-compare")
@@ -51,9 +49,7 @@ For durability, RRS objects have an average annual expected loss of 0.01 percent
 objects. If an RRS object is lost, when requests are made to that object, Amazon S3 returns a
 405 error.
 
-## Storage class for automatically optimizing data with
-
-changing or unknown access patterns
+## Storage class for automatically optimizing data with changing or unknown access patterns
 
 **S3 Intelligent-Tiering** (`INTELLIGENT_TIERING`) is an Amazon S3 storage class that's
 designed to optimize storage costs by automatically moving data to the most cost-effective
@@ -112,19 +108,15 @@ or the Amazon S3 console. For more information about using S3 Intelligent-Tierin
 archive access tiers, see [Using S3 Intelligent-Tiering](using-intelligent-tiering.md "using-intelligent-tiering.md").
 
 To access objects in the Archive Access or Deep Archive Access tiers, you first need to restore them. For more information,
-see [Restoring objects from the
-S3 Intelligent-Tiering Archive Access and Deep Archive Access tiers](intelligent-tiering-managing.md#restore-data-from-int-tier-archive "intelligent-tiering-managing.md#restore-data-from-int-tier-archive").
+see [Restoring objects from the S3 Intelligent-Tiering Archive Access and Deep Archive Access tiers](intelligent-tiering-managing.md#restore-data-from-int-tier-archive "intelligent-tiering-managing.md#restore-data-from-int-tier-archive").
 
 ###### Note
 
 If the size of an object is less than 128 KB, it is not monitored and not eligible for
 auto-tiering. Smaller objects are always stored in the Frequent Access tier. For more
-information about S3 Intelligent-Tiering, see [S3 Intelligent-Tiering access
-tiers](intelligent-tiering-overview.md#intel-tiering-tier-definition "intelligent-tiering-overview.md#intel-tiering-tier-definition").
+information about S3 Intelligent-Tiering, see [S3 Intelligent-Tiering access tiers](intelligent-tiering-overview.md#intel-tiering-tier-definition "intelligent-tiering-overview.md#intel-tiering-tier-definition").
 
-## Storage classes for infrequently accessed
-
-objects
+## Storage classes for infrequently accessed objects
 
 The **S3 Standard-IA** and **S3 One
 Zone-IA** storage classes are designed for long-lived and infrequently accessed
@@ -223,13 +215,11 @@ storage classes with objects stored in S3 on Outposts buckets, the same error oc
 
 Objects stored in the S3 Outposts (`OUTPOSTS`) storage class are always
 encrypted by using server-side encryption with Amazon S3 managed encryption keys (SSE-S3). For more
-information, see [Using server-side encryption with Amazon S3 managed keys
-(SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
+information, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
 
 You can also explicitly choose to encrypt objects stored in the S3 Outposts storage class
 by using server-side encryption with customer-provided encryption keys (SSE-C). For more
-information, see [Using server-side encryption with
-customer-provided keys (SSE-C)](ServerSideEncryptionCustomerKeys.md "ServerSideEncryptionCustomerKeys.md").
+information, see [Using server-side encryption with customer-provided keys (SSE-C)](ServerSideEncryptionCustomerKeys.md "ServerSideEncryptionCustomerKeys.md").
 
 ###### Note
 

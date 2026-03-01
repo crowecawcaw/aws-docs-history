@@ -1,6 +1,4 @@
-# Step 6: Delete your S3 Express One Zone directory
-
-bucket
+# Step 6: Delete your S3 Express One Zone directory bucket
 
 After you empty your directory bucket and abort all in-progress multipart uploads, you can
 delete your bucket by using the Amazon S3 console.

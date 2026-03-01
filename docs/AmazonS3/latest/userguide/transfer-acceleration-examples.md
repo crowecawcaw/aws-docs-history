@@ -7,8 +7,7 @@ AWS Command Line Interface (AWS CLI), API, or the AWS SDKs.
 This section provides examples of how to enable Amazon S3 Transfer Acceleration on a bucket and use
 the acceleration endpoint for the enabled bucket.
 
-For more information about Transfer Acceleration requirements, see [Configuring fast, secure file transfers using
-Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
+For more information about Transfer Acceleration requirements, see [Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
 
 ###### Note
 
@@ -43,9 +42,7 @@ The following are examples of AWS CLI commands used for Transfer Acceleration. F
 instructions on setting up the AWS CLI, see [Developing with Amazon S3 using the
 AWS CLI](../API/setup-aws-cli.md "../API/setup-aws-cli.md") in the _Amazon S3 API Reference_.
 
-### Enabling Transfer Acceleration on a
-
-bucket
+### Enabling Transfer Acceleration on a bucket
 
 Use the AWS CLI [put-bucket-accelerate-configuration](../../../cli/latest/reference/s3api/put-bucket-accelerate-configuration.md "../../../cli/latest/reference/s3api/put-bucket-accelerate-configuration.md") command to enable or
 suspend Transfer Acceleration on a bucket.
@@ -98,9 +95,7 @@ you can use either one of the following two methods:
   specify which profile you want to use, depending upon whether you want to use the
   accelerate endpoint.
 
-### Uploading an object to a
-
-bucket enabled for Transfer Acceleration
+### Uploading an object to a bucket enabled for Transfer Acceleration
 
 The following example uploads a file to a bucket named
 `amzn-s3-demo-bucket` that's been enabled for Transfer Acceleration by using the
@@ -137,8 +132,7 @@ To use an accelerate endpoint to upload an object to Amazon S3 with the AWS SDK 
 - Verify that transfer acceleration is enabled for the specified bucket.
 - Upload a new object to the specified bucket using the bucket's accelerate endpoint.
 
-For more information about using Transfer Acceleration, see [Getting started with
-Amazon S3 Transfer Acceleration](transfer-acceleration-getting-started.md "transfer-acceleration-getting-started.md").
+For more information about using Transfer Acceleration, see [Getting started with Amazon S3 Transfer Acceleration](transfer-acceleration-getting-started.md "transfer-acceleration-getting-started.md").
 
 The following code example shows how to configure Transfer Acceleration with the AWS SDK for Java.
 

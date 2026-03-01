@@ -39,8 +39,7 @@ S3 Glacier Flexible Retrieval storage classes.
 If you want to configure storage class analysis to export your findings as a .csv file and
 the destination bucket uses default bucket encryption with a AWS KMS key,
 you must update the AWS KMS key policy to grant Amazon S3 permission to encrypt the .csv file. For
-instructions, see [Granting Amazon S3 permission to use your
-customer managed key for encryption](configure-inventory.md#configure-inventory-kms-key-policy "configure-inventory.md#configure-inventory-kms-key-policy").
+instructions, see [Granting Amazon S3 permission to use your customer managed key for encryption](configure-inventory.md#configure-inventory-kms-key-policy "configure-inventory.md#configure-inventory-kms-key-policy").
 
 For more information about analytics, see [Amazon S3 analytics – Storage Class Analysis](analytics-storage-class.md "analytics-storage-class.md").
 
@@ -71,8 +70,7 @@ For more information about analytics, see [Amazon S3 analytics – Storage Class
 
 If the destination bucket for the .csv file uses default bucket encryption with a
 KMS key, you must update the AWS KMS key policy to grant Amazon S3 permission to encrypt the
-.csv file. For instructions, see [Granting Amazon S3 permission to use your
-customer managed key for encryption](configure-inventory.md#configure-inventory-kms-key-policy "configure-inventory.md#configure-inventory-kms-key-policy"). 10. Choose **Create Configuration**.
+.csv file. For instructions, see [Granting Amazon S3 permission to use your customer managed key for encryption](configure-inventory.md#configure-inventory-kms-key-policy "configure-inventory.md#configure-inventory-kms-key-policy"). 10. Choose **Create Configuration**.
 Amazon S3 creates a bucket policy on the destination bucket that grants Amazon S3 write
 permission. This will allow it to write the export data to the bucket.
 

@@ -42,8 +42,7 @@ on which [S3 Versioning](Versioning.md "Versioning.md") state the bucket is in:
   `Filter` element. If you don't specify a `Filter`
   element, Amazon S3 generates an `InvalidRequest` error when you provide a
   maximum number of noncurrent versions. For more information about using the
-  `NoncurrentVersionExpiration` action element, see [Elements to describe lifecycle
-  actions](intro-lifecycle-rules.md#intro-lifecycle-rules-actions "intro-lifecycle-rules.md#intro-lifecycle-rules-actions").
+  `NoncurrentVersionExpiration` action element, see [Elements to describe lifecycle actions](intro-lifecycle-rules.md#intro-lifecycle-rules-actions "intro-lifecycle-rules.md#intro-lifecycle-rules-actions").
 - Amazon S3 doesn't take any action on noncurrent versions of objects that have the
   S3 Object Lock configuration applied.
 - For objects with a `Pending` replication status, Amazon S3 doesn't take
@@ -61,8 +60,7 @@ follows these general rules:
 - When an object is eligible for both an S3 Glacier Flexible Retrieval and an
   S3 Standard-IA (or an S3 One Zone-IA) transition, Amazon S3 chooses the
   S3 Glacier Flexible Retrieval transition.
-  For examples, see [Examples of overlapping filters and
-  conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
+  For examples, see [Examples of overlapping filters and conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
 
 ###### Existing and new objects
 
@@ -97,9 +95,7 @@ time at which the current version of the object is no longer cacheable.
   verify that Amazon S3 has transitioned and expired eligible objects based on
   your use cases.
 
-## Minimum storage duration
-
-charge
+## Minimum storage duration charge
 
 If you create an S3 Lifecycle expiration rule that causes objects that have been in
 S3 Standard-IA or S3 One Zone-IA storage for less than 30 days to expire, you are

@@ -14,9 +14,7 @@ follows these general rules:
   S3 Standard-IA (or an S3 One Zone-IA) transition, Amazon S3 chooses the
   S3 Glacier Flexible Retrieval transition.
 
-## Examples of overlapping filters and
-
-conflicting lifecycle actions
+## Examples of overlapping filters and conflicting lifecycle actions
 
 You might specify an S3 Lifecycle configuration in which you specify overlapping
 prefixes, or actions. The following examples show how Amazon S3 resolves potential conflicts.

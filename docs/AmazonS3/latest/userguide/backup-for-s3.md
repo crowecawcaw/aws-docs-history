@@ -46,9 +46,7 @@ data.
 
 To get started with AWS Backup for Amazon S3, see [Creating Amazon S3 backups](../../../aws-backup/latest/devguide/s3-backups.md "../../../aws-backup/latest/devguide/s3-backups.md") in the _AWS Backup Developer Guide_.
 
-###### Restrictions
-
-and limitations
+###### Restrictions and limitations
 
 To
 learn

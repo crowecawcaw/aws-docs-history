@@ -25,8 +25,7 @@ Iceberg, such as Amazon Athena, Amazon Redshift, and Apache Spark.
 - [Accessing table data](s3-tables-access.md "s3-tables-access.md")
 - [Working with Apache Iceberg V3](working-with-apache-iceberg-v3.md "working-with-apache-iceberg-v3.md")
 - [Replicating S3 tables](s3-tables-replication-tables.md "s3-tables-replication-tables.md")
-- [S3 Tables AWS Regions, endpoints, and service
-  quotas](s3-tables-regions-quotas.md "s3-tables-regions-quotas.md")
+- [S3 Tables AWS Regions, endpoints, and service quotas](s3-tables-regions-quotas.md "s3-tables-regions-quotas.md")
 - [Making requests to S3 Tables over IPv6](s3-tables-ipv6.md "s3-tables-ipv6.md")
 - [Security for S3 Tables](s3-tables-security-overview.md "s3-tables-security-overview.md")
 - [Logging and monitoring for S3 Tables](s3-tables-monitoring-overview.md "s3-tables-monitoring-overview.md")
@@ -85,9 +84,8 @@ services**
 
 You can automatically integrate your Amazon S3 table buckets with Amazon SageMaker Lakehouse through the S3 console. This integration allows AWS analytics services to
 automatically discover and access your table data through the AWS Glue Data Catalog. After the integration,
-you can work with your tables using analytics services such as Amazon Athena, Amazon Redshift, Quick Suite, and more.
-For more information about how the integration works, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
+you can work with your tables using analytics services such as Amazon Athena, Amazon Redshift, Quick, and more.
+For more information about how the integration works, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 
 ## Related services
 
@@ -119,11 +117,11 @@ analytics applications.
   idle, so you only pay for what you use. You can load data and start querying
   right away in the Amazon Redshift query editor v2 or in your favorite business intelligence
   (BI) tool.
-- [**Quick Suite**](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md") – Quick Suite is a
+- [**Quick**](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md") – Quick is a
   business analytics service to build visualizations, perform ad hoc analysis, and
-  quickly get business insights from your data. Quick Suite seamlessly discovers
+  quickly get business insights from your data. Quick seamlessly discovers
   AWS data sources and delivers fast and responsive query performance by using
-  the Quick Suite Super-fast, Parallel, In-Memory, Calculation Engine (SPICE).
+  the Quick Super-fast, Parallel, In-Memory, Calculation Engine (SPICE).
 - [**AWS Lake Formation**](../../../lake-formation/latest/dg/what-is-lake-formation.md "../../../lake-formation/latest/dg/what-is-lake-formation.md") – Lake Formation is a managed
   service that streamlines the
   process

@@ -208,9 +208,7 @@ requests that fail before the VPC policy is evaluated.
 If the destination bucket uses the Bucket owner enforced setting for Object Ownership,
 ACLs are disabled and no longer affect permissions. You must update the bucket policy on the
 destination bucket to grant access to the logging service principal. For more information
-about Object Ownership, see [Grant access to
-the
-S3 log delivery group for server access logging](object-ownership-migrating-acls-prerequisites.md#object-ownership-server-access-logs "object-ownership-migrating-acls-prerequisites.md#object-ownership-server-access-logs").
+about Object Ownership, see [Grant access to the S3 log delivery group for server access logging](object-ownership-migrating-acls-prerequisites.md#object-ownership-server-access-logs "object-ownership-migrating-acls-prerequisites.md#object-ownership-server-access-logs").
 
 ## Best-effort server log delivery
 
@@ -231,9 +229,7 @@ or more access requests that do not appear in a delivered server log. You can fi
 reports under **Cost & usage reports** in the
 AWS Billing and Cost Management console.
 
-## Bucket logging status changes take effect over
-
-time
+## Bucket logging status changes take effect over time
 
 Changes to the logging status of a bucket take time to actually affect the delivery of log
 files. For example, if you enable logging for a bucket, some requests made in the following
@@ -249,7 +245,5 @@ For more information about logging and log files, see the following sections:
 - [Enabling Amazon S3 server access logging](enable-server-access-logging.md "enable-server-access-logging.md")
 - [Amazon S3 server access log format](LogFormat.md "LogFormat.md")
 - [Deleting Amazon S3 log files](deleting-log-files-lifecycle.md "deleting-log-files-lifecycle.md")
-- [Using Amazon S3 server access logs to
-  identify requests](using-s3-access-logs-to-identify-requests.md "using-s3-access-logs-to-identify-requests.md")
-- [Troubleshoot server access
-  logging](troubleshooting-server-access-logging.md "troubleshooting-server-access-logging.md")
+- [Using Amazon S3 server access logs to identify requests](using-s3-access-logs-to-identify-requests.md "using-s3-access-logs-to-identify-requests.md")
+- [Troubleshoot server access logging](troubleshooting-server-access-logging.md "troubleshooting-server-access-logging.md")

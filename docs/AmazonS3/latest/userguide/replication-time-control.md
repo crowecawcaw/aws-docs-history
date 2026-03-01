@@ -1,6 +1,4 @@
-# Meeting compliance requirements with
-
-S3 Replication Time Control
+# Meeting compliance requirements with S3 Replication Time Control
 
 S3 Replication Time Control (S3 RTC) helps you meet compliance or business requirements for data replication and
 provides visibility into Amazon S3 replication times. S3 RTC replicates most objects that you
@@ -37,30 +35,21 @@ pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/clou
 
 Replication events are available within 15 minutes of enabling S3 RTC. Amazon S3 Event
 Notifications are available through Amazon SQS, Amazon SNS, or AWS Lambda. For more
-information, see [Receiving replication failure events with Amazon S3
-Event Notifications](replication-metrics-events.md "replication-metrics-events.md").
+information, see [Receiving replication failure events with Amazon S3 Event Notifications](replication-metrics-events.md "replication-metrics-events.md").
 
-## Best practices and guidelines for
-
-S3 RTC
+## Best practices and guidelines for S3 RTC
 
 When replicating data in Amazon S3 with S3 Replication Time Control (S3 RTC) enabled, follow these best practice
 guidelines to optimize replication performance for your workloads.
 
 ###### Topics
 
-- [Amazon S3 Replication and request rate
-  performance guidelines](#rtc-request-rate-performance "#rtc-request-rate-performance")
-- [Estimating your replication
-  request rates](#estimating-replication-request-rates "#estimating-replication-request-rates")
-- [Exceeding S3 RTC data transfer
-  rate quotas](#exceed-rtc-data-transfer-limits "#exceed-rtc-data-transfer-limits")
-- [AWS KMS encrypted object
-  replication request rates](#kms-object-replication-request-rates "#kms-object-replication-request-rates")
+- [Amazon S3 Replication and request rate performance guidelines](#rtc-request-rate-performance "#rtc-request-rate-performance")
+- [Estimating your replication request rates](#estimating-replication-request-rates "#estimating-replication-request-rates")
+- [Exceeding S3 RTC data transfer rate quotas](#exceed-rtc-data-transfer-limits "#exceed-rtc-data-transfer-limits")
+- [AWS KMS encrypted object replication request rates](#kms-object-replication-request-rates "#kms-object-replication-request-rates")
 
-### Amazon S3 Replication and request rate
-
-performance guidelines
+### Amazon S3 Replication and request rate performance guidelines
 
 When uploading and retrieving storage from Amazon S3, your applications can achieve
 thousands of transactions per second in request performance. For example, an
@@ -88,9 +77,7 @@ expect your replication transfer rate to exceed 1 Gbps, you can contact
 [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") or use [Service
 Quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") to request an increase in your replication transfer rate quota.
 
-### Estimating your replication
-
-request rates
+### Estimating your replication request rates
 
 Your total request rate including the requests that Amazon S3 replication makes on your
 behalf must be within the Amazon S3 request rate guidelines for both the replication
@@ -111,17 +98,13 @@ You incur costs for only one `PUT` request per object replicated.
 For more information, see the pricing information in the [Amazon S3 FAQs about
 replication](https://aws.amazon.com/s3/faqs/#Replication "https://aws.amazon.com/s3/faqs/#Replication").
 
-### Exceeding S3 RTC data transfer
-
-rate quotas
+### Exceeding S3 RTC data transfer rate quotas
 
 If you expect your S3 RTC data transfer rate to exceed the default 1 Gbps quota,
 contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") or use [Service
 Quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") to request an increase in your replication transfer rate quota.
 
-### AWS KMS encrypted object
-
-replication request rates
+### AWS KMS encrypted object replication request rates
 
 When you replicate objects that are encrypted with server-side encryption with
 AWS Key Management Service (AWS KMS) keys (SSE-KMS), AWS KMS requests per second quotas apply. AWS KMS
@@ -153,8 +136,7 @@ and the AWS Command Line Interface (AWS CLI).
 
 ###### Topics
 
-For step-by-step instructions, see [Configuring replication for buckets in the same
-account](replication-walkthrough1.md "replication-walkthrough1.md"). This topic provides instructions for
+For step-by-step instructions, see [Configuring replication for buckets in the same account](replication-walkthrough1.md "replication-walkthrough1.md"). This topic provides instructions for
 enabling S3 RTC in your replication configuration when the source and destination
 buckets are owned by the same and different AWS accounts.
 
@@ -165,8 +147,7 @@ replication configuration must have S3 RTC enabled, as shown in the following
 example.
 
 For step-by-step instructions for setting up your replication configuration by
-using the AWS CLI, see [Configuring replication for buckets in the same
-account](replication-walkthrough1.md "replication-walkthrough1.md").
+using the AWS CLI, see [Configuring replication for buckets in the same account](replication-walkthrough1.md "replication-walkthrough1.md").
 
 The following example replication configuration enables and sets the
 `ReplicationTime` and `EventThreshold` values for a

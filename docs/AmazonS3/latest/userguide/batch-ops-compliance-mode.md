@@ -1,6 +1,4 @@
-# Using S3 Batch Operations with S3 Object Lock
-
-retention compliance mode
+# Using S3 Batch Operations with S3 Object Lock retention compliance mode
 
 The following example builds on the previous examples of creating a trust policy and
 setting S3 Batch Operations and S3 Object Lock configuration permissions on your objects.
@@ -15,9 +13,7 @@ To use the following examples, replace the `user input
 The following AWS CLI examples show how to use Batch Operations to apply
 S3 Object Lock retention compliance mode across multiple objects.
 
-###### Example— Set S3 Object Lock retention compliance mode across multiple
-
-objects
+###### Example— Set S3 Object Lock retention compliance mode across multiple objects
 
 ```
 export AWS_PROFILE='`aws-user`'
@@ -75,9 +71,7 @@ aws \
     --description "`Set compliance retain-until to 1 Jul 2030`";
 ```
 
-###### Example— Extend the `COMPLIANCE` mode's `retain until
-
-date` to January 15, 2025
+###### Example— Extend the `COMPLIANCE` mode's `retain until date` to January 15, 2025
 
 The following example extends the `COMPLIANCE` mode's
 `retain until date` to January 15, 2025.

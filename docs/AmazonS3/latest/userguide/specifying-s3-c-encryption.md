@@ -1,6 +1,4 @@
-# Specifying server-side encryption with
-
-customer-provided keys (SSE-C)
+# Specifying server-side encryption with customer-provided keys (SSE-C)
 
 To use server-side encryption with customer provided keys (SSE-C) first make sure that
 SSE-C is not a blocked encryption type in your Amazon S3 general purpose bucket's default
@@ -28,10 +26,8 @@ Amazon S3 does not store the encryption key that you provide. Instead, it stores
 - [Presigned URLs and SSE-C](#ssec-and-presignedurl "#ssec-and-presignedurl")
 - [Making requests with SSE-C](#making-requests-with-sse-c "#making-requests-with-sse-c")
 - [Using the REST API](#using-rest-api-sse-c "#using-rest-api-sse-c")
-- [Using the AWS SDKs to specify SSE-C for PUT, GET, Head,
-  and Copy operations](#sse-c-using-sdks "#sse-c-using-sdks")
-- [Using the AWS SDKs to specify SSE-C for multipart
-  uploads](#sse-c-using-sdks-multipart-uploads "#sse-c-using-sdks-multipart-uploads")
+- [Using the AWS SDKs to specify SSE-C for PUT, GET, Head, and Copy operations](#sse-c-using-sdks "#sse-c-using-sdks")
+- [Using the AWS SDKs to specify SSE-C for multipart uploads](#sse-c-using-sdks-multipart-uploads "#sse-c-using-sdks-multipart-uploads")
 
 ## SSE-C Actions and Required Headers
 
@@ -64,8 +60,7 @@ objects to a general purpose bucket by using the following API operations or act
 ###### Note
 
 S3 Replication supports objects that are encrypted
-with SSE-C. For more information about replicating encrypted objects, see [Replicating encrypted objects (SSE-S3,
-SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
+with SSE-C. For more information about replicating encrypted objects, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
 
 ### S3 API headers required for SSE-C object encryption and decryption requests
 
@@ -148,8 +143,7 @@ you also must include HTTP headers that are specific to SSE-C objects.
 Therefore, you can use presigned URLs for SSE-C objects only
 programmatically.
 
-For more information about presigned URLs, see [Download and upload objects with presigned
-URLs](using-presigned-url.md "using-presigned-url.md").
+For more information about presigned URLs, see [Download and upload objects with presigned URLs](using-presigned-url.md "using-presigned-url.md").
 
 ## Making requests with SSE-C
 
@@ -200,9 +194,7 @@ keys (SSE-C).
   - If you want the target object encrypted using SSE-C, you must provide encryption information using the S3 API [S3 API headers required for SSE-C object encryption and decryption requests](#s3-api-headers-required-for-sse-c-object-encryption-and-decryption-requests "#s3-api-headers-required-for-sse-c-object-encryption-and-decryption-requests").
   - If the source object is encrypted using SSE-C, you must provide encryption key information using the S3 API headers [S3 API headers required for requests to copy source objects encrypted with SSE-C](#s3-api-headers-required-for-requests-to-copy-source-objects-encrypted-with-sse-c "#s3-api-headers-required-for-requests-to-copy-source-objects-encrypted-with-sse-c").
 
-## Using the AWS SDKs to specify SSE-C for PUT, GET, Head,
-
-and Copy operations
+## Using the AWS SDKs to specify SSE-C for PUT, GET, Head, and Copy operations
 
 The following examples show how to request server-side encryption with customer-provided keys
 (SSE-C) for objects. The examples perform the following operations. Each operation shows how
@@ -505,9 +497,7 @@ namespace Amazon.DocSamples.S3
 
 ```
 
-## Using the AWS SDKs to specify SSE-C for multipart
-
-uploads
+## Using the AWS SDKs to specify SSE-C for multipart uploads
 
 The example in the preceding section shows how to request server-side encryption with
 customer-provided key (SSE-C) in the PUT, GET, Head, and Copy operations. This section

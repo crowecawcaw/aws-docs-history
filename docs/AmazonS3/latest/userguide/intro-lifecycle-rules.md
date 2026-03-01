@@ -31,12 +31,10 @@ Each rule consists of the following:
 - [ID element](#intro-lifecycle-rule-id "#intro-lifecycle-rule-id")
 - [Status element](#intro-lifecycle-rule-status "#intro-lifecycle-rule-status")
 - [Filter element](#intro-lifecycle-rules-filter "#intro-lifecycle-rules-filter")
-- [Elements to describe lifecycle
-  actions](#intro-lifecycle-rules-actions "#intro-lifecycle-rules-actions")
+- [Elements to describe lifecycle actions](#intro-lifecycle-rules-actions "#intro-lifecycle-rules-actions")
 - [Adding filters to Lifecycle rules](intro-lifecycle-filters.md "intro-lifecycle-filters.md")
   The following sections describe the XML elements in an S3 Lifecycle configuration.
-  For example configurations, see [Examples of S3 Lifecycle
-  configurations](lifecycle-configuration-examples.md "lifecycle-configuration-examples.md").
+  For example configurations, see [Examples of S3 Lifecycle configurations](lifecycle-configuration-examples.md "lifecycle-configuration-examples.md").
 
 ## ID element
 
@@ -272,9 +270,7 @@ bytes.
 
 ```
 
-## Elements to describe lifecycle
-
-actions
+## Elements to describe lifecycle actions
 
 You can direct Amazon S3 to perform specific actions in an object's lifetime by specifying
 one or more of the following predefined actions in an S3 Lifecycle rule. The effect of
@@ -283,8 +279,7 @@ these actions depends on the versioning state of your bucket.
 - **`Transition` action element**
   – You specify the `Transition` action to transition objects
   from one storage class to another. For more information about transitioning
-  objects, see [Supported
-  transitions](lifecycle-transition-general-considerations.md#lifecycle-general-considerations-transition-sc "lifecycle-transition-general-considerations.md#lifecycle-general-considerations-transition-sc"). When a
+  objects, see [Supported transitions](lifecycle-transition-general-considerations.md#lifecycle-general-considerations-transition-sc "lifecycle-transition-general-considerations.md#lifecycle-general-considerations-transition-sc"). When a
   specified date or time period in the object's lifetime is reached, Amazon S3 performs
   the transition.
 
@@ -368,11 +363,9 @@ a `<Filter>` element. If you don't specify a
 `InvalidRequest` error when you specify the number of noncurrent
 versions to retain.
 
-For more information about transitioning objects, see [Supported
-transitions](lifecycle-transition-general-considerations.md#lifecycle-general-considerations-transition-sc "lifecycle-transition-general-considerations.md#lifecycle-general-considerations-transition-sc"). For
+For more information about transitioning objects, see [Supported transitions](lifecycle-transition-general-considerations.md#lifecycle-general-considerations-transition-sc "lifecycle-transition-general-considerations.md#lifecycle-general-considerations-transition-sc"). For
 details about how Amazon S3 calculates the date when you specify the number of days
-in the `NoncurrentVersionTransition` action, see [Lifecycle rules: Based on an
-object's age](#intro-lifecycle-rules-number-of-days "#intro-lifecycle-rules-number-of-days").
+in the `NoncurrentVersionTransition` action, see [Lifecycle rules: Based on an object's age](#intro-lifecycle-rules-number-of-days "#intro-lifecycle-rules-number-of-days").
 
 - **`NoncurrentVersionExpiration` action
   element** – Use this action to direct Amazon S3 to permanently
@@ -408,8 +401,7 @@ deletes `photo.gif` (version ID 111111), five days after it
 became a noncurrent version.
 
 For details about how Amazon S3 calculates the date when you specify the number of
-days in an `NoncurrentVersionExpiration` action, see [Lifecycle rules: Based on an
-object's age](#intro-lifecycle-rules-number-of-days "#intro-lifecycle-rules-number-of-days").
+days in an `NoncurrentVersionExpiration` action, see [Lifecycle rules: Based on an object's age](#intro-lifecycle-rules-number-of-days "#intro-lifecycle-rules-number-of-days").
 
 ###### Note
 
@@ -446,9 +438,7 @@ uses object tags.
 You can't specify this lifecycle action in a rule that has a filter that
 uses object tags.
 
-### How Amazon S3 calculates how long an
-
-object has been noncurrent
+### How Amazon S3 calculates how long an object has been noncurrent
 
 In a versioning-enabled bucket, you can have multiple versions of an object. There is
 always one current version, and zero or more noncurrent versions. Each time you upload
@@ -458,9 +448,7 @@ object is noncurrent, Amazon S3 looks at when its successor was created. Amazon 
 of days since its successor was created as the number of days an object is
 noncurrent.
 
-###### Restoring previous versions of an object when using S3 Lifecycle
-
-configurations
+###### Restoring previous versions of an object when using S3 Lifecycle configurations
 
 As explained in [Restoring previous versions](RestoringPreviousVersions.md "RestoringPreviousVersions.md"), you can use either of the following
 two methods to retrieve previous versions of an object:
@@ -484,9 +472,7 @@ might permanently remove noncurrent objects, including the one that you want to
 restore. So, copying the old version, as recommended in Method 1, is the safer
 alternative.
 
-### Lifecycle actions and
-
-bucket versioning state
+### Lifecycle actions and bucket versioning state
 
 The following table summarizes the behavior of the S3 Lifecycle
 configuration rule actions on objects in relation to the versioning state of the
@@ -499,9 +485,7 @@ bucket that contains the object.
 | `NoncurrentVersionTransition`<br>For noncurrent versions in a versioning enabled or versioning<br>suspended bucket, S3 Lifecycle transitions an object when the<br>number of days since the object has been noncurrent exceeds both<br>the value specified under **Days after objects become<br>noncurrent\*<br>• (`<NoncurrentDays>`)<br>in the rule **and\*<br>• when the number<br>of versions exceeds the value specified in **Number of<br>newer versions to retain**<br>(`<NewerNoncurrentVersions>`) in the<br>rule. | `NoncurrentVersionTransition` has no effect.                                              | Amazon S3 transitions the noncurrent object versions to the<br>specified storage class.                                                                                                         | Same behavior as a versioning-enabled bucket.                                                                                                                                                                                                                                                                          |
 | `NoncurrentVersionExpiration`<br>For noncurrent versions in a versioning enabled or versioning<br>suspended bucket, S3 Lifecycle expires an object when the number<br>of days since the object has been noncurrent exceeds both the<br>value specified under **Days after objects become<br>noncurrent\*<br>• (`<NoncurrentDays>`)<br>in the rule **and\*<br>• when the number<br>of versions exceeds the value specified in **Number of<br>newer versions to retain**<br>(`<NewerNoncurrentVersions>`) in the<br>rule.     | `NoncurrentVersionExpiration` has no effect.                                              | The `NoncurrentVersionExpiration` action permanently<br>deletes the noncurrent version of the object, and the deleted object<br>can't be recovered.                                             | Same behavior as a versioning-enabled bucket.                                                                                                                                                                                                                                                                          |
 
-### Lifecycle rules: Based on an
-
-object's age
+### Lifecycle rules: Based on an object's age
 
 You can specify a time period, in the number of days from the creation (or
 modification) of the object, when Amazon S3 can take the specified action.
@@ -542,9 +526,7 @@ note the following:
   replaces the current version is created on 1/15/2014 at 10:30 AM UTC, and you specify 3 days in a
   transition rule, the transition date of the object is calculated as 1/19/2014 00:00 UTC.
 
-### Lifecycle rules: Based on a specific
-
-date
+### Lifecycle rules: Based on a specific date
 
 When specifying an action in an S3 Lifecycle rule, you can specify a date when you
 want Amazon S3

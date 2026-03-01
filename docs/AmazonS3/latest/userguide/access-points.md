@@ -28,8 +28,7 @@ The topics in this section explain how to work with Amazon S3 access points. For
 
 ###### Topics
 
-- [Access points naming rules, restrictions, and
-  limitations](access-points-restrictions-limitations-naming-rules.md "access-points-restrictions-limitations-naming-rules.md")
+- [Access points naming rules, restrictions, and limitations](access-points-restrictions-limitations-naming-rules.md "access-points-restrictions-limitations-naming-rules.md")
 - [Referencing access points with ARNs, access point aliases, or virtual-hosted–style URIs](access-points-naming.md "access-points-naming.md")
 - [Access point compatibility](access-points-service-api-support.md "access-points-service-api-support.md")
 - [Configuring IAM policies for using access points](access-points-policies.md "access-points-policies.md")

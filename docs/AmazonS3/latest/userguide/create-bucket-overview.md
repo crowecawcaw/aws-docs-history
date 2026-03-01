@@ -28,8 +28,7 @@ bucket's behavior:
   bucket and to disable or enable access control lists (ACLs). By default, Object Ownership is set to
   the Bucket owner enforced setting, and all ACLs are disabled. With ACLs disabled, the bucket owner
   owns every object in the bucket and manages access to data exclusively by using policies. For more
-  information, see [Controlling ownership of objects and disabling ACLs
-  for your bucket](about-object-ownership.md "about-object-ownership.md").
+  information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 - **S3 Object Lock** – S3 Object Lock can help prevent
   Amazon S3 objects from being deleted or overwritten for a fixed amount of time or indefinitely.
   Object Lock uses a _write-once-read-many_ (WORM) model to store
@@ -46,8 +45,7 @@ use the following settings to control other aspects of your bucket's behavior:
   Amazon S3 resources. By default, new buckets, access points, and objects don't allow public access.
   However, users can modify bucket policies, access point policies, or object permissions to allow
   public access. S3 Block Public Access settings override these policies and permissions so that you can
-  limit public access to these resources. For more information, see [Blocking public access to your Amazon S3
-  storage](access-control-block-public-access.md "access-control-block-public-access.md").
+  limit public access to these resources. For more information, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 - **S3 Versioning** – Versioning is a means of keeping multiple
   variants of an object in the same bucket. You can use versioning to preserve, retrieve, and restore
   every version of every object stored in your bucket. With versioning, you can easily recover from both
@@ -59,8 +57,7 @@ use the following settings to control other aspects of your bucket's behavior:
   automatically encrypted with SSE-S3 as the base level of encryption. If you want to use a different
   type of default encryption, you can specify server-side encryption with AWS Key Management Service (AWS KMS) keys
   (SSE-KMS), dual-layer server-side encryption with AWS KMS keys (DSSE-KMS), or server-side encryption
-  with customer-provided keys (SSE-C) to encrypt your data. For more information, see [Setting default server-side encryption behavior for Amazon S3
-  buckets](bucket-encryption.md "bucket-encryption.md").
+  with customer-provided keys (SSE-C) to encrypt your data. For more information, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md").
   You can use the Amazon S3 console, Amazon S3 REST API, AWS Command Line Interface (AWS CLI), or AWS SDKs to create a general purpose bucket.
   For more information about the permissions required to create a general purpose bucket, see [CreateBucket](../API/API_CreateBucket.md "../API/API_CreateBucket.md") in the
   _Amazon Simple Storage Service API Reference_.
@@ -137,8 +134,7 @@ settings:
     By default, ACLs are disabled. A majority of modern use cases in Amazon S3 no
      longer require the use of ACLs. We recommend that you keep ACLs disabled, except
      in circumstances where you must control access for each object
-     individually. For more information, see [Controlling ownership of objects and disabling ACLs
-     for your bucket](about-object-ownership.md "about-object-ownership.md").
+     individually. For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 ###### ACLs enabled
 
@@ -166,8 +162,7 @@ Block Public Access settings that you want to apply to the bucket.
 
 By default, all four Block Public Access settings are enabled. We recommend that you
 keep all settings enabled, unless you know that you need to turn off one or more of them
-for your specific use case. For more information about blocking public access, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+for your specific use case. For more information about blocking public access, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 ###### Note
 
@@ -202,10 +197,8 @@ choose one of the following:
 
 Buckets and new objects are encrypted by using server-side encryption with Amazon S3 managed keys
 (SSE-S3) as the base level of encryption configuration. For more information about default encryption,
-see [Setting default server-side encryption behavior for Amazon S3
-buckets](bucket-encryption.md "bucket-encryption.md"). For more information about
-SSE-S3, see [Using server-side encryption with Amazon S3 managed keys
-(SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
+see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md"). For more information about
+SSE-S3, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
 
 For more information about using server-side encryption to encrypt your data, see [Protecting data with encryption](UsingEncryption.md "UsingEncryption.md"). 12. If you chose **Server-side encryption with AWS Key Management Service keys (SSE-KMS)** or
 **Dual-layer server-side encryption with AWS Key Management Service (AWS KMS) keys (DSSE-KMS)**, do the
@@ -239,10 +232,8 @@ following:
      that's owned by a different account, you must first have permission to use the key, and then you
      must enter the KMS key ARN. For more information about cross account permissions for KMS keys,
      see [Creating KMS keys that other accounts can use](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md#cross-account-console "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md#cross-account-console") in the
-     *AWS Key Management Service Developer Guide*. For more information about SSE-KMS, see [Specifying server-side encryption with AWS KMS
-     (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md"). For more
-     information about DSSE-KMS, see [Using dual-layer server-side encryption with AWS KMS keys
-     (DSSE-KMS)](UsingDSSEncryption.md "UsingDSSEncryption.md").
+     *AWS Key Management Service Developer Guide*. For more information about SSE-KMS, see [Specifying server-side encryption with AWS KMS (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md"). For more
+     information about DSSE-KMS, see [Using dual-layer server-side encryption with AWS KMS keys (DSSE-KMS)](UsingDSSEncryption.md "UsingDSSEncryption.md").
 
     When you use an AWS KMS key for server-side encryption in Amazon S3, you must
      choose a symmetric encryption KMS key. Amazon S3 supports only symmetric encryption KMS keys and not

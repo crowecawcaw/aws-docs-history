@@ -27,12 +27,10 @@ S3 Tables, see the following topics. To create a VPC interface endpoint, see
 ###### Topics
 
 - [Creating VPC endpoints for S3 Tables](#s3-tables-endpoints "#s3-tables-endpoints")
-- [Accessing table buckets and tables
-  through endpoints using the AWS CLI](#s3-tables-endpoints-cli-sdks "#s3-tables-endpoints-cli-sdks")
+- [Accessing table buckets and tables through endpoints using the AWS CLI](#s3-tables-endpoints-cli-sdks "#s3-tables-endpoints-cli-sdks")
 - [Configuring a VPC network when using query engines](#s3-tables-query-engine "#s3-tables-query-engine")
 - [Using the dual-stack endpoints to access tables and table buckets](#s3-tables-dual-stack-endpoints "#s3-tables-dual-stack-endpoints")
-- [Restricting access to S3 Tables within the VPC
-  network](#s3-tables-VPC-policy "#s3-tables-VPC-policy")
+- [Restricting access to S3 Tables within the VPC network](#s3-tables-VPC-policy "#s3-tables-VPC-policy")
 
 ## Creating VPC endpoints for S3 Tables
 
@@ -59,9 +57,7 @@ application. Private DNS maps the public endpoint of S3 Tables, for instance,
 use private DNS options to route Regional S3 traffic without updating your S3 clients to
 use the endpoint-specific DNS names of your interface endpoints.
 
-## Accessing table buckets and tables
-
-through endpoints using the AWS CLI
+## Accessing table buckets and tables through endpoints using the AWS CLI
 
 You can use the AWS Command Line Interface (AWS CLI) to access table buckets and tables through the
 interface endpoints. With the AWS CLI, `aws s3` commands route traffic through
@@ -162,9 +158,7 @@ aws ec2 modify-vpc-endpoint \
   --region `aws-region`
 ```
 
-## Restricting access to S3 Tables within the VPC
-
-network
+## Restricting access to S3 Tables within the VPC network
 
 Similar to resource-based policies, you can attach an endpoint policy to your VPC endpoint
 that controls the access to tables and table buckets. In the following example, the

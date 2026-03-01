@@ -1,6 +1,4 @@
-# Controlling access from VPC
-
-endpoints with bucket policies
+# Controlling access from VPC endpoints with bucket policies
 
 You can use Amazon S3 bucket policies to control access to buckets from specific virtual private cloud (VPC)
 endpoints or
@@ -50,12 +48,9 @@ VPC endpoints for Amazon S3 provide two ways to control access to your Amazon S3
 
 ###### Topics
 
-- [Restricting
-  access to a specific VPC endpoint](#example-bucket-policies-restrict-accesss-vpc-endpoint "#example-bucket-policies-restrict-accesss-vpc-endpoint")
-- [Restricting access to a
-  specific VPC](#example-bucket-policies-restrict-access-vpc "#example-bucket-policies-restrict-access-vpc")
-- [Restricting
-  access to an IPv6 VPC endpoint](#example-bucket-policies-ipv6-vpc-endpoint "#example-bucket-policies-ipv6-vpc-endpoint")
+- [Restricting access to a specific VPC endpoint](#example-bucket-policies-restrict-accesss-vpc-endpoint "#example-bucket-policies-restrict-accesss-vpc-endpoint")
+- [Restricting access to a specific VPC](#example-bucket-policies-restrict-access-vpc "#example-bucket-policies-restrict-access-vpc")
+- [Restricting access to an IPv6 VPC endpoint](#example-bucket-policies-ipv6-vpc-endpoint "#example-bucket-policies-ipv6-vpc-endpoint")
 
 ###### Important
 
@@ -72,9 +67,7 @@ has the wrong VPC or VPC endpoint
 ID?](https://aws.amazon.com/premiumsupport/knowledge-center/s3-regain-access/ "https://aws.amazon.com/premiumsupport/knowledge-center/s3-regain-access/")
 in the _AWS Support Knowledge Center_.
 
-## Restricting
-
-access to a specific VPC endpoint
+## Restricting access to a specific VPC endpoint
 
 The following is an example of an Amazon S3 bucket policy that restricts access to a
 specific bucket,
@@ -127,9 +120,7 @@ JSON
 
 ```
 
-## Restricting access to a
-
-specific VPC
+## Restricting access to a specific VPC
 
 You can create a bucket policy that restricts access to a specific VPC by using the
 `aws:SourceVpc` condition. This is useful if you have multiple VPC
@@ -188,9 +179,7 @@ JSON
 
 ```
 
-## Restricting
-
-access to an IPv6 VPC endpoint
+## Restricting access to an IPv6 VPC endpoint
 
 The following example policy denies all Amazon S3 (`s3:`) actions on the `amzn-s3-demo-bucket` bucket and its objects, unless the request originates from the specified VPC endpoint (`vpce-0a1b2c3d4e5f6g`) and the source IP address matches the provided IPv6 CIDR block.
 

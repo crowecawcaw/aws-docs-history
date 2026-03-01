@@ -1,6 +1,4 @@
-# Associate or disassociate your IAM Identity Center
-
-instance
+# Associate or disassociate your IAM Identity Center instance
 
 In Amazon S3 Access Grants, you can associate the AWS IAM Identity Center instance of your corporate identity
 directory with an S3 Access Grants instance. After you do so, you can create access grants for your
@@ -14,8 +12,7 @@ AWS Command Line Interface (AWS CLI), the Amazon S3 REST API, and the AWS
 SDKs.
 
 Before you associate your IAM Identity Center instance with your S3 Access Grants instance, you must add your
-corporate identity directory to IAM Identity Center. For more information, see [S3 Access Grants and corporate directory
-identities](access-grants-directory-ids.md "access-grants-directory-ids.md").
+corporate identity directory to IAM Identity Center. For more information, see [S3 Access Grants and corporate directory identities](access-grants-directory-ids.md "access-grants-directory-ids.md").
 
 ###### To associate an IAM Identity Center instance with an S3 Access Grants instance
 

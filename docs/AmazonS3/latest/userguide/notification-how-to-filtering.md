@@ -1,6 +1,4 @@
-# Configuring event notifications
-
-using object key name filtering
+# Configuring event notifications using object key name filtering
 
 When configuring an Amazon S3 event notification, you must specify which supported Amazon S3
 event types cause Amazon S3 to send the notification. If an event type that you didn't
@@ -47,14 +45,10 @@ overlapping.
 
 ###### Topics
 
-- [Examples of valid
-  notification configurations with object key name filtering](#notification-how-to-filtering-example-valid "#notification-how-to-filtering-example-valid")
-- [Examples of
-  notification configurations with invalid prefix and suffix overlapping](#notification-how-to-filtering-examples-invalid "#notification-how-to-filtering-examples-invalid")
+- [Examples of valid notification configurations with object key name filtering](#notification-how-to-filtering-example-valid "#notification-how-to-filtering-example-valid")
+- [Examples of notification configurations with invalid prefix and suffix overlapping](#notification-how-to-filtering-examples-invalid "#notification-how-to-filtering-examples-invalid")
 
-## Examples of valid
-
-notification configurations with object key name filtering
+## Examples of valid notification configurations with object key name filtering
 
 The following notification configuration contains a queue configuration
 identifying an Amazon SQS queue for Amazon S3 to publish events to of the
@@ -207,16 +201,13 @@ destinations.
 </NotificationConfiguration>
 ```
 
-## Examples of
-
-notification configurations with invalid prefix and suffix overlapping
+## Examples of notification configurations with invalid prefix and suffix overlapping
 
 For the most part, your notification configurations that use
 `Filter` can't define filtering rules with overlapping prefixes,
 overlapping suffixes, or overlapping combinations of prefixes and suffixes for
 the same event types. You can have overlapping prefixes as long as the suffixes
-don't overlap. For an example, see [Configuring event notifications
-using object key name filtering](notification-how-to-filtering.md "notification-how-to-filtering.md").
+don't overlap. For an example, see [Configuring event notifications using object key name filtering](notification-how-to-filtering.md "notification-how-to-filtering.md").
 
 You can use overlapping object key name filters with different event types.
 For example, you can create a notification configuration that uses the prefix

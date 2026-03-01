@@ -33,36 +33,25 @@ Amazon S3.
 
 ###### Topics
 
-- [Multi-Region Access Point compatibility with AWS services and AWS
-  SDKs](#mrap-api-support "#mrap-api-support")
-- [Multi-Region Access Point compatibility with S3
-  operations](#mrap-operations-support "#mrap-operations-support")
-- [View your Multi-Region Access Point routing
-  configuration](#query-mrap-routing-configuration "#query-mrap-routing-configuration")
-- [Update your underlying Amazon S3 bucket
-  policy](#update-underlying-bucket-policy "#update-underlying-bucket-policy")
-- [Update a Multi-Region Access Point route
-  configuration](#update-mrap-route-configuration "#update-mrap-route-configuration")
+- [Multi-Region Access Point compatibility with AWS services and AWS SDKs](#mrap-api-support "#mrap-api-support")
+- [Multi-Region Access Point compatibility with S3 operations](#mrap-operations-support "#mrap-operations-support")
+- [View your Multi-Region Access Point routing configuration](#query-mrap-routing-configuration "#query-mrap-routing-configuration")
+- [Update your underlying Amazon S3 bucket policy](#update-underlying-bucket-policy "#update-underlying-bucket-policy")
+- [Update a Multi-Region Access Point route configuration](#update-mrap-route-configuration "#update-mrap-route-configuration")
 - [Add an object to a bucket in your Multi-Region Access Point](#add-bucket-mrap "#add-bucket-mrap")
 - [Retrieve objects from your Multi-Region Access Point](#get-object-mrap "#get-object-mrap")
-- [List objects that are stored in a bucket underlying
-  your Multi-Region Access Point](#list-objects-mrap "#list-objects-mrap")
+- [List objects that are stored in a bucket underlying your Multi-Region Access Point](#list-objects-mrap "#list-objects-mrap")
 - [Use a presigned URL with Multi-Region Access Points](#use-presigned-url-mrap "#use-presigned-url-mrap")
-- [Use a bucket that's configured with Requester
-  Pays with Multi-Region Access Points](#use-requester-pays-mrap "#use-requester-pays-mrap")
+- [Use a bucket that's configured with Requester Pays with Multi-Region Access Points](#use-requester-pays-mrap "#use-requester-pays-mrap")
 
-## Multi-Region Access Point compatibility with AWS services and AWS
-
-SDKs
+## Multi-Region Access Point compatibility with AWS services and AWS SDKs
 
 To use a Multi-Region Access Point with applications that require an Amazon S3 bucket name, use the Amazon Resource
 Name (ARN) of the Multi-Region Access Point when making requests by using an AWS SDK.
 To check which AWS SDKs are compatible with Multi-Region Access Points, see [Compatibility with
 AWS SDKs](../../../sdkref/latest/guide/feature-s3-mrap.md#s3-mrap-sdk-compat "../../../sdkref/latest/guide/feature-s3-mrap.md#s3-mrap-sdk-compat").
 
-## Multi-Region Access Point compatibility with S3
-
-operations
+## Multi-Region Access Point compatibility with S3 operations
 
 You can use use the following Amazon S3 data plane API operations to perform actions on
 objects in buckets that are associated with your Multi-Region Access Point. The following S3 operations can
@@ -107,9 +96,7 @@ Multi-Region Access Points:
 - [PutMultiRegionAccessPointPolicy](../API/API_control_PutMultiRegionAccessPointPolicy.md "../API/API_control_PutMultiRegionAccessPointPolicy.md")
 - [SubmitMultiRegionAccessPointRoutes](../API/API_control_SubmitMultiRegionAccessPointRoutes.md "../API/API_control_SubmitMultiRegionAccessPointRoutes.md")
 
-## View your Multi-Region Access Point routing
-
-configuration
+## View your Multi-Region Access Point routing configuration
 
 AWS CLI
 The following example command retrieves your Multi-Region Access Point route configuration so
@@ -187,9 +174,7 @@ s3.get_multi_region_access_point_routes(
         Mrap=arn:aws:s3::`111122223333`:accesspoint/`abcdef0123456`.mrap)['Routes']
 ```
 
-## Update your underlying Amazon S3 bucket
-
-policy
+## Update your underlying Amazon S3 bucket policy
 
 To grant proper access, you must also update the underlying Amazon S3 bucket policy. The
 following examples delegate access control to the Multi-Region Access Point policy. After you delegate
@@ -244,9 +229,7 @@ aws s3api put-bucket-policy
   --policy file:`///tmp/policy.json`
 ```
 
-## Update a Multi-Region Access Point route
-
-configuration
+## Update a Multi-Region Access Point route configuration
 
 The following example command updates the Multi-Region Access Point route configuration. Multi-Region Access Point route
 commands can be run against the following five Regions:
@@ -512,9 +495,7 @@ client.get_object(
 )
 ```
 
-## List objects that are stored in a bucket underlying
-
-your Multi-Region Access Point
+## List objects that are stored in a bucket underlying your Multi-Region Access Point
 
 To return a list of objects that are stored in a bucket underlying your Multi-Region Access Point, use
 the [ListObjectsV2](../API/API_ListObjectsV2.md "../API/API_ListObjectsV2.md")
@@ -659,9 +640,7 @@ for AWS STS (`sts.amazonaws.com`), AWS STS will generate temporary credentials
 from a global endpoint, which isn't supported by Sig4A. As a result, you'll get an
 error. To resolve this issue, use any of the listed [Regional endpoints for AWS STS](../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md#id_credentials_region-endpoints "../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md#id_credentials_region-endpoints").
 
-## Use a bucket that's configured with Requester
-
-Pays with Multi-Region Access Points
+## Use a bucket that's configured with Requester Pays with Multi-Region Access Points
 
 If an S3 bucket that is associated with your Multi-Region Access Points is [configured to use
 Requester Pays](RequesterPaysExamples.md "RequesterPaysExamples.md"), the requester will pay for the

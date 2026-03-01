@@ -9,8 +9,7 @@ API, AWS SDKs, and AWS Command Line Interface (AWS CLI).
 After enabling versioning on a bucket for the first time, it may take up to 15 minutes for the change to fully propagate across the S3 system. During this time, `GET` requests for objects created or updated after enabling versioning may result in `HTTP 404 NoSuchKey` errors. We recommend waiting 15 minutes after enabling versioning before performing any write operations (`PUT` or `DELETE`) on objects in the bucket. This waiting period helps avoid potential issues with object visibility and version tracking.
 
 For more information about S3 Versioning, see [Retaining multiple versions of objects with S3 Versioning](Versioning.md "Versioning.md"). For information about working with objects that are in
-versioning-enabled buckets, see [Working with objects in a
-versioning-enabled bucket](manage-objects-versioned-bucket.md "manage-objects-versioned-bucket.md").
+versioning-enabled buckets, see [Working with objects in a versioning-enabled bucket](manage-objects-versioned-bucket.md "manage-objects-versioned-bucket.md").
 
 To learn more about how to use S3 Versioning to
 protect data, see [Tutorial: Protecting data on Amazon S3 against accidental deletion or application bugs using

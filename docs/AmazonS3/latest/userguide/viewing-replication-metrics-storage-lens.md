@@ -1,6 +1,4 @@
-# Viewing replication metrics in
-
-S3 Storage Lens dashboards
+# Viewing replication metrics in S3 Storage Lens dashboards
 
 In addition to [S3 Replication metrics](repl-metrics.md "repl-metrics.md"), you can use the
 replication-related Data Protection metrics provided by S3 Storage Lens. S3 Storage Lens is a cloud-storage analytics feature that you can use to gain organization-wide
@@ -42,8 +40,7 @@ If you enable advanced metrics and recommendations, you can gain further insight
 your replication configurations. For example, you can use S3 Storage Lens replication rule count
 metrics to get detailed information about your buckets that are configured for
 replication. This information includes replication rules within and across buckets and
-Regions. For more information, see [Count the total number
-of replication rules for each bucket](storage-lens-data-protection.md#storage-lens-data-protection-replication-rule "storage-lens-data-protection.md#storage-lens-data-protection-replication-rule"). 3. After you've created your dashboard, open the dashboard, and choose the
+Regions. For more information, see [Count the total number of replication rules for each bucket](storage-lens-data-protection.md#storage-lens-data-protection-replication-rule "storage-lens-data-protection.md#storage-lens-data-protection-replication-rule"). 3. After you've created your dashboard, open the dashboard, and choose the
 **Buckets** tab. 4. Scroll down to the **Buckets** section. Under **Metrics categories**, choose **Data protection**. Then clear
 **Summary**. 5. To filter the **Buckets** list to display only replication metrics,
 choose the preferences icon (

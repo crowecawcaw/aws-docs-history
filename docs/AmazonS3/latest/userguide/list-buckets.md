@@ -15,8 +15,7 @@ SDKs assist with pagination.
 
 To list all of your general purpose buckets, you must have the `s3:ListAllMyBuckets`
 permission. If you're encountering an
-`HTTP Access Denied (403 Forbidden)` error, see [Troubleshoot access denied (403
-Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md").
+`HTTP Access Denied (403 Forbidden)` error, see [Troubleshoot access denied (403 Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md").
 
 ###### Important
 
@@ -38,9 +37,7 @@ greater than 10,000.
    unpaginated `ls` request. To use these examples, replace the
    `user input placeholders`.
 
-###### Example– List all the buckets in your account by using `ls`
-
-(unpaginated)
+###### Example– List all the buckets in your account by using `ls` (unpaginated)
 
 The following example command lists all the general purpose buckets in your account
 in a single non-paginated call. This call returns a list of all buckets in your
@@ -52,9 +49,7 @@ $ aws s3 ls
 
 For more information and examples, see [List bucket and objects](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-listing-buckets "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-listing-buckets").
 
-###### Example– List all the buckets in your account by using `ls`
-
-(paginated)
+###### Example– List all the buckets in your account by using `ls` (paginated)
 
 The following example command makes one or more paginated calls to list all
 the general purpose buckets in your account, returning 100 buckets per page:
@@ -111,9 +106,7 @@ $ aws s3api list-buckets /
     --bucket-region `us-east-2`
 ```
 
-###### Example– List all the buckets that begin with a specific bucket name prefix
-
-(paginated)
+###### Example– List all the buckets that begin with a specific bucket name prefix (paginated)
 
 The following example command lists up to 100 buckets that have a name
 starting with the `amzn-s3-demo-bucket`

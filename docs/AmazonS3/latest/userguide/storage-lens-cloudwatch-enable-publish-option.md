@@ -64,9 +64,7 @@ prefix-level metrics will not be published to CloudWatch. Only bucket,
 account, and organization-level S3 Storage Lens metrics are published to
 CloudWatch. 6. Choose **Save changes**.
 
-###### To create a new S3 Storage Lens dashboard that enables CloudWatch
-
-support
+###### To create a new S3 Storage Lens dashboard that enables CloudWatch support
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").

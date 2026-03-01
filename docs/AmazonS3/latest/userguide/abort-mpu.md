@@ -12,8 +12,7 @@ complete the multipart upload or stop the multipart upload to
 remove any uploaded parts. For more information about pricing, see [Multipart upload and pricing](mpuoverview.md#mpuploadpricing "mpuoverview.md#mpuploadpricing").
 
 You can also stop an incomplete multipart upload using a bucket lifecycle configuration.
-For more information, see [Configuring a bucket lifecycle
-configuration to delete incomplete multipart uploads](mpu-abort-incomplete-mpu-lifecycle-config.md "mpu-abort-incomplete-mpu-lifecycle-config.md").
+For more information, see [Configuring a bucket lifecycle configuration to delete incomplete multipart uploads](mpu-abort-incomplete-mpu-lifecycle-config.md "mpu-abort-incomplete-mpu-lifecycle-config.md").
 
 The following section show how to stop an in-progress multipart upload in Amazon S3 using the AWS Command Line Interface, REST
 API, or AWS SDKs.

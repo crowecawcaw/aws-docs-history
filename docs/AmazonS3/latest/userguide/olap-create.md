@@ -72,8 +72,7 @@ confidential information. 9. (Optional) For **Range and part number**, you must 
 option if you want to process `GET` and `HEAD` requests with
 range and part number headers. Enabling this option confirms that your Lambda
 function can recognize and process these requests. For more information about range
-headers and part numbers, see [Working with Range and
-partNumber headers](range-get-olap.md "range-get-olap.md"). 10. (Optional) For **Request metrics**, choose
+headers and part numbers, see [Working with Range and partNumber headers](range-get-olap.md "range-get-olap.md"). 10. (Optional) For **Request metrics**, choose
 **Enable** or **Disable** to add Amazon S3
 monitoring to your Object Lambda Access Point. Request metrics are billed at the standard Amazon CloudWatch
 rate. 11. (Optional) Under **Object Lambda Access Point policy**, set a resource policy.
@@ -121,8 +120,7 @@ aws cloudformation deploy --template-file s3objectlambda_defaultconfig.yaml \
 
 You can configure this AWS CloudFormation template to invoke Lambda for `GET`,
 `HEAD`, and `LIST` API operations. For more information about
-modifying the template's default configuration, see [Automate S3 Object Lambda setup with a CloudFormation
-template](olap-using-cfn-template.md "olap-using-cfn-template.md").
+modifying the template's default configuration, see [Automate S3 Object Lambda setup with a CloudFormation template](olap-using-cfn-template.md "olap-using-cfn-template.md").
 
 ###### To create an Object Lambda Access Point by using the AWS CLI
 
@@ -276,8 +274,7 @@ You can create an Object Lambda Access Point by using the default configuration 
 download an AWS CloudFormation template and Lambda function source code from the [GitHub repository](https://github.com/aws-samples/amazon-s3-object-lambda-default-configuration "https://github.com/aws-samples/amazon-s3-object-lambda-default-configuration") and deploy these resources to set up a functional
 Object Lambda Access Point.
 
-For information about modifying the AWS CloudFormation template's default configuration, see [Automate S3 Object Lambda setup with a CloudFormation
-template](olap-using-cfn-template.md "olap-using-cfn-template.md").
+For information about modifying the AWS CloudFormation template's default configuration, see [Automate S3 Object Lambda setup with a CloudFormation template](olap-using-cfn-template.md "olap-using-cfn-template.md").
 
 For information about configuring Object Lambda Access Points by using CloudFormation without the template, see [`AWS::S3ObjectLambda::AccessPoint`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.md") in the
 _AWS CloudFormation User Guide_.

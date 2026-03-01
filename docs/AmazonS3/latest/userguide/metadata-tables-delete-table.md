@@ -8,8 +8,7 @@ can delete the metadata tables from your AWS managed table bucket.
 - Deleting a table is permanent and can't be undone. Before deleting a table, make sure that you
   have backed up any important data.
 - Before you delete a metadata table, we recommend that you first delete the associated metadata
-  table configuration on your general purpose bucket. For more information, see [Deleting metadata table
-  configurations](metadata-tables-delete-configuration.md "metadata-tables-delete-configuration.md").
+  table configuration on your general purpose bucket. For more information, see [Deleting metadata table configurations](metadata-tables-delete-configuration.md "metadata-tables-delete-configuration.md").
   To delete your AWS managed table bucket, see [Deleting table buckets](s3-tables-buckets-delete.md "s3-tables-buckets-delete.md") and
   [DeleteTableBucket](../API/API_s3TableBuckets_DeleteTableBucket.md "../API/API_s3TableBuckets_DeleteTableBucket.md") in the _Amazon S3 API
   Reference_. Before you delete your AWS managed table bucket, we recommend that you first

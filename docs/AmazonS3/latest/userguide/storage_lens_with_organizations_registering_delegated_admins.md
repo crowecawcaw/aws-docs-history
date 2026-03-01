@@ -1,6 +1,4 @@
-# Registering a
-
-delegated administrator for S3 Storage Lens
+# Registering a delegated administrator for S3 Storage Lens
 
 You can create organization-level dashboards by using your organization’s management
 account or delegated administrator accounts. Delegated administrator accounts allow other

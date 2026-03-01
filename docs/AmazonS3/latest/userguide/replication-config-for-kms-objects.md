@@ -1,6 +1,4 @@
-# Replicating encrypted objects (SSE-S3,
-
-SSE-KMS, DSSE-KMS, SSE-C)
+# Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)
 
 ###### Important
 
@@ -22,8 +20,7 @@ objects that have been encrypted by using server-side encryption. This topic als
 example AWS Identity and Access Management (IAM) policies that grant the necessary permissions for
 replicating encrypted objects.
 
-For an example with step-by-step instructions, see [Enabling replication for encrypted
-objects](#replication-walkthrough-4 "#replication-walkthrough-4"). For
+For an example with step-by-step instructions, see [Enabling replication for encrypted objects](#replication-walkthrough-4 "#replication-walkthrough-4"). For
 information about creating a replication configuration, see [Replicating objects within and across Regions](replication.md "replication.md").
 
 ###### Note
@@ -35,18 +32,12 @@ information, see
 
 ###### Topics
 
-- [How default bucket encryption
-  affects replication](#replication-default-encryption "#replication-default-encryption")
-- [Replicating
-  objects encrypted with SSE-C](#replicationSSEC "#replicationSSEC")
-- [Replicating objects encrypted with SSE-S3, SSE-KMS, or
-  DSSE-KMS](#replications "#replications")
-- [Enabling replication for encrypted
-  objects](#replication-walkthrough-4 "#replication-walkthrough-4")
+- [How default bucket encryption affects replication](#replication-default-encryption "#replication-default-encryption")
+- [Replicating objects encrypted with SSE-C](#replicationSSEC "#replicationSSEC")
+- [Replicating objects encrypted with SSE-S3, SSE-KMS, or DSSE-KMS](#replications "#replications")
+- [Enabling replication for encrypted objects](#replication-walkthrough-4 "#replication-walkthrough-4")
 
-## How default bucket encryption
-
-affects replication
+## How default bucket encryption affects replication
 
 When you enable default encryption for a replication destination bucket, the following
 encryption behavior applies:
@@ -62,9 +53,7 @@ encryption behavior applies:
   objects in the destination bucket use the same type of encryption as the source objects.
   The default encryption settings of the destination bucket are not used.
 
-## Replicating
-
-objects encrypted with SSE-C
+## Replicating objects encrypted with SSE-C
 
 By using server-side encryption with customer-provided keys (SSE-C), you can manage
 your own proprietary encryption keys. With SSE-C, you manage the keys while Amazon S3 manages
@@ -73,8 +62,7 @@ your request, but you don't need to write any code to perform object encryption 
 decryption. When you upload an object, Amazon S3 encrypts the object by using the key that
 you provided. Amazon S3 then purges that key from memory. When you retrieve an object, you
 must provide the same encryption key as part of your request. For more information, see
-[Using server-side encryption with
-customer-provided keys (SSE-C)](ServerSideEncryptionCustomerKeys.md "ServerSideEncryptionCustomerKeys.md").
+[Using server-side encryption with customer-provided keys (SSE-C)](ServerSideEncryptionCustomerKeys.md "ServerSideEncryptionCustomerKeys.md").
 
 S3 Replication supports objects that are encrypted with SSE-C. You can configure
 SSE-C object replication in the Amazon S3 console or with the AWS SDKs in the same way that
@@ -84,27 +72,21 @@ permissions beyond what are currently required for replication.
 S3 Replication automatically replicates newly uploaded SSE-C encrypted objects if
 they are eligible, as specified in your S3 Replication configuration. To replicate
 existing objects in your buckets, use S3 Batch Replication. For more information about
-replicating objects, see [Setting up live replication overview](replication-how-setup.md "replication-how-setup.md") and [Replicating existing objects with
-Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
+replicating objects, see [Setting up live replication overview](replication-how-setup.md "replication-how-setup.md") and [Replicating existing objects with Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
 
 There are no additional charges for replicating SSE-C objects. For details about
 replication pricing, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-## Replicating objects encrypted with SSE-S3, SSE-KMS, or
-
-DSSE-KMS
+## Replicating objects encrypted with SSE-S3, SSE-KMS, or DSSE-KMS
 
 By default, Amazon S3 doesn't replicate objects that are encrypted with SSE-KMS or
 DSSE-KMS. This section explains the additional configuration elements that you can add
 to direct Amazon S3 to replicate these objects.
 
-For an example with step-by-step instructions, see [Enabling replication for encrypted
-objects](#replication-walkthrough-4 "#replication-walkthrough-4"). For
+For an example with step-by-step instructions, see [Enabling replication for encrypted objects](#replication-walkthrough-4 "#replication-walkthrough-4"). For
 information about creating a replication configuration, see [Replicating objects within and across Regions](replication.md "replication.md").
 
-### Specifying additional information in the
-
-replication configuration
+### Specifying additional information in the replication configuration
 
 In the replication configuration, you do the following:
 
@@ -183,9 +165,7 @@ Amazon S3 uses the specified AWS KMS key ID to encrypt these object replicas.
 </ReplicationConfiguration>
 ```
 
-### Granting additional permissions for the
-
-IAM role
+### Granting additional permissions for the IAM role
 
 To replicate objects that are encrypted at rest by using SSE-S3, SSE-KMS, or DSSE-KMS, grant
 the following additional permissions to the AWS Identity and Access Management (IAM) role that you specify
@@ -260,13 +240,10 @@ update your IAM policies to use the bucket ARN for the encryption context:
 ]
 ```
 
-For more information, see [Encryption context
-(x-amz-server-side-encryption-context)](specifying-kms-encryption.md#s3-kms-encryption-context "specifying-kms-encryption.md#s3-kms-encryption-context") (in the "Using the REST API"
+For more information, see [Encryption context (x-amz-server-side-encryption-context)](specifying-kms-encryption.md#s3-kms-encryption-context "specifying-kms-encryption.md#s3-kms-encryption-context") (in the "Using the REST API"
 section) and [Changes to note before enabling an S3 Bucket Key](bucket-key.md#bucket-key-changes "bucket-key.md#bucket-key-changes").
 
-### Example policies: Using SSE-S3 and
-
-SSE-KMS with replication
+### Example policies: Using SSE-S3 and SSE-KMS with replication
 
 The following example IAM policies show statements for using SSE-S3 and SSE-KMS
 with replication.
@@ -433,9 +410,7 @@ JSON
 
 ```
 
-### Granting additional
-
-permissions for cross-account scenarios
+### Granting additional permissions for cross-account scenarios
 
 In a cross-account scenario, where the source and destination buckets are owned by
 different AWS accounts, you can use a KMS key to encrypt object replicas.
@@ -448,9 +423,7 @@ If you need to replicate SSE-KMS data cross-account, then your replication
 rule must specify a [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") from AWS KMS for the destination account. [AWS managed keys](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk") don't allow cross-account use, and therefore
 can't be used to perform cross-account replication.
 
-###### To grant the source bucket owner permission to use the KMS key (AWS KMS
-
-console)
+###### To grant the source bucket owner permission to use the KMS key (AWS KMS console)
 
 1. Sign in to the AWS Management Console and open the AWS KMS console at
    [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
@@ -467,17 +440,13 @@ The **Other AWS accounts** dialog box appears. 8. In the dialog box, choose **Ad
 For **arn:aws:iam::**, enter the source
 bucket account ID. 9. Choose **Save changes**.
 
-###### To grant the source bucket owner permission to use the KMS key
-
-(AWS CLI)
+###### To grant the source bucket owner permission to use the KMS key (AWS CLI)
 
 - For information about the `put-key-policy` AWS Command Line Interface (AWS CLI)
   command, see [put-key-policy](../../../cli/latest/reference/kms/put-key-policy.md "../../../cli/latest/reference/kms/put-key-policy.md") in the _AWS CLI Command Reference_. For information about the
   underlying `PutKeyPolicy` API operation, see [PutKeyPolicy](../../../kms/latest/APIReference/API_PutKeyPolicy.md "../../../kms/latest/APIReference/API_PutKeyPolicy.md") in the [AWS Key Management Service API Reference](../../../kms/latest/APIReference.md "../../../kms/latest/APIReference.md").
 
-### AWS KMS transaction quota
-
-considerations
+### AWS KMS transaction quota considerations
 
 When you add many new objects with AWS KMS encryption after enabling Cross-Region
 Replication (CRR), you might experience throttling (HTTP `503 Service
@@ -487,9 +456,7 @@ transactions per second exceeds the current quota. For more information, see [Qu
 To request a quota increase, use Service Quotas. For more information, see [Requesting a
 quota increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md"). If Service Quotas isn't supported in your Region, [open an AWS Support case](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-## Enabling replication for encrypted
-
-objects
+## Enabling replication for encrypted objects
 
 By default, Amazon S3 doesn't replicate objects that are encrypted by using server-side
 encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS) or dual-layer server-side encryption with
@@ -512,8 +479,7 @@ as though they were single-Region keys, and does not use the multi-Region featur
 information, see
 [Using multi-Region keys](../../../kms/latest/developerguide/multi-region-keys-overview.md "../../../kms/latest/developerguide/multi-region-keys-overview.md") in the _AWS Key Management Service Developer Guide_.
 
-For step-by-step instructions, see [Configuring replication for buckets in the same
-account](replication-walkthrough1.md "replication-walkthrough1.md"). This topic provides instructions for
+For step-by-step instructions, see [Configuring replication for buckets in the same account](replication-walkthrough1.md "replication-walkthrough1.md"). This topic provides instructions for
 setting a replication configuration when the source and destination buckets are
 owned by the same and different AWS accounts.
 

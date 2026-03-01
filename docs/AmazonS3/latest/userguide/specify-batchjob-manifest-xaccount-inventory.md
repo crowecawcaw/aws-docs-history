@@ -1,6 +1,4 @@
-# Using an inventory report to copy
-
-objects across AWS accounts
+# Using an inventory report to copy objects across AWS accounts
 
 You can use Amazon S3 Batch Operations to perform large-scale batch operations on Amazon S3 objects.
 You can use S3 Batch Operations to create a **Copy** (`CopyObject`) job
@@ -8,8 +6,7 @@ to copy objects within the same account or to a different destination account.
 
 You can use Amazon S3 Inventory to create an inventory report and use the report to create a
 list (manifest) of objects to copy with S3 Batch Operations. For more information about using a CSV
-manifest in the source or destination account, see [Using a CSV manifest to copy objects
-across AWS accounts](specify-batchjob-manifest-xaccount-csv.md "specify-batchjob-manifest-xaccount-csv.md").
+manifest in the source or destination account, see [Using a CSV manifest to copy objects across AWS accounts](specify-batchjob-manifest-xaccount-csv.md "specify-batchjob-manifest-xaccount-csv.md").
 
 Amazon S3 Inventory generates inventories of the objects in a bucket. The resulting list is
 published to an output file. The bucket that is inventoried is called the source bucket, and the
@@ -28,9 +25,7 @@ The following console procedure contains the high-level steps for setting up per
 for an S3 Batch Operations job. In this procedure, you copy objects from a source account to a
 destination account, with the inventory report stored in the destination account.
 
-###### To set up Amazon S3 Inventory for source and destination buckets owned by different
-
-accounts
+###### To set up Amazon S3 Inventory for source and destination buckets owned by different accounts
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").

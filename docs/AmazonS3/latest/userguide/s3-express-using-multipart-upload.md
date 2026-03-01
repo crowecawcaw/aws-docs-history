@@ -1,6 +1,4 @@
-# Using multipart uploads with
-
-directory buckets
+# Using multipart uploads with directory buckets
 
 You can use the multipart upload process to upload a single object as a set of parts. Each
 part is a contiguous portion of the object's data. You can upload these object parts
@@ -42,13 +40,10 @@ the following topics.
 ###### Topics
 
 - [The multipart upload process](#s3-express-mpu-process "#s3-express-mpu-process")
-- [Checksums with multipart upload
-  operations](#s3-express-mpuchecksums "#s3-express-mpuchecksums")
-- [Concurrent multipart upload
-  operations](#s3-express-distributedmpupload "#s3-express-distributedmpupload")
+- [Checksums with multipart upload operations](#s3-express-mpuchecksums "#s3-express-mpuchecksums")
+- [Concurrent multipart upload operations](#s3-express-distributedmpupload "#s3-express-distributedmpupload")
 - [Multipart uploads and pricing](#s3-express-mpuploadpricing "#s3-express-mpuploadpricing")
-- [Multipart upload API operations and
-  permissions](#s3-express-mpuAndPermissions "#s3-express-mpuAndPermissions")
+- [Multipart upload API operations and permissions](#s3-express-mpuAndPermissions "#s3-express-mpuAndPermissions")
 - [Examples](#directory-buckets-multipart-upload-examples "#directory-buckets-multipart-upload-examples")
 
 ## The multipart upload process
@@ -134,9 +129,7 @@ Amazon S3 returns.
 For more information about multipart upload listings, see [ListParts](../API/API_ListParts.md "../API/API_ListParts.md") in the
 _Amazon Simple Storage Service API Reference_.
 
-## Checksums with multipart upload
-
-operations
+## Checksums with multipart upload operations
 
 When you upload an object to, you can specify a checksum algorithm to check object
 integrity. MD5 is not supported for directory buckets. You can specify one of the
@@ -162,9 +155,7 @@ nonconsecutive part numbers, Amazon S3 generates an `HTTP 400 Bad Request`
 
 For more information about how checksums work with multipart upload objects, see [Checking object integrity in Amazon S3](checking-object-integrity.md "checking-object-integrity.md").
 
-## Concurrent multipart upload
-
-operations
+## Concurrent multipart upload operations
 
 In a distributed development environment, your application can initiate several
 updates on the same object at the same time. For example, your application might
@@ -201,9 +192,7 @@ in-progress multipart uploads. Directory buckets don't support S3 Lifecycle
 configurations. If needed, you can list your active multipart uploads, then abort
 the uploads, and then delete your bucket.
 
-## Multipart upload API operations and
-
-permissions
+## Multipart upload API operations and permissions
 
 To allow access to object management API operations on a directory bucket, you grant
 the `s3express:CreateSession` permission in a bucket policy or an AWS Identity and Access Management
@@ -232,9 +221,7 @@ display name.
 | List parts                         | To list the parts in a multipart upload, you must be allowed to<br>perform the `s3express:CreateSession` action on the<br>directory bucket.                                                                                                                                                               |
 | List in-progress multipart uploads | To list the in-progress multipart uploads to a bucket, you must be<br>allowed to perform the `s3:ListBucketMultipartUploads`<br>action on that bucket.                                                                                                                                                    |
 
-### API operation support for multipart
-
-uploads
+### API operation support for multipart uploads
 
 The following sections in the Amazon Simple Storage Service API Reference describe the Amazon S3 REST API operations
 for multipart uploads.
@@ -254,23 +241,15 @@ see the following examples.
 
 ###### Topics
 
-- [Creating a
-  multipart upload](#directory-buckets-multipart-upload-examples-create "#directory-buckets-multipart-upload-examples-create")
-- [Uploading
-  the parts of a multipart upload](#directory-buckets-multipart-upload-examples-upload-part "#directory-buckets-multipart-upload-examples-upload-part")
-- [Completing a
-  multipart upload](#directory-buckets-multipart-upload-examples-complete "#directory-buckets-multipart-upload-examples-complete")
-- [Aborting a
-  multipart upload](#directory-buckets-multipart-upload-examples-abort "#directory-buckets-multipart-upload-examples-abort")
+- [Creating a multipart upload](#directory-buckets-multipart-upload-examples-create "#directory-buckets-multipart-upload-examples-create")
+- [Uploading the parts of a multipart upload](#directory-buckets-multipart-upload-examples-upload-part "#directory-buckets-multipart-upload-examples-upload-part")
+- [Completing a multipart upload](#directory-buckets-multipart-upload-examples-complete "#directory-buckets-multipart-upload-examples-complete")
+- [Aborting a multipart upload](#directory-buckets-multipart-upload-examples-abort "#directory-buckets-multipart-upload-examples-abort")
 - [Creating a multipart upload copy operation](#directory-buckets-multipart-upload-examples-upload-part-copy "#directory-buckets-multipart-upload-examples-upload-part-copy")
-- [Listing
-  in-progress multipart uploads](#directory-buckets-multipart-upload-examples-list "#directory-buckets-multipart-upload-examples-list")
-- [Listing the
-  parts of a multipart upload](#directory-buckets-multipart-upload-examples-list-parts "#directory-buckets-multipart-upload-examples-list-parts")
+- [Listing in-progress multipart uploads](#directory-buckets-multipart-upload-examples-list "#directory-buckets-multipart-upload-examples-list")
+- [Listing the parts of a multipart upload](#directory-buckets-multipart-upload-examples-list-parts "#directory-buckets-multipart-upload-examples-list-parts")
 
-### Creating a
-
-multipart upload
+### Creating a multipart upload
 
 ###### Note
 
@@ -346,9 +325,7 @@ aws s3api create-multipart-upload --bucket `bucket-base-name`--`zone-id`--x-s3 -
 
 For more information, see [create-multipart-upload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-multipart-upload.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-multipart-upload.html") in the AWS Command Line Interface.
 
-### Uploading
-
-the parts of a multipart upload
+### Uploading the parts of a multipart upload
 
 The following examples show how to upload parts of a multipart upload.
 
@@ -467,9 +444,7 @@ aws s3api upload-part --bucket `bucket-base-name`--`zone-id`--x-s3 --key `KEY_NA
 
 For more information, see [upload-part](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/upload-part.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/upload-part.html") in the AWS Command Line Interface.
 
-### Completing a
-
-multipart upload
+### Completing a multipart upload
 
 The following examples show how to complete a multipart upload.
 
@@ -599,9 +574,7 @@ parts.json
 
 For more information, see [complete-multipart-upload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/complete-multipart-upload.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/complete-multipart-upload.html") in the AWS Command Line Interface.
 
-### Aborting a
-
-multipart upload
+### Aborting a multipart upload
 
 The following examples show how to abort a multipart upload.
 
@@ -963,9 +936,7 @@ aws s3api upload-part-copy --bucket `bucket-base-name`--`zone-id`--x-s3 --key `T
 
 For more information, see [upload-part-copy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/upload-part-copy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/upload-part-copy.html                         ") in the AWS Command Line Interface.
 
-### Listing
-
-in-progress multipart uploads
+### Listing in-progress multipart uploads
 
 To list in-progress multipart uploads to a directory bucket, you can use the AWS SDKs, or the AWS CLI.
 
@@ -1044,9 +1015,7 @@ aws s3api list-multipart-uploads --bucket `bucket-base-name`--`zone-id`--x-s3
 
 For more information, see [list-multipart-uploads](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-multipart-uploads.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-multipart-uploads.html                         ") in the AWS Command Line Interface.
 
-### Listing the
-
-parts of a multipart upload
+### Listing the parts of a multipart upload
 
 The following examples show how to list the parts of a multipart upload to a directory bucket.
 

@@ -1,6 +1,4 @@
-# Retrieving object versions from a
-
-versioning-enabled bucket
+# Retrieving object versions from a versioning-enabled bucket
 
 Versioning in Amazon S3 is a way of keeping multiple variants of an object in the same
 bucket. A simple `GET` request retrieves the current version of an object.
@@ -71,7 +69,6 @@ Authorization: AWS AKIAIOSFODNN7EXAMPLE:0RQf4/cRonhpaBX5sCYVf1bNRuU=
 ```
 
 You can retrieve just the metadata of an object (not the content). For information,
-see [Retrieving the metadata of an object
-version](RetMetaOfObjVersion.md "RetMetaOfObjVersion.md").
+see [Retrieving the metadata of an object version](RetMetaOfObjVersion.md "RetMetaOfObjVersion.md").
 
 For information about restoring a previous object version, see [Restoring previous versions](RestoringPreviousVersions.md "RestoringPreviousVersions.md").

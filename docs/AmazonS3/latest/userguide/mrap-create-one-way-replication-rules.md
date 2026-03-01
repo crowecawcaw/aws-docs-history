@@ -1,6 +1,4 @@
-# Create one-way replication rules
-
-for your Multi-Region Access Point
+# Create one-way replication rules for your Multi-Region Access Point
 
 Replication rules enable automatic and asynchronous copying of objects across buckets.
 A one-way replication rule helps ensure that data is fully replicated from a source
@@ -17,8 +15,7 @@ recommend using one-way replication if your users will only be consuming the obj
 in your destination buckets. If your users will be uploading or modifying the
 objects in your destination buckets, use two-way replication to keep all of your
 buckets in sync. We also recommend two-way replication if you plan to use your
-Multi-Region Access Point for failover. To set up two-way replication, see [Create two-way replication rules
-for your Multi-Region Access Point](mrap-create-two-way-replication-rules.md "mrap-create-two-way-replication-rules.md").
+Multi-Region Access Point for failover. To set up two-way replication, see [Create two-way replication rules for your Multi-Region Access Point](mrap-create-two-way-replication-rules.md "mrap-create-two-way-replication-rules.md").
 
 ###### To create a one-way replication rule for your Multi-Region Access Point
 
@@ -116,8 +113,7 @@ options:
      time frame, you can use S3 Replication Time Control (S3 RTC). S3 RTC replicates 99.99
      percent of new objects stored in Amazon S3 within 15 minutes (backed by a
      service-level agreement). For more information, see
-     [Meeting compliance requirements with
-     S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
+     [Meeting compliance requirements with S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
     * **Replication metrics and notifications**
      – Enable Amazon CloudWatch metrics to monitor replication
      events.

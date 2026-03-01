@@ -7,8 +7,7 @@ the following topics.
 
 - [Server-side encryption](#s3-express-ecnryption "#s3-express-ecnryption")
 - [Setting and monitoring default encryption for directory buckets](s3-express-bucket-encryption.md "s3-express-bucket-encryption.md")
-- [Using server-side encryption with AWS KMS keys
-  (SSE-KMS) in directory buckets](s3-express-UsingKMSEncryption.md "s3-express-UsingKMSEncryption.md")
+- [Using server-side encryption with AWS KMS keys (SSE-KMS) in directory buckets](s3-express-UsingKMSEncryption.md "s3-express-UsingKMSEncryption.md")
 - [Encryption in transit](#s3-express-ecnryption-transit "#s3-express-ecnryption-transit")
 - [Data deletion](#s3-express-data-deletion "#s3-express-data-deletion")
 
@@ -17,8 +16,7 @@ the following topics.
 All directory buckets have encryption configured by default, and all new objects that are uploaded to directory buckets are automatically encrypted at rest.
 Server-side encryption with Amazon S3 managed keys (SSE-S3) is the default encryption configuration for every directory bucket.
 If you want to specify a different encryption type, you can use server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS), by setting the default encryption configuration of the bucket.
-For more information about SSE-KMS in directory buckets, see [Using server-side encryption with AWS KMS keys
-(SSE-KMS) in directory buckets](s3-express-UsingKMSEncryption.md "s3-express-UsingKMSEncryption.md").
+For more information about SSE-KMS in directory buckets, see [Using server-side encryption with AWS KMS keys (SSE-KMS) in directory buckets](s3-express-UsingKMSEncryption.md "s3-express-UsingKMSEncryption.md").
 
 We recommend that the bucket's default encryption uses the desired encryption configuration and you don't override the bucket default encryption in your
 `CreateSession` requests or `PUT` object requests. Then, new objects

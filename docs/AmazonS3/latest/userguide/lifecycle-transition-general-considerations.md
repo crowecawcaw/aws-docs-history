@@ -1,6 +1,4 @@
-# Transitioning objects
-
-using Amazon S3 Lifecycle
+# Transitioning objects using Amazon S3 Lifecycle
 
 You can add transition actions to an S3 Lifecycle configuration to tell Amazon S3 to move
 objects to another Amazon S3 storage class. For more information about storage classes, see
@@ -19,9 +17,7 @@ following:
 Encrypted objects remain encrypted throughout the storage class transition
 process.
 
-## Supported
-
-transitions
+## Supported transitions
 
 In an S3 Lifecycle configuration, you can define rules to transition objects from
 one storage class to another to save on storage costs. When you don't know the
@@ -34,9 +30,7 @@ shown in the following diagram.
 
 ![Amazon S3 storage class waterfall graphic.](images/lifecycle-transitions-v4.png)
 
-### Supported lifecycle
-
-transitions
+### Supported lifecycle transitions
 
 Amazon S3 supports the following lifecycle transitions between storage classes
 using an S3 Lifecycle configuration.
@@ -57,15 +51,11 @@ using an S3 Lifecycle configuration.
 
 For versioning enabled or versioning suspended buckets, you can't transition objects with a `Pending` replication status.
 
-## Constraints and considerations
-
-for transitions
+## Constraints and considerations for transitions
 
 Lifecycle storage class transitions have the following constraints:
 
-###### Objects smaller than 128 KB will not transition by default to any storage
-
-class
+###### Objects smaller than 128 KB will not transition by default to any storage class
 
 Amazon S3 applies a default behavior to S3 Lifecycle configurations that prevents
 objects smaller than 128 KB from being transitioned to any storage class. We
@@ -101,9 +91,7 @@ objects, as follows:
   S3 Glacier Deep Archive. To do this, use the optional
   `x-amz-transition-default-minimum-object-size` header in a [PutBucketLifecycleConfiguration](../API/API_PutBucketLifecycleConfiguration.md "../API/API_PutBucketLifecycleConfiguration.md") request.
 
-###### Objects must be stored for at least 30 days before transitioning to
-
-S3 Standard-IA or S3 One Zone-IA
+###### Objects must be stored for at least 30 days before transitioning to S3 Standard-IA or S3 One Zone-IA
 
 Before you transition objects to S3 Standard-IA or S3 One Zone-IA, you must store
 them for at least 30 days in Amazon S3. For example, you cannot create a Lifecycle
@@ -117,9 +105,7 @@ can transition only objects that are at least 30 days noncurrent to S3 Standard-
 S3 One Zone-IA storage. For a list of minimum storage duration for all storage class,
 see [Comparing the Amazon S3 storage classes](storage-class-intro.md#sc-compare "storage-class-intro.md#sc-compare").
 
-###### You are charged for transitioning objects before their minimum storage
-
-duration
+###### You are charged for transitioning objects before their minimum storage duration
 
 Certain storage classes have a minimum object storage duration. If you
 transition objects out of these storage classes before the minimum duration, you
@@ -138,13 +124,9 @@ after at least 94 days.
 You can specify two rules to accomplish this, but you pay the minimum duration
 storage charges. For more information about cost considerations, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-For more information about creating a S3 Lifecycle, see [Setting an S3 Lifecycle configuration on a
-bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
+For more information about creating a S3 Lifecycle, see [Setting an S3 Lifecycle configuration on a bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
 
-## Transitioning to the
-
-S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive storage classes
-(object archival)
+## Transitioning to the S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive storage classes (object archival)
 
 By using an S3 Lifecycle configuration, you can transition objects to the
 S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive storage classes for
@@ -153,9 +135,7 @@ archiving.
 Before you archive objects, review the following sections for relevant
 considerations.
 
-### General
-
-considerations
+### General considerations
 
 The following are the general considerations for you to consider before you
 archive objects:
@@ -303,9 +283,7 @@ topics:
 - [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/") for
   storage costs for the different storage classes.
 
-### Restoring archived
-
-objects
+### Restoring archived objects
 
 Archived objects aren't accessible in real time. You must first initiate a
 restore request and then wait until a temporary copy of the object is available

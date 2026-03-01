@@ -1,6 +1,4 @@
-# Create two-way replication rules
-
-for your Multi-Region Access Point
+# Create two-way replication rules for your Multi-Region Access Point
 
 Replication rules enable automatic and asynchronous copying of objects across buckets.
 A two-way replication rule (also known as a bidirectional replication rule) ensures that
@@ -114,8 +112,7 @@ failover:
      replicate your data across different Regions within a predictable
      time frame, you can use S3 Replication Time Control (S3 RTC). S3 RTC replicates 99.99
      percent of new objects stored in Amazon S3 within 15 minutes (backed by a
-     service-level agreement). For more information, see [Meeting compliance requirements with
-     S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
+     service-level agreement). For more information, see [Meeting compliance requirements with S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
     * **Replication metrics and notifications**
      – Enable Amazon CloudWatch metrics to monitor replication
      events.

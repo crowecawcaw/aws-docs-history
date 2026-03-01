@@ -1,6 +1,4 @@
-# Configuring replication for use
-
-with Multi-Region Access Points
+# Configuring replication for use with Multi-Region Access Points
 
 When you make a request to a Multi-Region Access Point endpoint, Amazon S3 automatically routes the request to the
 bucket that is closest to you. Amazon S3 doesn't consider the contents of the request when making
@@ -45,12 +43,10 @@ following:
 - Configure S3 Replication Time Control (S3 RTC). To replicate your data across different Regions within a
   predictable time frame, you can use S3 RTC. S3 RTC replicates 99.99 percent of new
   objects stored in Amazon S3 within 15 minutes (backed by a service-level agreement). For
-  more information, see [Meeting compliance requirements with
-  S3 Replication Time Control](replication-time-control.md "replication-time-control.md"). There are
+  more information, see [Meeting compliance requirements with S3 Replication Time Control](replication-time-control.md "replication-time-control.md"). There are
   additional charges for S3 RTC. For information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 - Use two-way (bidirectional) replication to support keeping buckets synchronized
-  when buckets are updated through the Multi-Region Access Point. For more information, see [Create two-way replication rules
-  for your Multi-Region Access Point](mrap-create-two-way-replication-rules.md "mrap-create-two-way-replication-rules.md").
+  when buckets are updated through the Multi-Region Access Point. For more information, see [Create two-way replication rules for your Multi-Region Access Point](mrap-create-two-way-replication-rules.md "mrap-create-two-way-replication-rules.md").
 - Create cross-account Multi-Region Access Points to replicate data to buckets in separate
   AWS accounts. This approach provides account-level separation, so that data can be
   accessed from and replicated across different accounts in different Regions other
@@ -66,9 +62,6 @@ following:
 
 ###### Topics
 
-- [Create one-way replication rules
-  for your Multi-Region Access Point](mrap-create-one-way-replication-rules.md "mrap-create-one-way-replication-rules.md")
-- [Create two-way replication rules
-  for your Multi-Region Access Point](mrap-create-two-way-replication-rules.md "mrap-create-two-way-replication-rules.md")
-- [View the replication rules for your
-  Multi-Region Access Point](mrap-view-replication-rules.md "mrap-view-replication-rules.md")
+- [Create one-way replication rules for your Multi-Region Access Point](mrap-create-one-way-replication-rules.md "mrap-create-one-way-replication-rules.md")
+- [Create two-way replication rules for your Multi-Region Access Point](mrap-create-two-way-replication-rules.md "mrap-create-two-way-replication-rules.md")
+- [View the replication rules for your Multi-Region Access Point](mrap-view-replication-rules.md "mrap-view-replication-rules.md")

@@ -25,7 +25,7 @@ STANDARD_IA.
 
 Storage class analysis provides storage usage visualizations in the Amazon S3 console that are
 updated daily. You can also export this daily usage data to an S3 bucket and view them in
-a spreadsheet application, or with business intelligence tools, like Quick Suite.
+a spreadsheet application, or with business intelligence tools, like Quick.
 
 There are costs associated with the storage class analysis. For pricing information, see
 _Management and insights_
@@ -33,17 +33,12 @@ _Management and insights_
 
 ###### Topics
 
-- [How do I set up storage class
-  analysis?](#analytics-storage-class-how-to-set-up "#analytics-storage-class-how-to-set-up")
-- [How do I use storage class
-  analysis?](#analytics-storage-class-contents "#analytics-storage-class-contents")
-- [How can I export storage class
-  analysis data?](#analytics-storage-class-export-to-file "#analytics-storage-class-export-to-file")
+- [How do I set up storage class analysis?](#analytics-storage-class-how-to-set-up "#analytics-storage-class-how-to-set-up")
+- [How do I use storage class analysis?](#analytics-storage-class-contents "#analytics-storage-class-contents")
+- [How can I export storage class analysis data?](#analytics-storage-class-export-to-file "#analytics-storage-class-export-to-file")
 - [Configuring storage class analysis](configure-analytics-storage-class.md "configure-analytics-storage-class.md")
 
-## How do I set up storage class
-
-analysis?
+## How do I set up storage class analysis?
 
 You set up storage class analysis by configuring what object data you want to analyze. You
 can configure storage class analysis to do the following:
@@ -76,9 +71,7 @@ class analysis.
 - To use the Amazon S3 API, use the [PutBucketAnalyticsConfiguration](../API/RESTBucketPUTAnalyticsConfig.md "../API/RESTBucketPUTAnalyticsConfig.md") REST API, or the equivalent, from the AWS CLI or
   AWS SDKs.
 
-## How do I use storage class
-
-analysis?
+## How do I use storage class analysis?
 
 You use storage class analysis to observe your data access patterns over time to gather
 information to help you improve the lifecycle management of your STANDARD_IA storage. After
@@ -151,9 +144,7 @@ The Amazon S3 console shows the access patterns grouped by the predefined object
 The **Frequently accessed** or **Infrequently accessed**
 text shown is meant as a visual aid to help you in the lifecycle creation process.
 
-## How can I export storage class
-
-analysis data?
+## How can I export storage class analysis data?
 
 You can choose to have storage class analysis export analysis reports to a comma-separated
 values (CSV) flat file. Reports are updated daily and are based on the object age group
@@ -165,15 +156,14 @@ as the bucket that you configure to be analyzed.
 
 You must create a bucket policy on the destination bucket to grant permissions to Amazon S3 to
 verify what AWS account owns the bucket and to write objects to the bucket in the defined
-location. For an example policy, see [Grant permissions for S3 Inventory
-and S3 analytics](example-bucket-policies.md#example-bucket-policies-s3-inventory-1 "example-bucket-policies.md#example-bucket-policies-s3-inventory-1").
+location. For an example policy, see [Grant permissions for S3 Inventory and S3 analytics](example-bucket-policies.md#example-bucket-policies-s3-inventory-1 "example-bucket-policies.md#example-bucket-policies-s3-inventory-1").
 
 After you configure storage class analysis reports, you start getting the exported report
 daily after 24 hours. After that, Amazon S3 continues monitoring and providing daily exports.
 
 You can open the CSV file in a spreadsheet application or import the file into other
-applications like [Amazon Quick Suite](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md"). For information on using Amazon S3 files with Amazon Quick Suite, see [Create a Data Set
-Using Amazon S3 Files](../../../quicksight/latest/user/create-a-data-set-s3.md "../../../quicksight/latest/user/create-a-data-set-s3.md") in the _Amazon Quick Suite User Guide_.
+applications like [Amazon Quick](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md"). For information on using Amazon S3 files with Amazon Quick, see [Create a Data Set
+Using Amazon S3 Files](../../../quicksight/latest/user/create-a-data-set-s3.md "../../../quicksight/latest/user/create-a-data-set-s3.md") in the _Amazon Quick User Guide_.
 
 Data in the exported file is sorted by date within object age group as shown in following
 examples. If the storage class is STANDARD the row also contains data for the columns

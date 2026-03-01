@@ -1,6 +1,4 @@
-# Prerequisites for
-
-disabling ACLs
+# Prerequisites for disabling ACLs
 
 A bucket access control list (ACL) in Amazon S3 is a mechanism that allows you to define granular permissions for individual objects within an S3 bucket, specifying which AWS accounts or groups can access and modify those objects. A majority of modern use cases in Amazon S3 no longer require the use of ACLs. We recommend that you use AWS Identity and Access Management (IAM) and bucket policies to manage access, and to keep ACLs disabled, except in circumstances where you need to control access for each object individually.
 
@@ -8,17 +6,12 @@ If you have ACLs enabled on your bucket, before you disable ACLs, complete the f
 
 ###### Topics
 
-- [Review bucket and object ACLs and
-  migrate ACL permissions](#object-ownership-acl-permissions "#object-ownership-acl-permissions")
-- [Identify requests that required an
-  ACL for authorization](#object-ownership-acl-identify "#object-ownership-acl-identify")
-- [Review and update bucket policies
-  that use ACL-related condition keys](#object-ownership-bucket-policies "#object-ownership-bucket-policies")
+- [Review bucket and object ACLs and migrate ACL permissions](#object-ownership-acl-permissions "#object-ownership-acl-permissions")
+- [Identify requests that required an ACL for authorization](#object-ownership-acl-identify "#object-ownership-acl-identify")
+- [Review and update bucket policies that use ACL-related condition keys](#object-ownership-bucket-policies "#object-ownership-bucket-policies")
 - [Example use cases](#object-ownership-migrating-acls "#object-ownership-migrating-acls")
 
-## Review bucket and object ACLs and
-
-migrate ACL permissions
+## Review bucket and object ACLs and migrate ACL permissions
 
 When you disable ACLs, permissions granted by bucket and object ACLs no longer
 affect access. Before you disable ACLs, review your bucket and object ACLs.
@@ -26,8 +19,7 @@ affect access. Before you disable ACLs, review your bucket and object ACLs.
 Each of your existing bucket and object ACLs has an equivalent in an IAM policy. The
 following bucket policy examples show you how `READ` and `WRITE`
 permissions for bucket and object ACLs map to IAM permissions. For more information
-about how each ACL translates to IAM permissions, see [Mapping of ACL permissions and access policy
-permissions](acl-overview.md#acl-access-policy-permission-mapping "acl-overview.md#acl-access-policy-permission-mapping").
+about how each ACL translates to IAM permissions, see [Mapping of ACL permissions and access policy permissions](acl-overview.md#acl-access-policy-permission-mapping "acl-overview.md#acl-access-policy-permission-mapping").
 
 Before you disable ACLs:
 
@@ -53,16 +45,11 @@ topics.
 
 ###### Topics
 
-- [Bucket policies
-  examples](#migrate-acl-permissions-bucket-policies "#migrate-acl-permissions-bucket-policies")
-- [Using the S3 console to review and migrate
-  ACL permissions](#review-migrate-acl-console "#review-migrate-acl-console")
-- [Using the AWS CLI to review and migrate ACL
-  permissions](#review-migrate-acl-cli "#review-migrate-acl-cli")
+- [Bucket policies examples](#migrate-acl-permissions-bucket-policies "#migrate-acl-permissions-bucket-policies")
+- [Using the S3 console to review and migrate ACL permissions](#review-migrate-acl-console "#review-migrate-acl-console")
+- [Using the AWS CLI to review and migrate ACL permissions](#review-migrate-acl-cli "#review-migrate-acl-cli")
 
-### Bucket policies
-
-examples
+### Bucket policies examples
 
 These example bucket policies show you how to migrate `READ` and
 `WRITE` bucket and object ACL permissions for a third-party
@@ -145,9 +132,7 @@ This example resource element grants access to a specific object.
 "Resource": "arn:aws:s3:::``amzn-s3-demo-bucket``/`OBJECT-KEY`"
 ```
 
-###### Example– `WRITE` ACL that grants permissions to write objects to a
-
-bucket
+###### Example– `WRITE` ACL that grants permissions to write objects to a bucket
 
 If your bucket has a `WRITE` ACL that grants AWS account
 `111122223333`
@@ -178,9 +163,7 @@ JSON
 
 ```
 
-### Using the S3 console to review and migrate
-
-ACL permissions
+### Using the S3 console to review and migrate ACL permissions
 
 ###### To review a bucket's ACL permissions
 
@@ -212,14 +195,11 @@ ACL permissions
 4. In the **Policy** box, add or update your bucket
    policy.
 
-For example bucket policies, see [Bucket policies
-examples](#migrate-acl-permissions-bucket-policies "#migrate-acl-permissions-bucket-policies") and [Example use cases](#object-ownership-migrating-acls "#object-ownership-migrating-acls"). 5. Choose **Save changes**. 6. [Update your bucket ACL](managing-acls.md "managing-acls.md") to remove ACL
+For example bucket policies, see [Bucket policies examples](#migrate-acl-permissions-bucket-policies "#migrate-acl-permissions-bucket-policies") and [Example use cases](#object-ownership-migrating-acls "#object-ownership-migrating-acls"). 5. Choose **Save changes**. 6. [Update your bucket ACL](managing-acls.md "managing-acls.md") to remove ACL
 grants to other groups or AWS accounts. 7. [Apply the Bucket owner
 enforced setting](object-ownership-existing-bucket.md "object-ownership-existing-bucket.md") for Object Ownership.
 
-### Using the AWS CLI to review and migrate ACL
-
-permissions
+### Using the AWS CLI to review and migrate ACL permissions
 
 1. To return the bucket ACL for your bucket, use the [get-bucket-acl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-acl.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-acl.html") AWS CLI command:
 
@@ -298,8 +278,7 @@ aws s3api put-bucket-policy --bucket ``amzn-s3-demo-bucket`` --policy `file://po
 	}
 ```
 
-For more example bucket policies, see [Bucket policies
-examples](#migrate-acl-permissions-bucket-policies "#migrate-acl-permissions-bucket-policies") and [Example use cases](#object-ownership-migrating-acls "#object-ownership-migrating-acls"). 3. To return the ACL for a specific object, use the [get-object-acl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-acl.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-acl.html") AWS CLI command.
+For more example bucket policies, see [Bucket policies examples](#migrate-acl-permissions-bucket-policies "#migrate-acl-permissions-bucket-policies") and [Example use cases](#object-ownership-migrating-acls "#object-ownership-migrating-acls"). 3. To return the ACL for a specific object, use the [get-object-acl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-acl.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-object-acl.html") AWS CLI command.
 
 ```
 aws s3api get-object-acl --bucket `amzn-s3-demo-bucket` --key `EXAMPLE-OBJECT-KEY`
@@ -323,9 +302,7 @@ aws s3api put-bucket-acl --bucket `amzn-s3-demo-bucket` --acl private
 6. [Apply the Bucket owner enforced
    setting](object-ownership-existing-bucket.md "object-ownership-existing-bucket.md") for Object Ownership.
 
-## Identify requests that required an
-
-ACL for authorization
+## Identify requests that required an ACL for authorization
 
 To identify Amazon S3 requests that required ACLs for authorization, you can use the
 `aclRequired` value in Amazon S3 server access logs or AWS CloudTrail. If the
@@ -334,8 +311,7 @@ that specify an ACL, the string is `Yes`. If no ACLs were required, or if
 you are setting a `bucket-owner-full-control` canned ACL, or if the
 requests are allowed by your bucket policy, the `aclRequired` value
 string is "`-`" in Amazon S3 server access logs and is absent in CloudTrail. For
-more information about the expected `aclRequired` values, see [aclRequired values for common Amazon S3
-requests](acl-overview.md#aclrequired-s3 "acl-overview.md#aclrequired-s3").
+more information about the expected `aclRequired` values, see [aclRequired values for common Amazon S3 requests](acl-overview.md#aclrequired-s3 "acl-overview.md#aclrequired-s3").
 
 If you have `PutBucketAcl` or `PutObjectAcl` requests with headers
 that grant ACL-based permissions, with the exception of the
@@ -352,13 +328,9 @@ Do not remove object ACLs. Otherwise, applications that rely on object ACLs
 for permissions will lose access.
 
 If you see that no requests required an ACL for authorization, you can proceed to
-disable ACLs. For more information about identifying requests, see [Using Amazon S3 server access logs to
-identify requests](using-s3-access-logs-to-identify-requests.md "using-s3-access-logs-to-identify-requests.md") and [Identifying Amazon S3 requests using
-CloudTrail](cloudtrail-request-identification.md "cloudtrail-request-identification.md").
+disable ACLs. For more information about identifying requests, see [Using Amazon S3 server access logs to identify requests](using-s3-access-logs-to-identify-requests.md "using-s3-access-logs-to-identify-requests.md") and [Identifying Amazon S3 requests using CloudTrail](cloudtrail-request-identification.md "cloudtrail-request-identification.md").
 
-## Review and update bucket policies
-
-that use ACL-related condition keys
+## Review and update bucket policies that use ACL-related condition keys
 
 After you apply the Bucket owner enforced setting to disable ACLs, new objects can
 be uploaded to your bucket only if the request uses bucket owner full control ACLs
@@ -444,18 +416,11 @@ for specific use cases.
 
 ###### Topics
 
-- [Grant access to
-  the
-  S3 log delivery group for server access logging](#object-ownership-server-access-logs "#object-ownership-server-access-logs")
-- [Grant public read access to the objects in
-  a bucket](#object-ownership-public-read "#object-ownership-public-read")
-- [Grant Amazon ElastiCache (Redis OSS) access to your S3
-  bucket](#object-ownership-elasticache-redis "#object-ownership-elasticache-redis")
+- [Grant access to the S3 log delivery group for server access logging](#object-ownership-server-access-logs "#object-ownership-server-access-logs")
+- [Grant public read access to the objects in a bucket](#object-ownership-public-read "#object-ownership-public-read")
+- [Grant Amazon ElastiCache (Redis OSS) access to your S3 bucket](#object-ownership-elasticache-redis "#object-ownership-elasticache-redis")
 
-### Grant access to
-
-the
-S3 log delivery group for server access logging
+### Grant access to the S3 log delivery group for server access logging
 
 If you want to apply the Bucket owner enforced setting to disable ACLs for a server access
 logging
@@ -501,9 +466,7 @@ the S3 log delivery group:
 }
 ```
 
-###### To migrate bucket ACL permissions for the S3 log delivery group to the
-
-logging service principal in a bucket policy
+###### To migrate bucket ACL permissions for the S3 log delivery group to the logging service principal in a bucket policy
 
 1. Add the following bucket policy to your
    destination
@@ -552,9 +515,7 @@ aws s3api put-bucket-acl --bucket `amzn-s3-demo-bucket` --acl private
    destination
    bucket.
 
-### Grant public read access to the objects in
-
-a bucket
+### Grant public read access to the objects in a bucket
 
 If your object ACLs grant public read access to all of the objects in your
 bucket, you can migrate these ACL permissions to a bucket policy.
@@ -629,9 +590,7 @@ use the following format for the `Resource` element.
 2. [Apply the Bucket owner enforced
    setting](object-ownership-existing-bucket.md "object-ownership-existing-bucket.md") for Object Ownership.
 
-### Grant Amazon ElastiCache (Redis OSS) access to your S3
-
-bucket
+### Grant Amazon ElastiCache (Redis OSS) access to your S3 bucket
 
 You can [export your
 ElastiCache (Redis OSS) backup](../../../AmazonElastiCache/latest/red-ug/backups-exporting.md "../../../AmazonElastiCache/latest/red-ug/backups-exporting.md") to an S3 bucket, which gives you access to the backup

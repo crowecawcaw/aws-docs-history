@@ -1,6 +1,4 @@
-# Specifying server-side encryption with Amazon S3 managed
-
-keys (SSE-S3)
+# Specifying server-side encryption with Amazon S3 managed keys (SSE-S3)
 
 All Amazon S3 buckets have encryption configured by default, and all new objects that are uploaded
 to an S3 bucket are automatically encrypted at rest. Server-side encryption with Amazon S3 managed keys (SSE-S3) is the default encryption
@@ -17,8 +15,7 @@ For more information about changing the default encryption configuration for you
 When you change the default encryption configuration of your bucket to SSE-KMS, the encryption type of the existing Amazon S3 objects in the bucket is not changed. To change the encryption type of your pre-existing objects after updating the default encryption configuration to SSE-KMS, you can use Amazon S3 Batch Operations. You provide S3 Batch Operations with a list of objects, and Batch Operations calls the respective API operation. You can use the [Copy objects](batch-ops-copy-object.md "batch-ops-copy-object.md") action to copy existing objects, which writes them back to the same bucket as SSE-KMS encrypted objects. A single Batch Operations job can perform the specified operation on billions of objects. For more information, see [Performing object operations in bulk with Batch Operations](batch-ops.md "batch-ops.md") and the _AWS Storage Blog_ post [How to retroactively encrypt existing objects in Amazon S3 using S3 Inventory, Amazon Athena, and S3 Batch Operations](https://aws.amazon.com/blogs/security/how-to-retroactively-encrypt-existing-objects-in-amazon-s3-using-s3-inventory-amazon-athena-and-s3-batch-operations/ "https://aws.amazon.com/blogs/security/how-to-retroactively-encrypt-existing-objects-in-amazon-s3-using-s3-inventory-amazon-athena-and-s3-batch-operations/").
 
 You can specify SSE-S3 by using the S3 console, REST APIs, AWS SDKs, and AWS Command Line Interface
-(AWS CLI). For more information, see [Setting default server-side encryption behavior for Amazon S3
-buckets](bucket-encryption.md "bucket-encryption.md").
+(AWS CLI). For more information, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md").
 
 This topic describes how to set or change the type of encryption an object by using the
 AWS Management Console. When you copy an object by using the console, Amazon S3 copies the object as is. That
@@ -51,8 +48,7 @@ the console to add or change encryption for an object.
    configure the following encryption settings.
    1. Under **Encryption type**, choose **Server-side encryption with Amazon S3 managed keys (SSE-S3)**.
       SSE-S3 uses one of the strongest block ciphers—256-bit Advanced Encryption
-      Standard (AES-256) to encrypt each object. For more information, see [Using server-side encryption with Amazon S3 managed keys
-      (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
+      Standard (AES-256) to encrypt each object. For more information, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
 
 8. Under **Additional copy settings**, choose whether you want to **Copy source settings**, **Don’t specify settings**, or **Specify settings**. **Copy source settings** is the default option. If you only want to copy the object without the source settings attributes, choose **Don’t specify settings**. Choose **Specify settings** to specify settings for storage class, ACLs, object tags, metadata, server-side encryption, and additional checksums.
 9. Choose **Save changes**.

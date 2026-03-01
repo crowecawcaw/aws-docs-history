@@ -1,6 +1,4 @@
-# Retrieving objects
-
-from versioning-suspended buckets
+# Retrieving objects from versioning-suspended buckets
 
 A `GET Object` request returns the current version of an object whether
 you've enabled versioning on a bucket or not. The following figure shows how a simple

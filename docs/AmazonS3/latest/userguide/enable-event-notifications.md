@@ -3,14 +3,11 @@
 You can enable certain Amazon S3 general purpose bucket events to send a notification message to a destination
 whenever those events occur. This section explains how to use the Amazon S3 console to enable event
 notifications. For information about how to use event notifications with the AWS SDKs and the
-Amazon S3 REST APIs, see [Configuring event notifications
-programmatically](how-to-enable-disable-notification-intro.md#event-notification-configuration "how-to-enable-disable-notification-intro.md#event-notification-configuration").
+Amazon S3 REST APIs, see [Configuring event notifications programmatically](how-to-enable-disable-notification-intro.md#event-notification-configuration "how-to-enable-disable-notification-intro.md#event-notification-configuration").
 
 **Prerequisites**: Before you can enable event notifications
 for your bucket, you must set up one of the destination types and then configure permissions.
-For more information, see [Supported event
-destinations](notification-how-to-event-types-and-destinations.md#supported-notification-destinations "notification-how-to-event-types-and-destinations.md#supported-notification-destinations") and [Granting permissions to publish
-event notification messages to a destination](grant-destinations-permissions-to-s3.md "grant-destinations-permissions-to-s3.md").
+For more information, see [Supported event destinations](notification-how-to-event-types-and-destinations.md#supported-notification-destinations "notification-how-to-event-types-and-destinations.md#supported-notification-destinations") and [Granting permissions to publish event notification messages to a destination](grant-destinations-permissions-to-s3.md "grant-destinations-permissions-to-s3.md").
 
 ###### Note
 
@@ -47,14 +44,12 @@ FIFO queue, you can use Amazon EventBridge. For more information, see [Enabling 
    when files are added to a specific folder (for example, `images/`). 3. (Optional) To filter event notifications by suffix, enter a
    **Suffix**.
 
-   For more information, see [Configuring event notifications
-   using object key name filtering](notification-how-to-filtering.md "notification-how-to-filtering.md").
+   For more information, see [Configuring event notifications using object key name filtering](notification-how-to-filtering.md "notification-how-to-filtering.md").
 
 7. In the **Event types** section, select one or more event types that you
    want to receive notifications for.
 
-For a list of the different event types, see [Supported event types for SQS,
-SNS, and Lambda](notification-how-to-event-types-and-destinations.md#supported-notification-event-types "notification-how-to-event-types-and-destinations.md#supported-notification-event-types"). 8. In the **Destination** section, choose the event notification
+For a list of the different event types, see [Supported event types for SQS, SNS, and Lambda](notification-how-to-event-types-and-destinations.md#supported-notification-event-types "notification-how-to-event-types-and-destinations.md#supported-notification-event-types"). 8. In the **Destination** section, choose the event notification
 destination.
 
 ###### Note
@@ -68,7 +63,7 @@ notifications to a Lambda function, SNS topic, or SQS queue.
     2. After you choose your destination type, choose a function, topic, or queue from the
      list.
     3. Or, if you prefer to specify an Amazon Resource Name (ARN), select **Enter
-     ARN** and enter the ARN.For more information, see [Supported event
+     ARN** and enter the ARN.For more information, see [Supported event destinations](notification-how-to-event-types-and-destinations.md#supported-notification-destinations "notification-how-to-event-types-and-destinations.md#supported-notification-destinations").
 
-destinations](notification-how-to-event-types-and-destinations.md#supported-notification-destinations "notification-how-to-event-types-and-destinations.md#supported-notification-destinations"). 9. Choose **Save changes**, and Amazon S3 sends a test message to the event
-notification destination.
+9. Choose **Save changes**, and Amazon S3 sends a test message to the event
+   notification destination.

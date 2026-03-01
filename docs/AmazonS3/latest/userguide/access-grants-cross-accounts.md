@@ -16,8 +16,7 @@ cross-account S3 access through S3 Access Grants:
 ![S3 Access Grants cross-account user flow](images/access-grants-cross-account.png)
 
 1. Users or applications in a second account (B) request credentials from the S3 Access Grants instance in
-   your account (A), where the Amazon S3 data is stored. For more information, see [Request access to Amazon S3 data through
-   S3 Access Grants](access-grants-credentials.md "access-grants-credentials.md").
+   your account (A), where the Amazon S3 data is stored. For more information, see [Request access to Amazon S3 data through S3 Access Grants](access-grants-credentials.md "access-grants-credentials.md").
 2. The S3 Access Grants instance in your account (A) returns temporary credentials if there is a grant that gives the second account access to your Amazon S3 data. For more information on access grants, see [Working with grants in S3 Access Grants](access-grants-grant.md "access-grants-grant.md").
 3. Users or applications in the second account (B) use the S3 Access Grants-vended credentials to access the S3 data in your account (A).
 
@@ -45,9 +44,7 @@ data is stored, proceed to the next step. If you haven’t configured an S3 Acce
 see [Working with S3 Access Grants instances](access-grants-instance.md "access-grants-instance.md") to
 complete this step.
 
-## Step 2: Configure the resource policy for
-
-your S3 Access Grants instance to grant cross-account access
+## Step 2: Configure the resource policy for your S3 Access Grants instance to grant cross-account access
 
 After you create an S3 Access Grants instance in your account `111122223333` for
 cross-account access, configure the resource-based policy for the S3 Access Grants instance in
@@ -404,11 +401,7 @@ To use this example command, replace the `user input placeholders` with your own
 
 For information on editing IAM identity-based policy, see [Editing IAM policies](../../../IAM/latest/UserGuide/access_policies_manage-edit.md "../../../IAM/latest/UserGuide/access_policies_manage-edit.md") in the _AWS Identity and Access Management guide_.
 
-## Step 4:
-
-Create
-a grant in the S3 Access Grants instance of your account that gives the IAM identity in the
-second account access to some of your S3 data
+## Step 4: Create a grant in the S3 Access Grants instance of your account that gives the IAM identity in the second account access to some of your S3 data
 
 For the final configuration step, you can create a grant in the S3 Access Grants instance in
 your account 111122223333 that gives access to the IAM identity in the
@@ -445,5 +438,4 @@ following:
 
 - Calls `ListAccessGrantsInstances` to list the S3 Access Grants instances shared with it
   through AWS RAM. For more information, see [Get the details of an S3 Access Grants instance](access-grants-instance-view.md "access-grants-instance-view.md").
-- Requests temporary credentials from S3 Access Grants. For more information on how to make these requests, see [Request access to Amazon S3 data through
-  S3 Access Grants](access-grants-credentials.md "access-grants-credentials.md").
+- Requests temporary credentials from S3 Access Grants. For more information on how to make these requests, see [Request access to Amazon S3 data through S3 Access Grants](access-grants-credentials.md "access-grants-credentials.md").

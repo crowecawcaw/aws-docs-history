@@ -1,6 +1,4 @@
-# Requirements and considerations for
-
-replication
+# Requirements and considerations for replication
 
 Amazon S3 replication requires the following:
 
@@ -15,8 +13,7 @@ which AWS Regions your account can use](../../../accounts/latest/reference/manag
   about versioning, see [Retaining multiple versions of objects with S3 Versioning](Versioning.md "Versioning.md").
 - Amazon S3 must have permissions to replicate objects from the source bucket to the
   destination bucket or buckets on your behalf. For more information about these
-  permissions, see [Setting up permissions for live
-  replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
+  permissions, see [Setting up permissions for live replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
 - If the owner of the source bucket doesn't own the object in the bucket, the object
   owner must grant the bucket owner `READ` and `READ_ACP` permissions
   with the object access control list (ACL). For more information, see [Access control list (ACL) overview](acl-overview.md "acl-overview.md").
@@ -32,8 +29,7 @@ You must grant two new permissions on the source S3 bucket in the AWS Identity a
 role that you use to set up replication. The two new permissions are
 `s3:GetObjectRetention` and `s3:GetObjectLegalHold`. If the role
 has an `s3:Get*` permission, it satisfies the requirement. For more
-information, see [Setting up permissions for live
-replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
+information, see [Setting up permissions for live replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
 For more information, see [Setting up live replication overview](replication-how-setup.md "replication-how-setup.md").
 
 If you are setting the replication configuration in a _cross-account
@@ -41,35 +37,25 @@ scenario_, where the source and destination buckets are owned by different
 AWS accounts, the following additional requirement applies:
 
 - The owner of the destination buckets must grant the owner of the source bucket
-  permissions to replicate objects with a bucket policy. For more information, see [(Optional) Step 3: Granting permissions when the
-  source and destination buckets are owned by different AWS accounts](setting-repl-config-perm-overview.md#setting-repl-config-crossacct "setting-repl-config-perm-overview.md#setting-repl-config-crossacct").
+  permissions to replicate objects with a bucket policy. For more information, see [(Optional) Step 3: Granting permissions when the source and destination buckets are owned by different AWS accounts](setting-repl-config-perm-overview.md#setting-repl-config-crossacct "setting-repl-config-perm-overview.md#setting-repl-config-crossacct").
 - The destination buckets cannot be configured as Requester Pays buckets. For more
-  information, see [Using Requester Pays general purpose buckets for storage
-  transfers and usage](RequesterPaysBuckets.md "RequesterPaysBuckets.md").
+  information, see [Using Requester Pays general purpose buckets for storage transfers and usage](RequesterPaysBuckets.md "RequesterPaysBuckets.md").
 
-## Considerations for
-
-replication
+## Considerations for replication
 
 Before you create a replication configuration, be aware of the following considerations.
 
 ###### Topics
 
-- [Lifecycle configuration and object
-  replicas](#replica-and-lifecycle "#replica-and-lifecycle")
-- [Versioning configuration and replication
-  configuration](#replication-and-versioning "#replication-and-versioning")
-- [Using S3 Replication with
-  S3 Intelligent-Tiering](#replication-and-intelligent-tiering "#replication-and-intelligent-tiering")
-- [Logging configuration and replication
-  configuration](#replication-and-logging "#replication-and-logging")
+- [Lifecycle configuration and object replicas](#replica-and-lifecycle "#replica-and-lifecycle")
+- [Versioning configuration and replication configuration](#replication-and-versioning "#replication-and-versioning")
+- [Using S3 Replication with S3 Intelligent-Tiering](#replication-and-intelligent-tiering "#replication-and-intelligent-tiering")
+- [Logging configuration and replication configuration](#replication-and-logging "#replication-and-logging")
 - [CRR and the destination Region](#replication-and-dest-region "#replication-and-dest-region")
 - [S3 Batch Replication](#considerations-batch-replication "#considerations-batch-replication")
 - [S3 Replication Time Control](#considerations-RTC "#considerations-RTC")
 
-### Lifecycle configuration and object
-
-replicas
+### Lifecycle configuration and object replicas
 
 The time it takes for Amazon S3 to replicate an object depends on the size of the object.
 For large objects, it can take several hours. Although it might take a while before a
@@ -88,9 +74,7 @@ enable versioning on a bucket, keep the following in mind:
 - If you have a Transition lifecycle configuration, after you enable versioning,
   consider adding a `NonCurrentVersionTransition` policy.
 
-### Versioning configuration and replication
-
-configuration
+### Versioning configuration and replication configuration
 
 Both the source and destination buckets must be versioning-enabled when you configure
 replication on a bucket. After you enable versioning on both the source and destination
@@ -103,9 +87,7 @@ issues:
 - If you disable versioning on the destination bucket, replication fails. The source
   object has the replication status `FAILED`.
 
-### Using S3 Replication with
-
-S3 Intelligent-Tiering
+### Using S3 Replication with S3 Intelligent-Tiering
 
 S3 Intelligent-Tiering is a storage class that is designed to optimize storage costs by
 automatically moving data to the most cost-effective access tier. For a small monthly
@@ -120,9 +102,7 @@ operations are tiered up.
 
 For more information about S3 Intelligent-Tiering see, [Managing storage costs with Amazon S3 Intelligent-Tiering](intelligent-tiering.md "intelligent-tiering.md").
 
-### Logging configuration and replication
-
-configuration
+### Logging configuration and replication configuration
 
 If Amazon S3 delivers logs to a bucket that has replication enabled, it replicates the log
 objects.
@@ -150,10 +130,8 @@ There are no data transfer charges associated with Same-Region Replication
 
 ### S3 Batch Replication
 
-For information about considerations for Batch Replication, see [S3 Batch Replication
-considerations](s3-batch-replication-batch.md#batch-replication-considerations "s3-batch-replication-batch.md#batch-replication-considerations").
+For information about considerations for Batch Replication, see [S3 Batch Replication considerations](s3-batch-replication-batch.md#batch-replication-considerations "s3-batch-replication-batch.md#batch-replication-considerations").
 
 ### S3 Replication Time Control
 
-For information about best practices and considerations for S3 Replication Time Control (S3 RTC), see [Best practices and guidelines for
-S3 RTC](replication-time-control.md#rtc-best-practices "replication-time-control.md#rtc-best-practices").
+For information about best practices and considerations for S3 Replication Time Control (S3 RTC), see [Best practices and guidelines for S3 RTC](replication-time-control.md#rtc-best-practices "replication-time-control.md#rtc-best-practices").

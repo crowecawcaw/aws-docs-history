@@ -100,9 +100,7 @@ S3 Express One Zone, your data is redundantly stored on multiple devices within 
 Availability Zone. S3 Express One Zone is designed for 99.95 percent availability within a single Availability Zone and is backed
 by the [Amazon S3 Service Level Agreement](https://aws.amazon.com/s3/sla/ "https://aws.amazon.com/s3/sla/"). For more information, see [Availability Zones](#s3-express-overview-az "#s3-express-overview-az")
 
-#### Endpoints and gateway VPC
-
-endpoints
+#### Endpoints and gateway VPC endpoints
 
 Bucket-management API operations for directory buckets are available through a
 Regional endpoint and are referred to as Regional endpoint API operations. Examples
@@ -119,17 +117,14 @@ traffic destined from your VPC to S3 Express One Zone. As with Amazon S3, there 
 charge for using gateway endpoints. For more information about how to configure
 gateway VPC endpoints, see [Networking for directory buckets](s3-express-networking.md "s3-express-networking.md")
 
-#### Session-based
-
-authorization
+#### Session-based authorization
 
 With S3 Express One Zone, you authenticate and authorize requests through a new
 session-based mechanism that is optimized to provide the lowest latency. You can use
 `CreateSession` to request temporary credentials that provide
 low-latency access to your bucket. These temporary credentials are scoped to a
 specific S3 directory bucket. Session tokens are used only with Zonal (object-level)
-operations (with the exception of [CopyObject](directory-buckets-objects-copy.md "directory-buckets-objects-copy.md")). For more information, see [Authorizing Zonal endpoint API operations with
-CreateSession](s3-express-create-session.md "s3-express-create-session.md").
+operations (with the exception of [CopyObject](directory-buckets-objects-copy.md "directory-buckets-objects-copy.md")). For more information, see [Authorizing Zonal endpoint API operations with CreateSession](s3-express-create-session.md "s3-express-create-session.md").
 
 The [supported AWS SDKs
 for S3 Express One Zone](s3-express-SDKs.md#s3-express-getting-started-accessing-sdks "s3-express-SDKs.md#s3-express-getting-started-accessing-sdks") handle session establishment and refreshment on your
@@ -143,9 +138,7 @@ using API operations.
 The following S3 features are available for S3 Express One Zone. For a complete list of
 supported API operationss and unsupported features, see [Differences for directory buckets](s3-express-differences.md "s3-express-differences.md").
 
-#### Access management and
-
-security
+#### Access management and security
 
 You can use the following features to audit and manage access. By default, directory
 buckets are private and can be accessed only by users who are explicitly granted
@@ -182,9 +175,7 @@ directory buckets is set only at the bucket level. For more information, see [Au
   – Evaluate and monitor your access policies to make sure that the
   policies provide only the intended access to your S3 resources.
 
-#### Logging and
-
-monitoring
+#### Logging and monitoring
 
 S3 Express One Zone uses the following S3 logging and monitoring tools that you can use to
 monitor and control how your resources are being used:
@@ -228,9 +219,7 @@ following features are available for object management with S3 Express One Zone:
   streamlined method for creating Batch Operations jobs to copy objects from general
   purpose buckets to directory buckets.
 
-#### AWS SDKs and client
-
-libraries
+#### AWS SDKs and client libraries
 
 You can manage your object storage by using the AWS SDKs and client libraries.
 
@@ -253,9 +242,7 @@ You can manage your object storage by using the AWS SDKs and client libraries.
   simplify your programming tasks by wrapping the underlying Amazon S3 REST API.
   For more information about using the AWS SDKs with S3 Express One Zone, see [AWS SDKs](s3-express-SDKs.md#s3-express-getting-started-accessing-sdks "s3-express-SDKs.md#s3-express-getting-started-accessing-sdks").
 
-### Encryption and data
-
-protection
+### Encryption and data protection
 
 Objects in S3 Express One Zone are automatically encrypted by server-side encryption with Amazon S3
 managed keys (SSE-S3). S3 Express One Zone also supports server-side encryption with AWS Key Management Service
@@ -269,12 +256,9 @@ Hash Algorithms (SHA) or Cyclic Redundancy Check (CRC) data-integrity check algo
 CRC32, CRC32C, SHA-1, and SHA-256. MD5-based checksums are not supported with the
 S3 Express One Zone storage class.
 
-For more information, see [S3 additional checksum best
-practices](s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums "s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums").
+For more information, see [S3 additional checksum best practices](s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums "s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums").
 
-### AWS Signature Version 4
-
-(SigV4)
+### AWS Signature Version 4 (SigV4)
 
 S3 Express One Zone uses AWS Signature Version 4 (SigV4). SigV4 is
 a signing protocol used to authenticate requests to Amazon S3 over HTTPS. S3 Express One Zone

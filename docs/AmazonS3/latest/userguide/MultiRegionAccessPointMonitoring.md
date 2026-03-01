@@ -1,6 +1,4 @@
-# Monitoring and logging requests made
-
-through a Multi-Region Access Point to underlying resources
+# Monitoring and logging requests made through a Multi-Region Access Point to underlying resources
 
 Amazon S3 logs requests made through Multi-Region Access Points and requests made to the API operations that
 manage them, such as `CreateMultiRegionAccessPoint` and
@@ -46,9 +44,7 @@ was routed to `my-bucket-usw2` instead, your logs would indicate a successful
 
 For more information about Amazon S3 server access logs, see [Logging requests with server access logging](ServerLogs.md "ServerLogs.md"). For more information about AWS CloudTrail, see [What is AWS CloudTrail?](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") in the _AWS CloudTrail User Guide_.
 
-## Monitoring and logging requests
-
-made to Multi-Region Access Point management API operations
+## Monitoring and logging requests made to Multi-Region Access Point management API operations
 
 Amazon S3 provides several API operations to manage Multi-Region Access Points, such as
 `CreateMultiRegionAccessPoint` and
@@ -102,9 +98,7 @@ can identify the following:
 You can use this logging information to help you analyze and respond to activity that
 occurred through your Multi-Region Access Points.
 
-### How to set up AWS CloudTrail for
-
-Multi-Region Access Points
+### How to set up AWS CloudTrail for Multi-Region Access Points
 
 To enable CloudTrail logging for any operations related to creating or maintaining
 Multi-Region Access Points, you must configure CloudTrail logging to record the events in the
@@ -134,8 +128,7 @@ directly without going through the Multi-Region Access Point.
 
 There are asynchronous events involved with creating and managing Multi-Region Access Points.
 Asynchronous requests don't have completion events in the CloudTrail log. For more
-information about asynchronous requests, see [Monitoring and logging requests
-made to Multi-Region Access Point management API operations](#MonitoringMultiRegionAccessPointAPIs "#MonitoringMultiRegionAccessPointAPIs").
+information about asynchronous requests, see [Monitoring and logging requests made to Multi-Region Access Point management API operations](#MonitoringMultiRegionAccessPointAPIs "#MonitoringMultiRegionAccessPointAPIs").
 
 For more information about AWS CloudTrail, see [What is AWS CloudTrail?](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") in the
 _AWS CloudTrail User Guide_.

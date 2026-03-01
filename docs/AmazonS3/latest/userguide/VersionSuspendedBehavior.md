@@ -1,6 +1,4 @@
-# Working with objects in a versioning-suspended
-
-bucket
+# Working with objects in a versioning-suspended bucket
 
 In Amazon S3, you can suspend versioning to stop accruing new versions of the same object in a
 bucket. You might do this because you only want a single version of an object in a bucket.
@@ -12,14 +10,10 @@ object operations in a versioning-suspended bucket, including adding, retrieving
 deleting objects.
 
 For more information about S3 Versioning, see [Retaining multiple versions of objects with S3 Versioning](Versioning.md "Versioning.md"). For more information about retrieving object
-versions, see [Retrieving object versions from a
-versioning-enabled bucket](RetrievingObjectVersions.md "RetrievingObjectVersions.md").
+versions, see [Retrieving object versions from a versioning-enabled bucket](RetrievingObjectVersions.md "RetrievingObjectVersions.md").
 
 ###### Topics
 
-- [Adding objects to
-  versioning-suspended buckets](AddingObjectstoVersionSuspendedBuckets.md "AddingObjectstoVersionSuspendedBuckets.md")
-- [Retrieving objects
-  from versioning-suspended buckets](RetrievingObjectsfromVersioningSuspendedBuckets.md "RetrievingObjectsfromVersioningSuspendedBuckets.md")
-- [Deleting objects from
-  versioning-suspended buckets](DeletingObjectsfromVersioningSuspendedBuckets.md "DeletingObjectsfromVersioningSuspendedBuckets.md")
+- [Adding objects to versioning-suspended buckets](AddingObjectstoVersionSuspendedBuckets.md "AddingObjectstoVersionSuspendedBuckets.md")
+- [Retrieving objects from versioning-suspended buckets](RetrievingObjectsfromVersioningSuspendedBuckets.md "RetrievingObjectsfromVersioningSuspendedBuckets.md")
+- [Deleting objects from versioning-suspended buckets](DeletingObjectsfromVersioningSuspendedBuckets.md "DeletingObjectsfromVersioningSuspendedBuckets.md")

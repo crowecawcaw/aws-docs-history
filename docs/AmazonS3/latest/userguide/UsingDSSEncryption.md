@@ -1,6 +1,4 @@
-# Using dual-layer server-side encryption with AWS KMS keys
-
-(DSSE-KMS)
+# Using dual-layer server-side encryption with AWS KMS keys (DSSE-KMS)
 
 Using dual-layer server-side encryption with AWS Key Management Service (AWS KMS) keys (DSSE-KMS) applies two
 layers of encryption to objects when they are uploaded to Amazon S3. DSSE-KMS helps you more
@@ -68,5 +66,4 @@ JSON
 
 ###### Topics
 
-- [Specifying dual-layer server-side encryption with AWS KMS
-  keys (DSSE-KMS)](specifying-dsse-encryption.md "specifying-dsse-encryption.md")
+- [Specifying dual-layer server-side encryption with AWS KMS keys (DSSE-KMS)](specifying-dsse-encryption.md "specifying-dsse-encryption.md")

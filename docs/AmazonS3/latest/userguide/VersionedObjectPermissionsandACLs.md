@@ -1,6 +1,4 @@
-# Configuring versioned object
-
-permissions
+# Configuring versioned object permissions
 
 Permissions for objects in Amazon S3 are set at the version level. Each version has its own
 object owner. The AWS account that creates the object version is the owner. So, you

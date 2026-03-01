@@ -77,8 +77,7 @@ method, and the origin.
 
 Instead of accessing a website by using an Amazon S3 website endpoint, you can use your own
 domain, such as `example1.com` to serve your content. For information about
-using your own domain, see [Tutorial: Configuring a static website using a
-custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md").
+using your own domain, see [Tutorial: Configuring a static website using a custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md").
 
 The following example CORS configuration has three rules, which are specified as
 `CORSRule` elements:

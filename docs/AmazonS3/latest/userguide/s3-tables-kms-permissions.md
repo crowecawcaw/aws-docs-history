@@ -32,9 +32,7 @@ For cross-account KMS keys, your IAM role needs both key access permission and e
 - [Granting IAM principals permissions to work with encrypted tables directly](#tables-kms-direct-permissions "#tables-kms-direct-permissions")
 - [Granting the S3 Metadata service principal permissions to use your KMS key](#tables-kms-metadata-permissions "#tables-kms-metadata-permissions")
 
-##
-
-Granting the S3 Tables maintenance service principal permissions to your KMS key
+## Granting the S3 Tables maintenance service principal permissions to your KMS key
 
 This permission is required to create SSE-KMS encrypted tables and to allow automatic table maintenance like compaction, snapshot management, and unreferenced file removal on the encrypted tables.
 
@@ -72,12 +70,9 @@ JSON
 
 ```
 
-##
+## Granting IAM principals permissions to work with encrypted tables in integrated AWS analytics services
 
-Granting IAM principals permissions to work with encrypted tables in integrated AWS analytics services
-
-To work with S3 tables in AWS analytics services, you integrate your table buckets with Amazon SageMaker Lakehouse. This integration allows AWS analytics services to automatically discover and access table data. For more information on the integration, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
+To work with S3 tables in AWS analytics services, you integrate your table buckets with Amazon SageMaker Lakehouse. This integration allows AWS analytics services to automatically discover and access table data. For more information on the integration, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 
 When you work with SSE-KMS encrypted tables in those services, the role you use needs to have permission to use your AWS KMS key for encryption operations. You can apply these permissions to the `S3TablesRoleForLakeFormation` role created during the integration, or to your own IAM role.
 
@@ -148,9 +143,7 @@ Attach this inline policy to a KMS key to allow the specified AWS KMS role to us
 
 ```
 
-##
-
-Granting the S3 Metadata service principal permissions to use your KMS key
+## Granting the S3 Metadata service principal permissions to use your KMS key
 
 To allow Amazon S3 to update SSE-KMS encrypted metadata tables, and perform maintenance on those metadata tables, you can use the following example key policy. In this policy, you allow the `metadata.s3.amazonaws.com` and `maintenance.s3tables.amazonaws.com` service principals to encrypt and decrypt tables in a specific table bucket using a specific key. To use the policy, replace the `user input placeholders` with your own information:
 

@@ -28,8 +28,7 @@ for processing. Request metrics are billed at the same rate as CloudWatch custom
 For more information, see [Amazon
 CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
-To create a request metrics configuration that filters by access point, see [Creating a metrics configuration
-that filters by prefix, object tag, or access point](metrics-configurations-filter.md "metrics-configurations-filter.md").
+To create a request metrics configuration that filters by access point, see [Creating a metrics configuration that filters by prefix, object tag, or access point](metrics-configurations-filter.md "metrics-configurations-filter.md").
 
 ## AWS CloudTrail logs for requests made through access points
 

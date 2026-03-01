@@ -1,6 +1,4 @@
-# Specifying dual-layer server-side encryption with AWS KMS
-
-keys (DSSE-KMS)
+# Specifying dual-layer server-side encryption with AWS KMS keys (DSSE-KMS)
 
 You can apply encryption when you are either uploading a new object or copying an existing
 object.
@@ -108,16 +106,11 @@ If you specify the `x-amz-server-side-encryption` header with a value of
 
 ###### Topics
 
-- [Amazon S3 REST API operations that support
-  DSSE-KMS](#dsse-request-headers-kms "#dsse-request-headers-kms")
-- [Encryption context
-  (x-amz-server-side-encryption-context)](#s3-dsse-encryption-context "#s3-dsse-encryption-context")
-- [AWS KMS key ID
-  (x-amz-server-side-encryption-aws-kms-key-id)](#s3-dsse-key-id-api "#s3-dsse-key-id-api")
+- [Amazon S3 REST API operations that support DSSE-KMS](#dsse-request-headers-kms "#dsse-request-headers-kms")
+- [Encryption context (x-amz-server-side-encryption-context)](#s3-dsse-encryption-context "#s3-dsse-encryption-context")
+- [AWS KMS key ID (x-amz-server-side-encryption-aws-kms-key-id)](#s3-dsse-key-id-api "#s3-dsse-key-id-api")
 
-### Amazon S3 REST API operations that support
-
-DSSE-KMS
+### Amazon S3 REST API operations that support DSSE-KMS
 
 The following REST API operations accept the
 `x-amz-server-side-encryption`,
@@ -168,9 +161,7 @@ with server-side encryption.
   you'll get an **`HTTP 400 (Bad Request)`**
   error.
 
-### Encryption context
-
-(`x-amz-server-side-encryption-context`)
+### Encryption context (`x-amz-server-side-encryption-context`)
 
 If you specify `x-amz-server-side-encryption:aws:kms:dsse`, the Amazon S3 API
 supports an encryption context with the `x-amz-server-side-encryption-context`
@@ -190,9 +181,7 @@ For information about the encryption context in Amazon S3, see [Encryption conte
 information about the encryption context, see [AWS Key Management Service Concepts -
 Encryption context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") in the _AWS Key Management Service Developer Guide_.
 
-### AWS KMS key ID
-
-(`x-amz-server-side-encryption-aws-kms-key-id`)
+### AWS KMS key ID (`x-amz-server-side-encryption-aws-kms-key-id`)
 
 You can use the `x-amz-server-side-encryption-aws-kms-key-id` header to
 specify the ID of the customer managed key that's used to protect the data. If you specify

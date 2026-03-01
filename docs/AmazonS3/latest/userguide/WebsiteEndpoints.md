@@ -3,8 +3,7 @@
 When you configure your bucket as a static website, the website is available at the
 AWS Region-specific website endpoint of the bucket. Website endpoints are different
 from the endpoints where you send REST API requests. For more information about the
-differences between the endpoints, see [Key differences between a website endpoint
-and a REST API endpoint](#WebsiteRestEndpointDiff "#WebsiteRestEndpointDiff").
+differences between the endpoints, see [Key differences between a website endpoint and a REST API endpoint](#WebsiteRestEndpointDiff "#WebsiteRestEndpointDiff").
 
 Depending on your Region, your Amazon S3 website endpoint follows one of these two formats.
 
@@ -25,8 +24,7 @@ information see the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HT
 
 If you want your website to be public, you must make all your content publicly
 readable for your customers to be able to access it at the website endpoint. For more
-information, see [Setting permissions for website
-access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md").
+information, see [Setting permissions for website access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md").
 
 ###### Important
 
@@ -55,16 +53,14 @@ access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md").
 - Requester Pays buckets do not allow access
   through a website endpoint. Any request to such a bucket receives a
   **`403 Access Denied`** response. For more information,
-  see [Using Requester Pays general purpose buckets for storage
-  transfers and usage](RequesterPaysBuckets.md "RequesterPaysBuckets.md").
+  see [Using Requester Pays general purpose buckets for storage transfers and usage](RequesterPaysBuckets.md "RequesterPaysBuckets.md").
 
 ###### Topics
 
 - [Website endpoint examples](#website-endpoint-examples "#website-endpoint-examples")
 - [Adding a DNS CNAME](#website-endpoint-dns-cname "#website-endpoint-dns-cname")
 - [Using a custom domain with Route 53](#custom-domain-s3-endpoint "#custom-domain-s3-endpoint")
-- [Key differences between a website endpoint
-  and a REST API endpoint](#WebsiteRestEndpointDiff "#WebsiteRestEndpointDiff")
+- [Key differences between a website endpoint and a REST API endpoint](#WebsiteRestEndpointDiff "#WebsiteRestEndpointDiff")
 
 ## Website endpoint examples
 
@@ -113,8 +109,7 @@ Amazon S3 website endpoint. For example, if you registered the domain
 All requests to `http://www.example-bucket.com` are routed to
 `www.example-bucket.com.s3-website.`Region`.amazonaws.com`.
 
-For more information, see [Customizing Amazon S3 URLs with CNAME
-records](VirtualHosting.md#VirtualHostingCustomURLs "VirtualHosting.md#VirtualHostingCustomURLs").
+For more information, see [Customizing Amazon S3 URLs with CNAME records](VirtualHosting.md#VirtualHostingCustomURLs "VirtualHosting.md#VirtualHostingCustomURLs").
 
 ## Using a custom domain with Route 53
 
@@ -126,12 +121,9 @@ you host your website on Amazon S3, your website visitors can access the site fr
 browser by entering either `http://www.example.com` or
 `http://example.com`.
 
-For an example walkthrough, see [Tutorial: Configuring a static website using a
-custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md").
+For an example walkthrough, see [Tutorial: Configuring a static website using a custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md").
 
-## Key differences between a website endpoint
-
-and a REST API endpoint
+## Key differences between a website endpoint and a REST API endpoint
 
 An Amazon S3 website endpoint is optimized for access from a web browser. The following
 table summarizes the key differences between a REST API endpoint and a website

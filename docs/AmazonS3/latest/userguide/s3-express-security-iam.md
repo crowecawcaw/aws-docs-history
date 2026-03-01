@@ -29,10 +29,8 @@ following means:
 - [Principals](#s3-express-security-iam-principals "#s3-express-security-iam-principals")
 - [Resources](#s3-express-security-iam-resources "#s3-express-security-iam-resources")
 - [Actions for directory buckets](#s3-express-security-iam-actions "#s3-express-security-iam-actions")
-- [IAM identity-based policies
-  for directory buckets](s3-express-security-iam-identity-policies.md "s3-express-security-iam-identity-policies.md")
-- [Example bucket
-  policies for directory buckets](s3-express-security-iam-example-bucket-policies.md "s3-express-security-iam-example-bucket-policies.md")
+- [IAM identity-based policies for directory buckets](s3-express-security-iam-identity-policies.md "s3-express-security-iam-identity-policies.md")
+- [Example bucket policies for directory buckets](s3-express-security-iam-example-bucket-policies.md "s3-express-security-iam-example-bucket-policies.md")
 
 ## Principals
 

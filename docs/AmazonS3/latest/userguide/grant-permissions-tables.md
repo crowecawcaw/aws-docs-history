@@ -61,8 +61,8 @@ do one of the following:
      principal you use for queries.
     * For Amazon Data Firehose, choose **IAM users and roles**, and select the service role that you
      created to stream to tables.
-    * For Quick Suite, choose **SAML users and groups**, and enter the Amazon Resource Name (ARN) of
-     your Quick Suite admin user.
+    * For Quick, choose **SAML users and groups**, and enter the Amazon Resource Name (ARN) of
+     your Quick admin user.
     * For AWS Glue Iceberg REST endpoint access, choose **IAM users and roles** then select the IAM role you created for you client. For more information, see [Create an IAM role for your client](s3-tables-integrating-glue-endpoint.md#glue-endpoint-create-iam-role "s3-tables-integrating-glue-endpoint.md#glue-endpoint-create-iam-role")
 
 4. Under **LF-Tags or catalog resources**, choose **Named Data Catalog

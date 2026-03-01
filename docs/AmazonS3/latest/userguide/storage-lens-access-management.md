@@ -1,6 +1,4 @@
-# Using S3 Storage Lens to audit Object Ownership
-
-settings
+# Using S3 Storage Lens to audit Object Ownership settings
 
 Amazon S3 Object Ownership is an S3 bucket-level setting that you can use to disable access
 control lists (ACLs) and control ownership of the objects in your bucket. If you set
@@ -15,8 +13,7 @@ A majority of modern use cases in Amazon S3 no longer require the use of ACLs. T
 recommend that you disable ACLs, except in circumstances where you must control
 access for each object individually. By setting Object Ownership to bucket owner enforced,
 you can disable ACLs and rely on policies for access control. For more information, see
-[Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+[Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 With S3 Storage Lens access-management metrics, you can identify buckets that don't have disabled
 ACLs. After identifying these buckets, you can migrate ACL permissions to policies and
@@ -24,16 +21,11 @@ disable ACLs for these buckets.
 
 ###### Topics
 
-- [Step 1: Identify general trends
-  for Object Ownership settings](#storage-lens-access-management-step1 "#storage-lens-access-management-step1")
-- [Step 2: Identify bucket-level
-  trends for Object Ownership settings](#storage-lens-access-management-step2 "#storage-lens-access-management-step2")
-- [Step 3: Update your
-  Object Ownership setting to bucket owner enforced to disable ACLs](#storage-lens-access-management-step3 "#storage-lens-access-management-step3")
+- [Step 1: Identify general trends for Object Ownership settings](#storage-lens-access-management-step1 "#storage-lens-access-management-step1")
+- [Step 2: Identify bucket-level trends for Object Ownership settings](#storage-lens-access-management-step2 "#storage-lens-access-management-step2")
+- [Step 3: Update your Object Ownership setting to bucket owner enforced to disable ACLs](#storage-lens-access-management-step3 "#storage-lens-access-management-step3")
 
-## Step 1: Identify general trends
-
-for Object Ownership settings
+## Step 1: Identify general trends for Object Ownership settings
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -50,9 +42,7 @@ owner enforced** metric. You can see the overall percentage of
 buckets in your account or organization that use the bucket owner enforced
 setting for Object Ownership to disable ACLs.
 
-## Step 2: Identify bucket-level
-
-trends for Object Ownership settings
+## Step 2: Identify bucket-level trends for Object Ownership settings
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -81,13 +71,10 @@ specific Object Ownership setting, choose the preferences icon (
 ). 8. Clear the metrics that you don't want to see. 9. (Optional) Under **Page size**, choose the number of buckets
 to display in the list. 10. Choose **Confirm**.
 
-## Step 3: Update your
-
-Object Ownership setting to bucket owner enforced to disable ACLs
+## Step 3: Update your Object Ownership setting to bucket owner enforced to disable ACLs
 
 After you've identified buckets that use the object writer and bucket owner preferred
 setting for Object Ownership, you can migrate your ACL permissions to bucket policies.
 When you've finished migrating your ACL permissions, you can then update your
 Object Ownership settings to bucket owner enforced in order to disable ACLs. For more
-information, see [Prerequisites for
-disabling ACLs](object-ownership-migrating-acls-prerequisites.md "object-ownership-migrating-acls-prerequisites.md").
+information, see [Prerequisites for disabling ACLs](object-ownership-migrating-acls-prerequisites.md "object-ownership-migrating-acls-prerequisites.md").

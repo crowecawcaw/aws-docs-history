@@ -23,8 +23,7 @@ The maximum size of a file that you can upload by using the Amazon S3 console is
 To upload a file larger than 160 GB, use the AWS Command Line Interface (AWS CLI), AWS SDKs, or Amazon S3 REST
 API. 8. To change access control list permissions, choose **Permissions**. 9. Under **Access control list (ACL)**, edit the permissions.
 
-For information about object access permissions, see [Using the S3 console to set ACL
-permissions for an object](managing-acls.md#set-object-permissions "managing-acls.md#set-object-permissions"). You can grant
+For information about object access permissions, see [Using the S3 console to set ACL permissions for an object](managing-acls.md#set-object-permissions "managing-acls.md#set-object-permissions"). You can grant
 read access to your objects to the public (everyone in the world) for all of the files that
 you're uploading. However, we recommend not changing the default setting for public read
 access. Granting public read access is applicable to a small subset of use cases, such as
@@ -50,8 +49,7 @@ settings**, do the following.
     	 managed key (SSE-S3)**.
 
 
-    	For more information, see [Using server-side encryption with Amazon S3 managed keys
-    	 (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
+    	For more information, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
     	* To encrypt the uploaded files by using keys stored in AWS Key Management Service (AWS KMS), choose
     	 **AWS Key Management Service key (SSE-KMS)**. Then choose one of the following
     	 options for **AWS KMS key**:

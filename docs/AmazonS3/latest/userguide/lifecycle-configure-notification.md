@@ -1,6 +1,4 @@
-# Configuring S3 Lifecycle event
-
-notifications
+# Configuring S3 Lifecycle event notifications
 
 To receive notice when Amazon S3 deletes an object or transitions it to another Amazon S3 storage
 class as the result of following an S3 Lifecycle rule, you can set up an Amazon S3 event
@@ -29,8 +27,7 @@ There are two expiration event types:
      00:00 UTC (midnight) of the current day. This creation time might differ from the event time
      in the `s3:LifecycleExpiration:DeleteMarkerCreated` notification that S3
      sends. For more information,
-     see [Deleting object versions from a
-     versioning-enabled bucket](DeletingObjectVersions.md "DeletingObjectVersions.md").
+     see [Deleting object versions from a versioning-enabled bucket](DeletingObjectVersions.md "DeletingObjectVersions.md").
 
 Amazon S3 can publish event notifications to an Amazon Simple Notification Service (Amazon SNS) topic, an Amazon Simple Queue Service (Amazon SQS)
 queue, or an AWS Lambda function. For more information, see [Amazon S3 Event Notifications](EventNotifications.md "EventNotifications.md").

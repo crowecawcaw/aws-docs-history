@@ -9,8 +9,7 @@ deleted.
 
 When you empty a general purpose bucket that has S3 Versioning
 enabled or suspended, all versions of all the objects in the bucket are deleted. For more
-information, see [Working with objects in a
-versioning-enabled bucket](manage-objects-versioned-bucket.md "manage-objects-versioned-bucket.md").
+information, see [Working with objects in a versioning-enabled bucket](manage-objects-versioned-bucket.md "manage-objects-versioned-bucket.md").
 
 While emptying your bucket, we recommend that you also remove all incomplete multipart
 uploads. You can use multipart uploads to upload very large objects (up to 50 TB) as a set
@@ -22,8 +21,7 @@ finished, or until the incomplete parts are removed. For more information, see [
 As a best practice, we recommend configuring lifecycle rules to expire objects and incomplete
 multipart uploads that are older than a specific number of days. When you create your
 lifecycle rule to expire incomplete multipart uploads, we recommend 7 days as a good
-starting point. For more information, see [Setting an S3 Lifecycle configuration on a
-bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
+starting point. For more information, see [Setting an S3 Lifecycle configuration on a bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
 
 Lifecycle expiration is an asynchronous process, so the rule might take some days to run
 before your bucket is empty. After the first time that Amazon S3 runs the rule, all objects that
@@ -103,12 +101,10 @@ creation.
 Amazon S3 supports a bucket lifecycle rule that you can use to stop multipart uploads
 that don't complete within a specified number of days after being initiated. We
 recommend that you configure this lifecycle rule to minimize your storage costs. For
-more information, see [Configuring a bucket lifecycle
-configuration to delete incomplete multipart uploads](mpu-abort-incomplete-mpu-lifecycle-config.md "mpu-abort-incomplete-mpu-lifecycle-config.md").
+more information, see [Configuring a bucket lifecycle configuration to delete incomplete multipart uploads](mpu-abort-incomplete-mpu-lifecycle-config.md "mpu-abort-incomplete-mpu-lifecycle-config.md").
 
 For more information about using a lifecycle configuration to empty a bucket, see
-[Setting an S3 Lifecycle configuration on a
-bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md") and [Expiring objects](lifecycle-expire-general-considerations.md "lifecycle-expire-general-considerations.md").
+[Setting an S3 Lifecycle configuration on a bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md") and [Expiring objects](lifecycle-expire-general-considerations.md "lifecycle-expire-general-considerations.md").
 
 ## Emptying a general purpose bucket with AWS CloudTrail configured
 

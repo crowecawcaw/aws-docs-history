@@ -54,8 +54,7 @@ You can access data in Amazon S3 through a Multi-Region Access Point by using th
 Requests can be directed to this hostname from the public internet. If you have
 configured one or more internet gateways for the Multi-Region Access Point, requests can also be directed
 to this hostname from a virtual private cloud (VPC). For more information about creating
-VPC interface endpoints to use with Multi-Region Access Points, see [Configuring a Multi-Region Access Point for use with
-AWS PrivateLink](MultiRegionAccessPointsPrivateLink.md "MultiRegionAccessPointsPrivateLink.md").
+VPC interface endpoints to use with Multi-Region Access Points, see [Configuring a Multi-Region Access Point for use with AWS PrivateLink](MultiRegionAccessPointsPrivateLink.md "MultiRegionAccessPointsPrivateLink.md").
 
 To make requests through a Multi-Region Access Point from a VPC by using a VPC endpoint, you can use
 AWS PrivateLink. When you're making requests to a Multi-Region Access Point by using AWS PrivateLink, you
@@ -103,14 +102,11 @@ example, `mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com`.
   AWS Region requests. For more information about SigV4A, see [Signing AWS API requests](../../../general/latest/gr/signing_aws_api_requests.md "../../../general/latest/gr/signing_aws_api_requests.md") in the
   _AWS General Reference_.
 
-## Multi-Region Access Points and
-
-Amazon S3 Transfer Acceleration
+## Multi-Region Access Points and Amazon S3 Transfer Acceleration
 
 Amazon S3 Transfer Acceleration is a feature that enables fast transfer of data to buckets.
 Transfer Acceleration is configured on the individual bucket level. For more information about
-Transfer Acceleration, see [Configuring fast, secure file transfers using
-Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
+Transfer Acceleration, see [Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
 
 Multi-Region Access Points use a similar accelerated transfer mechanism as Transfer Acceleration for sending
 large objects over the AWS network. Because of this, you don't need to use
@@ -123,8 +119,6 @@ performance is automatically incorporated into the Multi-Region Access Point.
 - [Multi-Region Access Point restrictions and limitations](MultiRegionAccessPointRestrictions.md "MultiRegionAccessPointRestrictions.md")
 - [Multi-Region Access Point request routing](MultiRegionAccessPointRequestRouting.md "MultiRegionAccessPointRequestRouting.md")
 - [Amazon S3 Multi-Region Access Points failover controls](MrapFailover.md "MrapFailover.md")
-- [Configuring replication for use
-  with Multi-Region Access Points](MultiRegionAccessPointBucketReplication.md "MultiRegionAccessPointBucketReplication.md")
+- [Configuring replication for use with Multi-Region Access Points](MultiRegionAccessPointBucketReplication.md "MultiRegionAccessPointBucketReplication.md")
 - [Using Multi-Region Access Points with supported API operations](MrapOperations.md "MrapOperations.md")
-- [Monitoring and logging requests made
-  through a Multi-Region Access Point to underlying resources](MultiRegionAccessPointMonitoring.md "MultiRegionAccessPointMonitoring.md")
+- [Monitoring and logging requests made through a Multi-Region Access Point to underlying resources](MultiRegionAccessPointMonitoring.md "MultiRegionAccessPointMonitoring.md")

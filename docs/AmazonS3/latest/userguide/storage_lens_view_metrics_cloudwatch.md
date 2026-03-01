@@ -1,6 +1,4 @@
-# Monitor S3 Storage Lens metrics in
-
-CloudWatch
+# Monitor S3 Storage Lens metrics in CloudWatch
 
 You can publish S3 Storage Lens metrics to Amazon CloudWatch to create a unified view of your operational
 health in [CloudWatch

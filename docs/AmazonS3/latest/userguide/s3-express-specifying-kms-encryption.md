@@ -1,6 +1,4 @@
-# Specifying server-side encryption with AWS KMS
-
-(SSE-KMS) for new object uploads in directory buckets
+# Specifying server-side encryption with AWS KMS (SSE-KMS) for new object uploads in directory buckets
 
 For directory buckets, to encrypt your data with server-side encryption, you can use either server-side encryption with Amazon S3 managed keys (SSE-S3)
 (the default) or server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS). We recommend that the bucket's default encryption uses the desired encryption configuration and you don't override the bucket default encryption in your
@@ -71,18 +69,12 @@ You can't specify server-side encryption settings for new object part copies wit
 
 ###### Topics
 
-- [Amazon S3 REST API operations that support
-  SSE-KMS](#s3-express-sse-request-headers-kms "#s3-express-sse-request-headers-kms")
-- [Encryption context
-  (x-amz-server-side-encryption-context)](#s3-express-s3-kms-encryption-context "#s3-express-s3-kms-encryption-context")
-- [AWS KMS key ID
-  (x-amz-server-side-encryption-aws-kms-key-id)](#s3-express-s3-kms-key-id-api "#s3-express-s3-kms-key-id-api")
-- [S3 Bucket Keys
-  (x-amz-server-side-encryption-aws-bucket-key-enabled)](#s3-express-bucket-key-api "#s3-express-bucket-key-api")
+- [Amazon S3 REST API operations that support SSE-KMS](#s3-express-sse-request-headers-kms "#s3-express-sse-request-headers-kms")
+- [Encryption context (x-amz-server-side-encryption-context)](#s3-express-s3-kms-encryption-context "#s3-express-s3-kms-encryption-context")
+- [AWS KMS key ID (x-amz-server-side-encryption-aws-kms-key-id)](#s3-express-s3-kms-key-id-api "#s3-express-s3-kms-key-id-api")
+- [S3 Bucket Keys (x-amz-server-side-encryption-aws-bucket-key-enabled)](#s3-express-bucket-key-api "#s3-express-bucket-key-api")
 
-### Amazon S3 REST API operations that support
-
-SSE-KMS
+### Amazon S3 REST API operations that support SSE-KMS
 
 The following object-level REST API operations in directory buckets accept the
 `x-amz-server-side-encryption`,
@@ -125,9 +117,7 @@ server-side encryption.
   `GET` requests and `HEAD` requests, or you’ll get an
   **`HTTP 400 BadRequest`** error.
 
-### Encryption context
-
-(`x-amz-server-side-encryption-context`)
+### Encryption context (`x-amz-server-side-encryption-context`)
 
 If you specify `x-amz-server-side-encryption:aws:kms`, the Amazon S3 API
 supports you to optionally provide an explicit encryption context with the `x-amz-server-side-encryption-context`
@@ -138,9 +128,7 @@ For information about the encryption context in directory buckets, see [Encrypti
 information about the encryption context, see [AWS Key Management Service Concepts -
 Encryption context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") in the _AWS Key Management Service Developer Guide_.
 
-### AWS KMS key ID
-
-(`x-amz-server-side-encryption-aws-kms-key-id`)
+### AWS KMS key ID (`x-amz-server-side-encryption-aws-kms-key-id`)
 
 You can use the `x-amz-server-side-encryption-aws-kms-key-id` header to
 specify the ID of the customer managed key that's used to protect the data.
@@ -156,9 +144,7 @@ To use a new customer managed key for your data, we recommend copying your exist
 
 For information about the encryption context in directory buckets, see [AWS KMS keys](s3-express-UsingKMSEncryption.md#s3-express-aws-managed-customer-managed-keys "s3-express-UsingKMSEncryption.md#s3-express-aws-managed-customer-managed-keys").
 
-### S3 Bucket Keys
-
-(`x-amz-server-side-encryption-aws-bucket-key-enabled`)
+### S3 Bucket Keys (`x-amz-server-side-encryption-aws-bucket-key-enabled`)
 
 S3 Bucket Keys are always enabled for `GET` and `PUT` operations in a directory bucket and can’t be disabled. S3 Bucket Keys aren't supported, when you copy SSE-KMS encrypted objects from general purpose buckets
 to directory buckets, from directory buckets to general purpose buckets, or between directory buckets, through [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md"), [UploadPartCopy](../API/API_UploadPartCopy.md "../API/API_UploadPartCopy.md"), [the Copy operation in Batch Operations](directory-buckets-objects-Batch-Ops.md "directory-buckets-objects-Batch-Ops.md"), or

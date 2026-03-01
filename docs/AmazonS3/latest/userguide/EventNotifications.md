@@ -13,9 +13,7 @@ this subresource.
 Amazon S3 event notifications are designed to be delivered at least once. Typically, event
 notifications are delivered in seconds but can sometimes take a minute or longer.
 
-## Overview of Amazon S3 Event
-
-Notifications
+## Overview of Amazon S3 Event Notifications
 
 Currently, Amazon S3 can publish notifications for the following events:
 
@@ -30,8 +28,7 @@ Currently, Amazon S3 can publish notifications for the following events:
 - Object tagging events
 - Object ACL PUT events
 
-For full descriptions of all the supported event types, see [Supported event types for SQS,
-SNS, and Lambda](notification-how-to-event-types-and-destinations.md#supported-notification-event-types "notification-how-to-event-types-and-destinations.md#supported-notification-event-types").
+For full descriptions of all the supported event types, see [Supported event types for SQS, SNS, and Lambda](notification-how-to-event-types-and-destinations.md#supported-notification-event-types "notification-how-to-event-types-and-destinations.md#supported-notification-event-types").
 
 Amazon S3 can send event notification messages to the following destinations. You specify
 the Amazon Resource Name (ARN) value of these destinations in the notification
@@ -42,8 +39,7 @@ configuration.
 - AWS Lambda function
 - Amazon EventBridge
 
-For more information, see [Supported event
-destinations](notification-how-to-event-types-and-destinations.md#supported-notification-destinations "notification-how-to-event-types-and-destinations.md#supported-notification-destinations").
+For more information, see [Supported event destinations](notification-how-to-event-types-and-destinations.md#supported-notification-destinations "notification-how-to-event-types-and-destinations.md#supported-notification-destinations").
 
 ###### Note
 
@@ -66,7 +62,6 @@ For more information about event notifications, see the following sections.
 
 ###### Topics
 
-- [Event notification types and
-  destinations](notification-how-to-event-types-and-destinations.md "notification-how-to-event-types-and-destinations.md")
+- [Event notification types and destinations](notification-how-to-event-types-and-destinations.md "notification-how-to-event-types-and-destinations.md")
 - [Using Amazon SQS, Amazon SNS, and Lambda](how-to-enable-disable-notification-intro.md "how-to-enable-disable-notification-intro.md")
 - [Using EventBridge](EventBridge.md "EventBridge.md")

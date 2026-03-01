@@ -61,9 +61,7 @@ permission for the requester to perform the operation. To perform a specific ope
 on a resource, an IAM principal needs permission from both the parent AWS account to
 which it belongs and the AWS account that owns the resource.
 
-###### Example– Requester is an IAM principal – If the request is for an operation on an
-
-object that the bucket owner doesn't own
+###### Example– Requester is an IAM principal – If the request is for an operation on an object that the bucket owner doesn't own
 
 If the request is for an operation on an object that the bucket owner doesn't own, in
 addition to making sure the requester has permissions from the object owner, Amazon S3 must
@@ -78,15 +76,12 @@ writer) owns the object, has access to it, and can grant other users access to i
 disabled and you, as the bucket owner, automatically own every object in your general purpose bucket. As a
 result, access control for your data is based on policies, such as IAM user policies, S3 bucket
 policies, virtual private cloud (VPC) endpoint policies, and AWS Organizations service control policies (SCPs).
-For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 For more information about how Amazon S3 evaluates access policies to authorize or deny requests
 for bucket operations and object operations, see the following topics:
 
 ###### Topics
 
-- [How Amazon S3 authorizes a
-  request for a bucket operation](access-control-auth-workflow-bucket-operation.md "access-control-auth-workflow-bucket-operation.md")
-- [How Amazon S3 authorizes a request
-  for an object operation](access-control-auth-workflow-object-operation.md "access-control-auth-workflow-object-operation.md")
+- [How Amazon S3 authorizes a request for a bucket operation](access-control-auth-workflow-bucket-operation.md "access-control-auth-workflow-bucket-operation.md")
+- [How Amazon S3 authorizes a request for an object operation](access-control-auth-workflow-object-operation.md "access-control-auth-workflow-object-operation.md")

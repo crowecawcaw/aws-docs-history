@@ -57,8 +57,7 @@ analytics services**.
 When you create your first table bucket by using the console with the **Enable
 integration** option selected, Amazon S3 attempts to automatically integrate your
 table bucket with AWS analytics services. This integration allows you to use AWS analytics
-services to query all tables in the current Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md"). 7. To configure default encryption, under **Encryption type**,
+services to query all tables in the current Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md"). 7. To configure default encryption, under **Encryption type**,
 choose one of the following:
 
     * **Server-side encryption with Amazon S3 managed key

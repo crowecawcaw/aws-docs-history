@@ -1,6 +1,4 @@
-# Retrieving the requestPayment
-
-configuration using the REST API
+# Retrieving the requestPayment configuration using the REST API
 
 You can determine the `Payer` value that is set on a bucket by
 requesting the resource `requestPayment`.

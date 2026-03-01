@@ -5,8 +5,7 @@ To reduce the amount of time your packets spend on the network, configure your v
 ###### Topics
 
 - [Endpoints for directory buckets in Availability Zones](#s3-express-endpoints-az "#s3-express-endpoints-az")
-- [Configuring VPC gateway
-  endpoints](#s3-express-networking-vpc-gateway "#s3-express-networking-vpc-gateway")
+- [Configuring VPC gateway endpoints](#s3-express-networking-vpc-gateway "#s3-express-networking-vpc-gateway")
 
 ## Endpoints for directory buckets in Availability Zones
 
@@ -23,9 +22,7 @@ each Region and Availability Zone.
 | Europe (Ireland)      | `eu-west-1`      | `euw1-az1`<br>`euw1-az3`               | `s3express-control.eu-west-1.amazonaws.com`<br>`s3express-control-dualstack.eu-west-1.amazonaws.com`           | `s3express-euw1-az1.eu-west-1.amazonaws.com`<br>`s3express-euw1-az1.dualstack.eu-west-1.amazonaws.com`<br>`s3express-euw1-az3.eu-west-1.amazonaws.com`<br>`s3express-euw1-az3.dualstack.eu-west-1.amazonaws.com`                                                                                                                 |
 | Europe (Stockholm)    | `eu-north-1`     | `eun1-az1`<br>`eun1-az2`<br>`eun1-az3` | `s3express-control.eu-north-1.amazonaws.com`<br>`s3express-control-dualstack.eu-north-1.amazonaws.com`         | `s3express-eun1-az1.eu-north-1.amazonaws.com`<br>`s3express-eun1-az1.dualstack.eu-north-1.amazonaws.com`<br>`s3express-eun1-az2.eu-north-1.amazonaws.com`<br>`s3express-eun1-az2.dualstack.eu-north-1.amazonaws.com`<br>`s3express-eun1-az3.eu-north-1.amazonaws.com`<br>`s3express-eun1-az3.dualstack.eu-north-1.amazonaws.com` |
 
-## Configuring VPC gateway
-
-endpoints
+## Configuring VPC gateway endpoints
 
 Use the following procedure to create a gateway endpoint that connects to
 Amazon S3 Express One Zone storage class objects and directory buckets.

@@ -1,6 +1,4 @@
-# Controlling permissions for Batch Operations using job
-
-tags
+# Controlling permissions for Batch Operations using job tags
 
 To help you manage your Amazon S3 Batch Operations jobs, you can add _job
 tags_. With job tags, you can control access to your Batch Operations jobs and enforce
@@ -37,14 +35,10 @@ in different ways:
 
 ###### Topics
 
-- [Controlling access by assigning tags to
-  users and resources](#job-tags-examples-attaching-tags "#job-tags-examples-attaching-tags")
-- [Tagging
-  Batch Operations jobs by stage and enforcing limits on job priority](#tagging-jobs-by-stage-and-enforcing-limits-on-job-priority "#tagging-jobs-by-stage-and-enforcing-limits-on-job-priority")
+- [Controlling access by assigning tags to users and resources](#job-tags-examples-attaching-tags "#job-tags-examples-attaching-tags")
+- [Tagging Batch Operations jobs by stage and enforcing limits on job priority](#tagging-jobs-by-stage-and-enforcing-limits-on-job-priority "#tagging-jobs-by-stage-and-enforcing-limits-on-job-priority")
 
-## Controlling access by assigning tags to
-
-users and resources
+## Controlling access by assigning tags to users and resources
 
 In this scenario, the administrators are using [attribute-based access
 control (ABAC)](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md"). ABAC is an IAM authorization strategy that defines permissions by
@@ -130,9 +124,7 @@ JSON
 
 ```
 
-## Tagging
-
-Batch Operations jobs by stage and enforcing limits on job priority
+## Tagging Batch Operations jobs by stage and enforcing limits on job priority
 
 All S3 Batch Operations jobs have a numeric priority, which Amazon S3 uses to decide in what order
 to run the jobs. For this example, you restrict the maximum priority that most users can
@@ -149,9 +141,7 @@ To do this, introduce a new tag set representing the stage of the job:
 - `stage : QA`
 - `stage : Production`
 
-### Creating and updating low-priority
-
-jobs within a department
+### Creating and updating low-priority jobs within a department
 
 This policy introduces two new restrictions on S3 Batch Operations job creation and update,
 in addition to the department-based restriction:
@@ -227,9 +217,7 @@ in addition to the department-based restriction:
 
 ```
 
-### Creating and updating
-
-high-priority jobs within a department
+### Creating and updating high-priority jobs within a department
 
 A small number of users might require the ability to create high priority jobs in either
 QA or Production. To support this need, you create a managed policy that’s adapted from the

@@ -20,22 +20,17 @@ the effects you intend.
 
 ###### Topics
 
-- [When to use bucket owner
-  condition](#bucket-owner-condition-when-to-use "#bucket-owner-condition-when-to-use")
+- [When to use bucket owner condition](#bucket-owner-condition-when-to-use "#bucket-owner-condition-when-to-use")
 - [Verifying a bucket owner](#bucket-owner-condition-use "#bucket-owner-condition-use")
 - [Examples](#bucket-owner-condition-examples "#bucket-owner-condition-examples")
-- [Restrictions and
-  limitations](#bucket-owner-condition-restrictions-limitations "#bucket-owner-condition-restrictions-limitations")
+- [Restrictions and limitations](#bucket-owner-condition-restrictions-limitations "#bucket-owner-condition-restrictions-limitations")
 
-## When to use bucket owner
-
-condition
+## When to use bucket owner condition
 
 We recommend using bucket owner condition whenever you perform a supported S3
 operation and know the account ID of the expected bucket owner. Bucket owner condition
 is available for all S3 object operations and most S3 bucket operations. For a list of
-S3 operations that don't support bucket owner condition, see [Restrictions and
-limitations](#bucket-owner-condition-restrictions-limitations "#bucket-owner-condition-restrictions-limitations").
+S3 operations that don't support bucket owner condition, see [Restrictions and limitations](#bucket-owner-condition-restrictions-limitations "#bucket-owner-condition-restrictions-limitations").
 
 To see the benefit of using bucket owner condition, consider the following scenario
 involving AWS customer Bea:
@@ -204,9 +199,7 @@ public void getBucketPolicyExample() {
 }
 ```
 
-## Restrictions and
-
-limitations
+## Restrictions and limitations
 
 Amazon S3 bucket owner condition has the following restrictions and limitations:
 

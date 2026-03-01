@@ -1,6 +1,4 @@
-# Deleting metadata table
-
-configurations
+# Deleting metadata table configurations
 
 If you want to stop updating the metadata table configuration for an Amazon S3 general purpose bucket,
 you can delete the metadata table configuration that's attached to your bucket. Deleting a metadata
@@ -23,9 +21,7 @@ Reference_.
 You can delete a metadata table configuration by using the Amazon S3 console, the AWS Command Line Interface
 (AWS CLI), the AWS SDKs, or the Amazon S3 REST API.
 
-## Delete a metadata table
-
-configuration
+## Delete a metadata table configuration
 
 ###### To delete a metadata table configuration
 

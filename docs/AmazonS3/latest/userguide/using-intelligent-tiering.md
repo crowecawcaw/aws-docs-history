@@ -15,9 +15,7 @@ You can also configure S3 Lifecycle configurations to
 transition objects from S3 Standard or S3 Standard-Infrequent Access to
 S3 Intelligent-Tiering.
 
-### Uploading data to S3 Intelligent-Tiering
-
-using Direct PUT
+### Uploading data to S3 Intelligent-Tiering using Direct PUT
 
 When you upload an object to the S3 Intelligent-Tiering storage class using the [PUT](../API/API_PutObject.md "../API/API_PutObject.md")
 API operation, you specify S3 Intelligent-Tiering in the [`x-amz-storage-class`](../API/API_PutObject.md#API_PutObject_RequestSyntax "../API/API_PutObject.md#API_PutObject_RequestSyntax") request header.
@@ -39,10 +37,7 @@ Expect: 100-continue
 x-amz-storage-class: INTELLIGENT_TIERING
 ```
 
-### Transitioning data to
-
-S3 Intelligent-Tiering from S3 Standard or S3 Standard-Infrequent Access using
-S3 Lifecycle
+### Transitioning data to S3 Intelligent-Tiering from S3 Standard or S3 Standard-Infrequent Access using S3 Lifecycle
 
 You can add rules to an S3 Lifecycle configuration to tell Amazon S3 to transition
 objects from one storage class to another. For information on supported transitions

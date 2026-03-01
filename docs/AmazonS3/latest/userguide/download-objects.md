@@ -31,8 +31,7 @@ If you need to download part of an object, you use extra parameters with the AWS
 API to specify only the bytes that you want to download. For more information, see [Downloading part of an object](#download-objects-parts "#download-objects-parts").
 
 If you need to download an object that you don't own, ask the object owner to generate a
-presigned URL that allows you to download the object. For more information, see [Downloading an object from another
-AWS account](#download-objects-from-another-account "#download-objects-from-another-account").
+presigned URL that allows you to download the object. For more information, see [Downloading an object from another AWS account](#download-objects-from-another-account "#download-objects-from-another-account").
 
 When you download objects outside of the AWS network, data-transfer fees apply. Data
 transfer within the AWS network is free within the same AWS Region, but you will be charged
@@ -45,8 +44,7 @@ pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"
 - [Downloading an object](#download-an-object "#download-an-object")
 - [Downloading multiple objects](#download-multiple-objects "#download-multiple-objects")
 - [Downloading part of an object](#download-objects-parts "#download-objects-parts")
-- [Downloading an object from another
-  AWS account](#download-objects-from-another-account "#download-objects-from-another-account")
+- [Downloading an object from another AWS account](#download-objects-from-another-account "#download-objects-from-another-account")
 - [Downloading archived objects](#download-archived-objects "#download-archived-objects")
 - [Downloading objects based on metadata](#download-objects-based-on-metadata "#download-objects-based-on-metadata")
 - [Troubleshooting downloading objects](#download-objects-troubleshooting "#download-objects-troubleshooting")
@@ -225,9 +223,7 @@ request.
 You can use the `partNumber` and `Range` parameters in the REST
 API to retrieve object parts from Amazon S3. For more information, see [GetObject](../API/API_GetObject.md "../API/API_GetObject.md") in the _Amazon Simple Storage Service API Reference_.
 
-## Downloading an object from another
-
-AWS account
+## Downloading an object from another AWS account
 
 You can use a presigned URL to grant others time-limited access to your objects without
 updating your bucket policy.
@@ -259,8 +255,7 @@ is 12 hours from the time of creation.
    again.
 9. To download the object, paste the URL into any browser, and the object will
    attempt to download.
-   For more information about presigned URLs and other methods for creating them, see [Download and upload objects with presigned
-   URLs](using-presigned-url.md "using-presigned-url.md").
+   For more information about presigned URLs and other methods for creating them, see [Download and upload objects with presigned URLs](using-presigned-url.md "using-presigned-url.md").
 
 ## Downloading archived objects
 
@@ -291,7 +286,6 @@ Insufficient permissions or incorrect bucket or AWS Identity and Access Manageme
 errors when you're trying to download objects from Amazon S3. These problems can often cause Access
 Denied (403 Forbidden) errors, where Amazon S3 is unable to allow access to a resource.
 
-For common causes of Access Denied (403 Forbidden) errors, see [Troubleshoot access denied (403
-Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md").
+For common causes of Access Denied (403 Forbidden) errors, see [Troubleshoot access denied (403 Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md").
 
 If you're getting a 404 NoSuchKey error when trying to access an object, see [How can I troubleshoot the 404 NoSuchKey error from Amazon S3?](https://repost.aws/knowledge-center/404-error-nosuchkey-s3 "https://repost.aws/knowledge-center/404-error-nosuchkey-s3") in the AWS re:Post Knowledge Center.

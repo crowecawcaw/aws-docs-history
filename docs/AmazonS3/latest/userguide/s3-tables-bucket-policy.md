@@ -6,8 +6,7 @@ following topics.
 
 For more information, see the following topics. For more information about supported
 AWS Identity and Access Management (IAM) actions and condition keys for Amazon S3 Tables, see [Access management for S3 Tables](s3-tables-setting-up.md "s3-tables-setting-up.md"). For example
-bucket policies for table buckets, see [Resource-based policies for
-S3 Tables](s3-tables-resource-based-policies.md "s3-tables-resource-based-policies.md").
+bucket policies for table buckets, see [Resource-based policies for S3 Tables](s3-tables-resource-based-policies.md "s3-tables-resource-based-policies.md").
 
 ###### Note
 

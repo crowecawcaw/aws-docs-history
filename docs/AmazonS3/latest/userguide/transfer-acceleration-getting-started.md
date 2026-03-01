@@ -1,6 +1,4 @@
-# Getting started with
-
-Amazon S3 Transfer Acceleration
+# Getting started with Amazon S3 Transfer Acceleration
 
 You can use Amazon S3 Transfer Acceleration for fast, easy, and secure transfers of files over long
 distances between your client and an S3 bucket. Transfer Acceleration uses the globally distributed

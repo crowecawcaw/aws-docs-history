@@ -83,8 +83,7 @@ aws s3control update-storage-lens-group --account-id `111122223333` \
 --region `us-east-1` --storage-lens-group=file://./`marketing-department`.json
 ```
 
-For example JSON configurations, see [Storage Lens groups
-configuration](storage-lens-groups.md#storage-lens-groups-configuration "storage-lens-groups.md#storage-lens-groups-configuration").
+For example JSON configurations, see [Storage Lens groups configuration](storage-lens-groups.md#storage-lens-groups-configuration "storage-lens-groups.md#storage-lens-groups-configuration").
 
 The following AWS SDK for Java example returns the configuration details for the
 `Marketing-Department` Storage Lens
@@ -194,5 +193,4 @@ public class UpdateStorageLensGroup {
 }
 ```
 
-For example JSON configurations, see [Storage Lens groups
-configuration](storage-lens-groups.md#storage-lens-groups-configuration "storage-lens-groups.md#storage-lens-groups-configuration").
+For example JSON configurations, see [Storage Lens groups configuration](storage-lens-groups.md#storage-lens-groups-configuration "storage-lens-groups.md#storage-lens-groups-configuration").

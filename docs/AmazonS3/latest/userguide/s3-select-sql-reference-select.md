@@ -281,9 +281,7 @@ Select s.projects[0].project_name from S3Object s
 {"project_name":"project1"}
 ```
 
-## Case sensitivity of header
-
-and attribute names
+## Case sensitivity of header and attribute names
 
 With Amazon S3 Select, you can use double quotation marks to indicate that column headers (for
 CSV objects) and attributes (for JSON objects) are case sensitive. Without double
@@ -332,9 +330,7 @@ SELECT s.name from S3Object s
 SELECT s."NAME" from S3Object s
 ```
 
-## Using reserved keywords as
-
-user-defined terms
+## Using reserved keywords as user-defined terms
 
 Amazon S3 Select has a set of reserved keywords that are needed to run the SQL expressions used
 to query object content. Reserved keywords include function names, data types,

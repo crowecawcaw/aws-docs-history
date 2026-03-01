@@ -1,6 +1,4 @@
-# Authenticating and authorizing for
-
-directory buckets in Local Zones
+# Authenticating and authorizing for directory buckets in Local Zones
 
 Directory buckets in Local Zones support both AWS Identity and Access Management (IAM) authorization and session-based
 authorization. For more information about authentication and authorization for
@@ -18,16 +16,13 @@ arn:aws:s3express:`region-code`:`account-id`:bucket/`bucket-base-name`--`ZoneID`
 ```
 
 For directory buckets in a Local Zone, the Zone ID is the ID of the Local Zone. For more
-information about directory buckets in Local Zones, see [Concepts for directory buckets in
-Local Zones](s3-lzs-for-directory-buckets.md "s3-lzs-for-directory-buckets.md"). For more information about ARNs, see [Amazon Resource Names (ARNs)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md")
+information about directory buckets in Local Zones, see [Concepts for directory buckets in Local Zones](s3-lzs-for-directory-buckets.md "s3-lzs-for-directory-buckets.md"). For more information about ARNs, see [Amazon Resource Names (ARNs)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md")
 in the _IAM User Guide_. For more information about resources, see
 [IAM JSON
 Policy Elements: Resource](../../../IAM/latest/UserGuide/reference_policies_elements_resource.md "../../../IAM/latest/UserGuide/reference_policies_elements_resource.md") in the
 _IAM User Guide_.
 
-## Condition keys for directory buckets in
-
-Local Zones
+## Condition keys for directory buckets in Local Zones
 
 In Local Zones, you can use all of these [condition keys](../../../service-authorization/latest/reference/list_amazons3express.md#amazons3express-policy-keys "../../../service-authorization/latest/reference/list_amazons3express.md#amazons3express-policy-keys") in your IAM policies.
 Additionally, to create a data perimeter around your Local Zone network border groups, you can

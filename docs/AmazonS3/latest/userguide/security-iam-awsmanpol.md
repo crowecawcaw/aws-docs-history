@@ -15,27 +15,21 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AmazonS3FullAccess
+## AWS managed policy: AmazonS3FullAccess
 
 You can attach the `AmazonS3FullAccess` policy to your IAM identities.
 This policy grants permissions that allow full access to Amazon S3.
 
 To view the permissions for this policy, see [AmazonS3FullAccess](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonS3FullAccess$jsonEditor "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonS3FullAccess$jsonEditor") in the AWS Management Console.
 
-## AWS managed policy:
-
-AmazonS3ReadOnlyAccess
+## AWS managed policy: AmazonS3ReadOnlyAccess
 
 You can attach the `AmazonS3ReadOnlyAccess` policy to your IAM
 identities. This policy grants permissions that allow read-only access to Amazon S3.
 
 To view the permissions for this policy, see [AmazonS3ReadOnlyAccess](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess$jsonEditor "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess$jsonEditor") in the AWS Management Console.
 
-## AWS
-
-managed policy: AmazonS3ObjectLambdaExecutionRolePolicy
+## AWS managed policy: AmazonS3ObjectLambdaExecutionRolePolicy
 
 Provides AWS Lambda functions the required permissions to send data to S3 Object Lambda when
 requests are made to an S3 Object Lambda access point. Also grants Lambda permissions to write to
@@ -44,15 +38,11 @@ Amazon CloudWatch logs.
 To view the permissions for this policy, see [AmazonS3ObjectLambdaExecutionRolePolicy](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AmazonS3ObjectLambdaExecutionRolePolicy$jsonEditor "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AmazonS3ObjectLambdaExecutionRolePolicy$jsonEditor") in the
 AWS Management Console.
 
-## AWS
-
-managed policy: S3UnlockBucketPolicy
+## AWS managed policy: S3UnlockBucketPolicy
 
 If you incorrectly configured your bucket policy for a member account to deny all users access to your S3 bucket, you can use this AWS managed policy (`S3UnlockBucketPolicy`) to unlock the bucket. For more information on how to remove a misconfigured bucket policy that denies all principals from accessing an Amazon S3 bucket, see [Perform a privileged task on an AWS Organizations member account](../../../IAM/latest/UserGuide/id_root-user-privileged-task.md "../../../IAM/latest/UserGuide/id_root-user-privileged-task.md") in the _AWS Identity and Access Management User Guide_.
 
-## Amazon S3 updates to AWS managed
-
-policies
+## Amazon S3 updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon S3 since this service
 began tracking these changes.

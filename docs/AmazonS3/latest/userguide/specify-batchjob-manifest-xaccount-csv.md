@@ -1,14 +1,11 @@
-# Using a CSV manifest to copy objects
-
-across AWS accounts
+# Using a CSV manifest to copy objects across AWS accounts
 
 You can use Amazon S3 Batch Operations to perform large-scale batch operations on Amazon S3 objects.
 You can use S3 Batch Operations to create a **Copy** (`CopyObject`) job
 to copy objects within the same account or to a different destination account.
 
 You can use a CSV manifest that's stored in the source account to copy objects across
-AWS accounts with S3 Batch Operations. To use an S3 Inventory report as a manifest, see [Using an inventory report to copy
-objects across AWS accounts](specify-batchjob-manifest-xaccount-inventory.md "specify-batchjob-manifest-xaccount-inventory.md").
+AWS accounts with S3 Batch Operations. To use an S3 Inventory report as a manifest, see [Using an inventory report to copy objects across AWS accounts](specify-batchjob-manifest-xaccount-inventory.md "specify-batchjob-manifest-xaccount-inventory.md").
 
 For an example of the CSV format for manifest files, see [Creating a manifest file](batch-ops-create-job.md#create-manifest-file "batch-ops-create-job.md#create-manifest-file").
 

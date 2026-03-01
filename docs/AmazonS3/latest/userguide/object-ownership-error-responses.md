@@ -5,8 +5,7 @@ S3 Object Ownership, access control lists (ACLs) are disabled and you, as the bu
 objects in your bucket. ACLs no longer affect permissions for the objects in your bucket. You can use policies to grant
 permissions. All S3 `PUT` requests must either specify the `bucket-owner-full-control` canned ACL
 or not specify an ACL, or these requests will fail. For more information, see
-[Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+[Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 If an invalid ACL is specified or bucket ACL permissions grant access outside of your
 AWS account, you might see the following error responses.
@@ -52,8 +51,7 @@ request fails.
 For example, if an existing bucket ACL grants public read access, you cannot apply the
 Bucket owner enforced setting for Object Ownership until you migrate these ACL
 permissions to a bucket policy and reset your bucket ACL to the default private
-ACL. For more information, see [Prerequisites for
-disabling ACLs](object-ownership-migrating-acls-prerequisites.md "object-ownership-migrating-acls-prerequisites.md").
+ACL. For more information, see [Prerequisites for disabling ACLs](object-ownership-migrating-acls-prerequisites.md "object-ownership-migrating-acls-prerequisites.md").
 
 This example bucket ACL grants public read access:
 

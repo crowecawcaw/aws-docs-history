@@ -8,9 +8,7 @@ inventory tables.
 You can view your metadata table configuration for a general purpose bucket by using the Amazon S3
 console, the AWS Command Line Interface (AWS CLI), the AWS SDKs, or the Amazon S3 REST API.
 
-## View a metadata table
-
-configuration
+## View a metadata table configuration
 
 ###### To view a metadata table configuration
 

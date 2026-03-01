@@ -1,6 +1,4 @@
-# Authorizing Zonal endpoint API operations with
-
-`CreateSession`
+# Authorizing Zonal endpoint API operations with `CreateSession`
 
 To use Zonal endpoint API operations (object-level, or data plane operations), except for
 `CopyObject` and `HeadBucket`, you use the
@@ -28,8 +26,7 @@ policy, you can specify the `s3express:SessionMode` condition key to explicitly 
 `ReadWrite` or `ReadOnly` sessions, see the
 `x-amz-create-session-mode` parameter for [CreateSession](../API/API_CreateSession.md "../API/API_CreateSession.md") in the _Amazon S3 API
 Reference_. For more information about the bucket policy to create, see
-[Example bucket
-policies for directory buckets](s3-express-security-iam-example-bucket-policies.md "s3-express-security-iam-example-bucket-policies.md").
+[Example bucket policies for directory buckets](s3-express-security-iam-example-bucket-policies.md "s3-express-security-iam-example-bucket-policies.md").
 
 ###### Session Token
 

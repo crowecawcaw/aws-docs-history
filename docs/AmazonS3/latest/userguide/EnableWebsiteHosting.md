@@ -6,8 +6,7 @@ hosting, configure an index document, and set permissions.
 You can enable static website hosting using the Amazon S3 console, REST API, the AWS
 SDKs, the AWS CLI, or CloudFormation.
 
-To configure your website with a custom domain, see [Tutorial: Configuring a static website using a
-custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md").
+To configure your website with a custom domain, see [Tutorial: Configuring a static website using a custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md").
 
 ###### To enable static website hosting
 
@@ -32,8 +31,7 @@ The error document name is case sensitive and must exactly match the file name o
 default HTML error document. For more information, see [Configuring a custom error document](CustomErrorDocSupport.md "CustomErrorDocSupport.md"). 10. (Optional) If you want to specify advanced redirection rules, in **Redirection rules**, enter JSON to describe the rules.
 
 For example, you can conditionally route requests according to specific object key
-names or prefixes in the request. For more information, see [Configure redirection rules to use
-advanced conditional redirects](how-to-page-redirect.md#advanced-conditional-redirects "how-to-page-redirect.md#advanced-conditional-redirects"). 11. Choose **Save changes**.
+names or prefixes in the request. For more information, see [Configure redirection rules to use advanced conditional redirects](how-to-page-redirect.md#advanced-conditional-redirects "how-to-page-redirect.md#advanced-conditional-redirects"). 11. Choose **Save changes**.
 
 Amazon S3 enables static website hosting for your bucket. At the bottom of the page, under **Static website hosting**, you see the website endpoint for your bucket. 12. Under **Static website hosting**, note the **Endpoint**.
 
@@ -185,8 +183,7 @@ _AWS CLI Command Reference_.
 
 Next, you must configure your index document and set permissions. For information, see
 [Configuring an index document](IndexDocumentSupport.md "IndexDocumentSupport.md") and
-[Setting permissions for website
-access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md").
+[Setting permissions for website access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md").
 
 You can also optionally configure an [error
 document](CustomErrorDocSupport.md "CustomErrorDocSupport.md"), [web traffic logging](LoggingWebsiteTraffic.md "LoggingWebsiteTraffic.md"),

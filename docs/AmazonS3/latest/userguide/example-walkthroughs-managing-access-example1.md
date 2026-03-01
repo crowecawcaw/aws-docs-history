@@ -1,22 +1,16 @@
-# Example 1: Bucket owner
-
-granting its users bucket permissions
+# Example 1: Bucket owner granting its users bucket permissions
 
 ###### Important
 
 Granting permissions to IAM roles is a better practice than granting permissions to
 individual users.For more information about how to grant permissions to IAM roles, see
-[Understanding
-cross-account permissions and using IAM roles](example-walkthroughs-managing-access-example4.md#access-policies-walkthrough-example4-overview "example-walkthroughs-managing-access-example4.md#access-policies-walkthrough-example4-overview").
+[Understanding cross-account permissions and using IAM roles](example-walkthroughs-managing-access-example4.md#access-policies-walkthrough-example4-overview "example-walkthroughs-managing-access-example4.md#access-policies-walkthrough-example4-overview").
 
 ###### Topics
 
-- [Preparing for the
-  walkthrough](#grant-permissions-to-user-in-your-account-step0 "#grant-permissions-to-user-in-your-account-step0")
-- [Step 1: Create resources in
-  Account A and grant permissions](#grant-permissions-to-user-in-your-account-step1 "#grant-permissions-to-user-in-your-account-step1")
-- [Step 2: Test
-  permissions](#grant-permissions-to-user-in-your-account-test "#grant-permissions-to-user-in-your-account-test")
+- [Preparing for the walkthrough](#grant-permissions-to-user-in-your-account-step0 "#grant-permissions-to-user-in-your-account-step0")
+- [Step 1: Create resources in Account A and grant permissions](#grant-permissions-to-user-in-your-account-step1 "#grant-permissions-to-user-in-your-account-step1")
+- [Step 2: Test permissions](#grant-permissions-to-user-in-your-account-test "#grant-permissions-to-user-in-your-account-test")
   In this walkthrough, an AWS account owns a bucket, and the account includes an IAM user
   By default, the user has no permissions. For the user to perform any tasks, the parent
   account must grant them permissions. The bucket owner and parent account are the same.
@@ -36,8 +30,7 @@ walkthrough:
 3. User then tries permissions granted via both the bucket policy and the user
    policy.
    For this example, you will need an AWS account. Instead of using the root user credentials of
-   the account, you will create an administrator user (see [About using an administrator user to create resources
-   and grant permissions](example-walkthroughs-managing-access.md#about-using-root-credentials "example-walkthroughs-managing-access.md#about-using-root-credentials")).
+   the account, you will create an administrator user (see [About using an administrator user to create resources and grant permissions](example-walkthroughs-managing-access.md#about-using-root-credentials "example-walkthroughs-managing-access.md#about-using-root-credentials")).
    We refer to the AWS account and the administrator user as shown in the following
    table.
 
@@ -53,9 +46,7 @@ All the tasks of creating users and granting permissions are done in the AWS Man
 permissions, the walkthrough uses the command line tools, AWS Command Line Interface (AWS CLI) and AWS Tools for Windows PowerShell,
 so you don't need to write any code.
 
-## Preparing for the
-
-walkthrough
+## Preparing for the walkthrough
 
 1.  Make sure you have an AWS account and that it has a user with administrator
     privileges.
@@ -96,12 +87,9 @@ walkthrough
         * If using the AWS Tools for Windows PowerShell, make sure you store credentials for the session as
          `AccountAadmin`.
 
-    For instructions, see [Setting up the tools for the
-    walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
+    For instructions, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
 
-## Step 1: Create resources in
-
-Account A and grant permissions
+## Step 1: Create resources in Account A and grant permissions
 
 Using the credentials of user `AccountAadmin` in Account A, and the special
 IAM user sign-in URL, sign in to the AWS Management Console and do the following:
@@ -231,9 +219,7 @@ policy (or an IAM policy).
      you need to sign in to the console using Account A
      credentials.
 
-## Step 2: Test
-
-permissions
+## Step 2: Test permissions
 
 Using Dave's credentials, verify that the permissions work. You can use either of the
 following two procedures.
@@ -241,8 +227,7 @@ following two procedures.
 ###### Test permissions using the AWS CLI
 
 1. Update the AWS CLI config file by adding the following `UserDaveAccountA`
-   profile. For more information, see [Setting up the tools for the
-   walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
+   profile. For more information, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
 
 ```
 [profile UserDaveAccountA]

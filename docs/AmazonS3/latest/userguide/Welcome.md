@@ -91,8 +91,7 @@ resources, you can use the following features.
   buckets and objects. By default, Block Public Access settings are turned on
   at the bucket level. We recommend that you keep all Block Public Access
   settings enabled unless you know that you need to turn off one or more of
-  them for your specific use case. For more information, see [Configuring block public access
-  settings for your S3 buckets](configuring-block-public-access-bucket.md "configuring-block-public-access-bucket.md").
+  them for your specific use case. For more information, see [Configuring block public access settings for your S3 buckets](configuring-block-public-access-bucket.md "configuring-block-public-access-bucket.md").
 - [AWS Identity and Access Management (IAM)](security-iam.md "security-iam.md") – IAM is a web service that helps
   you securely control access to AWS resources, including your Amazon S3
   resources. With IAM, you can centrally manage permissions that control
@@ -407,8 +406,7 @@ exclusively by using access-management policies.
 A majority of modern use cases in Amazon S3 no longer require the use of ACLs. We recommend that you keep ACLs disabled, except
 in circumstances where you need to control access for each object individually. With ACLs disabled, you can use policies
 to control access to all objects in your bucket, regardless of who uploaded the objects to your bucket.
-For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 ### Regions
 

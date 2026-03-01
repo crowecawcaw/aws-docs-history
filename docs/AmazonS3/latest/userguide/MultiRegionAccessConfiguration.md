@@ -1,6 +1,4 @@
-# Configuring a Multi-Region Access Point for use with
-
-AWS PrivateLink
+# Configuring a Multi-Region Access Point for use with AWS PrivateLink
 
 You can use Multi-Region Access Points to route Amazon S3 request traffic between AWS Regions. Each Multi-Region Access Point
 global endpoint routes Amazon S3 data request traffic from multiple sources without your having
@@ -18,7 +16,5 @@ traffic sources include:
 ###### Topics
 
 - [Configuring Multi-Region Access Point opt-in Regions](ConfiguringMrapOptInRegions.md "ConfiguringMrapOptInRegions.md")
-- [Configuring a Multi-Region Access Point for use with
-  AWS PrivateLink](MultiRegionAccessPointsPrivateLink.md "MultiRegionAccessPointsPrivateLink.md")
-- [Removing access to a Multi-Region Access Point from
-  a VPC endpoint](RemovingMultiRegionAccessPointAccess.md "RemovingMultiRegionAccessPointAccess.md")
+- [Configuring a Multi-Region Access Point for use with AWS PrivateLink](MultiRegionAccessPointsPrivateLink.md "MultiRegionAccessPointsPrivateLink.md")
+- [Removing access to a Multi-Region Access Point from a VPC endpoint](RemovingMultiRegionAccessPointAccess.md "RemovingMultiRegionAccessPointAccess.md")

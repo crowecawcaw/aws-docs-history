@@ -170,9 +170,7 @@ Note the following:
 
 This section explains how object tagging relates to other configurations.
 
-### Object tagging and lifecycle
-
-management
+### Object tagging and lifecycle management
 
 In bucket lifecycle configuration, you can specify a filter to select a subset of
 objects to which the rule applies. You can specify a filter based on the key name

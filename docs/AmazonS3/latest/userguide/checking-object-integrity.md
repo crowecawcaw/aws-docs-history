@@ -47,7 +47,5 @@ you can use to confirm that your data set remains intact.
 
 ###### Topics
 
-- [Checking object integrity for data
-  uploads in Amazon S3](checking-object-integrity-upload.md "checking-object-integrity-upload.md")
-- [Checking object integrity for data at
-  rest in Amazon S3](checking-object-integrity-at-rest.md "checking-object-integrity-at-rest.md")
+- [Checking object integrity for data uploads in Amazon S3](checking-object-integrity-upload.md "checking-object-integrity-upload.md")
+- [Checking object integrity for data at rest in Amazon S3](checking-object-integrity-at-rest.md "checking-object-integrity-at-rest.md")

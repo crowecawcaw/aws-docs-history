@@ -1,6 +1,4 @@
-# Configuring fast, secure file transfers using
-
-Amazon S3 Transfer Acceleration
+# Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration
 
 Amazon S3 Transfer Acceleration is a bucket-level feature that enables fast, easy, and secure transfers
 of files over long distances between your client and an S3 general purpose bucket. Transfer Acceleration is designed
@@ -24,9 +22,7 @@ You might want to use Transfer Acceleration on a general purpose bucket for vari
 
 For more information about when to use Transfer Acceleration, see [Amazon S3 FAQs](https://aws.amazon.com/s3/faqs/#s3ta "https://aws.amazon.com/s3/faqs/#s3ta").
 
-## Requirements for using
-
-Transfer Acceleration
+## Requirements for using Transfer Acceleration
 
 The following are required when you are using Transfer Acceleration on an S3 bucket:
 
@@ -78,8 +74,6 @@ transferring data.
 
 ###### Topics
 
-- [Getting started with
-  Amazon S3 Transfer Acceleration](transfer-acceleration-getting-started.md "transfer-acceleration-getting-started.md")
+- [Getting started with Amazon S3 Transfer Acceleration](transfer-acceleration-getting-started.md "transfer-acceleration-getting-started.md")
 - [Enabling and using S3 Transfer Acceleration](transfer-acceleration-examples.md "transfer-acceleration-examples.md")
-- [Using the Amazon S3 Transfer Acceleration
-  Speed Comparison tool](transfer-acceleration-speed-comparison.md "transfer-acceleration-speed-comparison.md")
+- [Using the Amazon S3 Transfer Acceleration Speed Comparison tool](transfer-acceleration-speed-comparison.md "transfer-acceleration-speed-comparison.md")

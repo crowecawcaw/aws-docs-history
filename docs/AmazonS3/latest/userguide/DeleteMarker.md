@@ -24,8 +24,7 @@ marker differs from other objects in the following ways:
   storage class.
 
 If you want to find out how many delete markers you have and what storage class they're
-stored in, you can use Amazon S3 Storage Lens. For more information, see [Monitoring your storage activity and usage with
-Amazon S3 Storage Lens](storage_lens.md "storage_lens.md") and [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md").
+stored in, you can use Amazon S3 Storage Lens. For more information, see [Monitoring your storage activity and usage with Amazon S3 Storage Lens](storage_lens.md "storage_lens.md") and [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md").
 
 For more information about key names, see [Naming Amazon S3 objects](object-keys.md "object-keys.md"). For information about deleting a delete marker, see [Managing delete markers](ManagingDelMarkers.md "ManagingDelMarkers.md").
 
@@ -69,8 +68,7 @@ Amazon S3 responds with a 405 (Method Not Allowed) error and the response header
 Even if overwritten, delete markers remain in your object versions. The only way to list
 delete markers (and other versions of an object) is by using a [ListObjectVersions](../API/API_ListObjectVersions.md "../API/API_ListObjectVersions.md") request. You can make this request in the
 AWS Management Console by listing your objects in an general purpose bucket and selecting **Show
-versions**. For more information, see [Listing objects in a
-versioning-enabled bucket](list-obj-version-enabled-bucket.md "list-obj-version-enabled-bucket.md").
+versions**. For more information, see [Listing objects in a versioning-enabled bucket](list-obj-version-enabled-bucket.md "list-obj-version-enabled-bucket.md").
 
 The following figure shows that a [ListObjectsV2](../API/API_ListObjectsV2.md "../API/API_ListObjectsV2.md") or
 [ListObjects](../API/API_ListObjects.md "../API/API_ListObjects.md") request doesn't return objects whose current

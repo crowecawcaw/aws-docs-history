@@ -5,9 +5,7 @@ low-latency and high-throughput access tiers. It also offers optional archive ca
 to help you get the lowest storage costs in the cloud for data that can be accessed in
 minutes to hours.
 
-## Identifying which
-
-S3 Intelligent-Tiering access tier objects are stored in
+## Identifying which S3 Intelligent-Tiering access tier objects are stored in
 
 To get a list of your objects and their corresponding metadata, including their
 S3 Intelligent-Tiering access tier, you can use [Amazon S3 Inventory](storage-inventory.md "storage-inventory.md"). S3
@@ -16,9 +14,7 @@ objects and their corresponding metadata. You can receive these inventory report
 either a daily or weekly basis for an Amazon S3 bucket or a shared prefix. (_Shared prefix_ refers to objects that have names that begin
 with a common string.)
 
-## Viewing the archive status of an object within
-
-S3 Intelligent-Tiering
+## Viewing the archive status of an object within S3 Intelligent-Tiering
 
 To receive notice when an object within the S3 Intelligent-Tiering storage class has
 moved to either the Archive Access tier or the Deep Archive Access tier, you can set up
@@ -118,9 +114,7 @@ Content-Length: 300
 Server: AmazonS3
 ```
 
-## Restoring objects from the
-
-S3 Intelligent-Tiering Archive Access and Deep Archive Access tiers
+## Restoring objects from the S3 Intelligent-Tiering Archive Access and Deep Archive Access tiers
 
 To access objects in the S3 Intelligent-Tiering Archive Access and Deep Archive Access
 tiers, you must initiate a [restore request](restoring-objects.md "restoring-objects.md"), and

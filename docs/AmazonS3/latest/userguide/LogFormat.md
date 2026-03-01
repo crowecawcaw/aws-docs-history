@@ -20,27 +20,25 @@ Any field can be set to `-` to indicate that the data was unknown or
 unavailable, or that the field was not applicable to this request.
 
 ```
-79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be amzn-s3-demo-bucket1 [06/Feb/2019:00:00:38 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be 3E57427F3EXAMPLE REST.GET.VERSIONING - "GET /amzn-s3-demo-bucket1?versioning HTTP/1.1" 200 - 113 - 7 - "-" "S3Console/0.4" - s9lzHYrFp76ZVxRcpX9+5cjAnEH2ROuNkd2BHfIa6UkFVdtjf5mKR3/eTPFvsiP/XV/VLi31234= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader amzn-s3-demo-bucket1.s3.us-west-1.amazonaws.com TLSV1.2 arn:aws:s3:us-west-1:123456789012:accesspoint/example-AP Yes
-79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be amzn-s3-demo-bucket1 [06/Feb/2019:00:00:38 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be 891CE47D2EXAMPLE REST.GET.LOGGING_STATUS - "GET /amzn-s3-demo-bucket1?logging HTTP/1.1" 200 - 242 - 11 - "-" "S3Console/0.4" - 9vKBE6vMhrNiWHZmb2L0mXOcqPGzQOI5XLnCtZNPxev+Hf+7tpT6sxDwDty4LHBUOZJG96N1234= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader amzn-s3-demo-bucket1.s3.us-west-1.amazonaws.com TLSV1.2 - -
-79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be amzn-s3-demo-bucket1 [06/Feb/2019:00:00:38 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be A1206F460EXAMPLE REST.GET.BUCKETPOLICY - "GET /amzn-s3-demo-bucket1?policy HTTP/1.1" 404 NoSuchBucketPolicy 297 - 38 - "-" "S3Console/0.4" - BNaBsXZQQDbssi6xMBdBU2sLt+Yf5kZDmeBUP35sFoKa3sLLeMC78iwEIWxs99CRUrbS4n11234= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader amzn-s3-demo-bucket1.s3.us-west-1.amazonaws.com TLSV1.2 - Yes
-79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be amzn-s3-demo-bucket1 [06/Feb/2019:00:01:00 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be 7B4A0FABBEXAMPLE REST.GET.VERSIONING - "GET /amzn-s3-demo-bucket1?versioning HTTP/1.1" 200 - 113 - 33 - "-" "S3Console/0.4" - Ke1bUcazaN1jWuUlPJaxF64cQVpUEhoZKEG/hmy/gijN/I1DeWqDfFvnpybfEseEME/u7ME1234= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader amzn-s3-demo-bucket1.s3.us-west-1.amazonaws.com TLSV1.2 - -
-79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be amzn-s3-demo-bucket1 [06/Feb/2019:00:01:57 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be DD6CC733AEXAMPLE REST.PUT.OBJECT s3-dg.pdf "PUT /amzn-s3-demo-bucket1/s3-dg.pdf HTTP/1.1" 200 - - 4406583 41754 28 "-" "S3Console/0.4" - 10S62Zv81kBW7BB6SX4XJ48o6kpcl6LPwEoizZQQxJd5qDSCTLX0TgS37kYUBKQW3+bPdrg1234= SigV4 ECDHE-RSA-AES128-SHA AuthHeader amzn-s3-demo-bucket1.s3.us-west-1.amazonaws.com TLSV1.2 - Yes
+79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be amzn-s3-demo-bucket1 [06/Feb/2019:00:00:38 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be 3E57427F3EXAMPLE REST.GET.VERSIONING - "GET /amzn-s3-demo-bucket1?versioning HTTP/1.1" 200 - 113 - 7 - "-" "S3Console/0.4" - s9lzHYrFp76ZVxRcpX9+5cjAnEH2ROuNkd2BHfIa6UkFVdtjf5mKR3/eTPFvsiP/XV/VLi31234= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader amzn-s3-demo-bucket1.s3.us-west-1.amazonaws.com TLSV1.2 arn:aws:s3:us-west-1:123456789012:accesspoint/example-AP Yes us-east-1
+79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be amzn-s3-demo-bucket1 [06/Feb/2019:00:00:38 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be 891CE47D2EXAMPLE REST.GET.LOGGING_STATUS - "GET /amzn-s3-demo-bucket1?logging HTTP/1.1" 200 - 242 - 11 - "-" "S3Console/0.4" - 9vKBE6vMhrNiWHZmb2L0mXOcqPGzQOI5XLnCtZNPxev+Hf+7tpT6sxDwDty4LHBUOZJG96N1234= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader amzn-s3-demo-bucket1.s3.us-west-1.amazonaws.com TLSV1.2 - - us-east-1
+79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be amzn-s3-demo-bucket1 [06/Feb/2019:00:00:38 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be A1206F460EXAMPLE REST.GET.BUCKETPOLICY - "GET /amzn-s3-demo-bucket1?policy HTTP/1.1" 404 NoSuchBucketPolicy 297 - 38 - "-" "S3Console/0.4" - BNaBsXZQQDbssi6xMBdBU2sLt+Yf5kZDmeBUP35sFoKa3sLLeMC78iwEIWxs99CRUrbS4n11234= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader amzn-s3-demo-bucket1.s3.us-west-1.amazonaws.com TLSV1.2 - Yes us-east-1
+79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be amzn-s3-demo-bucket1 [06/Feb/2019:00:01:00 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be 7B4A0FABBEXAMPLE REST.GET.VERSIONING - "GET /amzn-s3-demo-bucket1?versioning HTTP/1.1" 200 - 113 - 33 - "-" "S3Console/0.4" - Ke1bUcazaN1jWuUlPJaxF64cQVpUEhoZKEG/hmy/gijN/I1DeWqDfFvnpybfEseEME/u7ME1234= SigV4 ECDHE-RSA-AES128-GCM-SHA256 AuthHeader amzn-s3-demo-bucket1.s3.us-west-1.amazonaws.com TLSV1.2 - - us-east-1
+79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be amzn-s3-demo-bucket1 [06/Feb/2019:00:01:57 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be DD6CC733AEXAMPLE REST.PUT.OBJECT s3-dg.pdf "PUT /amzn-s3-demo-bucket1/s3-dg.pdf HTTP/1.1" 200 - - 4406583 41754 28 "-" "S3Console/0.4" - 10S62Zv81kBW7BB6SX4XJ48o6kpcl6LPwEoizZQQxJd5qDSCTLX0TgS37kYUBKQW3+bPdrg1234= SigV4 ECDHE-RSA-AES128-SHA AuthHeader amzn-s3-demo-bucket1.s3.us-west-1.amazonaws.com TLSV1.2 - Yes us-east-1
 ```
 
 The following is an example log record for the **Compute checksum** operation:
 
 ```
-7cd47ef2be `amzn-s3-demo-bucket` [06/Feb/2019:00:00:38 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be e5042925-b524-4b3b-a869-f3881e78ff3a S3.COMPUTE.OBJECT.CHECKSUM `example-object` - - - - 1048576 - - - - -bPf7qjG4XwYdPgDQTl72GW/uotRhdPz2UryEyAFLDSRmKrakUkJCYLtAw6fdANcrsUYc1M/kIulXM1u5vZQT5g== - - - - - -
+7cd47ef2be `amzn-s3-demo-bucket` [06/Feb/2019:00:00:38 +0000] - 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be e5042925-b524-4b3b-a869-f3881e78ff3a S3.COMPUTE.OBJECT.CHECKSUM `example-object` - - - - 1048576 - - - - - bPf7qjG4XwYdPgDQTl72GW/uotRhdPz2UryEyAFLDSRmKrakUkJCYLtAw6fdANcrsUYc1M/kIulXM1u5vZQT5g== - - - - - - - -
 ```
 
 ###### Topics
 
 - [Log record fields](#log-record-fields "#log-record-fields")
-- [Additional logging for copy
-  operations](#AdditionalLoggingforCopyOperations "#AdditionalLoggingforCopyOperations")
+- [Additional logging for copy operations](#AdditionalLoggingforCopyOperations "#AdditionalLoggingforCopyOperations")
 - [Custom access log information](#LogFormatCustom "#LogFormatCustom")
-- [Programming considerations for extensible server
-  access log format](#LogFormatExtensible "#LogFormatExtensible")
+- [Programming considerations for extensible server access log format](#LogFormatExtensible "#LogFormatExtensible")
 
 ## Log record fields
 
@@ -135,8 +133,7 @@ The operation listed here is declared as
 `SOAP.`operation``,
  `REST.`HTTP_method`.`resource_type``,
 `WEBSITE.`HTTP_method`.`resource_type``,
- or `BATCH.DELETE.OBJECT`, or `S3.action.resource_type` for [S3 Lifecycle and
- logging](lifecycle-and-other-bucket-config.md#lifecycle-general-considerations-logging "lifecycle-and-other-bucket-config.md#lifecycle-general-considerations-logging"). For [Compute checksum](batch-ops-compute-checksums.md "batch-ops-compute-checksums.md") job requests, the operation
+ or `BATCH.DELETE.OBJECT`, or `S3.action.resource_type` for [S3 Lifecycle and logging](lifecycle-and-other-bucket-config.md#lifecycle-general-considerations-logging "lifecycle-and-other-bucket-config.md#lifecycle-general-considerations-logging"). For [Compute checksum](batch-ops-compute-checksums.md "batch-ops-compute-checksums.md") job requests, the operation
  is listed as`S3.COMPUTE.OBJECT.CHECKSUM`.
 
 **Example entry**
@@ -359,8 +356,7 @@ list (ACL) for authorization. If the request required an ACL for
 authorization, the string is `Yes`. If no ACLs were required, the
 string is `-`. For more information about ACLs, see [Access control list (ACL) overview](acl-overview.md "acl-overview.md"). For more
 information about using the `aclRequired` field to disable ACLs,
-see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 **Example entry**
 
@@ -368,9 +364,17 @@ for your bucket](about-object-ownership.md "about-object-ownership.md").
 Yes
 ```
 
-## Additional logging for copy
+**Source region**
 
-operations
+The AWS Region from which the request originated. This field shows a dash (`-`) when the origin region cannot be determined (such as PrivateLink connections, Direct Connect connections, Bring your own IP addresses (BYOIP), or non-AWS IP addresses) or when the log is generated by operations triggered based on customer-set policies or actions, such as lifecycle and checksum.
+
+**Example entry**
+
+```
+us-east-1
+```
+
+## Additional logging for copy operations
 
 A copy operation involves a `GET` and a `PUT`. For that reason,
 we log two records when performing a copy operation. The previous section describes the
@@ -691,13 +695,22 @@ list (ACL) for authorization. If the request required an ACL for
 authorization, the string is `Yes`. If no ACLs were required, the
 string is `-`. For more information about ACLs, see [Access control list (ACL) overview](acl-overview.md "acl-overview.md"). For more
 information about using the `aclRequired` field to disable ACLs,
-see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 **Example entry**
 
 ```
 Yes
+```
+
+**Source region**
+
+The AWS Region from which the request originated. This field shows a dash (`-`) when the origin region cannot be determined (such as PrivateLink connections, Direct Connect connections, Bring your own IP addresses (BYOIP), or non-AWS IP addresses) or when the log is generated by operations triggered based on customer-set policies or actions, such as lifecycle and checksum.
+
+**Example entry**
+
+```
+us-east-1
 ```
 
 ## Custom access log information
@@ -716,9 +729,7 @@ except that the `"x-user=johndoe"` string is included in the
 `Request-URI` field for the associated log record. This functionality is
 available in the REST interface only.
 
-## Programming considerations for extensible server
-
-access log format
+## Programming considerations for extensible server access log format
 
 Occasionally, we might extend the access log record format by adding new fields to the
 end of each line. Therefore, make sure that any of your code that parses server access

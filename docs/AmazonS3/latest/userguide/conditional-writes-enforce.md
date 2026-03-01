@@ -29,20 +29,11 @@ to use the `If-None-Match` or `If-Match` HTTP header.
 
 ###### Topics
 
-- [Example 1: Only allow object
-  uploads using PutObject and CompleteMultipartUpload
-  requests that include the if-none-match header](#conditional-writes-enforce-ex1 "#conditional-writes-enforce-ex1")
-- [Example 2: Only allow object
-  uploads using PutObject and CompleteMultipartUpload
-  requests that include the if-match header](#conditional-writes-enforce-ex2 "#conditional-writes-enforce-ex2")
-- [Example 3: Only allow object upload
-  requests that includes the if-none-match or if-match
-  header](#conditional-writes-enforce-ex3 "#conditional-writes-enforce-ex3")
+- [Example 1: Only allow object uploads using PutObject and CompleteMultipartUpload requests that include the if-none-match header](#conditional-writes-enforce-ex1 "#conditional-writes-enforce-ex1")
+- [Example 2: Only allow object uploads using PutObject and CompleteMultipartUpload requests that include the if-match header](#conditional-writes-enforce-ex2 "#conditional-writes-enforce-ex2")
+- [Example 3: Only allow object upload requests that includes the if-none-match or if-match header](#conditional-writes-enforce-ex3 "#conditional-writes-enforce-ex3")
 
-## Example 1: Only allow object
-
-uploads using `PutObject` and `CompleteMultipartUpload`
-requests that include the `if-none-match` header
+## Example 1: Only allow object uploads using `PutObject` and `CompleteMultipartUpload` requests that include the `if-none-match` header
 
 This policy allows account 111122223333, user Alice, to write to the
 `amzn-s3-demo-bucket1` bucket if the request includes the `if-none-match`
@@ -97,10 +88,7 @@ JSON
 
 ```
 
-## Example 2: Only allow object
-
-uploads using `PutObject` and `CompleteMultipartUpload`
-requests that include the `if-match` header
+## Example 2: Only allow object uploads using `PutObject` and `CompleteMultipartUpload` requests that include the `if-match` header
 
 This policy allows account 111122223333, user Alice to write to
 `amzn-s3-demo-bucket1` only if the request includes the `if-match` header.
@@ -160,10 +148,7 @@ key which allows for multipart uploads using the
 }
 ```
 
-## Example 3: Only allow object upload
-
-requests that includes the `if-none-match` or `if-match`
-header
+## Example 3: Only allow object upload requests that includes the `if-none-match` or `if-match` header
 
 This policy allows account 111122223333, user Alice to write to
 `amzn-s3-demo-bucket1` if the requests include the `if-none-match` or

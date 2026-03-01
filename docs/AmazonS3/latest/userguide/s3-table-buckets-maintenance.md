@@ -9,13 +9,10 @@ Editing this configuration requires the
 
 ###### Topics
 
-- [Unreferenced file
-  removal](#s3-table-bucket-maintenance-unreferenced "#s3-table-bucket-maintenance-unreferenced")
+- [Unreferenced file removal](#s3-table-bucket-maintenance-unreferenced "#s3-table-bucket-maintenance-unreferenced")
 - [Consideration and limitations](#s3-tables-buckets-considerations-see-more "#s3-tables-buckets-considerations-see-more")
 
-## Unreferenced file
-
-removal
+## Unreferenced file removal
 
 Unreferenced file removal identifies and deletes all objects that are not referenced by any
 table snapshots. As part of your unreferenced file removal policy, you can configure two properties:

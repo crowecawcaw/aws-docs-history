@@ -1,25 +1,17 @@
-# Example 3: Bucket owner
-
-granting permissions to objects it does not own
+# Example 3: Bucket owner granting permissions to objects it does not own
 
 ###### Important
 
 Granting permissions to IAM roles is a better practice than granting permissions to
-individual users. To learn how to do this, see [Understanding
-cross-account permissions and using IAM roles](example-walkthroughs-managing-access-example4.md#access-policies-walkthrough-example4-overview "example-walkthroughs-managing-access-example4.md#access-policies-walkthrough-example4-overview").
+individual users. To learn how to do this, see [Understanding cross-account permissions and using IAM roles](example-walkthroughs-managing-access-example4.md#access-policies-walkthrough-example4-overview "example-walkthroughs-managing-access-example4.md#access-policies-walkthrough-example4-overview").
 
 ###### Topics
 
-- [Step 0: Preparing
-  for the walkthrough](#access-policies-walkthrough-cross-account-acl-step0 "#access-policies-walkthrough-cross-account-acl-step0")
-- [Step 1: Do
-  the Account A tasks](#access-policies-walkthrough-cross-account-acl-acctA-tasks "#access-policies-walkthrough-cross-account-acl-acctA-tasks")
-- [Step 2: Do
-  the Account B tasks](#access-policies-walkthrough-cross-account-acl-acctB-tasks "#access-policies-walkthrough-cross-account-acl-acctB-tasks")
-- [Step 3: Test
-  permissions](#access-policies-walkthrough-cross-account-acl-verify "#access-policies-walkthrough-cross-account-acl-verify")
-- [Step 4: Clean
-  up](#access-policies-walkthrough-cross-account-acl-cleanup "#access-policies-walkthrough-cross-account-acl-cleanup")
+- [Step 0: Preparing for the walkthrough](#access-policies-walkthrough-cross-account-acl-step0 "#access-policies-walkthrough-cross-account-acl-step0")
+- [Step 1: Do the Account A tasks](#access-policies-walkthrough-cross-account-acl-acctA-tasks "#access-policies-walkthrough-cross-account-acl-acctA-tasks")
+- [Step 2: Do the Account B tasks](#access-policies-walkthrough-cross-account-acl-acctB-tasks "#access-policies-walkthrough-cross-account-acl-acctB-tasks")
+- [Step 3: Test permissions](#access-policies-walkthrough-cross-account-acl-verify "#access-policies-walkthrough-cross-account-acl-verify")
+- [Step 4: Clean up](#access-policies-walkthrough-cross-account-acl-cleanup "#access-policies-walkthrough-cross-account-acl-cleanup")
   The scenario for this example is that a bucket owner wants to grant permission to access
   objects, but the bucket owner doesn't own all objects in the bucket. For this example, the
   bucket owner is trying to grant permission to users in its own account.
@@ -47,8 +39,7 @@ exclusively by using access-management policies.
 A majority of modern use cases in Amazon S3 no longer require the use of ACLs. We recommend that you keep ACLs disabled, except
 in circumstances where you need to control access for each object individually. With ACLs disabled, you can use policies
 to control access to all objects in your bucket, regardless of who uploaded the objects to your bucket.
-For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 In this example, we assume the bucket owner has not applied the
 bucket
@@ -71,8 +62,7 @@ steps:
    For this example, you need two accounts. The following table shows how we refer to these
    accounts and the administrator users in these accounts. In this walkthrough, you don't use
    the account root user credentials, according to the recommended IAM guidelines. For more
-   information, see [About using an administrator user to create resources
-   and grant permissions](example-walkthroughs-managing-access.md#about-using-root-credentials "example-walkthroughs-managing-access.md#about-using-root-credentials"). Instead, you create an administrator in
+   information, see [About using an administrator user to create resources and grant permissions](example-walkthroughs-managing-access.md#about-using-root-credentials "example-walkthroughs-managing-access.md#about-using-root-credentials"). Instead, you create an administrator in
    each account and use those credentials in creating resources and granting them
    permissions.
 
@@ -85,9 +75,7 @@ All the tasks of creating users and granting permissions are done in the AWS Man
 verify permissions, the walkthrough uses the command line tools, AWS Command Line Interface (AWS CLI) and
 AWS Tools for Windows PowerShell, so you don't need to write any code.
 
-## Step 0: Preparing
-
-for the walkthrough
+## Step 0: Preparing for the walkthrough
 
 1.  Make sure that you have two AWS accounts and each account has one
     administrator as shown in the table in the preceding section.
@@ -120,12 +108,9 @@ for the walkthrough
          session as `AccountAadmin` and
          `AccountBadmin`.
 
-    For instructions, see [Setting up the tools for the
-    walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
+    For instructions, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
 
-## Step 1: Do
-
-the Account A tasks
+## Step 1: Do the Account A tasks
 
 Perform the following steps for Account A:
 
@@ -135,10 +120,7 @@ Using the IAM user sign-in URL for Account A, sign in to the AWS Management Cons
 `AccountAadmin` user. This user will create a bucket and
 attach a policy to it.
 
-### Step
-
-1.2: Create a bucket and user, and add a bucket policy to grant user
-permissions
+### Step 1.2: Create a bucket and user, and add a bucket policy to grant user permissions
 
 1. In the Amazon S3 console, create a bucket. This exercise assumes that the bucket is created in
    the US East (N. Virginia) AWS Region, and the name is
@@ -196,9 +178,7 @@ JSON
 
 ```
 
-## Step 2: Do
-
-the Account B tasks
+## Step 2: Do the Account B tasks
 
 Now that Account B has permissions to perform operations on Account A's bucket, the Account
 B administrator does the following:
@@ -240,9 +220,7 @@ Write-S3Object -BucketName `amzn-s3-demo-bucket1` -key HappyFace.jpg -file Happy
 Set-S3ACL -BucketName `amzn-s3-demo-bucket1` -Key HappyFace.jpg -CannedACLName "bucket-owner-full-control" -StoredCreden
 ```
 
-## Step 3: Test
-
-permissions
+## Step 3: Test permissions
 
 Now verify that user Dave in Account A can access the object owned by Account
 B.
@@ -250,8 +228,7 @@ B.
 ###### Using the AWS CLI
 
 1. Add user Dave credentials to the AWS CLI config file and create a new profile,
-   `UserDaveAccountA`. For more information, see [Setting up the tools for the
-   walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
+   `UserDaveAccountA`. For more information, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
 
 ```
 [profile UserDaveAccountA]
@@ -285,9 +262,7 @@ Set-AWSCredentials -AccessKey `UserDave-AccessKey` -SecretKey `UserDave-SecretAc
 Read-S3Object -BucketName `amzn-s3-demo-bucket1` -Key HappyFace.jpg -file HappyFace.jpg  -StoredCredentials UserDaveAccountA
 ```
 
-## Step 4: Clean
-
-up
+## Step 4: Clean up
 
 1. After you're done testing, you can do the following to clean up:
    1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/")

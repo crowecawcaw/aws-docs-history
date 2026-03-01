@@ -34,44 +34,31 @@ Additional resources for creating bucket policies include the following:
   Reference_.
 - For more information about the permissions to S3 API operations by S3 resource types, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md").
 - For guidance on creating your S3 policy, see [Adding a bucket policy by using the Amazon S3 console](add-bucket-policy.md "add-bucket-policy.md").
-- To troubleshoot errors with a policy, see [Troubleshoot access denied (403
-  Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md").
+- To troubleshoot errors with a policy, see [Troubleshoot access denied (403 Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md").
   If you're having trouble adding or updating a policy, see [Why do I get the error "Invalid principal in policy" when I try to update my Amazon S3 bucket policy?](https://repost.aws/knowledge-center/s3-invalid-principal-in-policy-error "https://repost.aws/knowledge-center/s3-invalid-principal-in-policy-error") in the AWS re:Post Knowledge Center.
 
 ###### Topics
 
-- [Granting read-only permission to a
-  public anonymous user](#example-bucket-policies-anonymous-user "#example-bucket-policies-anonymous-user")
+- [Granting read-only permission to a public anonymous user](#example-bucket-policies-anonymous-user "#example-bucket-policies-anonymous-user")
 - [Requiring encryption](#example-bucket-policies-encryption "#example-bucket-policies-encryption")
-- [Managing buckets using canned
-  ACLs](#example-bucket-policies-public-access "#example-bucket-policies-public-access")
-- [Managing object access with object
-  tagging](#example-bucket-policies-object-tags "#example-bucket-policies-object-tags")
-- [Managing object access by using global
-  condition keys](#example-bucket-policies-global-condition-keys "#example-bucket-policies-global-condition-keys")
-- [Managing access based on HTTP or HTTPS
-  requests](#example-bucket-policies-HTTP-HTTPS "#example-bucket-policies-HTTP-HTTPS")
-- [Managing user access to specific
-  folders](#example-bucket-policies-folders "#example-bucket-policies-folders")
+- [Managing buckets using canned ACLs](#example-bucket-policies-public-access "#example-bucket-policies-public-access")
+- [Managing object access with object tagging](#example-bucket-policies-object-tags "#example-bucket-policies-object-tags")
+- [Managing object access by using global condition keys](#example-bucket-policies-global-condition-keys "#example-bucket-policies-global-condition-keys")
+- [Managing access based on HTTP or HTTPS requests](#example-bucket-policies-HTTP-HTTPS "#example-bucket-policies-HTTP-HTTPS")
+- [Managing user access to specific folders](#example-bucket-policies-folders "#example-bucket-policies-folders")
 - [Managing access for access logs](#example-bucket-policies-access-logs "#example-bucket-policies-access-logs")
-- [Managing access to an Amazon CloudFront
-  OAI](#example-bucket-policies-cloudfront "#example-bucket-policies-cloudfront")
+- [Managing access to an Amazon CloudFront OAI](#example-bucket-policies-cloudfront "#example-bucket-policies-cloudfront")
 - [Managing access for Amazon S3 Storage Lens](#example-bucket-policies-lens "#example-bucket-policies-lens")
-- [Managing permissions for S3 Inventory,
-  S3 analytics, and S3 Inventory reports](#example-bucket-policies-s3-inventory "#example-bucket-policies-s3-inventory")
+- [Managing permissions for S3 Inventory, S3 analytics, and S3 Inventory reports](#example-bucket-policies-s3-inventory "#example-bucket-policies-s3-inventory")
 - [Requiring MFA](#example-bucket-policies-MFA "#example-bucket-policies-MFA")
-- [Preventing users from
-  deleting objects](#using-with-s3-actions-related-to-bucket-subresources "#using-with-s3-actions-related-to-bucket-subresources")
+- [Preventing users from deleting objects](#using-with-s3-actions-related-to-bucket-subresources "#using-with-s3-actions-related-to-bucket-subresources")
 
-## Granting read-only permission to a
-
-public anonymous user
+## Granting read-only permission to a public anonymous user
 
 You can use your policy settings to grant access to public anonymous users, which is
 useful if you're configuring your bucket as a static website. Granting access to public
 anonymous users requires you to disable the Block Public Access settings for your bucket. For
-more information about how to do this, and the policy required, see [Setting permissions for website
-access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md"). To
+more information about how to do this, and the policy required, see [Setting permissions for website access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md"). To
 learn how to set up more restrictive policies for the same purpose, see [How can I grant
 public read access to some objects in my Amazon S3 bucket?](https://repost.aws/knowledge-center/read-access-objects-s3-bucket "https://repost.aws/knowledge-center/read-access-objects-s3-bucket") in the AWS Knowledge
 Center.
@@ -80,8 +67,7 @@ By default, Amazon S3 blocks public access to your account and buckets. If you w
 
 ###### Warning
 
-Before you complete these steps, review [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md") to ensure that you understand and accept the risks involved with allowing public access. When you turn off block public access settings to make your bucket public, anyone on the internet can access your bucket. We recommend that you block all public access to your buckets.
+Before you complete these steps, review [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md") to ensure that you understand and accept the risks involved with allowing public access. When you turn off block public access settings to make your bucket public, anyone on the internet can access your bucket. We recommend that you block all public access to your buckets.
 
 1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Choose the name of the bucket that you have configured as a static website.
@@ -100,9 +86,7 @@ before adding a bucket policy. If the Block Public Access settings for your acco
 You can require server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS), as shown in
 the following examples.
 
-### Require SSE-KMS for all objects
-
-written to a bucket
+### Require SSE-KMS for all objects written to a bucket
 
 The following example policy requires every object that is written to the bucket to be
 encrypted with server-side encryption using AWS Key Management Service (AWS KMS) keys (SSE-KMS). If the object
@@ -130,9 +114,7 @@ JSON
 
 ```
 
-### Require SSE-KMS with a specific
-
-AWS KMS key for all objects written to a bucket
+### Require SSE-KMS with a specific AWS KMS key for all objects written to a bucket
 
 The following example policy denies any objects from being written to the bucket if they
 aren’t encrypted with SSE-KMS by using a specific KMS key ID. Even if the objects are
@@ -163,22 +145,16 @@ JSON
 
 ```
 
-## Managing buckets using canned
+## Managing buckets using canned ACLs
 
-ACLs
-
-### Granting permissions to multiple accounts to
-
-upload objects or set object ACLs for public access
+### Granting permissions to multiple accounts to upload objects or set object ACLs for public access
 
 The following example policy grants the `s3:PutObject` and
 `s3:PutObjectAcl` permissions to multiple AWS accounts. Also, the example
 policy requires that any requests for these operations must include the
 `public-read`
 [canned access control list (ACL)](acl-overview.md#canned-acl "acl-overview.md#canned-acl"). For more information,
-see [Policy actions
-for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions") and [Policy
-condition keys for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys").
+see [Policy actions for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions") and [Policy condition keys for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys").
 
 ###### Warning
 
@@ -223,9 +199,7 @@ JSON
 
 ```
 
-### Grant cross-account permissions to upload
-
-objects while ensuring that the bucket owner has full control
+### Grant cross-account permissions to upload objects while ensuring that the bucket owner has full control
 
 The following example shows how to allow another AWS account to upload objects to your
 bucket while ensuring that you have full control of the uploaded objects. This policy grants
@@ -233,8 +207,7 @@ a specific AWS account (`111122223333`)
 the ability to upload objects only if that account includes the
 `bucket-owner-full-control` canned ACL on upload. The `StringEquals`
 condition in the policy specifies the `s3:x-amz-acl` condition key to express the
-canned ACL requirement. For more information, see [Policy
-condition keys for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys").
+canned ACL requirement. For more information, see [Policy condition keys for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-conditionkeys").
 
 JSON
 
@@ -257,13 +230,9 @@ JSON
 
 ```
 
-## Managing object access with object
+## Managing object access with object tagging
 
-tagging
-
-### Allow a user to read only objects that
-
-have a specific tag key and value
+### Allow a user to read only objects that have a specific tag key and value
 
 The following permissions policy limits a user to only reading objects that have the
 `environment: production` tag key and value. This policy uses the
@@ -296,9 +265,7 @@ JSON
 
 ```
 
-### Restrict which object tag keys that
-
-users can add
+### Restrict which object tag keys that users can add
 
 The following example policy grants a user permission to perform the
 `s3:PutObjectTagging` action, which allows a user to add tags to an existing
@@ -340,9 +307,7 @@ JSON
 
 ```
 
-### Require a specific tag key and value
-
-when allowing users to add object tags
+### Require a specific tag key and value when allowing users to add object tags
 
 The following example policy grants a user permission to perform the
 `s3:PutObjectTagging` action, which allows a user to add tags to an existing
@@ -376,9 +341,7 @@ JSON
 
 ```
 
-### Allow a user to only add objects with a
-
-specific object tag key and value
+### Allow a user to only add objects with a specific object tag key and value
 
 The following example policy grants a user permission to perform the
 `s3:PutObject` action so that they can add objects to a bucket. However, the
@@ -415,9 +378,7 @@ JSON
 
 ```
 
-## Managing object access by using global
-
-condition keys
+## Managing object access by using global condition keys
 
 [Global condition
 keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") are condition context keys with an `aws` prefix. AWS services can
@@ -425,9 +386,7 @@ support global condition keys or service-specific keys that include the service 
 can use the `Condition` element of a JSON policy to compare the keys in a request
 with the key values that you specify in your policy.
 
-### Restrict access to only Amazon S3 server
-
-access log deliveries
+### Restrict access to only Amazon S3 server access log deliveries
 
 In the following example bucket policy, the [aws:SourceArn](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") global condition key is used to compare the [Amazon Resource
 Name (ARN)](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns") of the resource, making a service-to-service request with the ARN that
@@ -479,9 +438,7 @@ JSON
 
 ```
 
-### Allow access to only your
-
-organization
+### Allow access to only your organization
 
 If you want to require all [IAM
 principals](../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal "../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal") accessing a resource to be from an AWS account in your organization
@@ -526,13 +483,9 @@ JSON
 
 ```
 
-## Managing access based on HTTP or HTTPS
+## Managing access based on HTTP or HTTPS requests
 
-requests
-
-### Restrict access to only
-
-HTTPS requests
+### Restrict access to only HTTPS requests
 
 If you want to prevent potential attackers from manipulating network traffic, you can
 use HTTPS (TLS) to only allow encrypted connections while restricting HTTP requests from
@@ -570,9 +523,7 @@ JSON
 
 ```
 
-### Restrict access to a specific HTTP
-
-referer
+### Restrict access to a specific HTTP referer
 
 Suppose that you have a website with the domain name
 `www.example.com` or
@@ -602,9 +553,7 @@ protect their digital content, such as content stored in Amazon S3, from being r
 unauthorized third-party sites. For more information, see [aws:Referer](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-referer "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-referer") in the
 _IAM User Guide_.
 
-## Managing user access to specific
-
-folders
+## Managing user access to specific folders
 
 ### Grant users access to specific folders
 
@@ -696,9 +645,7 @@ JSON
 
 ## Managing access for access logs
 
-### Grant access to Application Load Balancer for enabling
-
-access logs
+### Grant access to Application Load Balancer for enabling access logs
 
 When you enable access logs for Application Load Balancer, you must specify the name of the S3 bucket where
 the load balancer will [store the logs](../../../elasticloadbalancing/latest/application/enable-access-logging.md#access-log-create-bucket "../../../elasticloadbalancing/latest/application/enable-access-logging.md#access-log-create-bucket"). The bucket must have an [attached policy](../../../elasticloadbalancing/latest/application/enable-access-logging.md#attach-bucket-policy "../../../elasticloadbalancing/latest/application/enable-access-logging.md#attach-bucket-policy") that grants Elastic Load Balancing permission to write to the bucket.
@@ -756,13 +703,9 @@ JSON
 
 Then, make sure to configure your [Elastic Load Balancing access logs](../../../elasticloadbalancing/latest/application/enable-access-logging.md#enable-access-logs "../../../elasticloadbalancing/latest/application/enable-access-logging.md#enable-access-logs") by enabling them. You can [verify your bucket permissions](../../../elasticloadbalancing/latest/application/enable-access-logging.md#verify-bucket-permissions "../../../elasticloadbalancing/latest/application/enable-access-logging.md#verify-bucket-permissions") by creating a test file.
 
-## Managing access to an Amazon CloudFront
+## Managing access to an Amazon CloudFront OAI
 
-OAI
-
-### Grant permission to an Amazon CloudFront
-
-OAI
+### Grant permission to an Amazon CloudFront OAI
 
 The following example bucket policy grants a CloudFront origin access identity (OAI)
 permission to get (read) all objects in your S3 bucket. You can use a CloudFront OAI to allow
@@ -815,8 +758,7 @@ the metrics directly to an AWS-managed S3 table bucket.
 S3 Storage Lens can export your aggregated storage usage metrics to an Amazon S3 bucket for further
 analysis. The bucket where S3 Storage Lens places its metrics exports is known as the
 _destination bucket_. When setting up your S3 Storage Lens metrics export, you
-must have a bucket policy for the destination bucket. For more information, see [Monitoring your storage activity and usage with
-Amazon S3 Storage Lens](storage_lens.md "storage_lens.md").
+must have a bucket policy for the destination bucket. For more information, see [Monitoring your storage activity and usage with Amazon S3 Storage Lens](storage_lens.md "storage_lens.md").
 
 The following example bucket policy grants Amazon S3 permission to write objects
 (`PUT` requests) to a destination bucket. You use a bucket policy like this on
@@ -860,13 +802,9 @@ modification to the previous bucket policy's `Resource` statement.
 
 ```
 
-## Managing permissions for S3 Inventory,
+## Managing permissions for S3 Inventory, S3 analytics, and S3 Inventory reports
 
-S3 analytics, and S3 Inventory reports
-
-### Grant permissions for S3 Inventory
-
-and S3 analytics
+### Grant permissions for S3 Inventory and S3 analytics
 
 S3 Inventory creates lists of the objects in a bucket, and S3 analytics Storage Class
 Analysis export creates output files of the data used in the analysis. The bucket that the
@@ -912,9 +850,7 @@ JSON
 
 ```
 
-### Control S3 Inventory report
-
-configuration creation
+### Control S3 Inventory report configuration creation
 
 [Cataloging and analyzing your data with S3 Inventory](storage-inventory.md "storage-inventory.md") creates lists of
 the objects in an S3 bucket and the metadata for each object. The
@@ -1179,9 +1115,7 @@ JSON
 
 ```
 
-## Preventing users from
-
-deleting objects
+## Preventing users from deleting objects
 
 By default, users have no permissions. But as you create policies, you might grant users
 permissions that you didn't intend to grant. To avoid such permission loopholes, you can write

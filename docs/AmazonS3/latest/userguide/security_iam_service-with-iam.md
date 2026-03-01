@@ -23,9 +23,7 @@ _IAM User Guide_.
 
 For more information about the permissions to S3 API operations by S3 resource types, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md").
 
-## Identity-based
-
-policies for Amazon S3
+## Identity-based policies for Amazon S3
 
 **Supports identity-based policies:**
 
@@ -42,16 +40,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon S3
 
-Identity-based policy examples for Amazon S3
+To view examples of Amazon S3 identity-based policies, see [Identity-based policies for Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amazon S3 identity-based policies, see [Identity-based policies for
-Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Amazon S3
+## Resource-based policies within Amazon S3
 
 **Supports resource-based policies:**
 
@@ -110,9 +103,7 @@ The following are examples.
 
 The examples above grant permissions to the root user, which delegates permissions to the account level. However, IAM policies are still required on the specific roles and users in the account.
 
-#### Grant permissions to an
-
-IAM user
+#### Grant permissions to an IAM user
 
 To grant permission to an IAM user within your account, you must provide an
 `"AWS":"`user-ARN`"` name-value
@@ -122,9 +113,7 @@ pair.
 "Principal":{"AWS":"arn:aws:iam::`account-number-without-hyphens`:user/`username`"}
 ```
 
-For detailed examples that provide step-by-step instructions, see [Example 1: Bucket owner
-granting its users bucket permissions](example-walkthroughs-managing-access-example1.md "example-walkthroughs-managing-access-example1.md") and [Example 3: Bucket owner
-granting permissions to objects it does not own](example-walkthroughs-managing-access-example3.md "example-walkthroughs-managing-access-example3.md").
+For detailed examples that provide step-by-step instructions, see [Example 1: Bucket owner granting its users bucket permissions](example-walkthroughs-managing-access-example1.md "example-walkthroughs-managing-access-example1.md") and [Example 3: Bucket owner granting permissions to objects it does not own](example-walkthroughs-managing-access-example3.md "example-walkthroughs-managing-access-example3.md").
 
 ###### Note
 
@@ -230,9 +219,7 @@ For more information about requiring S3 access through CloudFront URLs, see [Res
 - To view policy examples for Amazon S3 buckets, see [Bucket policies for Amazon S3](bucket-policies.md "bucket-policies.md").
 - To view policy examples for access points, see [Configuring IAM policies for using access points](access-points-policies.md "access-points-policies.md").
 
-## Policy actions
-
-for Amazon S3
+## Policy actions for Amazon S3
 
 **Supports policy actions:**
 
@@ -364,8 +351,7 @@ JSON
 
 ###### Note
 
-Not all bucket operations are supported by access points for general purpose buckets. For more information, see [Access points compatibility with S3
-operations](access-points-service-api-support.md#access-points-operations-support "access-points-service-api-support.md#access-points-operations-support").
+Not all bucket operations are supported by access points for general purpose buckets. For more information, see [Access points compatibility with S3 operations](access-points-service-api-support.md#access-points-operations-support "access-points-service-api-support.md#access-points-operations-support").
 
 ###### Bucket operations in policies for access points for directory buckets
 
@@ -517,8 +503,7 @@ JSON
 
 ###### Note
 
-Not all object operations are supported by access points. For more information, see [Access points compatibility with S3
-operations](access-points-service-api-support.md#access-points-operations-support "access-points-service-api-support.md#access-points-operations-support").
+Not all object operations are supported by access points. For more information, see [Access points compatibility with S3 operations](access-points-service-api-support.md#access-points-operations-support "access-points-service-api-support.md#access-points-operations-support").
 
 ###### Object operations in policies for access points for directory buckets
 
@@ -775,17 +760,12 @@ JSON
 
 ```
 
-###
+### Policy examples for Amazon S3
 
-Policy examples for Amazon S3
-
-- To view examples of Amazon S3 identity-based policies, see [Identity-based policies for
-  Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+- To view examples of Amazon S3 identity-based policies, see [Identity-based policies for Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 - To view examples of Amazon S3 resource-based policies, see [Bucket policies for Amazon S3](bucket-policies.md "bucket-policies.md") and [Configuring IAM policies for using access points](access-points-policies.md "access-points-policies.md").
 
-## Policy
-
-resources for Amazon S3
+## Policy resources for Amazon S3
 
 **Supports policy resources:**
 
@@ -875,17 +855,12 @@ At runtime, when the policy is evaluated, the variable
 `${aws:username}` in the resource ARN is substituted with the username
 of the person who is making the request.
 
-###
+### Policy examples for Amazon S3
 
-Policy examples for Amazon S3
-
-- To view examples of Amazon S3 identity-based policies, see [Identity-based policies for
-  Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+- To view examples of Amazon S3 identity-based policies, see [Identity-based policies for Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 - To view examples of Amazon S3 resource-based policies, see [Bucket policies for Amazon S3](bucket-policies.md "bucket-policies.md") and [Configuring IAM policies for using access points](access-points-policies.md "access-points-policies.md").
 
-## Policy
-
-condition keys for Amazon S3
+## Policy condition keys for Amazon S3
 
 **Supports service-specific policy condition keys:**
 
@@ -910,9 +885,7 @@ To see a list of Amazon S3 condition keys, see [Condition keys for Amazon S3](..
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by Amazon S3](../../../service-authorization/latest/reference/list_amazons3.md#amazons3-actions-as-permissions "../../../service-authorization/latest/reference/list_amazons3.md#amazons3-actions-as-permissions").
 
-### Example: Restricting object uploads to
-
-objects with a specific storage class
+### Example: Restricting object uploads to objects with a specific storage class
 
 Suppose that Account A, represented by account ID
 `123456789012`, owns a bucket. The
@@ -959,12 +932,9 @@ condition key. This condition requires the user to include the `x-amz-acl`
 header with value `public-read` in every `PutObject`
 request.
 
-###
+### Policy examples for Amazon S3
 
-Policy examples for Amazon S3
-
-- To view examples of Amazon S3 identity-based policies, see [Identity-based policies for
-  Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+- To view examples of Amazon S3 identity-based policies, see [Identity-based policies for Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 - To view examples of Amazon S3 resource-based policies, see [Bucket policies for Amazon S3](bucket-policies.md "bucket-policies.md") and [Configuring IAM policies for using access points](access-points-policies.md "access-points-policies.md").
 
 ## ACLs in Amazon S3
@@ -1002,8 +972,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 For information about resources that support ABAC in Amazon S3, see [Using tags for attribute-based access control (ABAC)](tagging.md#using-tags-for-abac "tagging.md#using-tags-for-abac").
 
 To view example identity-based policies for limiting access to S3 Batch Operations jobs based on
-tags, see [Controlling permissions for Batch Operations using job
-tags](batch-ops-job-tags-examples.md "batch-ops-job-tags-examples.md").
+tags, see [Controlling permissions for Batch Operations using job tags](batch-ops-job-tags-examples.md "batch-ops-job-tags-examples.md").
 
 ### ABAC and object tags
 
@@ -1019,9 +988,7 @@ tags:
 For information about using object tags to control access, including example permission
 policies, see [Tagging and access control policies](tagging-and-policies.md "tagging-and-policies.md").
 
-## Using temporary
-
-credentials with Amazon S3
+## Using temporary credentials with Amazon S3
 
 **Supports temporary credentials:**
 
@@ -1033,9 +1000,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for Amazon S3
+## Forward access sessions for Amazon S3
 
 **Supports forward access sessions (FAS):**
 
@@ -1044,14 +1009,10 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-- FAS is used by Amazon S3 to make calls to AWS KMS to decrypt an object when SSE-KMS was used to encrypt it. For more information, see [Using server-side encryption with AWS KMS keys
-  (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
-- S3 Access Grants also uses FAS. After you create an access grant to your S3 data for a particular identity, the grantee requests a temporary credential from S3 Access Grants. S3 Access Grants obtains a temporary credential for the requester from AWS STS and vends the credential to the requester. For more information, see [Request access to Amazon S3 data through
-  S3 Access Grants](access-grants-credentials.md "access-grants-credentials.md").
+- FAS is used by Amazon S3 to make calls to AWS KMS to decrypt an object when SSE-KMS was used to encrypt it. For more information, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
+- S3 Access Grants also uses FAS. After you create an access grant to your S3 data for a particular identity, the grantee requests a temporary credential from S3 Access Grants. S3 Access Grants obtains a temporary credential for the requester from AWS STS and vends the credential to the requester. For more information, see [Request access to Amazon S3 data through S3 Access Grants](access-grants-credentials.md "access-grants-credentials.md").
 
-## Service roles for
-
-Amazon S3
+## Service roles for Amazon S3
 
 **Supports service roles:**
 
@@ -1066,9 +1027,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Amazon S3 functionality.
 Edit service roles only when Amazon S3 provides guidance to do so.
 
-## Service-linked
-
-roles for Amazon S3
+## Service-linked roles for Amazon S3
 
 **Supports service-linked roles:**
 
@@ -1079,17 +1038,16 @@ Service-linked roles appear in your AWS account and are owned by the service. An
 but not edit the permissions for service-linked roles.
 
 Amazon S3 supports service-linked roles for Amazon S3 Storage Lens.
-For details about creating or managing Amazon S3 service-linked roles, see [Using service-linked roles for
-Amazon S3 Storage Lens](using-service-linked-roles.md "using-service-linked-roles.md").
+For details about creating or managing Amazon S3 service-linked roles, see [Using service-linked roles for Amazon S3 Storage Lens](using-service-linked-roles.md "using-service-linked-roles.md").
 
 **Amazon S3 Service as a Principal**
 
-| Service name in the policy         | S3 feature               | More information                                                                                                                           |
-| ---------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `s3.amazonaws.com`                 | S3 Replication           | [Setting up live replication overview](replication-how-setup.md "replication-how-setup.md")                                                |
-| `s3.amazonaws.com`                 | S3 event notifications   | [Amazon S3 Event Notifications](EventNotifications.md "EventNotifications.md")                                                             |
-| `s3.amazonaws.com`                 | S3 Inventory             | [Cataloging and analyzing your data with S3 Inventory](storage-inventory.md "storage-inventory.md")                                        |
-| `access-grants.s3.amazonaws.com`   | S3 Access Grants         | [Register a location](access-grants-location-register.md "access-grants-location-register.md")                                             |
-| `batchoperations.s3.amazonaws.com` | S3 Batch Operations      | [Granting permissions for Batch Operations](batch-ops-iam-role-policies.md "batch-ops-iam-role-policies.md")                               |
-| `logging.s3.amazonaws.com`         | S3 Server Access Logging | [Enabling Amazon S3 server access logging](enable-server-access-logging.md "enable-server-access-logging.md")                              |
-| `storage-lens.s3.amazonaws.com`    | S3 Storage Lens          | [Viewing Amazon S3 Storage Lens metrics using a data<br>export](storage_lens_view_metrics_export.md "storage_lens_view_metrics_export.md") |
+| Service name in the policy         | S3 feature               | More information                                                                                                                        |
+| ---------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `s3.amazonaws.com`                 | S3 Replication           | [Setting up live replication overview](replication-how-setup.md "replication-how-setup.md")                                             |
+| `s3.amazonaws.com`                 | S3 event notifications   | [Amazon S3 Event Notifications](EventNotifications.md "EventNotifications.md")                                                          |
+| `s3.amazonaws.com`                 | S3 Inventory             | [Cataloging and analyzing your data with S3 Inventory](storage-inventory.md "storage-inventory.md")                                     |
+| `access-grants.s3.amazonaws.com`   | S3 Access Grants         | [Register a location](access-grants-location-register.md "access-grants-location-register.md")                                          |
+| `batchoperations.s3.amazonaws.com` | S3 Batch Operations      | [Granting permissions for Batch Operations](batch-ops-iam-role-policies.md "batch-ops-iam-role-policies.md")                            |
+| `logging.s3.amazonaws.com`         | S3 Server Access Logging | [Enabling Amazon S3 server access logging](enable-server-access-logging.md "enable-server-access-logging.md")                           |
+| `storage-lens.s3.amazonaws.com`    | S3 Storage Lens          | [Viewing Amazon S3 Storage Lens metrics using a data export](storage_lens_view_metrics_export.md "storage_lens_view_metrics_export.md") |

@@ -1,10 +1,7 @@
-# Using Batch Operations to enable S3 Bucket Keys for
-
-SSE-KMS
+# Using Batch Operations to enable S3 Bucket Keys for SSE-KMS
 
 S3 Bucket Keys reduce the cost of server-side encryption with AWS Key Management Service (AWS KMS) (SSE-KMS) by
-decreasing request traffic from Amazon S3 to AWS KMS. For more information, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucket-key.md "bucket-key.md") and [Configuring your bucket to use an S3 Bucket Key with
-SSE-KMS for new objects](configuring-bucket-key.md "configuring-bucket-key.md"). When you perform a
+decreasing request traffic from Amazon S3 to AWS KMS. For more information, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucket-key.md "bucket-key.md") and [Configuring your bucket to use an S3 Bucket Key with SSE-KMS for new objects](configuring-bucket-key.md "configuring-bucket-key.md"). When you perform a
 `CopyObject` operation by using the REST API, AWS SDKs, or AWS CLI, you can enable
 or disable an S3 Bucket Key at the object level by adding the
 `x-amz-server-side-encryption-bucket-key-enabled` request header with a
@@ -24,24 +21,17 @@ them back to the same bucket as encrypted objects. For more information, see [En
 Batch Operations](https://aws.amazon.com/blogs/storage/encrypting-objects-with-amazon-s3-batch-operations/ "https://aws.amazon.com/blogs/storage/encrypting-objects-with-amazon-s3-batch-operations/") on the AWS Storage Blog.
 
 In the following example, you use the Batch Operations **Copy** operation to
-enable S3 Bucket Keys on existing objects. For more information, see [Configuring an S3 Bucket Key at the object
-level](configuring-bucket-key-object.md "configuring-bucket-key-object.md").
+enable S3 Bucket Keys on existing objects. For more information, see [Configuring an S3 Bucket Key at the object level](configuring-bucket-key-object.md "configuring-bucket-key-object.md").
 
 ###### Topics
 
-- [Considerations for using S3 Batch Operations to
-  encrypt objects with S3 Bucket Keys enabled](#bucket-key-ex-things-to-note "#bucket-key-ex-things-to-note")
+- [Considerations for using S3 Batch Operations to encrypt objects with S3 Bucket Keys enabled](#bucket-key-ex-things-to-note "#bucket-key-ex-things-to-note")
 - [Prerequisites](#bucket-key-ex-prerequisites "#bucket-key-ex-prerequisites")
-- [Step 1: Get your list of objects using Amazon S3
-  Inventory](#bucket-key-ex-get-list-of-objects "#bucket-key-ex-get-list-of-objects")
-- [Step 2: Filter your object
-  list with S3 Select](#bucket-key-ex-filter-object-list-with-s3-select "#bucket-key-ex-filter-object-list-with-s3-select")
-- [Step 3: Set up and run your S3 Batch Operations
-  job](#bucket-key-ex-setup-and-run-job "#bucket-key-ex-setup-and-run-job")
+- [Step 1: Get your list of objects using Amazon S3 Inventory](#bucket-key-ex-get-list-of-objects "#bucket-key-ex-get-list-of-objects")
+- [Step 2: Filter your object list with S3 Select](#bucket-key-ex-filter-object-list-with-s3-select "#bucket-key-ex-filter-object-list-with-s3-select")
+- [Step 3: Set up and run your S3 Batch Operations job](#bucket-key-ex-setup-and-run-job "#bucket-key-ex-setup-and-run-job")
 
-## Considerations for using S3 Batch Operations to
-
-encrypt objects with S3 Bucket Keys enabled
+## Considerations for using S3 Batch Operations to encrypt objects with S3 Bucket Keys enabled
 
 Consider the following issues when you use S3 Batch Operations to encrypt objects with S3 Bucket Keys
 enabled:
@@ -72,9 +62,7 @@ S3 Batch Operations documentation useful, including the following topics:
 - [Operations supported by S3 Batch Operations](batch-ops-operations.md "batch-ops-operations.md")
 - [Managing S3 Batch Operations jobs](batch-ops-managing-jobs.md "batch-ops-managing-jobs.md")
 
-## Step 1: Get your list of objects using Amazon S3
-
-Inventory
+## Step 1: Get your list of objects using Amazon S3 Inventory
 
 To get started, identify the S3 bucket that contains the objects to encrypt, and get a
 list of its contents. An Amazon S3 Inventory report is the most convenient and affordable way to do
@@ -86,8 +74,7 @@ Amazon S3 Inventory source and destination buckets, see [Cataloging and analyzin
 The easiest way to set up an inventory is by using the AWS Management Console. But you can also use the
 REST API, AWS Command Line Interface (AWS CLI), or AWS SDKs. Before following these steps, be sure to sign in
 to the console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). If you encounter permission
-denied errors, add a bucket policy to your destination bucket. For more information, see [Grant permissions for S3 Inventory
-and S3 analytics](example-bucket-policies.md#example-bucket-policies-s3-inventory-1 "example-bucket-policies.md#example-bucket-policies-s3-inventory-1").
+denied errors, add a bucket policy to your destination bucket. For more information, see [Grant permissions for S3 Inventory and S3 analytics](example-bucket-policies.md#example-bucket-policies-s3-inventory-1 "example-bucket-policies.md#example-bucket-policies-s3-inventory-1").
 
 ###### To get a list of objects using S3 Inventory
 
@@ -122,9 +109,7 @@ days ago. To work with more recent data, use the [ListObjectsV2](../API/API_List
 repeat the process for the next few days or until your inventory report shows the desired
 status for all objects.
 
-## Step 2: Filter your object
-
-list with S3 Select
+## Step 2: Filter your object list with S3 Select
 
 After you receive your S3 Inventory report, you can filter the report’s contents to list
 only the objects that aren't encrypted with S3 Bucket Keys enabled. If you want all your bucket’s
@@ -181,8 +166,7 @@ set up the inventory report, the `fileSchema` might include the following:
 S3 Batch Operations needs the bucket, key, and version ID as inputs to perform the job, in
 addition to the field to search by, which is `BucketKeyStatus`. You don't need
 the `VersionID` field, but it helps to specify the `VersionID` field
-when you operate on a versioned bucket. For more information, see [Working with objects in a
-versioning-enabled bucket](manage-objects-versioned-bucket.md "manage-objects-versioned-bucket.md"). 2. Locate the data files for the inventory report. The `manifest.json`
+when you operate on a versioned bucket. For more information, see [Working with objects in a versioning-enabled bucket](manage-objects-versioned-bucket.md "manage-objects-versioned-bucket.md"). 2. Locate the data files for the inventory report. The `manifest.json`
 object lists the data files under **files**. 3. After you locate and select the data file in the S3 console, choose
 **Actions**, and then choose **Query with S3
 Select**. 4. Keep the preset **CSV**, **Comma**,
@@ -216,9 +200,7 @@ The following are example results.
    run, consider the [price](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/") of running each
    S3 Batch Operations job.
 
-## Step 3: Set up and run your S3 Batch Operations
-
-job
+## Step 3: Set up and run your S3 Batch Operations job
 
 Now that you have your filtered CSV lists of S3 objects, you can begin the S3 Batch Operations
 job to encrypt the objects with S3 Bucket Keys enabled.
@@ -240,8 +222,7 @@ tags and storage class.
 
 - [Set up your IAM policy](#bucket-key-ex-set-up-iam-policy "#bucket-key-ex-set-up-iam-policy")
 - [Set up your Batch Operations IAM role](#bucket-key-ex-set-up-iam-role "#bucket-key-ex-set-up-iam-role")
-- [Enable S3 Bucket Keys for an
-  existing bucket](#bucket-key-ex-enable-s3-bucket-key-on-a-bucket "#bucket-key-ex-enable-s3-bucket-key-on-a-bucket")
+- [Enable S3 Bucket Keys for an existing bucket](#bucket-key-ex-enable-s3-bucket-key-on-a-bucket "#bucket-key-ex-enable-s3-bucket-key-on-a-bucket")
 - [Create your Batch Operations job](#bucket-key-ex-create-job "#bucket-key-ex-create-job")
 - [Run your Batch Operations job](#bucket-key-ex-run-job "#bucket-key-ex-run-job")
 
@@ -366,9 +347,7 @@ later. For more information, see [Granting permissions for Batch Operations](bat
             }
 ```
 
-### Enable S3 Bucket Keys for an
-
-existing bucket
+### Enable S3 Bucket Keys for an existing bucket
 
 1. Open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -443,9 +422,7 @@ This includes objects that are copied by using Amazon S3 Batch Operations.
          (SSE-KMS)**. SSE-S3 uses one of the strongest block
          ciphers—256-bit Advanced Encryption Standard (AES-256) to encrypt each
          object. SSE-KMS provides you with more control over your key. For more
-         information, see [Using server-side encryption with Amazon S3 managed keys
-         (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md") and [Using server-side encryption with AWS KMS keys
-         (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
+         information, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md") and [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
       2. If you choose **AWS Key Management Service key (SSE-KMS)**, under
          **AWS KMS key**, you can specify your AWS KMS key
          through one of the following options.

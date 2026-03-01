@@ -61,8 +61,7 @@ running a `SELECT` query in Athena: **`"GENERIC_INTERNAL_ERROR: Get table reques
 
 The following procedure uses the Amazon S3 console to create a table with Amazon Athena. If you haven't
 already created a namespace in your table bucket, you can do so as part of this process. Before performing the following steps, make sure that you've integrated your table buckets with
-AWS analytics services in this Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
+AWS analytics services in this Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 
 ###### Note
 
@@ -100,8 +99,7 @@ When you create a table using Athena that table inherits the default encryption 
 
 If you don't see these values in the **Catalog** and
 **Database** fields, make sure that you've integrated your table buckets with
-AWS analytics services in this Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md"). 8. The query editor is populated with a sample query that you can use to create a table. Modify
+AWS analytics services in this Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md"). 8. The query editor is populated with a sample query that you can use to create a table. Modify
 the query to specify the table name and columns that you want your table to have. 9. When you're finished modifying the query, choose **Run** to create your
 table.
 

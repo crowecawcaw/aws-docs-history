@@ -1,6 +1,4 @@
-# Creating and managing a Lifecycle
-
-configuration for your directory bucket
+# Creating and managing a Lifecycle configuration for your directory bucket
 
 You can create a lifecycle configuration for directory buckets by using the AWS Command Line Interface
 (AWS CLI), AWS SDKs and REST APIs.

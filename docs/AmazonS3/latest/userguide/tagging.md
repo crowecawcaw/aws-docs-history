@@ -171,8 +171,7 @@ For more information, see [Managing tags for S3 Access Grants](access-grants-tag
 
 - **S3 Storage Lens Groups**
 
-For more information, see [Managing AWS resource tags with Storage
-Lens groups](storage-lens-groups-manage-tags.md "storage-lens-groups-manage-tags.md").
+For more information, see [Managing AWS resource tags with Storage Lens groups](storage-lens-groups-manage-tags.md "storage-lens-groups-manage-tags.md").
 
 - **S3 table buckets and tables**
 
@@ -212,8 +211,7 @@ For more information on how to manage tags for Amazon S3 resources, see the foll
 - [Using cost allocation S3 bucket tags](CostAllocTagging.md "CostAllocTagging.md")
 - [Categorizing your objects using tags](object-tagging.md "object-tagging.md")
 - [Managing tags for S3 Access Grants](access-grants-tagging.md "access-grants-tagging.md")
-- [Managing AWS resource tags with Storage
-  Lens groups](storage-lens-groups-manage-tags.md "storage-lens-groups-manage-tags.md")
+- [Managing AWS resource tags with Storage Lens groups](storage-lens-groups-manage-tags.md "storage-lens-groups-manage-tags.md")
 - [Using tags with S3 general purpose buckets](buckets-tagging.md "buckets-tagging.md").
 - [Using tags with S3 vector buckets](s3-vectors-tags.md "s3-vectors-tags.md")
 - [Using tags with S3 vector indexes](vector-index-tagging.md "vector-index-tagging.md")

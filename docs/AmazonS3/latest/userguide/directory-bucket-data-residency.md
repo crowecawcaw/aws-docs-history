@@ -18,11 +18,8 @@ For more information about working with the directory buckets in Local Zones, se
 
 ###### Topics
 
-- [Concepts for directory buckets in
-  Local Zones](s3-lzs-for-directory-buckets.md "s3-lzs-for-directory-buckets.md")
+- [Concepts for directory buckets in Local Zones](s3-lzs-for-directory-buckets.md "s3-lzs-for-directory-buckets.md")
 - [Enable accounts for Local Zones](opt-in-directory-bucket-lz.md "opt-in-directory-bucket-lz.md")
-- [Private connectivity from your
-  VPC](connectivity-lz-directory-buckets.md "connectivity-lz-directory-buckets.md")
+- [Private connectivity from your VPC](connectivity-lz-directory-buckets.md "connectivity-lz-directory-buckets.md")
 - [Creating a directory bucket in a Local Zone](create-directory-bucket-LZ.md "create-directory-bucket-LZ.md")
-- [Authenticating and authorizing for
-  directory buckets in Local Zones](iam-directory-bucket-LZ.md "iam-directory-bucket-LZ.md")
+- [Authenticating and authorizing for directory buckets in Local Zones](iam-directory-bucket-LZ.md "iam-directory-bucket-LZ.md")

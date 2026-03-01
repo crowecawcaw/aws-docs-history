@@ -23,8 +23,7 @@ resource-based access policies, which can include restrictions based on the sour
 address. You can also use Amazon S3 bucket policies to control access to buckets from specific
 virtual private cloud (VPC) endpoints, or specific VPCs. Effectively, this isolates network access to
 a given Amazon S3 bucket from only the specific VPC within the AWS network. For more
-information, see [Controlling access from VPC
-endpoints with bucket policies](example-bucket-policies-vpc-endpoint.md "example-bucket-policies-vpc-endpoint.md").
+information, see [Controlling access from VPC endpoints with bucket policies](example-bucket-policies-vpc-endpoint.md "example-bucket-policies-vpc-endpoint.md").
 
 The following security best practices also address infrastructure security in Amazon S3:
 

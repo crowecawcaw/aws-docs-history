@@ -16,9 +16,7 @@ Complete these steps to set up Firehose streaming to tables in S3 table buckets:
 3. Grant the Firehose service role explicit permissions to your table or table's namespace. For more information, see [Grant Lake Formation permissions on your table resources](grant-permissions-tables.md "grant-permissions-tables.md").
 4. [Create a Firehose stream that routes data to your table.](#firehose-stream-tables "#firehose-stream-tables")
 
-## Creating a role for Firehose to use S3 tables as a
-
-destination
+## Creating a role for Firehose to use S3 tables as a destination
 
 Firehose needs an IAM [service role](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") with specific
 permissions to access AWS Glue tables and write data to S3 tables. You need this provide this IAM role

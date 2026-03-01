@@ -29,8 +29,7 @@ For more information about the permissions to S3 API operations by S3 resource t
 - [Access management tools](#access-management-tools "#access-management-tools")
 - [Actions](#access-management-actions "#access-management-actions")
 - [Access management use cases](#access-management-usecases "#access-management-usecases")
-- [Access management
-  troubleshooting](#access-management-troubleshooting "#access-management-troubleshooting")
+- [Access management troubleshooting](#access-management-troubleshooting "#access-management-troubleshooting")
 
 ## S3 resources
 
@@ -41,12 +40,12 @@ of S3 resources and their respective features.
 | Resource type              | Amazon S3 feature                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `bucket`                   | Core features                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | A bucket is a container for objects. To store an object in S3,<br>create a bucket and then upload one or more objects to the bucket.<br>For more information, see [Creating, configuring, and working with Amazon S3 general purpose buckets](creating-buckets-s3.md "creating-buckets-s3.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `object`                   | An object can be a file and any metadata that describes that file.<br>When an object is in the bucket, you can open it, download it, and<br>move it. For more information, see [Working with objects in<br>Amazon S3](uploading-downloading-objects.md "uploading-downloading-objects.md").                                                                                                                                                                                                                                                                                                                                                                                |
+| `object`                   | An object can be a file and any metadata that describes that file.<br>When an object is in the bucket, you can open it, download it, and<br>move it. For more information, see [Working with objects in Amazon S3](uploading-downloading-objects.md "uploading-downloading-objects.md").                                                                                                                                                                                                                                                                                                                                                                                   |
 | `accesspoint`              | Access Points                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Access Points are named network endpoints that are attached to<br>buckets that you can use to perform Amazon S3 \*_object_<br>• operations, such as `GetObject`<br>and `PutObject`. Each access point has distinct<br>permissions, network controls, and a customized \*access<br>point policy<br>• that works in conjunction with the<br>bucket policy that is attached to the underlying bucket. You can<br>configure any access point to accept requests only from a virtual<br>private cloud (VPC) or configure custom block public access settings<br>for each access point. For more information, see [Managing access to shared datasets with access points](access-points.md "access-points.md").                                                                          |
 | `objectlambdaaccesspoint`  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | An Object Lambda Access Point is an access point for a bucket that is also associated<br>with a Lambda function. With Object Lambda Access Point, you can add your own code to<br>Amazon S3 `GET`, `LIST`, and `HEAD`<br>requests to modify and process data as it's returned to an<br>application. For more information, see [Creating Object Lambda Access Points](olap-create.md "olap-create.md").                                                                                                                                                                                                                                                                                                                                                                             |
 | `multiregionaccesspoint`   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Multi-Region Access Points provide a global endpoint that applications can use to<br>fulfill requests from Amazon S3 buckets that are located in multiple<br>AWS Regions. You can use Multi-Region Access Points to build multi-Region<br>applications with the same architecture that's used in a single<br>Region, and then run those applications anywhere in the world.<br>Instead of sending requests over the congested public internet,<br>application requests made to a Multi-Region Access Point global endpoint automatically<br>route through the AWS global network to the closest proximity Amazon S3<br>bucket. For more information, see [Managing multi-Region traffic with Multi-Region Access Points](MultiRegionAccessPoints.md "MultiRegionAccessPoints.md"). |
 | `job`                      | S3 Batch Operations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | A job is a resource of the S3 Batch Operations feature. You can use<br>S3 Batch Operations to perform large-scale batch operations on lists of<br>Amazon S3 objects that you specify. Amazon S3 tracks the progress of the batch<br>operation job, sends notifications, and stores a detailed completion<br>report of all actions, providing you with a fully managed,<br>auditable, and serverless experience. For more information, see<br>[Performing object operations in bulk with Batch Operations](batch-ops.md "batch-ops.md").                                                                                                                                                                                                                                            |
-| `storagelensconfiguration` | S3 Storage Lens                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | An S3 Storage Lens configuration collects organization-wide storage<br>metrics and user data across accounts. S3 Storage Lens provides admins with<br>a single view of object storage usage and activity across hundreds,<br>or even thousands, of accounts in an organization, with details to<br>generate insights at multiple aggregation levels. For more<br>information, see [Monitoring your storage activity and usage with<br>Amazon S3 Storage Lens](storage_lens.md "storage_lens.md").                                                                                                                                                                                                                                                                                  |
+| `storagelensconfiguration` | S3 Storage Lens                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | An S3 Storage Lens configuration collects organization-wide storage<br>metrics and user data across accounts. S3 Storage Lens provides admins with<br>a single view of object storage usage and activity across hundreds,<br>or even thousands, of accounts in an organization, with details to<br>generate insights at multiple aggregation levels. For more<br>information, see [Monitoring your storage activity and usage with Amazon S3 Storage Lens](storage_lens.md "storage_lens.md").                                                                                                                                                                                                                                                                                     |
 | `storagelensgroup`         | An S3 Storage Lens group aggregates metrics by using custom filters based<br>on object metadata. S3 Storage Lens groups help you investigate<br>characteristics of your data, such as distribution of objects by<br>age, your most common file types, and more. For more information,<br>see [Working with S3 Storage Lens groups to filter and aggregate metrics](storage-lens-groups-overview.md "storage-lens-groups-overview.md").                                                                                                                                                                                                                                     |
 | `accessgrantsinstance`     | S3 Access Grants                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | An S3 Access Grants instance is a container for the S3 grants that you<br>create. With S3 Access Grants, you can create grants to your Amazon S3 data for<br>IAM identities within your account, IAM identities in other<br>accounts (cross-account), and directory identities added to<br>AWS IAM Identity Center from your corporate directory. For more information about<br>S3 Access Grants, see [Managing access with S3 Access Grants](access-grants.md "access-grants.md").                                                                                                                                                                                                                                                                                                |
 | `accessgrantslocation`     | An Access Grants Location is a bucket, prefix within a bucket, or<br>an object that you register in your S3 Access Grants instance. You must<br>register locations within the S3 Access Grants instance before you can create<br>a grant to that location. Then, with S3 Access Grants, you can grant access to<br>the bucket, prefix, or object for IAM identities within your<br>account, IAM identities in other accounts (cross-account), and<br>directory identities added to AWS IAM Identity Center from your corporate<br>directory. For more information about S3 Access Grants, see [Managing access with S3 Access Grants](access-grants.md "access-grants.md") |
@@ -158,9 +157,7 @@ access management instead of granting permissions to each individual user. You a
 individual users to the appropriate role. For more information, see [Security best
 practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md").
 
-###### Other AWS account owners and their IAM identities (cross-account
-
-access)
+###### Other AWS account owners and their IAM identities (cross-account access)
 
 The AWS account owner can also give other AWS account owners, or IAM
 identities that belong to another AWS account, access to resources.
@@ -183,8 +180,7 @@ change this setting.
 We
 recommend that you set your buckets to block public access, and
 that you only grant access to authenticated users. For more information about
-blocking public access, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+blocking public access, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 ###### AWS services
 
@@ -298,8 +294,7 @@ JSON-formatted policy that is attached to IAM users, groups, or roles in your
 AWS account. You can use identity-based policies to grant an IAM identity
 access to your buckets or objects. You can create IAM users, groups, and roles
 in your account and attach access policies to them. You can then grant access to
-AWS resources, including Amazon S3 resources. For more information, see [Identity-based policies for
-Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+AWS resources, including Amazon S3 resources. For more information, see [Identity-based policies for Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 The following is an example of an identity-based policy. The example policy
 allows the associated IAM role to perform six different Amazon S3 actions
@@ -370,8 +365,7 @@ an object, and a bucket ACL is used to manage access to a bucket. With bucket
 policies, there is a single policy for the entire bucket, but object ACLs are
 specified for each object. We recommend that you keep ACLs turned off, except in
 circumstances where you must individually control access for each
-object. For more information about using ACLs, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+object. For more information about using ACLs, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 ###### Warning
 
@@ -405,8 +399,7 @@ Object Ownership is set to the _Bucket owner enforced
 setting_ and all ACLs are turned off. When ACLs are turned off,
 the bucket owner owns all of the objects in the bucket and exclusively manages
 access to data. To manage access, the bucket owner uses policies or another
-access management tool, excluding ACLs. For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+access management tool, excluding ACLs. For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 Object Ownership has three settings that you can use both to control
 ownership of objects that are uploaded to your bucket and to turn on
@@ -439,8 +432,7 @@ accessibility of your data:
 - **Block Public Access** — Do not turn off
   the default bucket-level setting _Block Public Access_. This
   setting blocks public access to your data by default. For more information about
-  blocking public access, see [Blocking public access to your Amazon S3
-  storage](access-control-block-public-access.md "access-control-block-public-access.md").
+  blocking public access, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 - **S3 Versioning** — For data integrity, you
   can implement the S3 Versioning bucket setting, which versions your objects as
   you make updates, instead of overwriting them. You can use S3 Versioning to
@@ -457,11 +449,9 @@ accessibility of your data:
   the objects. If you authenticate your request and you have access permissions,
   there is no difference in the way you access encrypted or unencrypted objects.
   For more information, see [Protecting data with server-side encryption](serv-side-encryption.md "serv-side-encryption.md"). S3 encrypts newly uploaded objects
-  by default. For more information, see [Setting default server-side encryption behavior for Amazon S3
-  buckets](bucket-encryption.md "bucket-encryption.md"). _Client-side
+  by default. For more information, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md"). _Client-side
   encryption_ is the act of encrypting data before sending it to
-  Amazon S3. For more information, see [Protecting data by using client-side
-  encryption](UsingClientSideEncryption.md "UsingClientSideEncryption.md").
+  Amazon S3. For more information, see [Protecting data by using client-side encryption](UsingClientSideEncryption.md "UsingClientSideEncryption.md").
 - **Signing methods** — Signature Version 4
   is the process of adding authentication information to AWS requests sent by
   HTTP. For security, most requests to AWS must be signed with an access key,
@@ -525,8 +515,7 @@ your account. You might find that a bucket policy works better for your use case
 more information, see [Bucket policies for Amazon S3](bucket-policies.md "bucket-policies.md").
 Alternatively, with AWS Identity and Access Management (IAM), you can create IAM users, groups, and roles
 within your AWS account and manage their access to buckets and objects through
-identity-based policies. For more information, see [Identity-based policies for
-Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+identity-based policies. For more information, see [Identity-based policies for Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 To help you navigate these access management options, the following are common Amazon S3
 customer use cases and recommendations for each of the S3 access management tools.
@@ -544,8 +533,7 @@ following access management tools for this use case:
   for each bucket, and only a few user roles to manage, you can use an
   IAM policy for users, groups, or roles. IAM policies are also a good
   option if you are managing user access to other AWS resources, as well
-  as Amazon S3 resources. For more information, see [Example 1: Bucket owner
-  granting its users bucket permissions](example-walkthroughs-managing-access-example1.md "example-walkthroughs-managing-access-example1.md").
+  as Amazon S3 resources. For more information, see [Example 1: Bucket owner granting its users bucket permissions](example-walkthroughs-managing-access-example1.md "example-walkthroughs-managing-access-example1.md").
 - **S3 Access Grants** – You can use S3 Access Grants to
   grant access to your S3 buckets, prefixes, or objects. S3 Access Grants allows you
   to specify varying object-level permissions at scale; whereas, bucket
@@ -637,8 +625,7 @@ We recommend the following access management tools for this use case:
 
 - **Buckets in a VPC setting** – You
   can use a bucket policy to control who is allowed to access your buckets
-  and which VPC endpoints they can access. For more information, see [Controlling access from VPC
-  endpoints with bucket policies](example-bucket-policies-vpc-endpoint.md "example-bucket-policies-vpc-endpoint.md").
+  and which VPC endpoints they can access. For more information, see [Controlling access from VPC endpoints with bucket policies](example-bucket-policies-vpc-endpoint.md "example-bucket-policies-vpc-endpoint.md").
 - **Access Points** – If you choose to
   set up access points, you can use an access point policy. You can
   configure any access point to accept requests only from a virtual
@@ -681,12 +668,10 @@ policy for your static website, make sure that you allow only
 `s3:GetObject` actions, not `ListObject` or
 `PutObject` permissions. This helps make sure that users
 cannot view all the objects in your bucket or add their own content. For
-more information, see [Setting permissions for website
-access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md").
+more information, see [Setting permissions for website access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md").
 When creating a new Amazon S3 bucket, the _Block Public Access_
 setting is enabled by default. For more information about blocking public
-access, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+access, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 We do not recommend allowing public access to your bucket. However, if you
 must do so for a particular use case, we recommend the following access
@@ -703,8 +688,7 @@ management tool for this use case:
   uploaded to a `WRITE` or `FULL_CONTROL`, then this
   specifically grants access to the All Users group or the anonymous user.
   For more information about public bucket policies and public access
-  control lists (ACLs), see [The meaning of
-  "public"](access-control-block-public-access.md#access-control-block-public-access-policy-status "access-control-block-public-access.md#access-control-block-public-access-policy-status").
+  control lists (ACLs), see [The meaning of "public"](access-control-block-public-access.md#access-control-block-public-access-policy-status "access-control-block-public-access.md#access-control-block-public-access-policy-status").
   Both bucket policies and identity-based policies have a 20 KB size limit. If
   your access permission requirements are complex, you might exceed this size
   limit.
@@ -744,8 +728,7 @@ access to your S3 resources:
   your log files](../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md#AccessLogsBucketAndFileOwnership "../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md#AccessLogsBucketAndFileOwnership") in the _Amazon CloudFront Developer Guide_. If the bucket that stores the logs uses
   the _Bucket owner enforced_ setting for
   S3 Object Ownership to turn off ACLs, CloudFront cannot write logs to the
-  bucket. For more information, see [Controlling ownership of objects and disabling ACLs
-  for your bucket](about-object-ownership.md "about-object-ownership.md").
+  bucket. For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
   You can grant other accounts access to upload objects to your bucket by using
   a bucket policy, access point, or S3 Access Grants. If you have granted cross-account
   access to your bucket, you can make sure that any objects uploaded to your
@@ -757,9 +740,7 @@ We recommended the following access management tool for this use case:
   bucket-level setting _Object Ownership_ at the
   default _Bucket owner enforced_ setting.
 
-## Access management
-
-troubleshooting
+## Access management troubleshooting
 
 The following resources can help you troubleshoot any issues with S3 access
 management:
@@ -770,8 +751,7 @@ If you encounter access denial issues, check the account-level and bucket-level
 settings. Also, check the access management feature that you are using to grant
 access to make sure that the policy, setting, or configuration is correct. For more
 information about common causes of Access Denied (403 Forbidden) errors in Amazon S3, see
-[Troubleshoot access denied (403
-Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md").
+[Troubleshoot access denied (403 Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md").
 
 ###### IAM Access Analyzer for S3
 
@@ -788,8 +768,7 @@ In IAM Access Analyzer for S3, you can block all public access to a bucket with 
 recommend that you block all public access to your buckets, unless you require public
 access to support a specific use case. Before you block all public access, make sure
 that your applications will continue to work correctly without public access. For more
-information, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+information, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 You can also review your bucket-level permission settings to configure detailed levels
 of access. For specific and verified use cases that require public or shared access, you

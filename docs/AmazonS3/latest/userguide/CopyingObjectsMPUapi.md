@@ -9,8 +9,7 @@ upload API. You can copy objects less than 5 GB using the AWS Management Console
 AWS SDKs. For more information, see [Copying, moving, and renaming objects](copy-object.md "copy-object.md").
 
 For an end-to-end procedure on uploading an object with multipart upload with an additional checksum, see
-[Tutorial: Upload an object through multipart upload and
-verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md").
+[Tutorial: Upload an object through multipart upload and verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md").
 
 The following section show how to copy an object with multipart upload with the REST API or AWS SDKs.
 

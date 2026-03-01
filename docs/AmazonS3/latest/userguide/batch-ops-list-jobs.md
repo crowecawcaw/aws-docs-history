@@ -9,9 +9,7 @@ You can filter your job list by status. If you retrieve the list by using the co
 you can also search your jobs by description or ID and filter them by
 AWS Region.
 
-## Get a list of
-
-`Active` and `Complete` jobs
+## Get a list of `Active` and `Complete` jobs
 
 The following AWS CLI example gets a list of `Active` and
 `Complete` jobs. To use this example, replace the

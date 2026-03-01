@@ -1,6 +1,4 @@
-# Use S3 Batch Operations with S3 Object Lock
-
-retention governance mode
+# Use S3 Batch Operations with S3 Object Lock retention governance mode
 
 The following example builds on the previous example of creating a trust policy, and
 setting S3 Batch Operations and S3 Object Lock configuration permissions. This example
@@ -14,9 +12,7 @@ To use the following examples, replace the `user input
 The following AWS CLI examples show how to use Batch Operations to apply
 S3 Object Lock retention governance mode across multiple objects.
 
-###### Example— Apply S3 Object Lock retention governance across multiple
-
-objects with the retain until date of January 30, 2025
+###### Example— Apply S3 Object Lock retention governance across multiple objects with the retain until date of January 30, 2025
 
 ```
 export AWS_PROFILE='`aws-user`'

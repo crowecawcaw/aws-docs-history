@@ -1,6 +1,4 @@
-# Creating metadata table
-
-configurations
+# Creating metadata table configurations
 
 To generate and store Amazon S3 Metadata in fully managed Apache Iceberg metadata tables,
 you create a metadata table configuration for your general purpose bucket. Amazon S3 is designed to
@@ -84,8 +82,7 @@ in US East (N. Virginia) (`us-east-1`) and has the following ARN:
 By default, AWS managed table buckets are encrypted with server-side encryption using Amazon S3 managed
 keys (SSE-S3). After you create your first metadata configuration, you can set the default encryption
 setting for the AWS managed table bucket to use server-side encryption with AWS Key Management Service (AWS KMS) keys
-(SSE-KMS). For more information, see [Encryption for AWS managed table buckets](s3-tables-aws-managed-buckets.md#aws-managed-buckets-encryption "s3-tables-aws-managed-buckets.md#aws-managed-buckets-encryption") and [Specifying server-side encryption with AWS KMS keys
-(SSE-KMS) in table buckets](s3-tables-kms-specify.md "s3-tables-kms-specify.md").
+(SSE-KMS). For more information, see [Encryption for AWS managed table buckets](s3-tables-aws-managed-buckets.md#aws-managed-buckets-encryption "s3-tables-aws-managed-buckets.md#aws-managed-buckets-encryption") and [Specifying server-side encryption with AWS KMS keys (SSE-KMS) in table buckets](s3-tables-kms-specify.md "s3-tables-kms-specify.md").
 
 Within your AWS managed table bucket, the metadata tables for your configuration are typically
 stored in a namespace with the following naming format:
@@ -116,8 +113,7 @@ You can create a metadata table configuration by using the Amazon S3 console, th
 
 - If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete
   and re-create your configuration so that you can expire journal table records and create an
-  inventory table. For more information, see [Enabling inventory tables on metadata configurations
-  created before July 15, 2025](#metadata-tables-migration "#metadata-tables-migration").
+  inventory table. For more information, see [Enabling inventory tables on metadata configurations created before July 15, 2025](#metadata-tables-migration "#metadata-tables-migration").
 - If you've deleted your metadata table configuration and want to re-create a configuration for
   the same general purpose bucket, you must first manually delete the old journal and inventory tables
   from your AWS managed table bucket. Otherwise, creating the new metadata table configuration fails
@@ -131,12 +127,10 @@ bucket and your metadata tables still exist, even if you delete the metadata tab
 Before you create a metadata table configuration make sure that you've met the following prerequisites:
 
 - Before you create a metadata table configuration make sure that you have the necessary AWS Identity and Access Management
-  (IAM) permissions to create and manage metadata tables. For more information, see [Setting up permissions for configuring metadata
-  tables](metadata-tables-permissions.md "metadata-tables-permissions.md").
+  (IAM) permissions to create and manage metadata tables. For more information, see [Setting up permissions for configuring metadata tables](metadata-tables-permissions.md "metadata-tables-permissions.md").
 - If you plan to query your metadata tables with Amazon Athena or another AWS query engine, make
   sure that you integrate your AWS managed table bucket with AWS analytics services. For more
-  information, see [Integrating Amazon S3 Tables with AWS analytics
-  services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
+  information, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 
 If you've already integrated an existing table bucket in this Region, your AWS managed table
 bucket is also automatically integrated. To determine the integration status for your table buckets
@@ -150,8 +144,7 @@ Region and whether the integration status says **Enabled**.
 
 Before you create a metadata table configuration, make sure that you've reviewed
 and met the [prerequisites](#metadata-table-config-prereqs "#metadata-table-config-prereqs") and
-that you've reviewed [Metadata table limitations and
-restrictions](metadata-tables-restrictions.md "metadata-tables-restrictions.md").
+that you've reviewed [Metadata table limitations and restrictions](metadata-tables-restrictions.md "metadata-tables-restrictions.md").
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -255,8 +248,7 @@ After backfilling is completed, updates to your objects are typically reflected 
 table within one hour.
 
 To monitor updates to your metadata table configuration, you can use AWS CloudTrail. For
-more information, see [Amazon S3 bucket-level actions
-that are tracked by CloudTrail logging](cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking "cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking").
+more information, see [Amazon S3 bucket-level actions that are tracked by CloudTrail logging](cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking "cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking").
 
 To run the following commands, you must have the AWS CLI installed and configured. If
 you don’t have the AWS CLI installed, see [Install or update to the
@@ -272,8 +264,7 @@ _AWS CloudShell User Guide_.
 
 Before you create a metadata table configuration, make sure that you've reviewed and met the
 [prerequisites](#metadata-table-config-prereqs "#metadata-table-config-prereqs") and that you've reviewed
-[Metadata table limitations and
-restrictions](metadata-tables-restrictions.md "metadata-tables-restrictions.md").
+[Metadata table limitations and restrictions](metadata-tables-restrictions.md "metadata-tables-restrictions.md").
 
 To use the following example commands, replace the `user input
  placeholders` with your own information.
@@ -339,8 +330,7 @@ aws s3api get-bucket-metadata-configuration \
 ```
 
 To monitor updates to your metadata table configuration, you can use AWS CloudTrail. For
-more information, see [Amazon S3 bucket-level actions
-that are tracked by CloudTrail logging](cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking "cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking").
+more information, see [Amazon S3 bucket-level actions that are tracked by CloudTrail logging](cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking "cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking").
 
 You can send REST requests to create a metadata table configuration. For more information, see
 [CreateBucketMetadataConfiguration](../API/API_CreateBucketMetadataConfiguration.md "../API/API_CreateBucketMetadataConfiguration.md") in the _Amazon S3
@@ -350,9 +340,7 @@ You can use the AWS SDKs to create a metadata table configuration in Amazon S3. 
 information, see the [list of supported SDKs](../API/API_CreateBucketMetadataConfiguration.md#API_CreateBucketMetadataConfiguration_SeeAlso "../API/API_CreateBucketMetadataConfiguration.md#API_CreateBucketMetadataConfiguration_SeeAlso") in the _Amazon S3 API
 Reference_.
 
-## Enabling inventory tables on metadata configurations
-
-created before July 15, 2025
+## Enabling inventory tables on metadata configurations created before July 15, 2025
 
 If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete
 and re-create your configuration so that you can expire journal table records and create an inventory
@@ -361,17 +349,14 @@ and creating the new one aren't recorded in either of your journal tables.
 
 To migrate from an old metadata configuration to a new configuration, do the following:
 
-1. Delete your existing metadata table configuration. For step-by-step instructions, see [Deleting metadata table
-   configurations](metadata-tables-delete-configuration.md "metadata-tables-delete-configuration.md").
-2. Create a new metadata table configuration. For step-by-step instructions, see [Creating metadata table
-   configurations](metadata-tables-create-configuration.md "metadata-tables-create-configuration.md").
+1. Delete your existing metadata table configuration. For step-by-step instructions, see [Deleting metadata table configurations](metadata-tables-delete-configuration.md "metadata-tables-delete-configuration.md").
+2. Create a new metadata table configuration. For step-by-step instructions, see [Creating metadata table configurations](metadata-tables-create-configuration.md "metadata-tables-create-configuration.md").
 
 If you need assistance with migrating your configuration, contact AWS Support.
 
 After you create your new metadata configuration, you will have two journal tables. If you no
 longer need the old journal table, you can delete it. For step-by-step instructions, see [Deleting metadata tables](metadata-tables-delete-table.md "metadata-tables-delete-table.md"). If you've retained your old journal table and want to join
-it with your new one, see [Joining custom metadata with S3 metadata
-tables](metadata-tables-join-custom-metadata.md "metadata-tables-join-custom-metadata.md") for examples of how
+it with your new one, see [Joining custom metadata with S3 metadata tables](metadata-tables-join-custom-metadata.md "metadata-tables-join-custom-metadata.md") for examples of how
 to join two tables.
 
 After migration, you can do the following:
@@ -402,5 +387,4 @@ Make sure that you update your processes to use the new API operations
 and `DeleteBucketMetadataConfiguration`) instead of the old API operations. 2. If you plan to query your metadata tables with Amazon Athena or another AWS query engine, make sure
 that you integrate your AWS managed table bucket with AWS analytics services. If you've already
 integrated an existing table bucket in this Region, your AWS managed table bucket is also
-automatically integrated. For more information, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
+automatically integrated. For more information, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").

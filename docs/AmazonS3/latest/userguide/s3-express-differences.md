@@ -11,10 +11,8 @@ the following topics.
 ###### Topics
 
 - [Differences for directory buckets](#s3-express-specifications "#s3-express-specifications")
-- [API operations
-  supported for directory buckets](#s3-express-differences-api-operations "#s3-express-differences-api-operations")
-- [Amazon S3 features not supported by
-  directory buckets](#s3-express-differences-unsupported-features "#s3-express-differences-unsupported-features")
+- [API operations supported for directory buckets](#s3-express-differences-api-operations "#s3-express-differences-api-operations")
+- [Amazon S3 features not supported by directory buckets](#s3-express-differences-unsupported-features "#s3-express-differences-unsupported-features")
 
 ## Differences for directory buckets
 
@@ -43,8 +41,7 @@ the following topics.
 - **ETags and checksums** – Entity tags
   (ETags) for directory buckets are random alphanumeric strings unique to the object and not MD5 checksums.
   For more information about using additional checksums with directory buckets, see
-  [S3 additional checksum best
-  practices](s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums "s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums").
+  [S3 additional checksum best practices](s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums "s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums").
 - **Object keys in `DeleteObjects`
   requests**
   - Object keys in `DeleteObjects` requests must
@@ -75,8 +72,7 @@ the following topics.
   upload and copy large objects that are stored in directory buckets by
   using the multipart upload process. However, the following are some
   differences when using the multipart upload process with objects stored
-  in directory buckets. For more information, see [Using multipart uploads with
-  directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md").
+  in directory buckets. For more information, see [Using multipart uploads with directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md").
   - The object creation date is the completion date of the
     multipart upload.
   - Multipart part numbers must use consecutive part numbers. If
@@ -105,19 +101,14 @@ the following topics.
     existing objects in directory buckets that reside in Availability
     Zones.
 
-## API operations
-
-supported for directory buckets
+## API operations supported for directory buckets
 
 The directory buckets support both Regional (bucket level, or control plane) and
 Zonal (object level, or data plane) endpoint API operations. For more information, see
 [Networking for directory buckets](s3-express-networking.md "s3-express-networking.md") and
-[Endpoints and gateway VPC
-endpoints](directory-bucket-high-performance.md#s3-express-overview-endpoints "directory-bucket-high-performance.md#s3-express-overview-endpoints"). For a list of supported API operations see [Directory bucket API operations](s3-express-APIs.md "s3-express-APIs.md").
+[Endpoints and gateway VPC endpoints](directory-bucket-high-performance.md#s3-express-overview-endpoints "directory-bucket-high-performance.md#s3-express-overview-endpoints"). For a list of supported API operations see [Directory bucket API operations](s3-express-APIs.md "s3-express-APIs.md").
 
-## Amazon S3 features not supported by
-
-directory buckets
+## Amazon S3 features not supported by directory buckets
 
 The following Amazon S3 features are not supported by directory buckets:
 

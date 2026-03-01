@@ -6,15 +6,11 @@ AWS resources, your website is no longer available.
 
 ###### Tasks
 
-- [Step 1: Delete the Amazon CloudFront
-  distribution](#getting-started-cleanup-cloudfront "#getting-started-cleanup-cloudfront")
+- [Step 1: Delete the Amazon CloudFront distribution](#getting-started-cleanup-cloudfront "#getting-started-cleanup-cloudfront")
 - [Step 2: Delete the Route 53 hosted zone](#getting-started-cleanup-route53 "#getting-started-cleanup-route53")
-- [Step 3: Disable logging and delete your S3
-  bucket](#getting-started-cleanup-s3 "#getting-started-cleanup-s3")
+- [Step 3: Disable logging and delete your S3 bucket](#getting-started-cleanup-s3 "#getting-started-cleanup-s3")
 
-## Step 1: Delete the Amazon CloudFront
-
-distribution
+## Step 1: Delete the Amazon CloudFront distribution
 
 Before you delete an Amazon CloudFront distribution, you must disable it. A disabled
 distribution is no longer functional and does not accrue charges. You can enable a
@@ -58,9 +54,7 @@ The type of each record set is listed in the **Type** column. 4. Choose **Delete
    Zone**.
 3. When prompted for confirmation, choose **Confirm**.
 
-## Step 3: Disable logging and delete your S3
-
-bucket
+## Step 3: Disable logging and delete your S3 bucket
 
 Before you delete your S3 bucket, make sure that logging is disabled for the bucket.
 Otherwise, AWS continues to write logs to your bucket as you delete it.

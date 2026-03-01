@@ -1,6 +1,4 @@
-# Rules for choosing buckets for Amazon S3
-
-Multi-Region Access Points
+# Rules for choosing buckets for Amazon S3 Multi-Region Access Points
 
 Each Multi-Region Access Point is associated with the Regions where you want to fulfill requests. The
 Multi-Region Access Point must be associated with exactly one bucket in each of those Regions. You specify
@@ -36,5 +34,4 @@ When you make a request to a Multi-Region Access Point, the Multi-Region Access 
 of the buckets in the Multi-Region Access Point. Therefore, the bucket that gets the request might not
 contain the requested data. To create consistent datasets in the Amazon S3 buckets that
 are associated with a Multi-Region Access Point, we recommend that you configure S3 Cross-Region
-Replication (CRR). For more information, see [Configuring replication for use
-with Multi-Region Access Points](MultiRegionAccessPointBucketReplication.md "MultiRegionAccessPointBucketReplication.md").
+Replication (CRR). For more information, see [Configuring replication for use with Multi-Region Access Points](MultiRegionAccessPointBucketReplication.md "MultiRegionAccessPointBucketReplication.md").

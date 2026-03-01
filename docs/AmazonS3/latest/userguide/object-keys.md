@@ -141,9 +141,7 @@ behavioral impacts can occur:
 To avoid these issues, we recommend avoiding period-only path segments in
 object key names. Use alternative naming conventions for organizational purposes.
 
-### Characters that might require
-
-special handling
+### Characters that might require special handling
 
 The following characters in a key name might require additional code handling
 and most likely must be URL encoded or referenced as HEX. Some of these characters
@@ -186,9 +184,7 @@ applications:
 - Pound sign (`#`)
 - Vertical bar or pipe (`|`)
 
-### XML-related object key
-
-constraints
+### XML-related object key constraints
 
 As specified by the [XML standard on end-of-line handling](https://www.w3.org/TR/REC-xml/#sec-line-ends "https://www.w3.org/TR/REC-xml/#sec-line-ends"), all XML text is normalized such
 that single carriage returns (ASCII code 13) and carriage returns immediately

@@ -31,15 +31,11 @@ Blog._
 ###### Topics
 
 - [Path-style requests](#path-style-access "#path-style-access")
-- [Virtual-hosted–style
-  requests](#virtual-hosted-style-access "#virtual-hosted-style-access")
-- [HTTP Host header bucket
-  specification](#VirtualHostingSpecifyBucket "#VirtualHostingSpecifyBucket")
+- [Virtual-hosted–style requests](#virtual-hosted-style-access "#virtual-hosted-style-access")
+- [HTTP Host header bucket specification](#VirtualHostingSpecifyBucket "#VirtualHostingSpecifyBucket")
 - [Examples](#VirtualHostingExamples "#VirtualHostingExamples")
-- [Customizing Amazon S3 URLs with CNAME
-  records](#VirtualHostingCustomURLs "#VirtualHostingCustomURLs")
-- [How to associate a hostname with an Amazon S3
-  bucket](#VirtualHostingCustomURLsHowTo "#VirtualHostingCustomURLsHowTo")
+- [Customizing Amazon S3 URLs with CNAME records](#VirtualHostingCustomURLs "#VirtualHostingCustomURLs")
+- [How to associate a hostname with an Amazon S3 bucket](#VirtualHostingCustomURLsHowTo "#VirtualHostingCustomURLsHowTo")
 - [Limitations](#VirtualHostingLimitations "#VirtualHostingLimitations")
 - [Backward compatibility](#VirtualHostingBackwardsCompatibility "#VirtualHostingBackwardsCompatibility")
 
@@ -76,9 +72,7 @@ To host website content, we recommend that you use either S3 website endpoints o
 CloudFront distribution. For more information, see [Website endpoints](WebsiteEndpoints.md "WebsiteEndpoints.md") and [Deploy a React-based single-page application to Amazon S3 and CloudFront](../../../prescriptive-guidance/latest/patterns/deploy-a-react-based-single-page-application-to-amazon-s3-and-cloudfront.md "../../../prescriptive-guidance/latest/patterns/deploy-a-react-based-single-page-application-to-amazon-s3-and-cloudfront.md") in the
 _AWS Perspective Guidance Patterns_.
 
-## Virtual-hosted–style
-
-requests
+## Virtual-hosted–style requests
 
 In a virtual-hosted–style URI, the bucket name is part of the domain name in the
 URL.
@@ -95,9 +89,7 @@ In this example, `amzn-s3-demo-bucket1` is the bucket name, US West (Oregon) is 
 https://amzn-s3-demo-bucket1.s3.us-west-2.amazonaws.com/puppy.png
 ```
 
-## HTTP `Host` header bucket
-
-specification
+## HTTP `Host` header bucket specification
 
 As long as your `GET` request does not use the SSL endpoint, you can
 specify the bucket for the request by using the HTTP `Host` header. The
@@ -186,8 +178,7 @@ Host: amzn-s3-demo-bucket1.s3.eu-west-1.amazonaws.com
 
 To use this method, you must configure your DNS name as a CNAME alias for
 ``bucket-name`.s3.us-east-1.amazonaws.com`.
-For more information, see [Customizing Amazon S3 URLs with CNAME
-records](#VirtualHostingCustomURLs "#VirtualHostingCustomURLs").
+For more information, see [Customizing Amazon S3 URLs with CNAME records](#VirtualHostingCustomURLs "#VirtualHostingCustomURLs").
 
 This example uses the following:
 
@@ -207,9 +198,7 @@ GET /homepage.html HTTP/1.1
 Host: www.example.com
 ```
 
-## Customizing Amazon S3 URLs with CNAME
-
-records
+## Customizing Amazon S3 URLs with CNAME records
 
 Depending on your needs, you might not want
 `s3.`region-code`.amazonaws.com` to appear on
@@ -262,8 +251,7 @@ unaware of the CNAME mapping used to resolve the request.
 You can use any Amazon S3 endpoint in a CNAME alias. For example,
 `s3.ap-southeast-1.amazonaws.com` can be used in CNAME aliases.
 For more information about endpoints, see [Request
-endpoints](../API/RESTAPI.md "../API/RESTAPI.md") in the _Amazon S3 API Reference_. To create a static website by using a custom domain, see [Tutorial: Configuring a static website using a
-custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md").
+endpoints](../API/RESTAPI.md "../API/RESTAPI.md") in the _Amazon S3 API Reference_. To create a static website by using a custom domain, see [Tutorial: Configuring a static website using a custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md").
 
 ###### Important
 
@@ -281,9 +269,7 @@ configured alias, even if ownership is not the same.
 For the same reason, we recommend that you change or remove the corresponding
 CNAME or alias when deleting a bucket.
 
-## How to associate a hostname with an Amazon S3
-
-bucket
+## How to associate a hostname with an Amazon S3 bucket
 
 ###### To associate a hostname with an Amazon S3 bucket by using a CNAME alias
 

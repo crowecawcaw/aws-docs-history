@@ -18,8 +18,7 @@ Access Logs](../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md "../.
 4. (Optional) If you want to use CloudFront to improve your website performance, create
    a folder for the CloudFront log files (for example, `cdn`).
 
-For more information, see [Speeding up your website with
-Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cloudfront-walkthrough.md"). 5. In the **Buckets** list, choose your bucket. 6. Choose **Properties**. 7. Under **Server access logging**, choose
+For more information, see [Speeding up your website with Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cloudfront-walkthrough.md"). 5. In the **Buckets** list, choose your bucket. 6. Choose **Properties**. 7. Under **Server access logging**, choose
 **Edit**. 8. Choose **Enable**. 9. Under the **Target bucket**, choose the bucket and folder
 destination for the server access logs:
 

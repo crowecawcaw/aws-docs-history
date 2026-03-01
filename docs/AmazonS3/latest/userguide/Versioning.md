@@ -11,8 +11,7 @@ Versioning-enabled buckets can help you recover objects from accidental deletion
 overwrite. For example, if you delete an object, Amazon S3 inserts a delete marker instead of
 removing the object permanently. The delete marker becomes the current object version. If
 you overwrite an object, it results in a new object version in the bucket. You can always
-restore the previous version. For more information, see [Deleting object versions from a
-versioning-enabled bucket](DeletingObjectVersions.md "DeletingObjectVersions.md").
+restore the previous version. For more information, see [Deleting object versions from a versioning-enabled bucket](DeletingObjectVersions.md "DeletingObjectVersions.md").
 
 By default, S3 Versioning is disabled on buckets, and you must explicitly enable it. For
 more information, see [Enabling versioning on buckets](manage-versioning-examples.md "manage-versioning-examples.md").
@@ -26,9 +25,7 @@ more information, see [Enabling versioning on buckets](manage-versioning-example
   previous version. Thus, if you have three versions of an object stored, you are
   charged for three objects.
 
-## Unversioned, versioning-enabled, and
-
-versioning-suspended buckets
+## Unversioned, versioning-enabled, and versioning-suspended buckets
 
 Buckets can be in one of three states:
 
@@ -48,21 +45,18 @@ a unique version ID when they are modified by future requests. Note the followin
 - Objects that are stored in your bucket before you set the versioning state
   have a version ID of `null`. When you enable versioning, existing
   objects in your bucket do not change. What changes is how Amazon S3 handles the
-  objects in future requests. For more information, see [Working with objects in a
-  versioning-enabled bucket](manage-objects-versioned-bucket.md "manage-objects-versioned-bucket.md").
+  objects in future requests. For more information, see [Working with objects in a versioning-enabled bucket](manage-objects-versioned-bucket.md "manage-objects-versioned-bucket.md").
 - The bucket owner (or any user with appropriate permissions) can suspend
   versioning to stop accruing object versions. When you suspend versioning,
   existing objects in your bucket do not change. What changes is how Amazon S3 handles
-  objects in future requests. For more information, see [Working with objects in a versioning-suspended
-  bucket](VersionSuspendedBehavior.md "VersionSuspendedBehavior.md").
+  objects in future requests. For more information, see [Working with objects in a versioning-suspended bucket](VersionSuspendedBehavior.md "VersionSuspendedBehavior.md").
 
 ## Using S3 Versioning with S3 Lifecycle
 
 To customize your data retention approach and control storage costs, use object
 versioning with S3 Lifecycle. For more information, see [Managing the lifecycle of objects](object-lifecycle-mgmt.md "object-lifecycle-mgmt.md"). For
 information about creating S3 Lifecycle configurations using the AWS Management Console, AWS CLI, AWS SDKs, or
-the REST API, see [Setting an S3 Lifecycle configuration on a
-bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
+the REST API, see [Setting an S3 Lifecycle configuration on a bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
 
 ###### Important
 
@@ -71,8 +65,7 @@ you want to maintain the same permanent delete behavior when you enable versioni
 you must add a noncurrent expiration configuration. The noncurrent expiration lifecycle
 configuration manages the deletes of the noncurrent object versions in the versioning-enabled
 bucket. (A versioning-enabled bucket maintains one current, and zero or more
-noncurrent, object versions.) For more information, see [Setting an S3 Lifecycle configuration on a
-bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
+noncurrent, object versions.) For more information, see [Setting an S3 Lifecycle configuration on a bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
 
 For information about working with S3 Versioning, see the following topics.
 
@@ -81,8 +74,6 @@ For information about working with S3 Versioning, see the following topics.
 - [How S3 Versioning works](versioning-workflows.md "versioning-workflows.md")
 - [Enabling versioning on buckets](manage-versioning-examples.md "manage-versioning-examples.md")
 - [Configuring MFA delete](MultiFactorAuthenticationDelete.md "MultiFactorAuthenticationDelete.md")
-- [Working with objects in a
-  versioning-enabled bucket](manage-objects-versioned-bucket.md "manage-objects-versioned-bucket.md")
-- [Working with objects in a versioning-suspended
-  bucket](VersionSuspendedBehavior.md "VersionSuspendedBehavior.md")
+- [Working with objects in a versioning-enabled bucket](manage-objects-versioned-bucket.md "manage-objects-versioned-bucket.md")
+- [Working with objects in a versioning-suspended bucket](VersionSuspendedBehavior.md "VersionSuspendedBehavior.md")
 - [Troubleshooting versioning](troubleshooting-versioning.md "troubleshooting-versioning.md")

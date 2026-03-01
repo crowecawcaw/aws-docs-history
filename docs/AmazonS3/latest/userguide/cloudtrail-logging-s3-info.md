@@ -6,9 +6,7 @@ Amazon S3 now applies server-side encryption with Amazon S3 managed keys (SSE-S3
 
 This section provides information about the events that S3 logs to CloudTrail.
 
-## Amazon S3 data events in
-
-CloudTrail
+## Amazon S3 data events in CloudTrail
 
 [Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations
 performed on or in a resource (for example, reading or writing to an Amazon S3
@@ -49,17 +47,13 @@ You can configure advanced event selectors to filter on the
 important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
 _AWS CloudTrail API Reference_.
 
-## Amazon S3 management events
-
-in CloudTrail
+## Amazon S3 management events in CloudTrail
 
 Amazon S3 logs all control plane operations as management events. For more
 information about S3 API operations, see the [Amazon S3 API
 Reference](../API/API_Operations.md "../API/API_Operations.md").
 
-## How CloudTrail captures requests made
-
-to Amazon S3
+## How CloudTrail captures requests made to Amazon S3
 
 By default, CloudTrail logs S3 bucket-level API calls that were made in the last 90
 days, but not log requests made to objects. Bucket-level calls include events
@@ -71,9 +65,7 @@ logs for them.
 
 If you are logging data activity with AWS CloudTrail, the event record for an Amazon S3 `DeleteObjects` data event includes both the `DeleteObjects` event and a `DeleteObject` event for each object deleted as part of that operation. You can exclude the additional visibility about deleted objects from the event record. For more information, see [AWS CLI examples for filtering data events](../../../awscloudtrail/latest/userguide/filtering-data-events.md#filtering-data-events-deleteobjects "../../../awscloudtrail/latest/userguide/filtering-data-events.md#filtering-data-events-deleteobjects") in the _AWS CloudTrail User Guide._
 
-## Amazon S3 account-level actions
-
-tracked by CloudTrail logging
+## Amazon S3 account-level actions tracked by CloudTrail logging
 
 CloudTrail logs account-level actions. Amazon S3 records are written together with other
 AWS service records in a log file. CloudTrail determines when to create and write to
@@ -90,9 +82,7 @@ DeletePublicAccessBlock is DeleteAccountPublicAccessBlock.
 - [GetAccountPublicAccessBlock](../API/API_control_GetPublicAccessBlock.md "../API/API_control_GetPublicAccessBlock.md")
 - [PutAccountPublicAccessBlock](../API/API_control_PutPublicAccessBlock.md "../API/API_control_PutPublicAccessBlock.md")
 
-## Amazon S3 bucket-level actions
-
-that are tracked by CloudTrail logging
+## Amazon S3 bucket-level actions that are tracked by CloudTrail logging
 
 By default, CloudTrail logs bucket-level actions for general purpose buckets. Amazon S3
 records are written together with other AWS service records in a log file.
@@ -183,9 +173,7 @@ configuration of a bucket.
 
 The HeadBucket API is supported as an Amazon S3 data event in CloudTrail.
 
-## Amazon S3 Express One Zone
-
-bucket-level (Regional API endpoint) actions tracked by CloudTrail logging
+## Amazon S3 Express One Zone bucket-level (Regional API endpoint) actions tracked by CloudTrail logging
 
 By default, CloudTrail logs bucket-level actions for directory buckets as management
 events. The `eventsource` for CloudTrail management events for S3 Express One Zone
@@ -205,9 +193,7 @@ These following Regional endpoint API operations are logged to CloudTrail.
 
 For more information, see [Logging with AWS CloudTrail for S3 Express One Zone](s3-express-one-zone-logging.md "s3-express-one-zone-logging.md")
 
-## Amazon S3 object-level actions
-
-in cross-account scenarios
+## Amazon S3 object-level actions in cross-account scenarios
 
 The following are special use cases involving the object-level API calls in
 cross-account scenarios and how CloudTrail logs are reported. CloudTrail delivers logs to
@@ -219,9 +205,7 @@ access, consider the examples in this section.
 
 The examples assume that CloudTrail logs are appropriately configured.
 
-### Example 1: CloudTrail delivers
-
-logs to the bucket owner
+### Example 1: CloudTrail delivers logs to the bucket owner
 
 CloudTrail delivers logs to the bucket owner even if the bucket owner does not
 have permissions for the same object API operation. Consider the following
@@ -241,9 +225,7 @@ B). In addition, CloudTrail also delivers the same logs to the bucket owner
 C) or have permissions for those same API operations on that
 object.
 
-### Example 2: CloudTrail does not
-
-proliferate email addresses that are used in setting object ACLs
+### Example 2: CloudTrail does not proliferate email addresses that are used in setting object ACLs
 
 Consider the following cross-account scenario:
 

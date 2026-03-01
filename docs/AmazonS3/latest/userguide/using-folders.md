@@ -42,8 +42,7 @@ Moreover, the Amazon S3 console doesn't display the content and metadata for fol
 you use the console to copy an object named with a trailing forward slash character (`/`), a new folder is
 created in the destination location, but the object's data and metadata aren't copied. Also, a forward slash (`/`) in object key names might require special handling. For more information, see [Naming Amazon S3 objects](object-keys.md "object-keys.md").
 
-To create folders in directory buckets, upload a folder. For more information, see [Uploading objects to a directory
-bucket](directory-buckets-objects-upload.md "directory-buckets-objects-upload.md").
+To create folders in directory buckets, upload a folder. For more information, see [Uploading objects to a directory bucket](directory-buckets-objects-upload.md "directory-buckets-objects-upload.md").
 
 ###### Topics
 

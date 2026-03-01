@@ -1,6 +1,4 @@
-# Tutorial: Upload an object through multipart upload and
-
-verify its data integrity
+# Tutorial: Upload an object through multipart upload and verify its data integrity
 
 Multipart upload allows you to upload a single object as a set of parts. Each part is a
 contiguous portion of the object's data. You can upload these object parts independently and
@@ -31,22 +29,14 @@ hash and SHA-256 checksum of the uploaded object.
 
 - [Prerequisites](#mpu-prerequisites "#mpu-prerequisites")
 - [Step 1: Create a large file](#create-large-file-step1 "#create-large-file-step1")
-- [Step 2: Split the file into multiple
-  files](#split-large-file-step2 "#split-large-file-step2")
-- [Step 3: Create the multipart upload with
-  an additional checksum](#create-multipart-upload-step3 "#create-multipart-upload-step3")
-- [Step 4: Upload the parts of your multipart
-  upload](#upload-parts-step4 "#upload-parts-step4")
-- [Step 5: List all the parts of your multipart
-  upload](#list-parts-step5 "#list-parts-step5")
-- [Step 6: Complete the multipart
-  upload](#complete-multipart-upload-step6 "#complete-multipart-upload-step6")
-- [Step 7: Confirm that the object is uploaded to
-  your bucket](#confirm-upload-step7 "#confirm-upload-step7")
-- [Step 8: Verify object integrity with an MD5
-  checksum](#verify-object-integrity-step8 "#verify-object-integrity-step8")
-- [Step 9: Verify object integrity
-  with an additional checksum](#verify-object-integrity-sha256-step9 "#verify-object-integrity-sha256-step9")
+- [Step 2: Split the file into multiple files](#split-large-file-step2 "#split-large-file-step2")
+- [Step 3: Create the multipart upload with an additional checksum](#create-multipart-upload-step3 "#create-multipart-upload-step3")
+- [Step 4: Upload the parts of your multipart upload](#upload-parts-step4 "#upload-parts-step4")
+- [Step 5: List all the parts of your multipart upload](#list-parts-step5 "#list-parts-step5")
+- [Step 6: Complete the multipart upload](#complete-multipart-upload-step6 "#complete-multipart-upload-step6")
+- [Step 7: Confirm that the object is uploaded to your bucket](#confirm-upload-step7 "#confirm-upload-step7")
+- [Step 8: Verify object integrity with an MD5 checksum](#verify-object-integrity-step8 "#verify-object-integrity-step8")
+- [Step 9: Verify object integrity with an additional checksum](#verify-object-integrity-sha256-step9 "#verify-object-integrity-sha256-step9")
 - [Step 10: Clean up your resources](#clean-up-step10 "#clean-up-step10")
 
 ## Prerequisites
@@ -95,9 +85,7 @@ fsutil file createnew census-data.bin 15728640
 This command creates a file named `census-data.bin` with a size of
 15 MB of arbitrary data (15728640 bytes).
 
-## Step 2: Split the file into multiple
-
-files
+## Step 2: Split the file into multiple files
 
 To perform the multipart upload, you have to split your large file into smaller parts. You can then upload the smaller
 parts by using the multipart upload process. This step demonstrates how to split the
@@ -159,9 +147,7 @@ for example:
 census-part00 census-part01 census-part02
 ```
 
-## Step 3: Create the multipart upload with
-
-an additional checksum
+## Step 3: Create the multipart upload with an additional checksum
 
 To begin the multipart upload process, you need to create the multipart upload
 request. This step involves initiating the multipart upload and specifying an additional
@@ -217,9 +203,7 @@ must be consecutive. If you use nonconsecutive part numbers, the
 `complete-multipart-upload` request can result in an HTTP `500
  Internal Server Error`.
 
-## Step 4: Upload the parts of your multipart
-
-upload
+## Step 4: Upload the parts of your multipart upload
 
 In this step, you will upload the parts of your multipart upload to your S3 bucket. Use
 the `upload-part` command to upload each part individually. This
@@ -273,9 +257,7 @@ Amazon S3 returns an entity tag (ETag) and additional checksums for each
 uploaded part as a header in the response. 4. Continue using the `upload-part` command until you have
 uploaded all the parts of your object.
 
-## Step 5: List all the parts of your multipart
-
-upload
+## Step 5: List all the parts of your multipart upload
 
 To complete the multipart upload, you will need a list of all the parts that have been
 uploaded for that specific multipart upload. The output from the `list-parts`
@@ -330,9 +312,7 @@ Here’s the example output:
 
 ```
 
-## Step 6: Complete the multipart
-
-upload
+## Step 6: Complete the multipart upload
 
 After uploading all parts of your multipart upload and listing them, the final step is
 to complete the multipart upload. This step merges all the uploaded parts into a single
@@ -379,9 +359,7 @@ Don't delete the individual part files yet. You will need the individual
 parts so that you can perform checksums on them to verify the integrity of the
 merged-together object.
 
-## Step 7: Confirm that the object is uploaded to
-
-your bucket
+## Step 7: Confirm that the object is uploaded to your bucket
 
 After completing the multipart upload, you can verify that the object has been
 successfully uploaded to your S3 bucket. To list the objects in your bucket and confirm the presence of your newly
@@ -403,9 +381,7 @@ file (for example, `census_data_file`) in the list of objects.
 
 For more information, see the [Examples](../../../cli/latest/reference/s3api/list-objects-v2.md "../../../cli/latest/reference/s3api/list-objects-v2.md") section for the `list-objects-v2` command in the _AWS Command Line Interface User Guide_.
 
-## Step 8: Verify object integrity with an MD5
-
-checksum
+## Step 8: Verify object integrity with an MD5 checksum
 
 When you upload an object, you can specify a checksum algorithm for
 Amazon S3 to use. By default, Amazon S3 stores the MD5 digest of bytes as the object’s ETag.
@@ -481,9 +457,7 @@ values for individual parts of multipart uploads that are still in progress, you
 For more information about how checksums work with multipart upload objects, see
 [Checking object integrity in Amazon S3](checking-object-integrity.md "checking-object-integrity.md").
 
-## Step 9: Verify object integrity
-
-with an additional checksum
+## Step 9: Verify object integrity with an additional checksum
 
 In this step, this tutorial uses SHA-256 as an additional checksum to validate object integrity.
 If you’ve used a different additional checksum, use that checksum value instead.

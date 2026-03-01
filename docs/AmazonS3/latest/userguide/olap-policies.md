@@ -6,9 +6,7 @@ As of November 7th, 2025, S3 Object Lambda is available only to existing custome
 
 Amazon S3 access points support AWS Identity and Access Management (IAM) resource policies that you can use to control the use
 of the access point by resource, user, or other conditions. You can control access through an optional
-resource policy on your Object Lambda Access Point, or a resource policy on supporting access point. For step-by-step examples, see [Tutorial: Transforming data for your
-application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md "tutorial-s3-object-lambda-uppercase.md") and [Tutorial:
-Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md").
+resource policy on your Object Lambda Access Point, or a resource policy on supporting access point. For step-by-step examples, see [Tutorial: Transforming data for your application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md "tutorial-s3-object-lambda-uppercase.md") and [Tutorial: Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md").
 
 The following four resources must have permissions granted to work with Object Lambda Access Points:
 
@@ -66,8 +64,7 @@ The following S3 bucket policy example delegates access control for a bucket to 
 bucket's standard access points. This policy allows full access to all access points that are owned by the
 bucket owner's account. Thus, all access to this bucket is controlled by the policies that are
 attached to its access points. Users can read from the bucket only through an access point, which means that
-operations can be invoked only through access points. For more information, see [Delegating access control to
-access points](access-points-policies.md#access-points-delegating-control "access-points-policies.md#access-points-delegating-control").
+operations can be invoked only through access points. For more information, see [Delegating access control to access points](access-points-policies.md#access-points-delegating-control "access-points-policies.md#access-points-delegating-control").
 
 JSON
 
@@ -91,9 +88,7 @@ JSON
 
 ```
 
-###### Example– IAM policy that grants a user the necessary permissions to use an
-
-Object Lambda Access Point
+###### Example– IAM policy that grants a user the necessary permissions to use an Object Lambda Access Point
 
 The following IAM policy grants a user permissions to the Lambda function, the standard
 access point, and the Object Lambda Access Point.

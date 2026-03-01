@@ -1,6 +1,4 @@
-# Creating access points restricted to a virtual private
-
-cloud
+# Creating access points restricted to a virtual private cloud
 
 When you create an access point you can choose to make the access point accessible from the internet, or
 you can specify that all requests made through that access point must originate from a specific
@@ -107,9 +105,7 @@ endpoint policies for Amazon S3](../../../vpc/latest/userguide/vpc-endpoints-s3.
 
 For a tutorial on creating access points with VPC endpoints, see [Managing Amazon S3 access with VPC endpoints and access points](https://aws.amazon.com/blogs/storage/managing-amazon-s3-access-with-vpc-endpoints-and-s3-access-points/ "https://aws.amazon.com/blogs/storage/managing-amazon-s3-access-with-vpc-endpoints-and-s3-access-points/").
 
-## Example: Create and restrict an access point
-
-attached to an FSx for OpenZFS volume to a VPC ID
+## Example: Create and restrict an access point attached to an FSx for OpenZFS volume to a VPC ID
 
 You can create an access point that is attached it to an FSx for OpenZFS volume using the Amazon FSx
 console, AWS CLI, or API. Once attached, you can use the S3 object APIs to access your file
@@ -119,9 +115,7 @@ For instructions on creating and restricting an access point attached to an FSx 
 [Creating access points restricted to a virtual private cloud (VPC)](../../../fsx/latest/OpenZFSGuide/create-access-points.md "../../../fsx/latest/OpenZFSGuide/create-access-points.md") in the
 _FSx for OpenZFS User Guide_.
 
-## Example: Create and restrict an access point
-
-attached to an FSX for ONTAP volume to a VPC ID
+## Example: Create and restrict an access point attached to an FSX for ONTAP volume to a VPC ID
 
 You can create an access point that is attached it to an FSx for ONTAP volume using the Amazon FSx
 console, AWS CLI, or API. Once attached, you can use the S3 object APIs to access your file

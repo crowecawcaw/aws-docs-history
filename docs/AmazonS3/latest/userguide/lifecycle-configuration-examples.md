@@ -1,6 +1,4 @@
-# Examples of S3 Lifecycle
-
-configurations
+# Examples of S3 Lifecycle configurations
 
 This section provides examples of S3 Lifecycle configuration. Each example shows how you
 can specify the XML in each of the example scenarios.
@@ -8,16 +6,12 @@ can specify the XML in each of the example scenarios.
 ###### Topics
 
 - [Archiving all objects within one day after creation](#lifecycle-config-ex1 "#lifecycle-config-ex1")
-- [Disabling Lifecycle
-  rules temporarily](#lifecycle-config-conceptual-ex2 "#lifecycle-config-conceptual-ex2")
-- [Tiering down the storage class
-  over an object's lifetime](#lifecycle-config-conceptual-ex3 "#lifecycle-config-conceptual-ex3")
+- [Disabling Lifecycle rules temporarily](#lifecycle-config-conceptual-ex2 "#lifecycle-config-conceptual-ex2")
+- [Tiering down the storage class over an object's lifetime](#lifecycle-config-conceptual-ex3 "#lifecycle-config-conceptual-ex3")
 - [Specifying multiple rules](#lifecycle-config-conceptual-ex4 "#lifecycle-config-conceptual-ex4")
-- [Specifying a lifecycle rule
-  for a versioning-enabled bucket](#lifecycle-config-conceptual-ex6 "#lifecycle-config-conceptual-ex6")
+- [Specifying a lifecycle rule for a versioning-enabled bucket](#lifecycle-config-conceptual-ex6 "#lifecycle-config-conceptual-ex6")
 - [Removing expired object delete markers in a versioning-enabled bucket](#lifecycle-config-conceptual-ex7 "#lifecycle-config-conceptual-ex7")
-- [Lifecycle configuration to abort multipart
-  uploads](#lc-expire-mpu "#lc-expire-mpu")
+- [Lifecycle configuration to abort multipart uploads](#lc-expire-mpu "#lc-expire-mpu")
 - [Expiring noncurrent objects that have no data](#lc-size-rules "#lc-size-rules")
 - [Example: Allowing objects smaller than 128 KB to be transitioned](#lc-small-objects "#lc-small-objects")
 
@@ -67,8 +61,7 @@ and `Days` in the same rule.
   `Transition` action that directs Amazon S3 to transition objects to
   the S3 Glacier Flexible Retrieval storage class 0 days after creation. This rule
   means that the objects are eligible for archival to S3 Glacier Flexible Retrieval at midnight UTC
-  following creation. For more information about lifecycle constraints, see [Constraints and considerations
-  for transitions](lifecycle-transition-general-considerations.md#lifecycle-configuration-constraints "lifecycle-transition-general-considerations.md#lifecycle-configuration-constraints").
+  following creation. For more information about lifecycle constraints, see [Constraints and considerations for transitions](lifecycle-transition-general-considerations.md#lifecycle-configuration-constraints "lifecycle-transition-general-considerations.md#lifecycle-configuration-constraints").
 
 ```
 <LifecycleConfiguration>
@@ -143,12 +136,9 @@ follows these general rules:
 - When an object is eligible for both an S3 Glacier Flexible Retrieval and
   S3 Standard-IA (or S3 One Zone-IA) transition, Amazon S3 chooses the
   S3 Glacier Flexible Retrieval transition.
-  For examples, see [Examples of overlapping filters and
-  conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
+  For examples, see [Examples of overlapping filters and conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
 
-## Disabling Lifecycle
-
-rules temporarily
+## Disabling Lifecycle rules temporarily
 
 You can temporarily disable an S3 Lifecycle rule using the `status` element. This can be useful if you want to test new rules or troubleshoot issues with your configuration, without overwriting your existing rules. The following S3 Lifecycle
 configuration specifies two rules:
@@ -188,9 +178,7 @@ rule.
 </LifecycleConfiguration>
 ```
 
-## Tiering down the storage class
-
-over an object's lifetime
+## Tiering down the storage class over an object's lifetime
 
 In this example, you use S3 Lifecycle configuration to tier down the storage class of
 objects over their lifetime. Tiering down can help reduce storage costs. For more
@@ -249,8 +237,7 @@ follows these general rules:
 - When an object is eligible for both an S3 Glacier Flexible Retrieval and
   S3 Standard-IA (or S3 One Zone-IA) transition, Amazon S3 chooses the
   S3 Glacier Flexible Retrieval transition.
-  For examples, see [Examples of overlapping filters and
-  conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
+  For examples, see [Examples of overlapping filters and conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
 
 ## Specifying multiple rules
 
@@ -309,12 +296,9 @@ follows these general rules:
 - When an object is eligible for both an S3 Glacier Flexible Retrieval and
   S3 Standard-IA (or S3 One Zone-IA) transition, Amazon S3 chooses the
   S3 Glacier Flexible Retrieval transition.
-  For examples, see [Examples of overlapping filters and
-  conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
+  For examples, see [Examples of overlapping filters and conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
 
-## Specifying a lifecycle rule
-
-for a versioning-enabled bucket
+## Specifying a lifecycle rule for a versioning-enabled bucket
 
 Suppose that you have a versioning-enabled bucket, which means that for each object,
 you have a current version and zero or more noncurrent versions. (For more information
@@ -494,9 +478,7 @@ markers.
 When you use the `ExpiredObjectDeleteMarker` S3 Lifecycle action, the
 rule cannot specify a tag-based filter.
 
-## Lifecycle configuration to abort multipart
-
-uploads
+## Lifecycle configuration to abort multipart uploads
 
 You can use the Amazon S3 multipart upload REST API operations to upload large objects in
 parts. For more information about multipart uploads, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md").

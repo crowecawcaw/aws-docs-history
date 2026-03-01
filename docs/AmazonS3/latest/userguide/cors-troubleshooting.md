@@ -10,12 +10,9 @@ S3.
 - [403 Forbidden error - This CORS request is
   not allowed](#cors-not-enabled "#cors-not-enabled")
 - [Headers not found in CORS response](#Headers-not-found "#Headers-not-found")
-- [Considerations of CORS on S3 proxy
-  integrations](#cors-in-proxy "#cors-in-proxy")
+- [Considerations of CORS on S3 proxy integrations](#cors-in-proxy "#cors-in-proxy")
 
-## 403 Forbidden error: CORS is not enabled for this
-
-bucket
+## 403 Forbidden error: CORS is not enabled for this bucket
 
 The following `403 Forbidden` error occurs when a cross-origin request
 is sent to Amazon S3 but CORS is not configured on your S3 bucket.
@@ -31,9 +28,7 @@ on S3 by using the Amazon S3 console, AWS SDKs, and REST API. For more informati
 CORS and examples of a CORS configuration, see [Elements of
 CORS](ManageCorsUsing.md#cors-example-1 "ManageCorsUsing.md#cors-example-1").
 
-## 403 Forbidden error: This CORS request is
-
-not allowed
+## 403 Forbidden error: This CORS request is not allowed
 
 The following `403 Forbidden` error is received when a CORS rule in your
 CORS configuration doesn't match the data in your request.
@@ -127,9 +122,7 @@ method must be added to your CORS configuration.
 ]
 ```
 
-### Requested headers are not
-
-allowed
+### Requested headers are not allowed
 
 The headers listed in the `Access-Control-Request-Headers` header in a
 pre-flight request must match the headers in the `AllowedHeaders` element
@@ -202,9 +195,7 @@ To ensure all headers appear in the response, add all permitted headers to the `
 ]
 ```
 
-## Considerations of CORS on S3 proxy
-
-integrations
+## Considerations of CORS on S3 proxy integrations
 
 If you are experiencing errors and have already checked the CORS configuration on your
 S3 bucket, and the cross-origin request is sent to proxies such as AWS CloudFront, try

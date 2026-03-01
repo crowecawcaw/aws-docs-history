@@ -32,21 +32,16 @@ For more information about each option for server-side encryption, see [Protecti
 
 To configure server-side encryption, see:
 
-    + [Specifying server-side encryption with Amazon S3 managed
-     keys (SSE-S3)](specifying-s3-encryption.md "specifying-s3-encryption.md")
-    + [Specifying server-side encryption with AWS KMS
-     (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md")
-    + [Specifying dual-layer server-side encryption with AWS KMS
-     keys (DSSE-KMS)](specifying-dsse-encryption.md "specifying-dsse-encryption.md")
-    + [Specifying server-side encryption with
-     customer-provided keys (SSE-C)](specifying-s3-c-encryption.md "specifying-s3-c-encryption.md")
+    + [Specifying server-side encryption with Amazon S3 managed keys (SSE-S3)](specifying-s3-encryption.md "specifying-s3-encryption.md")
+    + [Specifying server-side encryption with AWS KMS (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md")
+    + [Specifying dual-layer server-side encryption with AWS KMS keys (DSSE-KMS)](specifying-dsse-encryption.md "specifying-dsse-encryption.md")
+    + [Specifying server-side encryption with customer-provided keys (SSE-C)](specifying-s3-c-encryption.md "specifying-s3-c-encryption.md")
 
 - **Client-side encryption** – You encrypt your data
   client-side and upload the encrypted data to Amazon S3. In this case, you manage the
   encryption process, encryption keys, and related tools.
 
-To configure client-side encryption, see [Protecting data by using client-side
-encryption](UsingClientSideEncryption.md "UsingClientSideEncryption.md").
+To configure client-side encryption, see [Protecting data by using client-side encryption](UsingClientSideEncryption.md "UsingClientSideEncryption.md").
 To see which percentage of your storage bytes are encrypted, you can use Amazon S3 Storage Lens
 metrics. S3 Storage Lens is a cloud-storage analytics feature that you can use to gain organization-wide
 visibility into object-storage usage and activity. For more information, see [Assessing your storage activity and usage with S3 Storage Lens](storage_lens.md "storage_lens.md"). For a complete list of metrics, see [S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md").
@@ -57,7 +52,5 @@ transit, review the following topics.
 ###### Topics
 
 - [Protecting data with server-side encryption](serv-side-encryption.md "serv-side-encryption.md")
-- [Protecting data by using client-side
-  encryption](UsingClientSideEncryption.md "UsingClientSideEncryption.md")
-- [Protecting data in transit with
-  encryption](UsingEncryptionInTransit.md "UsingEncryptionInTransit.md")
+- [Protecting data by using client-side encryption](UsingClientSideEncryption.md "UsingClientSideEncryption.md")
+- [Protecting data in transit with encryption](UsingEncryptionInTransit.md "UsingEncryptionInTransit.md")

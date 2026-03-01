@@ -24,8 +24,7 @@ pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"
 
 There are potential costs associated with lifecycle expiration only when you
 expire objects in a storage class with a minimum storage duration. For more
-information, see [Minimum storage duration
-charge](lifecycle-expire-general-considerations.md#lifecycle-expire-minimum-storage "lifecycle-expire-general-considerations.md#lifecycle-expire-minimum-storage").
+information, see [Minimum storage duration charge](lifecycle-expire-general-considerations.md#lifecycle-expire-minimum-storage "lifecycle-expire-general-considerations.md#lifecycle-expire-minimum-storage").
 
 ###### Important
 
@@ -66,12 +65,9 @@ pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"
 
 ###### Monitoring the effect of lifecycle rules
 
-To monitor the effect of updates made by active lifecycle rules, see [How do I monitor the actions taken by my
-lifecycle rules?](troubleshoot-lifecycle.md#troubleshoot-lifecycle-2 "troubleshoot-lifecycle.md#troubleshoot-lifecycle-2").
+To monitor the effect of updates made by active lifecycle rules, see [How do I monitor the actions taken by my lifecycle rules?](troubleshoot-lifecycle.md#troubleshoot-lifecycle-2 "troubleshoot-lifecycle.md#troubleshoot-lifecycle-2").
 
-## Managing the complete lifecycle of
-
-objects
+## Managing the complete lifecycle of objects
 
 With S3 Lifecycle configuration rules you can tell Amazon S3 to transition objects to
 less-expensive storage classes, archive or delete them. For example:
@@ -101,17 +97,12 @@ on storage costs. For more information about cost considerations, see [Amazon S3
 
 ###### Topics
 
-- [Transitioning objects
-  using Amazon S3 Lifecycle](lifecycle-transition-general-considerations.md "lifecycle-transition-general-considerations.md")
+- [Transitioning objects using Amazon S3 Lifecycle](lifecycle-transition-general-considerations.md "lifecycle-transition-general-considerations.md")
 - [Expiring objects](lifecycle-expire-general-considerations.md "lifecycle-expire-general-considerations.md")
-- [Setting an S3 Lifecycle configuration on a
-  bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md")
-- [How S3 Lifecycle interacts with other
-  bucket configurations](lifecycle-and-other-bucket-config.md "lifecycle-and-other-bucket-config.md")
-- [Configuring S3 Lifecycle event
-  notifications](lifecycle-configure-notification.md "lifecycle-configure-notification.md")
+- [Setting an S3 Lifecycle configuration on a bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md")
+- [How S3 Lifecycle interacts with other bucket configurations](lifecycle-and-other-bucket-config.md "lifecycle-and-other-bucket-config.md")
+- [Configuring S3 Lifecycle event notifications](lifecycle-configure-notification.md "lifecycle-configure-notification.md")
 - [Lifecycle configuration elements](intro-lifecycle-rules.md "intro-lifecycle-rules.md")
 - [How Amazon S3 handles conflicts in lifecycle configurations](lifecycle-conflicts.md "lifecycle-conflicts.md")
-- [Examples of S3 Lifecycle
-  configurations](lifecycle-configuration-examples.md "lifecycle-configuration-examples.md")
+- [Examples of S3 Lifecycle configurations](lifecycle-configuration-examples.md "lifecycle-configuration-examples.md")
 - [Troubleshooting Amazon S3 Lifecycle issues](troubleshoot-lifecycle.md "troubleshoot-lifecycle.md")

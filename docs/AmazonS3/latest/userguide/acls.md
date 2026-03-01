@@ -19,8 +19,7 @@ exclusively by using access-management policies.
 A majority of modern use cases in Amazon S3 no longer require the use of ACLs. We recommend that you keep ACLs disabled, except
 in circumstances where you need to control access for each object individually. With ACLs disabled, you can use policies
 to control access to all objects in your bucket, regardless of who uploaded the objects to your bucket.
-For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 ###### Important
 

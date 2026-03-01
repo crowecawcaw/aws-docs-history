@@ -17,9 +17,7 @@ that a principal needs permission from both the identity-based policy (attached 
 user/role) and the resource-based policy (attached to the bucket) to perform an action,
 unless the resource-based policy explicitly grants the permission.
 
-## Example 1: Cross-account
-
-access policy
+## Example 1: Cross-account access policy
 
 This policy demonstrates how to grant specific permissions to users from different
 AWS accounts:
@@ -50,9 +48,7 @@ AWS accounts:
 }
 ```
 
-## Example 2: Deny
-
-vector index level actions
+## Example 2: Deny vector index level actions
 
 This policy demonstrates how to deny specific vector index level actions to an IAM
 role:
@@ -83,9 +79,7 @@ role:
 }
 ```
 
-## Example 3: Deny
-
-modification operations at both vector index and bucket levels
+## Example 3: Deny modification operations at both vector index and bucket levels
 
 This policy demonstrates how to deny modification requests for both vector index and
 bucket-level actions by specifying multiple resources:

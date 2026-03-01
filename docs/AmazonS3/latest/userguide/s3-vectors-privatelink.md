@@ -14,9 +14,7 @@ User Guide](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VP
 see [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the
 _AWS PrivateLink Guide_.
 
-## Benefits of using PrivateLink
-
-with S3 Vectors
+## Benefits of using PrivateLink with S3 Vectors
 
 Using PrivateLink with S3 Vectors provides several security and operational
 benefits:
@@ -34,9 +32,7 @@ benefits:
   requirements that mandate private network connectivity for sensitive
   data.
 
-## VPC endpoint DNS names and
-
-resolution
+## VPC endpoint DNS names and resolution
 
 When you
 create a VPC endpoint, S3 Vectors generates two types of endpoint-specific DNS names: Regional and Zonal.
@@ -61,9 +57,7 @@ You can also use the DNS name of the public endpoint
 DNS name of the endpoint service if you have private DNS enabled for the VPC
 endpoint.
 
-## IP addressing for interface
-
-endpoints
+## IP addressing for interface endpoints
 
 S3 Vectors regional, zonal, and private DNS endpoints support
 IPv4, IPv6, and dualstack IP types for AWS PrivateLink. For more information, see [IP address types](../../../vpc/latest/privatelink/privatelink-access-aws-services.md#aws-service-ip-address-type "../../../vpc/latest/privatelink/privatelink-access-aws-services.md#aws-service-ip-address-type") and [DNS record IP type for AWS services](../../../vpc/latest/privatelink/privatelink-access-aws-services.md#aws-services-dns-record-ip-type "../../../vpc/latest/privatelink/privatelink-access-aws-services.md#aws-services-dns-record-ip-type") in the
@@ -83,12 +77,9 @@ vector indexes and vector buckets over IPv6 in your VPC:
   _AWS PrivateLink Guide_.
 - If you use IP address filtering IAM policies, they must be updated to handle
   IPv6 addresses. For more information about managing access permissions with
-  IAM, see [Identity and Access management in
-  S3 Vectors](s3-vectors-access-management.md "s3-vectors-access-management.md").
+  IAM, see [Identity and Access management in S3 Vectors](s3-vectors-access-management.md "s3-vectors-access-management.md").
 
-## Creating a VPC interface endpoint for
-
-S3 Vectors
+## Creating a VPC interface endpoint for S3 Vectors
 
 You can create a VPC interface endpoint for S3 Vectors using the VPC console, AWS
 CLI, AWS SDKs, or AWS API.
@@ -156,18 +147,14 @@ route through your VPC endpoint.
 
 For more information about creating VPC endpoints, see [Create a VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the _VPC User Guide_.
 
-## VPC endpoint policies for
-
-S3 Vectors
+## VPC endpoint policies for S3 Vectors
 
 Similar to resource-based policies, you can attach an endpoint policy to your VPC endpoint to
 control access to vector indexes and vector buckets. For more information about the endpoint policies, see [Control
 access to VPC endpoints using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the
 AWS PrivateLink Guide.
 
-### Example VPC endpoint
-
-policies
+### Example VPC endpoint policies
 
 The following example VPC endpoint policy allows access to all S3 Vectors
 operations for all principals:
@@ -239,9 +226,7 @@ using the `aws:CurrentTime` condition key:
 }
 ```
 
-## Configuring S3 Vectors
-
-clients for VPC endpoints
+## Configuring S3 Vectors clients for VPC endpoints
 
 When using VPC endpoints with S3 Vectors, you can configure your S3 Vectors clients
 to use either the service DNS name or the VPC endpoint DNS name.
@@ -268,9 +253,7 @@ s3vectors_client = boto3.client(
 )
 ```
 
-## Troubleshooting VPC
-
-endpoints
+## Troubleshooting VPC endpoints
 
 If you're experiencing issues with your interface VPC endpoint, consider the
 following troubleshooting steps:
@@ -290,9 +273,7 @@ following troubleshooting steps:
   feature is disabled, configure your S3 Vectors client to use the VPC endpoint
   DNS name instead of the service DNS name.
 
-## Monitoring VPC endpoint
-
-usage
+## Monitoring VPC endpoint usage
 
 You can monitor your S3 Vectors VPC endpoint usage through
 CloudTrail [NetworkActivity](../../../awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.md") events logs.

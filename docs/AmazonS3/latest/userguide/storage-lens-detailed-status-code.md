@@ -1,6 +1,4 @@
-# Using S3 Storage Lens metrics to improve
-
-performance
+# Using S3 Storage Lens metrics to improve performance
 
 If you have [S3 Storage Lens advanced
 metrics](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_selection") enabled, you can use detailed status-code metrics to get counts for
@@ -32,16 +30,11 @@ then select **Detailed status code metrics**. For more information, see
 
 ###### Topics
 
-- [Step 1: Do a trend analysis
-  for an individual HTTP status code](#storage-lens-detailed-status-code-step1 "#storage-lens-detailed-status-code-step1")
-- [Step 2: Analyze error counts
-  by bucket](#storage-lens-detailed-status-code-step2 "#storage-lens-detailed-status-code-step2")
-- [Step 3: Troubleshoot
-  errors](#storage-lens-detailed-status-code-step3 "#storage-lens-detailed-status-code-step3")
+- [Step 1: Do a trend analysis for an individual HTTP status code](#storage-lens-detailed-status-code-step1 "#storage-lens-detailed-status-code-step1")
+- [Step 2: Analyze error counts by bucket](#storage-lens-detailed-status-code-step2 "#storage-lens-detailed-status-code-step2")
+- [Step 3: Troubleshoot errors](#storage-lens-detailed-status-code-step3 "#storage-lens-detailed-status-code-step3")
 
-## Step 1: Do a trend analysis
-
-for an individual HTTP status code
+## Step 1: Do a trend analysis for an individual HTTP status code
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -62,9 +55,7 @@ for an individual HTTP status code
 The **Top N overview for _date_** section updates to display the top 403 Forbidden
 error counts by account, AWS Region, and bucket.
 
-## Step 2: Analyze error counts
-
-by bucket
+## Step 2: Analyze error counts by bucket
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -93,9 +84,7 @@ number of buckets that you specified. You can use this information to identify
 specific buckets that are experiencing many errors and troubleshoot errors by
 bucket.
 
-## Step 3: Troubleshoot
-
-errors
+## Step 3: Troubleshoot errors
 
 After you identify buckets with a high proportion of specific HTTP status codes, you
 can troubleshoot these errors. For more information, see the following:

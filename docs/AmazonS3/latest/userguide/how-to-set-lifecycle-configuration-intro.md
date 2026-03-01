@@ -1,6 +1,4 @@
-# Setting an S3 Lifecycle configuration on a
-
-bucket
+# Setting an S3 Lifecycle configuration on a bucket
 
 You can set an Amazon S3 Lifecycle configuration on a bucket by using the Amazon S3 console,
 the AWS Command Line Interface (AWS CLI), the AWS SDKs, or the Amazon S3 REST API. For information about
@@ -8,8 +6,7 @@ S3 Lifecycle configuration, see [Managing the lifecycle of objects](object-lifec
 
 ###### Note
 
-To view or edit the lifecycle configuration for a directory bucket, use the AWS CLI, AWS SDKs, or the Amazon S3 REST API. For more information, see [Working with S3 Lifecycle for
-directory buckets](directory-buckets-objects-lifecycle.md "directory-buckets-objects-lifecycle.md").
+To view or edit the lifecycle configuration for a directory bucket, use the AWS CLI, AWS SDKs, or the Amazon S3 REST API. For more information, see [Working with S3 Lifecycle for directory buckets](directory-buckets-objects-lifecycle.md "directory-buckets-objects-lifecycle.md").
 
 In your S3 Lifecycle configuration, you use _lifecycle
 rules_ to define actions that you want Amazon S3 to take during an object's
@@ -37,8 +34,7 @@ might not actually delete these objects until days or even weeks later. This del
 occurs because S3 Lifecycle queues objects for transitions or expirations asynchronously.
 However, changes in billing are usually applied when the lifecycle rule is satisfied,
 even if the action isn't complete. For more information, see [Changes in billing](#lifecycle-billing "#lifecycle-billing"). To monitor the effect of
-updates made by active lifecycle rules, see [How do I monitor the actions taken by my
-lifecycle rules?](troubleshoot-lifecycle.md#troubleshoot-lifecycle-2 "troubleshoot-lifecycle.md#troubleshoot-lifecycle-2")
+updates made by active lifecycle rules, see [How do I monitor the actions taken by my lifecycle rules?](troubleshoot-lifecycle.md#troubleshoot-lifecycle-2 "troubleshoot-lifecycle.md#troubleshoot-lifecycle-2")
 
 ###### Updating, disabling, or deleting lifecycle rules
 
@@ -64,8 +60,7 @@ prefix.
 
 ###### Monitoring the effect of lifecycle rules
 
-To monitor the effect of updates made by active lifecycle rules, see [How do I monitor the actions taken by my
-lifecycle rules?](troubleshoot-lifecycle.md#troubleshoot-lifecycle-2 "troubleshoot-lifecycle.md#troubleshoot-lifecycle-2")
+To monitor the effect of updates made by active lifecycle rules, see [How do I monitor the actions taken by my lifecycle rules?](troubleshoot-lifecycle.md#troubleshoot-lifecycle-2 "troubleshoot-lifecycle.md#troubleshoot-lifecycle-2")
 
 ###### Changes in billing
 
@@ -96,12 +91,9 @@ these general rules:
   S3 Standard-IA (or an S3 One Zone-IA) transition, Amazon S3 chooses the
   S3 Glacier Flexible Retrieval transition.
 
-For examples, see [Examples of overlapping filters and
-conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
+For examples, see [Examples of overlapping filters and conflicting lifecycle actions](lifecycle-conflicts.md#lifecycle-config-conceptual-ex5 "lifecycle-conflicts.md#lifecycle-config-conceptual-ex5").
 
-## How to set an S3 Lifecycle
-
-configuration
+## How to set an S3 Lifecycle configuration
 
 You can set an Amazon S3 Lifecycle configuration on a general purpose bucket by using the Amazon S3 console,
 the AWS Command Line Interface (AWS CLI), the AWS SDKs, or the Amazon S3 REST API.
@@ -176,8 +168,7 @@ The name must be unique within the bucket. 6. Choose the scope of the lifecycle 
 
         For buckets that don't have [S3 Versioning](Versioning.md "Versioning.md")
          enabled, expiring current versions causes Amazon S3 to permanently delete the objects. For
-         more information, see [Lifecycle actions and
-         bucket versioning state](intro-lifecycle-rules.md#lifecycle-actions-bucket-versioning-state "intro-lifecycle-rules.md#lifecycle-actions-bucket-versioning-state").
+         more information, see [Lifecycle actions and bucket versioning state](intro-lifecycle-rules.md#lifecycle-actions-bucket-versioning-state "intro-lifecycle-rules.md#lifecycle-actions-bucket-versioning-state").
         * Permanently delete *previous* versions of
          objects
         * Delete expired delete markers or incomplete multipart uploads
@@ -188,8 +179,7 @@ The name must be unique within the bucket. 6. Choose the scope of the lifecycle 
     storage classes, under **Transition current versions of objects between storage
     classes**, do the following:
     1. In **Storage class transitions**, choose the storage class to
-       transition to. For a list of possible transitions, see [Supported lifecycle
-       transitions](lifecycle-transition-general-considerations.md#supported-lifecycle-transitions "lifecycle-transition-general-considerations.md#supported-lifecycle-transitions"). You can choose from the following storage
+       transition to. For a list of possible transitions, see [Supported lifecycle transitions](lifecycle-transition-general-considerations.md#supported-lifecycle-transitions "lifecycle-transition-general-considerations.md#supported-lifecycle-transitions"). You can choose from the following storage
        classes:
        - S3 Standard-IA
        - S3 Intelligent-Tiering
@@ -208,14 +198,12 @@ The name must be unique within the bucket. 6. Choose the scope of the lifecycle 
 
 When you choose the S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, or
 Glacier Deep Archive storage class, your objects remain in Amazon S3. You cannot access them
-directly through the separate Amazon Glacier service. For more information, see [Transitioning objects
-using Amazon S3 Lifecycle](lifecycle-transition-general-considerations.md "lifecycle-transition-general-considerations.md"). 10. To transition _noncurrent_ versions of objects between
+directly through the separate Amazon Glacier service. For more information, see [Transitioning objects using Amazon S3 Lifecycle](lifecycle-transition-general-considerations.md "lifecycle-transition-general-considerations.md"). 10. To transition _noncurrent_ versions of objects between
 storage classes, under **Transition noncurrent versions of objects between storage
 classes**, do the following:
 
     1. In **Storage class transitions**, choose the storage class to
-     transition to. For a list of possible transitions, see [Supported lifecycle
-     transitions](lifecycle-transition-general-considerations.md#supported-lifecycle-transitions "lifecycle-transition-general-considerations.md#supported-lifecycle-transitions"). You can choose from the following storage
+     transition to. For a list of possible transitions, see [Supported lifecycle transitions](lifecycle-transition-general-considerations.md#supported-lifecycle-transitions "lifecycle-transition-general-considerations.md#supported-lifecycle-transitions"). You can choose from the following storage
      classes:
 
 
@@ -237,8 +225,7 @@ classes**, do the following:
 ###### Important
 
 In a nonversioned bucket, the expiration action results in Amazon S3 permanently removing
-the object. For more information about lifecycle actions, see [Elements to describe lifecycle
-actions](intro-lifecycle-rules.md#intro-lifecycle-rules-actions "intro-lifecycle-rules.md#intro-lifecycle-rules-actions"). 12. To permanently delete previous versions of objects, under **Permanently delete
+the object. For more information about lifecycle actions, see [Elements to describe lifecycle actions](intro-lifecycle-rules.md#intro-lifecycle-rules-actions "intro-lifecycle-rules.md#intro-lifecycle-rules-actions"). 12. To permanently delete previous versions of objects, under **Permanently delete
 noncurrent versions of objects**, in **Days after objects become
 noncurrent**, enter the number of days. You can optionally specify the number of
 newer versions to retain by entering a value under **Number of newer versions to

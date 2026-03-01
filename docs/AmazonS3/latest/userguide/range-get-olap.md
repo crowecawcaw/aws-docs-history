@@ -1,6 +1,4 @@
-# Working with Range and
-
-partNumber headers
+# Working with Range and partNumber headers
 
 ###### Note
 
@@ -35,9 +33,7 @@ query parameters.
 To enable an Object Lambda Access Point to accept such requests, you must include `GetObject-Range`, `GetObject-PartNumber`, `HeadObject-Range`, or `HeadObject-PartNumber` in the `AllowedFeatures` section of your Object Lambda Access Point configuration. For more information about
 updating your Object Lambda Access Point configuration, see [Creating Object Lambda Access Points](olap-create.md "olap-create.md").
 
-## Step 2: Implement `Range` or
-
-`partNumber` handling in your Lambda function
+## Step 2: Implement `Range` or `partNumber` handling in your Lambda function
 
 When your Object Lambda Access Point invokes your Lambda function with a ranged `GetObject` or
 `HeadObject` request, the `Range` or `partNumber`

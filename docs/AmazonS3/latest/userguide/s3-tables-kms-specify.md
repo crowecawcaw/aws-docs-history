@@ -1,6 +1,4 @@
-# Specifying server-side encryption with AWS KMS keys
-
-(SSE-KMS) in table buckets
+# Specifying server-side encryption with AWS KMS keys (SSE-KMS) in table buckets
 
 All Amazon S3 table buckets have encryption configured by default, and all new tables created
 in an table bucket are automatically encrypted at rest. Server-side encryption with Amazon S3
@@ -18,9 +16,7 @@ To allow automatic maintenance on SSE-KMS encrypted tables and table buckets you
 grant the maintenance.s3tables.amazonaws.com service principal permission to use your
 KMS key. For more information, see [Permission requirements for S3 Tables SSE-KMS encryption](s3-tables-kms-permissions.md "s3-tables-kms-permissions.md").
 
-## Specifying encryption for table
-
-buckets
+## Specifying encryption for table buckets
 
 You can specify SSE-KMS as the default encryption type when you create a new table
 bucket, for examples, see [Creating a table bucket](s3-tables-buckets-create.md "s3-tables-buckets-create.md"). After creating a table bucket, you can
@@ -29,7 +25,7 @@ AWS SDKs, and the AWS Command Line Interface (AWS CLI).
 
 ###### Note
 
-When you specify SSE-KMS as the default encryption type, the key you use for encryption must allow access to the S3 Tables maintenance service principal. If the maintenance service principal does not have access, you will be unable to create tables in that table bucket. For more information, see [Granting the S3 Tables maintenance service principal permissions to your KMS key](s3-tables-kms-permissions.md#tables-kms-maintenance-permissions "s3-tables-kms-permissions.md#tables-kms-maintenance-permissions") .
+When you specify SSE-KMS as the default encryption type, the key you use for encryption must allow access to the S3 Tables maintenance service principal. If the maintenance service principal does not have access, you will be unable to create tables in that table bucket. For more information, see [Granting the S3 Tables maintenance service principal permissions to your KMS key](s3-tables-kms-permissions.md#tables-kms-maintenance-permissions "s3-tables-kms-permissions.md#tables-kms-maintenance-permissions").
 
 To use the following example AWS CLI command, replace the `user input placeholders` with your own information.
 
@@ -58,7 +54,7 @@ the table bucket.
 
 ###### Note
 
-When you use SSE-KMS encryption for a table the key you use for encryption must allow the S3 Tables maintenance service principal to access it. If the maintenance service principal does not have access, you will be unable to create the table. For more information, see [Granting the S3 Tables maintenance service principal permissions to your KMS key](s3-tables-kms-permissions.md#tables-kms-maintenance-permissions "s3-tables-kms-permissions.md#tables-kms-maintenance-permissions") .
+When you use SSE-KMS encryption for a table the key you use for encryption must allow the S3 Tables maintenance service principal to access it. If the maintenance service principal does not have access, you will be unable to create the table. For more information, see [Granting the S3 Tables maintenance service principal permissions to your KMS key](s3-tables-kms-permissions.md#tables-kms-maintenance-permissions "s3-tables-kms-permissions.md#tables-kms-maintenance-permissions").
 
 ###### **Required permissions**
 

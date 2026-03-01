@@ -117,12 +117,10 @@ topics.
 - [Deleting a directory bucket](directory-bucket-delete.md "directory-bucket-delete.md")
 - [Listing directory buckets](directory-buckets-objects-ListExamples.md "directory-buckets-objects-ListExamples.md")
 - [Determining whether you can access a directory bucket](directory-buckets-objects-HeadExamples.md "directory-buckets-objects-HeadExamples.md")
-- [Working with objects in a directory
-  bucket](directory-buckets-objects.md "directory-buckets-objects.md")
+- [Working with objects in a directory bucket](directory-buckets-objects.md "directory-buckets-objects.md")
 - [Security for directory buckets](s3-express-security.md "s3-express-security.md")
 - [Managing access to shared datasets in directory buckets with access points](access-points-directory-buckets.md "access-points-directory-buckets.md")
-- [Optimizing directory bucket
-  performance](s3-express-optimizing-performance.md "s3-express-optimizing-performance.md")
+- [Optimizing directory bucket performance](s3-express-optimizing-performance.md "s3-express-optimizing-performance.md")
 - [Developing with directory buckets](s3-express-developing.md "s3-express-developing.md")
 - [Using tags with S3 directory buckets](directory-buckets-tagging.md "directory-buckets-tagging.md")
 - [Resilience testing in S3 Express One Zone](s3-express-fis.md "s3-express-fis.md")

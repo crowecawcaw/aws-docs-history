@@ -44,8 +44,7 @@ AWS SDKs, the Amazon S3 REST API, and the AWS Command Line Interface (AWS CLI).
    These examples show you how to configure default encryption by using SSE-S3 or by using
    SSE-KMS with an S3 Bucket Key.
 
-For more information about default encryption, see [Setting default server-side encryption behavior for Amazon S3
-buckets](bucket-encryption.md "bucket-encryption.md"). For more information about using the AWS CLI to
+For more information about default encryption, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md"). For more information about using the AWS CLI to
 configure default encryption, see [put-bucket-encryption](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-encryption.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-encryption.html").
 
 ###### Example– Default encryption with SSE-S3
@@ -159,11 +158,9 @@ For working code examples of uploading an object, see the following topics. To
 use these examples, you must update the code examples and provide encryption
 information as shown in the preceding code fragment.
 
-- For uploading an object in a single operation, see [Uploading objects to a directory
-  bucket](directory-buckets-objects-upload.md "directory-buckets-objects-upload.md").
+- For uploading an object in a single operation, see [Uploading objects to a directory bucket](directory-buckets-objects-upload.md "directory-buckets-objects-upload.md").
 - For multipart upload
-  API operations, see [Using multipart uploads with
-  directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md").
+  API operations, see [Using multipart uploads with directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md").
 
 .NET
 With the AWS SDK for .NET, you can request Amazon S3 to use an
@@ -223,15 +220,11 @@ For working code examples of uploading an object, see the following topics. To
 use these examples, you must update the code examples and provide encryption
 information as shown in the preceding code fragment.
 
-- For uploading an object in a single operation, see [Uploading objects to a directory
-  bucket](directory-buckets-objects-upload.md "directory-buckets-objects-upload.md").
+- For uploading an object in a single operation, see [Uploading objects to a directory bucket](directory-buckets-objects-upload.md "directory-buckets-objects-upload.md").
 - For multipart upload
-  API operations, see [Using multipart uploads with
-  directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md").
+  API operations, see [Using multipart uploads with directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md").
 
-## Monitoring default encryption for directory buckets with
-
-AWS CloudTrail
+## Monitoring default encryption for directory buckets with AWS CloudTrail
 
 You can track default encryption configuration requests for Amazon S3 directory buckets by using AWS CloudTrail
 events. The following API event names are used in CloudTrail logs:
@@ -246,5 +239,4 @@ events. The following API event names are used in CloudTrail logs:
 - Dual-layer server-side encryption with AWS Key Management Service (AWS KMS) keys (DSSE-KMS) or server-side encryption with customer-provided encryption keys (SSE-C) aren't supported in directory buckets.
 
 For more information about monitoring default encryption with
-AWS CloudTrail, see [Monitoring default encryption with
-AWS CloudTrail and Amazon EventBridge](bucket-encryption-tracking.md "bucket-encryption-tracking.md").
+AWS CloudTrail, see [Monitoring default encryption with AWS CloudTrail and Amazon EventBridge](bucket-encryption-tracking.md "bucket-encryption-tracking.md").

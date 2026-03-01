@@ -28,8 +28,7 @@ To avoid 404 errors, we recommend that you configure S3 Cross-Region Replication
 object that you want is in a bucket in the Multi-Region Access Point, but it's not located in the
 specific bucket that your request was routed to. For more information about
 configuring replication, see
-[Configuring replication for use
-with Multi-Region Access Points](MultiRegionAccessPointBucketReplication.md "MultiRegionAccessPointBucketReplication.md").
+[Configuring replication for use with Multi-Region Access Points](MultiRegionAccessPointBucketReplication.md "MultiRegionAccessPointBucketReplication.md").
 
 To
 ensure that your requests are fulfilled by using the specific objects that you want,
@@ -48,5 +47,4 @@ that you are looking for. Versioning-enabled buckets can also help you recover o
   the lowest latency, you can use CRR with bidirectional (two-way) replication. Using
   CRR with two-way replication keeps the contents of all the buckets that are
   associated with the Multi-Region Access Point synchronized. For more information
-  about using replication with Multi-Region Access Points, see [Configuring replication for use
-  with Multi-Region Access Points](MultiRegionAccessPointBucketReplication.md "MultiRegionAccessPointBucketReplication.md").
+  about using replication with Multi-Region Access Points, see [Configuring replication for use with Multi-Region Access Points](MultiRegionAccessPointBucketReplication.md "MultiRegionAccessPointBucketReplication.md").

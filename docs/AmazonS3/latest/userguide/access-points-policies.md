@@ -34,8 +34,7 @@ Permissions granted in an access point policy are effective only if the underlyi
 also allows the same access. You can accomplish this in two ways:
 
 1. **(Recommended)** Delegate access control
-   from the bucket to the access point, as described in [Delegating access control to
-   access points](#access-points-delegating-control "#access-points-delegating-control").
+   from the bucket to the access point, as described in [Delegating access control to access points](#access-points-delegating-control "#access-points-delegating-control").
 2. Add the same permissions contained in the access point policy to the underlying
    bucket's policy. The Example 1 access point policy example demonstrates how to
    modify the underlying bucket policy to allow the necessary access.
@@ -73,8 +72,7 @@ JSON
 For the access point policy to effectively grant access to
 `Jane`, the underlying bucket must also
 allow the same access to `Jane`. You can
-delegate access control from the bucket to the access point as described in [Delegating access control to
-access points](#access-points-delegating-control "#access-points-delegating-control"). Or, you can add the
+delegate access control from the bucket to the access point as described in [Delegating access control to access points](#access-points-delegating-control "#access-points-delegating-control"). Or, you can add the
 following policy to the underlying bucket to grant the necessary permissions to
 Jane. Note that the `Resource` entry differs between the access point and bucket
 policies.
@@ -244,8 +242,7 @@ JSON
 
 S3 access points have condition keys that you can use in IAM policies to control access to
 your resources. The following condition keys represent only part of an IAM policy. For
-full policy examples, see [Policy examples for access points](#access-points-policy-examples "#access-points-policy-examples"), [Delegating access control to
-access points](#access-points-delegating-control "#access-points-delegating-control"), and [Granting permissions for cross-account access points](#access-points-cross-account "#access-points-cross-account").
+full policy examples, see [Policy examples for access points](#access-points-policy-examples "#access-points-policy-examples"), [Delegating access control to access points](#access-points-delegating-control "#access-points-delegating-control"), and [Granting permissions for cross-account access points](#access-points-cross-account "#access-points-cross-account").
 
 **`s3:DataAccessPointArn`**
 
@@ -296,9 +293,7 @@ Reference_.
 
 For more information about the permissions to S3 API operations by S3 resource types, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md").
 
-## Delegating access control to
-
-access points
+## Delegating access control to access points
 
 You can delegate access control for a bucket to the bucket's access points. The following
 example bucket policy allows full access to all access points that are owned by the bucket

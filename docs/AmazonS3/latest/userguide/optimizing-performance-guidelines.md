@@ -10,17 +10,12 @@ guidelines.
 ###### Topics
 
 - [Measure performance](#optimizing-performance-guidelines-measure "#optimizing-performance-guidelines-measure")
-- [Scale storage connections
-  horizontally](#optimizing-performance-guidelines-scale "#optimizing-performance-guidelines-scale")
+- [Scale storage connections horizontally](#optimizing-performance-guidelines-scale "#optimizing-performance-guidelines-scale")
 - [Use byte-range fetches](#optimizing-performance-guidelines-get-range "#optimizing-performance-guidelines-get-range")
-- [Retry requests for
-  latency-sensitive applications](#optimizing-performance-guidelines-retry "#optimizing-performance-guidelines-retry")
-- [Combine Amazon S3 (Storage) and Amazon EC2
-  (compute) in the same AWS Region](#optimizing-performance-guidelines-combine "#optimizing-performance-guidelines-combine")
-- [Use Amazon S3 Transfer
-  Acceleration to minimize latency caused by distance](#optimizing-performance-guidelines-acceleration "#optimizing-performance-guidelines-acceleration")
-- [Use the latest version of the AWS
-  SDKs](#optimizing-performance-guidelines-sdk "#optimizing-performance-guidelines-sdk")
+- [Retry requests for latency-sensitive applications](#optimizing-performance-guidelines-retry "#optimizing-performance-guidelines-retry")
+- [Combine Amazon S3 (Storage) and Amazon EC2 (compute) in the same AWS Region](#optimizing-performance-guidelines-combine "#optimizing-performance-guidelines-combine")
+- [Use Amazon S3 Transfer Acceleration to minimize latency caused by distance](#optimizing-performance-guidelines-acceleration "#optimizing-performance-guidelines-acceleration")
+- [Use the latest version of the AWS SDKs](#optimizing-performance-guidelines-sdk "#optimizing-performance-guidelines-sdk")
 
 ## Measure performance
 
@@ -42,16 +37,13 @@ To monitor the number of 503 status error responses that you get, you can use on
 - Use Amazon CloudWatch request metrics for Amazon S3. The CloudWatch request metrics include a metric for 5xx status responses. For more information about
   CloudWatch request metrics, see [Monitoring metrics with Amazon CloudWatch](cloudwatch-monitoring.md "cloudwatch-monitoring.md").
 - Use the 503 (Service Unavailable) error count available in the advanced metrics section of Amazon S3 Storage Lens.
-  For more information, see [Using S3 Storage Lens metrics to improve
-  performance](storage-lens-detailed-status-code.md "storage-lens-detailed-status-code.md").
+  For more information, see [Using S3 Storage Lens metrics to improve performance](storage-lens-detailed-status-code.md "storage-lens-detailed-status-code.md").
 - Use Amazon S3 server access logging. With server access logging, you can filter and review all requests that receive 503 (Internal Error) responses. You can also use Amazon Athena to parse logs.
   For more information about server access logging, see [Logging requests with server access logging](ServerLogs.md "ServerLogs.md").
 
 By monitoring the number of HTTP 503 status error code, you can often gain valuable insights into which prefixes, keys, or buckets are getting the most throttling requests.
 
-## Scale storage connections
-
-horizontally
+## Scale storage connections horizontally
 
 Spreading requests across many connections is a common design pattern to horizontally
 scale performance. When you build high performance applications, think of Amazon S3 as a very
@@ -73,18 +65,14 @@ If objects are PUT using a multipart upload, it’s a good practice to GET them 
 same part sizes (or at least aligned to part boundaries) for best performance. GET requests
 can directly address individual parts; for example, `GET ?partNumber=N.`
 
-## Retry requests for
-
-latency-sensitive applications
+## Retry requests for latency-sensitive applications
 
 Aggressive timeouts and retries help drive consistent latency. Given the large scale of
 Amazon S3, if the first request is slow, a retried request is likely to take a different path and
 quickly succeed. The AWS SDKs have configurable timeout and retry values that you can tune
 to the tolerances of your specific application.
 
-## Combine Amazon S3 (Storage) and Amazon EC2
-
-(compute) in the same AWS Region
+## Combine Amazon S3 (Storage) and Amazon EC2 (compute) in the same AWS Region
 
 Although S3 bucket names are globally unique, each bucket is stored in a Region that you
 select when you create the bucket. To learn more about bucket naming guidelines, see [Buckets
@@ -95,12 +83,9 @@ costs.
 
 For more information about data transfer costs, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-## Use Amazon S3 Transfer
+## Use Amazon S3 Transfer Acceleration to minimize latency caused by distance
 
-Acceleration to minimize latency caused by distance
-
-[Configuring fast, secure file transfers using
-Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md") manages
+[Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md") manages
 fast, easy, and secure transfers of files over long geographic distances between the client
 and an S3 bucket. Transfer Acceleration takes advantage of the globally distributed edge
 locations in [Amazon CloudFront](../../../cloudfront/index.md "../../../cloudfront/index.md"). As the
@@ -114,9 +99,7 @@ non-accelerated upload speeds across Amazon S3 Regions. The Speed Comparison too
 uploads to transfer a file from your browser to various Amazon S3 Regions with and without using
 Amazon S3 Transfer Acceleration.
 
-## Use the latest version of the AWS
-
-SDKs
+## Use the latest version of the AWS SDKs
 
 The AWS SDKs provide built-in support for many of the recommended guidelines for
 optimizing Amazon S3 performance. The SDKs provide a simpler API for taking advantage of Amazon S3

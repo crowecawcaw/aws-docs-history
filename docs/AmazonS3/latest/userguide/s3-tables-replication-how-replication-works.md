@@ -1,6 +1,4 @@
-# How S3 Tables replication
-
-works
+# How S3 Tables replication works
 
 S3 Tables replication creates read-only replicas of your Apache Iceberg tables across Regions
 and AWS accounts. Replica tables are maintained automatically by the S3 Tables service and
@@ -22,8 +20,7 @@ When you configure replication for a table, S3 Tables:
 - [What is replicated](#s3-tables-replication-what-is-replicated "#s3-tables-replication-what-is-replicated")
 - [How data is replicated](#s3-tables-replication-how-data-replicated "#s3-tables-replication-how-data-replicated")
 - [Snapshot replication](#s3-tables-replication-snapshot-replication "#s3-tables-replication-snapshot-replication")
-- [Considerations and
-  limitations](#s3-tables-replication-considerations-limitations "#s3-tables-replication-considerations-limitations")
+- [Considerations and limitations](#s3-tables-replication-considerations-limitations "#s3-tables-replication-considerations-limitations")
 
 ## What is replicated
 
@@ -125,9 +122,7 @@ Snapshots that you manually expired at the source table are also preserved in th
 table. For example, if you expired snapshots from February at the source table using a Spark
 procedure, you can still time travel to the snapshots in the replica table.
 
-## Considerations and
-
-limitations
+## Considerations and limitations
 
 The following considerations apply to replicated tables:
 

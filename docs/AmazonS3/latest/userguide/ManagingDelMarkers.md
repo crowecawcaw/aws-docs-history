@@ -1,8 +1,6 @@
 # Managing delete markers
 
-## Configuring lifecycle to clean up expired delete markers
-
-automatically
+## Configuring lifecycle to clean up expired delete markers automatically
 
 An expired object delete marker is one where all object versions are deleted
 and only a single delete marker remains. If the lifecycle configuration is set to
@@ -10,9 +8,7 @@ delete current versions, or the `ExpiredObjectDeleteMarker` action is
 explicitly set, Amazon S3 removes the expired object’s delete marker. For an example,
 see [Removing expired object delete markers in a versioning-enabled bucket](lifecycle-configuration-examples.md#lifecycle-config-conceptual-ex7 "lifecycle-configuration-examples.md#lifecycle-config-conceptual-ex7").
 
-## Removing delete markers to make an older version
-
-current
+## Removing delete markers to make an older version current
 
 When you delete an object in a versioning-enabled bucket, all versions remain
 in the bucket, and Amazon S3 creates a delete marker for the object. To undelete the
@@ -70,9 +66,7 @@ examples, see [How can I retrieve an
 Amazon S3 object that was deleted in a versioning-enabled bucket?](https://aws.amazon.com/premiumsupport/knowledge-center/s3-undelete-configuration/ "https://aws.amazon.com/premiumsupport/knowledge-center/s3-undelete-configuration/") in the AWS
 Knowledge Center.
 
-###### To permanently remove a delete
-
-marker
+###### To permanently remove a delete marker
 
 1. Set `versionId` to the ID of the version to the delete
    marker you want to remove.

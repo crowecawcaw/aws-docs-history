@@ -7,13 +7,10 @@ Linux operating system that you're using.
 ###### Topics
 
 - [Amazon Linux 2023 (AL2023)](#mountpoint-install-al2023 "#mountpoint-install-al2023")
-- [Other RPM-based distributions (Amazon Linux 2,
-  Fedora, CentOS, RHEL)](#mountpoint-install-rpm "#mountpoint-install-rpm")
-- [DEB-based distributions
-  (Debian, Ubuntu)](#mountpoint.install.deb "#mountpoint.install.deb")
+- [Other RPM-based distributions (Amazon Linux 2, Fedora, CentOS, RHEL)](#mountpoint-install-rpm "#mountpoint-install-rpm")
+- [DEB-based distributions (Debian, Ubuntu)](#mountpoint.install.deb "#mountpoint.install.deb")
 - [Other Linux distributions](#mountpoint-install-other "#mountpoint-install-other")
-- [Verifying the signature of the Mountpoint for Amazon S3
-  package](#mountpoint-install-verify "#mountpoint-install-verify")
+- [Verifying the signature of the Mountpoint for Amazon S3 package](#mountpoint-install-verify "#mountpoint-install-verify")
 
 ## Amazon Linux 2023 (AL2023)
 
@@ -37,9 +34,7 @@ You should see output similar to the following:
 mount-s3 1.21.0+1.amzn2023
 ```
 
-## Other RPM-based distributions (Amazon Linux 2,
-
-Fedora, CentOS, RHEL)
+## Other RPM-based distributions (Amazon Linux 2, Fedora, CentOS, RHEL)
 
 1. Copy the following download URL for your architecture.
 
@@ -98,9 +93,7 @@ You should see output similar to the following:
 mount-s3 1.21.0
 ```
 
-## DEB-based distributions
-
-(Debian, Ubuntu)
+## DEB-based distributions (Debian, Ubuntu)
 
 1. Copy the download URL for your architecture.
 
@@ -234,9 +227,7 @@ You should see output similar to the following:
 mount-s3 1.21.0
 ```
 
-## Verifying the signature of the Mountpoint for Amazon S3
-
-package
+## Verifying the signature of the Mountpoint for Amazon S3 package
 
 1. Install GnuPG (the `gpg` command). It is required to
    verify the authenticity and integrity of a downloaded Mountpoint for Amazon S3 package.

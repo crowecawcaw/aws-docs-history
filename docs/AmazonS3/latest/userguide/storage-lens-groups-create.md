@@ -68,16 +68,13 @@ aws s3control create-storage-lens-group --account-id `111122223333` \
 --tags Key=`k1`,Value=`v1` Key=`k2`,Value=`v2`
 ```
 
-For example JSON configurations, see [Storage Lens groups
-configuration](storage-lens-groups.md#storage-lens-groups-configuration "storage-lens-groups.md#storage-lens-groups-configuration").
+For example JSON configurations, see [Storage Lens groups configuration](storage-lens-groups.md#storage-lens-groups-configuration "storage-lens-groups.md#storage-lens-groups-configuration").
 
 The following AWS SDK for Java example creates a Storage Lens group. To use this
 example, replace the `user input placeholders`
 with your own information.
 
-###### Example– Create a Storage Lens group with a single
-
-filter
+###### Example– Create a Storage Lens group with a single filter
 
 The following example creates a Storage Lens group named
 `Marketing-Department`. This group has
@@ -140,9 +137,7 @@ public class CreateStorageLensGroupWithObjectAge {
 }
 ```
 
-###### Example– Create a Storage Lens group with an
-
-`AND` operator that includes multiple filters
+###### Example– Create a Storage Lens group with an `AND` operator that includes multiple filters
 
 The following example creates a Storage Lens group named
 `Marketing-Department`. This group
@@ -226,9 +221,7 @@ public class CreateStorageLensGroupWithAndFilter {
 }
 ```
 
-###### Example– Create a Storage Lens group with an `OR`
-
-operator that includes multiple filters
+###### Example– Create a Storage Lens group with an `OR` operator that includes multiple filters
 
 The following example creates a Storage Lens group named
 `Marketing-Department`. This group
@@ -300,9 +293,7 @@ public class CreateStorageLensGroupWithOrFilter {
 }
 ```
 
-###### Example– Create a Storage Lens group with a single filter
-
-and two AWS resource tags
+###### Example– Create a Storage Lens group with a single filter and two AWS resource tags
 
 The following example creates a Storage Lens group named
 `Marketing-Department` that has a
@@ -371,5 +362,4 @@ public class CreateStorageLensGroupWithResourceTags {
 }
 ```
 
-For example JSON configurations, see [Storage Lens groups
-configuration](storage-lens-groups.md#storage-lens-groups-configuration "storage-lens-groups.md#storage-lens-groups-configuration").
+For example JSON configurations, see [Storage Lens groups configuration](storage-lens-groups.md#storage-lens-groups-configuration "storage-lens-groups.md#storage-lens-groups-configuration").

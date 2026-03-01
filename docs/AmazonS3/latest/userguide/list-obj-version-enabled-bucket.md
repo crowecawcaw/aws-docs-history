@@ -1,6 +1,4 @@
-# Listing objects in a
-
-versioning-enabled bucket
+# Listing objects in a versioning-enabled bucket
 
 This section provides examples of listing object versions from a versioning-enabled
 bucket. Amazon S3 stores object version information in the _versions_
@@ -261,9 +259,7 @@ You can use the other request parameters to retrieve a subset of all versions of
 object. For more information, see [GET Bucket](../API/RESTBucketGET.md "../API/RESTBucketGET.md")
 in the _Amazon Simple Storage Service API Reference_.
 
-###### Example— Retrieving a listing of additional objects if the response is
-
-truncated
+###### Example— Retrieving a listing of additional objects if the response is truncated
 
 If the number of objects that could be returned in a `GET`
 request exceeds the value of `max-keys`, the response contains
@@ -293,9 +289,7 @@ request:
   `key-marker` and
   `version-id-marker`.
 
-###### Example— Retrieving objects starting with a specified key and version
-
-ID
+###### Example— Retrieving objects starting with a specified key and version ID
 
 ```
 GET /?versions&key-marker=myObject&version-id-marker=298459348571 HTTP/1.1

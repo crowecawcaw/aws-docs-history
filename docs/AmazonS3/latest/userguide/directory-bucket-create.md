@@ -100,8 +100,7 @@ The following naming rules apply for directory buckets.
     * Bucket names must not end with the suffix `-s3alias`. This suffix
      is reserved for access point alias names. For more information, see [Access point aliases](access-points-naming.md#access-points-alias "access-points-naming.md#access-points-alias").
     * Bucket names must not end with the suffix `--ol-s3`. This suffix is
-     reserved for Object Lambda Access Point alias names. For more information, see [How to use a bucket-style alias for your S3 bucket
-     Object Lambda Access Point](olap-use.md#ol-access-points-alias "olap-use.md#ol-access-points-alias").
+     reserved for Object Lambda Access Point alias names. For more information, see [How to use a bucket-style alias for your S3 bucket Object Lambda Access Point](olap-use.md#ol-access-points-alias "olap-use.md#ol-access-points-alias").
     * Bucket names must not end with the suffix `.mrap`. This suffix is
      reserved for Multi-Region Access Point names. For more information, see [Rules for naming Amazon S3 Multi-Region Access Points](multi-region-access-point-naming.md "multi-region-access-point-naming.md").
 
@@ -125,8 +124,7 @@ ACLs are disabled, and the bucket owner automatically owns and has full control 
 no longer affect access permissions to data in the S3 general purpose bucket. The bucket uses policies exclusively to define access control. 9. Under **Block Public Access settings for this bucket**, all Block
 Public Access settings for your directory bucket are automatically enabled. These
 settings can't be modified for directory buckets. For more information about blocking
-public access, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md"). 10. To configure default encryption, under **Encryption type**,
+public access, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md"). 10. To configure default encryption, under **Encryption type**,
 choose one of the following:
 
     * **Server-side encryption with Amazon S3 managed key
@@ -145,8 +143,7 @@ AWS KMS quotas and how to request a quota increase, see [Quotas](../../../kms/la
 _AWS Key Management Service Developer Guide_.
 
 When you enable default encryption, you might need to update your bucket policy. For
-more information, see [Using SSE-KMS encryption for cross-account
-operations](bucket-encryption.md#bucket-encryption-update-bucket-policy "bucket-encryption.md#bucket-encryption-update-bucket-policy"). 11. If you chose **Server-side encryption with Amazon S3 managed keys
+more information, see [Using SSE-KMS encryption for cross-account operations](bucket-encryption.md#bucket-encryption-update-bucket-policy "bucket-encryption.md#bucket-encryption-update-bucket-policy"). 11. If you chose **Server-side encryption with Amazon S3 managed keys
 (SSE-S3)**, under **Bucket Key**,
 **Enabled** appears. S3 Bucket Keys are always enabled when you configure
 your directory bucket to use default encryption with SSE-S3.
@@ -194,18 +191,15 @@ following ways or create a new key.
      bucket. The Amazon S3 console lists only the first 100 KMS keys in the same Region as the bucket.
      To use a KMS key that is not listed, you must enter your KMS key ARN. If you want to use
      a KMS key that is owned by a different account, you must first have permission to use the
-     key and then you must enter the KMS key ARN. For more information on cross account permissions for KMS keys, see [Creating KMS keys that other accounts can use](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md#cross-account-console "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md#cross-account-console") in the *AWS Key Management Service Developer Guide*. For more information on SSE-KMS, see [Specifying server-side encryption with AWS KMS
-     (SSE-KMS) for new object uploads in directory buckets](s3-express-specifying-kms-encryption.md "s3-express-specifying-kms-encryption.md").
+     key and then you must enter the KMS key ARN. For more information on cross account permissions for KMS keys, see [Creating KMS keys that other accounts can use](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md#cross-account-console "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md#cross-account-console") in the *AWS Key Management Service Developer Guide*. For more information on SSE-KMS, see [Specifying server-side encryption with AWS KMS (SSE-KMS) for new object uploads in directory buckets](s3-express-specifying-kms-encryption.md "s3-express-specifying-kms-encryption.md").
     * When you use an AWS KMS key for server-side encryption in directory buckets, you must
      choose a symmetric encryption KMS key. Amazon S3 supports only symmetric encryption KMS keys and not
      asymmetric KMS keys. For more information, see [Identifying symmetric and
      asymmetric KMS keys](../../../kms/latest/developerguide/find-symm-asymm.md "../../../kms/latest/developerguide/find-symm-asymm.md") in the *AWS Key Management Service Developer Guide*.
 
 For
-more information about using AWS KMS with Amazon S3, see [Using server-side encryption with AWS KMS keys
-(SSE-KMS) in directory buckets](s3-express-UsingKMSEncryption.md "s3-express-UsingKMSEncryption.md"). 13. Choose **Create bucket**. After creating the bucket, you can add files and folders to the bucket. For more
-information, see [Working with objects in a directory
-bucket](directory-buckets-objects.md "directory-buckets-objects.md").
+more information about using AWS KMS with Amazon S3, see [Using server-side encryption with AWS KMS keys (SSE-KMS) in directory buckets](s3-express-UsingKMSEncryption.md "s3-express-UsingKMSEncryption.md"). 13. Choose **Create bucket**. After creating the bucket, you can add files and folders to the bucket. For more
+information, see [Working with objects in a directory bucket](directory-buckets-objects.md "directory-buckets-objects.md").
 
 SDK for Go
 This example shows how to create a directory bucket by using the AWS SDK for Go.

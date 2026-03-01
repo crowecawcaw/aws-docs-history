@@ -33,8 +33,7 @@ doesn't support SSE-KMS, so you must use OAC instead.
 
 For more information about OAC, see [Restrict
 access to an Amazon S3 origin](../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.md "../../../AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.md") in the _Amazon CloudFront Developer Guide_. For a tutorial that shows
-how to host a static website using Amazon CloudFront, see [Tutorial: Hosting on-demand
-streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53](tutorial-s3-cloudfront-route53-video-streaming.md "tutorial-s3-cloudfront-route53-video-streaming.md").
+how to host a static website using Amazon CloudFront, see [Tutorial: Hosting on-demand streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53](tutorial-s3-cloudfront-route53-video-streaming.md "tutorial-s3-cloudfront-route53-video-streaming.md").
 
 ###### Topics
 
@@ -42,8 +41,7 @@ streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53](tutoria
 - [Enabling website hosting](EnableWebsiteHosting.md "EnableWebsiteHosting.md")
 - [Configuring an index document](IndexDocumentSupport.md "IndexDocumentSupport.md")
 - [Configuring a custom error document](CustomErrorDocSupport.md "CustomErrorDocSupport.md")
-- [Setting permissions for website
-  access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md")
+- [Setting permissions for website access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md")
 - [(Optional) Logging web traffic](LoggingWebsiteTraffic.md "LoggingWebsiteTraffic.md")
 - [(Optional) Configuring a webpage redirect](how-to-page-redirect.md "how-to-page-redirect.md")
 - [Using cross-origin resource sharing (CORS)](cors.md "cors.md")

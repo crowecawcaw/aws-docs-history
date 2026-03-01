@@ -14,8 +14,6 @@ to modify an object retrieved from S3. The second tutorial demonstrates how to u
 Lambda function powered by Amazon Comprehend to protect personally identifiable information (PII) retrieved from S3 before
 returning it to an application. The third tutorial uses S3 Object Lambda to add a watermark to an image as it is retrieved from Amazon S3.
 
-- [Tutorial: Transforming data for your
-  application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md "tutorial-s3-object-lambda-uppercase.md")
-- [Tutorial:
-  Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md")
+- [Tutorial: Transforming data for your application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md "tutorial-s3-object-lambda-uppercase.md")
+- [Tutorial: Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md")
 - [Tutorial: Using S3 Object Lambda to dynamically watermark images as they are retrieved](https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/olap-tutorials.html "https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/olap-tutorials.html")

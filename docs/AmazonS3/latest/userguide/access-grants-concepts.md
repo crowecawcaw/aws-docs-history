@@ -7,8 +7,7 @@ The S3 Access Grants workflow is:
 1. Create an S3 Access Grants instance. See [Working with S3 Access Grants instances](access-grants-instance.md "access-grants-instance.md").
 2. Within your S3 Access Grants instance, register locations in your Amazon S3 data, and map these locations to AWS Identity and Access Management (IAM) roles. See [Register a location](access-grants-location-register.md "access-grants-location-register.md").
 3. Create grants for grantees, which give grantees access to your S3 resources. See [Working with grants in S3 Access Grants](access-grants-grant.md "access-grants-grant.md").
-4. The grantee requests temporary credentials from S3 Access Grants. See [Request access to Amazon S3 data through
-   S3 Access Grants](access-grants-credentials.md "access-grants-credentials.md").
+4. The grantee requests temporary credentials from S3 Access Grants. See [Request access to Amazon S3 data through S3 Access Grants](access-grants-credentials.md "access-grants-credentials.md").
 5. The grantee accesses the S3 data using those temporary credentials. See [Accessing S3 data using credentials vended by S3 Access Grants](access-grants-get-data.md "access-grants-get-data.md").
    For more information, see [Getting started with S3 Access Grants](access-grants-get-started.md "access-grants-get-started.md").
 
@@ -17,8 +16,7 @@ The S3 Access Grants workflow is:
 An _S3 Access Grants instance_ is a logical container for
 individual _grants_. When you create an S3 Access Grants instance, you must specify an AWS Region. Each AWS Region in your AWS account can have one S3 Access Grants instance. For more information, see [Working with S3 Access Grants instances](access-grants-instance.md "access-grants-instance.md").
 
-If you want to use S3 Access Grants to grant access to user and group identities from your corporate directory, you must also associate your S3 Access Grants instance with an AWS IAM Identity Center instance. For more information, see [S3 Access Grants and corporate directory
-identities](access-grants-directory-ids.md "access-grants-directory-ids.md").
+If you want to use S3 Access Grants to grant access to user and group identities from your corporate directory, you must also associate your S3 Access Grants instance with an AWS IAM Identity Center instance. For more information, see [S3 Access Grants and corporate directory identities](access-grants-directory-ids.md "access-grants-directory-ids.md").
 
 A newly created S3 Access Grants instance is empty. You must register a location in the instance, which can be the S3 default path (`s3://`), a bucket, or a prefix within a bucket. After you register at least one location, you can create access grants that give access to data in this registered location.
 

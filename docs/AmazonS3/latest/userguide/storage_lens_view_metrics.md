@@ -29,10 +29,7 @@ for optimizing your storage:
 
 ###### Topics
 
-- [Viewing S3 Storage Lens metrics on the
-  dashboards](storage_lens_view_metrics_dashboard.md "storage_lens_view_metrics_dashboard.md")
-- [Viewing Amazon S3 Storage Lens metrics using a data
-  export](storage_lens_view_metrics_export.md "storage_lens_view_metrics_export.md")
-- [Monitor S3 Storage Lens metrics in
-  CloudWatch](storage_lens_view_metrics_cloudwatch.md "storage_lens_view_metrics_cloudwatch.md")
+- [Viewing S3 Storage Lens metrics on the dashboards](storage_lens_view_metrics_dashboard.md "storage_lens_view_metrics_dashboard.md")
+- [Viewing Amazon S3 Storage Lens metrics using a data export](storage_lens_view_metrics_export.md "storage_lens_view_metrics_export.md")
+- [Monitor S3 Storage Lens metrics in CloudWatch](storage_lens_view_metrics_cloudwatch.md "storage_lens_view_metrics_cloudwatch.md")
 - [Amazon S3 Storage Lens metrics use cases](storage-lens-use-cases.md "storage-lens-use-cases.md")

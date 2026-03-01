@@ -1,6 +1,4 @@
-# Using server-side encryption with AWS KMS keys
-
-(SSE-KMS)
+# Using server-side encryption with AWS KMS keys (SSE-KMS)
 
 ###### Important
 
@@ -14,8 +12,7 @@ object uploads.
 
 Unless you specify otherwise, buckets use SSE-S3 by default to encrypt objects. However,
 you can choose to configure buckets to use server-side encryption with AWS Key Management Service (AWS KMS)
-keys (SSE-KMS) instead. For more information, see [Specifying server-side encryption with AWS KMS
-(SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md").
+keys (SSE-KMS) instead. For more information, see [Specifying server-side encryption with AWS KMS (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md").
 
 AWS KMS is a service that combines secure, highly
 available hardware and software to provide a key management system scaled for the cloud.
@@ -60,8 +57,7 @@ Carefully review the permissions that are granted in your KMS key policies. Alwa
 - [Requiring server-side encryption](#require-sse-kms "#require-sse-kms")
 - [Encryption context](#encryption-context "#encryption-context")
 - [Sending requests for AWS KMS encrypted objects](#aws-signature-version-4-sse-kms "#aws-signature-version-4-sse-kms")
-- [Specifying server-side encryption with AWS KMS
-  (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md")
+- [Specifying server-side encryption with AWS KMS (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md")
 - [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucket-key.md "bucket-key.md")
 
 ## AWS KMS keys
@@ -101,9 +97,7 @@ key store, unlike standard KMS keys, you are responsible for ensuring the
 availability and durability of your key material. For more information about
 external key stores and how they shift the shared responsibility model, see [External key stores](../../../kms/latest/developerguide/keystore-external.md "../../../kms/latest/developerguide/keystore-external.md") in the _AWS Key Management Service Developer Guide_.
 
-### Using SSE-KMS encryption for cross-account
-
-operations
+### Using SSE-KMS encryption for cross-account operations
 
 When using encryption for cross-account operations, be aware of the following:
 
@@ -313,6 +307,5 @@ an **`HTTP 400 Bad Request`** error.
 
 ###### Topics
 
-- [Specifying server-side encryption with AWS KMS
-  (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md")
+- [Specifying server-side encryption with AWS KMS (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md")
 - [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucket-key.md "bucket-key.md")

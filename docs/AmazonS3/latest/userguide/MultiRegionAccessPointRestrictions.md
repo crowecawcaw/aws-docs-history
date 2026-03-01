@@ -22,8 +22,7 @@ Multi-Region Access Point aliases and Multi-Region Access Point names and their 
 
 You can't access data through a Multi-Region Access Point by using gateway endpoints. However, you can access data through a Multi-Region Access Point by using interface
 endpoints. To use AWS PrivateLink, you must create VPC endpoints. For more
-information, see [Configuring a Multi-Region Access Point for use with
-AWS PrivateLink](MultiRegionAccessPointsPrivateLink.md "MultiRegionAccessPointsPrivateLink.md"). However, be aware that IPv6 isn't supported.
+information, see [Configuring a Multi-Region Access Point for use with AWS PrivateLink](MultiRegionAccessPointsPrivateLink.md "MultiRegionAccessPointsPrivateLink.md"). However, be aware that IPv6 isn't supported.
 
 To use Multi-Region Access Points with Amazon CloudFront, you must configure the Multi-Region Access Point as a `Custom
  Origin` distribution type. For more information about various origin
@@ -93,9 +92,7 @@ When you create, delete, or modify an Multi-Region Access Point, be aware of the
 - Underlying buckets (in the same account) that are used in a Multi-Region Access Point can be deleted
   only after a Multi-Region Access Point is deleted.
 
-## Region
-
-support
+## Region support
 
 **Control plane requests**
 

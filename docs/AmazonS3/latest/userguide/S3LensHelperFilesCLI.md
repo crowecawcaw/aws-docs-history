@@ -203,9 +203,7 @@ S3 Storage Lens configuration. To use this example, replace the `user input
 ]
 ```
 
-## S3 Storage Lens example
-
-configuration IAM permissions
+## S3 Storage Lens example configuration IAM permissions
 
 ###### Example `permissions.json` – Specific dashboard name
 

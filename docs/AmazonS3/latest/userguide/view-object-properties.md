@@ -51,9 +51,7 @@ properties for the object.
 
     Storage class of objects in a directory bucket cannot be changed.
     2. **Server-side encryption settings** – You can use server-side
-     encryption to encrypt your S3 objects. For more information, see [Specifying server-side encryption with AWS KMS
-     (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md") or [Specifying server-side encryption with Amazon S3 managed
-     keys (SSE-S3)](specifying-s3-encryption.md "specifying-s3-encryption.md").
+     encryption to encrypt your S3 objects. For more information, see [Specifying server-side encryption with AWS KMS (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md") or [Specifying server-side encryption with Amazon S3 managed keys (SSE-S3)](specifying-s3-encryption.md "specifying-s3-encryption.md").
     3. **Metadata** – Each object in Amazon S3 has a set of name-value
      pairs that represents its metadata. For information about adding metadata to an S3
      object, see [Editing object metadata in the Amazon S3 console](add-object-metadata.md "add-object-metadata.md").

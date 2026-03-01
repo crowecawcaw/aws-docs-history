@@ -1,6 +1,4 @@
-# Querying metadata tables with AWS analytics
-
-services
+# Querying metadata tables with AWS analytics services
 
 You can query your S3 managed metadata tables with AWS analytics services such as Amazon Athena,
 Amazon Redshift, and Amazon EMR.
@@ -9,9 +7,7 @@ Before you can run queries, you must first [integrate the
 AWS managed S3 table buckets](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md") in your AWS account and Region with AWS analytics
 services.
 
-## Querying metadata tables with
-
-Amazon Athena
+## Querying metadata tables with Amazon Athena
 
 After you [integrate your AWS managed S3 table
 buckets](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md") with AWS analytics services, you can start querying your metadata tables in Athena.
@@ -55,8 +51,7 @@ is stored (for example,
 
 If you don't see these values in the **Catalog** and
 **Database** fields, make sure that you've integrated your AWS managed
-table bucket with AWS analytics services in this Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md"). 7. To run the query, choose **Run**.
+table bucket with AWS analytics services in this Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md"). 7. To run the query, choose **Run**.
 
 ###### Note
 
@@ -67,17 +62,14 @@ services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md"). 7. To ru
 
 
     Also make sure that you have the appropriate AWS Identity and Access Management (IAM) permissions to query
-     metadata tables. For more information, see [Permissions for querying metadata
-     tables](metadata-tables-bucket-query-permissions.md "metadata-tables-bucket-query-permissions.md").
+     metadata tables. For more information, see [Permissions for querying metadata tables](metadata-tables-bucket-query-permissions.md "metadata-tables-bucket-query-permissions.md").
     * If you receive the error **`"Iceberg cannot access the requested
      resource"`** when you try to run the query, go to the AWS Lake Formation console and
      make sure that you've granted yourself permissions on the table bucket catalog and
      database (namespace) that you created. Don't specify a table when granting these
      permissions. For more information, see [Granting Lake Formation permission on a table or database](grant-permissions-tables.md#grant-lf-table "grant-permissions-tables.md#grant-lf-table").
 
-## Querying metadata tables with
-
-Amazon Redshift
+## Querying metadata tables with Amazon Redshift
 
 After you [integrate your AWS managed S3 table
 buckets](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md") with AWS analytics services, do the following:
@@ -92,9 +84,7 @@ After that's done, you can start querying your metadata tables in the Amazon Red
 information, see [Accessing Amazon S3 tables with
 Amazon Redshift](s3-tables-integrating-redshift.md "s3-tables-integrating-redshift.md").
 
-## Querying metadata tables with
-
-Amazon EMR
+## Querying metadata tables with Amazon EMR
 
 To query your metadata tables by using Amazon EMR, you create an Amazon EMR cluster configured for
 Apache Iceberg and connect to your metadata tables using Apache Spark.

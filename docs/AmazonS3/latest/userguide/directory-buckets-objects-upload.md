@@ -1,6 +1,4 @@
-# Uploading objects to a directory
-
-bucket
+# Uploading objects to a directory bucket
 
 After you create an Amazon S3 directory bucket, you can upload objects to it. The following
 examples show how to upload an object to a directory bucket by using the S3 console and the
@@ -114,5 +112,4 @@ _AWS CLI Command Reference_.
 
 ###### Topics
 
-- [Using multipart uploads with
-  directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md")
+- [Using multipart uploads with directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md")

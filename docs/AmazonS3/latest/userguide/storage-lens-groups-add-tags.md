@@ -1,6 +1,4 @@
-# Adding an AWS resource tag to a Storage
-
-Lens group
+# Adding an AWS resource tag to a Storage Lens group
 
 The following examples demonstrate how to add AWS resource tags to an Amazon S3 Storage
 Lens group. You can add resource tags by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and

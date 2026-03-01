@@ -23,10 +23,8 @@ top K results when the vector index contains very few matching results.
 ###### Topics
 
 - [Filterable metadata](#s3-vectors-metadata-filtering-filterable "#s3-vectors-metadata-filtering-filterable")
-- [Examples of valid filterable
-  metadata](#s3-vectors-metadata-filtering-examples "#s3-vectors-metadata-filtering-examples")
-- [Non-filterable
-  metadata](#s3-vectors-metadata-filtering-non-filterable "#s3-vectors-metadata-filtering-non-filterable")
+- [Examples of valid filterable metadata](#s3-vectors-metadata-filtering-examples "#s3-vectors-metadata-filtering-examples")
+- [Non-filterable metadata](#s3-vectors-metadata-filtering-non-filterable "#s3-vectors-metadata-filtering-non-filterable")
 
 ## Filterable metadata
 
@@ -57,9 +55,7 @@ The following operations can be used with filterable metadata.
 | `$and`    | Non-empty array of filters    | Logical AND of multiple conditions                                                                                                                                                                                                                                                                      |
 | `$or`     | Non-empty array of filters    | Logical OR of multiple conditions                                                                                                                                                                                                                                                                       |
 
-## Examples of valid filterable
-
-metadata
+## Examples of valid filterable metadata
 
 **Simple equality**
 
@@ -140,9 +136,7 @@ field)**
 
 For more information about how to query vectors with metadata filtering, see [Metadata filtering](s3-vectors.md#s3-vectors-filtering-metadata "s3-vectors.md#s3-vectors-filtering-metadata").
 
-## Non-filterable
-
-metadata
+## Non-filterable metadata
 
 Non-filterable metadata can't be used in query filters but can store larger amounts of
 contextual data than filterable metadata. It's ideal for storing large text chunks,

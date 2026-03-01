@@ -1,6 +1,4 @@
-# Monitoring replication with metrics, event notifications,
-
-and statuses
+# Monitoring replication with metrics, event notifications, and statuses
 
 You can monitor your live replication configurations and your S3 Batch Replication jobs
 through the following mechanisms:
@@ -22,8 +20,7 @@ With advanced metrics in S3 Storage Lens, you can see how many replication rules
 various types, including the count of replication rules with a replication destination
 that's not valid.
 
-For more information about working with replication metrics in S3 Storage Lens, see [Viewing replication metrics in
-S3 Storage Lens dashboards](viewing-replication-metrics-storage-lens.md "viewing-replication-metrics-storage-lens.md").
+For more information about working with replication metrics in S3 Storage Lens, see [Viewing replication metrics in S3 Storage Lens dashboards](viewing-replication-metrics-storage-lens.md "viewing-replication-metrics-storage-lens.md").
 
 - **S3 Event Notifications** – S3 Event Notifications
   can notify you at the object level in instances when objects don't replicate to their
@@ -35,8 +32,7 @@ S3 Storage Lens dashboards](viewing-replication-metrics-storage-lens.md "viewing
   `s3:Replication:OperationNotTracked`.
 
 Amazon S3 events are available through Amazon Simple Queue Service (Amazon SQS), Amazon Simple Notification Service (Amazon SNS), or AWS Lambda.
-For more information, see [Receiving replication failure events with Amazon S3
-Event Notifications](replication-metrics-events.md "replication-metrics-events.md").
+For more information, see [Receiving replication failure events with Amazon S3 Event Notifications](replication-metrics-events.md "replication-metrics-events.md").
 
 - **Replication status values** – You can also
   retrieve the replication status of your objects. The replication status can help you
@@ -54,8 +50,6 @@ Batch Replication, see [Filters for a Batch Replication job](s3-batch-replicatio
 ###### Topics
 
 - [Using S3 Replication metrics](repl-metrics.md "repl-metrics.md")
-- [Viewing replication metrics in
-  S3 Storage Lens dashboards](viewing-replication-metrics-storage-lens.md "viewing-replication-metrics-storage-lens.md")
-- [Receiving replication failure events with Amazon S3
-  Event Notifications](replication-metrics-events.md "replication-metrics-events.md")
+- [Viewing replication metrics in S3 Storage Lens dashboards](viewing-replication-metrics-storage-lens.md "viewing-replication-metrics-storage-lens.md")
+- [Receiving replication failure events with Amazon S3 Event Notifications](replication-metrics-events.md "replication-metrics-events.md")
 - [Getting replication status information](replication-status.md "replication-status.md")

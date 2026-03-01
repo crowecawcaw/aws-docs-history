@@ -1,6 +1,4 @@
-# Identity and Access management in
-
-S3 Vectors
+# Identity and Access management in S3 Vectors
 
 Access management in S3 Vectors follows AWS security best practices, providing multiple
 layers of control to ensure that only authorized users and applications can access your
@@ -8,9 +6,7 @@ vector data. The service integrates with IAM and supports both identity-based an
 resource-based policies, giving you flexibility in how you structure and manage permissions
 across your organization.
 
-## Authenticating and authorizing
-
-requests
+## Authenticating and authorizing requests
 
 S3 Vectors uses AWS standard authentication and authorization mechanisms to secure
 access to vector buckets and their contents. Every request to S3 Vectors must be
@@ -31,9 +27,7 @@ specific operations within an index. This hierarchical permission model allows y
 implement sophisticated access control schemes that align with your organizational
 structure and data governance requirements.
 
-## Resource types defined for
-
-vector buckets
+## Resource types defined for vector buckets
 
 S3 Vectors defines specific resource types that can be referenced in IAM policies and
 resource-based policies. Understanding these resource types is essential for creating

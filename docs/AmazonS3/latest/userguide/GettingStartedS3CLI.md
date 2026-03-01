@@ -38,9 +38,7 @@ in the _AWS CLI Command Reference_.
 This command displays a list of available Amazon S3 commands if the AWS CLI is properly
 installed and configured.
 
-## Step 1: Create your first Amazon S3
-
-bucket
+## Step 1: Create your first Amazon S3 bucket
 
 After you set up the AWS CLI, you're ready to create a bucket in Amazon S3. Every object in
 Amazon S3 is stored in a bucket. Before you can store data in Amazon S3, you must create a
@@ -125,8 +123,7 @@ aws s3api put-bucket-ownership-controls --bucket `amzn-s3-demo-bucket` --ownersh
 By default, ACLs are disabled. A majority of modern use cases in Amazon S3 no
 longer require the use of ACLs. We recommend that you keep ACLs disabled,
 except in circumstances where you must control access for each
-object individually. For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+object individually. For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 **ACLs enabled**
 
@@ -144,8 +141,7 @@ for your bucket](about-object-ownership.md "about-object-ownership.md").
     If you apply the **Bucket owner
      preferred** setting and want to require all Amazon S3 uploads to
      include the `bucket-owner-full-control` canned ACL, you can
-     [Requiring the bucket-owner-full-control
-     canned ACL for Amazon S3 PUT operations (bucket owner preferred)](ensure-object-ownership.md#ensure-object-ownership-bucket-policy "ensure-object-ownership.md#ensure-object-ownership-bucket-policy") that allows
+     [Requiring the bucket-owner-full-control canned ACL for Amazon S3 PUT operations (bucket owner preferred)](ensure-object-ownership.md#ensure-object-ownership-bucket-policy "ensure-object-ownership.md#ensure-object-ownership-bucket-policy") that allows
      only object uploads that use this ACL.
     * To set **Object writer** – The AWS
      account that uploads an object owns the object, has full control over
@@ -181,8 +177,7 @@ aws s3api get-public-access-block --bucket `amzn-s3-demo-bucket`
 By default, all four **Block Public Access**
 settings are enabled for new buckets. We recommend that you keep all settings
 enabled, unless you know that you need to turn off one or more of them for your
-specific use case. For more information about blocking public access, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+specific use case. For more information about blocking public access, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 If you need to enable **Block Public Access**,
 use the following command:
@@ -300,10 +295,8 @@ To configure `DSSE-KMS`, use the following command:
 aws s3api put-bucket-encryption --bucket `amzn-s3-demo-bucket` --server-side-encryption-configuration '{"Rules":[{"ApplyServerSideEncryptionByDefault":{"SSEAlgorithm":"aws:kms:dsse","KMSMasterKeyID":"`YOUR-KMS-KEY-ARN`"}}]}'
 ```
 
-For more information about default encryption, see [Setting default server-side encryption behavior for Amazon S3
-buckets](bucket-encryption.md "bucket-encryption.md"). For more
-information about SSE-S3, see [Using server-side encryption with Amazon S3 managed keys
-(SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
+For more information about default encryption, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md"). For more
+information about SSE-S3, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
 
 ###### Important
 
@@ -316,9 +309,7 @@ AWS KMS quotas and how to request a quota increase, see [Quotas](../../../kms/la
 You've created a bucket in Amazon S3. Next step is to upload an object to your
 bucket.
 
-## Step 2: Upload an object to your
-
-bucket
+## Step 2: Upload an object to your bucket
 
 After creating a bucket in Amazon S3, you're ready to upload an object to the bucket. An
 object can be any kind of file: a text file, a photo, a video, and so on.
@@ -437,9 +428,7 @@ aws s3 ls s3://`amzn-s3-demo-destination-bucket`/favorite-files/
 You've successfully copied your object to a folder. Next step is to delete your
 objects and bucket.
 
-## Step 5: Delete your objects and
-
-bucket
+## Step 5: Delete your objects and bucket
 
 When you no longer need an object or a bucket, we recommend that you delete them to
 prevent further charges. If you completed this getting started walkthrough as a learning
@@ -471,9 +460,7 @@ If the deletion is successful, you'll see output similar to:
 delete: s3://`amzn-s3-demo-bucket`/example.txt
 ```
 
-### Emptying your
-
-bucket
+### Emptying your bucket
 
 If you plan to delete your bucket, you must first empty your bucket, which deletes
 all the objects, versions, and delete markers in the bucket.
@@ -540,9 +527,7 @@ aws s3api list-object-versions --bucket `amzn-s3-demo-bucket`
 
 The output should show no versions or delete markers remaining.
 
-### Deleting your
-
-bucket
+### Deleting your bucket
 
 After you empty your bucket or delete all the objects from your bucket, you can
 delete your bucket.
@@ -577,8 +562,7 @@ The following topics explain the learning paths that you can use to gain a deepe
 understanding of Amazon S3 so that you can implement it in your applications.
 
 - [Understand common use cases](GetStartedWithS3.md#s3-use-cases "GetStartedWithS3.md#s3-use-cases")
-- [Control access to your buckets and
-  objects](GetStartedWithS3.md#control-access-resources "GetStartedWithS3.md#control-access-resources")
+- [Control access to your buckets and objects](GetStartedWithS3.md#control-access-resources "GetStartedWithS3.md#control-access-resources")
 - [Protect and monitor your storage](GetStartedWithS3.md#manage-monitor-storage "GetStartedWithS3.md#manage-monitor-storage")
 - [Develop with Amazon S3](GetStartedWithS3.md#develop-with-s3 "GetStartedWithS3.md#develop-with-s3")
 - [Understand common use cases](GetStartedWithS3.md#s3-getting-started-tutorials-list "GetStartedWithS3.md#s3-getting-started-tutorials-list")

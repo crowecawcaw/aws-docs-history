@@ -1,6 +1,4 @@
-# Configuring replication for buckets in the same
-
-account
+# Configuring replication for buckets in the same account
 
 Live replication is the automatic, asynchronous copying of objects across general purpose buckets in the
 same or different AWS Regions. Live replication copies newly created objects and object
@@ -30,29 +28,25 @@ AWS Command Line Interface (AWS CLI), and the AWS SDK for Java and AWS SDK for .
 
 Before you use the following procedures, make sure that you've set up the necessary
 permissions for replication, depending on whether the source and destination buckets are
-owned by the same or different accounts. For more information, see [Setting up permissions for live
-replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
+owned by the same or different accounts. For more information, see [Setting up permissions for live replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
 
 ###### Note
 
 - If you want to replicate encrypted objects, you also must grant the necessary
-  AWS Key Management Service (AWS KMS) key permissions. For more information, see [Replicating encrypted objects (SSE-S3,
-  SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
+  AWS Key Management Service (AWS KMS) key permissions. For more information, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
 - To use Object Lock with replication, you must grant two additional
   permissions on the source S3 bucket in the AWS Identity and Access Management (IAM) role that you use
   to set up replication. The two additional permissions are
   `s3:GetObjectRetention` and `s3:GetObjectLegalHold`.
   If the role has an `s3:Get*` permission statement, that statement
-  satisfies the requirement. For more information, see [Using Object Lock with
-  S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
+  satisfies the requirement. For more information, see [Using Object Lock with S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
 
 To configure a replication rule when the destination bucket is in the same AWS account as
 the source bucket, follow these steps.
 
 If the destination bucket is in a different account from the source bucket, you must add a
 bucket policy to the destination bucket to grant the owner of the source bucket account
-permission to replicate objects in the destination bucket. For more information, see [(Optional) Step 3: Granting permissions when the
-source and destination buckets are owned by different AWS accounts](setting-repl-config-perm-overview.md#setting-repl-config-crossacct "setting-repl-config-perm-overview.md#setting-repl-config-crossacct").
+permission to replicate objects in the destination bucket. For more information, see [(Optional) Step 3: Granting permissions when the source and destination buckets are owned by different AWS accounts](setting-repl-config-perm-overview.md#setting-repl-config-crossacct "setting-repl-config-perm-overview.md#setting-repl-config-crossacct").
 
 1.  Sign in to the AWS Management Console and open the Amazon S3 console at
     [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -94,8 +88,7 @@ source and destination buckets are owned by different AWS accounts](setting-repl
          see [Categorizing your objects using tags](object-tagging.md "object-tagging.md").
 
     The new replication configuration XML schema supports prefix and tag filtering and the
-    prioritization of rules. For more information about the new schema, see [Backward compatibility
-    considerations](replication-add-config.md#replication-backward-compat-considerations "replication-add-config.md#replication-backward-compat-considerations"). For more information about
+    prioritization of rules. For more information about the new schema, see [Backward compatibility considerations](replication-add-config.md#replication-backward-compat-considerations "replication-add-config.md#replication-backward-compat-considerations"). For more information about
     the XML used with the Amazon S3 API that works behind the user interface, see [Replication configuration file elements](replication-add-config.md "replication-add-config.md"). The new schema
     is described as _replication configuration XML V2_.
 
@@ -121,15 +114,13 @@ quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/lates
 
     If the destination is in a different account from the source bucket, you must add a
      bucket policy to the destination buckets to grant the owner of the source bucket account
-     permission to replicate objects. For more information, see [(Optional) Step 3: Granting permissions when the
-     source and destination buckets are owned by different AWS accounts](setting-repl-config-perm-overview.md#setting-repl-config-crossacct "setting-repl-config-perm-overview.md#setting-repl-config-crossacct").
+     permission to replicate objects. For more information, see [(Optional) Step 3: Granting permissions when the source and destination buckets are owned by different AWS accounts](setting-repl-config-perm-overview.md#setting-repl-config-crossacct "setting-repl-config-perm-overview.md#setting-repl-config-crossacct").
 
 
     Optionally, if you want to help
      standardize ownership of new objects in the destination bucket, choose **Change
      object ownership to the destination bucket owner**. For more information about
-     this option, see [Controlling ownership of objects and disabling ACLs
-     for your bucket](about-object-ownership.md "about-object-ownership.md").
+     this option, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 ###### Note
 
@@ -163,8 +154,7 @@ selection, you can choose an alias or key ID.
 
 Objects encrypted by AWS KMS keys that you do not select are not replicated. A
 KMS key or a group of KMS keys is chosen for you, but you can choose the KMS keys if
-you want. For information about using AWS KMS with replication, see [Replicating encrypted objects (SSE-S3,
-SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
+you want. For information about using AWS KMS with replication, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
 
 ###### Important
 
@@ -233,8 +223,7 @@ If you chose to replicate objects encrypted with AWS KMS, do the following:
 
     For more information about creating an AWS KMS key, see [Creating keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the
      *AWS Key Management Service Developer Guide*. For more information about using AWS KMS with
-     Amazon S3, see [Using server-side encryption with AWS KMS keys
-     (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
+     Amazon S3, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
 
 12. Under **Destination storage
     class**, if you want to replicate your data into a specific storage class in the destination,
@@ -246,17 +235,13 @@ If you chose to replicate objects encrypted with AWS KMS, do the following:
     replication options**:
     - If you want to enable S3 Replication Time Control (S3 RTC) in your replication configuration, select
       **Replication Time Control (RTC)**. For more information about this
-      option, see [Meeting compliance requirements with
-      S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
+      option, see [Meeting compliance requirements with S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
     - If you want to enable S3 Replication metrics in your replication configuration, select
-      **Replication metrics and events**. For more information, see [Monitoring replication with metrics, event notifications,
-      and statuses](replication-metrics.md "replication-metrics.md").
+      **Replication metrics and events**. For more information, see [Monitoring replication with metrics, event notifications, and statuses](replication-metrics.md "replication-metrics.md").
     - If you want to enable delete marker replication in your replication configuration, select
-      **Delete marker replication**. For more information, see [Replicating delete markers between
-      buckets](delete-marker-replication.md "delete-marker-replication.md").
+      **Delete marker replication**. For more information, see [Replicating delete markers between buckets](delete-marker-replication.md "delete-marker-replication.md").
     - If you want to enable Amazon S3 replica modification sync in your replication configuration,
-      select **Replica modification sync**. For more information, see [Replicating metadata changes with
-      replica modification sync](replication-for-metadata-changes.md "replication-for-metadata-changes.md").
+      select **Replica modification sync**. For more information, see [Replicating metadata changes with replica modification sync](replication-for-metadata-changes.md "replication-for-metadata-changes.md").
 
 ###### Note
 
@@ -272,9 +257,7 @@ owned by the same AWS account, you do the following:
 - Add the replication configuration to the source bucket.
   To verify your setup, you test it.
 
-###### To set up replication when the source and destination buckets are owned by
-
-the same AWS account
+###### To set up replication when the source and destination buckets are owned by the same AWS account
 
 1. Set a credentials profile for the AWS CLI. This example uses the profile
    name `acctA`. For information about setting credential profiles
@@ -443,15 +426,13 @@ aws s3api put-bucket-versioning \
         ###### Note
 
             * If you want to replicate encrypted objects, you also must grant the necessary
-             AWS Key Management Service (AWS KMS) key permissions. For more information, see [Replicating encrypted objects (SSE-S3,
-             SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
+             AWS Key Management Service (AWS KMS) key permissions. For more information, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
             * To use Object Lock with replication, you must grant two additional
              permissions on the source S3 bucket in the AWS Identity and Access Management (IAM) role that you use
              to set up replication. The two additional permissions are
              `s3:GetObjectRetention` and `s3:GetObjectLegalHold`.
              If the role has an `s3:Get*` permission statement, that statement
-             satisfies the requirement. For more information, see [Using Object Lock with
-             S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
+             satisfies the requirement. For more information, see [Using Object Lock with S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
 
         2. Run the following command to create a policy and attach it
            to the role. Replace the `user input
@@ -563,15 +544,13 @@ placeholders` with your own
 ###### Note
 
 - If you want to replicate encrypted objects, you also must grant the necessary
-  AWS Key Management Service (AWS KMS) key permissions. For more information, see [Replicating encrypted objects (SSE-S3,
-  SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
+  AWS Key Management Service (AWS KMS) key permissions. For more information, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
 - To use Object Lock with replication, you must grant two additional
   permissions on the source S3 bucket in the AWS Identity and Access Management (IAM) role that you use
   to set up replication. The two additional permissions are
   `s3:GetObjectRetention` and `s3:GetObjectLegalHold`.
   If the role has an `s3:Get*` permission statement, that statement
-  satisfies the requirement. For more information, see [Using Object Lock with
-  S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
+  satisfies the requirement. For more information, see [Using Object Lock with S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
 
 Java
 To add a replication configuration to a bucket and then retrieve and verify the configuration using the AWS SDK for Java, you can use the S3Client to manage replication settings programmatically.

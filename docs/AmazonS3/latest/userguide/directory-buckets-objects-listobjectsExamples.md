@@ -1,6 +1,4 @@
-# Listing objects from a
-
-directory bucket
+# Listing objects from a directory bucket
 
 The following code examples show how to list objects in an Amazon S3
 directory bucket by using the `ListObjectsV2` API operation.

@@ -1,8 +1,7 @@
 # Directory bucket API operations
 
 To manage directory buckets, you can use Regional (bucket level, or control plane) endpoint API operations. To manage objects in
-your directory buckets, you can use Zonal (object level, or data plane) endpoint API operations. For more information, see [Networking for directory buckets](s3-express-networking.md "s3-express-networking.md") and [Endpoints and gateway VPC
-endpoints](directory-bucket-high-performance.md#s3-express-overview-endpoints "directory-bucket-high-performance.md#s3-express-overview-endpoints").
+your directory buckets, you can use Zonal (object level, or data plane) endpoint API operations. For more information, see [Networking for directory buckets](s3-express-networking.md "s3-express-networking.md") and [Endpoints and gateway VPC endpoints](directory-bucket-high-performance.md#s3-express-overview-endpoints "directory-bucket-high-performance.md#s3-express-overview-endpoints").
 
 ###### Regional endpoint API operations
 

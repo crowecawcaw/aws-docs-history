@@ -10,10 +10,8 @@ filter cannot be undone.
 
 For information about creating a request metrics filter, see the following topics:
 
-- [Creating a CloudWatch metrics
-  configuration for all the objects in your bucket](configure-request-metrics-bucket.md "configure-request-metrics-bucket.md")
-- [Creating a metrics configuration
-  that filters by prefix, object tag, or access point](metrics-configurations-filter.md "metrics-configurations-filter.md")
+- [Creating a CloudWatch metrics configuration for all the objects in your bucket](configure-request-metrics-bucket.md "configure-request-metrics-bucket.md")
+- [Creating a metrics configuration that filters by prefix, object tag, or access point](metrics-configurations-filter.md "metrics-configurations-filter.md")
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").

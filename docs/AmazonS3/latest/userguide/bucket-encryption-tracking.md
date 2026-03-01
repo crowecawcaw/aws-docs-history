@@ -1,6 +1,4 @@
-# Monitoring default encryption with
-
-AWS CloudTrail and Amazon EventBridge
+# Monitoring default encryption with AWS CloudTrail and Amazon EventBridge
 
 ###### Important
 
@@ -13,8 +11,7 @@ events. The following API event names are used in CloudTrail logs:
 - `GetBucketEncryption`
 - `DeleteBucketEncryption`
   You can also create EventBridge rules to match the CloudTrail events for these API calls. For
-  more information about CloudTrail events, see [Enable logging for objects in a bucket using the
-  console](enable-cloudtrail-logging-for-s3.md#enable-cloudtrail-events "enable-cloudtrail-logging-for-s3.md#enable-cloudtrail-events"). For
+  more information about CloudTrail events, see [Enable logging for objects in a bucket using the console](enable-cloudtrail-logging-for-s3.md#enable-cloudtrail-events "enable-cloudtrail-logging-for-s3.md#enable-cloudtrail-events"). For
   more information about EventBridge events, see [Events from AWS services](../../../eventbridge/latest/userguide/eb-service-event.md "../../../eventbridge/latest/userguide/eb-service-event.md").
 
 You can use CloudTrail logs for object-level Amazon S3 actions to track `PUT` and

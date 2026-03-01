@@ -43,8 +43,7 @@ You can achieve multi-tenancy by organizing your vector data using a single vect
 bucket policies to restrict each tenant's access to only their designated vector index.
 This approach helps maintain data isolation and simplifies management by removing the need to create separate buckets for each tenant.
 For more information,
-see [Identity and Access management in
-S3 Vectors](s3-vectors-access-management.md "s3-vectors-access-management.md").
+see [Identity and Access management in S3 Vectors](s3-vectors-access-management.md "s3-vectors-access-management.md").
 
 **Configuring non-filterable metadata fields for
 vector indexes**
@@ -52,5 +51,4 @@ vector indexes**
 When creating a vector index, configure metadata fields
 that don't require filtering as non-filterable metadata keys.
 For example, store text chunks for vector embeddings as non-filterable metadata fields when you need them only for reference.
-For more information, see [Non-filterable
-metadata](s3-vectors-metadata-filtering.md#s3-vectors-metadata-filtering-non-filterable "s3-vectors-metadata-filtering.md#s3-vectors-metadata-filtering-non-filterable").
+For more information, see [Non-filterable metadata](s3-vectors-metadata-filtering.md#s3-vectors-metadata-filtering-non-filterable "s3-vectors-metadata-filtering.md#s3-vectors-metadata-filtering-non-filterable").

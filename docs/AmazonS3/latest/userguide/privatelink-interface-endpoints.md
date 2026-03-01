@@ -18,17 +18,13 @@ For general information about interface endpoints, see [Interface VPC endpoints
 - [Types of VPC endpoints for Amazon S3](#types-of-vpc-endpoints-for-s3 "#types-of-vpc-endpoints-for-s3")
 - [Restrictions and limitations of AWS PrivateLink for Amazon S3](#privatelink-limitations "#privatelink-limitations")
 - [Creating a VPC endpoint](#s3-creating-vpc "#s3-creating-vpc")
-- [Accessing Amazon S3 interface
-  endpoints](#accessing-s3-interface-endpoints "#accessing-s3-interface-endpoints")
+- [Accessing Amazon S3 interface endpoints](#accessing-s3-interface-endpoints "#accessing-s3-interface-endpoints")
 - [IP Address types for VPC endpoints](#privatelink-ip-address-types "#privatelink-ip-address-types")
 - [DNS record IP types for VPC endpoints](#privatelink-dns-record-types "#privatelink-dns-record-types")
 - [Private DNS](#private-dns "#private-dns")
-- [Accessing buckets, access points,
-  and Amazon S3 Control API operations from S3 interface endpoints](#accessing-bucket-and-aps-from-interface-endpoints "#accessing-bucket-and-aps-from-interface-endpoints")
-- [Updating an on-premises DNS
-  configuration](#updating-on-premises-dns-config "#updating-on-premises-dns-config")
-- [Creating a VPC endpoint policy for
-  Amazon S3](#creating-vpc-endpoint-policy "#creating-vpc-endpoint-policy")
+- [Accessing buckets, access points, and Amazon S3 Control API operations from S3 interface endpoints](#accessing-bucket-and-aps-from-interface-endpoints "#accessing-bucket-and-aps-from-interface-endpoints")
+- [Updating an on-premises DNS configuration](#updating-on-premises-dns-config "#updating-on-premises-dns-config")
+- [Creating a VPC endpoint policy for Amazon S3](#creating-vpc-endpoint-policy "#creating-vpc-endpoint-policy")
 
 ## Types of VPC endpoints for Amazon S3
 
@@ -81,9 +77,7 @@ Interface endpoints for Amazon S3 does not support the following:
 To create a VPC interface endpoint, see [Create a VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the _AWS PrivateLink
 Guide_. To create a VPC gateway endpoint, see [Create a gateway endpoint](../../../vpc/latest/privatelink/vpc-endpoints-s3.md#create-gateway-endpoint-s3 "../../../vpc/latest/privatelink/vpc-endpoints-s3.md#create-gateway-endpoint-s3") in the _AWS PrivateLink Guide_.
 
-## Accessing Amazon S3 interface
-
-endpoints
+## Accessing Amazon S3 interface endpoints
 
 When you create an interface endpoint, Amazon S3 generates two types of endpoint-specific, S3
 DNS names: _Regional_ and _zonal_.
@@ -290,9 +284,7 @@ aws ec2 modify-vpc-endpoint \
 
 ```
 
-## Accessing buckets, access points,
-
-and Amazon S3 Control API operations from S3 interface endpoints
+## Accessing buckets, access points, and Amazon S3 Control API operations from S3 interface endpoints
 
 You can use the AWS CLI or AWS SDKs to access buckets, S3 access points, and Amazon S3 Control API
 operations through S3 interface endpoints.
@@ -563,17 +555,13 @@ s3ControlClient = S3ControlClient.builder().region(region)
                                  .build()
 ```
 
-## Updating an on-premises DNS
-
-configuration
+## Updating an on-premises DNS configuration
 
 When using endpoint-specific DNS names to access the interface endpoints for Amazon S3, you
 don’t have to update your on-premises DNS resolver. You can resolve the endpoint-specific DNS
 name with the private IP address of the interface endpoint from the public Amazon S3 DNS domain.
 
-### Using interface endpoints to access Amazon S3 without
-
-a gateway endpoint or an internet gateway in the VPC
+### Using interface endpoints to access Amazon S3 without a gateway endpoint or an internet gateway in the VPC
 
 Interface endpoints in your VPC can route both in-VPC applications and on-premises
 applications to Amazon S3 over the Amazon network, as illustrated in the following
@@ -593,9 +581,7 @@ diagram illustrates the following:
 - In-VPC applications also send traffic to the interface endpoint. AWS PrivateLink moves
   the data from the interface endpoint to Amazon S3 over the AWS network.
 
-### Using gateway endpoints and
-
-interface endpoints together in the same VPC to access Amazon S3
+### Using gateway endpoints and interface endpoints together in the same VPC to access Amazon S3
 
 You can create interface endpoints and retain the existing gateway endpoint in the
 same VPC, as the following diagram shows. By taking this approach, you allow in-VPC
@@ -617,9 +603,7 @@ The diagram illustrates the following:
 For more information about gateway endpoints, see [Gateway VPC endpoints](../../../vpc/latest/privatelink/vpce-gateway.md "../../../vpc/latest/privatelink/vpce-gateway.md") in the
 _VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-Amazon S3
+## Creating a VPC endpoint policy for Amazon S3
 
 You can attach an endpoint policy to your VPC endpoint that controls access to Amazon S3. The
 policy specifies the following information:
@@ -635,16 +619,11 @@ endpoint.
 
 ###### Topics
 
-- [Example: Restricting access
-  to a specific bucket from a VPC endpoint](#privatelink-example-restrict-access-to-bucket "#privatelink-example-restrict-access-to-bucket")
-- [Example:
-  Restricting access to buckets in a specific account from a VPC endpoint](#privatelink-example-access-bucket-in-specific-account-only "#privatelink-example-access-bucket-in-specific-account-only")
-- [Example: Restricting
-  access to a specific VPC endpoint in the S3 bucket policy](#privatelink-example-restrict-access-to-vpc-endpoint "#privatelink-example-restrict-access-to-vpc-endpoint")
+- [Example: Restricting access to a specific bucket from a VPC endpoint](#privatelink-example-restrict-access-to-bucket "#privatelink-example-restrict-access-to-bucket")
+- [Example: Restricting access to buckets in a specific account from a VPC endpoint](#privatelink-example-access-bucket-in-specific-account-only "#privatelink-example-access-bucket-in-specific-account-only")
+- [Example: Restricting access to a specific VPC endpoint in the S3 bucket policy](#privatelink-example-restrict-access-to-vpc-endpoint "#privatelink-example-restrict-access-to-vpc-endpoint")
 
-### Example: Restricting access
-
-to a specific bucket from a VPC endpoint
+### Example: Restricting access to a specific bucket from a VPC endpoint
 
 You can create an endpoint policy that restricts access to only specific Amazon S3 buckets.
 This type of policy is useful if you have other AWS services in your VPC that use
@@ -675,9 +654,7 @@ JSON
 
 ```
 
-### Example:
-
-Restricting access to buckets in a specific account from a VPC endpoint
+### Example: Restricting access to buckets in a specific account from a VPC endpoint
 
 You can create an endpoint policy that restricts access to only the S3 buckets in a
 specific AWS account. To prevent clients within your VPC from accessing buckets that you
@@ -716,9 +693,7 @@ buckets. Therefore, using the `aws:ResourceAccount` or
 `s3:ResourceAccount` key in your IAM policy might also affect access to
 these resources.
 
-### Example: Restricting
-
-access to a specific VPC endpoint in the S3 bucket policy
+### Example: Restricting access to a specific VPC endpoint in the S3 bucket policy
 
 The following Amazon S3 bucket policy allows access to a specific bucket,
 `amzn-s3-demo-bucket2`, from only the VPC endpoint

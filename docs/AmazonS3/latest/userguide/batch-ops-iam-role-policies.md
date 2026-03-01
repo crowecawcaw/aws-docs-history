@@ -11,13 +11,10 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Creating an S3 Batch Operations IAM
-  role](#batch-ops-iam-role-policies-create "#batch-ops-iam-role-policies-create")
+- [Creating an S3 Batch Operations IAM role](#batch-ops-iam-role-policies-create "#batch-ops-iam-role-policies-create")
 - [Attaching permissions policies](#batch-ops-iam-role-policies-perm "#batch-ops-iam-role-policies-perm")
 
-## Creating an S3 Batch Operations IAM
-
-role
+## Creating an S3 Batch Operations IAM role
 
 Amazon S3 must have permissions to perform S3 Batch Operations on your behalf. You grant these
 permissions through an AWS Identity and Access Management (IAM) role. When you create an S3 Batch Operations job, you
@@ -41,8 +38,7 @@ that perform the same operation, or delete it when the job finishes running.
 If you prefer to create the IAM role manually, the policy examples in this section can
 help you create the role. For more information about creating and configuring roles, see
 [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the _IAM User Guide_. For information about permissions for S3 API operations by S3
-resource type, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md"). For additional examples, see [Controlling permissions for Batch Operations using job
-tags](batch-ops-job-tags-examples.md "batch-ops-job-tags-examples.md") and
+resource type, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md"). For additional examples, see [Controlling permissions for Batch Operations using job tags](batch-ops-job-tags-examples.md "batch-ops-job-tags-examples.md") and
 [Copying objects using S3 Batch Operations](batch-ops-examples-copy.md "batch-ops-examples-copy.md").
 
 In your IAM policies, you can also use condition keys to filter access permissions for
@@ -104,9 +100,7 @@ Before you configure permissions, note the following:
   error `Error occurred when preparing manifest: Failed to write
 manifest`.
 
-### Copy objects:
-
-PutObject
+### Copy objects: PutObject
 
 JSON
 
@@ -160,9 +154,7 @@ JSON
 
 ```
 
-### Replace object tagging:
-
-PutObjectTagging
+### Replace object tagging: PutObjectTagging
 
 JSON
 
@@ -202,9 +194,7 @@ JSON
 
 ```
 
-### Delete object tagging:
-
-DeleteObjectTagging
+### Delete object tagging: DeleteObjectTagging
 
 JSON
 
@@ -246,9 +236,7 @@ JSON
 
 ```
 
-### Replace access control list:
-
-PutObjectAcl
+### Replace access control list: PutObjectAcl
 
 JSON
 
@@ -288,9 +276,7 @@ JSON
 
 ```
 
-### Restore objects:
-
-RestoreObject
+### Restore objects: RestoreObject
 
 JSON
 
@@ -329,9 +315,7 @@ JSON
 
 ```
 
-### Apply Object Lock retention:
-
-PutObjectRetention
+### Apply Object Lock retention: PutObjectRetention
 
 JSON
 
@@ -380,9 +364,7 @@ JSON
 
 ```
 
-### Apply Object Lock legal hold:
-
-PutObjectLegalHold
+### Apply Object Lock legal hold: PutObjectLegalHold
 
 JSON
 
@@ -428,13 +410,10 @@ JSON
 
 ```
 
-### Replicate existing objects:
-
-InitiateReplication with an S3 generated manifest
+### Replicate existing objects: InitiateReplication with an S3 generated manifest
 
 Use this policy if you're using and storing an S3 generated manifest. For more
-information about using Batch Operations to replicate existing objects, see [Replicating existing objects with
-Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
+information about using Batch Operations to replicate existing objects, see [Replicating existing objects with Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
 
 JSON
 
@@ -486,13 +465,10 @@ JSON
 
 ```
 
-### Replicate existing objects:
-
-InitiateReplication with a user manifest
+### Replicate existing objects: InitiateReplication with a user manifest
 
 Use this policy if you're using a user supplied manifest. For more information about
-using Batch Operations to replicate existing objects, see [Replicating existing objects with
-Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
+using Batch Operations to replicate existing objects, see [Replicating existing objects with Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
 
 JSON
 
@@ -533,17 +509,13 @@ JSON
 
 ```
 
-### Compute checksum: Allow
-
-`GetObject`, `GetObjectVersion`, `RestoreObject`, and
-`PutObject`
+### Compute checksum: Allow `GetObject`, `GetObjectVersion`, `RestoreObject`, and `PutObject`
 
 Use this policy if you're trying to use the **Compute checksum**
 operation with S3 Batch Operations. Permissions for `GetObject`, `GetObjectVersion`, and
 `RestoreObject` are required to obtain and read the bytes of stored data. Replace the user
 input placeholders with your own information. For more information about **Compute checksum**,
-see [Checking object integrity for data at
-rest in Amazon S3](checking-object-integrity-at-rest.md "checking-object-integrity-at-rest.md").
+see [Checking object integrity for data at rest in Amazon S3](checking-object-integrity-at-rest.md "checking-object-integrity-at-rest.md").
 
 ```
 {

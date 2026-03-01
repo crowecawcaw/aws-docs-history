@@ -1,6 +1,4 @@
-# Using hybrid post-quantum TLS with
-
-Amazon S3
+# Using hybrid post-quantum TLS with Amazon S3
 
 Amazon S3 supports a hybrid post-quantum key exchange option for the TLS network encryption
 protocol. You can use this TLS option when you make requests to Amazon S3 endpoints utilizing TLS

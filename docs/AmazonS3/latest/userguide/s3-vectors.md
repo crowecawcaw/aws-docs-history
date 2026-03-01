@@ -31,9 +31,7 @@ control access to your vector data with the existing access control mechanisms o
 including bucket and IAM policies. For more information about vector index limits
 per bucket and vector limits per index, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md").
 
-## Use cases: Similarity searches across large
-
-datasets
+## Use cases: Similarity searches across large datasets
 
 Similarity searches allow you to find items that are conceptually related to each
 other based on their vector representations, rather than exact keyword matches. These
@@ -64,9 +62,7 @@ and querying vector embeddings. For more information about pricing, see [Amazon 
 
 ## Features of S3 Vectors
 
-### Purpose-built storage for
-
-vectors
+### Purpose-built storage for vectors
 
 S3 Vectors is the first purpose-built object storage in the cloud to store and
 query vectors. Vector buckets are designed to provide cost-effective, elastic,
@@ -103,9 +99,7 @@ queries. Vector indexes support string, number, boolean, and list types of
 metadata. For more information about metadata size limits per vector and filterable
 metadata size limits per vector, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md").
 
-### Access management and
-
-security
+### Access management and security
 
 You can manage access for resources in vector buckets with IAM and [Service Control Policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") in AWS Organizations. S3 Vectors uses a
 different service namespace than Amazon S3: the `s3vectors` namespace.

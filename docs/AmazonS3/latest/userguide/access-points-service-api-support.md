@@ -5,9 +5,7 @@ operations listed below can accept either access point ARNs or access point alia
 
 For examples of using access points to perform operations on objects, see [Using Amazon S3 access points for general purpose buckets](using-access-points.md "using-access-points.md").
 
-## Access points compatibility with S3
-
-operations
+## Access points compatibility with S3 operations
 
 The following table is a partial list of Amazon S3 operations and if they are compatible with access points.
 All operations below are supported by access points using an S3 bucket as its data source, while only

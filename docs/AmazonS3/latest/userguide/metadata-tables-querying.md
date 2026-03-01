@@ -7,10 +7,9 @@ automatically discover and access your table data.
 
 After your table bucket is integrated with the AWS Glue Data Catalog, you can directly query your metadata
 tables with AWS analytics services such as Amazon Athena, Amazon EMR, and Amazon Redshift. You can also create
-interactive dashboards with your query data by using Amazon Quick Suite.
+interactive dashboards with your query data by using Amazon Quick.
 
-For more information about integrating your AWS managed S3 table bucket with Amazon SageMaker Lakehouse, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
+For more information about integrating your AWS managed S3 table bucket with Amazon SageMaker Lakehouse, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 
 You can also query your metadata tables with Apache Spark, Apache Trino,
 and any other application that supports the Apache Iceberg format by using the AWS Glue
@@ -35,17 +34,12 @@ Iceberg format. For example, you can query your metadata tables to do the follow
 Additional pricing applies for running queries on your metadata tables. For more information, see
 pricing information for the query engine that you're using.
 
-For information on making your queries more cost effective, see [Optimizing metadata table query
-performance](metadata-tables-optimizing-query-performance.md "metadata-tables-optimizing-query-performance.md").
+For information on making your queries more cost effective, see [Optimizing metadata table query performance](metadata-tables-optimizing-query-performance.md "metadata-tables-optimizing-query-performance.md").
 
 ###### Topics
 
-- [Permissions for querying metadata
-  tables](metadata-tables-bucket-query-permissions.md "metadata-tables-bucket-query-permissions.md")
-- [Querying metadata tables with AWS analytics
-  services](metadata-tables-bucket-integration.md "metadata-tables-bucket-integration.md")
-- [Querying metadata tables with
-  open-source query engines](metadata-tables-bucket-integration-open-source.md "metadata-tables-bucket-integration-open-source.md")
-- [Optimizing metadata table query
-  performance](metadata-tables-optimizing-query-performance.md "metadata-tables-optimizing-query-performance.md")
+- [Permissions for querying metadata tables](metadata-tables-bucket-query-permissions.md "metadata-tables-bucket-query-permissions.md")
+- [Querying metadata tables with AWS analytics services](metadata-tables-bucket-integration.md "metadata-tables-bucket-integration.md")
+- [Querying metadata tables with open-source query engines](metadata-tables-bucket-integration-open-source.md "metadata-tables-bucket-integration-open-source.md")
+- [Optimizing metadata table query performance](metadata-tables-optimizing-query-performance.md "metadata-tables-optimizing-query-performance.md")
 - [Example metadata table queries](metadata-tables-example-queries.md "metadata-tables-example-queries.md")

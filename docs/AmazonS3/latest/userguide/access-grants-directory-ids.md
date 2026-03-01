@@ -1,6 +1,4 @@
-# S3 Access Grants and corporate directory
-
-identities
+# S3 Access Grants and corporate directory identities
 
 You can use Amazon S3 Access Grants to grant access to AWS Identity and Access Management (IAM) principals (users or
 roles), both in the same AWS account and in others. However, in many cases, the entity
@@ -57,12 +55,9 @@ To use your corporate directory identities with S3 Access Grants, do the followi
   identity propagation across applications](../../../singlesignon/latest/userguide/trustedidentitypropagation.md "../../../singlesignon/latest/userguide/trustedidentitypropagation.md") in the _AWS IAM Identity Center User Guide_.
 - Associate your S3 Access Grants instance with your IAM Identity Center instance. You can do this when you
   [create your S3 Access Grants
-  instance](access-grants-instance.md "access-grants-instance.md"). If you've already created your S3 Access Grants instance, see [Associate or disassociate your IAM Identity Center
-  instance](access-grants-instance-idc.md "access-grants-instance-idc.md").
+  instance](access-grants-instance.md "access-grants-instance.md"). If you've already created your S3 Access Grants instance, see [Associate or disassociate your IAM Identity Center instance](access-grants-instance-idc.md "access-grants-instance-idc.md").
 
-## How directory identities can
-
-access S3 data
+## How directory identities can access S3 data
 
 Suppose that you have corporate directory users who need to access your S3 data
 through a corporate application, for example, a document-viewer application, that is

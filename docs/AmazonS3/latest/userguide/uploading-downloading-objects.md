@@ -1,6 +1,4 @@
-# Working with objects in
-
-Amazon S3
+# Working with objects in Amazon S3
 
 To store your data in Amazon S3, you work with resources known as buckets and objects. A
 _bucket_ is a container for objects. An _object_ is a file and any metadata that describes that
@@ -34,8 +32,7 @@ you can get started with Amazon S3 for free. For more information, see [AWS Free
 - [Checking object integrity in Amazon S3](checking-object-integrity.md "checking-object-integrity.md")
 - [Deleting Amazon S3 objects](DeletingObjects.md "DeletingObjects.md")
 - [Organizing, listing, and working with your objects](organizing-objects.md "organizing-objects.md")
-- [Download and upload objects with presigned
-  URLs](using-presigned-url.md "using-presigned-url.md")
+- [Download and upload objects with presigned URLs](using-presigned-url.md "using-presigned-url.md")
 - [Transforming objects with S3 Object Lambda](transforming-objects.md "transforming-objects.md")
 - [Performing object operations in bulk with Batch Operations](batch-ops.md "batch-ops.md")
 - [Querying data in place with Amazon S3 Select](selecting-content-from-objects.md "selecting-content-from-objects.md")

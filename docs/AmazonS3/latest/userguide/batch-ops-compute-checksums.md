@@ -46,8 +46,7 @@ you can either:
   [Tracking job status and completion reports](batch-ops-job-status.md "batch-ops-job-status.md").
 
 For more information about **Compute checksum** capabilities and how to
-use **Compute checksum** in the console, see [Checking object integrity for data at
-rest in Amazon S3](checking-object-integrity-at-rest.md "checking-object-integrity-at-rest.md"). For information about how to send
+use **Compute checksum** in the console, see [Checking object integrity for data at rest in Amazon S3](checking-object-integrity-at-rest.md "checking-object-integrity-at-rest.md"). For information about how to send
 REST requests to **Compute checksum**, see [DescribeJob](../API/API_control_DescribeJob.md "../API/API_control_DescribeJob.md") and [CreateJob](../API/API_control_CreateJob.md "../API/API_control_CreateJob.md") in
 the _Amazon S3 API Reference_.
 
@@ -56,14 +55,10 @@ The following sections explain how you can get started using the
 
 ###### Topics
 
-- [S3 Batch Operations
-  Compute checksum considerations](#batch-ops-compute-checksum-considerations "#batch-ops-compute-checksum-considerations")
-- [S3 Batch Operations completion
-  report](#batch-ops-compute-checksum-completion-report "#batch-ops-compute-checksum-completion-report")
+- [S3 Batch Operations Compute checksum considerations](#batch-ops-compute-checksum-considerations "#batch-ops-compute-checksum-considerations")
+- [S3 Batch Operations completion report](#batch-ops-compute-checksum-completion-report "#batch-ops-compute-checksum-completion-report")
 
-## S3 Batch Operations
-
-**Compute checksum** considerations
+## S3 Batch Operations **Compute checksum** considerations
 
 Before using the **Compute checksum** operation, review the
 following list of considerations:
@@ -100,9 +95,7 @@ following list of considerations:
   job fails. For a list of S3 operations that don't support bucket owner
   condition, see [Restrictions and limitations](bucket-owner-condition.md#bucket-owner-condition-restrictions-limitations "bucket-owner-condition.md#bucket-owner-condition-restrictions-limitations").
 
-## S3 Batch Operations completion
-
-report
+## S3 Batch Operations completion report
 
 When you create a **Compute checksum** job, you can request an
 S3 Batch Operations completion report. This CSV file shows the objects, success or failure

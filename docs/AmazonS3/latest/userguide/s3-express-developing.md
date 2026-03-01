@@ -9,6 +9,5 @@ You can work with directory buckets by using the AWS SDKs, Amazon S3 console, AW
 ###### Topics
 
 - [Regional and Zonal endpoints for directory buckets](s3-express-Regions-and-Zones.md "s3-express-Regions-and-Zones.md")
-- [Working with directory buckets by using the
-  S3 console, AWS CLI, and AWS SDKs](s3-express-SDKs.md "s3-express-SDKs.md")
+- [Working with directory buckets by using the S3 console, AWS CLI, and AWS SDKs](s3-express-SDKs.md "s3-express-SDKs.md")
 - [Directory bucket API operations](s3-express-APIs.md "s3-express-APIs.md")

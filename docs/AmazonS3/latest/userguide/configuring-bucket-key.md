@@ -1,6 +1,4 @@
-# Configuring your bucket to use an S3 Bucket Key with
-
-SSE-KMS for new objects
+# Configuring your bucket to use an S3 Bucket Key with SSE-KMS for new objects
 
 When you configure server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS), you can
 configure your bucket to use an S3 Bucket Key for SSE-KMS on new objects. S3 Bucket Keys decrease the
@@ -10,9 +8,7 @@ request traffic from Amazon S3 to AWS KMS and reduce the cost of SSE-KMS. For mo
 You can configure your bucket to use an S3 Bucket Key for SSE-KMS on new objects by using
 the Amazon S3 console, REST API, AWS SDKs, AWS Command Line Interface (AWS CLI), or CloudFormation. If you want to enable or
 disable an S3 Bucket Key for existing objects, you can use a `CopyObject` operation. For
-more information, see [Configuring an S3 Bucket Key at the object
-level](configuring-bucket-key-object.md "configuring-bucket-key-object.md") and [Using Batch Operations to enable S3 Bucket Keys for
-SSE-KMS](batch-ops-copy-example-bucket-key.md "batch-ops-copy-example-bucket-key.md").
+more information, see [Configuring an S3 Bucket Key at the object level](configuring-bucket-key-object.md "configuring-bucket-key-object.md") and [Using Batch Operations to enable S3 Bucket Keys for SSE-KMS](batch-ops-copy-example-bucket-key.md "batch-ops-copy-example-bucket-key.md").
 
 When an S3 Bucket Key is enabled for the source or destination bucket, the encryption
 context will be the bucket Amazon Resource Name (ARN) and not the object ARN, for example,
@@ -21,8 +17,7 @@ IAM policies to use the bucket ARN for the encryption context. For more informat
 [S3 Bucket Keys and replication](replication-config-for-kms-objects.md#bk-replication "replication-config-for-kms-objects.md#bk-replication").
 
 The following examples illustrate how an S3 Bucket Key works with replication. For more
-information, see [Replicating encrypted objects (SSE-S3,
-SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md"). 
+information, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md"). 
 
 ###### Prerequisites
 
@@ -35,9 +30,7 @@ bucket. Objects in the S3 console inherit their S3 Bucket Key setting from the b
 configuration. When you enable an S3 Bucket Key for your bucket, new objects that you
 upload to the bucket use an S3 Bucket Key for SSE-KMS.
 
-###### Uploading, copying, or modifying objects in buckets that have an S3 Bucket Key
-
-enabled
+###### Uploading, copying, or modifying objects in buckets that have an S3 Bucket Key enabled
 
 If you upload, modify, or copy an object in a bucket that has an S3 Bucket Key
 enabled, the S3 Bucket Key settings for that object might be updated to align with the
@@ -120,8 +113,7 @@ To disable an S3 Bucket Key, follow the previous steps, and choose
 
 Amazon S3 enables an S3 Bucket Key for new objects added to your bucket. Existing
 objects don't use the S3 Bucket Key. To configure an S3 Bucket Key for existing objects,
-you can use a `CopyObject` operation. For more information, see [Configuring an S3 Bucket Key at the object
-level](configuring-bucket-key-object.md "configuring-bucket-key-object.md").
+you can use a `CopyObject` operation. For more information, see [Configuring an S3 Bucket Key at the object level](configuring-bucket-key-object.md "configuring-bucket-key-object.md").
 
 To disable an S3 Bucket Key, follow the previous steps, and choose
 **Disable**.

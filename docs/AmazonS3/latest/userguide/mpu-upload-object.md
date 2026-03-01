@@ -8,8 +8,7 @@ affecting other parts. After all parts of your object are uploaded, Amazon S3 as
 these parts and creates the object. Anonymous users cannot initiate multipart uploads.
 
 For an end-to-end procedure on uploading an object with multipart upload with an additional checksum, see
-[Tutorial: Upload an object through multipart upload and
-verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md").
+[Tutorial: Upload an object through multipart upload and verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md").
 
 The following section show how to use multipart upload with the AWS Command Line Interface, and
 AWS SDKs.
@@ -665,8 +664,7 @@ def download_with_sse(
 The AWS SDK exposes a low-level API that closely resembles the Amazon S3 REST API for
 multipart uploads (see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md"). Use the low-level API when you need to pause and resume multipart uploads, vary part
 sizes during the upload, or do not know the size of the upload data in advance. When you
-don't have these requirements, use the high-level API (see [Using the AWS SDKs (high-level
-API)](#multipart-upload-high-level "#multipart-upload-high-level")).
+don't have these requirements, use the high-level API (see [Using the AWS SDKs (high-level API)](#multipart-upload-high-level "#multipart-upload-high-level")).
 
 JavaThe following
 example shows how to use the low-level Java classes to upload a file. It performs the

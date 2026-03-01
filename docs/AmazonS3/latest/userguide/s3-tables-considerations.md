@@ -9,8 +9,7 @@ management options.
 
 - [Considerations for compaction](#s3-tables-compaction-considerations "#s3-tables-compaction-considerations")
 - [Considerations for snapshot management](#s3-tables-snapshot-considerations "#s3-tables-snapshot-considerations")
-- [Considerations for
-  unreferenced file removal](#s3-tables-unreferenced-file-removal-considerations "#s3-tables-unreferenced-file-removal-considerations")
+- [Considerations for unreferenced file removal](#s3-tables-unreferenced-file-removal-considerations "#s3-tables-unreferenced-file-removal-considerations")
 - [S3 table and table buckets maintenance operations limits and related APIs](#s3-tables-maintenance-limits "#s3-tables-maintenance-limits")
 
 ## Considerations for compaction
@@ -49,9 +48,7 @@ about snapshot management, see [Maintenance for tables](s3-tables-maintenance.md
   snapshots or remove the properties from your Iceberg table to avoid storage
   charges.
 
-## Considerations for
-
-unreferenced file removal
+## Considerations for unreferenced file removal
 
 The following considerations apply to unreferenced file removal. For more information
 about unreferenced file removal, see [Maintenance for table buckets](s3-table-buckets-maintenance.md "s3-table-buckets-maintenance.md").

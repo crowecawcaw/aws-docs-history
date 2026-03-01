@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Amazon S3 Storage Lens
+# Using service-linked roles for Amazon S3 Storage Lens
 
 To use Amazon S3 Storage Lens to collect and aggregate metrics across all your accounts in
 AWS Organizations, you must first ensure that S3 Storage Lens has trusted access enabled by the
@@ -30,9 +28,7 @@ For information about other services that support service-linked roles, see [AWS
 Choose a **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role permissions for
-
-Amazon S3 Storage Lens
+## Service-linked role permissions for Amazon S3 Storage Lens
 
 S3 Storage Lens uses the service-linked role named **AWSServiceRoleForS3StorageLens** –
 This enables access to AWS services and resources used or managed by S3 Storage Lens. This allows S3 Storage Lens to access AWS Organizations resources on your behalf.
@@ -139,10 +135,7 @@ then delete the role.
 To delete the service-linked role, you must delete all the organization-level S3 Storage Lens
 configurations in all the Regions where they exist.
 
-###### To delete Amazon S3 Storage Lens resources used by
-
-the
-AWSServiceRoleForS3StorageLens SLR
+###### To delete Amazon S3 Storage Lens resources used by the AWSServiceRoleForS3StorageLens SLR
 
 1. To get a list of your organization level configurations, you must use the
    `ListStorageLensConfigurations` in every Region that you have S3 Storage Lens

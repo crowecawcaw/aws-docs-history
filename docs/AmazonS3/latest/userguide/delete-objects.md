@@ -6,8 +6,7 @@ S3 bucket. For more information about deleting objects in Amazon S3, see [Deleti
 Because all objects in your S3 bucket incur storage costs, you should delete objects that
 you no longer need. For example, if you are collecting log files, it's a good idea to delete
 them when they're no longer needed. You can set up a lifecycle rule to automatically delete
-objects such as log files. For more information, see [Setting an S3 Lifecycle configuration on a
-bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
+objects such as log files. For more information, see [Setting an S3 Lifecycle configuration on a bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
 
 For information about Amazon S3 features and pricing, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing "https://aws.amazon.com/s3/pricing").
 
@@ -38,9 +37,7 @@ deleted object, while retaining the previous versions of the object.
    objects** in the **Delete objects?** text box,
    enter `delete`.
 
-###### To permanently delete a specific object version in a versioning-enabled
-
-bucket
+###### To permanently delete a specific object version in a versioning-enabled bucket
 
 ###### Warning
 
@@ -61,9 +58,7 @@ can't be undone.
    delete**. Amazon S3 permanently deletes the specific object
    version.
 
-###### To permanently delete an object in an Amazon S3 bucket that
-
-_doesn't_ have versioning enabled
+###### To permanently delete an object in an Amazon S3 bucket that _doesn't_ have versioning enabled
 
 ###### Warning
 

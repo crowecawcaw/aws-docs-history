@@ -1,6 +1,4 @@
-# CloudTrail log file entries
-
-for Amazon S3 and S3 on Outposts
+# CloudTrail log file entries for Amazon S3 and S3 on Outposts
 
 ###### Important
 
@@ -16,12 +14,9 @@ For more information, see the following examples.
 
 ###### Topics
 
-- [Example: CloudTrail log file entry for
-  Amazon S3](#example-ct-log-s3 "#example-ct-log-s3")
+- [Example: CloudTrail log file entry for Amazon S3](#example-ct-log-s3 "#example-ct-log-s3")
 
-## Example: CloudTrail log file entry for
-
-Amazon S3
+## Example: CloudTrail log file entry for Amazon S3
 
 The following example shows a CloudTrail log entry that demonstrates the [GET Service](../API/RESTServiceGET.md "../API/RESTServiceGET.md"),
 [PutBucketAcl](../API/RESTBucketPUTacl.md "../API/RESTBucketPUTacl.md"), and [GetBucketVersioning](../API/RESTBucketGETversioningStatus.md "../API/RESTBucketGETversioningStatus.md") actions.

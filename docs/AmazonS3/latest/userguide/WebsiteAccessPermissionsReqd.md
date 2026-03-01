@@ -1,6 +1,4 @@
-# Setting permissions for website
-
-access
+# Setting permissions for website access
 
 When you configure a bucket as a static website, if you want your website to be
 public, you can grant public read access. To make your bucket publicly readable, you
@@ -11,8 +9,7 @@ everyone read access.
 
 If you don't want to disable block public access settings for your bucket but you
 still want your website to be public, you can create a Amazon CloudFront distribution to serve
-your static website. For more information, see [Speeding up your website with
-Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cloudfront-walkthrough.md") or [Use an
+your static website. For more information, see [Speeding up your website with Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cloudfront-walkthrough.md") or [Use an
 Amazon CloudFront distribution to serve a static website](../../../Route53/latest/DeveloperGuide/getting-started-cloudfront-overview.md "../../../Route53/latest/DeveloperGuide/getting-started-cloudfront-overview.md") in the
 _Amazon Route 53 Developer Guide_.
 
@@ -27,14 +24,11 @@ should not enable website support for your bucket.
 
 ###### Topics
 
-- [Step 1: Edit S3 Block Public
-  Access settings](#block-public-access-static-site "#block-public-access-static-site")
+- [Step 1: Edit S3 Block Public Access settings](#block-public-access-static-site "#block-public-access-static-site")
 - [Step 2: Add a bucket policy](#bucket-policy-static-site "#bucket-policy-static-site")
 - [Object access control lists](#object-acl "#object-acl")
 
-## Step 1: Edit S3 Block Public
-
-Access settings
+## Step 1: Edit S3 Block Public Access settings
 
 If you want to configure an existing bucket as a static website that has public
 access, you must edit Block Public Access settings for that bucket. You might also
@@ -45,15 +39,13 @@ settings.
 For example, if you allow public access for a bucket but block all public access
 at the account level, Amazon S3 will continue to block public access to the bucket. In
 this scenario, you would have to edit your bucket-level and account-level Block
-Public Access settings. For more information, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+Public Access settings. For more information, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 By default, Amazon S3 blocks public access to your account and buckets. If you want to use a bucket to host a static website, you can use these steps to edit your block public access settings.
 
 ###### Warning
 
-Before you complete these steps, review [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md") to ensure that you understand and accept the risks involved with allowing public access. When you turn off block public access settings to make your bucket public, anyone on the internet can access your bucket. We recommend that you block all public access to your buckets.
+Before you complete these steps, review [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md") to ensure that you understand and accept the risks involved with allowing public access. When you turn off block public access settings to make your bucket public, anyone on the internet can access your bucket. We recommend that you block all public access to your buckets.
 
 1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Choose the name of the bucket that you have configured as a static website.
@@ -131,8 +123,7 @@ exclusively by using access-management policies.
 A majority of modern use cases in Amazon S3 no longer require the use of ACLs. We recommend that you keep ACLs disabled, except
 in circumstances where you need to control access for each object individually. With ACLs disabled, you can use policies
 to control access to all objects in your bucket, regardless of who uploaded the objects to your bucket.
-For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 ###### Important
 

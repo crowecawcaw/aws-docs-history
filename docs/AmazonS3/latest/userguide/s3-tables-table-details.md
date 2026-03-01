@@ -35,8 +35,7 @@ The preview shows the first 10 rows and up to 25 columns of your table. Tables o
 
 ## Encryption details
 
-For more information about table bucket encryption, see [Using server-side encryption with AWS KMS keys
-(SSE-KMS) in table buckets](s3-tables-kms-encryption.md "s3-tables-kms-encryption.md").
+For more information about table bucket encryption, see [Using server-side encryption with AWS KMS keys (SSE-KMS) in table buckets](s3-tables-kms-encryption.md "s3-tables-kms-encryption.md").
 
 This example shows how to get details about encryption settings for a
 table by using the AWS CLI. To use this example, replace the

@@ -120,8 +120,7 @@ see [S3 Batch Operations basics](batch-ops.md#batch-ops-basics "batch-ops.md#bat
 
 ###### Copying objects to directory buckets
 
-For information about copying an object to a directory bucket, see [Copying objects from or to a
-directory bucket](directory-buckets-objects-copy.md "directory-buckets-objects-copy.md"). For information about using the
+For information about copying an object to a directory bucket, see [Copying objects from or to a directory bucket](directory-buckets-objects-copy.md "directory-buckets-objects-copy.md"). For information about using the
 Amazon S3 Express One Zone storage class with directory buckets, see [S3 Express One Zone](directory-bucket-high-performance.md#s3-express-one-zone "directory-bucket-high-performance.md#s3-express-one-zone") and [Working with directory buckets](directory-buckets-overview.md "directory-buckets-overview.md").
 
 ## To copy an object

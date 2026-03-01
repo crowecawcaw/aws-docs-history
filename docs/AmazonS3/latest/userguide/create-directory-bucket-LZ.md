@@ -14,12 +14,10 @@ For more information, see [Directory bucket naming rules](directory-bucket-namin
   must enable your AWS account before you can create or access any resource in
   the Dedicated Local Zone. For more information, see [Enable accounts for Local Zones](opt-in-directory-bucket-lz.md "opt-in-directory-bucket-lz.md").
 - For the data residency requirements, we recommend enabling access to your
-  buckets only from gateway VPC endpoints. For more information, see [Private connectivity from your
-  VPC](connectivity-lz-directory-buckets.md "connectivity-lz-directory-buckets.md").
+  buckets only from gateway VPC endpoints. For more information, see [Private connectivity from your VPC](connectivity-lz-directory-buckets.md "connectivity-lz-directory-buckets.md").
 - To restrict access to only within the Local Zone network border groups, you can use
   the condition key `s3express:AllAccessRestrictedToLocalZoneGroup` in
-  your IAM policies. For more information, see [Authenticating and authorizing for
-  directory buckets in Local Zones](iam-directory-bucket-LZ.md "iam-directory-bucket-LZ.md").
+  your IAM policies. For more information, see [Authenticating and authorizing for directory buckets in Local Zones](iam-directory-bucket-LZ.md "iam-directory-bucket-LZ.md").
   The following describes ways to create a directory bucket in a single Local Zone with the
   AWS Management Console, AWS CLI, and AWS SDKs.
 
@@ -31,8 +29,7 @@ For more information, see [Directory bucket naming rules](directory-bucket-namin
 
 ###### Note
 
-For more information about the parent Regions, see [Concepts for directory buckets in
-Local Zones](s3-lzs-for-directory-buckets.md "s3-lzs-for-directory-buckets.md"). 3. In the left navigation pane, choose **Buckets**. 4. Choose **Create bucket**.
+For more information about the parent Regions, see [Concepts for directory buckets in Local Zones](s3-lzs-for-directory-buckets.md "s3-lzs-for-directory-buckets.md"). 3. In the left navigation pane, choose **Buckets**. 4. Choose **Create bucket**.
 
 The **Create bucket** page opens. 5. Under **General configuration**, view the AWS Region
 where your bucket will be created. 6. Under **Bucket type**, choose
@@ -85,20 +82,17 @@ bucket owner automatically owns and has full control over every object in
 the bucket. ACLs no longer affect access permissions to data in the S3
 bucket. The bucket uses policies exclusively to define access control. A
 majority of modern use cases in Amazon S3 no longer require the use of ACLs. For
-more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md"). 11. Under **Block Public Access settings for this bucket**,
+more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md"). 11. Under **Block Public Access settings for this bucket**,
 all Block Public Access settings for your directory bucket are automatically
 enabled. These settings can't be modified for directory buckets. For more
-information about blocking public access, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md"). 12. Under **Default encryption**, directory buckets use
+information about blocking public access, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md"). 12. Under **Default encryption**, directory buckets use
 **Server-side encryption with Amazon S3 managed keys
 (SSE-S3)** to encrypt data by default. You also have the option
 to encrypt data in directory buckets with **Server-side encryption
 with AWS Key Management Service keys (SSE-KMS)**. 13. Choose **Create bucket**.
 
 After creating the bucket, you can add files and folders to the bucket.
-For more information, see [Working with objects in a directory
-bucket](directory-buckets-objects.md "directory-buckets-objects.md").
+For more information, see [Working with objects in a directory bucket](directory-buckets-objects.md "directory-buckets-objects.md").
 This example shows how to create a directory bucket in a Local Zone by using the
 AWS CLI. To use the command, replace the `user input
  placeholders` with your own information.
@@ -113,8 +107,7 @@ aws s3api create-bucket
 --region `parent-region-code`
 ```
 
-For more information about Local Zone ID and Parent Region Code, see [Concepts for directory buckets in
-Local Zones](s3-lzs-for-directory-buckets.md "s3-lzs-for-directory-buckets.md"). For more information about the
+For more information about Local Zone ID and Parent Region Code, see [Concepts for directory buckets in Local Zones](s3-lzs-for-directory-buckets.md "s3-lzs-for-directory-buckets.md"). For more information about the
 AWS CLI command, see [create-bucket](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html") in the _AWS CLI Command Reference_.
 
 SDK for Go

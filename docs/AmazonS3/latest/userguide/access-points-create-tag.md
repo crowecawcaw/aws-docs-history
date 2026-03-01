@@ -26,8 +26,7 @@ To create an access point with tags using the Amazon S3 console:
 2. In the left navigation pane, choose **Access Points (General Purpose Buckets)**.
 3. Choose **create access point** to create a new access point.
 4. On the **Create access point** page, **Tags** is an option when creating a new access point.
-5. Enter a name for the access point. For more information, see [Access points naming rules, restrictions, and
-   limitations](access-points-restrictions-limitations-naming-rules.md "access-points-restrictions-limitations-naming-rules.md").
+5. Enter a name for the access point. For more information, see [Access points naming rules, restrictions, and limitations](access-points-restrictions-limitations-naming-rules.md "access-points-restrictions-limitations-naming-rules.md").
 6. Choose **Add new Tag** to open the **Tags** editor and enter a tag key-value pair. The tag key is required, but the value is optional.
 7. To add another tag, select **Add new Tag** again. You can enter up to 50 tag key-value pairs.
 8. After you complete specifying the options for your new access point, choose **Create access point**.

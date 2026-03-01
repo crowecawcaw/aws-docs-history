@@ -1,6 +1,4 @@
-# Identity-based policies for
-
-Amazon S3
+# Identity-based policies for Amazon S3
 
 By default, users and roles don't have permission to create or modify Amazon S3
 resources. To grant users permission to perform actions on the
@@ -16,14 +14,11 @@ For more information about the permissions to S3 API operations by S3 resource t
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [Controlling access to a bucket with user policies](walkthrough1.md "walkthrough1.md")
 - [Identity-based policy examples for Amazon S3](example-policies-s3.md "example-policies-s3.md")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon S3 resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and

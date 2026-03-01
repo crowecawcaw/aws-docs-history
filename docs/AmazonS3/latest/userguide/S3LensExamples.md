@@ -36,6 +36,5 @@ placeholder values.
 - [Delete an Amazon S3 Storage Lens dashboard](storage_lens_deleting.md "storage_lens_deleting.md")
 - [List Amazon S3 Storage Lens dashboards](storage_lens_list_dashboard.md "storage_lens_list_dashboard.md")
 - [View an Amazon S3 Storage Lens dashboard configuration details](storage_lens_viewing.md "storage_lens_viewing.md")
-- [Managing AWS resource tags
-  with S3 Storage Lens](storage-lens-groups-manage-tags-dashboard.md "storage-lens-groups-manage-tags-dashboard.md")
+- [Managing AWS resource tags with S3 Storage Lens](storage-lens-groups-manage-tags-dashboard.md "storage-lens-groups-manage-tags-dashboard.md")
 - [Helper files for using Amazon S3 Storage Lens](S3LensHelperFilesCLI.md "S3LensHelperFilesCLI.md")

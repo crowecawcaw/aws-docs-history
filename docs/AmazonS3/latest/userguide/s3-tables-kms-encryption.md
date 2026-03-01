@@ -1,17 +1,12 @@
-# Using server-side encryption with AWS KMS keys
-
-(SSE-KMS) in table buckets
+# Using server-side encryption with AWS KMS keys (SSE-KMS) in table buckets
 
 ###### Topics
 
 - [How SSE-KMS works for tables and table buckets](#kms-tables-how "#kms-tables-how")
-- [Enforcing and scoping SSE-KMS use for tables and
-  table buckets](tables-require-kms.md "tables-require-kms.md")
-- [Monitoring and Auditing SSE-KMS encryption for tables and
-  table buckets](#kms-tables-audit "#kms-tables-audit")
+- [Enforcing and scoping SSE-KMS use for tables and table buckets](tables-require-kms.md "tables-require-kms.md")
+- [Monitoring and Auditing SSE-KMS encryption for tables and table buckets](#kms-tables-audit "#kms-tables-audit")
 - [Permission requirements for S3 Tables SSE-KMS encryption](s3-tables-kms-permissions.md "s3-tables-kms-permissions.md")
-- [Specifying server-side encryption with AWS KMS keys
-  (SSE-KMS) in table buckets](s3-tables-kms-specify.md "s3-tables-kms-specify.md")
+- [Specifying server-side encryption with AWS KMS keys (SSE-KMS) in table buckets](s3-tables-kms-specify.md "s3-tables-kms-specify.md")
   Table buckets have a default encryption configuration that automatically encrypts tables
   by using server-side encryption with Amazon S3 managed keys (SSE-S3). This encryption applies to
   all tables in your S3 table buckets, and comes at no cost to you.
@@ -19,8 +14,7 @@
 If you need more control over your encryption keys, such as managing key rotation and
 access policy grants, you can configure your table buckets to use server-side encryption
 with AWS Key Management Service (AWS KMS) keys (SSE-KMS). The security controls in AWS KMS can help you meet
-encryption-related compliance requirements. For more information about SSE-KMS, see [Using server-side encryption with AWS KMS keys
-(SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
+encryption-related compliance requirements. For more information about SSE-KMS, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
 
 ## How SSE-KMS works for tables and table buckets
 
@@ -56,8 +50,7 @@ API, or AWS SDKs to modify or remove the default encryption settings on a
 table bucket at any time. When you modify the encryption settings on a table
 bucket those settings apply only to new tables created in that bucket.
 Encryption settings for pre-existing tables are not changed. For more
-information, see [Specifying encryption for table
-buckets](s3-tables-kms-specify.md#specify-kms-table-bucket "s3-tables-kms-specify.md#specify-kms-table-bucket").
+information, see [Specifying encryption for table buckets](s3-tables-kms-specify.md#specify-kms-table-bucket "s3-tables-kms-specify.md#specify-kms-table-bucket").
 
 **SSE-KMS encryption for tables**
 
@@ -74,9 +67,7 @@ keys that encrypt new objects associated with each table. These keys are used fo
 limited time period, minimizing the need for additional AWS KMS requests during encryption
 operations and reducing the cost of encryption. This is similar to [S3 Bucket Keys for SSE-KMS](bucket-key.md#bucket-key-overview "bucket-key.md#bucket-key-overview").
 
-## Monitoring and Auditing SSE-KMS encryption for tables and
-
-table buckets
+## Monitoring and Auditing SSE-KMS encryption for tables and table buckets
 
 To audit the usage of your AWS KMS keys for your SSE-KMS encrypted data, you can use
 AWS CloudTrail logs. You can get insight into your [cryptographic

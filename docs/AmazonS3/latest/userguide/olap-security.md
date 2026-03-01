@@ -24,8 +24,7 @@ of the access point by resource, user, or other conditions. For more information
 ## Encryption behavior
 
 Because Object Lambda Access Points use both Amazon S3 and AWS Lambda, there are differences in encryption
-behavior. For more information about default S3 encryption behavior, see [Setting default server-side encryption behavior for Amazon S3
-buckets](bucket-encryption.md "bucket-encryption.md").
+behavior. For more information about default S3 encryption behavior, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md").
 
 - When you're using S3 server-side encryption with Object Lambda Access Points, the object is
   decrypted before being sent to Lambda. After the object is sent to Lambda, it is

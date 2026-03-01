@@ -1,6 +1,4 @@
-# Managing AWS resource tags with Storage
-
-Lens groups
+# Managing AWS resource tags with Storage Lens groups
 
 Each Amazon S3 Storage Lens group is counted as an AWS resource with its own Amazon Resource
 Name (ARN). Therefore, when you configure your Storage Lens group, you can optionally add
@@ -37,10 +35,7 @@ Also, be aware of the following limitations:
 
 ###### Topics
 
-- [Adding an AWS resource tag to a Storage
-  Lens group](storage-lens-groups-add-tags.md "storage-lens-groups-add-tags.md")
-- [Updating Storage Lens group tag
-  values](storage-lens-groups-update-tags.md "storage-lens-groups-update-tags.md")
-- [Deleting an AWS resource tag from a
-  Storage Lens group](storage-lens-groups-delete-tags.md "storage-lens-groups-delete-tags.md")
+- [Adding an AWS resource tag to a Storage Lens group](storage-lens-groups-add-tags.md "storage-lens-groups-add-tags.md")
+- [Updating Storage Lens group tag values](storage-lens-groups-update-tags.md "storage-lens-groups-update-tags.md")
+- [Deleting an AWS resource tag from a Storage Lens group](storage-lens-groups-delete-tags.md "storage-lens-groups-delete-tags.md")
 - [Listing Storage Lens group tags](storage-lens-groups-list-tags.md "storage-lens-groups-list-tags.md")

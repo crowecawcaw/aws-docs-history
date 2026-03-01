@@ -40,9 +40,7 @@ This example produces the following output.
 5. (Optional) To filter by the **StorageType** dimension,
    enter the name of the storage class in the search box.
 
-###### To view a list of valid metrics stored for your AWS account by using the
-
-AWS CLI
+###### To view a list of valid metrics stored for your AWS account by using the AWS CLI
 
 - At a command prompt, use the following command.
 

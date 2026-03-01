@@ -14,8 +14,7 @@ of the following methods to manage notification configuration:
   — Internally, both the console and the SDKs call the Amazon S3 REST API to
   manage _notification_ subresources that are associated with
   the bucket. For examples of notification configurations that use AWS
-  SDK, see [Walkthrough: Configuring a
-  bucket for notifications (SNS topic or SQS queue)](ways-to-add-notification-config-to-bucket.md "ways-to-add-notification-config-to-bucket.md").
+  SDK, see [Walkthrough: Configuring a bucket for notifications (SNS topic or SQS queue)](ways-to-add-notification-config-to-bucket.md "ways-to-add-notification-config-to-bucket.md").
 
 ###### Note
 
@@ -32,20 +31,14 @@ If you have multiple failed event notifications due to deleted destinations you 
 
 ###### Topics
 
-- [Granting permissions to publish
-  event notification messages to a destination](grant-destinations-permissions-to-s3.md "grant-destinations-permissions-to-s3.md")
+- [Granting permissions to publish event notification messages to a destination](grant-destinations-permissions-to-s3.md "grant-destinations-permissions-to-s3.md")
 - [Enabling and configuring event notifications using the Amazon S3 console](enable-event-notifications.md "enable-event-notifications.md")
-- [Configuring event notifications
-  programmatically](#event-notification-configuration "#event-notification-configuration")
-- [Walkthrough: Configuring a
-  bucket for notifications (SNS topic or SQS queue)](ways-to-add-notification-config-to-bucket.md "ways-to-add-notification-config-to-bucket.md")
-- [Configuring event notifications
-  using object key name filtering](notification-how-to-filtering.md "notification-how-to-filtering.md")
+- [Configuring event notifications programmatically](#event-notification-configuration "#event-notification-configuration")
+- [Walkthrough: Configuring a bucket for notifications (SNS topic or SQS queue)](ways-to-add-notification-config-to-bucket.md "ways-to-add-notification-config-to-bucket.md")
+- [Configuring event notifications using object key name filtering](notification-how-to-filtering.md "notification-how-to-filtering.md")
 - [Event message structure](notification-content-structure.md "notification-content-structure.md")
 
-## Configuring event notifications
-
-programmatically
+## Configuring event notifications programmatically
 
 By default, notifications aren't enabled for any type of event. Therefore, the
 _notification_ subresource initially stores an empty
@@ -97,9 +90,7 @@ add the `TopicConfiguration`.
 </NotificationConfiguration>
 ```
 
-###### To invoke the AWS Lambda function and provide an event message as an
-
-argument
+###### To invoke the AWS Lambda function and provide an event message as an argument
 
 To set a Lambda function as the notification destination for specific event
 types, add the `CloudFunctionConfiguration`.
@@ -128,7 +119,5 @@ event information. For more information, see [Event message structure](notificat
 
 For more information about configuring event notifications, see the following topics:
 
-- [Walkthrough: Configuring a
-  bucket for notifications (SNS topic or SQS queue)](ways-to-add-notification-config-to-bucket.md "ways-to-add-notification-config-to-bucket.md").
-- [Configuring event notifications
-  using object key name filtering](notification-how-to-filtering.md "notification-how-to-filtering.md")
+- [Walkthrough: Configuring a bucket for notifications (SNS topic or SQS queue)](ways-to-add-notification-config-to-bucket.md "ways-to-add-notification-config-to-bucket.md").
+- [Configuring event notifications using object key name filtering](notification-how-to-filtering.md "notification-how-to-filtering.md")

@@ -13,8 +13,7 @@ exclusively by using access-management policies.
 A majority of modern use cases in Amazon S3 no longer require the use of ACLs. We recommend that you keep ACLs disabled, except
 in circumstances where you need to control access for each object individually. With ACLs disabled, you can use policies
 to control access to all objects in your bucket, regardless of who uploaded the objects to your bucket.
-For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 ###### Important
 
@@ -49,8 +48,7 @@ owner full control over the resource. This is shown in the following sample buck
 
 The sample ACL includes an `Owner` element that identifies the owner by the
 AWS account's canonical user ID. For instructions on finding your canonical user ID,
-see [Finding an AWS account canonical user
-ID](#finding-canonical-id "#finding-canonical-id"). The
+see [Finding an AWS account canonical user ID](#finding-canonical-id "#finding-canonical-id"). The
 `Grant` element identifies the grantee (either an AWS account or a
 predefined group) and the permission granted. This default ACL has one
 `Grant` element for the owner. You grant permissions by adding
@@ -65,8 +63,7 @@ An ACL can have up to 100 grants.
 
 - [Who is a grantee?](#specifying-grantee "#specifying-grantee")
 - [What permissions can I grant?](#permissions "#permissions")
-- [aclRequired values for common Amazon S3
-  requests](#aclrequired-s3 "#aclrequired-s3")
+- [aclRequired values for common Amazon S3 requests](#aclrequired-s3 "#aclrequired-s3")
 - [Sample ACL](#sample-acl "#sample-acl")
 - [Canned ACL](#canned-acl "#canned-acl")
 
@@ -88,9 +85,7 @@ access_. For information about using cross-account access,
 see [Creating a Role to Delegate Permissions to an IAM User](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md")
 in the _IAM User Guide_.
 
-### Finding an AWS account canonical user
-
-ID
+### Finding an AWS account canonical user ID
 
 The canonical user ID is associated with your AWS account. This ID is a long
 string of characters, such as:
@@ -114,9 +109,7 @@ adds a special canonical user ID
 (`65a011a29cdf8ec533ec3d1ccaae921c`) as the object owner in
 the ACL. For more information, see [Amazon S3 bucket and object ownership](access-policy-language-overview.md#about-resource-owner "access-policy-language-overview.md#about-resource-owner").
 
-### Amazon S3 predefined
-
-groups
+### Amazon S3 predefined groups
 
 Amazon S3 has a set of predefined groups. When granting account access to a group, you specify
 one of the Amazon S3 URIs instead of a canonical user ID. Amazon S3 provides the following
@@ -198,13 +191,10 @@ objects in the bucket. We highly recommend that you read through the entire
 [Access control list (ACL) overview](acl-overview.md "acl-overview.md") section before
 granting permissions.
 
-### Mapping of ACL permissions and access policy
-
-permissions
+### Mapping of ACL permissions and access policy permissions
 
 As shown in the preceding table, an ACL allows only a finite set of permissions, compared
-to the number of permissions that you can set in an access policy (see [Policy actions
-for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions")).
+to the number of permissions that you can set in an access policy (see [Policy actions for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions")).
 Each of these permissions allows one or more Amazon S3 operations.
 
 The following table shows how each ACL permission maps to the corresponding access policy
@@ -237,16 +227,13 @@ specific ACL in a request:
 - `s3:x-amz-grant-full-control` ‐ Require full control.
 - `s3:x-amz-acl` ‐ Require a [Canned ACL](#canned-acl "#canned-acl").
 
-For example policies that involve ACL-specific headers, see [Granting s3:PutObject permission
-with a condition requiring the bucket owner to get full control](example-bucket-policies-condition-keys.md#grant-putobject-conditionally-1 "example-bucket-policies-condition-keys.md#grant-putobject-conditionally-1"). For a complete list of
+For example policies that involve ACL-specific headers, see [Granting s3:PutObject permission with a condition requiring the bucket owner to get full control](example-bucket-policies-condition-keys.md#grant-putobject-conditionally-1 "example-bucket-policies-condition-keys.md#grant-putobject-conditionally-1"). For a complete list of
 Amazon S3 specific condition keys, see [Actions, resources, and condition keys for Amazon S3](../../../service-authorization/latest/reference/list_amazons3.md "../../../service-authorization/latest/reference/list_amazons3.md") in the _Service Authorization
 Reference_.
 
 For more information about the permissions to S3 API operations by S3 resource types, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md").
 
-## `aclRequired` values for common Amazon S3
-
-requests
+## `aclRequired` values for common Amazon S3 requests
 
 To identify Amazon S3 requests that required ACLs for authorization, you can use the
 `aclRequired` value in Amazon S3 server access logs or AWS CloudTrail. The

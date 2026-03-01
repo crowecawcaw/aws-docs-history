@@ -1,6 +1,4 @@
-# Speeding up your website with
-
-Amazon CloudFront
+# Speeding up your website with Amazon CloudFront
 
 You can use [Amazon CloudFront](http://aws.amazon.com/cloudfront "http://aws.amazon.com/cloudfront") to improve the
 performance of your Amazon S3 website. CloudFront makes your website files (such as HTML, images, and
@@ -33,8 +31,7 @@ that creates a CloudFront distribution to serve your website, see [Getting start
 ###### Topics
 
 - [Step 1: Create a CloudFront distribution](#create-distribution "#create-distribution")
-- [Step 2: Update the record sets for your domain and
-  subdomain](#update-record-sets "#update-record-sets")
+- [Step 2: Update the record sets for your domain and subdomain](#update-record-sets "#update-record-sets")
 - [(Optional) Step 3: Check the log files](#check-log-files "#check-log-files")
 
 ## Step 1: Create a CloudFront distribution
@@ -97,8 +94,7 @@ Distribution](../../../AmazonCloudFront/latest/DeveloperGuide/WorkingWithDownloa
      log files](../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md#AccessLogsBucketAndFileOwnership "../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md#AccessLogsBucketAndFileOwnership") in the *Amazon CloudFront Developer Guide*. If the bucket that stores the logs uses the
      Bucket owner enforced setting for S3 Object Ownership to disable ACLs,
      CloudFront cannot write logs to the bucket. For more information, see
-     [Controlling ownership of objects and disabling ACLs
-     for your bucket](about-object-ownership.md "about-object-ownership.md").
+     [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
     6. For **Bucket for Logs**, choose the logging bucket
      that you created.
 
@@ -125,9 +121,7 @@ If your website is visible, the CloudFront distribution works. If your website h
 custom domain registered with Amazon Route 53, you will need the CloudFront domain name to
 update the record set in the next step.
 
-## Step 2: Update the record sets for your domain and
-
-subdomain
+## Step 2: Update the record sets for your domain and subdomain
 
 Now that you have successfully created a CloudFront distribution, update the alias record
 in Route 53 to point to the new CloudFront distribution.

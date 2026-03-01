@@ -1,6 +1,4 @@
-# Granting permissions to publish
-
-event notification messages to a destination
+# Granting permissions to publish event notification messages to a destination
 
 You must grant the Amazon S3 principal the necessary permissions to call the relevant
 API to publish messages to an SNS topic, an SQS queue, or a Lambda function. This is
@@ -10,14 +8,10 @@ To troubleshoot publishing event notification messages to a destination, see [Tr
 
 ###### Topics
 
-- [Granting permissions to
-  invoke an AWS Lambda function](#grant-lambda-invoke-permission-to-s3 "#grant-lambda-invoke-permission-to-s3")
-- [Granting permissions to publish
-  messages to an SNS topic or an SQS queue](#grant-sns-sqs-permission-for-s3 "#grant-sns-sqs-permission-for-s3")
+- [Granting permissions to invoke an AWS Lambda function](#grant-lambda-invoke-permission-to-s3 "#grant-lambda-invoke-permission-to-s3")
+- [Granting permissions to publish messages to an SNS topic or an SQS queue](#grant-sns-sqs-permission-for-s3 "#grant-sns-sqs-permission-for-s3")
 
-## Granting permissions to
-
-invoke an AWS Lambda function
+## Granting permissions to invoke an AWS Lambda function
 
 Amazon S3 publishes event messages to AWS Lambda by invoking a Lambda function and
 providing the event message as an argument.
@@ -32,16 +26,13 @@ For more information, see [Tutorial:
 Using AWS Lambda with Amazon S3](../../../lambda/latest/dg/with-s3-example.md "../../../lambda/latest/dg/with-s3-example.md") in the
 _AWS Lambda Developer Guide_.
 
-## Granting permissions to publish
-
-messages to an SNS topic or an SQS queue
+## Granting permissions to publish messages to an SNS topic or an SQS queue
 
 To grant Amazon S3 permissions to publish messages to the SNS topic or SQS queue,
 attach an AWS Identity and Access Management (IAM) policy to the destination SNS topic or SQS queue.
 
 For an example of how to attach a policy to an SNS topic or an SQS queue, see
-[Walkthrough: Configuring a
-bucket for notifications (SNS topic or SQS queue)](ways-to-add-notification-config-to-bucket.md "ways-to-add-notification-config-to-bucket.md"). For more
+[Walkthrough: Configuring a bucket for notifications (SNS topic or SQS queue)](ways-to-add-notification-config-to-bucket.md "ways-to-add-notification-config-to-bucket.md"). For more
 information about permissions, see the following topics:
 
 - [Example
@@ -50,14 +41,11 @@ information about permissions, see the following topics:
 - [Identity and access management in
   Amazon SQS](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/UsingIAM.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/UsingIAM.md") in the _Amazon Simple Queue Service Developer Guide_
 
-### IAM policy for a destination SNS
-
-topic
+### IAM policy for a destination SNS topic
 
 The following is an example of an AWS Identity and Access Management (IAM) policy that you attach
 to the destination SNS topic. For instructions on how to use this policy to
-set up a destination Amazon SNS topic for event notifications, see [Walkthrough: Configuring a
-bucket for notifications (SNS topic or SQS queue)](ways-to-add-notification-config-to-bucket.md "ways-to-add-notification-config-to-bucket.md").
+set up a destination Amazon SNS topic for event notifications, see [Walkthrough: Configuring a bucket for notifications (SNS topic or SQS queue)](ways-to-add-notification-config-to-bucket.md "ways-to-add-notification-config-to-bucket.md").
 
 JSON
 
@@ -90,14 +78,11 @@ JSON
 
 ```
 
-### IAM policy for a destination SQS
-
-queue
+### IAM policy for a destination SQS queue
 
 The following is an example of an IAM policy that you attach to the
 destination SQS queue. For instructions on how to use this policy to set up
-a destination Amazon SQS queue for event notifications, see [Walkthrough: Configuring a
-bucket for notifications (SNS topic or SQS queue)](ways-to-add-notification-config-to-bucket.md "ways-to-add-notification-config-to-bucket.md").
+a destination Amazon SQS queue for event notifications, see [Walkthrough: Configuring a bucket for notifications (SNS topic or SQS queue)](ways-to-add-notification-config-to-bucket.md "ways-to-add-notification-config-to-bucket.md").
 
 To use this policy, you must update the Amazon SQS queue ARN, bucket name, and
 bucket owner's AWS account ID.

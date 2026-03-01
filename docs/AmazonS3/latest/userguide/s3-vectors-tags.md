@@ -10,9 +10,7 @@ There is no additional charge for using tags on vector buckets beyond the standa
 request rates. For more information, see [Amazon S3
 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-## Common ways to use tags with vector
-
-buckets
+## Common ways to use tags with vector buckets
 
 Use tags on your S3 vector buckets for:
 
@@ -72,15 +70,11 @@ this condition references tags associated with the vector bucket containing that
 index, while the `aws:ResourceTag/tag-key` will reference the tags of the
 index itself.
 
-### Example ABAC policies for vector
-
-buckets
+### Example ABAC policies for vector buckets
 
 See the following example ABAC policies for Amazon S3 vector buckets.
 
-#### 1.1 - IAM policy to create or
-
-modify vector buckets with specific tags
+#### 1.1 - IAM policy to create or modify vector buckets with specific tags
 
 In this IAM policy, users or roles with this policy can only create S3 vector buckets
 if they tag the vector bucket with the tag key `project` and tag value
@@ -113,9 +107,7 @@ read, write, or delete permissions on the vector buckets or its objects.
 }
 ```
 
-#### 1.2 - Vector bucket policy to
-
-restrict operations on the vector bucket using tags
+#### 1.2 - Vector bucket policy to restrict operations on the vector bucket using tags
 
 In this vector bucket policy, IAM principals (users and roles) can perform operations
 using the `PutVectorBucketPolicy` action on the vector bucket only if the value
@@ -144,9 +136,7 @@ of the vector bucket's `project` tag matches the value of the principal's
 }
 ```
 
-#### 1.3 - IAM policy to modify tags on
-
-existing resources maintaining tagging governance
+#### 1.3 - IAM policy to modify tags on existing resources maintaining tagging governance
 
 In this IAM policy, IAM principals (users or roles) can modify tags on a vector bucket
 only if the value of the vector bucket's `project` tag matches the value of the
@@ -185,9 +175,7 @@ tagging schema consistent across your vector buckets.
 }
 ```
 
-#### 1.4 - Using the
-
-`s3vectors:VectorBucketTag` condition key
+#### 1.4 - Using the `s3vectors:VectorBucketTag` condition key
 
 In this IAM policy, the condition statement allows access to the vector bucket's and
 vector index's operations only if the vector bucket has the tag key

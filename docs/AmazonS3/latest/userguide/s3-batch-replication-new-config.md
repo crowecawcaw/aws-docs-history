@@ -1,6 +1,4 @@
-# Create a Batch Replication job for new
-
-replication rules or destinations
+# Create a Batch Replication job for new replication rules or destinations
 
 In Amazon S3, live replication doesn't replicate any objects that already existed in your
 source bucket before you created a replication configuration. Live replication automatically
@@ -14,28 +12,22 @@ can optionally create a Batch Replication job. You can use this Batch Replicatio
 replicate existing objects in the source bucket to the destination bucket.
 
 To use Batch Replication for an existing configuration without adding a new destination
-bucket, see [Create a Batch Replication job for
-existing replication rules](s3-batch-replication-existing-config.md "s3-batch-replication-existing-config.md").
+bucket, see [Create a Batch Replication job for existing replication rules](s3-batch-replication-existing-config.md "s3-batch-replication-existing-config.md").
 
 ###### Prerequisites
 
 Before creating your Batch Replication job, you must create a Batch Operations AWS Identity and Access Management
 (IAM) role to grant Amazon S3 permissions to perform actions on your behalf. For more
-information, see [Configuring an IAM role for
-S3 Batch Replication](s3-batch-replication-policies.md "s3-batch-replication-policies.md").
+information, see [Configuring an IAM role for S3 Batch Replication](s3-batch-replication-policies.md "s3-batch-replication-policies.md").
 
-## Using Batch Replication for a
-
-new replication rule or destination through the Amazon S3 console
+## Using Batch Replication for a new replication rule or destination through the Amazon S3 console
 
 When you create the first rule in a new replication configuration or add a new
 destination bucket to an existing configuration through the Amazon S3 console, you can choose
 to create a Batch Replication job to replicate existing objects in the source
 bucket.
 
-###### To create a Batch Replication job when creating or updating a replication
-
-configuration
+###### To create a Batch Replication job when creating or updating a replication configuration
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -102,7 +94,6 @@ for failed tasks. To learn more about completion reports, see [Completion report
 
 One of the most common causes of replication failures is
 insufficient permissions in the provided AWS Identity and Access Management (IAM) role. For
-information about creating this role, see [Configuring an IAM role for
-S3 Batch Replication](s3-batch-replication-policies.md "s3-batch-replication-policies.md"). Make sure that you
+information about creating this role, see [Configuring an IAM role for S3 Batch Replication](s3-batch-replication-policies.md "s3-batch-replication-policies.md"). Make sure that you
 create or choose an IAM role that has the required permissions for
 Batch Replication. 8. Choose **Save**.

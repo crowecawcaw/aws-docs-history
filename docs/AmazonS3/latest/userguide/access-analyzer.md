@@ -16,8 +16,7 @@ When reviewing a bucket that allows public access, on the IAM Access Analyzer fo
 bucket with a single click. We recommend that you block all public access to your buckets unless
 you require public access to support a specific use case. Before you block all public
 access, ensure that your applications will continue to work correctly without public access.
-For more information, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+For more information, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 You can also drill down into bucket-level permission settings to configure granular levels
 of access. For specific and verified use cases that require public access, such as static
@@ -59,8 +58,7 @@ following sections.
 
 - [Reviewing a global summary of policies that grant external access to buckets](#external-access-summary "#external-access-summary")
 - [Information provided by IAM Access Analyzer for S3](#access-analyzer-information-s3 "#access-analyzer-information-s3")
-- [Blocking all public
-  access](#blocking-public-access-access-analyzer "#blocking-public-access-access-analyzer")
+- [Blocking all public access](#blocking-public-access-access-analyzer "#blocking-public-access-access-analyzer")
 - [Reviewing and changing bucket access](#changing-bucket-access "#changing-bucket-access")
 - [Archiving bucket findings](#archiving-buckets "#archiving-buckets")
 - [Activating an archived bucket finding](#activating-buckets "#activating-buckets")
@@ -116,8 +114,7 @@ If S3 experiences an issue loading bucket details, refresh the general purpose b
 
 ###### Note
 
-External acces findings in **External access summary** are automatically updated once every 24 hours. 5. To block all public access for a bucket, see [Blocking all public
-access](#blocking-public-access-access-analyzer "#blocking-public-access-access-analyzer").
+External acces findings in **External access summary** are automatically updated once every 24 hours. 5. To block all public access for a bucket, see [Blocking all public access](#blocking-public-access-access-analyzer "#blocking-public-access-access-analyzer").
 To change the bucket access, see [Reviewing and changing bucket access](#changing-bucket-access "#changing-bucket-access").
 
 ## Information provided by IAM Access Analyzer for S3
@@ -163,9 +160,7 @@ For each bucket, IAM Access Analyzer for S3 provides the following information:
 - **Resources control policy (RCP) restriction** ‐ The resource control policy (RCP) that applies to the bucket, if applicable.
   For more information, see [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md").
 
-## Blocking all public
-
-access
+## Blocking all public access
 
 If you want to block all access to a bucket in a single click, you can use the
 **Block all public access** button in IAM Access Analyzer for S3. When you block all
@@ -176,8 +171,7 @@ will continue to work correctly without public access.
 
 If you don't want to block all public access to your bucket, you can edit your block
 public access settings on the Amazon S3 console to configure granular levels of access to
-your buckets. For more information, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+your buckets. For more information, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 In rare cases, IAM Access Analyzer for S3 and Amazon S3 block public access evaluation might differ on
 whether a bucket is public. This behavior occurs because Amazon S3 block public access
@@ -216,9 +210,7 @@ Multi-Region Access Point policy, or the access point policy to remove the acces
 bucket policy, bucket ACL, and/or access point policy. Multi-Region Access Points and cross-account access points are reflected
 under access points.
 
-###### To review and change a bucket policy, a bucket ACL, a Multi-Region Access Point, or an access point
-
-policy
+###### To review and change a bucket policy, a bucket ACL, a Multi-Region Access Point, or an access point policy
 
 1. Open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").

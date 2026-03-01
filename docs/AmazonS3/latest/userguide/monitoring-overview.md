@@ -100,8 +100,7 @@ insights and trends, flag outliers, and receive recommendations for optimizing
 storage costs and applying data-protection best practices. Your dashboard has
 drill-down options to generate and visualize insights at the organization,
 account, AWS Region, storage class, bucket, prefix, or Storage Lens group
-level. For more information, see [Understanding
-Amazon S3 Storage Lens](storage_lens_basics_metrics_recommendations.md "storage_lens_basics_metrics_recommendations.md").
+level. For more information, see [Understanding Amazon S3 Storage Lens](storage_lens_basics_metrics_recommendations.md "storage_lens_basics_metrics_recommendations.md").
 
 **Amazon S3 Inventory**
 
@@ -154,6 +153,5 @@ The following security best practices also address logging and monitoring:
 - [Logging requests with server access logging](ServerLogs.md "ServerLogs.md")
 - [Monitoring metrics with Amazon CloudWatch](cloudwatch-monitoring.md "cloudwatch-monitoring.md")
 - [Amazon S3 Event Notifications](EventNotifications.md "EventNotifications.md")
-- [Monitoring your storage activity and usage with
-  Amazon S3 Storage Lens](storage_lens.md "storage_lens.md")
+- [Monitoring your storage activity and usage with Amazon S3 Storage Lens](storage_lens.md "storage_lens.md")
 - [Cataloging and analyzing your data with S3 Inventory](storage-inventory.md "storage-inventory.md")

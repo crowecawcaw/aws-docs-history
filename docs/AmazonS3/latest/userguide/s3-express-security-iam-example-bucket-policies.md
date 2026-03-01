@@ -1,6 +1,4 @@
-# Example bucket
-
-policies for directory buckets
+# Example bucket policies for directory buckets
 
 This section provides example directory bucket policies. To use these policies, replace
 the `user input placeholders` with your own
@@ -39,9 +37,7 @@ JSON
 
 ```
 
-###### Example– Bucket policy to allow `CreateSession` calls with a
-
-`ReadOnly` session
+###### Example– Bucket policy to allow `CreateSession` calls with a `ReadOnly` session
 
 The following example bucket policy allows AWS account ID
 `111122223333` to use the
@@ -74,9 +70,7 @@ JSON
 
 ```
 
-###### Example– Bucket policy to allow cross-account access for `CreateSession`
-
-calls
+###### Example– Bucket policy to allow cross-account access for `CreateSession` calls
 
 The following example bucket policy allows AWS account ID
 `111122223333` to use the

@@ -114,8 +114,7 @@ After enabling static website hosting, proceed to step 6. 7. To upload the index
 
 For step-by-step instructions, see [Uploading objects](upload-objects.md "upload-objects.md"). 8. (Optional) Upload other website content to your bucket.
 
-Next, you must set permissions for website access. For information, see [Setting permissions for website
-access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md").
+Next, you must set permissions for website access. For information, see [Setting permissions for website access](WebsiteAccessPermissionsReqd.md "WebsiteAccessPermissionsReqd.md").
 
 You can also optionally configure an [error
 document](CustomErrorDocSupport.md "CustomErrorDocSupport.md"), [web traffic

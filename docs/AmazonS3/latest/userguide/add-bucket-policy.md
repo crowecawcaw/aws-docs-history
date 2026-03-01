@@ -18,8 +18,7 @@ validation](../../../IAM/latest/UserGuide/access-analyzer-policy-validation.md "
 list of the warnings, errors, and suggestions that are returned by IAM Access Analyzer, see [IAM Access Analyzer policy
 check reference](../../../IAM/latest/UserGuide/access-analyzer-reference-policy-checks.md "../../../IAM/latest/UserGuide/access-analyzer-reference-policy-checks.md").
 
-For guidance on troubleshooting errors with a policy, see [Troubleshoot access denied (403
-Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md").
+For guidance on troubleshooting errors with a policy, see [Troubleshoot access denied (403 Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md").
 
 ###### To create or edit a bucket policy
 

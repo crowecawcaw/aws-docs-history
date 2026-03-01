@@ -1,6 +1,4 @@
-# Setting default server-side encryption behavior for Amazon S3
-
-buckets
+# Setting default server-side encryption behavior for Amazon S3 buckets
 
 ###### Important
 
@@ -22,8 +20,7 @@ created a bucket without default encryption, Amazon S3 will enable encryption by
 bucket using SSE-S3. There will be no changes to the default encryption configuration for an
 existing bucket that already has SSE-S3 or SSE-KMS configured. If you want to encrypt your
 objects with SSE-KMS, you must change the encryption type in your bucket settings. For more
-information, see [Using server-side encryption with AWS KMS keys
-(SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
+information, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
 
 When you configure your bucket to use default encryption with SSE-KMS, you can also enable
 S3 Bucket Keys to decrease request traffic from Amazon S3 to AWS KMS and reduce the cost of encryption. For
@@ -64,9 +61,7 @@ Amazon S3 buckets with default bucket encryption set to SSE-KMS cannot be used a
 buckets for [Logging requests with server access logging](ServerLogs.md "ServerLogs.md"). Only SSE-S3 default encryption is supported for
 server access log destination buckets.
 
-## Using SSE-KMS encryption for cross-account
-
-operations
+## Using SSE-KMS encryption for cross-account operations
 
 When using encryption for cross-account operations, be aware of the following:
 
@@ -90,9 +85,7 @@ For more information about when to use customer managed keys and AWS managed KMS
 [Should I use an AWS managed key or a customer managed key to encrypt my objects in
 Amazon S3?](https://aws.amazon.com/premiumsupport/knowledge-center/s3-object-encryption-keys/ "https://aws.amazon.com/premiumsupport/knowledge-center/s3-object-encryption-keys/")
 
-## Using default encryption with
-
-replication
+## Using default encryption with replication
 
 When you enable default encryption for a replication destination bucket, the following
 encryption behavior applies:
@@ -111,9 +104,7 @@ encryption behavior applies:
 For more information about using default encryption with SSE-KMS, see [Replicating encrypted
 objects](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
 
-## Using Amazon S3 Bucket Keys with default
-
-encryption
+## Using Amazon S3 Bucket Keys with default encryption
 
 When you configure your bucket to use SSE-KMS as the default encryption behavior for new
 objects, you can also configure S3 Bucket Keys. S3 Bucket Keys decrease the number of transactions from Amazon S3

@@ -55,9 +55,7 @@ can be sent to Amazon EventBridge.
 
 ```
 
-### Object deleted (using
-
-DeleteObject)
+### Object deleted (using DeleteObject)
 
 ```
 {
@@ -92,9 +90,7 @@ DeleteObject)
 
 ```
 
-### Object deleted (using
-
-lifecycle expiration)
+### Object deleted (using lifecycle expiration)
 
 ```
 {
@@ -128,9 +124,7 @@ lifecycle expiration)
 
 ```
 
-### Object restore
-
-completed
+### Object restore completed
 
 ```
 {
@@ -189,8 +183,7 @@ following fields may be present in the detail field.
   Deleted** events, when an unversioned object is deleted, or a versioned object is
   permanently deleted, this is set to **Permanently Deleted**. When a
   delete marker is created for a versioned object, this is set to **Delete
-  Marker Created**. For more information, see [Deleting object versions from a
-  versioning-enabled bucket](DeletingObjectVersions.md "DeletingObjectVersions.md").
+  Marker Created**. For more information, see [Deleting object versions from a versioning-enabled bucket](DeletingObjectVersions.md "DeletingObjectVersions.md").
 
 ###### Note
 
@@ -204,8 +197,7 @@ Some object attributes (such as `etag` and `size`) are present only when a delet
   storage class of the object being restored. For more information, see [Working with archived objects](archived-objects.md "archived-objects.md").
 - `destination-storage-class` – For **Object
   Storage Class Changed** events, the new storage class of the object. For more
-  information, see [Transitioning objects
-  using Amazon S3 Lifecycle](lifecycle-transition-general-considerations.md "lifecycle-transition-general-considerations.md").
+  information, see [Transitioning objects using Amazon S3 Lifecycle](lifecycle-transition-general-considerations.md "lifecycle-transition-general-considerations.md").
 - `destination-access-tier` – For **Object
   Access Tier Changed** events, the new access tier of the object. For more information,
   see [Managing storage costs with Amazon S3 Intelligent-Tiering](intelligent-tiering.md "intelligent-tiering.md").

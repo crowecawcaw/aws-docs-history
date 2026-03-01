@@ -5,14 +5,10 @@ S3 Batch Replication errors.
 
 ###### Topics
 
-- [Troubleshooting tips for
-  S3 Replication](#troubleshoot-replication-tips "#troubleshoot-replication-tips")
-- [Batch Replication
-  errors](#troubleshoot-batch-replication-errors "#troubleshoot-batch-replication-errors")
+- [Troubleshooting tips for S3 Replication](#troubleshoot-replication-tips "#troubleshoot-replication-tips")
+- [Batch Replication errors](#troubleshoot-batch-replication-errors "#troubleshoot-batch-replication-errors")
 
-## Troubleshooting tips for
-
-S3 Replication
+## Troubleshooting tips for S3 Replication
 
 If object replicas don't appear in the destination bucket after you configure replication,
 use these troubleshooting tips to identify and fix issues.
@@ -53,8 +49,7 @@ aws s3api head-object --bucket `amzn-s3-demo-source-bucket` --key `index.html`
 
 - If `HeadObject` returns objects with a `FAILED` replication
   status, you can use S3 Batch Replication to replicate those failed objects. For more
-  information, see [Replicating existing objects with
-  Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md"). Alternatively, you can
+  information, see [Replicating existing objects with Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md"). Alternatively, you can
   re-upload the failed objects to the source bucket, which will initiate replication for the
   new objects.
 - In the replication configuration on the source bucket, verify the following:
@@ -127,8 +122,7 @@ owner](replication-change-owner.md "replication-change-owner.md").
 
 - If you're setting the replication configuration in a cross-account scenario, where the
   source and destination buckets are owned by different AWS accounts, the destination
-  buckets can't be configured as a Requester Pays bucket. For more information, see [Using Requester Pays general purpose buckets for storage
-  transfers and usage](RequesterPaysBuckets.md "RequesterPaysBuckets.md").
+  buckets can't be configured as a Requester Pays bucket. For more information, see [Using Requester Pays general purpose buckets for storage transfers and usage](RequesterPaysBuckets.md "RequesterPaysBuckets.md").
 - If a bucket's source objects are encrypted by using server-side encryption with
   AWS Key Management Service (AWS KMS) keys (SSE-KMS), then the replication rule must be configured to include
   AWS KMS-encrypted objects. Make sure to select **Replicate objects encrypted with
@@ -232,14 +226,12 @@ objects](replication-walkthrough-4.md "replication-walkthrough-4.md").
 
 - If the destination bucket is owned by another AWS account, verify that the bucket
   owner has a bucket policy on the destination bucket that allows the source bucket owner to
-  replicate objects. For an example, see [Configuring replication for buckets in different
-  accounts](replication-walkthrough-2.md "replication-walkthrough-2.md").
+  replicate objects. For an example, see [Configuring replication for buckets in different accounts](replication-walkthrough-2.md "replication-walkthrough-2.md").
 - To use Object Lock with replication, you must grant two additional permissions on the
   source S3 bucket in the AWS Identity and Access Management (IAM) role that you use to set up replication. The two
   additional permissions are `s3:GetObjectRetention` and
   `s3:GetObjectLegalHold`. If the role has an `s3:Get*` permission
-  statement, that statement satisfies the requirement. For more information, see [Using Object Lock with
-  S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
+  statement, that statement satisfies the requirement. For more information, see [Using Object Lock with S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
 - If your objects still aren't replicating after you've validated the permissions, check
   for any explicit `Deny` statements in the following locations:
   - `Deny` statements in the source or destination bucket policies.
@@ -285,8 +277,7 @@ objects](replication-walkthrough-4.md "replication-walkthrough-4.md").
     the source bucket owner has access permissions. To avoid this problem, the source
     bucket owner can grant other AWS accounts permissions to create objects
     conditionally, requiring explicit access permissions on those objects. For an example
-    policy, see [Grant cross-account permissions to upload
-    objects while ensuring that the bucket owner has full control](example-bucket-policies.md#example-bucket-policies-acl-2 "example-bucket-policies.md#example-bucket-policies-acl-2").
+    policy, see [Grant cross-account permissions to upload objects while ensuring that the bucket owner has full control](example-bucket-policies.md#example-bucket-policies-acl-2 "example-bucket-policies.md#example-bucket-policies-acl-2").
 
 - Suppose that in the replication configuration, you add a rule to replicate a subset of
   objects that have a specific tag. In this case, you must assign the specific tag key and
@@ -295,16 +286,13 @@ objects](replication-walkthrough-4.md "replication-walkthrough-4.md").
   the object.
 - Use Amazon S3 Event Notifications to notify you of instances when objects don't replicate
   to their destination AWS Region. Amazon S3 Event Notifications are available through
-  Amazon Simple Queue Service (Amazon SQS), Amazon Simple Notification Service (Amazon SNS), or AWS Lambda. For more information, see [Receiving replication failure events with Amazon S3
-  Event Notifications](replication-metrics-events.md "replication-metrics-events.md").
+  Amazon Simple Queue Service (Amazon SQS), Amazon Simple Notification Service (Amazon SNS), or AWS Lambda. For more information, see [Receiving replication failure events with Amazon S3 Event Notifications](replication-metrics-events.md "replication-metrics-events.md").
 
 You can also view replication failure reasons by using Amazon S3 Event Notifications. To
 review the list of failure reasons, see [Amazon S3 replication failure
 reasons](replication-failure-codes.md "replication-failure-codes.md").
 
-## Batch Replication
-
-errors
+## Batch Replication errors
 
 To troubleshoot objects that aren't replicating to the destination bucket, check the
 different types of permissions for your buckets, replication role, and IAM role that's used
@@ -369,9 +357,7 @@ This error occurs when there's a mismatch between the objects listed in the mani
 that's supplied in the Batch Replication job and the filters that you selected when you
 created the job. You might also receive this message when the objects in your source bucket don't match any replication rules and aren't included in the generated manifest.
 
-### Batch Operations failures occur after adding a new
-
-replication rule to an existing replication configuration
+### Batch Operations failures occur after adding a new replication rule to an existing replication configuration
 
 Batch Operations attempts to perform existing object replication for every rule in the
 source bucket's replication configuration. If there are problems with any of the

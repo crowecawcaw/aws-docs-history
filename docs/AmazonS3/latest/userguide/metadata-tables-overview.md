@@ -71,9 +71,8 @@ automatically discover and access your table data.
 
 After your table bucket is integrated with the AWS Glue Data Catalog, you can directly query your metadata
 tables with AWS analytics services such as Amazon Athena, Amazon EMR, and Amazon Redshift. You can also create
-interactive dashboards with your query data by using Amazon Quick Suite. For more information about integrating your
-AWS managed S3 table bucket with Amazon SageMaker Lakehouse, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
+interactive dashboards with your query data by using Amazon Quick. For more information about integrating your
+AWS managed S3 table bucket with Amazon SageMaker Lakehouse, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 
 You can also query your metadata tables with Apache Spark, Apache Trino,
 and any other application that supports the Apache Iceberg format by using the AWS Glue
@@ -95,8 +94,7 @@ tables to reflect the latest changes to your data as long as the configuration i
 purpose bucket.
 
 Before you create a metadata table configuration, make sure that you have the necessary AWS Identity and Access Management
-(IAM) permissions to create and manage metadata tables. For more information, see [Setting up permissions for configuring metadata
-tables](metadata-tables-permissions.md "metadata-tables-permissions.md").
+(IAM) permissions to create and manage metadata tables. For more information, see [Setting up permissions for configuring metadata tables](metadata-tables-permissions.md "metadata-tables-permissions.md").
 
 ###### Metadata table storage, organization, and encryption
 
@@ -116,8 +114,7 @@ in US East (N. Virginia) (`us-east-1`) and has the following ARN:
 By default, AWS managed table buckets are encrypted with server-side encryption using Amazon S3 managed
 keys (SSE-S3). After you create your first metadata configuration, you can set the default encryption
 setting for the AWS managed table bucket to use server-side encryption with AWS Key Management Service (AWS KMS) keys
-(SSE-KMS). For more information, see [Encryption for AWS managed table buckets](s3-tables-aws-managed-buckets.md#aws-managed-buckets-encryption "s3-tables-aws-managed-buckets.md#aws-managed-buckets-encryption") and [Specifying server-side encryption with AWS KMS keys
-(SSE-KMS) in table buckets](s3-tables-kms-specify.md "s3-tables-kms-specify.md").
+(SSE-KMS). For more information, see [Encryption for AWS managed table buckets](s3-tables-aws-managed-buckets.md#aws-managed-buckets-encryption "s3-tables-aws-managed-buckets.md#aws-managed-buckets-encryption") and [Specifying server-side encryption with AWS KMS keys (SSE-KMS) in table buckets](s3-tables-kms-specify.md "s3-tables-kms-specify.md").
 
 Within your AWS managed table bucket, the metadata tables for your configuration are typically
 stored in a namespace with the following naming format:
@@ -163,8 +160,7 @@ working with AWS managed table buckets and AWS managed tables, see [Working with
 buckets](s3-tables-aws-managed-buckets.md "s3-tables-aws-managed-buckets.md").
 
 To monitor updates to your metadata table configuration, you can use AWS CloudTrail. For more information,
-see [Amazon S3 bucket-level actions
-that are tracked by CloudTrail logging](cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking "cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking").
+see [Amazon S3 bucket-level actions that are tracked by CloudTrail logging](cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking "cloudtrail-logging-s3-info.md#cloudtrail-bucket-level-tracking").
 
 ###### Metadata table maintenance and record expiration
 
@@ -183,8 +179,7 @@ maintenance happens automatically, requiring no opt-in or ongoing management by 
 
 ###### Topics
 
-- [Metadata table limitations and
-  restrictions](metadata-tables-restrictions.md "metadata-tables-restrictions.md")
+- [Metadata table limitations and restrictions](metadata-tables-restrictions.md "metadata-tables-restrictions.md")
 - [S3 Metadata journal tables schema](metadata-tables-schema.md "metadata-tables-schema.md")
 - [S3 Metadata live inventory tables schema](metadata-tables-inventory-schema.md "metadata-tables-inventory-schema.md")
 - [Configuring metadata tables](metadata-tables-configuring.md "metadata-tables-configuring.md")

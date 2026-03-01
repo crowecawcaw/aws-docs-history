@@ -4,9 +4,7 @@ The following examples demonstrate how to list the AWS resource tags associated 
 a Storage Lens group. You can list tags by using the Amazon S3 console, AWS Command Line Interface (AWS CLI),
 and AWS SDK for Java.
 
-###### To review the list of tags and tag values for a Storage Lens
-
-group
+###### To review the list of tags and tag values for a Storage Lens group
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").

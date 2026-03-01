@@ -1,6 +1,4 @@
-# Tutorial: Configuring a static website using a
-
-custom domain registered with Route 53
+# Tutorial: Configuring a static website using a custom domain registered with Route 53
 
 Suppose that you want to host a static website on Amazon S3. You've registered a domain with
 Amazon Route 53 (for example, `example.com`), and you want requests for
@@ -11,15 +9,13 @@ registered with Route 53. You can work with an existing website that you want t
 or use this walkthrough to start from scratch.
 
 After you complete this walkthrough, you can optionally use Amazon CloudFront to improve the
-performance of your website. For more information, see [Speeding up your website with
-Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cloudfront-walkthrough.md").
+performance of your website. For more information, see [Speeding up your website with Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cloudfront-walkthrough.md").
 
 ###### Note
 
 Amazon S3 website endpoints do not support HTTPS or access points. If you want to use HTTPS, you can use Amazon CloudFront to serve a static website hosted on Amazon S3.
 
-For a tutorial about how to host your content securely with CloudFront and Amazon S3, see [Tutorial: Hosting on-demand
-streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53](tutorial-s3-cloudfront-route53-video-streaming.md "tutorial-s3-cloudfront-route53-video-streaming.md"). For more information, see [How do I use
+For a tutorial about how to host your content securely with CloudFront and Amazon S3, see [Tutorial: Hosting on-demand streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53](tutorial-s3-cloudfront-route53-video-streaming.md "tutorial-s3-cloudfront-route53-video-streaming.md"). For more information, see [How do I use
 CloudFront to serve a static website hosted on Amazon S3?](https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-serve-static-website/ "https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-serve-static-website/") and [Requiring HTTPS for communication between viewers and CloudFront](../../../AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.md "../../../AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.md").
 
 ###### Automating static website setup with an CloudFormation template
@@ -41,27 +37,19 @@ The CloudFormation template includes the following components:
 ###### Topics
 
 - [Before you begin](#root-domain-walkthrough-before-you-begin "#root-domain-walkthrough-before-you-begin")
-- [Step 1: Register a
-  custom domain with Route 53](#website-hosting-custom-domain-walkthrough-domain-registry "#website-hosting-custom-domain-walkthrough-domain-registry")
+- [Step 1: Register a custom domain with Route 53](#website-hosting-custom-domain-walkthrough-domain-registry "#website-hosting-custom-domain-walkthrough-domain-registry")
 - [Step 2: Create two buckets](#root-domain-walkthrough-create-buckets "#root-domain-walkthrough-create-buckets")
-- [Step 3: Configure your root
-  domain bucket for website hosting](#root-domain-walkthrough-configure-bucket-aswebsite "#root-domain-walkthrough-configure-bucket-aswebsite")
-- [Step 4: Configure your
-  subdomain bucket for website redirect](#root-domain-walkthrough-configure-redirect "#root-domain-walkthrough-configure-redirect")
-- [Step 5: Configure logging
-  for website traffic](#root-domain-walkthrough-configure-logging "#root-domain-walkthrough-configure-logging")
+- [Step 3: Configure your root domain bucket for website hosting](#root-domain-walkthrough-configure-bucket-aswebsite "#root-domain-walkthrough-configure-bucket-aswebsite")
+- [Step 4: Configure your subdomain bucket for website redirect](#root-domain-walkthrough-configure-redirect "#root-domain-walkthrough-configure-redirect")
+- [Step 5: Configure logging for website traffic](#root-domain-walkthrough-configure-logging "#root-domain-walkthrough-configure-logging")
 - [Step 6: Upload index and website content](#upload-website-content "#upload-website-content")
 - [Step 7: Upload an error document](#configure-error-document-root-domain "#configure-error-document-root-domain")
-- [Step 8: Edit S3 Block
-  Public Access settings](#root-domain-walkthrough-configure-bucket-permissions "#root-domain-walkthrough-configure-bucket-permissions")
+- [Step 8: Edit S3 Block Public Access settings](#root-domain-walkthrough-configure-bucket-permissions "#root-domain-walkthrough-configure-bucket-permissions")
 - [Step 9: Attach a bucket policy](#add-bucket-policy-root-domain "#add-bucket-policy-root-domain")
-- [Step 10: Test your domain
-  endpoint](#root-domain-walkthrough-test-website "#root-domain-walkthrough-test-website")
-- [Step 11: Add alias records for
-  your domain and subdomain](#root-domain-walkthrough-add-record-to-hostedzone "#root-domain-walkthrough-add-record-to-hostedzone")
+- [Step 10: Test your domain endpoint](#root-domain-walkthrough-test-website "#root-domain-walkthrough-test-website")
+- [Step 11: Add alias records for your domain and subdomain](#root-domain-walkthrough-add-record-to-hostedzone "#root-domain-walkthrough-add-record-to-hostedzone")
 - [Step 12: Test the website](#root-domain-testing "#root-domain-testing")
-- [Speeding up your website with
-  Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cloudfront-walkthrough.md")
+- [Speeding up your website with Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cloudfront-walkthrough.md")
 - [Cleaning up your example resources](getting-started-cleanup.md "getting-started-cleanup.md")
 
 ## Before you begin
@@ -78,9 +66,7 @@ Amazon S3 – You use Amazon S3 to create buckets, upload a sample
 website page, configure permissions so that everyone can see the content, and then
 configure the buckets for website hosting.
 
-## Step 1: Register a
-
-custom domain with Route 53
+## Step 1: Register a custom domain with Route 53
 
 If you don't already have a registered domain name, such as `example.com`,
 register one with Route 53. For more information, see [Registering a new domain](../../../Route53/latest/DeveloperGuide/domain-register.md "../../../Route53/latest/DeveloperGuide/domain-register.md") in the
@@ -135,9 +121,7 @@ hosting. For detailed, step-by-step instructions on creating a bucket, see [Crea
 
 In the next step, you configure `example.com` for website hosting.
 
-## Step 3: Configure your root
-
-domain bucket for website hosting
+## Step 3: Configure your root domain bucket for website hosting
 
 In this step, you configure your root domain bucket (`example.com`) as a
 website. This bucket will contain your website content. When you configure a bucket for
@@ -166,8 +150,7 @@ The error document name is case sensitive and must exactly match the file name o
 default HTML error document. For more information, see [Configuring a custom error document](CustomErrorDocSupport.md "CustomErrorDocSupport.md"). 10. (Optional) If you want to specify advanced redirection rules, in **Redirection rules**, enter JSON to describe the rules.
 
 For example, you can conditionally route requests according to specific object key
-names or prefixes in the request. For more information, see [Configure redirection rules to use
-advanced conditional redirects](how-to-page-redirect.md#advanced-conditional-redirects "how-to-page-redirect.md#advanced-conditional-redirects"). 11. Choose **Save changes**.
+names or prefixes in the request. For more information, see [Configure redirection rules to use advanced conditional redirects](how-to-page-redirect.md#advanced-conditional-redirects "how-to-page-redirect.md#advanced-conditional-redirects"). 11. Choose **Save changes**.
 
 Amazon S3 enables static website hosting for your bucket. At the bottom of the page, under **Static website hosting**, you see the website endpoint for your bucket. 12. Under **Static website hosting**, note the **Endpoint**.
 
@@ -182,9 +165,7 @@ access your website.
 In the next step, you configure your subdomain (`www.example.com`) to redirect
 requests to your domain (`example.com`).
 
-## Step 4: Configure your
-
-subdomain bucket for website redirect
+## Step 4: Configure your subdomain bucket for website redirect
 
 After you configure your root domain bucket for website hosting, you can configure your
 subdomain bucket to redirect all requests to the domain. In this example, all requests
@@ -202,9 +183,7 @@ for `www.example.com` are redirected to `example.com`.
 6. For **Protocol**, choose **http**.
 7. Choose **Save changes**.
 
-## Step 5: Configure logging
-
-for website traffic
+## Step 5: Configure logging for website traffic
 
 If you want to track the number of visitors accessing your website, you can optionally
 enable logging for your root domain bucket. For more information, see [Logging requests with server access logging](ServerLogs.md "ServerLogs.md"). If you plan to use Amazon CloudFront to speed up your website, you can also
@@ -228,8 +207,7 @@ more information, see [Permissions required to configure standard logging and to
 log files](../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md#AccessLogsBucketAndFileOwnership "../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md#AccessLogsBucketAndFileOwnership") in the _Amazon CloudFront Developer Guide_. If the bucket that stores the logs uses the
 Bucket owner enforced setting for S3 Object Ownership to disable ACLs,
 CloudFront cannot write logs to the bucket. For more information, see
-[Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md"). 5. In the **Buckets** list, choose your root domain bucket. 6. Choose **Properties**. 7. Under **Server access logging**, choose **Edit**. 8. Choose **Enable**. 9. Under the **Target bucket**, choose the bucket and folder destination for the server access logs:
+[Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md"). 5. In the **Buckets** list, choose your root domain bucket. 6. Choose **Properties**. 7. Under **Server access logging**, choose **Edit**. 8. Choose **Enable**. 9. Under the **Target bucket**, choose the bucket and folder destination for the server access logs:
 
     * Browse to the folder and bucket location:
 
@@ -310,9 +288,7 @@ After enabling static website hosting, proceed to step 6. 7. To upload the error
 
 For step-by-step instructions, see [Uploading objects](upload-objects.md "upload-objects.md").
 
-## Step 8: Edit S3 Block
-
-Public Access settings
+## Step 8: Edit S3 Block Public Access settings
 
 In this example, you edit block public access settings for the domain bucket
 (`example.com`) to allow public access.
@@ -321,8 +297,7 @@ By default, Amazon S3 blocks public access to your account and buckets. If you w
 
 ###### Warning
 
-Before you complete these steps, review [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md") to ensure that you understand and accept the risks involved with allowing public access. When you turn off block public access settings to make your bucket public, anyone on the internet can access your bucket. We recommend that you block all public access to your buckets.
+Before you complete these steps, review [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md") to ensure that you understand and accept the risks involved with allowing public access. When you turn off block public access settings to make your bucket public, anyone on the internet can access your bucket. We recommend that you block all public access to your buckets.
 
 1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Choose the name of the bucket that you have configured as a static website.
@@ -389,9 +364,7 @@ If you get an error message and cannot save the bucket policy, check your accoun
 In the next step, you can figure out your website endpoints and test your domain
 endpoint.
 
-## Step 10: Test your domain
-
-endpoint
+## Step 10: Test your domain endpoint
 
 After you configure your domain bucket to host a public website, you can test your
 endpoint. For more information, see [Website endpoints](WebsiteEndpoints.md "WebsiteEndpoints.md"). You can only test the endpoint for your domain
@@ -413,9 +386,7 @@ Your index document opens in a separate browser window.
 In the next step, you use Amazon Route 53 to enable customers to use both of your custom URLs to
 navigate to your site.
 
-## Step 11: Add alias records for
-
-your domain and subdomain
+## Step 11: Add alias records for your domain and subdomain
 
 In this step, you create the alias records that you add to the hosted zone for your domain
 maps `example.com` and
@@ -607,5 +578,4 @@ If your website or redirect links don't work, you can try the following:
 
 After you've successfully tested your root domain and subdomain, you can set up an [Amazon CloudFront](http://aws.amazon.com/cloudfront "http://aws.amazon.com/cloudfront") distribution to improve the
 performance of your website and provide logs that you can use to review website traffic.
-For more information, see [Speeding up your website with
-Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cloudfront-walkthrough.md").
+For more information, see [Speeding up your website with Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cloudfront-walkthrough.md").

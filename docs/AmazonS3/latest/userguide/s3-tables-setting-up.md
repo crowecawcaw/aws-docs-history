@@ -16,10 +16,8 @@ S3 Tables.
 - [Resources](#s3-tables-resources "#s3-tables-resources")
 - [Actions for S3 Tables](#s3-tables-actions "#s3-tables-actions")
 - [Condition keys for S3 Tables](#s3-tables-conditionkeys "#s3-tables-conditionkeys")
-- [IAM identity-based policies for
-  S3 Tables](s3-tables-identity-based-policies.md "s3-tables-identity-based-policies.md")
-- [Resource-based policies for
-  S3 Tables](s3-tables-resource-based-policies.md "s3-tables-resource-based-policies.md")
+- [IAM identity-based policies for S3 Tables](s3-tables-identity-based-policies.md "s3-tables-identity-based-policies.md")
+- [Resource-based policies for S3 Tables](s3-tables-resource-based-policies.md "s3-tables-resource-based-policies.md")
 - [AWS managed policies for S3 Tables](s3-tables-security-iam-awsmanpol.md "s3-tables-security-iam-awsmanpol.md")
 - [Granting access with SQL semantics](s3-tables-sql.md "s3-tables-sql.md")
 - [Managing access to a table or database with Lake Formation](grant-permissions-tables.md "grant-permissions-tables.md")
@@ -46,9 +44,7 @@ use the following ARN formats:
 
 `arn:aws:s3tables:`us-west-2`:`111122223333`:bucket/`amzn-s3-demo-bucket`/table/`demo-tableID``
 
-##
-
-Actions for S3 Tables
+## Actions for S3 Tables
 
 In an identity-based policy or resource-based policy, you define which S3 Tables
 actions are allowed or denied for specific IAM principals. Tables actions correspond

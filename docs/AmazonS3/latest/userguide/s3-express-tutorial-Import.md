@@ -1,6 +1,4 @@
-# Step 3: Importing data into a S3 Express One Zone directory
-
-bucket
+# Step 3: Importing data into a S3 Express One Zone directory bucket
 
 To complete this step, you must have a general purpose bucket that contains objects and is located in the same AWS Region as your
 directory bucket.

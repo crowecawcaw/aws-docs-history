@@ -22,16 +22,13 @@ Signature Version 4 to sign the request.
 
 ###### Topics
 
-- [How to prevent object overwrites based on
-  key names](#conditional-write-key-names "#conditional-write-key-names")
+- [How to prevent object overwrites based on key names](#conditional-write-key-names "#conditional-write-key-names")
 - [How to prevent overwrites if the object has changed](#conditional-write-etags "#conditional-write-etags")
 - [Conditional write behavior](#conditional-error-response "#conditional-error-response")
 - [Conditional write scenarios](#conditional-write-scenarios "#conditional-write-scenarios")
 - [Enforce conditional writes on Amazon S3 buckets](conditional-writes-enforce.md "conditional-writes-enforce.md")
 
-## How to prevent object overwrites based on
-
-key names
+## How to prevent object overwrites based on key names
 
 You can use the HTTP `If-None-Match` conditional header to check whether an
 object already exists in the specified bucket based on its key name before creating it
@@ -106,8 +103,7 @@ An object's ETag is a string that's unique to the object and reflects a change t
 object's content. You can use the `If-Match` header to compare the ETag value
 of an object in an Amazon S3 bucket with one that you provide during the `WRITE`
 operation. If the ETag values don't match, the operation fails. For more information
-about ETags, see [Using Content-MD5 and the ETag
-to verify uploaded objects](checking-object-integrity-upload.md#checking-object-integrity-etag-and-md5 "checking-object-integrity-upload.md#checking-object-integrity-etag-and-md5").
+about ETags, see [Using Content-MD5 and the ETag to verify uploaded objects](checking-object-integrity-upload.md#checking-object-integrity-etag-and-md5 "checking-object-integrity-upload.md#checking-object-integrity-etag-and-md5").
 
 To perform conditional writes with an HTTP `If-Match` header you must have the
 `s3:PutObject` and `s3:GetObject` permissions. This enables

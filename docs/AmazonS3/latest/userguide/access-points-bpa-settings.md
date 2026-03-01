@@ -7,8 +7,7 @@ access point, Amazon S3 evaluates the block public access settings for that acce
 underlying bucket, and the bucket owner's account. If any of these settings indicate
 that the request should be blocked, Amazon S3 rejects the request.
 
-For more information about the S3 Block Public Access feature, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+For more information about the S3 Block Public Access feature, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 ###### Important
 

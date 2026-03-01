@@ -78,8 +78,7 @@ Requirements for non-filterable metadata keys are as follows.
 - Non-filterable metadata keys can't be modified after the vector index is created.
 - S3 Vectors support up to 10 non-filterable metadata keys per index.
 
-For more information about non-filterable metadata keys, see [Non-filterable
-metadata](s3-vectors-metadata-filtering.md#s3-vectors-metadata-filtering-non-filterable "s3-vectors-metadata-filtering.md#s3-vectors-metadata-filtering-non-filterable").
+For more information about non-filterable metadata keys, see [Non-filterable metadata](s3-vectors-metadata-filtering.md#s3-vectors-metadata-filtering-non-filterable "s3-vectors-metadata-filtering.md#s3-vectors-metadata-filtering-non-filterable").
 
 ###### Topics
 

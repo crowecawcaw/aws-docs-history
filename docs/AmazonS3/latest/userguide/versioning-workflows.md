@@ -6,8 +6,7 @@ S3 Versioning to a bucket, the following changes occur:
 
 - If you delete an object, instead of removing the object permanently, Amazon S3 inserts
   a delete marker, which becomes the current object version. You can then restore the
-  previous version. For more information, see [Deleting object versions from a
-  versioning-enabled bucket](DeletingObjectVersions.md "DeletingObjectVersions.md").
+  previous version. For more information, see [Deleting object versions from a versioning-enabled bucket](DeletingObjectVersions.md "DeletingObjectVersions.md").
 - If you overwrite an object, Amazon S3 adds a new object version in the bucket. The
   previous version remains in the bucket and becomes a noncurrent version. You can
   restore the previous version.
@@ -123,8 +122,7 @@ However, you can `GET` a noncurrent version of an object by specifying its
 version ID. In the following figure, you `GET` a specific object version, 111111. Amazon S3 returns that object version even though it's not the current
 version.
 
-For more information, see [Retrieving object versions from a
-versioning-enabled bucket](RetrievingObjectVersions.md "RetrievingObjectVersions.md").
+For more information, see [Retrieving object versions from a versioning-enabled bucket](RetrievingObjectVersions.md "RetrievingObjectVersions.md").
 
 ![Diagram depicting how S3 Versioning works when you GET a noncurrent version in a versioning-enabled bucket.](images/versioning_GET_Versioned3.png)
 
@@ -141,9 +139,7 @@ authentication (MFA) delete. When you enable MFA delete for a bucket, the bucket
 must include two forms of authentication in any request to delete a version or change
 the versioning state of the bucket. For more information, see [Configuring MFA delete](MultiFactorAuthenticationDelete.md "MultiFactorAuthenticationDelete.md").
 
-### When are new versions created
-
-for an object?
+### When are new versions created for an object?
 
 New versions of objects are created only when you `PUT` a new object.
 Be aware that certain actions, such as `CopyObject`, work by implementing a

@@ -1,6 +1,4 @@
-# Checking object integrity for data at
-
-rest in Amazon S3
+# Checking object integrity for data at rest in Amazon S3
 
 If you need to verify the content of datasets stored in Amazon S3, the S3 Batch Operations [Compute checksum](batch-ops-compute-checksums.md "batch-ops-compute-checksums.md") operation calculates both full object or composite checksums for
 objects at rest. The **Compute checksum** operation uses Batch Operations to
@@ -30,9 +28,7 @@ operation to submit a list of stored objects in S3 Glacier storage classes for a
 security audits. Additionally, the range of supported checksum algorithms allow you to
 maintain continuity with the algorithms that are used in your applications.
 
-## Using supported checksum
-
-algorithms
+## Using supported checksum algorithms
 
 For data at rest, you can calculate checksums, using any of the supported checksum algorithms:
 
@@ -136,9 +132,7 @@ settings. 13. (Optional) If you need to make changes, choose
 choose **Edit** to update a specific step. 14. After you've confirmed your changes, choose **Create
 job**.
 
-###### To list and monitor the progress of all \*\*Compute
-
-checksum\*\* requests
+###### To list and monitor the progress of all **Compute checksum** requests
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").

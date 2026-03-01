@@ -1,10 +1,7 @@
-# Setting Object Ownership on an
-
-existing bucket
+# Setting Object Ownership on an existing bucket
 
 You can configure S3 Object Ownership on an existing S3 bucket. To apply
-Object Ownership when you create a bucket, see [Setting Object Ownership when you create
-a bucket](object-ownership-new-bucket.md "object-ownership-new-bucket.md").
+Object Ownership when you create a bucket, see [Setting Object Ownership when you create a bucket](object-ownership-new-bucket.md "object-ownership-new-bucket.md").
 
 S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to disable [access control lists (ACLs)](acl-overview.md "acl-overview.md") and take ownership of every
 object in your bucket, simplifying access management for data stored in Amazon S3. By default, S3 Object Ownership
@@ -35,8 +32,7 @@ uploaded to your bucket and to disable or enable ACLs:
   setting to disable ACLs, you must migrate bucket ACL permissions to bucket policies and
   reset your bucket ACLs to the default private ACL. We also recommend that you migrate
   object ACL permissions to bucket policies and edit bucket policies that require ACLs
-  other than bucket owner full control ACLs. For more information, see [Prerequisites for
-  disabling ACLs](object-ownership-migrating-acls-prerequisites.md "object-ownership-migrating-acls-prerequisites.md").
+  other than bucket owner full control ACLs. For more information, see [Prerequisites for disabling ACLs](object-ownership-migrating-acls-prerequisites.md "object-ownership-migrating-acls-prerequisites.md").
 
 **Permissions**: To use this operation, you must have the
 `s3:PutBucketOwnershipControls` permission. For more information about
@@ -64,8 +60,7 @@ For more information about the permissions to S3 API operations by S3 resource t
 
 
     To require that all new buckets are created with ACLs disabled by using IAM or AWS Organizations policies, see
-     [Disabling ACLs
-     for all new buckets (bucket owner enforced)](ensure-object-ownership.md#object-ownership-requiring-bucket-owner-enforced "ensure-object-ownership.md#object-ownership-requiring-bucket-owner-enforced").
+     [Disabling ACLs for all new buckets (bucket owner enforced)](ensure-object-ownership.md#object-ownership-requiring-bucket-owner-enforced "ensure-object-ownership.md#object-ownership-requiring-bucket-owner-enforced").
 
 ###### ACLs enabled
 

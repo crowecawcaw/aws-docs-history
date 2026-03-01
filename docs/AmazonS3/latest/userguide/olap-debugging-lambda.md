@@ -17,8 +17,7 @@ _Amazon Simple Storage Service API Reference_.
 
 You can enable request metrics in Amazon CloudWatch for your Object Lambda Access Points. These metrics help you
 monitor the operational performance of your access point. You can enable request metrics during or
-after creation of your Object Lambda Access Point. For more information, see [S3 Object Lambda request metrics in
-CloudWatch](metrics-dimensions.md#olap-cloudwatch-metrics "metrics-dimensions.md#olap-cloudwatch-metrics").
+after creation of your Object Lambda Access Point. For more information, see [S3 Object Lambda request metrics in CloudWatch](metrics-dimensions.md#olap-cloudwatch-metrics "metrics-dimensions.md#olap-cloudwatch-metrics").
 
 To get more granular logging about requests made to your Object Lambda Access Points, you can enable
 AWS CloudTrail data events. For more information, see [Logging data events for

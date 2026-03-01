@@ -116,9 +116,7 @@ IAMRoleArn=arn:aws:iam::`111122223333`:role/`accessGrantsTestRole`
 )
 ```
 
-###### Example– List all registered locations in an S3 Access Grants
-
-instance
+###### Example– List all registered locations in an S3 Access Grants instance
 
 To restrict the results to an S3 prefix or bucket, you can
 optionally pass an S3 URI, such as `s3://`bucket-and-or-prefix``, in the `LocationScope` parameter.

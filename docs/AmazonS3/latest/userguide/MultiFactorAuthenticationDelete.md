@@ -42,8 +42,7 @@ For examples of using MFA delete with versioning, see the examples section in th
 
 You cannot use MFA delete with lifecycle configurations. For more information about lifecycle
 configurations and how they interact with other configurations, see
-[How S3 Lifecycle interacts with other
-bucket configurations](lifecycle-and-other-bucket-config.md "lifecycle-and-other-bucket-config.md").
+[How S3 Lifecycle interacts with other bucket configurations](lifecycle-and-other-bucket-config.md "lifecycle-and-other-bucket-config.md").
 
 To enable or disable MFA delete, you use the same API that you use to configure versioning
 on a bucket. Amazon S3 stores the MFA delete configuration in the same
@@ -73,9 +72,7 @@ For more information about how to purchase and activate an authentication device
 [Multi-factor
 authentication](https://aws.amazon.com/iam/details/mfa/ "https://aws.amazon.com/iam/details/mfa/").
 
-## To enable S3 Versioning and configure MFA
-
-delete
+## To enable S3 Versioning and configure MFA delete
 
 The serial number is the number that uniquely identifies the MFA device. For physical MFA devices, this is the unique serial number that's provided with the device. For virtual MFA devices, the serial number is the device ARN. To use the following commands, replace the `user input placeholders` with your own information.
 

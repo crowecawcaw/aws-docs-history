@@ -119,8 +119,7 @@ You can choose to include the following additional metadata fields in the report
   tier (frequent or infrequent) of the object if it is stored in the S3 Intelligent-Tiering
   storage class. Set to
   `FREQUENT`, `INFREQUENT`, `ARCHIVE_INSTANT_ACCESS`, `ARCHIVE`, or `DEEP_ARCHIVE`.
-  For more information, see [Storage class for automatically optimizing data with
-  changing or unknown access patterns](storage-class-intro.md#sc-dynamic-data-access "storage-class-intro.md#sc-dynamic-data-access").
+  For more information, see [Storage class for automatically optimizing data with changing or unknown access patterns](storage-class-intro.md#sc-dynamic-data-access "storage-class-intro.md#sc-dynamic-data-access").
 - **S3 Object Lock retain until date** – The date
   until which the locked object cannot be deleted. For more information, see [Locking objects with Object Lock](object-lock.md "object-lock.md").
 - **S3 Object Lock retention mode** – Set to
@@ -215,8 +214,7 @@ The `s3:PutInventoryConfiguration` permission allows a user to both select all
 the metadata fields that are listed earlier for each object when configuring an inventory list
 and to specify the destination bucket to store the inventory. A user with read access to
 objects in the destination bucket can access all object metadata fields that are available in
-the inventory list. To restrict access to an inventory report, see [Grant permissions for S3 Inventory
-and S3 analytics](example-bucket-policies.md#example-bucket-policies-s3-inventory-1 "example-bucket-policies.md#example-bucket-policies-s3-inventory-1").
+the inventory list. To restrict access to an inventory report, see [Grant permissions for S3 Inventory and S3 analytics](example-bucket-policies.md#example-bucket-policies-s3-inventory-1 "example-bucket-policies.md#example-bucket-policies-s3-inventory-1").
 
 ### Inventory consistency
 
@@ -238,9 +236,7 @@ For more information about working with Amazon S3 Inventory, see the following t
 
 - [Configuring Amazon S3 Inventory](configure-inventory.md "configure-inventory.md")
 - [Locating your inventory list](storage-inventory-location.md "storage-inventory-location.md")
-- [Setting up Amazon S3 Event Notifications for
-  inventory completion](storage-inventory-notification.md "storage-inventory-notification.md")
+- [Setting up Amazon S3 Event Notifications for inventory completion](storage-inventory-notification.md "storage-inventory-notification.md")
 - [Querying Amazon S3 Inventory with Amazon Athena](storage-inventory-athena-query.md "storage-inventory-athena-query.md")
-- [Converting empty version ID strings in Amazon S3
-  Inventory reports to null strings](inventory-configure-bops.md "inventory-configure-bops.md")
+- [Converting empty version ID strings in Amazon S3 Inventory reports to null strings](inventory-configure-bops.md "inventory-configure-bops.md")
 - [Working with the Object ACL field](objectacl.md "objectacl.md")

@@ -1,6 +1,4 @@
-# Amazon S3 Tables integration with AWS analytics
-
-services overview
+# Amazon S3 Tables integration with AWS analytics services overview
 
 To make tables in your account accessible by AWS analytics services, you integrate your Amazon S3
 table buckets with Amazon SageMaker Lakehouse. This integration allows AWS analytics services to
@@ -10,7 +8,7 @@ in these services:
 - [Amazon Athena](s3-tables-integrating-athena.md "s3-tables-integrating-athena.md")
 - [Amazon Redshift](s3-tables-integrating-redshift.md "s3-tables-integrating-redshift.md")
 - [Amazon EMR](s3-tables-integrating-emr.md "s3-tables-integrating-emr.md")
-- [Quick Suite](s3-tables-integrating-quicksight.md "s3-tables-integrating-quicksight.md")
+- [Quick](s3-tables-integrating-quicksight.md "s3-tables-integrating-quicksight.md")
 - [Amazon Data Firehose](s3-tables-integrating-firehose.md "s3-tables-integrating-firehose.md")
 
 ###### Note

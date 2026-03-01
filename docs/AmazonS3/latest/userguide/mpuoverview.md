@@ -36,8 +36,7 @@ For more information about using the Amazon S3 Express One Zone storage class wi
 see [S3 Express One Zone](directory-bucket-high-performance.md#s3-express-one-zone "directory-bucket-high-performance.md#s3-express-one-zone") and
 [Working with directory buckets](directory-buckets-overview.md "directory-buckets-overview.md"). For more
 information about using multipart upload with S3 Express One Zone and directory buckets, see
-[Using multipart uploads with
-directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md").
+[Using multipart uploads with directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md").
 
 ## Multipart upload process
 
@@ -171,8 +170,7 @@ if you try to complete a multipart upload request with nonconsecutive part numbe
 For more information about how checksums work with multipart upload objects, see [Checking object integrity in Amazon S3](checking-object-integrity.md "checking-object-integrity.md").
 
 For an end-to-end procedure that demonstrates how to upload an object using multipart upload with an
-additional checksum, see [Tutorial: Upload an object through multipart upload and
-verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md").
+additional checksum, see [Tutorial: Upload an object through multipart upload and verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md").
 
 ## Concurrent multipart upload operations
 
@@ -314,8 +312,7 @@ multipart upload operations when using ACLs, a bucket policy, or a user policy.
 | SSE-C (server-side encryption with customer-provided encryption keys) | When you use the [CompleteMultipartUpload](../API/API_CompleteMultipartUpload.md "../API/API_CompleteMultipartUpload.md") API, you must provide the SSE-C (server-side encryption with customer-provided encryption keys), or your object will be created without a checksum, and no checksum value is returned.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 For information on the relationship between ACL permissions and permissions in access
-policies, see [Mapping of ACL permissions and access policy
-permissions](acl-overview.md#acl-access-policy-permission-mapping "acl-overview.md#acl-access-policy-permission-mapping"). For information about IAM users,
+policies, see [Mapping of ACL permissions and access policy permissions](acl-overview.md#acl-access-policy-permission-mapping "acl-overview.md#acl-access-policy-permission-mapping"). For information about IAM users,
 roles, and best practices, see [IAM identities (users, user groups, and roles)](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") in the _IAM User Guide_.
 
 ## Checksums with multipart upload operations
@@ -331,15 +328,12 @@ checksum headers and values must be provided for each of the APIs:
 
 ###### Topics
 
-- [Configuring a bucket lifecycle
-  configuration to delete incomplete multipart uploads](mpu-abort-incomplete-mpu-lifecycle-config.md "mpu-abort-incomplete-mpu-lifecycle-config.md")
+- [Configuring a bucket lifecycle configuration to delete incomplete multipart uploads](mpu-abort-incomplete-mpu-lifecycle-config.md "mpu-abort-incomplete-mpu-lifecycle-config.md")
 - [Uploading an object using multipart upload](mpu-upload-object.md "mpu-upload-object.md")
-- [Uploading a directory using the high-level .NET
-  TransferUtility class](HLuploadDirDotNet.md "HLuploadDirDotNet.md")
+- [Uploading a directory using the high-level .NET TransferUtility class](HLuploadDirDotNet.md "HLuploadDirDotNet.md")
 - [Listing multipart uploads](list-mpu.md "list-mpu.md")
 - [Tracking a multipart upload with the AWS SDKs](track-mpu.md "track-mpu.md")
 - [Aborting a multipart upload](abort-mpu.md "abort-mpu.md")
 - [Copying an object using multipart upload](CopyingObjectsMPUapi.md "CopyingObjectsMPUapi.md")
-- [Tutorial: Upload an object through multipart upload and
-  verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md")
+- [Tutorial: Upload an object through multipart upload and verify its data integrity](tutorial-s3-mpu-additional-checksums.md "tutorial-s3-mpu-additional-checksums.md")
 - [Amazon S3 multipart upload limits](qfacts.md "qfacts.md")

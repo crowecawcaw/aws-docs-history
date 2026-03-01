@@ -1,6 +1,4 @@
-# Specifying server-side encryption with AWS KMS
-
-(SSE-KMS)
+# Specifying server-side encryption with AWS KMS (SSE-KMS)
 
 All Amazon S3 buckets have encryption configured by default, and all new objects that are uploaded
 to an S3 bucket are automatically encrypted at rest. Server-side encryption with Amazon S3 managed keys (SSE-S3) is the default encryption
@@ -126,18 +124,12 @@ If you specify the `x-amz-server-side-encryption` header with a value of
 
 ###### Topics
 
-- [Amazon S3 REST API operations that support
-  SSE-KMS](#sse-request-headers-kms "#sse-request-headers-kms")
-- [Encryption context
-  (x-amz-server-side-encryption-context)](#s3-kms-encryption-context "#s3-kms-encryption-context")
-- [AWS KMS key ID
-  (x-amz-server-side-encryption-aws-kms-key-id)](#s3-kms-key-id-api "#s3-kms-key-id-api")
-- [S3 Bucket Keys
-  (x-amz-server-side-encryption-aws-bucket-key-enabled)](#bucket-key-api "#bucket-key-api")
+- [Amazon S3 REST API operations that support SSE-KMS](#sse-request-headers-kms "#sse-request-headers-kms")
+- [Encryption context (x-amz-server-side-encryption-context)](#s3-kms-encryption-context "#s3-kms-encryption-context")
+- [AWS KMS key ID (x-amz-server-side-encryption-aws-kms-key-id)](#s3-kms-key-id-api "#s3-kms-key-id-api")
+- [S3 Bucket Keys (x-amz-server-side-encryption-aws-bucket-key-enabled)](#bucket-key-api "#bucket-key-api")
 
-### Amazon S3 REST API operations that support
-
-SSE-KMS
+### Amazon S3 REST API operations that support SSE-KMS
 
 The following REST API operations accept the
 `x-amz-server-side-encryption`,
@@ -183,9 +175,7 @@ server-side encryption.
   `GET` requests and `HEAD` requests, or you’ll get an
   **`HTTP 400 BadRequest`** error.
 
-### Encryption context
-
-(`x-amz-server-side-encryption-context`)
+### Encryption context (`x-amz-server-side-encryption-context`)
 
 If you specify `x-amz-server-side-encryption:aws:kms`, the Amazon S3 API
 supports an encryption context with the `x-amz-server-side-encryption-context`
@@ -208,9 +198,7 @@ For information about the encryption context in Amazon S3, see [Encryption conte
 information about the encryption context, see [AWS Key Management Service Concepts -
 Encryption context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") in the _AWS Key Management Service Developer Guide_.
 
-### AWS KMS key ID
-
-(`x-amz-server-side-encryption-aws-kms-key-id`)
+### AWS KMS key ID (`x-amz-server-side-encryption-aws-kms-key-id`)
 
 You can use the `x-amz-server-side-encryption-aws-kms-key-id` header to
 specify the ID of the customer managed key that's used to protect the data. If you specify the
@@ -226,9 +214,7 @@ When you use an AWS KMS key for server-side encryption in Amazon S3, you must ch
 Amazon S3 supports only symmetric encryption KMS keys. For more information about these keys, see
 [Symmetric encryption KMS keys](../../../kms/latest/developerguide/concepts.md#symmetric-cmks "../../../kms/latest/developerguide/concepts.md#symmetric-cmks") in the _AWS Key Management Service Developer Guide_.
 
-### S3 Bucket Keys
-
-(`x-amz-server-side-encryption-aws-bucket-key-enabled`)
+### S3 Bucket Keys (`x-amz-server-side-encryption-aws-bucket-key-enabled`)
 
 You can use the `x-amz-server-side-encryption-aws-bucket-key-enabled`
 request header to enable or disable an S3 Bucket Key at the object level. S3 Bucket Keys reduce
@@ -238,8 +224,7 @@ information, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](bucke
 If you specify the `x-amz-server-side-encryption:aws:kms` header but don't
 provide the `x-amz-server-side-encryption-aws-bucket-key-enabled` header, your
 object uses the S3 Bucket Key settings for the destination bucket to encrypt your object.
-For more information, see [Configuring an S3 Bucket Key at the object
-level](configuring-bucket-key-object.md "configuring-bucket-key-object.md").
+For more information, see [Configuring an S3 Bucket Key at the object level](configuring-bucket-key-object.md "configuring-bucket-key-object.md").
 
 To use the following example AWS CLI commands, replace the `user input
  placeholders` with your own information.
@@ -303,8 +288,7 @@ PutObjectRequest putRequest = new PutObjectRequest(bucketName,
 ```
 
 In this case, Amazon S3 uses the AWS managed key (`aws/s3`). For more
-information, see [Using server-side encryption with AWS KMS keys
-(SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md"). You can optionally create a symmetric
+information, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md"). You can optionally create a symmetric
 encryption KMS key and specify that in the request, as shown in the following
 example:
 
@@ -339,8 +323,7 @@ PutObjectRequest putRequest = new PutObjectRequest
  };
 ```
 
-In this case, Amazon S3 uses the AWS managed key. For more information, see [Using server-side encryption with AWS KMS keys
-(SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md"). You can
+In this case, Amazon S3 uses the AWS managed key. For more information, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md"). You can
 optionally create your own symmetric encryption customer managed key and specify that in the
 request, as shown in the following example:
 

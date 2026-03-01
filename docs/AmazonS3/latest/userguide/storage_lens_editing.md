@@ -161,8 +161,7 @@ you want exported daily:
     * If you choose to specify an encryption key, you must choose an AWS KMS key
      (SSE-KMS) or Amazon S3 managed key (SSE-S3). If your destination bucket policy requires
      encryption, you must provide an encryption key for your metrics export. Without
-     the encryption key, the export to S3 fails. For more information, see [Using an AWS KMS key to encrypt your
-     metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md").
+     the encryption key, the export to S3 fails. For more information, see [Using an AWS KMS key to encrypt your metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md").
 
 4. Choose **Next** to save your changes and proceed.
 5. (Optional) If you chose **Expanded prefixes metrics report**, in
@@ -179,8 +178,7 @@ you want exported daily:
     * If you choose to specify an encryption key, you must choose an AWS KMS key
      (SSE-KMS) or Amazon S3 managed key (SSE-S3). If your destination bucket policy requires
      encryption, you must provide an encryption key for your metrics export. Without
-     the encryption key, the export to S3 fails. For more information, see [Using an AWS KMS key to encrypt your
-     metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md").
+     the encryption key, the export to S3 fails. For more information, see [Using an AWS KMS key to encrypt your metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md").
 
 6. Choose **Next** to save your changes and proceed.
 

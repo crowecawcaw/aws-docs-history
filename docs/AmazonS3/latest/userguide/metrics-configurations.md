@@ -7,14 +7,12 @@ metrics let you quickly identify and act on operational issues. When enabled, th
 1-minute metrics are available at the Amazon S3 bucket-level, by default.
 
 If you want to get the CloudWatch request metrics for the objects in a bucket, you must
-create a metrics configuration for the bucket. For more information, see [Creating a CloudWatch metrics
-configuration for all the objects in your bucket](configure-request-metrics-bucket.md "configure-request-metrics-bucket.md").
+create a metrics configuration for the bucket. For more information, see [Creating a CloudWatch metrics configuration for all the objects in your bucket](configure-request-metrics-bucket.md "configure-request-metrics-bucket.md").
 
 You can also use a shared prefix, object tags, or an access point to define a filter for the
 metrics collected. This method of defining a filter allows you to align metrics filters
 to specific business applications, workflows, or internal organizations. For more
-information, see [Creating a metrics configuration
-that filters by prefix, object tag, or access point](metrics-configurations-filter.md "metrics-configurations-filter.md"). For more information about the CloudWatch
+information, see [Creating a metrics configuration that filters by prefix, object tag, or access point](metrics-configurations-filter.md "metrics-configurations-filter.md"). For more information about the CloudWatch
 metrics that are available and the differences between storage and request metrics, see
 [Monitoring metrics with Amazon CloudWatch](cloudwatch-monitoring.md "cloudwatch-monitoring.md").
 
@@ -63,8 +61,6 @@ topics.
 
 ###### Topics
 
-- [Creating a CloudWatch metrics
-  configuration for all the objects in your bucket](configure-request-metrics-bucket.md "configure-request-metrics-bucket.md")
-- [Creating a metrics configuration
-  that filters by prefix, object tag, or access point](metrics-configurations-filter.md "metrics-configurations-filter.md")
+- [Creating a CloudWatch metrics configuration for all the objects in your bucket](configure-request-metrics-bucket.md "configure-request-metrics-bucket.md")
+- [Creating a metrics configuration that filters by prefix, object tag, or access point](metrics-configurations-filter.md "metrics-configurations-filter.md")
 - [Deleting a metrics filter](delete-request-metrics-filter.md "delete-request-metrics-filter.md")

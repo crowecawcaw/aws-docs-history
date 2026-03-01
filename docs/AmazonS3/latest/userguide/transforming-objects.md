@@ -52,10 +52,8 @@ The topics in this section describe how to work with S3 Object Lambda.
 - [Debugging and troubleshooting S3 Object Lambda](olap-debugging-lambda.md "olap-debugging-lambda.md")
   For S3 Object Lambda tutorials, see the following:
 
-- [Tutorial: Transforming data for your
-  application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md "tutorial-s3-object-lambda-uppercase.md")
-- [Tutorial:
-  Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md")
+- [Tutorial: Transforming data for your application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md "tutorial-s3-object-lambda-uppercase.md")
+- [Tutorial: Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md")
 - [Tutorial: Using S3 Object Lambda to dynamically watermark images as they are retrieved](https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/transforming-objects.html "https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/transforming-objects.html")
   For more information about standard access points, see [Managing access to shared datasets with access points](access-points.md "access-points.md").
 

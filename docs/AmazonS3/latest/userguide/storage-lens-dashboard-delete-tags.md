@@ -1,6 +1,4 @@
-# Deleting AWS resource tags from
-
-a S3 Storage Lens dashboard
+# Deleting AWS resource tags from a S3 Storage Lens dashboard
 
 The following examples demonstrate how to delete AWS resource tags from an existing Storage
 Lens dashboard. You can delete tags by using the Amazon S3 console, AWS Command Line Interface (AWS CLI), and

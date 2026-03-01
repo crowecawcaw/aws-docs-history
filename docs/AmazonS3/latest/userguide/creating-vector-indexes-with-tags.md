@@ -1,6 +1,4 @@
-# Creating vector indexes with
-
-tags
+# Creating vector indexes with tags
 
 You can tag Amazon S3 vector indexes when you create them. There is no additional charge for
 using tags on vector indexes beyond the standard S3 API request rates. For more information,

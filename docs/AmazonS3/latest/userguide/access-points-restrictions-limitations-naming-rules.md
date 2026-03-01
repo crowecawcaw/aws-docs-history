@@ -1,6 +1,4 @@
-# Access points naming rules, restrictions, and
-
-limitations
+# Access points naming rules, restrictions, and limitations
 
 Access points are named network endpoints attached to a bucket or a volume on an Amazon FSx file system that simplify managing data.
 When you create an access point you choose a name and the AWS Region to create it in. The
@@ -84,8 +82,7 @@ Amazon S3 access points have the following restrictions and limitations:
   granted for the associated bucket and objects. Unless you require a public
   configuration for a specific use case, we recommend that you and the bucket
   owner block all public access to the access point and the bucket. For more information,
-  see [Blocking public access to your Amazon S3
-  storage](access-control-block-public-access.md "access-control-block-public-access.md").
+  see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 ## Restrictions and limitations for access points attached to a volume on an Amazon FSx file system
 

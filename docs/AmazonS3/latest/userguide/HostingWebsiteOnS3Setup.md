@@ -1,6 +1,4 @@
-# Tutorial: Configuring a static website on
-
-Amazon S3
+# Tutorial: Configuring a static website on Amazon S3
 
 ###### Important
 
@@ -23,17 +21,13 @@ For more information, see [Getting started with a secure static website](../../.
 ###### Topics
 
 - [Step 1: Create a bucket](#step1-create-bucket-config-as-website "#step1-create-bucket-config-as-website")
-- [Step 2: Enable static
-  website hosting](#step2-create-bucket-config-as-website "#step2-create-bucket-config-as-website")
-- [Step 3: Edit Block Public Access
-  settings](#step3-edit-block-public-access "#step3-edit-block-public-access")
-- [Step 4: Add a bucket
-  policy that makes your bucket content publicly available](#step4-add-bucket-policy-make-content-public "#step4-add-bucket-policy-make-content-public")
+- [Step 2: Enable static website hosting](#step2-create-bucket-config-as-website "#step2-create-bucket-config-as-website")
+- [Step 3: Edit Block Public Access settings](#step3-edit-block-public-access "#step3-edit-block-public-access")
+- [Step 4: Add a bucket policy that makes your bucket content publicly available](#step4-add-bucket-policy-make-content-public "#step4-add-bucket-policy-make-content-public")
 - [Step 5: Configure an index document](#step5-upload-index-doc "#step5-upload-index-doc")
 - [Step 6: Configure an error document](#step6-upload-error-doc "#step6-upload-error-doc")
 - [Step 7: Test your website endpoint](#step7-test-web-site "#step7-test-web-site")
-- [Step 8: Clean
-  up](#getting-started-cleanup-s3-website-overview "#getting-started-cleanup-s3-website-overview")
+- [Step 8: Clean up](#getting-started-cleanup-s3-website-overview "#getting-started-cleanup-s3-website-overview")
 
 ## Step 1: Create a bucket
 
@@ -55,9 +49,7 @@ and costs, or to address regulatory requirements. The Region that you choose
 determines your Amazon S3 website endpoint. For more information, see [Website endpoints](WebsiteEndpoints.md "WebsiteEndpoints.md"). 5. To accept the default settings and create the bucket, choose
 **Create**.
 
-## Step 2: Enable static
-
-website hosting
+## Step 2: Enable static website hosting
 
 After you create a bucket, you can enable static website hosting for your bucket.
 You can create a new bucket or use an existing bucket.
@@ -85,8 +77,7 @@ The error document name is case sensitive and must exactly match the file name o
 default HTML error document. For more information, see [Configuring a custom error document](CustomErrorDocSupport.md "CustomErrorDocSupport.md"). 10. (Optional) If you want to specify advanced redirection rules, in **Redirection rules**, enter JSON to describe the rules.
 
 For example, you can conditionally route requests according to specific object key
-names or prefixes in the request. For more information, see [Configure redirection rules to use
-advanced conditional redirects](how-to-page-redirect.md#advanced-conditional-redirects "how-to-page-redirect.md#advanced-conditional-redirects"). 11. Choose **Save changes**.
+names or prefixes in the request. For more information, see [Configure redirection rules to use advanced conditional redirects](how-to-page-redirect.md#advanced-conditional-redirects "how-to-page-redirect.md#advanced-conditional-redirects"). 11. Choose **Save changes**.
 
 Amazon S3 enables static website hosting for your bucket. At the bottom of the page, under **Static website hosting**, you see the website endpoint for your bucket. 12. Under **Static website hosting**, note the **Endpoint**.
 
@@ -94,16 +85,13 @@ The **Endpoint** is the Amazon S3 website endpoint for your bucket.
 After you finish configuring your bucket as a static website, you can use this endpoint to test your
 website.
 
-## Step 3: Edit Block Public Access
-
-settings
+## Step 3: Edit Block Public Access settings
 
 By default, Amazon S3 blocks public access to your account and buckets. If you want to use a bucket to host a static website, you can use these steps to edit your block public access settings.
 
 ###### Warning
 
-Before you complete these steps, review [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md") to ensure that you understand and accept the risks involved with allowing public access. When you turn off block public access settings to make your bucket public, anyone on the internet can access your bucket. We recommend that you block all public access to your buckets.
+Before you complete these steps, review [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md") to ensure that you understand and accept the risks involved with allowing public access. When you turn off block public access settings to make your bucket public, anyone on the internet can access your bucket. We recommend that you block all public access to your buckets.
 
 1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Choose the name of the bucket that you have configured as a static website.
@@ -117,9 +105,7 @@ storage](access-control-block-public-access.md "access-control-block-public-acce
 Amazon S3 turns off the Block Public Access settings for your bucket. To create a public static website, you might also have to [edit the Block Public Access settings](../user-guide/block-public-access-account.md "../user-guide/block-public-access-account.md") for your account
 before adding a bucket policy. If the Block Public Access settings for your account are currently turned on, you see a note under **Block public access (bucket settings)**.
 
-## Step 4: Add a bucket
-
-policy that makes your bucket content publicly available
+## Step 4: Add a bucket policy that makes your bucket content publicly available
 
 After you edit S3 Block Public Access settings, you can add a bucket policy to grant public read access to your bucket. When you grant public read access, anyone on the internet can access your bucket.
 
@@ -249,12 +235,9 @@ available at the Amazon S3 website endpoint. However, you might have a domain, s
 website you created. You might also want to use Amazon S3 root domain support to serve
 requests for both `http://www.example.com` and
 `http://example.com`. This requires additional steps. For an example,
-see [Tutorial: Configuring a static website using a
-custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md").
+see [Tutorial: Configuring a static website using a custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md").
 
-## Step 8: Clean
-
-up
+## Step 8: Clean up
 
 If you created your static website only as a learning exercise, delete the AWS
 resources that you allocated so that you no longer accrue charges. After you delete

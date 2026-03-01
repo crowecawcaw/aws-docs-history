@@ -12,30 +12,18 @@ For more information about the permissions to S3 API operations by S3 resource t
 
 ###### Topics
 
-- [Allowing an IAM user access to one of your
-  buckets](#iam-policy-ex0 "#iam-policy-ex0")
+- [Allowing an IAM user access to one of your buckets](#iam-policy-ex0 "#iam-policy-ex0")
 - [Allowing each IAM user access to a folder in a bucket](#iam-policy-ex1 "#iam-policy-ex1")
 - [Allowing a group to have a shared folder in Amazon S3](#iam-policy-ex2 "#iam-policy-ex2")
-- [Allowing all your users to read objects in a portion of a
-  bucket](#iam-policy-ex3 "#iam-policy-ex3")
-- [Allowing a partner to drop files into a specific portion
-  of a bucket](#iam-policy-ex4 "#iam-policy-ex4")
-- [Restricting access to Amazon S3 buckets within a specific
-  AWS account](#iam-policy-ex6 "#iam-policy-ex6")
-- [Restricting access to Amazon S3 buckets within your
-  organizational unit](#iam-policy-ex7 "#iam-policy-ex7")
-- [Restricting access to Amazon S3 buckets within your
-  organization](#iam-policy-ex8 "#iam-policy-ex8")
-- [Granting permission to retrieve
-  the
-  PublicAccessBlock
-  configuration for an
-  AWS account](#using-with-s3-actions-related-to-accountss "#using-with-s3-actions-related-to-accountss")
+- [Allowing all your users to read objects in a portion of a bucket](#iam-policy-ex3 "#iam-policy-ex3")
+- [Allowing a partner to drop files into a specific portion of a bucket](#iam-policy-ex4 "#iam-policy-ex4")
+- [Restricting access to Amazon S3 buckets within a specific AWS account](#iam-policy-ex6 "#iam-policy-ex6")
+- [Restricting access to Amazon S3 buckets within your organizational unit](#iam-policy-ex7 "#iam-policy-ex7")
+- [Restricting access to Amazon S3 buckets within your organization](#iam-policy-ex8 "#iam-policy-ex8")
+- [Granting permission to retrieve the PublicAccessBlock configuration for an AWS account](#using-with-s3-actions-related-to-accountss "#using-with-s3-actions-related-to-accountss")
 - [Restricting bucket creation to one Region](#condition-key-bucket-ops-1 "#condition-key-bucket-ops-1")
 
-## Allowing an IAM user access to one of your
-
-buckets
+## Allowing an IAM user access to one of your buckets
 
 In this example, you want to grant an IAM user in your AWS account access to one of
 your buckets, `amzn-s3-demo-bucket1`, and allow the user to add, update, and delete objects.
@@ -268,10 +256,7 @@ JSON
 
 ```
 
-### Allowing
-
-non-IAM users
-(mobile app users) access to folders in a bucket
+### Allowing non-IAM users (mobile app users) access to folders in a bucket
 
 Suppose that you want to develop a mobile app, a game that stores users' data in an
 S3 bucket. For each app user, you want to create a folder in your bucket. You also want
@@ -321,9 +306,7 @@ JSON
 
 ```
 
-## Allowing all your users to read objects in a portion of a
-
-bucket
+## Allowing all your users to read objects in a portion of a bucket
 
 In this example, you create a group named
 `AllUsers`, which contains all the IAM users
@@ -350,9 +333,7 @@ JSON
 
 ```
 
-## Allowing a partner to drop files into a specific portion
-
-of a bucket
+## Allowing a partner to drop files into a specific portion of a bucket
 
 In this example, you create a group called
 `AnyCompany` that represents a partner company.
@@ -392,9 +373,7 @@ JSON
 
 ```
 
-## Restricting access to Amazon S3 buckets within a specific
-
-AWS account
+## Restricting access to Amazon S3 buckets within a specific AWS account
 
 If you want to ensure that your Amazon S3 principals are accessing only the resources that
 are inside of a trusted AWS account, you can restrict access. For example, this [identity-based
@@ -444,9 +423,7 @@ maintaining this restriction, replace the account ID with the
 `aws:PrincipalAccount` condition key. This condition requires that the
 principal and the resource must be in the same account.
 
-## Restricting access to Amazon S3 buckets within your
-
-organizational unit
+## Restricting access to Amazon S3 buckets within your organizational unit
 
 If you have an [organizational unit
 (OU)](../../../organizations/latest/userguide/orgs_manage_ous.md "../../../organizations/latest/userguide/orgs_manage_ous.md") set up in AWS Organizations, you might want to restrict Amazon S3
@@ -499,9 +476,7 @@ key, to contain any of the listed OU paths. The policy uses the
 `aws:ResourceOrgPaths` to the listed OUs without case-sensitive
 matching.
 
-## Restricting access to Amazon S3 buckets within your
-
-organization
+## Restricting access to Amazon S3 buckets within your organization
 
 To restrict access to Amazon S3 objects within your organization, attach an IAM policy to
 the root of the organization, applying it to all accounts in your organization. To require
@@ -551,18 +526,12 @@ condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.m
 principal making the request and the resource being accessed must be in the same
 organization.
 
-## Granting permission to retrieve
-
-the
-PublicAccessBlock
-configuration for an
-AWS account
+## Granting permission to retrieve the PublicAccessBlock configuration for an AWS account
 
 The following example identity-based policy grants the
 `s3:GetAccountPublicAccessBlock` permission to a user. For these
 permissions, you set the `Resource` value to `"*"`. For
-information about resource ARNs, see [Policy
-resources for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources").
+information about resource ARNs, see [Policy resources for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources").
 
 JSON
 

@@ -1,6 +1,4 @@
-# Deleting object versions from a
-
-versioning-enabled bucket
+# Deleting object versions from a versioning-enabled bucket
 
 You can delete object versions from Amazon S3 buckets whenever you want. You can also
 define lifecycle configuration rules for objects that have a well-defined lifecycle to
@@ -15,8 +13,7 @@ configuration actions work as follows:
 - The `NoncurrentVersionExpiration` action applies to noncurrent
   object versions, and Amazon S3 permanently removes these object versions. You cannot
   recover permanently removed objects.
-  For more information about S3 Lifecycle, see [Managing the lifecycle of objects](object-lifecycle-mgmt.md "object-lifecycle-mgmt.md") and [Examples of S3 Lifecycle
-  configurations](lifecycle-configuration-examples.md "lifecycle-configuration-examples.md").
+  For more information about S3 Lifecycle, see [Managing the lifecycle of objects](object-lifecycle-mgmt.md "object-lifecycle-mgmt.md") and [Examples of S3 Lifecycle configurations](lifecycle-configuration-examples.md "lifecycle-configuration-examples.md").
 
 To see how many current and noncurrent object versions that your buckets have, you can use
 Amazon S3 Storage Lens metrics. S3 Storage Lens is a cloud-storage analytics feature that you can use to gain organization-wide
@@ -46,7 +43,7 @@ The following figure shows that a simple `DELETE` does not
 actually remove the specified object. Instead, Amazon S3 inserts a delete
 marker.
 
-![Illustration that shows a delete marker insertion.](/images/AmazonS3/latest/userguide/images/versioning_DELETE_versioningEnabled.png)
+![Illustration that shows a delete marker insertion.](images/versioning_DELETE_versioningEnabled.png)
 
 - To delete versioned objects permanently, you must use `DELETE Object
 versionId`.
@@ -145,7 +142,5 @@ For more information about deleting object versions, see the following
 topics:
 
 - [Working with delete markers](DeleteMarker.md "DeleteMarker.md")
-- [Removing delete markers to make an older version
-  current](ManagingDelMarkers.md#RemDelMarker "ManagingDelMarkers.md#RemDelMarker")
-- [Deleting an object from an MFA delete-enabled
-  bucket](UsingMFADelete.md "UsingMFADelete.md")
+- [Removing delete markers to make an older version current](ManagingDelMarkers.md#RemDelMarker "ManagingDelMarkers.md#RemDelMarker")
+- [Deleting an object from an MFA delete-enabled bucket](UsingMFADelete.md "UsingMFADelete.md")

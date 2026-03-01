@@ -51,8 +51,7 @@ encryption is with Amazon S3 managed keys (SSE-S3). Each object is encrypted wit
 unique key. As an additional safeguard, SSE-S3 encrypts the key itself with a root
 key that it regularly rotates. SSE-S3 uses one of the strongest block ciphers
 available, 256-bit Advanced Encryption Standard (AES-256), to encrypt your data. For
-more information, see [Using server-side encryption with Amazon S3 managed keys
-(SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
+more information, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
 
 ###### Server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS)
 
@@ -61,8 +60,7 @@ the AWS KMS service with Amazon S3. With AWS KMS, you have more control over you
 example, you can view separate keys, edit control policies, and follow the keys in
 AWS CloudTrail. Additionally, you can create and manage customer managed keys or use
 AWS managed keys that are unique to you, your service, and your Region. For more
-information, see [Using server-side encryption with AWS KMS keys
-(SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
+information, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
 
 ###### Dual-layer server-side encryption with AWS Key Management Service (AWS KMS) keys (DSSE-KMS)
 
@@ -71,15 +69,13 @@ but DSSE-KMS applies two independent layers of AES-256 encryption instead of one
 layer: first using a AWS KMS data encryption key, then using a separate Amazon S3-managed encryption key. Because both layers of encryption are applied to an object on the server
 side, you can use a wide range of AWS services and tools to analyze data in S3
 while using an encryption method that can satisfy compliance requirements for multilayer encryption. For
-more information, see [Using dual-layer server-side encryption with AWS KMS keys
-(DSSE-KMS)](UsingDSSEncryption.md "UsingDSSEncryption.md").
+more information, see [Using dual-layer server-side encryption with AWS KMS keys (DSSE-KMS)](UsingDSSEncryption.md "UsingDSSEncryption.md").
 
 ###### Server-side encryption with customer-provided keys (SSE-C)
 
 With server-side encryption with customer-provided keys (SSE-C), you manage the encryption
 keys, and Amazon S3 manages the encryption as it writes to disks and the decryption when
-you access your objects. For more information, see [Using server-side encryption with
-customer-provided keys (SSE-C)](ServerSideEncryptionCustomerKeys.md "ServerSideEncryptionCustomerKeys.md").
+you access your objects. For more information, see [Using server-side encryption with customer-provided keys (SSE-C)](ServerSideEncryptionCustomerKeys.md "ServerSideEncryptionCustomerKeys.md").
 
 ###### Note
 

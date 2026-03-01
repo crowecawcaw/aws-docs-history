@@ -1,6 +1,4 @@
-# Working with directory buckets by using the
-
-S3 console, AWS CLI, and AWS SDKs
+# Working with directory buckets by using the S3 console, AWS CLI, and AWS SDKs
 
 You can work with the S3 Express One Zone storage class and directory buckets by using the
 AWS SDKs, Amazon S3 console, AWS Command Line Interface (AWS CLI), and Amazon S3 REST API.

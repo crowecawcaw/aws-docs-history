@@ -153,8 +153,7 @@ set threshold and depth set in prefix aggregation settings.
 If you choose to specify an encryption key, you must choose an AWS KMS key (SSE-KMS)
 or Amazon S3 managed key (SSE-S3). If your destination bucket policy requires encryption,
 you must provide an encryption key for your metrics export. Without the encryption
-key, the export to S3 fails. For more information, see [Using an AWS KMS key to encrypt your
-metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md"). 4. (Optional) If you chose **Expanded prefixes metrics report**, in
+key, the export to S3 fails. For more information, see [Using an AWS KMS key to encrypt your metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md"). 4. (Optional) If you chose **Expanded prefixes metrics report**, in
 the **Expanded prefixes metrics report** settings, choose the bucket
 type. You can export the report to either a general purpose Amazon S3 bucket or a read-only
 S3 table bucket. Based on the selected bucket type, update the **General purpose
@@ -170,8 +169,7 @@ scope.
 If you choose to specify an encryption key, you must choose an AWS KMS key (SSE-KMS)
 or Amazon S3 managed key (SSE-S3). If your destination bucket policy requires encryption,
 you must provide an encryption key for your metrics export. Without the encryption
-key, the export to S3 fails. For more information, see [Using an AWS KMS key to encrypt your
-metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md"). 5. Choose **Next** to save your changes and proceed. 6. Review everything on the **Review and Create** page. If there are
+key, the export to S3 fails. For more information, see [Using an AWS KMS key to encrypt your metrics exports](storage_lens_encrypt_permissions.md "storage_lens_encrypt_permissions.md"). 5. Choose **Next** to save your changes and proceed. 6. Review everything on the **Review and Create** page. If there are
 no additional changes, choose **Next** to save your changes and to
 create your dashboard.
 

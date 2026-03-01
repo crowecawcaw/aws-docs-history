@@ -16,6 +16,5 @@ directory to IAM Identity Center, you can associate your S3 Access Grants instan
 - [Create an S3 Access Grants instance](access-grants-instance-create.md "access-grants-instance-create.md")
 - [Get the details of an S3 Access Grants instance](access-grants-instance-view.md "access-grants-instance-view.md")
 - [List your S3 Access Grants instances](access-grants-instance-list.md "access-grants-instance-list.md")
-- [Associate or disassociate your IAM Identity Center
-  instance](access-grants-instance-idc.md "access-grants-instance-idc.md")
+- [Associate or disassociate your IAM Identity Center instance](access-grants-instance-idc.md "access-grants-instance-idc.md")
 - [Delete an S3 Access Grants instance](access-grants-instance-delete.md "access-grants-instance-delete.md")

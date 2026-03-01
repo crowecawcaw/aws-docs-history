@@ -44,7 +44,6 @@ The following naming rules apply for directory buckets.
 - Bucket names must not end with the suffix `-s3alias`. This suffix
   is reserved for access point alias names. For more information, see [Access point aliases](access-points-naming.md#access-points-alias "access-points-naming.md#access-points-alias").
 - Bucket names must not end with the suffix `--ol-s3`. This suffix is
-  reserved for Object Lambda Access Point alias names. For more information, see [How to use a bucket-style alias for your S3 bucket
-  Object Lambda Access Point](olap-use.md#ol-access-points-alias "olap-use.md#ol-access-points-alias").
+  reserved for Object Lambda Access Point alias names. For more information, see [How to use a bucket-style alias for your S3 bucket Object Lambda Access Point](olap-use.md#ol-access-points-alias "olap-use.md#ol-access-points-alias").
 - Bucket names must not end with the suffix `.mrap`. This suffix is
   reserved for Multi-Region Access Point names. For more information, see [Rules for naming Amazon S3 Multi-Region Access Points](multi-region-access-point-naming.md "multi-region-access-point-naming.md").

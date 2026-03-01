@@ -69,8 +69,7 @@ You can add or view this function on the AWS Management Console by using the fol
 To view this function on GitHub, see [Amazon Comprehend
 S3 Object Lambda](https://github.com/aws-samples/amazon-comprehend-s3-object-lambdas "https://github.com/aws-samples/amazon-comprehend-s3-object-lambdas").
 
-To learn about complete end-to-end procedures for some S3 Object Lambda tasks in PII redaction, see [Tutorial:
-Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md").
+To learn about complete end-to-end procedures for some S3 Object Lambda tasks in PII redaction, see [Tutorial: Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md").
 
 ## Example 3: Decompression
 

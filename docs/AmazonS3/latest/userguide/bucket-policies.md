@@ -33,8 +33,7 @@ bucket policy denies all actions for all principals, your S3 Lifecycle configura
 still functions as normal.
 
 The topics in this section provide examples and show you how to add a bucket policy in the
-S3 console. For information about identity-based policies, see [Identity-based policies for
-Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). For information about bucket
+S3 console. For information about identity-based policies, see [Identity-based policies for Amazon S3](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). For information about bucket
 policy language, see [Policies and permissions in Amazon S3](access-policy-language-overview.md "access-policy-language-overview.md").
 
 For more information about the permissions to S3 API operations by S3 resource types, see [Required permissions for Amazon S3 API operations](using-with-s3-policy-actions.md "using-with-s3-policy-actions.md").
@@ -42,7 +41,6 @@ For more information about the permissions to S3 API operations by S3 resource t
 ###### Topics
 
 - [Adding a bucket policy by using the Amazon S3 console](add-bucket-policy.md "add-bucket-policy.md")
-- [Controlling access from VPC
-  endpoints with bucket policies](example-bucket-policies-vpc-endpoint.md "example-bucket-policies-vpc-endpoint.md")
+- [Controlling access from VPC endpoints with bucket policies](example-bucket-policies-vpc-endpoint.md "example-bucket-policies-vpc-endpoint.md")
 - [Examples of Amazon S3 bucket policies](example-bucket-policies.md "example-bucket-policies.md")
 - [Bucket policy examples using condition keys](amazon-s3-policy-keys.md "amazon-s3-policy-keys.md")

@@ -1,6 +1,4 @@
-# Security considerations and limitations for
-
-S3 Tables
+# Security considerations and limitations for S3 Tables
 
 The following list describes which security and access control features and functionality
 are unsupported or limited for S3 Tables.

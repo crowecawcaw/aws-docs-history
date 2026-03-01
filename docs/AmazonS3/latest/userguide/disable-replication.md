@@ -34,8 +34,7 @@ a bucket, see [Using the S3 console](replication-walkthrough1.md#enable-replicat
    If you disable a replication rule and then later re-enable the rule, any new or
    changed objects that weren't replicated while the rule was disabled are _not_ automatically replicated when the rule is re-enabled.
    To replicate those objects, you must use S3 Batch Replication. For more information,
-   see [Replicating existing objects with
-   Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
+   see [Replicating existing objects with Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
    - To change the priority of a rule, choose the option button to the left of the rule,
      and then choose **Edit rule**.
 
@@ -55,8 +54,7 @@ To stop replication in Amazon S3, we recommend disabling your replication rules.
 a replication rule and then later re-enable the rule, any new or changed objects that weren't
 replicated while the rule was disabled are _not_
 automatically replicated when the rule is re-enabled. To replicate those objects, you must use
-S3 Batch Replication. For more information, see [Replicating existing objects with
-Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
+S3 Batch Replication. For more information, see [Replicating existing objects with Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
 
 Replication will also stop if you remove the AWS Identity and Access Management (IAM) role, the AWS Key Management Service (AWS KMS)
 permissions, or the bucket policy permissions that grant Amazon S3 the required permissions.

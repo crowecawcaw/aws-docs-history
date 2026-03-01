@@ -40,7 +40,5 @@ metrics, see [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glos
 
 - [Using Amazon S3 Storage Lens to optimize your storage costs](storage-lens-optimize-storage.md "storage-lens-optimize-storage.md")
 - [Using S3 Storage Lens to protect your data](storage-lens-data-protection.md "storage-lens-data-protection.md")
-- [Using S3 Storage Lens to audit Object Ownership
-  settings](storage-lens-access-management.md "storage-lens-access-management.md")
-- [Using S3 Storage Lens metrics to improve
-  performance](storage-lens-detailed-status-code.md "storage-lens-detailed-status-code.md")
+- [Using S3 Storage Lens to audit Object Ownership settings](storage-lens-access-management.md "storage-lens-access-management.md")
+- [Using S3 Storage Lens metrics to improve performance](storage-lens-detailed-status-code.md "storage-lens-detailed-status-code.md")

@@ -99,9 +99,7 @@ In this bucket policy, IAM principals (users and roles) are denied `s3:ListBucke
 }
 ```
 
-#### 1.3 - IAM policy to modify tags on
-
-existing resources
+#### 1.3 - IAM policy to modify tags on existing resources
 
 In this IAM policy, IAM principals (users or roles) can modify tags on a bucket only if the value of the bucket's `project` tag matches the value of the principal's `project` tag. Only the four tags `project`, `environment`, `owner`, and `cost-center` specified in the `aws:TagKeys` condition keys are permitted for these buckets. This helps enforce tag governance, prevents unauthorized tag modifications, and keeps the tagging schema consistent across your buckets.
 

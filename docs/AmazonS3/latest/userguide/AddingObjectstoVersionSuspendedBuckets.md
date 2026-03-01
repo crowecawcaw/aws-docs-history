@@ -1,6 +1,4 @@
-# Adding objects to
-
-versioning-suspended buckets
+# Adding objects to versioning-suspended buckets
 
 You can add objects to versioning-suspended buckets in Amazon S3 to create the object with
 a null version ID or overwrite any object version with a matching version ID.

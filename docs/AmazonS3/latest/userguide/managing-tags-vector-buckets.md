@@ -5,8 +5,7 @@ You can add or manage tags for S3 vector buckets using the Amazon S3 Console, th
 
 ###### Topics
 
-- [Creating vector buckets with
-  tags](creating-vector-buckets-with-tags.md "creating-vector-buckets-with-tags.md")
+- [Creating vector buckets with tags](creating-vector-buckets-with-tags.md "creating-vector-buckets-with-tags.md")
 - [Adding a tag to a vector bucket](adding-tag-vector-bucket.md "adding-tag-vector-bucket.md")
 - [Viewing vector bucket tags](viewing-vector-bucket-tags.md "viewing-vector-bucket-tags.md")
 - [Deleting a tag from a vector bucket](deleting-tag-vector-bucket.md "deleting-tag-vector-bucket.md")

@@ -1,6 +1,4 @@
-# Generating presigned URLs to share objects
-
-directory bucket
+# Generating presigned URLs to share objects directory bucket
 
 The following code examples show how to generate
 presigned URLs to share objects from an Amazon S3 directory bucket.

@@ -12,20 +12,15 @@ AWS Command Line Interface (AWS CLI) and the AWS SDKs.
 
 The following sections answer questions about this update.
 
-###### Does Amazon S3 change the default encryption settings for my existing buckets that already
-
-have default encryption configured?
+###### Does Amazon S3 change the default encryption settings for my existing buckets that already have default encryption configured?
 
 No. There are no changes to the default encryption configuration for an existing
 bucket that already has SSE-S3 or server-side encryption with AWS Key Management Service (AWS KMS) keys
 (SSE-KMS) configured. For more information about how to set the default encryption
-behavior for buckets, see [Setting default server-side encryption behavior for Amazon S3
-buckets](bucket-encryption.md "bucket-encryption.md"). For more information about SSE-S3 and SSE-KMS
+behavior for buckets, see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md"). For more information about SSE-S3 and SSE-KMS
 encryption settings, see [Protecting data with server-side encryption](serv-side-encryption.md "serv-side-encryption.md").
 
-###### Is default encryption enabled on my existing buckets that don't have default
-
-encryption configured?
+###### Is default encryption enabled on my existing buckets that don't have default encryption configured?
 
 Yes. Amazon S3 now configures default encryption on all existing unencrypted buckets to
 apply server-side encryption with S3 managed keys (SSE-S3) as the base level of
@@ -52,8 +47,7 @@ AWS Command Line Interface (AWS CLI) and the AWS SDKs.
 - To view the automatic encryption status for new object uploads in S3 Storage Lens,
   configure an S3 Storage Lens dashboard and see the **Encrypted bytes** and
   **Encrypted object count** metrics in the **Data
-  protection** category of the dashboard. For more information, see [Using the S3 console](storage_lens_creating_dashboard.md#storage_lens_console_creating "storage_lens_creating_dashboard.md#storage_lens_console_creating") and [Viewing S3 Storage Lens metrics on the
-  dashboards](storage_lens_view_metrics_dashboard.md "storage_lens_view_metrics_dashboard.md").
+  protection** category of the dashboard. For more information, see [Using the S3 console](storage_lens_creating_dashboard.md#storage_lens_console_creating "storage_lens_creating_dashboard.md#storage_lens_console_creating") and [Viewing S3 Storage Lens metrics on the dashboards](storage_lens_view_metrics_dashboard.md "storage_lens_view_metrics_dashboard.md").
 - To view the automatic bucket-level encryption status in the Amazon S3 console,
   check the **Default encryption** of your Amazon S3 buckets in the Amazon S3 console.
   For more information, see [Configuring default encryption](default-bucket-encryption.md "default-bucket-encryption.md").
@@ -88,9 +82,7 @@ details, see [Encrypting
 objects with Amazon S3 Batch Operations](https://aws.amazon.com/blogs/storage/encrypting-objects-with-amazon-s3-batch-operations/ "https://aws.amazon.com/blogs/storage/encrypting-objects-with-amazon-s3-batch-operations/") in the _AWS Storage
 Blog_.
 
-###### I did not enable encryption for my buckets before this release. Do I need to change
-
-the way that I access objects?
+###### I did not enable encryption for my buckets before this release. Do I need to change the way that I access objects?
 
 No. Default encryption with SSE-S3 automatically encrypts your data as it's written to
 Amazon S3 and decrypts it for you when you access it. There is no change in the way that you

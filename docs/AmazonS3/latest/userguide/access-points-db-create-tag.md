@@ -25,8 +25,7 @@ To create an access point for directory buckets with tags using the Amazon S3 co
 1. Sign in to Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. In the left navigation pane, choose **Access Points (Directory Buckets)**.
 3. Choose **create access point** to create a new access point.
-4. Enter a name for the access point. For more information, see [Access points for directory buckets naming rules, restrictions, and
-   limitations](access-points-directory-buckets-restrictions-limitations-naming-rules.md "access-points-directory-buckets-restrictions-limitations-naming-rules.md").
+4. Enter a name for the access point. For more information, see [Access points for directory buckets naming rules, restrictions, and limitations](access-points-directory-buckets-restrictions-limitations-naming-rules.md "access-points-directory-buckets-restrictions-limitations-naming-rules.md").
 5. On the **Create access point** page, **Tags** is an option when creating a new access point.
 6. Choose **Add new Tag** to open the Tags editor and enter a tag key-value pair. The tag key is required, but the value is optional.
 7. To add another tag, select **Add new Tag** again. You can enter up to 50 tag key-value pairs.

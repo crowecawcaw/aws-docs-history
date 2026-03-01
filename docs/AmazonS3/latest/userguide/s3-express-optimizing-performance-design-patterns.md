@@ -2,8 +2,7 @@
 
 When building applications that upload and retrieve objects from Amazon S3 Express One Zone, follow our best practice guidelines to optimize performance. To use the S3 Express One Zone storage class, you must create an S3 directory bucket. The S3 Express One Zone storage class isn't supported for use with S3 general purpose buckets.
 
-For performance guidelines for all other Amazon S3 storage classes and S3 general purpose buckets, see [Best practices design patterns: optimizing Amazon S3
-performance](optimizing-performance.md "optimizing-performance.md").
+For performance guidelines for all other Amazon S3 storage classes and S3 general purpose buckets, see [Best practices design patterns: optimizing Amazon S3 performance](optimizing-performance.md "optimizing-performance.md").
 
 For optimal performance and scalability with S3 Express One Zone storage class and directory buckets in high-scale workloads, it's important to understand how directory buckets work differently from general purpose buckets. Then,
 we provide best practices to align your applications with the way directory buckets work.
@@ -224,8 +223,7 @@ refreshing it.
 
 If you use AWS SDKs, SDKs handle the session token refreshes automatically to avoid service interruptions when a session expires. We recommend that you use the AWS SDKs to initiate and manage requests to the `CreateSession` API operation.
 
-For more information about `CreateSession`, see [Authorizing Zonal endpoint API operations with
-CreateSession](s3-express-create-session.md "s3-express-create-session.md").
+For more information about `CreateSession`, see [Authorizing Zonal endpoint API operations with CreateSession](s3-express-create-session.md "s3-express-create-session.md").
 
 ### Use a CRT-based client
 

@@ -58,8 +58,7 @@ For more information about S3 Access Grants, see the following topics.
 ###### Topics
 
 - [S3 Access Grants concepts](access-grants-concepts.md "access-grants-concepts.md")
-- [S3 Access Grants and corporate directory
-  identities](access-grants-directory-ids.md "access-grants-directory-ids.md")
+- [S3 Access Grants and corporate directory identities](access-grants-directory-ids.md "access-grants-directory-ids.md")
 - [Getting started with S3 Access Grants](access-grants-get-started.md "access-grants-get-started.md")
 - [Working with S3 Access Grants instances](access-grants-instance.md "access-grants-instance.md")
 - [Working with S3 Access Grants locations](access-grants-location.md "access-grants-location.md")

@@ -28,8 +28,7 @@ replicates only objects that have the specific key prefix and tags.
 
 - **An AWS Identity and Access Management (IAM) role** – Amazon S3 assumes this
   IAM role to replicate objects on your behalf. For more information about creating this
-  IAM role and managing permissions, see [Setting up permissions for live
-  replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
+  IAM role and managing permissions, see [Setting up permissions for live replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
   In addition to these minimum requirements, you can choose the following options:
 
 - **Replica storage class** – By default, Amazon S3 stores
@@ -54,6 +53,5 @@ information, see the following topics in the _Amazon Simple Storage Service API 
 ###### Topics
 
 - [Replication configuration file elements](replication-add-config.md "replication-add-config.md")
-- [Setting up permissions for live
-  replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md")
+- [Setting up permissions for live replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md")
 - [Examples for configuring live replication](replication-example-walkthroughs.md "replication-example-walkthroughs.md")

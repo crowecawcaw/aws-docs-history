@@ -1,6 +1,4 @@
-# Tutorial: Hosting on-demand
-
-streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53
+# Tutorial: Hosting on-demand streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53
 
 You can use Amazon S3 with Amazon CloudFront to host videos for on-demand viewing in a secure and
 scalable way. Video on demand (VOD) streaming means that your video content is stored on a
@@ -32,27 +30,19 @@ management.
 
 ###### Topics
 
-- [Prerequisites: Register and configure a custom
-  domain with Route 53](#cf-s3-prerequisites "#cf-s3-prerequisites")
+- [Prerequisites: Register and configure a custom domain with Route 53](#cf-s3-prerequisites "#cf-s3-prerequisites")
 - [Step 1: Create an S3 bucket](#cf-s3-step1 "#cf-s3-step1")
 - [Step 2: Upload a video to the S3 bucket](#cf-s3-step2 "#cf-s3-step2")
 - [Step 3: Create a CloudFront origin access identity](#cf-s3-step3 "#cf-s3-step3")
-- [Step 4: Create a CloudFront
-  distribution](#cf-s3-step4 "#cf-s3-step4")
-- [Step 5: Access the video through the CloudFront
-  distribution](#cf-s3-step5 "#cf-s3-step5")
-- [Step 6: Configure your CloudFront distribution to use your
-  custom domain name](#cf-s3-step6 "#cf-s3-step6")
-- [Step 7: Access the S3 video through
-  the CloudFront distribution with the custom domain name](#cf-s3-step7 "#cf-s3-step7")
-- [(Optional) Step 8: View data about
-  requests received by your CloudFront distribution](#cf-s3-step8 "#cf-s3-step8")
+- [Step 4: Create a CloudFront distribution](#cf-s3-step4 "#cf-s3-step4")
+- [Step 5: Access the video through the CloudFront distribution](#cf-s3-step5 "#cf-s3-step5")
+- [Step 6: Configure your CloudFront distribution to use your custom domain name](#cf-s3-step6 "#cf-s3-step6")
+- [Step 7: Access the S3 video through the CloudFront distribution with the custom domain name](#cf-s3-step7 "#cf-s3-step7")
+- [(Optional) Step 8: View data about requests received by your CloudFront distribution](#cf-s3-step8 "#cf-s3-step8")
 - [Step 9: Clean up](#cf-s3-step9 "#cf-s3-step9")
 - [Next steps](#cf-s3-next-steps "#cf-s3-next-steps")
 
-## Prerequisites: Register and configure a custom
-
-domain with Route 53
+## Prerequisites: Register and configure a custom domain with Route 53
 
 Before you start this tutorial, you must register and configure a custom domain (for
 example, `example.com`) with Route 53 so that you can configure your
@@ -133,8 +123,7 @@ stored in S3.
 
 We recommend that you keep all settings enabled unless you
 need to turn off one or more of them for your use case. For
-more information about blocking public access, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md"). 8. For the remaining settings, keep the defaults.
+more information about blocking public access, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md"). 8. For the remaining settings, keep the defaults.
 
 (Optional) If you want to configure additional bucket settings for your
 specific use case, see [Creating a general purpose bucket](create-bucket-overview.md "create-bucket-overview.md"). 9. Choose **Create bucket**.
@@ -146,8 +135,7 @@ the console. If you're uploading many large video files to S3, you might want to
 [Amazon S3 Transfer Acceleration](https://aws.amazon.com/s3/transfer-acceleration "https://aws.amazon.com/s3/transfer-acceleration")
 to configure fast and secure file transfers. Transfer Acceleration can speed up video
 uploading to your S3 bucket for long-distance transfer of larger videos. For more
-information, see [Configuring fast, secure file transfers using
-Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
+information, see [Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
 
 ###### To upload a file to the bucket
 
@@ -195,23 +183,17 @@ access to an Amazon S3 origin](../../../AmazonCloudFront/latest/DeveloperGuide/p
    access identity.
 5. Choose **Create**.
 
-## Step 4: Create a CloudFront
-
-distribution
+## Step 4: Create a CloudFront distribution
 
 To use CloudFront to serve and distribute the video in your S3 bucket, you must create a
 CloudFront distribution.
 
 ###### Substeps
 
-- [Create a CloudFront
-  distribution](#cf-s3-step4-create-cloudfront "#cf-s3-step4-create-cloudfront")
-- [Review the
-  bucket policy](#cf-s3-step4-review-bucket-policy "#cf-s3-step4-review-bucket-policy")
+- [Create a CloudFront distribution](#cf-s3-step4-create-cloudfront "#cf-s3-step4-create-cloudfront")
+- [Review the bucket policy](#cf-s3-step4-review-bucket-policy "#cf-s3-step4-review-bucket-policy")
 
-### Create a CloudFront
-
-distribution
+### Create a CloudFront distribution
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -256,9 +238,7 @@ modified** column for your distribution changes from
 **Deploying** to the timestamp when the distribution
 was last modified. This process typically takes a few minutes.
 
-### Review the
-
-bucket policy
+### Review the bucket policy
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -297,17 +277,13 @@ CloudFront distribution to restrict access to the S3 bucket. Because of this
 restriction, objects in the bucket can be accessed only through your CloudFront
 distribution.
 
-## Step 5: Access the video through the CloudFront
-
-distribution
+## Step 5: Access the video through the CloudFront distribution
 
 Now, CloudFront can serve the video stored in your S3 bucket. To access your video through
 CloudFront, you must combine your CloudFront distribution domain name with the path to the video in
 the S3 bucket.
 
-###### To create a URL to the S3 video using the CloudFront distribution
-
-domain name
+###### To create a URL to the S3 video using the CloudFront distribution domain name
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -352,9 +328,7 @@ Replace `CloudFront distribution domain name` and
 An example URL is
 `https://d111111abcdef8.cloudfront.net/sample.mp4`.
 
-## Step 6: Configure your CloudFront distribution to use your
-
-custom domain name
+## Step 6: Configure your CloudFront distribution to use your custom domain name
 
 To use your own domain name instead of the CloudFront domain name in the URL to access the
 S3 video, add an alternate domain name to your CloudFront distribution.
@@ -362,12 +336,9 @@ S3 video, add an alternate domain name to your CloudFront distribution.
 ###### Substeps
 
 - [Request an SSL certificate](#cf-s3-step6-create-SSL "#cf-s3-step6-create-SSL")
-- [Add the alternate
-  domain name to your CloudFront distribution](#cf-s3-step6-custom-domain "#cf-s3-step6-custom-domain")
-- [Create a DNS record to route traffic from
-  your alternate domain name to your CloudFront distribution's domain name](#cf-s3-step6-DNS-record "#cf-s3-step6-DNS-record")
-- [Check whether IPv6 is enabled for your
-  distribution and create another DNS record if needed](#s3-step6-ipv6 "#s3-step6-ipv6")
+- [Add the alternate domain name to your CloudFront distribution](#cf-s3-step6-custom-domain "#cf-s3-step6-custom-domain")
+- [Create a DNS record to route traffic from your alternate domain name to your CloudFront distribution's domain name](#cf-s3-step6-DNS-record "#cf-s3-step6-DNS-record")
+- [Check whether IPv6 is enabled for your distribution and create another DNS record if needed](#s3-step6-ipv6 "#s3-step6-ipv6")
 
 ### Request an SSL certificate
 
@@ -425,9 +396,7 @@ The **Status** for your new certificate changes from
 **Pending validation** to **Issued**
 within 30 minutes.
 
-### Add the alternate
-
-domain name to your CloudFront distribution
+### Add the alternate domain name to your CloudFront distribution
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -469,9 +438,7 @@ value of **Last modified** to change from
 **Deploying** to the timestamp when the distribution
 was last modified.
 
-### Create a DNS record to route traffic from
-
-your alternate domain name to your CloudFront distribution's domain name
+### Create a DNS record to route traffic from your alternate domain name to your CloudFront distribution's domain name
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
    [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
@@ -517,9 +484,7 @@ the following:
     the remaining settings, keep the defaults.
 11. Choose **Create records**.
 
-### Check whether IPv6 is enabled for your
-
-distribution and create another DNS record if needed
+### Check whether IPv6 is enabled for your distribution and create another DNS record if needed
 
 If IPv6 is enabled for your distribution, you must create another DNS record.
 
@@ -572,16 +537,12 @@ If IPv6 is enabled for your distribution, you must create another DNS record.
    11. Choose **Create
        records**.
 
-## Step 7: Access the S3 video through
-
-the CloudFront distribution with the custom domain name
+## Step 7: Access the S3 video through the CloudFront distribution with the custom domain name
 
 To access the S3 video using the custom URL, you must combine your alternate domain
 name with the path to the video in the S3 bucket.
 
-###### To create a custom URL to access the S3 video through the
-
-CloudFront distribution
+###### To create a custom URL to access the S3 video through the CloudFront distribution
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -618,13 +579,9 @@ Replace `CloudFront distribution alternate domain name` and
 An example URL is
 `https://www.example.com/sample.mp4`.
 
-## (Optional) Step 8: View data about
+## (Optional) Step 8: View data about requests received by your CloudFront distribution
 
-requests received by your CloudFront distribution
-
-###### To view data about requests received by your CloudFront
-
-distribution
+###### To view data about requests received by your CloudFront distribution
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -656,22 +613,14 @@ Guide_.
 
 ###### Substeps
 
-- [Delete the CloudFront
-  distribution](#cf-s3-step9-delete-cf "#cf-s3-step9-delete-cf")
-- [Delete the DNS
-  record](#cf-s3-step9-delete-dns "#cf-s3-step9-delete-dns")
-- [Delete the
-  public hosted zone for your custom domain](#cf-s3-step9-delete-hosted-zone "#cf-s3-step9-delete-hosted-zone")
-- [Delete the custom domain name from
-  Route 53](#cf-s3-step9-delete-domain "#cf-s3-step9-delete-domain")
-- [Delete the original
-  video in the S3 source bucket](#cf-s3-step9-delete-video "#cf-s3-step9-delete-video")
-- [Delete the S3 source
-  bucket](#cf-s3-step9-delete-bucket "#cf-s3-step9-delete-bucket")
+- [Delete the CloudFront distribution](#cf-s3-step9-delete-cf "#cf-s3-step9-delete-cf")
+- [Delete the DNS record](#cf-s3-step9-delete-dns "#cf-s3-step9-delete-dns")
+- [Delete the public hosted zone for your custom domain](#cf-s3-step9-delete-hosted-zone "#cf-s3-step9-delete-hosted-zone")
+- [Delete the custom domain name from Route 53](#cf-s3-step9-delete-domain "#cf-s3-step9-delete-domain")
+- [Delete the original video in the S3 source bucket](#cf-s3-step9-delete-video "#cf-s3-step9-delete-video")
+- [Delete the S3 source bucket](#cf-s3-step9-delete-bucket "#cf-s3-step9-delete-bucket")
 
-### Delete the CloudFront
-
-distribution
+### Delete the CloudFront distribution
 
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
@@ -726,13 +675,10 @@ distribution
    2. Choose **Delete**, and then choose
       **Delete** to confirm.
 
-### Delete the DNS
-
-record
+### Delete the DNS record
 
 If you want to delete the public hosted zone for the domain (including the DNS
-record), see [Delete the
-public hosted zone for your custom domain](#cf-s3-step9-delete-hosted-zone "#cf-s3-step9-delete-hosted-zone") in the _Amazon Route 53 Developer Guide_. If you only want to delete the DNS record
+record), see [Delete the public hosted zone for your custom domain](#cf-s3-step9-delete-hosted-zone "#cf-s3-step9-delete-hosted-zone") in the _Amazon Route 53 Developer Guide_. If you only want to delete the DNS record
 created in [Step 6](#cf-s3-step6 "#cf-s3-step6"), do the following:
 
 1. Sign in to the AWS Management Console and open the Route 53 console at
@@ -756,9 +702,7 @@ use the [GetChange API
 action](../../../Route53/latest/APIReference/API_GetChange.md "../../../Route53/latest/APIReference/API_GetChange.md"). Changes usually propagate to all Route 53 name servers
 within 60 seconds.
 
-### Delete the
-
-public hosted zone for your custom domain
+### Delete the public hosted zone for your custom domain
 
 ###### Warning
 
@@ -811,9 +755,7 @@ disable DNNSSEC signing if it was enabled. For more information, see [Disabling 
 zone**. 7. To confirm the deletion, enter `delete`, and then
 choose **Delete**.
 
-### Delete the custom domain name from
-
-Route 53
+### Delete the custom domain name from Route 53
 
 For most top-level domains (TLDs), you can delete the registration if you no
 longer want it. If you delete a domain name registration from Route 53 before the
@@ -832,9 +774,7 @@ _Amazon Route 53 Developer Guide_:
 - [Transferring a domain from Amazon Route 53 to another
   registrar](../../../Route53/latest/DeveloperGuide/domain-transfer-from-route-53.md "../../../Route53/latest/DeveloperGuide/domain-transfer-from-route-53.md")
 
-### Delete the original
-
-video in the S3 source bucket
+### Delete the original video in the S3 source bucket
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -851,9 +791,7 @@ video in the S3 source bucket
    delete this object.
 7. Choose **Delete objects**.
 
-### Delete the S3 source
-
-bucket
+### Delete the S3 source bucket
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -876,15 +814,12 @@ cases:
   these videos with a CloudFront distribution.
 
 To use Amazon S3 Batch Operations, AWS Lambda and AWS Elemental MediaConvert to batch-transcode a
-collection of videos to a variety of output media formats, see [Tutorial: Batch-transcoding
-videos with S3 Batch Operations](tutorial-s3-batchops-lambda-mediaconvert-video.md "tutorial-s3-batchops-lambda-mediaconvert-video.md").
+collection of videos to a variety of output media formats, see [Tutorial: Batch-transcoding videos with S3 Batch Operations](tutorial-s3-batchops-lambda-mediaconvert-video.md "tutorial-s3-batchops-lambda-mediaconvert-video.md").
 
 - Host other objects stored in S3, such as images, audio, motion graphics, style
   sheets, HTML, JavaScript, React apps, and so on, using CloudFront and Route 53.
 
-For example, see [Tutorial: Configuring a static website using a
-custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md") and [Speeding up your website with
-Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cloudfront-walkthrough.md").
+For example, see [Tutorial: Configuring a static website using a custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md") and [Speeding up your website with Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cloudfront-walkthrough.md").
 
 - Use [Amazon S3 Transfer Acceleration](https://aws.amazon.com/s3/transfer-acceleration "https://aws.amazon.com/s3/transfer-acceleration") to configure fast and secure file transfers.
   Transfer Acceleration can speed up video uploading to your S3 bucket for long-distance
@@ -892,5 +827,4 @@ Amazon CloudFront](website-hosting-cloudfront-walkthrough.md "website-hosting-cl
   improves
   transfer performance by routing traffic through the CloudFront globally distributed
   edge locations and over the AWS backbone networks. It also uses network
-  protocol optimizations. For more information, see [Configuring fast, secure file transfers using
-  Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").
+  protocol optimizations. For more information, see [Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").

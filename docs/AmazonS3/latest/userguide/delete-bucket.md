@@ -21,8 +21,7 @@ Before deleting a general purpose bucket, consider the following:
   bucket for deletion. Because Amazon S3 is distributed across AWS Regions, the deletion process takes
   time to fully propagate and achieve consistency throughout the system.
 - If the bucket hosts a static website, and you created and configured an Amazon Route 53 hosted
-  zone as described in [Tutorial: Configuring a static website using a
-  custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md"), you must clean up the Route 53
+  zone as described in [Tutorial: Configuring a static website using a custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md"), you must clean up the Route 53
   hosted zone settings that are related to the bucket. For more information, see [Step 2: Delete the Route 53 hosted zone](getting-started-cleanup.md#getting-started-cleanup-route53 "getting-started-cleanup.md#getting-started-cleanup-route53").
 - If the bucket receives log data from Elastic Load Balancing (ELB), we recommend that you
   stop the delivery of ELB logs to the bucket before deleting it. After you delete
@@ -49,8 +48,7 @@ If you are unable to delete an Amazon S3 general purpose bucket, consider the fo
   confirm that you have the `s3:DeleteBucket` permission. For information about how to view
   or update IAM permissions, see [Changing permissions for an
   IAM user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md") in the _IAM User Guide_. For troubleshooting information,
-  see [Troubleshoot access denied (403
-  Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md").
+  see [Troubleshoot access denied (403 Forbidden) errors in Amazon S3](troubleshoot-403-errors.md "troubleshoot-403-errors.md").
 - **Check for `s3:DeleteBucket Deny` statements in AWS Organizations
   service control policies (SCPs) and resource control policies (RCPs)** – SCPs and
   RCPs can deny the delete permission on a bucket. For more information, see [service control

@@ -45,6 +45,5 @@ between active and passive AWS Regions.
 ###### Topics
 
 - [Creating Multi-Region Access Points](CreatingMultiRegionAccessPoints.md "CreatingMultiRegionAccessPoints.md")
-- [Configuring a Multi-Region Access Point for use with
-  AWS PrivateLink](MultiRegionAccessConfiguration.md "MultiRegionAccessConfiguration.md")
+- [Configuring a Multi-Region Access Point for use with AWS PrivateLink](MultiRegionAccessConfiguration.md "MultiRegionAccessConfiguration.md")
 - [Making requests through a Multi-Region Access Point](MultiRegionAccessPointRequests.md "MultiRegionAccessPointRequests.md")

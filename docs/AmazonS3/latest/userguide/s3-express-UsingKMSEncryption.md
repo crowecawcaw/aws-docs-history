@@ -1,11 +1,8 @@
-# Using server-side encryption with AWS KMS keys
-
-(SSE-KMS) in directory buckets
+# Using server-side encryption with AWS KMS keys (SSE-KMS) in directory buckets
 
 The security controls in AWS KMS can help you meet encryption-related compliance
 requirements. You can choose to configure directory buckets to use server-side encryption with AWS Key Management Service (AWS KMS)
-keys (SSE-KMS) and use these KMS keys to protect your data in Amazon S3 directory buckets. For more information about SSE-KMS, see [Using server-side encryption with AWS KMS keys
-(SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
+keys (SSE-KMS) and use these KMS keys to protect your data in Amazon S3 directory buckets. For more information about SSE-KMS, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
 
 ###### Permissions
 
@@ -15,21 +12,18 @@ users to use a KMS key for cryptographic operations](../../../kms/latest/develop
 information about the AWS KMS permissions that are required for multipart uploads, see
 [Multipart upload API and permissions](mpuoverview.md#mpuAndPermissions "mpuoverview.md#mpuAndPermissions").
 
-For more information about KMS keys for SSE-KMS, see [Specifying server-side encryption with AWS KMS
-(SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md").
+For more information about KMS keys for SSE-KMS, see [Specifying server-side encryption with AWS KMS (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md").
 
 ###### Topics
 
 - [AWS KMS keys](#s3-express-aws-managed-customer-managed-keys "#s3-express-aws-managed-customer-managed-keys")
-- [Using SSE-KMS for cross-account
-  operations](#s3-express-bucket-encryption-update-bucket-policy "#s3-express-bucket-encryption-update-bucket-policy")
+- [Using SSE-KMS for cross-account operations](#s3-express-bucket-encryption-update-bucket-policy "#s3-express-bucket-encryption-update-bucket-policy")
 - [Amazon S3 Bucket Keys](#s3-express-sse-kms-bucket-keys "#s3-express-sse-kms-bucket-keys")
 - [Requiring SSE-KMS](#s3-express-require-sse-kms "#s3-express-require-sse-kms")
 - [Encryption context](#s3-express-encryption-context "#s3-express-encryption-context")
 - [Sending requests for AWS KMS encrypted objects](#s3-express-aws-signature-version-4-sse-kms "#s3-express-aws-signature-version-4-sse-kms")
 - [Auditing SSE-KMS encryption in directory buckets](#s3-express-bucket-encryption-sse-auditing "#s3-express-bucket-encryption-sse-auditing")
-- [Specifying server-side encryption with AWS KMS
-  (SSE-KMS) for new object uploads in directory buckets](s3-express-specifying-kms-encryption.md "s3-express-specifying-kms-encryption.md")
+- [Specifying server-side encryption with AWS KMS (SSE-KMS) for new object uploads in directory buckets](s3-express-specifying-kms-encryption.md "s3-express-specifying-kms-encryption.md")
 
 ## AWS KMS keys
 
@@ -46,9 +40,7 @@ When you specify an [AWS KMS customer managed key](../../../kms/latest/developer
 
 For more information about KMS keys for SSE-KMS, see [AWS KMS keys](UsingKMSEncryption.md#aws-managed-customer-managed-keys "UsingKMSEncryption.md#aws-managed-customer-managed-keys").
 
-## Using SSE-KMS for cross-account
-
-operations
+## Using SSE-KMS for cross-account operations
 
 When using encryption for cross-account operations in directory buckets, be aware of the following:
 
@@ -111,8 +103,7 @@ that is in the
 The AWS KMS key ID that Amazon S3 uses for object encryption
 must match the AWS KMS key ID in the policy, otherwise Amazon S3 denies the request.
 
-For more information about how to use SSE-KMS for new object uploads, see [Specifying server-side encryption with AWS KMS
-(SSE-KMS) for new object uploads in directory buckets](s3-express-specifying-kms-encryption.md "s3-express-specifying-kms-encryption.md").
+For more information about how to use SSE-KMS for new object uploads, see [Specifying server-side encryption with AWS KMS (SSE-KMS) for new object uploads in directory buckets](s3-express-specifying-kms-encryption.md "s3-express-specifying-kms-encryption.md").
 
 For a complete list of specific condition keys for directory buckets, see [Authorizing Regional endpoint API operations with IAM](s3-express-security-iam.md "s3-express-security-iam.md").
 
@@ -174,5 +165,4 @@ event source.
 
 ###### Topics
 
-- [Specifying server-side encryption with AWS KMS
-  (SSE-KMS) for new object uploads in directory buckets](s3-express-specifying-kms-encryption.md "s3-express-specifying-kms-encryption.md")
+- [Specifying server-side encryption with AWS KMS (SSE-KMS) for new object uploads in directory buckets](s3-express-specifying-kms-encryption.md "s3-express-specifying-kms-encryption.md")

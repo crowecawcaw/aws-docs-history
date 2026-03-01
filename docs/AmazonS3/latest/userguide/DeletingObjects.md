@@ -17,9 +17,7 @@ To delete an object, you can use one of the following API operations:
   object key name. However, when deleting objects from a versioning-enabled bucket, you can
   provide the version ID of the object to delete a specific version of the object.
 
-## Best practices to consider before
-
-deleting an object
+## Best practices to consider before deleting an object
 
 Before you delete an object, consider the following best practices:
 
@@ -71,9 +69,7 @@ object sizes when creating the Lifecycle rules.
   properly set both the `s3:DeleteObject` and `s3:DeleteObjectVersion` permissions on all
   buckets (including unversioned buckets).
 
-## Deleting objects from a
-
-versioning-enabled bucket
+## Deleting objects from a versioning-enabled bucket
 
 If your bucket is versioning-enabled, multiple versions of the same object can exist
 in the bucket. When working with versioning-enabled buckets, the `Delete` API
@@ -93,18 +89,13 @@ operations enable the following options:
     the delete marker. When the delete marker gets deleted, the object then
     reappears in your bucket.
 
-## Deleting objects from a
-
-versioning-suspended bucket
+## Deleting objects from a versioning-suspended bucket
 
 If your bucket is versioning-suspended, the `Delete` API operations behave
 the same way for versioning enabled buckets (except for when the current version has a null
-version ID). For more information, see [Deleting objects from
-versioning-suspended buckets](DeletingObjectsfromVersioningSuspendedBuckets.md "DeletingObjectsfromVersioningSuspendedBuckets.md").
+version ID). For more information, see [Deleting objects from versioning-suspended buckets](DeletingObjectsfromVersioningSuspendedBuckets.md "DeletingObjectsfromVersioningSuspendedBuckets.md").
 
-## Deleting objects from an
-
-unversioned bucket
+## Deleting objects from an unversioned bucket
 
 If your bucket is unversioned, you can specify the object's key in the
 `Delete` API operations and Amazon S3 will permanently delete the object. To
@@ -115,9 +106,7 @@ For unversioned buckets, if the `s3:DeleteObject` or `s3:DeleteObjectVersion` pe
 explicitly denied in your bucket policy, then any `DeleteObject`, `DeleteObjects`, or `DeleteObjectVersion`
 requests result in a `403 Access Denied` error.
 
-## Deleting objects from an
-
-MFA-enabled bucket
+## Deleting objects from an MFA-enabled bucket
 
 When deleting objects from a multi-factor authentication (MFA)-enabled bucket, note
 the following:

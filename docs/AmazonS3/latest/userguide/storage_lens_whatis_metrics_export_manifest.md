@@ -1,6 +1,4 @@
-# What is an S3 Storage Lens export
-
-manifest?
+# What is an S3 Storage Lens export manifest?
 
 S3 Storage Lens daily metrics exports in general-purpose buckets may be split into multiple files
 due to the large amount of data aggregated. The manifest file

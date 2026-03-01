@@ -1,6 +1,4 @@
-# Create a Batch Replication job for
-
-existing replication rules
+# Create a Batch Replication job for existing replication rules
 
 In Amazon S3, live replication doesn't replicate any objects that already existed in your
 source bucket before you created a replication configuration. Live replication automatically
@@ -10,8 +8,7 @@ S3 Batch Replication to replicate these objects on demand.
 
 You can configure S3 Batch Replication for an existing replication configuration by
 using the AWS SDKs, AWS Command Line Interface (AWS CLI), or the Amazon S3 console. For an overview of
-Batch Replication, see [Replicating existing objects with
-Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
+Batch Replication, see [Replicating existing objects with Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
 
 When the Batch Replication job finishes, you receive a completion report. For more
 information about how to use the report to examine the job, see [Tracking job status and completion reports](batch-ops-job-status.md "batch-ops-job-status.md").
@@ -20,8 +17,7 @@ information about how to use the report to examine the job, see [Tracking job st
 
 Before creating your Batch Replication job, you must create a Batch Operations AWS Identity and Access Management
 (IAM) role to grant Amazon S3 permissions to perform actions on your behalf. For more
-information, see [Configuring an IAM role for
-S3 Batch Replication](s3-batch-replication-policies.md "s3-batch-replication-policies.md").
+information, see [Configuring an IAM role for S3 Batch Replication](s3-batch-replication-policies.md "s3-batch-replication-policies.md").
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -54,8 +50,7 @@ S3 Batch Replication](s3-batch-replication-policies.md "s3-batch-replication-pol
 6. (Optional) If you chose **Create manifest using S3 Replication
    configuration**, you can include additional filters, such as
    the object creation date and replication status. For examples of how to
-   filter by replication status, see [Specifying a manifest for a
-   Batch Replication job](s3-batch-replication-batch.md#batch-replication-manifest "s3-batch-replication-batch.md#batch-replication-manifest").
+   filter by replication status, see [Specifying a manifest for a Batch Replication job](s3-batch-replication-batch.md#batch-replication-manifest "s3-batch-replication-batch.md#batch-replication-manifest").
 7. (Optional) If you chose **Create manifest using S3 Replication
    configuration**, you can save the generated manifest. To save
    this manifest, select **Save Batch Operations manifest**. Then
@@ -79,21 +74,18 @@ report. 13. In the **Permissions** section, make sure that you choose
 an IAM role that has the required permissions for Batch Replication. One
 of the most common causes of replication failures is insufficient
 permissions in the provided IAM role. For information about creating this
-role, see [Configuring an IAM role for
-S3 Batch Replication](s3-batch-replication-policies.md "s3-batch-replication-policies.md"). 14. (Optional) Add job tags to the Batch Replication job. 15. Choose **Next**. 16. Review your job configuration, and then choose **Create
+role, see [Configuring an IAM role for S3 Batch Replication](s3-batch-replication-policies.md "s3-batch-replication-policies.md"). 14. (Optional) Add job tags to the Batch Replication job. 15. Choose **Next**. 16. Review your job configuration, and then choose **Create
 job**.
 The following example `create-job` command creates an
 S3 Batch Replication job by using an S3 generated manifest for the AWS account
 `111122223333`. This example
 replicates existing objects and objects that previously failed to replicate. For
-information about filtering by replication status, see [Specifying a manifest for a
-Batch Replication job](s3-batch-replication-batch.md#batch-replication-manifest "s3-batch-replication-batch.md#batch-replication-manifest").
+information about filtering by replication status, see [Specifying a manifest for a Batch Replication job](s3-batch-replication-batch.md#batch-replication-manifest "s3-batch-replication-batch.md#batch-replication-manifest").
 
 To use this command, replace the `user input
  placeholders` with your own information. Replace the IAM
 role `role/`batch-Replication-IAM-policy`` with
-the IAM role that you previously created. For more information, see [Configuring an IAM role for
-S3 Batch Replication](s3-batch-replication-policies.md "s3-batch-replication-policies.md").
+the IAM role that you previously created. For more information, see [Configuring an IAM role for S3 Batch Replication](s3-batch-replication-policies.md "s3-batch-replication-policies.md").
 
 ```
 aws s3control create-job --account-id `111122223333` \
@@ -136,8 +128,7 @@ be replicated. For more information about creating a manifest, see [Specifying a
 To use this command, replace the `user input
  placeholders` with your own information. Replace the IAM
 role `role/`batch-Replication-IAM-policy`` with
-the IAM role that you previously created. For more information, see [Configuring an IAM role for
-S3 Batch Replication](s3-batch-replication-policies.md "s3-batch-replication-policies.md").
+the IAM role that you previously created. For more information, see [Configuring an IAM role for S3 Batch Replication](s3-batch-replication-policies.md "s3-batch-replication-policies.md").
 
 ```
 aws s3control create-job --account-id `111122223333` \

@@ -1,6 +1,4 @@
-# Deleting objects from a directory
-
-bucket
+# Deleting objects from a directory bucket
 
 You can delete objects from an Amazon S3 directory bucket by using the Amazon S3 console, AWS Command Line Interface
 (AWS CLI), or AWS SDKs. For more information, see [Working with directory buckets](directory-buckets-overview.md "directory-buckets-overview.md") and [S3 Express One Zone](directory-bucket-high-performance.md#s3-express-one-zone "directory-bucket-high-performance.md#s3-express-one-zone").

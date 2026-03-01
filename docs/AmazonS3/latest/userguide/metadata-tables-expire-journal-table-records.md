@@ -8,8 +8,7 @@ your journal table, you can enable journal table record expiration.
 If you created your S3 Metadata configuration before July 15, 2025, you can't enable journal table
 record expiration on that configuration. We recommend that you delete and re-create your configuration
 so that you can expire journal table records and create an inventory table. For more information, see
-[Enabling inventory tables on metadata configurations
-created before July 15, 2025](metadata-tables-create-configuration.md#metadata-tables-migration "metadata-tables-create-configuration.md#metadata-tables-migration").
+[Enabling inventory tables on metadata configurations created before July 15, 2025](metadata-tables-create-configuration.md#metadata-tables-migration "metadata-tables-create-configuration.md#metadata-tables-migration").
 
 If you enable journal table record expiration, you can set the number of days to retain your journal
 table records. To set this value, specify any whole number between `7` and
@@ -30,9 +29,7 @@ your journal table records.
 You can expire journal table records by using the Amazon S3 console, the AWS Command Line Interface (AWS CLI), the AWS
 SDKs, or the Amazon S3 REST API.
 
-## How to expire journal table
-
-records
+## How to expire journal table records
 
 ###### To expire journal table records
 

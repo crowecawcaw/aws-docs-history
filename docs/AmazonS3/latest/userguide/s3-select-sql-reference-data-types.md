@@ -15,9 +15,7 @@ necessary.
 
 For more information about the `CAST` function, see [CAST](s3-select-sql-reference-conversion.md#s3-select-sql-reference-cast "s3-select-sql-reference-conversion.md#s3-select-sql-reference-cast").
 
-## Supported data
-
-types
+## Supported data types
 
 Amazon S3 Select supports the following set of primitive data types.
 
@@ -30,9 +28,7 @@ Amazon S3 Select supports the following set of primitive data types.
 | `decimal`, `numeric` | A base-10 number, with a maximum precision of 38 (that is, the maximum number of<br>significant digits), and with a scale within the range of<br>-231 to<br>231-1 (that is, the base-10<br>exponent).<br>NoteAmazon S3 Select ignores scale and precision when you provide<br>both at the same time.                                                                                                                                                                                                                                                                                                                                                                                                                                         | `123.456`                                |
 | `timestamp`          | Timestamps represent a specific moment in time, always include a local offset, and are<br>capable of arbitrary precision.<br>In the text format, timestamps follow the [W3C note on date<br>and time formats](https://www.w3.org/TR/NOTE-datetime "https://www.w3.org/TR/NOTE-datetime"), but they must end with the literal<br>`T` if the timestamps are not at least whole-day<br>precision. Fractional seconds are allowed, with at least one<br>digit of precision, and an unlimited maximum. Local-time offsets<br>can be represented as either hour:minute offsets from UTC, or as<br>the literal `Z` to denote a local time of UTC.<br>Local-time offsets are required on timestamps with time and are<br>not allowed on date values. | `CAST('2007-04-05T14:30Z' AS TIMESTAMP)` |
 
-### Supported
-
-Parquet types
+### Supported Parquet types
 
 Amazon S3 Select supports the following Parquet types.
 
@@ -68,10 +64,7 @@ Because of the range of the `INT(64)` type, timestamps that are using the
  23:47:16`. Values outside of this range cannot be
 represented with the `NANOS` unit.
 
-### Mapping
-
-of Parquet types to supported data types in Amazon S3
-Select
+### Mapping of Parquet types to supported data types in Amazon S3 Select
 
 | Parquet types | Supported data types                                                   |
 | ------------- | ---------------------------------------------------------------------- |

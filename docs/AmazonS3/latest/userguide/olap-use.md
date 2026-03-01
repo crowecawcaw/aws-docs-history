@@ -61,9 +61,7 @@ aws s3control list-access-points-for-object-lambda --account-id `111122223333`
 }
 ```
 
-## How to use a bucket-style alias for your S3 bucket
-
-Object Lambda Access Point
+## How to use a bucket-style alias for your S3 bucket Object Lambda Access Point
 
 When you create an Object Lambda Access Point, Amazon S3 automatically generates a unique alias for your
 Object Lambda Access Point. You can use this alias instead of an Amazon S3 bucket name or the Object Lambda Access Point Amazon

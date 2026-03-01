@@ -1,6 +1,4 @@
-# Disabling ACLs for all new buckets and
-
-enforcing Object Ownership
+# Disabling ACLs for all new buckets and enforcing Object Ownership
 
 We recommend that you disable ACLs on your Amazon S3 buckets. You can do this by applying the
 Bucket owner enforced setting for S3 Object Ownership. When you apply this setting,
@@ -18,14 +16,10 @@ from other accounts.
 
 ###### Topics
 
-- [Disabling ACLs
-  for all new buckets (bucket owner enforced)](#object-ownership-requiring-bucket-owner-enforced "#object-ownership-requiring-bucket-owner-enforced")
-- [Requiring the bucket-owner-full-control
-  canned ACL for Amazon S3 PUT operations (bucket owner preferred)](#ensure-object-ownership-bucket-policy "#ensure-object-ownership-bucket-policy")
+- [Disabling ACLs for all new buckets (bucket owner enforced)](#object-ownership-requiring-bucket-owner-enforced "#object-ownership-requiring-bucket-owner-enforced")
+- [Requiring the bucket-owner-full-control canned ACL for Amazon S3 PUT operations (bucket owner preferred)](#ensure-object-ownership-bucket-policy "#ensure-object-ownership-bucket-policy")
 
-## Disabling ACLs
-
-for all new buckets (bucket owner enforced)
+## Disabling ACLs for all new buckets (bucket owner enforced)
 
 The following example IAM policy denies the `s3:CreateBucket` permission for a
 specific IAM user or role unless the Bucket owner enforced setting is applied for
@@ -58,9 +52,7 @@ JSON
 
 ```
 
-## Requiring the bucket-owner-full-control
-
-canned ACL for Amazon S3 `PUT` operations (bucket owner preferred)
+## Requiring the bucket-owner-full-control canned ACL for Amazon S3 `PUT` operations (bucket owner preferred)
 
 With the Bucket owner preferred setting for Object Ownership, you, as the bucket owner,
 own and have full control over new objects that other accounts write to your bucket
@@ -134,5 +126,4 @@ uploader receives the following error:
 
 If clients need access to objects after uploading, you must grant additional
 permissions to the uploading account. For information about granting accounts
-access to your resources, see [Walkthroughs that use policies to
-manage access to your Amazon S3 resources](example-walkthroughs-managing-access.md "example-walkthroughs-managing-access.md").
+access to your resources, see [Walkthroughs that use policies to manage access to your Amazon S3 resources](example-walkthroughs-managing-access.md "example-walkthroughs-managing-access.md").

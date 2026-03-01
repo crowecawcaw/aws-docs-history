@@ -1,6 +1,4 @@
-# Running ETL jobs on Amazon S3 tables with
-
-AWS Glue
+# Running ETL jobs on Amazon S3 tables with AWS Glue
 
 AWS Glue is a serverless data integration service that makes it easy for analytics users to
 discover, prepare, move, and integrate data from multiple sources. You can use AWS Glue jobs to
@@ -22,8 +20,7 @@ started using AWS Glue with S3 Tables, including:
 ###### Topics
 
 - [Step 1 – Prerequisites](#glue-etl-prereqs "#glue-etl-prereqs")
-- [Step 2 – Create a script to connect to
-  table buckets](#glue-etl-script "#glue-etl-script")
+- [Step 2 – Create a script to connect to table buckets](#glue-etl-script "#glue-etl-script")
 - [Step 3 – Create a AWS Glue job that queries tables](#glue-etl-job "#glue-etl-job")
   Choose your access method based on your specific AWS Glue ETL job requirements:
 
@@ -78,9 +75,7 @@ Prerequisites use the Amazon S3 Tables Catalog for Apache Iceberg to run AWS Glu
   - To use the Amazon S3 Tables Catalog for Apache Iceberg you need to download
     the client catalog JAR and upload it to an S3 bucket.
 
-  ###### \*\*Downloading the catalog
-
-  JAR\*\*
+  ###### **Downloading the catalog JAR**
 
       1. Check for the latest version on [Maven Central](https://mvnrepository.com/artifact/software.amazon.s3tables/s3-tables-catalog-for-iceberg-runtime "https://mvnrepository.com/artifact/software.amazon.s3tables/s3-tables-catalog-for-iceberg-runtime"). You can download the JAR from
        Maven central using your browser, or using the following command. Make
@@ -105,9 +100,7 @@ Prerequisites use the Amazon S3 Tables Catalog for Apache Iceberg to run AWS Glu
       aws s3 cp s3-tables-catalog-for-iceberg-runtime-`0.1.5`.jar s3://`amzn-s3-demo-bucket``/jars/`
       ```
 
-## Step 2 – Create a script to connect to
-
-table buckets
+## Step 2 – Create a script to connect to table buckets
 
 To access your table data when you run an AWS Glue ETL job, you configure a
 Spark session for Apache Iceberg that connects to your
@@ -404,8 +397,7 @@ ETL job that queries your S3 tables.
 ###### Prerequisites
 
 - [Step 1 – Prerequisites](#glue-etl-prereqs "#glue-etl-prereqs")
-- [Step 2 – Create a script to connect to
-  table buckets](#glue-etl-script "#glue-etl-script")
+- [Step 2 – Create a script to connect to table buckets](#glue-etl-script "#glue-etl-script")
 
 1. Open the AWS Glue console at
    [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
@@ -437,8 +429,7 @@ queries your S3 tables. To use the commands replace the `placeholder
 ###### Prerequisites
 
 - [Step 1 – Prerequisites](#glue-etl-prereqs "#glue-etl-prereqs")
-- [Step 2 – Create a script to connect to
-  table buckets](#glue-etl-script "#glue-etl-script") and
+- [Step 2 – Create a script to connect to table buckets](#glue-etl-script "#glue-etl-script") and
   upload it to an S3 bucket.
 
 1. Create an AWS Glue job.

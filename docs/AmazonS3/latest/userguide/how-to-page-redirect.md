@@ -6,16 +6,11 @@ configuring redirects.
 
 ###### Topics
 
-- [Redirect requests for your bucket's website
-  endpoint to another bucket or domain](#redirect-endpoint-host "#redirect-endpoint-host")
-- [Configure redirection rules to use
-  advanced conditional redirects](#advanced-conditional-redirects "#advanced-conditional-redirects")
-- [Redirect requests for an
-  object](#redirect-requests-object-metadata "#redirect-requests-object-metadata")
+- [Redirect requests for your bucket's website endpoint to another bucket or domain](#redirect-endpoint-host "#redirect-endpoint-host")
+- [Configure redirection rules to use advanced conditional redirects](#advanced-conditional-redirects "#advanced-conditional-redirects")
+- [Redirect requests for an object](#redirect-requests-object-metadata "#redirect-requests-object-metadata")
 
-## Redirect requests for your bucket's website
-
-endpoint to another bucket or domain
+## Redirect requests for your bucket's website endpoint to another bucket or domain
 
 You can redirect all requests to a website endpoint for a bucket to another bucket or domain. If you redirect all requests, any request made to the website endpoint is redirected to the specified bucket or domain.
 
@@ -37,9 +32,7 @@ For example, if you are redirecting to a root domain address, you would enter `e
 
 If you do not specify a protocol, the default option is **none**. 8. Choose **Save changes**.
 
-## Configure redirection rules to use
-
-advanced conditional redirects
+## Configure redirection rules to use advanced conditional redirects
 
 Using advanced redirection rules, you can route requests conditionally according
 to specific object key names, prefixes in the request, or response codes. For
@@ -81,9 +74,7 @@ In the S3 console you describe the rules using JSON. For JSON examples,
 see [Redirection rules examples](#redirect-rule-examples "#redirect-rule-examples"). Amazon S3 has a limitation of 50
 routing rules per website configuration. 7. Choose **Save changes**.
 
-### Routing rule
-
-elements
+### Routing rule elements
 
 The following is general syntax for defining the routing rules in a website
 configuration in JSON and XML To configure redirection rules in the new S3
@@ -349,9 +340,7 @@ XML
   </RoutingRules>
 ```
 
-## Redirect requests for an
-
-object
+## Redirect requests for an object
 
 You can redirect requests for an object to another object or URL by setting the
 website redirect location in the metadata of the object. You set the redirect by
@@ -420,8 +409,7 @@ stores the header value in the object metadata as
   the `x-amz-website-redirect-location` property.
 - REST endpoint – Amazon S3 doesn't
   redirect the page request. It returns the requested object.
-  For more information about the endpoints, see [Key differences between a website endpoint
-  and a REST API endpoint](WebsiteEndpoints.md#WebsiteRestEndpointDiff "WebsiteEndpoints.md#WebsiteRestEndpointDiff").
+  For more information about the endpoints, see [Key differences between a website endpoint and a REST API endpoint](WebsiteEndpoints.md#WebsiteRestEndpointDiff "WebsiteEndpoints.md#WebsiteRestEndpointDiff").
 
 When setting a page redirect, you can either keep or delete the object
 content. For example, suppose that you have a `page1.html` object

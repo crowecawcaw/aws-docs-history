@@ -8,23 +8,15 @@ more information about setting up with an account, see [Getting started with Ama
 
 ###### Topics
 
-- [Step 1: Create a vector bucket with the
-  console](#s3-vectors-create-bucket-tutorial "#s3-vectors-create-bucket-tutorial")
-- [Step 2: Create a vector index in a
-  vector bucket with the console](#s3-vectors-create-index-tutorial "#s3-vectors-create-index-tutorial")
-- [Step 3: Insert vectors into a
-  vector index with the SDK for Python (Boto3)](#s3-vectors-insert-vectors-tutorial "#s3-vectors-insert-vectors-tutorial")
-- [Step 4. Query vectors in a
-  vector index with the SDK for Python (Boto3)](#s3-vectors-query-vectors-tutorial "#s3-vectors-query-vectors-tutorial")
+- [Step 1: Create a vector bucket with the console](#s3-vectors-create-bucket-tutorial "#s3-vectors-create-bucket-tutorial")
+- [Step 2: Create a vector index in a vector bucket with the console](#s3-vectors-create-index-tutorial "#s3-vectors-create-index-tutorial")
+- [Step 3: Insert vectors into a vector index with the SDK for Python (Boto3)](#s3-vectors-insert-vectors-tutorial "#s3-vectors-insert-vectors-tutorial")
+- [Step 4. Query vectors in a vector index with the SDK for Python (Boto3)](#s3-vectors-query-vectors-tutorial "#s3-vectors-query-vectors-tutorial")
 - [(Optional) Automate vector embedding creation with the S3 Vectors Embed CLI](#s3-vectors-embed-CLI-tutorial "#s3-vectors-embed-CLI-tutorial")
-- [(Optional) Integrate S3 Vectors with Amazon Bedrock
-  Knowledge Bases](#s3-vectors-bedrock-kb-tutorial "#s3-vectors-bedrock-kb-tutorial")
-- [(Optional) Integrate S3 Vectors with Amazon
-  OpenSearch](#s3-vectors-opensearch-tutorial "#s3-vectors-opensearch-tutorial")
+- [(Optional) Integrate S3 Vectors with Amazon Bedrock Knowledge Bases](#s3-vectors-bedrock-kb-tutorial "#s3-vectors-bedrock-kb-tutorial")
+- [(Optional) Integrate S3 Vectors with Amazon OpenSearch](#s3-vectors-opensearch-tutorial "#s3-vectors-opensearch-tutorial")
 
-## Step 1: Create a vector bucket with the
-
-console
+## Step 1: Create a vector bucket with the console
 
 S3 vector buckets are a type of Amazon S3 bucket that's purpose-built to store and
 query vectors. You use dedicated API operations to write and query vector data. You can
@@ -34,9 +26,7 @@ policies and resource-based policies.
 In this step, you use the Amazon S3 console to create your first vector bucket. For other ways to create a vector bucket,
 see [Creating a vector bucket](s3-vectors-buckets-create.md "s3-vectors-buckets-create.md").
 
-### To create a
-
-vector bucket
+### To create a vector bucket
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -62,9 +52,7 @@ For more information about setting encryption configuration for vector buckets, 
 The encryption type
 can't be changed after the vector bucket is created. 6. Under **Tags (Optional)**, you can add tags as key-value pairs to help organize and specify permissions for your vector buckets. Enter a **Key** and a **Value**. To add another tag, choose **Add Tag**. You can enter up to 50 tags for a vector bucket. For more information, see [Using tags with S3 vector buckets](s3-vectors-tags.md "s3-vectors-tags.md"). 7. Choose **Create vector bucket**.
 
-## Step 2: Create a vector index in a
-
-vector bucket with the console
+## Step 2: Create a vector index in a vector bucket with the console
 
 ###### Note
 
@@ -73,9 +61,7 @@ Choose your vector index configuration parameters carefully. After you create a 
 In this step, you create a vector index in your vector bucket. The vector index is used to store and query your vector embeddings.
 For more information about vector indexes, see [Vector indexes](s3-vectors-indexes.md "s3-vectors-indexes.md").
 
-### To create a
-
-vector index
+### To create a vector index
 
 1. Navigate to the newly created vector bucket in the
    **Vector buckets** list on the Amazon S3 console.
@@ -113,9 +99,7 @@ You can't update non-filterable metadata keys after index creation. Plan your me
 
 Verify that your new vector index appears inside the bucket.
 
-## Step 3: Insert vectors into a
-
-vector index with the SDK for Python (Boto3)
+## Step 3: Insert vectors into a vector index with the SDK for Python (Boto3)
 
 To insert, list, and query vectors, use the AWS SDKs, AWS CLI, or Amazon S3 REST API.
 
@@ -182,15 +166,12 @@ s3vectors.put_vectors(
 )
 ```
 
-## Step 4. Query vectors in a
-
-vector index with the SDK for Python (Boto3)
+## Step 4. Query vectors in a vector index with the SDK for Python (Boto3)
 
 After you store your vectors embeddings in the vector index,
 you can perform a similarity search by using the [QueryVectors](../API/API_S3VectorBuckets_QueryVectors.md "../API/API_S3VectorBuckets_QueryVectors.md") API operation.
 
-You must first generate your query vector embeddings by using the same embedding model that's used during insertion in [Step 3: Insert vectors into a
-vector index with the SDK for Python (Boto3)](#s3-vectors-insert-vectors-tutorial "#s3-vectors-insert-vectors-tutorial").
+You must first generate your query vector embeddings by using the same embedding model that's used during insertion in [Step 3: Insert vectors into a vector index with the SDK for Python (Boto3)](#s3-vectors-insert-vectors-tutorial "#s3-vectors-insert-vectors-tutorial").
 In this tutorial, use the Titan Text Embeddings V2 model from Amazon Bedrock through the SDK for Python (Boto3).
 
 You can perform a similarity search to return the closest matching vectors. In a similarity search, you can optionally filter by using metadata keys to narrow results based on specific criteria while maintaining semantic relevance.
@@ -253,9 +234,7 @@ The tool supports the following commands:
 
 For more information about the commands and usage, see the [Amazon S3 Vectors Embed CLI GitHub repository](https://github.com/awslabs/s3vectors-embed-cli "https://github.com/awslabs/s3vectors-embed-cli").
 
-## (Optional) Integrate S3 Vectors with Amazon Bedrock
-
-Knowledge Bases
+## (Optional) Integrate S3 Vectors with Amazon Bedrock Knowledge Bases
 
 Amazon Bedrock Knowledge Bases integrates with S3 Vectors for cost effective and long-term storage
 of vector datasets.
@@ -266,14 +245,11 @@ Follow the [prerequisites](../../../bedrock/latest/userguide/getting-started-con
 knowledge base.
 
 - Appropriate IAM permissions for both S3 Vectors and Amazon Bedrock services. For more
-  information about IAM permissions for S3 Vectors, see [Identity and Access management in
-  S3 Vectors](s3-vectors-access-management.md "s3-vectors-access-management.md").
+  information about IAM permissions for S3 Vectors, see [Identity and Access management in S3 Vectors](s3-vectors-access-management.md "s3-vectors-access-management.md").
 - Your source documents prepared for ingestion into the knowledge base.
 - An understanding of your embedding model requirements.
 
-### Create an Amazon Bedrock knowledge base
-
-with S3 Vectors in the console
+### Create an Amazon Bedrock knowledge base with S3 Vectors in the console
 
 Amazon Bedrock Knowledge Bases provides a fully managed end-to-end RAG workflow. When you create a
 knowledge base with S3 Vectors, Amazon Bedrock automatically fetches data from your S3 data source,
@@ -345,9 +321,7 @@ keep your content up to date. To sync your data source, choose your knowledge ba
 console and choose **Sync** within the data source overview
 section.
 
-## (Optional) Integrate S3 Vectors with Amazon
-
-OpenSearch
+## (Optional) Integrate S3 Vectors with Amazon OpenSearch
 
 [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/ "https://aws.amazon.com/opensearch-service/") is a
 fully managed service that simplifies the deployment, scaling, and operation of OpenSearch

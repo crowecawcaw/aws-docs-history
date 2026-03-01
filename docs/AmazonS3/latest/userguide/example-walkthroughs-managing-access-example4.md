@@ -1,15 +1,10 @@
-# Example 4 - Bucket owner granting
-
-cross-account permission to objects it does not own
+# Example 4 - Bucket owner granting cross-account permission to objects it does not own
 
 ###### Topics
 
-- [Understanding
-  cross-account permissions and using IAM roles](#access-policies-walkthrough-example4-overview "#access-policies-walkthrough-example4-overview")
-- [Step 0: Preparing for the
-  walkthrough](#access-policies-walkthrough-example4-step0 "#access-policies-walkthrough-example4-step0")
-- [Step 1: Do the account A
-  tasks](#access-policies-walkthrough-example4-step1 "#access-policies-walkthrough-example4-step1")
+- [Understanding cross-account permissions and using IAM roles](#access-policies-walkthrough-example4-overview "#access-policies-walkthrough-example4-overview")
+- [Step 0: Preparing for the walkthrough](#access-policies-walkthrough-example4-step0 "#access-policies-walkthrough-example4-step0")
+- [Step 1: Do the account A tasks](#access-policies-walkthrough-example4-step1 "#access-policies-walkthrough-example4-step1")
 - [Step 2: Do the Account B tasks](#access-policies-walkthrough-example4-step2 "#access-policies-walkthrough-example4-step2")
 - [Step 3: Do the Account C tasks](#access-policies-walkthrough-example4-step3 "#access-policies-walkthrough-example4-step3")
 - [Step 4: Clean up](#access-policies-walkthrough-example4-step6 "#access-policies-walkthrough-example4-step6")
@@ -33,8 +28,7 @@ issues:
   must first grant permission to the bucket owner. The object owner is the
   AWS account that created the objects. The bucket owner can then delegate those
   permissions.
-- The bucket owner account can delegate permissions to users in its own account (see [Example 3: Bucket owner
-  granting permissions to objects it does not own](example-walkthroughs-managing-access-example3.md "example-walkthroughs-managing-access-example3.md")). However, the
+- The bucket owner account can delegate permissions to users in its own account (see [Example 3: Bucket owner granting permissions to objects it does not own](example-walkthroughs-managing-access-example3.md "example-walkthroughs-managing-access-example3.md")). However, the
   bucket owner account can't delegate permissions to other AWS accounts because
   cross-account delegation isn't supported.
   In this scenario, the bucket owner can create an AWS Identity and Access Management (IAM) role with permission to
@@ -51,12 +45,9 @@ exclusively by using access-management policies.
 A majority of modern use cases in Amazon S3 no longer require the use of ACLs. We recommend that you keep ACLs disabled, except
 in circumstances where you need to control access for each object individually. With ACLs disabled, you can use policies
 to control access to all objects in your bucket, regardless of who uploaded the objects to your bucket.
-For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
-## Understanding
-
-cross-account permissions and using IAM roles
+## Understanding cross-account permissions and using IAM roles
 
 IAM roles enable several scenarios to delegate access to your resources, and
 cross-account access is one of the key scenarios. In this example, the bucket owner,
@@ -68,8 +59,7 @@ following two policies attached to it:
   role.
 - An access policy defining what permissions—for example,
   `s3:GetObject`—are allowed when someone assumes the role.
-  For a list of permissions you can specify in a policy, see [Policy actions
-  for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions").
+  For a list of permissions you can specify in a policy, see [Policy actions for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions").
 
 The AWS account identified in the trust policy then grants its user permission to
 assume the role. The user can then do the following to access objects:
@@ -101,8 +91,7 @@ steps:
 
 For this example, you need three accounts. The following table shows how we refer to
 these accounts and the administrator users in these accounts. In accordance with the
-IAM guidelines (see [About using an administrator user to create resources
-and grant permissions](example-walkthroughs-managing-access.md#about-using-root-credentials "example-walkthroughs-managing-access.md#about-using-root-credentials")), we don't use the AWS account root user
+IAM guidelines (see [About using an administrator user to create resources and grant permissions](example-walkthroughs-managing-access.md#about-using-root-credentials "example-walkthroughs-managing-access.md#about-using-root-credentials")), we don't use the AWS account root user
 credentials in this walkthrough. Instead, you create an administrator user in each
 account and use those credentials when creating resources and granting them
 permissions.
@@ -113,9 +102,7 @@ permissions.
 | `2222-2222-2222` | Account B              | AccountBadmin                     |
 | `3333-3333-3333` | Account C              | AccountCadmin                     |
 
-## Step 0: Preparing for the
-
-walkthrough
+## Step 0: Preparing for the walkthrough
 
 ###### Note
 
@@ -199,12 +186,9 @@ information as follows:
         * If using the AWS Tools for Windows PowerShell, make sure that you store credentials for the session as
          `AccountAadmin` and `AccountBadmin`.
 
-    For instructions, see [Setting up the tools for the
-    walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
+    For instructions, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
 
-## Step 1: Do the account A
-
-tasks
+## Step 1: Do the account A tasks
 
 In this example, Account A is the bucket owner. So user AccountAadmin in Account A
 will do the following:
@@ -221,9 +205,7 @@ Using the IAM user Sign-in URL for Account A, first sign in to the AWS Managemen
 `AccountAadmin` user. This user will create a bucket and
 attach a policy to it.
 
-### Step 1.2: Create a
-
-bucket and attach a bucket policy
+### Step 1.2: Create a bucket and attach a bucket policy
 
 In the Amazon S3 console, do the following:
 
@@ -273,9 +255,7 @@ JSON
 
 ```
 
-### Step 1.3: Create an
-
-IAM role to allow Account C cross-account access in Account A
+### Step 1.3: Create an IAM role to allow Account C cross-account access in Account A
 
 In the [IAM Console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"), create an IAM role
 (`examplerole`) that grants Account C permission to assume
@@ -410,9 +390,7 @@ Account A. The access policy that Account A attached to the role limits what Dav
 when he accesses Account A—specifically, get objects in
 `amzn-s3-demo-bucket1`.
 
-### Step 3.1: Create a user in Account C and
-
-delegate permission to assume examplerole
+### Step 3.1: Create a user in Account C and delegate permission to assume examplerole
 
 1. Using the IAM user sign-in URL for Account C, first sign in to the AWS Management Console as
    `AccountCadmin` user.
@@ -472,9 +450,7 @@ aws_secret_access_key = `UserDaveSecretAccessKey`
 region = us-west-2
 ```
 
-### Step 3.2: Assume role
-
-(examplerole) and access objects
+### Step 3.2: Assume role (examplerole) and access objects
 
 Now Dave can access objects in the bucket owned by Account A as follows:
 

@@ -26,8 +26,7 @@ exclusively by using access-management policies.
 A majority of modern use cases in Amazon S3 no longer require the use of ACLs. We recommend that you keep ACLs disabled, except
 in circumstances where you need to control access for each object individually. With ACLs disabled, you can use policies
 to control access to all objects in your bucket, regardless of who uploaded the objects to your bucket.
-For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 ###### Important
 
@@ -40,8 +39,7 @@ Requests to read ACLs are still supported.
 
 We highly recommend that you avoid granting write access to the **Everyone (public access)** or **Authenticated Users
 group (all AWS authenticated users)** groups. For more information about
-the effects of granting write access to these groups, see [Amazon S3 predefined
-groups](acl-overview.md#specifying-grantee-predefined-groups "acl-overview.md#specifying-grantee-predefined-groups").
+the effects of granting write access to these groups, see [Amazon S3 predefined groups](acl-overview.md#specifying-grantee-predefined-groups "acl-overview.md#specifying-grantee-predefined-groups").
 
 The console displays combined access grants for duplicate grantees. To see the
 full list of ACLs, use the Amazon S3 REST API, AWS CLI, or AWS SDKs.
@@ -309,9 +307,7 @@ grants, and then replaces the canned ACL with an ACL containing the
 custom grants. The second example shows how to modify an ACL using the
 `AccessControlList.grantPermission()` method.
 
-###### Example Create a bucket and specify a canned ACL that grants permission
-
-to the S3 log delivery group
+###### Example Create a bucket and specify a canned ACL that grants permission to the S3 log delivery group
 
 This example creates a bucket. In the request, the example
 specifies a canned ACL that grants the Log Delivery group permission
@@ -456,9 +452,7 @@ public class ModifyACLExistingObject {
 
 .NET
 
-###### Example Create a bucket and specify a canned ACL that grants permission
-
-to the S3 log delivery group
+###### Example Create a bucket and specify a canned ACL that grants permission to the S3 log delivery group
 
 This C# example creates a bucket. In the request, the code also
 specifies a canned ACL that grants the Log Delivery group
@@ -651,9 +645,7 @@ grant access to your general purpose bucket and the objects in it. With the Buck
 access control lists (ACLs) or update ACLs fail and return the `AccessControlListNotSupported` error code.
 Requests to read ACLs are still supported.
 
-### Access Control List (ACL)-Specific
-
-Request Headers
+### Access Control List (ACL)-Specific Request Headers
 
 You can use headers to grant access control list (ACL)-based permissions. By
 default, all objects are private. Only the owner has full access control. When

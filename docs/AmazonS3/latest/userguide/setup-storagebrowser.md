@@ -4,16 +4,11 @@ To connect end users with Amazon S3 _locations_, you must first set up an authen
 authorization method. There are three methods to set up an authentication and authorization
 method with Storage Browser:
 
-- [Method 1: Managing data access for your
-  customers and third party partners](#setup-storagebrowser-method1 "#setup-storagebrowser-method1")
-- [Method 2: Managing data access for your IAM
-  principals for your AWS account](#setup-storagebrowser-method2 "#setup-storagebrowser-method2")
-- [Method 3: Managing data access at
-  scale](#setup-storagebrowser-method3 "#setup-storagebrowser-method3")
+- [Method 1: Managing data access for your customers and third party partners](#setup-storagebrowser-method1 "#setup-storagebrowser-method1")
+- [Method 2: Managing data access for your IAM principals for your AWS account](#setup-storagebrowser-method2 "#setup-storagebrowser-method2")
+- [Method 3: Managing data access at scale](#setup-storagebrowser-method3 "#setup-storagebrowser-method3")
 
-## Method 1: Managing data access for your
-
-customers and third party partners
+## Method 1: Managing data access for your customers and third party partners
 
 With this method, you can use [AWS Amplify
 Auth](https://docs.amplify.aws/react/build-a-backend/auth/set-up-auth/ "https://docs.amplify.aws/react/build-a-backend/auth/set-up-auth/") to manage access control and security for files. This method is ideal when
@@ -50,9 +45,7 @@ export const { StorageBrowser } = createStorageBrowser({
 });
 ```
 
-## Method 2: Managing data access for your IAM
-
-principals for your AWS account
+## Method 2: Managing data access for your IAM principals for your AWS account
 
 If you want to manage access for your IAM principals or your AWS account directly,
 you can create an IAM role that has permissions to invoke the [GetDataAccess](../API/API_control_GetDataAccess.md "../API/API_control_GetDataAccess.md") S3 API operation. To set this up, you must create an
@@ -92,9 +85,7 @@ export const { StorageBrowser } = createStorageBrowser({
 });
 ```
 
-## Method 3: Managing data access at
-
-scale
+## Method 3: Managing data access at scale
 
 If you want to associate an [S3 Access Grants](access-grants.md "access-grants.md") instance to your IAM
 Identity Center for a more scalable solution (such as providing data access to your whole
@@ -131,20 +122,18 @@ IAM principal.
 The following workflow outlines the steps for setting up Storage Browser for S3, using IAM
 Identity Center and S3 Access Grants:
 
-| Steps | Description                                                                                                                                                                                                                                                                                                                                                          |
-| ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | [Enable IAM Identity Center for your<br>AWS Organizations](#enable-iam-idc-org "#enable-iam-idc-org")                                                                                                                                                                                                                                                                |
-| 2     | [Configure AWS Identity and Access Management Identity Center federation](#configure-iam-idc "#configure-iam-idc")                                                                                                                                                                                                                                                   |
-| 3     | [Add a trusted token issuer in the AWS Identity and Access Management<br>Identity Center console](#add-trusted-token-issuer-idc "#add-trusted-token-issuer-idc")<br>The trusted token issuer represents your external identity provider (IdP)<br>within IAM Identity Center, enabling it to recognize identity tokens for your<br>application’s authenticated users. |
-| 4     | [Create an IAM role for the<br>bootstrap application and identity bearer](#create-iam-role-bootstrap "#create-iam-role-bootstrap")                                                                                                                                                                                                                                   |
-| 5     | [Create and configure your application in IAM<br>Identity Center](#create-app-iam-idc "#create-app-iam-idc")<br>This application interacts with IAM Identity Center on behalf of<br>authenticated users.                                                                                                                                                             |
-| 6     | [Add S3 Access Grants as a trusted application for identity<br>propagation](#add-s3-ag-app "#add-s3-ag-app")<br>This step connects your application to S3 Access Grants, so that it can make requests<br>to S3 Access Grants on behalf of authenticated users.                                                                                                       |
-| 7     | [Create a grant to a user or group](#create-grant-user-group "#create-grant-user-group")<br>This step syncs users from AWS Identity and Access Management Identity Center with the System for<br>Cross-domain Identity Management (SCIM). SCIM keeps your IAM Identity Center<br>identities in sync with identities from your identity provider (IdP).               |
-| 8     | [Create your Storage Browser for S3<br>component](#create-storage-browser-component "#create-storage-browser-component")                                                                                                                                                                                                                                             |
+| Steps | Description                                                                                                                                                                                                                                                                                                                                                       |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | [Enable IAM Identity Center for your AWS Organizations](#enable-iam-idc-org "#enable-iam-idc-org")                                                                                                                                                                                                                                                                |
+| 2     | [Configure AWS Identity and Access Management Identity Center federation](#configure-iam-idc "#configure-iam-idc")                                                                                                                                                                                                                                                |
+| 3     | [Add a trusted token issuer in the AWS Identity and Access Management Identity Center console](#add-trusted-token-issuer-idc "#add-trusted-token-issuer-idc")<br>The trusted token issuer represents your external identity provider (IdP)<br>within IAM Identity Center, enabling it to recognize identity tokens for your<br>application’s authenticated users. |
+| 4     | [Create an IAM role for the bootstrap application and identity bearer](#create-iam-role-bootstrap "#create-iam-role-bootstrap")                                                                                                                                                                                                                                   |
+| 5     | [Create and configure your application in IAM Identity Center](#create-app-iam-idc "#create-app-iam-idc")<br>This application interacts with IAM Identity Center on behalf of<br>authenticated users.                                                                                                                                                             |
+| 6     | [Add S3 Access Grants as a trusted application for identity propagation](#add-s3-ag-app "#add-s3-ag-app")<br>This step connects your application to S3 Access Grants, so that it can make requests<br>to S3 Access Grants on behalf of authenticated users.                                                                                                       |
+| 7     | [Create a grant to a user or group](#create-grant-user-group "#create-grant-user-group")<br>This step syncs users from AWS Identity and Access Management Identity Center with the System for<br>Cross-domain Identity Management (SCIM). SCIM keeps your IAM Identity Center<br>identities in sync with identities from your identity provider (IdP).            |
+| 8     | [Create your Storage Browser for S3 component](#create-storage-browser-component "#create-storage-browser-component")                                                                                                                                                                                                                                             |
 
-### Enable IAM Identity Center for your
-
-AWS Organizations
+### Enable IAM Identity Center for your AWS Organizations
 
 To enable IAM Identity Center for your AWS Organizations, perform the following steps:
 
@@ -198,9 +187,7 @@ provider that you’ve configured because you will need to refer to it in later 
 you don’t have the required access or permissions to configure an IdP, you might need to
 contact the administrator of the external IdP to obtain them.
 
-### Add a trusted token issuer in the AWS Identity and Access Management
-
-Identity Center console
+### Add a trusted token issuer in the AWS Identity and Access Management Identity Center console
 
 The trusted token issuer represents your external identity provider in the AWS Identity and Access Management
 Identity Center, and recognizes tokens for your application’s authenticated users. The
@@ -244,9 +231,7 @@ following steps:
    applicable console to enable user access to the application from applications that are
    configured for trusted identity propagation.
 
-### Create an IAM role for the
-
-`bootstrap` application and `identity bearer`
+### Create an IAM role for the `bootstrap` application and `identity bearer`
 
 To ensure that the `bootstrap` application and `identity bearer`
 users can properly work with each other, make sure to [create two IAM
@@ -314,9 +299,7 @@ following statement:
 }
 ```
 
-### Create and configure your application in IAM
-
-Identity Center
+### Create and configure your application in IAM Identity Center
 
 ###### Note
 
@@ -379,9 +362,7 @@ After you’ve set up your applications, your users can access your applications
 within their AWS access portal based on the [permission sets that you’ve created](../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md "../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md") and the [user
 access that you’ve assigned](../../../singlesignon/latest/userguide/get-started-assign-account-access-user.md "../../../singlesignon/latest/userguide/get-started-assign-account-access-user.md").
 
-### Add S3 Access Grants as a trusted application for identity
-
-propagation
+### Add S3 Access Grants as a trusted application for identity propagation
 
 After you set up your customer managed application, you must specify S3 Access Grants for
 identity propagation. S3 Access Grants vends credentials for users to access Amazon S3 data. When you sign in to your customer
@@ -468,9 +449,7 @@ your specific use case, see
 [IAM
 Identity Center Identity source tutorials](../../../singlesignon/latest/userguide/tutorials.md "../../../singlesignon/latest/userguide/tutorials.md").
 
-### Create your Storage Browser for S3
-
-component
+### Create your Storage Browser for S3 component
 
 After you’ve set up your IAM Identity Center instance and created grants in S3 Access Grants,
 open your React application. In the React application, use

@@ -1,6 +1,4 @@
-# Creating vector buckets with
-
-tags
+# Creating vector buckets with tags
 
 You can tag Amazon S3 vector buckets when you create them. There is no additional charge for
 using tags on vector buckets beyond the standard S3 API request rates. For more information,

@@ -13,5 +13,4 @@ You can choose to configure table buckets or tables to use server-side encryptio
 - Define the policies that control how and by whom KMS keys can be used.
 - Track key usage in AWS CloudTrail to verify your KMS keys are being used correctly.
 
-S3 Tables supports using customer managed keys in SSE-KMS to encrypt tables. AWS managed keys are not supported. For more information on using SSE-KMS for S3 tables and table buckets, see [Using server-side encryption with AWS KMS keys
-(SSE-KMS) in table buckets](s3-tables-kms-encryption.md "s3-tables-kms-encryption.md").
+S3 Tables supports using customer managed keys in SSE-KMS to encrypt tables. AWS managed keys are not supported. For more information on using SSE-KMS for S3 tables and table buckets, see [Using server-side encryption with AWS KMS keys (SSE-KMS) in table buckets](s3-tables-kms-encryption.md "s3-tables-kms-encryption.md").

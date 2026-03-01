@@ -1,6 +1,4 @@
-# Permissions for querying metadata
-
-tables
+# Permissions for querying metadata tables
 
 Before you can query your S3 Metadata journal and live inventory tables, you must have certain S3
 Tables permissions. If your metadata tables have been encrypted with server-side encryption using

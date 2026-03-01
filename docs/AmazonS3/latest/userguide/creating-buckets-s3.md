@@ -27,8 +27,7 @@ customer, you can get started with Amazon S3 for free. For more information, see
 ###### Topics
 
 - [General purpose buckets overview](UsingBucket.md "UsingBucket.md")
-- [Common general purpose bucket patterns for building applications on
-  Amazon S3](common-bucket-patterns.md "common-bucket-patterns.md")
+- [Common general purpose bucket patterns for building applications on Amazon S3](common-bucket-patterns.md "common-bucket-patterns.md")
 - [General purpose bucket naming rules](bucketnamingrules.md "bucketnamingrules.md")
 - [General purpose bucket quotas, limitations, and restrictions](BucketRestrictions.md "BucketRestrictions.md")
 - [Accessing an Amazon S3 general purpose bucket](access-bucket-intro.md "access-bucket-intro.md")
@@ -39,7 +38,5 @@ customer, you can get started with Amazon S3 for free. For more information, see
 - [Deleting a general purpose bucket](delete-bucket.md "delete-bucket.md")
 - [Mount an Amazon S3 bucket as a local file system](mountpoint.md "mountpoint.md")
 - [Working with Storage Browser for Amazon S3](storage-browser.md "storage-browser.md")
-- [Configuring fast, secure file transfers using
-  Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md")
-- [Using Requester Pays general purpose buckets for storage
-  transfers and usage](RequesterPaysBuckets.md "RequesterPaysBuckets.md")
+- [Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md")
+- [Using Requester Pays general purpose buckets for storage transfers and usage](RequesterPaysBuckets.md "RequesterPaysBuckets.md")

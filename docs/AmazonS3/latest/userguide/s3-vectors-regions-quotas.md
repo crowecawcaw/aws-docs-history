@@ -1,13 +1,9 @@
-# AWS Regions, endpoints, and
-
-quotas for S3 Vectors
+# AWS Regions, endpoints, and quotas for S3 Vectors
 
 The following sections include the supported AWS Regions and service quotas for
 Amazon S3 Vectors.
 
-## S3 Vectors AWS Regions and
-
-endpoints
+## S3 Vectors AWS Regions and endpoints
 
 Amazon S3 Vectors is currently available in the following AWS Regions. To connect
 programmatically to an AWS service, you use an endpoint. For more information about

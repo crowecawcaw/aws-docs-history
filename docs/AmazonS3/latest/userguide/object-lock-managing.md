@@ -16,27 +16,19 @@ see [Locking objects with Object Lock](object-lock.md "object-lock.md").
 
 ###### Topics
 
-- [Permissions for viewing lock
-  information](#object-lock-managing-view "#object-lock-managing-view")
+- [Permissions for viewing lock information](#object-lock-managing-view "#object-lock-managing-view")
 - [Bypassing governance mode](#object-lock-managing-bypass "#object-lock-managing-bypass")
-- [Using Object Lock with
-  S3 Replication](#object-lock-managing-replication "#object-lock-managing-replication")
+- [Using Object Lock with S3 Replication](#object-lock-managing-replication "#object-lock-managing-replication")
 - [Using Object Lock with encryption](#object-lock-managing-encryption "#object-lock-managing-encryption")
 - [Using Object Lock with Amazon S3 Inventory](#object-lock-inv-report "#object-lock-inv-report")
-- [Managing S3 Lifecycle policies with
-  Object Lock](#object-lock-managing-lifecycle "#object-lock-managing-lifecycle")
+- [Managing S3 Lifecycle policies with Object Lock](#object-lock-managing-lifecycle "#object-lock-managing-lifecycle")
 - [Managing delete markers with Object Lock](#object-lock-managing-delete-markers "#object-lock-managing-delete-markers")
 - [Using S3 Storage Lens with Object Lock](#object-lock-storage-lens "#object-lock-storage-lens")
-- [Uploading objects to an Object Lock enabled
-  bucket](#object-lock-put-object "#object-lock-put-object")
-- [Configuring events and
-  notifications](#object-lock-managing-events "#object-lock-managing-events")
-- [Setting limits on retention
-  periods with a bucket policy](#object-lock-managing-retention-limits "#object-lock-managing-retention-limits")
+- [Uploading objects to an Object Lock enabled bucket](#object-lock-put-object "#object-lock-put-object")
+- [Configuring events and notifications](#object-lock-managing-events "#object-lock-managing-events")
+- [Setting limits on retention periods with a bucket policy](#object-lock-managing-retention-limits "#object-lock-managing-retention-limits")
 
-## Permissions for viewing lock
-
-information
+## Permissions for viewing lock information
 
 You can programmatically view the Object Lock status of an Amazon S3 object version by
 using the [HeadObject](../API/API_HeadObject.md "../API/API_HeadObject.md") or [GetObject](../API/API_GetObject.md "../API/API_GetObject.md")
@@ -74,9 +66,7 @@ Bypassing governance mode doesn't affect an object version's legal hold status. 
 an object version has a legal hold enabled, the legal hold remains and prevents
 requests to overwrite or delete the object version.
 
-## Using Object Lock with
-
-S3 Replication
+## Using Object Lock with S3 Replication
 
 You can use Object Lock with S3 Replication to enable automatic, asynchronous
 copying of locked objects and their retention metadata, across S3 buckets. This means
@@ -97,8 +87,7 @@ the source S3 bucket in the AWS Identity and Access Management (IAM) role that y
 replication. The two additional permissions are `s3:GetObjectRetention`
 and `s3:GetObjectLegalHold`. If the role has an `s3:Get*`
 permission statement, that statement satisfies the requirement. For more
-information, see [Setting up permissions for live
-replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
+information, see [Setting up permissions for live replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
 
 For general information about S3 Replication, see [Replicating objects within and across Regions](replication.md "replication.md").
 
@@ -127,9 +116,7 @@ metadata for your objects:
 
 For more information, see [Cataloging and analyzing your data with S3 Inventory](storage-inventory.md "storage-inventory.md").
 
-## Managing S3 Lifecycle policies with
-
-Object Lock
+## Managing S3 Lifecycle policies with Object Lock
 
 Object lifecycle management configurations continue to function normally on protected
 objects, including placing delete markers. However, a locked version of an object cannot
@@ -161,9 +148,7 @@ For more information, see [Using S3 Storage Lens to protect your data](storage-l
 
 For a complete list of metrics, see [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md").
 
-## Uploading objects to an Object Lock enabled
-
-bucket
+## Uploading objects to an Object Lock enabled bucket
 
 The `Content-MD5` or `x-amz-sdk-checksum-algorithm` header is
 required for any request to upload an object with a retention period configured using
@@ -180,9 +165,7 @@ Object Lock retention period.
 
 For more information, see [Checking object integrity in Amazon S3](checking-object-integrity.md "checking-object-integrity.md").
 
-## Configuring events and
-
-notifications
+## Configuring events and notifications
 
 You can use Amazon S3 Event Notifications to track access and changes to your Object Lock
 configurations and data by using AWS CloudTrail. For information about CloudTrail, see [What
@@ -194,9 +177,7 @@ CloudWatch, see the [What
 is Amazon CloudWatch?](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md") in the _Amazon CloudWatch User
 Guide_.
 
-## Setting limits on retention
-
-periods with a bucket policy
+## Setting limits on retention periods with a bucket policy
 
 You can set minimum and maximum allowable retention periods for a bucket by using a
 bucket policy. The maximum retention period is 100 years.
@@ -237,8 +218,7 @@ If your bucket is the destination bucket for a replication configuration, you ca
 set up minimum and maximum allowable retention periods for object replicas that are
 created by using replication. To do so, you must allow the
 `s3:ReplicateObject` action in your bucket policy. For more
-information about replication permissions, see [Setting up permissions for live
-replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
+information about replication permissions, see [Setting up permissions for live replication](setting-repl-config-perm-overview.md "setting-repl-config-perm-overview.md").
 
 For more information about bucket policies, see the following topics:
 

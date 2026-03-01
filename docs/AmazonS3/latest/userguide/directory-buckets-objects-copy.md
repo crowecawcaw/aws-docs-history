@@ -1,6 +1,4 @@
-# Copying objects from or to a
-
-directory bucket
+# Copying objects from or to a directory bucket
 
 The copy operation creates a copy of an object that is already stored in Amazon S3. You can
 copy objects between directory buckets and general purpose buckets. You can also copy
@@ -15,8 +13,7 @@ source and destination buckets must have the same parent AWS Region. The source 
 You can create a copy of object up to 5 GB in a single atomic operation. However, to copy
 
 an object that is greater than 5 GB, you must use the multipart upload API operations. For
-more information, see [Using multipart uploads with
-directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md").
+more information, see [Using multipart uploads with directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md").
 
 ###### Permissions
 
@@ -73,8 +70,7 @@ Hash Algorithms (SHA) or Cyclic Redundancy Check (CRC) data-integrity check algo
 CRC32, CRC32C, SHA-1, and SHA-256. MD5-based checksums are not supported with the
 S3 Express One Zone storage class.
 
-For more information, see [S3 additional checksum best
-practices](s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums "s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums").
+For more information, see [S3 additional checksum best practices](s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums "s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums").
 
 ###### Supported features
 
@@ -95,9 +91,7 @@ The restrictions and limitations when you copy an object to a directory bucket w
 - Objects copied from a general purpose bucket to a directory bucket will not retain object tags, ACLs, or Etag values. Checksum values can be copied, but are not equivalent to an Etag. The checksum value may change compared to when it was added.
 - All objects copied to a directory bucket will be with the bucket owner enforced setting for S3 Object Ownership.
 
-###### To copy an object from a general purpose bucket or a directory bucket to a directory
-
-bucket
+###### To copy an object from a general purpose bucket or a directory bucket to a directory bucket
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").

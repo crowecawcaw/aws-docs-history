@@ -23,8 +23,7 @@ To access objects in the S3 Intelligent-Tiering Archive Access and Deep Archive 
 tiers, you must initiate a restore request and wait until the object is moved into the
 Frequent Access tier. When you restore an object from the Archive Access tier or
 Deep Archive Access tier, the object moves back into the Frequent Access tier. For information
-about using these storage classes, see [Storage class for automatically optimizing data with
-changing or unknown access patterns](storage-class-intro.md#sc-dynamic-data-access "storage-class-intro.md#sc-dynamic-data-access").
+about using these storage classes, see [Storage class for automatically optimizing data with changing or unknown access patterns](storage-class-intro.md#sc-dynamic-data-access "storage-class-intro.md#sc-dynamic-data-access").
 
 For general information about archived objects, see [Working with archived objects](archived-objects.md "archived-objects.md").
 
@@ -94,9 +93,7 @@ your provisioned capacity. For more information, see [Provisioned capacity](rest
      **Purchase succeeded** message, choose **Initiate
      restore** to start provisioned retrieval.
 
-###### Restore objects from S3 Glacier Flexible Retrieval or
-
-S3 Glacier Deep Archive
+###### Restore objects from S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive
 
 The following example uses the `restore-object` command to restore the
 object `dir1/example.obj` in the bucket
@@ -113,9 +110,7 @@ the restore request with the following syntax:
 --restore-request Days=25,GlacierJobParameters={"Tier"="Standard"}
 ```
 
-###### Restore objects from S3 Intelligent-Tiering Archive Access and
-
-Deep Archive Access
+###### Restore objects from S3 Intelligent-Tiering Archive Access and Deep Archive Access
 
 The following example uses the `restore-object` command to restore the
 object `dir1/example.obj` in the bucket
@@ -223,9 +218,7 @@ changes, choose **Previous**. Otherwise, choose **Create
 job**.
 For more information about Batch Operations, see [Restore objects with Batch Operations](batch-ops-initiate-restore-object.md "batch-ops-initiate-restore-object.md") and [Creating an S3 Batch Operations job](batch-ops-create-job.md "batch-ops-create-job.md").
 
-## Checking the restore status and
-
-expiration date
+## Checking the restore status and expiration date
 
 You can check the status of a restore request or the expiration date by using the Amazon S3
 console, Amazon S3 Event Notifications, the AWS CLI, or the Amazon S3 REST API.
@@ -263,8 +256,7 @@ Frequent Access tier.
     Notifications feature. For more information about enabling event
     notifications, see [Enabling notifications by using Amazon SQS, Amazon SNS, and AWS Lambda](how-to-enable-disable-notification-intro.md "how-to-enable-disable-notification-intro.md"). For
     more information about the various `ObjectRestore` event types,
-    see [Supported event types for SQS,
-    SNS, and Lambda](notification-how-to-event-types-and-destinations.md#supported-notification-event-types "notification-how-to-event-types-and-destinations.md#supported-notification-event-types").
+    see [Supported event types for SQS, SNS, and Lambda](notification-how-to-event-types-and-destinations.md#supported-notification-event-types "notification-how-to-event-types-and-destinations.md#supported-notification-event-types").
 
 ###### Check an object's restore status and expiration date with the AWS CLI
 
@@ -331,7 +323,6 @@ You can upgrade the speed of your restoration while it is in progress.
 4. In the **Objects** list, select the object that you are
    restoring. The object's details page appears. On the object's details page,
    choose **Upgrade retrieval tier**. For information about
-   checking the restoration status of an object, see [Checking the restore status and
-   expiration date](#restore-archived-objects-status "#restore-archived-objects-status").
+   checking the restoration status of an object, see [Checking the restore status and expiration date](#restore-archived-objects-status "#restore-archived-objects-status").
 5. Choose the tier that you want to upgrade to, and then choose
    **Initiate restore**.

@@ -4,14 +4,10 @@ Amazon S3 replicates only specific items in buckets that are configured for repl
 
 ###### Topics
 
-- [What is replicated with replication
-  configurations?](#replication-what-is-replicated "#replication-what-is-replicated")
-- [What isn't replicated with replication
-  configurations?](#replication-what-is-not-replicated "#replication-what-is-not-replicated")
+- [What is replicated with replication configurations?](#replication-what-is-replicated "#replication-what-is-replicated")
+- [What isn't replicated with replication configurations?](#replication-what-is-not-replicated "#replication-what-is-not-replicated")
 
-## What is replicated with replication
-
-configurations?
+## What is replicated with replication configurations?
 
 By default, Amazon S3 replicates the following:
 
@@ -19,11 +15,9 @@ By default, Amazon S3 replicates the following:
 - Unencrypted objects.
 - Objects encrypted using customer provided keys (SSE-C), objects encrypted at rest
   under an Amazon S3 managed key (SSE-S3) or a KMS key stored in AWS Key Management Service (SSE-KMS). For
-  more information, see [Replicating encrypted objects (SSE-S3,
-  SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
+  more information, see [Replicating encrypted objects (SSE-S3, SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
 - Object metadata from the source objects to the replicas. For information about
-  replicating metadata from the replicas to the source objects, see [Replicating metadata changes with
-  replica modification sync](replication-for-metadata-changes.md "replication-for-metadata-changes.md").
+  replicating metadata from the replicas to the source objects, see [Replicating metadata changes with replica modification sync](replication-for-metadata-changes.md "replication-for-metadata-changes.md").
 - Only objects in the source bucket for which the bucket owner has permissions to read
   objects and access control lists (ACLs).
 
@@ -59,8 +53,7 @@ default:
     you specify the `Filter` element in a replication configuration rule),
     Amazon S3 does not replicate the delete marker by default. However, you can add
     _delete marker replication_ to non-tag-based rules. For more
-    information, see [Replicating delete markers between
-    buckets](delete-marker-replication.md "delete-marker-replication.md").
+    information, see [Replicating delete markers between buckets](delete-marker-replication.md "delete-marker-replication.md").
   - If you don't specify the `Filter` element, Amazon S3 assumes that the
     replication configuration is version V1, and it replicates delete markers that
     resulted from user actions. However, if Amazon S3 deletes an object due to a lifecycle
@@ -71,9 +64,7 @@ default:
   deletion in the destination buckets. In other words, it doesn't delete the same object
   version from the destination buckets. This protects data from malicious deletions.
 
-## What isn't replicated with replication
-
-configurations?
+## What isn't replicated with replication configurations?
 
 By default, Amazon S3 doesn't replicate the following:
 
@@ -106,8 +97,7 @@ objects](s3-batch-replication-batch.md "s3-batch-replication-batch.md").
 - By default, when replicating from a different AWS account, delete markers added to
   the source bucket are not replicated.
 
-For information about how to replicate delete markers, see [Replicating delete markers between
-buckets](delete-marker-replication.md "delete-marker-replication.md").
+For information about how to replicate delete markers, see [Replicating delete markers between buckets](delete-marker-replication.md "delete-marker-replication.md").
 
 - Objects that are stored in the S3 Glacier Flexible Retrieval,
   S3 Glacier Deep Archive, S3 Intelligent-Tiering Archive Access, or S3 Intelligent-Tiering Deep Archive Access
@@ -123,8 +113,7 @@ To learn more about the S3 Intelligent-Tiering, see [Managing storage costs with
   permissions to replicate.
 
 For information about how an object owner can grant permissions to a bucket owner,
-see [Grant cross-account permissions to upload
-objects while ensuring that the bucket owner has full control](example-bucket-policies.md#example-bucket-policies-acl-2 "example-bucket-policies.md#example-bucket-policies-acl-2").
+see [Grant cross-account permissions to upload objects while ensuring that the bucket owner has full control](example-bucket-policies.md#example-bucket-policies-acl-2 "example-bucket-policies.md#example-bucket-policies-acl-2").
 
 - Updates to bucket-level subresources.
 

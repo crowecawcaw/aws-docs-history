@@ -11,8 +11,7 @@ A majority of modern use cases in Amazon S3 no longer require the use of ACLs. W
 you keep ACLs disabled, except in circumstances where you need to control access for
 each object individually. With ACLs disabled, you can use policies to control access to all
 objects in your bucket, regardless of who uploaded the objects to your bucket. For more
-information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 S3 Batch Operations support custom ACLs that you define and the canned ACLs that Amazon S3 provides
 with a predefined set of access permissions.
@@ -32,8 +31,7 @@ limit public access on a per-bucket or account-wide basis with a single, simple 
 takes effect quickly. This behavior makes Amazon S3 Block Public Access a better choice when your
 goal is to control public access to all objects in a bucket or account. Use S3 Batch Operations
 only when you need to apply a customized ACL to every object in the manifest. For more
-information about S3 Block Public Access, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+information about S3 Block Public Access, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 ###### S3 Object Ownership
 
@@ -42,8 +40,7 @@ enforced** setting for Object Ownership, the **Replace access control list
 (ACL)** operation can only specify object ACLs that grant full control to the
 bucket owner. In this case, the **Replace access control list (ACL)**
 operation can't grant object ACL permissions to other AWS accounts or groups. For more
-information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 ## Restrictions and limitations
 

@@ -1,19 +1,14 @@
-# Understanding the
-
-Amazon S3 Storage Lens export schemas
+# Understanding the Amazon S3 Storage Lens export schemas
 
 S3 Storage Lens export schemas vary depending on your export destination. Choose the appropriate
 schema based on whether you're exporting to S3 general purpose buckets or S3 tables.
 
 ###### Topics
 
-- [Export schema for S3 general
-  purpose buckets](#storage_lens_general_purpose_bucket_schema "#storage_lens_general_purpose_bucket_schema")
+- [Export schema for S3 general purpose buckets](#storage_lens_general_purpose_bucket_schema "#storage_lens_general_purpose_bucket_schema")
 - [Export schemas for S3 tables](#storage_lens_s3_tables_schema "#storage_lens_s3_tables_schema")
 
-## Export schema for S3 general
-
-purpose buckets
+## Export schema for S3 general purpose buckets
 
 The following table contains the schema of your S3 Storage Lens metrics export when exporting
 to S3 general purpose buckets.
@@ -32,9 +27,7 @@ to S3 general purpose buckets.
 | `MetricName`       | String    | `metric_name`        | The name of the metric that is being reported.                                     |
 | `MetricValue`      | Long      | `metric_value`       | The value of the metric that is being reported.                                    |
 
-### Example of an S3 Storage Lens metrics
-
-export
+### Example of an S3 Storage Lens metrics export
 
 The following is an example of an S3 Storage Lens metrics export based on this schema.
 
@@ -60,16 +53,11 @@ table schemas: storage metrics, bucket property metrics, and activity metrics.
 
 ###### Topics
 
-- [Storage metrics table
-  schema](#storage_lens_s3_tables_storage_metrics "#storage_lens_s3_tables_storage_metrics")
-- [Bucket property metrics
-  table schema](#storage_lens_s3_tables_bucket_property_metrics "#storage_lens_s3_tables_bucket_property_metrics")
-- [Activity metrics table
-  schema](#storage_lens_s3_tables_activity_metrics "#storage_lens_s3_tables_activity_metrics")
+- [Storage metrics table schema](#storage_lens_s3_tables_storage_metrics "#storage_lens_s3_tables_storage_metrics")
+- [Bucket property metrics table schema](#storage_lens_s3_tables_bucket_property_metrics "#storage_lens_s3_tables_bucket_property_metrics")
+- [Activity metrics table schema](#storage_lens_s3_tables_activity_metrics "#storage_lens_s3_tables_activity_metrics")
 
-### Storage metrics table
-
-schema
+### Storage metrics table schema
 
 | Name                                             | Type          | Description                                                                                                                                                                          |
 | ------------------------------------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -125,9 +113,7 @@ schema
 | `object_2gb_to_4gb_count`                        | long          | Number of objects sizes greater than 2GB and less than equal to 4GB,<br>including current version, noncurrent versions, incomplete multipart uploads, and<br>delete markers          |
 | `object_larger_than_4gb_count`                   | long          | Number of objects sizes greater than 4GB, including current version,<br>noncurrent versions, incomplete multipart uploads, and delete markers                                        |
 
-### Bucket property metrics
-
-table schema
+### Bucket property metrics table schema
 
 | Name                                                     | Type        | Description                                                                                                                  |
 | -------------------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -160,9 +146,7 @@ table schema
 | `cross_account_replication_rule_count`                   | long        | Number of Cross-account replication rule count for the current referenced<br>item                                            |
 | `invalid_destination_replication_rule_count`             | long        | Number of buckets with Invalid destination replication for the current<br>referenced item                                    |
 
-### Activity metrics table
-
-schema
+### Activity metrics table schema
 
 | Name                                                 | Type         | Description                                                                                                                                                     |
 | ---------------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |

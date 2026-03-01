@@ -42,9 +42,7 @@ versioned buckets, if preserving current/non-current version order is important,
 you should copy all non-current versions first. Then, after the first job is
 complete, copy the current versions in a subsequent job.
 
-## To
-
-restore previous object versions
+## To restore previous object versions
 
 For more guidance on restoring deleted objects, see [How can I retrieve an Amazon S3 object that was deleted in a versioning-enabled bucket?](https://repost.aws/knowledge-center/s3-undelete-configuration "https://repost.aws/knowledge-center/s3-undelete-configuration") in the AWS re:Post Knowledge Center.
 

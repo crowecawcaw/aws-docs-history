@@ -1,6 +1,4 @@
-# Using server-side encryption with
-
-customer-provided keys (SSE-C)
+# Using server-side encryption with customer-provided keys (SSE-C)
 
 Server-side encryption is about protecting data at rest. Server-side encryption encrypts only
 the object data, not the object metadata. You can use server-side encryption with
@@ -10,8 +8,7 @@ disks and data decryption when you access your objects. Therefore, you don't nee
 maintain any code to perform data encryption and decryption. The only thing that you need to
 do is manage the encryption keys that you provide.
 
-Most modern use cases in Amazon S3 no longer use SSE-C because it lacks the flexibility of server-side encryption with Amazon S3 managed keys (SSE-S3) or server-side encryption with AWS KMS keys (SSE-KMS). SSE-C's requirement to provide the encryption key each time you interact with your SSE-C encrypted data makes it impractical to share your SSE-C key with other users, roles, or AWS services who read data from your S3 buckets in order to operate on your data. Due to the widespread support for SSE-KMS across AWS, most modern workloads do not use SSE-C encryption because it lacks the flexibility of SSE-KMS. To learn more about SSE-KMS, see [Using server-side encryption with AWS KMS keys
-(SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
+Most modern use cases in Amazon S3 no longer use SSE-C because it lacks the flexibility of server-side encryption with Amazon S3 managed keys (SSE-S3) or server-side encryption with AWS KMS keys (SSE-KMS). SSE-C's requirement to provide the encryption key each time you interact with your SSE-C encrypted data makes it impractical to share your SSE-C key with other users, roles, or AWS services who read data from your S3 buckets in order to operate on your data. Due to the widespread support for SSE-KMS across AWS, most modern workloads do not use SSE-C encryption because it lacks the flexibility of SSE-KMS. To learn more about SSE-KMS, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](UsingKMSEncryption.md "UsingKMSEncryption.md").
 
 If you want to prevent SSE-C encryption from being used for objects written to your bucket, you can block SSE-C encryption when changing your bucket's default encryption configuration. When SSE-C is blocked for a general purpose bucket, any `PutObject`, `CopyObject`, `PostObject`, Multipart Upload or replication requests that specify SSE-C encryption will be rejected with an `HTTP 403 AccessDenied` error. To learn more about blocking SSE-C, see [Blocking or unblocking SSE-C for a general purpose bucket](blocking-unblocking-s3-c-encryption-gpb.md "blocking-unblocking-s3-c-encryption-gpb.md").
 
@@ -55,7 +52,6 @@ Starting in April 2026, AWS will disable server-side encryption with customer-pr
 
 ###### Topics
 
-- [Specifying server-side encryption with
-  customer-provided keys (SSE-C)](specifying-s3-c-encryption.md "specifying-s3-c-encryption.md")
+- [Specifying server-side encryption with customer-provided keys (SSE-C)](specifying-s3-c-encryption.md "specifying-s3-c-encryption.md")
 - [Blocking or unblocking SSE-C for a general purpose bucket](blocking-unblocking-s3-c-encryption-gpb.md "blocking-unblocking-s3-c-encryption-gpb.md")
 - [Default SSE-C setting for new buckets FAQ](default-s3-c-encryption-setting-faq.md "default-s3-c-encryption-setting-faq.md")

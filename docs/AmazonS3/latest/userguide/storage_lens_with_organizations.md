@@ -16,10 +16,7 @@ and AWS Organizations](../../../organizations/latest/userguide/services-that-can
 
 ###### Topics
 
-- [Enabling trusted access for
-  S3 Storage Lens](storage_lens_with_organizations_enabling_trusted_access.md "storage_lens_with_organizations_enabling_trusted_access.md")
+- [Enabling trusted access for S3 Storage Lens](storage_lens_with_organizations_enabling_trusted_access.md "storage_lens_with_organizations_enabling_trusted_access.md")
 - [Disabling trusted access for S3 Storage Lens](storage_lens_with_organizations_disabling_trusted_access.md "storage_lens_with_organizations_disabling_trusted_access.md")
-- [Registering a
-  delegated administrator for S3 Storage Lens](storage_lens_with_organizations_registering_delegated_admins.md "storage_lens_with_organizations_registering_delegated_admins.md")
-- [Deregistering a
-  delegated administrator for S3 Storage Lens](storage_lens_with_organizations_deregistering_delegated_admins.md "storage_lens_with_organizations_deregistering_delegated_admins.md")
+- [Registering a delegated administrator for S3 Storage Lens](storage_lens_with_organizations_registering_delegated_admins.md "storage_lens_with_organizations_registering_delegated_admins.md")
+- [Deregistering a delegated administrator for S3 Storage Lens](storage_lens_with_organizations_deregistering_delegated_admins.md "storage_lens_with_organizations_deregistering_delegated_admins.md")

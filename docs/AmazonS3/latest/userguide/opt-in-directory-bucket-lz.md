@@ -12,5 +12,4 @@ that you create. Buckets in Local Zones have all S3 Block Public Access settings
 default and S3 Object Ownership is set to bucket owner enforced. These settings can't be
 modified. Optionally, to restrict access to only within the Local Zone network border groups, you
 can use the condition key `s3express:AllAccessRestrictedToLocalZoneGroup` in your
-IAM policies. For more information, see [Authenticating and authorizing for
-directory buckets in Local Zones](iam-directory-bucket-LZ.md "iam-directory-bucket-LZ.md").
+IAM policies. For more information, see [Authenticating and authorizing for directory buckets in Local Zones](iam-directory-bucket-LZ.md "iam-directory-bucket-LZ.md").

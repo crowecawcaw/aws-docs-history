@@ -55,11 +55,8 @@ include destination grants (also known as _target grants_)
 in your [PutBucketLogging](../API/API_PutBucketLogging.md "../API/API_PutBucketLogging.md") configuration.
 
 For information about migrating existing bucket ACLs for access log delivery to a bucket
-policy, see [Grant access to
-the
-S3 log delivery group for server access logging](object-ownership-migrating-acls-prerequisites.md#object-ownership-server-access-logs "object-ownership-migrating-acls-prerequisites.md#object-ownership-server-access-logs"). For more information about
-Object Ownership, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md"). When you create new buckets, ACLs are disabled by
+policy, see [Grant access to the S3 log delivery group for server access logging](object-ownership-migrating-acls-prerequisites.md#object-ownership-server-access-logs "object-ownership-migrating-acls-prerequisites.md#object-ownership-server-access-logs"). For more information about
+Object Ownership, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md"). When you create new buckets, ACLs are disabled by
 default.
 
 ###### Granting access by using a bucket policy
@@ -73,25 +70,18 @@ update the bucket policy for the destination bucket to grant access to the loggi
 principal.
 
 For an example bucket policy that grants access to the logging service principal, see
-[Grant permissions to the
-logging service principal by using a bucket policy](#grant-log-delivery-permissions-bucket-policy "#grant-log-delivery-permissions-bucket-policy").
+[Grant permissions to the logging service principal by using a bucket policy](#grant-log-delivery-permissions-bucket-policy "#grant-log-delivery-permissions-bucket-policy").
 
 ###### Granting access by using bucket ACLs
 
 You can alternately use bucket ACLs to grant access for access log delivery. You add a
 grant entry to the bucket ACL that grants `WRITE` and `READ_ACP`
 permissions to the S3 log delivery group. However, granting access to the S3 log delivery
-group by using bucket ACLs is not recommended. For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md"). For information
-about migrating existing bucket ACLs for access log delivery to a bucket policy, see [Grant access to
-the
-S3 log delivery group for server access logging](object-ownership-migrating-acls-prerequisites.md#object-ownership-server-access-logs "object-ownership-migrating-acls-prerequisites.md#object-ownership-server-access-logs"). For an example ACL that grants
-access to the logging service principal, see [Grant permissions to the log delivery group
-by using a bucket ACL](#grant-log-delivery-permissions-acl "#grant-log-delivery-permissions-acl").
+group by using bucket ACLs is not recommended. For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md"). For information
+about migrating existing bucket ACLs for access log delivery to a bucket policy, see [Grant access to the S3 log delivery group for server access logging](object-ownership-migrating-acls-prerequisites.md#object-ownership-server-access-logs "object-ownership-migrating-acls-prerequisites.md#object-ownership-server-access-logs"). For an example ACL that grants
+access to the logging service principal, see [Grant permissions to the log delivery group by using a bucket ACL](#grant-log-delivery-permissions-acl "#grant-log-delivery-permissions-acl").
 
-### Grant permissions to the
-
-logging service principal by using a bucket policy
+### Grant permissions to the logging service principal by using a bucket policy
 
 This example bucket policy grants the `s3:PutObject` permission to the
 logging service principal (`logging.s3.amazonaws.com`). To use this bucket
@@ -140,9 +130,7 @@ JSON
 
 ```
 
-### Grant permissions to the log delivery group
-
-by using a bucket ACL
+### Grant permissions to the log delivery group by using a bucket ACL
 
 ###### Note
 
@@ -243,8 +231,7 @@ When you enable server access logging on a bucket, the console both enables
 logging on the source bucket and updates the bucket policy for the destination bucket
 to grant the `s3:PutObject` permission to the logging service principal
 (`logging.s3.amazonaws.com`). For more information about this bucket
-policy, see [Grant permissions to the
-logging service principal by using a bucket policy](#grant-log-delivery-permissions-bucket-policy "#grant-log-delivery-permissions-bucket-policy").
+policy, see [Grant permissions to the logging service principal by using a bucket policy](#grant-log-delivery-permissions-bucket-policy "#grant-log-delivery-permissions-bucket-policy").
 
 You can view the logs in the destination bucket.
 After
@@ -733,9 +720,7 @@ folder that contains your logging configuration. If a destination bucket uses th
 Bucket owner enforced setting for Object Ownership, your logging configuration
 can't contain destination (target) grants. For more information, see [Permissions for log delivery](#grant-log-delivery-permissions-general "#grant-log-delivery-permissions-general").
 
-###### Example– `logging.json` without destination (target)
-
-grants
+###### Example– `logging.json` without destination (target) grants
 
 The following example `logging.json` file doesn't contain
 destination (target) grants. Therefore, you can apply this configuration to a
@@ -753,9 +738,7 @@ Object Ownership.
 
 ```
 
-###### Example– `logging.json` with destination (target)
-
-grants
+###### Example– `logging.json` with destination (target) grants
 
 The following example `logging.json` file contains
 destination (target) grants.
@@ -814,9 +797,7 @@ request elements) in the following ways:
     }
     ```
 
-###### Example– `logging.json` with the log object key format set
-
-to S3 event time
+###### Example– `logging.json` with the log object key format set to S3 event time
 
 The following `logging.json` file changes the log object
 key format to S3 event time. For more information about setting the log object key
@@ -854,9 +835,7 @@ your
 buckets are in the same Region. If you have buckets in multiple
 Regions, you must adjust the script.
 
-###### Example– Grant access with bucket policies and add logging for the buckets in
-
-your account
+###### Example– Grant access with bucket policies and add logging for the buckets in your account
 
 ```
 
@@ -895,9 +874,7 @@ your account
 
 ```
 
-###### Example– Grant access with bucket ACLs and add logging for the buckets in
-
-your account
+###### Example– Grant access with bucket ACLs and add logging for the buckets in your account
 
 ```
 
@@ -943,13 +920,11 @@ After you enable server access logging, complete the following steps:
 - Access the destination bucket and verify that the log files are being delivered. After
   the access logs are set up, Amazon S3 immediately starts capturing requests and logging them.
   However, it might take a few hours before the logs are delivered to the destination
-  bucket. For more information, see [Bucket logging status changes take effect over
-  time](ServerLogs.md#BucketLoggingStatusChanges "ServerLogs.md#BucketLoggingStatusChanges") and [Best-effort server log delivery](ServerLogs.md#LogDeliveryBestEffort "ServerLogs.md#LogDeliveryBestEffort").
+  bucket. For more information, see [Bucket logging status changes take effect over time](ServerLogs.md#BucketLoggingStatusChanges "ServerLogs.md#BucketLoggingStatusChanges") and [Best-effort server log delivery](ServerLogs.md#LogDeliveryBestEffort "ServerLogs.md#LogDeliveryBestEffort").
 
 You can also automatically verify log delivery by using Amazon S3 request metrics and
 setting up Amazon CloudWatch alarms for these metrics. For more information, see [Monitoring metrics with Amazon CloudWatch](cloudwatch-monitoring.md "cloudwatch-monitoring.md").
 
 - Verify that you are able to open and read the contents of the log files.
 
-For server access logging troubleshooting information, see [Troubleshoot server access
-logging](troubleshooting-server-access-logging.md "troubleshooting-server-access-logging.md").
+For server access logging troubleshooting information, see [Troubleshoot server access logging](troubleshooting-server-access-logging.md "troubleshooting-server-access-logging.md").

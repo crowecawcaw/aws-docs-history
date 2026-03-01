@@ -4,15 +4,11 @@ The following topics can help you troubleshoot some common Amazon S3 versioning 
 
 ###### Topics
 
-- [I want to recover objects that were accidentally
-  deleted in a versioning-enabled bucket](#recover-objects "#recover-objects")
+- [I want to recover objects that were accidentally deleted in a versioning-enabled bucket](#recover-objects "#recover-objects")
 - [I want to permanently delete versioned objects](#delete-objects-permanent "#delete-objects-permanent")
-- [I'm experiencing performance degradation after enabling
-  bucket versioning](#performance-degradation "#performance-degradation")
+- [I'm experiencing performance degradation after enabling bucket versioning](#performance-degradation "#performance-degradation")
 
-## I want to recover objects that were accidentally
-
-deleted in a versioning-enabled bucket
+## I want to recover objects that were accidentally deleted in a versioning-enabled bucket
 
 In general, when object versions are deleted from S3 buckets, there is no way for Amazon S3
 to recover them. However, if you have enabled S3 Versioning on your S3 bucket, a
@@ -139,9 +135,7 @@ the newest version of the object with a **`200 OK`** response.
 Objects protected by Object Lock cannot be permanently deleted until their
 retention periods and legal holds are removed. For more information, see [How S3 Object Lock works](object-lock.md#object-lock-overview "object-lock.md#object-lock-overview").
 
-## I'm experiencing performance degradation after enabling
-
-bucket versioning
+## I'm experiencing performance degradation after enabling bucket versioning
 
 Performance degradation can occur on versioning-enabled buckets if there are too many
 delete markers or versioned objects, and if best practices aren't followed.

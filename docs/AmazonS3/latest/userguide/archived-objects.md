@@ -60,9 +60,7 @@ October 15, 2012, at 10:30 AM UTC, and the restoration period was specified as 3
 In this case, the restored copy expires on October 19, 2012, at 00:00 UTC, at which time
 Amazon S3 deletes the object copy.
 
-## Restoring objects from
-
-S3 Intelligent-Tiering
+## Restoring objects from S3 Intelligent-Tiering
 
 When you restore an object from the S3 Intelligent-Tiering Archive Access tier or
 S3 Intelligent-Tiering Deep Archive Access tier, the object moves back into the S3 Intelligent-Tiering Frequent Access tier.
@@ -77,9 +75,7 @@ Unlike in the S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive storage 
 restore requests for S3 Intelligent-Tiering objects don't accept the
 `Days` value.
 
-## Using S3 Batch Operations with
-
-restore requests
+## Using S3 Batch Operations with restore requests
 
 To restore more than one Amazon S3 object with a single request, you can use
 S3 Batch Operations.

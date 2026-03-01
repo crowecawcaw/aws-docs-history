@@ -65,9 +65,7 @@ Infrequent Access tier or the Archive Instant Access tier back to the Frequent A
 If the size of an object is less than 128 KB, it is not monitored and is not eligible
 for automatic tiering. Smaller objects are always stored in the Frequent Access tier.
 
-## S3 Intelligent-Tiering access
-
-tiers
+## S3 Intelligent-Tiering access tiers
 
 The following section explains the different automatic and optional access tiers. When
 objects move between access tiers, the storage class remains the same
@@ -104,8 +102,7 @@ Archive Access tier has the same performance as the [S3 Glacier Flexible Retriev
 Standard retrieval times for this access tier can range from 3–5
 hours. If you initiate your restore request by using S3 Batch Operations, your
 restore starts within minutes. For more information about retrieval options
-and times, see [Restoring objects from the
-S3 Intelligent-Tiering Archive Access and Deep Archive Access tiers](intelligent-tiering-managing.md#restore-data-from-int-tier-archive "intelligent-tiering-managing.md#restore-data-from-int-tier-archive").
+and times, see [Restoring objects from the S3 Intelligent-Tiering Archive Access and Deep Archive Access tiers](intelligent-tiering-managing.md#restore-data-from-int-tier-archive "intelligent-tiering-managing.md#restore-data-from-int-tier-archive").
 
 ###### Note
 
@@ -127,8 +124,7 @@ Deep Archive Access tier has the same performance as the [S3 Glacier Deep Archiv
 Standard retrieval of objects in this access tier occurs within 12 hours.
 If you initiate your restore request by using S3 Batch Operations, your restore
 starts within 9 hours. For more information about retrieval options and
-times, see [Restoring objects from the
-S3 Intelligent-Tiering Archive Access and Deep Archive Access tiers](intelligent-tiering-managing.md#restore-data-from-int-tier-archive "intelligent-tiering-managing.md#restore-data-from-int-tier-archive").
+times, see [Restoring objects from the S3 Intelligent-Tiering Archive Access and Deep Archive Access tiers](intelligent-tiering-managing.md#restore-data-from-int-tier-archive "intelligent-tiering-managing.md#restore-data-from-int-tier-archive").
 
 ###### Note
 

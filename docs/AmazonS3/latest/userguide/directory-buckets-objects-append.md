@@ -1,6 +1,4 @@
-# Appending data to objects in directory
-
-buckets
+# Appending data to objects in directory buckets
 
 You can add data to the end of existing objects stored in the S3 Express One Zone storage class in directory buckets.
 We recommend that you use the ability to append data to an object if the data is written continuously over a period of time or if
@@ -60,9 +58,7 @@ uploading your appended data, you can retrieve a checksum of the appended parts 
 their integrity using the SHA checksums returned on prior PutObject responses. For more
 information, see [Data protection and encryption](s3-express-data-protection.md "s3-express-data-protection.md").
 
-## Appending data to your objects by using the
-
-AWS CLI, AWS SDKs and the REST API
+## Appending data to your objects by using the AWS CLI, AWS SDKs and the REST API
 
 You can append data to your objects by using the AWS Command Line Interface (AWS CLI), AWS SDKs and
 REST API.

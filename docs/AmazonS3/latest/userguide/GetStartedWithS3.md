@@ -189,8 +189,7 @@ settings:
     By default, ACLs are disabled. A majority of modern use cases in Amazon S3 no
      longer require the use of ACLs. We recommend that you keep ACLs disabled, except
      in circumstances where you must control access for each object
-     individually. For more information, see [Controlling ownership of objects and disabling ACLs
-     for your bucket](about-object-ownership.md "about-object-ownership.md").
+     individually. For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 ###### ACLs enabled
 
@@ -218,8 +217,7 @@ Block Public Access settings that you want to apply to the bucket.
 
 By default, all four Block Public Access settings are enabled. We recommend that you
 keep all settings enabled, unless you know that you need to turn off one or more of them
-for your specific use case. For more information about blocking public access, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+for your specific use case. For more information about blocking public access, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 ###### Note
 
@@ -254,10 +252,8 @@ choose one of the following:
 
 Buckets and new objects are encrypted by using server-side encryption with Amazon S3 managed keys
 (SSE-S3) as the base level of encryption configuration. For more information about default encryption,
-see [Setting default server-side encryption behavior for Amazon S3
-buckets](bucket-encryption.md "bucket-encryption.md"). For more information about
-SSE-S3, see [Using server-side encryption with Amazon S3 managed keys
-(SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
+see [Setting default server-side encryption behavior for Amazon S3 buckets](bucket-encryption.md "bucket-encryption.md"). For more information about
+SSE-S3, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").
 
 For more information about using server-side encryption to encrypt your data, see [Protecting data with encryption](UsingEncryption.md "UsingEncryption.md"). 12. If you chose **Server-side encryption with AWS Key Management Service keys (SSE-KMS)** or
 **Dual-layer server-side encryption with AWS Key Management Service (AWS KMS) keys (DSSE-KMS)**, do the
@@ -291,10 +287,8 @@ following:
      that's owned by a different account, you must first have permission to use the key, and then you
      must enter the KMS key ARN. For more information about cross account permissions for KMS keys,
      see [Creating KMS keys that other accounts can use](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md#cross-account-console "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md#cross-account-console") in the
-     *AWS Key Management Service Developer Guide*. For more information about SSE-KMS, see [Specifying server-side encryption with AWS KMS
-     (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md"). For more
-     information about DSSE-KMS, see [Using dual-layer server-side encryption with AWS KMS keys
-     (DSSE-KMS)](UsingDSSEncryption.md "UsingDSSEncryption.md").
+     *AWS Key Management Service Developer Guide*. For more information about SSE-KMS, see [Specifying server-side encryption with AWS KMS (SSE-KMS)](specifying-kms-encryption.md "specifying-kms-encryption.md"). For more
+     information about DSSE-KMS, see [Using dual-layer server-side encryption with AWS KMS keys (DSSE-KMS)](UsingDSSEncryption.md "UsingDSSEncryption.md").
 
     When you use an AWS KMS key for server-side encryption in Amazon S3, you must
      choose a symmetric encryption KMS key. Amazon S3 supports only symmetric encryption KMS keys and not
@@ -543,8 +537,7 @@ For more information about using the Amazon S3 Express One Zone storage class wi
 ###### Topics
 
 - [Understand common use cases](#s3-use-cases "#s3-use-cases")
-- [Control access to your buckets and
-  objects](#control-access-resources "#control-access-resources")
+- [Control access to your buckets and objects](#control-access-resources "#control-access-resources")
 - [Protect and monitor your storage](#manage-monitor-storage "#manage-monitor-storage")
 - [Develop with Amazon S3](#develop-with-s3 "#develop-with-s3")
 - [Learn from tutorials](#s3-getting-started-tutorials-list "#s3-getting-started-tutorials-list")
@@ -570,9 +563,7 @@ tutorials. The following are some common use cases for Amazon S3:
 - Software delivery – Host your software
   applications for customers to download.
 
-### Control access to your buckets and
-
-objects
+### Control access to your buckets and objects
 
 Amazon S3 provides a variety of security features and tools. For an overview, see [Access control in Amazon S3](access-management.md "access-management.md").
 
@@ -727,22 +718,16 @@ adaptation to meet the unique needs of your organization's environment.
 
 #### Hosting videos and websites
 
-- [Tutorial: Hosting on-demand
-  streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53](tutorial-s3-cloudfront-route53-video-streaming.md "tutorial-s3-cloudfront-route53-video-streaming.md")
-- [Tutorial: Configuring a static website on
-  Amazon S3](HostingWebsiteOnS3Setup.md "HostingWebsiteOnS3Setup.md")
-- [Tutorial: Configuring a static website using a
-  custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md")
+- [Tutorial: Hosting on-demand streaming video with Amazon S3, Amazon CloudFront, and Amazon Route 53](tutorial-s3-cloudfront-route53-video-streaming.md "tutorial-s3-cloudfront-route53-video-streaming.md")
+- [Tutorial: Configuring a static website on Amazon S3](HostingWebsiteOnS3Setup.md "HostingWebsiteOnS3Setup.md")
+- [Tutorial: Configuring a static website using a custom domain registered with Route 53](website-hosting-custom-domain-walkthrough.md "website-hosting-custom-domain-walkthrough.md")
 
 #### Processing data
 
-- [Tutorial: Transforming data for your
-  application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md "tutorial-s3-object-lambda-uppercase.md")
-- [Tutorial:
-  Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md")
+- [Tutorial: Transforming data for your application with S3 Object Lambda](tutorial-s3-object-lambda-uppercase.md "tutorial-s3-object-lambda-uppercase.md")
+- [Tutorial: Detecting and redacting PII data with S3 Object Lambda and Amazon Comprehend](tutorial-s3-object-lambda-redact-pii.md "tutorial-s3-object-lambda-redact-pii.md")
 - [Tutorial: Using S3 Object Lambda to dynamically watermark images as they are retrieved](https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/tutorials.html "https://aws.amazon.com/getting-started/hands-on/amazon-s3-object-lambda-to-dynamically-watermark-images/?ref=docs_gateway/amazons3/tutorials.html")
-- [Tutorial: Batch-transcoding
-  videos with S3 Batch Operations](tutorial-s3-batchops-lambda-mediaconvert-video.md "tutorial-s3-batchops-lambda-mediaconvert-video.md")
+- [Tutorial: Batch-transcoding videos with S3 Batch Operations](tutorial-s3-batchops-lambda-mediaconvert-video.md "tutorial-s3-batchops-lambda-mediaconvert-video.md")
 
 #### Protecting data
 

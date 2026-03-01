@@ -7,8 +7,7 @@ manner. For example, all the tables belonging to the human resources department 
 grouped under a common namespace value of `hr`.
 
 To control access to specific namespaces, you can use table bucket resource policies. For more
-information, see [Resource-based policies for
-S3 Tables](s3-tables-resource-based-policies.md "s3-tables-resource-based-policies.md").
+information, see [Resource-based policies for S3 Tables](s3-tables-resource-based-policies.md "s3-tables-resource-based-policies.md").
 
 The following rules apply to table namespaces:
 

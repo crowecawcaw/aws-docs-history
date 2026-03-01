@@ -56,7 +56,6 @@ For more information about S3 Tables replication, see the following topics.
 
 ###### Topics
 
-- [How S3 Tables replication
-  works](s3-tables-replication-how-replication-works.md "s3-tables-replication-how-replication-works.md")
+- [How S3 Tables replication works](s3-tables-replication-how-replication-works.md "s3-tables-replication-how-replication-works.md")
 - [Setting up S3 Tables replication](s3-tables-replication-setting-up.md "s3-tables-replication-setting-up.md")
 - [Managing S3 Tables replication](s3-tables-replication-managing.md "s3-tables-replication-managing.md")

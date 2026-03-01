@@ -49,9 +49,7 @@ updating your failover configuration aren’t impacted by the opt-in Region stat
 any Region that is part of your Multi-Region Access Point. You also don’t need to disable any active
 opt-in Regions before deleting a Multi-Region Access Point.
 
-## Disabling an active AWS opt-in
-
-Region
+## Disabling an active AWS opt-in Region
 
 If you disable opt-in Region that is part of your Multi-Region Access Point, requests routed to this
 Region result in a `403 AllAccessDisabled` error. To safely disable an opt-in
@@ -61,9 +59,7 @@ the alternate Region as active, and mark the Region to be disabled as passive. A
 changing the failover controls, you can disable the Region you want to opt out
 of.
 
-## Enabling a previously disabled AWS
-
-opt-in Region
+## Enabling a previously disabled AWS opt-in Region
 
 To enable an opt-in AWS Region that was previously disabled for your Multi-Region Access Point, make
 sure to update your AWS account settings. After you re-enable the opt-in Region, run
@@ -74,9 +70,7 @@ If your Multi-Region Access Point is accessed through a VPC endpoint, we recomme
 VPCE policy and use the [ModifyVpcEndpoint](../../../AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.md "../../../AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.md") API operation to apply the updated VPC endpoint policy to
 the re-enabled opt-in Region.
 
-## Multi-Region Access Points policy and multiple AWS
-
-accounts
+## Multi-Region Access Points policy and multiple AWS accounts
 
 If your Multi-Region Access Points policy grants access to multiple AWS accounts, all requester
 accounts must also enable the same opt-in Regions in their account settings. If the requester account submits a Multi-Region Access Point request without enabling the opt-in Regions that are

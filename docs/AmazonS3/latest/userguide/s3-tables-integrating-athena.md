@@ -29,8 +29,7 @@ query a table with Amazon Athena.
 ###### Note
 
 Before performing the following steps, make sure that you've integrated your table buckets with
-AWS analytics services in this Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
+AWS analytics services in this Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 
 ###### To query a table
 
@@ -55,8 +54,7 @@ stored.
 
 If you don't see these values in the **Catalog** and
 **Database** fields, make sure that you've integrated your table buckets with
-AWS analytics services in this Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics
-services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md"). 7. To run the query, choose **Run**.
+AWS analytics services in this Region. For more information, see [Integrating Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md"). 7. To run the query, choose **Run**.
 
 ###### Note
 

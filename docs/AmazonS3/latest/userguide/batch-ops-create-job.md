@@ -16,19 +16,15 @@ to create a Batch Operations job by using the Amazon S3 console.
 
 ###### Topics
 
-- [Batch Operations job request
-  elements](#batch-ops-create-job-request-elements "#batch-ops-create-job-request-elements")
+- [Batch Operations job request elements](#batch-ops-create-job-request-elements "#batch-ops-create-job-request-elements")
 - [Specifying a manifest](#specify-batchjob-manifest "#specify-batchjob-manifest")
-- [Generating an object list
-  automatically and saving it as a manifest file](#automatically-generate-manifest-file "#automatically-generate-manifest-file")
+- [Generating an object list automatically and saving it as a manifest file](#automatically-generate-manifest-file "#automatically-generate-manifest-file")
 - [Creating a manifest file](#create-manifest-file "#create-manifest-file")
 - [Using an existing manifest](#specify-existing-manifest-file "#specify-existing-manifest-file")
 - [Creating a job](#to-create-batch-ops-job "#to-create-batch-ops-job")
 - [Job responses](#batch-ops-create-job-response-elements "#batch-ops-create-job-response-elements")
 
-## Batch Operations job request
-
-elements
+## Batch Operations job request elements
 
 To create an S3 Batch Operations job, you must provide the following information:
 
@@ -104,8 +100,7 @@ information, see [Granting permissions for Batch Operations](batch-ops-iam-role-
 
 For more information about IAM roles, see [IAM roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the
 _IAM User Guide_. For more information about Amazon S3 permissions,
-see [Policy actions
-for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions").
+see [Policy actions for Amazon S3](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions").
 
 ###### Note
 
@@ -184,9 +179,7 @@ upon. You can use the following methods to specify a manifest for a Batch Operat
   generated object lists as manifests to directory buckets. Objects described within the
   manifest, however, can be stored in directory buckets. For more information, see [Directory buckets](directory-buckets-overview.md "directory-buckets-overview.md").
 
-## Generating an object list
-
-automatically and saving it as a manifest file
+## Generating an object list automatically and saving it as a manifest file
 
 You can direct Amazon S3 to generate an object list automatically based on metadata that you
 specify. You can save this list as a manifest and use it when you create your job.
@@ -382,8 +375,7 @@ the manifest.
 You can create S3 Batch Operations jobs by using the Amazon S3 console, AWS CLI, AWS SDKs, or Amazon S3
 REST API.
 
-For more information about creating a job request, see [Batch Operations job request
-elements](#batch-ops-create-job-request-elements "#batch-ops-create-job-request-elements").
+For more information about creating a job request, see [Batch Operations job request elements](#batch-ops-create-job-request-elements "#batch-ops-create-job-request-elements").
 
 ###### Prerequisites
 
@@ -464,9 +456,7 @@ The following example shows how to use the AWS CLI to create an S3 Batch Operati
 `S3PutObjectTagging` job that acts on objects that are listed in an
 existing manifest file.
 
-###### To create a Batch Operations `S3PutObjectTagging` job by specifying a
-
-manifest
+###### To create a Batch Operations `S3PutObjectTagging` job by specifying a manifest
 
 1.  Use the following commands to create an AWS Identity and Access Management (IAM) role, and then
     create an IAM policy to assign the relevant permissions. The following role
@@ -608,9 +598,7 @@ The following example shows how to create an S3 Batch Operations
 based on your object filter criteria. This criteria includes the creation date, key
 name, size, storage class, and tags.
 
-###### To create a Batch Operations `S3DeleteObjectTagging` job by generating a
-
-manifest
+###### To create a Batch Operations `S3DeleteObjectTagging` job by generating a manifest
 
 1.  Use the following commands to create an AWS Identity and Access Management (IAM) role, and then
     create an IAM policy to assign permissions. The following role and policy

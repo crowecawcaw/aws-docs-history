@@ -1,6 +1,4 @@
-# Monitoring your storage activity and usage with
-
-Amazon S3 Storage Lens
+# Monitoring your storage activity and usage with Amazon S3 Storage Lens
 
 Amazon S3 Storage Lens is a cloud-storage analytics feature that you can use to gain organization-wide
 visibility into object storage and activity. S3 Storage Lens also analyzes metrics to deliver
@@ -119,15 +117,13 @@ anomaly detection, to monitor and take action on S3 Storage Lens metrics. In add
 operations enable applications, including third-party providers, to access your S3 Storage Lens
 metrics. The CloudWatch publishing option is available for dashboards that are upgraded to the
 S3 Storage Lens advanced tier. For more information about support for S3 Storage Lens metrics in CloudWatch, see
-[Monitor S3 Storage Lens metrics in
-CloudWatch](storage_lens_view_metrics_cloudwatch.md "storage_lens_view_metrics_cloudwatch.md").
+[Monitor S3 Storage Lens metrics in CloudWatch](storage_lens_view_metrics_cloudwatch.md "storage_lens_view_metrics_cloudwatch.md").
 
 For more information about using S3 Storage Lens, see the following topics.
 
 ###### Topics
 
-- [Understanding
-  Amazon S3 Storage Lens](storage_lens_basics_metrics_recommendations.md "storage_lens_basics_metrics_recommendations.md")
+- [Understanding Amazon S3 Storage Lens](storage_lens_basics_metrics_recommendations.md "storage_lens_basics_metrics_recommendations.md")
 - [Amazon S3 Storage Lens metrics glossary](storage_lens_metrics_glossary.md "storage_lens_metrics_glossary.md")
 - [Setting Amazon S3 Storage Lens permissions](storage_lens_iam_permissions.md "storage_lens_iam_permissions.md")
 - [Table naming for S3 Storage Lens export to S3 Tables](storage_lens_s3_tables_naming.md "storage_lens_s3_tables_naming.md")

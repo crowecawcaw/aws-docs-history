@@ -37,9 +37,7 @@ examples use a slash (/) delimiter.
 
 For more information about delimiters, prefixes, and nested folders, see [Difference between prefixes and nested folders](https://repost.aws/knowledge-center/s3-prefix-nested-folders-difference "https://repost.aws/knowledge-center/s3-prefix-nested-folders-difference").
 
-## Listing objects using prefixes and
-
-delimiters
+## Listing objects using prefixes and delimiters
 
 If you issue a list request with a delimiter, you can browse your hierarchy at only
 one level, skipping over and summarizing the (possibly millions of) keys nested at

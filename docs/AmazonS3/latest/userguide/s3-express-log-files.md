@@ -6,12 +6,9 @@ CloudTrail data events and management events for directory buckets.
 
 ###### Topics
 
-- [CloudTrail data event log file examples for
-  directory buckets](#example-ct-log-s3express "#example-ct-log-s3express")
+- [CloudTrail data event log file examples for directory buckets](#example-ct-log-s3express "#example-ct-log-s3express")
 
-## CloudTrail data event log file examples for
-
-directory buckets
+## CloudTrail data event log file examples for directory buckets
 
 The following example shows a CloudTrail log file example that demonstrates [CreateSession](../API/API_CreateSession.md "../API/API_CreateSession.md").
 

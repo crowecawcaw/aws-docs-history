@@ -11,8 +11,7 @@ bucket. If an object with the same key that is specified in the presigned URL al
 bucket, Amazon S3 replaces the existing object with the uploaded object. After upload, the bucket
 owner will own the object.
 
-For general information about presigned URLs, see [Download and upload objects with presigned
-URLs](using-presigned-url.md "using-presigned-url.md").
+For general information about presigned URLs, see [Download and upload objects with presigned URLs](using-presigned-url.md "using-presigned-url.md").
 
 You can create a presigned URL for uploading an object without writing any code by using AWS
 Explorer for Visual Studio. You can also generate a presigned URL programmatically by using the

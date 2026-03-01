@@ -1,15 +1,11 @@
-# Security best practices for
-
-directory buckets
+# Security best practices for directory buckets
 
 There are a number of security features to consider when working with directory buckets.
 The following best practices are general guidelines and don't represent a complete security solution. Because these best practices might not be
 appropriate or sufficient for your environment, treat them as helpful recommendations rather
 than prescriptions.
 
-## Default Block Public
-
-Access and Object Ownership settings
+## Default Block Public Access and Object Ownership settings
 
 Directory buckets support S3 Block Public Access and S3 Object Ownership. These S3 features are
 used to audit and manage access to your buckets and objects.
@@ -17,20 +13,15 @@ used to audit and manage access to your buckets and objects.
 By default, all Block Public Access settings for directory buckets are enabled. In
 addition, Object Ownership is set to bucket owner enforced, which means that access
 control lists (ACLs) are disabled. These settings can't be modified. For more
-information about these features, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md") and [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+information about these features, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md") and [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 ###### Note
 
 You can't grant access to objects stored in directory buckets. You can grant
 access only to your directory buckets. The authorization model for S3 Express One Zone is
-different than the authorization model for Amazon S3. For more information, see [Authorizing Zonal endpoint API operations with
-CreateSession](s3-express-create-session.md "s3-express-create-session.md").
+different than the authorization model for Amazon S3. For more information, see [Authorizing Zonal endpoint API operations with CreateSession](s3-express-create-session.md "s3-express-create-session.md").
 
-## Authentication and
-
-authorization
+## Authentication and authorization
 
 The authentication and authorization mechanisms for directory buckets differ, depending on
 whether you are making requests to Zonal endpoint API operations or Regional endpoint
@@ -44,8 +35,7 @@ lowest latency. With session-based authentication, the AWS SDKs use the
 that provide low-latency access to your directory bucket. These temporary credentials
 are scoped to a specific directory bucket and expire after 5 minutes. You can use these
 temporary credentials to sign Zonal (object level) API calls. For more information, see
-[Authorizing Zonal endpoint API operations with
-CreateSession](s3-express-create-session.md "s3-express-create-session.md").
+[Authorizing Zonal endpoint API operations with CreateSession](s3-express-create-session.md "s3-express-create-session.md").
 
 ###### Signing requests with credentials for directory bucket management
 
@@ -127,9 +117,7 @@ directory buckets in your AWS account. The following Zonal endpoint API operatio
 
 For more information on using AWS CloudTrail with directory buckets , see [Logging with AWS CloudTrail for directory buckets](s3-express-one-zone-cloudtrail-logging.md "s3-express-one-zone-cloudtrail-logging.md").
 
-### Implement monitoring
-
-by using AWS monitoring tools
+### Implement monitoring by using AWS monitoring tools
 
 Monitoring is an important part of maintaining the reliability, security,
 availability, and performance of Amazon S3 and your AWS solutions. AWS provides

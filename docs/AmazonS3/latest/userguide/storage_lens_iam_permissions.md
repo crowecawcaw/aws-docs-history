@@ -28,16 +28,11 @@ configuration, unless both of the following conditions are true:
 
 ###### Topics
 
-- [Setting account permissions to use
-  S3 Storage Lens](#storage_lens_iam_permissions_account "#storage_lens_iam_permissions_account")
-- [Setting account permissions to use
-  S3 Storage Lens groups](#storage_lens_groups_permissions "#storage_lens_groups_permissions")
-- [Setting permissions to use
-  S3 Storage Lens with AWS Organizations](#storage_lens_iam_permissions_organizations "#storage_lens_iam_permissions_organizations")
+- [Setting account permissions to use S3 Storage Lens](#storage_lens_iam_permissions_account "#storage_lens_iam_permissions_account")
+- [Setting account permissions to use S3 Storage Lens groups](#storage_lens_groups_permissions "#storage_lens_groups_permissions")
+- [Setting permissions to use S3 Storage Lens with AWS Organizations](#storage_lens_iam_permissions_organizations "#storage_lens_iam_permissions_organizations")
 
-## Setting account permissions to use
-
-S3 Storage Lens
+## Setting account permissions to use S3 Storage Lens
 
 To create and manage S3 Storage Lens dashboards and Storage Lens dashboard configurations, you
 must have the following permissions, depending on which actions you want to perform:
@@ -70,9 +65,7 @@ The following table shows Amazon S3 Storage Lens related IAM permissions.
   delegated administrator accounts can use IAM policies to manage access permissions
   for organization-level dashboard and configurations.
 
-## Setting account permissions to use
-
-S3 Storage Lens groups
+## Setting account permissions to use S3 Storage Lens groups
 
 You can use S3 Storage Lens groups to understand the distribution of your storage within
 buckets based on prefix, suffix, object tag, object size, or object age. You can attach
@@ -81,9 +74,7 @@ Storage Lens groups to your dashboards to view their aggregated metrics.
 To work with Storage Lens groups, you need certain permissions. For more information,
 see [Storage Lens groups permissions](storage-lens-groups.md#storage-lens-group-permissions "storage-lens-groups.md#storage-lens-group-permissions").
 
-## Setting permissions to use
-
-S3 Storage Lens with AWS Organizations
+## Setting permissions to use S3 Storage Lens with AWS Organizations
 
 You can use Amazon S3 Storage Lens to collect storage metrics and usage data for all accounts that
 are part of your AWS Organizations hierarchy. The following table shows the actions and permissions related

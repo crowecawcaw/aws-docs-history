@@ -13,10 +13,8 @@ S3 Vectors operations, see .
 - [When to use this integration](#s3-vectors-bedrock-kb-when "#s3-vectors-bedrock-kb-when")
 - [Supported embedding models](#s3-vectors-bedrock-kb-models "#s3-vectors-bedrock-kb-models")
 - [Prerequisites and permissions](#s3-vectors-bedrock-kb-prereq "#s3-vectors-bedrock-kb-prereq")
-- [Creating a knowledge base with S3
-  Vectors](#s3-vectors-bedrock-kb-create "#s3-vectors-bedrock-kb-create")
-- [Managing and querying your knowledge
-  base](#s3-vectors-bedrock-kb-manage "#s3-vectors-bedrock-kb-manage")
+- [Creating a knowledge base with S3 Vectors](#s3-vectors-bedrock-kb-create "#s3-vectors-bedrock-kb-create")
+- [Managing and querying your knowledge base](#s3-vectors-bedrock-kb-manage "#s3-vectors-bedrock-kb-manage")
 - [Limitations](#s3-vectors-bedrock-kb-limits "#s3-vectors-bedrock-kb-limits")
 
 ## Integration overview
@@ -68,8 +66,7 @@ Refer to [supported models for vector embeddings](../../../bedrock/latest/usergu
 Before creating a knowledge base with S3 Vectors, ensure you have the following:
 
 - Appropriate IAM permissions for both S3 Vectors and Amazon Bedrock services. For more
-  information about IAM permissions for S3 Vectors, see [Identity and Access management in
-  S3 Vectors](s3-vectors-access-management.md "s3-vectors-access-management.md"). For more information about IAM permissions for
+  information about IAM permissions for S3 Vectors, see [Identity and Access management in S3 Vectors](s3-vectors-access-management.md "s3-vectors-access-management.md"). For more information about IAM permissions for
   your Amazon Bedrock Knowledge Bases service role to access S3 Vectors, see [Permissions
   to access your vector store in Amazon S3 Vectors](../../../bedrock/latest/userguide/kb-permissions.md#kb-permissions-s3vectors "../../../bedrock/latest/userguide/kb-permissions.md#kb-permissions-s3vectors") in the _Amazon Bedrock User
   Guide_.
@@ -85,15 +82,11 @@ For detailed information about required permissions and IAM roles, see [Create a
 role for Amazon Bedrock Knowledge Bases](../../../bedrock/latest/userguide/kb-permissions.md "../../../bedrock/latest/userguide/kb-permissions.md") in the _Amazon Bedrock User Guide_.
 The service role must also have permissions for S3 Vectors and AWS KMS API operations.
 
-## Creating a knowledge base with S3
-
-Vectors
+## Creating a knowledge base with S3 Vectors
 
 You can create a knowledge base that uses S3 Vectors through two methods.
 
-### Method one: Using the Amazon Bedrock
-
-console
+### Method one: Using the Amazon Bedrock console
 
 When creating a knowledge base in the Amazon Bedrock console, you can choose "S3 vector bucket" as
 your vector store option. You have two setup options:
@@ -116,9 +109,7 @@ For detailed step-by-step instructions, see [Create a knowledge base by
 connecting to a data source in Amazon Bedrock Knowledge Bases](../../../bedrock/latest/userguide/knowledge-base-create.md "../../../bedrock/latest/userguide/knowledge-base-create.md") in the
 _Amazon Bedrock User Guide_.
 
-### Method two: Using Amazon SageMaker
-
-Unified Studio
+### Method two: Using Amazon SageMaker Unified Studio
 
 You can also create and manage knowledge bases with S3 Vectors through Amazon Bedrock in [Amazon SageMaker AI Unified Studio](https://aws.amazon.com/sagemaker/unified-studio/ "https://aws.amazon.com/sagemaker/unified-studio/").
 This provides a unified development environment for building and testing AI applications
@@ -134,13 +125,9 @@ For information about using S3 Vectors with Amazon Bedrock in SageMaker AI Unifi
 a data source to your Amazon Bedrock app](../../../sagemaker-unified-studio/latest/userguide/data-sources.md "../../../sagemaker-unified-studio/latest/userguide/data-sources.md") in the _SageMaker AI Unified Studio User
 Guide_.
 
-## Managing and querying your knowledge
+## Managing and querying your knowledge base
 
-base
-
-### Data synchronization and
-
-management
+### Data synchronization and management
 
 Amazon Bedrock Knowledge Bases offers ingestion job operations to keep your data source and vector
 embeddings synchronized. When you sync your data source, Amazon Bedrock scans each document and

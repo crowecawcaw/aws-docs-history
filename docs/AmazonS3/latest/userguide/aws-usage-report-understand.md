@@ -1,6 +1,4 @@
-# Understanding your AWS billing and usage
-
-reports for Amazon S3
+# Understanding your AWS billing and usage reports for Amazon S3
 
 When you use Amazon S3, we include related codes in your AWS billing and usage reports. Reviewing these
 codes helps you understand your Amazon S3 costs and usage patterns. Tracking and managing your expenses is
@@ -216,8 +214,7 @@ depending on the service and the report, terabytes (TB) might appear instead.
    An additional per GB charge is applied for `PUT` requests and
    `GET` requests for the portion of request greater than 512
    KB.
-9. For information about supported features for S3 Express One Zone storage class, see [Amazon S3 features not supported by
-   directory buckets](s3-express-differences.md#s3-express-differences-unsupported-features "s3-express-differences.md#s3-express-differences-unsupported-features") .
+9. For information about supported features for S3 Express One Zone storage class, see [Amazon S3 features not supported by directory buckets](s3-express-differences.md#s3-express-differences-unsupported-features "s3-express-differences.md#s3-express-differences-unsupported-features").
 10. Usage types with units that are billed in GB are calculated in bytes in the
     usage reports.
 11. A GB-Month is derived by taking the total number of GB-hours, aggregating
@@ -235,9 +232,7 @@ For more information on S3 error codes under HTTP `3XX` and `4XX` status codes t
 
 For more information about billing charges if your bucket is configured as a Requester Pays bucket, see [How Requester Pays charges work](RequesterPaysBuckets.md#ChargeDetails "RequesterPaysBuckets.md#ChargeDetails").
 
-## Tracking Operations in Your
-
-Usage Reports
+## Tracking Operations in Your Usage Reports
 
 Operations describe the action taken on your AWS object or bucket by the
 specified usage type. Operations are indicated by self-explanatory codes, such as

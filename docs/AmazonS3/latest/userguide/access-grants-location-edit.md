@@ -10,9 +10,7 @@ location](access-grants-location.md "access-grants-location.md").
 You can update a location in your S3 Access Grants instance by using the Amazon S3 console, the AWS Command Line Interface
 (AWS CLI), the Amazon S3 REST API, and the AWS SDKs.
 
-###### To update the IAM role of a location registered with your S3 Access Grants
-
-instance
+###### To update the IAM role of a location registered with your S3 Access Grants instance
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").

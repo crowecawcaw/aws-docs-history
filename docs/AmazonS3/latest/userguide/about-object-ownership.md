@@ -1,6 +1,4 @@
-# Controlling ownership of objects and disabling ACLs
-
-for your bucket
+# Controlling ownership of objects and disabling ACLs for your bucket
 
 S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to control ownership
 of objects uploaded to your bucket and to disable or enable [access control lists (ACLs)](acl-overview.md "acl-overview.md"). By default, Object Ownership is set to the Bucket
@@ -121,8 +119,7 @@ aws s3api put-object --bucket `amzn-s3-demo-bucket` --key `key-name` --body `pat
 
 If other AWS accounts need access to objects after uploading, you must grant
 additional permissions to those accounts through bucket policies. For more
-information, see [Walkthroughs that use policies to
-manage access to your Amazon S3 resources](example-walkthroughs-managing-access.md "example-walkthroughs-managing-access.md").
+information, see [Walkthroughs that use policies to manage access to your Amazon S3 resources](example-walkthroughs-managing-access.md "example-walkthroughs-managing-access.md").
 
 ###### Re-enabling ACLs
 
@@ -146,19 +143,14 @@ writer, even if you re-enable ACLs.
 For instructions on enabling and managing ACLs using the AWS Management Console, AWS Command Line Interface (CLI),
 REST API, or AWS SDKs, see [Configuring ACLs](managing-acls.md "managing-acls.md").
 
-## Prerequisites for disabling
-
-ACLs
+## Prerequisites for disabling ACLs
 
 Before you disable ACLs for an existing bucket, complete the following
 prerequisites.
 
-- [Review bucket and object ACLs and
-  migrate ACL permissions](object-ownership-migrating-acls-prerequisites.md#object-ownership-acl-permissions "object-ownership-migrating-acls-prerequisites.md#object-ownership-acl-permissions")
-- [Identify requests that required an
-  ACL for authorization](object-ownership-migrating-acls-prerequisites.md#object-ownership-acl-identify "object-ownership-migrating-acls-prerequisites.md#object-ownership-acl-identify")
-- [Review and update bucket policies
-  that use ACL-related condition keys](object-ownership-migrating-acls-prerequisites.md#object-ownership-bucket-policies "object-ownership-migrating-acls-prerequisites.md#object-ownership-bucket-policies")
+- [Review bucket and object ACLs and migrate ACL permissions](object-ownership-migrating-acls-prerequisites.md#object-ownership-acl-permissions "object-ownership-migrating-acls-prerequisites.md#object-ownership-acl-permissions")
+- [Identify requests that required an ACL for authorization](object-ownership-migrating-acls-prerequisites.md#object-ownership-acl-identify "object-ownership-migrating-acls-prerequisites.md#object-ownership-acl-identify")
+- [Review and update bucket policies that use ACL-related condition keys](object-ownership-migrating-acls-prerequisites.md#object-ownership-bucket-policies "object-ownership-migrating-acls-prerequisites.md#object-ownership-bucket-policies")
 
 ## Object Ownership permissions
 
@@ -166,13 +158,9 @@ To apply, update, or delete an Object Ownership setting for a bucket, you need t
 `s3:PutBucketOwnershipControls` permission. To return the
 Object Ownership setting for a bucket, you need the
 `s3:GetBucketOwnershipControls` permission. For more information, see
-[Setting Object Ownership when you create
-a bucket](object-ownership-new-bucket.md "object-ownership-new-bucket.md") and [Viewing the Object Ownership setting for
-an S3 bucket](object-ownership-retrieving.md "object-ownership-retrieving.md").
+[Setting Object Ownership when you create a bucket](object-ownership-new-bucket.md "object-ownership-new-bucket.md") and [Viewing the Object Ownership setting for an S3 bucket](object-ownership-retrieving.md "object-ownership-retrieving.md").
 
-## Disabling ACLs for all new
-
-buckets
+## Disabling ACLs for all new buckets
 
 By default, all new buckets are created with the Bucket owner enforced setting applied and
 ACLs are disabled. We recommend keeping ACLs disabled. As a general rule, we recommend
@@ -210,14 +198,9 @@ the following topics.
 
 ###### Topics
 
-- [Prerequisites for
-  disabling ACLs](object-ownership-migrating-acls-prerequisites.md "object-ownership-migrating-acls-prerequisites.md")
-- [Setting Object Ownership when you create
-  a bucket](object-ownership-new-bucket.md "object-ownership-new-bucket.md")
-- [Setting Object Ownership on an
-  existing bucket](object-ownership-existing-bucket.md "object-ownership-existing-bucket.md")
-- [Viewing the Object Ownership setting for
-  an S3 bucket](object-ownership-retrieving.md "object-ownership-retrieving.md")
-- [Disabling ACLs for all new buckets and
-  enforcing Object Ownership](ensure-object-ownership.md "ensure-object-ownership.md")
+- [Prerequisites for disabling ACLs](object-ownership-migrating-acls-prerequisites.md "object-ownership-migrating-acls-prerequisites.md")
+- [Setting Object Ownership when you create a bucket](object-ownership-new-bucket.md "object-ownership-new-bucket.md")
+- [Setting Object Ownership on an existing bucket](object-ownership-existing-bucket.md "object-ownership-existing-bucket.md")
+- [Viewing the Object Ownership setting for an S3 bucket](object-ownership-retrieving.md "object-ownership-retrieving.md")
+- [Disabling ACLs for all new buckets and enforcing Object Ownership](ensure-object-ownership.md "ensure-object-ownership.md")
 - [Troubleshooting](object-ownership-error-responses.md "object-ownership-error-responses.md")

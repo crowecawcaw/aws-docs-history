@@ -60,9 +60,7 @@ large objects to reduce overhead costs.
   S3 Glacier Deep Archive there are per-request data retrieval charges. These charges vary based on the retrieval tier you choose when you initiate a restore. For pricing information, see [Amazon S3
   pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-## Restoring archived
-
-objects
+## Restoring archived objects
 
 Archived objects aren't accessible in real time. You must first initiate a
 restore request and then wait until a temporary copy of the object is available

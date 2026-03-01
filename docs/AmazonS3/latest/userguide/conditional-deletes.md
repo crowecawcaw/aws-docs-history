@@ -25,8 +25,7 @@ You can use the `HTTP If-Match` header with the `ETag` value to check if an obje
 If the `ETag` value of an object in an S3 bucket doesn’t match with the `ETag` that you provide during
 the delete operation, the operation fails. For conditionally deleting multiple objects using the `DeleteObjects` operation,
 you must provide the `ETag` value in the `ETag` element of the object in the XML request body.
-For more information, see [Using Content-MD5 and the ETag
-to verify uploaded objects](checking-object-integrity-upload.md#checking-object-integrity-etag-and-md5 "checking-object-integrity-upload.md#checking-object-integrity-etag-and-md5").
+For more information, see [Using Content-MD5 and the ETag to verify uploaded objects](checking-object-integrity-upload.md#checking-object-integrity-etag-and-md5 "checking-object-integrity-upload.md#checking-object-integrity-etag-and-md5").
 
 ###### Note
 

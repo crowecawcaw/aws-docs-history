@@ -39,9 +39,7 @@ Name (ARN). All operations made directly against the bucket will continue to wor
 before. Restrictions that you include in a Multi-Region Access Point policy apply only to requests made
 through that Multi-Region Access Point.
 
-## Managing public access to a
-
-Multi-Region Access Point
+## Managing public access to a Multi-Region Access Point
 
 Multi-Region Access Points support independent Block Public Access settings for each Multi-Region Access Point. When you
 create a Multi-Region Access Point, you can specify the Block Public Access settings that apply to that
@@ -64,8 +62,7 @@ settings for:
   accounts)
 
 If any of these settings indicate that the request should be blocked, Amazon S3 rejects the
-request. For more information about the Amazon S3 Block Public Access feature, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+request. For more information about the Amazon S3 Block Public Access feature, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").
 
 ###### Important
 
@@ -75,9 +72,7 @@ explicitly turn off any settings that you don't want to apply to a Multi-Region 
 You can't change the Block Public Access settings for a Multi-Region Access Point after it has been
 created.
 
-## Viewing Block Public Access settings for a
-
-Multi-Region Access Point
+## Viewing Block Public Access settings for a Multi-Region Access Point
 
 ###### To view the Block Public Access settings for a Multi-Region Access Point
 
@@ -220,9 +215,7 @@ Amazon Resource Name (ARN). All operations made directly against the bucket will
 continue to work as before. Restrictions that you include in a Multi-Region Access Point policy apply
 only to requests made through that Multi-Region Access Point.
 
-###### Example 1 – Delegating access to specific Multi-Region Access Points in your bucket policy (for the
-
-same account or cross-account)
+###### Example 1 – Delegating access to specific Multi-Region Access Points in your bucket policy (for the same account or cross-account)
 
 The following example bucket policy grants full bucket access to a specific
 Multi-Region Access Point. This means that all access to this bucket is controlled by the policies that

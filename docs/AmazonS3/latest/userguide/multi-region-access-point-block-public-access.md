@@ -1,6 +1,4 @@
-# Blocking public access
-
-with Amazon S3 Multi-Region Access Points
+# Blocking public access with Amazon S3 Multi-Region Access Points
 
 Each Multi-Region Access Point has distinct settings for Amazon S3 Block Public Access. These settings operate
 in conjunction with the Block Public Access settings for the AWS account that owns the
@@ -21,5 +19,4 @@ internet-based requests.
 You can't change the Block Public Access settings for a Multi-Region Access Point after it has been
 created.
 
-For more information about Amazon S3 Block Public Access, see [Blocking public access to your Amazon S3
-storage](access-control-block-public-access.md "access-control-block-public-access.md").
+For more information about Amazon S3 Block Public Access, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md").

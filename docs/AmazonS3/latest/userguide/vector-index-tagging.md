@@ -10,9 +10,7 @@ There is no additional charge for using tags on vector indexes beyond the standa
 request rates. For more information, see [Amazon S3
 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
 
-## Common ways to use tags with vector
-
-indexes
+## Common ways to use tags with vector indexes
 
 Use tags on your S3 vector indexes for:
 
@@ -66,15 +64,11 @@ create a policy that includes both the `s3vectors:TagResource` and
 `aws:TagKeys` condition key to enforce using specific tags in the
 `CreateVectorBucket` request.
 
-### Example ABAC policies for vector
-
-indexes
+### Example ABAC policies for vector indexes
 
 See the following example ABAC policies for Amazon S3 vector indexes.
 
-#### 1.1 - IAM policy to create or
-
-modify vector indexes with specific tags
+#### 1.1 - IAM policy to create or modify vector indexes with specific tags
 
 In this IAM policy, users or roles with this policy can only create S3 vector indexes
 if they tag the vector index with the tag key `project` and tag value
@@ -107,9 +101,7 @@ read, write, or delete permissions on the vector indexes or its objects.
 }
 ```
 
-#### 1.2 - IAM policy to modify tags on
-
-existing resources maintaining tagging governance
+#### 1.2 - IAM policy to modify tags on existing resources maintaining tagging governance
 
 In this IAM policy, IAM principals (users or roles) can modify tags on a vector index
 only if the value of the vector index's `project` tag matches the value of the

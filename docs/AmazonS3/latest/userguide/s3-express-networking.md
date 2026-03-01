@@ -14,8 +14,7 @@ using a gateway VPC endpoint.
 ###### Topics
 
 - [Endpoints](#s3-express-endpoints "#s3-express-endpoints")
-- [Configuring VPC gateway
-  endpoints](#s3-express-networking-vpc-gateway-directory "#s3-express-networking-vpc-gateway-directory")
+- [Configuring VPC gateway endpoints](#s3-express-networking-vpc-gateway-directory "#s3-express-networking-vpc-gateway-directory")
 
 ## Endpoints
 
@@ -40,12 +39,8 @@ For more information about the endpoints and the locations that support director
 
 For more information about the endpoints and the locations that support directory buckets in Local Zones, see [Enable accounts for Local Zones](opt-in-directory-bucket-lz.md "opt-in-directory-bucket-lz.md").
 
-## Configuring VPC gateway
+## Configuring VPC gateway endpoints
 
-endpoints
+To configure gateway VPC endpoints for access directory buckets in Availability Zones, see [Configuring VPC gateway endpoints](directory-bucket-az-networking.md#s3-express-networking-vpc-gateway "directory-bucket-az-networking.md#s3-express-networking-vpc-gateway").
 
-To configure gateway VPC endpoints for access directory buckets in Availability Zones, see [Configuring VPC gateway
-endpoints](directory-bucket-az-networking.md#s3-express-networking-vpc-gateway "directory-bucket-az-networking.md#s3-express-networking-vpc-gateway").
-
-To configure gateway VPC endpoints for access directory buckets in Local Zones, see [Private connectivity from your
-VPC](connectivity-lz-directory-buckets.md "connectivity-lz-directory-buckets.md").
+To configure gateway VPC endpoints for access directory buckets in Local Zones, see [Private connectivity from your VPC](connectivity-lz-directory-buckets.md "connectivity-lz-directory-buckets.md").

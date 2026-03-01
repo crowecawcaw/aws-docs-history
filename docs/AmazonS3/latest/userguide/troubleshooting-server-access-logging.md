@@ -1,6 +1,4 @@
-# Troubleshoot server access
-
-logging
+# Troubleshoot server access logging
 
 The following topics can help you troubleshoot issues that you might encounter when
 setting up logging with Amazon S3.
@@ -160,5 +158,4 @@ owner enforced setting for Object Ownership, be aware of the following:
 To check for log delivery failures, enable request metrics in Amazon CloudWatch. If the
 logs are not delivered within a few hours, look for the `4xxErrors`
 metric, which can indicate log delivery failures. For more information about
-enabling request metrics, see [Creating a CloudWatch metrics
-configuration for all the objects in your bucket](configure-request-metrics-bucket.md "configure-request-metrics-bucket.md").
+enabling request metrics, see [Creating a CloudWatch metrics configuration for all the objects in your bucket](configure-request-metrics-bucket.md "configure-request-metrics-bucket.md").

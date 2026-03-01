@@ -15,49 +15,31 @@ Remember when using these examples:
 ###### Contents
 
 - [Journal table example queries](metadata-tables-example-queries.md#metadata-tables-example-queries-journal-tables "metadata-tables-example-queries.md#metadata-tables-example-queries-journal-tables")
-  - [Finding objects by file
-    extension](metadata-tables-example-queries.md#metadata-tables-example-query-object-pattern "metadata-tables-example-queries.md#metadata-tables-example-query-object-pattern")
+  - [Finding objects by file extension](metadata-tables-example-queries.md#metadata-tables-example-query-object-pattern "metadata-tables-example-queries.md#metadata-tables-example-query-object-pattern")
   - [Listing object deletions](metadata-tables-example-queries.md#metadata-tables-example-query-delete-events "metadata-tables-example-queries.md#metadata-tables-example-query-delete-events")
-  - [Listing AWS KMS encryption keys
-    used by your objects](metadata-tables-example-queries.md#metadata-tables-example-query-objects-using-kms-key "metadata-tables-example-queries.md#metadata-tables-example-query-objects-using-kms-key")
-  - [Listing objects that don't
-    use KMS keys](metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-using-kms-key "metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-using-kms-key")
-  - [Listing AWS KMS encryption
-    keys used for PUT operations in the last 7 days](metadata-tables-example-queries.md#metadata-tables-example-query-objects-using-kms-key-puts "metadata-tables-example-queries.md#metadata-tables-example-query-objects-using-kms-key-puts")
-  - [Listing objects deleted in
-    the last 24 hours by S3 Lifecycle](metadata-tables-example-queries.md#metadata-tables-example-query-objects-deleted-lifecycle "metadata-tables-example-queries.md#metadata-tables-example-query-objects-deleted-lifecycle")
-  - [Viewing metadata provided by
-    Amazon Bedrock](metadata-tables-example-queries.md#metadata-tables-example-query-bedrock "metadata-tables-example-queries.md#metadata-tables-example-query-bedrock")
-  - [Understanding the current state of
-    your objects](metadata-tables-example-queries.md#metadata-tables-example-query-current-state "metadata-tables-example-queries.md#metadata-tables-example-query-current-state")
+  - [Listing AWS KMS encryption keys used by your objects](metadata-tables-example-queries.md#metadata-tables-example-query-objects-using-kms-key "metadata-tables-example-queries.md#metadata-tables-example-query-objects-using-kms-key")
+  - [Listing objects that don't use KMS keys](metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-using-kms-key "metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-using-kms-key")
+  - [Listing AWS KMS encryption keys used for PUT operations in the last 7 days](metadata-tables-example-queries.md#metadata-tables-example-query-objects-using-kms-key-puts "metadata-tables-example-queries.md#metadata-tables-example-query-objects-using-kms-key-puts")
+  - [Listing objects deleted in the last 24 hours by S3 Lifecycle](metadata-tables-example-queries.md#metadata-tables-example-query-objects-deleted-lifecycle "metadata-tables-example-queries.md#metadata-tables-example-query-objects-deleted-lifecycle")
+  - [Viewing metadata provided by Amazon Bedrock](metadata-tables-example-queries.md#metadata-tables-example-query-bedrock "metadata-tables-example-queries.md#metadata-tables-example-query-bedrock")
+  - [Understanding the current state of your objects](metadata-tables-example-queries.md#metadata-tables-example-query-current-state "metadata-tables-example-queries.md#metadata-tables-example-query-current-state")
 
-- [Inventory table example
-  queries](metadata-tables-example-queries.md#metadata-tables-example-queries-inventory-tables "metadata-tables-example-queries.md#metadata-tables-example-queries-inventory-tables")
-  - [Discovering datasets that use
-    specific tags](metadata-tables-example-queries.md#metadata-tables-example-query-datasets-specific-tags "metadata-tables-example-queries.md#metadata-tables-example-query-datasets-specific-tags")
-  - [Listing objects not
-    encrypted with SSE-KMS](metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-kms-encrypted "metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-kms-encrypted")
-  - [Listing objects that aren't
-    encrypted](metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-encrypted "metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-encrypted")
-  - [Listing objects generated
-    by Amazon Bedrock](metadata-tables-example-queries.md#metadata-tables-example-query-objects-generated-bedrock "metadata-tables-example-queries.md#metadata-tables-example-query-objects-generated-bedrock")
-  - [Reconciling the inventory
-    table with the journal table](metadata-tables-example-queries.md#metadata-tables-example-query-generate-latest-inventory "metadata-tables-example-queries.md#metadata-tables-example-query-generate-latest-inventory")
-  - [Finding the current versions of your
-    objects](metadata-tables-example-queries.md#metadata-tables-example-query-latest-version "metadata-tables-example-queries.md#metadata-tables-example-query-latest-version")
+- [Inventory table example queries](metadata-tables-example-queries.md#metadata-tables-example-queries-inventory-tables "metadata-tables-example-queries.md#metadata-tables-example-queries-inventory-tables")
+  - [Discovering datasets that use specific tags](metadata-tables-example-queries.md#metadata-tables-example-query-datasets-specific-tags "metadata-tables-example-queries.md#metadata-tables-example-query-datasets-specific-tags")
+  - [Listing objects not encrypted with SSE-KMS](metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-kms-encrypted "metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-kms-encrypted")
+  - [Listing objects that aren't encrypted](metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-encrypted "metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-encrypted")
+  - [Listing objects generated by Amazon Bedrock](metadata-tables-example-queries.md#metadata-tables-example-query-objects-generated-bedrock "metadata-tables-example-queries.md#metadata-tables-example-query-objects-generated-bedrock")
+  - [Reconciling the inventory table with the journal table](metadata-tables-example-queries.md#metadata-tables-example-query-generate-latest-inventory "metadata-tables-example-queries.md#metadata-tables-example-query-generate-latest-inventory")
+  - [Finding the current versions of your objects](metadata-tables-example-queries.md#metadata-tables-example-query-latest-version "metadata-tables-example-queries.md#metadata-tables-example-query-latest-version")
 
-- [Joining custom metadata with S3 metadata
-  tables](metadata-tables-join-custom-metadata.md "metadata-tables-join-custom-metadata.md")
-- [Visualizing metadata table data with
-  Amazon Quick Suite](metadata-tables-quicksight-dashboards.md "metadata-tables-quicksight-dashboards.md")
+- [Joining custom metadata with S3 metadata tables](metadata-tables-join-custom-metadata.md "metadata-tables-join-custom-metadata.md")
+- [Visualizing metadata table data with Amazon Quick](metadata-tables-quicksight-dashboards.md "metadata-tables-quicksight-dashboards.md")
 
 ## Journal table example queries
 
 You can use the following example queries to query your journal tables.
 
-### Finding objects by file
-
-extension
+### Finding objects by file extension
 
 The following query returns objects with a specific file extension (`.jpg` in this
 case):
@@ -79,9 +61,7 @@ FROM "s3tablescatalog/aws-s3"."`b_`general-purpose-bucket-name``"."journal"
 WHERE record_type = 'DELETE';
 ```
 
-### Listing AWS KMS encryption keys
-
-used by your objects
+### Listing AWS KMS encryption keys used by your objects
 
 The following query returns the ARNs of the AWS Key Management Service (AWS KMS) keys encrypting your
 objects:
@@ -91,9 +71,7 @@ SELECT DISTINCT kms_key_arn
 FROM "s3tablescatalog/aws-s3"."`b_`general-purpose-bucket-name``"."journal";
 ```
 
-### Listing objects that don't
-
-use KMS keys
+### Listing objects that don't use KMS keys
 
 The following query returns objects that aren't encrypted with AWS KMS keys:
 
@@ -104,9 +82,7 @@ WHERE encryption_status NOT IN ('SSE-KMS', 'DSSE-KMS')
 AND record_type = 'CREATE';
 ```
 
-### Listing AWS KMS encryption
-
-keys used for `PUT` operations in the last 7 days
+### Listing AWS KMS encryption keys used for `PUT` operations in the last 7 days
 
 The following query returns the ARNs of the AWS Key Management Service (AWS KMS) keys encrypting your
 objects:
@@ -118,9 +94,7 @@ WHERE record_timestamp > (current_date - interval '7' day)
 AND kms_key_arn is NOT NULL;
 ```
 
-### Listing objects deleted in
-
-the last 24 hours by S3 Lifecycle
+### Listing objects deleted in the last 24 hours by S3 Lifecycle
 
 The following query returns lists the objects expired in the last day by S3 Lifecycle:
 
@@ -132,9 +106,7 @@ AND record_type = 'DELETE'
 AND record_timestamp > (current_date - interval '1' day)
 ```
 
-### Viewing metadata provided by
-
-Amazon Bedrock
+### Viewing metadata provided by Amazon Bedrock
 
 Some AWS services (such as [Amazon Bedrock](../../../bedrock/latest/APIReference/welcome.md "../../../bedrock/latest/APIReference/welcome.md")), upload objects to Amazon S3. You can
 query the object metadata provided by these services. For example, the following query includes the
@@ -156,9 +128,7 @@ user_metadata
 {content-additional-params -> requestid="CVK8FWYRW0M9JW65", signedContentSHA384="38b060a751ac96384cd9327eb1b1e36a21fdb71114be07434c0cc7bf63f6e1da274edebfe76f65fbd51ad2f14898b95b", content-model-id -> bedrock-model-arn, content-source -> AmazonBedrock}
 ```
 
-### Understanding the current state of
-
-your objects
+### Understanding the current state of your objects
 
 The following query can help you determine the current state of your objects. The query
 identifies the most recent version of each object, filters out deleted objects, and marks the latest
@@ -211,15 +181,11 @@ SELECT * from with_is_latest
 ORDER BY bucket, key, sequence_number;
 ```
 
-## Inventory table example
-
-queries
+## Inventory table example queries
 
 You can use the following example queries to query your inventory tables.
 
-### Discovering datasets that use
-
-specific tags
+### Discovering datasets that use specific tags
 
 The following query returns the dataset that uses the specified tags:
 
@@ -230,9 +196,7 @@ WHERE object_tags['key1'] = 'value1'
 AND object_tags['key2'] = 'value2';
 ```
 
-### Listing objects not
-
-encrypted with SSE-KMS
+### Listing objects not encrypted with SSE-KMS
 
 The following query returns objects that aren't encrypted with SSE-KMS:
 
@@ -242,9 +206,7 @@ FROM "s3tablescatalog/aws-s3"."`b_`general-purpose-bucket-name``"."inventory"
 WHERE encryption_status != 'SSE-KMS';
 ```
 
-### Listing objects that aren't
-
-encrypted
+### Listing objects that aren't encrypted
 
 The following query returns objects that aren't encrypted:
 
@@ -254,9 +216,7 @@ FROM "s3tablescatalog/aws-s3"."`b_`general-purpose-bucket-name``"."inventory"
 WHERE encryption_status IS NULL;
 ```
 
-### Listing objects generated
-
-by Amazon Bedrock
+### Listing objects generated by Amazon Bedrock
 
 The following query lists objects that were generated by Amazon Bedrock:
 
@@ -266,9 +226,7 @@ FROM "s3tablescatalog/aws-s3"."`b_`general-purpose-bucket-name``"."inventory"
 WHERE user_metadata['content-source'] = 'AmazonBedrock';
 ```
 
-### Reconciling the inventory
-
-table with the journal table
+### Reconciling the inventory table with the journal table
 
 The following query generates an inventory-table-like list that's up to date with the current
 contents of the bucket. More precisely, the resulting list combines the latest snapshot of the
@@ -379,9 +337,7 @@ WHERE NOT _is_perm_delete
 ORDER BY key ASC, sequence_number DESC;
 ```
 
-### Finding the current versions of your
-
-objects
+### Finding the current versions of your objects
 
 The following query uses the inventory table to generate a new output table that shows which
 object versions are current. The output table is intentionally similar to an S3 Inventory report.
@@ -404,8 +360,7 @@ can skip these steps.
 - To query your new output table, you must set up an access method for querying it. For more
   information, see [Accessing table data](s3-tables-access.md "s3-tables-access.md"). If you want to query the output table with
   AWS analytics services such as Amazon Athena, your customer-managed table bucket must be
-  integrated with AWS analytics services. For more information, see [Amazon S3 Tables integration with AWS analytics
-  services overview](s3-tables-integration-overview.md "s3-tables-integration-overview.md").
+  integrated with AWS analytics services. For more information, see [Amazon S3 Tables integration with AWS analytics services overview](s3-tables-integration-overview.md "s3-tables-integration-overview.md").
 
 To use this query, replace `amzn-s3-demo-table-bucket`
 with the name of the existing customer-managed table bucket where you want the new output table to

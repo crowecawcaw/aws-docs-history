@@ -55,7 +55,6 @@ For more information about using the Amazon S3 Express One Zone storage class wi
 - [Compliance validation for Amazon S3](s3-compliance.md "s3-compliance.md")
 - [Resilience in Amazon S3](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon S3](network-isolation.md "network-isolation.md")
-- [Configuration and vulnerability
-  analysis in Amazon S3](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Configuration and vulnerability analysis in Amazon S3](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
 - [Access management](security-access-management.md "security-access-management.md")
 - [Amazon Simple Storage Service data inventory](s3-data-inventory.md "s3-data-inventory.md")

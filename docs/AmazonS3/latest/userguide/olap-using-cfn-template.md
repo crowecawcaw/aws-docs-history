@@ -1,6 +1,4 @@
-# Automate S3 Object Lambda setup with a CloudFormation
-
-template
+# Automate S3 Object Lambda setup with a CloudFormation template
 
 ###### Note
 
@@ -178,9 +176,7 @@ async function writeResponse (s3Client: S3, requestContext: GetObjectContext, tr
 
 For a full list of supported status codes, see [`WriteGetObjectResponse`](../API/API_WriteGetObjectResponse.md#API_WriteGetObjectResponse_RequestSyntax "../API/API_WriteGetObjectResponse.md#API_WriteGetObjectResponse_RequestSyntax") in the _Amazon Simple Storage Service API Reference_.
 
-###### Applying `Range` and `partNumber` parameters to the source
-
-object
+###### Applying `Range` and `partNumber` parameters to the source object
 
 By default, the Object Lambda Access Point created by the CloudFormation template can handle the
 `Range` and `partNumber` parameters. The Lambda function
@@ -193,8 +189,7 @@ the transformation, and returning byte range A-B on the transformed object.
 
 In such cases, you can change the Lambda function implementation to apply the range or
 part number directly to the source object. This approach reduces the overall function
-latency and memory required. For more information, see [Working with Range and
-partNumber headers](range-get-olap.md "range-get-olap.md").
+latency and memory required. For more information, see [Working with Range and partNumber headers](range-get-olap.md "range-get-olap.md").
 
 ###### Disabling `Range` and `partNumber` handling
 

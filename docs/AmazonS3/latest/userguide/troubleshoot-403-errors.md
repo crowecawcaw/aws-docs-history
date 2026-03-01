@@ -1,6 +1,4 @@
-# Troubleshoot access denied (403
-
-Forbidden) errors in Amazon S3
+# Troubleshoot access denied (403 Forbidden) errors in Amazon S3
 
 Access denied (HTTP `403 Forbidden`) errors appear when AWS explicitly or
 implicitly denies an authorization request.
@@ -27,8 +25,7 @@ AWS account or the bucket owner's AWS organization.
 
 ###### Topics
 
-- [Access denied message examples and how
-  to troubleshoot them](#access-denied-message-examples "#access-denied-message-examples")
+- [Access denied message examples and how to troubleshoot them](#access-denied-message-examples "#access-denied-message-examples")
 - [Access denied due to Requester Pays settings](#access-denied-requester-pays "#access-denied-requester-pays")
 - [Bucket policies and IAM policies](#bucket-iam-policies "#bucket-iam-policies")
 - [Amazon S3 ACL settings](#troubleshoot-403-acl-settings "#troubleshoot-403-acl-settings")
@@ -43,13 +40,10 @@ AWS account or the bucket owner's AWS organization.
 
 ###### Note
 
-If you're trying to troubleshoot a permissions issue, start with the [Access denied message examples and how
-to troubleshoot them](#access-denied-message-examples "#access-denied-message-examples") section, then go to the [Bucket policies and IAM policies](#bucket-iam-policies "#bucket-iam-policies") section. Also be sure to follow the guidance in
+If you're trying to troubleshoot a permissions issue, start with the [Access denied message examples and how to troubleshoot them](#access-denied-message-examples "#access-denied-message-examples") section, then go to the [Bucket policies and IAM policies](#bucket-iam-policies "#bucket-iam-policies") section. Also be sure to follow the guidance in
 [Tips for checking permissions](#troubleshoot-403-tips "#troubleshoot-403-tips").
 
-## Access denied message examples and how
-
-to troubleshoot them
+## Access denied message examples and how to troubleshoot them
 
 Amazon S3 now includes additional context in access denied (HTTP `403 Forbidden`) errors
 for requests made to resources within the same AWS account or same organization in AWS Organizations. This new
@@ -89,8 +83,7 @@ implicitly denies access, then the access denied error message includes the phra
 
 For information about the policy evaluation logic that determines whether
 a cross-account access request is allowed or denied, see [Cross-account policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic-cross-account.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic-cross-account.md") in the _IAM User Guide_. For a walkthrough that shows
-how to grant cross-account access, see [Example 2: Bucket owner
-granting cross-account bucket permissions](example-walkthroughs-managing-access-example2.md "example-walkthroughs-managing-access-example2.md").
+how to grant cross-account access, see [Example 2: Bucket owner granting cross-account bucket permissions](example-walkthroughs-managing-access-example2.md "example-walkthroughs-managing-access-example2.md").
 
 - For requests within the same organization in AWS Organizations:
   - Enhanced access denied messages aren't returned if a denial occurs because of a virtual
@@ -102,8 +95,7 @@ granting cross-account bucket permissions](example-walkthroughs-managing-access-
     ownership doesn't affect enhanced access denied messages. Enhanced access denied messages are
     returned for all object requests as long as the bucket owner and caller are in the same
     organization, regardless of who owns the specific object. For information about
-    Object Ownership settings and configurations, see [Controlling ownership of objects and disabling ACLs
-    for your bucket](about-object-ownership.md "about-object-ownership.md").
+    Object Ownership settings and configurations, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 
 - Enhanced access denied error messages aren't returned for requests made to
   directory buckets. Directory bucket requests return a generic `Access
@@ -149,9 +141,7 @@ Please specify a different server-side encryption type
 
 For more information about this setting, see [Blocking or unblocking SSE-C for a general purpose bucket](blocking-unblocking-s3-c-encryption-gpb.md "blocking-unblocking-s3-c-encryption-gpb.md").
 
-### Access denied due to a resource
-
-control policy – explicit denial
+### Access denied due to a resource control policy – explicit denial
 
 1. Check for a `Deny` statement for the action in your resource
    control policies (RCPs). For the following example, the action is
@@ -166,9 +156,7 @@ s3:GetObject on resource: "arn:aws:s3:::`amzn-s3-demo-bucket1`/`object-name`"
 with an explicit deny in a resource control policy
 ```
 
-### Access denied due to a Service
-
-Control Policy – implicit denial
+### Access denied due to a Service Control Policy – implicit denial
 
 1. Check for a missing `Allow` statement for the action in your
    service control policies (SCPs). For the following example, the action is
@@ -182,9 +170,7 @@ User: arn:aws:iam::`777788889999`:user/`MaryMajor` is not authorized to perform:
 s3:GetObject because no service control policy allows the s3:GetObject action
 ```
 
-### Access denied due to a Service
-
-Control Policy – explicit denial
+### Access denied due to a Service Control Policy – explicit denial
 
 1. Check for a `Deny` statement for the action in your Service
    Control Policies (SCPs). For the following example, the action is
@@ -201,9 +187,7 @@ User: arn:aws:iam::`777788889999`:user/`MaryMajor` is not authorized to perform:
 s3:GetObject with an explicit deny in a service control policy
 ```
 
-### Access denied due to
-
-a VPC endpoint policy – implicit denial
+### Access denied due to a VPC endpoint policy – implicit denial
 
 1. Check for a missing `Allow` statement for the action in your
    virtual private cloud (VPC) endpoint policies. For the following example,
@@ -217,9 +201,7 @@ User: arn:aws:iam::`123456789012`:user/`MaryMajor` is not authorized to perform:
 s3:GetObject because no VPC endpoint policy allows the s3:GetObject action
 ```
 
-### Access denied due to
-
-a VPC endpoint policy – explicit denial
+### Access denied due to a VPC endpoint policy – explicit denial
 
 1. Check for an explicit `Deny` statement for the action in your
    virtual private cloud (VPC) endpoint policies. For the following example,
@@ -229,8 +211,7 @@ a VPC endpoint policy – explicit denial
    update your `Deny` statement to use the
    `aws:PrincipalAccount` condition key with the
    `StringNotEquals` condition operator to allow the specific
-   principal access, as shown in [Example 7: Excluding certain
-   principals from a Deny statement](amazon-s3-policy-keys.md#example-exclude-principal-from-deny-statement "amazon-s3-policy-keys.md#example-exclude-principal-from-deny-statement"). For more
+   principal access, as shown in [Example 7: Excluding certain principals from a Deny statement](amazon-s3-policy-keys.md#example-exclude-principal-from-deny-statement "amazon-s3-policy-keys.md#example-exclude-principal-from-deny-statement"). For more
    information about updating your VPC endpoint policy, see [Update a VPC endpoint policy](../../../vpc/latest/privatelink/vpc-endpoints-access.md#update-vpc-endpoint-policy "../../../vpc/latest/privatelink/vpc-endpoints-access.md#update-vpc-endpoint-policy") in the
    _AWS PrivateLink Guide_.
 
@@ -240,9 +221,7 @@ s3:GetObject on resource: "arn:aws:s3:::`amzn-s3-demo-bucket1`/`object-name`" wi
 an explicit deny in a VPC endpoint policy
 ```
 
-### Access denied
-
-due to a permissions boundary – implicit denial
+### Access denied due to a permissions boundary – implicit denial
 
 1. Check for a missing `Allow` statement for the action in your
    permissions boundary. For the following example, the action is
@@ -258,9 +237,7 @@ s3:GetObject on resource: "arn:aws:s3:::`amzn-s3-demo-bucket1`/`object-name`"
 because no permissions boundary allows the s3:GetObject action
 ```
 
-### Access denied
-
-due to a permissions boundary – explicit denial
+### Access denied due to a permissions boundary – explicit denial
 
 1. Check for an explicit `Deny` statement for the action in your
    permissions boundary. For the following example, the action is
@@ -280,9 +257,7 @@ User: arn:aws:iam::`777788889999`:user/`MaryMajor` is not authorized to perform:
 s3:GetObject with an explicit deny in a permissions boundary
 ```
 
-### Access denied due
-
-to session policies – implicit denial
+### Access denied due to session policies – implicit denial
 
 1. Check for a missing `Allow` statement for the action in your
    session policies. For the following example, the action is
@@ -297,9 +272,7 @@ User: arn:aws:iam::`123456789012`:user/`MaryMajor` is not authorized to perform:
 s3:GetObject because no session policy allows the s3:GetObject action
 ```
 
-### Access denied due
-
-to session policies – explicit denial
+### Access denied due to session policies – explicit denial
 
 1. Check for an explicit `Deny` statement for the action in your
    session policies. For the following example, the action is
@@ -308,8 +281,7 @@ to session policies – explicit denial
    allow the user the necessary access. For example, you can update your
    `Deny` statement to use the `aws:PrincipalAccount`
    condition key with the `StringNotEquals` condition operator to
-   allow the specific principal access, as shown in [Example 7: Excluding certain
-   principals from a Deny statement](amazon-s3-policy-keys.md#example-exclude-principal-from-deny-statement "amazon-s3-policy-keys.md#example-exclude-principal-from-deny-statement"). For more
+   allow the specific principal access, as shown in [Example 7: Excluding certain principals from a Deny statement](amazon-s3-policy-keys.md#example-exclude-principal-from-deny-statement "amazon-s3-policy-keys.md#example-exclude-principal-from-deny-statement"). For more
    information about updating your session policy, see [Session
    policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") and [Editing
    IAM policies](../../../IAM/latest/UserGuide/access_policies_manage-edit.md "../../../IAM/latest/UserGuide/access_policies_manage-edit.md") in the _IAM User Guide_.
@@ -320,9 +292,7 @@ s3:GetObject on resource: "arn:aws:s3:::`amzn-s3-demo-bucket1`/`object-name`" wi
 an explicit deny in a session policy
 ```
 
-### Access
-
-denied due to resource-based policies – implicit denial
+### Access denied due to resource-based policies – implicit denial
 
 ###### Note
 
@@ -340,18 +310,14 @@ as bucket policies and access point policies.
 
 You might also need to adjust your `IgnorePublicAcls` block
 public access setting for the bucket, access point, or account. For more
-information, see [Access denied due to Block Public
-Access settings](#access-denied-bpa-examples "#access-denied-bpa-examples") and [Configuring block public access
-settings for your S3 buckets](configuring-block-public-access-bucket.md "configuring-block-public-access-bucket.md").
+information, see [Access denied due to Block Public Access settings](#access-denied-bpa-examples "#access-denied-bpa-examples") and [Configuring block public access settings for your S3 buckets](configuring-block-public-access-bucket.md "configuring-block-public-access-bucket.md").
 
 ```
 User: arn:aws:iam::`123456789012`:user/`MaryMajor` is not authorized to perform:
 s3:GetObject because no resource-based policy allows the s3:GetObject action
 ```
 
-### Access
-
-denied due to resource-based policies – explicit denial
+### Access denied due to resource-based policies – explicit denial
 
 ###### Note
 
@@ -367,16 +333,13 @@ as bucket policies and access point policies.
    the user the necessary access. For example, you can update your
    `Deny` statement to use the `aws:PrincipalAccount`
    condition key with the `StringNotEquals` condition operator to
-   allow the specific principal access, as shown in [Example 7: Excluding certain
-   principals from a Deny statement](amazon-s3-policy-keys.md#example-exclude-principal-from-deny-statement "amazon-s3-policy-keys.md#example-exclude-principal-from-deny-statement"). For more
+   allow the specific principal access, as shown in [Example 7: Excluding certain principals from a Deny statement](amazon-s3-policy-keys.md#example-exclude-principal-from-deny-statement "amazon-s3-policy-keys.md#example-exclude-principal-from-deny-statement"). For more
    information about updating your resource-based policy, see [Resource-based policies](../../../IAM/latest/UserGuide/access_policies.md#policies_resource-based "../../../IAM/latest/UserGuide/access_policies.md#policies_resource-based") and [Editing
    IAM policies](../../../IAM/latest/UserGuide/access_policies_manage-edit.md "../../../IAM/latest/UserGuide/access_policies_manage-edit.md") in the _IAM User Guide_.
 
 You might also need to adjust your `RestrictPublicBuckets`
 block public access setting for the bucket, access point, or account. For
-more information, see [Access denied due to Block Public
-Access settings](#access-denied-bpa-examples "#access-denied-bpa-examples") and [Configuring block public access
-settings for your S3 buckets](configuring-block-public-access-bucket.md "configuring-block-public-access-bucket.md").
+more information, see [Access denied due to Block Public Access settings](#access-denied-bpa-examples "#access-denied-bpa-examples") and [Configuring block public access settings for your S3 buckets](configuring-block-public-access-bucket.md "configuring-block-public-access-bucket.md").
 
 ```
 User: arn:aws:iam::`123456789012`:user/`MaryMajor` is not authorized to perform:
@@ -384,9 +347,7 @@ s3:GetObject on resource: "arn:aws:s3:::`amzn-s3-demo-bucket1`/`object-name`" wi
 an explicit deny in a resource-based policy
 ```
 
-### Access
-
-denied due to identity-based policies – implicit denial
+### Access denied due to identity-based policies – implicit denial
 
 1. Check for a missing `Allow` statement for the action in
    identity-based policies attached to the identity. For the following example,
@@ -401,9 +362,7 @@ User: arn:aws:iam::`123456789012`:user/`MaryMajor` is not authorized to perform:
 s3:GetObject because no identity-based policy allows the s3:GetObject action
 ```
 
-### Access
-
-denied due to identity-based policies – explicit denial
+### Access denied due to identity-based policies – explicit denial
 
 1. Check for an explicit `Deny` statement for the action in
    identity-based policies attached to the identity. For the following example,
@@ -423,14 +382,11 @@ s3:GetObject on resource: "arn:aws:s3:::`amzn-s3-demo-bucket1`/`object-name`" wi
 an explicit deny in an identity-based policy
 ```
 
-### Access denied due to Block Public
-
-Access settings
+### Access denied due to Block Public Access settings
 
 The Amazon S3 Block Public Access feature provides settings for access points, buckets,
 and accounts to help you manage public access to Amazon S3 resources. For more
-information about how Amazon S3 defines "public," see [The meaning of
-"public"](access-control-block-public-access.md#access-control-block-public-access-policy-status "access-control-block-public-access.md#access-control-block-public-access-policy-status").
+information about how Amazon S3 defines "public," see [The meaning of "public"](access-control-block-public-access.md#access-control-block-public-access-policy-status "access-control-block-public-access.md#access-control-block-public-access-policy-status").
 
 By default, new buckets, access points, and objects don't allow public access.
 However, users can modify bucket policies, access point policies, IAM user
@@ -547,8 +503,7 @@ an explicit deny in a resource-based policy
 ```
 
 For more information about these settings, see [Block public access settings](access-control-block-public-access.md#access-control-block-public-access-options "access-control-block-public-access.md#access-control-block-public-access-options"). To review and update
-these settings, see [Configuring block public
-access](access-control-block-public-access.md#configuring-block-public-access "access-control-block-public-access.md#configuring-block-public-access").
+these settings, see [Configuring block public access](access-control-block-public-access.md#configuring-block-public-access "access-control-block-public-access.md#configuring-block-public-access").
 
 ## Access denied due to Requester Pays settings
 
@@ -563,8 +518,7 @@ aws s3 cp s3://`amzn-s3-demo-bucket`/object.txt /local/path \
 --request-payer requester
 ```
 
-2. When making programmatic requests using an AWS SDK, set the `x-amz-request-payer` header to the value `requester`. For an example, see [Downloading objects from Requester Pays
-   buckets](ObjectsinRequesterPaysBuckets.md "ObjectsinRequesterPaysBuckets.md").
+2. When making programmatic requests using an AWS SDK, set the `x-amz-request-payer` header to the value `requester`. For an example, see [Downloading objects from Requester Pays buckets](ObjectsinRequesterPaysBuckets.md "ObjectsinRequesterPaysBuckets.md").
 3. Make sure that the IAM user or role making the request has the necessary permissions to access the Requester Pays bucket, such as the `s3:GetObject` and `s3:ListBucket` permissions.
 
 By including the `--request-payer requester` parameter or setting the `x-amz-request-payer` header, you are informing Amazon S3 that you, the requester, will pay the costs associated with accessing the objects in the Requester Pays-enabled bucket. This will prevent the Access Denied (403 Forbidden) error.
@@ -622,9 +576,7 @@ are [owned by the
 same bucket-owning account](about-object-ownership.md "about-object-ownership.md"). However, `Deny` statements in
 a bucket policy apply to all objects regardless of object ownership.
 
-###### To review or edit your bucket
-
-policy
+###### To review or edit your bucket policy
 
 ###### Note
 
@@ -689,18 +641,14 @@ used only to grant permissions and can't be used to reject requests. ACLs also c
 access to requesters that are rejected by explicit denials in bucket policies or IAM user
 policies.
 
-### The Object Ownership setting is set to Bucket
-
-owner enforced
+### The Object Ownership setting is set to Bucket owner enforced
 
 If the **Bucket owner enforced** setting is enabled, then ACL settings are
 unlikely to cause an Access Denied (403 Forbidden) error because this setting disables all ACLs that
 apply to bucket and objects. **Bucket owner enforced** is the default (and
 recommended) setting for Amazon S3 buckets.
 
-### The Object Ownership setting is set to
-
-Bucket owner preferred or Object writer
+### The Object Ownership setting is set to Bucket owner preferred or Object writer
 
 ACL permissions are still valid with the **Bucket owner preferred** setting
 or the **Object writer** setting. There are two kinds of ACLs: bucket ACLs and object
@@ -728,10 +676,7 @@ If the account that owns the object is different from the account that
 owns the bucket, then access to the object isn't controlled by the
 bucket policy.
 
-### Troubleshooting an Access
-
-Denied (403 Forbidden) error from a `GET` object request during
-cross-account object ownership
+### Troubleshooting an Access Denied (403 Forbidden) error from a `GET` object request during cross-account object ownership
 
 Review the bucket's [Object Ownership settings](about-object-ownership.md#object-ownership-overview "about-object-ownership.md#object-ownership-overview") to determine the object owner. If you have
 access to the [object ACLs](managing-acls.md "managing-acls.md"), then you
@@ -777,8 +722,7 @@ To change the object's ownership, do one of the following:
      bucket are overwritten. If versioning is enabled, duplicate versions of the same object will
      appear in the bucket, which the bucket owner can [set a lifecycle
      rule to expire](lifecycle-expire-general-considerations.md "lifecycle-expire-general-considerations.md"). For instructions on how to change your Object Ownership setting, see
-     [Setting Object Ownership on an
-     existing bucket](object-ownership-existing-bucket.md "object-ownership-existing-bucket.md").
+     [Setting Object Ownership on an existing bucket](object-ownership-existing-bucket.md "object-ownership-existing-bucket.md").
 
 
     ###### Note
@@ -809,8 +753,7 @@ that the bucket owner has full control](example-bucket-policies.md#example-bucke
 If the failed request involves public access or public policies, then check the S3
 Block Public Access settings on your account, bucket, or access point. For more
 information about troubleshooting access denied errors related to S3 Block Public Access
-settings, see [Access denied due to Block Public
-Access settings](#access-denied-bpa-examples "#access-denied-bpa-examples").
+settings, see [Access denied due to Block Public Access settings](#access-denied-bpa-examples "#access-denied-bpa-examples").
 
 ## Amazon S3 encryption settings
 
@@ -823,9 +766,7 @@ By default, Amazon S3 now applies server-side encryption with Amazon S3 managed 
 the base level of encryption for every bucket in Amazon S3. Amazon S3 also allows you to specify
 the server-side encryption method when uploading objects.
 
-###### To review your bucket's server-side encryption status and encryption
-
-settings
+###### To review your bucket's server-side encryption status and encryption settings
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -853,9 +794,7 @@ section to view the object's server-side encryption settings.
 
 To check your object encryption status by using the AWS CLI, use the [head-object](../../../cli/latest/reference/s3api/head-object.md#examples "../../../cli/latest/reference/s3api/head-object.md#examples") command.
 
-### Encryption and
-
-permissions requirements
+### Encryption and permissions requirements
 
 Amazon S3 supports three types of server-side encryption:
 
@@ -945,10 +884,8 @@ default, the VPC endpoint policy allows all requests to Amazon S3. You can also 
 the VPC endpoint policy to restrict certain requests. For information about how to
 check your VPC endpoint policy, see the following resources:
 
-- [Access denied due to
-  a VPC endpoint policy – implicit denial](#access-denied-vpc-endpoint-examples-implicit "#access-denied-vpc-endpoint-examples-implicit")
-- [Access denied due to
-  a VPC endpoint policy – explicit denial](#access-denied-vpc-endpoint-examples-explicit "#access-denied-vpc-endpoint-examples-explicit")
+- [Access denied due to a VPC endpoint policy – implicit denial](#access-denied-vpc-endpoint-examples-implicit "#access-denied-vpc-endpoint-examples-implicit")
+- [Access denied due to a VPC endpoint policy – explicit denial](#access-denied-vpc-endpoint-examples-explicit "#access-denied-vpc-endpoint-examples-explicit")
 - [Control access to
   VPC endpoints by using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the _AWS PrivateLink Guide_
 
@@ -959,12 +896,9 @@ Amazon S3 resources. By default, AWS Organizations policies don't block any requ
 your AWS Organizations policies haven't been configured to block access to S3 buckets. For instructions on how to
 check your AWS Organizations policies, see the following resources:
 
-- [Access denied due to a Service
-  Control Policy – implicit denial](#access-denied-scp-examples-implicit "#access-denied-scp-examples-implicit")
-- [Access denied due to a Service
-  Control Policy – explicit denial](#access-denied-scp-examples-explicit "#access-denied-scp-examples-explicit")
-- [Access denied due to a resource
-  control policy – explicit denial](#access-denied-rcp-examples-explicit "#access-denied-rcp-examples-explicit")
+- [Access denied due to a Service Control Policy – implicit denial](#access-denied-scp-examples-implicit "#access-denied-scp-examples-implicit")
+- [Access denied due to a Service Control Policy – explicit denial](#access-denied-scp-examples-explicit "#access-denied-scp-examples-explicit")
+- [Access denied due to a resource control policy – explicit denial](#access-denied-rcp-examples-explicit "#access-denied-rcp-examples-explicit")
 - [Listing all policies](../../../organizations/latest/userguide/orgs_manage_policies_info-operations.md#list-all-pols-in-org "../../../organizations/latest/userguide/orgs_manage_policies_info-operations.md#list-all-pols-in-org") in the _AWS Organizations User
   Guide_
 
@@ -1009,8 +943,7 @@ Amazon S3 access points, you might need to check the following:
   **Internet** or **VPC** as the network
   origin. If the network origin is set to VPC only, Amazon S3 will reject any
   requests made to the access point that don't originate from the specified VPC. To
-  check the network origin of your access point, see [Creating access points restricted to a virtual private
-  cloud](access-points-vpc.md "access-points-vpc.md").
+  check the network origin of your access point, see [Creating access points restricted to a virtual private cloud](access-points-vpc.md "access-points-vpc.md").
 - With access points, you can also configure custom Block Public Access settings, which
   work similarly to the Block Public Access settings at the bucket or account
   level. To check your custom Block Public Access settings, see [Managing public access to access points for general purpose buckets](access-points-bpa-settings.md "access-points-bpa-settings.md").

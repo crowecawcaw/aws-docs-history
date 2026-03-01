@@ -1,6 +1,4 @@
-# Configuring replication for buckets in different
-
-accounts
+# Configuring replication for buckets in different accounts
 
 Live replication is the automatic, asynchronous copying of objects across buckets in the
 same or different AWS Regions. Live replication copies newly created objects and object
@@ -32,24 +30,20 @@ cross-account scenario:
 - If you're replicating objects that are encrypted with server-side encryption with
   AWS Key Management Service (AWS KMS) keys (SSE-KMS) in a cross-account scenario, the owner of the
   KMS key must grant the source bucket owner permission to use the KMS key. For
-  more information, see [Granting additional
-  permissions for cross-account scenarios](replication-config-for-kms-objects.md#replication-kms-cross-acct-scenario "replication-config-for-kms-objects.md#replication-kms-cross-acct-scenario").
+  more information, see [Granting additional permissions for cross-account scenarios](replication-config-for-kms-objects.md#replication-kms-cross-acct-scenario "replication-config-for-kms-objects.md#replication-kms-cross-acct-scenario").
 - By default, replicated objects are owned by the source bucket owner. In a
   cross-account scenario, you might want to configure replication to change the
   ownership of the replicated objects to the owner of the destination bucket. For more
   information, see [Changing the replica owner](replication-change-owner.md "replication-change-owner.md").
 
-###### To configure replication when the source and destination buckets are owned by
-
-different AWS accounts
+###### To configure replication when the source and destination buckets are owned by different AWS accounts
 
 1. In this example, you create source and destination buckets in two different
    AWS accounts. You must have two credential profiles set for the AWS CLI. This
    example uses `acctA` and `acctB` for those profile names. For
    information about setting credential profiles and using named profiles, see [Configuration and credential file settings](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md") in the _AWS Command Line Interface User Guide_.
 2. Follow the step-by-step instructions in
-   [Configuring replication for buckets in the same
-   account](replication-walkthrough1.md "replication-walkthrough1.md") with the
+   [Configuring replication for buckets in the same account](replication-walkthrough1.md "replication-walkthrough1.md") with the
    following changes:
    - For all AWS CLI commands related to source bucket activities (such as
      creating the source bucket, enabling versioning, and creating the IAM
@@ -116,8 +110,7 @@ JSON
 
 4. (Optional) If you're replicating objects that are encrypted with SSE-KMS, the
    owner of the KMS key must grant the source bucket owner permission to use the
-   KMS key. For more information, see [Granting additional
-   permissions for cross-account scenarios](replication-config-for-kms-objects.md#replication-kms-cross-acct-scenario "replication-config-for-kms-objects.md#replication-kms-cross-acct-scenario").
+   KMS key. For more information, see [Granting additional permissions for cross-account scenarios](replication-config-for-kms-objects.md#replication-kms-cross-acct-scenario "replication-config-for-kms-objects.md#replication-kms-cross-acct-scenario").
 5. (Optional) In replication, the owner of the source object owns the replica by
    default. When the source and destination buckets are owned by different
    AWS accounts, you can add optional configuration settings to change replica

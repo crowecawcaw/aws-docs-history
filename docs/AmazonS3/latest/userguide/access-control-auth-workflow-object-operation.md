@@ -1,6 +1,4 @@
-# How Amazon S3 authorizes a request
-
-for an object operation
+# How Amazon S3 authorizes a request for an object operation
 
 When Amazon S3 receives a request for an object operation, it converts all the relevant
 permissions— resource-based permissions (object access control list (ACL), bucket
@@ -42,8 +40,7 @@ different, the object owners must use an object ACL to grant permissions. If
 the AWS account that owns the object is also the parent account to which
 the IAM principal belongs, it can configure object permissions in a user
 policy, which is evaluated at the user context. For more information about
-using these access policy alternatives, see [Walkthroughs that use policies to
-manage access to your Amazon S3 resources](example-walkthroughs-managing-access.md "example-walkthroughs-managing-access.md").
+using these access policy alternatives, see [Walkthroughs that use policies to manage access to your Amazon S3 resources](example-walkthroughs-managing-access.md "example-walkthroughs-managing-access.md").
 
 If you as the bucket owner want to own all the objects in your bucket and use bucket
 policies or policies based on
@@ -52,15 +49,12 @@ manage access to these objects, you can apply the bucket owner enforced
 setting for Object Ownership. With this setting, you as the bucket owner
 automatically own and have full control over every object in your bucket.
 Bucket and object ACLs can’t be edited and are no longer considered for
-access. For more information, see [Controlling ownership of objects and disabling ACLs
-for your bucket](about-object-ownership.md "about-object-ownership.md").
+access. For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 The following is an illustration of the context-based evaluation for an object operation.
 
 ![Illustration that shows the context-based evaluation for an object operation.](images/AccessControlAuthorizationFlowObjectResource.png)
 
-## Example of an object
-
-operation request
+## Example of an object operation request
 
 In this example, IAM user Jill, whose parent AWS account is 1111-1111-1111, sends an
 object operation request (for example, `GetObject`) for an object owned

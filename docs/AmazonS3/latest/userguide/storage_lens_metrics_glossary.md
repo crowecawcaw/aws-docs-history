@@ -39,9 +39,7 @@ Derived metrics are not available for the metrics export and the CloudWatch publ
 However, you can use the metrics formulas shown in the **Derived metrics
 formula** column to compute them.
 
-###### Interpreting the Amazon S3 Storage Lens prefix symbols for metrics unit multiples (K, M, G, and so
-
-on)
+###### Interpreting the Amazon S3 Storage Lens prefix symbols for metrics unit multiples (K, M, G, and so on)
 
 S3 Storage Lens metrics unit multiples are written with prefix symbols. These prefix symbols
 match the International System of Units (SI) symbols that are standardized by the

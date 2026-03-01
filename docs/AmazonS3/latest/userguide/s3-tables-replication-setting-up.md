@@ -10,19 +10,13 @@ For more information about setting up replication, see the following topics.
 
 ###### Topics
 
-- [Prerequisites for setting up
-  replication](#s3-tables-replication-prerequisites "#s3-tables-replication-prerequisites")
-- [Understanding replication
-  configurations](#s3-tables-replication-understanding-configurations "#s3-tables-replication-understanding-configurations")
-- [Choosing between bucket-level
-  and table-level replication](#s3-tables-replication-choosing-configuration "#s3-tables-replication-choosing-configuration")
-- [Setting up replication by using the Amazon S3
-  console](#s3-tables-replication-console "#s3-tables-replication-console")
+- [Prerequisites for setting up replication](#s3-tables-replication-prerequisites "#s3-tables-replication-prerequisites")
+- [Understanding replication configurations](#s3-tables-replication-understanding-configurations "#s3-tables-replication-understanding-configurations")
+- [Choosing between bucket-level and table-level replication](#s3-tables-replication-choosing-configuration "#s3-tables-replication-choosing-configuration")
+- [Setting up replication by using the Amazon S3 console](#s3-tables-replication-console "#s3-tables-replication-console")
 - [Setting up replication by using the AWS CLI](#s3-tables-replication-cli "#s3-tables-replication-cli")
 
-## Prerequisites for setting up
-
-replication
+## Prerequisites for setting up replication
 
 Before you configure replication, ensure you have the following:
 
@@ -59,9 +53,7 @@ permissions:
 
 - Permissions from the destination account's bucket policy
 
-### Additional requirements
-
-for cross-account replication
+### Additional requirements for cross-account replication
 
 If your source and destination table buckets are in different AWS accounts, you also
 need:
@@ -70,9 +62,7 @@ need:
   permissions to replicate tables
 - The destination account ID and table bucket Amazon Resource Name (ARN)
 
-### Additional requirements for
-
-encrypted tables
+### Additional requirements for encrypted tables
 
 If you want to encrypt replica tables with AWS KMS:
 
@@ -80,9 +70,7 @@ If you want to encrypt replica tables with AWS KMS:
 - Permissions to use the KMS key in your IAM replication role
 - A KMS key policy that allows the replication role to encrypt data
 
-## Understanding replication
-
-configurations
+## Understanding replication configurations
 
 A replication configuration defines how Amazon S3 replicates tables from your source table
 bucket. Replication can be configured at two levels:
@@ -110,9 +98,7 @@ Use table-level replication when:
 - You need different replication destinations for different tables
 - You want to override a bucket-level configuration for certain tables
 
-### Replication configuration
-
-elements
+### Replication configuration elements
 
 Each replication configuration contains:
 
@@ -128,22 +114,16 @@ Each replication configuration contains:
 - Version token – A token used to prevent write
   conflicts when updating configurations
 
-## Choosing between bucket-level
+## Choosing between bucket-level and table-level replication
 
-and table-level replication
-
-### Configuration
-
-precedence
+### Configuration precedence
 
 When both bucket-level and table-level configurations exist:
 
 - Table-level configuration takes precedence for that specific table.
 - Other tables follow the bucket-level configuration.
 
-## Setting up replication by using the Amazon S3
-
-console
+## Setting up replication by using the Amazon S3 console
 
 This procedure shows you how to configure replication using the Amazon S3 console.
 
@@ -256,9 +236,7 @@ This procedure shows you how to configure replication using the AWS CLI. Replace
 IDs, regions, and bucket names with your actual values. Add all destination buckets to the
 permissions.
 
-### Step 1: Create an IAM role for
-
-replication
+### Step 1: Create an IAM role for replication
 
 First, create an IAM role that Amazon S3 can assume to replicate your tables.
 
@@ -379,9 +357,7 @@ aws iam put-role-policy \
 
 ```
 
-### (Cross-account only) Step 2:
-
-Configure destination bucket policy
+### (Cross-account only) Step 2: Configure destination bucket policy
 
 If you are replicating to a different AWS account, the destination account must grant
 permissions to the source account.

@@ -70,9 +70,7 @@ for expiration. Table records are removed from the latest snapshot. Data and sto
 records are removed through table maintenance operations. Table records can't be recovered
 after they expire.
 
-## Configuring record expiration for a
-
-table
+## Configuring record expiration for a table
 
 You can enable, configure, and otherwise manage the record expiration settings for an S3
 table by using the Amazon S3 console, Amazon S3 REST API, AWS Command Line Interface (AWS CLI), or AWS SDKs.
@@ -176,9 +174,7 @@ aws s3tables put-table-record-expiration-configuration \
 To use the preceding example, replace the `user input
  placeholders` with your own information.
 
-## Monitoring record expiration for a
-
-table
+## Monitoring record expiration for a table
 
 To monitor the status and results of record expiration operations for your S3 tables, use
 the [GetTableRecordExpirationJobStatus](../API/API_s3Buckets_GetTableRecordExpirationJobStatus.md "../API/API_s3Buckets_GetTableRecordExpirationJobStatus.md") operation or, if you're using the AWS CLI, run the

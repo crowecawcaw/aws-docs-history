@@ -44,9 +44,7 @@ You can start the deployment process from the Amazon S3 console, the Amplify con
 Use the following instructions to deploy a static website from an Amazon S3 general
 purpose bucket to Amplify Hosting starting from the Amazon S3 console.
 
-## Deploying a static website to Amplify from the S3
-
-console
+## Deploying a static website to Amplify from the S3 console
 
 ###### To deploy a static website from the Amazon S3 console
 

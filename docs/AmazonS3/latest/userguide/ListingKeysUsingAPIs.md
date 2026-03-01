@@ -74,8 +74,7 @@ The example uses the `--query` argument to
 filter the output of `list-objects` down to the
 key value and size for each object
 
-For more information about objects, see [Working with objects in
-Amazon S3](uploading-downloading-objects.md "uploading-downloading-objects.md").
+For more information about objects, see [Working with objects in Amazon S3](uploading-downloading-objects.md "uploading-downloading-objects.md").
 
 - For API details, see [ListObjects](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-objects.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-objects.html") in
   _AWS CLI Command Reference_.
