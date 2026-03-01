@@ -50,9 +50,7 @@ exact in B2.
 
 For a list of supported filling logic, see the following section.
 
-## Target Time Series and Related Time Series
-
-Filling Logic
+## Target Time Series and Related Time Series Filling Logic
 
 You can perform filling on both target time series and related time series datasets.
 Each dataset type has different filling guidelines and restrictions.

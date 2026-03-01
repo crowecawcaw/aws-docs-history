@@ -16,26 +16,19 @@ color has a negligible effect (low Impact score).
 
 To enable Predictor Explainability, your predictor must include at least one of the
 following: related time series, item metadata, or additional datasets like Holidays and the
-Weather Index. See [Restrictions and best
-practices](#predictor-explainability-best-practices "#predictor-explainability-best-practices") for more information.
+Weather Index. See [Restrictions and best practices](#predictor-explainability-best-practices "#predictor-explainability-best-practices") for more information.
 
 To create Impact scores for specific time series and time points, use Forecast
 Explainability instead of Predictor Explainability. See [Forecast Explainability](forecast-explainability.md "forecast-explainability.md").
 
 ###### Topics
 
-- [Interpreting Impact
-  Scores](#predictor-explainability-impact-scores "#predictor-explainability-impact-scores")
-- [Creating Predictor
-  Explainability](#creating-predictor-explainability "#creating-predictor-explainability")
-- [Exporting Predictor
-  Explainability](#exporting-predictor-explainability "#exporting-predictor-explainability")
-- [Restrictions and best
-  practices](#predictor-explainability-best-practices "#predictor-explainability-best-practices")
+- [Interpreting Impact Scores](#predictor-explainability-impact-scores "#predictor-explainability-impact-scores")
+- [Creating Predictor Explainability](#creating-predictor-explainability "#creating-predictor-explainability")
+- [Exporting Predictor Explainability](#exporting-predictor-explainability "#exporting-predictor-explainability")
+- [Restrictions and best practices](#predictor-explainability-best-practices "#predictor-explainability-best-practices")
 
-## Interpreting Impact
-
-Scores
+## Interpreting Impact Scores
 
 Impact scores measure the relative impact attributes have on forecast values. For
 example, if the ‘price’ attribute has an impact score that is twice as large as the
@@ -59,9 +52,7 @@ that does not necessarily mean that it has a low impact on forecast values; it m
 that it has a lower impact on forecast values than other attributes used by the
 predictor.
 
-## Creating Predictor
-
-Explainability
+## Creating Predictor Explainability
 
 ###### Note
 
@@ -73,9 +64,7 @@ attributes have on overall forecast values. You can enable Predictor Explainabil
 you create a predictor, or you can enable the feature after creating the
 predictor.
 
-### Enabling Predictor
-
-Explainability for a new predictor
+### Enabling Predictor Explainability for a new predictor
 
 Enabling Predictor Explainability when creating a new predictor will create both a
 Predictor resource and Explainability resource. You can enable Predictor
@@ -129,9 +118,7 @@ create_predictor_response = forecast.create_auto_predictor(
 )
 ```
 
-### Enabling Predictor
-
-Explainability for an existing predictor
+### Enabling Predictor Explainability for an existing predictor
 
 Enabling Predictor Explainability for an existing predictor will create a
 Explainability resource for that resource. You can only create an Explainability
@@ -183,9 +170,7 @@ create_explainability_response = forecast.create_explainability(
 )
 ```
 
-## Exporting Predictor
-
-Explainability
+## Exporting Predictor Explainability
 
 ###### Note
 
@@ -245,9 +230,7 @@ export_response = forecast.create_explainability_export(
 )
 ```
 
-## Restrictions and best
-
-practices
+## Restrictions and best practices
 
 Consider the following restrictions and best practices when working with Predictor
 Explainability.

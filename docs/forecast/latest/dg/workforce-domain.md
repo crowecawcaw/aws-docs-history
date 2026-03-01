@@ -10,15 +10,11 @@ the fields to columns in your training data, see [Dataset Domains and Dataset Ty
 
 ###### Topics
 
-- [Target Time Series Dataset
-  Type](#target-time-series-type-workforce-domain "#target-time-series-type-workforce-domain")
-- [Related Time Series Dataset
-  Type](#related-time-series-type-workforce-domain "#related-time-series-type-workforce-domain")
+- [Target Time Series Dataset Type](#target-time-series-type-workforce-domain "#target-time-series-type-workforce-domain")
+- [Related Time Series Dataset Type](#related-time-series-type-workforce-domain "#related-time-series-type-workforce-domain")
 - [Item Metadata Dataset Type](#item-metadata-type-workforce-domain "#item-metadata-type-workforce-domain")
 
-## Target Time Series Dataset
-
-Type
+## Target Time Series Dataset Type
 
 The following fields are required:
 
@@ -37,9 +33,7 @@ granularity:
 Ideally, only these required fields and optional dimensions should be included. Other
 additional time series information should be included in a related time series dataset.
 
-## Related Time Series Dataset
-
-Type
+## Related Time Series Dataset Type
 
 The following fields are required:
 

@@ -11,8 +11,7 @@ training data, see [Dataset Domains and Dataset Types](howitworks-datasets-group
 ###### Topics
 
 - [Target Time Series Dataset Type](#target-time-series-type-retail-domain "#target-time-series-type-retail-domain")
-- [Related Time Series Dataset
-  Type](#related-time-series-type-retail-domain "#related-time-series-type-retail-domain")
+- [Related Time Series Dataset Type](#related-time-series-type-retail-domain "#related-time-series-type-retail-domain")
 - [Item Metadata Dataset Type](#item-metadata-type-retail-domain "#item-metadata-type-retail-domain")
 
 ## Target Time Series Dataset Type
@@ -36,9 +35,7 @@ granularity:
 Ideally, only these required fields and optional dimensions should be included. Other
 additional time series information should be included in a related time series dataset.
 
-## Related Time Series Dataset
-
-Type
+## Related Time Series Dataset Type
 
 You can provide Amazon Forecast with related time series datasets, such as the price or the
 number of web hits the item received on a particular date. The more information that you

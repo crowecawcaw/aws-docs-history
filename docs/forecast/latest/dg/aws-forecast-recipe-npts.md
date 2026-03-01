@@ -28,10 +28,8 @@ climatological forecaster, and seasonal climatological forecaster.
 
 - [NPTS](#aws-forecast-recipe-npts-variants-npts "#aws-forecast-recipe-npts-variants-npts")
 - [Seasonal NPTS](#aws-forecast-recipe-npts-variants-seasonal "#aws-forecast-recipe-npts-variants-seasonal")
-- [Climatological
-  Forecaster](#aws-forecast-recipe-npts-variants-climatological "#aws-forecast-recipe-npts-variants-climatological")
-- [Seasonal
-  Climatological Forecaster](#aws-forecast-recipe-npts-variants-seasonal-climatological "#aws-forecast-recipe-npts-variants-seasonal-climatological")
+- [Climatological Forecaster](#aws-forecast-recipe-npts-variants-climatological "#aws-forecast-recipe-npts-variants-climatological")
+- [Seasonal Climatological Forecaster](#aws-forecast-recipe-npts-variants-seasonal-climatological "#aws-forecast-recipe-npts-variants-seasonal-climatological")
 - [Seasonal Features](#aws-forecast-recipe-npts-seasonal-features "#aws-forecast-recipe-npts-seasonal-features")
 - [Best Practices](#aws-forecast-recipe-npts-recommended-practices "#aws-forecast-recipe-npts-recommended-practices")
 
@@ -61,9 +59,7 @@ observations at hour _t_ on earlier days. For more
 information about how to determine seasonality based on the granularity of the time series,
 see [Seasonal Features](#aws-forecast-recipe-npts-seasonal-features "#aws-forecast-recipe-npts-seasonal-features").
 
-### Climatological
-
-Forecaster
+### Climatological Forecaster
 
 The climatological forecaster variant samples all of the past observations with uniform
 probability.
@@ -72,9 +68,7 @@ To use the climatological forecaster, set the `kernel_type` hyperparameter to
 `uniform` and the `use_seasonal_model` hyperparameter to
 `False`. Accept the default settings for all other hyperparameters.
 
-### Seasonal
-
-Climatological Forecaster
+### Seasonal Climatological Forecaster
 
 Similar to seasonal NPTS, the seasonal climatological forecaster samples the
 observations from past seasons, but samples them with uniform probability.

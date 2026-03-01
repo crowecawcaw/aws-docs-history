@@ -11,15 +11,11 @@ to columns in your training data, see [Dataset Domains and Dataset Types](howitw
 
 ###### Topics
 
-- [Target Time Series Dataset
-  Type](#target-time-series-type-inv-planning-domain "#target-time-series-type-inv-planning-domain")
-- [Related Time Series
-  Dataset Type](#related-time-series-type-related-time-series-domain "#related-time-series-type-related-time-series-domain")
+- [Target Time Series Dataset Type](#target-time-series-type-inv-planning-domain "#target-time-series-type-inv-planning-domain")
+- [Related Time Series Dataset Type](#related-time-series-type-related-time-series-domain "#related-time-series-type-related-time-series-domain")
 - [Item Metadata Dataset Type](#item-metadata-type-related-time-series-domain "#item-metadata-type-related-time-series-domain")
 
-## Target Time Series Dataset
-
-Type
+## Target Time Series Dataset Type
 
 The following fields are required:
 
@@ -37,9 +33,7 @@ granularity:
 Ideally, only these required fields and optional dimensions should be included. Other
 additional time series information should be included in a related time series dataset.
 
-## Related Time Series
-
-Dataset Type
+## Related Time Series Dataset Type
 
 The following fields are required:
 

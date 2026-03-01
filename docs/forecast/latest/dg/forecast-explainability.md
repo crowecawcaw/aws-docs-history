@@ -17,8 +17,7 @@ sales, but a promotion in the winter has little effect.
 
 To enable Forecast Explainability, your predictor must include at least one of the
 following: related time series, item metadata, or additional datasets like Holidays and the
-Weather Index. See [Restrictions and best
-practices](predictor-explainability.md#predictor-explainability-best-practices "predictor-explainability.md#predictor-explainability-best-practices") for more information.
+Weather Index. See [Restrictions and best practices](predictor-explainability.md#predictor-explainability-best-practices "predictor-explainability.md#predictor-explainability-best-practices") for more information.
 
 To view aggregated Impact scores for all time series and time points in your datasets, use
 Predictor Explainability instead of Forecast Explainability. See [Predictor Explainability](predictor-explainability.md "predictor-explainability.md").
@@ -29,20 +28,13 @@ For a step-by-step guide on Forecast Explainability, see [Item-Level Explainabil
 
 ###### Topics
 
-- [Interpreting Impact
-  Scores](#forecast-explainability-impact-scores "#forecast-explainability-impact-scores")
-- [Creating Forecast
-  Explainability](#creating-forecast-explainability "#creating-forecast-explainability")
-- [Visualizing Forecast
-  Explainability](#visualizing-forecast-explainability "#visualizing-forecast-explainability")
-- [Exporting Forecast
-  Explainability](#exporting-forecast-explainability "#exporting-forecast-explainability")
-- [Restrictions and best
-  practices](#forecast-explainability-best-practices "#forecast-explainability-best-practices")
+- [Interpreting Impact Scores](#forecast-explainability-impact-scores "#forecast-explainability-impact-scores")
+- [Creating Forecast Explainability](#creating-forecast-explainability "#creating-forecast-explainability")
+- [Visualizing Forecast Explainability](#visualizing-forecast-explainability "#visualizing-forecast-explainability")
+- [Exporting Forecast Explainability](#exporting-forecast-explainability "#exporting-forecast-explainability")
+- [Restrictions and best practices](#forecast-explainability-best-practices "#forecast-explainability-best-practices")
 
-## Interpreting Impact
-
-Scores
+## Interpreting Impact Scores
 
 Impact scores measure the relative impact attributes have on forecast values. For
 example, if the ‘price’ attribute has an impact score that is twice as large as the
@@ -82,9 +74,7 @@ from different forecasts are not directly comparable.
 When viewing Impact scores in the console, you will only see Normalized impact scores.
 Exporting Explainability will provide you with both raw and normalized scores.
 
-## Creating Forecast
-
-Explainability
+## Creating Forecast Explainability
 
 With Forecast Explainability, you can explore how attributes are impacting forecast
 values for specific time series at specific time points. After specifying time series
@@ -318,9 +308,7 @@ of “item_id” and the “store_location” dimension.
 }
 ```
 
-## Visualizing Forecast
-
-Explainability
+## Visualizing Forecast Explainability
 
 When creating Forecast Explainability in the console, Forecast automatically
 visualizes your Impact scores. When creating Forecast Explainability with the [CreateExplainability](API_CreateExplainability.md "API_CreateExplainability.md") operation, set
@@ -330,9 +318,7 @@ resource will be visualized within the console.
 Impact score visualizations last for 30 days from the date of Explainability creation.
 To recreate the visualization, create a new Forecast Explainability.
 
-## Exporting Forecast
-
-Explainability
+## Exporting Forecast Explainability
 
 ###### Note
 
@@ -397,9 +383,7 @@ For example:
 }
 ```
 
-## Restrictions and best
-
-practices
+## Restrictions and best practices
 
 Consider the following restrictions and best practices when working with Forecast
 Explainability.

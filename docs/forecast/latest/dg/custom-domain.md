@@ -11,8 +11,7 @@ training data, see [Dataset Domains and Dataset Types](howitworks-datasets-group
 ###### Topics
 
 - [Target Time Series Dataset Type](#target-time-series-type-custom-domain "#target-time-series-type-custom-domain")
-- [Related Time Series Dataset
-  Type](#related-time-series-type-custom-domain "#related-time-series-type-custom-domain")
+- [Related Time Series Dataset Type](#related-time-series-type-custom-domain "#related-time-series-type-custom-domain")
 - [Item Metadata Dataset Type](#item-metadata-type-custom-domain "#item-metadata-type-custom-domain")
 
 ## Target Time Series Dataset Type
@@ -27,9 +26,7 @@ The following fields are required:
 Ideally, only these required fields should be included. Other additional time series
 information should be included in a related time series dataset.
 
-## Related Time Series Dataset
-
-Type
+## Related Time Series Dataset Type
 
 The following fields are required:
 

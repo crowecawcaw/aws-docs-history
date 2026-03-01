@@ -173,8 +173,7 @@ Console
    - **IAM role** – Either keep the default **Enter a custom
      IAM role ARN** or choose **Create a new role** to have Amazon Forecast create the role for you.
    - **Custom IAM role ARN** – If you are entering a custom IAM role, enter the Amazon Resource Name
-     (ARN) of the IAM role that you created in [Create an IAM Role for
-     Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console").
+     (ARN) of the IAM role that you created in [Create an IAM Role for Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console").
    - **KMS key ARN** – If you use AWS Key Management Service for bucket encryption, provide the Amazon Resource Name (ARN) of the AWS KMS key.
    - **S3 forecast export location** – Use the following
      format to enter the location of your Amazon Simple Storage Service (Amazon S3) bucket or folder in the
@@ -194,8 +193,7 @@ bucket.
 CLI
 To export a forecast with the AWS CLI you use the `export-forecast-job` command. Give the
 forecast export job a name, specify the ARN of the forecast to export, and optionally add any tags.
-For the `destination`, specify the path to your output Amazon S3 bucket, the ARN of the IAM role that you created in [Create an IAM Role for
-Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console"), and if you use a AWS KMS key for bucket encryption, the ARN for your key.
+For the `destination`, specify the path to your output Amazon S3 bucket, the ARN of the IAM role that you created in [Create an IAM Role for Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console"), and if you use a AWS KMS key for bucket encryption, the ARN for your key.
 
 For more information about required and optional parameters, see
 [CreateForecastExportJob](API_CreateForecastExportJob.md "API_CreateForecastExportJob.md")
@@ -212,8 +210,7 @@ forecast create-forecast-export-job \
 Python
 To export a forecast with the SDK for Python (Boto3) you use the `export_forecast_job` method. Give the
 forecast export job a name, specify the ARN of the forecast to export, and optionally add any tags.
-For the `Destination`, specify the path to your output Amazon S3 bucket, the ARN of the IAM role that you created in [Create an IAM Role for
-Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console"), and if you use a AWS KMS key for bucket encryption, the ARN for your key.
+For the `Destination`, specify the path to your output Amazon S3 bucket, the ARN of the IAM role that you created in [Create an IAM Role for Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console"), and if you use a AWS KMS key for bucket encryption, the ARN for your key.
 
 For more information about required and optional parameters, see
 [CreateForecastExportJob](API_CreateForecastExportJob.md "API_CreateForecastExportJob.md")

@@ -2,9 +2,7 @@ Amazon Forecast is no longer available to new customers. Existing customers of
 Amazon Forecast can continue to use the service as normal.
 [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
 
-# Enabling Predictor
-
-Monitoring
+# Enabling Predictor Monitoring
 
 You can enable predictor monitoring when you create the predictor, or you can
 enable it for an existing predictor.
@@ -16,14 +14,10 @@ You can upgrade existing legacy predictors to AutoPredictor. See [Upgrading to A
 
 ###### Topics
 
-- [Enabling Predictor
-  Monitoring for a New Predictor](#enabling-predictor-monitoring-new "#enabling-predictor-monitoring-new")
-- [Enabling Predictor
-  Monitoring for an Existing Predictor](#enabling-predictor-monitoring-existing "#enabling-predictor-monitoring-existing")
+- [Enabling Predictor Monitoring for a New Predictor](#enabling-predictor-monitoring-new "#enabling-predictor-monitoring-new")
+- [Enabling Predictor Monitoring for an Existing Predictor](#enabling-predictor-monitoring-existing "#enabling-predictor-monitoring-existing")
 
-## Enabling Predictor
-
-Monitoring for a New Predictor
+## Enabling Predictor Monitoring for a New Predictor
 
 You can enable predictor monitoring for a new predictor with the console, AWS CLI, AWS SDKs, and the [CreateAutoPredictor](API_CreateAutoPredictor.md "API_CreateAutoPredictor.md") operation.
 
@@ -79,9 +73,7 @@ create_predictor_response = forecast.create_auto_predictor(
 )
 ```
 
-## Enabling Predictor
-
-Monitoring for an Existing Predictor
+## Enabling Predictor Monitoring for an Existing Predictor
 
 You can enable predictor monitoring for an existing predictor with the console, AWS CLI, and AWS SDKs.
 

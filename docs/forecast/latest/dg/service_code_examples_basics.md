@@ -2,9 +2,7 @@ Amazon Forecast is no longer available to new customers. Existing customers of
 Amazon Forecast can continue to use the service as normal.
 [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
 
-# Basic examples for
-
-Forecast using AWS SDKs
+# Basic examples for Forecast using AWS SDKs
 
 The following code examples show how to use the basics of Amazon Forecast with AWS
 SDKs.

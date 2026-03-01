@@ -2,9 +2,7 @@ Amazon Forecast is no longer available to new customers. Existing customers of
 Amazon Forecast can continue to use the service as normal.
 [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
 
-# Forecast and interface VPC endpoints
-
-(AWS PrivateLink)
+# Forecast and interface VPC endpoints (AWS PrivateLink)
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can
 establish a private connection between your VPC and Amazon Forecast. This connection allows Amazon Forecast to communicate with your resources on your VPC
@@ -32,9 +30,7 @@ private IP addresses.
 All Amazon Forecast Federal Information Processing Standard (FIPS) endpoints are supported
 by AWS PrivateLink.
 
-## Considerations for Forecast VPC
-
-endpoints
+## Considerations for Forecast VPC endpoints
 
 Before you set up an interface VPC endpoint for Forecast, ensure that you
 review [Interface
@@ -43,9 +39,7 @@ endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interfac
 Forecast supports making calls to
 all of its API actions from your VPC.
 
-## Creating an interface VPC endpoint for
-
-Forecast
+## Creating an interface VPC endpoint for Forecast
 
 You can create a VPC endpoint for the Forecast service with either the Amazon VPC console or
 the AWS Command Line Interface (AWS CLI). For more information, see [Creating an
@@ -71,9 +65,7 @@ default DNS name for the Region, for example,
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-Forecast
+## Creating a VPC endpoint policy for Forecast
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 Forecast. The policy specifies the following information:
@@ -84,9 +76,7 @@ Forecast. The policy specifies the following information:
 
 For more information, see [Controlling access to services with VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
 
-###### Example: VPC endpoint policy allowing all Forecast actions and passRole
-
-actions
+###### Example: VPC endpoint policy allowing all Forecast actions and passRole actions
 
 When attached to an endpoint, this policy grants access to all Forecast actions and
 passRole actions.

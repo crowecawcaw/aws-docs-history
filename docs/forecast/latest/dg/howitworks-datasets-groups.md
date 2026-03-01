@@ -22,8 +22,7 @@ repository](https://github.com/aws-samples/amazon-forecast-samples "https://gith
 
 - [Datasets](#howitworks-dataset "#howitworks-dataset")
 - [Dataset Groups](#howitworks-datasetgroup "#howitworks-datasetgroup")
-- [Resolving Conflicts in Data Collection
-  Frequency](#howitworks-data-alignment "#howitworks-data-alignment")
+- [Resolving Conflicts in Data Collection Frequency](#howitworks-data-alignment "#howitworks-data-alignment")
 - [Using Related Time Series Datasets](related-time-series-datasets.md "related-time-series-datasets.md")
 - [Using Item Metadata Datasets](item-metadata-datasets.md "item-metadata-datasets.md")
 - [Predefined Dataset Domains and Dataset Types](howitworks-domains-ds-types.md "howitworks-domains-ds-types.md")
@@ -216,9 +215,7 @@ them:
 - [CreateDatasetGroup](API_CreateDatasetGroup.md "API_CreateDatasetGroup.md")
 - [UpdateDatasetGroup](API_UpdateDatasetGroup.md "API_UpdateDatasetGroup.md")
 
-## Resolving Conflicts in Data Collection
-
-Frequency
+## Resolving Conflicts in Data Collection Frequency
 
 Forecast can train predictors with data that doesn't align with the data frequency you specify in the
 [CreateDataset](API_CreateDataset.md "API_CreateDataset.md") operation. For

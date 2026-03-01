@@ -2,9 +2,7 @@ Amazon Forecast is no longer available to new customers. Existing customers of
 Amazon Forecast can continue to use the service as normal.
 [Learn more"](https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/ "https://aws.amazon.com/blogs/machine-learning/transition-your-amazon-forecast-usage-to-amazon-sagemaker-canvas/")
 
-# Identity-based policy
-
-examples for Amazon Forecast
+# Identity-based policy examples for Amazon Forecast
 
 By default, users and roles don't have permission to create or modify Forecast
 resources. To grant users permission to perform actions on the
@@ -39,20 +37,13 @@ Whenever an operation is invoked, Amazon Forecast performs a set of authenticati
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Forecast
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [AWS Managed (Predefined)
-  Policies for Amazon Forecast](#access-policy-aws-managed-policies "#access-policy-aws-managed-policies")
-- [Customer Managed Policy
-  Examples](#access-policy-customer-managed-examples "#access-policy-customer-managed-examples")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Forecast console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [AWS Managed (Predefined) Policies for Amazon Forecast](#access-policy-aws-managed-policies "#access-policy-aws-managed-policies")
+- [Customer Managed Policy Examples](#access-policy-customer-managed-examples "#access-policy-customer-managed-examples")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Forecast resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -85,9 +76,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Forecast
-
-console
+## Using the Forecast console
 
 To access the Amazon Forecast console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Forecast resources
@@ -141,9 +130,7 @@ JSON
 
 ```
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -183,9 +170,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## AWS Managed (Predefined)
-
-Policies for Amazon Forecast
+## AWS Managed (Predefined) Policies for Amazon Forecast
 
 AWS addresses many common use cases by providing standalone IAM policies that
 are created and administered by AWS. These AWS managed policies grant necessary
@@ -206,30 +191,21 @@ You can also create your own custom IAM policies to allow permissions for
 Amazon Forecast actions and resources. You can attach these custom policies to the IAM
 users or groups that require them.
 
-## Customer Managed Policy
-
-Examples
+## Customer Managed Policy Examples
 
 In this section, you can find example user policies that grant permissions for
 various Amazon Forecast actions. These policies work when you are using the AWS SDKs or
-the AWS CLI. When you are using the console, see [Using the Forecast
-console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console").
+the AWS CLI. When you are using the console, see [Using the Forecast console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console").
 
 ###### Examples
 
-- [Example 1: Grant Account
-  Administrator Permissions](#example-managed-policy-full-admin "#example-managed-policy-full-admin")
-- [Example 2: Allow All
-  Amazon Forecast and IAM PassRole Actions](#example-managed-policy-all-actions "#example-managed-policy-all-actions")
-- [Example 3: Allow All
-  Amazon Forecast actions while limiting IAM PassRole Actions](#example-managed-policy-limit-passrole "#example-managed-policy-limit-passrole")
-- [Example 4:
-  Action-based Policy: Amazon Forecast Read-Only Access](#example-managed-policy-read-only-access "#example-managed-policy-read-only-access")
+- [Example 1: Grant Account Administrator Permissions](#example-managed-policy-full-admin "#example-managed-policy-full-admin")
+- [Example 2: Allow All Amazon Forecast and IAM PassRole Actions](#example-managed-policy-all-actions "#example-managed-policy-all-actions")
+- [Example 3: Allow All Amazon Forecast actions while limiting IAM PassRole Actions](#example-managed-policy-limit-passrole "#example-managed-policy-limit-passrole")
+- [Example 4: Action-based Policy: Amazon Forecast Read-Only Access](#example-managed-policy-read-only-access "#example-managed-policy-read-only-access")
 - [Example 5: Allow all Amazon Forecast Actions with Pass Role and KMS Actions](#example-managed-policy-allow-all-forecast-actions "#example-managed-policy-allow-all-forecast-actions")
 
-### Example 1: Grant Account
-
-Administrator Permissions
+### Example 1: Grant Account Administrator Permissions
 
 After you set up an account (see [Sign Up for AWS](aws-forecast-set-up-aws-account.md "aws-forecast-set-up-aws-account.md")), you create an
 administrator user to manage your account. The administrator user can create
@@ -238,9 +214,7 @@ users and manage their permissions.
 To grant the administrator user all of the permissions available for your
 account, attach the following permissions policy to that user:
 
-### Example 2: Allow All
-
-Amazon Forecast and IAM PassRole Actions
+### Example 2: Allow All Amazon Forecast and IAM PassRole Actions
 
 You might choose to create a user who has permissions for all Amazon Forecast
 actions but not for any of your other services (think of this user as a
@@ -277,9 +251,7 @@ JSON
 
 ```
 
-### Example 3: Allow All
-
-Amazon Forecast actions while limiting IAM PassRole Actions
+### Example 3: Allow All Amazon Forecast actions while limiting IAM PassRole Actions
 
 You might choose to create a user who has permissions for all Amazon Forecast
 actions while limiting their IAM PassRole actions. Attach the following
@@ -315,9 +287,7 @@ JSON
 
 ```
 
-### Example 4:
-
-Action-based Policy: Amazon Forecast Read-Only Access
+### Example 4: Action-based Policy: Amazon Forecast Read-Only Access
 
 The following policy grants permissions to Amazon Forecast actions that allow a user
 to list and describe resources:

@@ -34,11 +34,9 @@ You can upgrade existing legacy predictors to AutoPredictor. See [Upgrading to A
 ###### Topics
 
 - [Predictor Monitoring Workflow](#predictor-monitoring-workflow "#predictor-monitoring-workflow")
-- [Enabling Predictor
-  Monitoring](enabling-predictor-monitoring.md "enabling-predictor-monitoring.md")
+- [Enabling Predictor Monitoring](enabling-predictor-monitoring.md "enabling-predictor-monitoring.md")
 - [Viewing Monitoring Results](predictor-monitoring-results.md "predictor-monitoring-results.md")
-- [Restrictions and Best
-  Practices](#predictor-monitoring-best-practices "#predictor-monitoring-best-practices")
+- [Restrictions and Best Practices](#predictor-monitoring-best-practices "#predictor-monitoring-best-practices")
 
 ## Predictor Monitoring Workflow
 
@@ -46,10 +44,8 @@ To get predictor monitoring results, you must first use your predictor to genera
 more data. The monitoring workflow is as follows.
 
 1.  Enable predictor monitoring for an auto predictor:
-    - Create a new predictor with monitoring enabled. See [Enabling Predictor
-      Monitoring for a New Predictor](enabling-predictor-monitoring.md#enabling-predictor-monitoring-new "enabling-predictor-monitoring.md#enabling-predictor-monitoring-new").
-    - Or enable monitoring for an existing predictor. See [Enabling Predictor
-      Monitoring for an Existing Predictor](enabling-predictor-monitoring.md#enabling-predictor-monitoring-existing "enabling-predictor-monitoring.md#enabling-predictor-monitoring-existing").
+    - Create a new predictor with monitoring enabled. See [Enabling Predictor Monitoring for a New Predictor](enabling-predictor-monitoring.md#enabling-predictor-monitoring-new "enabling-predictor-monitoring.md#enabling-predictor-monitoring-new").
+    - Or enable monitoring for an existing predictor. See [Enabling Predictor Monitoring for an Existing Predictor](enabling-predictor-monitoring.md#enabling-predictor-monitoring-existing "enabling-predictor-monitoring.md#enabling-predictor-monitoring-existing").
 
 2.  Use the predictor to generate one or more forecasts.
 3.  Import more data. For information about importing data into Forecast, see [Importing Datasets](howitworks-datasets-groups.md "howitworks-datasets-groups.md").
@@ -60,9 +56,7 @@ more data. The monitoring workflow is as follows.
 
     For more information, see [Viewing Monitoring Results](predictor-monitoring-results.md "predictor-monitoring-results.md").
 
-## Restrictions and Best
-
-Practices
+## Restrictions and Best Practices
 
 Consider the following restrictions and best practices when working with predictor
 monitoring.

@@ -8,9 +8,7 @@ Use the EC2 CAPACITY domain for forecasting Amazon EC2 capacity. It supports the
 dataset types. For each dataset type, we list required and optional fields. For information on
 how to map the fields to columns in your training data, see [Dataset Domains and Dataset Types](howitworks-datasets-groups.md#howitworks-dataset-domainstypes "howitworks-datasets-groups.md#howitworks-dataset-domainstypes").
 
-## Target Time Series Dataset
-
-Type
+## Target Time Series Dataset Type
 
 The following fields are required:
 
@@ -30,9 +28,7 @@ granularity:
 Ideally, only these required and suggested optional fields should be included. Other
 additional time series information should be included in a related time series dataset.
 
-## Related Time Series Dataset
-
-Type
+## Related Time Series Dataset Type
 
 The following fields are required:
 

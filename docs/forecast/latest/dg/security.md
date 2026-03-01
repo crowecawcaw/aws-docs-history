@@ -37,5 +37,4 @@ cloud and security _in_ the cloud:
 - [Compliance Validation for Amazon Forecast](Forecast-compliance.md "Forecast-compliance.md")
 - [Resilience in Amazon Forecast](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in Amazon Forecast](infrastructure-security.md "infrastructure-security.md")
-- [Forecast and interface VPC endpoints
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Forecast and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")

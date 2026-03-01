@@ -21,19 +21,13 @@ For a step-by-step guide on using related time-series datasets, see [Incorporati
 
 ###### Topics
 
-- [Historical and Forward-looking
-  Related Time Series](#related-time-series-historical-futurelooking "#related-time-series-historical-futurelooking")
-- [Related Time Series Dataset
-  Validation](#related-time-series-dataset-validation "#related-time-series-dataset-validation")
-- [Example: Forward-looking Related Time Series
-  File](#related-time-series-example "#related-time-series-example")
+- [Historical and Forward-looking Related Time Series](#related-time-series-historical-futurelooking "#related-time-series-historical-futurelooking")
+- [Related Time Series Dataset Validation](#related-time-series-dataset-validation "#related-time-series-dataset-validation")
+- [Example: Forward-looking Related Time Series File](#related-time-series-example "#related-time-series-example")
 - [Example: Forecasting Granularity](#related-time-series-granularity "#related-time-series-granularity")
-- [Legacy Predictors and Related Time
-  Series](#related-time-series-legacy "#related-time-series-legacy")
+- [Legacy Predictors and Related Time Series](#related-time-series-legacy "#related-time-series-legacy")
 
-## Historical and Forward-looking
-
-Related Time Series
+## Historical and Forward-looking Related Time Series
 
 ###### Note
 
@@ -53,9 +47,7 @@ contain data points up to _and_ within the forecast horizon.
 
 ![Time series graph showing target, forward-looking, and historical related data with forecast window.](images/short-long-rts.png)
 
-## Related Time Series Dataset
-
-Validation
+## Related Time Series Dataset Validation
 
 A related time series dataset has the following restrictions:
 
@@ -110,9 +102,7 @@ both socks and shoes must end on 2019-07-01 (the last recorded timestamp).
 - Related time series cannot have missing values. For information on missing values in
   a related time series dataset, see [Handling Missing Values](howitworks-missing-values.md "howitworks-missing-values.md").
 
-## Example: Forward-looking Related Time Series
-
-File
+## Example: Forward-looking Related Time Series File
 
 The following table shows a correctly configured related time series dataset file. For
 this example, assume the following:
@@ -163,9 +153,7 @@ the same as the chosen forecasting granularity.
 | N/A                         | Weekly                        | Weekly                  | Yes                    |
 | Daily                       | Daily                         | Weekly                  | No                     |
 
-## Legacy Predictors and Related Time
-
-Series
+## Legacy Predictors and Related Time Series
 
 ###### Note
 

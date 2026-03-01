@@ -20,8 +20,7 @@ usage data hourly. The modified data is available as zip file, [electricityusage
   [Sign Up for AWS](aws-forecast-set-up-aws-account.md "aws-forecast-set-up-aws-account.md").
 - Training data in your Amazon Simple Storage Service (Amazon S3) bucket. For more information, see [Prepare Input Data](getting-started.md#gs-upload-data-to-s3 "getting-started.md#gs-upload-data-to-s3").
 - An AWS Identity and Access Management (IAM) role that allows Amazon Forecast to read and write to your S3 buckets.
-  For more information, see [Create an IAM Role for
-  Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console").
+  For more information, see [Create an IAM Role for Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console").
   Be aware that there are several steps in this exercise that require several minutes to a few hours to
   complete.
 
@@ -95,8 +94,7 @@ The **Dataset details** panel should look similar to the following:
      choosing **Create a new role** from the drop-down menu and
      following the on-screen instructions.
     * **Custom IAM role ARN** – Enter the Amazon Resource Name
-     (ARN) of the IAM role that you created in [Create an IAM Role for
-     Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console").
+     (ARN) of the IAM role that you created in [Create an IAM Role for Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console").
 
 The **Dataset import details** panel should look similar to the following:
 
@@ -236,8 +234,7 @@ Create a Forecast`.
          choosing **Create a new role** from the drop-down menu and
          following the on-screen instructions.
         * **Custom IAM role ARN** – Enter the Amazon Resource Name
-         (ARN) of the IAM role that you created in [Create an IAM Role for
-         Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console").
+         (ARN) of the IAM role that you created in [Create an IAM Role for Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console "aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console").
         * **S3 forecast export location** – Use the following
          format to enter the location of your Amazon Simple Storage Service (Amazon S3) bucket or folder in the
          bucket:

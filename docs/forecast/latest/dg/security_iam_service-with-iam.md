@@ -25,9 +25,7 @@ To get a high-level view of how Forecast and other AWS services work with most I
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Forecast
+## Identity-based policies for Forecast
 
 **Supports identity-based policies:**
 
@@ -44,16 +42,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Forecast
 
-Identity-based policy examples for Forecast
+To view examples of Forecast identity-based policies, see [Identity-based policy examples for Amazon Forecast](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Forecast identity-based policies, see [Identity-based policy
-examples for Amazon Forecast](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Forecast
+## Resource-based policies within Forecast
 
 **Supports resource-based policies:**
 
@@ -69,9 +62,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Forecast
+## Policy actions for Forecast
 
 **Supports policy actions:**
 
@@ -101,9 +92,7 @@ To specify multiple actions in a single statement, separate them with commas.
           ]
 ```
 
-## Policy
-
-resources for Forecast
+## Policy resources for Forecast
 
 **Supports policy resources:**
 
@@ -123,12 +112,9 @@ To see a list of Forecast resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by Amazon Forecast](../../../service-authorization/latest/reference/list_amazonforecast.md#amazonforecast-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonforecast.md#amazonforecast-actions-as-permissions").
 
-To view examples of Forecast identity-based policies, see [Identity-based policy
-examples for Amazon Forecast](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Forecast identity-based policies, see [Identity-based policy examples for Amazon Forecast](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Forecast
+## Policy condition keys for Forecast
 
 **Supports service-specific policy condition keys:**
 
@@ -147,8 +133,7 @@ To see a list of Forecast condition keys, see [Condition keys for Amazon Forecas
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by Amazon Forecast](../../../service-authorization/latest/reference/list_amazonforecast.md#amazonforecast-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonforecast.md#amazonforecast-actions-as-permissions").
 
-To view examples of Forecast identity-based policies, see [Identity-based policy
-examples for Amazon Forecast](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Forecast identity-based policies, see [Identity-based policy examples for Amazon Forecast](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Forecast
 
@@ -176,9 +161,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Forecast
+## Using temporary credentials with Forecast
 
 **Supports temporary credentials:**
 
@@ -190,9 +173,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Forecast
+## Cross-service principal permissions for Forecast
 
 **Supports forward access sessions (FAS):**
 
@@ -201,9 +182,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Forecast
+## Service roles for Forecast
 
 **Supports service roles:**
 
@@ -218,9 +197,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Forecast functionality.
 Edit service roles only when Forecast provides guidance to do so.
 
-## Service-linked
-
-roles for Forecast
+## Service-linked roles for Forecast
 
 **Supports service-linked roles:**
 

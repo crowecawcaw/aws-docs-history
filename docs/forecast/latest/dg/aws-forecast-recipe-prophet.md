@@ -28,9 +28,7 @@ weekly seasonal component modeled using dummy variables.
 For more information, see [Prophet:
 forecasting at scale](https://research.facebook.com/blog/2017/2/prophet-forecasting-at-scale/ "https://research.facebook.com/blog/2017/2/prophet-forecasting-at-scale/").
 
-## Prophet Hyperparameters and Related
-
-Time Series
+## Prophet Hyperparameters and Related Time Series
 
 Amazon Forecast uses the default Prophet
 [hyperparameters](https://facebook.github.io/prophet/docs/quick_start.html#python-ap "https://facebook.github.io/prophet/docs/quick_start.html#python-ap").

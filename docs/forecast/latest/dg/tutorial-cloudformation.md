@@ -50,9 +50,7 @@ installed the CloudFormation template:
 This deploys a demonstration stack using the [NYC Taxi
 Dataset](https://registry.opendata.aws/nyc-tlc-trip-records-pds/ "https://registry.opendata.aws/nyc-tlc-trip-records-pds/").
 
-## Deploying an CloudFormation Template for Forecast
-
-automation
+## Deploying an CloudFormation Template for Forecast automation
 
 To
 deploy the CloudFormation template using the NYC Taxi Dataset

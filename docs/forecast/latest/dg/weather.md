@@ -101,8 +101,7 @@ format is only supported for the US region.
 ###### Topics
 
 - [Latitude & Longitude Bounds](#geolocation-bounds "#geolocation-bounds")
-- [Including Geolocation in the Dataset
-  Schema](#geolocation-schema "#geolocation-schema")
+- [Including Geolocation in the Dataset Schema](#geolocation-schema "#geolocation-schema")
 - [Setting the Geolocation Format](#geolocation-format "#geolocation-format")
 
 ### Latitude & Longitude Bounds
@@ -152,9 +151,7 @@ longitude (-18.80, -58.20).
 
 ![Map showing North Africa, Middle East, and parts of Europe with country names and borders.](images/weather-africa-bounds.png)
 
-### Including Geolocation in the Dataset
-
-Schema
+### Including Geolocation in the Dataset Schema
 
 Using the console or [CreateDataset](API_CreateDataset.md "API_CreateDataset.md")
 operation, define the location attribute type as 'geolocation' within the JSON
@@ -239,13 +236,10 @@ dataset.
 
 ###### Topics
 
-- [Automatically Sync Time Zones with
-  Geolocation](#timezones-automatic "#timezones-automatic")
+- [Automatically Sync Time Zones with Geolocation](#timezones-automatic "#timezones-automatic")
 - [Manually Select a Single Time Zone](#timezones-manual "#timezones-manual")
 
-### Automatically Sync Time Zones with
-
-Geolocation
+### Automatically Sync Time Zones with Geolocation
 
 This option is ideal for datasets that contain timestamps in multiple time zones,
 and those timestamps are expressed in local time. Forecast assigns a time zone for

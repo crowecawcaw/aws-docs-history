@@ -23,15 +23,11 @@ gateway. Using S3 buckets that only allow VPC access will result in an
 
 ###### Topics
 
-- [Create an IAM Role for
-  Amazon Forecast (IAM Console)](#aws-forecast-create-iam-role-with-console "#aws-forecast-create-iam-role-with-console")
+- [Create an IAM Role for Amazon Forecast (IAM Console)](#aws-forecast-create-iam-role-with-console "#aws-forecast-create-iam-role-with-console")
 - [Create an IAM Role for Amazon Forecast (AWS CLI)](#aws-forecast-create-iam-role-with-cli "#aws-forecast-create-iam-role-with-cli")
-- [Cross-service confused deputy
-  prevention](#aws-forecast-confused-deputy "#aws-forecast-confused-deputy")
+- [Cross-service confused deputy prevention](#aws-forecast-confused-deputy "#aws-forecast-confused-deputy")
 
-## Create an IAM Role for
-
-Amazon Forecast (IAM Console)
+## Create an IAM Role for Amazon Forecast (IAM Console)
 
 You can use the AWS IAM console to do the following:
 
@@ -40,9 +36,7 @@ You can use the AWS IAM console to do the following:
   read, and write data in an Amazon S3 bucket
 - Attach the IAM policy to the IAM role
 
-###### To create an IAM role and policy that allows Amazon Forecast to access Amazon S3
-
-(IAM console)
+###### To create an IAM role and policy that allows Amazon Forecast to access Amazon S3 (IAM console)
 
 1. Sign in to the IAM console ([https://console.aws.amazon.com/iam](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam")).
 2. Choose **Policies** and do the following to create the
@@ -114,9 +108,7 @@ You can use the AWS CLI to do the following:
   read, and write data in an Amazon S3 bucket
 - Attach the IAM policy to the IAM role
 
-###### To create an IAM role and policy that allows Amazon Forecast to access Amazon S3
-
-(AWS CLI)
+###### To create an IAM role and policy that allows Amazon Forecast to access Amazon S3 (AWS CLI)
 
 1. Create an IAM role with Amazon Forecast as a trusted entity that can assume
    the role for you:
@@ -262,9 +254,7 @@ aws iam put-role-policy \
 }’
 ```
 
-## Cross-service confused deputy
-
-prevention
+## Cross-service confused deputy prevention
 
 The confused deputy problem is a security issue where an entity that doesn’t have
 permission to perform an action can coerce a more-privileged entity to perform the

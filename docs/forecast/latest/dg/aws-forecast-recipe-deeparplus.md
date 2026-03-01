@@ -23,8 +23,7 @@ For a step-by-step guide on using the DeepAR+ algorithm, see [Getting Started wi
 ###### Topics
 
 - [How DeepAR+ Works](#aws-forecast-recipe-deeparplus-how-it-works "#aws-forecast-recipe-deeparplus-how-it-works")
-- [DeepAR+
-  Hyperparameters](#aws-forecast-recipe-deeparplus-hyperparameters "#aws-forecast-recipe-deeparplus-hyperparameters")
+- [DeepAR+ Hyperparameters](#aws-forecast-recipe-deeparplus-hyperparameters "#aws-forecast-recipe-deeparplus-hyperparameters")
 - [Tune DeepAR+ Models](#aws-forecast-recipe-deeparplus-tune-model "#aws-forecast-recipe-deeparplus-tune-model")
 
 ## How DeepAR+ Works
@@ -108,9 +107,7 @@ the forecast takes into account learned patterns from similar time series.
 For information on the mathematics behind DeepAR+, see [DeepAR: Probabilistic Forecasting with Autoregressive
 Recurrent Networks](https://arxiv.org/abs/1704.04110 "https://arxiv.org/abs/1704.04110") on the Cornell University Library website.
 
-## DeepAR+
-
-Hyperparameters
+## DeepAR+ Hyperparameters
 
 The following table lists the hyperparameters that you can use in the DeepAR+ algorithm.
 Parameters in bold participate in hyperparameter optimization (HPO).
@@ -132,9 +129,7 @@ Parameters in bold participate in hyperparameter optimization (HPO).
 To tune Amazon Forecast DeepAR+ models, follow these recommendations for optimizing the
 training process and hardware configuration.
 
-### Best Practices for Process
-
-Optimization
+### Best Practices for Process Optimization
 
 To achieve the best results, follow these recommendations:
 
