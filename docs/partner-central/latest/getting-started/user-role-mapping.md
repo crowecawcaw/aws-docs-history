@@ -105,9 +105,7 @@ JSON
 
 ```
 
-### Mapping users to AWS IAM
-
-roles
+### Mapping users to AWS IAM roles
 
 Use the procedures in this section to map and unmap AWS Partner Central users to AWS IAM roles.
 

@@ -1,6 +1,4 @@
-# Linking AWS Partner Central and AWS
-
-accounts
+# Linking AWS Partner Central and AWS accounts
 
 The following steps explain how to use AWS Partner Central to link your accounts. You must be
 an alliance lead or cloud admin to complete these steps. Also, the IAM permissions policy listed earlier in

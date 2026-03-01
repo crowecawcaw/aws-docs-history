@@ -16,30 +16,18 @@ for AWS Marketplace sellers](../../../marketplace/latest/userguide/security-iam-
 
 ###### Topics
 
-- [AWS managed
-  policy: AWSPartnerCentralFullAccess](#security-iam-awsmanpol-AWSPartnerCentralFullAccess "#security-iam-awsmanpol-AWSPartnerCentralFullAccess")
-- [AWS managed policy:
-  PartnerCentralAccountManagementUserRoleAssociation](#user-role-association "#user-role-association")
-- [AWS
-  managed policy: AWSPartnerCentralOpportunityManagement](#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement "#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement")
-- [AWS
-  managed policy: AWSPartnerCentralSandboxFullAccess](#security-iam-awsmanpol-AWSPartnerCentralSandboxFullAccess "#security-iam-awsmanpol-AWSPartnerCentralSandboxFullAccess")
-- [AWS
-  managed policy: AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy](#security-iam-awsmanpol-AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy "#security-iam-awsmanpol-AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy")
-- [AWS
-  managed policy: AWSPartnerCentralChannelManagement](#security-iam-awsmanpol-AWSPartnerCentralChannelManagement "#security-iam-awsmanpol-AWSPartnerCentralChannelManagement")
-- [AWS
-  managed policy: AWSPartnerCentralChannelHandshakeApprovalManagement](#security-iam-awsmanpol-AWSPartnerCentralChannelHandshakeApprovalManagement "#security-iam-awsmanpol-AWSPartnerCentralChannelHandshakeApprovalManagement")
-- [AWS
-  managed policy: AWSPartnerCentralMarketingManagement](#security-iam-awsmanpol-AWSPartnerCentralMarketingManagement "#security-iam-awsmanpol-AWSPartnerCentralMarketingManagement")
-- [AWS
-  managed policy: PartnerCentralIncentiveBenefitManagement](#security-iam-awsmanpol-PartnerCentralIncentiveBenefitManagement "#security-iam-awsmanpol-PartnerCentralIncentiveBenefitManagement")
-- [AWS Partner Central updates to AWS
-  managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [AWS managed policy: AWSPartnerCentralFullAccess](#security-iam-awsmanpol-AWSPartnerCentralFullAccess "#security-iam-awsmanpol-AWSPartnerCentralFullAccess")
+- [AWS managed policy: PartnerCentralAccountManagementUserRoleAssociation](#user-role-association "#user-role-association")
+- [AWS managed policy: AWSPartnerCentralOpportunityManagement](#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement "#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement")
+- [AWS managed policy: AWSPartnerCentralSandboxFullAccess](#security-iam-awsmanpol-AWSPartnerCentralSandboxFullAccess "#security-iam-awsmanpol-AWSPartnerCentralSandboxFullAccess")
+- [AWS managed policy: AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy](#security-iam-awsmanpol-AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy "#security-iam-awsmanpol-AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy")
+- [AWS managed policy: AWSPartnerCentralChannelManagement](#security-iam-awsmanpol-AWSPartnerCentralChannelManagement "#security-iam-awsmanpol-AWSPartnerCentralChannelManagement")
+- [AWS managed policy: AWSPartnerCentralChannelHandshakeApprovalManagement](#security-iam-awsmanpol-AWSPartnerCentralChannelHandshakeApprovalManagement "#security-iam-awsmanpol-AWSPartnerCentralChannelHandshakeApprovalManagement")
+- [AWS managed policy: AWSPartnerCentralMarketingManagement](#security-iam-awsmanpol-AWSPartnerCentralMarketingManagement "#security-iam-awsmanpol-AWSPartnerCentralMarketingManagement")
+- [AWS managed policy: PartnerCentralIncentiveBenefitManagement](#security-iam-awsmanpol-PartnerCentralIncentiveBenefitManagement "#security-iam-awsmanpol-PartnerCentralIncentiveBenefitManagement")
+- [AWS Partner Central updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## AWS managed
-
-policy: `AWSPartnerCentralFullAccess`
+## AWS managed policy: `AWSPartnerCentralFullAccess`
 
 You can attach the `AWSPartnerCentralFullAccess` policy to your IAM
 identities.
@@ -52,9 +40,7 @@ To view the permissions for this policy, see
 in the _AWS Managed Policy
 Reference_.
 
-## AWS managed policy:
-
-`PartnerCentralAccountManagementUserRoleAssociation`
+## AWS managed policy: `PartnerCentralAccountManagementUserRoleAssociation`
 
 You can attach the `PartnerCentralAccountManagementUserRoleAssociation`
 policy to your IAM identities. This policy is used by a partner cloud admin to manage
@@ -73,9 +59,7 @@ To view the permissions for this policy, see
 in the _AWS Managed Policy
 Reference_.
 
-## AWS
-
-managed policy: `AWSPartnerCentralOpportunityManagement`
+## AWS managed policy: `AWSPartnerCentralOpportunityManagement`
 
 You can attach the `AWSPartnerCentralOpportunityManagement` policy to your
 IAM identities.
@@ -87,9 +71,7 @@ To view the permissions for this policy, see
 in the _AWS Managed Policy
 Reference_.
 
-## AWS
-
-managed policy: `AWSPartnerCentralSandboxFullAccess`
+## AWS managed policy: `AWSPartnerCentralSandboxFullAccess`
 
 You can attach the `AWSPartnerCentralSandboxFullAccess` policy to your
 IAM identities.
@@ -101,9 +83,7 @@ To view the permissions for this policy, see
 in the _AWS Managed Policy
 Reference_.
 
-## AWS
-
-managed policy: `AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy`
+## AWS managed policy: `AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy`
 
 You can attach the `AWSPartnerCentralSellingResourceSnapshotJobExecutionRolePolicy` policy to your
 IAM identities.
@@ -118,9 +98,7 @@ To view the permissions for this policy, see
 in the _AWS Managed Policy
 Reference_.
 
-## AWS
-
-managed policy: `AWSPartnerCentralChannelManagement`
+## AWS managed policy: `AWSPartnerCentralChannelManagement`
 
 You can attach the `AWSPartnerCentralChannelManagement` policy to your
 IAM identities.
@@ -132,9 +110,7 @@ To view the permissions for this policy, see
 in the _AWS Managed Policy
 Reference_.
 
-## AWS
-
-managed policy: `AWSPartnerCentralChannelHandshakeApprovalManagement`
+## AWS managed policy: `AWSPartnerCentralChannelHandshakeApprovalManagement`
 
 You can attach the `AWSPartnerCentralChannelHandshakeApprovalManagement` policy to your
 IAM identities.
@@ -146,9 +122,7 @@ To view the permissions for this policy, see
 in the _AWS Managed Policy
 Reference_.
 
-## AWS
-
-managed policy: `AWSPartnerCentralMarketingManagement`
+## AWS managed policy: `AWSPartnerCentralMarketingManagement`
 
 You can attach the `AWSPartnerCentralMarketingManagement` policy to your
 IAM identities.
@@ -160,9 +134,7 @@ To view the permissions for this policy, see
 in the _AWS Managed Policy
 Reference_.
 
-## AWS
-
-managed policy: `PartnerCentralIncentiveBenefitManagement`
+## AWS managed policy: `PartnerCentralIncentiveBenefitManagement`
 
 You can attach the `PartnerCentralIncentiveBenefitManagement` policy to your
 IAM identities.
@@ -174,14 +146,11 @@ To view the permissions for this policy, see
 in the _AWS Managed Policy
 Reference_.
 
-## AWS Partner Central updates to AWS
-
-managed policies
+## AWS Partner Central updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Partner Central since this
 service began tracking these changes. For automatic alerts about changes to this page,
-subscribe to the RSS feed on the AWS Partner Central [Document history for the AWS Partner Central Getting Started
-Guide](doc-history.md "doc-history.md") page.
+subscribe to the RSS feed on the AWS Partner Central [Document history for the AWS Partner Central Getting Started Guide](doc-history.md "doc-history.md") page.
 
 | Change                                                                                                                                                                                                                                                            | Description                                                                                                                                                                                                                                                  | Date              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |

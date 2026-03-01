@@ -90,8 +90,7 @@ policy.
 ###### Note
 
 If you're an alliance lead or cloud admin, and you already have an IAM user or role
-with AWS administrator permissions, skip to [Linking AWS Partner Central and AWS
-accounts](linking-apc-aws-marketplace.md "linking-apc-aws-marketplace.md").
+with AWS administrator permissions, skip to [Linking AWS Partner Central and AWS accounts](linking-apc-aws-marketplace.md "linking-apc-aws-marketplace.md").
 
 ###### To create the policy
 

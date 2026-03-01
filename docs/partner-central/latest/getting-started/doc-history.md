@@ -1,6 +1,4 @@
-# Document history for the AWS Partner Central Getting Started
-
-Guide
+# Document history for the AWS Partner Central Getting Started Guide
 
 The following table describes the documentation releases for AWS Partner Central Documentation.
 

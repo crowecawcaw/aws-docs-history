@@ -27,8 +27,6 @@ Account linking has other benefits:
 ###### Topics
 
 - [Prerequisites](linking-prerequisites.md "linking-prerequisites.md")
-- [Linking AWS Partner Central and AWS
-  accounts](linking-apc-aws-marketplace.md "linking-apc-aws-marketplace.md")
-- [Unlinking AWS Partner Central and AWS
-  accounts](unlinking-apc-aws-marketplace.md "unlinking-apc-aws-marketplace.md")
+- [Linking AWS Partner Central and AWS accounts](linking-apc-aws-marketplace.md "linking-apc-aws-marketplace.md")
+- [Unlinking AWS Partner Central and AWS accounts](unlinking-apc-aws-marketplace.md "unlinking-apc-aws-marketplace.md")
 - [Account linking FAQ](account-linking-faq.md "account-linking-faq.md")

@@ -1,6 +1,4 @@
-# Controlling access in
-
-AWS Partner Central account management
+# Controlling access in AWS Partner Central account management
 
 [AWS Identity and
 Access Management (IAM)](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") is an AWS service you can use at no additional charge that
@@ -16,14 +14,11 @@ For more information about available actions, resources, and condition keys, ref
 
 ###### Topics
 
-- [Permissions for AWS Partner Central account
-  management](#account-management-permissions "#account-management-permissions")
+- [Permissions for AWS Partner Central account management](#account-management-permissions "#account-management-permissions")
 - [Condition keys for AWS Partner Central account management](#condition-keys "#condition-keys")
 - [Additional resources](#additional-resources "#additional-resources")
 
-## Permissions for AWS Partner Central account
-
-management
+## Permissions for AWS Partner Central account management
 
 You can use the following permissions in IAM policies for AWS Partner Central account
 management. You can combine permissions into a single IAM policy to grant the permissions you

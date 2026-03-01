@@ -23,8 +23,7 @@ For more information, refer to
 Marketplace sellers also need paid accounts for service usage.
 
 You can unlink an AWS account, but doing so creates data persistence issues and requires manual reconciliation efforts.
-For more information about unlinking AWS accounts, refer to [Unlinking AWS Partner Central and AWS
-accounts](unlinking-apc-aws-marketplace.md "unlinking-apc-aws-marketplace.md") earlier in this guide.
+For more information about unlinking AWS accounts, refer to [Unlinking AWS Partner Central and AWS accounts](unlinking-apc-aws-marketplace.md "unlinking-apc-aws-marketplace.md") earlier in this guide.
 
 Coordinate with your IAM administrator to identify the team responsible for account approval and provisioning.
 For instructions on setting up an AWS account, refer to [Create an AWS account](../../../accounts/latest/reference/manage-acct-creating.md "../../../accounts/latest/reference/manage-acct-creating.md") in the
@@ -76,8 +75,7 @@ Guide_.
 You must have the alliance lead or cloud admin _role_, not the
 privileges.
 
-Follow the steps in [Unlinking AWS Partner Central and AWS
-accounts](unlinking-apc-aws-marketplace.md "unlinking-apc-aws-marketplace.md") earlier in this guide.
+Follow the steps in [Unlinking AWS Partner Central and AWS accounts](unlinking-apc-aws-marketplace.md "unlinking-apc-aws-marketplace.md") earlier in this guide.
 
 If you unlink and re-link to a different AWS Marketplace seller or AWS account, linked
 objects disappear. If a partner re-links to the same AWS Marketplace seller or AWS account,
