@@ -1,6 +1,4 @@
-# AOSSUS04-BP01 Consolidate OpenSearch Service domain
-
-environments
+# AOSSUS04-BP01 Consolidate OpenSearch Service domain environments
 
 Reduce costs, improve resource utilization, and enhance data
 protection by consolidating development and test workloads into

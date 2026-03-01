@@ -1,6 +1,4 @@
-# AOSPERF04-BP03 Use the flat object type for nested
-
-objects
+# AOSPERF04-BP03 Use the flat object type for nested objects
 
 Improve efficiency by using flat object types for indexing and
 querying complex data structures, reducing storage and retrieval

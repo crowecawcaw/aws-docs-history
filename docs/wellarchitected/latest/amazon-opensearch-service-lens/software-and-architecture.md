@@ -14,7 +14,5 @@ lead to cost savings as well.
 
 ###### Best practices
 
-- [AOSSUS02-BP01 Evaluate instances in alignment to sustainability
-  goals](aossus02-bp01.md "aossus02-bp01.md")
-- [AOSSUS02-BP02 Use the minimum number of instances necessary to
-  meet your workload requirements](aossus02-bp02.md "aossus02-bp02.md")
+- [AOSSUS02-BP01 Evaluate instances in alignment to sustainability goals](aossus02-bp01.md "aossus02-bp01.md")
+- [AOSSUS02-BP02 Use the minimum number of instances necessary to meet your workload requirements](aossus02-bp02.md "aossus02-bp02.md")

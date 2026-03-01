@@ -1,6 +1,4 @@
-# AOSOPS03-BP04 Enable audit logs for OpenSearch Service domains
-
-using fine-grained access control
+# AOSOPS03-BP04 Enable audit logs for OpenSearch Service domains using fine-grained access control
 
 Turn on audit logging with access control to gain visibility into
 domain operations, support issue resolution, and enhance security

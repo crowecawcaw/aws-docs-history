@@ -1,6 +1,4 @@
-# AOSCOST02-BP02 Use instances optimized for heavy indexing use
-
-cases
+# AOSCOST02-BP02 Use instances optimized for heavy indexing use cases
 
 Improve indexing throughput and cost-effectiveness by using OR1
 instances, which provide optimized storage for heavy indexing use

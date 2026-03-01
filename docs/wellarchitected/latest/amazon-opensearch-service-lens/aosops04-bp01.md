@@ -1,6 +1,4 @@
-# AOSOPS04-BP01 Train staff on common OpenSearch issues and how
-
-to remediate them
+# AOSOPS04-BP01 Train staff on common OpenSearch issues and how to remediate them
 
 Educate staff on common OpenSearch Service issues and how to resolve them,
 which fosters proactive issue resolution and reduces downtime.

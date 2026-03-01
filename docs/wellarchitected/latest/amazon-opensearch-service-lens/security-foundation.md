@@ -8,9 +8,7 @@ As organizations increasingly rely on cloud-based search services, the importanc
 
 ###### Best practices
 
-- [AOSSEC01-BP01 Launch your OpenSearch Service domains within a Virtual
-  Private Cloud](aossec01-bp01.md "aossec01-bp01.md")
+- [AOSSEC01-BP01 Launch your OpenSearch Service domains within a Virtual Private Cloud](aossec01-bp01.md "aossec01-bp01.md")
 - [AOSSEC01-BP02 Activate node-to-node encryption](aossec01-bp02.md "aossec01-bp02.md")
 - [AOSSEC01-BP03 Enable encryption at rest](aossec01-bp03.md "aossec01-bp03.md")
-- [AOSSEC01-BP04 Encrypt slow and error logs in Amazon CloudWatch
-  to protect sensitive information](aossec01-bp04.md "aossec01-bp04.md")
+- [AOSSEC01-BP04 Encrypt slow and error logs in Amazon CloudWatch to protect sensitive information](aossec01-bp04.md "aossec01-bp04.md")

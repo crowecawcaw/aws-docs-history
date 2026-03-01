@@ -1,6 +1,4 @@
-# AOSSUS02-BP01 Evaluate instances in alignment to sustainability
-
-goals
+# AOSSUS02-BP01 Evaluate instances in alignment to sustainability goals
 
 Reduce carbon footprint, improve sustainability performance, and
 enhance regulatory compliance by evaluating instance choices that

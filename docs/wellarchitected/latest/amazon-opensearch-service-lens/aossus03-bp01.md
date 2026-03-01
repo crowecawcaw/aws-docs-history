@@ -1,6 +1,4 @@
-# AOSSUS03-BP01 Use Index State Management to manage the
-
-lifecycle of your dataset
+# AOSSUS03-BP01 Use Index State Management to manage the lifecycle of your dataset
 
 Improve data management, meet compliance requirements, and reduce
 data loss risk by using Index State Management (ISM) to manage the

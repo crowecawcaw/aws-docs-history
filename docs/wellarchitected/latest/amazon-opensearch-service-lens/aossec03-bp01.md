@@ -1,6 +1,4 @@
-# AOSSEC03-BP01 Implement fine-grained access control to manage
-
-access to your data on Amazon OpenSearch Service
+# AOSSEC03-BP01 Implement fine-grained access control to manage access to your data on Amazon OpenSearch Service
 
 Control user access to OpenSearch Service domains and dashboards
 using fine-grained access control, and only provide sensitive data

@@ -38,9 +38,6 @@ of Amazon OpenSearch Service.
 
 ###### Best practices
 
-- [AOSSUS03-BP01 Use Index State Management to manage the
-  lifecycle of your dataset](aossus03-bp01.md "aossus03-bp01.md")
-- [AOSSUS03-BP02 Reduce unnecessary or redundant data from your
-  domain](aossus03-bp02.md "aossus03-bp02.md")
-- [AOSSUS03-BP03 Take manual snapshots of your indices only when
-  it is difficult to recreate the dataset](aossus03-bp03.md "aossus03-bp03.md")
+- [AOSSUS03-BP01 Use Index State Management to manage the lifecycle of your dataset](aossus03-bp01.md "aossus03-bp01.md")
+- [AOSSUS03-BP02 Reduce unnecessary or redundant data from your domain](aossus03-bp02.md "aossus03-bp02.md")
+- [AOSSUS03-BP03 Take manual snapshots of your indices only when it is difficult to recreate the dataset](aossus03-bp03.md "aossus03-bp03.md")

@@ -1,6 +1,4 @@
-# AOSCOST01-BP01 Use the latest generation of instances for your
-
-OpenSearch Service domains
+# AOSCOST01-BP01 Use the latest generation of instances for your OpenSearch Service domains
 
 Improve performance and reduce costs by using the latest instance
 generation, which offers enhanced memory, security features, and

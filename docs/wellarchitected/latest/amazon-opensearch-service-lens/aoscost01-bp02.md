@@ -1,6 +1,4 @@
-# AOSCOST01-BP02 Employ the appropriate instance type and
-
-count
+# AOSCOST01-BP02 Employ the appropriate instance type and count
 
 Improve query performance, enhance domain stability, and reduce risk
 by selecting the appropriate instance type and count for your

@@ -1,6 +1,4 @@
-# AOSOPS03-BP03 Enable search and indexing slow log
-
-functionality
+# AOSOPS03-BP03 Enable search and indexing slow log functionality
 
 Turn on slow log functionality to gain insights into query latency
 and optimize search and indexing operations.

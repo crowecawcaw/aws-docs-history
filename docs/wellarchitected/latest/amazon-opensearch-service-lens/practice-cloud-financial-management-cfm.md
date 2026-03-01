@@ -31,8 +31,6 @@ run your workloads while being cost optimized.
 
 ###### Best practices
 
-- [AOSCOST01-BP01 Use the latest generation of instances for your
-  OpenSearch Service domains](aoscost01-bp01.md "aoscost01-bp01.md")
-- [AOSCOST01-BP02 Employ the appropriate instance type and
-  count](aoscost01-bp02.md "aoscost01-bp02.md")
+- [AOSCOST01-BP01 Use the latest generation of instances for your OpenSearch Service domains](aoscost01-bp01.md "aoscost01-bp01.md")
+- [AOSCOST01-BP02 Employ the appropriate instance type and count](aoscost01-bp02.md "aoscost01-bp02.md")
 - [AOSCOST01-BP03 Evaluate manager nodes](aoscost01-bp03.md "aoscost01-bp03.md")

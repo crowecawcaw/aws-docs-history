@@ -1,6 +1,4 @@
-# AOSSUS03-BP02 Reduce unnecessary or redundant data from your
-
-domain
+# AOSSUS03-BP02 Reduce unnecessary or redundant data from your domain
 
 Reduce storage costs, improve resource utilization, and enhance
 resource management by removing unnecessary or redundant data from

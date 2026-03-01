@@ -57,6 +57,4 @@ for OpenSearch Service:
 
 ###### Best practices
 
-- [AOSSUS01-BP01 Select the Region for your OpenSearch Service
-  deployment based on a combination of business requirements and
-  sustainability goals](aossus01-bp01.md "aossus01-bp01.md")
+- [AOSSUS01-BP01 Select the Region for your OpenSearch Service deployment based on a combination of business requirements and sustainability goals](aossus01-bp01.md "aossus01-bp01.md")

@@ -34,10 +34,6 @@ recommend using AWS Pricing Calculator to estimate costs.
 
 ###### Best practices
 
-- [AOSCOST04-BP01 Apply cost allocation tags to your OpenSearch
-  resources for detailed cost tracking and analysis](aoscost04-bp01.md "aoscost04-bp01.md")
-- [AOSCOST05-BP01 Assess the pricing for instances and storage in
-  Amazon OpenSearch Service](aoscost05-bp01.md "aoscost05-bp01.md")
-- [AOSCOST05-BP02 Examine the costs associated with Amazon S3
-  storage for manually creating snapshots of your OpenSearch Service
-  domain](aoscost05-bp02.md "aoscost05-bp02.md")
+- [AOSCOST04-BP01 Apply cost allocation tags to your OpenSearch resources for detailed cost tracking and analysis](aoscost04-bp01.md "aoscost04-bp01.md")
+- [AOSCOST05-BP01 Assess the pricing for instances and storage in Amazon OpenSearch Service](aoscost05-bp01.md "aoscost05-bp01.md")
+- [AOSCOST05-BP02 Examine the costs associated with Amazon S3 storage for manually creating snapshots of your OpenSearch Service domain](aoscost05-bp02.md "aoscost05-bp02.md")

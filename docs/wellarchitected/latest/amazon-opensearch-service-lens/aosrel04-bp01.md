@@ -1,6 +1,4 @@
-# AOSREL04-BP01 Implement a disaster recovery (DR) strategy for
-
-your OpenSearch Service for business continuity
+# AOSREL04-BP01 Implement a disaster recovery (DR) strategy for your OpenSearch Service for business continuity
 
 Protect your Amazon OpenSearch Service with a disaster recovery
 plan, which improves business continuity in case of disruptions by

@@ -1,6 +1,4 @@
-# AOSCOST02-BP04 Use the cold tier storage option to store and
-
-retrieve infrequently accessed or historical data
+# AOSCOST02-BP04 Use the cold tier storage option to store and retrieve infrequently accessed or historical data
 
 Reduce costs and improve data management by storing infrequently
 accessed or historical data in the cold tier, maintaining efficient

@@ -1,6 +1,4 @@
-# AOSCOST04-BP01 Apply cost allocation tags to your OpenSearch
-
-resources for detailed cost tracking and analysis
+# AOSCOST04-BP01 Apply cost allocation tags to your OpenSearch resources for detailed cost tracking and analysis
 
 Improve cost visibility and enhance financial reporting by applying
 cost allocation tags to track and analyse costs associated with each

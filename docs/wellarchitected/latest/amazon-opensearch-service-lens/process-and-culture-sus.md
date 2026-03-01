@@ -13,5 +13,4 @@ emissions, avoids redundancy of data, and provides cost savings.
 
 ###### Best practices
 
-- [AOSSUS04-BP01 Consolidate OpenSearch Service domain
-  environments](aossus04-bp01.md "aossus04-bp01.md")
+- [AOSSUS04-BP01 Consolidate OpenSearch Service domain environments](aossus04-bp01.md "aossus04-bp01.md")

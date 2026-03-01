@@ -1,6 +1,4 @@
-# AOSCOST02-BP01 Use the latest Amazon EBS gp3 volumes with your
-
-OpenSearch Service nodes
+# AOSCOST02-BP01 Use the latest Amazon EBS gp3 volumes with your OpenSearch Service nodes
 
 Improve baseline performance and scalability by using the latest
 Amazon EBS gp3 volumes, which offer higher baseline performance and

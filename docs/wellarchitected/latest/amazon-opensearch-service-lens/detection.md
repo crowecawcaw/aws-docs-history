@@ -8,9 +8,7 @@ To protect the security and integrity of your data, it's essential to monitor an
 
 ###### Best practices
 
-- [AOSSEC02-BP01 Set up audit logging for OpenSearch Service domains that
-  use fine-grained access control](aossec02-bp01.md "aossec02-bp01.md")
+- [AOSSEC02-BP01 Set up audit logging for OpenSearch Service domains that use fine-grained access control](aossec02-bp01.md "aossec02-bp01.md")
 - [AOSSEC02-BP02 Track OpenSearch Service API calls](aossec02-bp02.md "aossec02-bp02.md")
 - [AOSSEC02-BP03 Monitor real-time events in your OpenSearch Service domains](aossec02-bp03.md "aossec02-bp03.md")
-- [AOSSEC02-BP04 Assess your OpenSearch Service domain's configuration
-  with AWS Config](aossec02-bp04.md "aossec02-bp04.md")
+- [AOSSEC02-BP04 Assess your OpenSearch Service domain's configuration with AWS Config](aossec02-bp04.md "aossec02-bp04.md")

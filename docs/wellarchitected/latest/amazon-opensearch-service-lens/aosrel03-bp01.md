@@ -1,6 +1,4 @@
-# AOSREL03-BP01 Regularly review your OpenSearch Service
-
-quotas
+# AOSREL03-BP01 Regularly review your OpenSearch Service quotas
 
 Prevent workload limitations in Amazon OpenSearch Service by regularly
 reviewing and updating your domain quotas for smooth operation.

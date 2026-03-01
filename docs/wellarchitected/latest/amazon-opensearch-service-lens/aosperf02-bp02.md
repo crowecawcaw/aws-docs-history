@@ -1,6 +1,4 @@
-# AOSPERF02-BP02 Implement Java memory utilization
-
-monitoring
+# AOSPERF02-BP02 Implement Java memory utilization monitoring
 
 Keep `JVMMemoryPressure` below 85% to maintain efficient memory
 utilization and prevent potential performance issues.

@@ -1,7 +1,4 @@
-# AOSCOST05-BP02 Examine the costs associated with Amazon S3
-
-storage for manually creating snapshots of your OpenSearch Service
-domain
+# AOSCOST05-BP02 Examine the costs associated with Amazon S3 storage for manually creating snapshots of your OpenSearch Service domain
 
 Improve cost awareness and inform backup strategy by examining Amazon S3
 storage costs associated with manually creating snapshots of your

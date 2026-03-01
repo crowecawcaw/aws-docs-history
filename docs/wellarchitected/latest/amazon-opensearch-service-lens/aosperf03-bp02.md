@@ -1,6 +1,4 @@
-# AOSPERF03-BP02 Evenly distribute data across data nodes in your
-
-OpenSearch Service domain
+# AOSPERF03-BP02 Evenly distribute data across data nodes in your OpenSearch Service domain
 
 Maintain efficient resource utilization and optimal query
 performance by distributing data evenly across data nodes.

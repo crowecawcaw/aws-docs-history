@@ -33,15 +33,10 @@ _dedicated coordinator nodes_.
 ###### Best practices
 
 - [AOSPERF03-BP01 Establish storage utilization thresholds](aosperf03-bp01.md "aosperf03-bp01.md")
-- [AOSPERF03-BP02 Evenly distribute data across data nodes in your
-  OpenSearch Service domain](aosperf03-bp02.md "aosperf03-bp02.md")
-- [AOSPERF03-BP03 Use storage types that provide higher IOPs and
-  throughput baseline](aosperf03-bp03.md "aosperf03-bp03.md")
-- [AOSPERF04-BP01 Enable slow log functionality for search and
-  indexing](aosperf04-bp01.md "aosperf04-bp01.md")
+- [AOSPERF03-BP02 Evenly distribute data across data nodes in your OpenSearch Service domain](aosperf03-bp02.md "aosperf03-bp02.md")
+- [AOSPERF03-BP03 Use storage types that provide higher IOPs and throughput baseline](aosperf03-bp03.md "aosperf03-bp03.md")
+- [AOSPERF04-BP01 Enable slow log functionality for search and indexing](aosperf04-bp01.md "aosperf04-bp01.md")
 - [AOSPERF04-BP02 Use static mapping for your index](aosperf04-bp02.md "aosperf04-bp02.md")
-- [AOSPERF04-BP03 Use the flat object type for nested
-  objects](aosperf04-bp03.md "aosperf04-bp03.md")
+- [AOSPERF04-BP03 Use the flat object type for nested objects](aosperf04-bp03.md "aosperf04-bp03.md")
 - [AOSPERF05-BP01 Enable a dedicated leader node for OpenSearch Service domain](aosperf05-bp01.md "aosperf05-bp01.md")
-- [AOSPERF05-BP02 Enable a dedicated coordinator node for
-  OpenSearch Service domain](aosperf05-bp02.md "aosperf05-bp02.md")
+- [AOSPERF05-BP02 Enable a dedicated coordinator node for OpenSearch Service domain](aosperf05-bp02.md "aosperf05-bp02.md")

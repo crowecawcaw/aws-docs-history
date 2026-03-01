@@ -8,7 +8,5 @@ To protect the security and integrity of your data, indices, and documents on Op
 
 ###### Best practices
 
-- [AOSSEC03-BP01 Implement fine-grained access control to manage
-  access to your data on Amazon OpenSearch Service](aossec03-bp01.md "aossec03-bp01.md")
-- [AOSSEC03-BP02 Secure your indices, documents, and fields using
-  fine-grained access control](aossec03-bp02.md "aossec03-bp02.md")
+- [AOSSEC03-BP01 Implement fine-grained access control to manage access to your data on Amazon OpenSearch Service](aossec03-bp01.md "aossec03-bp01.md")
+- [AOSSEC03-BP02 Secure your indices, documents, and fields using fine-grained access control](aossec03-bp02.md "aossec03-bp02.md")

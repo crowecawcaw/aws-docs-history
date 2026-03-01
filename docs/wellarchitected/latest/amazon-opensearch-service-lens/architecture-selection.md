@@ -14,12 +14,8 @@ Optimizing resource utilization in your OpenSearch domain instances is important
 
 ###### Best practices
 
-- [AOSPERF01-BP01 Maintain shard sizes at recommended
-  ranges](aosperf01-bp01.md "aosperf01-bp01.md")
+- [AOSPERF01-BP01 Maintain shard sizes at recommended ranges](aosperf01-bp01.md "aosperf01-bp01.md")
 - [AOSPERF01-BP02 Check shard-to-CPU ratio](aosperf01-bp02.md "aosperf01-bp02.md")
-- [AOSPERF01-BP03 Check the number of shards per GiB of heap
-  memory](aosperf01-bp03.md "aosperf01-bp03.md")
-- [AOSPERF02-BP01 Implement processor utilization
-  monitoring](aosperf02-bp01.md "aosperf02-bp01.md")
-- [AOSPERF02-BP02 Implement Java memory utilization
-  monitoring](aosperf02-bp02.md "aosperf02-bp02.md")
+- [AOSPERF01-BP03 Check the number of shards per GiB of heap memory](aosperf01-bp03.md "aosperf01-bp03.md")
+- [AOSPERF02-BP01 Implement processor utilization monitoring](aosperf02-bp01.md "aosperf02-bp01.md")
+- [AOSPERF02-BP02 Implement Java memory utilization monitoring](aosperf02-bp02.md "aosperf02-bp02.md")

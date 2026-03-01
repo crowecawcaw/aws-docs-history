@@ -1,6 +1,4 @@
-# AOSCOST02-BP03 Use the warm storage tier to optimize storage
-
-for a significant amount of read-only data
+# AOSCOST02-BP03 Use the warm storage tier to optimize storage for a significant amount of read-only data
 
 Reduce costs, improve query performance, and enhance domain
 stability by storing a significant amount of read-only data in the

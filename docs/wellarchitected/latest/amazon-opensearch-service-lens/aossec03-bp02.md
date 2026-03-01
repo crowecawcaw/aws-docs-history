@@ -1,6 +1,4 @@
-# AOSSEC03-BP02 Secure your indices, documents, and fields using
-
-fine-grained access control
+# AOSSEC03-BP02 Secure your indices, documents, and fields using fine-grained access control
 
 Protect sensitive data in Amazon OpenSearch Service by implementing
 fine-grained access control to secure indices, documents, and

@@ -1,6 +1,4 @@
-# AOSREL04-BP03 Enable index replication for your critical
-
-indices
+# AOSREL04-BP03 Enable index replication for your critical indices
 
 Provide high availability and improved performance in Amazon OpenSearch Service by enabling index replication for critical indices,
 allowing replicas to handle read operations alongside primaries.

@@ -1,7 +1,4 @@
-# AOSSUS01-BP01 Select the Region for your OpenSearch Service
-
-deployment based on a combination of business requirements and
-sustainability goals
+# AOSSUS01-BP01 Select the Region for your OpenSearch Service deployment based on a combination of business requirements and sustainability goals
 
 Improve alignment with business objectives, meet compliance
 requirements, and reduce non-compliance risk by selecting the

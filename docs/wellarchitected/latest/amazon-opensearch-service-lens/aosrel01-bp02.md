@@ -1,6 +1,4 @@
-# AOSREL01-BP02 Regularly update your OpenSearch Service domain
-
-to the latest version
+# AOSREL01-BP02 Regularly update your OpenSearch Service domain to the latest version
 
 Keep your OpenSearch Service domain current by regularly
 updating it to the latest available version, which provides improved

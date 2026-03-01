@@ -1,6 +1,4 @@
-# AOSPERF01-BP01 Maintain shard sizes at recommended
-
-ranges
+# AOSPERF01-BP01 Maintain shard sizes at recommended ranges
 
 Shard size is recommended in a range of 10 GiB to 50 GiB.
 

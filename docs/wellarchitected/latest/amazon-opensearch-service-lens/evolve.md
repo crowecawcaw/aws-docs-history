@@ -18,5 +18,4 @@ performance.
 
 ###### Best practices
 
-- [AOSOPS04-BP01 Train staff on common OpenSearch issues and how
-  to remediate them](aosops04-bp01.md "aosops04-bp01.md")
+- [AOSOPS04-BP01 Train staff on common OpenSearch issues and how to remediate them](aosops04-bp01.md "aosops04-bp01.md")

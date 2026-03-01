@@ -1,6 +1,4 @@
-# AOSSEC02-BP01 Set up audit logging for OpenSearch Service domains that
-
-use fine-grained access control
+# AOSSEC02-BP01 Set up audit logging for OpenSearch Service domains that use fine-grained access control
 
 Turn on audit logging for OpenSearch Service domains using fine-grained
 access control, enhancing security monitoring and compliance.

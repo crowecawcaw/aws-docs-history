@@ -1,6 +1,4 @@
-# AOSSUS02-BP02 Use the minimum number of instances necessary to
-
-meet your workload requirements
+# AOSSUS02-BP02 Use the minimum number of instances necessary to meet your workload requirements
 
 Reduce costs, improve resource utilization, and eliminate
 unnecessary resource usage by using the minimum number of instances

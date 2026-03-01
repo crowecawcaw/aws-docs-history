@@ -1,6 +1,4 @@
-# AOSOPS01-BP02 Configure index templates to automate index
-
-configuration upon creation
+# AOSOPS01-BP02 Configure index templates to automate index configuration upon creation
 
 Use templates to automate index creation and maintain consistent
 settings.

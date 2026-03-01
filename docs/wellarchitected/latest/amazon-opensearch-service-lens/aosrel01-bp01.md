@@ -1,6 +1,4 @@
-# AOSREL01-BP01 Implement a system update notification
-
-strategy
+# AOSREL01-BP01 Implement a system update notification strategy
 
 Stay informed about notifications regarding updates to Amazon OpenSearch Service, which prepares you for changes or new features.
 

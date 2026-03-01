@@ -1,6 +1,4 @@
-# AOSPERF05-BP02 Enable a dedicated coordinator node for
-
-OpenSearch Service domain
+# AOSPERF05-BP02 Enable a dedicated coordinator node for OpenSearch Service domain
 
 Improve resource utilization and resilience by enabling a dedicated
 coordinator node, reducing private IP address reservations

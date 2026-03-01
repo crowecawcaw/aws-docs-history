@@ -1,6 +1,4 @@
-# AOSSEC02-BP04 Assess your OpenSearch Service domain's configuration
-
-with AWS Config
+# AOSSEC02-BP04 Assess your OpenSearch Service domain's configuration with AWS Config
 
 Use AWS Config to evaluate your OpenSearch Service domain's
 configuration settings, gaining visibility into potential issues or
