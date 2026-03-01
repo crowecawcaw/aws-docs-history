@@ -8,8 +8,7 @@ For more information about Aurora PostgreSQL support dates, including extended a
 To determine the version number of your Aurora PostgreSQL database, see [Identifying versions of Amazon Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.Updates.md "../AuroraUserGuide/AuroraPostgreSQL.Updates.md") in the _Amazon Aurora User
 Guide_.
 
-For information about extensions and modules, see [Extension versions for
-Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+For information about extensions and modules, see [Extension versions for Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
 
 For information about Amazon Aurora available releases, policies, and time lines, see [How long Amazon Aurora major versions remain available](../AuroraUserGuide/Aurora.md#Aurora.VersionPolicy.MajorVersionLifetime "../AuroraUserGuide/Aurora.md#Aurora.VersionPolicy.MajorVersionLifetime") in the _Amazon Aurora
 User Guide_. For more information about support and other policies for
@@ -34,12 +33,9 @@ Guide_.
 - [PostgreSQL 14 versions (includes some deprecated versions)](#aurorapostgresql-versions-version14 "#aurorapostgresql-versions-version14")
 - [PostgreSQL 13 versions (includes some deprecated versions)](#aurorapostgresql-versions-version13 "#aurorapostgresql-versions-version13")
 - [PostgreSQL 12 versions (includes some deprecated versions)](#aurorapostgresql-versions-version12 "#aurorapostgresql-versions-version12")
-- [PostgreSQL 11 versions (includes
-  some deprecated versions)](#AuroraPostgreSQL.versions-version11 "#AuroraPostgreSQL.versions-version11")
-- [PostgreSQL 10 versions
-  (Deprecated)](#AuroraPostgreSQL.versions-version10 "#AuroraPostgreSQL.versions-version10")
-- [PostgreSQL 9.6 versions
-  (Deprecated)](#AuroraPostgreSQL.versions-version96 "#AuroraPostgreSQL.versions-version96")
+- [PostgreSQL 11 versions (includes some deprecated versions)](#AuroraPostgreSQL.versions-version11 "#AuroraPostgreSQL.versions-version11")
+- [PostgreSQL 10 versions (Deprecated)](#AuroraPostgreSQL.versions-version10 "#AuroraPostgreSQL.versions-version10")
+- [PostgreSQL 9.6 versions (Deprecated)](#AuroraPostgreSQL.versions-version96 "#AuroraPostgreSQL.versions-version96")
 
 ## PostgreSQL 18.1
 
@@ -163,7 +159,6 @@ the improvements in PostgreSQL 17.7, see [PostgreSQL release
 **Critical stability enhancements**
 
 - Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
-- Fixed an issue where an UPDATE statement with OUTPUT clause may skip rows when there are concurrent updates on the same row
 
 #### Aurora PostgreSQL 17.7, December, 18, 2025
 
@@ -234,7 +229,6 @@ the improvements in PostgreSQL 17.6, see [PostgreSQL release
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
 
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 
 **General enhancements**
@@ -304,20 +298,13 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL 17.5.4, January 15,
-  2026](#aurorapostgresql-versions-version1754x-1754 "#aurorapostgresql-versions-version1754x-1754")
-- [Aurora PostgreSQL 17.5.3, September 16,
-  2025](#aurorapostgresql-versions-version1753x-1753 "#aurorapostgresql-versions-version1753x-1753")
-- [Aurora PostgreSQL 17.5.2, August 8,
-  2025](#aurorapostgresql-versions-version1752x-1752 "#aurorapostgresql-versions-version1752x-1752")
-- [Aurora PostgreSQL 17.5.1, June 30,
-  2025](#aurorapostgresql-versions-version1751x-1751 "#aurorapostgresql-versions-version1751x-1751")
-- [Aurora PostgreSQL 17.5, June 30,
-  2025](#aurorapostgresql-versions-version175x-175 "#aurorapostgresql-versions-version175x-175")
+- [Aurora PostgreSQL 17.5.4, January 15, 2026](#aurorapostgresql-versions-version1754x-1754 "#aurorapostgresql-versions-version1754x-1754")
+- [Aurora PostgreSQL 17.5.3, September 16, 2025](#aurorapostgresql-versions-version1753x-1753 "#aurorapostgresql-versions-version1753x-1753")
+- [Aurora PostgreSQL 17.5.2, August 8, 2025](#aurorapostgresql-versions-version1752x-1752 "#aurorapostgresql-versions-version1752x-1752")
+- [Aurora PostgreSQL 17.5.1, June 30, 2025](#aurorapostgresql-versions-version1751x-1751 "#aurorapostgresql-versions-version1751x-1751")
+- [Aurora PostgreSQL 17.5, June 30, 2025](#aurorapostgresql-versions-version175x-175 "#aurorapostgresql-versions-version175x-175")
 
-#### Aurora PostgreSQL 17.5.4, January 15,
-
-2026
+#### Aurora PostgreSQL 17.5.4, January 15, 2026
 
 **Critical stability enhancements**
 
@@ -329,7 +316,6 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 **High priority enhancements**
 
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 - Backported fixes for the following PostgreSQL community security issues:
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
@@ -341,9 +327,7 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 - Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
 - Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
-#### Aurora PostgreSQL 17.5.3, September 16,
-
-2025
+#### Aurora PostgreSQL 17.5.3, September 16, 2025
 
 **Critical stability enhancements**
 
@@ -377,7 +361,6 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from
   completing.
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
@@ -405,9 +388,7 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
   `plans` extension using the “bitmap heap scan” access method.
 - Fixed and issue where storage client may crash during instance restart.
 
-#### Aurora PostgreSQL 17.5.2, August 8,
-
-2025
+#### Aurora PostgreSQL 17.5.2, August 8, 2025
 
 **Critical stability enhancements**
 
@@ -416,9 +397,7 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 - Fixed an issue with Serverless v2 scaling that may cause unavailability when
   performing reads from Aurora Storage.
 
-#### Aurora PostgreSQL 17.5.1, June 30,
-
-2025
+#### Aurora PostgreSQL 17.5.1, June 30, 2025
 
 **High priority enhancements**
 
@@ -426,9 +405,7 @@ the improvements in PostgreSQL 17.5, see [PostgreSQL release
 - Fixed an issue where newly created storage volume keys were incorrectly cleaned up
   causing periodic restarts.
 
-#### Aurora PostgreSQL 17.5, June 30,
-
-2025
+#### Aurora PostgreSQL 17.5, June 30, 2025
 
 **New features**
 
@@ -509,8 +486,7 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 - [Aurora PostgreSQL 17.4.5, February 02, 2026](#aurorapostgresql-versions-version1745x-1745 "#aurorapostgresql-versions-version1745x-1745")
 - [Aurora PostgreSQL 17.4.4, October 9, 2025](#aurorapostgresql-versions-version1744x-1744 "#aurorapostgresql-versions-version1744x-1744")
 - [Aurora PostgreSQL 17.4.3, June 03, 2025](#aurorapostgresql-versions-version1743x-1743 "#aurorapostgresql-versions-version1743x-1743")
-- [Aurora PostgreSQL 17.4.2, May 01,
-  2025](#aurorapostgresql-versions-version1742x-1742 "#aurorapostgresql-versions-version1742x-1742")
+- [Aurora PostgreSQL 17.4.2, May 01, 2025](#aurorapostgresql-versions-version1742x-1742 "#aurorapostgresql-versions-version1742x-1742")
 - [Aurora PostgreSQL 17.4, May 01, 2025](#aurorapostgresql-versions-version174x-174 "#aurorapostgresql-versions-version174x-174")
 
 #### Aurora PostgreSQL 17.4.5, February 02, 2026
@@ -531,7 +507,6 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
 - Fixed an issue where premature status updates during zero downtime patching could cause unnecessary failures by ensuring proper synchronization with server startup.
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself.
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 
 **General enhancements**
@@ -566,7 +541,6 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
@@ -616,9 +590,7 @@ the improvements in PostgreSQL 17.4, see [PostgreSQL release
 - Fixed an issue that can cause RO instance crash under heavy workload.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
 
-#### Aurora PostgreSQL 17.4.2, May 01,
-
-2025
+#### Aurora PostgreSQL 17.4.2, May 01, 2025
 
 **Critical priority enhancements**
 
@@ -712,12 +684,9 @@ To learn more on how to work with Database preview environment, see [Working wit
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL 17.0 in the Amazon RDS
-  Preview environment, November 20, 2024](#AuroraPostgreSQL.Updates.170Preview "#AuroraPostgreSQL.Updates.170Preview")
+- [Aurora PostgreSQL 17.0 in the Amazon RDS Preview environment, November 20, 2024](#AuroraPostgreSQL.Updates.170Preview "#AuroraPostgreSQL.Updates.170Preview")
 
-#### Aurora PostgreSQL 17.0 in the Amazon RDS
-
-Preview environment, November 20, 2024
+#### Aurora PostgreSQL 17.0 in the Amazon RDS Preview environment, November 20, 2024
 
 **_This is
 preview documentation for Amazon Aurora PostgreSQL version 17.0. It is
@@ -759,8 +728,7 @@ For more information on migration, see [Migration
 to Version 16](https://www.postgresql.org/docs/16/release-16.html#RELEASE-16-MIGRATION "https://www.postgresql.org/docs/16/release-16.html#RELEASE-16-MIGRATION") and [Migration to Version 16.1](https://www.postgresql.org/docs/16/release-16-1.html#RELEASE-16-1-MIGRATION "https://www.postgresql.org/docs/16/release-16-1.html#RELEASE-16-1-MIGRATION").
 
 For information about supported extensions versions for each Aurora PostgreSQL version,
-see [Extension versions for
-Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
+see [Extension versions for Amazon Aurora PostgreSQL](AuroraPostgreSQL.md "AuroraPostgreSQL.md").
 
 To upgrade your Aurora PostgreSQL DB cluster including upgrading your extensions, see [Upgrading PostgreSQL extensions](../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades "../AuroraUserGuide/USER_UpgradeDBInstance.md#USER_UpgradeDBInstance.Upgrading.ExtensionUpgrades").
 
@@ -818,7 +786,6 @@ the improvements in PostgreSQL 16.11, see [PostgreSQL release
 **Critical stability enhancements**
 
 - Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
-- Fixed an issue where an UPDATE statement with OUTPUT clause may skip rows when there are concurrent updates on the same row
 
 #### Aurora PostgreSQL 16.11, December, 18, 2025
 
@@ -889,7 +856,6 @@ the improvements in PostgreSQL 16.10, see [PostgreSQL release
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
 
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 
 **General enhancements**
@@ -958,20 +924,13 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL 16.9.4, January 15,
-  2026](#aurorapostgresql-versions-version1694x-1694 "#aurorapostgresql-versions-version1694x-1694")
-- [Aurora PostgreSQL 16.9.3, September 16,
-  2025](#aurorapostgresql-versions-version1693x-1693 "#aurorapostgresql-versions-version1693x-1693")
-- [Aurora PostgreSQL 16.9.2, August 8,
-  2025](#aurorapostgresql-versions-version1692x-1692 "#aurorapostgresql-versions-version1692x-1692")
-- [Aurora PostgreSQL 16.9.1, June 30,
-  2025](#aurorapostgresql-versions-version1691x-1691 "#aurorapostgresql-versions-version1691x-1691")
-- [Aurora PostgreSQL 16.9, June 30,
-  2025](#aurorapostgresql-versions-version169x-169 "#aurorapostgresql-versions-version169x-169")
+- [Aurora PostgreSQL 16.9.4, January 15, 2026](#aurorapostgresql-versions-version1694x-1694 "#aurorapostgresql-versions-version1694x-1694")
+- [Aurora PostgreSQL 16.9.3, September 16, 2025](#aurorapostgresql-versions-version1693x-1693 "#aurorapostgresql-versions-version1693x-1693")
+- [Aurora PostgreSQL 16.9.2, August 8, 2025](#aurorapostgresql-versions-version1692x-1692 "#aurorapostgresql-versions-version1692x-1692")
+- [Aurora PostgreSQL 16.9.1, June 30, 2025](#aurorapostgresql-versions-version1691x-1691 "#aurorapostgresql-versions-version1691x-1691")
+- [Aurora PostgreSQL 16.9, June 30, 2025](#aurorapostgresql-versions-version169x-169 "#aurorapostgresql-versions-version169x-169")
 
-#### Aurora PostgreSQL 16.9.4, January 15,
-
-2026
+#### Aurora PostgreSQL 16.9.4, January 15, 2026
 
 **Critical stability enhancements**
 
@@ -983,7 +942,6 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
 **High priority enhancements**
 
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 - Backported fixes for the following PostgreSQL community security issues:
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
@@ -995,9 +953,7 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
 - Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
 - Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
-#### Aurora PostgreSQL 16.9.3, September 16,
-
-2025
+#### Aurora PostgreSQL 16.9.3, September 16, 2025
 
 **Critical stability enhancements**
 
@@ -1031,8 +987,6 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
 
 **General enhancements**
 
-- Implemented enhanced error handling mechanisms during TDS Connection reset
-  operations.
 - Fixed an issue that could in certain cases prevent online recovery of an Aurora Replica
   from completing.
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
@@ -1056,9 +1010,7 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
   of an Aurora replica in a Global Database.
 - Fixed and issue where storage client may crash during instance restart.
 
-#### Aurora PostgreSQL 16.9.2, August 8,
-
-2025
+#### Aurora PostgreSQL 16.9.2, August 8, 2025
 
 **Critical stability enhancements**
 
@@ -1067,17 +1019,13 @@ the improvements in PostgreSQL 16.9, see [PostgreSQL release
 - Fixed an issue with Serverless v2 scaling that may cause unavailability when
   performing reads from Aurora Storage.
 
-#### Aurora PostgreSQL 16.9.1, June 30,
-
-2025
+#### Aurora PostgreSQL 16.9.1, June 30, 2025
 
 **High priority enhancements**
 
 - Fixed a performance issue affecting instance restart operations.
 
-#### Aurora PostgreSQL 16.9, June 30,
-
-2025
+#### Aurora PostgreSQL 16.9, June 30, 2025
 
 **New features**
 
@@ -1161,10 +1109,8 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 - [Aurora PostgreSQL 16.8.5, February 03, 2026](#aurorapostgresql-versions-version1685x-1685 "#aurorapostgresql-versions-version1685x-1685")
 - [Aurora PostgreSQL 16.8.4, October 9, 2025](#aurorapostgresql-versions-version1684x-1684 "#aurorapostgresql-versions-version1684x-1684")
 - [Aurora PostgreSQL 16.8.3, June 03, 2025](#aurorapostgresql-versions-version1683x-1683 "#aurorapostgresql-versions-version1683x-1683")
-- [Aurora PostgreSQL 16.8.2, May 01,
-  2025](#aurorapostgresql-versions-version1682x-1682 "#aurorapostgresql-versions-version1682x-1682")
-- [Aurora PostgreSQL 16.8, April 07,
-  2025](#aurorapostgresql-versions-version168x-168 "#aurorapostgresql-versions-version168x-168")
+- [Aurora PostgreSQL 16.8.2, May 01, 2025](#aurorapostgresql-versions-version1682x-1682 "#aurorapostgresql-versions-version1682x-1682")
+- [Aurora PostgreSQL 16.8, April 07, 2025](#aurorapostgresql-versions-version168x-168 "#aurorapostgresql-versions-version168x-168")
 
 #### Aurora PostgreSQL 16.8.5, February 03, 2026
 
@@ -1184,7 +1130,6 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
 - Fixed an issue where premature status updates during zero downtime patching could cause unnecessary failures by ensuring proper synchronization with server startup.
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself.
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 
 **General enhancements**
@@ -1219,7 +1164,6 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
@@ -1269,9 +1213,7 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 - Fixed an issue that can cause RO instance crash under heavy workload.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
 
-#### Aurora PostgreSQL 16.8.2, May 01,
-
-2025
+#### Aurora PostgreSQL 16.8.2, May 01, 2025
 
 **Critical priority enhancements**
 
@@ -1279,9 +1221,7 @@ the improvements in PostgreSQL 16.8, see [PostgreSQL release
 - Fixed an issue which can cause the database to become unresponsive when performing
   actions with Aurora storage.
 
-#### Aurora PostgreSQL 16.8, April 07,
-
-2025
+#### Aurora PostgreSQL 16.8, April 07, 2025
 
 **New features**
 
@@ -1353,16 +1293,11 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
 - [Aurora PostgreSQL 16.6.7, January 28, 2026](#aurorapostgresql-versions-version1667x-1667 "#aurorapostgresql-versions-version1667x-1667")
 - [Aurora PostgreSQL 16.6.6, November 13, 2025](#aurorapostgresql-versions-version1666x-1666 "#aurorapostgresql-versions-version1666x-1666")
 - [Aurora PostgreSQL 16.6.5, June 24, 2025](#aurorapostgresql-versions-version1665x-1665 "#aurorapostgresql-versions-version1665x-1665")
-- [Aurora PostgreSQL 16.6.4, March 24,
-  2025](#aurorapostgresql-versions-version1664x-1664 "#aurorapostgresql-versions-version1664x-1664")
-- [Aurora PostgreSQL 16.6.3, February 13,
-  2025](#aurorapostgresql-versions-version1663x-1663 "#aurorapostgresql-versions-version1663x-1663")
-- [Aurora PostgreSQL 16.6.2, January 20,
-  2025](#aurorapostgresql-versions-version1662x-1662 "#aurorapostgresql-versions-version1662x-1662")
-- [Aurora PostgreSQL 16.6.1, December 27,
-  2024](#aurorapostgresql-versions-version1661x-1661 "#aurorapostgresql-versions-version1661x-1661")
-- [Aurora PostgreSQL 16.6, December 27,
-  2024](#aurorapostgresql-versions-version166x-166 "#aurorapostgresql-versions-version166x-166")
+- [Aurora PostgreSQL 16.6.4, March 24, 2025](#aurorapostgresql-versions-version1664x-1664 "#aurorapostgresql-versions-version1664x-1664")
+- [Aurora PostgreSQL 16.6.3, February 13, 2025](#aurorapostgresql-versions-version1663x-1663 "#aurorapostgresql-versions-version1663x-1663")
+- [Aurora PostgreSQL 16.6.2, January 20, 2025](#aurorapostgresql-versions-version1662x-1662 "#aurorapostgresql-versions-version1662x-1662")
+- [Aurora PostgreSQL 16.6.1, December 27, 2024](#aurorapostgresql-versions-version1661x-1661 "#aurorapostgresql-versions-version1661x-1661")
+- [Aurora PostgreSQL 16.6, December 27, 2024](#aurorapostgresql-versions-version166x-166 "#aurorapostgresql-versions-version166x-166")
 
 #### Aurora PostgreSQL 16.6.7, January 28, 2026
 
@@ -1409,7 +1344,6 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
@@ -1445,9 +1379,7 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
-#### Aurora PostgreSQL 16.6.4, March 24,
-
-2025
+#### Aurora PostgreSQL 16.6.4, March 24, 2025
 
 **High priority enhancements**
 
@@ -1459,17 +1391,13 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
 - Fixed an issue on the replica where a network interruption may not correctly
   re-establish connection with the writer.
 
-#### Aurora PostgreSQL 16.6.3, February 13,
-
-2025
+#### Aurora PostgreSQL 16.6.3, February 13, 2025
 
 **High priority enhancements**
 
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418") for V8 Engine in the `PLV8` extension.
 
-#### Aurora PostgreSQL 16.6.2, January 20,
-
-2025
+#### Aurora PostgreSQL 16.6.2, January 20, 2025
 
 **Critical Priority enhancements**
 
@@ -1488,18 +1416,14 @@ the improvements in PostgreSQL 16.6, see [PostgreSQL release
   updated correctly from a previous the `PostGIS` extension v2
   installation.
 
-#### Aurora PostgreSQL 16.6.1, December 27,
-
-2024
+#### Aurora PostgreSQL 16.6.1, December 27, 2024
 
 **Critical Priority enhancements**
 
 - Fixed an issue where the server was restarting when the connections were reset by the
   peer.
 
-#### Aurora PostgreSQL 16.6, December 27,
-
-2024
+#### Aurora PostgreSQL 16.6, December 27, 2024
 
 ###### New features
 
@@ -1585,8 +1509,7 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
 - [Aurora PostgreSQL 16.4.4, April 17, 2025](#aurorapostgresql-versions-version1644x-1644 "#aurorapostgresql-versions-version1644x-1644")
 - [Aurora PostgreSQL 16.4.2, January 29, 2025](#aurorapostgresql-versions-version1642x-1642 "#aurorapostgresql-versions-version1642x-1642")
 - [Aurora PostgreSQL 16.4.1, January 02, 2025](#aurorapostgresql-versions-version1641x-1641 "#aurorapostgresql-versions-version1641x-1641")
-- [Aurora PostgreSQL 16.4, September 30,
-  2024](#aurorapostgresql-versions-version164x-164 "#aurorapostgresql-versions-version164x-164")
+- [Aurora PostgreSQL 16.4, September 30, 2024](#aurorapostgresql-versions-version164x-164 "#aurorapostgresql-versions-version164x-164")
 
 #### Aurora PostgreSQL 16.4.7, February 13, 2026
 
@@ -1624,7 +1547,6 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
@@ -1719,9 +1641,7 @@ the improvements in PostgreSQL 16.4, see [PostgreSQL release
 - Fixed an ownership issue where the postgis_raster extension could not be updated correctly
   from a previous the `PostGIS` extension 2 installation.
 
-#### Aurora PostgreSQL 16.4, September 30,
-
-2024
+#### Aurora PostgreSQL 16.4, September 30, 2024
 
 **New features**
 
@@ -1790,16 +1710,11 @@ about the improvements in PostgreSQL 16.3, see [PostgreSQL release
 ###### Releases and patches
 
 - [Aurora PostgreSQL 16.3.5, July 17, 2025](#aurorapostgresql-versions-version1635x-1635 "#aurorapostgresql-versions-version1635x-1635")
-- [Aurora PostgreSQL 16.3.4, March
-  25, 2025](#aurorapostgresql-versions-version1634x-1634 "#aurorapostgresql-versions-version1634x-1634")
-- [Aurora PostgreSQL 16.3.3, January
-  29, 2025](#aurorapostgresql-versions-version1633x-1633 "#aurorapostgresql-versions-version1633x-1633")
-- [Aurora PostgreSQL 16.3.2, January
-  23, 2025](#aurorapostgresql-versions-version1632x-1632 "#aurorapostgresql-versions-version1632x-1632")
-- [Aurora PostgreSQL 16.3.1,
-  September 27, 2024](#aurorapostgresql-versions-version163x-1631 "#aurorapostgresql-versions-version163x-1631")
-- [Aurora PostgreSQL 16.3, August
-  8, 2024](#aurorapostgresql-versions-version163x-163 "#aurorapostgresql-versions-version163x-163")
+- [Aurora PostgreSQL 16.3.4, March 25, 2025](#aurorapostgresql-versions-version1634x-1634 "#aurorapostgresql-versions-version1634x-1634")
+- [Aurora PostgreSQL 16.3.3, January 29, 2025](#aurorapostgresql-versions-version1633x-1633 "#aurorapostgresql-versions-version1633x-1633")
+- [Aurora PostgreSQL 16.3.2, January 23, 2025](#aurorapostgresql-versions-version1632x-1632 "#aurorapostgresql-versions-version1632x-1632")
+- [Aurora PostgreSQL 16.3.1, September 27, 2024](#aurorapostgresql-versions-version163x-1631 "#aurorapostgresql-versions-version163x-1631")
+- [Aurora PostgreSQL 16.3, August 8, 2024](#aurorapostgresql-versions-version163x-163 "#aurorapostgresql-versions-version163x-163")
 
 #### Aurora PostgreSQL 16.3.5, July 17, 2025
 
@@ -1821,9 +1736,7 @@ about the improvements in PostgreSQL 16.3, see [PostgreSQL release
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
-#### Aurora PostgreSQL 16.3.4, March
-
-25, 2025
+#### Aurora PostgreSQL 16.3.4, March 25, 2025
 
 **High priority enhancements**
 
@@ -1831,18 +1744,14 @@ about the improvements in PostgreSQL 16.3, see [PostgreSQL release
   issues:
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
-#### Aurora PostgreSQL 16.3.3, January
-
-29, 2025
+#### Aurora PostgreSQL 16.3.3, January 29, 2025
 
 **High priority enhancements**
 
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418") for V8 Engine in the `PLV8`
   extension.
 
-#### Aurora PostgreSQL 16.3.2, January
-
-23, 2025
+#### Aurora PostgreSQL 16.3.2, January 23, 2025
 
 ###### Critical stability enhancements
 
@@ -1868,9 +1777,7 @@ about the improvements in PostgreSQL 16.3, see [PostgreSQL release
 - Fixed an issue that could cause an error in the wal sender process when
   resuming logical replication.
 
-#### Aurora PostgreSQL 16.3.1,
-
-September 27, 2024
+#### Aurora PostgreSQL 16.3.1, September 27, 2024
 
 ###### High priority enhancements
 
@@ -1882,9 +1789,7 @@ September 27, 2024
 - Fixed an issue that would cause ZDP to fail on Aurora Optimized Reads Cache
   instances while upgrading into this version.
 
-#### Aurora PostgreSQL 16.3, August
-
-8, 2024
+#### Aurora PostgreSQL 16.3, August 8, 2024
 
 ###### New features
 
@@ -1966,12 +1871,9 @@ about the improvements in PostgreSQL 16.2, see [PostgreSQL release
 - [Aurora PostgreSQL 16.2.6, July 28, 2025](#aurorapostgresql-versions-version1626x-1626 "#aurorapostgresql-versions-version1626x-1626")
 - [Aurora PostgreSQL 16.2.5, April 16, 2025](#aurorapostgresql-versions-version1625x-1625 "#aurorapostgresql-versions-version1625x-1625")
 - [Aurora PostgreSQL 16.2.4, February 02, 2025](#aurorapostgresql-versions-version1624x-1624 "#aurorapostgresql-versions-version1624x-1624")
-- [Aurora PostgreSQL 16.2.3,
-  October 7, 2024](#aurorapostgresql-versions-version162x-1623 "#aurorapostgresql-versions-version162x-1623")
-- [Aurora PostgreSQL 16.2.2, June 20,
-  2024](#AuroraPostgreSQL.Updates.20180305.1622 "#AuroraPostgreSQL.Updates.20180305.1622")
-- [Aurora PostgreSQL 16.2.1, April
-  29, 2024](#AuroraPostgreSQL.Updates.20180305.1621 "#AuroraPostgreSQL.Updates.20180305.1621")
+- [Aurora PostgreSQL 16.2.3, October 7, 2024](#aurorapostgresql-versions-version162x-1623 "#aurorapostgresql-versions-version162x-1623")
+- [Aurora PostgreSQL 16.2.2, June 20, 2024](#AuroraPostgreSQL.Updates.20180305.1622 "#AuroraPostgreSQL.Updates.20180305.1622")
+- [Aurora PostgreSQL 16.2.1, April 29, 2024](#AuroraPostgreSQL.Updates.20180305.1621 "#AuroraPostgreSQL.Updates.20180305.1621")
 
 #### Aurora PostgreSQL 16.2.6, July 28, 2025
 
@@ -2027,9 +1929,7 @@ about the improvements in PostgreSQL 16.2, see [PostgreSQL release
 Fixed an ownership issue where the postgis_raster extension could not be updated correctly
 from a previous the `PostGIS` extension v2 installation.
 
-#### Aurora PostgreSQL 16.2.3,
-
-October 7, 2024
+#### Aurora PostgreSQL 16.2.3, October 7, 2024
 
 ###### General enhancements
 
@@ -2043,9 +1943,7 @@ October 7, 2024
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-#### Aurora PostgreSQL 16.2.2, June 20,
-
-2024
+#### Aurora PostgreSQL 16.2.2, June 20, 2024
 
 ###### General enhancements
 
@@ -2068,9 +1966,7 @@ October 7, 2024
   table.
 - Fixed issues in how two-phase commit files are handled.
 
-#### Aurora PostgreSQL 16.2.1, April
-
-29, 2024
+#### Aurora PostgreSQL 16.2.1, April 29, 2024
 
 ###### New features
 
@@ -2153,16 +2049,11 @@ about the improvements in PostgreSQL 16.1, see [PostgreSQL release
 - [Aurora PostgreSQL 16.1.8, July 30, 2025](#aurorapostgresql-versions-version1618x-1618 "#aurorapostgresql-versions-version1618x-1618")
 - [Aurora PostgreSQL 16.1.7, April 22, 2025](#aurorapostgresql-versions-version1617x-1617 "#aurorapostgresql-versions-version1617x-1617")
 - [Aurora PostgreSQL 16.1.6, February 5, 2025](#aurorapostgresql-versions-version1616x-1616 "#aurorapostgresql-versions-version1616x-1616")
-- [Aurora PostgreSQL 16.1.5,
-  September 17, 2024](#aurorapostgresql-versions-version161x-1615 "#aurorapostgresql-versions-version161x-1615")
-- [Aurora PostgreSQL 16.1.4, June 24,
-  2024](#AuroraPostgreSQL.Updates.20180305.1614 "#AuroraPostgreSQL.Updates.20180305.1614")
-- [Aurora PostgreSQL 16.1.3, March
-  13, 2024](#AuroraPostgreSQL.Updates.20180305.1613 "#AuroraPostgreSQL.Updates.20180305.1613")
-- [Aurora PostgreSQL 16.1.2, February
-  22, 2024](#AuroraPostgreSQL.Updates.20180305.1612 "#AuroraPostgreSQL.Updates.20180305.1612")
-- [Aurora PostgreSQL 16.1, January 31,
-  2024](#AuroraPostgreSQL.Updates.20180305.161 "#AuroraPostgreSQL.Updates.20180305.161")
+- [Aurora PostgreSQL 16.1.5, September 17, 2024](#aurorapostgresql-versions-version161x-1615 "#aurorapostgresql-versions-version161x-1615")
+- [Aurora PostgreSQL 16.1.4, June 24, 2024](#AuroraPostgreSQL.Updates.20180305.1614 "#AuroraPostgreSQL.Updates.20180305.1614")
+- [Aurora PostgreSQL 16.1.3, March 13, 2024](#AuroraPostgreSQL.Updates.20180305.1613 "#AuroraPostgreSQL.Updates.20180305.1613")
+- [Aurora PostgreSQL 16.1.2, February 22, 2024](#AuroraPostgreSQL.Updates.20180305.1612 "#AuroraPostgreSQL.Updates.20180305.1612")
+- [Aurora PostgreSQL 16.1, January 31, 2024](#AuroraPostgreSQL.Updates.20180305.161 "#AuroraPostgreSQL.Updates.20180305.161")
 
 #### Aurora PostgreSQL 16.1.8, July 30, 2025
 
@@ -2224,9 +2115,7 @@ about the improvements in PostgreSQL 16.1, see [PostgreSQL release
 - Fixed an ownership issue where the `postgis_raster` extension could not be updated correctly
   from a previous the `PostGIS` extension v2 installation.
 
-#### Aurora PostgreSQL 16.1.5,
-
-September 17, 2024
+#### Aurora PostgreSQL 16.1.5, September 17, 2024
 
 ###### High priority enhancements
 
@@ -2235,9 +2124,7 @@ September 17, 2024
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-#### Aurora PostgreSQL 16.1.4, June 24,
-
-2024
+#### Aurora PostgreSQL 16.1.4, June 24, 2024
 
 ###### General enhancements
 
@@ -2259,17 +2146,13 @@ September 17, 2024
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same
   table.
 
-#### Aurora PostgreSQL 16.1.3, March
-
-13, 2024
+#### Aurora PostgreSQL 16.1.3, March 13, 2024
 
 ###### General enhancements
 
 - Fixed a performance degradation issue in `PLV8` extension.
 
-#### Aurora PostgreSQL 16.1.2, February
-
-22, 2024
+#### Aurora PostgreSQL 16.1.2, February 22, 2024
 
 ###### General enhancements
 
@@ -2293,9 +2176,7 @@ September 17, 2024
 - Fixed an issue where active transactions during logical replication slot
   creation may be partially replicated by the slot.
 
-#### Aurora PostgreSQL 16.1, January 31,
-
-2024
+#### Aurora PostgreSQL 16.1, January 31, 2024
 
 ###### New features
 
@@ -2344,8 +2225,7 @@ Updated the following extensions:
 - `pg_partman` to version 4.7.3
 - `pgTAP` to version 1.3.0
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-16](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.16 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.16").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 16](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.16 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.16").
 
 ## PostgreSQL 15 versions (includes some deprecated versions)
 
@@ -2380,7 +2260,6 @@ the improvements in PostgreSQL 15.15, see [PostgreSQL release
 **Critical stability enhancements**
 
 - Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
-- Fixed an issue where an UPDATE statement with OUTPUT clause may skip rows when there are concurrent updates on the same row
 
 #### Aurora PostgreSQL 15.15, Decemeber, 18, 2025
 
@@ -2447,7 +2326,6 @@ the improvements in PostgreSQL 15.14, see [PostgreSQL release
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
 
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 
 **General enhancements**
@@ -2506,20 +2384,13 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL 15.13.4, January 15,
-  2026](#aurorapostgresql-versions-version15134x-15134 "#aurorapostgresql-versions-version15134x-15134")
-- [Aurora PostgreSQL 15.13.3, September 16,
-  2025](#aurorapostgresql-versions-version15133x-15133 "#aurorapostgresql-versions-version15133x-15133")
-- [Aurora PostgreSQL 15.13.2, August 8,
-  2025](#aurorapostgresql-versions-version15132x-15132 "#aurorapostgresql-versions-version15132x-15132")
-- [Aurora PostgreSQL 15.13.1, June 30,
-  2025](#aurorapostgresql-versions-version15131x-15131 "#aurorapostgresql-versions-version15131x-15131")
-- [Aurora PostgreSQL 15.13, June 30,
-  2025](#aurorapostgresql-versions-version1513x-1513 "#aurorapostgresql-versions-version1513x-1513")
+- [Aurora PostgreSQL 15.13.4, January 15, 2026](#aurorapostgresql-versions-version15134x-15134 "#aurorapostgresql-versions-version15134x-15134")
+- [Aurora PostgreSQL 15.13.3, September 16, 2025](#aurorapostgresql-versions-version15133x-15133 "#aurorapostgresql-versions-version15133x-15133")
+- [Aurora PostgreSQL 15.13.2, August 8, 2025](#aurorapostgresql-versions-version15132x-15132 "#aurorapostgresql-versions-version15132x-15132")
+- [Aurora PostgreSQL 15.13.1, June 30, 2025](#aurorapostgresql-versions-version15131x-15131 "#aurorapostgresql-versions-version15131x-15131")
+- [Aurora PostgreSQL 15.13, June 30, 2025](#aurorapostgresql-versions-version1513x-1513 "#aurorapostgresql-versions-version1513x-1513")
 
-#### Aurora PostgreSQL 15.13.4, January 15,
-
-2026
+#### Aurora PostgreSQL 15.13.4, January 15, 2026
 
 **Critical stability enhancements**
 
@@ -2531,7 +2402,6 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
 **High priority enhancements**
 
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 - Backported fixes for the following PostgreSQL community security issues:
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
@@ -2543,9 +2413,7 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
 - Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
 - Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
-#### Aurora PostgreSQL 15.13.3, September 16,
-
-2025
+#### Aurora PostgreSQL 15.13.3, September 16, 2025
 
 **Critical stability enhancements**
 
@@ -2579,8 +2447,6 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
 
 **General enhancements**
 
-- Implemented enhanced error handling mechanisms during TDS Connection reset
-  operations.
 - Fixed an issue that could in certain cases prevent online recovery of an Aurora Replica
   from completing.
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
@@ -2604,9 +2470,7 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
   of an Aurora replica in a Global Database.
 - Fixed and issue where storage client may crash during instance restart.
 
-#### Aurora PostgreSQL 15.13.2, August 8,
-
-2025
+#### Aurora PostgreSQL 15.13.2, August 8, 2025
 
 **Critical stability enhancements**
 
@@ -2615,17 +2479,13 @@ about the improvements in PostgreSQL 15.13, see [PostgreSQL release
 - Fixed an issue with Serverless v2 scaling that may cause unavailability when
   performing reads from Aurora Storage.
 
-#### Aurora PostgreSQL 15.13.1, June 30,
-
-2025
+#### Aurora PostgreSQL 15.13.1, June 30, 2025
 
 **High priority enhancements**
 
 - Fixed a performance issue affecting instance restart operations.
 
-#### Aurora PostgreSQL 15.13, June 30,
-
-2025
+#### Aurora PostgreSQL 15.13, June 30, 2025
 
 **New features**
 
@@ -2704,10 +2564,8 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 - [Aurora PostgreSQL 15.12.5, February 19, 2026](#aurorapostgresql-versions-version15125x-15125 "#aurorapostgresql-versions-version15125x-15125")
 - [Aurora PostgreSQL 15.12.4, October 9, 2025](#aurorapostgresql-versions-version15124x-15124 "#aurorapostgresql-versions-version15124x-15124")
 - [Aurora PostgreSQL 15.12.3, June 03, 2025](#aurorapostgresql-versions-version15123x-15123 "#aurorapostgresql-versions-version15123x-15123")
-- [Aurora PostgreSQL 15.12.2, May 01,
-  2025](#aurorapostgresql-versions-version15122x-15122 "#aurorapostgresql-versions-version15122x-15122")
-- [Aurora PostgreSQL 15.12, April 07,
-  2025](#aurorapostgresql-versions-version1512x-1512 "#aurorapostgresql-versions-version1512x-1512")
+- [Aurora PostgreSQL 15.12.2, May 01, 2025](#aurorapostgresql-versions-version15122x-15122 "#aurorapostgresql-versions-version15122x-15122")
+- [Aurora PostgreSQL 15.12, April 07, 2025](#aurorapostgresql-versions-version1512x-1512 "#aurorapostgresql-versions-version1512x-1512")
 
 #### Aurora PostgreSQL 15.12.5, February 19, 2026
 
@@ -2727,7 +2585,6 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
 - Fixed an issue where premature status updates during zero downtime patching could cause unnecessary failures by ensuring proper synchronization with server startup.
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself.
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 
 **General enhancements**
@@ -2762,7 +2619,6 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
@@ -2812,18 +2668,14 @@ about the improvements in PostgreSQL 15.12, see [PostgreSQL release
 - Fixed an issue that can cause RO instance crash under heavy workload.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
 
-#### Aurora PostgreSQL 15.12.2, May 01,
-
-2025
+#### Aurora PostgreSQL 15.12.2, May 01, 2025
 
 **Critical priority enhancements**
 
 - Fixed an issue which can cause the database to become unresponsive when performing
   actions with Aurora storage.
 
-#### Aurora PostgreSQL 15.12, April 07,
-
-2025
+#### Aurora PostgreSQL 15.12, April 07, 2025
 
 **New features**
 
@@ -2889,16 +2741,11 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 - [Aurora PostgreSQL 15.10.7, January 28, 2026](#aurorapostgresql-versions-version15107x-15107 "#aurorapostgresql-versions-version15107x-15107")
 - [Aurora PostgreSQL 15.10.6, November 13, 2025](#aurorapostgresql-versions-version15106x-15106 "#aurorapostgresql-versions-version15106x-15106")
 - [Aurora PostgreSQL 15.10.5, June 24, 2025](#aurorapostgresql-versions-version15105x-15105 "#aurorapostgresql-versions-version15105x-15105")
-- [Aurora PostgreSQL 15.10.4, March 24,
-  2025](#aurorapostgresql-versions-version15104x-15104 "#aurorapostgresql-versions-version15104x-15104")
-- [Aurora PostgreSQL 15.10.3, February
-  13, 2025](#aurorapostgresql-versions-version15103x-15103 "#aurorapostgresql-versions-version15103x-15103")
-- [Aurora PostgreSQL 15.10.2, January 20th,
-  2025](#aurorapostgresql-versions-version15102x-15102 "#aurorapostgresql-versions-version15102x-15102")
-- [Aurora PostgreSQL 15.10.1, December
-  27, 2024](#aurorapostgresql-versions-version15101x-15101 "#aurorapostgresql-versions-version15101x-15101")
-- [Aurora PostgreSQL 15.10, December 27,
-  2024](#aurorapostgresql-versions-version1510x-1510 "#aurorapostgresql-versions-version1510x-1510")
+- [Aurora PostgreSQL 15.10.4, March 24, 2025](#aurorapostgresql-versions-version15104x-15104 "#aurorapostgresql-versions-version15104x-15104")
+- [Aurora PostgreSQL 15.10.3, February 13, 2025](#aurorapostgresql-versions-version15103x-15103 "#aurorapostgresql-versions-version15103x-15103")
+- [Aurora PostgreSQL 15.10.2, January 20th, 2025](#aurorapostgresql-versions-version15102x-15102 "#aurorapostgresql-versions-version15102x-15102")
+- [Aurora PostgreSQL 15.10.1, December 27, 2024](#aurorapostgresql-versions-version15101x-15101 "#aurorapostgresql-versions-version15101x-15101")
+- [Aurora PostgreSQL 15.10, December 27, 2024](#aurorapostgresql-versions-version1510x-1510 "#aurorapostgresql-versions-version1510x-1510")
 
 #### Aurora PostgreSQL 15.10.7, January 28, 2026
 
@@ -2945,7 +2792,6 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
@@ -2981,9 +2827,7 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
-#### Aurora PostgreSQL 15.10.4, March 24,
-
-2025
+#### Aurora PostgreSQL 15.10.4, March 24, 2025
 
 **High priority enhancements**
 
@@ -2995,17 +2839,13 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 - Fixed an issue on the replica where a network interruption may not correctly
   re-establish connection with the writer.
 
-#### Aurora PostgreSQL 15.10.3, February
-
-13, 2025
+#### Aurora PostgreSQL 15.10.3, February 13, 2025
 
 **High priority enhancements**
 
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418") for V8 Engine in the `PLV8` extension.
 
-#### Aurora PostgreSQL 15.10.2, January 20th,
-
-2025
+#### Aurora PostgreSQL 15.10.2, January 20th, 2025
 
 **Critical Priority enhancements**
 
@@ -3023,18 +2863,14 @@ about the improvements in PostgreSQL 15.10, see [PostgreSQL release
 - Fixed an ownership issue where the `postgis_raster` extension could not be
   updated correctly from a previous the PostGIS extension v2 installation.
 
-#### Aurora PostgreSQL 15.10.1, December
-
-27, 2024
+#### Aurora PostgreSQL 15.10.1, December 27, 2024
 
 **Critical Priority enhancements**
 
 - Fixed an issue where the server was restarting when the connections were reset by the
   peer.
 
-#### Aurora PostgreSQL 15.10, December 27,
-
-2024
+#### Aurora PostgreSQL 15.10, December 27, 2024
 
 ###### New features
 
@@ -3148,7 +2984,6 @@ information about the improvements in PostgreSQL 15.8, see [PostgreSQL release 1
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
@@ -3309,16 +3144,11 @@ about the improvements in PostgreSQL 15.7, see [PostgreSQL release
 ###### Releases and patches
 
 - [Aurora PostgreSQL 15.7.5, July 17, 2025](#aurorapostgresql-versions-version1575x-1575 "#aurorapostgresql-versions-version1575x-1575")
-- [Aurora PostgreSQL 15.7.4, March
-  25, 2025](#aurorapostgresql-versions-version1574x-1574 "#aurorapostgresql-versions-version1574x-1574")
-- [Aurora PostgreSQL 15.7.3, January
-  29, 2025](#aurorapostgresql-versions-version1573x-1573 "#aurorapostgresql-versions-version1573x-1573")
-- [Aurora PostgreSQL 15.7.2, January
-  23, 2025](#aurorapostgresql-versions-version1572x-1572 "#aurorapostgresql-versions-version1572x-1572")
-- [Aurora PostgreSQL 15.7.1,
-  September 27, 2024](#aurorapostgresql-versions-version157x-1571 "#aurorapostgresql-versions-version157x-1571")
-- [Aurora PostgreSQL 15.7, August
-  8, 2024](#aurorapostgresql-versions-version157x-157 "#aurorapostgresql-versions-version157x-157")
+- [Aurora PostgreSQL 15.7.4, March 25, 2025](#aurorapostgresql-versions-version1574x-1574 "#aurorapostgresql-versions-version1574x-1574")
+- [Aurora PostgreSQL 15.7.3, January 29, 2025](#aurorapostgresql-versions-version1573x-1573 "#aurorapostgresql-versions-version1573x-1573")
+- [Aurora PostgreSQL 15.7.2, January 23, 2025](#aurorapostgresql-versions-version1572x-1572 "#aurorapostgresql-versions-version1572x-1572")
+- [Aurora PostgreSQL 15.7.1, September 27, 2024](#aurorapostgresql-versions-version157x-1571 "#aurorapostgresql-versions-version157x-1571")
+- [Aurora PostgreSQL 15.7, August 8, 2024](#aurorapostgresql-versions-version157x-157 "#aurorapostgresql-versions-version157x-157")
 
 #### Aurora PostgreSQL 15.7.5, July 17, 2025
 
@@ -3340,9 +3170,7 @@ about the improvements in PostgreSQL 15.7, see [PostgreSQL release
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
-#### Aurora PostgreSQL 15.7.4, March
-
-25, 2025
+#### Aurora PostgreSQL 15.7.4, March 25, 2025
 
 **High priority enhancements**
 
@@ -3350,18 +3178,14 @@ about the improvements in PostgreSQL 15.7, see [PostgreSQL release
   issues:
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
-#### Aurora PostgreSQL 15.7.3, January
-
-29, 2025
+#### Aurora PostgreSQL 15.7.3, January 29, 2025
 
 **High priority enhancements**
 
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418") for V8 Engine in the `PLV8`
   extension.
 
-#### Aurora PostgreSQL 15.7.2, January
-
-23, 2025
+#### Aurora PostgreSQL 15.7.2, January 23, 2025
 
 ###### Critical stability enhancements
 
@@ -3387,9 +3211,7 @@ about the improvements in PostgreSQL 15.7, see [PostgreSQL release
 - Fixed an issue that could cause an error in the wal sender process when
   resuming logical replication.
 
-#### Aurora PostgreSQL 15.7.1,
-
-September 27, 2024
+#### Aurora PostgreSQL 15.7.1, September 27, 2024
 
 ###### High priority enhancements
 
@@ -3401,9 +3223,7 @@ September 27, 2024
 - Fixed an issue that would cause ZDP to fail on Aurora Optimized Reads Cache
   instances while upgrading into this version.
 
-#### Aurora PostgreSQL 15.7, August
-
-8, 2024
+#### Aurora PostgreSQL 15.7, August 8, 2024
 
 ###### New features
 
@@ -3550,9 +3370,7 @@ from a previous the `PostGIS` extension v2 installation.
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 15.6.2, June 20, 2024
+#### Aurora PostgreSQL 15.6.2, June 20, 2024
 
 ###### General enhancements
 
@@ -3570,9 +3388,7 @@ Aurora PostgreSQL 15.6.2, June 20, 2024
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
 - Fixed issues in how two-phase commit files are handled.
 
-####
-
-Aurora PostgreSQL 15.6.1, April 29, 2024
+#### Aurora PostgreSQL 15.6.1, April 29, 2024
 
 ###### New features
 
@@ -3709,9 +3525,7 @@ information about the improvements in PostgreSQL 15.5, see [PostgreSQL release 1
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 15.5.4, June 24, 2024
+#### Aurora PostgreSQL 15.5.4, June 24, 2024
 
 ###### General enhancements
 
@@ -3728,17 +3542,13 @@ Aurora PostgreSQL 15.5.4, June 24, 2024
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
 
-####
-
-Aurora PostgreSQL 15.5.3, March 13, 2024
+#### Aurora PostgreSQL 15.5.3, March 13, 2024
 
 ###### General enhancements
 
 - Fixed a performance degradation issue in `PLV8` extension.
 
-####
-
-Aurora PostgreSQL 15.5.2, February 22, 2024
+#### Aurora PostgreSQL 15.5.2, February 22, 2024
 
 ###### General enhancements
 
@@ -3757,9 +3567,7 @@ Aurora PostgreSQL 15.5.2, February 22, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 15.5.0, December 21, 2023
+#### Aurora PostgreSQL 15.5.0, December 21, 2023
 
 Following the announcement of updates to the PostgreSQL database by the open source community, we have updated Amazon Aurora PostgreSQL-Compatible Edition to support
 PostgreSQL versions 15.5, 14.10, 13.13, and 12.17. These releases contain product improvements and bug fixes made by the PostgreSQL community,
@@ -3828,8 +3636,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
   - `prefix` to version 1.2.10
   - `RDKit` to version 4.4.0 (Release_2023_09_1)
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-15](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 15](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15").
 
 ### PostgreSQL 15.4
 
@@ -3840,25 +3647,16 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 ###### Releases and patches
 
 - [Aurora PostgreSQL 15.4.11, August 5, 2025](#aurorapostgresql-versions-version15411x-15411 "#aurorapostgresql-versions-version15411x-15411")
-- [Aurora PostgreSQL 15.4.10, May
-  7, 2025](#aurorapostgresql-versions-version15410x-15410 "#aurorapostgresql-versions-version15410x-15410")
+- [Aurora PostgreSQL 15.4.10, May 7, 2025](#aurorapostgresql-versions-version15410x-15410 "#aurorapostgresql-versions-version15410x-15410")
 - [Aurora PostgreSQL 15.4.9, February 27, 2025](#aurorapostgresql-versions-version1549x-1549 "#aurorapostgresql-versions-version1549x-1549")
-- [Aurora PostgreSQL 15.4.8,
-  November 14, 2024](#aurorapostgresql-versions-version154x-1548 "#aurorapostgresql-versions-version154x-1548")
-- [Aurora PostgreSQL 15.4.7, June 25,
-  2024](#AuroraPostgreSQL.Updates.20180305.1547 "#AuroraPostgreSQL.Updates.20180305.1547")
-- [Aurora PostgreSQL 15.4.6, March
-  13, 2024](#AuroraPostgreSQL.Updates.20180305.1546 "#AuroraPostgreSQL.Updates.20180305.1546")
-- [Aurora PostgreSQL 15.4.5, Febraury
-  22, 2024](#AuroraPostgreSQL.Updates.20180305.1545 "#AuroraPostgreSQL.Updates.20180305.1545")
-- [Aurora PostgreSQL 15.4.3, December
-  15, 2023](#AuroraPostgreSQL.Updates.20180305.1543 "#AuroraPostgreSQL.Updates.20180305.1543")
-- [Aurora PostgreSQL 15.4.2, December
-  13, 2023](#AuroraPostgreSQL.Updates.20180305.1542 "#AuroraPostgreSQL.Updates.20180305.1542")
-- [Aurora PostgreSQL 15.4.1, November
-  09, 2023](#AuroraPostgreSQL.Updates.20180305.1541 "#AuroraPostgreSQL.Updates.20180305.1541")
-- [Aurora PostgreSQL 15.4.0, October
-  24, 2023](#AuroraPostgreSQL.Updates.20180305.1540 "#AuroraPostgreSQL.Updates.20180305.1540")
+- [Aurora PostgreSQL 15.4.8, November 14, 2024](#aurorapostgresql-versions-version154x-1548 "#aurorapostgresql-versions-version154x-1548")
+- [Aurora PostgreSQL 15.4.7, June 25, 2024](#AuroraPostgreSQL.Updates.20180305.1547 "#AuroraPostgreSQL.Updates.20180305.1547")
+- [Aurora PostgreSQL 15.4.6, March 13, 2024](#AuroraPostgreSQL.Updates.20180305.1546 "#AuroraPostgreSQL.Updates.20180305.1546")
+- [Aurora PostgreSQL 15.4.5, Febraury 22, 2024](#AuroraPostgreSQL.Updates.20180305.1545 "#AuroraPostgreSQL.Updates.20180305.1545")
+- [Aurora PostgreSQL 15.4.3, December 15, 2023](#AuroraPostgreSQL.Updates.20180305.1543 "#AuroraPostgreSQL.Updates.20180305.1543")
+- [Aurora PostgreSQL 15.4.2, December 13, 2023](#AuroraPostgreSQL.Updates.20180305.1542 "#AuroraPostgreSQL.Updates.20180305.1542")
+- [Aurora PostgreSQL 15.4.1, November 09, 2023](#AuroraPostgreSQL.Updates.20180305.1541 "#AuroraPostgreSQL.Updates.20180305.1541")
+- [Aurora PostgreSQL 15.4.0, October 24, 2023](#AuroraPostgreSQL.Updates.20180305.1540 "#AuroraPostgreSQL.Updates.20180305.1540")
 
 #### Aurora PostgreSQL 15.4.11, August 5, 2025
 
@@ -3878,9 +3676,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
-#### Aurora PostgreSQL 15.4.10, May
-
-7, 2025
+#### Aurora PostgreSQL 15.4.10, May 7, 2025
 
 **High priority enhancements**
 
@@ -3919,9 +3715,7 @@ about the improvements in PostgreSQL 15.4, see [PostgreSQL release
 - Fixed an ownership issue where the postgis_raster extension could not be
   updated correctly from a previous the PostGIS extension v2 installation.
 
-#### Aurora PostgreSQL 15.4.8,
-
-November 14, 2024
+#### Aurora PostgreSQL 15.4.8, November 14, 2024
 
 ###### High priority enhancements
 
@@ -3931,9 +3725,7 @@ November 14, 2024
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-#### Aurora PostgreSQL 15.4.7, June 25,
-
-2024
+#### Aurora PostgreSQL 15.4.7, June 25, 2024
 
 ###### General enhancements
 
@@ -3952,17 +3744,13 @@ November 14, 2024
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same
   table.
 
-#### Aurora PostgreSQL 15.4.6, March
-
-13, 2024
+#### Aurora PostgreSQL 15.4.6, March 13, 2024
 
 ###### General enhancements
 
 - Fixed a performance degradation issue in `PLV8` extension.
 
-#### Aurora PostgreSQL 15.4.5, Febraury
-
-22, 2024
+#### Aurora PostgreSQL 15.4.5, Febraury 22, 2024
 
 ###### General enhancements
 
@@ -3986,18 +3774,14 @@ November 14, 2024
 - Fixed an issue where active transactions during logical replication slot
   creation may be partially replicated by the slot.
 
-#### Aurora PostgreSQL 15.4.3, December
-
-15, 2023
+#### Aurora PostgreSQL 15.4.3, December 15, 2023
 
 ###### High priority enhancements
 
 - Fixed an issue which may cause a reboot when logically replicating changes in
   the presence of concurrently-running DDL or canceled sub-transactions
 
-#### Aurora PostgreSQL 15.4.2, December
-
-13, 2023
+#### Aurora PostgreSQL 15.4.2, December 13, 2023
 
 ###### Critical stability enhancements
 
@@ -4019,9 +3803,7 @@ November 14, 2024
 - Fixed an issue with logical replication actions being performed by someone
   other than the table owner
 
-#### Aurora PostgreSQL 15.4.1, November
-
-09, 2023
+#### Aurora PostgreSQL 15.4.1, November 09, 2023
 
 ###### Critical stability enhancements
 
@@ -4038,9 +3820,7 @@ November 14, 2024
 - Fixed an issue related to buffer pin locking that in rare cases can result in
   a crash
 
-#### Aurora PostgreSQL 15.4.0, October
-
-24, 2023
+#### Aurora PostgreSQL 15.4.0, October 24, 2023
 
 ###### New features
 
@@ -4105,8 +3885,7 @@ November 14, 2024
   - `PostGIS` to version 3.3.3
   - `RDKit` to version 4.3
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-15](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 15](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15").
 
 ### PostgreSQL 15.3
 
@@ -4189,9 +3968,7 @@ information about the improvements in PostgreSQL 15.3, see [PostgreSQL release 1
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 15.3.6, August 7, 2024
+#### Aurora PostgreSQL 15.3.6, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -4201,9 +3978,7 @@ Aurora PostgreSQL 15.3.6, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 15.3.5, March 13, 2024
+#### Aurora PostgreSQL 15.3.5, March 13, 2024
 
 ###### General enhancements
 
@@ -4221,9 +3996,7 @@ Aurora PostgreSQL 15.3.5, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 15.3.4, December 14, 2023
+#### Aurora PostgreSQL 15.3.4, December 14, 2023
 
 ###### Critical stability enhancements
 
@@ -4241,9 +4014,7 @@ Aurora PostgreSQL 15.3.4, December 14, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 15.3.3, November 14, 2023
+#### Aurora PostgreSQL 15.3.3, November 14, 2023
 
 ###### Critical stability enhancements
 
@@ -4257,9 +4028,7 @@ Aurora PostgreSQL 15.3.3, November 14, 2023
 - Fixed an issue that could result in read replica lag due to stale metadata
 - Fixed an issue related to buffer pin locking that in rare cases can result in a crash
 
-####
-
-Aurora PostgreSQL 15.3.2, October 4, 2023
+#### Aurora PostgreSQL 15.3.2, October 4, 2023
 
 ###### High priority stability enhancements
 
@@ -4281,9 +4050,7 @@ Aurora PostgreSQL 15.3.2, October 4, 2023
 - Introduced diagnostics for the transient metadata used for I/O
 - Fixed an issue that prevented the enablement of improved memory management in certain scenarios in Aurora PostgreSQL 15.3
 
-####
-
-Aurora PostgreSQL 15.3.0, July 13, 2023
+#### Aurora PostgreSQL 15.3.0, July 13, 2023
 
 Following the announcement of updates to the PostgreSQL database by the open source community, we have updated Amazon Aurora PostgreSQL-Compatible Edition
 to support PostgreSQL versions 15.3, 14.8, 13.11, 12.15, and 11.20. These releases contains product improvements and bug fixes made by
@@ -4360,9 +4127,7 @@ information about the improvements in PostgreSQL 15.2, see [PostgreSQL release 1
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 15.2.8, August 7, 2024
+#### Aurora PostgreSQL 15.2.8, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -4372,9 +4137,7 @@ Aurora PostgreSQL 15.2.8, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 15.2.7, March 13, 2024
+#### Aurora PostgreSQL 15.2.7, March 13, 2024
 
 ###### General enhancements
 
@@ -4392,9 +4155,7 @@ Aurora PostgreSQL 15.2.7, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 15.2.6, December 15, 2023
+#### Aurora PostgreSQL 15.2.6, December 15, 2023
 
 ###### Critical stability enhancements
 
@@ -4412,9 +4173,7 @@ Aurora PostgreSQL 15.2.6, December 15, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 15.2.5, November 14, 2023
+#### Aurora PostgreSQL 15.2.5, November 14, 2023
 
 ###### Critical stability enhancements
 
@@ -4428,9 +4187,7 @@ Aurora PostgreSQL 15.2.5, November 14, 2023
 - Fixed an issue that could result in read replica lag due to stale metadata
 - Fixed an issue related to buffer pin locking that in rare cases can result in a crash
 
-####
-
-Aurora PostgreSQL 15.2.4, October 5, 2023
+#### Aurora PostgreSQL 15.2.4, October 5, 2023
 
 ###### Critical stability enhancements
 
@@ -4449,9 +4206,7 @@ Aurora PostgreSQL 15.2.4, October 5, 2023
 
 - Introduced diagnostics for the transient metadata used for I/O
 
-####
-
-Aurora PostgreSQL 15.2.3, July 25, 2023
+#### Aurora PostgreSQL 15.2.3, July 25, 2023
 
 ###### General enhancements
 
@@ -4470,9 +4225,7 @@ Aurora PostgreSQL 15.2.3, July 25, 2023
 - Fixed multiple issues which can cause Aurora replicas with the improved read availability feature to restart when reconnecting with the writer instance
 - Fixed an issue preventing a survivable reader reconnect
 
-####
-
-Aurora PostgreSQL 15.2.2, May 10, 2023
+#### Aurora PostgreSQL 15.2.2, May 10, 2023
 
 ###### General enhancements
 
@@ -4480,9 +4233,7 @@ Aurora PostgreSQL 15.2.2, May 10, 2023
 - Fixed an issue that causes logical replication to fail when using write-through cache
 - Updated the Oracle client used by the `oracle_fdw` extension to version 21.9.0.0.0
 
-####
-
-Aurora PostgreSQL 15.2.1, April 5, 2023
+#### Aurora PostgreSQL 15.2.1, April 5, 2023
 
 ###### New features
 
@@ -4533,8 +4284,7 @@ Aurora PostgreSQL 15.2.1, April 5, 2023
   - `tds_fdw` to version 2.0.3
   - `wal2json` to version 2.5
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-15](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 15](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.15").
 
 ###### Differences between PostgreSQL 15 and Aurora PostgreSQL 15
 
@@ -4579,7 +4329,6 @@ the improvements in PostgreSQL 14.20, see [PostgreSQL release
 **Critical stability enhancements**
 
 - Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
-- Fixed an issue where an UPDATE statement with OUTPUT clause may skip rows when there are concurrent updates on the same row
 
 #### Aurora PostgreSQL 14.20, December, 18, 2025
 
@@ -4646,7 +4395,6 @@ the improvements in PostgreSQL 14.19, see [PostgreSQL release
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
 
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 
 **General enhancements**
@@ -4705,20 +4453,13 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL 14.18.4, January 15,
-  2026](#aurorapostgresql-versions-version14184x-14184 "#aurorapostgresql-versions-version14184x-14184")
-- [Aurora PostgreSQL 14.18.3, September 16,
-  2025](#aurorapostgresql-versions-version14183x-14183 "#aurorapostgresql-versions-version14183x-14183")
-- [Aurora PostgreSQL 14.18.2, August 8,
-  2025](#aurorapostgresql-versions-version14182x-14182 "#aurorapostgresql-versions-version14182x-14182")
-- [Aurora PostgreSQL 14.18.1, June 30,
-  2025](#aurorapostgresql-versions-version14181x-14181 "#aurorapostgresql-versions-version14181x-14181")
-- [Aurora PostgreSQL 14.18, June 30,
-  2025](#aurorapostgresql-versions-version1418x-1418 "#aurorapostgresql-versions-version1418x-1418")
+- [Aurora PostgreSQL 14.18.4, January 15, 2026](#aurorapostgresql-versions-version14184x-14184 "#aurorapostgresql-versions-version14184x-14184")
+- [Aurora PostgreSQL 14.18.3, September 16, 2025](#aurorapostgresql-versions-version14183x-14183 "#aurorapostgresql-versions-version14183x-14183")
+- [Aurora PostgreSQL 14.18.2, August 8, 2025](#aurorapostgresql-versions-version14182x-14182 "#aurorapostgresql-versions-version14182x-14182")
+- [Aurora PostgreSQL 14.18.1, June 30, 2025](#aurorapostgresql-versions-version14181x-14181 "#aurorapostgresql-versions-version14181x-14181")
+- [Aurora PostgreSQL 14.18, June 30, 2025](#aurorapostgresql-versions-version1418x-1418 "#aurorapostgresql-versions-version1418x-1418")
 
-#### Aurora PostgreSQL 14.18.4, January 15,
-
-2026
+#### Aurora PostgreSQL 14.18.4, January 15, 2026
 
 **Critical stability enhancements**
 
@@ -4730,7 +4471,6 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
 **High priority enhancements**
 
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 - Backported fixes for the following PostgreSQL community security issues:
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
@@ -4742,9 +4482,7 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
 - Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
 - Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
-#### Aurora PostgreSQL 14.18.3, September 16,
-
-2025
+#### Aurora PostgreSQL 14.18.3, September 16, 2025
 
 **Critical stability enhancements**
 
@@ -4778,8 +4516,6 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
 
 **General enhancements**
 
-- Implemented enhanced error handling mechanisms during TDS Connection reset
-  operations.
 - Fixed an issue that could in certain cases prevent online recovery of an Aurora Replica
   from completing.
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
@@ -4803,9 +4539,7 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
   of an Aurora replica in a Global Database.
 - Fixed and issue where storage client may crash during instance restart.
 
-#### Aurora PostgreSQL 14.18.2, August 8,
-
-2025
+#### Aurora PostgreSQL 14.18.2, August 8, 2025
 
 **Critical stability enhancements**
 
@@ -4814,17 +4548,13 @@ about the improvements in PostgreSQL 14.18, see [PostgreSQL release
 - Fixed an issue with Serverless v2 scaling that may cause unavailability when
   performing reads from Aurora Storage.
 
-#### Aurora PostgreSQL 14.18.1, June 30,
-
-2025
+#### Aurora PostgreSQL 14.18.1, June 30, 2025
 
 **High priority enhancements**
 
 - Fixed a performance issue affecting instance restart operations.
 
-#### Aurora PostgreSQL 14.18, June 30,
-
-2025
+#### Aurora PostgreSQL 14.18, June 30, 2025
 
 **New features**
 
@@ -4896,10 +4626,8 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 - [Aurora PostgreSQL 14.17.5, February 10, 2026](#aurorapostgresql-versions-version1417x-1417 "#aurorapostgresql-versions-version1417x-1417")
 - [Aurora PostgreSQL 14.17.4, October 9, 2025](#aurorapostgresql-versions-version14174x-14174 "#aurorapostgresql-versions-version14174x-14174")
 - [Aurora PostgreSQL 14.17.3, June 3, 2025](#aurorapostgresql-versions-version14173x-14173 "#aurorapostgresql-versions-version14173x-14173")
-- [Aurora PostgreSQL 14.17.2, May 01,
-  2025](#aurorapostgresql-versions-version14172x-14172 "#aurorapostgresql-versions-version14172x-14172")
-- [Aurora PostgreSQL 14.17, April 07,
-  2025](#aurorapostgresql-versions-version1417x-1417 "#aurorapostgresql-versions-version1417x-1417")
+- [Aurora PostgreSQL 14.17.2, May 01, 2025](#aurorapostgresql-versions-version14172x-14172 "#aurorapostgresql-versions-version14172x-14172")
+- [Aurora PostgreSQL 14.17, April 07, 2025](#aurorapostgresql-versions-version1417x-1417 "#aurorapostgresql-versions-version1417x-1417")
 
 #### Aurora PostgreSQL 14.17.5, February 10, 2026
 
@@ -4919,7 +4647,6 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
 - Fixed an issue where premature status updates during zero downtime patching could cause unnecessary failures by ensuring proper synchronization with server startup.
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself.
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 
 **General enhancements**
@@ -4954,7 +4681,6 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
@@ -5004,18 +4730,14 @@ about the improvements in PostgreSQL 14.17, see [PostgreSQL release
 - Fixed an issue that can cause RO instance crash under heavy workload.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
 
-#### Aurora PostgreSQL 14.17.2, May 01,
-
-2025
+#### Aurora PostgreSQL 14.17.2, May 01, 2025
 
 **Critical priority enhancements**
 
 - Fixed an issue which can cause the database to become unresponsive when performing
   actions with Aurora storage.
 
-#### Aurora PostgreSQL 14.17, April 07,
-
-2025
+#### Aurora PostgreSQL 14.17, April 07, 2025
 
 **New features**
 
@@ -5078,16 +4800,11 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 - [Aurora PostgreSQL 14.15.7, January 28, 2026](#aurorapostgresql-versions-version14157x-14157 "#aurorapostgresql-versions-version14157x-14157")
 - [Aurora PostgreSQL 14.15.6, November 13, 2025](#aurorapostgresql-versions-version14156x-14156 "#aurorapostgresql-versions-version14156x-14156")
 - [Aurora PostgreSQL 14.15.5, June 24, 2025](#aurorapostgresql-versions-version14155x-14155 "#aurorapostgresql-versions-version14155x-14155")
-- [Aurora PostgreSQL 14.15.4, March 24,
-  2025](#aurorapostgresql-versions-version14154x-14154 "#aurorapostgresql-versions-version14154x-14154")
-- [Aurora PostgreSQL 14.15.3, February
-  13, 2025](#aurorapostgresql-versions-version14153x-14153 "#aurorapostgresql-versions-version14153x-14153")
-- [Aurora PostgreSQL 14.15.2, January 20th,
-  2025](#aurorapostgresql-versions-version14152x-14152 "#aurorapostgresql-versions-version14152x-14152")
-- [Aurora PostgreSQL 14.15.1, December
-  27, 2024](#aurorapostgresql-versions-version14151x-14151 "#aurorapostgresql-versions-version14151x-14151")
-- [Aurora PostgreSQL 14.15, December 27,
-  2024](#aurorapostgresql-versions-version1415x-1415 "#aurorapostgresql-versions-version1415x-1415")
+- [Aurora PostgreSQL 14.15.4, March 24, 2025](#aurorapostgresql-versions-version14154x-14154 "#aurorapostgresql-versions-version14154x-14154")
+- [Aurora PostgreSQL 14.15.3, February 13, 2025](#aurorapostgresql-versions-version14153x-14153 "#aurorapostgresql-versions-version14153x-14153")
+- [Aurora PostgreSQL 14.15.2, January 20th, 2025](#aurorapostgresql-versions-version14152x-14152 "#aurorapostgresql-versions-version14152x-14152")
+- [Aurora PostgreSQL 14.15.1, December 27, 2024](#aurorapostgresql-versions-version14151x-14151 "#aurorapostgresql-versions-version14151x-14151")
+- [Aurora PostgreSQL 14.15, December 27, 2024](#aurorapostgresql-versions-version1415x-1415 "#aurorapostgresql-versions-version1415x-1415")
 
 #### Aurora PostgreSQL 14.15.7, January 28, 2026
 
@@ -5134,7 +4851,6 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
@@ -5170,9 +4886,7 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
-#### Aurora PostgreSQL 14.15.4, March 24,
-
-2025
+#### Aurora PostgreSQL 14.15.4, March 24, 2025
 
 **High priority enhancements**
 
@@ -5184,17 +4898,13 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 - Fixed an issue on the replica where a network interruption may not correctly
   re-establish connection with the writer.
 
-#### Aurora PostgreSQL 14.15.3, February
-
-13, 2025
+#### Aurora PostgreSQL 14.15.3, February 13, 2025
 
 **High priority enhancements**
 
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418") for V8 Engine in the `PLV8` extension.
 
-#### Aurora PostgreSQL 14.15.2, January 20th,
-
-2025
+#### Aurora PostgreSQL 14.15.2, January 20th, 2025
 
 **Critical Priority enhancements**
 
@@ -5212,18 +4922,14 @@ about the improvements in PostgreSQL 14.15, see [PostgreSQL release
 - Fixed an ownership issue where the `postgis_raster` extension could not be
   updated correctly from a previous the PostGIS extension v2 installation.
 
-#### Aurora PostgreSQL 14.15.1, December
-
-27, 2024
+#### Aurora PostgreSQL 14.15.1, December 27, 2024
 
 **Critical Priority enhancements**
 
 - Fixed an issue where the server was restarting when the connections were reset by the
   peer.
 
-#### Aurora PostgreSQL 14.15, December 27,
-
-2024
+#### Aurora PostgreSQL 14.15, December 27, 2024
 
 ###### New features
 
@@ -5337,7 +5043,6 @@ information about the improvements in PostgreSQL 14.13, see [PostgreSQL release 
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
@@ -5494,16 +5199,11 @@ about the improvements in PostgreSQL 14.12, see [PostgreSQL release
 ###### Releases and patches
 
 - [Aurora PostgreSQL 14.12.5, July 17, 2025](#aurorapostgresql-versions-version14125x-14125 "#aurorapostgresql-versions-version14125x-14125")
-- [Aurora PostgreSQL 14.12.4, March
-  25, 2025](#aurorapostgresql-versions-version14124x-14124 "#aurorapostgresql-versions-version14124x-14124")
-- [Aurora PostgreSQL 14.12.3, January
-  29, 2025](#aurorapostgresql-versions-version14123x-14123 "#aurorapostgresql-versions-version14123x-14123")
-- [Aurora PostgreSQL 14.12.2, January
-  23, 2025](#aurorapostgresql-versions-version14122x-14122 "#aurorapostgresql-versions-version14122x-14122")
-- [Aurora PostgreSQL 14.12.1,
-  September 27, 2024](#aurorapostgresql-versions-version1412x-14121 "#aurorapostgresql-versions-version1412x-14121")
-- [Aurora PostgreSQL 14.12,
-  August 8, 2024](#aurorapostgresql-versions-version1412x-1412 "#aurorapostgresql-versions-version1412x-1412")
+- [Aurora PostgreSQL 14.12.4, March 25, 2025](#aurorapostgresql-versions-version14124x-14124 "#aurorapostgresql-versions-version14124x-14124")
+- [Aurora PostgreSQL 14.12.3, January 29, 2025](#aurorapostgresql-versions-version14123x-14123 "#aurorapostgresql-versions-version14123x-14123")
+- [Aurora PostgreSQL 14.12.2, January 23, 2025](#aurorapostgresql-versions-version14122x-14122 "#aurorapostgresql-versions-version14122x-14122")
+- [Aurora PostgreSQL 14.12.1, September 27, 2024](#aurorapostgresql-versions-version1412x-14121 "#aurorapostgresql-versions-version1412x-14121")
+- [Aurora PostgreSQL 14.12, August 8, 2024](#aurorapostgresql-versions-version1412x-1412 "#aurorapostgresql-versions-version1412x-1412")
 
 #### Aurora PostgreSQL 14.12.5, July 17, 2025
 
@@ -5525,9 +5225,7 @@ about the improvements in PostgreSQL 14.12, see [PostgreSQL release
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
-#### Aurora PostgreSQL 14.12.4, March
-
-25, 2025
+#### Aurora PostgreSQL 14.12.4, March 25, 2025
 
 **High priority enhancements**
 
@@ -5535,18 +5233,14 @@ about the improvements in PostgreSQL 14.12, see [PostgreSQL release
   issues:
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
-#### Aurora PostgreSQL 14.12.3, January
-
-29, 2025
+#### Aurora PostgreSQL 14.12.3, January 29, 2025
 
 **High priority enhancements**
 
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418") for V8 Engine in the `PLV8`
   extension.
 
-#### Aurora PostgreSQL 14.12.2, January
-
-23, 2025
+#### Aurora PostgreSQL 14.12.2, January 23, 2025
 
 ###### Critical stability enhancements
 
@@ -5574,9 +5268,7 @@ about the improvements in PostgreSQL 14.12, see [PostgreSQL release
 - Fixed an issue that could cause an error in the wal sender process when
   resuming logical replication.
 
-#### Aurora PostgreSQL 14.12.1,
-
-September 27, 2024
+#### Aurora PostgreSQL 14.12.1, September 27, 2024
 
 ###### High priority enhancements
 
@@ -5588,9 +5280,7 @@ September 27, 2024
 - Fixed an issue that would cause ZDP to fail on Aurora Optimized Reads Cache
   instances while upgrading into this version.
 
-#### Aurora PostgreSQL 14.12,
-
-August 8, 2024
+#### Aurora PostgreSQL 14.12, August 8, 2024
 
 ###### New features
 
@@ -5736,9 +5426,7 @@ from a previous the `PostGIS` extension v2 installation.
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 14.11.2, June 20, 2024
+#### Aurora PostgreSQL 14.11.2, June 20, 2024
 
 ###### General enhancements
 
@@ -5756,9 +5444,7 @@ Aurora PostgreSQL 14.11.2, June 20, 2024
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
 - Fixed issues in how two-phase commit files are handled.
 
-####
-
-Aurora PostgreSQL 14.11.1, April 29, 2024
+#### Aurora PostgreSQL 14.11.1, April 29, 2024
 
 ###### New features
 
@@ -5895,9 +5581,7 @@ information about the improvements in PostgreSQL 14.10, see [PostgreSQL release 
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 14.10.4, June 24, 2024
+#### Aurora PostgreSQL 14.10.4, June 24, 2024
 
 ###### General enhancements
 
@@ -5914,17 +5598,13 @@ Aurora PostgreSQL 14.10.4, June 24, 2024
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
 
-####
-
-Aurora PostgreSQL 14.10.3, March 13, 2024
+#### Aurora PostgreSQL 14.10.3, March 13, 2024
 
 ###### General enhancements
 
 - Fixed a performance degradation issue in `PLV8` extension.
 
-####
-
-Aurora PostgreSQL 14.10.2, February 22, 2024
+#### Aurora PostgreSQL 14.10.2, February 22, 2024
 
 ###### General enhancements
 
@@ -5943,9 +5623,7 @@ Aurora PostgreSQL 14.10.2, February 22, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 14.10.0, December 21, 2023
+#### Aurora PostgreSQL 14.10.0, December 21, 2023
 
 Following the announcement of updates to the PostgreSQL database by the open source community, we have updated Amazon Aurora PostgreSQL-Compatible Edition to support
 PostgreSQL versions 15.5, 14.10, 13.13, and 12.17. These releases contain product improvements and bug fixes made by the PostgreSQL community,
@@ -6013,8 +5691,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
   - `prefix` to version 1.2.10
   - `RDKit` to version 4.4.0 (Release_2023_09_1)
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-14](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 14](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14").
 
 ### PostgreSQL 14.9
 
@@ -6025,25 +5702,16 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 ###### Releases and patches
 
 - [Aurora PostgreSQL 14.9.11, August 5, 2025](#aurorapostgresql-versions-version14911x-14911 "#aurorapostgresql-versions-version14911x-14911")
-- [Aurora PostgreSQL 14.9.10, May
-  7, 2025](#aurorapostgresql-versions-version14910x-14910 "#aurorapostgresql-versions-version14910x-14910")
+- [Aurora PostgreSQL 14.9.10, May 7, 2025](#aurorapostgresql-versions-version14910x-14910 "#aurorapostgresql-versions-version14910x-14910")
 - [Aurora PostgreSQL 14.9.9, February 27, 2025](#aurorapostgresql-versions-version1499x-1499 "#aurorapostgresql-versions-version1499x-1499")
-- [Aurora PostgreSQL 14.9.8,
-  November 14, 2024](#aurorapostgresql-versions-version149x-1498 "#aurorapostgresql-versions-version149x-1498")
-- [Aurora PostgreSQL 14.9.7, June 25,
-  2024](#AuroraPostgreSQL.Updates.20180305.1497 "#AuroraPostgreSQL.Updates.20180305.1497")
-- [Aurora PostgreSQL 14.9.6, March
-  13, 2024](#AuroraPostgreSQL.Updates.20180305.1496 "#AuroraPostgreSQL.Updates.20180305.1496")
-- [Aurora PostgreSQL 14.9.5, February
-  22, 2024](#AuroraPostgreSQL.Updates.20180305.1495 "#AuroraPostgreSQL.Updates.20180305.1495")
-- [Aurora PostgreSQL 14.9.3, December
-  15, 2023](#AuroraPostgreSQL.Updates.20180305.1493 "#AuroraPostgreSQL.Updates.20180305.1493")
-- [Aurora PostgreSQL 14.9.2, December
-  13, 2023](#AuroraPostgreSQL.Updates.20180305.1492 "#AuroraPostgreSQL.Updates.20180305.1492")
-- [Aurora PostgreSQL 14.9.1, November
-  09, 2023](#AuroraPostgreSQL.Updates.20180305.1491 "#AuroraPostgreSQL.Updates.20180305.1491")
-- [Aurora PostgreSQL 14.9.0, October
-  24, 2023](#AuroraPostgreSQL.Updates.20180305.1490 "#AuroraPostgreSQL.Updates.20180305.1490")
+- [Aurora PostgreSQL 14.9.8, November 14, 2024](#aurorapostgresql-versions-version149x-1498 "#aurorapostgresql-versions-version149x-1498")
+- [Aurora PostgreSQL 14.9.7, June 25, 2024](#AuroraPostgreSQL.Updates.20180305.1497 "#AuroraPostgreSQL.Updates.20180305.1497")
+- [Aurora PostgreSQL 14.9.6, March 13, 2024](#AuroraPostgreSQL.Updates.20180305.1496 "#AuroraPostgreSQL.Updates.20180305.1496")
+- [Aurora PostgreSQL 14.9.5, February 22, 2024](#AuroraPostgreSQL.Updates.20180305.1495 "#AuroraPostgreSQL.Updates.20180305.1495")
+- [Aurora PostgreSQL 14.9.3, December 15, 2023](#AuroraPostgreSQL.Updates.20180305.1493 "#AuroraPostgreSQL.Updates.20180305.1493")
+- [Aurora PostgreSQL 14.9.2, December 13, 2023](#AuroraPostgreSQL.Updates.20180305.1492 "#AuroraPostgreSQL.Updates.20180305.1492")
+- [Aurora PostgreSQL 14.9.1, November 09, 2023](#AuroraPostgreSQL.Updates.20180305.1491 "#AuroraPostgreSQL.Updates.20180305.1491")
+- [Aurora PostgreSQL 14.9.0, October 24, 2023](#AuroraPostgreSQL.Updates.20180305.1490 "#AuroraPostgreSQL.Updates.20180305.1490")
 
 #### Aurora PostgreSQL 14.9.11, August 5, 2025
 
@@ -6063,9 +5731,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
-#### Aurora PostgreSQL 14.9.10, May
-
-7, 2025
+#### Aurora PostgreSQL 14.9.10, May 7, 2025
 
 **High priority enhancements**
 
@@ -6104,9 +5770,7 @@ about the improvements in PostgreSQL 14.9, see [PostgreSQL release
 - Fixed an ownership issue where the postgis_raster extension could not be
   updated correctly from a previous the PostGIS extension v2 installation.
 
-#### Aurora PostgreSQL 14.9.8,
-
-November 14, 2024
+#### Aurora PostgreSQL 14.9.8, November 14, 2024
 
 ###### High priority enhancements
 
@@ -6116,9 +5780,7 @@ November 14, 2024
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-#### Aurora PostgreSQL 14.9.7, June 25,
-
-2024
+#### Aurora PostgreSQL 14.9.7, June 25, 2024
 
 ###### General enhancements
 
@@ -6137,17 +5799,13 @@ November 14, 2024
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same
   table.
 
-#### Aurora PostgreSQL 14.9.6, March
-
-13, 2024
+#### Aurora PostgreSQL 14.9.6, March 13, 2024
 
 ###### General enhancements
 
 - Fixed a performance degradation issue in `PLV8` extension.
 
-#### Aurora PostgreSQL 14.9.5, February
-
-22, 2024
+#### Aurora PostgreSQL 14.9.5, February 22, 2024
 
 ###### General enhancements
 
@@ -6171,18 +5829,14 @@ November 14, 2024
 - Fixed an issue where active transactions during logical replication slot
   creation may be partially replicated by the slot.
 
-#### Aurora PostgreSQL 14.9.3, December
-
-15, 2023
+#### Aurora PostgreSQL 14.9.3, December 15, 2023
 
 ###### High priority enhancements
 
 - Fixed an issue which may cause a reboot when logically replicating changes in
   the presence of concurrent canceled subtransactions and DDL
 
-#### Aurora PostgreSQL 14.9.2, December
-
-13, 2023
+#### Aurora PostgreSQL 14.9.2, December 13, 2023
 
 ###### Critical stability enhancements
 
@@ -6204,9 +5858,7 @@ November 14, 2024
 - Fixed an issue with logical replication actions being performed by someone
   other than the table owner
 
-#### Aurora PostgreSQL 14.9.1, November
-
-09, 2023
+#### Aurora PostgreSQL 14.9.1, November 09, 2023
 
 ###### Critical stability enhancements
 
@@ -6221,9 +5873,7 @@ November 14, 2024
 - Fixed an issue related to buffer pin locking that in rare cases can result in
   a crash
 
-#### Aurora PostgreSQL 14.9.0, October
-
-24, 2023
+#### Aurora PostgreSQL 14.9.0, October 24, 2023
 
 ###### New features
 
@@ -6286,8 +5936,7 @@ November 14, 2024
   - `PostGIS` to version 3.3.3
   - `RDKit` to version 4.3
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-14](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 14](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14").
 
 ### PostgreSQL 14.8
 
@@ -6370,9 +6019,7 @@ information about the improvements in PostgreSQL 14.8, see [PostgreSQL release 1
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 14.8.6, August 7, 2024
+#### Aurora PostgreSQL 14.8.6, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -6382,9 +6029,7 @@ Aurora PostgreSQL 14.8.6, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 14.8.5, March 13, 2024
+#### Aurora PostgreSQL 14.8.5, March 13, 2024
 
 ###### General enhancements
 
@@ -6402,9 +6047,7 @@ Aurora PostgreSQL 14.8.5, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 14.8.4, December 14, 2023
+#### Aurora PostgreSQL 14.8.4, December 14, 2023
 
 ###### Critical stability enhancements
 
@@ -6422,9 +6065,7 @@ Aurora PostgreSQL 14.8.4, December 14, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 14.8.3, November 14, 2023
+#### Aurora PostgreSQL 14.8.3, November 14, 2023
 
 ###### Critical stability enhancements
 
@@ -6438,9 +6079,7 @@ Aurora PostgreSQL 14.8.3, November 14, 2023
 - Fixed an issue that could result in read replica lag due to stale metadata
 - Fixed an issue related to buffer pin locking that in rare cases can result in a crash
 
-####
-
-Aurora PostgreSQL 14.8.2, October 4, 2023
+#### Aurora PostgreSQL 14.8.2, October 4, 2023
 
 ###### Critical stability enhancements
 
@@ -6460,9 +6099,7 @@ Aurora PostgreSQL 14.8.2, October 4, 2023
 - Introduced diagnostics for the transient metadata used for I/O
 - Fixed an issue that prevented the enablement of improved memory management in certain scenarios in Aurora PostgreSQL 15.3
 
-####
-
-Aurora PostgreSQL 14.8.0, July 13, 2023
+#### Aurora PostgreSQL 14.8.0, July 13, 2023
 
 Following the announcement of updates to the PostgreSQL database by the open source community, we have updated Amazon Aurora PostgreSQL-Compatible Edition
 to support PostgreSQL versions 15.3, 14.8, 13.11, 12.15, and 11.20. These releases contains product improvements and bug fixes made by
@@ -6538,9 +6175,7 @@ information about the improvements in PostgreSQL 14.7, see [PostgreSQL release 1
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 14.7.8, August 7, 2024
+#### Aurora PostgreSQL 14.7.8, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -6550,9 +6185,7 @@ Aurora PostgreSQL 14.7.8, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 14.7.7, March 13, 2024
+#### Aurora PostgreSQL 14.7.7, March 13, 2024
 
 ###### General enhancements
 
@@ -6570,9 +6203,7 @@ Aurora PostgreSQL 14.7.7, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 14.7.6, December 15, 2023
+#### Aurora PostgreSQL 14.7.6, December 15, 2023
 
 ###### Critical stability enhancements
 
@@ -6590,9 +6221,7 @@ Aurora PostgreSQL 14.7.6, December 15, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 14.7.5, November 14, 2023
+#### Aurora PostgreSQL 14.7.5, November 14, 2023
 
 ###### Critical stability enhancements
 
@@ -6606,9 +6235,7 @@ Aurora PostgreSQL 14.7.5, November 14, 2023
 - Fixed an issue that could result in read replica lag due to stale metadata
 - Fixed an issue related to buffer pin locking that in rare cases can result in a crash
 
-####
-
-Aurora PostgreSQL 14.7.4, October 5, 2023
+#### Aurora PostgreSQL 14.7.4, October 5, 2023
 
 ###### Critical stability enhancements
 
@@ -6626,9 +6253,7 @@ Aurora PostgreSQL 14.7.4, October 5, 2023
 
 - Introduced diagnostics for the transient metadata used for I/O
 
-####
-
-Aurora PostgreSQL 14.7.3, July 24, 2023
+#### Aurora PostgreSQL 14.7.3, July 24, 2023
 
 ###### General enhancements
 
@@ -6647,9 +6272,7 @@ Aurora PostgreSQL 14.7.3, July 24, 2023
 - Fixed multiple issues which can cause Aurora replicas with the improved read availability feature to restart when reconnecting with the writer instance
 - Fixed an issue preventing a survivable reader reconnect
 
-####
-
-Aurora PostgreSQL 14.7.2, May 10, 2023
+#### Aurora PostgreSQL 14.7.2, May 10, 2023
 
 ###### General enhancements
 
@@ -6657,9 +6280,7 @@ Aurora PostgreSQL 14.7.2, May 10, 2023
 - Fixed an issue that causes logical replication to fail when using write-through cache
 - Updated the Oracle client used by the `oracle_fdw` extension to version 21.9.0.0.0
 
-####
-
-Aurora PostgreSQL 14.7.1, April 5, 2023
+#### Aurora PostgreSQL 14.7.1, April 5, 2023
 
 ###### New features
 
@@ -6708,8 +6329,7 @@ Aurora PostgreSQL 14.7.1, April 5, 2023
   - `TCN` to version 1.0
   - `wal2json` to version 2.5
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-14](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 14](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.14").
 
 ### PostgreSQL 14.6
 
@@ -6759,9 +6379,7 @@ information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 1
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 14.6.9, August 7, 2024
+#### Aurora PostgreSQL 14.6.9, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -6771,9 +6389,7 @@ Aurora PostgreSQL 14.6.9, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 14.6.8, March 13, 2024
+#### Aurora PostgreSQL 14.6.8, March 13, 2024
 
 ###### General enhancements
 
@@ -6790,9 +6406,7 @@ Aurora PostgreSQL 14.6.8, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 14.6.7, December 15, 2023
+#### Aurora PostgreSQL 14.6.7, December 15, 2023
 
 ###### Critical stability enhancements
 
@@ -6805,9 +6419,7 @@ Aurora PostgreSQL 14.6.7, December 15, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 14.6.6, November 17, 2023
+#### Aurora PostgreSQL 14.6.6, November 17, 2023
 
 ###### Critical stability enhancements
 
@@ -6816,9 +6428,7 @@ Aurora PostgreSQL 14.6.6, November 17, 2023
 
 - Fixed an issue related to `pg_cron` background worker processes
 
-####
-
-Aurora PostgreSQL 14.6.5, October 04, 2023
+#### Aurora PostgreSQL 14.6.5, October 04, 2023
 
 ###### Critical stability enhancements
 
@@ -6836,9 +6446,7 @@ Aurora PostgreSQL 14.6.5, October 04, 2023
 
 - Introduced diagnostics for the transient metadata used for I/O
 
-####
-
-Aurora PostgreSQL 14.6.4, September 13, 2023
+#### Aurora PostgreSQL 14.6.4, September 13, 2023
 
 ###### General enhancements
 
@@ -6853,9 +6461,7 @@ Aurora PostgreSQL 14.6.4, September 13, 2023
   - `aws_lambda.connect_timeout_ms`
   - `aws_lambda.request_timeout_ms`
 
-####
-
-Aurora PostgreSQL 14.6.2, March 3, 2023
+#### Aurora PostgreSQL 14.6.2, March 3, 2023
 
 ###### Critical stability enhancements
 
@@ -6870,17 +6476,13 @@ Aurora PostgreSQL 14.6.2, March 3, 2023
 - Fixed an issue with the `aws_s3` extension where loading a large number of records can time out
 - Fixed an issue that causes logical replication to fail when using write-through cache
 
-####
-
-Aurora PostgreSQL 14.6.1, February 17, 2023
+#### Aurora PostgreSQL 14.6.1, February 17, 2023
 
 ###### Critical stability enhancements
 
 - Fixed a critical stability issue.
 
-####
-
-Aurora PostgreSQL 14.6.0, January 20, 2023
+#### Aurora PostgreSQL 14.6.0, January 20, 2023
 
 ###### High priority stability enhancements
 
@@ -6923,9 +6525,7 @@ information about the improvements in PostgreSQL 14.5, see [PostgreSQL release 1
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 
-####
-
-Aurora PostgreSQL 14.5.7, August 7, 2024
+#### Aurora PostgreSQL 14.5.7, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -6935,9 +6535,7 @@ Aurora PostgreSQL 14.5.7, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 14.5.6, March 13, 2024
+#### Aurora PostgreSQL 14.5.6, March 13, 2024
 
 ###### General enhancements
 
@@ -6954,9 +6552,7 @@ Aurora PostgreSQL 14.5.6, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 14.5.5, December 18, 2023
+#### Aurora PostgreSQL 14.5.5, December 18, 2023
 
 ###### Critical stability enhancements
 
@@ -6969,9 +6565,7 @@ Aurora PostgreSQL 14.5.5, December 18, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 14.5.4, November 17, 2023
+#### Aurora PostgreSQL 14.5.4, November 17, 2023
 
 ###### Critical stability enhancements
 
@@ -6980,9 +6574,7 @@ Aurora PostgreSQL 14.5.4, November 17, 2023
 
 - Fixed an issue related to `pg_cron` background worker processes
 
-####
-
-Aurora PostgreSQL 14.5.3, October 17, 2023
+#### Aurora PostgreSQL 14.5.3, October 17, 2023
 
 ###### High priority stability enhancements
 
@@ -7012,9 +6604,7 @@ Aurora PostgreSQL 14.5.3, October 17, 2023
 - Fixed an issue which can cause a database instance to restart while executing I/O intensive read workloads
 - Fixed an issue that causes logical replication to fail when using write-through cache
 
-####
-
-Aurora PostgreSQL 14.5.2, March 2, 2023
+#### Aurora PostgreSQL 14.5.2, March 2, 2023
 
 ###### General stability enhancements
 
@@ -7024,9 +6614,7 @@ Aurora PostgreSQL 14.5.2, March 2, 2023
 - Fixed an issue with the `aws_s3` extension where loading a large number of records can time out
 - Fixed an issue with the `pg_cron` parallel running of tasks
 
-####
-
-Aurora PostgreSQL 14.5.1, December 13, 2022
+#### Aurora PostgreSQL 14.5.1, December 13, 2022
 
 ###### General stability enhancements
 
@@ -7035,9 +6623,7 @@ Aurora PostgreSQL 14.5.1, December 13, 2022
 - Fixed an issue that could cause unavailability during replication
 - Fixed an issue that could cause data inconsistency during replication
 
-####
-
-Aurora PostgreSQL 14.5.0, November 09, 2022
+#### Aurora PostgreSQL 14.5.0, November 09, 2022
 
 ###### High priority stability enhancements
 
@@ -7099,9 +6685,7 @@ information about the improvements in PostgreSQL 14.4, see [PostgreSQL release 1
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 14.4.10, August 7, 2024
+#### Aurora PostgreSQL 14.4.10, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -7111,9 +6695,7 @@ Aurora PostgreSQL 14.4.10, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 14.4.9, March 13, 2024
+#### Aurora PostgreSQL 14.4.9, March 13, 2024
 
 ###### General enhancements
 
@@ -7130,9 +6712,7 @@ Aurora PostgreSQL 14.4.9, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 14.4.8, December 22, 2023
+#### Aurora PostgreSQL 14.4.8, December 22, 2023
 
 ###### Critical stability enhancements
 
@@ -7145,9 +6725,7 @@ Aurora PostgreSQL 14.4.8, December 22, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 14.4.7, November 17, 2023
+#### Aurora PostgreSQL 14.4.7, November 17, 2023
 
 ###### Critical stability enhancements
 
@@ -7156,9 +6734,7 @@ Aurora PostgreSQL 14.4.7, November 17, 2023
 
 - Fixed an issue related to `pg_cron` background worker processes
 
-####
-
-Aurora PostgreSQL 14.4.6, October 19, 2023
+#### Aurora PostgreSQL 14.4.6, October 19, 2023
 
 ###### High priority stability enhancements
 
@@ -7186,9 +6762,7 @@ Aurora PostgreSQL 14.4.6, October 19, 2023
   - `aws_lambda.connect_timeout_ms`
   - `aws_lambda.request_timeout_ms`
 
-####
-
-Aurora PostgreSQL 14.4.5, December 14, 2022
+#### Aurora PostgreSQL 14.4.5, December 14, 2022
 
 ###### General stability enhancements
 
@@ -7197,17 +6771,13 @@ Aurora PostgreSQL 14.4.5, December 14, 2022
 - Fixed an issue that causes database activity stream inconsistency when the monitoring agent is unavailable
 - Fixed an issue that could cause data inconsistency during replication
 
-####
-
-Aurora PostgreSQL 14.4.4, November 17, 2022
+#### Aurora PostgreSQL 14.4.4, November 17, 2022
 
 ###### High priority stability enhancements
 
 - Fixed an issue that can cause increased network traffic when a writer instance transmits logs to a replica instance
 
-####
-
-Aurora PostgreSQL 14.4.0, October 13, 2022
+#### Aurora PostgreSQL 14.4.0, October 13, 2022
 
 ###### High priority stability enhancements
 
@@ -7252,9 +6822,7 @@ information about the improvements in PostgreSQL 14.3, see [PostgreSQL release 1
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 14.3.10, August 7, 2024
+#### Aurora PostgreSQL 14.3.10, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -7265,9 +6833,7 @@ Aurora PostgreSQL 14.3.10, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 14.3.9, March 13, 2024
+#### Aurora PostgreSQL 14.3.9, March 13, 2024
 
 ###### General enhancements
 
@@ -7284,9 +6850,7 @@ Aurora PostgreSQL 14.3.9, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 14.3.8, December 22, 2023
+#### Aurora PostgreSQL 14.3.8, December 22, 2023
 
 ###### Critical stability enhancements
 
@@ -7299,9 +6863,7 @@ Aurora PostgreSQL 14.3.8, December 22, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 14.3.7, November 17, 2023
+#### Aurora PostgreSQL 14.3.7, November 17, 2023
 
 ###### Critical stability enhancements
 
@@ -7310,9 +6872,7 @@ Aurora PostgreSQL 14.3.7, November 17, 2023
 
 - Fixed an issue related to `pg_cron` background worker processes
 
-####
-
-Aurora PostgreSQL 14.3.6, October 19, 2023
+#### Aurora PostgreSQL 14.3.6, October 19, 2023
 
 ###### High priority stability enhancements
 
@@ -7340,9 +6900,7 @@ Aurora PostgreSQL 14.3.6, October 19, 2023
   - `aws_lambda.connect_timeout_ms`
   - `aws_lambda.request_timeout_ms`
 
-####
-
-Aurora PostgreSQL 14.3.5, December 14, 2022
+#### Aurora PostgreSQL 14.3.5, December 14, 2022
 
 ###### General stability enhancements
 
@@ -7351,17 +6909,13 @@ Aurora PostgreSQL 14.3.5, December 14, 2022
 - Fixed an issue that causes database activity stream inconsistency when the monitoring agent is unavailable
 - Fixed an issue that could cause data inconsistency during replication
 
-####
-
-Aurora PostgreSQL 14.3.4, November 17, 2022
+#### Aurora PostgreSQL 14.3.4, November 17, 2022
 
 ###### High priority stability enhancements
 
 - Fixed an issue that can cause increased network traffic when a writer instance transmits logs to a replica instance
 
-####
-
-Aurora PostgreSQL 14.3.3, October 13, 2022
+#### Aurora PostgreSQL 14.3.3, October 13, 2022
 
 ###### High priority stability enhancements
 
@@ -7376,9 +6930,7 @@ Aurora PostgreSQL 14.3.3, October 13, 2022
 - Upgraded the `PostGIS` extension to version 3.1.7
 - Fixed an issue where extended query messages might be lost during zero-downtime patching (ZDP) causing the extended query to hang after the ZDP completion
 
-####
-
-Aurora PostgreSQL 14.3.1, July 6, 2022
+#### Aurora PostgreSQL 14.3.1, July 6, 2022
 
 ###### Critical stability enhancements
 
@@ -7391,9 +6943,7 @@ Aurora PostgreSQL 14.3.1, July 6, 2022
 - Fixed an issue that caused connections using the provided root certificate to fail
 - Improved the diagnostic and supportability information in case of inconsistent B-tree index entries
 
-####
-
-Aurora PostgreSQL 14.3.0, June 21, 2022
+#### Aurora PostgreSQL 14.3.0, June 21, 2022
 
 ###### New features
 
@@ -7471,7 +7021,6 @@ the improvements in PostgreSQL 13.23, see [PostgreSQL release
 **Critical stability enhancements**
 
 - Fixed a timing condition in the aws_s3 extension which, in rare cases, can cause database unavailability
-- Fixed an issue where an UPDATE statement with OUTPUT clause may skip rows when there are concurrent updates on the same row
 
 #### Aurora PostgreSQL 13.23, December, 18, 2025
 
@@ -7538,7 +7087,6 @@ the improvements in PostgreSQL 13.22, see [PostgreSQL release
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/")
   - [CVE-2025-12818](https://www.postgresql.org/support/security/CVE-2025-12818/ "https://www.postgresql.org/support/security/CVE-2025-12818/")
 
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 
 **General enhancements**
@@ -7597,20 +7145,13 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL 13.21.4, January 15,
-  2026](#aurorapostgresql-versions-version13214x-13214 "#aurorapostgresql-versions-version13214x-13214")
-- [Aurora PostgreSQL 13.21.3, September 16,
-  2025](#aurorapostgresql-versions-version13213x-13213 "#aurorapostgresql-versions-version13213x-13213")
-- [Aurora PostgreSQL 13.21.2, August 8,
-  2025](#aurorapostgresql-versions-version13212x-13212 "#aurorapostgresql-versions-version13212x-13212")
-- [Aurora PostgreSQL 13.21.1, June 30,
-  2025](#aurorapostgresql-versions-version13211x-13211 "#aurorapostgresql-versions-version13211x-13211")
-- [Aurora PostgreSQL 13.21, June 30,
-  2025](#aurorapostgresql-versions-version1321x-1321 "#aurorapostgresql-versions-version1321x-1321")
+- [Aurora PostgreSQL 13.21.4, January 15, 2026](#aurorapostgresql-versions-version13214x-13214 "#aurorapostgresql-versions-version13214x-13214")
+- [Aurora PostgreSQL 13.21.3, September 16, 2025](#aurorapostgresql-versions-version13213x-13213 "#aurorapostgresql-versions-version13213x-13213")
+- [Aurora PostgreSQL 13.21.2, August 8, 2025](#aurorapostgresql-versions-version13212x-13212 "#aurorapostgresql-versions-version13212x-13212")
+- [Aurora PostgreSQL 13.21.1, June 30, 2025](#aurorapostgresql-versions-version13211x-13211 "#aurorapostgresql-versions-version13211x-13211")
+- [Aurora PostgreSQL 13.21, June 30, 2025](#aurorapostgresql-versions-version1321x-1321 "#aurorapostgresql-versions-version1321x-1321")
 
-#### Aurora PostgreSQL 13.21.4, January 15,
-
-2026
+#### Aurora PostgreSQL 13.21.4, January 15, 2026
 
 **Critical stability enhancements**
 
@@ -7622,7 +7163,6 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 **High priority enhancements**
 
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 - Backported fixes for the following PostgreSQL community security issues:
   - [CVE-2025-12817](https://www.postgresql.org/support/security/CVE-2025-12817/ "https://www.postgresql.org/support/security/CVE-2025-12817/").
@@ -7634,9 +7174,7 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 - Fixed an issue that could cause delays in scaling down for Serverless V2 instances.
 - Fixed IMDS throttling issues by reducing IMDS requests for region related information.
 
-#### Aurora PostgreSQL 13.21.3, September 16,
-
-2025
+#### Aurora PostgreSQL 13.21.3, September 16, 2025
 
 **Critical stability enhancements**
 
@@ -7670,8 +7208,6 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 
 **General enhancements**
 
-- Implemented enhanced error handling mechanisms during TDS Connection reset
-  operations.
 - Fixed an issue that could in certain cases prevent online recovery of an Aurora Replica
   from completing.
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
@@ -7695,9 +7231,7 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
   of an Aurora replica in a Global Database.
 - Fixed and issue where storage client may crash during instance restart.
 
-#### Aurora PostgreSQL 13.21.2, August 8,
-
-2025
+#### Aurora PostgreSQL 13.21.2, August 8, 2025
 
 **Critical stability enhancements**
 
@@ -7706,17 +7240,13 @@ about the improvements in PostgreSQL 13.21, see [PostgreSQL release
 - Fixed an issue with Serverless v2 scaling that may cause unavailability when
   performing reads from Aurora Storage.
 
-#### Aurora PostgreSQL 13.21.1, June 30,
-
-2025
+#### Aurora PostgreSQL 13.21.1, June 30, 2025
 
 **High priority enhancements**
 
 - Fixed a performance issue affecting instance restart operations.
 
-#### Aurora PostgreSQL 13.21, June 30,
-
-2025
+#### Aurora PostgreSQL 13.21, June 30, 2025
 
 **New features**
 
@@ -7786,10 +7316,8 @@ about the improvements in PostgreSQL 13.20, see [PostgreSQL release
 - [Aurora PostgreSQL 13.20.5, February 03, 2026](#aurorapostgresql-versions-version1417x-1417 "#aurorapostgresql-versions-version1417x-1417")
 - [Aurora PostgreSQL 13.20.4, October 9, 2025](#aurorapostgresql-versions-version13204x-13204 "#aurorapostgresql-versions-version13204x-13204")
 - [Aurora PostgreSQL 13.20.3, June 03, 2025](#aurorapostgresql-versions-version13203x-13203 "#aurorapostgresql-versions-version13203x-13203")
-- [Aurora PostgreSQL 13.20.2, May 01,
-  2025](#aurorapostgresql-versions-version13202x-13202 "#aurorapostgresql-versions-version13202x-13202")
-- [Aurora PostgreSQL 13.20, April 07,
-  2025](#aurorapostgresql-versions-version1320x-1320 "#aurorapostgresql-versions-version1320x-1320")
+- [Aurora PostgreSQL 13.20.2, May 01, 2025](#aurorapostgresql-versions-version13202x-13202 "#aurorapostgresql-versions-version13202x-13202")
+- [Aurora PostgreSQL 13.20, April 07, 2025](#aurorapostgresql-versions-version1320x-1320 "#aurorapostgresql-versions-version1320x-1320")
 
 #### Aurora PostgreSQL 13.20.5, February 03, 2026
 
@@ -7809,7 +7337,6 @@ about the improvements in PostgreSQL 13.20, see [PostgreSQL release
 
 - Fixed an issue which could cause a restart during the start of logical replication data synchronization.
 - Fixed an issue where premature status updates during zero downtime patching could cause unnecessary failures by ensuring proper synchronization with server startup.
-- Fixes crashes and/or intermittent errors when a procedure variable is assigned to itself.
 - Fixed an issue with the cleanup of files created by NOTIFY channels, which could lead to high local storage usage.
 
 **General enhancements**
@@ -7844,7 +7371,6 @@ about the improvements in PostgreSQL 13.20, see [PostgreSQL release
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when `apg_plan_mgmt` is
   enabled.
@@ -7894,18 +7420,14 @@ about the improvements in PostgreSQL 13.20, see [PostgreSQL release
 - Fixed an issue that can cause RO instance crash under heavy workload.
 - Fixed an issue that causes minor version upgrades to fail with sleep/wake feature.
 
-#### Aurora PostgreSQL 13.20.2, May 01,
-
-2025
+#### Aurora PostgreSQL 13.20.2, May 01, 2025
 
 **Critical priority enhancements**
 
 - Fixed an issue which can cause the database to become unresponsive when performing
   actions with Aurora storage.
 
-#### Aurora PostgreSQL 13.20, April 07,
-
-2025
+#### Aurora PostgreSQL 13.20, April 07, 2025
 
 **High priority enhancements**
 
@@ -7954,16 +7476,11 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 - [Aurora PostgreSQL 13.18.7, January 28, 2026](#aurorapostgresql-versions-version13187x-13187 "#aurorapostgresql-versions-version13187x-13187")
 - [Aurora PostgreSQL 13.18.6, November 13, 2025](#aurorapostgresql-versions-version13186x-13186 "#aurorapostgresql-versions-version13186x-13186")
 - [Aurora PostgreSQL 13.18.5, June 24, 2025](#aurorapostgresql-versions-version13185x-13185 "#aurorapostgresql-versions-version13185x-13185")
-- [Aurora PostgreSQL 13.18.4, March
-  24, 2025](#aurorapostgresql-versions-version13184x-13184 "#aurorapostgresql-versions-version13184x-13184")
-- [Aurora PostgreSQL 13.18.3,
-  February 13, 2025](#aurorapostgresql-versions-version13183x-13183 "#aurorapostgresql-versions-version13183x-13183")
-- [Aurora PostgreSQL 13.18.2, January
-  20, 2025](#aurorapostgresql-versions-version13182x-13182 "#aurorapostgresql-versions-version13182x-13182")
-- [Aurora PostgreSQL 13.18.1,
-  December 27, 2024](#aurorapostgresql-versions-version13181x-13181 "#aurorapostgresql-versions-version13181x-13181")
-- [Aurora PostgreSQL 13.18, December
-  27, 2024](#aurorapostgresql-versions-version1318x-1318 "#aurorapostgresql-versions-version1318x-1318")
+- [Aurora PostgreSQL 13.18.4, March 24, 2025](#aurorapostgresql-versions-version13184x-13184 "#aurorapostgresql-versions-version13184x-13184")
+- [Aurora PostgreSQL 13.18.3, February 13, 2025](#aurorapostgresql-versions-version13183x-13183 "#aurorapostgresql-versions-version13183x-13183")
+- [Aurora PostgreSQL 13.18.2, January 20, 2025](#aurorapostgresql-versions-version13182x-13182 "#aurorapostgresql-versions-version13182x-13182")
+- [Aurora PostgreSQL 13.18.1, December 27, 2024](#aurorapostgresql-versions-version13181x-13181 "#aurorapostgresql-versions-version13181x-13181")
+- [Aurora PostgreSQL 13.18, December 27, 2024](#aurorapostgresql-versions-version1318x-1318 "#aurorapostgresql-versions-version1318x-1318")
 
 #### Aurora PostgreSQL 13.18.7, January 28, 2026
 
@@ -8010,7 +7527,6 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
@@ -8046,9 +7562,7 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
-#### Aurora PostgreSQL 13.18.4, March
-
-24, 2025
+#### Aurora PostgreSQL 13.18.4, March 24, 2025
 
 **High priority enhancements**
 
@@ -8061,18 +7575,14 @@ about the improvements in PostgreSQL 13.18, see [PostgreSQL release
 - Fixed an issue on the replica where a network interruption may not correctly
   re-establish connection with the writer.
 
-#### Aurora PostgreSQL 13.18.3,
-
-February 13, 2025
+#### Aurora PostgreSQL 13.18.3, February 13, 2025
 
 **High priority enhancements**
 
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418") for V8 Engine in the `PLV8`
   extension.
 
-#### Aurora PostgreSQL 13.18.2, January
-
-20, 2025
+#### Aurora PostgreSQL 13.18.2, January 20, 2025
 
 **Critical Priority enhancements**
 
@@ -8092,18 +7602,14 @@ February 13, 2025
   not be updated correctly from a previous the PostGIS extension v2
   installation.
 
-#### Aurora PostgreSQL 13.18.1,
-
-December 27, 2024
+#### Aurora PostgreSQL 13.18.1, December 27, 2024
 
 **Critical Priority enhancements**
 
 - Fixed an issue where the server was restarting when the connections were reset
   by the peer.
 
-#### Aurora PostgreSQL 13.18, December
-
-27, 2024
+#### Aurora PostgreSQL 13.18, December 27, 2024
 
 ###### New features for 13.18
 
@@ -8214,7 +7720,6 @@ information about the improvements in PostgreSQL 13.16, see [PostgreSQL release 
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
@@ -8363,16 +7868,11 @@ about the improvements in PostgreSQL 13.15, see [PostgreSQL release
 ###### Releases and patches
 
 - [Aurora PostgreSQL 13.15.5, July 17, 2025](#aurorapostgresql-versions-version13155x-13155 "#aurorapostgresql-versions-version13155x-13155")
-- [Aurora PostgreSQL 13.15.4, March
-  25, 2025](#aurorapostgresql-versions-version13154x-13154 "#aurorapostgresql-versions-version13154x-13154")
-- [Aurora PostgreSQL 13.15.3, January
-  29, 2025](#aurorapostgresql-versions-version13153x-13153 "#aurorapostgresql-versions-version13153x-13153")
-- [Aurora PostgreSQL 13.15.2, January
-  23, 2025](#aurorapostgresql-versions-version13152x-13152 "#aurorapostgresql-versions-version13152x-13152")
-- [Aurora PostgreSQL 13.15.1,
-  September 27, 2024](#aurorapostgresql-versions-version1315x-13151 "#aurorapostgresql-versions-version1315x-13151")
-- [Aurora PostgreSQL 13.15,
-  August 8, 2024](#aurorapostgresql-versions-version1315x-1315 "#aurorapostgresql-versions-version1315x-1315")
+- [Aurora PostgreSQL 13.15.4, March 25, 2025](#aurorapostgresql-versions-version13154x-13154 "#aurorapostgresql-versions-version13154x-13154")
+- [Aurora PostgreSQL 13.15.3, January 29, 2025](#aurorapostgresql-versions-version13153x-13153 "#aurorapostgresql-versions-version13153x-13153")
+- [Aurora PostgreSQL 13.15.2, January 23, 2025](#aurorapostgresql-versions-version13152x-13152 "#aurorapostgresql-versions-version13152x-13152")
+- [Aurora PostgreSQL 13.15.1, September 27, 2024](#aurorapostgresql-versions-version1315x-13151 "#aurorapostgresql-versions-version1315x-13151")
+- [Aurora PostgreSQL 13.15, August 8, 2024](#aurorapostgresql-versions-version1315x-1315 "#aurorapostgresql-versions-version1315x-1315")
 
 #### Aurora PostgreSQL 13.15.5, July 17, 2025
 
@@ -8394,9 +7894,7 @@ about the improvements in PostgreSQL 13.15, see [PostgreSQL release
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
-#### Aurora PostgreSQL 13.15.4, March
-
-25, 2025
+#### Aurora PostgreSQL 13.15.4, March 25, 2025
 
 **High priority enhancements**
 
@@ -8404,18 +7902,14 @@ about the improvements in PostgreSQL 13.15, see [PostgreSQL release
   issues:
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
-#### Aurora PostgreSQL 13.15.3, January
-
-29, 2025
+#### Aurora PostgreSQL 13.15.3, January 29, 2025
 
 **High priority enhancements**
 
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418") for V8 Engine in the `PLV8`
   extension.
 
-#### Aurora PostgreSQL 13.15.2, January
-
-23, 2025
+#### Aurora PostgreSQL 13.15.2, January 23, 2025
 
 ###### Critical stability enhancements
 
@@ -8441,9 +7935,7 @@ about the improvements in PostgreSQL 13.15, see [PostgreSQL release
 - Fixed an issue that could cause an error in the wal sender process when
   resuming logical replication.
 
-#### Aurora PostgreSQL 13.15.1,
-
-September 27, 2024
+#### Aurora PostgreSQL 13.15.1, September 27, 2024
 
 ###### High priority enhancements
 
@@ -8455,9 +7947,7 @@ September 27, 2024
 - Fixed an issue that would cause ZDP to fail on Aurora Optimized Reads Cache
   instances while upgrading into this version.
 
-#### Aurora PostgreSQL 13.15,
-
-August 8, 2024
+#### Aurora PostgreSQL 13.15, August 8, 2024
 
 ###### New features
 
@@ -8595,9 +8085,7 @@ from a previous the `PostGIS` extension v2 installation.
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 13.14.2, June 20, 2024
+#### Aurora PostgreSQL 13.14.2, June 20, 2024
 
 ###### General enhancements
 
@@ -8615,9 +8103,7 @@ Aurora PostgreSQL 13.14.2, June 20, 2024
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
 - Fixed issues in how two-phase commit files are handled.
 
-####
-
-Aurora PostgreSQL 13.14.1, April 29, 2024
+#### Aurora PostgreSQL 13.14.1, April 29, 2024
 
 ###### New features
 
@@ -8751,9 +8237,7 @@ information about the improvements in PostgreSQL 13.13, see [PostgreSQL release 
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 13.13.4, June 24, 2024
+#### Aurora PostgreSQL 13.13.4, June 24, 2024
 
 ###### General enhancements
 
@@ -8770,17 +8254,13 @@ Aurora PostgreSQL 13.13.4, June 24, 2024
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
 
-####
-
-Aurora PostgreSQL 13.13.3, March 13, 2024
+#### Aurora PostgreSQL 13.13.3, March 13, 2024
 
 ###### General enhancements
 
 - Fixed a performance degradation issue in `PLV8` extension.
 
-####
-
-Aurora PostgreSQL 13.13.2, February 22, 2024
+#### Aurora PostgreSQL 13.13.2, February 22, 2024
 
 ###### General enhancements
 
@@ -8799,9 +8279,7 @@ Aurora PostgreSQL 13.13.2, February 22, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 13.13.0, December 21, 2023
+#### Aurora PostgreSQL 13.13.0, December 21, 2023
 
 Following the announcement of updates to the PostgreSQL database by the open source community, we have updated Amazon Aurora PostgreSQL-Compatible Edition to support
 PostgreSQL versions 15.5, 14.10, 13.13, and 12.17. These releases contain product improvements and bug fixes made by the PostgreSQL community,
@@ -8863,8 +8341,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
   - `prefix` to version 1.2.10
   - `RDKit` to version 4.4.0 (Release_2023_09_1)
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-13](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 13](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13").
 
 ### PostgreSQL 13.12
 
@@ -8875,24 +8352,15 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 ###### Releases and patches
 
 - [Aurora PostgreSQL 13.12.11, August 5, 2025](#aurorapostgresql-versions-version131211x-131211 "#aurorapostgresql-versions-version131211x-131211")
-- [Aurora PostgreSQL 13.12.10, May
-  7, 2025](#aurorapostgresql-versions-version131210x-131210 "#aurorapostgresql-versions-version131210x-131210")
-- [Aurora PostgreSQL 13.12.9,
-  February 27 2025](#aurorapostgresql-versions-version13129x-13129 "#aurorapostgresql-versions-version13129x-13129")
-- [Aurora PostgreSQL 13.12.8,
-  November 14, 2024](#aurorapostgresql-versions-version1312x-13128 "#aurorapostgresql-versions-version1312x-13128")
-- [Aurora PostgreSQL 13.12.7, June
-  25, 2024](#AuroraPostgreSQL.Updates.20180305.13127 "#AuroraPostgreSQL.Updates.20180305.13127")
-- [Aurora PostgreSQL 13.12.6, March
-  13, 2024](#AuroraPostgreSQL.Updates.20180305.13126 "#AuroraPostgreSQL.Updates.20180305.13126")
-- [Aurora PostgreSQL 13.12.5,
-  February 22, 2024](#AuroraPostgreSQL.Updates.20180305.13125 "#AuroraPostgreSQL.Updates.20180305.13125")
-- [Aurora PostgreSQL 13.12.2,
-  December 13, 2023](#AuroraPostgreSQL.Updates.20180305.13122 "#AuroraPostgreSQL.Updates.20180305.13122")
-- [Aurora PostgreSQL 13.12.1,
-  November 09, 2023](#AuroraPostgreSQL.Updates.20180305.13121 "#AuroraPostgreSQL.Updates.20180305.13121")
-- [Aurora PostgreSQL 13.12.0, October
-  24, 2023](#AuroraPostgreSQL.Updates.20180305.1312 "#AuroraPostgreSQL.Updates.20180305.1312")
+- [Aurora PostgreSQL 13.12.10, May 7, 2025](#aurorapostgresql-versions-version131210x-131210 "#aurorapostgresql-versions-version131210x-131210")
+- [Aurora PostgreSQL 13.12.9, February 27 2025](#aurorapostgresql-versions-version13129x-13129 "#aurorapostgresql-versions-version13129x-13129")
+- [Aurora PostgreSQL 13.12.8, November 14, 2024](#aurorapostgresql-versions-version1312x-13128 "#aurorapostgresql-versions-version1312x-13128")
+- [Aurora PostgreSQL 13.12.7, June 25, 2024](#AuroraPostgreSQL.Updates.20180305.13127 "#AuroraPostgreSQL.Updates.20180305.13127")
+- [Aurora PostgreSQL 13.12.6, March 13, 2024](#AuroraPostgreSQL.Updates.20180305.13126 "#AuroraPostgreSQL.Updates.20180305.13126")
+- [Aurora PostgreSQL 13.12.5, February 22, 2024](#AuroraPostgreSQL.Updates.20180305.13125 "#AuroraPostgreSQL.Updates.20180305.13125")
+- [Aurora PostgreSQL 13.12.2, December 13, 2023](#AuroraPostgreSQL.Updates.20180305.13122 "#AuroraPostgreSQL.Updates.20180305.13122")
+- [Aurora PostgreSQL 13.12.1, November 09, 2023](#AuroraPostgreSQL.Updates.20180305.13121 "#AuroraPostgreSQL.Updates.20180305.13121")
+- [Aurora PostgreSQL 13.12.0, October 24, 2023](#AuroraPostgreSQL.Updates.20180305.1312 "#AuroraPostgreSQL.Updates.20180305.1312")
 
 #### Aurora PostgreSQL 13.12.11, August 5, 2025
 
@@ -8912,9 +8380,7 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
-#### Aurora PostgreSQL 13.12.10, May
-
-7, 2025
+#### Aurora PostgreSQL 13.12.10, May 7, 2025
 
 **High priority enhancements**
 
@@ -8927,9 +8393,7 @@ about the improvements in PostgreSQL 13.12, see [PostgreSQL release
 - Fixed an issue on the replica where a network interruption may not correctly
   re-establish connection with the writer.
 
-#### Aurora PostgreSQL 13.12.9,
-
-February 27 2025
+#### Aurora PostgreSQL 13.12.9, February 27 2025
 
 **Critical Priority enhancements**
 
@@ -8955,9 +8419,7 @@ February 27 2025
 - Fixed an ownership issue where the postgis_raster extension could not be
   updated correctly from a previous the PostGIS extension v2 installation.
 
-#### Aurora PostgreSQL 13.12.8,
-
-November 14, 2024
+#### Aurora PostgreSQL 13.12.8, November 14, 2024
 
 ###### High priority enhancements
 
@@ -8967,9 +8429,7 @@ November 14, 2024
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-#### Aurora PostgreSQL 13.12.7, June
-
-25, 2024
+#### Aurora PostgreSQL 13.12.7, June 25, 2024
 
 ###### General enhancements
 
@@ -8988,17 +8448,13 @@ November 14, 2024
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same
   table.
 
-#### Aurora PostgreSQL 13.12.6, March
-
-13, 2024
+#### Aurora PostgreSQL 13.12.6, March 13, 2024
 
 ###### General enhancements
 
 - Fixed a performance degradation issue in `PLV8` extension.
 
-#### Aurora PostgreSQL 13.12.5,
-
-February 22, 2024
+#### Aurora PostgreSQL 13.12.5, February 22, 2024
 
 ###### General enhancements
 
@@ -9022,9 +8478,7 @@ February 22, 2024
 - Fixed an issue where active transactions during logical replication slot
   creation may be partially replicated by the slot.
 
-#### Aurora PostgreSQL 13.12.2,
-
-December 13, 2023
+#### Aurora PostgreSQL 13.12.2, December 13, 2023
 
 ###### Critical stability enhancements
 
@@ -9039,9 +8493,7 @@ December 13, 2023
 - Fixed an issue with logical replication actions being performed by someone
   other than the table owner
 
-#### Aurora PostgreSQL 13.12.1,
-
-November 09, 2023
+#### Aurora PostgreSQL 13.12.1, November 09, 2023
 
 ###### Critical stability enhancements
 
@@ -9056,9 +8508,7 @@ November 09, 2023
 - Fixed an issue related to buffer pin locking that in rare cases can result in
   a crash
 
-#### Aurora PostgreSQL 13.12.0, October
-
-24, 2023
+#### Aurora PostgreSQL 13.12.0, October 24, 2023
 
 ###### New features
 
@@ -9114,8 +8564,7 @@ November 09, 2023
   - `PostGIS` to version 3.3.3
   - `RDKit` to version 4.3
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-13](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 13](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13").
 
 ### PostgreSQL 13.11
 
@@ -9198,9 +8647,7 @@ information about the improvements in PostgreSQL 13.11, see [PostgreSQL release 
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 13.11.6, August 7, 2024
+#### Aurora PostgreSQL 13.11.6, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -9210,9 +8657,7 @@ Aurora PostgreSQL 13.11.6, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 13.11.5, March 13, 2024
+#### Aurora PostgreSQL 13.11.5, March 13, 2024
 
 ###### General enhancements
 
@@ -9230,9 +8675,7 @@ Aurora PostgreSQL 13.11.5, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 13.11.4, December 14, 2023
+#### Aurora PostgreSQL 13.11.4, December 14, 2023
 
 ###### Critical stability enhancements
 
@@ -9245,9 +8688,7 @@ Aurora PostgreSQL 13.11.4, December 14, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 13.11.3, November 14, 2023
+#### Aurora PostgreSQL 13.11.3, November 14, 2023
 
 ###### Critical stability enhancements
 
@@ -9261,9 +8702,7 @@ Aurora PostgreSQL 13.11.3, November 14, 2023
 - Fixed an issue that could result in read replica lag due to stale metadata
 - Fixed an issue related to buffer pin locking that in rare cases can result in a crash
 
-####
-
-Aurora PostgreSQL 13.11.2, October 4, 2023
+#### Aurora PostgreSQL 13.11.2, October 4, 2023
 
 ###### High priority stability enhancements
 
@@ -9283,9 +8722,7 @@ Aurora PostgreSQL 13.11.2, October 4, 2023
 - Introduced diagnostics for the transient metadata used for I/O.
 - Fixed an issue that prevented the enablement of improved memory management in certain scenarios in Aurora PostgreSQL 15.3.
 
-####
-
-Aurora PostgreSQL 13.11.0, July 13, 2023
+#### Aurora PostgreSQL 13.11.0, July 13, 2023
 
 Following the announcement of updates to the PostgreSQL database by the open source community, we have updated Amazon Aurora PostgreSQL-Compatible Edition
 to support PostgreSQL versions 15.3, 14.8, 13.11, 12.15, and 11.20. These releases contains product improvements and bug fixes made by
@@ -9358,9 +8795,7 @@ information about the improvements in PostgreSQL 13.10, see [PostgreSQL release 
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 13.10.8, August 7, 2024
+#### Aurora PostgreSQL 13.10.8, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -9370,9 +8805,7 @@ Aurora PostgreSQL 13.10.8, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 13.10.7, March 13, 2024
+#### Aurora PostgreSQL 13.10.7, March 13, 2024
 
 ###### General enhancements
 
@@ -9390,9 +8823,7 @@ Aurora PostgreSQL 13.10.7, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 13.10.6, December 15, 2023
+#### Aurora PostgreSQL 13.10.6, December 15, 2023
 
 ###### Critical stability enhancements
 
@@ -9405,9 +8836,7 @@ Aurora PostgreSQL 13.10.6, December 15, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 13.10.5, November 14, 2023
+#### Aurora PostgreSQL 13.10.5, November 14, 2023
 
 ###### Critical stability enhancements
 
@@ -9421,9 +8850,7 @@ Aurora PostgreSQL 13.10.5, November 14, 2023
 - Fixed an issue that could result in read replica lag due to stale metadata
 - Fixed an issue related to buffer pin locking that in rare cases can result in a crash
 
-####
-
-Aurora PostgreSQL 13.10.4, October 5, 2023
+#### Aurora PostgreSQL 13.10.4, October 5, 2023
 
 ###### Critical stability enhancements
 
@@ -9440,9 +8867,7 @@ Aurora PostgreSQL 13.10.4, October 5, 2023
 
 - Introduced diagnostics for the transient metadata used for I/O.
 
-####
-
-Aurora PostgreSQL 13.10.3, July 24, 2023
+#### Aurora PostgreSQL 13.10.3, July 24, 2023
 
 ###### General enhancements
 
@@ -9461,9 +8886,7 @@ Aurora PostgreSQL 13.10.3, July 24, 2023
 - Fixed multiple issues which can cause Aurora replicas with the improved read availability feature to restart when reconnecting with the writer instance.
 - Fixed an issue preventing a survivable reader reconnect.
 
-####
-
-Aurora PostgreSQL 13.10.2, May 10, 2023
+#### Aurora PostgreSQL 13.10.2, May 10, 2023
 
 ###### General enhancements
 
@@ -9471,9 +8894,7 @@ Aurora PostgreSQL 13.10.2, May 10, 2023
 - Fixed an issue that causes logical replication to fail when using write-through cache.
 - Updated the Oracle client used by the `oracle_fdw` extension to version 21.9.0.0.0.
 
-####
-
-Aurora PostgreSQL 13.10.1, April 5, 2023
+#### Aurora PostgreSQL 13.10.1, April 5, 2023
 
 ###### New features
 
@@ -9556,9 +8977,7 @@ information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 1
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 13.9.9, August 7, 2024
+#### Aurora PostgreSQL 13.9.9, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -9569,9 +8988,7 @@ Aurora PostgreSQL 13.9.9, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 13.9.8, March 13, 2024
+#### Aurora PostgreSQL 13.9.8, March 13, 2024
 
 ###### General enhancements
 
@@ -9588,9 +9005,7 @@ Aurora PostgreSQL 13.9.8, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 13.9.7, December 15, 2023
+#### Aurora PostgreSQL 13.9.7, December 15, 2023
 
 ###### Critical stability enhancements
 
@@ -9603,9 +9018,7 @@ Aurora PostgreSQL 13.9.7, December 15, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 13.9.6, November 17, 2023
+#### Aurora PostgreSQL 13.9.6, November 17, 2023
 
 ###### Critical stability enhancements
 
@@ -9614,9 +9027,7 @@ Aurora PostgreSQL 13.9.6, November 17, 2023
 
 - Fixed an issue related to `pg_cron` background worker processes
 
-####
-
-Aurora PostgreSQL 13.9.5, October 04, 2023
+#### Aurora PostgreSQL 13.9.5, October 04, 2023
 
 ###### Critical stability enhancements
 
@@ -9634,9 +9045,7 @@ Aurora PostgreSQL 13.9.5, October 04, 2023
 
 - Introduced diagnostics for the transient metadata used for I/O.
 
-####
-
-Aurora PostgreSQL 13.9.4, September 13, 2023
+#### Aurora PostgreSQL 13.9.4, September 13, 2023
 
 ###### General enhancements
 
@@ -9651,9 +9060,7 @@ Aurora PostgreSQL 13.9.4, September 13, 2023
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
-####
-
-Aurora PostgreSQL 13.9.2, March 3, 2023
+#### Aurora PostgreSQL 13.9.2, March 3, 2023
 
 ###### Critical stability enhancements
 
@@ -9668,9 +9075,7 @@ Aurora PostgreSQL 13.9.2, March 3, 2023
 - Fixed an issue with the `aws_s3` extension where loading a large number of records can time out.
 - Fixed an issue that causes logical replication to fail when using write-through cache
 
-####
-
-Aurora PostgreSQL 13.9.0, January 20, 2023
+#### Aurora PostgreSQL 13.9.0, January 20, 2023
 
 ###### High priority stability enhancements
 
@@ -9714,9 +9119,7 @@ information about the improvements in PostgreSQL 13.8, see [PostgreSQL release 1
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 
-####
-
-Aurora PostgreSQL 13.8.7, August 7, 2024
+#### Aurora PostgreSQL 13.8.7, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -9726,9 +9129,7 @@ Aurora PostgreSQL 13.8.7, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 13.8.6, March 13, 2024
+#### Aurora PostgreSQL 13.8.6, March 13, 2024
 
 ###### General enhancements
 
@@ -9745,9 +9146,7 @@ Aurora PostgreSQL 13.8.6, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 13.8.5, December 18, 2023
+#### Aurora PostgreSQL 13.8.5, December 18, 2023
 
 ###### Critical stability enhancements
 
@@ -9760,9 +9159,7 @@ Aurora PostgreSQL 13.8.5, December 18, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 13.8.4, November 17, 2023
+#### Aurora PostgreSQL 13.8.4, November 17, 2023
 
 ###### Critical stability enhancements
 
@@ -9771,9 +9168,7 @@ Aurora PostgreSQL 13.8.4, November 17, 2023
 
 - Fixed an issue related to `pg_cron` background worker processes
 
-####
-
-Aurora PostgreSQL 13.8.3, October 17, 2023
+#### Aurora PostgreSQL 13.8.3, October 17, 2023
 
 ###### High priority stability enhancements
 
@@ -9803,9 +9198,7 @@ Aurora PostgreSQL 13.8.3, October 17, 2023
 - Fixed an issue which can cause a database instance to restart while executing I/O intensive read workloads.
 - Fixed an issue that causes logical replication to fail when using write-through cache
 
-####
-
-Aurora PostgreSQL 13.8.2, March 2, 2023
+#### Aurora PostgreSQL 13.8.2, March 2, 2023
 
 ###### General stability enhancements
 
@@ -9814,9 +9207,7 @@ Aurora PostgreSQL 13.8.2, March 2, 2023
 - Fixed an issue with the `aws_s3` extension where loading a large number of records can time out.
 - Fixed an issue with the `pg_cron` parallel running of tasks.
 
-####
-
-Aurora PostgreSQL 13.8.1, December 13, 2022
+#### Aurora PostgreSQL 13.8.1, December 13, 2022
 
 ###### General stability enhancements
 
@@ -9824,9 +9215,7 @@ Aurora PostgreSQL 13.8.1, December 13, 2022
 - Fixed an issue where the engine experiences stability issues during database minor and patch release upgrades.
 - Fixed an issue that could cause data inconsistency during replication.
 
-####
-
-Aurora PostgreSQL 13.8.0, November 09, 2022
+#### Aurora PostgreSQL 13.8.0, November 09, 2022
 
 ###### High priority stability enhancements
 
@@ -9889,9 +9278,7 @@ information about the improvements in PostgreSQL 13.7, see [PostgreSQL 13.7](htt
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 13.7.10, August 7, 2024
+#### Aurora PostgreSQL 13.7.10, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -9902,9 +9289,7 @@ Aurora PostgreSQL 13.7.10, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 13.7.9, March 13, 2024
+#### Aurora PostgreSQL 13.7.9, March 13, 2024
 
 ###### General enhancements
 
@@ -9921,9 +9306,7 @@ Aurora PostgreSQL 13.7.9, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 13.7.8, December 22, 2023
+#### Aurora PostgreSQL 13.7.8, December 22, 2023
 
 ###### Critical stability enhancements
 
@@ -9936,9 +9319,7 @@ Aurora PostgreSQL 13.7.8, December 22, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 13.7.7, November 17, 2023
+#### Aurora PostgreSQL 13.7.7, November 17, 2023
 
 ###### Critical stability enhancements
 
@@ -9947,9 +9328,7 @@ Aurora PostgreSQL 13.7.7, November 17, 2023
 
 - Fixed an issue related to `pg_cron` background worker processes
 
-####
-
-Aurora PostgreSQL 13.7.6, October 19, 2023
+#### Aurora PostgreSQL 13.7.6, October 19, 2023
 
 ###### High priority stability enhancements
 
@@ -9977,9 +9356,7 @@ Aurora PostgreSQL 13.7.6, October 19, 2023
   - `aws_lambda.connect_timeout_ms`.
   - `aws_lambda.request_timeout_ms`.
 
-####
-
-Aurora PostgreSQL 13.7.5, December 14, 2022
+#### Aurora PostgreSQL 13.7.5, December 14, 2022
 
 ###### General stability enhancements
 
@@ -9987,17 +9364,13 @@ Aurora PostgreSQL 13.7.5, December 14, 2022
 - Fixed an issue that causes database activity stream inconsistency when the monitoring agent is unavailable.
 - Fixed an issue that could cause data inconsistency during replication.
 
-####
-
-Aurora PostgreSQL 13.7.4, November 17, 2022
+#### Aurora PostgreSQL 13.7.4, November 17, 2022
 
 ###### High priority stability enhancements
 
 - Fixed an issue that can cause increased network traffic when a writer instance transmits logs to a replica instance.
 
-####
-
-Aurora PostgreSQL 13.7.3, October 13, 2022
+#### Aurora PostgreSQL 13.7.3, October 13, 2022
 
 ###### High priority stability enhancements
 
@@ -10012,9 +9385,7 @@ Aurora PostgreSQL 13.7.3, October 13, 2022
 - Upgraded the `PostGIS` extension to version 3.1.7.
 - Fixed an issue where extended query messages might be lost during zero-downtime patching (ZDP) causing the extended query to hang after the ZDP completion.
 
-####
-
-Aurora PostgreSQL 13.7.1, July 6, 2022
+#### Aurora PostgreSQL 13.7.1, July 6, 2022
 
 ###### Critical stability enhancements
 
@@ -10027,9 +9398,7 @@ Aurora PostgreSQL 13.7.1, July 6, 2022
 - Fixed an issue that caused connections using the provided root certificate to fail.
 - Improved the diagnostic and supportability information in case of inconsistent B-tree index entries.
 
-####
-
-Aurora PostgreSQL 13.7.0, June 9, 2022
+#### Aurora PostgreSQL 13.7.0, June 9, 2022
 
 ###### New features
 
@@ -10080,18 +9449,14 @@ information about the improvements in PostgreSQL 13.6, see [PostgreSQL release
 - [Aurora PostgreSQL 13.6.1, April 27, 2022](#AuroraPostgreSQL.Updates.20180305.1361 "#AuroraPostgreSQL.Updates.20180305.1361")
 - [Aurora PostgreSQL 13.6.0, March 29, 2022](#AuroraPostgreSQL.Updates.20180305.1360 "#AuroraPostgreSQL.Updates.20180305.1360")
 
-####
-
-Aurora PostgreSQL 13.6.6, December 16, 2022
+#### Aurora PostgreSQL 13.6.6, December 16, 2022
 
 ###### General enhancements
 
 - Fixed an issue that can cause increased network traffic when a writer instance transmits logs to a replica instance.
 - Fixed an issue that causes database activity stream inconsistency when the monitoring agent is unavailable.
 
-####
-
-Aurora PostgreSQL 13.6.5, October 18, 2022
+#### Aurora PostgreSQL 13.6.5, October 18, 2022
 
 ###### High priority enhancements
 
@@ -10103,9 +9468,7 @@ Aurora PostgreSQL 13.6.5, October 18, 2022
 - Improved the diagnostic and supportability information in case of inconsistent B-tree index entries.
 - Updated the PostGIS extension to version 3.1.7.
 
-####
-
-Aurora PostgreSQL 13.6.4, July 18, 2022
+#### Aurora PostgreSQL 13.6.4, July 18, 2022
 
 ###### Security enhancements
 
@@ -10122,9 +9485,7 @@ Aurora PostgreSQL 13.6.4, July 18, 2022
 - Fixed an issue related to the existence of duplicate relation files that could result in periods of unavailability.
 - Fixed a defect where the validation of cached plans may lead to a database restart when the plan was previously invalidated.
 
-####
-
-Aurora PostgreSQL 13.6.3, June 2, 2022
+#### Aurora PostgreSQL 13.6.3, June 2, 2022
 
 ###### Security enhancements
 
@@ -10141,9 +9502,7 @@ Aurora PostgreSQL 13.6.3, June 2, 2022
 - Fixed an issue where a minor version ugprade may get blocked when there is a SQL view that refers to the `checksum()` function in Babelfish for Aurora PostgreSQL.
 - Fixed an issue in `apg_plan_mgmt` that can cause a restart when Query Plan Management (QPM) is enabled.
 
-####
-
-Aurora PostgreSQL 13.6.2, May 12, 2022
+#### Aurora PostgreSQL 13.6.2, May 12, 2022
 
 ###### High priority stability enhancements
 
@@ -10154,9 +9513,7 @@ Aurora PostgreSQL 13.6.2, May 12, 2022
 
 - Fixed an issue that could cause unavailability due to improper locking of shared memory.
 
-####
-
-Aurora PostgreSQL 13.6.1, April 27, 2022
+#### Aurora PostgreSQL 13.6.1, April 27, 2022
 
 ###### High priority stability enhancements
 
@@ -10167,9 +9524,7 @@ Aurora PostgreSQL 13.6.1, April 27, 2022
 
 - Fixed an issue that could cause an engine restart during periods of low free memory.
 
-####
-
-Aurora PostgreSQL 13.6.0, March 29, 2022
+#### Aurora PostgreSQL 13.6.0, March 29, 2022
 
 ###### New features
 
@@ -10205,36 +9560,28 @@ information about the improvements in PostgreSQL 13.5, see [PostgreSQL release
 - [Aurora PostgreSQL 13.5.1, March 3, 2022](#AuroraPostgreSQL.Updates.20180305.1351 "#AuroraPostgreSQL.Updates.20180305.1351")
 - [Aurora PostgreSQL 13.5.0, February 25, 2022](#AuroraPostgreSQL.Updates.20180305.1350 "#AuroraPostgreSQL.Updates.20180305.1350")
 
-####
-
-Aurora PostgreSQL 13.5.7, August 24, 2023
+#### Aurora PostgreSQL 13.5.7, August 24, 2023
 
 ###### General enhancements
 
 - Fixed an issue which causes the stats collector process to repeatedly restart.
 - Fixed an issue preventing `pglogical` from logging conflicting rows during the apply phase.
 
-####
-
-Aurora PostgreSQL 13.5.6, December 16, 2022
+#### Aurora PostgreSQL 13.5.6, December 16, 2022
 
 ###### General enhancements
 
 - Fixed an issue that can cause increased network traffic when a writer instance transmits logs to a replica instance.
 - Fixed an issue that causes database activity stream inconsistency when the monitoring agent is unavailable.
 
-####
-
-Aurora PostgreSQL 13.5.5, October 18, 2022
+#### Aurora PostgreSQL 13.5.5, October 18, 2022
 
 ###### General enhancements
 
 - Improved the diagnostic and supportability information in case of inconsistent B-tree index entries.
 - Updated the PostGIS extension to version 3.1.7.
 
-####
-
-Aurora PostgreSQL 13.5.4, July 20, 2022
+#### Aurora PostgreSQL 13.5.4, July 20, 2022
 
 ###### Security enhancements
 
@@ -10253,9 +9600,7 @@ Aurora PostgreSQL 13.5.4, July 20, 2022
 - Fixed an issue that can cause a restart of the postmaster process in Amazon Aurora Serverless v2.
 - Fixed an issue that caused Performance Insights to show "Unknown wait event".
 
-####
-
-Aurora PostgreSQL 13.5.3, April 13, 2022
+#### Aurora PostgreSQL 13.5.3, April 13, 2022
 
 ###### Security enhancements
 
@@ -10266,9 +9611,7 @@ Aurora PostgreSQL 13.5.3, April 13, 2022
 
 - Fixed a bug that could cause an engine restart during periods of low free memory.
 
-####
-
-Aurora PostgreSQL 13.5.1, March 3, 2022
+#### Aurora PostgreSQL 13.5.1, March 3, 2022
 
 ###### Security enhancements
 
@@ -10282,9 +9625,7 @@ Aurora PostgreSQL 13.5.1, March 3, 2022
 - Modified the `pg_cron` extension to mitigate a security issue during create extension. The issue was addressed in core PostgreSQL by CVE-2020-14350.
   For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 
-####
-
-Aurora PostgreSQL 13.5.0, February 25, 2022
+#### Aurora PostgreSQL 13.5.0, February 25, 2022
 
 ###### High priority stability enhancements
 
@@ -10307,8 +9648,7 @@ This version also includes the following change:
 
 - The [pg_cron](https://github.com/citusdata/pg_cron "https://github.com/citusdata/pg_cron") extension is updated to 1.4.1
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-13](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 13](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.13").
 
 ### PostgreSQL 13.4 (Deprecated)
 
@@ -10325,26 +9665,20 @@ information about the improvements in PostgreSQL 13.4, see [PostgreSQL release
 - [Aurora PostgreSQL 13.4.1](#AuroraPostgreSQL.Updates.20180305.1341 "#AuroraPostgreSQL.Updates.20180305.1341")
 - [Aurora PostgreSQL 13.4.0](#AuroraPostgreSQL.Updates.20180305.1340 "#AuroraPostgreSQL.Updates.20180305.1340")
 
-####
-
-Aurora PostgreSQL 13.4.6, December 19, 2022
+#### Aurora PostgreSQL 13.4.6, December 19, 2022
 
 ###### General enhancements
 
 - Fixed an issue that causes database activity stream inconsistency when the monitoring agent is unavailable.
 
-####
-
-Aurora PostgreSQL 13.4.5, October 18, 2022
+#### Aurora PostgreSQL 13.4.5, October 18, 2022
 
 ###### General enhancements
 
 - Improved the diagnostic and supportability information in case of inconsistent B-tree index entries.
 - Updated the `PostGIS` extension to version 3.1.7.
 
-####
-
-Aurora PostgreSQL 13.4.4, July 6, 2022
+#### Aurora PostgreSQL 13.4.4, July 6, 2022
 
 ###### Security enhancements
 
@@ -10359,9 +9693,7 @@ Aurora PostgreSQL 13.4.4, July 6, 2022
 - Fixed an issue that could cause Performance Insights to display "Unknown wait event".
 - Fixed an issue that could result in periods of unavailability due to the existence of duplicate relation files.
 
-####
-
-Aurora PostgreSQL 13.4.2, April 12, 2022
+#### Aurora PostgreSQL 13.4.2, April 12, 2022
 
 ###### Security enhancements
 
@@ -10372,9 +9704,7 @@ Aurora PostgreSQL 13.4.2, April 12, 2022
 
 - Fixed a buffer cache bug that could cause brief periods of unavailability.
 
-####
-
-Aurora PostgreSQL 13.4.1
+#### Aurora PostgreSQL 13.4.1
 
 ###### Security enhancements
 
@@ -10388,9 +9718,7 @@ Aurora PostgreSQL 13.4.1
 - Modified the `pg_cron` extension to mitigate a security issue during create extension. The issue was addressed in core PostgreSQL by CVE-2020-14350.
   For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 
-####
-
-Aurora PostgreSQL 13.4.0
+#### Aurora PostgreSQL 13.4.0
 
 ###### New features
 
@@ -10445,17 +9773,13 @@ information about the improvements in PostgreSQL 13.3, see [PostgreSQL release
 - [Aurora PostgreSQL 13.3.1](#AuroraPostgreSQL.Updates.20180305.1331 "#AuroraPostgreSQL.Updates.20180305.1331")
 - [Aurora PostgreSQL 13.3.0](#AuroraPostgreSQL.Updates.20180305.1330 "#AuroraPostgreSQL.Updates.20180305.1330")
 
-####
-
-Aurora PostgreSQL 13.3.5, December 30, 2022
+#### Aurora PostgreSQL 13.3.5, December 30, 2022
 
 ###### General enhancements
 
 - Fixed an issue that causes database activity stream inconsistency when the monitoring agent is unavailable.
 
-####
-
-Aurora PostgreSQL 13.3.4, July 14, 2022
+#### Aurora PostgreSQL 13.3.4, July 14, 2022
 
 ###### Security enhancements
 
@@ -10468,18 +9792,14 @@ Aurora PostgreSQL 13.3.4, July 14, 2022
 - Fixed an issue that could cause excess storage use due to files not being properly closed.
 - Fixed an issue that caused Performance Insights to show "Unknown wait event".
 
-####
-
-Aurora PostgreSQL 13.3.3, April 7, 2022
+#### Aurora PostgreSQL 13.3.3, April 7, 2022
 
 ###### Security enhancements
 
 - Includes additional modifications to the `pg_cron` extension to mitigate a security issue during create extension. The issue was addressed in core PostgreSQL by CVE-2020-14350.
   For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 
-####
-
-Aurora PostgreSQL 13.3.2
+#### Aurora PostgreSQL 13.3.2
 
 ###### Security enhancements
 
@@ -10521,9 +9841,7 @@ Aurora PostgreSQL 13.3.2
 - Fixed multiple issues in the Aurora storage daemon that could lead to brief periods of unavailability when specific network configurations are used.
 - Fixed an out-of-memory crash issue with Aurora storage daemon that leads to writer node restart. This also reduces the overall system memory consumption.
 
-####
-
-Aurora PostgreSQL 13.3.0
+#### Aurora PostgreSQL 13.3.0
 
 ###### New features
 
@@ -10566,8 +9884,7 @@ Aurora PostgreSQL 13.3.0
 
 - [PostgreSQL 12.22](#aurorapostgresql-versions-version1222x "#aurorapostgresql-versions-version1222x")
 - [PostgreSQL 12.20 (Deprecated)](#aurorapostgresql-versions-version1220x "#aurorapostgresql-versions-version1220x")
-- [PostgreSQL 12.19
-  (Deprecated)](#aurorapostgresql-versions-version1219x "#aurorapostgresql-versions-version1219x")
+- [PostgreSQL 12.19 (Deprecated)](#aurorapostgresql-versions-version1219x "#aurorapostgresql-versions-version1219x")
 - [PostgreSQL 12.18 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1218X "#AuroraPostgreSQL.Updates.20180305.1218X")
 - [PostgreSQL 12.17 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1217X "#AuroraPostgreSQL.Updates.20180305.1217X")
 - [PostgreSQL 12.16 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1216X "#AuroraPostgreSQL.Updates.20180305.1216X")
@@ -10579,12 +9896,9 @@ Aurora PostgreSQL 13.3.0
 - [PostgreSQL 12.10 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1210X "#AuroraPostgreSQL.Updates.20180305.1210X")
 - [PostgreSQL 12.9](#AuroraPostgreSQL.Updates.20180305.129 "#AuroraPostgreSQL.Updates.20180305.129")
 - [PostgreSQL 12.8 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.128X "#AuroraPostgreSQL.Updates.20180305.128X")
-- [PostgreSQL 12.7,
-  Aurora PostgreSQL 4.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.42 "#AuroraPostgreSQL.Updates.20180305.42")
-- [PostgreSQL 12.6,
-  Aurora PostgreSQL 4.1 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.41 "#AuroraPostgreSQL.Updates.20180305.41")
-- [PostgreSQL 12.4,
-  Aurora PostgreSQL 4.0 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.40 "#AuroraPostgreSQL.Updates.20180305.40")
+- [PostgreSQL 12.7, Aurora PostgreSQL 4.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.42 "#AuroraPostgreSQL.Updates.20180305.42")
+- [PostgreSQL 12.6, Aurora PostgreSQL 4.1 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.41 "#AuroraPostgreSQL.Updates.20180305.41")
+- [PostgreSQL 12.4, Aurora PostgreSQL 4.0 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.40 "#AuroraPostgreSQL.Updates.20180305.40")
 
 ### PostgreSQL 12.22
 
@@ -10597,16 +9911,11 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
 - [Aurora PostgreSQL 12.22.7, January 28, 2026](#aurorapostgresql-versions-version12227x-12227 "#aurorapostgresql-versions-version12227x-12227")
 - [Aurora PostgreSQL 12.22.6, November 13, 2025](#aurorapostgresql-versions-version12226x-12226 "#aurorapostgresql-versions-version12226x-12226")
 - [Aurora PostgreSQL 12.22.5, June 24, 2025](#aurorapostgresql-versions-version12225x-12225 "#aurorapostgresql-versions-version12225x-12225")
-- [Aurora PostgreSQL 12.22.4, March 24,
-  2025](#aurorapostgresql-versions-version12224x-12224 "#aurorapostgresql-versions-version12224x-12224")
-- [Aurora PostgreSQL 12.22.3, February
-  13, 2025](#aurorapostgresql-versions-version12223x-12223 "#aurorapostgresql-versions-version12223x-12223")
-- [Aurora PostgreSQL 12.22.2, January 20,
-  2025](#aurorapostgresql-versions-version12222x-12222 "#aurorapostgresql-versions-version12222x-12222")
-- [Aurora PostgreSQL 12.22.1, December
-  27, 2024](#aurorapostgresql-versions-version12221x-12221 "#aurorapostgresql-versions-version12221x-12221")
-- [Aurora PostgreSQL 12.22, December 27,
-  2024](#aurorapostgresql-versions-version1222x-1222 "#aurorapostgresql-versions-version1222x-1222")
+- [Aurora PostgreSQL 12.22.4, March 24, 2025](#aurorapostgresql-versions-version12224x-12224 "#aurorapostgresql-versions-version12224x-12224")
+- [Aurora PostgreSQL 12.22.3, February 13, 2025](#aurorapostgresql-versions-version12223x-12223 "#aurorapostgresql-versions-version12223x-12223")
+- [Aurora PostgreSQL 12.22.2, January 20, 2025](#aurorapostgresql-versions-version12222x-12222 "#aurorapostgresql-versions-version12222x-12222")
+- [Aurora PostgreSQL 12.22.1, December 27, 2024](#aurorapostgresql-versions-version12221x-12221 "#aurorapostgresql-versions-version12221x-12221")
+- [Aurora PostgreSQL 12.22, December 27, 2024](#aurorapostgresql-versions-version1222x-1222 "#aurorapostgresql-versions-version1222x-1222")
 
 #### Aurora PostgreSQL 12.22.7, January 28, 2026
 
@@ -10653,7 +9962,6 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
 
 **General enhancements**
 
-- Improved error handling mechanisms during TDS Connection reset operations.
 - Fixed an issue that could prevent online recovery of an Aurora Replica from completing.
 - Fixed an issue that could cause unavailability when apg_plan_mgmt is enabled.
 - Fixed an issue with parallel heap scans that could lead to index inconsistency on tables larger than 16TiB when synchronize_seqscans is enabled.
@@ -10689,9 +9997,7 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
-#### Aurora PostgreSQL 12.22.4, March 24,
-
-2025
+#### Aurora PostgreSQL 12.22.4, March 24, 2025
 
 **High priority enhancements**
 
@@ -10703,17 +10009,13 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
 - Fixed an issue on the replica where a network interruption may not correctly
   re-establish connection with the writer.
 
-#### Aurora PostgreSQL 12.22.3, February
-
-13, 2025
+#### Aurora PostgreSQL 12.22.3, February 13, 2025
 
 **High priority enhancements**
 
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418") for V8 Engine in the `PLV8` extension.
 
-#### Aurora PostgreSQL 12.22.2, January 20,
-
-2025
+#### Aurora PostgreSQL 12.22.2, January 20, 2025
 
 **Critical Priority enhancements**
 
@@ -10731,18 +10033,14 @@ about the improvements in PostgreSQL 12.22, see [PostgreSQL release
 - Fixed an ownership issue where the `postgis_raster` extension could not be
   updated correctly from a previous the PostGIS extension v2 installation.
 
-#### Aurora PostgreSQL 12.22.1, December
-
-27, 2024
+#### Aurora PostgreSQL 12.22.1, December 27, 2024
 
 **Critical Priority enhancements**
 
 - Fixed an issue where the server was restarting when the connections were reset by the
   peer.
 
-#### Aurora PostgreSQL 12.22, December 27,
-
-2024
+#### Aurora PostgreSQL 12.22, December 27, 2024
 
 ###### New features for 12.22
 
@@ -10908,9 +10206,7 @@ information about the improvements in PostgreSQL 12.20, see [PostgreSQL release 
   - pg_ad_mapping extension to version 1.0.
   - `HypoPG` extension to version 1.4.1.
 
-### PostgreSQL 12.19
-
-(Deprecated)
+### PostgreSQL 12.19 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 12.19. For more information
 about the improvements in PostgreSQL 12.19, see [PostgreSQL release
@@ -10918,20 +10214,13 @@ about the improvements in PostgreSQL 12.19, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL 12.19.4, March
-  25, 2025](#aurorapostgresql-versions-version12194x-12194 "#aurorapostgresql-versions-version12194x-12194")
-- [Aurora PostgreSQL 12.19.3, January
-  23, 2025](#aurorapostgresql-versions-version12193x-12193 "#aurorapostgresql-versions-version12193x-12193")
-- [Aurora PostgreSQL 12.19.2, January
-  23, 2025](#aurorapostgresql-versions-version12192x-12192 "#aurorapostgresql-versions-version12192x-12192")
-- [Aurora PostgreSQL 12.19.1,
-  September 27, 2024](#aurorapostgresql-versions-version1219x-12191 "#aurorapostgresql-versions-version1219x-12191")
-- [Aurora PostgreSQL 12.19,
-  August 8, 2024](#aurorapostgresql-versions-version1219x-1219 "#aurorapostgresql-versions-version1219x-1219")
+- [Aurora PostgreSQL 12.19.4, March 25, 2025](#aurorapostgresql-versions-version12194x-12194 "#aurorapostgresql-versions-version12194x-12194")
+- [Aurora PostgreSQL 12.19.3, January 23, 2025](#aurorapostgresql-versions-version12193x-12193 "#aurorapostgresql-versions-version12193x-12193")
+- [Aurora PostgreSQL 12.19.2, January 23, 2025](#aurorapostgresql-versions-version12192x-12192 "#aurorapostgresql-versions-version12192x-12192")
+- [Aurora PostgreSQL 12.19.1, September 27, 2024](#aurorapostgresql-versions-version1219x-12191 "#aurorapostgresql-versions-version1219x-12191")
+- [Aurora PostgreSQL 12.19, August 8, 2024](#aurorapostgresql-versions-version1219x-1219 "#aurorapostgresql-versions-version1219x-1219")
 
-#### Aurora PostgreSQL 12.19.4, March
-
-25, 2025
+#### Aurora PostgreSQL 12.19.4, March 25, 2025
 
 **High priority enhancements**
 
@@ -10939,18 +10228,14 @@ about the improvements in PostgreSQL 12.19, see [PostgreSQL release
   issues:
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
-#### Aurora PostgreSQL 12.19.3, January
-
-23, 2025
+#### Aurora PostgreSQL 12.19.3, January 23, 2025
 
 **High priority enhancements**
 
 - Fixed [CVE-2020-6418](https://nvd.nist.gov/vuln/detail/cve-2020-6418 "https://nvd.nist.gov/vuln/detail/cve-2020-6418") for V8 Engine in the `PLV8`
   extension.
 
-#### Aurora PostgreSQL 12.19.2, January
-
-23, 2025
+#### Aurora PostgreSQL 12.19.2, January 23, 2025
 
 ###### Critical stability enhancements
 
@@ -10976,9 +10261,7 @@ about the improvements in PostgreSQL 12.19, see [PostgreSQL release
 - Fixed an issue that could cause an error in the wal sender process when
   resuming logical replication.
 
-#### Aurora PostgreSQL 12.19.1,
-
-September 27, 2024
+#### Aurora PostgreSQL 12.19.1, September 27, 2024
 
 ###### General enhancements
 
@@ -10990,9 +10273,7 @@ September 27, 2024
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-#### Aurora PostgreSQL 12.19,
-
-August 8, 2024
+#### Aurora PostgreSQL 12.19, August 8, 2024
 
 ###### New features
 
@@ -11086,9 +10367,7 @@ from a previous the `PostGIS` extension v2 installation.
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 12.18.2, June 20, 2024
+#### Aurora PostgreSQL 12.18.2, June 20, 2024
 
 ###### General enhancements
 
@@ -11106,9 +10385,7 @@ Aurora PostgreSQL 12.18.2, June 20, 2024
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
 - Fixed issues in how two-phase commit files are handled.
 
-####
-
-Aurora PostgreSQL 12.18.1, April 29, 2024
+#### Aurora PostgreSQL 12.18.1, April 29, 2024
 
 ###### New features
 
@@ -11207,9 +10484,7 @@ information about the improvements in PostgreSQL 12.17, see [PostgreSQL release 
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 12.17.4, June 24, 2024
+#### Aurora PostgreSQL 12.17.4, June 24, 2024
 
 ###### General enhancements
 
@@ -11226,17 +10501,13 @@ Aurora PostgreSQL 12.17.4, June 24, 2024
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
 
-####
-
-Aurora PostgreSQL 12.17.3, March 13, 2024
+#### Aurora PostgreSQL 12.17.3, March 13, 2024
 
 ###### General enhancements
 
 - Fixed a performance degradation issue in `PLV8` extension.
 
-####
-
-Aurora PostgreSQL 12.17.2, February 22, 2024
+#### Aurora PostgreSQL 12.17.2, February 22, 2024
 
 ###### General enhancements
 
@@ -11255,9 +10526,7 @@ Aurora PostgreSQL 12.17.2, February 22, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 12.17.0, December 21, 2023
+#### Aurora PostgreSQL 12.17.0, December 21, 2023
 
 Following the announcement of updates to the PostgreSQL database by the open source community, we have updated Amazon Aurora PostgreSQL-Compatible Edition to support
 PostgreSQL versions 15.5, 14.10, 13.13, and 12.17. These releases contain product improvements and bug fixes made by the PostgreSQL community,
@@ -11312,8 +10581,7 @@ if you are running any version of Amazon Aurora PostgreSQL version 11, you must 
   - `prefix` to version 1.2.10
   - `RDKit` to version 4.4.0 (Release_2023_09_1)
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-12](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 12](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12").
 
 ### PostgreSQL 12.16 (Deprecated)
 
@@ -11364,9 +10632,7 @@ information about the improvements in PostgreSQL 12.16, see [PostgreSQL release 
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 12.16.7, June 25, 2024
+#### Aurora PostgreSQL 12.16.7, June 25, 2024
 
 ###### General enhancements
 
@@ -11381,17 +10647,13 @@ Aurora PostgreSQL 12.16.7, June 25, 2024
 - Fixed an issue where a change in memory requirements during a minor version upgrade can cause zero-downtime patching and engine startup to fail.
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
 
-####
-
-Aurora PostgreSQL 12.16.6, March 13, 2024
+#### Aurora PostgreSQL 12.16.6, March 13, 2024
 
 ###### General enhancements
 
 - Fixed a performance degradation issue in `PLV8` extension.
 
-####
-
-Aurora PostgreSQL 12.16.5, February 22, 2024
+#### Aurora PostgreSQL 12.16.5, February 22, 2024
 
 ###### General enhancements
 
@@ -11410,9 +10672,7 @@ Aurora PostgreSQL 12.16.5, February 22, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 12.16.2, December 13, 2023
+#### Aurora PostgreSQL 12.16.2, December 13, 2023
 
 ###### Critical stability enhancements
 
@@ -11425,9 +10685,7 @@ Aurora PostgreSQL 12.16.2, December 13, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 12.16.1, November 09, 2023
+#### Aurora PostgreSQL 12.16.1, November 09, 2023
 
 ###### Critical stability enhancements
 
@@ -11440,9 +10698,7 @@ Aurora PostgreSQL 12.16.1, November 09, 2023
 
 - Fixed an issue related to buffer pin locking that in rare cases can result in a crash
 
-####
-
-Aurora PostgreSQL 12.16.0, October 24, 2023
+#### Aurora PostgreSQL 12.16.0, October 24, 2023
 
 ###### New features
 
@@ -11478,8 +10734,7 @@ Aurora PostgreSQL 12.16.0, October 24, 2023
   - `PostGIS` to version 3.3.3
   - `RDKit` to version 4.3
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-12](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 12](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12").
 
 ### PostgreSQL 12.15 (Deprecated)
 
@@ -11532,9 +10787,7 @@ information about the improvements in PostgreSQL 12.15, see [PostgreSQL release 
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 12.15.6, August 7, 2024
+#### Aurora PostgreSQL 12.15.6, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -11545,9 +10798,7 @@ Aurora PostgreSQL 12.15.6, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 12.15.5, March 13, 2024
+#### Aurora PostgreSQL 12.15.5, March 13, 2024
 
 ###### General enhancements
 
@@ -11565,9 +10816,7 @@ Aurora PostgreSQL 12.15.5, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 12.15.4, December 14, 2023
+#### Aurora PostgreSQL 12.15.4, December 14, 2023
 
 ###### Critical stability enhancements
 
@@ -11580,9 +10829,7 @@ Aurora PostgreSQL 12.15.4, December 14, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 12.15.3, November 14, 2023
+#### Aurora PostgreSQL 12.15.3, November 14, 2023
 
 ###### Critical stability enhancements
 
@@ -11596,9 +10843,7 @@ Aurora PostgreSQL 12.15.3, November 14, 2023
 - Fixed an issue that could result in read replica lag due to stale metadata
 - Fixed an issue related to buffer pin locking that in rare cases can result in a crash
 
-####
-
-Aurora PostgreSQL 12.15.2, October 4, 2023
+#### Aurora PostgreSQL 12.15.2, October 4, 2023
 
 ###### High priority stability enhancements
 
@@ -11619,9 +10864,7 @@ Aurora PostgreSQL 12.15.2, October 4, 2023
 - Updated the `plv8`, `pll`, and `plcoffee` extensions to version 2.3.15.
 - Fixed an issue that prevented the enablement of improved memory management in certain scenarios in Aurora PostgreSQL 15.3.
 
-####
-
-Aurora PostgreSQL 12.15.0, July 13, 2023
+#### Aurora PostgreSQL 12.15.0, July 13, 2023
 
 Following the announcement of updates to the PostgreSQL database by the open source community, we have updated Amazon Aurora PostgreSQL-Compatible Edition
 to support PostgreSQL versions 15.3, 14.8, 13.11, 12.15, and 11.20. These releases contains product improvements and bug fixes made by
@@ -11691,9 +10934,7 @@ information about the improvements in PostgreSQL 12.14, see [PostgreSQL release 
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 12.14.8, August 7, 2024
+#### Aurora PostgreSQL 12.14.8, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -11704,9 +10945,7 @@ Aurora PostgreSQL 12.14.8, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 12.14.7, March 13, 2024
+#### Aurora PostgreSQL 12.14.7, March 13, 2024
 
 ###### General enhancements
 
@@ -11724,9 +10963,7 @@ Aurora PostgreSQL 12.14.7, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 12.14.6, December 15, 2023
+#### Aurora PostgreSQL 12.14.6, December 15, 2023
 
 ###### Critical stability enhancements
 
@@ -11739,9 +10976,7 @@ Aurora PostgreSQL 12.14.6, December 15, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 12.14.5, November 14, 2023
+#### Aurora PostgreSQL 12.14.5, November 14, 2023
 
 ###### Critical stability enhancements
 
@@ -11755,9 +10990,7 @@ Aurora PostgreSQL 12.14.5, November 14, 2023
 - Fixed an issue that could result in read replica lag due to stale metadata
 - Fixed an issue related to buffer pin locking that in rare cases can result in a crash
 
-####
-
-Aurora PostgreSQL 12.14.4, October 5, 2023
+#### Aurora PostgreSQL 12.14.4, October 5, 2023
 
 ###### Critical stability enhancements
 
@@ -11775,9 +11008,7 @@ Aurora PostgreSQL 12.14.4, October 5, 2023
 - Introduced diagnostics for the transient metadata used for I/O.
 - Updated the `plv8`, `pll`, and `plcoffee` extensions to version 2.3.15.
 
-####
-
-Aurora PostgreSQL 12.14.3, July 24, 2023
+#### Aurora PostgreSQL 12.14.3, July 24, 2023
 
 ###### General enhancements
 
@@ -11796,18 +11027,14 @@ Aurora PostgreSQL 12.14.3, July 24, 2023
 - Fixed multiple issues which can cause Aurora replicas with the improved read availability feature to restart when reconnecting with the writer instance.
 - Fixed an issue preventing a survivable reader reconnect
 
-####
-
-Aurora PostgreSQL 12.14.2, May 10, 2023
+#### Aurora PostgreSQL 12.14.2, May 10, 2023
 
 ###### General enhancements
 
 - Fixed an error when loading the `test_decoding` plugin in `pg_create_logical_replication_slot`.
 - Updated the Oracle client used by the `oracle_fdw` extension to version 21.9.0.0.0.
 
-####
-
-Aurora PostgreSQL 12.14.1, April 5, 2023
+#### Aurora PostgreSQL 12.14.1, April 5, 2023
 
 ###### New features
 
@@ -11870,9 +11097,7 @@ information about the improvements in PostgreSQL 12.13, see [PostgreSQL release 
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 12.13.9, August 7, 2024
+#### Aurora PostgreSQL 12.13.9, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -11883,9 +11108,7 @@ Aurora PostgreSQL 12.13.9, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 12.13.8, March 13, 2024
+#### Aurora PostgreSQL 12.13.8, March 13, 2024
 
 ###### General enhancements
 
@@ -11902,9 +11125,7 @@ Aurora PostgreSQL 12.13.8, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 12.13.7, December 15, 2023
+#### Aurora PostgreSQL 12.13.7, December 15, 2023
 
 ###### Critical stability enhancements
 
@@ -11917,9 +11138,7 @@ Aurora PostgreSQL 12.13.7, December 15, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 12.13.6, November 17, 2023
+#### Aurora PostgreSQL 12.13.6, November 17, 2023
 
 ###### Critical stability enhancements
 
@@ -11928,9 +11147,7 @@ Aurora PostgreSQL 12.13.6, November 17, 2023
 
 - Fixed an issue related to `pg_cron` background worker processes
 
-####
-
-Aurora PostgreSQL 12.13.5, October 04, 2023
+#### Aurora PostgreSQL 12.13.5, October 04, 2023
 
 ###### High priority stability enhancements
 
@@ -11942,9 +11159,7 @@ Aurora PostgreSQL 12.13.5, October 04, 2023
 
 - Introduced diagnostics for the transient metadata used for I/O.
 
-####
-
-Aurora PostgreSQL 12.13.4, September 13, 2023
+#### Aurora PostgreSQL 12.13.4, September 13, 2023
 
 ###### General enhancements
 
@@ -11961,9 +11176,7 @@ Aurora PostgreSQL 12.13.4, September 13, 2023
 
 - Updated the `plv8`, `plls`, and `plcoffee` extensions to version 2.3.15.
 
-####
-
-Aurora PostgreSQL 12.13.2, March 3, 2023
+#### Aurora PostgreSQL 12.13.2, March 3, 2023
 
 ###### General stability enhancements
 
@@ -11972,9 +11185,7 @@ Aurora PostgreSQL 12.13.2, March 3, 2023
 - Fixed an issue for the better error handling of procedures with large numbers of parameters.
 - Fixed an issue with the `aws_s3` extension where loading a large number of records can time out.
 
-####
-
-Aurora PostgreSQL 12.13.0, January 20, 2023
+#### Aurora PostgreSQL 12.13.0, January 20, 2023
 
 ###### High priority stability enhancements
 
@@ -12018,9 +11229,7 @@ information about the improvements in PostgreSQL 12.12, see [PostgreSQL release 
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 
-####
-
-Aurora PostgreSQL 12.12.7, August 7, 2024
+#### Aurora PostgreSQL 12.12.7, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -12031,9 +11240,7 @@ Aurora PostgreSQL 12.12.7, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 12.12.6, March 13, 2024
+#### Aurora PostgreSQL 12.12.6, March 13, 2024
 
 ###### General enhancements
 
@@ -12050,9 +11257,7 @@ Aurora PostgreSQL 12.12.6, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 12.12.5, December 18, 2023
+#### Aurora PostgreSQL 12.12.5, December 18, 2023
 
 ###### Critical stability enhancements
 
@@ -12065,9 +11270,7 @@ Aurora PostgreSQL 12.12.5, December 18, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 12.12.4, November 17, 2023
+#### Aurora PostgreSQL 12.12.4, November 17, 2023
 
 ###### Critical stability enhancements
 
@@ -12076,9 +11279,7 @@ Aurora PostgreSQL 12.12.4, November 17, 2023
 
 - Fixed an issue related to `pg_cron` background worker processes
 
-####
-
-Aurora PostgreSQL 12.12.3, October 17, 2023
+#### Aurora PostgreSQL 12.12.3, October 17, 2023
 
 ###### High priority stability enhancements
 
@@ -12108,9 +11309,7 @@ Aurora PostgreSQL 12.12.3, October 17, 2023
 - Fixed an issue which can cause a database instance to restart while executing I/O intensive read workloads.
 - Updated the `plv8`, `pll`, and `plcoffee` extensions to version 2.3.15.
 
-####
-
-Aurora PostgreSQL 12.12.2, March 2, 2023
+#### Aurora PostgreSQL 12.12.2, March 2, 2023
 
 ###### General stability enhancements
 
@@ -12119,9 +11318,7 @@ Aurora PostgreSQL 12.12.2, March 2, 2023
 - Fixed an issue with the `aws_s3` extension where loading a large number of records can time out.
 - Fixed an issue with the `pg_cron` parallel running of tasks.
 
-####
-
-Aurora PostgreSQL 12.12.1, December 13, 2022
+#### Aurora PostgreSQL 12.12.1, December 13, 2022
 
 ###### General stability enhancements
 
@@ -12129,9 +11326,7 @@ Aurora PostgreSQL 12.12.1, December 13, 2022
 - Fixed an issue where the engine experiences stability issues during database minor and patch release upgrades.
 - Fixed an issue that could cause data inconsistency during replication.
 
-####
-
-Aurora PostgreSQL 12.12.0, November 09, 2022
+#### Aurora PostgreSQL 12.12.0, November 09, 2022
 
 ###### General stability enhancements
 
@@ -12185,9 +11380,7 @@ information about the improvements in PostgreSQL 12.11, see [PostgreSQL release
 - Backported fixes for the following PostgreSQL community security issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-####
-
-Aurora PostgreSQL 12.11.10, August 7, 2024
+#### Aurora PostgreSQL 12.11.10, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -12198,9 +11391,7 @@ Aurora PostgreSQL 12.11.10, August 7, 2024
 
 - Fixed issue where minor version upgrades with ZDP would fail resulting in longer upgrade times.
 
-####
-
-Aurora PostgreSQL 12.11.9, March 13, 2024
+#### Aurora PostgreSQL 12.11.9, March 13, 2024
 
 ###### General enhancements
 
@@ -12217,9 +11408,7 @@ Aurora PostgreSQL 12.11.9, March 13, 2024
 - Fixed a deadlock issue in Aurora Storage which can result in writer failover.
 - Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
 
-####
-
-Aurora PostgreSQL 12.11.8, December 22, 2023
+#### Aurora PostgreSQL 12.11.8, December 22, 2023
 
 ###### Critical stability enhancements
 
@@ -12232,9 +11421,7 @@ Aurora PostgreSQL 12.11.8, December 22, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 12.11.7, November 17, 2023
+#### Aurora PostgreSQL 12.11.7, November 17, 2023
 
 ###### Critical stability enhancements
 
@@ -12243,9 +11430,7 @@ Aurora PostgreSQL 12.11.7, November 17, 2023
 
 - Fixed an issue related to `pg_cron` background worker processes
 
-####
-
-Aurora PostgreSQL 12.11.6, October 19, 2023
+#### Aurora PostgreSQL 12.11.6, October 19, 2023
 
 ###### High priority stability enhancements
 
@@ -12275,9 +11460,7 @@ Aurora PostgreSQL 12.11.6, October 19, 2023
 
 - Updated the `plv8`, `pll`, and `plcoffee` extensions to version 2.3.15.
 
-####
-
-Aurora PostgreSQL 12.11.5, December 14, 2022
+#### Aurora PostgreSQL 12.11.5, December 14, 2022
 
 ###### General stability enhancements
 
@@ -12285,17 +11468,13 @@ Aurora PostgreSQL 12.11.5, December 14, 2022
 - Fixed an issue that causes database activity stream inconsistency when the monitoring agent is unavailable.
 - Fixed an issue that could cause data inconsistency during replication.
 
-####
-
-Aurora PostgreSQL 12.11.4, November 17, 2022
+#### Aurora PostgreSQL 12.11.4, November 17, 2022
 
 ###### High priority stability enhancements
 
 - Fixed an issue that can cause increased network traffic when a writer instance transmits logs to a replica instance.
 
-####
-
-Aurora PostgreSQL 12.11.3, October 13, 2022
+#### Aurora PostgreSQL 12.11.3, October 13, 2022
 
 ###### High priority stability enhancements
 
@@ -12308,9 +11487,7 @@ Aurora PostgreSQL 12.11.3, October 13, 2022
 - Upgraded the `PostGIS` extension to version 3.1.7.
 - Fixed an issue where extended query messages might be lost during zero-downtime patching (ZDP) causing the extended query to hang after the ZDP completion.
 
-####
-
-Aurora PostgreSQL 12.11.1, July 6, 2022
+#### Aurora PostgreSQL 12.11.1, July 6, 2022
 
 ###### Critical stability enhancements
 
@@ -12323,9 +11500,7 @@ Aurora PostgreSQL 12.11.1, July 6, 2022
 - Fixed an issue that caused connections using the provided root certificate to fail.
 - Improved the diagnostic and supportability information in case of inconsistent B-tree index entries.
 
-####
-
-Aurora PostgreSQL 12.11.0, June 9, 2022
+#### Aurora PostgreSQL 12.11.0, June 9, 2022
 
 ###### New features
 
@@ -12371,9 +11546,7 @@ information about the improvements in PostgreSQL 12.10, see [PostgreSQL release
 - [Aurora PostgreSQL 12.10.1, April 27, 2022](#AuroraPostgreSQL.Updates.20180305.12101 "#AuroraPostgreSQL.Updates.20180305.12101")
 - [Aurora PostgreSQL 12.10.0, March 29, 2022](#AuroraPostgreSQL.Updates.20180305.12100 "#AuroraPostgreSQL.Updates.20180305.12100")
 
-####
-
-Aurora PostgreSQL 12.10.6, December 16, 2022
+#### Aurora PostgreSQL 12.10.6, December 16, 2022
 
 ###### General enhancements
 
@@ -12381,9 +11554,7 @@ Aurora PostgreSQL 12.10.6, December 16, 2022
 - Fixed an issue that causes database activity stream inconsistency when the monitoring agent is unavailable.
 - Updated the `PostGIS` extension to version 3.1.7.
 
-####
-
-Aurora PostgreSQL 12.10.4, July 18, 2022
+#### Aurora PostgreSQL 12.10.4, July 18, 2022
 
 ###### Security enhancements
 
@@ -12400,9 +11571,7 @@ Aurora PostgreSQL 12.10.4, July 18, 2022
 - Fixed an issue related to the existence of duplicate relation files that could result in periods of unavailability.
 - Fixed a defect where the validation of cached plans may lead to a database restart when the plan was previously invalidated.
 
-####
-
-Aurora PostgreSQL 12.10.1, April 27, 2022
+#### Aurora PostgreSQL 12.10.1, April 27, 2022
 
 ###### High priority stability enhancements
 
@@ -12413,9 +11582,7 @@ Aurora PostgreSQL 12.10.1, April 27, 2022
 
 - Fixed an issue that could cause an engine restart during periods of low free memory.
 
-####
-
-Aurora PostgreSQL 12.10.0, March 29, 2022
+#### Aurora PostgreSQL 12.10.0, March 29, 2022
 
 ###### High priority stability enhancements
 
@@ -12504,18 +11671,14 @@ information about the improvements in PostgreSQL 12.9, see [PostgreSQL release
 - Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg_plan_mgmt extension is not installed.
 - Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries.
 
-####
-
-Aurora PostgreSQL 12.9.12, August 7, 2024
+#### Aurora PostgreSQL 12.9.12, August 7, 2024
 
 ###### Critical stability enhancements
 
 - Fixed a pg_repack issue causing two vacuums to concurrently process the same table.
 - Fixed a V8 Engine [CVE-2018-6065](https://nvd.nist.gov/vuln/detail/CVE-2018-6065 "https://nvd.nist.gov/vuln/detail/CVE-2018-6065") for PLV8 2.x.
 
-####
-
-Aurora PostgreSQL 12.9.11, March 13, 2024
+#### Aurora PostgreSQL 12.9.11, March 13, 2024
 
 ###### General stability enhancements
 
@@ -12533,9 +11696,7 @@ Aurora PostgreSQL 12.9.11, March 13, 2024
 - Fixed an issue where active transactions during slot creation may be partially replicated by the slot.
 - Fixed a deadlock issue in Aurora storage which can result in writer failover.
 
-####
-
-Aurora PostgreSQL 12.9.10, December 27, 2023
+#### Aurora PostgreSQL 12.9.10, December 27, 2023
 
 ###### Critical stability enhancements
 
@@ -12548,9 +11709,7 @@ Aurora PostgreSQL 12.9.10, December 27, 2023
 
 - Fixed an issue with logical replication actions being performed by someone other than the table owner
 
-####
-
-Aurora PostgreSQL 12.9.9, November 17, 2023
+#### Aurora PostgreSQL 12.9.9, November 17, 2023
 
 ###### Critical stability enhancements
 
@@ -12559,9 +11718,7 @@ Aurora PostgreSQL 12.9.9, November 17, 2023
 
 - Fixed an issue related to `pg_cron` background worker processes
 
-####
-
-Aurora PostgreSQL 12.9.8, October 19, 2023
+#### Aurora PostgreSQL 12.9.8, October 19, 2023
 
 ###### High priority stability enhancements
 
@@ -12571,18 +11728,14 @@ Aurora PostgreSQL 12.9.8, October 19, 2023
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
   - [CVE-2022-41862](https://nvd.nist.gov/vuln/detail/CVE-2022-41862 "https://nvd.nist.gov/vuln/detail/CVE-2022-41862")
 
-####
-
-Aurora PostgreSQL 12.9.7, August 24, 2023
+#### Aurora PostgreSQL 12.9.7, August 24, 2023
 
 ###### General enhancements
 
 - Fixed an issue which causes the stats collector process to repeatedly restart.
 - Fixed an issue preventing `pglogical` from logging conflicting rows during the apply phase.
 
-####
-
-Aurora PostgreSQL 12.9.6, December 16, 2022
+#### Aurora PostgreSQL 12.9.6, December 16, 2022
 
 ###### General enhancements
 
@@ -12590,9 +11743,7 @@ Aurora PostgreSQL 12.9.6, December 16, 2022
 - Fixed an issue that causes database activity stream inconsistency when the monitoring agent is unavailable.
 - Updated the `PostGIS` extension to version 3.1.7.
 
-####
-
-Aurora PostgreSQL 12.9.4, July 20, 2022
+#### Aurora PostgreSQL 12.9.4, July 20, 2022
 
 ###### Security enhancements
 
@@ -12610,9 +11761,7 @@ Aurora PostgreSQL 12.9.4, July 20, 2022
 - Fixed an issue that could cause excess storage use due to files not being properly closed.
 - Fixed an issue that caused Performance Insights to show "Unknown wait event".
 
-####
-
-Aurora PostgreSQL 12.9.3, April 13, 2022
+#### Aurora PostgreSQL 12.9.3, April 13, 2022
 
 ###### Security enhancements
 
@@ -12623,9 +11772,7 @@ Aurora PostgreSQL 12.9.3, April 13, 2022
 
 - Fixed a bug that could cause an engine restart during periods of low free memory.
 
-####
-
-Aurora PostgreSQL 12.9.1
+#### Aurora PostgreSQL 12.9.1
 
 ###### Security enhancements
 
@@ -12639,9 +11786,7 @@ Aurora PostgreSQL 12.9.1
 - Modified the `pg_cron` extension to mitigate a security issue during create extension. The issue was addressed in core PostgreSQL by CVE-2020-14350.
   For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 
-####
-
-Aurora PostgreSQL 12.9.0
+#### Aurora PostgreSQL 12.9.0
 
 ###### Critical stability enhancements
 
@@ -12660,8 +11805,7 @@ Aurora PostgreSQL 12.9.0
 - Updated the `pg_cron` extension to v1.4.
 - Updated the `pg_hint_pan` extension to v1.3.7.
 
-- For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-  12](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12").
+- For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 12](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.12").
 
 ### PostgreSQL 12.8 (Deprecated)
 
@@ -12677,17 +11821,13 @@ information about the improvements in PostgreSQL 12.8, see [PostgreSQL release
 - [Aurora PostgreSQL 12.8.1](#AuroraPostgreSQL.Updates.20180305.1281 "#AuroraPostgreSQL.Updates.20180305.1281")
 - [Aurora PostgreSQL 12.8.0](#AuroraPostgreSQL.Updates.20180305.1280 "#AuroraPostgreSQL.Updates.20180305.1280")
 
-####
-
-Aurora PostgreSQL 12.8.6, December 19, 2022
+#### Aurora PostgreSQL 12.8.6, December 19, 2022
 
 ###### General enhancements
 
 - Fixed an issue that causes database activity stream inconsistency when the monitoring agent is unavailable.
 
-####
-
-Aurora PostgreSQL 12.8.4, July 6, 2022
+#### Aurora PostgreSQL 12.8.4, July 6, 2022
 
 ###### Security enhancements
 
@@ -12701,9 +11841,7 @@ Aurora PostgreSQL 12.8.4, July 6, 2022
 - Fixed an issue that could cause Performance Insights to display "Unknown wait event".
 - Fixed an issue that could result in periods of unavailability due to the existence of duplicate relation files.
 
-####
-
-Aurora PostgreSQL 12.8.2, April 12, 2022
+#### Aurora PostgreSQL 12.8.2, April 12, 2022
 
 ###### Security enhancements
 
@@ -12714,9 +11852,7 @@ Aurora PostgreSQL 12.8.2, April 12, 2022
 
 - Fixed a buffer cache bug that could cause brief periods of unavailability.
 
-####
-
-Aurora PostgreSQL 12.8.1
+#### Aurora PostgreSQL 12.8.1
 
 ###### Security enhancements
 
@@ -12755,9 +11891,7 @@ Aurora PostgreSQL 12.8.1
 - Removed support for the DES, 3DES, and RC4 cipher suites.
 - Updated `PostGIS` extension to version 3.1.4.
 
-### PostgreSQL 12.7,
-
-Aurora PostgreSQL 4.2 (Deprecated)
+### PostgreSQL 12.7, Aurora PostgreSQL 4.2 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 12.7. For more
 information about the improvements in PostgreSQL 12.7, see [PostgreSQL release
@@ -12772,17 +11906,13 @@ information about the improvements in PostgreSQL 12.7, see [PostgreSQL release
 - [Aurora PostgreSQL 4.2.1](#AuroraPostgreSQL.Updates.20180305.127 "#AuroraPostgreSQL.Updates.20180305.127")
 - [Aurora PostgreSQL 4.2.0](#AuroraPostgreSQL.Updates.20180305.420 "#AuroraPostgreSQL.Updates.20180305.420")
 
-####
-
-Aurora PostgreSQL 12.7.5, December 30, 2022
+#### Aurora PostgreSQL 12.7.5, December 30, 2022
 
 ###### General enhancements
 
 - Fixed an issue that causes database activity stream inconsistency when the monitoring agent is unavailable.
 
-####
-
-Aurora PostgreSQL 12.7.4, July 14, 2022
+#### Aurora PostgreSQL 12.7.4, July 14, 2022
 
 ###### Security enhancements
 
@@ -12795,18 +11925,14 @@ Aurora PostgreSQL 12.7.4, July 14, 2022
 - Fixed an issue that could cause excess storage use due to files not being properly closed.
 - Fixed an issue that caused Performance Insights to show "Unknown wait event".
 
-####
-
-Aurora PostgreSQL 4.2.3, April 7, 2022
+#### Aurora PostgreSQL 4.2.3, April 7, 2022
 
 ###### Security enhancements
 
 - Additional modifications to the `pg_cron` extension to mitigate a security issue during create extension. The issue was addressed in core PostgreSQL by CVE-2020-14350.
   For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 
-####
-
-Aurora PostgreSQL 4.2.2
+#### Aurora PostgreSQL 4.2.2
 
 ###### Security enhancements
 
@@ -12845,9 +11971,7 @@ Aurora PostgreSQL 4.2.2
 - Fixed multiple issues in the Aurora storage daemon that could lead to brief periods of unavailability when specific network configurations are used.
 - Fixed an out-of-memory crash issue with Aurora storage daemon that leads to writer node restart. This also reduces the overall system memory consumption.
 
-####
-
-Aurora PostgreSQL 4.2.0
+#### Aurora PostgreSQL 4.2.0
 
 ###### New features
 
@@ -12879,9 +12003,7 @@ Aurora PostgreSQL 4.2.0
   - Updated the `pg_cron` extension to version 1.3.1.
   - Updated the `postgis` extension to version 3.0.3.
 
-### PostgreSQL 12.6,
-
-Aurora PostgreSQL 4.1 (Deprecated)
+### PostgreSQL 12.6, Aurora PostgreSQL 4.1 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 12.6. For more
 information about the improvements in PostgreSQL 12.6, see [PostgreSQL release
@@ -12893,18 +12015,14 @@ information about the improvements in PostgreSQL 12.6, see [PostgreSQL release
 - [Aurora PostgreSQL 4.1.1](#AuroraPostgreSQL.Updates.20180305.411 "#AuroraPostgreSQL.Updates.20180305.411")
 - [Aurora PostgreSQL 4.1.0](#AuroraPostgreSQL.Updates.20180305.410 "#AuroraPostgreSQL.Updates.20180305.410")
 
-####
-
-Aurora PostgreSQL 4.1.2, April 7, 2022
+#### Aurora PostgreSQL 4.1.2, April 7, 2022
 
 ###### Security enhancements
 
 - Additional modifications to the `pg_cron` extension to mitigate a security issue during create extension. The issue was addressed in core PostgreSQL by CVE-2020-14350.
   For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 
-####
-
-Aurora PostgreSQL 4.1.1
+#### Aurora PostgreSQL 4.1.1
 
 ###### Security enhancements
 
@@ -12924,9 +12042,7 @@ Aurora PostgreSQL 4.1.1
   For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 - Backpatched an input validation error in the `log_fdw` extension function parameters.
 
-####
-
-Aurora PostgreSQL 4.1.0
+#### Aurora PostgreSQL 4.1.0
 
 ###### New features
 
@@ -13026,9 +12142,7 @@ filenode "base/16395/228486645" to relation OID`**.
   of unavailability when attempting to fetch a tuple from and index
   scan.
 
-### PostgreSQL 12.4,
-
-Aurora PostgreSQL 4.0 (Deprecated)
+### PostgreSQL 12.4, Aurora PostgreSQL 4.0 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 12.4. For more
 information about the improvements in PostgreSQL 12.4, see [PostgreSQL release
@@ -13041,9 +12155,7 @@ information about the improvements in PostgreSQL 12.4, see [PostgreSQL release
 - [Aurora PostgreSQL 4.0.1](#AuroraPostgreSQL.Updates.20180305.401 "#AuroraPostgreSQL.Updates.20180305.401")
 - [Aurora PostgreSQL 4.0.0](#AuroraPostgreSQL.Updates.20180305.400 "#AuroraPostgreSQL.Updates.20180305.400")
 
-####
-
-Aurora PostgreSQL 4.0.5
+#### Aurora PostgreSQL 4.0.5
 
 - Modified the `ip4r` extension to mitigate a security issue during create extension.
   The issue was originally disclosed in core PostgreSQL by CVE-2020-14350.
@@ -13055,9 +12167,7 @@ Aurora PostgreSQL 4.0.5
   For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 - Backpatched an input validation error in the `log_fdw` extension function parameters.
 
-####
-
-Aurora PostgreSQL 4.0.2
+#### Aurora PostgreSQL 4.0.2
 
 ###### High priority stability enhancements
 
@@ -13086,9 +12196,7 @@ relfrozenxid`**
   node runs a query that access many tables while the writer node is
   acquiring exclusive locks on all of the same tables.
 
-####
-
-Aurora PostgreSQL 4.0.1
+#### Aurora PostgreSQL 4.0.1
 
 ###### New features
 
@@ -13121,23 +12229,19 @@ Aurora PostgreSQL 4.0.1
 - Disallowed the use of both AWS Identity and Access Management (IAM) and Kerberos authentication for the
   same user.
 
-####
-
-Aurora PostgreSQL 4.0.0
+#### Aurora PostgreSQL 4.0.0
 
 ###### New features
 
 - This version supports a major version upgrade from
-  [PostgreSQL 11.7,
-  Aurora PostgreSQL 3.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.32 "#AuroraPostgreSQL.Updates.20180305.32")
+  [PostgreSQL 11.7, Aurora PostgreSQL 3.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.32 "#AuroraPostgreSQL.Updates.20180305.32")
   and later versions.
 
 ###### Additional improvements and enhancements
 
 - Contains several improvements that were announced for PostgreSQL
   releases [12.0](https://www.postgresql.org/docs/12/release-12.html "https://www.postgresql.org/docs/12/release-12.html"), [12.1](https://www.postgresql.org/docs/12/release-12-1.html "https://www.postgresql.org/docs/12/release-12-1.html"), [12.2](https://www.postgresql.org/docs/12/release-12-2.html "https://www.postgresql.org/docs/12/release-12-2.html"), [12.3](https://www.postgresql.org/docs/12/release-12-3.html "https://www.postgresql.org/docs/12/release-12-3.html"), and [12.4](https://www.postgresql.org/docs/12/release-12-4.html "https://www.postgresql.org/docs/12/release-12-4.html").
-- Contains all fixes, features, and improvements present in [PostgreSQL 11.9,
-  Aurora PostgreSQL 3.4](#AuroraPostgreSQL.Updates.20180305.34 "#AuroraPostgreSQL.Updates.20180305.34") .
+- Contains all fixes, features, and improvements present in [PostgreSQL 11.9, Aurora PostgreSQL 3.4](#AuroraPostgreSQL.Updates.20180305.34 "#AuroraPostgreSQL.Updates.20180305.34").
 - Backported fixes for the following PostgreSQL community security issues:
   - [CVE-2020-25694](https://nvd.nist.gov/vuln/detail/CVE-2020-25694 "https://nvd.nist.gov/vuln/detail/CVE-2020-25694")
   - [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695 "https://nvd.nist.gov/vuln/detail/CVE-2020-25695")
@@ -13161,43 +12265,26 @@ Aurora PostgreSQL 4.0.0
   - `postgis_tiger_geocoder` to version 3.0.2
   - `postgis_topology` to version 3.0.2
 
-## PostgreSQL 11 versions (includes
-
-some deprecated versions)
+## PostgreSQL 11 versions (includes some deprecated versions)
 
 ###### Version updates
 
 - [PostgreSQL 11.21](#AuroraPostgreSQL.Updates.20180305.1121X "#AuroraPostgreSQL.Updates.20180305.1121X")
-- [PostgreSQL 11.20
-  (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1120X "#AuroraPostgreSQL.Updates.20180305.1120X")
-- [PostgreSQL 11.19
-  (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1119X "#AuroraPostgreSQL.Updates.20180305.1119X")
-- [PostgreSQL 11.18
-  (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1118X "#AuroraPostgreSQL.Updates.20180305.1118X")
-- [PostgreSQL 11.17
-  (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1117X "#AuroraPostgreSQL.Updates.20180305.1117X")
-- [PostgreSQL 11.16
-  (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1116X "#AuroraPostgreSQL.Updates.20180305.1116X")
-- [PostgreSQL 11.15
-  (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1115X "#AuroraPostgreSQL.Updates.20180305.1115X")
-- [PostgreSQL 11.14
-  (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1114 "#AuroraPostgreSQL.Updates.20180305.1114")
-- [PostgreSQL 11.13
-  (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1113 "#AuroraPostgreSQL.Updates.20180305.1113")
-- [PostgreSQL 11.12,
-  Aurora PostgreSQL 3.6 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.36 "#AuroraPostgreSQL.Updates.20180305.36")
-- [PostgreSQL 11.11,
-  Aurora PostgreSQL 3.5 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.35 "#AuroraPostgreSQL.Updates.20180305.35")
-- [PostgreSQL 11.9,
-  Aurora PostgreSQL 3.4](#AuroraPostgreSQL.Updates.20180305.34 "#AuroraPostgreSQL.Updates.20180305.34")
-- [PostgreSQL 11.8,
-  Aurora PostgreSQL 3.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.33 "#AuroraPostgreSQL.Updates.20180305.33")
-- [PostgreSQL 11.7,
-  Aurora PostgreSQL 3.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.32 "#AuroraPostgreSQL.Updates.20180305.32")
-- [PostgreSQL 11.6,
-  Aurora PostgreSQL 3.1 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.31 "#AuroraPostgreSQL.Updates.20180305.31")
-- [PostgreSQL 11.4,
-  Aurora PostgreSQL 3.0 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.30 "#AuroraPostgreSQL.Updates.20180305.30")
+- [PostgreSQL 11.20 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1120X "#AuroraPostgreSQL.Updates.20180305.1120X")
+- [PostgreSQL 11.19 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1119X "#AuroraPostgreSQL.Updates.20180305.1119X")
+- [PostgreSQL 11.18 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1118X "#AuroraPostgreSQL.Updates.20180305.1118X")
+- [PostgreSQL 11.17 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1117X "#AuroraPostgreSQL.Updates.20180305.1117X")
+- [PostgreSQL 11.16 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1116X "#AuroraPostgreSQL.Updates.20180305.1116X")
+- [PostgreSQL 11.15 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1115X "#AuroraPostgreSQL.Updates.20180305.1115X")
+- [PostgreSQL 11.14 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1114 "#AuroraPostgreSQL.Updates.20180305.1114")
+- [PostgreSQL 11.13 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1113 "#AuroraPostgreSQL.Updates.20180305.1113")
+- [PostgreSQL 11.12, Aurora PostgreSQL 3.6 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.36 "#AuroraPostgreSQL.Updates.20180305.36")
+- [PostgreSQL 11.11, Aurora PostgreSQL 3.5 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.35 "#AuroraPostgreSQL.Updates.20180305.35")
+- [PostgreSQL 11.9, Aurora PostgreSQL 3.4](#AuroraPostgreSQL.Updates.20180305.34 "#AuroraPostgreSQL.Updates.20180305.34")
+- [PostgreSQL 11.8, Aurora PostgreSQL 3.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.33 "#AuroraPostgreSQL.Updates.20180305.33")
+- [PostgreSQL 11.7, Aurora PostgreSQL 3.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.32 "#AuroraPostgreSQL.Updates.20180305.32")
+- [PostgreSQL 11.6, Aurora PostgreSQL 3.1 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.31 "#AuroraPostgreSQL.Updates.20180305.31")
+- [PostgreSQL 11.4, Aurora PostgreSQL 3.0 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.30 "#AuroraPostgreSQL.Updates.20180305.30")
 
 ### PostgreSQL 11.21
 
@@ -13209,24 +12296,15 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 
 - [Aurora PostgreSQL 11.21.12, January 14, 2026](#aurorapostgresql-versions-version112112x-112112 "#aurorapostgresql-versions-version112112x-112112")
 - [Aurora PostgreSQL 11.21.11, August 5, 2025](#aurorapostgresql-versions-version112111x-112111 "#aurorapostgresql-versions-version112111x-112111")
-- [Aurora PostgreSQL
-  11.21.10, May 7, 2025](#aurorapostgresql-versions-version112110x-112110 "#aurorapostgresql-versions-version112110x-112110")
-- [Aurora PostgreSQL 11.21.9,
-  February 27 2025](#aurorapostgresql-versions-version11219x-11219 "#aurorapostgresql-versions-version11219x-11219")
-- [Aurora PostgreSQL
-  11.21.8, November 14, 2024](#aurorapostgresql-versions-version1121x-11218 "#aurorapostgresql-versions-version1121x-11218")
-- [Aurora PostgreSQL
-  11.21.7, June 25, 2024](#AuroraPostgreSQL.Updates.20180305.11217 "#AuroraPostgreSQL.Updates.20180305.11217")
-- [Aurora PostgreSQL
-  11.21.6, March 13, 2024](#AuroraPostgreSQL.Updates.20180305.11216 "#AuroraPostgreSQL.Updates.20180305.11216")
-- [Aurora PostgreSQL
-  11.21.5, February 22, 2024](#AuroraPostgreSQL.Updates.20180305.11215 "#AuroraPostgreSQL.Updates.20180305.11215")
-- [Aurora PostgreSQL
-  11.21.2, December 13, 2023](#AuroraPostgreSQL.Updates.20180305.11212 "#AuroraPostgreSQL.Updates.20180305.11212")
-- [Aurora PostgreSQL
-  11.21.1, November 09, 2023](#AuroraPostgreSQL.Updates.20180305.11211 "#AuroraPostgreSQL.Updates.20180305.11211")
-- [Aurora PostgreSQL
-  11.21.0, October 24, 2023](#AuroraPostgreSQL.Updates.20180305.11210 "#AuroraPostgreSQL.Updates.20180305.11210")
+- [Aurora PostgreSQL 11.21.10, May 7, 2025](#aurorapostgresql-versions-version112110x-112110 "#aurorapostgresql-versions-version112110x-112110")
+- [Aurora PostgreSQL 11.21.9, February 27 2025](#aurorapostgresql-versions-version11219x-11219 "#aurorapostgresql-versions-version11219x-11219")
+- [Aurora PostgreSQL 11.21.8, November 14, 2024](#aurorapostgresql-versions-version1121x-11218 "#aurorapostgresql-versions-version1121x-11218")
+- [Aurora PostgreSQL 11.21.7, June 25, 2024](#AuroraPostgreSQL.Updates.20180305.11217 "#AuroraPostgreSQL.Updates.20180305.11217")
+- [Aurora PostgreSQL 11.21.6, March 13, 2024](#AuroraPostgreSQL.Updates.20180305.11216 "#AuroraPostgreSQL.Updates.20180305.11216")
+- [Aurora PostgreSQL 11.21.5, February 22, 2024](#AuroraPostgreSQL.Updates.20180305.11215 "#AuroraPostgreSQL.Updates.20180305.11215")
+- [Aurora PostgreSQL 11.21.2, December 13, 2023](#AuroraPostgreSQL.Updates.20180305.11212 "#AuroraPostgreSQL.Updates.20180305.11212")
+- [Aurora PostgreSQL 11.21.1, November 09, 2023](#AuroraPostgreSQL.Updates.20180305.11211 "#AuroraPostgreSQL.Updates.20180305.11211")
+- [Aurora PostgreSQL 11.21.0, October 24, 2023](#AuroraPostgreSQL.Updates.20180305.11210 "#AuroraPostgreSQL.Updates.20180305.11210")
 
 #### Aurora PostgreSQL 11.21.12, January 14, 2026
 
@@ -13279,9 +12357,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 - Fixed an issue where unexpected internal communication channel re-establishments may cause
   increased latency on data processing.
 
-#### Aurora PostgreSQL
-
-11.21.10, May 7, 2025
+#### Aurora PostgreSQL 11.21.10, May 7, 2025
 
 **High priority enhancements**
 
@@ -13294,9 +12370,7 @@ information about the improvements in PostgreSQL 11.21, see [PostgreSQL release
 - Fixed an issue on the replica where a network interruption may not
   correctly re-establish connection with the writer.
 
-#### Aurora PostgreSQL 11.21.9,
-
-February 27 2025
+#### Aurora PostgreSQL 11.21.9, February 27 2025
 
 **Critical Priority enhancements**
 
@@ -13323,9 +12397,7 @@ February 27 2025
   be updated correctly from a previous the PostGIS extension v2
   installation.
 
-#### Aurora PostgreSQL
-
-11.21.8, November 14, 2024
+#### Aurora PostgreSQL 11.21.8, November 14, 2024
 
 ###### High priority enhancements
 
@@ -13336,9 +12408,7 @@ February 27 2025
   issue:
   - [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348 "https://nvd.nist.gov/vuln/detail/CVE-2024-7348")
 
-#### Aurora PostgreSQL
-
-11.21.7, June 25, 2024
+#### Aurora PostgreSQL 11.21.7, June 25, 2024
 
 ###### General enhancements
 
@@ -13355,18 +12425,14 @@ February 27 2025
 - Fixed a pg_repack issue causing two vacuums to concurrently process
   the same table.
 
-#### Aurora PostgreSQL
-
-11.21.6, March 13, 2024
+#### Aurora PostgreSQL 11.21.6, March 13, 2024
 
 ###### General enhancements
 
 - Fixed a performance degradation issue in `PLV8`
   extension.
 
-#### Aurora PostgreSQL
-
-11.21.5, February 22, 2024
+#### Aurora PostgreSQL 11.21.5, February 22, 2024
 
 ###### General enhancements
 
@@ -13391,9 +12457,7 @@ February 27 2025
 - Fixed an issue where active transactions during logical replication
   slot creation may be partially replicated by the slot.
 
-#### Aurora PostgreSQL
-
-11.21.2, December 13, 2023
+#### Aurora PostgreSQL 11.21.2, December 13, 2023
 
 ###### Critical stability enhancements
 
@@ -13408,18 +12472,14 @@ February 27 2025
 - Fixed an issue with logical replication actions being performed by
   someone other than the table owner
 
-#### Aurora PostgreSQL
-
-11.21.1, November 09, 2023
+#### Aurora PostgreSQL 11.21.1, November 09, 2023
 
 ###### Critical stability enhancements
 
 - Backported a fix for the following security issue:
   - [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545 "https://nvd.nist.gov/vuln/detail/CVE-2023-38545")
 
-#### Aurora PostgreSQL
-
-11.21.0, October 24, 2023
+#### Aurora PostgreSQL 11.21.0, October 24, 2023
 
 ###### New features
 
@@ -13460,12 +12520,9 @@ February 27 2025
   - `PostGIS` to version 3.3.3
   - `RDKit` to version 4.3
 
-For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-11](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.11 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.11").
+For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 11](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.11 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.11").
 
-### PostgreSQL 11.20
-
-(Deprecated)
+### PostgreSQL 11.20 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.20. For more
 information about the improvements in PostgreSQL 11.20, see [PostgreSQL release
@@ -13473,14 +12530,10 @@ information about the improvements in PostgreSQL 11.20, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  11.20.2, October 4, 2023](#AuroraPostgreSQL.Updates.20180305.11202 "#AuroraPostgreSQL.Updates.20180305.11202")
-- [Aurora PostgreSQL
-  11.20.0, July 13, 2023](#AuroraPostgreSQL.Updates.20180305.11200 "#AuroraPostgreSQL.Updates.20180305.11200")
+- [Aurora PostgreSQL 11.20.2, October 4, 2023](#AuroraPostgreSQL.Updates.20180305.11202 "#AuroraPostgreSQL.Updates.20180305.11202")
+- [Aurora PostgreSQL 11.20.0, July 13, 2023](#AuroraPostgreSQL.Updates.20180305.11200 "#AuroraPostgreSQL.Updates.20180305.11200")
 
-#### Aurora PostgreSQL
-
-11.20.2, October 4, 2023
+#### Aurora PostgreSQL 11.20.2, October 4, 2023
 
 ###### Critical stability enhancements
 
@@ -13511,9 +12564,7 @@ FROM` command.
 - Fixed an issue that prevented the enablement of improved memory
   management in certain scenarios in Aurora PostgreSQL 15.3.
 
-#### Aurora PostgreSQL
-
-11.20.0, July 13, 2023
+#### Aurora PostgreSQL 11.20.0, July 13, 2023
 
 Following the announcement of updates to the PostgreSQL database by the open
 source community, we have updated Amazon Aurora PostgreSQL-Compatible Edition to support PostgreSQL
@@ -13569,9 +12620,7 @@ Amazon Aurora PostgreSQL 11, you must upgrade to a newer major version by Februa
 - Upgraded `GEOS` to version 3.11.2.
 - Upgraded `tds_fdw` to 2.0.3.
 
-### PostgreSQL 11.19
-
-(Deprecated)
+### PostgreSQL 11.19 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.19. For more
 information about the improvements in PostgreSQL 11.19, see [PostgreSQL release
@@ -13579,18 +12628,12 @@ information about the improvements in PostgreSQL 11.19, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  11.19.4, October 5, 2023](#AuroraPostgreSQL.Updates.20180305.11194 "#AuroraPostgreSQL.Updates.20180305.11194")
-- [Aurora PostgreSQL
-  11.19.3, July 24, 2023](#AuroraPostgreSQL.Updates.20180305.11193 "#AuroraPostgreSQL.Updates.20180305.11193")
-- [Aurora PostgreSQL
-  11.19.2, May 10, 2023](#AuroraPostgreSQL.Updates.20180305.11192 "#AuroraPostgreSQL.Updates.20180305.11192")
-- [Aurora PostgreSQL
-  11.19.1, April 5, 2023](#AuroraPostgreSQL.Updates.20180305.11191 "#AuroraPostgreSQL.Updates.20180305.11191")
+- [Aurora PostgreSQL 11.19.4, October 5, 2023](#AuroraPostgreSQL.Updates.20180305.11194 "#AuroraPostgreSQL.Updates.20180305.11194")
+- [Aurora PostgreSQL 11.19.3, July 24, 2023](#AuroraPostgreSQL.Updates.20180305.11193 "#AuroraPostgreSQL.Updates.20180305.11193")
+- [Aurora PostgreSQL 11.19.2, May 10, 2023](#AuroraPostgreSQL.Updates.20180305.11192 "#AuroraPostgreSQL.Updates.20180305.11192")
+- [Aurora PostgreSQL 11.19.1, April 5, 2023](#AuroraPostgreSQL.Updates.20180305.11191 "#AuroraPostgreSQL.Updates.20180305.11191")
 
-#### Aurora PostgreSQL
-
-11.19.4, October 5, 2023
+#### Aurora PostgreSQL 11.19.4, October 5, 2023
 
 ###### Critical stability enhancements
 
@@ -13613,9 +12656,7 @@ information about the improvements in PostgreSQL 11.19, see [PostgreSQL release
 - Updated the `plv8`, `pll`, and
   `plcoffee` extensions to version 2.3.15.
 
-#### Aurora PostgreSQL
-
-11.19.3, July 24, 2023
+#### Aurora PostgreSQL 11.19.3, July 24, 2023
 
 ###### General enhancements
 
@@ -13644,18 +12685,14 @@ information about the improvements in PostgreSQL 11.19, see [PostgreSQL release
   instance.
 - Fixed an issue preventing a survivable reader reconnect.
 
-#### Aurora PostgreSQL
-
-11.19.2, May 10, 2023
+#### Aurora PostgreSQL 11.19.2, May 10, 2023
 
 ###### General enhancements
 
 - Fixed an error when loading the `test_decoding` plugin in
   `pg_create_logical_replication_slot`.
 
-#### Aurora PostgreSQL
-
-11.19.1, April 5, 2023
+#### Aurora PostgreSQL 11.19.1, April 5, 2023
 
 ###### General enhancements
 
@@ -13689,9 +12726,7 @@ information about the improvements in PostgreSQL 11.19, see [PostgreSQL release
   - `TCN` to version 1.0
   - `wal2json` to version 2.5
 
-### PostgreSQL 11.18
-
-(Deprecated)
+### PostgreSQL 11.18 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.18. For more
 information about the improvements in PostgreSQL 11.18, see [PostgreSQL release
@@ -13699,18 +12734,12 @@ information about the improvements in PostgreSQL 11.18, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  11.18.5, October 04, 2023](#AuroraPostgreSQL.Updates.20180305.11185 "#AuroraPostgreSQL.Updates.20180305.11185")
-- [Aurora PostgreSQL
-  11.18.4, September 13, 2023](#AuroraPostgreSQL.Updates.20180305.11184 "#AuroraPostgreSQL.Updates.20180305.11184")
-- [Aurora PostgreSQL
-  11.18.2, March 3, 2023](#AuroraPostgreSQL.Updates.20180305.11182 "#AuroraPostgreSQL.Updates.20180305.11182")
-- [Aurora PostgreSQL
-  11.18.0, January 20, 2023](#AuroraPostgreSQL.Updates.20180305.11180 "#AuroraPostgreSQL.Updates.20180305.11180")
+- [Aurora PostgreSQL 11.18.5, October 04, 2023](#AuroraPostgreSQL.Updates.20180305.11185 "#AuroraPostgreSQL.Updates.20180305.11185")
+- [Aurora PostgreSQL 11.18.4, September 13, 2023](#AuroraPostgreSQL.Updates.20180305.11184 "#AuroraPostgreSQL.Updates.20180305.11184")
+- [Aurora PostgreSQL 11.18.2, March 3, 2023](#AuroraPostgreSQL.Updates.20180305.11182 "#AuroraPostgreSQL.Updates.20180305.11182")
+- [Aurora PostgreSQL 11.18.0, January 20, 2023](#AuroraPostgreSQL.Updates.20180305.11180 "#AuroraPostgreSQL.Updates.20180305.11180")
 
-#### Aurora PostgreSQL
-
-11.18.5, October 04, 2023
+#### Aurora PostgreSQL 11.18.5, October 04, 2023
 
 ###### High priority stability enhancements
 
@@ -13723,9 +12752,7 @@ information about the improvements in PostgreSQL 11.18, see [PostgreSQL release
 
 - Introduced diagnostics for the transient metadata used for I/O.
 
-#### Aurora PostgreSQL
-
-11.18.4, September 13, 2023
+#### Aurora PostgreSQL 11.18.4, September 13, 2023
 
 ###### General enhancements
 
@@ -13748,9 +12775,7 @@ information about the improvements in PostgreSQL 11.18, see [PostgreSQL release
 - Updated the `plv8`, `plls`, and
   `plcoffee` extensions to version 2.3.15.
 
-#### Aurora PostgreSQL
-
-11.18.2, March 3, 2023
+#### Aurora PostgreSQL 11.18.2, March 3, 2023
 
 ###### General stability enhancements
 
@@ -13763,9 +12788,7 @@ information about the improvements in PostgreSQL 11.18, see [PostgreSQL release
 - Fixed an issue with the `aws_s3` extension where loading a
   large number of records can time out.
 
-#### Aurora PostgreSQL
-
-11.18.0, January 20, 2023
+#### Aurora PostgreSQL 11.18.0, January 20, 2023
 
 ###### High priority stability enhancements
 
@@ -13786,9 +12809,7 @@ information about the improvements in PostgreSQL 11.18, see [PostgreSQL release
 - Improved the collation library (glibc) handling with a new
   independent default collation library.
 
-### PostgreSQL 11.17
-
-(Deprecated)
+### PostgreSQL 11.17 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.17. For more
 information about the improvements in PostgreSQL 11.17, see [PostgreSQL release
@@ -13796,18 +12817,12 @@ information about the improvements in PostgreSQL 11.17, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  11.17.3, October 17, 2023](#AuroraPostgreSQL.Updates.20180305.11173 "#AuroraPostgreSQL.Updates.20180305.11173")
-- [Aurora PostgreSQL
-  11.17.2, March 2, 2023](#AuroraPostgreSQL.Updates.20180305.11172 "#AuroraPostgreSQL.Updates.20180305.11172")
-- [Aurora PostgreSQL
-  11.17.1, December 13, 2022](#AuroraPostgreSQL.Updates.20180305.11171 "#AuroraPostgreSQL.Updates.20180305.11171")
-- [Aurora PostgreSQL
-  11.17.0, November 09, 2022](#AuroraPostgreSQL.Updates.20180305.11170 "#AuroraPostgreSQL.Updates.20180305.11170")
+- [Aurora PostgreSQL 11.17.3, October 17, 2023](#AuroraPostgreSQL.Updates.20180305.11173 "#AuroraPostgreSQL.Updates.20180305.11173")
+- [Aurora PostgreSQL 11.17.2, March 2, 2023](#AuroraPostgreSQL.Updates.20180305.11172 "#AuroraPostgreSQL.Updates.20180305.11172")
+- [Aurora PostgreSQL 11.17.1, December 13, 2022](#AuroraPostgreSQL.Updates.20180305.11171 "#AuroraPostgreSQL.Updates.20180305.11171")
+- [Aurora PostgreSQL 11.17.0, November 09, 2022](#AuroraPostgreSQL.Updates.20180305.11170 "#AuroraPostgreSQL.Updates.20180305.11170")
 
-#### Aurora PostgreSQL
-
-11.17.3, October 17, 2023
+#### Aurora PostgreSQL 11.17.3, October 17, 2023
 
 ###### High priority stability enhancements
 
@@ -13847,9 +12862,7 @@ information about the improvements in PostgreSQL 11.17, see [PostgreSQL release
 - Updated the `plv8`, `pll`, and
   `plcoffee` extensions to version 2.3.15.
 
-#### Aurora PostgreSQL
-
-11.17.2, March 2, 2023
+#### Aurora PostgreSQL 11.17.2, March 2, 2023
 
 ###### General stability enhancements
 
@@ -13860,9 +12873,7 @@ information about the improvements in PostgreSQL 11.17, see [PostgreSQL release
 - Fixed an issue with the `aws_s3` extension where loading a
   large number of records can time out.
 
-#### Aurora PostgreSQL
-
-11.17.1, December 13, 2022
+#### Aurora PostgreSQL 11.17.1, December 13, 2022
 
 ###### General stability enhancements
 
@@ -13873,9 +12884,7 @@ information about the improvements in PostgreSQL 11.17, see [PostgreSQL release
 - Fixed an issue that could cause data inconsistency during
   replication.
 
-#### Aurora PostgreSQL
-
-11.17.0, November 09, 2022
+#### Aurora PostgreSQL 11.17.0, November 09, 2022
 
 ###### General stability enhancements
 
@@ -13906,9 +12915,7 @@ information about the improvements in PostgreSQL 11.17, see [PostgreSQL release
 - Fixed an issue where the connection to SQL Server using tds_fdw
   fails.
 
-### PostgreSQL 11.16
-
-(Deprecated)
+### PostgreSQL 11.16 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.16. For more
 information about the improvements in PostgreSQL 11.16, see [PostgreSQL release
@@ -13916,22 +12923,14 @@ information about the improvements in PostgreSQL 11.16, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  11.16.6, October 19, 2023](#AuroraPostgreSQL.Updates.20180305.11166 "#AuroraPostgreSQL.Updates.20180305.11166")
-- [Aurora PostgreSQL
-  11.16.5, December 14, 2022](#AuroraPostgreSQL.Updates.20180305.11165 "#AuroraPostgreSQL.Updates.20180305.11165")
-- [Aurora PostgreSQL
-  11.16.4, November 17, 2022](#AuroraPostgreSQL.Updates.20180305.11164 "#AuroraPostgreSQL.Updates.20180305.11164")
-- [Aurora PostgreSQL
-  11.16.3, October 13, 2022](#AuroraPostgreSQL.Updates.20180305.11163 "#AuroraPostgreSQL.Updates.20180305.11163")
-- [Aurora PostgreSQL
-  11.16.1, July 6, 2022](#AuroraPostgreSQL.Updates.20180305.11161 "#AuroraPostgreSQL.Updates.20180305.11161")
-- [Aurora PostgreSQL
-  11.16.0, June 9, 2022](#AuroraPostgreSQL.Updates.20180305.11160 "#AuroraPostgreSQL.Updates.20180305.11160")
+- [Aurora PostgreSQL 11.16.6, October 19, 2023](#AuroraPostgreSQL.Updates.20180305.11166 "#AuroraPostgreSQL.Updates.20180305.11166")
+- [Aurora PostgreSQL 11.16.5, December 14, 2022](#AuroraPostgreSQL.Updates.20180305.11165 "#AuroraPostgreSQL.Updates.20180305.11165")
+- [Aurora PostgreSQL 11.16.4, November 17, 2022](#AuroraPostgreSQL.Updates.20180305.11164 "#AuroraPostgreSQL.Updates.20180305.11164")
+- [Aurora PostgreSQL 11.16.3, October 13, 2022](#AuroraPostgreSQL.Updates.20180305.11163 "#AuroraPostgreSQL.Updates.20180305.11163")
+- [Aurora PostgreSQL 11.16.1, July 6, 2022](#AuroraPostgreSQL.Updates.20180305.11161 "#AuroraPostgreSQL.Updates.20180305.11161")
+- [Aurora PostgreSQL 11.16.0, June 9, 2022](#AuroraPostgreSQL.Updates.20180305.11160 "#AuroraPostgreSQL.Updates.20180305.11160")
 
-#### Aurora PostgreSQL
-
-11.16.6, October 19, 2023
+#### Aurora PostgreSQL 11.16.6, October 19, 2023
 
 ###### High priority stability enhancements
 
@@ -13971,9 +12970,7 @@ information about the improvements in PostgreSQL 11.16, see [PostgreSQL release
   `plcoffee` extensions to version 2.3.15.
 - Introduced diagnostics for transient metadata used for I/O.
 
-#### Aurora PostgreSQL
-
-11.16.5, December 14, 2022
+#### Aurora PostgreSQL 11.16.5, December 14, 2022
 
 ###### General stability enhancements
 
@@ -13984,18 +12981,14 @@ information about the improvements in PostgreSQL 11.16, see [PostgreSQL release
 - Fixed an issue that could cause data inconsistency during
   replication.
 
-#### Aurora PostgreSQL
-
-11.16.4, November 17, 2022
+#### Aurora PostgreSQL 11.16.4, November 17, 2022
 
 ###### High priority stability enhancements
 
 - Fixed an issue that can cause increased network traffic when a writer
   instance transmits logs to a replica instance.
 
-#### Aurora PostgreSQL
-
-11.16.3, October 13, 2022
+#### Aurora PostgreSQL 11.16.3, October 13, 2022
 
 ###### High priority stability enhancements
 
@@ -14011,9 +13004,7 @@ information about the improvements in PostgreSQL 11.16, see [PostgreSQL release
   zero-downtime patching (ZDP) causing the extended query to hang after
   the ZDP completion.
 
-#### Aurora PostgreSQL
-
-11.16.1, July 6, 2022
+#### Aurora PostgreSQL 11.16.1, July 6, 2022
 
 ###### Critical stability enhancements
 
@@ -14031,9 +13022,7 @@ information about the improvements in PostgreSQL 11.16, see [PostgreSQL release
 - Improved the diagnostic and supportability information in case of
   inconsistent B-tree index entries.
 
-#### Aurora PostgreSQL
-
-11.16.0, June 9, 2022
+#### Aurora PostgreSQL 11.16.0, June 9, 2022
 
 ###### New features
 
@@ -14069,9 +13058,7 @@ information about the improvements in PostgreSQL 11.16, see [PostgreSQL release
 - Upgraded the plugin `wal2json` version to 2.4.
 - Upgraded the `pglogical` extension to version 2.4.1.
 
-### PostgreSQL 11.15
-
-(Deprecated)
+### PostgreSQL 11.15 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.15. For more
 information about the improvements in PostgreSQL 11.15, see [PostgreSQL release
@@ -14079,18 +13066,12 @@ information about the improvements in PostgreSQL 11.15, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  11.15.6, December 16, 2022](#AuroraPostgreSQL.Updates.20180305.11156 "#AuroraPostgreSQL.Updates.20180305.11156")
-- [Aurora PostgreSQL
-  11.15.4, July 18, 2022](#AuroraPostgreSQL.Updates.20180305.11154 "#AuroraPostgreSQL.Updates.20180305.11154")
-- [Aurora PostgreSQL
-  11.15.1, April 27, 2022](#AuroraPostgreSQL.Updates.20180305.11151 "#AuroraPostgreSQL.Updates.20180305.11151")
-- [Aurora PostgreSQL
-  11.15.0, March 29, 2022](#AuroraPostgreSQL.Updates.20180305.11150 "#AuroraPostgreSQL.Updates.20180305.11150")
+- [Aurora PostgreSQL 11.15.6, December 16, 2022](#AuroraPostgreSQL.Updates.20180305.11156 "#AuroraPostgreSQL.Updates.20180305.11156")
+- [Aurora PostgreSQL 11.15.4, July 18, 2022](#AuroraPostgreSQL.Updates.20180305.11154 "#AuroraPostgreSQL.Updates.20180305.11154")
+- [Aurora PostgreSQL 11.15.1, April 27, 2022](#AuroraPostgreSQL.Updates.20180305.11151 "#AuroraPostgreSQL.Updates.20180305.11151")
+- [Aurora PostgreSQL 11.15.0, March 29, 2022](#AuroraPostgreSQL.Updates.20180305.11150 "#AuroraPostgreSQL.Updates.20180305.11150")
 
-#### Aurora PostgreSQL
-
-11.15.6, December 16, 2022
+#### Aurora PostgreSQL 11.15.6, December 16, 2022
 
 ###### General enhancements
 
@@ -14100,9 +13081,7 @@ information about the improvements in PostgreSQL 11.15, see [PostgreSQL release
   the monitoring agent is unavailable.
 - Updated the `PostGIS` extension to version 3.1.7.
 
-#### Aurora PostgreSQL
-
-11.15.4, July 18, 2022
+#### Aurora PostgreSQL 11.15.4, July 18, 2022
 
 ###### Security enhancements
 
@@ -14124,9 +13103,7 @@ information about the improvements in PostgreSQL 11.15, see [PostgreSQL release
 - Fixed a defect where the validation of cached plans may lead to a
   database restart when the plan was previously invalidated.
 
-#### Aurora PostgreSQL
-
-11.15.1, April 27, 2022
+#### Aurora PostgreSQL 11.15.1, April 27, 2022
 
 ###### High priority stability enhancements
 
@@ -14140,9 +13117,7 @@ information about the improvements in PostgreSQL 11.15, see [PostgreSQL release
 - Fixed an issue that could cause an engine restart during periods of
   low free memory.
 
-#### Aurora PostgreSQL
-
-11.15.0, March 29, 2022
+#### Aurora PostgreSQL 11.15.0, March 29, 2022
 
 ###### High priority stability enhancements
 
@@ -14166,9 +13141,7 @@ information about the improvements in PostgreSQL 11.15, see [PostgreSQL release
 - Fixed multiple issues that could result in periods of unavailability
   when QPM is enabled.
 
-### PostgreSQL 11.14
-
-(Deprecated)
+### PostgreSQL 11.14 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.14. For more
 information about the improvements in PostgreSQL 11.14, see [PostgreSQL release
@@ -14176,22 +13149,14 @@ information about the improvements in PostgreSQL 11.14, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  11.14.7, August 24, 2023](#AuroraPostgreSQL.Updates.20180305.11147 "#AuroraPostgreSQL.Updates.20180305.11147")
-- [Aurora PostgreSQL
-  11.14.6, December 16, 2022](#AuroraPostgreSQL.Updates.20180305.11146 "#AuroraPostgreSQL.Updates.20180305.11146")
-- [Aurora PostgreSQL
-  11.14.4, July 20, 2022](#AuroraPostgreSQL.Updates.20180305.11144 "#AuroraPostgreSQL.Updates.20180305.11144")
-- [Aurora PostgreSQL
-  11.14.3, April 13, 2022](#AuroraPostgreSQL.Updates.20180305.11143 "#AuroraPostgreSQL.Updates.20180305.11143")
-- [Aurora PostgreSQL
-  11.14.1](#AuroraPostgreSQL.Updates.20180305.11141 "#AuroraPostgreSQL.Updates.20180305.11141")
-- [Aurora PostgreSQL
-  11.14.0](#AuroraPostgreSQL.Updates.20180305.11140 "#AuroraPostgreSQL.Updates.20180305.11140")
+- [Aurora PostgreSQL 11.14.7, August 24, 2023](#AuroraPostgreSQL.Updates.20180305.11147 "#AuroraPostgreSQL.Updates.20180305.11147")
+- [Aurora PostgreSQL 11.14.6, December 16, 2022](#AuroraPostgreSQL.Updates.20180305.11146 "#AuroraPostgreSQL.Updates.20180305.11146")
+- [Aurora PostgreSQL 11.14.4, July 20, 2022](#AuroraPostgreSQL.Updates.20180305.11144 "#AuroraPostgreSQL.Updates.20180305.11144")
+- [Aurora PostgreSQL 11.14.3, April 13, 2022](#AuroraPostgreSQL.Updates.20180305.11143 "#AuroraPostgreSQL.Updates.20180305.11143")
+- [Aurora PostgreSQL 11.14.1](#AuroraPostgreSQL.Updates.20180305.11141 "#AuroraPostgreSQL.Updates.20180305.11141")
+- [Aurora PostgreSQL 11.14.0](#AuroraPostgreSQL.Updates.20180305.11140 "#AuroraPostgreSQL.Updates.20180305.11140")
 
-#### Aurora PostgreSQL
-
-11.14.7, August 24, 2023
+#### Aurora PostgreSQL 11.14.7, August 24, 2023
 
 ###### General enhancements
 
@@ -14200,9 +13165,7 @@ information about the improvements in PostgreSQL 11.14, see [PostgreSQL release
 - Fixed an issue preventing `pglogical` from logging
   conflicting rows during the apply phase.
 
-#### Aurora PostgreSQL
-
-11.14.6, December 16, 2022
+#### Aurora PostgreSQL 11.14.6, December 16, 2022
 
 ###### General enhancements
 
@@ -14212,9 +13175,7 @@ information about the improvements in PostgreSQL 11.14, see [PostgreSQL release
   the monitoring agent is unavailable.
 - Updated the `PostGIS` extension to version 3.1.7.
 
-#### Aurora PostgreSQL
-
-11.14.4, July 20, 2022
+#### Aurora PostgreSQL 11.14.4, July 20, 2022
 
 ###### Security enhancements
 
@@ -14238,18 +13199,14 @@ information about the improvements in PostgreSQL 11.14, see [PostgreSQL release
 - Fixed an issue that caused Performance Insights to show "Unknown wait
   event".
 
-#### Aurora PostgreSQL
-
-11.14.3, April 13, 2022
+#### Aurora PostgreSQL 11.14.3, April 13, 2022
 
 ###### General enhancements
 
 - Fixed a bug that could cause an engine restart during periods of low
   free memory.
 
-#### Aurora PostgreSQL
-
-11.14.1
+#### Aurora PostgreSQL 11.14.1
 
 ###### Security enhancements
 
@@ -14264,9 +13221,7 @@ information about the improvements in PostgreSQL 11.14, see [PostgreSQL release
   issue during create extension. The issue was addressed in core
   PostgreSQL by CVE-2020-14350. For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 
-#### Aurora PostgreSQL
-
-11.14.0
+#### Aurora PostgreSQL 11.14.0
 
 ###### Critical stability enhancements
 
@@ -14292,12 +13247,9 @@ information about the improvements in PostgreSQL 11.14, see [PostgreSQL release
 - Improved the Aurora storage metadata validation.
 - Updated the `pg_hint_pan` extension to v1.3.7.
 
-- For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL
-  11](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.11 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.11").
+- For information about extensions and modules, see [Extensions supported for Aurora PostgreSQL 11](AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.11 "AuroraPostgreSQL.md#AuroraPostgreSQL.Extensions.11").
 
-### PostgreSQL 11.13
-
-(Deprecated)
+### PostgreSQL 11.13 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.13. For more
 information about the improvements in PostgreSQL 11.13, see [PostgreSQL release
@@ -14305,31 +13257,21 @@ information about the improvements in PostgreSQL 11.13, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  11.13.6, December 19, 2022](#AuroraPostgreSQL.Updates.20180305.11136 "#AuroraPostgreSQL.Updates.20180305.11136")
-- [Aurora PostgreSQL
-  11.13.4, July 6, 2022](#AuroraPostgreSQL.Updates.20180305.11134 "#AuroraPostgreSQL.Updates.20180305.11134")
-- [Aurora PostgreSQL
-  11.13.3, June 6, 2022](#AuroraPostgreSQL.Updates.20180305.11133 "#AuroraPostgreSQL.Updates.20180305.11133")
-- [Aurora PostgreSQL
-  11.13.2, April 12, 2022](#AuroraPostgreSQL.Updates.20180305.11132 "#AuroraPostgreSQL.Updates.20180305.11132")
-- [Aurora PostgreSQL
-  11.13.1](#AuroraPostgreSQL.Updates.20180305.11131 "#AuroraPostgreSQL.Updates.20180305.11131")
-- [Aurora PostgreSQL
-  11.13.0](#AuroraPostgreSQL.Updates.20180305.11130 "#AuroraPostgreSQL.Updates.20180305.11130")
+- [Aurora PostgreSQL 11.13.6, December 19, 2022](#AuroraPostgreSQL.Updates.20180305.11136 "#AuroraPostgreSQL.Updates.20180305.11136")
+- [Aurora PostgreSQL 11.13.4, July 6, 2022](#AuroraPostgreSQL.Updates.20180305.11134 "#AuroraPostgreSQL.Updates.20180305.11134")
+- [Aurora PostgreSQL 11.13.3, June 6, 2022](#AuroraPostgreSQL.Updates.20180305.11133 "#AuroraPostgreSQL.Updates.20180305.11133")
+- [Aurora PostgreSQL 11.13.2, April 12, 2022](#AuroraPostgreSQL.Updates.20180305.11132 "#AuroraPostgreSQL.Updates.20180305.11132")
+- [Aurora PostgreSQL 11.13.1](#AuroraPostgreSQL.Updates.20180305.11131 "#AuroraPostgreSQL.Updates.20180305.11131")
+- [Aurora PostgreSQL 11.13.0](#AuroraPostgreSQL.Updates.20180305.11130 "#AuroraPostgreSQL.Updates.20180305.11130")
 
-#### Aurora PostgreSQL
-
-11.13.6, December 19, 2022
+#### Aurora PostgreSQL 11.13.6, December 19, 2022
 
 ###### General enhancements
 
 - Fixed an issue that causes database activity stream inconsistency when
   the monitoring agent is unavailable.
 
-#### Aurora PostgreSQL
-
-11.13.4, July 6, 2022
+#### Aurora PostgreSQL 11.13.4, July 6, 2022
 
 ###### Security enhancements
 
@@ -14348,9 +13290,7 @@ information about the improvements in PostgreSQL 11.13, see [PostgreSQL release
 - Fixed an issue that could result in periods of unavailability due to
   the existence of duplicate relation files.
 
-#### Aurora PostgreSQL
-
-11.13.3, June 6, 2022
+#### Aurora PostgreSQL 11.13.3, June 6, 2022
 
 ###### Security enhancements
 
@@ -14370,18 +13310,14 @@ information about the improvements in PostgreSQL 11.13, see [PostgreSQL release
 - Fixed a memory leak in the Aurora Runtime that could lead to an
   out-of-memory condition.
 
-#### Aurora PostgreSQL
-
-11.13.2, April 12, 2022
+#### Aurora PostgreSQL 11.13.2, April 12, 2022
 
 ###### General enhancements
 
 - Fixed a buffer cache bug that could cause brief periods of
   unavailability.
 
-#### Aurora PostgreSQL
-
-11.13.1
+#### Aurora PostgreSQL 11.13.1
 
 ###### Security enhancements
 
@@ -14396,9 +13332,7 @@ information about the improvements in PostgreSQL 11.13, see [PostgreSQL release
   issue during create extension. The issue was addressed in core
   PostgreSQL by CVE-2020-14350. For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 
-#### Aurora PostgreSQL
-
-11.13.0
+#### Aurora PostgreSQL 11.13.0
 
 ###### Critical stability enhancements
 
@@ -14436,9 +13370,7 @@ information about the improvements in PostgreSQL 11.13, see [PostgreSQL release
 - Added support for `postgis_raster` extension version
   3.1.4.
 
-### PostgreSQL 11.12,
-
-Aurora PostgreSQL 3.6 (Deprecated)
+### PostgreSQL 11.12, Aurora PostgreSQL 3.6 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.12. For more
 information about the improvements in PostgreSQL 11.12, see [PostgreSQL release
@@ -14446,27 +13378,20 @@ information about the improvements in PostgreSQL 11.12, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  11.12.5, December 30, 2022](#AuroraPostgreSQL.Updates.20180305.11125 "#AuroraPostgreSQL.Updates.20180305.11125")
-- [Aurora PostgreSQL
-  11.12.4, July 14, 2022](#AuroraPostgreSQL.Updates.20180305.11124 "#AuroraPostgreSQL.Updates.20180305.11124")
+- [Aurora PostgreSQL 11.12.5, December 30, 2022](#AuroraPostgreSQL.Updates.20180305.11125 "#AuroraPostgreSQL.Updates.20180305.11125")
+- [Aurora PostgreSQL 11.12.4, July 14, 2022](#AuroraPostgreSQL.Updates.20180305.11124 "#AuroraPostgreSQL.Updates.20180305.11124")
 - [Aurora PostgreSQL 3.6.2](#AuroraPostgreSQL.Updates.20180305.362 "#AuroraPostgreSQL.Updates.20180305.362")
 - [Aurora PostgreSQL 3.6.1](#AuroraPostgreSQL.Updates.20180305.1112 "#AuroraPostgreSQL.Updates.20180305.1112")
-- [Aurora PostgreSQL
-  3.6.0](#AuroraPostgreSQL.Updates.20180305.360 "#AuroraPostgreSQL.Updates.20180305.360")
+- [Aurora PostgreSQL 3.6.0](#AuroraPostgreSQL.Updates.20180305.360 "#AuroraPostgreSQL.Updates.20180305.360")
 
-#### Aurora PostgreSQL
-
-11.12.5, December 30, 2022
+#### Aurora PostgreSQL 11.12.5, December 30, 2022
 
 ###### General enhancements
 
 - Fixed an issue that causes database activity stream inconsistency when
   the monitoring agent is unavailable.
 
-#### Aurora PostgreSQL
-
-11.12.4, July 14, 2022
+#### Aurora PostgreSQL 11.12.4, July 14, 2022
 
 ###### Security enhancements
 
@@ -14540,9 +13465,7 @@ information about the improvements in PostgreSQL 11.12, see [PostgreSQL release
   leads to writer node restart. This also reduces the overall system
   memory consumption.
 
-#### Aurora PostgreSQL
-
-3.6.0
+#### Aurora PostgreSQL 3.6.0
 
 ###### High priority stability enhancements
 
@@ -14574,9 +13497,7 @@ directory`.
   during S3 import.
 - Updated the `orafce` extension to version 3.16.
 
-### PostgreSQL 11.11,
-
-Aurora PostgreSQL 3.5 (Deprecated)
+### PostgreSQL 11.11, Aurora PostgreSQL 3.5 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.11. For more
 information about the improvements in PostgreSQL 11.11, see [PostgreSQL release
@@ -14585,8 +13506,7 @@ information about the improvements in PostgreSQL 11.11, see [PostgreSQL release
 ###### Releases and patches
 
 - [Aurora PostgreSQL 3.5.1](#AuroraPostgreSQL.Updates.20180305.351 "#AuroraPostgreSQL.Updates.20180305.351")
-- [Aurora PostgreSQL
-  3.5.0](#AuroraPostgreSQL.Updates.20180305.350 "#AuroraPostgreSQL.Updates.20180305.350")
+- [Aurora PostgreSQL 3.5.0](#AuroraPostgreSQL.Updates.20180305.350 "#AuroraPostgreSQL.Updates.20180305.350")
 
 #### Aurora PostgreSQL 3.5.1
 
@@ -14606,9 +13526,7 @@ information about the improvements in PostgreSQL 11.11, see [PostgreSQL release
 - Backpatched an input validation error in the `log_fdw`
   extension function parameters.
 
-#### Aurora PostgreSQL
-
-3.5.0
+#### Aurora PostgreSQL 3.5.0
 
 ###### New features
 
@@ -14675,9 +13593,7 @@ relation OID`**.
 - Fixed a bug in asynchronous buffer reads that could cause brief
   periods of unavailability on reader nodes during WAL replay.
 
-### PostgreSQL 11.9,
-
-Aurora PostgreSQL 3.4
+### PostgreSQL 11.9, Aurora PostgreSQL 3.4
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.9. For more
 information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
@@ -14687,31 +13603,19 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
 
 - [Aurora PostgreSQL 11.9.18, January 15, 2026](#aurorapostgresql-versions-version11918x-11918 "#aurorapostgresql-versions-version11918x-11918")
 - [Aurora PostgreSQL 11.9.16, June 18, 2025](#aurorapostgresql-versions-version11916x-11916 "#aurorapostgresql-versions-version11916x-11916")
-- [Aurora PostgreSQL 11.9.15
-  April 29, 2025](#aurorapostgresql-versions-version11915x-11915 "#aurorapostgresql-versions-version11915x-11915")
-- [Aurora PostgreSQL
-  11.9.13, November 22, 2024](#aurorapostgresql-versions-version119x-11913 "#aurorapostgresql-versions-version119x-11913")
-- [Aurora PostgreSQL
-  11.9.12, August 7, 2024](#AuroraPostgreSQL.Updates.20180305.11912 "#AuroraPostgreSQL.Updates.20180305.11912")
-- [Aurora PostgreSQL
-  11.9.11, March 13, 2024](#AuroraPostgreSQL.Updates.20180305.11911 "#AuroraPostgreSQL.Updates.20180305.11911")
-- [Aurora PostgreSQL 11.9.9,
-  December 27, 2023](#AuroraPostgreSQL.Updates.20180305.1199 "#AuroraPostgreSQL.Updates.20180305.1199")
-- [Aurora PostgreSQL 3.4.8,
-  October 10, 2023](#AuroraPostgreSQL.Updates.20180305.1198 "#AuroraPostgreSQL.Updates.20180305.1198")
-- [Aurora PostgreSQL 3.4.7,
-  December 22, 2022](#AuroraPostgreSQL.Updates.20180305.1197 "#AuroraPostgreSQL.Updates.20180305.1197")
-- [Aurora PostgreSQL 3.4.6,
-  July 8, 2022](#AuroraPostgreSQL.Updates.20180305.1196 "#AuroraPostgreSQL.Updates.20180305.1196")
+- [Aurora PostgreSQL 11.9.15 April 29, 2025](#aurorapostgresql-versions-version11915x-11915 "#aurorapostgresql-versions-version11915x-11915")
+- [Aurora PostgreSQL 11.9.13, November 22, 2024](#aurorapostgresql-versions-version119x-11913 "#aurorapostgresql-versions-version119x-11913")
+- [Aurora PostgreSQL 11.9.12, August 7, 2024](#AuroraPostgreSQL.Updates.20180305.11912 "#AuroraPostgreSQL.Updates.20180305.11912")
+- [Aurora PostgreSQL 11.9.11, March 13, 2024](#AuroraPostgreSQL.Updates.20180305.11911 "#AuroraPostgreSQL.Updates.20180305.11911")
+- [Aurora PostgreSQL 11.9.9, December 27, 2023](#AuroraPostgreSQL.Updates.20180305.1199 "#AuroraPostgreSQL.Updates.20180305.1199")
+- [Aurora PostgreSQL 3.4.8, October 10, 2023](#AuroraPostgreSQL.Updates.20180305.1198 "#AuroraPostgreSQL.Updates.20180305.1198")
+- [Aurora PostgreSQL 3.4.7, December 22, 2022](#AuroraPostgreSQL.Updates.20180305.1197 "#AuroraPostgreSQL.Updates.20180305.1197")
+- [Aurora PostgreSQL 3.4.6, July 8, 2022](#AuroraPostgreSQL.Updates.20180305.1196 "#AuroraPostgreSQL.Updates.20180305.1196")
 - [Aurora PostgreSQL 3.4.5](#AuroraPostgreSQL.Updates.20180305.345 "#AuroraPostgreSQL.Updates.20180305.345")
-- [Aurora PostgreSQL
-  3.4.3](#AuroraPostgreSQL.Updates.20180305.343 "#AuroraPostgreSQL.Updates.20180305.343")
-- [Aurora PostgreSQL
-  3.4.2](#AuroraPostgreSQL.Updates.20180305.342 "#AuroraPostgreSQL.Updates.20180305.342")
-- [Aurora PostgreSQL
-  3.4.1](#AuroraPostgreSQL.Updates.20180305.341 "#AuroraPostgreSQL.Updates.20180305.341")
-- [Aurora PostgreSQL
-  3.4.0](#AuroraPostgreSQL.Updates.20180305.340 "#AuroraPostgreSQL.Updates.20180305.340")
+- [Aurora PostgreSQL 3.4.3](#AuroraPostgreSQL.Updates.20180305.343 "#AuroraPostgreSQL.Updates.20180305.343")
+- [Aurora PostgreSQL 3.4.2](#AuroraPostgreSQL.Updates.20180305.342 "#AuroraPostgreSQL.Updates.20180305.342")
+- [Aurora PostgreSQL 3.4.1](#AuroraPostgreSQL.Updates.20180305.341 "#AuroraPostgreSQL.Updates.20180305.341")
+- [Aurora PostgreSQL 3.4.0](#AuroraPostgreSQL.Updates.20180305.340 "#AuroraPostgreSQL.Updates.20180305.340")
 
 #### Aurora PostgreSQL 11.9.18, January 15, 2026
 
@@ -14748,9 +13652,7 @@ information about the improvements in PostgreSQL 11.9, see [PostgreSQL release
 - Fixed an issue related to the interaction between Aurora Serverless scaling and the improved reader availability functionality that might result in longer recover times and impact availability.
 - Fixed an issue in the `rds_activity_stream` extension that could cause brief periods of unavailability during configuration reloads and when maximum connections are consumed.
 
-#### Aurora PostgreSQL 11.9.15
-
-April 29, 2025
+#### Aurora PostgreSQL 11.9.15 April 29, 2025
 
 **High priority enhancements**
 
@@ -14758,9 +13660,7 @@ April 29, 2025
   issues:
   - [CVE-2025-1094](https://www.postgresql.org/support/security/CVE-2025-1094/ "https://www.postgresql.org/support/security/CVE-2025-1094/").
 
-#### Aurora PostgreSQL
-
-11.9.13, November 22, 2024
+#### Aurora PostgreSQL 11.9.13, November 22, 2024
 
 ###### High priority enhancements
 
@@ -14768,9 +13668,7 @@ April 29, 2025
   `rds.enable_plan_management` is turned on, but
   apg_plan_mgmt extension is not installed.
 
-#### Aurora PostgreSQL
-
-11.9.12, August 7, 2024
+#### Aurora PostgreSQL 11.9.12, August 7, 2024
 
 ###### Critical stability enhancements
 
@@ -14778,9 +13676,7 @@ April 29, 2025
   the same table.
 - Fixed a V8 Engine [CVE-2018-6065](https://nvd.nist.gov/vuln/detail/CVE-2018-6065 "https://nvd.nist.gov/vuln/detail/CVE-2018-6065") for PLV8 2.x.
 
-#### Aurora PostgreSQL
-
-11.9.11, March 13, 2024
+#### Aurora PostgreSQL 11.9.11, March 13, 2024
 
 ###### General stability enhancements
 
@@ -14802,9 +13698,7 @@ April 29, 2025
 - Fixed a deadlock issue in Aurora storage which can result in writer
   failover.
 
-#### Aurora PostgreSQL 11.9.9,
-
-December 27, 2023
+#### Aurora PostgreSQL 11.9.9, December 27, 2023
 
 ###### Critical stability enhancements
 
@@ -14819,9 +13713,7 @@ December 27, 2023
 - Fixed an issue with logical replication actions being performed by
   someone other than the table owner
 
-#### Aurora PostgreSQL 3.4.8,
-
-October 10, 2023
+#### Aurora PostgreSQL 3.4.8, October 10, 2023
 
 ###### High priority stability enhancements
 
@@ -14832,18 +13724,14 @@ October 10, 2023
   - [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454 "https://nvd.nist.gov/vuln/detail/CVE-2023-2454")
   - [CVE-2022-2625](https://nvd.nist.gov/vuln/detail/CVE-2022-2625 "https://nvd.nist.gov/vuln/detail/CVE-2022-2625")
 
-#### Aurora PostgreSQL 3.4.7,
-
-December 22, 2022
+#### Aurora PostgreSQL 3.4.7, December 22, 2022
 
 ###### General enhancements
 
 - Fixed an issue that causes database activity stream inconsistency when
   the monitoring agent is unavailable.
 
-#### Aurora PostgreSQL 3.4.6,
-
-July 8, 2022
+#### Aurora PostgreSQL 3.4.6, July 8, 2022
 
 ###### Security enhancements
 
@@ -14869,9 +13757,7 @@ July 8, 2022
 - Backpatched an input validation error in the `log_fdw`
   extension function parameters.
 
-#### Aurora PostgreSQL
-
-3.4.3
+#### Aurora PostgreSQL 3.4.3
 
 ###### High priority stability enhancements
 
@@ -14894,9 +13780,7 @@ July 8, 2022
   brief periods of unavailability when specific network configurations are
   used.
 
-#### Aurora PostgreSQL
-
-3.4.2
+#### Aurora PostgreSQL 3.4.2
 
 ###### High priority stability enhancements
 
@@ -14920,9 +13804,7 @@ July 8, 2022
   node runs a query that access many tables while the writer node is
   acquiring exclusive locks on all of the same tables.
 
-#### Aurora PostgreSQL
-
-3.4.1
+#### Aurora PostgreSQL 3.4.1
 
 ###### Critical stability enhancements
 
@@ -14947,9 +13829,7 @@ July 8, 2022
 - Disallowed the use of both IAM and Kerberos authentication for the
   same user.
 
-#### Aurora PostgreSQL
-
-3.4.0
+#### Aurora PostgreSQL 3.4.0
 
 ###### New features
 
@@ -15026,9 +13906,7 @@ names with a period (.) are not supported`**.
   notified of the end of an outage.
 - Updated the `pg_audit` extension to version 1.3.1.
 
-### PostgreSQL 11.8,
-
-Aurora PostgreSQL 3.3 (Deprecated)
+### PostgreSQL 11.8, Aurora PostgreSQL 3.3 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.8. For more
 information about the improvements in PostgreSQL 11.8, see [PostgreSQL release
@@ -15036,16 +13914,11 @@ information about the improvements in PostgreSQL 11.8, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL release
-  3.3.2](#AuroraPostgreSQL.Updates.20180305.332 "#AuroraPostgreSQL.Updates.20180305.332")
-- [Aurora PostgreSQL
-  3.3.1](#AuroraPostgreSQL.Updates.20180305.331 "#AuroraPostgreSQL.Updates.20180305.331")
-- [Aurora PostgreSQL
-  3.3.0](#AuroraPostgreSQL.Updates.20180305.330 "#AuroraPostgreSQL.Updates.20180305.330")
+- [Aurora PostgreSQL release 3.3.2](#AuroraPostgreSQL.Updates.20180305.332 "#AuroraPostgreSQL.Updates.20180305.332")
+- [Aurora PostgreSQL 3.3.1](#AuroraPostgreSQL.Updates.20180305.331 "#AuroraPostgreSQL.Updates.20180305.331")
+- [Aurora PostgreSQL 3.3.0](#AuroraPostgreSQL.Updates.20180305.330 "#AuroraPostgreSQL.Updates.20180305.330")
 
-#### Aurora PostgreSQL release
-
-3.3.2
+#### Aurora PostgreSQL release 3.3.2
 
 ###### Critical stability enhancements
 
@@ -15109,9 +13982,7 @@ supported`**.
   be blocked indefinitely if an exclusive lock was taken on the relation
   prior to beginning the operation.
 
-#### Aurora PostgreSQL
-
-3.3.1
+#### Aurora PostgreSQL 3.3.1
 
 You can find the following improvements in this release.
 
@@ -15128,9 +13999,7 @@ You can find the following improvements in this release.
    - The filter used in the subquery does not use an index seek for its execution.
    - The operator isn't converted to a join by the query optimizer.
 
-#### Aurora PostgreSQL
-
-3.3.0
+#### Aurora PostgreSQL 3.3.0
 
 ###### New features
 
@@ -15228,9 +14097,7 @@ blockno=bbb nblocks=nnn`**.
 error code: 248`**. For more information, see [aws_s3.table_import_from_s3](../AuroraUserGuide/USER_PostgreSQL.md#aws_s3.table_import_from_s3 "../AuroraUserGuide/USER_PostgreSQL.md#aws_s3.table_import_from_s3") in the _Amazon Aurora
   User Guide_.
 
-### PostgreSQL 11.7,
-
-Aurora PostgreSQL 3.2 (Deprecated)
+### PostgreSQL 11.7, Aurora PostgreSQL 3.2 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.7. For more
 information about the improvements in PostgreSQL 11.7, see [PostgreSQL release
@@ -15238,22 +14105,14 @@ information about the improvements in PostgreSQL 11.7, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  3.2.7](#AuroraPostgreSQL.Updates.20180305.327 "#AuroraPostgreSQL.Updates.20180305.327")
-- [Aurora PostgreSQL
-  3.2.6](#AuroraPostgreSQL.Updates.20180305.326 "#AuroraPostgreSQL.Updates.20180305.326")
-- [Aurora PostgreSQL
-  3.2.4](#AuroraPostgreSQL.Updates.20180305.324 "#AuroraPostgreSQL.Updates.20180305.324")
-- [Aurora PostgreSQL
-  3.2.3](#AuroraPostgreSQL.Updates.20180305.323 "#AuroraPostgreSQL.Updates.20180305.323")
-- [Aurora PostgreSQL
-  3.2.2](#AuroraPostgreSQL.Updates.20180305.322 "#AuroraPostgreSQL.Updates.20180305.322")
-- [Aurora PostgreSQL
-  3.2.1](#AuroraPostgreSQL.Updates.20180305.321 "#AuroraPostgreSQL.Updates.20180305.321")
+- [Aurora PostgreSQL 3.2.7](#AuroraPostgreSQL.Updates.20180305.327 "#AuroraPostgreSQL.Updates.20180305.327")
+- [Aurora PostgreSQL 3.2.6](#AuroraPostgreSQL.Updates.20180305.326 "#AuroraPostgreSQL.Updates.20180305.326")
+- [Aurora PostgreSQL 3.2.4](#AuroraPostgreSQL.Updates.20180305.324 "#AuroraPostgreSQL.Updates.20180305.324")
+- [Aurora PostgreSQL 3.2.3](#AuroraPostgreSQL.Updates.20180305.323 "#AuroraPostgreSQL.Updates.20180305.323")
+- [Aurora PostgreSQL 3.2.2](#AuroraPostgreSQL.Updates.20180305.322 "#AuroraPostgreSQL.Updates.20180305.322")
+- [Aurora PostgreSQL 3.2.1](#AuroraPostgreSQL.Updates.20180305.321 "#AuroraPostgreSQL.Updates.20180305.321")
 
-#### Aurora PostgreSQL
-
-3.2.7
+#### Aurora PostgreSQL 3.2.7
 
 You can find the following improvements in this release.
 
@@ -15273,9 +14132,7 @@ You can find the following improvements in this release.
 
 - None
 
-#### Aurora PostgreSQL
-
-3.2.6
+#### Aurora PostgreSQL 3.2.6
 
 You can find the following improvements in this release.
 
@@ -15319,9 +14176,7 @@ bucket names with a period (.) are not supported`**.
   be blocked indefinitely if an exclusive lock was taken on the relation
   prior to beginning the operation.
 
-#### Aurora PostgreSQL
-
-3.2.4
+#### Aurora PostgreSQL 3.2.4
 
 You can find the following improvements in this release.
 
@@ -15338,9 +14193,7 @@ You can find the following improvements in this release.
    - The filter used in the subquery does not use an index seek for its execution.
    - The operator isn't converted to a join by the query optimizer.
 
-#### Aurora PostgreSQL
-
-3.2.3
+#### Aurora PostgreSQL 3.2.3
 
 You can find the following improvements in this release.
 
@@ -15361,9 +14214,7 @@ You can find the following improvements in this release.
   subtransaction workloads when multiple reader instances restart or
   rejoin the cluster.
 
-#### Aurora PostgreSQL
-
-3.2.2
+#### Aurora PostgreSQL 3.2.2
 
 You can find the following improvements in this release.
 
@@ -15392,9 +14243,7 @@ nblocks=nnn`**.
   return the following error after a scaling event: **`ERROR:
 prepared statement "S_6" already exists`**.
 
-#### Aurora PostgreSQL
-
-3.2.1
+#### Aurora PostgreSQL 3.2.1
 
 ###### New features
 
@@ -15477,9 +14326,7 @@ owner TopTransaction`**.
 
 - Provided support for fault injection queries.
 
-### PostgreSQL 11.6,
-
-Aurora PostgreSQL 3.1 (Deprecated)
+### PostgreSQL 11.6, Aurora PostgreSQL 3.1 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 11.6. For more
 information about the improvements in PostgreSQL 11.6, see [PostgreSQL release
@@ -15491,20 +14338,13 @@ engines to this release.
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  3.1.4](#AuroraPostgreSQL.Updates.20180305.314 "#AuroraPostgreSQL.Updates.20180305.314")
-- [Aurora PostgreSQL
-  3.1.3](#AuroraPostgreSQL.Updates.20180305.313 "#AuroraPostgreSQL.Updates.20180305.313")
-- [Aurora PostgreSQL
-  3.1.2](#AuroraPostgreSQL.Updates.20180305.312 "#AuroraPostgreSQL.Updates.20180305.312")
-- [Aurora PostgreSQL
-  3.1.1](#AuroraPostgreSQL.Updates.20180305.311 "#AuroraPostgreSQL.Updates.20180305.311")
-- [Aurora PostgreSQL
-  3.1.0](#AuroraPostgreSQL.Updates.20180305.310 "#AuroraPostgreSQL.Updates.20180305.310")
+- [Aurora PostgreSQL 3.1.4](#AuroraPostgreSQL.Updates.20180305.314 "#AuroraPostgreSQL.Updates.20180305.314")
+- [Aurora PostgreSQL 3.1.3](#AuroraPostgreSQL.Updates.20180305.313 "#AuroraPostgreSQL.Updates.20180305.313")
+- [Aurora PostgreSQL 3.1.2](#AuroraPostgreSQL.Updates.20180305.312 "#AuroraPostgreSQL.Updates.20180305.312")
+- [Aurora PostgreSQL 3.1.1](#AuroraPostgreSQL.Updates.20180305.311 "#AuroraPostgreSQL.Updates.20180305.311")
+- [Aurora PostgreSQL 3.1.0](#AuroraPostgreSQL.Updates.20180305.310 "#AuroraPostgreSQL.Updates.20180305.310")
 
-#### Aurora PostgreSQL
-
-3.1.4
+#### Aurora PostgreSQL 3.1.4
 
 You can find the following improvements in this release.
 
@@ -15524,9 +14364,7 @@ You can find the following improvements in this release.
 
 - None
 
-#### Aurora PostgreSQL
-
-3.1.3
+#### Aurora PostgreSQL 3.1.3
 
 ###### New features
 
@@ -15548,9 +14386,7 @@ You can find the following improvements in this release.
 
 - None
 
-#### Aurora PostgreSQL
-
-3.1.2
+#### Aurora PostgreSQL 3.1.2
 
 This release contains a critical stability enhancement. Amazon highly
 recommends updating your older Aurora PostgreSQL 11-compatible clusters to this
@@ -15582,9 +14418,7 @@ release.
 - Fixed a bug that prevented Performance Insights from determining the
   query ID of a running statement.
 
-#### Aurora PostgreSQL
-
-3.1.1
+#### Aurora PostgreSQL 3.1.1
 
 You can find the following improvements in this release.
 
@@ -15620,9 +14454,7 @@ You can find the following improvements in this release.
   community.
 - Improved the performance of in-memory B-Tree index scans.
 
-#### Aurora PostgreSQL
-
-3.1.0
+#### Aurora PostgreSQL 3.1.0
 
 You can find the following new features and improvements in this engine
 version.
@@ -15752,9 +14584,7 @@ oldest active xid on standby is at least
     - Added `plprofiler` version 4.1.
     - Added `pgTAP` version 1.0.0.
 
-### PostgreSQL 11.4,
-
-Aurora PostgreSQL 3.0 (Deprecated)
+### PostgreSQL 11.4, Aurora PostgreSQL 3.0 (Deprecated)
 
 ###### Note
 
@@ -15771,8 +14601,7 @@ You can find the following improvements in this release.
 ###### Improvements
 
 1. This release contains all fixes, features, and improvements present in
-   [Aurora PostgreSQL
-   2.3.5](#AuroraPostgreSQL.Updates.20180305.235 "#AuroraPostgreSQL.Updates.20180305.235").
+   [Aurora PostgreSQL 2.3.5](#AuroraPostgreSQL.Updates.20180305.235 "#AuroraPostgreSQL.Updates.20180305.235").
 2. Partitioning – Partitioning improvements include support for hash
    partitioning, enabling creation of a default partition, and dynamic row
    movement to another partition based on the key column update.
@@ -15824,44 +14653,26 @@ You can find the following improvements in this release.
    - `postgis_topology` to version 2.5.1
    - `rds_activity_stream` to version 1.3
 
-## PostgreSQL 10 versions
-
-(Deprecated)
+## PostgreSQL 10 versions (Deprecated)
 
 ###### Version updates
 
-- [PostgreSQL 10.21
-  (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1021X "#AuroraPostgreSQL.Updates.20180305.1021X")
-- [PostgreSQL 10.20
-  (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1020X "#AuroraPostgreSQL.Updates.20180305.1020X")
-- [PostgreSQL 10.19
-  (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1019 "#AuroraPostgreSQL.Updates.20180305.1019")
-- [PostgreSQL 10.18
-  (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1018 "#AuroraPostgreSQL.Updates.20180305.1018")
-- [PostgreSQL 10.17,
-  Aurora PostgreSQL 2.9 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.29 "#AuroraPostgreSQL.Updates.20180305.29")
-- [PostgreSQL 10.16,
-  Aurora PostgreSQL 2.8 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.28 "#AuroraPostgreSQL.Updates.20180305.28")
-- [PostgreSQL 10.14,
-  Aurora PostgreSQL 2.7 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.27 "#AuroraPostgreSQL.Updates.20180305.27")
-- [PostgreSQL 10.13,
-  Aurora PostgreSQL 2.6 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.26 "#AuroraPostgreSQL.Updates.20180305.26")
-- [PostgreSQL 10.12,
-  Aurora PostgreSQL 2.5 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.25 "#AuroraPostgreSQL.Updates.20180305.25")
-- [PostgreSQL 10.11,
-  Aurora PostgreSQL 2.4 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.24 "#AuroraPostgreSQL.Updates.20180305.24")
-- [PostgreSQL 10.7,
-  Aurora PostgreSQL 2.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.23 "#AuroraPostgreSQL.Updates.20180305.23")
-- [PostgreSQL 10.6,
-  Aurora PostgreSQL 2.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.22 "#AuroraPostgreSQL.Updates.20180305.22")
-- [PostgreSQL 10.5,
-  Aurora PostgreSQL 2.1 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.21 "#AuroraPostgreSQL.Updates.20180305.21")
-- [PostgreSQL 10.4,
-  Aurora PostgreSQL 2.0 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.20 "#AuroraPostgreSQL.Updates.20180305.20")
+- [PostgreSQL 10.21 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1021X "#AuroraPostgreSQL.Updates.20180305.1021X")
+- [PostgreSQL 10.20 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1020X "#AuroraPostgreSQL.Updates.20180305.1020X")
+- [PostgreSQL 10.19 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1019 "#AuroraPostgreSQL.Updates.20180305.1019")
+- [PostgreSQL 10.18 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.1018 "#AuroraPostgreSQL.Updates.20180305.1018")
+- [PostgreSQL 10.17, Aurora PostgreSQL 2.9 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.29 "#AuroraPostgreSQL.Updates.20180305.29")
+- [PostgreSQL 10.16, Aurora PostgreSQL 2.8 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.28 "#AuroraPostgreSQL.Updates.20180305.28")
+- [PostgreSQL 10.14, Aurora PostgreSQL 2.7 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.27 "#AuroraPostgreSQL.Updates.20180305.27")
+- [PostgreSQL 10.13, Aurora PostgreSQL 2.6 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.26 "#AuroraPostgreSQL.Updates.20180305.26")
+- [PostgreSQL 10.12, Aurora PostgreSQL 2.5 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.25 "#AuroraPostgreSQL.Updates.20180305.25")
+- [PostgreSQL 10.11, Aurora PostgreSQL 2.4 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.24 "#AuroraPostgreSQL.Updates.20180305.24")
+- [PostgreSQL 10.7, Aurora PostgreSQL 2.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.23 "#AuroraPostgreSQL.Updates.20180305.23")
+- [PostgreSQL 10.6, Aurora PostgreSQL 2.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.22 "#AuroraPostgreSQL.Updates.20180305.22")
+- [PostgreSQL 10.5, Aurora PostgreSQL 2.1 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.21 "#AuroraPostgreSQL.Updates.20180305.21")
+- [PostgreSQL 10.4, Aurora PostgreSQL 2.0 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.20 "#AuroraPostgreSQL.Updates.20180305.20")
 
-### PostgreSQL 10.21
-
-(Deprecated)
+### PostgreSQL 10.21 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.21. For more
 information about the improvements in PostgreSQL 10.21, see [PostgreSQL release
@@ -15869,37 +14680,26 @@ information about the improvements in PostgreSQL 10.21, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  10.21.5, December 14, 2022](#AuroraPostgreSQL.Updates.20180305.10215 "#AuroraPostgreSQL.Updates.20180305.10215")
-- [Aurora PostgreSQL
-  10.21.4, November 17, 2022](#AuroraPostgreSQL.Updates.20180305.10214 "#AuroraPostgreSQL.Updates.20180305.10214")
-- [Aurora PostgreSQL
-  10.21.3, October 13, 2022](#AuroraPostgreSQL.Updates.20180305.10213 "#AuroraPostgreSQL.Updates.20180305.10213")
-- [Aurora PostgreSQL
-  10.21.1, July 6, 2022](#AuroraPostgreSQL.Updates.20180305.10211 "#AuroraPostgreSQL.Updates.20180305.10211")
-- [Aurora PostgreSQL
-  10.21.0, June 9, 2022](#AuroraPostgreSQL.Updates.20180305.10210 "#AuroraPostgreSQL.Updates.20180305.10210")
+- [Aurora PostgreSQL 10.21.5, December 14, 2022](#AuroraPostgreSQL.Updates.20180305.10215 "#AuroraPostgreSQL.Updates.20180305.10215")
+- [Aurora PostgreSQL 10.21.4, November 17, 2022](#AuroraPostgreSQL.Updates.20180305.10214 "#AuroraPostgreSQL.Updates.20180305.10214")
+- [Aurora PostgreSQL 10.21.3, October 13, 2022](#AuroraPostgreSQL.Updates.20180305.10213 "#AuroraPostgreSQL.Updates.20180305.10213")
+- [Aurora PostgreSQL 10.21.1, July 6, 2022](#AuroraPostgreSQL.Updates.20180305.10211 "#AuroraPostgreSQL.Updates.20180305.10211")
+- [Aurora PostgreSQL 10.21.0, June 9, 2022](#AuroraPostgreSQL.Updates.20180305.10210 "#AuroraPostgreSQL.Updates.20180305.10210")
 
-#### Aurora PostgreSQL
-
-10.21.5, December 14, 2022
+#### Aurora PostgreSQL 10.21.5, December 14, 2022
 
 ###### General stability enhancements
 
 - Fixed an issue where the engine experienced stability issues.
 
-#### Aurora PostgreSQL
-
-10.21.4, November 17, 2022
+#### Aurora PostgreSQL 10.21.4, November 17, 2022
 
 ###### High priority stability enhancements
 
 - Fixed an issue that can cause increased network traffic when a writer
   instance transmits logs to a replica instance.
 
-#### Aurora PostgreSQL
-
-10.21.3, October 13, 2022
+#### Aurora PostgreSQL 10.21.3, October 13, 2022
 
 ###### High priority stability enhancements
 
@@ -15915,9 +14715,7 @@ information about the improvements in PostgreSQL 10.21, see [PostgreSQL release
   zero-downtime patching (ZDP) causing the extended query to hang after
   the ZDP completion.
 
-#### Aurora PostgreSQL
-
-10.21.1, July 6, 2022
+#### Aurora PostgreSQL 10.21.1, July 6, 2022
 
 ###### Critical stability enhancements
 
@@ -15935,9 +14733,7 @@ information about the improvements in PostgreSQL 10.21, see [PostgreSQL release
 - Improved the diagnostic and supportability information in case of
   inconsistent B-tree index entries.
 
-#### Aurora PostgreSQL
-
-10.21.0, June 9, 2022
+#### Aurora PostgreSQL 10.21.0, June 9, 2022
 
 ###### New features
 
@@ -15973,9 +14769,7 @@ information about the improvements in PostgreSQL 10.21, see [PostgreSQL release
 - Upgraded the plugin `wal2json` version to 2.4.
 - Upgraded the `pglogical` extension to version 2.4.1.
 
-### PostgreSQL 10.20
-
-(Deprecated)
+### PostgreSQL 10.20 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.20. For more
 information about the improvements in PostgreSQL 10.20, see [PostgreSQL release
@@ -15983,18 +14777,12 @@ information about the improvements in PostgreSQL 10.20, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  10.20.6, December 16, 2022](#AuroraPostgreSQL.Updates.20180305.10206 "#AuroraPostgreSQL.Updates.20180305.10206")
-- [Aurora PostgreSQL
-  10.20.4, July 18, 2022](#AuroraPostgreSQL.Updates.20180305.10204 "#AuroraPostgreSQL.Updates.20180305.10204")
-- [Aurora PostgreSQL
-  10.20.1, April 27, 2022](#AuroraPostgreSQL.Updates.20180305.10201 "#AuroraPostgreSQL.Updates.20180305.10201")
-- [Aurora PostgreSQL
-  10.20.0, March 29, 2022](#AuroraPostgreSQL.Updates.20180305.10200 "#AuroraPostgreSQL.Updates.20180305.10200")
+- [Aurora PostgreSQL 10.20.6, December 16, 2022](#AuroraPostgreSQL.Updates.20180305.10206 "#AuroraPostgreSQL.Updates.20180305.10206")
+- [Aurora PostgreSQL 10.20.4, July 18, 2022](#AuroraPostgreSQL.Updates.20180305.10204 "#AuroraPostgreSQL.Updates.20180305.10204")
+- [Aurora PostgreSQL 10.20.1, April 27, 2022](#AuroraPostgreSQL.Updates.20180305.10201 "#AuroraPostgreSQL.Updates.20180305.10201")
+- [Aurora PostgreSQL 10.20.0, March 29, 2022](#AuroraPostgreSQL.Updates.20180305.10200 "#AuroraPostgreSQL.Updates.20180305.10200")
 
-#### Aurora PostgreSQL
-
-10.20.6, December 16, 2022
+#### Aurora PostgreSQL 10.20.6, December 16, 2022
 
 ###### General enhancements
 
@@ -16002,9 +14790,7 @@ information about the improvements in PostgreSQL 10.20, see [PostgreSQL release
   instance transmits logs to a replica instance.
 - Updated the PostGIS extension to version 3.1.7.
 
-#### Aurora PostgreSQL
-
-10.20.4, July 18, 2022
+#### Aurora PostgreSQL 10.20.4, July 18, 2022
 
 ###### Security enhancements
 
@@ -16026,9 +14812,7 @@ information about the improvements in PostgreSQL 10.20, see [PostgreSQL release
 - Fixed a defect where the validation of cached plans may lead to a
   database restart when the plan was previously invalidated.
 
-#### Aurora PostgreSQL
-
-10.20.1, April 27, 2022
+#### Aurora PostgreSQL 10.20.1, April 27, 2022
 
 ###### High priority stability enhancements
 
@@ -16042,9 +14826,7 @@ information about the improvements in PostgreSQL 10.20, see [PostgreSQL release
 - Fixed an issue that could cause an engine restart during periods of
   low free memory.
 
-#### Aurora PostgreSQL
-
-10.20.0, March 29, 2022
+#### Aurora PostgreSQL 10.20.0, March 29, 2022
 
 ###### High priority stability enhancements
 
@@ -16068,9 +14850,7 @@ information about the improvements in PostgreSQL 10.20, see [PostgreSQL release
 - Fixed multiple issues that could result in periods of unavailability
   when QPM is enabled.
 
-### PostgreSQL 10.19
-
-(Deprecated)
+### PostgreSQL 10.19 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.19. For more
 information about the improvements in PostgreSQL 10.19, see [PostgreSQL release
@@ -16078,20 +14858,13 @@ information about the improvements in PostgreSQL 10.19, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  10.19.6, December 16, 2022](#AuroraPostgreSQL.Updates.20180305.10196 "#AuroraPostgreSQL.Updates.20180305.10196")
-- [Aurora PostgreSQL
-  10.19.4, July 20, 2022](#AuroraPostgreSQL.Updates.20180305.10194 "#AuroraPostgreSQL.Updates.20180305.10194")
-- [Aurora PostgreSQL
-  10.19.3, April 13, 2022](#AuroraPostgreSQL.Updates.20180305.10193 "#AuroraPostgreSQL.Updates.20180305.10193")
-- [Aurora PostgreSQL
-  10.19.1](#AuroraPostgreSQL.Updates.20180305.10191 "#AuroraPostgreSQL.Updates.20180305.10191")
-- [Aurora PostgreSQL
-  10.19.0](#AuroraPostgreSQL.Updates.20180305.10190 "#AuroraPostgreSQL.Updates.20180305.10190")
+- [Aurora PostgreSQL 10.19.6, December 16, 2022](#AuroraPostgreSQL.Updates.20180305.10196 "#AuroraPostgreSQL.Updates.20180305.10196")
+- [Aurora PostgreSQL 10.19.4, July 20, 2022](#AuroraPostgreSQL.Updates.20180305.10194 "#AuroraPostgreSQL.Updates.20180305.10194")
+- [Aurora PostgreSQL 10.19.3, April 13, 2022](#AuroraPostgreSQL.Updates.20180305.10193 "#AuroraPostgreSQL.Updates.20180305.10193")
+- [Aurora PostgreSQL 10.19.1](#AuroraPostgreSQL.Updates.20180305.10191 "#AuroraPostgreSQL.Updates.20180305.10191")
+- [Aurora PostgreSQL 10.19.0](#AuroraPostgreSQL.Updates.20180305.10190 "#AuroraPostgreSQL.Updates.20180305.10190")
 
-#### Aurora PostgreSQL
-
-10.19.6, December 16, 2022
+#### Aurora PostgreSQL 10.19.6, December 16, 2022
 
 ###### General enhancements
 
@@ -16101,9 +14874,7 @@ information about the improvements in PostgreSQL 10.19, see [PostgreSQL release
   the monitoring agent is unavailable.
 - Updated the PostGIS extension to version 3.1.7.
 
-#### Aurora PostgreSQL
-
-10.19.4, July 20, 2022
+#### Aurora PostgreSQL 10.19.4, July 20, 2022
 
 ###### Security enhancements
 
@@ -16127,18 +14898,14 @@ information about the improvements in PostgreSQL 10.19, see [PostgreSQL release
 - Fixed an issue that caused Performance Insights to show "Unknown wait
   event".
 
-#### Aurora PostgreSQL
-
-10.19.3, April 13, 2022
+#### Aurora PostgreSQL 10.19.3, April 13, 2022
 
 ###### General enhancements
 
 - Fixed a bug that could cause an engine restart during periods of low
   free memory.
 
-#### Aurora PostgreSQL
-
-10.19.1
+#### Aurora PostgreSQL 10.19.1
 
 ###### Security enhancements
 
@@ -16150,9 +14917,7 @@ information about the improvements in PostgreSQL 10.19, see [PostgreSQL release
   during create extension. The issue was originally disclosed in core
   PostgreSQL by CVE-2020-14350. For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 
-#### Aurora PostgreSQL
-
-10.19.0
+#### Aurora PostgreSQL 10.19.0
 
 ###### Critical stability enhancements
 
@@ -16178,9 +14943,7 @@ information about the improvements in PostgreSQL 10.19, see [PostgreSQL release
 - Improved the Aurora storage metadata validation.
 - Updated the `pg_hint_pan` extension to v1.3.6.
 
-### PostgreSQL 10.18
-
-(Deprecated)
+### PostgreSQL 10.18 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.18. For more
 information about the improvements in PostgreSQL 10.18, see [PostgreSQL release
@@ -16188,31 +14951,21 @@ information about the improvements in PostgreSQL 10.18, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  10.18.6, December 19, 2022](#AuroraPostgreSQL.Updates.20180305.10186 "#AuroraPostgreSQL.Updates.20180305.10186")
-- [Aurora PostgreSQL
-  10.18.4, July 6, 2022](#AuroraPostgreSQL.Updates.20180305.10184 "#AuroraPostgreSQL.Updates.20180305.10184")
-- [Aurora PostgreSQL
-  10.18.3, June 6, 2022](#AuroraPostgreSQL.Updates.20180305.10183 "#AuroraPostgreSQL.Updates.20180305.10183")
-- [Aurora PostgreSQL
-  10.18.2, April 12, 2022](#AuroraPostgreSQL.Updates.20180305.10182 "#AuroraPostgreSQL.Updates.20180305.10182")
-- [Aurora PostgreSQL
-  10.18.1](#AuroraPostgreSQL.Updates.20180305.10181 "#AuroraPostgreSQL.Updates.20180305.10181")
-- [Aurora PostgreSQL
-  10.18.0](#AuroraPostgreSQL.Updates.20180305.10180 "#AuroraPostgreSQL.Updates.20180305.10180")
+- [Aurora PostgreSQL 10.18.6, December 19, 2022](#AuroraPostgreSQL.Updates.20180305.10186 "#AuroraPostgreSQL.Updates.20180305.10186")
+- [Aurora PostgreSQL 10.18.4, July 6, 2022](#AuroraPostgreSQL.Updates.20180305.10184 "#AuroraPostgreSQL.Updates.20180305.10184")
+- [Aurora PostgreSQL 10.18.3, June 6, 2022](#AuroraPostgreSQL.Updates.20180305.10183 "#AuroraPostgreSQL.Updates.20180305.10183")
+- [Aurora PostgreSQL 10.18.2, April 12, 2022](#AuroraPostgreSQL.Updates.20180305.10182 "#AuroraPostgreSQL.Updates.20180305.10182")
+- [Aurora PostgreSQL 10.18.1](#AuroraPostgreSQL.Updates.20180305.10181 "#AuroraPostgreSQL.Updates.20180305.10181")
+- [Aurora PostgreSQL 10.18.0](#AuroraPostgreSQL.Updates.20180305.10180 "#AuroraPostgreSQL.Updates.20180305.10180")
 
-#### Aurora PostgreSQL
-
-10.18.6, December 19, 2022
+#### Aurora PostgreSQL 10.18.6, December 19, 2022
 
 ###### General enhancements
 
 - Fixed an issue that causes database activity stream inconsistency when
   the monitoring agent is unavailable.
 
-#### Aurora PostgreSQL
-
-10.18.4, July 6, 2022
+#### Aurora PostgreSQL 10.18.4, July 6, 2022
 
 ###### Security enhancements
 
@@ -16231,9 +14984,7 @@ information about the improvements in PostgreSQL 10.18, see [PostgreSQL release
 - Fixed an issue that could result in periods of unavailability due to
   the existence of duplicate relation files.
 
-#### Aurora PostgreSQL
-
-10.18.3, June 6, 2022
+#### Aurora PostgreSQL 10.18.3, June 6, 2022
 
 ###### Security enhancements
 
@@ -16253,18 +15004,14 @@ information about the improvements in PostgreSQL 10.18, see [PostgreSQL release
 - Fixed a memory leak in the Aurora Runtime that could lead to an
   out-of-memory condition.
 
-#### Aurora PostgreSQL
-
-10.18.2, April 12, 2022
+#### Aurora PostgreSQL 10.18.2, April 12, 2022
 
 ###### General updates
 
 - Fixed a buffer cache bug that could cause brief periods of
   unavailability.
 
-#### Aurora PostgreSQL
-
-10.18.1
+#### Aurora PostgreSQL 10.18.1
 
 ###### Security enhancements
 
@@ -16276,9 +15023,7 @@ information about the improvements in PostgreSQL 10.18, see [PostgreSQL release
   during create extension. The issue was originally disclosed in core
   PostgreSQL by CVE-2020-14350. For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 
-#### Aurora PostgreSQL
-
-10.18.0
+#### Aurora PostgreSQL 10.18.0
 
 ###### Critical stability updates
 
@@ -16314,9 +15059,7 @@ information about the improvements in PostgreSQL 10.18, see [PostgreSQL release
 - Added support for `postgis_raster` extension version
   3.1.4.
 
-### PostgreSQL 10.17,
-
-Aurora PostgreSQL 2.9 (Deprecated)
+### PostgreSQL 10.17, Aurora PostgreSQL 2.9 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.17. For more
 information about the improvements in PostgreSQL 10.17, see [PostgreSQL release
@@ -16324,29 +15067,20 @@ information about the improvements in PostgreSQL 10.17, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  10.17.5, December 30, 2022](#AuroraPostgreSQL.Updates.20180305.10175 "#AuroraPostgreSQL.Updates.20180305.10175")
-- [Aurora PostgreSQL
-  10.17.4, July 14, 2022](#AuroraPostgreSQL.Updates.20180305.10174 "#AuroraPostgreSQL.Updates.20180305.10174")
-- [Aurora PostgreSQL
-  2.9.2](#AuroraPostgreSQL.Updates.20180305.10171 "#AuroraPostgreSQL.Updates.20180305.10171")
-- [Aurora PostgreSQL
-  2.9.1](#AuroraPostgreSQL.Updates.20180305.10170 "#AuroraPostgreSQL.Updates.20180305.10170")
-- [Aurora PostgreSQL
-  2.9](#AuroraPostgreSQL.Updates.20180305.290 "#AuroraPostgreSQL.Updates.20180305.290")
+- [Aurora PostgreSQL 10.17.5, December 30, 2022](#AuroraPostgreSQL.Updates.20180305.10175 "#AuroraPostgreSQL.Updates.20180305.10175")
+- [Aurora PostgreSQL 10.17.4, July 14, 2022](#AuroraPostgreSQL.Updates.20180305.10174 "#AuroraPostgreSQL.Updates.20180305.10174")
+- [Aurora PostgreSQL 2.9.2](#AuroraPostgreSQL.Updates.20180305.10171 "#AuroraPostgreSQL.Updates.20180305.10171")
+- [Aurora PostgreSQL 2.9.1](#AuroraPostgreSQL.Updates.20180305.10170 "#AuroraPostgreSQL.Updates.20180305.10170")
+- [Aurora PostgreSQL 2.9](#AuroraPostgreSQL.Updates.20180305.290 "#AuroraPostgreSQL.Updates.20180305.290")
 
-#### Aurora PostgreSQL
-
-10.17.5, December 30, 2022
+#### Aurora PostgreSQL 10.17.5, December 30, 2022
 
 ###### General enhancements
 
 - Amazon Aurora PostgreSQL version 10.17.5 was released with general
   enhancements.
 
-#### Aurora PostgreSQL
-
-10.17.4, July 14, 2022
+#### Aurora PostgreSQL 10.17.4, July 14, 2022
 
 ###### Security enhancements
 
@@ -16363,9 +15097,7 @@ information about the improvements in PostgreSQL 10.17, see [PostgreSQL release
 - Fixed an issue that caused Performance Insights to show "Unknown wait
   event".
 
-#### Aurora PostgreSQL
-
-2.9.2
+#### Aurora PostgreSQL 2.9.2
 
 ###### Security enhancements
 
@@ -16379,9 +15111,7 @@ information about the improvements in PostgreSQL 10.17, see [PostgreSQL release
   `PostGIS` fix for the vulnerability addressed in core
   PostgreSQL by CVE-2020-14350. For more information, see [CVE-2020-14350](https://www.postgresql.org/support/security/CVE-2020-14350 "https://www.postgresql.org/support/security/CVE-2020-14350").
 
-#### Aurora PostgreSQL
-
-2.9.1
+#### Aurora PostgreSQL 2.9.1
 
 ###### Critical stability updates
 
@@ -16414,9 +15144,7 @@ information about the improvements in PostgreSQL 10.17, see [PostgreSQL release
   leads to writer node restart. This also reduces the overall system
   memory consumption.
 
-#### Aurora PostgreSQL
-
-2.9
+#### Aurora PostgreSQL 2.9
 
 ###### High priority stability updates
 
@@ -16448,9 +15176,7 @@ directory`.
 8. Updated the orafce extension to version 3.16.
 9. Updated the `PostGIS` extension to version 2.4.7.
 
-### PostgreSQL 10.16,
-
-Aurora PostgreSQL 2.8 (Deprecated)
+### PostgreSQL 10.16, Aurora PostgreSQL 2.8 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.16. For more
 information about the improvements in PostgreSQL 10.16, see [PostgreSQL release
@@ -16458,14 +15184,10 @@ information about the improvements in PostgreSQL 10.16, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  2.8.1](#AuroraPostgreSQL.Updates.20180305.281 "#AuroraPostgreSQL.Updates.20180305.281")
-- [Aurora PostgreSQL
-  2.8.0](#AuroraPostgreSQL.Updates.20180305.280 "#AuroraPostgreSQL.Updates.20180305.280")
+- [Aurora PostgreSQL 2.8.1](#AuroraPostgreSQL.Updates.20180305.281 "#AuroraPostgreSQL.Updates.20180305.281")
+- [Aurora PostgreSQL 2.8.0](#AuroraPostgreSQL.Updates.20180305.280 "#AuroraPostgreSQL.Updates.20180305.280")
 
-#### Aurora PostgreSQL
-
-2.8.1
+#### Aurora PostgreSQL 2.8.1
 
 ###### Security enhancements
 
@@ -16478,9 +15200,7 @@ information about the improvements in PostgreSQL 10.16, see [PostgreSQL release
 - Backpatched an input validation error in the `log_fdw`
   extension function parameters.
 
-#### Aurora PostgreSQL
-
-2.8.0
+#### Aurora PostgreSQL 2.8.0
 
 ###### High priority stability updates
 
@@ -16538,9 +15258,7 @@ relation OID`**.
 15. Fixed a bug in asynchronous buffer reads that could cause brief
     periods of unavailability on reader nodes during WAL replay.
 
-### PostgreSQL 10.14,
-
-Aurora PostgreSQL 2.7 (Deprecated)
+### PostgreSQL 10.14, Aurora PostgreSQL 2.7 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.14. For more
 information about the improvements in PostgreSQL 10.14, see [PostgreSQL release
@@ -16548,20 +15266,13 @@ information about the improvements in PostgreSQL 10.14, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  2.7.5](#AuroraPostgreSQL.Updates.20180305.275 "#AuroraPostgreSQL.Updates.20180305.275")
-- [Aurora PostgreSQL
-  2.7.3](#AuroraPostgreSQL.Updates.20180305.273 "#AuroraPostgreSQL.Updates.20180305.273")
-- [Aurora PostgreSQL
-  2.7.2](#AuroraPostgreSQL.Updates.20180305.272 "#AuroraPostgreSQL.Updates.20180305.272")
-- [Aurora PostgreSQL
-  2.7.1](#AuroraPostgreSQL.Updates.20180305.271 "#AuroraPostgreSQL.Updates.20180305.271")
-- [Aurora PostgreSQL
-  2.7.0](#AuroraPostgreSQL.Updates.20180305.270 "#AuroraPostgreSQL.Updates.20180305.270")
+- [Aurora PostgreSQL 2.7.5](#AuroraPostgreSQL.Updates.20180305.275 "#AuroraPostgreSQL.Updates.20180305.275")
+- [Aurora PostgreSQL 2.7.3](#AuroraPostgreSQL.Updates.20180305.273 "#AuroraPostgreSQL.Updates.20180305.273")
+- [Aurora PostgreSQL 2.7.2](#AuroraPostgreSQL.Updates.20180305.272 "#AuroraPostgreSQL.Updates.20180305.272")
+- [Aurora PostgreSQL 2.7.1](#AuroraPostgreSQL.Updates.20180305.271 "#AuroraPostgreSQL.Updates.20180305.271")
+- [Aurora PostgreSQL 2.7.0](#AuroraPostgreSQL.Updates.20180305.270 "#AuroraPostgreSQL.Updates.20180305.270")
 
-#### Aurora PostgreSQL
-
-2.7.5
+#### Aurora PostgreSQL 2.7.5
 
 ###### Security enhancements
 
@@ -16574,9 +15285,7 @@ information about the improvements in PostgreSQL 10.14, see [PostgreSQL release
 - Backpatched an input validation error in the `log_fdw`
   extension function parameters.
 
-#### Aurora PostgreSQL
-
-2.7.3
+#### Aurora PostgreSQL 2.7.3
 
 ###### High priority stability updates
 
@@ -16599,9 +15308,7 @@ information about the improvements in PostgreSQL 10.14, see [PostgreSQL release
    brief periods of unavailability when specific network configurations are
    used.
 
-#### Aurora PostgreSQL
-
-2.7.2
+#### Aurora PostgreSQL 2.7.2
 
 ###### High priority stability updates
 
@@ -16616,9 +15323,7 @@ information about the improvements in PostgreSQL 10.14, see [PostgreSQL release
 2. Fixed a bug where a large S3 import with thousands of clients can
    cause one or more of the import clients to stop responding.
 
-#### Aurora PostgreSQL
-
-2.7.1
+#### Aurora PostgreSQL 2.7.1
 
 ###### Critical stability updates
 
@@ -16641,9 +15346,7 @@ information about the improvements in PostgreSQL 10.14, see [PostgreSQL release
 4. Disallowed the use of both IAM and Kerberos authentication for the
    same user.
 
-#### Aurora PostgreSQL
-
-2.7.0
+#### Aurora PostgreSQL 2.7.0
 
 ###### Critical stability updates
 
@@ -16714,9 +15417,7 @@ names with a period (.) are not supported`**.
 17. Fixed a bug in database activity streams where customers were not
     notified of the end of an outage.
 
-### PostgreSQL 10.13,
-
-Aurora PostgreSQL 2.6 (Deprecated)
+### PostgreSQL 10.13, Aurora PostgreSQL 2.6 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.13. For more
 information about the improvements in PostgreSQL 10.13, see [PostgreSQL release
@@ -16724,16 +15425,11 @@ information about the improvements in PostgreSQL 10.13, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL release
-  2.6.2](#AuroraPostgreSQL.Updates.20180305.262 "#AuroraPostgreSQL.Updates.20180305.262")
-- [Aurora PostgreSQL
-  2.6.1](#AuroraPostgreSQL.Updates.20180305.261 "#AuroraPostgreSQL.Updates.20180305.261")
-- [Aurora PostgreSQL
-  2.6.0](#AuroraPostgreSQL.Updates.20180305.260 "#AuroraPostgreSQL.Updates.20180305.260")
+- [Aurora PostgreSQL release 2.6.2](#AuroraPostgreSQL.Updates.20180305.262 "#AuroraPostgreSQL.Updates.20180305.262")
+- [Aurora PostgreSQL 2.6.1](#AuroraPostgreSQL.Updates.20180305.261 "#AuroraPostgreSQL.Updates.20180305.261")
+- [Aurora PostgreSQL 2.6.0](#AuroraPostgreSQL.Updates.20180305.260 "#AuroraPostgreSQL.Updates.20180305.260")
 
-#### Aurora PostgreSQL release
-
-2.6.2
+#### Aurora PostgreSQL release 2.6.2
 
 ###### Critical stability updates
 
@@ -16794,9 +15490,7 @@ supported`**.
     be blocked indefinitely if an exclusive lock was taken on the relation
     prior to beginning the operation.
 
-#### Aurora PostgreSQL
-
-2.6.1
+#### Aurora PostgreSQL 2.6.1
 
 You can find the following improvements in this release.
 
@@ -16813,9 +15507,7 @@ You can find the following improvements in this release.
    - The filter used in the subquery does not use an index seek for its execution.
    - The operator isn't converted to a join by the query optimizer.
 
-#### Aurora PostgreSQL
-
-2.6.0
+#### Aurora PostgreSQL 2.6.0
 
 You can find the following improvements in this release.
 
@@ -16899,9 +15591,7 @@ blockno=bbb nblocks=nnn`**.
    for activity records, but does not report the restoration of
    connectivity.
 
-### PostgreSQL 10.12,
-
-Aurora PostgreSQL 2.5 (Deprecated)
+### PostgreSQL 10.12, Aurora PostgreSQL 2.5 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.12. For more
 information about the improvements in PostgreSQL 10.12, see [PostgreSQL release
@@ -16909,22 +15599,14 @@ information about the improvements in PostgreSQL 10.12, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  2.5.7](#AuroraPostgreSQL.Updates.20180305.257 "#AuroraPostgreSQL.Updates.20180305.257")
-- [Aurora PostgreSQL
-  2.5.6](#AuroraPostgreSQL.Updates.20180305.256 "#AuroraPostgreSQL.Updates.20180305.256")
-- [Aurora PostgreSQL
-  2.5.4](#AuroraPostgreSQL.Updates.20180305.254 "#AuroraPostgreSQL.Updates.20180305.254")
-- [Aurora PostgreSQL
-  2.5.3](#AuroraPostgreSQL.Updates.20180305.253 "#AuroraPostgreSQL.Updates.20180305.253")
-- [Aurora PostgreSQL
-  2.5.2](#AuroraPostgreSQL.Updates.20180305.252 "#AuroraPostgreSQL.Updates.20180305.252")
-- [Aurora PostgreSQL
-  2.5.1](#AuroraPostgreSQL.Updates.20180305.251 "#AuroraPostgreSQL.Updates.20180305.251")
+- [Aurora PostgreSQL 2.5.7](#AuroraPostgreSQL.Updates.20180305.257 "#AuroraPostgreSQL.Updates.20180305.257")
+- [Aurora PostgreSQL 2.5.6](#AuroraPostgreSQL.Updates.20180305.256 "#AuroraPostgreSQL.Updates.20180305.256")
+- [Aurora PostgreSQL 2.5.4](#AuroraPostgreSQL.Updates.20180305.254 "#AuroraPostgreSQL.Updates.20180305.254")
+- [Aurora PostgreSQL 2.5.3](#AuroraPostgreSQL.Updates.20180305.253 "#AuroraPostgreSQL.Updates.20180305.253")
+- [Aurora PostgreSQL 2.5.2](#AuroraPostgreSQL.Updates.20180305.252 "#AuroraPostgreSQL.Updates.20180305.252")
+- [Aurora PostgreSQL 2.5.1](#AuroraPostgreSQL.Updates.20180305.251 "#AuroraPostgreSQL.Updates.20180305.251")
 
-#### Aurora PostgreSQL
-
-2.5.7
+#### Aurora PostgreSQL 2.5.7
 
 You can find the following improvements in this release.
 
@@ -16944,9 +15626,7 @@ You can find the following improvements in this release.
 
 - None
 
-#### Aurora PostgreSQL
-
-2.5.6
+#### Aurora PostgreSQL 2.5.6
 
 You can find the following improvements in this release.
 
@@ -16988,9 +15668,7 @@ bucket names with a period (.) are not supported`**.
     be blocked indefinitely if an exclusive lock was taken on the relation
     prior to beginning the operation.
 
-#### Aurora PostgreSQL
-
-2.5.4
+#### Aurora PostgreSQL 2.5.4
 
 You can find the following improvements in this release.
 
@@ -17007,9 +15685,7 @@ You can find the following improvements in this release.
    - The filter used in the subquery does not use an index seek for its execution.
    - The operator isn't converted to a join by the query optimizer.
 
-#### Aurora PostgreSQL
-
-2.5.3
+#### Aurora PostgreSQL 2.5.3
 
 You can find the following improvements in this release.
 
@@ -17034,9 +15710,7 @@ You can find the following improvements in this release.
    versioning. This might have required re-creating the secondary
    clusters.
 
-#### Aurora PostgreSQL
-
-2.5.2
+#### Aurora PostgreSQL 2.5.2
 
 You can find the following improvements in this release.
 
@@ -17065,9 +15739,7 @@ nblocks=nnn`**.
    the following error after a scaling event: **`ERROR: prepared
 statement "S_6" already exists`**.
 
-#### Aurora PostgreSQL
-
-2.5.1
+#### Aurora PostgreSQL 2.5.1
 
 ###### New features
 
@@ -17144,9 +15816,7 @@ owner TopTransaction`**.
 13. Changed the following extensions:
     - Updated `orafce` to version 3.8
 
-### PostgreSQL 10.11,
-
-Aurora PostgreSQL 2.4 (Deprecated)
+### PostgreSQL 10.11, Aurora PostgreSQL 2.4 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 10.11. For more
 information about the improvements in PostgreSQL 10.11, see [PostgreSQL release
@@ -17158,20 +15828,13 @@ engines to this release.
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  2.4.4](#AuroraPostgreSQL.Updates.20180305.244 "#AuroraPostgreSQL.Updates.20180305.244")
-- [Aurora PostgreSQL
-  2.4.3](#AuroraPostgreSQL.Updates.20180305.243 "#AuroraPostgreSQL.Updates.20180305.243")
-- [Aurora PostgreSQL
-  2.4.2](#AuroraPostgreSQL.Updates.20180305.242 "#AuroraPostgreSQL.Updates.20180305.242")
-- [Aurora PostgreSQL
-  2.4.1](#AuroraPostgreSQL.Updates.20180305.241 "#AuroraPostgreSQL.Updates.20180305.241")
-- [Aurora PostgreSQL
-  2.4.0](#AuroraPostgreSQL.Updates.20180305.240 "#AuroraPostgreSQL.Updates.20180305.240")
+- [Aurora PostgreSQL 2.4.4](#AuroraPostgreSQL.Updates.20180305.244 "#AuroraPostgreSQL.Updates.20180305.244")
+- [Aurora PostgreSQL 2.4.3](#AuroraPostgreSQL.Updates.20180305.243 "#AuroraPostgreSQL.Updates.20180305.243")
+- [Aurora PostgreSQL 2.4.2](#AuroraPostgreSQL.Updates.20180305.242 "#AuroraPostgreSQL.Updates.20180305.242")
+- [Aurora PostgreSQL 2.4.1](#AuroraPostgreSQL.Updates.20180305.241 "#AuroraPostgreSQL.Updates.20180305.241")
+- [Aurora PostgreSQL 2.4.0](#AuroraPostgreSQL.Updates.20180305.240 "#AuroraPostgreSQL.Updates.20180305.240")
 
-#### Aurora PostgreSQL
-
-2.4.4
+#### Aurora PostgreSQL 2.4.4
 
 You can find the following improvements in this release.
 
@@ -17191,9 +15854,7 @@ You can find the following improvements in this release.
 
 - None
 
-#### Aurora PostgreSQL
-
-2.4.3
+#### Aurora PostgreSQL 2.4.3
 
 ###### New features
 
@@ -17215,9 +15876,7 @@ You can find the following improvements in this release.
 
 - None
 
-#### Aurora PostgreSQL
-
-2.4.2
+#### Aurora PostgreSQL 2.4.2
 
 You can find the following improvements in this release.
 
@@ -17247,9 +15906,7 @@ You can find the following improvements in this release.
 1. Fixed a bug that prevented Performance Insights from determining the
    query ID of a running statement.
 
-#### Aurora PostgreSQL
-
-2.4.1
+#### Aurora PostgreSQL 2.4.1
 
 You can find the following improvements in this release.
 
@@ -17283,9 +15940,7 @@ You can find the following improvements in this release.
 6. Additional general improvements to the stability and availability of
    Aurora PostgreSQL.
 
-#### Aurora PostgreSQL
-
-2.4.0
+#### Aurora PostgreSQL 2.4.0
 
 You can find the following new features and improvements in this engine
 version.
@@ -17425,9 +16080,7 @@ oldest active xid on standby is at least
     - Updated `pg_hint_plan` to version 1.3.3.
     - Added `plprofiler` version 4.1.
 
-### PostgreSQL 10.7,
-
-Aurora PostgreSQL 2.3 (Deprecated)
+### PostgreSQL 10.7, Aurora PostgreSQL 2.3 (Deprecated)
 
 ###### Note
 
@@ -17441,18 +16094,12 @@ information about the improvements in PostgreSQL 10.7, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  2.3.5](#AuroraPostgreSQL.Updates.20180305.235 "#AuroraPostgreSQL.Updates.20180305.235")
-- [Aurora PostgreSQL
-  2.3.3](#AuroraPostgreSQL.Updates.20180305.233 "#AuroraPostgreSQL.Updates.20180305.233")
-- [Aurora PostgreSQL
-  2.3.1](#AuroraPostgreSQL.Updates.20180305.231 "#AuroraPostgreSQL.Updates.20180305.231")
-- [Aurora PostgreSQL
-  2.3.0](#AuroraPostgreSQL.Updates.20180305.230 "#AuroraPostgreSQL.Updates.20180305.230")
+- [Aurora PostgreSQL 2.3.5](#AuroraPostgreSQL.Updates.20180305.235 "#AuroraPostgreSQL.Updates.20180305.235")
+- [Aurora PostgreSQL 2.3.3](#AuroraPostgreSQL.Updates.20180305.233 "#AuroraPostgreSQL.Updates.20180305.233")
+- [Aurora PostgreSQL 2.3.1](#AuroraPostgreSQL.Updates.20180305.231 "#AuroraPostgreSQL.Updates.20180305.231")
+- [Aurora PostgreSQL 2.3.0](#AuroraPostgreSQL.Updates.20180305.230 "#AuroraPostgreSQL.Updates.20180305.230")
 
-#### Aurora PostgreSQL
-
-2.3.5
+#### Aurora PostgreSQL 2.3.5
 
 You can find the following improvements in this release.
 
@@ -17467,9 +16114,7 @@ You can find the following improvements in this release.
    replication.
 5. Fixed a bug that could result in inconsistent metadata.
 
-#### Aurora PostgreSQL
-
-2.3.3
+#### Aurora PostgreSQL 2.3.3
 
 You can find the following improvements in this release.
 
@@ -17510,9 +16155,7 @@ You can find the following improvements in this release.
 15. Provided a backport fix for the PostgreSQL community bug #15677, where
     a crash could occur while deleting from a partitioned table.
 
-#### Aurora PostgreSQL
-
-2.3.1
+#### Aurora PostgreSQL 2.3.1
 
 You can find the following improvements in this release.
 
@@ -17521,9 +16164,7 @@ You can find the following improvements in this release.
 1. Fixed multiple bugs related to I/O prefetching that caused engine
    crashes.
 
-#### Aurora PostgreSQL
-
-2.3.0
+#### Aurora PostgreSQL 2.3.0
 
 You can find the following improvements in this release.
 
@@ -17545,9 +16186,7 @@ You can find the following improvements in this release.
 4. Improved the cache replacement strategy used by table scans to
    minimize thrashing of the buffer cache.
 
-### PostgreSQL 10.6,
-
-Aurora PostgreSQL 2.2 (Deprecated)
+### PostgreSQL 10.6, Aurora PostgreSQL 2.2 (Deprecated)
 
 ###### Note
 
@@ -17561,14 +16200,10 @@ information about the improvements in PostgreSQL 10.6, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  2.2.1](#AuroraPostgreSQL.Updates.20180305.221 "#AuroraPostgreSQL.Updates.20180305.221")
-- [Aurora PostgreSQL
-  2.2.0](#AuroraPostgreSQL.Updates.20180305.220 "#AuroraPostgreSQL.Updates.20180305.220")
+- [Aurora PostgreSQL 2.2.1](#AuroraPostgreSQL.Updates.20180305.221 "#AuroraPostgreSQL.Updates.20180305.221")
+- [Aurora PostgreSQL 2.2.0](#AuroraPostgreSQL.Updates.20180305.220 "#AuroraPostgreSQL.Updates.20180305.220")
 
-#### Aurora PostgreSQL
-
-2.2.1
+#### Aurora PostgreSQL 2.2.1
 
 You can find the following improvements in this release.
 
@@ -17595,9 +16230,7 @@ You can find the following improvements in this release.
 10. Fixed a bug which could cause a snapshot import from RDS for
     PostgreSQL to fail.
 
-#### Aurora PostgreSQL
-
-2.2.0
+#### Aurora PostgreSQL 2.2.0
 
 You can find the following improvements in this release.
 
@@ -17610,9 +16243,7 @@ You can find the following improvements in this release.
    `rds_password`. For more information, see [Restricting password management](../AuroraUserGuide/AuroraPostgreSQL.md#RestrictPasswordMgmt "../AuroraUserGuide/AuroraPostgreSQL.md#RestrictPasswordMgmt") in the _Amazon Aurora
    User Guide_.
 
-### PostgreSQL 10.5,
-
-Aurora PostgreSQL 2.1 (Deprecated)
+### PostgreSQL 10.5, Aurora PostgreSQL 2.1 (Deprecated)
 
 ###### Note
 
@@ -17625,14 +16256,10 @@ information about the improvements in PostgreSQL 10.5, see [PostgreSQL release 1
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  2.1.1](#AuroraPostgreSQL.Updates.20180305.211 "#AuroraPostgreSQL.Updates.20180305.211")
-- [Aurora PostgreSQL
-  2.1.0](#AuroraPostgreSQL.Updates.20180305.210 "#AuroraPostgreSQL.Updates.20180305.210")
+- [Aurora PostgreSQL 2.1.1](#AuroraPostgreSQL.Updates.20180305.211 "#AuroraPostgreSQL.Updates.20180305.211")
+- [Aurora PostgreSQL 2.1.0](#AuroraPostgreSQL.Updates.20180305.210 "#AuroraPostgreSQL.Updates.20180305.210")
 
-#### Aurora PostgreSQL
-
-2.1.1
+#### Aurora PostgreSQL 2.1.1
 
 You can find the following improvements in this release.
 
@@ -17658,9 +16285,7 @@ You can find the following improvements in this release.
 9. Fixed a bug which could cause a snapshot import from RDS for
    PostgreSQL to fail.
 
-#### Aurora PostgreSQL
-
-2.1.0
+#### Aurora PostgreSQL 2.1.0
 
 You can find the following improvements in this release.
 
@@ -17722,9 +16347,7 @@ You can find the following improvements in this release.
 1. The `pageinspect` extension is not supported in
    Aurora PostgreSQL.
 
-### PostgreSQL 10.4,
-
-Aurora PostgreSQL 2.0 (Deprecated)
+### PostgreSQL 10.4, Aurora PostgreSQL 2.0 (Deprecated)
 
 ###### Note
 
@@ -17738,14 +16361,10 @@ information about the improvements in PostgreSQL 10.4, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  2.0.1](#AuroraPostgreSQL.Updates.20180305.201 "#AuroraPostgreSQL.Updates.20180305.201")
-- [Aurora PostgreSQL
-  2.0.0](#AuroraPostgreSQL.Updates.20180305.200 "#AuroraPostgreSQL.Updates.20180305.200")
+- [Aurora PostgreSQL 2.0.1](#AuroraPostgreSQL.Updates.20180305.201 "#AuroraPostgreSQL.Updates.20180305.201")
+- [Aurora PostgreSQL 2.0.0](#AuroraPostgreSQL.Updates.20180305.200 "#AuroraPostgreSQL.Updates.20180305.200")
 
-#### Aurora PostgreSQL
-
-2.0.1
+#### Aurora PostgreSQL 2.0.1
 
 You can find the following improvements in this release.
 
@@ -17771,17 +16390,14 @@ You can find the following improvements in this release.
 9. Fixed a bug which could cause a snapshot import from RDS for
    PostgreSQL to fail.
 
-#### Aurora PostgreSQL
-
-2.0.0
+#### Aurora PostgreSQL 2.0.0
 
 You can find the following improvements in this release.
 
 ###### Improvements
 
 1. This release contains all fixes, features, and improvements present in
-   [PostgreSQL 9.6.9,
-   Aurora PostgreSQL 1.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.13 "#AuroraPostgreSQL.Updates.20180305.13").
+   [PostgreSQL 9.6.9, Aurora PostgreSQL 1.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.13 "#AuroraPostgreSQL.Updates.20180305.13").
 2. The temporary file size limitation is user-configurable. You require
    the **rds_superuser** role to modify the
    `temp_file_limit` parameter.
@@ -17799,40 +16415,24 @@ You can find the following improvements in this release.
 8. Fixed a bug in which read nodes may crash following a specific type of
    free space change from the write node.
 
-## PostgreSQL 9.6 versions
-
-(Deprecated)
+## PostgreSQL 9.6 versions (Deprecated)
 
 ###### Version updates
 
-- [PostgreSQL 9.6.22,
-  Aurora PostgreSQL 1.11 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.111 "#AuroraPostgreSQL.Updates.20180305.111")
-- [PostgreSQL 9.6.21,
-  Aurora PostgreSQL 1.10 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.110 "#AuroraPostgreSQL.Updates.20180305.110")
-- [PostgreSQL 9.6.19,
-  Aurora PostgreSQL 1.9 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.19 "#AuroraPostgreSQL.Updates.20180305.19")
-- [PostgreSQL 9.6.18,
-  Aurora PostgreSQL 1.8 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.18 "#AuroraPostgreSQL.Updates.20180305.18")
-- [PostgreSQL 9.6.17,
-  Aurora PostgreSQL 1.7 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.17 "#AuroraPostgreSQL.Updates.20180305.17")
-- [PostgreSQL 9.6.16,
-  Aurora PostgreSQL 1.6 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.16 "#AuroraPostgreSQL.Updates.20180305.16")
-- [PostgreSQL 9.6.12,
-  Aurora PostgreSQL 1.5 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.15 "#AuroraPostgreSQL.Updates.20180305.15")
-- [PostgreSQL 9.6.11,
-  Aurora PostgreSQL 1.4 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.14 "#AuroraPostgreSQL.Updates.20180305.14")
-- [PostgreSQL 9.6.9,
-  Aurora PostgreSQL 1.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.13 "#AuroraPostgreSQL.Updates.20180305.13")
-- [PostgreSQL 9.6.8,
-  Aurora PostgreSQL 1.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.12 "#AuroraPostgreSQL.Updates.20180305.12")
-- [PostgreSQL 9.6.6
-  Aurora PostgreSQL 1.1 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.11 "#AuroraPostgreSQL.Updates.20180305.11")
-- [PostgreSQL 9.6.3,
-  Aurora PostgreSQL 1.0 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.10 "#AuroraPostgreSQL.Updates.20180305.10")
+- [PostgreSQL 9.6.22, Aurora PostgreSQL 1.11 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.111 "#AuroraPostgreSQL.Updates.20180305.111")
+- [PostgreSQL 9.6.21, Aurora PostgreSQL 1.10 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.110 "#AuroraPostgreSQL.Updates.20180305.110")
+- [PostgreSQL 9.6.19, Aurora PostgreSQL 1.9 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.19 "#AuroraPostgreSQL.Updates.20180305.19")
+- [PostgreSQL 9.6.18, Aurora PostgreSQL 1.8 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.18 "#AuroraPostgreSQL.Updates.20180305.18")
+- [PostgreSQL 9.6.17, Aurora PostgreSQL 1.7 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.17 "#AuroraPostgreSQL.Updates.20180305.17")
+- [PostgreSQL 9.6.16, Aurora PostgreSQL 1.6 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.16 "#AuroraPostgreSQL.Updates.20180305.16")
+- [PostgreSQL 9.6.12, Aurora PostgreSQL 1.5 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.15 "#AuroraPostgreSQL.Updates.20180305.15")
+- [PostgreSQL 9.6.11, Aurora PostgreSQL 1.4 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.14 "#AuroraPostgreSQL.Updates.20180305.14")
+- [PostgreSQL 9.6.9, Aurora PostgreSQL 1.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.13 "#AuroraPostgreSQL.Updates.20180305.13")
+- [PostgreSQL 9.6.8, Aurora PostgreSQL 1.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.12 "#AuroraPostgreSQL.Updates.20180305.12")
+- [PostgreSQL 9.6.6 Aurora PostgreSQL 1.1 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.11 "#AuroraPostgreSQL.Updates.20180305.11")
+- [PostgreSQL 9.6.3, Aurora PostgreSQL 1.0 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.10 "#AuroraPostgreSQL.Updates.20180305.10")
 
-### PostgreSQL 9.6.22,
-
-Aurora PostgreSQL 1.11 (Deprecated)
+### PostgreSQL 9.6.22, Aurora PostgreSQL 1.11 (Deprecated)
 
 ###### Note
 
@@ -17846,14 +16446,10 @@ information about the improvements in PostgreSQL 9.6.22, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  1.11.1](#AuroraPostgreSQL.Updates.20180305.9622 "#AuroraPostgreSQL.Updates.20180305.9622")
-- [Aurora PostgreSQL
-  1.11](#AuroraPostgreSQL.Updates.20180305.111 "#AuroraPostgreSQL.Updates.20180305.111")
+- [Aurora PostgreSQL 1.11.1](#AuroraPostgreSQL.Updates.20180305.9622 "#AuroraPostgreSQL.Updates.20180305.9622")
+- [Aurora PostgreSQL 1.11](#AuroraPostgreSQL.Updates.20180305.111 "#AuroraPostgreSQL.Updates.20180305.111")
 
-#### Aurora PostgreSQL
-
-1.11.1
+#### Aurora PostgreSQL 1.11.1
 
 ###### High priority stability updates
 
@@ -17866,9 +16462,7 @@ information about the improvements in PostgreSQL 9.6.22, see [PostgreSQL release
   brief periods of unavailability when specific network configurations are
   used.
 
-#### Aurora PostgreSQL
-
-1.11
+#### Aurora PostgreSQL 1.11
 
 ###### High priority stability enhancements
 
@@ -17898,9 +16492,7 @@ directory`.
 7. Updated the `PostGIS` extension to version 2.4.7.
 8. Updated the `orafce` extension to version 3.16.
 
-### PostgreSQL 9.6.21,
-
-Aurora PostgreSQL 1.10 (Deprecated)
+### PostgreSQL 9.6.21, Aurora PostgreSQL 1.10 (Deprecated)
 
 ###### Note
 
@@ -17912,9 +16504,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 9.6.21. For more
 information about the improvements in PostgreSQL 9.6.21, see [PostgreSQL release
 9.6.21](https://www.postgresql.org/docs/9.6/release-9-6-21.html "https://www.postgresql.org/docs/9.6/release-9-6-21.html").
 
-#### Aurora PostgreSQL
-
-1.10.0
+#### Aurora PostgreSQL 1.10.0
 
 ###### High priority stability enhancements
 
@@ -17949,9 +16539,7 @@ information about the improvements in PostgreSQL 9.6.21, see [PostgreSQL release
    with `pgAudit` enabled.
 7. Added btree page checks to detect tuple metadata inconsistency.
 
-### PostgreSQL 9.6.19,
-
-Aurora PostgreSQL 1.9 (Deprecated)
+### PostgreSQL 9.6.19, Aurora PostgreSQL 1.9 (Deprecated)
 
 ###### Note
 
@@ -17965,16 +16553,11 @@ release 9.6.19](https://www.postgresql.org/docs/9.6/release-9-6-19.html "https:/
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  1.9.2](#AuroraPostgreSQL.Updates.20180305.192 "#AuroraPostgreSQL.Updates.20180305.192")
-- [Aurora PostgreSQL
-  1.9.1](#AuroraPostgreSQL.Updates.20180305.191 "#AuroraPostgreSQL.Updates.20180305.191")
-- [Aurora PostgreSQL
-  1.9.0](#AuroraPostgreSQL.Updates.20180305.190 "#AuroraPostgreSQL.Updates.20180305.190")
+- [Aurora PostgreSQL 1.9.2](#AuroraPostgreSQL.Updates.20180305.192 "#AuroraPostgreSQL.Updates.20180305.192")
+- [Aurora PostgreSQL 1.9.1](#AuroraPostgreSQL.Updates.20180305.191 "#AuroraPostgreSQL.Updates.20180305.191")
+- [Aurora PostgreSQL 1.9.0](#AuroraPostgreSQL.Updates.20180305.190 "#AuroraPostgreSQL.Updates.20180305.190")
 
-#### Aurora PostgreSQL
-
-1.9.2
+#### Aurora PostgreSQL 1.9.2
 
 ###### High priority stability enhancements
 
@@ -17987,9 +16570,7 @@ release 9.6.19](https://www.postgresql.org/docs/9.6/release-9-6-19.html "https:/
 1. Fixed a bug where a large S3 import with thousands of clients can
    cause one or more of the import clients to stop responding.
 
-#### Aurora PostgreSQL
-
-1.9.1
+#### Aurora PostgreSQL 1.9.1
 
 ###### Critical stability enhancements
 
@@ -18003,9 +16584,7 @@ release 9.6.19](https://www.postgresql.org/docs/9.6/release-9-6-19.html "https:/
 2. Fixed a bug where a read replica might not join the cluster when the
    writer was very busy with a write-intensive workload.
 
-#### Aurora PostgreSQL
-
-1.9.0
+#### Aurora PostgreSQL 1.9.0
 
 ###### Critical stability enhancements
 
@@ -18035,9 +16614,7 @@ disk`**
    `GiST` indexes. In rare cases, this bug caused a brief
    period of unavailability after promoting the Aurora cluster.
 
-### PostgreSQL 9.6.18,
-
-Aurora PostgreSQL 1.8 (Deprecated)
+### PostgreSQL 9.6.18, Aurora PostgreSQL 1.8 (Deprecated)
 
 ###### Note
 
@@ -18051,16 +16628,12 @@ release 9.6.18](https://www.postgresql.org/docs/9.6/release-9-6-18.html "https:/
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL release
-  1.8.2](#AuroraPostgreSQL.Updates.20180305.182 "#AuroraPostgreSQL.Updates.20180305.182")
-- [Aurora PostgreSQL
-  1.8.0](#AuroraPostgreSQL.Updates.20180305.180 "#AuroraPostgreSQL.Updates.20180305.180")
+- [Aurora PostgreSQL release 1.8.2](#AuroraPostgreSQL.Updates.20180305.182 "#AuroraPostgreSQL.Updates.20180305.182")
+- [Aurora PostgreSQL 1.8.0](#AuroraPostgreSQL.Updates.20180305.180 "#AuroraPostgreSQL.Updates.20180305.180")
 
 There is no version 1.8.1.
 
-#### Aurora PostgreSQL release
-
-1.8.2
+#### Aurora PostgreSQL release 1.8.2
 
 ###### Critical stability enhancements
 
@@ -18092,9 +16665,7 @@ been created yet -- apparent wraparound`**.
    rare cases, this bug caused a brief period of unavailability after
    promoting the Aurora DB cluster.
 
-#### Aurora PostgreSQL
-
-1.8.0
+#### Aurora PostgreSQL 1.8.0
 
 You can find the following improvements in this release.
 
@@ -18121,9 +16692,7 @@ blockno=bbb nblocks=nnn`**.
 6. Fixed a bug where the database might be unavailable briefly due to
    error handling in database storage growth.
 
-### PostgreSQL 9.6.17,
-
-Aurora PostgreSQL 1.7 (Deprecated)
+### PostgreSQL 9.6.17, Aurora PostgreSQL 1.7 (Deprecated)
 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 9.6.17. For more
 information about the improvements in PostgreSQL 9.6.17, see [PostgreSQL
@@ -18131,20 +16700,13 @@ release 9.6.17](https://www.postgresql.org/docs/9.6/release-9-6-17.html "https:/
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  1.7.7](#AuroraPostgreSQL.Updates.20180305.177 "#AuroraPostgreSQL.Updates.20180305.177")
-- [Aurora PostgreSQL
-  1.7.6](#AuroraPostgreSQL.Updates.20180305.176 "#AuroraPostgreSQL.Updates.20180305.176")
-- [Aurora PostgreSQL
-  1.7.3](#AuroraPostgreSQL.Updates.20180305.173 "#AuroraPostgreSQL.Updates.20180305.173")
-- [Aurora PostgreSQL
-  1.7.2](#AuroraPostgreSQL.Updates.20180305.172 "#AuroraPostgreSQL.Updates.20180305.172")
-- [Aurora PostgreSQL
-  1.7.1](#AuroraPostgreSQL.Updates.20180305.171 "#AuroraPostgreSQL.Updates.20180305.171")
+- [Aurora PostgreSQL 1.7.7](#AuroraPostgreSQL.Updates.20180305.177 "#AuroraPostgreSQL.Updates.20180305.177")
+- [Aurora PostgreSQL 1.7.6](#AuroraPostgreSQL.Updates.20180305.176 "#AuroraPostgreSQL.Updates.20180305.176")
+- [Aurora PostgreSQL 1.7.3](#AuroraPostgreSQL.Updates.20180305.173 "#AuroraPostgreSQL.Updates.20180305.173")
+- [Aurora PostgreSQL 1.7.2](#AuroraPostgreSQL.Updates.20180305.172 "#AuroraPostgreSQL.Updates.20180305.172")
+- [Aurora PostgreSQL 1.7.1](#AuroraPostgreSQL.Updates.20180305.171 "#AuroraPostgreSQL.Updates.20180305.171")
 
-#### Aurora PostgreSQL
-
-1.7.7
+#### Aurora PostgreSQL 1.7.7
 
 You can find the following improvements in this release.
 
@@ -18164,9 +16726,7 @@ You can find the following improvements in this release.
 
 - None
 
-#### Aurora PostgreSQL
-
-1.7.6
+#### Aurora PostgreSQL 1.7.6
 
 You can find the following improvements in this release.
 
@@ -18189,9 +16749,7 @@ been created yet -- apparent wraparound`**.
 3. Fixed a bug in a GiST index that might result in an out-of-memory
    condition after promoting an Aurora Read Replica.
 
-#### Aurora PostgreSQL
-
-1.7.3
+#### Aurora PostgreSQL 1.7.3
 
 You can find the following improvements in this release.
 
@@ -18209,9 +16767,7 @@ You can find the following improvements in this release.
    subtransaction workloads when multiple reader instances restart or
    rejoin the cluster.
 
-#### Aurora PostgreSQL
-
-1.7.2
+#### Aurora PostgreSQL 1.7.2
 
 You can find the following improvements in this release.
 
@@ -18234,9 +16790,7 @@ nblocks=nnn`**.
 3. Fixed an issue with the internal metrics collector that could result
    in erratic CPU spikes on database instances.
 
-#### Aurora PostgreSQL
-
-1.7.1
+#### Aurora PostgreSQL 1.7.1
 
 You can find the following improvements in this release.
 
@@ -18279,9 +16833,7 @@ on disk: Success. Please contact AWS customer support`**.
 5. Changed the following extensions:
    - Updated `orafce` to version 3.8
 
-### PostgreSQL 9.6.16,
-
-Aurora PostgreSQL 1.6 (Deprecated)
+### PostgreSQL 9.6.16, Aurora PostgreSQL 1.6 (Deprecated)
 
 This version of Aurora PostgreSQL is compatible with PostgreSQL 9.6.16. For more
 information about the improvements in release 9.6.16, see [PostgreSQL release
@@ -18293,20 +16845,13 @@ engines to this release.
 
 ###### Patch versions
 
-- [Aurora PostgreSQL
-  1.6.4](#AuroraPostgreSQL.Updates.20180305.164 "#AuroraPostgreSQL.Updates.20180305.164")
-- [Aurora PostgreSQL
-  1.6.3](#AuroraPostgreSQL.Updates.20180305.163 "#AuroraPostgreSQL.Updates.20180305.163")
-- [Aurora PostgreSQL
-  1.6.2](#AuroraPostgreSQL.Updates.20180305.162 "#AuroraPostgreSQL.Updates.20180305.162")
-- [Aurora PostgreSQL
-  1.6.1](#AuroraPostgreSQL.Updates.20180305.161 "#AuroraPostgreSQL.Updates.20180305.161")
-- [Aurora PostgreSQL
-  1.6.0](#AuroraPostgreSQL.Updates.20180305.160 "#AuroraPostgreSQL.Updates.20180305.160")
+- [Aurora PostgreSQL 1.6.4](#AuroraPostgreSQL.Updates.20180305.164 "#AuroraPostgreSQL.Updates.20180305.164")
+- [Aurora PostgreSQL 1.6.3](#AuroraPostgreSQL.Updates.20180305.163 "#AuroraPostgreSQL.Updates.20180305.163")
+- [Aurora PostgreSQL 1.6.2](#AuroraPostgreSQL.Updates.20180305.162 "#AuroraPostgreSQL.Updates.20180305.162")
+- [Aurora PostgreSQL 1.6.1](#AuroraPostgreSQL.Updates.20180305.161 "#AuroraPostgreSQL.Updates.20180305.161")
+- [Aurora PostgreSQL 1.6.0](#AuroraPostgreSQL.Updates.20180305.160 "#AuroraPostgreSQL.Updates.20180305.160")
 
-#### Aurora PostgreSQL
-
-1.6.4
+#### Aurora PostgreSQL 1.6.4
 
 You can find the following improvements in this release.
 
@@ -18326,9 +16871,7 @@ You can find the following improvements in this release.
 
 - None
 
-#### Aurora PostgreSQL
-
-1.6.3
+#### Aurora PostgreSQL 1.6.3
 
 ###### New features
 
@@ -18350,9 +16893,7 @@ You can find the following improvements in this release.
 
 - None
 
-#### Aurora PostgreSQL
-
-1.6.2
+#### Aurora PostgreSQL 1.6.2
 
 You can find the following improvements in this engine update.
 
@@ -18382,9 +16923,7 @@ You can find the following improvements in this engine update.
 1. Fixed a bug that prevented Performance Insights from determining the
    query ID of a running statement.
 
-#### Aurora PostgreSQL
-
-1.6.1
+#### Aurora PostgreSQL 1.6.1
 
 You can find the following improvements in this engine update.
 
@@ -18404,9 +16943,7 @@ You can find the following improvements in this engine update.
 1. Provided general improvements to the stability and availability of
    Aurora PostgreSQL.
 
-#### Aurora PostgreSQL
-
-1.6.0
+#### Aurora PostgreSQL 1.6.0
 
 You can find the following new features and improvements in this engine
 version.
@@ -18498,9 +17035,7 @@ oldest active xid on standby is at least
 17. Changed the following extensions:
     - Updated `pg_hint_plan` to version 1.2.5.
 
-### PostgreSQL 9.6.12,
-
-Aurora PostgreSQL 1.5 (Deprecated)
+### PostgreSQL 9.6.12, Aurora PostgreSQL 1.5 (Deprecated)
 
 ###### Note
 
@@ -18514,18 +17049,12 @@ information about the improvements in PostgreSQL 9.6.12, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  1.5.3](#AuroraPostgreSQL.Updates.20180305.153 "#AuroraPostgreSQL.Updates.20180305.153")
-- [Aurora PostgreSQL
-  1.5.2](#AuroraPostgreSQL.Updates.20180305.152 "#AuroraPostgreSQL.Updates.20180305.152")
-- [Aurora PostgreSQL
-  1.5.1](#AuroraPostgreSQL.Updates.20180305.151 "#AuroraPostgreSQL.Updates.20180305.151")
-- [Aurora PostgreSQL
-  1.5.0](#AuroraPostgreSQL.Updates.20180305.150 "#AuroraPostgreSQL.Updates.20180305.150")
+- [Aurora PostgreSQL 1.5.3](#AuroraPostgreSQL.Updates.20180305.153 "#AuroraPostgreSQL.Updates.20180305.153")
+- [Aurora PostgreSQL 1.5.2](#AuroraPostgreSQL.Updates.20180305.152 "#AuroraPostgreSQL.Updates.20180305.152")
+- [Aurora PostgreSQL 1.5.1](#AuroraPostgreSQL.Updates.20180305.151 "#AuroraPostgreSQL.Updates.20180305.151")
+- [Aurora PostgreSQL 1.5.0](#AuroraPostgreSQL.Updates.20180305.150 "#AuroraPostgreSQL.Updates.20180305.150")
 
-#### Aurora PostgreSQL
-
-1.5.3
+#### Aurora PostgreSQL 1.5.3
 
 You can find the following improvements in this release.
 
@@ -18536,9 +17065,7 @@ You can find the following improvements in this release.
    failovers.
 3. Fixed a bug that could result in inconsistent metadata.
 
-#### Aurora PostgreSQL
-
-1.5.2
+#### Aurora PostgreSQL 1.5.2
 
 You can find the following improvements in this release.
 
@@ -18568,9 +17095,7 @@ You can find the following improvements in this release.
 10. Additional information is now logged on read nodes when active
     connections conflict with the relay process.
 
-#### Aurora PostgreSQL
-
-1.5.1
+#### Aurora PostgreSQL 1.5.1
 
 You can find the following improvements in this release.
 
@@ -18579,9 +17104,7 @@ You can find the following improvements in this release.
 1. Fixed multiple bugs related to I/O prefetching, which caused engine
    crashes.
 
-#### Aurora PostgreSQL
-
-1.5.0
+#### Aurora PostgreSQL 1.5.0
 
 You can find the following improvements in this release.
 
@@ -18601,9 +17124,7 @@ You can find the following improvements in this release.
 3. Improved the cache replacement strategy used by table scans to
    minimize thrashing of the buffer cache.
 
-### PostgreSQL 9.6.11,
-
-Aurora PostgreSQL 1.4 (Deprecated)
+### PostgreSQL 9.6.11, Aurora PostgreSQL 1.4 (Deprecated)
 
 ###### Note
 
@@ -18629,8 +17150,7 @@ You can find the following improvements in this release.
 ###### Improvements
 
 1. This release contains all fixes, features, and improvements present in
-   [PostgreSQL 9.6.9,
-   Aurora PostgreSQL 1.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.13 "#AuroraPostgreSQL.Updates.20180305.13").
+   [PostgreSQL 9.6.9, Aurora PostgreSQL 1.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.13 "#AuroraPostgreSQL.Updates.20180305.13").
 2. Network traffic between the writer and reader nodes is now compressed to
    reduce network utilization. This reduces the chance of read node
    unavailability due to network saturation.
@@ -18645,17 +17165,14 @@ You can find the following improvements in this release.
    `VALUES` could fail with the message "Attempting to read past
    EOF of relation".
 7. An upgrade of the `apg_plan_mgmt` extension to version 1.0.1.
-   For details, see [Version 1.0.1 of the
-   Aurora PostgreSQL apg_plan_mgmt extension](auroraqpm.md#auroraqpm-version.101 "auroraqpm.md#auroraqpm-version.101").
+   For details, see [Version 1.0.1 of the Aurora PostgreSQL apg_plan_mgmt extension](auroraqpm.md#auroraqpm-version.101 "auroraqpm.md#auroraqpm-version.101").
 
 The `apg_plan_mgmt` extension is used with query plan
 management. For more about how to install, upgrade, and use the
 `apg_plan_mgmt` extension, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.md "../AuroraUserGuide/AuroraPostgreSQL.md") in the
 _Amazon Aurora User Guide_.
 
-### PostgreSQL 9.6.9,
-
-Aurora PostgreSQL 1.3 (Deprecated)
+### PostgreSQL 9.6.9, Aurora PostgreSQL 1.3 (Deprecated)
 
 ###### Note
 
@@ -18669,14 +17186,10 @@ information about the improvements in PostgreSQL 9.6.9, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  1.3.2](#AuroraPostgreSQL.Updates.20180305.132 "#AuroraPostgreSQL.Updates.20180305.132")
-- [Aurora PostgreSQL
-  1.3.0](#AuroraPostgreSQL.Updates.20180305.130 "#AuroraPostgreSQL.Updates.20180305.130")
+- [Aurora PostgreSQL 1.3.2](#AuroraPostgreSQL.Updates.20180305.132 "#AuroraPostgreSQL.Updates.20180305.132")
+- [Aurora PostgreSQL 1.3.0](#AuroraPostgreSQL.Updates.20180305.130 "#AuroraPostgreSQL.Updates.20180305.130")
 
-#### Aurora PostgreSQL
-
-1.3.2
+#### Aurora PostgreSQL 1.3.2
 
 You can find the following improvements in this release.
 
@@ -18706,17 +17219,14 @@ You can find the following improvements in this release.
 9. Fixed a bug which could cause a snapshot import from RDS for
    PostgreSQL to fail.
 
-#### Aurora PostgreSQL
-
-1.3.0
+#### Aurora PostgreSQL 1.3.0
 
 You can find the following improvements in this release.
 
 ###### Improvements
 
 1. This release contains all fixes, features, and improvements present in
-   [PostgreSQL 9.6.8,
-   Aurora PostgreSQL 1.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.12 "#AuroraPostgreSQL.Updates.20180305.12").
+   [PostgreSQL 9.6.8, Aurora PostgreSQL 1.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.12 "#AuroraPostgreSQL.Updates.20180305.12").
 2. Updated the `GDAL` library, which is used by the
    `PostGIS` extension.
 3. Updated the following PostgreSQL extensions:
@@ -18759,9 +17269,7 @@ waits on the `LWLock:buffer_content` and
 `IO:ControlFileSyncUpdate` events. 15. Fixed a bug in which read nodes could crash following a specific type
 of free space change from the write node.
 
-### PostgreSQL 9.6.8,
-
-Aurora PostgreSQL 1.2 (Deprecated)
+### PostgreSQL 9.6.8, Aurora PostgreSQL 1.2 (Deprecated)
 
 ###### Note
 
@@ -18774,14 +17282,10 @@ For more information about PostgreSQL 9.6.8, see [PostgreSQL release
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  1.2.2](#AuroraPostgreSQL.Updates.20180305.122 "#AuroraPostgreSQL.Updates.20180305.122")
-- [Aurora PostgreSQL
-  1.2.0](#AuroraPostgreSQL.Updates.20180305.120 "#AuroraPostgreSQL.Updates.20180305.120")
+- [Aurora PostgreSQL 1.2.2](#AuroraPostgreSQL.Updates.20180305.122 "#AuroraPostgreSQL.Updates.20180305.122")
+- [Aurora PostgreSQL 1.2.0](#AuroraPostgreSQL.Updates.20180305.120 "#AuroraPostgreSQL.Updates.20180305.120")
 
-#### Aurora PostgreSQL
-
-1.2.2
+#### Aurora PostgreSQL 1.2.2
 
 You can find the following improvements in this release.
 
@@ -18811,9 +17315,7 @@ You can find the following improvements in this release.
 9. Fixed a bug which could cause a snapshot import from RDS for
    PostgreSQL to fail.
 
-#### Aurora PostgreSQL
-
-1.2.0
+#### Aurora PostgreSQL 1.2.0
 
 You can find the following improvements in this release.
 
@@ -18827,8 +17329,7 @@ You can find the following improvements in this release.
 ###### Improvements
 
 1. This release contains all fixes, features, and improvements present in
-   [PostgreSQL 9.6.6
-   Aurora PostgreSQL 1.1 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.11 "#AuroraPostgreSQL.Updates.20180305.11").
+   [PostgreSQL 9.6.6 Aurora PostgreSQL 1.1 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.11 "#AuroraPostgreSQL.Updates.20180305.11").
 2. Updates the following PostgreSQL extensions:
    - `pg_hint_plan` updated to version 1.2.2
    - `plv8` updated to version 2.1.0
@@ -18875,9 +17376,7 @@ fix is a port of a PostgreSQL community patch scheduled to be released
 in a future minor version. 18. Fixes a bug in which a failure while extending a relation can cause
 Aurora to crash while scanning the partially extended relation.
 
-### PostgreSQL 9.6.6
-
-Aurora PostgreSQL 1.1 (Deprecated)
+### PostgreSQL 9.6.6 Aurora PostgreSQL 1.1 (Deprecated)
 
 ###### Note
 
@@ -18906,8 +17405,7 @@ You can find the following improvements in this engine update:
 ###### Improvements
 
 1. This release contains all fixes, features, and improvements present in
-   [Aurora PostgreSQL
-   1.0.11](#AuroraPostgreSQL.Updates.20180305.1011 "#AuroraPostgreSQL.Updates.20180305.1011")
+   [Aurora PostgreSQL 1.0.11](#AuroraPostgreSQL.Updates.20180305.1011 "#AuroraPostgreSQL.Updates.20180305.1011")
 2. Updates for the following PostgreSQL extensions:
    - `PostGIS` extension updated to version 2.3.4
    - `geos` library updated to version 3.6.2
@@ -18944,9 +17442,7 @@ replaying a multixact WAL record when replicating from RDS for PostgreSQL to
 Aurora PostgreSQL. 16. Multiple improvements to the reliability of importing snapshots from RDS
 PostgreSQL to Aurora PostgreSQL.
 
-### PostgreSQL 9.6.3,
-
-Aurora PostgreSQL 1.0 (Deprecated)
+### PostgreSQL 9.6.3, Aurora PostgreSQL 1.0 (Deprecated)
 
 ###### Note
 
@@ -18961,20 +17457,13 @@ This version includes the following Releases:
 
 ###### Releases and patches
 
-- [Aurora PostgreSQL
-  1.0.11](#AuroraPostgreSQL.Updates.20180305.1011 "#AuroraPostgreSQL.Updates.20180305.1011")
-- [Aurora PostgreSQL
-  1.0.10](#AuroraPostgreSQL.Updates.20180305.1010 "#AuroraPostgreSQL.Updates.20180305.1010")
-- [Aurora PostgreSQL
-  1.0.9](#AuroraPostgreSQL.Updates.20180305.109 "#AuroraPostgreSQL.Updates.20180305.109")
-- [Aurora PostgreSQL
-  1.0.8](#AuroraPostgreSQL.Updates.20180305.108 "#AuroraPostgreSQL.Updates.20180305.108")
-- [Aurora PostgreSQL
-  1.0.7](#AuroraPostgreSQL.Updates.20180305.107 "#AuroraPostgreSQL.Updates.20180305.107")
+- [Aurora PostgreSQL 1.0.11](#AuroraPostgreSQL.Updates.20180305.1011 "#AuroraPostgreSQL.Updates.20180305.1011")
+- [Aurora PostgreSQL 1.0.10](#AuroraPostgreSQL.Updates.20180305.1010 "#AuroraPostgreSQL.Updates.20180305.1010")
+- [Aurora PostgreSQL 1.0.9](#AuroraPostgreSQL.Updates.20180305.109 "#AuroraPostgreSQL.Updates.20180305.109")
+- [Aurora PostgreSQL 1.0.8](#AuroraPostgreSQL.Updates.20180305.108 "#AuroraPostgreSQL.Updates.20180305.108")
+- [Aurora PostgreSQL 1.0.7](#AuroraPostgreSQL.Updates.20180305.107 "#AuroraPostgreSQL.Updates.20180305.107")
 
-#### Aurora PostgreSQL
-
-1.0.11
+#### Aurora PostgreSQL 1.0.11
 
 You can find the following improvements in this engine update:
 
@@ -18987,9 +17476,7 @@ You can find the following improvements in this engine update:
 4. Implements improvements to maintain fresh nodes.
 5. Fixes issues that can lead to an engine crash.
 
-#### Aurora PostgreSQL
-
-1.0.10
+#### Aurora PostgreSQL 1.0.10
 
 This update includes a new feature. You can now replicate an Amazon RDS PostgreSQL
 DB instance to Aurora PostgreSQL. For more information, see [Replication with Amazon Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.md "../AuroraUserGuide/AuroraPostgreSQL.md") in the _Amazon Aurora User
@@ -19016,17 +17503,13 @@ You can find the following improvements in this engine update:
    restart.
 10. Fixes issues that can cause an engine crash.
 
-#### Aurora PostgreSQL
-
-1.0.9
+#### Aurora PostgreSQL 1.0.9
 
 In this engine update, we fix an issue that can cause the Aurora storage
 volume to become unavailable when importing a snapshot from RDS for PostgreSQL that
 contained uninitialized pages.
 
-#### Aurora PostgreSQL
-
-1.0.8
+#### Aurora PostgreSQL 1.0.8
 
 You can find the following improvements in this engine update:
 
@@ -19045,9 +17528,7 @@ You can find the following improvements in this engine update:
    Segmentation fault". This issue occurs when the reader applied a
    visibility map change for an uncached visibility map page.
 
-#### Aurora PostgreSQL
-
-1.0.7
+#### Aurora PostgreSQL 1.0.7
 
 This is the first generally available release of Amazon
 Aurora PostgreSQL-Compatible Edition.

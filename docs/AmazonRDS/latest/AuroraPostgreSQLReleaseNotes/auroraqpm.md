@@ -14,29 +14,20 @@ see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/Au
 - [PostgreSQL 14 versions](#auroraqpm-version14 "#auroraqpm-version14")
 - [PostgreSQL 13 versions](#auroraqpm-version13 "#auroraqpm-version13")
 - [PostgreSQL 12 versions](#auroraqpm-version12 "#auroraqpm-version12")
-- [Version 2.3 of the
-  Aurora PostgreSQL apg_plan_mgmt extension](#auroraqpm-version.23 "#auroraqpm-version.23")
-- [Version 2.1 of the
-  Aurora PostgreSQL apg_plan_mgmt extension](#auroraqpm-version.21 "#auroraqpm-version.21")
-- [Version 2.0 of the
-  Aurora PostgreSQL apg_plan_mgmt extension](#auroraqpm-version.20 "#auroraqpm-version.20")
-- [Version 1.0.1 of the
-  Aurora PostgreSQL apg_plan_mgmt extension](#auroraqpm-version.101 "#auroraqpm-version.101")
+- [Version 2.3 of the Aurora PostgreSQL apg_plan_mgmt extension](#auroraqpm-version.23 "#auroraqpm-version.23")
+- [Version 2.1 of the Aurora PostgreSQL apg_plan_mgmt extension](#auroraqpm-version.21 "#auroraqpm-version.21")
+- [Version 2.0 of the Aurora PostgreSQL apg_plan_mgmt extension](#auroraqpm-version.20 "#auroraqpm-version.20")
+- [Version 1.0.1 of the Aurora PostgreSQL apg_plan_mgmt extension](#auroraqpm-version.101 "#auroraqpm-version.101")
 
 ## PostgreSQL 17 versions
 
 ###### Topics
 
-- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 17.7,
-  December 18, 2025](#auroraqpm-version17-177 "#auroraqpm-version17-177")
-- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 17.5,
-  June 30, 2025](#auroraqpm-version17-175 "#auroraqpm-version17-175")
-- [apg_plan_mgmt version 2.8 for Aurora PostgreSQL 17.4,
-  May 01, 2025](#auroraqpm-version17-174 "#auroraqpm-version17-174")
+- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 17.7, December 18, 2025](#auroraqpm-version17-177 "#auroraqpm-version17-177")
+- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 17.5, June 30, 2025](#auroraqpm-version17-175 "#auroraqpm-version17-175")
+- [apg_plan_mgmt version 2.8 for Aurora PostgreSQL 17.4, May 01, 2025](#auroraqpm-version17-174 "#auroraqpm-version17-174")
 
-### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 17.7,
-
-December 18, 2025
+### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 17.7, December 18, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreSQL
 17.7 include the following:
@@ -45,9 +36,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreS
 
 - Added an improvement in Query Plan Management to automatically recapture parameter lists that are stored from previous versions.
 
-### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 17.5,
-
-June 30, 2025
+### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 17.5, June 30, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreSQL
 17.5 include the following:
@@ -60,9 +49,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreS
 - The `apg_plan_mgmt` role in query plan management is reserved and can no longer be created, altered or dropped by users.
 - Fixed an issue in handling parameter lists from previous versions of query plan management.
 
-### apg_plan_mgmt version 2.8 for Aurora PostgreSQL 17.4,
-
-May 01, 2025
+### apg_plan_mgmt version 2.8 for Aurora PostgreSQL 17.4, May 01, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.8 for Aurora PostgreSQL
 17.4 include the following:
@@ -89,22 +76,15 @@ Improvements to the `apg_plan_mgmt` extension in version 2.8 for Aurora PostgreS
 
 ###### Topics
 
-- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 16.11,
-  December 18, 2025](#auroraqpm-version16-1611 "#auroraqpm-version16-1611")
-- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 16.9,
-  June 30, 2025](#auroraqpm-version16-169 "#auroraqpm-version16-169")
-- [apg_plan_mgmt version 2.8 for Aurora PostgreSQL 16.8,
-  April 8, 2025](#auroraqpm-version16-168 "#auroraqpm-version16-168")
-- [apg_plan_mgmt version 2.7 for Aurora PostgreSQL 16.6,
-  December 27, 2024](#auroraqpm-version16-166 "#auroraqpm-version16-166")
+- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 16.11, December 18, 2025](#auroraqpm-version16-1611 "#auroraqpm-version16-1611")
+- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 16.9, June 30, 2025](#auroraqpm-version16-169 "#auroraqpm-version16-169")
+- [apg_plan_mgmt version 2.8 for Aurora PostgreSQL 16.8, April 8, 2025](#auroraqpm-version16-168 "#auroraqpm-version16-168")
+- [apg_plan_mgmt version 2.7 for Aurora PostgreSQL 16.6, December 27, 2024](#auroraqpm-version16-166 "#auroraqpm-version16-166")
 - [apg_plan_mgmt version 2.7 for Aurora PostgreSQL 16.3](#auroraqpm-version16-163 "#auroraqpm-version16-163")
 - [apg_plan_mgmt version 2.6 for Aurora PostgreSQL 16.2](#auroraqpm-version16-162 "#auroraqpm-version16-162")
-- [apg_plan_mgmt version 2.6 for Aurora PostgreSQL
-  16.1](#auroraqpm-version16-161 "#auroraqpm-version16-161")
+- [apg_plan_mgmt version 2.6 for Aurora PostgreSQL 16.1](#auroraqpm-version16-161 "#auroraqpm-version16-161")
 
-### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 16.11,
-
-December 18, 2025
+### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 16.11, December 18, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreSQL
 16.11 include the following:
@@ -113,9 +93,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreS
 
 - Added an improvement in Query Plan Management to automatically recapture parameter lists that are stored from previous versions.
 
-### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 16.9,
-
-June 30, 2025
+### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 16.9, June 30, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreSQL
 16.9 include the following:
@@ -128,9 +106,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreS
 - The `apg_plan_mgmt` role in query plan management is reserved and can no longer be created, altered or dropped by users.
 - Fixed an issue in handling parameter lists from previous versions of query plan management.
 
-### apg_plan_mgmt version 2.8 for Aurora PostgreSQL 16.8,
-
-April 8, 2025
+### apg_plan_mgmt version 2.8 for Aurora PostgreSQL 16.8, April 8, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.8 for Aurora PostgreSQL
 16.8 include the following:
@@ -155,9 +131,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.8 for Aurora PostgreS
 - Fixed an issue in enforcing, validating and evolving plans in Query plan
   management.
 
-### apg_plan_mgmt version 2.7 for Aurora PostgreSQL 16.6,
-
-December 27, 2024
+### apg_plan_mgmt version 2.7 for Aurora PostgreSQL 16.6, December 27, 2024
 
 Improvements to the `apg_plan_mgmt` extension in version 2.7 for Aurora PostgreSQL
 16.6 include the following:
@@ -211,9 +185,7 @@ following:
 - Fixed an issue related to plan capture.
 - Fixed an issue with enforcement of plans containing gather nodes.
 
-### apg_plan_mgmt version 2.6 for Aurora PostgreSQL
-
-16.1
+### apg_plan_mgmt version 2.6 for Aurora PostgreSQL 16.1
 
 Improvements to the `apg_plan_mgmt` extension in version 2.6 for Aurora PostgreSQL
 16.1 include the following:
@@ -244,12 +216,9 @@ Improvements to the `apg_plan_mgmt` extension in version 2.6 for Aurora PostgreS
 
 ###### Topics
 
-- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 15.15,
-  December 18, 2025](#auroraqpm-version15-1515 "#auroraqpm-version15-1515")
-- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 15.13,
-  June 30, 2025](#auroraqpm-version15-1513 "#auroraqpm-version15-1513")
-- [apg_plan_mgmt version 2.8 for Aurora PostgreSQL
-  15.12, April 8, 2025](#auroraqpm-version15-1512 "#auroraqpm-version15-1512")
+- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 15.15, December 18, 2025](#auroraqpm-version15-1515 "#auroraqpm-version15-1515")
+- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 15.13, June 30, 2025](#auroraqpm-version15-1513 "#auroraqpm-version15-1513")
+- [apg_plan_mgmt version 2.8 for Aurora PostgreSQL 15.12, April 8, 2025](#auroraqpm-version15-1512 "#auroraqpm-version15-1512")
 - [apg_plan_mgmt version 2.7 for Aurora PostgreSQL 15.10, December 27, 2024](#auroraqpm-version15-1510 "#auroraqpm-version15-1510")
 - [apg_plan_mgmt version 2.7 for Aurora PostgreSQL 15.8, September 30, 2024](#auroraqpm-version15-158 "#auroraqpm-version15-158")
 - [apg_plan_mgmt version 2.7 for Aurora PostgreSQL 15.7, August 8, 2024](#auroraqpm-version15-157 "#auroraqpm-version15-157")
@@ -258,9 +227,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.6 for Aurora PostgreS
 - [apg_plan_mgmt version 2.5 for Aurora PostgreSQL 15.4](#auroraqpm-version15-154 "#auroraqpm-version15-154")
 - [apg_plan_mgmt version 2.4 for Aurora PostgreSQL 15.3](#auroraqpm-version15-153 "#auroraqpm-version15-153")
 
-### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 15.15,
-
-December 18, 2025
+### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 15.15, December 18, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreSQL
 15.15 include the following:
@@ -269,9 +236,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreS
 
 - Added an improvement in Query Plan Management to automatically recapture parameter lists that are stored from previous versions.
 
-### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 15.13,
-
-June 30, 2025
+### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 15.13, June 30, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreSQL
 15.13 include the following:
@@ -284,9 +249,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreS
 - The `apg_plan_mgmt` role in query plan management is reserved and can no longer be created, altered or dropped by users.
 - Fixed an issue in handling parameter lists from previous versions of query plan management.
 
-### apg_plan_mgmt version 2.8 for Aurora PostgreSQL
-
-15.12, April 8, 2025
+### apg_plan_mgmt version 2.8 for Aurora PostgreSQL 15.12, April 8, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.8 for Aurora PostgreSQL
 15.12 include the following:
@@ -440,12 +403,9 @@ extension, see [Managing query execution plans for Aurora PostgreSQL](../AuroraU
 
 ###### Topics
 
-- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 14.20,
-  December 18, 2025](#auroraqpm-version14-1420 "#auroraqpm-version14-1420")
-- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 14.18,
-  June 30, 2025](#auroraqpm-version14-1418 "#auroraqpm-version14-1418")
-- [apg_plan_mgmt version 2.8 for Aurora PostgreSQL
-  14.17, April 8, 2025](#auroraqpm-version14-1417 "#auroraqpm-version14-1417")
+- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 14.20, December 18, 2025](#auroraqpm-version14-1420 "#auroraqpm-version14-1420")
+- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 14.18, June 30, 2025](#auroraqpm-version14-1418 "#auroraqpm-version14-1418")
+- [apg_plan_mgmt version 2.8 for Aurora PostgreSQL 14.17, April 8, 2025](#auroraqpm-version14-1417 "#auroraqpm-version14-1417")
 - [apg_plan_mgmt version 2.7 for Aurora PostgreSQL 14.15, December 27, 2024](#auroraqpm-version14-1415 "#auroraqpm-version14-1415")
 - [apg_plan_mgmt version 2.7 for Aurora PostgreSQL 14.12, August 8, 2024](#auroraqpm-version14-1412 "#auroraqpm-version14-1412")
 - [apg_plan_mgmt version 2.6 for Aurora PostgreSQL 14.11](#auroraqpm-version14-1411 "#auroraqpm-version14-1411")
@@ -453,9 +413,7 @@ extension, see [Managing query execution plans for Aurora PostgreSQL](../AuroraU
 - [apg_plan_mgmt version 2.5 for Aurora PostgreSQL 14.9](#auroraqpm-version14-149 "#auroraqpm-version14-149")
 - [apg_plan_mgmt version 2.4 for Aurora PostgreSQL 14.8](#auroraqpm-version14-148 "#auroraqpm-version14-148")
 
-### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 14.20,
-
-December 18, 2025
+### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 14.20, December 18, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreSQL
 14.20 include the following:
@@ -464,9 +422,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreS
 
 - Added an improvement in Query Plan Management to automatically recapture parameter lists that are stored from previous versions.
 
-### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 14.18,
-
-June 30, 2025
+### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 14.18, June 30, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreSQL
 14.18 include the following:
@@ -479,9 +435,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreS
 - The `apg_plan_mgmt` role in query plan management is reserved and can no longer be created, altered or dropped by users.
 - Fixed an issue in handling parameter lists from previous versions of query plan management.
 
-### apg_plan_mgmt version 2.8 for Aurora PostgreSQL
-
-14.17, April 8, 2025
+### apg_plan_mgmt version 2.8 for Aurora PostgreSQL 14.17, April 8, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.8 for Aurora PostgreSQL
 14.17 include the following:
@@ -626,12 +580,9 @@ extension, see [Managing query execution plans for Aurora PostgreSQL](../AuroraU
 
 ###### Topics
 
-- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 13.23,
-  December 18, 2025](#auroraqpm-version13-1323 "#auroraqpm-version13-1323")
-- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 13.21,
-  June 30, 2025](#auroraqpm-version13-1321 "#auroraqpm-version13-1321")
-- [apg_plan_mgmt version 2.8 for Aurora PostgreSQL
-  13.20, April 8, 2025](#auroraqpm-version13-1320 "#auroraqpm-version13-1320")
+- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 13.23, December 18, 2025](#auroraqpm-version13-1323 "#auroraqpm-version13-1323")
+- [apg_plan_mgmt version 2.9 for Aurora PostgreSQL 13.21, June 30, 2025](#auroraqpm-version13-1321 "#auroraqpm-version13-1321")
+- [apg_plan_mgmt version 2.8 for Aurora PostgreSQL 13.20, April 8, 2025](#auroraqpm-version13-1320 "#auroraqpm-version13-1320")
 - [apg_plan_mgmt version 2.7 for Aurora PostgreSQL 13.18, December 27, 2024](#auroraqpm-version13-1318 "#auroraqpm-version13-1318")
 - [apg_plan_mgmt version 2.7 for Aurora PostgreSQL 13.15, August 8, 2024](#auroraqpm-version13-1315 "#auroraqpm-version13-1315")
 - [apg_plan_mgmt version 2.6 for Aurora PostgreSQL 13.14](#auroraqpm-version13-1314 "#auroraqpm-version13-1314")
@@ -639,9 +590,7 @@ extension, see [Managing query execution plans for Aurora PostgreSQL](../AuroraU
 - [apg_plan_mgmt version 2.5 for Aurora PostgreSQL 13.12](#auroraqpm-version13-1312 "#auroraqpm-version13-1312")
 - [apg_plan_mgmt version 2.4 for Aurora PostgreSQL 13.11](#auroraqpm-version13-1311 "#auroraqpm-version13-1311")
 
-### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 13.23,
-
-December 18, 2025
+### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 13.23, December 18, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreSQL
 13.23 include the following:
@@ -650,9 +599,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreS
 
 - Added an improvement in Query Plan Management to automatically recapture parameter lists that are stored from previous versions.
 
-### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 13.21,
-
-June 30, 2025
+### apg_plan_mgmt version 2.9 for Aurora PostgreSQL 13.21, June 30, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreSQL
 13.21 include the following:
@@ -665,9 +612,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.9 for Aurora PostgreS
 - The `apg_plan_mgmt` role in Query Plan Management is reserved and can no longer be created, altered or dropped by users.
 - Fixed an issue in handling parameter lists from previous versions of Query Plan Management.
 
-### apg_plan_mgmt version 2.8 for Aurora PostgreSQL
-
-13.20, April 8, 2025
+### apg_plan_mgmt version 2.8 for Aurora PostgreSQL 13.20, April 8, 2025
 
 Improvements to the `apg_plan_mgmt` extension in version 2.8 for Aurora PostgreSQL
 13.20 include the following:
@@ -863,9 +808,7 @@ following:
 - To capture query plans from Replicas, you must update `apg_plan_mgmt` extension by calling ALTER EXTENSION apg_plan_mgmt UPDATE.
 - You need to specify `apg_plan_mgmt.plan_capture_threshold` in order to not allow QPM to capture any query plans.
 
-## Version 2.3 of the
-
-Aurora PostgreSQL apg_plan_mgmt extension
+## Version 2.3 of the Aurora PostgreSQL apg_plan_mgmt extension
 
 Improvements to the `apg_plan_mgmt` extension in version 2.3 includes the
 following:
@@ -890,9 +833,7 @@ following:
 To learn how to install, upgrade, and use the `apg_plan_mgmt`
 extension, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.md "../AuroraUserGuide/AuroraPostgreSQL.md") in the _Amazon Aurora User Guide_.
 
-## Version 2.1 of the
-
-Aurora PostgreSQL apg_plan_mgmt extension
+## Version 2.1 of the Aurora PostgreSQL apg_plan_mgmt extension
 
 Improvements to the `apg_plan_mgmt` extension in version 2.1 for Aurora PostgreSQL 11.20 includes the
 following:
@@ -908,9 +849,7 @@ following:
 To learn how to install, upgrade, and use the `apg_plan_mgmt`
 extension, see [Managing query execution plans for Aurora PostgreSQL](../AuroraUserGuide/AuroraPostgreSQL.md "../AuroraUserGuide/AuroraPostgreSQL.md") in the _Amazon Aurora User Guide_.
 
-## Version 2.0 of the
-
-Aurora PostgreSQL apg_plan_mgmt extension
+## Version 2.0 of the Aurora PostgreSQL apg_plan_mgmt extension
 
 The `apg_plan_mgmt` extension changes for version 2.0 include the
 following:
@@ -952,9 +891,7 @@ apg_plan_mgmt` when it is not loaded in the
    - `apg_plan_mgmt.pgss_min_stddev_time_ms`
    - `apg_plan_mgmt.pgss_min_total_time_ms`
 
-## Version 1.0.1 of the
-
-Aurora PostgreSQL apg_plan_mgmt extension
+## Version 1.0.1 of the Aurora PostgreSQL apg_plan_mgmt extension
 
 The `apg_plan_mgmt` extension changes for version 1.0.1 include the
 following:

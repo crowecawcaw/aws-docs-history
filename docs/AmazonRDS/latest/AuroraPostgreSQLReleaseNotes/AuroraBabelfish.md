@@ -39,6 +39,12 @@ information about the improvements in Aurora PostgreSQL 17.7, see [Amazon Aurora
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
+#### Aurora Babelfish release 5.4.1, January 16, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue where an `UPDATE` statement with `OUTPUT` clause may skip rows when there are concurrent updates on the same row.
+
 #### Aurora Babelfish release 5.4.0, December, 18, 2025
 
 **New Features**
@@ -103,6 +109,12 @@ information about the improvements in Aurora PostgreSQL 17.6, see [Amazon Aurora
 5.3 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+#### Aurora Babelfish release 5.3.1, November 25, 2025
+
+**Critical stability enhancements**
+
+- Fixed crashes and intermittent errors caused by memory corruption when a parameter is assigned to itself.
 
 #### Aurora Babelfish release 5.3.0, November 25, 2025
 
@@ -176,6 +188,23 @@ information about the improvements in Aurora PostgreSQL 17.5, see [Amazon Aurora
 5.2 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+#### Aurora Babelfish release 5.2.2, January 15, 2026
+
+**Critical stability enhancements**
+
+- Fixed crashes and intermittent errors caused by memory corruption when a parameter is assigned to itself.
+
+#### Aurora Babelfish release 5.2.1, August 08, 2025
+
+**Critical stability enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
+
+**High priority stability enhancements**
+
+- Fixed a crash in queries using `FOR JSON AUTO` and `JSON PATH`.
+- Fixed an issue with babelfish connections restored during ZDP.
 
 #### Aurora Babelfish release 5.2.0, June 30, 2025
 
@@ -273,6 +302,23 @@ information about the improvements in Aurora PostgreSQL 17.4, see [Amazon Aurora
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
+#### Aurora Babelfish release 5.1.3, February 02, 2026
+
+**Critical stability enhancements**
+
+- Fixed crashes and intermittent errors caused by memory corruption when a parameter is assigned to itself.
+
+#### Aurora Babelfish release 5.1.2, October 09, 2025
+
+**Critical stability enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
+- Fixed crash in `resolve_numeric_typmod_from_exp` for aggragate functions using \*(all columns)
+
+**High priority stability enhancements**
+
+- Fixed a crash in queries using `FOR JSON AUTO` and `JSON PATH`.
+
 #### Aurora Babelfish release 5.1.1, June 03, 2025
 
 **Security enhancements**
@@ -284,9 +330,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 - Added support for larger server hello messages during SSL handshake.
 
-#### Aurora Babelfish release 5.1.0, May 01,
-
-2025
+#### Aurora Babelfish release 5.1.0, May 01, 2025
 
 **New Features**
 
@@ -418,6 +462,12 @@ information about the improvements in Aurora PostgreSQL 16.11, see [Amazon Auror
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
+#### Aurora Babelfish release 4.8.1, January 16, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue where an `UPDATE` statement with `OUTPUT` clause may skip rows when there are concurrent updates on the same row.
+
 #### Aurora Babelfish release 4.8.0, December 18, 2025
 
 **New Features**
@@ -482,7 +532,14 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 ###### Releases
 
+- [Aurora Babelfish release 4.7.1, November 25, 2025](#AuroraBabelfish.Updates.471 "#AuroraBabelfish.Updates.471")
 - [Aurora Babelfish release 4.7.0, November 25, 2025](#AuroraBabelfish.Updates.470 "#AuroraBabelfish.Updates.470")
+
+#### Aurora Babelfish release 4.7.1, November 25, 2025
+
+**Critical stability enhancements**
+
+- Fixed crashes and intermittent errors caused by memory corruption when a parameter is assigned to itself.
 
 #### Aurora Babelfish release 4.7.0, November 25, 2025
 
@@ -556,7 +613,26 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 ###### Releases
 
+- [Aurora Babelfish release 4.6.2, January 15, 2026](#AuroraBabelfish.Updates.462 "#AuroraBabelfish.Updates.462")
+- [Aurora Babelfish release 4.6.1, August 08, 2025](#AuroraBabelfish.Updates.461 "#AuroraBabelfish.Updates.461")
 - [Aurora Babelfish release 4.6.0, June 30, 2025](#AuroraBabelfish.Updates.46X "#AuroraBabelfish.Updates.46X")
+
+#### Aurora Babelfish release 4.6.2, January 15, 2026
+
+**Critical stability enhancements**
+
+- Fixed crashes and intermittent errors caused by memory corruption when a parameter is assigned to itself.
+
+#### Aurora Babelfish release 4.6.1, August 08, 2025
+
+**Critical stability enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
+
+**High priority stability enhancements**
+
+- Fixed a crash in queries using `FOR JSON AUTO` and `JSON PATH`.
+- Fixed an issue with babelfish connections restored during ZDP.
 
 #### Aurora Babelfish release 4.6.0, June 30, 2025
 
@@ -656,9 +732,27 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 ###### Releases
 
+- [Aurora Babelfish release 4.5.3, February 02, 2026](#AuroraBabelfish.Updates.453 "#AuroraBabelfish.Updates.453")
+- [Aurora Babelfish release 4.5.2, October 09, 2025](#AuroraBabelfish.Updates.452 "#AuroraBabelfish.Updates.452")
 - [Aurora Babelfish release 4.5.1, June 03, 2025](#AuroraBabelfish.Updates.451 "#AuroraBabelfish.Updates.451")
-- [Aurora Babelfish release 4.5.0, April 08,
-  2025](#AuroraBabelfish.Updates.450 "#AuroraBabelfish.Updates.450")
+- [Aurora Babelfish release 4.5.0, April 08, 2025](#AuroraBabelfish.Updates.450 "#AuroraBabelfish.Updates.450")
+
+#### Aurora Babelfish release 4.5.3, February 02, 2026
+
+**Critical stability enhancements**
+
+- Fixed crashes and intermittent errors caused by memory corruption when a parameter is assigned to itself.
+
+#### Aurora Babelfish release 4.5.2, October 09, 2025
+
+**Critical stability enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
+- Fixed crash in `resolve_numeric_typmod_from_exp` for aggragate functions using \*(all columns)
+
+**High priority stability enhancements**
+
+- Fixed a crash in queries using `FOR JSON AUTO` and `JSON PATH`.
 
 #### **Aurora Babelfish release 4.5.1, June 03, 2025**
 
@@ -671,9 +765,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 - Added support for larger server hello messages during SSL handshake.
 
-#### Aurora Babelfish release 4.5.0, April 08,
-
-2025
+#### Aurora Babelfish release 4.5.0, April 08, 2025
 
 **New Features**
 
@@ -788,24 +880,29 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 4.4.2,
-  June 24, 2025](#AuroraBabelfish.Updates.442 "#AuroraBabelfish.Updates.442")
-- [Aurora Babelfish release 4.4.1, January 20,
-  2025](#AuroraBabelfish.Updates.441 "#AuroraBabelfish.Updates.441")
+- [Aurora Babelfish release 4.4.3, November 13, 2025](#AuroraBabelfish.Updates.443 "#AuroraBabelfish.Updates.443")
+- [Aurora Babelfish release 4.4.2, June 24, 2025](#AuroraBabelfish.Updates.442 "#AuroraBabelfish.Updates.442")
+- [Aurora Babelfish release 4.4.1, January 20, 2025](#AuroraBabelfish.Updates.441 "#AuroraBabelfish.Updates.441")
 - [Aurora Babelfish release 4.4.0, December 27, 2024](#AuroraBabelfish.Updates.440 "#AuroraBabelfish.Updates.440")
 
-#### Aurora Babelfish release 4.4.2,
+#### Aurora Babelfish release 4.4.3, November 13, 2025
 
-June 24, 2025
+**Critical stability enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
+
+**High priority stability enhancements**
+
+- Fixed a crash in queries using `FOR JSON AUTO` and `JSON PATH`.
+
+#### Aurora Babelfish release 4.4.2, June 24, 2025
 
 **Security enhancements**
 
 - Fixed an issue with permission check in parallel worker where non-privileged user may get
   read access to data in some scenarios.
 
-#### Aurora Babelfish release 4.4.1, January 20,
-
-2025
+#### Aurora Babelfish release 4.4.1, January 20, 2025
 
 **High priority stability enhancements**
 
@@ -890,24 +987,25 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 4.3.2,
-  July 11, 2025](#AuroraBabelfish.Updates.432 "#AuroraBabelfish.Updates.432")
-- [Aurora Babelfish release 4.3.1, January 02,
-  2025](#AuroraBabelfish.Updates.431 "#AuroraBabelfish.Updates.431")
+- [Aurora Babelfish release 4.3.3, November 21, 2025](#AuroraBabelfish.Updates.433 "#AuroraBabelfish.Updates.433")
+- [Aurora Babelfish release 4.3.2, July 11, 2025](#AuroraBabelfish.Updates.432 "#AuroraBabelfish.Updates.432")
+- [Aurora Babelfish release 4.3.1, January 02, 2025](#AuroraBabelfish.Updates.431 "#AuroraBabelfish.Updates.431")
 - [Aurora Babelfish release 4.3.0, September 30, 2024](#AuroraBabelfish.Updates.430 "#AuroraBabelfish.Updates.430")
 
-#### Aurora Babelfish release 4.3.2,
+#### Aurora Babelfish release 4.3.3, November 21, 2025
 
-July 11, 2025
+**High priority stability enhancements**
+
+- Fixed a crash in queries using `FOR JSON AUTO` and `JSON PATH`.
+
+#### Aurora Babelfish release 4.3.2, July 11, 2025
 
 **Security enhancements**
 
 - Fixed an issue with permission check in parallel worker where non-privileged user may get
   read access to data in some scenarios.
 
-#### Aurora Babelfish release 4.3.1, January 02,
-
-2025
+#### Aurora Babelfish release 4.3.1, January 02, 2025
 
 **High priority stability enhancements**
 
@@ -988,27 +1086,19 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 4.2.3,
-  July 17, 2025](#AuroraBabelfish.Updates.423 "#AuroraBabelfish.Updates.423")
-- [Aurora Babelfish release 4.2.2, January 23,
-  2025](#AuroraBabelfish.Updates.422 "#AuroraBabelfish.Updates.422")
-- [Aurora Babelfish release 4.2.1,
-  September 27, 2024](#AuroraBabelfish.Updates.421 "#AuroraBabelfish.Updates.421")
-- [Aurora Babelfish release 4.2.0,
-  August 8, 2024](#AuroraBabelfish.Updates.420 "#AuroraBabelfish.Updates.420")
+- [Aurora Babelfish release 4.2.3, July 17, 2025](#AuroraBabelfish.Updates.423 "#AuroraBabelfish.Updates.423")
+- [Aurora Babelfish release 4.2.2, January 23, 2025](#AuroraBabelfish.Updates.422 "#AuroraBabelfish.Updates.422")
+- [Aurora Babelfish release 4.2.1, September 27, 2024](#AuroraBabelfish.Updates.421 "#AuroraBabelfish.Updates.421")
+- [Aurora Babelfish release 4.2.0, August 8, 2024](#AuroraBabelfish.Updates.420 "#AuroraBabelfish.Updates.420")
 
-#### Aurora Babelfish release 4.2.3,
-
-July 17, 2025
+#### Aurora Babelfish release 4.2.3, July 17, 2025
 
 **Security enhancements**
 
 - Fixed an issue with permission check in parallel worker where non-privileged user may get
   read access to data in some scenarios.
 
-#### Aurora Babelfish release 4.2.2, January 23,
-
-2025
+#### Aurora Babelfish release 4.2.2, January 23, 2025
 
 **High priority stability enhancements**
 
@@ -1017,17 +1107,13 @@ July 17, 2025
 - Fixed an issue for date functions to allow them to take into account the local/session
   timezone setting.
 
-#### Aurora Babelfish release 4.2.1,
-
-September 27, 2024
+#### Aurora Babelfish release 4.2.1, September 27, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 4.2.0,
-
-August 8, 2024
+#### Aurora Babelfish release 4.2.0, August 8, 2024
 
 ###### New features
 
@@ -1118,46 +1204,33 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 ###### Releases
 
-- [Aurora Babelfish release 4.1.4,
-  July 30, 2025](#AuroraBabelfish.Updates.414 "#AuroraBabelfish.Updates.414")
-- [Aurora Babelfish release 4.1.3,
-  February 02, 2025](#AuroraBabelfish.Updates.413 "#AuroraBabelfish.Updates.413")
-- [Aurora Babelfish release 4.1.2,
-  October 7, 2024](#AuroraBabelfish.Updates.412 "#AuroraBabelfish.Updates.412")
-- [Aurora Babelfish release 4.1.1,
-  June 20, 2024](#AuroraBabelfish.Updates.411 "#AuroraBabelfish.Updates.411")
-- [Aurora Babelfish release 4.1.0,
-  April 29, 2024](#AuroraBabelfish.Updates.410 "#AuroraBabelfish.Updates.410")
+- [Aurora Babelfish release 4.1.4, July 30, 2025](#AuroraBabelfish.Updates.414 "#AuroraBabelfish.Updates.414")
+- [Aurora Babelfish release 4.1.3, February 02, 2025](#AuroraBabelfish.Updates.413 "#AuroraBabelfish.Updates.413")
+- [Aurora Babelfish release 4.1.2, October 7, 2024](#AuroraBabelfish.Updates.412 "#AuroraBabelfish.Updates.412")
+- [Aurora Babelfish release 4.1.1, June 20, 2024](#AuroraBabelfish.Updates.411 "#AuroraBabelfish.Updates.411")
+- [Aurora Babelfish release 4.1.0, April 29, 2024](#AuroraBabelfish.Updates.410 "#AuroraBabelfish.Updates.410")
 
-#### Aurora Babelfish release 4.1.4,
-
-July 30, 2025
+#### Aurora Babelfish release 4.1.4, July 30, 2025
 
 **Security enhancements**
 
 - Fixed an issue with permission check in parallel worker where non-privileged user may get
   read access to data in some scenarios.
 
-#### Aurora Babelfish release 4.1.3,
-
-February 02, 2025
+#### Aurora Babelfish release 4.1.3, February 02, 2025
 
 **High priority stability enhancements**.
 
 - Fixed an issue for date functions to allow them to take into account the
   local/session timezone setting.
 
-#### Aurora Babelfish release 4.1.2,
-
-October 7, 2024
+#### Aurora Babelfish release 4.1.2, October 7, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 4.1.1,
-
-June 20, 2024
+#### Aurora Babelfish release 4.1.1, June 20, 2024
 
 ###### High priority stability enhancements
 
@@ -1165,9 +1238,7 @@ June 20, 2024
   Babelfish.
 - Fixed a crash with execution of pltsql user defined functions.
 
-#### Aurora Babelfish release 4.1.0,
-
-April 29, 2024
+#### Aurora Babelfish release 4.1.0, April 29, 2024
 
 ###### New features
 
@@ -1259,19 +1330,13 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 4.0.4,
-  August 4, 2025](#AuroraBabelfish.Updates.404 "#AuroraBabelfish.Updates.404")
+- [Aurora Babelfish release 4.0.4, August 4, 2025](#AuroraBabelfish.Updates.404 "#AuroraBabelfish.Updates.404")
 - [Aurora Babelfish release 4.0.3, February 5, 2025](#AuroraBabelfish.Updates.403 "#AuroraBabelfish.Updates.403")
-- [Aurora Babelfish release 4.0.2,
-  September 17, 2024](#AuroraBabelfish.Updates.402 "#AuroraBabelfish.Updates.402")
-- [Aurora Babelfish release 4.0.1,
-  June 24, 2024](#AuroraBabelfish.Updates.401 "#AuroraBabelfish.Updates.401")
-- [Aurora Babelfish release 4.0.0,
-  January 31, 2024](#AuroraBabelfish.Updates.400 "#AuroraBabelfish.Updates.400")
+- [Aurora Babelfish release 4.0.2, September 17, 2024](#AuroraBabelfish.Updates.402 "#AuroraBabelfish.Updates.402")
+- [Aurora Babelfish release 4.0.1, June 24, 2024](#AuroraBabelfish.Updates.401 "#AuroraBabelfish.Updates.401")
+- [Aurora Babelfish release 4.0.0, January 31, 2024](#AuroraBabelfish.Updates.400 "#AuroraBabelfish.Updates.400")
 
-#### Aurora Babelfish release 4.0.4,
-
-August 4, 2025
+#### Aurora Babelfish release 4.0.4, August 4, 2025
 
 **Security enhancements**
 
@@ -1285,17 +1350,13 @@ August 4, 2025
 - Fixed an issue for date functions to allow them to take into account the local/session
   timezone setting.
 
-#### Aurora Babelfish release 4.0.2,
-
-September 17, 2024
+#### Aurora Babelfish release 4.0.2, September 17, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 4.0.1,
-
-June 24, 2024
+#### Aurora Babelfish release 4.0.1, June 24, 2024
 
 ###### High priority stability enhancements
 
@@ -1303,9 +1364,7 @@ June 24, 2024
 - Optimized performance for Create and Drop Databases for Babelfish.
 - Fixed a crash with execution of pltsql user defined functions.
 
-#### Aurora Babelfish release 4.0.0,
-
-January 31, 2024
+#### Aurora Babelfish release 4.0.0, January 31, 2024
 
 ###### New features
 
@@ -1357,6 +1416,12 @@ information about the improvements in Aurora PostgreSQL 15.15, see [Amazon Auror
 3.12 adds several enhancements and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+#### Aurora Babelfish release 3.12.1, January 16, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue where an `UPDATE` statement with `OUTPUT` clause may skip rows when there are concurrent updates on the same row.
 
 #### Aurora Babelfish release 3.12.0, December 18, 2025
 
@@ -1414,7 +1479,18 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 ###### Releases
 
+- [Aurora Babelfish release 3.10.1, August 08, 2025](#AuroraBabelfish.Updates.3101 "#AuroraBabelfish.Updates.3101")
 - [Aurora Babelfish release 3.10.0, June 30, 2025](#AuroraBabelfish.Updates.3100 "#AuroraBabelfish.Updates.3100")
+
+#### Aurora Babelfish release 3.10.1, August 08, 2025
+
+**Critical stability enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
+
+**High priority stability enhancements**
+
+- Fixed a crash in queries using `FOR JSON AUTO` and `JSON PATH`.
 
 #### Aurora Babelfish release 3.10.0, June 30, 2025
 
@@ -1457,9 +1533,20 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 ###### Releases
 
+- [Aurora Babelfish release 3.9.2, October 09, 2025](#AuroraBabelfish.Updates.392 "#AuroraBabelfish.Updates.392")
 - [Aurora Babelfish release 3.9.1, June 03, 2025](#AuroraBabelfish.Updates.391 "#AuroraBabelfish.Updates.391")
-- [Aurora Babelfish release 3.9.0, April 08,
-  2025](#AuroraBabelfish.Updates.390 "#AuroraBabelfish.Updates.390")
+- [Aurora Babelfish release 3.9.0, April 08, 2025](#AuroraBabelfish.Updates.390 "#AuroraBabelfish.Updates.390")
+
+#### Aurora Babelfish release 3.9.2, October 09, 2025
+
+**Critical stability enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
+- Fixed crash in `resolve_numeric_typmod_from_exp` for aggragate functions using \*(all columns)
+
+**High priority stability enhancements**
+
+- Fixed a crash in queries using `FOR JSON AUTO` and `JSON PATH`.
 
 #### Aurora Babelfish release 3.9.1, June 03, 2025
 
@@ -1472,9 +1559,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 - Added support for larger server hello messages during SSL handshake.
 
-#### Aurora Babelfish release 3.9.0, April 08,
-
-2025
+#### Aurora Babelfish release 3.9.0, April 08, 2025
 
 **Critical enhancements**
 
@@ -1544,33 +1629,35 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 ###### Releases
 
-- [Aurora Babelfish release 3.8.2,
-  June 24, 2025](#AuroraBabelfish.Updates.382 "#AuroraBabelfish.Updates.382")
-- [Aurora Babelfish release 3.8.1, January 20,
-  2025](#AuroraBabelfish.Updates.380 "#AuroraBabelfish.Updates.380")
-- [Aurora Babelfish release 3.8.0, December
-  27, 2024](#AuroraBabelfish.Updates.380 "#AuroraBabelfish.Updates.380")
+- [Aurora Babelfish release 3.8.3, November 13, 2025](#AuroraBabelfish.Updates.383 "#AuroraBabelfish.Updates.383")
+- [Aurora Babelfish release 3.8.2, June 24, 2025](#AuroraBabelfish.Updates.382 "#AuroraBabelfish.Updates.382")
+- [Aurora Babelfish release 3.8.1, January 20, 2025](#AuroraBabelfish.Updates.380 "#AuroraBabelfish.Updates.380")
+- [Aurora Babelfish release 3.8.0, December 27, 2024](#AuroraBabelfish.Updates.380 "#AuroraBabelfish.Updates.380")
 
-#### Aurora Babelfish release 3.8.2,
+#### Aurora Babelfish release 3.8.3, November 13, 2025
 
-June 24, 2025
+**Critical stability enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
+
+**High priority stability enhancements**
+
+- Fixed a crash in queries using `FOR JSON AUTO` and `JSON PATH`.
+
+#### Aurora Babelfish release 3.8.2, June 24, 2025
 
 **Security enhancements**
 
 - Fixed an issue with permission check in parallel worker where non-privileged user may get
   read access to data in some scenarios.
 
-#### Aurora Babelfish release 3.8.1, January 20,
-
-2025
+#### Aurora Babelfish release 3.8.1, January 20, 2025
 
 **High priority stability enhancements**
 
 - Fixed an issue where transactional commands may terminate the connection in some cases.
 
-#### Aurora Babelfish release 3.8.0, December
-
-27, 2024
+#### Aurora Babelfish release 3.8.0, December 27, 2024
 
 ###### _New features_
 
@@ -1636,24 +1723,25 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 3.7.2,
-  July 11, 2025](#AuroraBabelfish.Updates.372 "#AuroraBabelfish.Updates.372")
-- [Aurora Babelfish release 3.7.1, January 02,
-  2025](#AuroraBabelfish.Updates.371 "#AuroraBabelfish.Updates.371")
+- [Aurora Babelfish release 3.7.3, November 21, 2025](#AuroraBabelfish.Updates.373 "#AuroraBabelfish.Updates.373")
+- [Aurora Babelfish release 3.7.2, July 11, 2025](#AuroraBabelfish.Updates.372 "#AuroraBabelfish.Updates.372")
+- [Aurora Babelfish release 3.7.1, January 02, 2025](#AuroraBabelfish.Updates.371 "#AuroraBabelfish.Updates.371")
 - [Aurora Babelfish release 3.7.0, September 30, 2024](#AuroraBabelfish.Updates.370 "#AuroraBabelfish.Updates.370")
 
-#### Aurora Babelfish release 3.7.2,
+#### Aurora Babelfish release 3.7.3, November 21, 2025
 
-July 11, 2025
+**High priority stability enhancements**
+
+- Fixed a crash in queries using `FOR JSON AUTO` and `JSON PATH`.
+
+#### Aurora Babelfish release 3.7.2, July 11, 2025
 
 **Security enhancements**
 
 - Fixed an issue with permission check in parallel worker where non-privileged user may get
   read access to data in some scenarios.
 
-#### Aurora Babelfish release 3.7.1, January 02,
-
-2025
+#### Aurora Babelfish release 3.7.1, January 02, 2025
 
 **High priority stability enhancements**
 
@@ -1720,17 +1808,12 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 3.6.3,
-  July 17, 2025](#AuroraBabelfish.Updates.363 "#AuroraBabelfish.Updates.363")
+- [Aurora Babelfish release 3.6.3, July 17, 2025](#AuroraBabelfish.Updates.363 "#AuroraBabelfish.Updates.363")
 - [Aurora Babelfish release 3.6.2, January 23, 2025](#AuroraBabelfish.Updates.362 "#AuroraBabelfish.Updates.362")
-- [Aurora Babelfish release 3.6.1,
-  September 27, 2024](#AuroraBabelfish.Updates.361 "#AuroraBabelfish.Updates.361")
-- [Aurora Babelfish release 3.6.0,
-  August 8, 2024](#AuroraBabelfish.Updates.360 "#AuroraBabelfish.Updates.360")
+- [Aurora Babelfish release 3.6.1, September 27, 2024](#AuroraBabelfish.Updates.361 "#AuroraBabelfish.Updates.361")
+- [Aurora Babelfish release 3.6.0, August 8, 2024](#AuroraBabelfish.Updates.360 "#AuroraBabelfish.Updates.360")
 
-#### Aurora Babelfish release 3.6.3,
-
-July 17, 2025
+#### Aurora Babelfish release 3.6.3, July 17, 2025
 
 **Security enhancements**
 
@@ -1746,17 +1829,13 @@ July 17, 2025
 - Fixed an issue for date functions to allow them to take into account the local/session
   timezone setting.
 
-#### Aurora Babelfish release 3.6.1,
-
-September 27, 2024
+#### Aurora Babelfish release 3.6.1, September 27, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 3.6.0,
-
-August 8, 2024
+#### Aurora Babelfish release 3.6.0, August 8, 2024
 
 ###### New features
 
@@ -1841,54 +1920,39 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 3.5.4,
-  July 30, 2025](#AuroraBabelfish.Updates.354 "#AuroraBabelfish.Updates.354")
-- [Aurora Babelfish release 3.5.3, February 02,
-  2025](#AuroraBabelfish.Updates.353 "#AuroraBabelfish.Updates.353")
-- [Aurora Babelfish release 3.5.2,
-  October 7, 2024](#AuroraBabelfish.Updates.352 "#AuroraBabelfish.Updates.352")
-- [Aurora Babelfish release 3.5.1,
-  June 20, 2024](#AuroraBabelfish.Updates.351 "#AuroraBabelfish.Updates.351")
-- [Aurora Babelfish release 3.5.0,
-  April 29, 2024](#AuroraBabelfish.Updates.350 "#AuroraBabelfish.Updates.350")
+- [Aurora Babelfish release 3.5.4, July 30, 2025](#AuroraBabelfish.Updates.354 "#AuroraBabelfish.Updates.354")
+- [Aurora Babelfish release 3.5.3, February 02, 2025](#AuroraBabelfish.Updates.353 "#AuroraBabelfish.Updates.353")
+- [Aurora Babelfish release 3.5.2, October 7, 2024](#AuroraBabelfish.Updates.352 "#AuroraBabelfish.Updates.352")
+- [Aurora Babelfish release 3.5.1, June 20, 2024](#AuroraBabelfish.Updates.351 "#AuroraBabelfish.Updates.351")
+- [Aurora Babelfish release 3.5.0, April 29, 2024](#AuroraBabelfish.Updates.350 "#AuroraBabelfish.Updates.350")
 
-#### Aurora Babelfish release 3.5.4,
-
-July 30, 2025
+#### Aurora Babelfish release 3.5.4, July 30, 2025
 
 **Security enhancements**
 
 - Fixed an issue with permission check in parallel worker where non-privileged user may get
   read access to data in some scenarios.
 
-#### Aurora Babelfish release 3.5.3, February 02,
-
-2025
+#### Aurora Babelfish release 3.5.3, February 02, 2025
 
 **High priority stability enhancements**
 
 - Fixed an issue for date functions to allow them to take into account the local/session
   timezone setting.
 
-#### Aurora Babelfish release 3.5.2,
-
-October 7, 2024
+#### Aurora Babelfish release 3.5.2, October 7, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 3.5.1,
-
-June 20, 2024
+#### Aurora Babelfish release 3.5.1, June 20, 2024
 
 ###### High priority stability enhancements
 
 - Fixed a crash with execution of pltsql user defined functions.
 
-#### Aurora Babelfish release 3.5.0,
-
-April 29, 2024
+#### Aurora Babelfish release 3.5.0, April 29, 2024
 
 ###### New features
 
@@ -1953,19 +2017,13 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 3.4.4,
-  August 4, 2025](#AuroraBabelfish.Updates.344 "#AuroraBabelfish.Updates.344")
+- [Aurora Babelfish release 3.4.4, August 4, 2025](#AuroraBabelfish.Updates.344 "#AuroraBabelfish.Updates.344")
 - [Aurora Babelfish release 3.4.3, February 5, 2025](#AuroraBabelfish.Updates.343 "#AuroraBabelfish.Updates.343")
-- [Aurora Babelfish release 3.4.2,
-  September 17, 2024](#AuroraBabelfish.Updates.342 "#AuroraBabelfish.Updates.342")
-- [Aurora Babelfish release 3.4.1,
-  June 24, 2024](#AuroraBabelfish.Updates.341 "#AuroraBabelfish.Updates.341")
-- [Aurora Babelfish release 3.4.0,
-  December 21, 2023](#AuroraBabelfish.Updates.340 "#AuroraBabelfish.Updates.340")
+- [Aurora Babelfish release 3.4.2, September 17, 2024](#AuroraBabelfish.Updates.342 "#AuroraBabelfish.Updates.342")
+- [Aurora Babelfish release 3.4.1, June 24, 2024](#AuroraBabelfish.Updates.341 "#AuroraBabelfish.Updates.341")
+- [Aurora Babelfish release 3.4.0, December 21, 2023](#AuroraBabelfish.Updates.340 "#AuroraBabelfish.Updates.340")
 
-#### Aurora Babelfish release 3.4.4,
-
-August 4, 2025
+#### Aurora Babelfish release 3.4.4, August 4, 2025
 
 **Security enhancements**
 
@@ -1979,25 +2037,19 @@ August 4, 2025
 - Fixed an issue for date functions to allow them to take into account the local/session
   timezone setting.
 
-#### Aurora Babelfish release 3.4.2,
-
-September 17, 2024
+#### Aurora Babelfish release 3.4.2, September 17, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 3.4.1,
-
-June 24, 2024
+#### Aurora Babelfish release 3.4.1, June 24, 2024
 
 ###### High priority stability enhancements
 
 - Fixed a crash with execution of pltsql user defined functions.
 
-#### Aurora Babelfish release 3.4.0,
-
-December 21, 2023
+#### Aurora Babelfish release 3.4.0, December 21, 2023
 
 ###### New features
 
@@ -2092,22 +2144,16 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 3.3.1,
-  November 14, 2024](#AuroraBabelfish.Updates.331 "#AuroraBabelfish.Updates.331")
-- [Aurora Babelfish release 3.3.0,
-  October 24, 2023](#AuroraBabelfish.Updates.330 "#AuroraBabelfish.Updates.330")
+- [Aurora Babelfish release 3.3.1, November 14, 2024](#AuroraBabelfish.Updates.331 "#AuroraBabelfish.Updates.331")
+- [Aurora Babelfish release 3.3.0, October 24, 2023](#AuroraBabelfish.Updates.330 "#AuroraBabelfish.Updates.330")
 
-#### Aurora Babelfish release 3.3.1,
-
-November 14, 2024
+#### Aurora Babelfish release 3.3.1, November 14, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 3.3.0,
-
-October 24, 2023
+#### Aurora Babelfish release 3.3.0, October 24, 2023
 
 ###### New features
 
@@ -2167,24 +2213,17 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 3.2.2,
-  November 12, 2024](#AuroraBabelfish.Updates.322 "#AuroraBabelfish.Updates.322")
-- [Aurora Babelfish release 3.2.1,
-  October 4, 2023](#AuroraBabelfish.Updates.321 "#AuroraBabelfish.Updates.321")
-- [Aurora Babelfish release 3.2.0,
-  July 13, 2023](#AuroraBabelfish.Updates.320 "#AuroraBabelfish.Updates.320")
+- [Aurora Babelfish release 3.2.2, November 12, 2024](#AuroraBabelfish.Updates.322 "#AuroraBabelfish.Updates.322")
+- [Aurora Babelfish release 3.2.1, October 4, 2023](#AuroraBabelfish.Updates.321 "#AuroraBabelfish.Updates.321")
+- [Aurora Babelfish release 3.2.0, July 13, 2023](#AuroraBabelfish.Updates.320 "#AuroraBabelfish.Updates.320")
 
-#### Aurora Babelfish release 3.2.2,
-
-November 12, 2024
+#### Aurora Babelfish release 3.2.2, November 12, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 3.2.1,
-
-October 4, 2023
+#### Aurora Babelfish release 3.2.1, October 4, 2023
 
 ###### High priority stability enhancements
 
@@ -2206,9 +2245,7 @@ October 4, 2023
 - Fixed an issue to avoid failure error message 2600 while attempting to create a temp table.
 - Fixed a bug to prevent temp table index recreation issue.
 
-#### Aurora Babelfish release 3.2.0,
-
-July 13, 2023
+#### Aurora Babelfish release 3.2.0, July 13, 2023
 
 ###### New features
 
@@ -2280,28 +2317,19 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 3.1.4,
-  November 6, 2024](#AuroraBabelfish.Updates.314 "#AuroraBabelfish.Updates.314")
-- [Aurora Babelfish release 3.1.3,
-  October 4, 2023](#AuroraBabelfish.Updates.313 "#AuroraBabelfish.Updates.313")
-- [Aurora Babelfish release 3.1.2,
-  July 24, 2023](#AuroraBabelfish.Updates.312 "#AuroraBabelfish.Updates.312")
-- [Aurora Babelfish release 3.1.1,
-  May 10, 2023](#AuroraBabelfish.Updates.311 "#AuroraBabelfish.Updates.311")
-- [Aurora Babelfish release 3.1.0,
-  April 5, 2023](#AuroraBabelfish.Updates.310 "#AuroraBabelfish.Updates.310")
+- [Aurora Babelfish release 3.1.4, November 6, 2024](#AuroraBabelfish.Updates.314 "#AuroraBabelfish.Updates.314")
+- [Aurora Babelfish release 3.1.3, October 4, 2023](#AuroraBabelfish.Updates.313 "#AuroraBabelfish.Updates.313")
+- [Aurora Babelfish release 3.1.2, July 24, 2023](#AuroraBabelfish.Updates.312 "#AuroraBabelfish.Updates.312")
+- [Aurora Babelfish release 3.1.1, May 10, 2023](#AuroraBabelfish.Updates.311 "#AuroraBabelfish.Updates.311")
+- [Aurora Babelfish release 3.1.0, April 5, 2023](#AuroraBabelfish.Updates.310 "#AuroraBabelfish.Updates.310")
 
-#### Aurora Babelfish release 3.1.4,
-
-November 6, 2024
+#### Aurora Babelfish release 3.1.4, November 6, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 3.1.3,
-
-October 4, 2023
+#### Aurora Babelfish release 3.1.3, October 4, 2023
 
 ###### Additional improvements and enhancements
 
@@ -2312,18 +2340,14 @@ October 4, 2023
   remote object referenced with a four-part object names are invoked within the master database.
 - Fixed a crash in parallel query execution when `enable_pg_hint` is set to `on`.
 
-#### Aurora Babelfish release 3.1.2,
-
-July 24, 2023
+#### Aurora Babelfish release 3.1.2, July 24, 2023
 
 ###### Additional improvements and enhancements
 
 - Fixed intermittent SSL connectivity issue during concurrent connections towards Babelfish instance.
 - Fixed login name case sensitivity issue with CREATE USER for windows login syntax.
 
-#### Aurora Babelfish release 3.1.1,
-
-May 10, 2023
+#### Aurora Babelfish release 3.1.1, May 10, 2023
 
 ###### Additional improvements and enhancements
 
@@ -2331,9 +2355,7 @@ May 10, 2023
 - Fixed a crash during bulk load operation in a specific scenario.
 - Fixed an issue to prevent Babelfish instance from crashing when alter table and alter column is called with drop default where the column has no definition.
 
-#### Aurora Babelfish release 3.1.0,
-
-April 5, 2023
+#### Aurora Babelfish release 3.1.0, April 5, 2023
 
 ###### New features
 
@@ -2416,6 +2438,7 @@ April 5, 2023
 ###### Version updates
 
 - [Babelfish for Aurora PostgreSQL 2.14](#AuroraBabelfish.Updates.214X "#AuroraBabelfish.Updates.214X")
+- [Babelfish for Aurora PostgreSQL 2.13](#AuroraBabelfish.Updates.213X "#AuroraBabelfish.Updates.213X")
 - [Babelfish for Aurora PostgreSQL 2.12](#AuroraBabelfish.Updates.212X "#AuroraBabelfish.Updates.212X")
 - [Babelfish for Aurora PostgreSQL 2.11](#AuroraBabelfish.Updates.211X "#AuroraBabelfish.Updates.211X")
 - [Babelfish for Aurora PostgreSQL 2.10](#AuroraBabelfish.Updates.210X "#AuroraBabelfish.Updates.210X")
@@ -2451,6 +2474,24 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 - Fixed an issue while adding a column with default value which resulted in an error
 
+### Babelfish for Aurora PostgreSQL 2.13
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.18. For more
+information about the improvements in Aurora PostgreSQL 14.18, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.md "AuroraPostgreSQL.md"). Babelfish for Aurora PostgreSQL
+2.13 adds several new features, enhancements, and fixes. For more information about
+Babelfish for Aurora PostgreSQL, see [Working with
+Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+###### Releases
+
+- [Aurora Babelfish release 2.13.1, August 08, 2025](#AuroraBabelfish.Updates.2131 "#AuroraBabelfish.Updates.2131")
+
+#### Aurora Babelfish release 2.13.1, August 08, 2025
+
+**Critical stability enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
+
 ### Babelfish for Aurora PostgreSQL 2.12
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.17. For more
@@ -2461,9 +2502,15 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 ###### Releases
 
+- [Aurora Babelfish release 2.12.2, October 09, 2025](#AuroraBabelfish.Updates.2122 "#AuroraBabelfish.Updates.2122")
 - [Aurora Babelfish release 2.12.1, June 03, 2025](#AuroraBabelfish.Updates.2121 "#AuroraBabelfish.Updates.2121")
-- [Aurora Babelfish release 2.12, April 08,
-  2025](#AuroraBabelfish.Updates.212 "#AuroraBabelfish.Updates.212")
+- [Aurora Babelfish release 2.12, April 08, 2025](#AuroraBabelfish.Updates.212 "#AuroraBabelfish.Updates.212")
+
+#### Aurora Babelfish release 2.12.2, October 09, 2025
+
+**Critical stability enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
 
 #### **Aurora Babelfish release 2.12.1, June 03, 2025**
 
@@ -2472,9 +2519,7 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Fixed an issue with permission check in parallel worker where non-privileged user may get
   read access to data in some scenarios.
 
-#### Aurora Babelfish release 2.12, April 08,
-
-2025
+#### Aurora Babelfish release 2.12, April 08, 2025
 
 **Critical enhancements**
 
@@ -2498,33 +2543,31 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 ###### Releases
 
-- [Aurora Babelfish release 2.11.2,
-  June 24, 2025](#AuroraBabelfish.Updates.2112 "#AuroraBabelfish.Updates.2112")
-- [Aurora Babelfish release 2.11.1, January 20,
-  2025](#AuroraBabelfish.Updates.2111 "#AuroraBabelfish.Updates.2111")
-- [Aurora Babelfish release 2.11.0, December
-  27, 2024](#AuroraBabelfish.Updates.2110 "#AuroraBabelfish.Updates.2110")
+- [Aurora Babelfish release 2.11.3, November 13, 2025](#AuroraBabelfish.Updates.2113 "#AuroraBabelfish.Updates.2113")
+- [Aurora Babelfish release 2.11.2, June 24, 2025](#AuroraBabelfish.Updates.2112 "#AuroraBabelfish.Updates.2112")
+- [Aurora Babelfish release 2.11.1, January 20, 2025](#AuroraBabelfish.Updates.2111 "#AuroraBabelfish.Updates.2111")
+- [Aurora Babelfish release 2.11.0, December 27, 2024](#AuroraBabelfish.Updates.2110 "#AuroraBabelfish.Updates.2110")
 
-#### Aurora Babelfish release 2.11.2,
+#### Aurora Babelfish release 2.11.3, November 13, 2025
 
-June 24, 2025
+**Critical stability enhancements**
+
+- Fixed an issue during TDS Reset Connection in certain situations.
+
+#### Aurora Babelfish release 2.11.2, June 24, 2025
 
 **Security enhancements**
 
 - Fixed an issue with permission check in parallel worker where non-privileged user may get
   read access to data in some scenarios.
 
-#### Aurora Babelfish release 2.11.1, January 20,
-
-2025
+#### Aurora Babelfish release 2.11.1, January 20, 2025
 
 **High priority stability enhancements**.
 
 - Fixed an issue where transactional commands may terminate the connection in some cases.
 
-#### Aurora Babelfish release 2.11.0, December
-
-27, 2024
+#### Aurora Babelfish release 2.11.0, December 27, 2024
 
 ###### _New features_
 
@@ -2544,13 +2587,10 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 2.10.2,
-  July 11, 2025](#AuroraBabelfish.Updates.2102 "#AuroraBabelfish.Updates.2102")
+- [Aurora Babelfish release 2.10.2, July 11, 2025](#AuroraBabelfish.Updates.2102 "#AuroraBabelfish.Updates.2102")
 - [Aurora Babelfish release 2.10.0, September 30, 2024](#AuroraBabelfish.Updates.2100 "#AuroraBabelfish.Updates.2100")
 
-#### Aurora Babelfish release 2.10.2,
-
-July 11, 2025
+#### Aurora Babelfish release 2.10.2, July 11, 2025
 
 **Security enhancements**
 
@@ -2584,33 +2624,24 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 2.9.3,
-  July 17, 2025](#AuroraBabelfish.Updates.293 "#AuroraBabelfish.Updates.293")
-- [Aurora Babelfish release 2.9.1,
-  September 27, 2024](#AuroraBabelfish.Updates.291 "#AuroraBabelfish.Updates.291")
-- [Aurora Babelfish release 2.9.0,
-  August 8, 2024](#AuroraBabelfish.Updates.290 "#AuroraBabelfish.Updates.290")
+- [Aurora Babelfish release 2.9.3, July 17, 2025](#AuroraBabelfish.Updates.293 "#AuroraBabelfish.Updates.293")
+- [Aurora Babelfish release 2.9.1, September 27, 2024](#AuroraBabelfish.Updates.291 "#AuroraBabelfish.Updates.291")
+- [Aurora Babelfish release 2.9.0, August 8, 2024](#AuroraBabelfish.Updates.290 "#AuroraBabelfish.Updates.290")
 
-#### Aurora Babelfish release 2.9.3,
-
-July 17, 2025
+#### Aurora Babelfish release 2.9.3, July 17, 2025
 
 **Security enhancements**
 
 - Fixed an issue with permission check in parallel worker where non-privileged user may get
   read access to data in some scenarios.
 
-#### Aurora Babelfish release 2.9.1,
-
-September 27, 2024
+#### Aurora Babelfish release 2.9.1, September 27, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 2.9.0,
-
-August 8, 2024
+#### Aurora Babelfish release 2.9.0, August 8, 2024
 
 ###### Critical stability enhancements
 
@@ -2653,33 +2684,24 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 2.8.4,
-  July 30, 2025](#AuroraBabelfish.Updates.284 "#AuroraBabelfish.Updates.284")
-- [Aurora Babelfish release 2.8.2,
-  October 7, 2024](#AuroraBabelfish.Updates.282 "#AuroraBabelfish.Updates.282")
-- [Aurora Babelfish release 2.8.0,
-  April 29, 2024](#AuroraBabelfish.Updates.280 "#AuroraBabelfish.Updates.280")
+- [Aurora Babelfish release 2.8.4, July 30, 2025](#AuroraBabelfish.Updates.284 "#AuroraBabelfish.Updates.284")
+- [Aurora Babelfish release 2.8.2, October 7, 2024](#AuroraBabelfish.Updates.282 "#AuroraBabelfish.Updates.282")
+- [Aurora Babelfish release 2.8.0, April 29, 2024](#AuroraBabelfish.Updates.280 "#AuroraBabelfish.Updates.280")
 
-#### Aurora Babelfish release 2.8.4,
-
-July 30, 2025
+#### Aurora Babelfish release 2.8.4, July 30, 2025
 
 **Security enhancements**
 
 - Fixed an issue with permission check in parallel worker where non-privileged user may get
   read access to data in some scenarios.
 
-#### Aurora Babelfish release 2.8.2,
-
-October 7, 2024
+#### Aurora Babelfish release 2.8.2, October 7, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 2.8.0,
-
-April 29, 2024
+#### Aurora Babelfish release 2.8.0, April 29, 2024
 
 ###### Critical stability enhancements
 
@@ -2714,33 +2736,24 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 2.7.4,
-  August 4, 2025](#AuroraBabelfish.Updates.274 "#AuroraBabelfish.Updates.274")
-- [Aurora Babelfish release 2.7.2,
-  September 17, 2024](#AuroraBabelfish.Updates.272 "#AuroraBabelfish.Updates.272")
-- [Aurora Babelfish release 2.7.0,
-  December 21, 2023](#AuroraBabelfish.Updates.270 "#AuroraBabelfish.Updates.270")
+- [Aurora Babelfish release 2.7.4, August 4, 2025](#AuroraBabelfish.Updates.274 "#AuroraBabelfish.Updates.274")
+- [Aurora Babelfish release 2.7.2, September 17, 2024](#AuroraBabelfish.Updates.272 "#AuroraBabelfish.Updates.272")
+- [Aurora Babelfish release 2.7.0, December 21, 2023](#AuroraBabelfish.Updates.270 "#AuroraBabelfish.Updates.270")
 
-#### Aurora Babelfish release 2.7.4,
-
-August 4, 2025
+#### Aurora Babelfish release 2.7.4, August 4, 2025
 
 **Security enhancements**
 
 - Fixed an issue with permission check in parallel worker where non-privileged user may get
   read access to data in some scenarios.
 
-#### Aurora Babelfish release 2.7.2,
-
-September 17, 2024
+#### Aurora Babelfish release 2.7.2, September 17, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 2.7.0,
-
-December 21, 2023
+#### Aurora Babelfish release 2.7.0, December 21, 2023
 
 ###### Security enhancements
 
@@ -2791,22 +2804,16 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 2.6.1,
-  November 14, 2024](#AuroraBabelfish.Updates.261 "#AuroraBabelfish.Updates.261")
-- [Aurora Babelfish release 2.6.0,
-  October 24, 2023](#AuroraBabelfish.Updates.260 "#AuroraBabelfish.Updates.260")
+- [Aurora Babelfish release 2.6.1, November 14, 2024](#AuroraBabelfish.Updates.261 "#AuroraBabelfish.Updates.261")
+- [Aurora Babelfish release 2.6.0, October 24, 2023](#AuroraBabelfish.Updates.260 "#AuroraBabelfish.Updates.260")
 
-#### Aurora Babelfish release 2.6.1,
-
-November 14, 2024
+#### Aurora Babelfish release 2.6.1, November 14, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 2.6.0,
-
-October 24, 2023
+#### Aurora Babelfish release 2.6.0, October 24, 2023
 
 ###### New features
 
@@ -2847,24 +2854,17 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 2.5.2,
-  November 12, 2024](#AuroraBabelfish.Updates.252 "#AuroraBabelfish.Updates.252")
-- [Aurora Babelfish release 2.5.1,
-  October 4, 2023](#AuroraBabelfish.Updates.251 "#AuroraBabelfish.Updates.251")
-- [Aurora Babelfish release 2.5.0,
-  July 13, 2023](#AuroraBabelfish.Updates.250 "#AuroraBabelfish.Updates.250")
+- [Aurora Babelfish release 2.5.2, November 12, 2024](#AuroraBabelfish.Updates.252 "#AuroraBabelfish.Updates.252")
+- [Aurora Babelfish release 2.5.1, October 4, 2023](#AuroraBabelfish.Updates.251 "#AuroraBabelfish.Updates.251")
+- [Aurora Babelfish release 2.5.0, July 13, 2023](#AuroraBabelfish.Updates.250 "#AuroraBabelfish.Updates.250")
 
-#### Aurora Babelfish release 2.5.2,
-
-November 12, 2024
+#### Aurora Babelfish release 2.5.2, November 12, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 2.5.1,
-
-October 4, 2023
+#### Aurora Babelfish release 2.5.1, October 4, 2023
 
 ###### High priority stability enhancements
 
@@ -2882,9 +2882,7 @@ October 4, 2023
 - Fixed a crash when dropping temp table or table variables during cleanup.
 - Fixed an issue with sender of XML data type to handle NULL value where it was causing client to hang.
 
-#### Aurora Babelfish release 2.5.0,
-
-July 13, 2023
+#### Aurora Babelfish release 2.5.0, July 13, 2023
 
 ###### Security enhancements
 
@@ -2922,28 +2920,19 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 2.4.4,
-  November 6, 2024](#AuroraBabelfish.Updates.244 "#AuroraBabelfish.Updates.244")
-- [Aurora Babelfish release 2.4.3,
-  October 4, 2023](#AuroraBabelfish.Updates.243 "#AuroraBabelfish.Updates.243")
-- [Aurora Babelfish release 2.4.2,
-  July 24, 2023](#AuroraBabelfish.Updates.242 "#AuroraBabelfish.Updates.242")
-- [Aurora Babelfish release 2.4.1,
-  May 10, 2023](#AuroraBabelfish.Updates.241 "#AuroraBabelfish.Updates.241")
-- [Aurora Babelfish release 2.4.0,
-  April 5, 2023](#AuroraBabelfish.Updates.240 "#AuroraBabelfish.Updates.240")
+- [Aurora Babelfish release 2.4.4, November 6, 2024](#AuroraBabelfish.Updates.244 "#AuroraBabelfish.Updates.244")
+- [Aurora Babelfish release 2.4.3, October 4, 2023](#AuroraBabelfish.Updates.243 "#AuroraBabelfish.Updates.243")
+- [Aurora Babelfish release 2.4.2, July 24, 2023](#AuroraBabelfish.Updates.242 "#AuroraBabelfish.Updates.242")
+- [Aurora Babelfish release 2.4.1, May 10, 2023](#AuroraBabelfish.Updates.241 "#AuroraBabelfish.Updates.241")
+- [Aurora Babelfish release 2.4.0, April 5, 2023](#AuroraBabelfish.Updates.240 "#AuroraBabelfish.Updates.240")
 
-#### Aurora Babelfish release 2.4.4,
-
-November 6, 2024
+#### Aurora Babelfish release 2.4.4, November 6, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 2.4.3,
-
-October 4, 2023
+#### Aurora Babelfish release 2.4.3, October 4, 2023
 
 ######
 
@@ -2952,26 +2941,20 @@ October 4, 2023
 - Fixed an issue that `bcp in` results in server crash when the table has large number of columns.
 - Fixed a crash in parallel query execution when `enable_pg_hint` is set to `on`.
 
-#### Aurora Babelfish release 2.4.2,
-
-July 24, 2023
+#### Aurora Babelfish release 2.4.2, July 24, 2023
 
 ###### Additional improvements and enhancements
 
 - Fixed intermittent SSL connectivity issue during concurrent connections towards Babelfish instance.
 
-#### Aurora Babelfish release 2.4.1,
-
-May 10, 2023
+#### Aurora Babelfish release 2.4.1, May 10, 2023
 
 ###### Additional improvements and enhancements
 
 - Fixed an issue to prevent error when sequences are created in a database other than 'master'.
 - Fixed a crash during bulk load operation in a specific scenario.
 
-#### Aurora Babelfish release 2.4.0,
-
-April 5, 2023
+#### Aurora Babelfish release 2.4.0, April 5, 2023
 
 ###### New features
 
@@ -3051,45 +3034,31 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 2.3.4,
-  November 18, 2024](#AuroraBabelfish.Updates.234 "#AuroraBabelfish.Updates.234")
-- [Aurora Babelfish release 2.3.3,
-  September 13, 2023](#AuroraBabelfish.Updates.233 "#AuroraBabelfish.Updates.233")
-- [Aurora Babelfish release 2.3.2,
+- [Aurora Babelfish release 2.3.4, November 18, 2024](#AuroraBabelfish.Updates.234 "#AuroraBabelfish.Updates.234")
+- [Aurora Babelfish release 2.3.3, September 13, 2023](#AuroraBabelfish.Updates.233 "#AuroraBabelfish.Updates.233")
+- [Aurora Babelfish release 2.3.2, March 3, 2023](#AuroraBabelfish.Updates.232 "#AuroraBabelfish.Updates.232")
+- [Aurora Babelfish release 2.3.0, January 20, 2023](#AuroraBabelfish.Updates.230 "#AuroraBabelfish.Updates.230")
 
-March 3, 2023](#AuroraBabelfish.Updates.232 "#AuroraBabelfish.Updates.232")
-
-- [Aurora Babelfish release 2.3.0,
-  January 20, 2023](#AuroraBabelfish.Updates.230 "#AuroraBabelfish.Updates.230")
-
-#### Aurora Babelfish release 2.3.4,
-
-November 18, 2024
+#### Aurora Babelfish release 2.3.4, November 18, 2024
 
 ###### Security enhancements
 
 - Fixed an issue with dropping users and roles by non-privileged user.
 
-#### Aurora Babelfish release 2.3.3,
-
-September 13, 2023
+#### Aurora Babelfish release 2.3.3, September 13, 2023
 
 ###### Additional improvements and enhancements
 
 - Fixed a rare error during Babelfish extension creation.
 - Fixed a memory management issue with `update_DropRoleStme`.
 
-#### Aurora Babelfish release 2.3.2,
-
-March 3, 2023
+#### Aurora Babelfish release 2.3.2, March 3, 2023
 
 ###### Security enhancements
 
 - Fixed buffer overflow due to out of bound array access.
 
-#### Aurora Babelfish release 2.3.0,
-
-January 20, 2023
+#### Aurora Babelfish release 2.3.0, January 20, 2023
 
 ###### New features
 
@@ -3185,17 +3154,12 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 2.2.3,
-  October 17, 2023](#AuroraBabelfish.Updates.223 "#AuroraBabelfish.Updates.223")
-- [Aurora Babelfish release 2.2.2,
-  March 2, 2023](#AuroraBabelfish.Updates.222 "#AuroraBabelfish.Updates.222")
+- [Aurora Babelfish release 2.2.3, October 17, 2023](#AuroraBabelfish.Updates.223 "#AuroraBabelfish.Updates.223")
+- [Aurora Babelfish release 2.2.2, March 2, 2023](#AuroraBabelfish.Updates.222 "#AuroraBabelfish.Updates.222")
 - [Aurora Babelfish release 2.2.1, December 13, 2022](#AuroraBabelfish.Updates.221 "#AuroraBabelfish.Updates.221")
-- [Aurora Babelfish release 2.2.0,
-  November 9, 2022](#AuroraBabelfish.Updates.220 "#AuroraBabelfish.Updates.220")
+- [Aurora Babelfish release 2.2.0, November 9, 2022](#AuroraBabelfish.Updates.220 "#AuroraBabelfish.Updates.220")
 
-#### Aurora Babelfish release 2.2.3,
-
-October 17, 2023
+#### Aurora Babelfish release 2.2.3, October 17, 2023
 
 ###### High priority stability enhancements
 
@@ -3205,9 +3169,7 @@ October 17, 2023
 
 - Fixed a memory management issue with `update_DropRoleStmt`.
 
-#### Aurora Babelfish release 2.2.2,
-
-March 2, 2023
+#### Aurora Babelfish release 2.2.2, March 2, 2023
 
 ###### Security enhancements
 
@@ -3217,9 +3179,7 @@ March 2, 2023
 
 - Fixed an issue that prevented the use of collations like Chinese_PRC_CI_AS, Japanese_CI_AS and so on for babelfishpg_tsql.server_collation_name.
 
-#### Aurora Babelfish release 2.2.0,
-
-November 9, 2022
+#### Aurora Babelfish release 2.2.0, November 9, 2022
 
 ###### Security enhancements
 
@@ -3337,9 +3297,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - [Babelfish for Aurora PostgreSQL release 2.1.1, July 6, 2022](#AuroraBabelfish.Updates.211 "#AuroraBabelfish.Updates.211")
 - [Babelfish for Aurora PostgreSQL release 2.1.0, June 21, 2022](#AuroraBabelfish.Updates.210 "#AuroraBabelfish.Updates.210")
 
-####
-
-Babelfish for Aurora PostgreSQL release 2.1.2, October 18, 2022
+#### Babelfish for Aurora PostgreSQL release 2.1.2, October 18, 2022
 
 ###### Security enhancements
 
@@ -3351,15 +3309,11 @@ Babelfish for Aurora PostgreSQL release 2.1.2, October 18, 2022
 - Fixed error handling in sp_prepare calls which can cause a server crash when a large number of parameters are sent by the application. Babelfish currently supports a maximum of 100 parameters for a procedure or function.
 - Fixed error handling in SSL/TLS handshake for some client drivers.
 
-####
-
-Babelfish for Aurora PostgreSQL release 2.1.1, July 6, 2022
+#### Babelfish for Aurora PostgreSQL release 2.1.1, July 6, 2022
 
 - Fixed the babelfishpg_tds extension to correctly allocate the shared memory size used by the extension.
 
-####
-
-Babelfish for Aurora PostgreSQL release 2.1.0, June 21, 2022
+#### Babelfish for Aurora PostgreSQL release 2.1.0, June 21, 2022
 
 Babelfish DB clusters running on Aurora PostgreSQL 13.7 or older versions can't be upgraded to Aurora PostgreSQL 14.3 with Babelfish 2.1.0.
 
@@ -3413,12 +3367,9 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 ###### Releases
 
-- [Aurora Babelfish release 1.5.0,
-  January 20, 2023](#AuroraBabelfish.Updates.150 "#AuroraBabelfish.Updates.150")
+- [Aurora Babelfish release 1.5.0, January 20, 2023](#AuroraBabelfish.Updates.150 "#AuroraBabelfish.Updates.150")
 
-#### Aurora Babelfish release 1.5.0,
-
-January 20, 2023
+#### Aurora Babelfish release 1.5.0, January 20, 2023
 
 ###### New features
 
@@ -3446,9 +3397,7 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 
 - Fixed an issue that prevented successful minor version upgrade from Babelfish for Aurora PostgreSQL 13.4 DB cluster to Aurora PostgreSQL 13.8.
 
-####
-
-Aurora Babelfish release 1.4.0, November 9, 2022
+#### Aurora Babelfish release 1.4.0, November 9, 2022
 
 ###### Security enhancements
 
@@ -3477,15 +3426,11 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - [Babelfish for Aurora PostgreSQL release 1.3.1, July 6, 2022](#AuroraBabelfish.Updates.131 "#AuroraBabelfish.Updates.131")
 - [Babelfish for Aurora PostgreSQL release 1.3.0, June 9, 2022](#AuroraBabelfish.Updates.130 "#AuroraBabelfish.Updates.130")
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.3.3, December 14, 2022
+#### Babelfish for Aurora PostgreSQL release 1.3.3, December 14, 2022
 
 - Fixed an issue that prevented successful minor version upgrade from Babelfish for Aurora PostgreSQL 13.4 DB cluster to Aurora PostgreSQL 13.7.
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.3.2, October 18, 2022
+#### Babelfish for Aurora PostgreSQL release 1.3.2, October 18, 2022
 
 ###### Security enhancements
 
@@ -3497,15 +3442,11 @@ Babelfish for Aurora PostgreSQL release 1.3.2, October 18, 2022
 - Fixed error handling in sp_prepare calls which can cause a server crash when a large number of parameters are sent by the application. Babelfish currently supports a maximum of 100 parameters for a procedure or function.
 - Fixed error handling in SSL/TLS handshake for some client drivers.
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.3.1, July 6, 2022
+#### Babelfish for Aurora PostgreSQL release 1.3.1, July 6, 2022
 
 - Fixed the babelfishpg_tds extension to correctly allocate the shared memory size used by the extension.
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.3.0, June 9, 2022
+#### Babelfish for Aurora PostgreSQL release 1.3.0, June 9, 2022
 
 - Fixed an issue with SUBSTRING(CHARINDEX()) variable assignment that caused Babelfish to become unavailable.
 - Fixed an issue with INSERT INTO...with OUTPUT clause that resulted in a `Number of given values doesn't match target table definition` error.
@@ -3531,40 +3472,30 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - [Babelfish for Aurora PostgreSQL release 1.2.1, April 27, 2022](#AuroraBabelfish.Updates.121 "#AuroraBabelfish.Updates.121")
 - [Babelfish for Aurora PostgreSQL release 1.2.0, March 29, 2022](#AuroraBabelfish.Updates.120 "#AuroraBabelfish.Updates.120")
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.2.4, December 15, 2022
+#### Babelfish for Aurora PostgreSQL release 1.2.4, December 15, 2022
 
 - Fixed an issue that prevented successful minor version upgrade from Babelfish for Aurora PostgreSQL 13.4 DB cluster to Aurora PostgreSQL 13.6.
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.2.3, October 18, 2022
+#### Babelfish for Aurora PostgreSQL release 1.2.3, October 18, 2022
 
 ###### Security enhancements
 
 - Fixed critical issues in Babelfish due to incorrect handling of user input for some application features.
   This is tracked in [https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.2.2, July 18, 2022
+#### Babelfish for Aurora PostgreSQL release 1.2.2, July 18, 2022
 
 - Fixed an issue causing outer join queries to sometimes fail with an internal error message.
 - Fixed the babelfishpg_tds extension to correctly allocate the shared memory size used by the extension.
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.2.1, April 27, 2022
+#### Babelfish for Aurora PostgreSQL release 1.2.1, April 27, 2022
 
 - Fixed an issue that caused Babelfish to become unavailable after working with temporary tables.
 - Fixed an issue that prevented successful minor version upgrade from a Babelfish for Aurora PostgreSQL 13.4 or 13.5 DB cluster to Aurora PostgreSQL 13.6.
 - Fixed an issue that prevented transferring data to a table with identity columns using the SQL Server
   Management Studio import and export wizard.
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.2.0, March 29, 2022
+#### Babelfish for Aurora PostgreSQL release 1.2.0, March 29, 2022
 
 In addition to the new features and improvements in the following list, Babelfish for Aurora PostgreSQL 1.2.0 adds several features that currently have limited implementations. These
 features are available for use but don't yet have complete parity with T-SQL syntax or Microsoft SQL Server.
@@ -3661,24 +3592,18 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - [Babelfish for Aurora PostgreSQL release 1.1.1, October 18, 2022](#AuroraBabelfish.Updates.111 "#AuroraBabelfish.Updates.111")
 - [Babelfish for Aurora PostgreSQL release 1.1.0, February 25, 2022](#AuroraBabelfish.Updates.110 "#AuroraBabelfish.Updates.110")
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.1.2, December 16, 2022
+#### Babelfish for Aurora PostgreSQL release 1.1.2, December 16, 2022
 
 - Fixed an issue that prevented successful minor version upgrade from Babelfish for Aurora PostgreSQL 13.4 DB cluster to Aurora PostgreSQL 13.5.
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.1.1, October 18, 2022
+#### Babelfish for Aurora PostgreSQL release 1.1.1, October 18, 2022
 
 ###### Security enhancements
 
 - Fixed critical issues in Babelfish due to incorrect handling of user input for some application features.
   This is tracked in [https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.1.0, February 25, 2022
+#### Babelfish for Aurora PostgreSQL release 1.1.0, February 25, 2022
 
 Babelfish for Aurora PostgreSQL version 1.1.0 adds support for the following Microsoft SQL Server functionality and T-SQL commands.
 For more information, see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
@@ -3718,18 +3643,14 @@ see [Working with Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.
 - [Babelfish for Aurora PostgreSQL release 1.0.1, October 18, 2022](#AuroraBabelfish.Updates.101 "#AuroraBabelfish.Updates.101")
 - [Babelfish for Aurora PostgreSQL release 1.0.0, October 28, 2021](#AuroraBabelfish.Updates.100 "#AuroraBabelfish.Updates.100")
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.0.1, October 18, 2022
+#### Babelfish for Aurora PostgreSQL release 1.0.1, October 18, 2022
 
 ###### Security enhancements
 
 - Fixed critical issues in Babelfish due to incorrect handling of user input for some application features.
   This is tracked in [https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj](https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj "https://github.com/babelfish-for-postgresql/babelfish_extensions/security/advisories/GHSA-m399-rrc8-j6fj").
 
-####
-
-Babelfish for Aurora PostgreSQL release 1.0.0, October 28, 2021
+#### Babelfish for Aurora PostgreSQL release 1.0.0, October 28, 2021
 
 - Babelfish for Aurora PostgreSQL version 1.0.0 supports Babelfish 1.0.0 which extends your Amazon Aurora PostgreSQL database with
   the ability to accept database connections from Microsoft SQL Server clients. For more information, see

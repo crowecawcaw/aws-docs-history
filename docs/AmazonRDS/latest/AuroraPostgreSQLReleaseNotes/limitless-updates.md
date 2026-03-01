@@ -12,15 +12,88 @@ Amazon Amazon Aurora PostgreSQL Limitless Database follows the same engine versi
 
 ###### Topics
 
+- [Amazon Aurora PostgreSQL Limitless Database version 16.11-limitless](#16.11-limitless "#16.11-limitless")
+- [Amazon Aurora PostgreSQL Limitless Database version 16.10-limitless](#16.10-limitless "#16.10-limitless")
 - [Amazon Aurora PostgreSQL Limitless Database version 16.9-limitless](#16.9-limitless "#16.9-limitless")
 - [Amazon Aurora PostgreSQL Limitless Database version 16.8-limitless](#16.8-limitless "#16.8-limitless")
 - [Amazon Aurora PostgreSQL Limitless Database version 16.6-limitless](#16.6-limitless "#16.6-limitless")
 - [Amazon Aurora PostgreSQL Limitless Database version 16.4-limitless](#16.4-limitless "#16.4-limitless")
 
+## Amazon Aurora PostgreSQL Limitless Database version 16.11-limitless
+
+This version of Aurora PostgreSQL Limitless Database is compatible with [PostgreSQL 16.11](https://www.postgresql.org/docs/release/16.11/ "https://www.postgresql.org/docs/release/16.11/").
+For more information about the improvements in PostgreSQL 16.11, see
+[Aurora PostgreSQL 16.11](AuroraPostgreSQL.md#aurorapostgresql-versions-version1611x "AuroraPostgreSQL.md#aurorapostgresql-versions-version1611x").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL Limitless Database 16.11.100, February 25, 2026](#16.11.100 "#16.11.100")
+
+### Aurora PostgreSQL Limitless Database 16.11.100, February 25, 2026
+
+**Features**
+
+- Added support for `ALTER VIEW ... OWNER TO ...` statements.
+- Added support for `pg_prewarm` extension.
+
+**Enhancements**
+
+- Enhanced `EXPLAIN` output for `INSERT INTO` with `SELECT` statements.
+- Enhanced query performance for `ENUM` usage.
+- Enhanced error messaging for `INSERT INTO` statements. The messaging now points out values where it failed.
+
+**Bug fixes**
+
+- Fixed an issue where `SELECT` statements deadlocked when sharded table attribute was referenced in a function and joined.
+- Fixed `UNIQUE` and `PRIMARY KEY` constraints when used with `INCLUDE` clause where all columns (both constraint and included columns) have been incorrectly treated. This caused the index structure to differ from the original table definition.
+
+## Amazon Aurora PostgreSQL Limitless Database version 16.10-limitless
+
+This version of Aurora PostgreSQL Limitless Database is compatible with [PostgreSQL 16.10](https://www.postgresql.org/docs/release/16.10/ "https://www.postgresql.org/docs/release/16.10/").
+For more information about the improvements in PostgreSQL 16.10, see
+[Aurora PostgreSQL 16.10](AuroraPostgreSQL.md#aurorapostgresql-versions-version1610x "AuroraPostgreSQL.md#aurorapostgresql-versions-version1610x").
+
+###### Releases and patches
+
+- [Aurora PostgreSQL Limitless Database 16.10.100, February 24, 2026](#16.10.100 "#16.10.100")
+
+### Aurora PostgreSQL Limitless Database 16.10.100, February 24, 2026
+
+**Features**
+
+- Added support for ENUM as shard key type.
+- Added support for `CHECK` constraints involving literals as well as expressions. For more information, see [Constraints](../AuroraUserGuide/limitless-reference.md#limitless-reference.DDL-limitations.Constraints "../AuroraUserGuide/limitless-reference.md#limitless-reference.DDL-limitations.Constraints").
+- Added support for `VIEW`s with foreign key constraints. For more information, see [Foreign keys](../AuroraUserGuide/limitless-reference.md#limitless-reference.DDL-limitations.FKs "../AuroraUserGuide/limitless-reference.md#limitless-reference.DDL-limitations.FKs").
+- Added support for Advisory Locks. For more information, see [Advisory Locks](https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS "https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS") in the PostgreSQL documentation.
+- Added support for `pg_dump` and `pg_restore` for database migrations. You can dump from Aurora Limitless databases and restore to other Aurora Limitless clusters or regular PostgreSQL databases. This support includes preservation of sharded and reference table configurations when migrating between Aurora Limitless clusters using metadata capture functions. For more information, see [Backing up and restoring Amazon Aurora PostgreSQL Limitless Database](../AuroraUserGuide/limitless-bak.md "../AuroraUserGuide/limitless-bak.md").
+
+**Enhancements**
+
+- Improved performance for schema and table lookups.
+- Improved performance for shard split.
+- Improved performance for `INSERT INTO` and `UPDATE` queries.
+
+**Bug fixes**
+
+- Fixed an issue with privilege grants which failed with `invalid role OID: 0` when all privileges are `GRANT`ed to public.
+- Fixed an issue with `EXPLAIN` and `UPDATE` queries which failed with `wrong number of parameters for prepared statement`.
+- Fixed an issue with `CREATE TABLE` which failed with `duplicate key value violates unique constraint`.
+- Fixed an issue where database remained unusable after `DROP DATABASE` through JDBC.
+- Fixed an issue with `UPDATE` queries on distributed tables which failed with `relation * does not exist`.
+- Fixed an issue with `SELECT` queries with type casts which failed with `cannot cast type cstring to text[]`.
+- Fixed an issue with `CREATE DATABASE` which failed with `connection_limit requires an integer value` when also setting `connection_limit`.
+- Fixed table transformation from standard table to distributed table or reference table to keep Row Level Security Policies.
+- Fixed correctness and data leak issues in Row Level Security (RLS) policies. We recommend to drop and re-create any existing RLS policies.
+- Fixed `DROP POLICY` statement when used with `IF EXISTS`.
+- Fixed incorrect result when selecting `tableoid` system column. The `tableoid` is the OID of the table, which is a distinct identification given to the database object by a given system. If the query is eligible for Single Shard Optimization, the `tableoid` will be obtained from the Shard. Otherwise, the `tableoid` will be obtained from the connected router. Different routers may result in different `tableoid` for the same query.
+- Fixed stats update for tables with User Defined Types.
+- Fixed an issue with `CREATE TABLE` which failed with `FATAL: Unexpected error occurred while committing transaction` when `debug_parallel_query` is set to `on`.
+
 ## Amazon Aurora PostgreSQL Limitless Database version 16.9-limitless
 
-This version of Aurora PostgreSQL Limitless Database is compatible with PostgreSQL 16.9. For more information about the improvements in PostgreSQL 16.9, see
-[PostgreSQL release 16.9](https://www.postgresql.org/docs/release/16.9/ "https://www.postgresql.org/docs/release/16.9/").
+This version of Aurora PostgreSQL Limitless Database is compatible with [PostgreSQL 16.9](https://www.postgresql.org/docs/release/16.9/ "https://www.postgresql.org/docs/release/16.9/").
+For more information about the improvements in PostgreSQL 16.9, see
+[Aurora PostgreSQL 16.9](AuroraPostgreSQL.md#aurorapostgresql-versions-version169x "AuroraPostgreSQL.md#aurorapostgresql-versions-version169x").
 
 ###### Releases and patches
 
@@ -113,8 +186,9 @@ prepared statement requires 1`** when the `PREPARE` statement used fewer paramet
 
 ## Amazon Aurora PostgreSQL Limitless Database version 16.8-limitless
 
-This version of Aurora PostgreSQL Limitless Database is compatible with PostgreSQL 16.8. For more information about the improvements in PostgreSQL 16.8, see
-[PostgreSQL release 16.8](https://www.postgresql.org/docs/16/release-16-8.html "https://www.postgresql.org/docs/16/release-16-8.html").
+This version of Aurora PostgreSQL Limitless Database is compatible with [PostgreSQL 16.8](https://www.postgresql.org/docs/release/16.8/ "https://www.postgresql.org/docs/release/16.8/").
+For more information about the improvements in PostgreSQL 16.8, see
+[Aurora PostgreSQL 16.8](AuroraPostgreSQL.md#aurorapostgresql-versions-version168x "AuroraPostgreSQL.md#aurorapostgresql-versions-version168x").
 
 ###### Releases and patches
 
@@ -193,8 +267,9 @@ CREATE TABLE zoo (
 
 ## Amazon Aurora PostgreSQL Limitless Database version 16.6-limitless
 
-This version of Aurora PostgreSQL Limitless Database is compatible with PostgreSQL 16.6. For more information about the improvements in PostgreSQL 16.6, see
-[PostgreSQL release 16.6](https://www.postgresql.org/docs/16/release-16-6.html "https://www.postgresql.org/docs/16/release-16-6.html").
+This version of Aurora PostgreSQL Limitless Database is compatible with [PostgreSQL 16.6](https://www.postgresql.org/docs/release/16.6/ "https://www.postgresql.org/docs/release/16.6/").
+For more information about the improvements in PostgreSQL 16.6, see
+[Aurora PostgreSQL 16.6](AuroraPostgreSQL.md#aurorapostgresql-versions-version166x "AuroraPostgreSQL.md#aurorapostgresql-versions-version166x").
 
 ###### Releases and patches
 
@@ -282,8 +357,9 @@ given statement`**.
 
 ## Amazon Aurora PostgreSQL Limitless Database version 16.4-limitless
 
-This version of Aurora PostgreSQL Limitless Database is compatible with PostgreSQL 16.4. For more information about the improvements in PostgreSQL 16.4, see
-[PostgreSQL release 16.4](https://www.postgresql.org/docs/16/release-16-4.html "https://www.postgresql.org/docs/16/release-16-4.html").
+This version of Aurora PostgreSQL Limitless Database is compatible with [PostgreSQL 16.4](https://www.postgresql.org/docs/release/16.4/ "https://www.postgresql.org/docs/release/16.4/").
+For more information about the improvements in PostgreSQL 16.4, see
+[Aurora PostgreSQL 16.4](AuroraPostgreSQL.md#aurorapostgresql-versions-version164x "AuroraPostgreSQL.md#aurorapostgresql-versions-version164x").
 
 ###### Releases and patches
 
