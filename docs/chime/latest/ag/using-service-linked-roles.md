@@ -5,9 +5,7 @@ information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-ta
 availability of the [Amazon Chime SDK
 service](https://aws.amazon.com/chime/chime-sdk/ "https://aws.amazon.com/chime/chime-sdk/").
 
-# Using service-linked roles for
-
-Amazon Chime
+# Using service-linked roles for Amazon Chime
 
 Amazon Chime uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to Amazon Chime. Service-linked roles are predefined by Amazon Chime and
@@ -31,8 +29,6 @@ documentation for that service.
 
 ###### Topics
 
-- [Using roles with shared Alexa for Business
-  devices](using-service-linked-roles-a4b.md "using-service-linked-roles-a4b.md")
+- [Using roles with shared Alexa for Business devices](using-service-linked-roles-a4b.md "using-service-linked-roles-a4b.md")
 - [Using roles with live transcription](using-service-linked-roles-transcription.md "using-service-linked-roles-transcription.md")
-- [Using roles with Amazon Chime SDK media
-  pipelines](using-service-linked-roles-media-pipeline.md "using-service-linked-roles-media-pipeline.md")
+- [Using roles with Amazon Chime SDK media pipelines](using-service-linked-roles-media-pipeline.md "using-service-linked-roles-media-pipeline.md")

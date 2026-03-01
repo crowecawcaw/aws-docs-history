@@ -37,7 +37,5 @@ monitor Amazon Chime, report issues, and take automatic actions when appropriate
 ###### Topics
 
 - [Monitoring Amazon Chime with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
-- [Automating Amazon Chime with
-  EventBridge](automating-chime-with-cloudwatch-events.md "automating-chime-with-cloudwatch-events.md")
-- [Logging Amazon Chime API calls with
-  AWS CloudTrail](cloudtrail.md "cloudtrail.md")
+- [Automating Amazon Chime with EventBridge](automating-chime-with-cloudwatch-events.md "automating-chime-with-cloudwatch-events.md")
+- [Logging Amazon Chime API calls with AWS CloudTrail](cloudtrail.md "cloudtrail.md")

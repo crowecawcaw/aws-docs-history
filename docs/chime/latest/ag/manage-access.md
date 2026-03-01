@@ -23,9 +23,7 @@ As an Amazon Chime administrator, you can manage Pro and Basic permissions for t
 
 If Active Directory or Okta is configured for your Amazon Chime account, manage user permissions through their directory group membership. If you do not have Active Directory or Okta configured, manage user permissions from the Amazon Chime console.
 
-### Team accounts and Enterprise Login with
-
-Amazon
+### Team accounts and Enterprise Login with Amazon
 
 If you administer an Amazon Chime Team account or Enterprise LWA account, where users
 sign in with their Login with Amazon (LWA) accounts, you can manage Pro and
@@ -46,9 +44,7 @@ Basic permissions in the Amazon Chime console.
 
 6. Choose **Assign**.
 
-### Enterprise Active Directory or Enterprise
-
-OpenID Connect (Okta) accounts
+### Enterprise Active Directory or Enterprise OpenID Connect (Okta) accounts
 
 If your users sign in with Active Directory or Okta
 credentials, manage their permissions by making them members of a directory group that has Pro or Basic permissions assigned to it.
@@ -125,9 +121,7 @@ The following procedure suspends users from an Enterprise account that does not 
 
 If you have Active Directory or Okta configured for your Enterprise account, use the following procedure to suspend users.
 
-###### To suspend users from an Enterprise Active Directory or OpenID
-
-Connect (Okta) account
+###### To suspend users from an Enterprise Active Directory or OpenID Connect (Okta) account
 
 - Do one of the following:
   - From your Active Directory or Okta Administrator Dashboard, suspend the user or mark them inactive.

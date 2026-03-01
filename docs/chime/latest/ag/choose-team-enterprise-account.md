@@ -5,9 +5,7 @@ information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-ta
 availability of the [Amazon Chime SDK
 service](https://aws.amazon.com/chime/chime-sdk/ "https://aws.amazon.com/chime/chime-sdk/").
 
-# Choosing between an Amazon Chime Team account
-
-or Enterprise account
+# Choosing between an Amazon Chime Team account or Enterprise account
 
 When you create an Amazon Chime administrator account, you choose whether to create a Team
 account or an Enterprise account. For more information about creating an Amazon Chime

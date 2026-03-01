@@ -5,9 +5,7 @@ information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-ta
 availability of the [Amazon Chime SDK
 service](https://aws.amazon.com/chime/chime-sdk/ "https://aws.amazon.com/chime/chime-sdk/").
 
-# How Amazon Chime works with
-
-IAM
+# How Amazon Chime works with IAM
 
 Before you use IAM to manage access to Amazon Chime, you should understand what
 IAM features are available to use with Amazon Chime. To get a high-level view of how
@@ -16,14 +14,11 @@ work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [Amazon Chime
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Amazon Chime identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
 - [Resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")
 - [Examples](#security_iam_service-with-iam-id-based-policies-examples "#security_iam_service-with-iam-id-based-policies-examples")
 
-## Amazon Chime
-
-identity-based policies
+## Amazon Chime identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -52,5 +47,4 @@ Amazon Chime does not support specifying resource ARNs in a policy.
 
 ## Examples
 
-To view examples of Amazon Chime identity-based policies, see [Amazon Chime identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Chime identity-based policies, see [Amazon Chime identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

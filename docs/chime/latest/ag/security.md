@@ -26,49 +26,34 @@ _of_ the cloud and security _in_ the cloud:
 ###### Topics
 
 - [Identity and access management for Amazon Chime](security-iam.md "security-iam.md")
-- [How Amazon Chime works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
+- [How Amazon Chime works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [Cross-service confused deputy prevention](confused-deputy.md "confused-deputy.md")
-- [Amazon Chime
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  Amazon Chime tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Amazon Chime IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
-- [Amazon Chime identity-based
-  policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [Troubleshooting Amazon Chime identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
-- [Using service-linked roles for
-  Amazon Chime](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Amazon Chime resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on Amazon Chime tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Amazon Chime IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Amazon Chime identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Troubleshooting Amazon Chime identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [Using service-linked roles for Amazon Chime](using-service-linked-roles.md "using-service-linked-roles.md")
 - [Logging and monitoring in Amazon Chime](monitoring-overview.md "monitoring-overview.md")
 - [Compliance validation for Amazon Chime](compliance.md "compliance.md")
 - [Resilience in Amazon Chime](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Chime](infrastructure-security.md "infrastructure-security.md")
 - [Understanding Amazon Chime automatic updates](chime-auto-update.md "chime-auto-update.md")
 
-## Amazon Chime
-
-resource-based policies
+## Amazon Chime resource-based policies
 
 Amazon Chime does not support resource-based policies.
 
-## Authorization based on
-
-Amazon Chime tags
+## Authorization based on Amazon Chime tags
 
 Amazon Chime does not support tagging resources or controlling access based on tags.
 
-## Amazon Chime IAM
-
-roles
+## Amazon Chime IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Amazon Chime
+### Using temporary credentials with Amazon Chime
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -76,9 +61,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 Amazon Chime supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services that complete actions on your behalf. Service-linked roles appear in your
@@ -86,8 +69,7 @@ IAM account, and the services own the roles. An IAM administrator can view but
 not edit the permissions for service-linked roles.
 
 Amazon Chime supports service-linked roles. For details about creating or
-managing Amazon Chime service-linked roles, see [Using service-linked roles for
-Amazon Chime](using-service-linked-roles.md "using-service-linked-roles.md").
+managing Amazon Chime service-linked roles, see [Using service-linked roles for Amazon Chime](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ### Service roles
 

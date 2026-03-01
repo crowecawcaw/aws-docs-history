@@ -5,9 +5,7 @@ information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-ta
 availability of the [Amazon Chime SDK
 service](https://aws.amazon.com/chime/chime-sdk/ "https://aws.amazon.com/chime/chime-sdk/").
 
-# Guide to Amazon Chime transition
-
-features
+# Guide to Amazon Chime transition features
 
 After careful consideration, we decided to end support for the Amazon Chime service, including
 Business Calling features, effective February 20, 2026. Amazon Chime will no longer accept new
@@ -28,9 +26,7 @@ include solutions provided by AWS, such as [Wickr](https://aws.amazon.com/wickr/
 [AWS Marketplace](https://aws.amazon.com/marketplace "https://aws.amazon.com/marketplace") for more information about our
 AWS partners' solutions.
 
-## Transition features for Amazon Chime
-
-administrators
+## Transition features for Amazon Chime administrators
 
 The following transition features are available to Amazon Chime administrators.
 
@@ -128,17 +124,13 @@ Amazon-Chime-User-Activity-Reports/csv/123456789012/2024/11/03/ExampleSales_12ab
 
 ![Fields and data included in the weekly usage report](images/example-sales-report.png)
 
-### Business calling - Phone
-
-number porting
+### Business calling - Phone number porting
 
 To aid in the transition from Amazon Chime Business Calling for voice and SMS, you can
 port your Business Calling phone numbers to another carrier. For more information
 see [Porting phone numbers out](porting.md#port-out "porting.md#port-out").
 
-### Managing your user accounts -
-
-Team accounts
+### Managing your user accounts - Team accounts
 
 You will need to remove all users before you can delete your Team account. When
 you set up an Amazon Chime Team account, you can invite new users, set their permission
@@ -163,9 +155,7 @@ account, they can use the delete me option using the Amazon Chime Assistant. For
 information, see [Using the Amazon Chime Assistant to get attachments or request that your account be
 deleted](https://answers.chime.aws/articles/500/using-the-amazon-chime-assistant-to-get-attachment.html "https://answers.chime.aws/articles/500/using-the-amazon-chime-assistant-to-get-attachment.html") in the _Amazon Chime Help Center_.
 
-### Managing your user
-
-accounts - Enterprise accounts
+### Managing your user accounts - Enterprise accounts
 
 You will need to remove all domains before you can delete your Enterprise account.
 You can upgrade from an Amazon Chime Team to an Enterprise account by claiming your domain.
@@ -196,15 +186,11 @@ are removed you can delete your Enterprise account.
 
 ![Removing a domain resets all your users’ profiles. Confirm that you understand the impact of removing the domain.](images/remove-domain-2.png)
 
-## Transition features for Amazon Chime
-
-Users
+## Transition features for Amazon Chime Users
 
 The following transition features are available to Amazon Chime administrators.
 
-### Pro Users - Removing Amazon Chime from your
-
-meeting invites
+### Pro Users - Removing Amazon Chime from your meeting invites
 
 Amazon Chime auto-calls meeting attendees who are signed into their Amazon Chime clients when
 you have Amazon Chime Pro permissions and invite `meet@chime.aws` to your
@@ -231,9 +217,7 @@ existing meeting on your calendar.
 
 ![Remove Amazon Chime users from the To: line and meeting instructions from the Body](images/meeting-invite-changes-highlighted.png)
 
-### Chat Room Administrators - Get a list of
-
-members
+### Chat Room Administrators - Get a list of members
 
 Amazon Chime provides chat rooms for as many as 10,000 members. When you move to a new
 messaging solution, it can be helpful to be able to contact the members in your
@@ -254,9 +238,7 @@ your chat room by completing the following procedure.
 
 ![Example file name: Amazon_Chime_Arnav Desai_Project_Team_room_member_list.csv](images/chat-room-export-members-list.png)
 
-### Amazon Chime Users - Export your
-
-personal contacts
+### Amazon Chime Users - Export your personal contacts
 
 Amazon Chime provides users with a personal contact list (with up to 100 contacts). You
 add Amazon Chime user information to your list of personal contacts when you invite them,

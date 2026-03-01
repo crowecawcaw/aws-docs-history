@@ -5,9 +5,7 @@ information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-ta
 availability of the [Amazon Chime SDK
 service](https://aws.amazon.com/chime/chime-sdk/ "https://aws.amazon.com/chime/chime-sdk/").
 
-# How retention policies affect Amazon Chime
-
-users
+# How retention policies affect Amazon Chime users
 
 The retention policies that Enterprise account administrators set affect Amazon Chime
 users differently, depending on whether the users are part of the same Enterprise
@@ -60,9 +58,7 @@ Amazon Chime users who are not members of an Enterprise or Team account are only
 to chat room retention policies in chat rooms that are created by a member of an
 Enterprise account.
 
-###### Chat conversations with recipients who do not belong to an Enterprise or Team
-
-account
+###### Chat conversations with recipients who do not belong to an Enterprise or Team account
 
 The following table shows how retention policies affect chat conversations for
 users who are not members of an Amazon Chime Enterprise or Team account.
@@ -72,9 +68,7 @@ users who are not members of an Amazon Chime Enterprise or Team account.
 | Only users who are not members of an Enterprise account | Not applicable               |
 | At least one member of an Enterprise account            | Automatically set to 90 days |
 
-###### Chat rooms created by users who do not belong to an Enterprise or Team
-
-account
+###### Chat rooms created by users who do not belong to an Enterprise or Team account
 
 The following table shows how retention policies affect chat rooms for users
 who are not members of an Amazon Chime Enterprise or Team account.

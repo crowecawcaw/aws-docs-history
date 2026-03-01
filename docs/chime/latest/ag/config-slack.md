@@ -20,8 +20,7 @@ organization.
 - [Installing the Amazon Chime Meetings App for Slack on an organization](#install-org "#install-org")
 - [Installing the Amazon Chime Meetings App for Slack on workspaces](#install-workspace "#install-workspace")
 - [Migrating workspaces to organizations](#migrate-workspace "#migrate-workspace")
-- [Associating workspaces with Amazon Chime Team
-  accounts](#associate-with-team-acct "#associate-with-team-acct")
+- [Associating workspaces with Amazon Chime Team accounts](#associate-with-team-acct "#associate-with-team-acct")
 
 ## Installing the Amazon Chime Meetings App for Slack on an organization
 
@@ -74,8 +73,7 @@ person, you must setup an Amazon Chime Team account and grant those additional u
 permissions. For more information about starting Amazon Chime calls and meetings, see
 [Using the
 Amazon Chime Meetings App for Slack](../ug/using-slack.md "../ug/using-slack.md") in the _Amazon Chime User Guide_. For more information
-about setting up an Amazon Chime Team account, see [Associating workspaces with Amazon Chime Team
-accounts](#associate-with-team-acct "#associate-with-team-acct") in
+about setting up an Amazon Chime Team account, see [Associating workspaces with Amazon Chime Team accounts](#associate-with-team-acct "#associate-with-team-acct") in
 this guide.
 
 ###### To install the Amazon Chime Meetings App for Slack for Slack workspaces
@@ -92,9 +90,7 @@ this guide.
 If you own a Slack organization, you can migrate workspaces into that
 organization. For more information about migrating workspaces, see [Migrate workspaces to Enterprise Grid](https://slack.com/help/articles/115002532808-Migrate-workspaces-to-Enterprise-Grid "https://slack.com/help/articles/115002532808-Migrate-workspaces-to-Enterprise-Grid") in the Slack help.
 
-## Associating workspaces with Amazon Chime Team
-
-accounts
+## Associating workspaces with Amazon Chime Team accounts
 
 Associate your workspace with an Amazon Chime Team account to manage your users'
 permissions. You can upgrade meeting hosts to Amazon Chime Pro so that they can start
@@ -112,9 +108,7 @@ Before you can associate your Slack workspace with an Amazon Chime Team account,
 create an AWS account. For more information about how to create an AWS account,
 see [Prerequisites for Amazon Chime system administrators](prereqs.md "prereqs.md").
 
-###### To associate your Slack workspace with an Amazon Chime Team account when installing
-
-the Amazon Chime Meetings App for Slack
+###### To associate your Slack workspace with an Amazon Chime Team account when installing the Amazon Chime Meetings App for Slack
 
 1. Immediately after installing the Amazon Chime Meetings App for Slack in your Slack workspace, choose
    **Upgrade now**.
@@ -138,9 +132,7 @@ If you did not associate your Slack workspace with an Amazon Chime Team account 
 installed the Amazon Chime Meetings App for Slack, you can do so after the fact by using the following
 steps.
 
-###### To associate your Slack workspace with an Amazon Chime Team account after installing
-
-the Amazon Chime Meetings App for Slack
+###### To associate your Slack workspace with an Amazon Chime Team account after installing the Amazon Chime Meetings App for Slack
 
 1. Sign in to your AWS account.
 2. Sign in to your Slack workspace as an administrator.

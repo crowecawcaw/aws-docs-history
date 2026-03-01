@@ -5,9 +5,7 @@ information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-ta
 availability of the [Amazon Chime SDK
 service](https://aws.amazon.com/chime/chime-sdk/ "https://aws.amazon.com/chime/chime-sdk/").
 
-# Using roles with Amazon Chime SDK media
-
-pipelines
+# Using roles with Amazon Chime SDK media pipelines
 
 The information in the following sections explains how to create and manage a service-linked role for Amazon Chime
 SDK Media Pipelines.

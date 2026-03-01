@@ -5,14 +5,11 @@ information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-ta
 availability of the [Amazon Chime SDK
 service](https://aws.amazon.com/chime/chime-sdk/ "https://aws.amazon.com/chime/chime-sdk/").
 
-# Converting a Team account to an Enterprise
-
-account
+# Converting a Team account to an Enterprise account
 
 To convert an existing Team account to an Enterprise account, claim one or more email
 domains in the Amazon Chime console. For more information about the differences between Team
-and Enterprise accounts, see [Choosing between an Amazon Chime Team account
-or Enterprise account](choose-team-enterprise-account.md "choose-team-enterprise-account.md"). For more information about
+and Enterprise accounts, see [Choosing between an Amazon Chime Team account or Enterprise account](choose-team-enterprise-account.md "choose-team-enterprise-account.md"). For more information about
 claiming a domain, see [Claiming a domain](claim-domain.md "claim-domain.md").
 
 ###### To convert a Team account to an Enterprise account

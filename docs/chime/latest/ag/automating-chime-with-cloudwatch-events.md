@@ -5,9 +5,7 @@ information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-ta
 availability of the [Amazon Chime SDK
 service](https://aws.amazon.com/chime/chime-sdk/ "https://aws.amazon.com/chime/chime-sdk/").
 
-# Automating Amazon Chime with
-
-EventBridge
+# Automating Amazon Chime with EventBridge
 
 Amazon EventBridge lets you automate your AWS services and respond automatically to system
 events, such as application availability issues or resource changes. For more information about the meeting events, see [Meeting events](../dg/using-events.md "../dg/using-events.md") in the

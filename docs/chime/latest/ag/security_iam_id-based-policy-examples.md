@@ -5,9 +5,7 @@ information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-ta
 availability of the [Amazon Chime SDK
 service](https://aws.amazon.com/chime/chime-sdk/ "https://aws.amazon.com/chime/chime-sdk/").
 
-# Amazon Chime identity-based
-
-policy examples
+# Amazon Chime identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 Amazon Chime resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -22,22 +20,15 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  Amazon Chime console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon Chime console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
 - [Allow users full access to Amazon Chime](#security_iam_id-based-policy-examples-full-access "#security_iam_id-based-policy-examples-full-access")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Allow users to access user management actions](#security_iam_id-based-policy-examples-user-management "#security_iam_id-based-policy-examples-user-management")
-- [AWS managed policy:
-  AmazonChimeVoiceConnectorServiceLinkedRolePolicy](#cvc-linked-role-policy "#cvc-linked-role-policy")
-- [Amazon Chime updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [AWS managed policy: AmazonChimeVoiceConnectorServiceLinkedRolePolicy](#cvc-linked-role-policy "#cvc-linked-role-policy")
+- [Amazon Chime updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Chime resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -70,9 +61,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the
-
-Amazon Chime console
+## Using the Amazon Chime console
 
 To access the Amazon Chime console, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the
@@ -177,9 +166,7 @@ JSON
 
 ```
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -278,9 +265,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AmazonChimeVoiceConnectorServiceLinkedRolePolicy
+## AWS managed policy: AmazonChimeVoiceConnectorServiceLinkedRolePolicy
 
 The `AmazonChimeVoiceConnectorServiceLinkedRolePolicy` enables Amazon Chime Voice Connectors to
 stream media to Amazon Kinesis Video Streams, provide streaming notifications, and synthesize speech
@@ -290,9 +275,7 @@ use Amazon Polly to synthesize speech when using the Amazon Chime SDK Voice Appl
 `Speak` and `SpeakAndGetDigits` actions. For more information,
 see [Amazon Chime SDK identity-based policy examples](../../../chime-sdk/latest/ag/using-service-linked-roles-stream.md "../../../chime-sdk/latest/ag/using-service-linked-roles-stream.md") in the _Amazon Chime SDK Administrator Guide_.
 
-## Amazon Chime updates to AWS managed
-
-policies
+## Amazon Chime updates to AWS managed policies
 
 The following table lists and describes the updates made to the Amazon Chime IAM
 policy.

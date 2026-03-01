@@ -44,8 +44,7 @@ create an Amazon Chime administrator account.
 By default, new accounts are created as Team accounts. If you
 prefer to claim a domain and connect to your own identity provider, or Okta SSO, you can
 convert to an Enterprise account. For more
-information about Team and Enterprise account types, see [Choosing between an Amazon Chime Team account
-or Enterprise account](choose-team-enterprise-account.md "choose-team-enterprise-account.md").
+information about Team and Enterprise account types, see [Choosing between an Amazon Chime Team account or Enterprise account](choose-team-enterprise-account.md "choose-team-enterprise-account.md").
 
 ###### To convert a Team account to an Enterprise account
 

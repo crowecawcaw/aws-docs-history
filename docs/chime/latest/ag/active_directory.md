@@ -40,12 +40,9 @@ the following prerequisites:
 - Claim a domain in order to create an Amazon Chime Enterprise account, or convert
   your existing Team account to an Enterprise account. If your users have work
   email addresses from more than one domain, make sure to claim all of those
-  domains. For more information, see [Claiming a domain](claim-domain.md "claim-domain.md") and [Converting a Team account to an Enterprise
-  account](convert-team-to-enterprise.md "convert-team-to-enterprise.md").
+  domains. For more information, see [Claiming a domain](claim-domain.md "claim-domain.md") and [Converting a Team account to an Enterprise account](convert-team-to-enterprise.md "convert-team-to-enterprise.md").
 
-## Connecting to your Active Directory
-
-in Amazon Chime
+## Connecting to your Active Directory in Amazon Chime
 
 After you connect your Active Directory to Amazon Chime, your users are prompted to sign
 in with their directory credentials when they use an email address from one of the

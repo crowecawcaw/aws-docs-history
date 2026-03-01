@@ -1,6 +1,4 @@
-# Using roles with live
-
-transcription
+# Using roles with live transcription
 
 The information in the following sections explains how to create and manage a service-linked
 role for the Amazon Chime SDK live transcription. For more information about the live transcription
@@ -9,18 +7,13 @@ Amazon Chime SDK live transcription](../dg/meeting-transcription.md "../dg/meeti
 
 ###### Topics
 
-- [Service-Linked Role
-  Permissions for Nova Act](#service-linked-role-permissions-transcription "#service-linked-role-permissions-transcription")
-- [Creating a Service-Linked Role for
-  Nova Act](#create-service-linked-role-transcription "#create-service-linked-role-transcription")
+- [Service-Linked Role Permissions for Nova Act](#service-linked-role-permissions-transcription "#service-linked-role-permissions-transcription")
+- [Creating a Service-Linked Role for Nova Act](#create-service-linked-role-transcription "#create-service-linked-role-transcription")
 - [Editing a Service-Linked Role for Nova Act](#edit-slr "#edit-slr")
 - [Deleting a Service-Linked Role for Nova Act](#delete-slr "#delete-slr")
-- [Supported Regions for Amazon Chime Service-Linked
-  Roles](#slr-regions-transcription "#slr-regions-transcription")
+- [Supported Regions for Amazon Chime Service-Linked Roles](#slr-regions-transcription "#slr-regions-transcription")
 
-## Service-Linked Role
-
-Permissions for Nova Act
+## Service-Linked Role Permissions for Nova Act
 
 Nova Act uses a service-linked role named **AWSServiceRoleForAmazonChimeTranscription – Allows
 the Amazon Chime SDK to access Amazon Transcribe and Amazon Transcribe Medical on your
@@ -43,9 +36,7 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a Service-Linked Role for
-
-Nova Act
+## Creating a Service-Linked Role for Nova Act
 
 You use the IAM console to create a service-linked role with the
 **Chime Transcription** use case.
@@ -96,9 +87,7 @@ IAM**
 Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForAmazonChimeTranscription
 service-linked role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported Regions for Amazon Chime Service-Linked
-
-Roles
+## Supported Regions for Amazon Chime Service-Linked Roles
 
 The Amazon Chime SDK supports using service-linked roles in all of the regions where the service is
 available. For more information, see [Amazon Chime endpoints and quotas](../../../general/latest/gr/chime.md#chime_region "../../../general/latest/gr/chime.md#chime_region"), and [Using Amazon Chime SDK media

@@ -5,27 +5,19 @@ information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-ta
 availability of the [Amazon Chime SDK
 service](https://aws.amazon.com/chime/chime-sdk/ "https://aws.amazon.com/chime/chime-sdk/").
 
-# Using roles with shared Alexa for Business
-
-devices
+# Using roles with shared Alexa for Business devices
 
 The information in the following sections explains how to use service-linked roles and grant Amazon Chime access to the Alexa for Business resources in your AWS account.
 
 ###### Topics
 
-- [Service-linked role permissions for
-  Amazon Chime](#service-linked-role-permissions-a4b "#service-linked-role-permissions-a4b")
-- [Creating a service-linked role for
-  Amazon Chime](#create-service-linked-role-a4b "#create-service-linked-role-a4b")
-- [Editing a service-linked role for
-  Amazon Chime](#edit-service-linked-role-a4b "#edit-service-linked-role-a4b")
-- [Deleting a service-linked role for
-  Amazon Chime](#delete-service-linked-role-a4b "#delete-service-linked-role-a4b")
+- [Service-linked role permissions for Amazon Chime](#service-linked-role-permissions-a4b "#service-linked-role-permissions-a4b")
+- [Creating a service-linked role for Amazon Chime](#create-service-linked-role-a4b "#create-service-linked-role-a4b")
+- [Editing a service-linked role for Amazon Chime](#edit-service-linked-role-a4b "#edit-service-linked-role-a4b")
+- [Deleting a service-linked role for Amazon Chime](#delete-service-linked-role-a4b "#delete-service-linked-role-a4b")
 - [Supported Regions for Amazon Chime service-linked roles](#slr-regions-a4b "#slr-regions-a4b")
 
-## Service-linked role permissions for
-
-Amazon Chime
+## Service-linked role permissions for Amazon Chime
 
 Amazon Chime uses the service-linked role named **AWSServiceRoleForAmazonChime** –
 Allows access to AWS services and resources used or managed by Amazon Chime, such as Alexa for Business shared devices.
@@ -45,9 +37,7 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Amazon Chime
+## Creating a service-linked role for Amazon Chime
 
 You don't need to manually create a service-linked role. When you
 turn on Alexa for Business for a shared device in Amazon Chime in the AWS Management Console, the AWS CLI, or the AWS API, Amazon Chime creates
@@ -60,9 +50,7 @@ For more information, see [Creating a service-linked role](../../../IAM/latest/U
 you delete this service-linked role, you can use this same process to create the role
 again.
 
-## Editing a service-linked role for
-
-Amazon Chime
+## Editing a service-linked role for Amazon Chime
 
 Amazon Chime does not allow you to edit the AWSServiceRoleForAmazonChime service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various
@@ -70,18 +58,14 @@ entities might reference the role. However, you can edit the description of the 
 IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Amazon Chime
+## Deleting a service-linked role for Amazon Chime
 
 If you no longer require a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
 actively monitored or maintained. However, you must clean up your service-linked role before
 you can manually delete it.
 
-### Cleaning up a
-
-service-linked role
+### Cleaning up a service-linked role
 
 Before you can use IAM to delete a service-linked role, you must first delete any
 resources used by the role.

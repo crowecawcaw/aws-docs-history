@@ -25,8 +25,7 @@ The following sections explain how to port phone numbers.
 - [Viewing request status](#view-port-status "#view-port-status")
 - [Assigning ported numbers](#assign-ported-numbers "#assign-ported-numbers")
 - [Porting phone numbers out](#port-out "#port-out")
-- [Phone number porting status
-  definitions](#porting-status-definitions "#porting-status-definitions")
+- [Phone number porting status definitions](#porting-status-definitions "#porting-status-definitions")
 
 ## Prerequisites for porting numbers
 
@@ -161,8 +160,7 @@ The following steps explain how to use the Amazon Chime console to view the stat
 
 The **Status** column shows the status of your request. Support also contacts
 you with updates and requests for further information, as needed. For more
-information, see [Phone number porting status
-definitions](#porting-status-definitions "#porting-status-definitions"), later in this section.
+information, see [Phone number porting status definitions](#porting-status-definitions "#porting-status-definitions"), later in this section.
 
 ## Assigning ported numbers
 
@@ -234,9 +232,7 @@ out`.
 AWS Support associates a PIN with the phone number. When requesting the port with your winning carrier, provide your AWS account ID and PIN. We will use that information
 to validate any port requests received for your number.
 
-## Phone number porting status
-
-definitions
+## Phone number porting status definitions
 
 After you submit a request to port existing phone numbers into Amazon Chime, you can
 view the status of your porting request in the Amazon Chime console under

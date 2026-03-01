@@ -5,9 +5,7 @@ information, visit the [blog post](https://aws.amazon.com/blogs/messaging-and-ta
 availability of the [Amazon Chime SDK
 service](https://aws.amazon.com/chime/chime-sdk/ "https://aws.amazon.com/chime/chime-sdk/").
 
-# Logging Amazon Chime API calls with
-
-AWS CloudTrail
+# Logging Amazon Chime API calls with AWS CloudTrail
 
 Amazon Chime is integrated with AWS CloudTrail, a service that provides a record of actions taken
 by a user, role, or an AWS service in Amazon Chime. CloudTrail captures all API calls for Amazon Chime as events, including calls from
@@ -58,9 +56,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding Amazon Chime log file
-
-entries
+## Understanding Amazon Chime log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single

@@ -12,17 +12,14 @@ want to add administrator functionality or purchase Amazon Chime Pro, you must c
 account in the AWS Management Console. To learn how to create an Amazon Chime administrator account, or for more
 information about purchasing Amazon Chime Pro, see [Getting started](getting-started.md "getting-started.md").
 
-For more information about the different types of Amazon Chime administrator accounts, see [Choosing between an Amazon Chime Team account
-or Enterprise account](choose-team-enterprise-account.md "choose-team-enterprise-account.md"). For more information about managing an existing administrator account, see the following
+For more information about the different types of Amazon Chime administrator accounts, see [Choosing between an Amazon Chime Team account or Enterprise account](choose-team-enterprise-account.md "choose-team-enterprise-account.md"). For more information about managing an existing administrator account, see the following
 topics.
 
 ###### Topics
 
-- [Choosing between an Amazon Chime Team account
-  or Enterprise account](choose-team-enterprise-account.md "choose-team-enterprise-account.md")
+- [Choosing between an Amazon Chime Team account or Enterprise account](choose-team-enterprise-account.md "choose-team-enterprise-account.md")
 - [Claiming a domain](claim-domain.md "claim-domain.md")
-- [Converting a Team account to an Enterprise
-  account](convert-team-to-enterprise.md "convert-team-to-enterprise.md")
+- [Converting a Team account to an Enterprise account](convert-team-to-enterprise.md "convert-team-to-enterprise.md")
 - [Renaming your account](rename-account.md "rename-account.md")
 - [Deleting your account](enterprise-account.md "enterprise-account.md")
 - [Managing meeting settings](mtg-settings.md "mtg-settings.md")
