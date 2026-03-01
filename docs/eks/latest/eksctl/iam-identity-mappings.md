@@ -2,7 +2,7 @@
 
 ###### Note
 
-AWS suggests migraitng to [EKS Pod Identity Associations](pod-identity-associations.md "pod-identity-associations.md") from the `aws-auth` ConfigMap.
+AWS suggests migrating to [EKS Pod Identity Associations](pod-identity-associations.md "pod-identity-associations.md") from the `aws-auth` ConfigMap.
 
 EKS clusters use IAM users and roles to control access to the cluster. The rules are implemented in a config map
 

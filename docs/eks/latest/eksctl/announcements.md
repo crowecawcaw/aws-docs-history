@@ -1,6 +1,6 @@
 # Announcements
 
-This topic covers past annoucements of new Eksctl features.
+This topic covers past announcements of new Eksctl features.
 
 ## Managed Nodegroups Default
 

@@ -65,12 +65,12 @@ metadata:
 
 nodeGroups:
    - name: ng-1
-      instanceType: m5.large
-      desiredCapacity: 2
-      minSize: 1
-      maxSize: 3
-      ssh:
-      allow: false
+     instanceType: m5.large
+     desiredCapacity: 2
+     minSize: 1
+     maxSize: 3
+     ssh:
+        allow: false
 ```
 
 3. Customize the configuration:
