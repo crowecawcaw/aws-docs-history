@@ -112,9 +112,7 @@ perform the deployment at a later stage.
 The relative path to the location of the Lambda function or serverless application
 project to package and/or deploy.
 
-### Function Deployment: Lambda
-
-Function Properties
+### Function Deployment: Lambda Function Properties
 
 #### Function Name
 
@@ -163,9 +161,7 @@ Amazon S3 for subsequent deployment.
 
 ### Advanced
 
-#### Additional Command
-
-Line Arguments for Lambda Tools
+#### Additional Command Line Arguments for Lambda Tools
 
 Additional arguments that can be passed to the `dotnet lambda` CLI
 extension command that is used to build, package and deploy your function or

@@ -7,8 +7,7 @@ AWS Toolkit for Microsoft Azure DevOps.
 
 - [Set up an Azure DevOps account](#set-up-a-vsts-account "#set-up-a-vsts-account")
 - [Install the AWS Toolkit for Azure DevOps extension](#install-the-aws-tools-for-vsts-extension "#install-the-aws-tools-for-vsts-extension")
-- [Establish AWS
-  credentials for the AWS Toolkit for Azure DevOps](#set-up-aws-credentials-for-the-aws-tools-for-vsts "#set-up-aws-credentials-for-the-aws-tools-for-vsts")
+- [Establish AWS credentials for the AWS Toolkit for Azure DevOps](#set-up-aws-credentials-for-the-aws-tools-for-vsts "#set-up-aws-credentials-for-the-aws-tools-for-vsts")
 - [Supply task credentials](#supplying-task-creds-overview "#supplying-task-creds-overview")
 
 ## Set up an Azure DevOps account
@@ -29,9 +28,7 @@ This procedure outlines how to install the AWS Toolkit for Azure DevOps extensio
    account, or choose **Download** to install it on an on-premises
    server.
 
-## Establish AWS
-
-credentials for the AWS Toolkit for Azure DevOps
+## Establish AWS credentials for the AWS Toolkit for Azure DevOps
 
 To allow the AWS Toolkit for Azure DevOps to access AWS services, you need an AWS account and AWS
 credentials. When build agents run the tasks contained in the tools, the tasks must be
@@ -53,18 +50,12 @@ ways.
 
 ###### Topics
 
-- [Supply task credentials using a service
-  connection](#service-connection "#service-connection")
-- [Supply credentials through named
-  variables in your build](#credentials-through-named-variables "#credentials-through-named-variables")
-- [Supply standard AWS environment
-  variables in the build agent process](#credentials-standard-aws-env-variables "#credentials-standard-aws-env-variables")
-- [Supply credentials with Amazon EC2 build
-  agents](#credentials-ec2-build-agents "#credentials-ec2-build-agents")
+- [Supply task credentials using a service connection](#service-connection "#service-connection")
+- [Supply credentials through named variables in your build](#credentials-through-named-variables "#credentials-through-named-variables")
+- [Supply standard AWS environment variables in the build agent process](#credentials-standard-aws-env-variables "#credentials-standard-aws-env-variables")
+- [Supply credentials with Amazon EC2 build agents](#credentials-ec2-build-agents "#credentials-ec2-build-agents")
 
-### Supply task credentials using a service
-
-connection
+### Supply task credentials using a service connection
 
 You can create a link to your AWS subscription by using the **Service
 connections** section of the **Project settings** for your
@@ -93,9 +84,7 @@ You can test your credentials by creating a new AWS Toolkit for Azure DevOps tas
 and using the connection name you defined in the **Add AWS service
 connection** form.
 
-### Supply credentials through named
-
-variables in your build
+### Supply credentials through named variables in your build
 
 You can specify credentials by using named variables. You can set these variables using
 values from previous jobs in the pipeline, or set them globally. Named variables can be used
@@ -129,9 +118,7 @@ The following are all the supported named variables:
 For more information about Azure DevOps pipeline variables, see [Define
 variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables "https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables") in the Microsoft Azure DevOps online documentation.
 
-### Supply standard AWS environment
-
-variables in the build agent process
+### Supply standard AWS environment variables in the build agent process
 
 You can specify credentials with standard named AWS environment variables. These
 variables can be used to get credentials from a custom credentials store.
@@ -149,9 +136,7 @@ The following are all the supported standard named AWS environment variables:
 For more information about Azure DevOps pipeline variables, see [Define
 variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables "https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables") in the Microsoft Azure DevOps online documentation.
 
-### Supply credentials with Amazon EC2 build
-
-agents
+### Supply credentials with Amazon EC2 build agents
 
 For build agents running on Amazon Elastic Compute Cloud (Amazon EC2) instances, the tasks can automatically
 obtain credential and Region information from instance metadata associated with the Amazon EC2

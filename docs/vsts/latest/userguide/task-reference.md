@@ -15,8 +15,7 @@ You can do one of the following:
 - Specify credentials explicitly for each task. Do this by configuring a named service
   endpoint (of endpoint type _AWS_) and then referring to the endpoint
   name in the _AWS Credentials_ field for each task. For information
-  about this method, see the topic on [Supply task credentials using a service
-  connection](getting-started.md#service-connection "getting-started.md#service-connection").
+  about this method, see the topic on [Supply task credentials using a service connection](getting-started.md#service-connection "getting-started.md#service-connection").
 
 In this case, the AWS Region can be set in the **AWS Region**
 property of a task.

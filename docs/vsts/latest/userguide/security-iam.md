@@ -11,8 +11,7 @@ use with no additional charge.
 - [Authenticating with identities](#security_iam_authentication "#security_iam_authentication")
 - [Managing access using policies](#security_iam_access-manage "#security_iam_access-manage")
 - [How AWS services work with IAM](#security_iam_service-with-iam "#security_iam_service-with-iam")
-- [Troubleshooting AWS identity and
-  access](#security_iam_troubleshoot "#security_iam_troubleshoot")
+- [Troubleshooting AWS identity and access](#security_iam_troubleshoot "#security_iam_troubleshoot")
 
 ## Audience
 
@@ -23,8 +22,7 @@ AWS.
 your job, then your administrator provides you with the credentials and permissions that you
 need. As you use more AWS features to do your work, you might need additional permissions.
 Understanding how access is managed can help you request the right permissions from your
-administrator. If you cannot access a feature in AWS, see [Troubleshooting AWS identity and
-access](#security_iam_troubleshoot "#security_iam_troubleshoot") or the user
+administrator. If you cannot access a feature in AWS, see [Troubleshooting AWS identity and access](#security_iam_troubleshoot "#security_iam_troubleshoot") or the user
 guide of the AWS service you are using.
 
 **Service administrator** – If you're in charge
@@ -80,17 +78,13 @@ Using policies, administrators specify who has access to what by defining which 
 
 By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
-### Identity-based
-
-policies
+### Identity-based policies
 
 Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
 Identity-based policies can be _inline policies_ (embedded directly into a single identity) or _managed policies_ (standalone policies attached to multiple identities). To learn how to choose between managed and inline policies, see [Choose between managed policies and inline policies](../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md "../../../IAM/latest/UserGuide/access_policies-choosing-managed-or-inline.md") in the _IAM User Guide_.
 
-### Resource-based
-
-policies
+### Resource-based policies
 
 Resource-based policies are JSON policy documents that you attach to a resource. Examples include IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service administrators can use them to control access to a specific resource. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy.
 
@@ -126,25 +120,18 @@ with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-ia
 To learn how to use a specific AWS service with IAM, see the security section of the
 relevant service's User Guide.
 
-## Troubleshooting AWS identity and
-
-access
+## Troubleshooting AWS identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with AWS and IAM.
 
 ###### Topics
 
-- [I am not authorized to perform an
-  action in AWS](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow people
-  outside of my AWS account to access my AWS resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform an action in AWS](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to allow people outside of my AWS account to access my AWS resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-### I am not authorized to perform an
-
-action in AWS
+### I am not authorized to perform an action in AWS
 
 If you receive an error that you're not authorized to perform an action, your
 policies must be updated to allow you to perform the action.
@@ -164,9 +151,7 @@ In this case, the policy for the `mateojackson` user must be updated to allow ac
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-### I am not authorized to perform
-
-iam:PassRole
+### I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to AWS.
 
@@ -185,9 +170,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-### I want to allow people
-
-outside of my AWS account to access my AWS resources
+### I want to allow people outside of my AWS account to access my AWS resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

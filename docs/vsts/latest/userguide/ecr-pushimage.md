@@ -95,9 +95,7 @@ The name of the repository to which the image will be pushed.
 Optional tag for the new image in the repository. If not specified, ECR will assume
 'latest'.
 
-### Create repository if it does
-
-not exist
+### Create repository if it does not exist
 
 If checked, the task will check to see if the repository exists and if it does not,
 will attempt to create it.

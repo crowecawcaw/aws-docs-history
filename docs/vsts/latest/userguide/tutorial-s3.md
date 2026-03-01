@@ -13,9 +13,7 @@ definition.
 - A code project for an _ASP.NET Core Web Application_, which you
   will push to your Azure DevOps project.
 
-## Archiving build
-
-artifacts with the AWS S3 Upload task
+## Archiving build artifacts with the AWS S3 Upload task
 
 Create a new Azure DevOps project and add a new pipeline to the project based on the
 _ASP.NET Core_ template. To follow along with the screenshots shown
@@ -29,9 +27,7 @@ The build process page for this pipeline contains the following default tasks.
 
 ![New build pipeline](images/startingbuilddefinition.png)
 
-### Add the S3 Upload task
-
-to the build definition
+### Add the S3 Upload task to the build definition
 
 To capture the build output produced by the _Publish_ task and
 upload it to Amazon S3 you need to add the _Amazon S3 Upload_ task
@@ -61,8 +57,7 @@ If you have already configured AWS credentials for your project, you can select
 them from the dropdown list. If not, you can add credentials for this task by
 choosing the **New** button next to the **AWS
 Credentials** field. For information about filling out the resulting
-**Add AWS service connection** form, see the topic on [Supply task credentials using a service
-connection](getting-started.md#service-connection "getting-started.md#service-connection").
+**Add AWS service connection** form, see the topic on [Supply task credentials using a service connection](getting-started.md#service-connection "getting-started.md#service-connection").
 
 This task requires credentials for a user with a policy enabling the user to
 put objects to S3. If the **Create S3 bucket** option is enabled

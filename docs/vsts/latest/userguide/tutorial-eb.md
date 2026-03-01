@@ -54,8 +54,7 @@ If you have already configured AWS credentials for your project, you can select
 them from the drop-down list. If not, you can add credentials for this task by
 choosing **New** next to the **AWS
 Credentials** field. For information about filling out the resulting
-**Add AWS service connection** form, see [Supply task credentials using a service
-connection](getting-started.md#service-connection "getting-started.md#service-connection").
+**Add AWS service connection** form, see [Supply task credentials using a service connection](getting-started.md#service-connection "getting-started.md#service-connection").
 
 This task requires credentials for a user with a policy enabling the user to
 update an Elastic Beanstalk environment and describe an environment's status and

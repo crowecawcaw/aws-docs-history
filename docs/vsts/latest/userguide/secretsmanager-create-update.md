@@ -1,6 +1,4 @@
-# AWS Secrets Manager Create/Update Secret
-
-task
+# AWS Secrets Manager Create/Update Secret task
 
 ## Synopsis
 

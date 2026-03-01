@@ -185,9 +185,7 @@ format):
 
 For more information, see [Template Anatomy](../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md "../../../AWSCloudFormation/latest/UserGuide/template-anatomy.md") in the _AWS CloudFormation User Guide_.
 
-### Create or Update the
-
-Stack Using a Change Set
+### Create or Update the Stack Using a Change Set
 
 If selected a change set will be created that contains a list of changes that will be
 applied to a stack and then validated. If the changes validate successfully the change
@@ -211,9 +209,7 @@ This parameter is required if the option to use a change set is selected.
 A description to help you identify this change set. Max length 1024
 characters.
 
-### Automatically Execute the Change
-
-Set
+### Automatically Execute the Change Set
 
 If checked, the change set is automatically executed when validation succeeds. If it
 isn't checked the change set is validated but not executed. You can execute the change
@@ -230,16 +226,12 @@ parameter.
 If your stack manipulates IAM resources, you can specify either capability otherwise
 an InsufficientCapabilities error will be returned.
 
-#### Create or Update IAM
-
-Resources ('CAPABILITY_IAM')
+#### Create or Update IAM Resources ('CAPABILITY_IAM')
 
 If your stack manipulates IAM resources, you can specify either capability.
 Otherwise, an `InsufficientCapabilities` error is returned.
 
-#### Create or
-
-Update Named IAM Resources ('CAPABILITY_NAMED_IAM')
+#### Create or Update Named IAM Resources ('CAPABILITY_NAMED_IAM')
 
 If your stack manipulates IAM resources with custom names, you must add this
 capability otherwise an `InsufficientCapabilities` error is
@@ -347,9 +339,7 @@ back.
 If checked, disables rollback of the stack if stack creation failed. You can
 specify `DisableRollback` or `OnFailure`, but not both.
 
-#### Log warning during stack update if AWS CloudFormation
-
-reports no work to be done
+#### Log warning during stack update if AWS CloudFormation reports no work to be done
 
 If selected and an update-stack operation, with or without a change set, results
 in no changes being reported by the service, then a warning message is emitted into

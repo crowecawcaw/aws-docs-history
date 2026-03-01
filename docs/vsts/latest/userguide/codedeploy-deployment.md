@@ -126,16 +126,12 @@ but weren't part of the previous successful deployment.
 
 ### Advanced
 
-#### Update Outdated Instances
-
-Only
+#### Update Outdated Instances Only
 
 If checked, deploys to only those instances that are not running the latest
 application revision.
 
-#### Ignore Application Stop
-
-Failures
+#### Ignore Application Stop Failures
 
 When checked, if the deployment causes the ApplicationStop deployment lifecycle
 event to an instance to fail, the deployment to that instance is not considered
