@@ -336,9 +336,7 @@ Alternatively, you can use the **Fix it for me** option in the AWS
 console. This option automatically configures the required Amazon Redshift policies without your
 needing to do it manually.
 
-## Step 6: Create the zero-ETL integration using
-
-AWS Glue
+## Step 6: Create the zero-ETL integration using AWS Glue
 
 Create the zero-ETL integration using the AWS Glue `create-integration`
 command. In this command, you specify the source VM cluster and the target Amazon Redshift
@@ -381,9 +379,7 @@ Only one PDB per integration is supported. The data filter must specify a single
 for example, `include: pdb1.*.*`. The source must be in the same AWS Region and
 account in which the integration is being created.
 
-## Step 7: Create a target database in
-
-Amazon Redshift
+## Step 7: Create a target database in Amazon Redshift
 
 After the integration is active, create a target database in your Amazon Redshift cluster.
 

@@ -50,9 +50,7 @@ aws glue modify-integration \
 When you modify the data filter, the integration enters a `modifying` state
 and performs a resynchronization of data. The integration stops replication, applies the new filter settings, and resumes replication with a reload-target operation. Monitor the integration status to ensure the modification completes successfully.
 
-### Considerations for data filter
-
-modifications to zero-ETL integrations
+### Considerations for data filter modifications to zero-ETL integrations
 
 Consider the following when modifying data filters:
 
@@ -67,9 +65,7 @@ include: pdb2.*.*` aren't supported
   take significant time to complete and can affect the source database performance during
   the reload.
 
-### Limitations for modifications to zero-ETL
-
-integration settings
+### Limitations for modifications to zero-ETL integration settings
 
 You can't modify the following settings after you create a zero-ETL integration:
 

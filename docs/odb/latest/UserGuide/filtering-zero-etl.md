@@ -1,6 +1,4 @@
-# Data filtering for zero-ETL integrations in
-
-Oracle Database@AWS
+# Data filtering for zero-ETL integrations in Oracle Database@AWS
 
 Oracle Database@AWS zero-ETL integrations support data filtering. You can use it to control which data
 your source Oracle Exadata database replicates to your target data warehouse. Instead of

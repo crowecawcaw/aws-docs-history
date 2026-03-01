@@ -21,9 +21,7 @@ To get a high-level view of how Oracle Database@AWS and other AWS services work 
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Oracle Database@AWS
+## Identity-based policies for Oracle Database@AWS
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Oracle Database@AWS
 
-Identity-based policy examples for Oracle Database@AWS
+To view examples of Oracle Database@AWS identity-based policies, see [Identity-based policies for Oracle Database@AWS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Oracle Database@AWS identity-based policies, see [Identity-based policies for
-Oracle Database@AWS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Oracle Database@AWS
+## Resource-based policies within Oracle Database@AWS
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Oracle Database@AWS
+## Policy actions for Oracle Database@AWS
 
 **Supports policy actions:**
 
@@ -97,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of Oracle Database@AWS identity-based policies, see [Identity-based policies for
-Oracle Database@AWS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Oracle Database@AWS identity-based policies, see [Identity-based policies for Oracle Database@AWS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Oracle Database@AWS
+## Policy resources for Oracle Database@AWS
 
 **Supports policy resources:**
 
@@ -121,12 +109,9 @@ To see a list of Oracle Database@AWS resource types and their ARNs, see [Resourc
 in the _Service Authorization Reference_. To learn with which actions you can
 specify the ARN of each resource, see [Actions Defined by Oracle Database@AWS](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions").
 
-To view examples of Oracle Database@AWS identity-based policies, see [Identity-based policies for
-Oracle Database@AWS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Oracle Database@AWS identity-based policies, see [Identity-based policies for Oracle Database@AWS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Oracle Database@AWS
+## Policy condition keys for Oracle Database@AWS
 
 **Supports service-specific policy condition keys:**
 
@@ -145,8 +130,7 @@ To see a list of Oracle Database@AWS condition keys, see [Condition Keys for Ora
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions Defined by Oracle Database@AWS](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions").
 
-To view examples of Oracle Database@AWS identity-based policies, see [Identity-based policies for
-Oracle Database@AWS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Oracle Database@AWS identity-based policies, see [Identity-based policies for Oracle Database@AWS](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Oracle Database@AWS
 
@@ -174,9 +158,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Oracle Database@AWS
+## Using temporary credentials with Oracle Database@AWS
 
 **Supports temporary credentials:**
 
@@ -188,9 +170,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Oracle Database@AWS
+## Cross-service principal permissions for Oracle Database@AWS
 
 **Supports forward access sessions (FAS):**
 
@@ -199,9 +179,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Oracle Database@AWS
+## Service roles for Oracle Database@AWS
 
 **Supports service roles:**
 
@@ -216,9 +194,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Oracle Database@AWS functionality.
 Edit service roles only when Oracle Database@AWS provides guidance to do so.
 
-## Service-linked
-
-roles for Oracle Database@AWS
+## Service-linked roles for Oracle Database@AWS
 
 **Supports service-linked roles:**
 

@@ -19,8 +19,7 @@ Before configuring your Oracle Exadata infrastructure, make sure that you do the
 
 - Perform the steps in [Onboarding to Oracle Database@AWS](setting-up.md "setting-up.md"). You must
   have accepted a private offer to use Oracle Database@AWS.
-- Grant your IAM principal the policy permissions listed in [Allow users
-  to provision Oracle Database@AWS resources](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-full-access "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-full-access"). These permissions are
+- Grant your IAM principal the policy permissions listed in [Allow users to provision Oracle Database@AWS resources](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-full-access "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-full-access"). These permissions are
   necessary to use Oracle Database@AWS.
 
 ## Supported OCI services on Oracle Database@AWS
@@ -72,6 +71,10 @@ You can use the AZ with the physical ID `cac1-az4`.
 
 You can use the AZ with the physical ID `apse2-az4`.
 
+**Europe (Ireland)**
+
+You can use the AZ with the physical ID `euw1-az3`.
+
 To find the logical AZ names in your account that map to the preceding physical AZ IDs, run
 the following command.
 
@@ -90,17 +93,12 @@ ODB network. For more information, see [ODB Network Design](https://docs.oracle.
 
 ###### Topics
 
-- [Restrictions for IP addresses in the
-  ODB network](#getting-started-ip-restrict "#getting-started-ip-restrict")
-- [Client subnet CIDR requirements for the
-  ODB network](#getting-started-client-cidr "#getting-started-client-cidr")
-- [Backup subnet CIDR requirements for the
-  ODB network](#getting-started-backup-cidr "#getting-started-backup-cidr")
+- [Restrictions for IP addresses in the ODB network](#getting-started-ip-restrict "#getting-started-ip-restrict")
+- [Client subnet CIDR requirements for the ODB network](#getting-started-client-cidr "#getting-started-client-cidr")
+- [Backup subnet CIDR requirements for the ODB network](#getting-started-backup-cidr "#getting-started-backup-cidr")
 - [IP consumption scenarios for the ODB network](#getting-started-scenarios "#getting-started-scenarios")
 
-### Restrictions for IP addresses in the
-
-ODB network
+### Restrictions for IP addresses in the ODB network
 
 Note the following restrictions regarding CIDR ranges in the ODB network:
 
@@ -126,9 +124,7 @@ Note the following restrictions regarding CIDR ranges in the ODB network:
   the VM cluster, which means you can only provision the VMs in the VM cluster into the same
   ODB network.
 
-### Client subnet CIDR requirements for the
-
-ODB network
+### Client subnet CIDR requirements for the ODB network
 
 In the following table, you can find the number of IP addresses consumed by the service and
 infrastructure for the client subnet CIDR. The minimum CIDR size for the client subnet is /27,
@@ -140,9 +136,7 @@ and the maximum size is /16.
 | 3                      | Each VM cluster     | These IP addresses are reserved for Single Client Access Names (SCANs) regardless of<br>how many VMs are present in each VM cluster.                                                                                                                                              |
 | 4                      | Each VM             | These IP addresses depend solely on the number of VMs in the infrastructure.                                                                                                                                                                                                      |
 
-### Backup subnet CIDR requirements for the
-
-ODB network
+### Backup subnet CIDR requirements for the ODB network
 
 In the following table, you can find the number of IP addresses consumed by the service and
 infrastructure for the backup subnet CIDR. The minimum CIDR size for the backup subnet is /28,
@@ -203,12 +197,10 @@ This task assumes that you have read [Planning IP address space in Oracle Databa
 6. For **Availability Zone**, choose an AZ name. For supported AZs, see
    [Supported Regions for Oracle Database@AWS](#supported-odb-regions "#supported-odb-regions").
 7. For **Client subnet CIDR**, specify a CIDR range for the client
-   connections. For more information, see [Client subnet CIDR requirements for the
-   ODB network](#getting-started-client-cidr "#getting-started-client-cidr").
+   connections. For more information, see [Client subnet CIDR requirements for the ODB network](#getting-started-client-cidr "#getting-started-client-cidr").
 8. For **Backup subnet CIDR**, specify a CIDR range for the backup
    connections. To isolate the backup traffic and improve resiliency, we recommend that you don't
-   overlap the backup CIDR and the client CIDR. For more information, see [Backup subnet CIDR requirements for the
-   ODB network](#getting-started-backup-cidr "#getting-started-backup-cidr").
+   overlap the backup CIDR and the client CIDR. For more information, see [Backup subnet CIDR requirements for the ODB network](#getting-started-backup-cidr "#getting-started-backup-cidr").
 9. For **DNS configuration**, choose either of the following options:
 
 **Default**

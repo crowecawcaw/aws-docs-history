@@ -1,6 +1,4 @@
-# Sharing Oracle Database@AWS resources across
-
-accounts
+# Sharing Oracle Database@AWS resources across accounts
 
 To enable collaboration while optimizing costs, share Oracle Database@AWS resources with other
 AWS accounts within the same AWS organization. This topic explains how to share
@@ -8,17 +6,12 @@ resources using AWS Resource Access Manager (AWS RAM).
 
 ###### Topics
 
-- [Prerequisites for sharing
-  resources](#sharing-resources-prerequisites "#sharing-resources-prerequisites")
-- [Sharing Oracle Database@AWS resources with another
-  account using AWS RAM](#sharing-exadata-infrastructure "#sharing-exadata-infrastructure")
+- [Prerequisites for sharing resources](#sharing-resources-prerequisites "#sharing-resources-prerequisites")
+- [Sharing Oracle Database@AWS resources with another account using AWS RAM](#sharing-exadata-infrastructure "#sharing-exadata-infrastructure")
 - [Viewing your resource shares](#viewing-resource-shares "#viewing-resource-shares")
-- [Updating or deleting resource shares using
-  AWS RAM](#unsharing-resources "#unsharing-resources")
+- [Updating or deleting resource shares using AWS RAM](#unsharing-resources "#unsharing-resources")
 
-## Prerequisites for sharing
-
-resources
+## Prerequisites for sharing resources
 
 Before you share Oracle Database@AWS resources, make sure that you have the
 following:
@@ -34,9 +27,7 @@ following:
   information, see [Enable resource sharing within AWS Organizations](../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs "../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs") in the
   _AWS Resource Access Manager User Guide_)
 
-## Sharing Oracle Database@AWS resources with another
-
-account using AWS RAM
+## Sharing Oracle Database@AWS resources with another account using AWS RAM
 
 To share an Exadata infrastructure or ODB network with another AWS account, you create a resource share
 using AWS RAM. This allows the trusted account to create VM clusters on your Exadata infrastructure.
@@ -106,9 +97,7 @@ aws ram list-principals \
     --resource-share-arns `arn:aws:ram:us-east-1:111111111111:resource-share/12345678-abcd-1234-efgh-111111111111`
 ```
 
-## Updating or deleting resource shares using
-
-AWS RAM
+## Updating or deleting resource shares using AWS RAM
 
 To stop sharing a resource with a trusted account using AWS RAM, take any of the
 following actions:

@@ -125,5 +125,4 @@ offer. For more information, see [Request a private offer for Oracle Database@AW
 To request a private offer in this preview, you must contact AWS to get your
 AWS account added to an allow list. 3. Create your ODB network, Oracle Exadata infrastructure, and Exadata VM clusters using the AWS console. Create your Exadata
 databases using OCI tools. For more information, see [Getting started with Oracle Database@AWS](getting-started.md "getting-started.md"). 4. Share your resources across accounts with AWS Resource Access Manager (AWS RAM). For more information, see
-[Working with shared Oracle Database@AWS resources
-in a trusted account](working-with-shared-resources.md "working-with-shared-resources.md").
+[Working with shared Oracle Database@AWS resources in a trusted account](working-with-shared-resources.md "working-with-shared-resources.md").

@@ -6,10 +6,8 @@ Oracle Database@AWS.
 ###### Topics
 
 - [Creation of ODB network fails](#odb_troubleshooting.creating "#odb_troubleshooting.creating")
-- [Connectivity issues between your VPC and ODB network
-  or VM clusters](#odb_troubleshooting.vpctoodb "#odb_troubleshooting.vpctoodb")
-- [Unresolvable hostnames or scannames of
-  VM clusters from VPC](#odb_troubleshooting.unreshostname "#odb_troubleshooting.unreshostname")
+- [Connectivity issues between your VPC and ODB network or VM clusters](#odb_troubleshooting.vpctoodb "#odb_troubleshooting.vpctoodb")
+- [Unresolvable hostnames or scannames of VM clusters from VPC](#odb_troubleshooting.unreshostname "#odb_troubleshooting.unreshostname")
 - [Getting support for Oracle Database@AWS](#oracle-database-aws-support "#oracle-database-aws-support")
 
 ## Creation of ODB network fails
@@ -56,9 +54,7 @@ If you add a CIDR range to the ODB network peered CIDR list without attaching a 
 gateway to the VPC, the create or update operation fails. There is no requirement about
 the CIDR ranges that the attachment is used for.
 
-## Connectivity issues between your VPC and ODB network
-
-or VM clusters
+## Connectivity issues between your VPC and ODB network or VM clusters
 
 When you can't connect from your VPC to the ODB network or the VM clusters within it, the following
 are common causes:
@@ -86,17 +82,14 @@ are common causes:
   active connection to an ODB network. If you see more than one ODB network peering, remove the extra
   ones.
 
-## Unresolvable hostnames or scannames of
-
-VM clusters from VPC
+## Unresolvable hostnames or scannames of VM clusters from VPC
 
 If the hostnames or scannames of the VM clusters are not resolvable from your VPC, configure
 DNS forwarding on the VPC and the following resources to resolve DNS records hosted on the
 ODB network:
 
 - An outbound endpoint to send DNS queries to the ODB network. For more information, see
-  [Configuring an outbound endpoint in an ODB network in
-  Oracle Database@AWS](configuring.md#configuring.endpoint "configuring.md#configuring.endpoint").
+  [Configuring an outbound endpoint in an ODB network in Oracle Database@AWS](configuring.md#configuring.endpoint "configuring.md#configuring.endpoint").
 - A resolver rule to specify the domain name of the DNS queries that the resolver
   forwards to the DNS for ODB network. For more information, see [Configuring a resolver rule in Oracle Database@AWS](configuring.md#configuring.resolver "configuring.md#configuring.resolver").
 

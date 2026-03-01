@@ -1,6 +1,4 @@
-# Logging Oracle Database@AWS API calls using
-
-AWS CloudTrail
+# Logging Oracle Database@AWS API calls using AWS CloudTrail
 
 Oracle Database@AWS is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service that provides a record of actions taken by a user, role, or an
 AWS service. CloudTrail captures all

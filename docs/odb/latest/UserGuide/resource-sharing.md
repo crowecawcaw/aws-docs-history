@@ -24,9 +24,7 @@ With AWS RAM, you share resources that you own by creating a _resource
 share_. A resource share specifies the resources to share, and the AWS accounts with
 whom to share them.
 
-## Benefits of resource sharing in
-
-Oracle Database@AWS
+## Benefits of resource sharing in Oracle Database@AWS
 
 Sharing Oracle Database@AWS resources across accounts provides the following
 benefits:
@@ -42,9 +40,7 @@ this shared infrastructure without needing to provision their own expensive hard
 This approach significantly reduces costs while maintaining proper separation of
 responsibilities between accounts.
 
-## How resource sharing works in
-
-Oracle Database@AWS
+## How resource sharing works in Oracle Database@AWS
 
 You can share the following Oracle Database@AWS resources:
 
@@ -67,9 +63,7 @@ initialize-service` command or by choosing **Activate
 5. After initialization, trusted accounts can create their own resources on the shared
    infrastructure, such as VM clusters on shared Exadata infrastructure and ODB network.
 
-## Permissions on shared resources for trusted
-
-accounts
+## Permissions on shared resources for trusted accounts
 
 When you share resources, Oracle Database@AWS automatically selects specific actions (managed
 permissions) for each resource type:
@@ -107,9 +101,7 @@ When a resource is unshared, trusted accounts lose the ability to create new res
 on the shared infrastructure. However, any resources they've already created remain
 accessible and functional.
 
-## Limitations for Oracle Database@AWS resource
-
-sharing
+## Limitations for Oracle Database@AWS resource sharing
 
 Before sharing resources, keep the following limitations in mind.
 
@@ -133,9 +125,7 @@ When sharing Oracle Database@AWS resources, keep in mind the following limitatio
 - When you unshare a resource, we recommend that you wait approximately 15 minutes before
   resharing the same resource with the same trusted account.
 
-### Limitations for creating and using shared
-
-resources
+### Limitations for creating and using shared resources
 
 When creating or using Oracle Database@AWS resources, keep in mind the following
 limitations:

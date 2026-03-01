@@ -8,13 +8,10 @@ AWS account and Oracle Cloud Infrastructure.
 
 ###### Topics
 
-- [What is Oracle Database@AWS
-  initialization?](#initialize-service-overview "#initialize-service-overview")
+- [What is Oracle Database@AWS initialization?](#initialize-service-overview "#initialize-service-overview")
 - [Next steps](#initialize-service-next-steps "#initialize-service-next-steps")
 
-## What is Oracle Database@AWS
-
-initialization?
+## What is Oracle Database@AWS initialization?
 
 After a resource has been shared with your account, you must initialize the
 Oracle Database@AWS service before you can access or use the shared resource. If you try to
@@ -63,5 +60,4 @@ following:
 - Create VM clusters and Autonomous VM clusters on a shared Exadata infrastructure and ODB network.
 - Create an ODB peering connection on a shared ODB network.
 
-For more information about working with shared resources, see [Working with shared Oracle Database@AWS resources
-in a trusted account](working-with-shared-resources.md "working-with-shared-resources.md").
+For more information about working with shared resources, see [Working with shared Oracle Database@AWS resources in a trusted account](working-with-shared-resources.md "working-with-shared-resources.md").

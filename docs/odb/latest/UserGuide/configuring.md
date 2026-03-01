@@ -185,9 +185,7 @@ records for the VM cluster. Scans use the `*.oraclevcn.com` fully qualified doma
 You can find the DNS listening endpoint in the ODB network details page on the Oracle Database@AWS
 console.
 
-### Configuring an outbound endpoint in an ODB network in
-
-Oracle Database@AWS
+### Configuring an outbound endpoint in an ODB network in Oracle Database@AWS
 
 An outbound endpoint allows DNS queries to be sent from your VPC to a network or IP
 address. The endpoint specifies the IP addresses from which queries originate. To forward DNS
@@ -272,8 +270,7 @@ console.
    3. For **VPCs that use this rule**, associate it with the VPC from where
       DNS queries are forwarded to your ODB network.
    4. For **Outbound endpoint**, choose the outbound endpoint that you
-      created in [Configuring an outbound endpoint in an ODB network in
-      Oracle Database@AWS](#configuring.endpoint "#configuring.endpoint").
+      created in [Configuring an outbound endpoint in an ODB network in Oracle Database@AWS](#configuring.endpoint "#configuring.endpoint").
 
    ###### Note
 

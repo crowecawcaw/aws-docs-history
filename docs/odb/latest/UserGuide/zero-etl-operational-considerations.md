@@ -1,6 +1,4 @@
-# Considerations for zero-ETL
-
-integration in Oracle Database@AWS
+# Considerations for zero-ETL integration in Oracle Database@AWS
 
 When setting up Zero-ETL integration between Oracle Database@AWS and Amazon Redshift, consider the following
 guidelines:

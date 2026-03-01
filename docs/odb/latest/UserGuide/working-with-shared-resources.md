@@ -1,6 +1,4 @@
-# Working with shared Oracle Database@AWS resources
-
-in a trusted account
+# Working with shared Oracle Database@AWS resources in a trusted account
 
 After a resource has been shared with your trusted account and you've initialized the
 Oracle Database@AWS service, you can view and use the shared resource. This topic explains how to
@@ -8,16 +6,12 @@ work with shared resources in a trusted account.
 
 ###### Topics
 
-- [Limitations for shared resources in a
-  trusted account](#limitations-shared-resources "#limitations-shared-resources")
+- [Limitations for shared resources in a trusted account](#limitations-shared-resources "#limitations-shared-resources")
 - [Creating VM clusters on shared Exadata infrastructure](#creating-vm-clusters "#creating-vm-clusters")
-- [Viewing shared resources in a trusted
-  account](#viewing-shared-resources "#viewing-shared-resources")
+- [Viewing shared resources in a trusted account](#viewing-shared-resources "#viewing-shared-resources")
 - [Setting up ODB peering with shared ODB networks](#network-peering-shared "#network-peering-shared")
 
-## Limitations for shared resources in a
-
-trusted account
+## Limitations for shared resources in a trusted account
 
 When working with shared Oracle Database@AWS resources, be aware of the following
 limitations:
@@ -89,9 +83,7 @@ aws odb create-cloud-autonomous-vm-cluster --region us-east-1  \
 The VM cluster is created on the specified shared Exadata infrastructure and is owned by your
 trusted account.
 
-## Viewing shared resources in a trusted
-
-account
+## Viewing shared resources in a trusted account
 
 You can view resources that have been shared with your account using the AWS
 Management Console or the AWS CLI.

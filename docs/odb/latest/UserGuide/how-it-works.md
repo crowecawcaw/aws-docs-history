@@ -106,6 +106,10 @@ You can use the AZ with the physical ID `cac1-az4`.
 
 You can use the AZ with the physical ID `apse2-az4`.
 
+**Europe (Ireland)**
+
+You can use the AZ with the physical ID `euw1-az3`.
+
 To find the logical AZ names in your account that map to the preceding physical AZ IDs, run
 the following command.
 

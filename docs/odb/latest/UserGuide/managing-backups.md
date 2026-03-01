@@ -39,10 +39,6 @@ integration with existing backup management workflows.
 
 You can use the following user-managed backup techniques:
 
-**Oracle Secure Backup**
-
-Stream backups directly to Amazon S3 with optimal performance.
-
 **Storage Gateway**
 
 Use Storage Gateway for file-based backups that use an NFS share.
@@ -51,9 +47,7 @@ Use Storage Gateway for file-based backups that use an NFS share.
 
 Use a file client to mount an Amazon S3 bucket as a local file system.
 
-### Prerequisites for user-managed backups to Amazon S3 in
-
-Oracle Database@AWS
+### Prerequisites for user-managed backups to Amazon S3 in Oracle Database@AWS
 
 Before you can back up your Oracle Exadata databases to Amazon S3, do the following:
 
@@ -103,9 +97,7 @@ When Amazon S3 access is enabled, you can access Amazon S3 from your ODB network
 by default. To use a custom DNS name, modify your VCN DNS to ensure the custom DNS resolves to
 the IP address of the service network endpoint.
 
-#### Configuring network connectivity between Oracle Database@AWS and
-
-Amazon S3
+#### Configuring network connectivity between Oracle Database@AWS and Amazon S3
 
 To allow user-managed backups to Amazon S3, your VM must be able to access the S3 Amazon VPC
 endpoint. In the OCI console, you can edit the security rules in a network security group (NSG)
@@ -161,68 +153,18 @@ the client subnet to add the egress rule for the VPC endpoint IP address.
 # aws s3 ls --endpoint-url https://`s3.us-east-1.amazonaws.com`
 ```
 
-### Backing up to Amazon S3 using Oracle Secure Backup
-
-Oracle Secure Backup acts as an SBT interface for use with Recovery Manager (RMAN). You can
-use RMAN with Oracle Secure Backup to back up your Oracle Database@AWS databases directly to Amazon S3. Oracle
-Secure Backup offers the following benefits:
-
-- Oracle Secure Backup optimizes the data transfer between RMAN and S3.
-- No intermediate backup storage is necessary.
-- Oracle Secure Backup manages the lifecycle of your backup media.
-
-###### To back up to Amazon S3 using Oracle Secure Backup
-
-1. Install the Oracle Secure Backup module on your Exadata VM server. Replace the
-   placeholder values with your AWS access key and secret access key. For more information, see
-   the Oracle documentation at [Backup to Cloud with Oracle Secure Backup Cloud Module](https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/backup-cloud-osb.html#GUID-EE4F48D8-61FA-4DAF-8169-FC42F15D828A "https://docs.oracle.com/en/database/oracle/oracle-database/19/bradv/backup-cloud-osb.html#GUID-EE4F48D8-61FA-4DAF-8169-FC42F15D828A").
-
-```
-cd $ORACLE_HOME/lib
-java -jar osbws_install.jar -AWSID `aws-access-key-id` -AWSKey `aws-secret-access-key` -walletDir $ORACLE_HOME/dbs/osbws_wallet -location `us-west-2` -useHttps -awsEndPoint s3.`us-west-2`.amazonaws.com
-```
-
-2. Connect to RMAN and configure the backup channel and default device type.
-
-```
-RMAN target /
-RMAN> CONFIGURE CHANNEL DEVICE TYPE 'SBT_TAPE' PARMS 'SBT_LIBRARY=/u02/app/oracle/product/19.0.0.0/dbhome_2/lib/libosbws.so, ENV=(OSB_WS_PFILE=/u02/app/oracle/product/19.0.0.0/dbhome_2/dbs/osbwssmalikdb1.ora)';
-RMAN> CONFIGURE DEFAULT DEVICE TYPE TO 'SBT_TAPE';
-```
-
-3. Verify the configuration.
-
-```
-RMAN> SHOW ALL;
-```
-
-4. Back up the database.
-
-```
-RMAN> BACKUP DATABASE;
-```
-
-5. Verify that the backup completed successfully.
-
-```
-RMAN> LIST BACKUP OF DATABASE SUMMARY;
-```
-
-### Backing up to Amazon S3 using AWS Storage Gateway on
-
-Amazon EC2
+### Backing up to Amazon S3 using AWS Storage Gateway on Amazon EC2
 
 AWS Storage Gateway is a hybrid service that connects your on-premises environment to AWS Cloud
 storage services. For Oracle Database@AWS backups, you can use Storage Gateway to create a file-based backup workflow
-that writes directly to Amazon S3. Unlike in the Oracle Secure Backup technique, you manage the
-lifecycle of the backups.
+that writes directly to Amazon S3. You manage the lifecycle of the backups.
 
 In this solution, you create a separate Amazon EC2 instance for configuring Storage Gateway. You also
 add an Amazon EBS volume to cache the reads and writes to Amazon S3.
 
 This technique offers the following benefits:
 
-- You don't require a media manager such as Oracle Secure Backup.
+- You don't require a media manager.
 - No intermediate backup storage is necessary.
 
 ###### To deploy your Storage Gateway and create a file share
@@ -252,8 +194,7 @@ When you configure your file gateway, make sure that you do the following:
 ###### To back up your database to Amazon S3 using Storage Gateway
 
 1. In a terminal, use `ssh` to connect to the DNS name of the Exadata VM. To find
-   the DNS name, see [Prerequisites for user-managed backups to Amazon S3 in
-   Oracle Database@AWS](#manual-backups-prerequisites "#manual-backups-prerequisites").
+   the DNS name, see [Prerequisites for user-managed backups to Amazon S3 in Oracle Database@AWS](#manual-backups-prerequisites "#manual-backups-prerequisites").
 2. Create a directory on the Exadata VM cluster server for the NFS mount. The following example creates
    the directory `/home/oracle/sgw_mount/`.
 
@@ -304,14 +245,13 @@ Direct backup to Amazon S3 using the mount point, without staging, isn't support
 requires specific file system permissions that aren't compatible with the Amazon S3 mount point
 interface.
 
-This technique doesn't require you to license a media manager such as Oracle Secure Backup.
+This technique doesn't require you to license a media manager.
 You manage the lifecycle of your backups.
 
 ###### To back up to Amazon S3 using an S3 mount point
 
 1. In a terminal, use `ssh` to connect to the DNS name of the Exadata VM. To find
-   the DNS name, see [Prerequisites for user-managed backups to Amazon S3 in
-   Oracle Database@AWS](#manual-backups-prerequisites "#manual-backups-prerequisites").
+   the DNS name, see [Prerequisites for user-managed backups to Amazon S3 in Oracle Database@AWS](#manual-backups-prerequisites "#manual-backups-prerequisites").
 2. Install the Amazon S3 mount point on the Exadata VM cluster server. For more information about installation and configuration, see [Mountpoint for Amazon S3](../../../AmazonS3/latest/userguide/mountpoint.md "../../../AmazonS3/latest/userguide/mountpoint.md") in the _Amazon S3 User Guide_.
 
 ```

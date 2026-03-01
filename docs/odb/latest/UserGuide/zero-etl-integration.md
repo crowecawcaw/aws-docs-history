@@ -21,9 +21,7 @@ Zero-ETL integration provides the following benefits:
   the existing Amazon Redshift resources used to create and process the change data created as part of a
   zero-ETL integration. For more information, see [Amazon Redshift pricing](https://aws.amazon.com/redshift/pricing/ "https://aws.amazon.com/redshift/pricing/").
 
-## Supported database versions for Zero-ETL
-
-integration in Oracle Database@AWS
+## Supported database versions for Zero-ETL integration in Oracle Database@AWS
 
 Zero-ETL integration supports the following Oracle database versions:
 
