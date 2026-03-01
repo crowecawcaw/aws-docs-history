@@ -10,8 +10,7 @@ The following sample demonstrates how to use Amazon Managed Workflows for Apache
 - [Create the cluster](#create-cluster-eksctl "#create-cluster-eksctl")
 - [Create a mwaa namespace](#eksctl-namespace "#eksctl-namespace")
 - [Create a role for the mwaa namespace](#eksctl-role "#eksctl-role")
-- [Create and attach an IAM role for the Amazon EKS
-  cluster](#eksctl-iam-role "#eksctl-iam-role")
+- [Create and attach an IAM role for the Amazon EKS cluster](#eksctl-iam-role "#eksctl-iam-role")
 - [Create the requirements.txt file](#eksctl-requirements "#eksctl-requirements")
 - [Create an identity mapping for Amazon EKS](#eksctl-identity-map "#eksctl-identity-map")
 - [Create the kubeconfig](#eksctl-kube-config "#eksctl-kube-config")
@@ -158,9 +157,7 @@ You get a message returned that says:
 No resources found in mwaa namespace.
 ```
 
-## Create and attach an IAM role for the Amazon EKS
-
-cluster
+## Create and attach an IAM role for the Amazon EKS cluster
 
 You must create an IAM role and then bind it to the Amazon EKS (k8s) cluster so that it
 can be used for authentication through IAM. The role is used only to log in to the

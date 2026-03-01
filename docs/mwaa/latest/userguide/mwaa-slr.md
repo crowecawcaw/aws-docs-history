@@ -1,6 +1,4 @@
-# Service-linked role for
-
-Amazon MWAA
+# Service-linked role for Amazon MWAA
 
 Amazon Managed Workflows for Apache Airflow uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to Amazon MWAA. Service-linked roles are predefined by Amazon MWAA and
@@ -22,9 +20,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-linked roles** column. Choose a **Yes** with a link to access the service-linked role documentation for that
 service.
 
-## Service-linked role permissions for
-
-Amazon MWAA
+## Service-linked role permissions for Amazon MWAA
 
 Amazon MWAA uses the service-linked role named `AWSServiceRoleForAmazonMWAA` –
 The service-linked role created in your account grants Amazon MWAA access to the following AWS services:
@@ -162,9 +158,7 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 to create, edit, or delete a service-linked role. For more information, refer to [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions")
 in the _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Amazon MWAA
+## Creating a service-linked role for Amazon MWAA
 
 You don't need to manually create a service-linked role. When you
 create a new Amazon MWAA environment using the AWS Management Console, the AWS CLI, or the AWS API, Amazon MWAA
@@ -174,9 +168,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 same process to recreate the role in your account. When you create another environment,
 Amazon MWAA creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-Amazon MWAA
+## Editing a service-linked role for Amazon MWAA
 
 Amazon MWAA does not permit editing the AWSServiceRoleForAmazonMWAA service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
@@ -184,9 +176,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, refer to [Editing a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Amazon MWAA
+## Deleting a service-linked role for Amazon MWAA
 
 If you no longer need to use a feature or service that requires a service-linked role, we recommend that you delete that role.
 That way you don’t have an unused entity that is not actively monitored or maintained.
@@ -202,9 +192,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleFor
 service-linked role. For more information, refer to [Deleting a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported regions for
-
-Amazon MWAA service-linked roles
+## Supported regions for Amazon MWAA service-linked roles
 
 Amazon MWAA supports using service-linked roles in all of the regions where the service is available. For more information, refer to
 [Amazon Managed Workflows for Apache Airflow endpoints and quotas](../../../general/latest/gr/mwaa.md "../../../general/latest/gr/mwaa.md").

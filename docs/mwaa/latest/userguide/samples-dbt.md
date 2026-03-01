@@ -9,8 +9,7 @@ Then, you'll use a sample DAG to verify that Amazon MWAA has installed the depen
 - [Prerequisites](#samples-dbt-prereqs "#samples-dbt-prereqs")
 - [Dependencies](#samples-dbt-dependencies "#samples-dbt-dependencies")
 - [Upload a dbt project to Amazon S3](#samples-dbt-upload-project "#samples-dbt-upload-project")
-- [Use a DAG to verify dbt dependency
-  installation](#samples-dbt-test-dependencies "#samples-dbt-test-dependencies")
+- [Use a DAG to verify dbt dependency installation](#samples-dbt-test-dependencies "#samples-dbt-test-dependencies")
 - [Use a DAG to run a dbt project](#samples-dbt-run-project "#samples-dbt-run-project")
 
 ## Version
@@ -104,9 +103,7 @@ When the environment updates, Amazon MWAA downloads the dbt directory to the loc
 
 You can use different names for project sub-directories to organize multiple dbt projects within the parent `dbt` directory.
 
-## Use a DAG to verify dbt dependency
-
-installation
+## Use a DAG to verify dbt dependency installation
 
 The following DAG uses a `BashOperator` and a bash command to
 verify whether Amazon MWAA has successfully installed the dbt dependencies specified in

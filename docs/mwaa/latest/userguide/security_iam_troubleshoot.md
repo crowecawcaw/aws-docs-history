@@ -1,20 +1,14 @@
-# Troubleshooting Amazon Managed Workflows for Apache Airflow identity
-
-and access
+# Troubleshooting Amazon Managed Workflows for Apache Airflow identity and access
 
 Use the following information to help you diagnose and fix common issues that you can encounter when working with Amazon MWAA and IAM.
 
-## I am not authorized to
-
-perform an action in Amazon MWAA
+## I am not authorized to perform an action in Amazon MWAA
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you
 must contact your administrator for assistance. Your administrator is the person that
 provided you with your user name and password.
 
-## I am not authorized to perform
-
-iam:PassRole
+## I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to Amazon MWAA.
 
@@ -33,9 +27,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow people
-
-outside of my AWS account to access my Amazon MWAA resources
+## I want to allow people outside of my AWS account to access my Amazon MWAA resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

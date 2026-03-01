@@ -7,8 +7,7 @@ This chapter describes common issues and errors you can encounter when using Apa
 - [Troubleshooting: DAGs, Operators, Connections, and other issues](t-apache-airflow-202.md "t-apache-airflow-202.md")
   - [Connections](t-apache-airflow-202.md#troubleshooting-conn-202 "t-apache-airflow-202.md#troubleshooting-conn-202")
     - [I can't connect to Secrets Manager](t-apache-airflow-202.md#access-secrets-manager "t-apache-airflow-202.md#access-secrets-manager")
-    - [How do I configure secretsmanager:ResourceTag/<tag-key> secrets manager conditions
-      or a resource restriction in my execution role policy?](t-apache-airflow-202.md#access-secrets-manager-condition-keys "t-apache-airflow-202.md#access-secrets-manager-condition-keys")
+    - [How do I configure secretsmanager:ResourceTag/<tag-key> secrets manager conditions or a resource restriction in my execution role policy?](t-apache-airflow-202.md#access-secrets-manager-condition-keys "t-apache-airflow-202.md#access-secrets-manager-condition-keys")
     - [I can't connect to Snowflake](t-apache-airflow-202.md#missing-snowflake "t-apache-airflow-202.md#missing-snowflake")
     - [I can't find my connection in the Airflow UI](t-apache-airflow-202.md#connection-type-missing "t-apache-airflow-202.md#connection-type-missing")
 

@@ -5,8 +5,7 @@ Amazon Managed Workflows for Apache Airflow needs to be permitted to use other A
 ###### Topics
 
 - [Accessing an Amazon MWAA environment](access-policies.md "access-policies.md")
-- [Service-linked role for
-  Amazon MWAA](mwaa-slr.md "mwaa-slr.md")
+- [Service-linked role for Amazon MWAA](mwaa-slr.md "mwaa-slr.md")
 - [Amazon MWAA execution role](mwaa-create-role.md "mwaa-create-role.md")
 - [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Apache Airflow access modes](configuring-networking.md "configuring-networking.md")

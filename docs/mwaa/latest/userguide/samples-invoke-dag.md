@@ -1,6 +1,4 @@
-# Invoking DAGs in different Amazon MWAA
-
-environments
+# Invoking DAGs in different Amazon MWAA environments
 
 The following code example creates an Apache Airflow CLI token. The code then uses a directed acyclic
 graph (DAG) in one Amazon MWAA environment to invoke a DAG in a different Amazon MWAA environment.

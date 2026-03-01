@@ -48,7 +48,7 @@ This section describes the Amazon VPC infrastructure of an environment with publ
   - Up to 5 security groups can be specified.
   - The security group must specify a self-referencing inbound rule to itself.
   - The security group must specify an outbound rule for all traffic (`0.0.0.0/0`; for IPv6, use `::/0`).
-  - The security group must allow all traffic in the self-referencing rule. For example, [(Recommended) Example all access self-referencing security group](vpc-security.md#vpc-security-sg-example "vpc-security.md#vpc-security-sg-example") .
+  - The security group must allow all traffic in the self-referencing rule. For example, [(Recommended) Example all access self-referencing security group](vpc-security.md#vpc-security-sg-example "vpc-security.md#vpc-security-sg-example").
   - The security group can _optionally_ restrict traffic further by specifying the port range for HTTPS port range `443` and a TCP port range `5432`. For example, [(Optional) Example security group that restricts inbound access to port 5432](vpc-security.md#vpc-security-sg-example-port5432 "vpc-security.md#vpc-security-sg-example-port5432") and [(Optional) Example security group that restricts inbound access to port 443](vpc-security.md#vpc-security-sg-example-port443 "vpc-security.md#vpc-security-sg-example-port443").
 
 - **Two public subnets**. A public subnet is a subnet that's associated with a route table that has a route to an internet gateway.
@@ -85,7 +85,7 @@ This section describes the Amazon VPC infrastructure of an environment with _pri
   - Up to 5 security groups can be specified.
   - The security group must specify a self-referencing inbound rule to itself.
   - The security group must specify an outbound rule for all traffic (`0.0.0.0/0`; for IPv6, use `::/0`).
-  - The security group must allow all traffic in the self-referencing rule. For example, [(Recommended) Example all access self-referencing security group](vpc-security.md#vpc-security-sg-example "vpc-security.md#vpc-security-sg-example") .
+  - The security group must allow all traffic in the self-referencing rule. For example, [(Recommended) Example all access self-referencing security group](vpc-security.md#vpc-security-sg-example "vpc-security.md#vpc-security-sg-example").
   - The security group can _optionally_ restrict traffic further by specifying the port range for HTTPS port range `443` and a TCP port range `5432`. For example, [(Optional) Example security group that restricts inbound access to port 5432](vpc-security.md#vpc-security-sg-example-port5432 "vpc-security.md#vpc-security-sg-example-port5432") and [(Optional) Example security group that restricts inbound access to port 443](vpc-security.md#vpc-security-sg-example-port443 "vpc-security.md#vpc-security-sg-example-port443").
 
 - **Two private subnets**. A private subnet is a subnet that's **not** associated with a route table that has a route to an internet gateway.

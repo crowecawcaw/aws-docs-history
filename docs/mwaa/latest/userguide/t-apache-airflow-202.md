@@ -6,8 +6,7 @@ The topics on this page describe resolutions to Apache Airflow v2 and v3 Python 
 
 - [Connections](t-apache-airflow-202.md#troubleshooting-conn-202 "t-apache-airflow-202.md#troubleshooting-conn-202")
   - [I can't connect to Secrets Manager](t-apache-airflow-202.md#access-secrets-manager "t-apache-airflow-202.md#access-secrets-manager")
-  - [How do I configure secretsmanager:ResourceTag/<tag-key> secrets manager conditions
-    or a resource restriction in my execution role policy?](t-apache-airflow-202.md#access-secrets-manager-condition-keys "t-apache-airflow-202.md#access-secrets-manager-condition-keys")
+  - [How do I configure secretsmanager:ResourceTag/<tag-key> secrets manager conditions or a resource restriction in my execution role policy?](t-apache-airflow-202.md#access-secrets-manager-condition-keys "t-apache-airflow-202.md#access-secrets-manager-condition-keys")
   - [I can't connect to Snowflake](t-apache-airflow-202.md#missing-snowflake "t-apache-airflow-202.md#missing-snowflake")
   - [I can't find my connection in the Airflow UI](t-apache-airflow-202.md#connection-type-missing "t-apache-airflow-202.md#connection-type-missing")
 
@@ -38,9 +37,7 @@ We recommend the following steps:
 2. Learn how to use the secret key for an Apache Airflow variable (`test-variable`) in [Using a secret key in AWS Secrets Manager for an Apache Airflow variable](samples-secrets-manager-var.md "samples-secrets-manager-var.md").
 3. Learn how to use the secret key for an Apache Airflow connection (`myconn`) in [Using a secret key in AWS Secrets Manager for an Apache Airflow connection](samples-secrets-manager.md "samples-secrets-manager.md").
 
-### How do I configure `secretsmanager:ResourceTag/<tag-key>` secrets manager conditions
-
-or a resource restriction in my execution role policy?
+### How do I configure `secretsmanager:ResourceTag/<tag-key>` secrets manager conditions or a resource restriction in my execution role policy?
 
 ###### Note
 

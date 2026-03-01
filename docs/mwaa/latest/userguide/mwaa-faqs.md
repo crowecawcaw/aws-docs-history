@@ -25,8 +25,7 @@ This page describes common questions you can encounter when using Amazon Managed
   - [Can I store temporary data on the Apache Airflow worker?](mwaa-faqs.md#store-data "mwaa-faqs.md#store-data")
   - [Can I specify more than 25 Apache Airflow workers?](mwaa-faqs.md#scaling-quota "mwaa-faqs.md#scaling-quota")
   - [Does Amazon MWAA support shared Amazon VPCs or shared subnets?](mwaa-faqs.md#shared-vpc "mwaa-faqs.md#shared-vpc")
-  - [Can I create or integrate custom Amazon SQS queues to manage task
-    execution and workflow orchestration in Apache Airflow?](mwaa-faqs.md#create-sqs "mwaa-faqs.md#create-sqs")
+  - [Can I create or integrate custom Amazon SQS queues to manage task execution and workflow orchestration in Apache Airflow?](mwaa-faqs.md#create-sqs "mwaa-faqs.md#create-sqs")
 
 - [Metrics](mwaa-faqs.md#q-metrics "mwaa-faqs.md#q-metrics")
   - [What metrics are used to determine whether to scale workers?](mwaa-faqs.md#metrics-workers "mwaa-faqs.md#metrics-workers")
@@ -39,8 +38,7 @@ This page describes common questions you can encounter when using Amazon Managed
   - [Can I remove a plugins.zip or requirements.txt from an environment?](mwaa-faqs.md#remove-plugins-reqs "mwaa-faqs.md#remove-plugins-reqs")
   - [Why don't my plugins appear in the Apache Airflow v2.0.2 Admin Plugins menu?](mwaa-faqs.md#view-plugins-ui "mwaa-faqs.md#view-plugins-ui")
   - [Can I use AWS Database Migration Service (DMS) Operators?](mwaa-faqs.md#ops-dms "mwaa-faqs.md#ops-dms")
-  - [When I access the Airflow REST API using the AWS credentials, can I
-    increase the throttling limit to more than 10 transactions per second (TPS)?](mwaa-faqs.md#increase-throttling-limit "mwaa-faqs.md#increase-throttling-limit")
+  - [When I access the Airflow REST API using the AWS credentials, can I increase the throttling limit to more than 10 transactions per second (TPS)?](mwaa-faqs.md#increase-throttling-limit "mwaa-faqs.md#increase-throttling-limit")
   - [Where does the Airflow Task Execution API server run in Amazon MWAA?](mwaa-faqs.md#task-execution-server "mwaa-faqs.md#task-execution-server")
 
 ## Supported versions
@@ -170,9 +168,7 @@ Amazon MWAA does not support shared Amazon VPCs or shared subnets. The Amazon VP
 However, you can route traffic from an Amazon VPC in the Amazon MWAA account to a shared VPC. For more information and an example of routing traffic to a shared Amazon VPC, refer to
 [Centralized outbound routing to the internet](../../../vpc/latest/tgw/transit-gateway-nat-igw.md "../../../vpc/latest/tgw/transit-gateway-nat-igw.md") in the _Amazon VPC Transit Gateways Guide_.
 
-### Can I create or integrate custom Amazon SQS queues to manage task
-
-execution and workflow orchestration in Apache Airflow?
+### Can I create or integrate custom Amazon SQS queues to manage task execution and workflow orchestration in Apache Airflow?
 
 No, you cannot create, modify, or use custom Amazon SQS queues within Amazon MWAA. This is
 because Amazon MWAA automatically provisions and manages its own Amazon SQS queue for each Amazon MWAA
@@ -228,9 +224,7 @@ and custom plugins directly on the webserver for Apache Airflow v2.2 and later.
 Amazon MWAA supports [DMS Operators](https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/operators/dms.html "https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/operators/dms.html"). However, this operator
 cannot be used to perform actions on the Amazon Aurora PostgreSQL metadata database associated with an Amazon MWAA environment.
 
-### When I access the Airflow REST API using the AWS credentials, can I
-
-increase the throttling limit to more than 10 transactions per second (TPS)?
+### When I access the Airflow REST API using the AWS credentials, can I increase the throttling limit to more than 10 transactions per second (TPS)?
 
 Yes, you can. To increase the throttling limit, please contact [AWS Customer Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 

@@ -1,6 +1,4 @@
-# Amazon MWAA identity-based policy
-
-examples
+# Amazon MWAA identity-based policy examples
 
 To access the Amazon MWAA policies, refer to [Managing access to an Amazon MWAA environment](manage-access.md "manage-access.md").
 
@@ -23,16 +21,11 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Amazon MWAA
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allowing
-  users to access their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon MWAA console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allowing users to access their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon MWAA resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -65,18 +58,14 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Amazon MWAA
-
-console
+## Using the Amazon MWAA console
 
 To use the Amazon MWAA console, the user or role must have access to the relevant
 actions, which match corresponding actions in the API.
 
 To access the Amazon MWAA policies, refer to [Managing access to an Amazon MWAA environment](manage-access.md "manage-access.md").
 
-## Allowing
-
-users to access their own permissions
+## Allowing users to access their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

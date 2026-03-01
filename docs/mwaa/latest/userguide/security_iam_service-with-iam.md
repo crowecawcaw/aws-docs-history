@@ -7,9 +7,7 @@ refer to [Accessing an Amazon MWAA environment](access-policies.md "access-polic
 To get a high-level access of how Amazon MWAA and other AWS services work with IAM, refer to [AWS Services That
 Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Amazon MWAA identity-based
-
-policies
+## Amazon MWAA identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources, as well as the conditions under which actions are allowed or denied. Amazon MWAA

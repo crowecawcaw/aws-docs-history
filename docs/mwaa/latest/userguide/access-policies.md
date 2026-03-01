@@ -33,8 +33,7 @@ _IAM User Guide_.
 - [Full API and console access policy: AmazonMWAAFullApiAccess](#full-access-policy "#full-access-policy")
 - [Read-only console access policy: AmazonMWAAReadOnlyAccess](#mwaa-read-only "#mwaa-read-only")
 - [Apache Airflow UI access policy: AmazonMWAAWebServerAccess](#web-ui-access "#web-ui-access")
-- [Apache Airflow Rest API access policy:
-  AmazonMWAARestAPIAccess](#rest-api-access "#rest-api-access")
+- [Apache Airflow Rest API access policy: AmazonMWAARestAPIAccess](#rest-api-access "#rest-api-access")
 - [Apache Airflow CLI policy: AmazonMWAAAirflowCliAccess](#cli-access "#cli-access")
 - [Creating a JSON policy](#access-policy-iam-console-create "#access-policy-iam-console-create")
 - [Example use case to attach policies to a developer group](#access-policy-use-case "#access-policy-use-case")
@@ -582,9 +581,7 @@ JSON
   However, it does not support the Amazon MWAA environment ARN (Amazon Resource
   Name) in the `Resource` field of the policy.
 
-## Apache Airflow Rest API access policy:
-
-AmazonMWAARestAPIAccess
+## Apache Airflow Rest API access policy: AmazonMWAARestAPIAccess
 
 To access the Apache Airflow REST API, you must grant the `airflow:InvokeRestApi`
 permission in your IAM policy. In the following policy sample, specify the
