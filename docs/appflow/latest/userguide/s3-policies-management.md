@@ -83,9 +83,7 @@ It contains all of the necessary actions Amazon AppFlow needs to put objects int
 
 ```
 
-## Cross-service confused deputy
-
-prevention
+## Cross-service confused deputy prevention
 
 The Confused Deputy problem is a security issue where an entity that doesn't have permission to
 perform an action can coerce a more-privileged entity to perform that action in AWS. Cross-service
@@ -154,9 +152,7 @@ creates the policy for you during flow creation, it automatically populates the
 
 ```
 
-## Cross-service confused deputy
-
-prevention for DescribeConnectorEntity
+## Cross-service confused deputy prevention for DescribeConnectorEntity
 
 As part of its DescribeConnectorEntity API, Amazon AppFlow will make calls to Amazon S3 in order to get information
 about specific objects in a customer’s Amazon S3 bucket. The DescribeConnectorEntity API is invoked either

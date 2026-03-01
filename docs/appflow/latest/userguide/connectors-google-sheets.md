@@ -76,9 +76,7 @@ Like the _region_ in the redirect URLs, the region in the JavaScript origins URL
 Note the client ID and client secret from the settings for your OAuth 2.0 client ID. You
 provide these values to Amazon AppFlow when you connect to your Google Cloud project.
 
-## Connecting Amazon AppFlow to your Google Sheets
-
-account
+## Connecting Amazon AppFlow to your Google Sheets account
 
 To connect Amazon AppFlow to your Google Sheets account, provide details from your
 Google Sheets project so that Amazon AppFlow can access your data. If you haven't yet configured

@@ -62,9 +62,7 @@ in the _AWS General Reference._
 From your application settings, note the values for client ID and client secret. You provide
 these values to Amazon AppFlow when you connect to your Zoho CRM account.
 
-## Connecting Amazon AppFlow to your Zoho CRM
-
-account
+## Connecting Amazon AppFlow to your Zoho CRM account
 
 To connect Amazon AppFlow to your Zoho CRM account, provide details from your
 Zoho CRM application so that Amazon AppFlow can access your data. If you haven't yet configured
@@ -109,9 +107,7 @@ On the **Manage connections** page, your new connection appears in the
 **Connections** table. When you create a flow
 that uses Zoho CRM as the data source, you can select this connection.
 
-## Transferring data to or from Zoho CRM
-
-with a flow
+## Transferring data to or from Zoho CRM with a flow
 
 To transfer data to or from Zoho CRM, create an Amazon AppFlow flow, and choose
 Zoho CRM as the data source or destination. For the steps to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").

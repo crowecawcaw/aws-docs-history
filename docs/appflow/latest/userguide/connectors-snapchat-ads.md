@@ -50,9 +50,7 @@ in the _AWS General Reference._
 From the OAuth app settings, note the values for Snap client ID and Snap client secret key.
 You provide these values to Amazon AppFlow when you connect to your Snapchat account.
 
-## Connecting Amazon AppFlow to your Snapchat Ads
-
-account
+## Connecting Amazon AppFlow to your Snapchat Ads account
 
 To connect Amazon AppFlow to Snapchat Ads, provide the credentials from the OAuth app in your
 Snapchat account so that Amazon AppFlow can access your data. If you haven't yet configured your Snapchat

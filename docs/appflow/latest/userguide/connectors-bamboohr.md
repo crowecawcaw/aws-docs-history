@@ -29,9 +29,7 @@ requirements:
 Note the value of your API key. When you connect to your BambooHR account, you
 provide this value to Amazon AppFlow.
 
-## Connecting Amazon AppFlow
-
-to your BambooHR account
+## Connecting Amazon AppFlow to your BambooHR account
 
 To connect Amazon AppFlow to your BambooHR account,
 provide details from your BambooHR project so that Amazon AppFlow can access your data. If you

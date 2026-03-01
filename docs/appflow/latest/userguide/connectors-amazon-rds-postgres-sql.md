@@ -25,9 +25,7 @@ From your database settings, note the endpoint name and port. You provide these 
 along with your database user name and password, to Amazon AppFlow when you connect to your
 database.
 
-## Connecting Amazon AppFlow to your Amazon RDS for PostgreSQL
-
-database
+## Connecting Amazon AppFlow to your Amazon RDS for PostgreSQL database
 
 To connect Amazon AppFlow to your Amazon RDS for PostgreSQL database, provide details from your database
 settings.
@@ -67,9 +65,7 @@ On the **Manage connections** page, your new connection appears in the
 **Connections** table. When you create a flow that uses Amazon RDS for PostgreSQL as
 the data destination, you can select this connection.
 
-## Transferring data to Amazon RDS for PostgreSQL with a
-
-flow
+## Transferring data to Amazon RDS for PostgreSQL with a flow
 
 To transfer data to Amazon RDS for PostgreSQL, create an Amazon AppFlow flow, and choose Amazon RDS for PostgreSQL
 as the data destination. For the steps to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").

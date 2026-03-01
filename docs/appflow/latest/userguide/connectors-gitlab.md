@@ -62,9 +62,7 @@ If you created an application, note the application ID and secret. If you create
 access token, note the token value. You provide these values to Amazon AppFlow when you connect to your
 GitLab account.
 
-## Connecting Amazon AppFlow to your GitLab
-
-account
+## Connecting Amazon AppFlow to your GitLab account
 
 To connect Amazon AppFlow to your GitLab account, provide the credentials from your
 application, or provide a personal access token. If you haven't yet configured your

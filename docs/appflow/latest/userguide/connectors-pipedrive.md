@@ -62,9 +62,7 @@ You've configured your app as follows:
 From the settings for your app, note the client ID and client secret. When you connect to
 your Pipedrive account, you provide these values to Amazon AppFlow.
 
-## Connecting Amazon AppFlow to your Pipedrive
-
-account
+## Connecting Amazon AppFlow to your Pipedrive account
 
 To connect Amazon AppFlow to your Pipedrive account, provide details from your
 Pipedrive project so that Amazon AppFlow can access your data. If you haven't yet configured

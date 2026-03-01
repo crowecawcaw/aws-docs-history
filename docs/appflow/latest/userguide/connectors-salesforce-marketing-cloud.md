@@ -1,6 +1,4 @@
-# Salesforce Marketing Cloud connector for
-
-Amazon AppFlow
+# Salesforce Marketing Cloud connector for Amazon AppFlow
 
 Marketing Cloud is a Salesforce platform for digital marketing that helps its customers
 manage campaigns across multiple channels, including email, mobile, and social. If you use
@@ -11,13 +9,10 @@ supported applications.
 
 - [Salesforce Marketing Cloud support](#salesforce-marketing-cloud-support "#salesforce-marketing-cloud-support")
 - [Before you begin](#salesforce-marketing-cloud-prereqs "#salesforce-marketing-cloud-prereqs")
-- [Connecting Amazon AppFlow to your Salesforce
-  Marketing Cloud account](#salesforce-marketing-cloud-connecting "#salesforce-marketing-cloud-connecting")
-- [Transferring data from Salesforce Marketing
-  Cloud with a flow](#salesforce-marketing-cloud-transfer-data "#salesforce-marketing-cloud-transfer-data")
+- [Connecting Amazon AppFlow to your Salesforce Marketing Cloud account](#salesforce-marketing-cloud-connecting "#salesforce-marketing-cloud-connecting")
+- [Transferring data from Salesforce Marketing Cloud with a flow](#salesforce-marketing-cloud-transfer-data "#salesforce-marketing-cloud-transfer-data")
 - [Supported objects](#salesforce-marketing-cloud-reference-objects "#salesforce-marketing-cloud-reference-objects")
-- [Supported
-  destinations](#salesforce-marketing-cloud-reference-destinations "#salesforce-marketing-cloud-reference-destinations")
+- [Supported destinations](#salesforce-marketing-cloud-reference-destinations "#salesforce-marketing-cloud-reference-destinations")
 
 ## Salesforce Marketing Cloud support
 
@@ -58,9 +53,7 @@ When you create a package for Amazon AppFlow integration, do the following:
    - REST base URI or SOAP base URI (You can use either one; it doesn't matter which one you
      use)
 
-## Connecting Amazon AppFlow to your Salesforce
-
-Marketing Cloud account
+## Connecting Amazon AppFlow to your Salesforce Marketing Cloud account
 
 To connect Amazon AppFlow to your Marketing Cloud account, provide details about the package so that
 Amazon AppFlow can access your data. To learn how to create a package, see [Before you begin](#salesforce-marketing-cloud-prereqs "#salesforce-marketing-cloud-prereqs").
@@ -122,9 +115,7 @@ On the **Manage connections** page, your new connection appears in the
 **Connections** table. When you create a flow
 that uses Salesforce Marketing Cloud as the data source, you can select this connection.
 
-## Transferring data from Salesforce Marketing
-
-Cloud with a flow
+## Transferring data from Salesforce Marketing Cloud with a flow
 
 To transfer data from Marketing Cloud, create an Amazon AppFlow flow, and choose Salesforce
 Marketing Cloud as the data source. To learn how to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").
@@ -133,8 +124,7 @@ When you configure the flow, choose the data object that you want to transfer. F
 information about the objects that Amazon AppFlow supports for Marketing Cloud, see [Supported objects](#salesforce-marketing-cloud-reference-objects "#salesforce-marketing-cloud-reference-objects").
 
 Also choose the destination where you want to transfer the data object that you selected.
-For more information on how to configure your destination, see [Supported
-destinations](#salesforce-marketing-cloud-reference-destinations "#salesforce-marketing-cloud-reference-destinations").
+For more information on how to configure your destination, see [Supported destinations](#salesforce-marketing-cloud-reference-destinations "#salesforce-marketing-cloud-reference-destinations").
 
 ## Supported objects
 
@@ -165,9 +155,7 @@ transfer the following data objects from your Marketing Cloud account:
 - Interactions
 - Content Assets
 
-## Supported
-
-destinations
+## Supported destinations
 
 When you create a flow that uses Salesforce Marketing Cloud as the data source, you can set the destination to any of the following connectors:
 

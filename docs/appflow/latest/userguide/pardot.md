@@ -23,8 +23,7 @@ You can use Pardot as a source only.
   disabled, contact your Salesforce administrator.
 - After you create a Pardot connection in Amazon AppFlow, verify that the connected app named
   _Amazon AppFlow Pardot Embedded Login App_ is installed in your
-  Salesforce account. For instructions on how to create a connected app in Salesforce, see [Requirements for using
-  your own connected app](salesforce.md#salesforce-global-connected-app-instructions "salesforce.md#salesforce-global-connected-app-instructions"). For more information about
+  Salesforce account. For instructions on how to create a connected app in Salesforce, see [Requirements for using your own connected app](salesforce.md#salesforce-global-connected-app-instructions "salesforce.md#salesforce-global-connected-app-instructions"). For more information about
   connected apps in Salesforce, see [Connected
   Apps](https://help.salesforce.com/articleView?id=connected_app_overview.htm "https://help.salesforce.com/articleView?id=connected_app_overview.htm") in the Salesforce documentation.
 - The refresh token policy for the **Amazon AppFlow Pardot Embedded Login

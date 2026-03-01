@@ -31,9 +31,7 @@ requirements:
 Note the value of your API key. When you connect to your AfterShip account, you
 provide this value to Amazon AppFlow.
 
-## Connecting Amazon AppFlow to your AfterShip
-
-account
+## Connecting Amazon AppFlow to your AfterShip account
 
 To connect Amazon AppFlow to your AfterShip account, provide details from your
 AfterShip account so that Amazon AppFlow can access your data. If you haven't yet configured

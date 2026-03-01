@@ -24,8 +24,7 @@ API.
 Amazon AppFlow began supporting this version on June 30, 2023. If you have a
 Salesforce connection that you created before this date, the connection uses a
 prior API version. The version depends on when you created the connection. For more
-information, see [History of supported Salesforce
-Platform API versions](#salesforce-api-version-history "#salesforce-api-version-history").
+information, see [History of supported Salesforce Platform API versions](#salesforce-api-version-history "#salesforce-api-version-history").
 
 ## Before you begin
 
@@ -57,9 +56,7 @@ If you meet those requirements, you're ready to connect Amazon AppFlow to your S
 account. For typical connections, you don't need do anything else in Salesforce.
 Amazon AppFlow handles the remaining requirements with the AWS managed connected app.
 
-### The AWS managed connected app for
-
-Salesforce
+### The AWS managed connected app for Salesforce
 
 The AWS managed connected app helps you create Salesforce connections in fewer
 steps. Amazon AppFlow creates this connected app for you in your Salesforce account. In
@@ -74,9 +71,7 @@ Amazon AppFlow creates the connected app only when you do both of the following:
 - When you configure the connection, set **OAuth grant type** to
   **Authorization code**.
 
-### Requirements for the OAuth grant types for
-
-Salesforce
+### Requirements for the OAuth grant types for Salesforce
 
 When you use the Amazon AppFlow console to configure a Salesforce connection, you
 choose the _OAuth grant type_. The grant type determines
@@ -114,9 +109,7 @@ Before you can create a JWT, you must create your own connected app in your
 Salesforce account. Also, you must configure this connected app to meet the
 requirements for Amazon AppFlow integration.
 
-### Requirements for using
-
-your own connected app
+### Requirements for using your own connected app
 
 Unless you use the AWS managed connected app that Amazon AppFlow creates for you, you must
 meet these requirements:
@@ -165,9 +158,7 @@ meet these requirements:
     [AWS IP address ranges](../../../general/latest/gr/aws-ip-ranges.md "../../../general/latest/gr/aws-ip-ranges.md") in
     the _Amazon Web Services General Reference_.
 
-## Connecting Amazon AppFlow to your Salesforce
-
-account
+## Connecting Amazon AppFlow to your Salesforce account
 
 To grant Amazon AppFlow access to your Salesforce data, create a Salesforce
 connection in the Amazon AppFlow console. If you haven't yet configured your Salesforce
@@ -232,9 +223,7 @@ can't transfer your Salesforce objects with a flow.
 
 For more information about AWS PrivateLink, see the [AWS PrivateLink Guide](../../../vpc/latest/privatelink.md "../../../vpc/latest/privatelink.md").
 
-## Additional flow settings for
-
-Salesforce
+## Additional flow settings for Salesforce
 
 When you configure a flow that uses a Salesforce connection, the Amazon AppFlow
 console shows some unique settings that aren't available for other types of flows.
@@ -304,9 +293,7 @@ it might fail with a timeout error.
 If you choose this option, your flow can't transfer Salesforce compound
 fields because Bulk API 2.0 doesn't support them.
 
-### Salesforce destination
-
-record preference
+### Salesforce destination record preference
 
 When you use Salesforce as a destination, the Amazon AppFlow console shows additional
 settings on the **Map data fields** page under **Destination record
@@ -443,9 +430,7 @@ create with the Amazon AppFlow Custom Connector SDKs for [Python](https://github
 - How to insert new Salesforce records with data in Amazon S3 using
   Amazon AppFlow
 
-## Using a connected app with the
-
-Amazon AppFlow API
+## Using a connected app with the Amazon AppFlow API
 
 You can use your own connected app for Salesforce with Amazon AppFlow API.
 
@@ -472,9 +457,7 @@ to give access to all Amazon AppFlow resources created on your behalf.
 The following is the policy to be attached for the secret. Replace the
 `placeholder` with your own information.
 
-## History of supported Salesforce
-
-Platform API versions
+## History of supported Salesforce Platform API versions
 
 When you run a flow with Salesforce as the source or destination, Amazon AppFlow
 transfers data by using a version of the Salesforce Platform API. The version depends

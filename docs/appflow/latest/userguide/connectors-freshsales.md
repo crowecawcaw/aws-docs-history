@@ -26,9 +26,7 @@ From the API settings of your Freshsales account, note the value of your API key
 When you connect to your Freshsales account, you provide this value to Amazon AppFlow. For
 more information, see [How to find my API key?](https://support.freshsales.io/en/support/solutions/articles/220099-how-to-find-my-api-key- "https://support.freshsales.io/en/support/solutions/articles/220099-how-to-find-my-api-key-") on the Freshsales support site.
 
-## Connecting Amazon AppFlow
-
-to your Freshsales account
+## Connecting Amazon AppFlow to your Freshsales account
 
 To connect Amazon AppFlow to your Freshsales account,
 provide details from your Freshsales project so that Amazon AppFlow can access your data. If you

@@ -1,6 +1,4 @@
-# Identity-based policy examples
-
-for Amazon AppFlow
+# Identity-based policy examples for Amazon AppFlow
 
 By default, users and roles don't have permission to create or modify Amazon AppFlow
 resources. To grant users permission to perform actions on the
@@ -14,22 +12,14 @@ For details about actions and resource types defined by Amazon AppFlow, includin
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Example 1: Allow IAM users full administrator
-  access to Amazon AppFlow](#example-full-admin "#example-full-admin")
-- [Example 2: Allow IAM users read-only access to
-  Amazon AppFlow](#example-read-only "#example-read-only")
-- [Example 3: Grant access to permission-only
-  actions](#permission-only-actions "#permission-only-actions")
-- [Example
-  4: Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Example 5: Allow
-  Amazon AppFlow to access the AWS Glue Data Catalog](#security_iam_id-based-policy-examples-access-gdc "#security_iam_id-based-policy-examples-access-gdc")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Example 1: Allow IAM users full administrator access to Amazon AppFlow](#example-full-admin "#example-full-admin")
+- [Example 2: Allow IAM users read-only access to Amazon AppFlow](#example-read-only "#example-read-only")
+- [Example 3: Grant access to permission-only actions](#permission-only-actions "#permission-only-actions")
+- [Example 4: Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Example 5: Allow Amazon AppFlow to access the AWS Glue Data Catalog](#security_iam_id-based-policy-examples-access-gdc "#security_iam_id-based-policy-examples-access-gdc")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon AppFlow resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -62,9 +52,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Example 1: Allow IAM users full administrator
-
-access to Amazon AppFlow
+## Example 1: Allow IAM users full administrator access to Amazon AppFlow
 
 This policy example provides full access to Amazon AppFlow, to all AWS services that are
 available as flow sources or destinations, and to AWS Key Management Service (AWS KMS).
@@ -183,9 +171,7 @@ JSON
 
 ```
 
-## Example 2: Allow IAM users read-only access to
-
-Amazon AppFlow
+## Example 2: Allow IAM users read-only access to Amazon AppFlow
 
 This policy example provides read-only access to Amazon AppFlow.
 
@@ -215,9 +201,7 @@ JSON
 
 ```
 
-## Example 3: Grant access to permission-only
-
-actions
+## Example 3: Grant access to permission-only actions
 
 If you use a custom policy to grant users permission to use Amazon AppFlow instead of the managed
 policies provided, you must include specific permissions for the user or role to perform
@@ -249,9 +233,7 @@ JSON
 
 ```
 
-## Example
-
-4: Allow users to view their own permissions
+## Example 4: Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -291,9 +273,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Example 5: Allow
-
-Amazon AppFlow to access the AWS Glue Data Catalog
+## Example 5: Allow Amazon AppFlow to access the AWS Glue Data Catalog
 
 Before you can create a flow that catalogs its output data in the AWS Glue Data Catalog, you
 must grant Amazon AppFlow the required permissions. Amazon AppFlow requires permissions to create

@@ -49,9 +49,7 @@ in the _AWS General Reference._
 Note the client ID and secret from the settings for your app. You provide these values to
 Amazon AppFlow when you connect to your Smartsheet account.
 
-## Connecting Amazon AppFlow to your Smartsheet
-
-account
+## Connecting Amazon AppFlow to your Smartsheet account
 
 To connect Amazon AppFlow to your Smartsheet account, provide the client credentials from
 your app so that Amazon AppFlow can access your data. If you haven't yet configured your

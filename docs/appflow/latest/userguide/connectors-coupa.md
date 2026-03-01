@@ -83,9 +83,7 @@ Compass_.
 Note the client ID, client secret, and instance URL for your Coupa
 project.
 
-## Connecting Amazon AppFlow
-
-to your Coupa account
+## Connecting Amazon AppFlow to your Coupa account
 
 To connect Amazon AppFlow to your Coupa account,
 provide details from your Coupa project so that Amazon AppFlow can access your data. If you
@@ -130,9 +128,7 @@ On the **Manage connections** page, your new connection appears in the
 **Connections** table. When you create a flow
 that uses Coupa as the data source, you can select this connection.
 
-## Transferring data from Coupa with a
-
-flow
+## Transferring data from Coupa with a flow
 
 To transfer data from Coupa, create an Amazon AppFlow flow, and choose Coupa as the data
 source. For the steps to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").

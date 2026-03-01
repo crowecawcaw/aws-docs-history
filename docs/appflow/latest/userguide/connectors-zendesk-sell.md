@@ -48,9 +48,7 @@ in the _AWS General Reference._
 In the settings for your developer app, note the client ID and client secret because you
 will need them to create a connection in Amazon AppFlow.
 
-## Connecting Amazon AppFlow to your Zendesk Sell
-
-account
+## Connecting Amazon AppFlow to your Zendesk Sell account
 
 To connect Amazon AppFlow to your Zendesk Sell account, provide the client credentials from
 the developer app that authorizes Amazon AppFlow to access your data. If you haven't yet configured your

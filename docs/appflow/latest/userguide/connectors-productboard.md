@@ -24,9 +24,7 @@ From the Public API settings in your account, note the access token because you 
 value to Amazon AppFlow when you connect to Productboard. For the steps to get the token, see
 [Public API Access Token](https://developer.productboard.com/#section/Authentication/Public-API-Access-Token "https://developer.productboard.com/#section/Authentication/Public-API-Access-Token") in the Productboard API Reference.
 
-## Connecting Amazon AppFlow to your Productboard
-
-account
+## Connecting Amazon AppFlow to your Productboard account
 
 To connect Amazon AppFlow to your Productboard account, provide the access token from your
 account settings so that Amazon AppFlow can access your data.

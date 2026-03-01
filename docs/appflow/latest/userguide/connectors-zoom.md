@@ -89,9 +89,7 @@ You can add scopes by managing your app in the Zoom App Marketplace.
 For more information about these scopes, see [OAuth Scopes](https://marketplace.zoom.us/docs/guides/auth/oauth/oauth-scopes/ "https://marketplace.zoom.us/docs/guides/auth/oauth/oauth-scopes/") in
 the Zoom Developers Docs.
 
-## Connecting Amazon AppFlow to your Zoom
-
-account
+## Connecting Amazon AppFlow to your Zoom account
 
 To connect Amazon AppFlow to your Zoom account, provide the client credentials from
 your OAuth app. Amazon AppFlow uses these credentials to access your data. If you haven't yet configured

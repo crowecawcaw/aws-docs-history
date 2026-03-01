@@ -28,9 +28,7 @@ Yes. You can use Amazon AppFlow to transfer data to Amazon Connect.
 
 Amazon AppFlow integrates only with the Customer Profiles feature.
 
-## Transferring data to Amazon Connect with a
-
-flow
+## Transferring data to Amazon Connect with a flow
 
 To transfer data to Amazon Connect Customer Profiles, you create an Amazon AppFlow flow, and you
 choose Amazon Connect as the data destination. Then, you use Amazon Connect to set up data mappings in

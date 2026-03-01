@@ -64,9 +64,7 @@ If you created an OIDC app integration, note the client ID and client secret . I
 created an API token, note the token value. You provide these values to Amazon AppFlow when you connect
 to your Okta account.
 
-## Connecting Amazon AppFlow to your Okta
-
-account
+## Connecting Amazon AppFlow to your Okta account
 
 To connect Amazon AppFlow to your Okta account, provide the client credentials from
 your app integration, or provide an API token. If you haven't yet configured your

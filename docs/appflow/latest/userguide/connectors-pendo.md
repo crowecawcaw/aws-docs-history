@@ -30,9 +30,7 @@ requirements:
 Note the value of the integration key. You provide this value to Amazon AppFlow when you connect to
 your Pendo account.
 
-## Connecting Amazon AppFlow to your Pendo
-
-account
+## Connecting Amazon AppFlow to your Pendo account
 
 To connect Amazon AppFlow to your Pendo account, provide the value of your integration
 key so that Amazon AppFlow can access your data. If you haven't yet configured your Pendo

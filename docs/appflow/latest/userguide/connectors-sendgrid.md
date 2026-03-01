@@ -32,9 +32,7 @@ requirements:
 Note the API key from your account settings. You provide it to Amazon AppFlow when you connect to
 your SendGrid account.
 
-## Connecting Amazon AppFlow
-
-to your SendGrid account
+## Connecting Amazon AppFlow to your SendGrid account
 
 To connect Amazon AppFlow to your SendGrid account, provide your API key so that Amazon AppFlow
 can access your data. If you haven't yet configured your SendGrid account for Amazon AppFlow

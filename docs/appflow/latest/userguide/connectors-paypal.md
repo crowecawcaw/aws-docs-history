@@ -49,9 +49,7 @@ in the _AWS General Reference._
 Note the client ID and secret from the settings for your REST API app. You provide these
 values to Amazon AppFlow when you connect to your PayPal account.
 
-## Connecting Amazon AppFlow to your PayPal
-
-account
+## Connecting Amazon AppFlow to your PayPal account
 
 To connect Amazon AppFlow to your PayPal account, provide the client credentials from
 your REST API app so that Amazon AppFlow can access your data. If you haven't yet configured your

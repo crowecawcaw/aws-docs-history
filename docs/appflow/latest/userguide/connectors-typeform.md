@@ -61,9 +61,7 @@ If you created a developer app, note the client ID and client secret. If you cre
 personal token, note the token value. You provide these values to Amazon AppFlow when you connect to your
 Typeform account.
 
-## Connecting Amazon AppFlow to your Typeform
-
-account
+## Connecting Amazon AppFlow to your Typeform account
 
 To connect Amazon AppFlow to your Typeform account,
 provide details from your Typeform project so that Amazon AppFlow can access your data. If you

@@ -29,9 +29,7 @@ requirements:
 From the REST API key details, note the consumer key and consumer secret. You provide these
 values to Amazon AppFlow when you connect to your WooCommerce account.
 
-## Connecting Amazon AppFlow to your WooCommerce
-
-account
+## Connecting Amazon AppFlow to your WooCommerce account
 
 To connect Amazon AppFlow to your WooCommerce account, provide the credentials from the REST
 API key in your WooCommerce account so that Amazon AppFlow can access your data. If you haven't

@@ -55,9 +55,7 @@ in the _AWS General Reference._
 Note the client ID, client secret, and subscription key from the settings for your app. You
 provide these values to Amazon AppFlow when you create your connection.
 
-## Connecting Amazon AppFlow
-
-to your Blackbaud Raiser's Edge NXT account
+## Connecting Amazon AppFlow to your Blackbaud Raiser's Edge NXT account
 
 To connect Amazon AppFlow to your Blackbaud Raiser's Edge NXT account, provide details from your SKY
 developer app so that Amazon AppFlow can access your data. If you haven't yet configured your

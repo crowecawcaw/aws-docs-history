@@ -32,9 +32,7 @@ From your database settings, note the endpoint name and port. You provide these 
 along with your database user name and password, to Amazon AppFlow when you connect to your
 database.
 
-## Connecting Amazon AppFlow to a database through
-
-JDBC
+## Connecting Amazon AppFlow to a database through JDBC
 
 To connect Amazon AppFlow to your database through the JDBC API, provide details from
 your database settings so that Amazon AppFlow can access your data.
@@ -80,9 +78,7 @@ On the **Manage connections** page, your new connection appears in the
 **Connections** table. When you create a flow
 that uses JDBC as the data source, you can select this connection.
 
-## Transferring data to or from a database through
-
-JDBC
+## Transferring data to or from a database through JDBC
 
 To transfer data to or from a database through the JDBC API, create an Amazon AppFlow flow, and
 choose JDBC as the data source or the data destination. For the steps to create a

@@ -1,6 +1,4 @@
-# Tutorial: Transfer data between applications with
-
-Amazon AppFlow
+# Tutorial: Transfer data between applications with Amazon AppFlow
 
 This tutorial explains how to use Amazon AppFlow with [Amazon Simple Storage Service](https://aws.amazon.com/s3 "https://aws.amazon.com/s3") (Amazon S3) and Salesforce through the AWS Management Console. Optionally, if you want to use
 a different supported software as a service (SaaS) application, the tutorial provides general

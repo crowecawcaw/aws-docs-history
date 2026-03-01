@@ -30,9 +30,7 @@ requirements:
 From the client settings, note client ID and secret because you provide these values in the
 connection settings in Amazon AppFlow.
 
-## Connecting Amazon AppFlow to your Domo
-
-account
+## Connecting Amazon AppFlow to your Domo account
 
 To connect Amazon AppFlow to your Domo account, provide the client ID and secret from
 your client so that Amazon AppFlow can access your data. If you haven't yet configured your

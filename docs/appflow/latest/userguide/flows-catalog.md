@@ -31,8 +31,7 @@ It's convenient to catalog your data with Amazon AppFlow for the following reaso
 - Stores the table in a Data Catalog database
   The Data Catalog table also includes any partition keys that organize your data in Amazon S3. For any
   flow that transfers data to Amazon S3, you can activate several types of partition keys in the flow
-  settings. For more information, see [Partitioning and aggregating data output from an Amazon AppFlow
-  flow](flows-partition.md "flows-partition.md").
+  settings. For more information, see [Partitioning and aggregating data output from an Amazon AppFlow flow](flows-partition.md "flows-partition.md").
 
 For more information about the Data Catalog, see [AWS Glue Data Catalog](../../../glue/latest/dg/components-overview.md#data-catalog-intro "../../../glue/latest/dg/components-overview.md#data-catalog-intro") in the
 _AWS Glue Developer Guide_.
@@ -43,8 +42,7 @@ Before you can catalog the data that you transfer with Amazon AppFlow, you must 
 that you create with the AWS Identity and Access Management (IAM) service. This role grants Amazon AppFlow the permissions that
 it needs to create Data Catalog tables, databases, and partitions.
 
-For an example IAM policy that has the required permissions, see [Identity-based policy examples
-for Amazon AppFlow](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+For an example IAM policy that has the required permissions, see [Identity-based policy examples for Amazon AppFlow](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Cataloging flow output (Amazon AppFlow console)
 

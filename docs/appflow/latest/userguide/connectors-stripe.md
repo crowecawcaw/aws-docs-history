@@ -26,9 +26,7 @@ this key to Amazon AppFlow when you connect to your Stripe account. For the step
 these keys, see [Manage
 API keys](https://stripe.com/docs/development/dashboard/manage-api-keys "https://stripe.com/docs/development/dashboard/manage-api-keys") in the Stripe Docs.
 
-## Connecting Amazon AppFlow to your Stripe
-
-account
+## Connecting Amazon AppFlow to your Stripe account
 
 To connect Amazon AppFlow to your Stripe account, provide your API key so that Amazon AppFlow
 can access your data. If you haven't yet configured your Stripe account for Amazon AppFlow

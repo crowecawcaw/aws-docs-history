@@ -1,6 +1,4 @@
-# Service role policies for
-
-Amazon AppFlow
+# Service role policies for Amazon AppFlow
 
 A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a service assumes to perform
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
@@ -14,8 +12,7 @@ service roles only when Amazon AppFlow provides guidance to do so.
 ###### Topics
 
 - [Allow Amazon AppFlow to access the AWS Glue Data Catalog](#access-gdc "#access-gdc")
-- [Allow Amazon AppFlow to access Amazon Redshift databases with the Data
-  API](#access-redshift "#access-redshift")
+- [Allow Amazon AppFlow to access Amazon Redshift databases with the Data API](#access-redshift "#access-redshift")
 - [Allow Amazon Redshift to access your Amazon AppFlow data in Amazon S3](#redshift-access-s3 "#redshift-access-s3")
 
 ## Allow Amazon AppFlow to access the AWS Glue Data Catalog
@@ -96,9 +93,7 @@ JSON
 
 ```
 
-## Allow Amazon AppFlow to access Amazon Redshift databases with the Data
-
-API
+## Allow Amazon AppFlow to access Amazon Redshift databases with the Data API
 
 Before you can create a flow that transfers data to an Amazon Redshift database by using the Amazon Redshift
 Data API, you must grant Amazon AppFlow the required permissions. Amazon AppFlow requires permissions

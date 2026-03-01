@@ -26,8 +26,7 @@ Before you can use Amazon AppFlow to transfer data to Amazon Redshift, you must 
 - **Recommended**: You have an AWS Identity and Access Management (IAM) role that
   authorizes Amazon AppFlow to access your database through the Amazon Redshift Data API. You need this role to
   configure an Amazon Redshift connection with the recommended settings. For more information, and for
-  the polices that you attach to this role, see [Allow Amazon AppFlow to access Amazon Redshift databases with the Data
-  API](security_iam_service-role-policies.md#access-redshift "security_iam_service-role-policies.md#access-redshift").
+  the polices that you attach to this role, see [Allow Amazon AppFlow to access Amazon Redshift databases with the Data API](security_iam_service-role-policies.md#access-redshift "security_iam_service-role-policies.md#access-redshift").
 - You have an Amazon S3 bucket that Amazon AppFlow can use as an intermediate destination when it
   transfers data to Amazon Redshift. You specify this bucket in the connection settings. For the steps
   to create a bucket, see [Creating a bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in
@@ -56,9 +55,7 @@ values:
 - `redshift-s3-access-role-name` – The name of the role that grants
   Amazon Redshift read-only access to Amazon S3.
 
-## Connecting Amazon AppFlow to your Amazon Redshift
-
-database
+## Connecting Amazon AppFlow to your Amazon Redshift database
 
 To connect Amazon AppFlow to your Amazon Redshift database, provide the required database
 details, S3 bucket, and IAM roles. If you haven't yet created the required resources, see
@@ -88,8 +85,7 @@ the preceding section, [Before you begin](#redshift-prereqs "#redshift-prereqs")
 ###### Note
 
 After you create a connection to Amazon Redshift Serverless, you must also grant the required
-access privileges to your database user. For more information, see [Granting access privileges to the database user (required for
-Amazon Redshift Serverless)](#grant-access "#grant-access"). 7. If you chose to connect to an Amazon Redshift cluster, do one of the following:
+access privileges to your database user. For more information, see [Granting access privileges to the database user (required for Amazon Redshift Serverless)](#grant-access "#grant-access"). 7. If you chose to connect to an Amazon Redshift cluster, do one of the following:
 
     * **Recommended:** Choose **Data API**
      to connect through the Amazon Redshift Data API. This option is recommended because Amazon AppFlow can
@@ -138,9 +134,7 @@ On the **Manage connections** page, your new connection appears in the
 **Connections** table. When you create a flow that uses Amazon Redshift
 as the data destination, you can select this connection.
 
-## Granting access privileges to the database user (required for
-
-Amazon Redshift Serverless)
+## Granting access privileges to the database user (required for Amazon Redshift Serverless)
 
 After you connect Amazon AppFlow to Amazon Redshift Serverless, you must also grant access privileges to a
 database user account. Amazon AppFlow uses this account to access your database. Until you grant the
@@ -254,9 +248,7 @@ The default port for Amazon Redshift is 5439, but your port might be different.
   tables hosted on private subnet using data APIs](https://github.com/aws-samples/amazon-appflow/blob/master/sf-appflow-upsert-redshift-lambda/README.md "https://github.com/aws-samples/amazon-appflow/blob/master/sf-appflow-upsert-redshift-lambda/README.md") in the Amazon AppFlow GitHub
   Page
 
-## Transferring data to Amazon Redshift with a
-
-flow
+## Transferring data to Amazon Redshift with a flow
 
 To transfer data to Amazon Redshift, create an Amazon AppFlow flow, and choose Amazon Redshift
 as the data destination. For the steps to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").

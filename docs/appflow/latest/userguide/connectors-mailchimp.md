@@ -28,9 +28,7 @@ requirements:
 Note the API key from your account settings. You provide it to Amazon AppFlow when you connect to
 your Mailchimp account.
 
-## Connecting Amazon AppFlow to your Mailchimp
-
-account
+## Connecting Amazon AppFlow to your Mailchimp account
 
 To connect Amazon AppFlow to your Mailchimp account, provide your API key so that Amazon AppFlow
 can access your data. If you haven't yet configured your Mailchimp account for Amazon AppFlow

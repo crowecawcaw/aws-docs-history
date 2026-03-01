@@ -44,9 +44,7 @@ Sharepoint account. No additional steps are necessary in your Microsoft account 
 fulfills the remaining requirements with an _AWS managed client
 app_.
 
-### The AWS managed client app for
-
-Sharepoint
+### The AWS managed client app for Sharepoint
 
 The AWS managed client app for Sharepoint simplifies the connection setup. If you use it,
 you don't have to provide the OAuth 2.0 credentials of a client ID and client secret. To get
@@ -100,9 +98,7 @@ registration, you must meet these requirements:
 - Application (client) ID
 - Client secret
 
-#### Recommended permissions for the app
-
-registration
+#### Recommended permissions for the app registration
 
 Before Amazon AppFlow can securely access your data in Microsoft SharePoint Online, your registered app
 must allow the necessary permissions for the Microsoft Graph API. We recommend that you allow
@@ -124,9 +120,7 @@ Microsoft Azure portal. Configure your permissions as follows:
   For information about these permissions, see the [Microsoft Graph
   permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference "https://learn.microsoft.com/en-us/graph/permissions-reference") in the Microsoft Graph documentation.
 
-## Connecting Amazon AppFlow to your Microsoft SharePoint Online
-
-account
+## Connecting Amazon AppFlow to your Microsoft SharePoint Online account
 
 To connect Amazon AppFlow to Microsoft SharePoint Online, provide details from your registered app in
 Microsoft Azure so that Amazon AppFlow can access the documents in your SharePoint document libraries. If
@@ -189,8 +183,7 @@ process.
 1. Under **Source details**, for **Source name**, choose
    **Microsoft SharePoint Online**.
 2. For **Choose Microsoft SharePoint Online connection**, choose the connection that
-   you created. If you haven't created a connection yet, see [Connecting Amazon AppFlow to your Microsoft SharePoint Online
-   account](#microsoft-sharepoint-online-connecting "#microsoft-sharepoint-online-connecting").
+   you created. If you haven't created a connection yet, see [Connecting Amazon AppFlow to your Microsoft SharePoint Online account](#microsoft-sharepoint-online-connecting "#microsoft-sharepoint-online-connecting").
 3. For **Choose API version**, choose **v1.0**.
 4. For **Choose Microsoft SharePoint Online site**, choose the SharePoint site in
    your account that contains the documents that you want to transfer.
@@ -202,8 +195,7 @@ Select the check box for one or more folders to pick the documents that your flo
 transfers to Amazon S3. When you run the flow, Amazon AppFlow transfers the documents that are in the
 folder, in addition to the documents that are in all of its subfolders.
 
-For the limits that apply to how many folders and documents you can transfer, see [Quotas and limitations for the Microsoft SharePoint Online
-connector](#microsoft-sharepoint-online-quotas "#microsoft-sharepoint-online-quotas"). 6. Under **Destination details**, for **Destination name**,
+For the limits that apply to how many folders and documents you can transfer, see [Quotas and limitations for the Microsoft SharePoint Online connector](#microsoft-sharepoint-online-quotas "#microsoft-sharepoint-online-quotas"). 6. Under **Destination details**, for **Destination name**,
 choose **Amazon S3**. Then, for **Bucket details**, choose the S3
 bucket that stores the output from your flow. To organize your output, you can specify an
 optional prefix, which becomes a folder in your S3 bucket.
@@ -218,8 +210,7 @@ When you run a flow that transfers from SharePoint, Amazon AppFlow creates the f
 the destination S3 bucket:
 
 - A JSON file that contains metadata about every document that Amazon AppFlow transfers from your
-  document libraries. For the metadata fields, see [Supported metadata fields
-  for Microsoft SharePoint Online documents](#microsoft-sharepoint-online-objects "#microsoft-sharepoint-online-objects"). The name of the file is the execution
+  document libraries. For the metadata fields, see [Supported metadata fields for Microsoft SharePoint Online documents](#microsoft-sharepoint-online-objects "#microsoft-sharepoint-online-objects"). The name of the file is the execution
   ID of the flow run. To learn what flow run the execution ID is associated with, you can view a
   list of IDs under the **Run history** tab in the details page for a
   flow.
@@ -247,9 +238,7 @@ To configure a flow to run on demand, you can use the console to set this option
 flow, you run the flow by choosing **Run flow** on the flow details
 page.
 
-## Supported metadata fields
-
-for Microsoft SharePoint Online documents
+## Supported metadata fields for Microsoft SharePoint Online documents
 
 When you run a flow that transfers documents from Microsoft SharePoint Online,
 Amazon AppFlow creates a metadata file in the destination S3 bucket. The
@@ -296,9 +285,7 @@ apply to the document type.
 | Web Dav Url            | String        |                       |
 | Web Url                | String        |                       |
 
-## Quotas and limitations for the Microsoft SharePoint Online
-
-connector
+## Quotas and limitations for the Microsoft SharePoint Online connector
 
 The following table lists the quotas that apply to flows that transfer from
 SharePoint.

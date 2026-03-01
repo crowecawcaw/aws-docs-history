@@ -75,9 +75,7 @@ If you created an OAuth app, note the client ID and client secret. If you create
 access token, note the token value. You provide these values to Amazon AppFlow when you connect to your
 GitHub account.
 
-## Connecting Amazon AppFlow to your GitHub
-
-account
+## Connecting Amazon AppFlow to your GitHub account
 
 To connect Amazon AppFlow to your GitHub account, provide the client credentials from
 your OAuth app, or provide a personal access token. If you haven't yet configured your

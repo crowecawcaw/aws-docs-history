@@ -55,9 +55,7 @@ If you created a Developer App, note the client ID and client secret. If you cre
 personal access token, note the token value. You provide these values to Amazon AppFlow when you connect
 to your Asana account.
 
-## Connecting Amazon AppFlow to your Asana
-
-account
+## Connecting Amazon AppFlow to your Asana account
 
 To connect Amazon AppFlow to your Asana account, provide the client credentials from
 your Developer App, or provide a personal access token. If you haven't yet configured your

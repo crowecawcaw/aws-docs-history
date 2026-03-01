@@ -112,9 +112,7 @@ Microsoft Azure portal. Configure your permissions as follows:
 
 - Enable the option to grant admin consent to your app. For more information, see [Admin consent](https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#admin-consent "https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#admin-consent") in the Microsoft identity platform documentation.
 
-## Connecting Amazon AppFlow to your Microsoft Teams
-
-account
+## Connecting Amazon AppFlow to your Microsoft Teams account
 
 To connect Amazon AppFlow to Microsoft Teams, provide details from your registered app in
 Microsoft Azure so that Amazon AppFlow can access your data. If you haven't yet configured your Microsoft

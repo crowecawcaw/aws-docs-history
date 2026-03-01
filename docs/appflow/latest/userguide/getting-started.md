@@ -22,7 +22,7 @@ Complete the following prerequisites before getting started with Amazon AppFlow.
   application-specific requirements and setup instructions, see [Supported source and destination applications](app-specific.md "app-specific.md").
 - Identity and access management — Your
   administrator must grant you the permissions required to create and run flows. For more
-  information, see [Identity and access management for Amazon AppFlow](security-iam.md "security-iam.md") .
+  information, see [Identity and access management for Amazon AppFlow](security-iam.md "security-iam.md").
 - CloudFormation OAuth (Optional) — If you want to use CloudFormation
   to create a connector profile for connectors that implement OAuth (such as Salesforce,
   Slack, Zendesk, and Google Analytics), you must fetch the access and refresh tokens. You
@@ -37,5 +37,4 @@ Complete the following prerequisites before getting started with Amazon AppFlow.
   **AWSDefaultEncryptionKey**, or you can choose a customer managed CMK
   that you create. To create a CMK, see [Creating symmetric CMKs](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk")
   in the _AWS Key Management Service Developer Guide_. For examples of how to set IAM permissions
-  for KMS access, see [Identity-based policy examples
-  for Amazon AppFlow](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+  for KMS access, see [Identity-based policy examples for Amazon AppFlow](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").

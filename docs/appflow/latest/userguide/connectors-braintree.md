@@ -28,9 +28,7 @@ requirements:
 From your API key settings, note the values for public key and private key. You provide
 these values to Amazon AppFlow when you connect to your Braintree account.
 
-## Connecting Amazon AppFlow to your Braintree
-
-account
+## Connecting Amazon AppFlow to your Braintree account
 
 To connect Amazon AppFlow to your Braintree account, provide the credentials from your
 Braintree API key so that Amazon AppFlow can access your data. If you haven't yet configured

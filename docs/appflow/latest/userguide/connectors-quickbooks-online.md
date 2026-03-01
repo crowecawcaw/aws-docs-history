@@ -34,9 +34,7 @@ Amazon AppFlow.
 - The client ID and client secret from your app settings.
 - The company ID from your QuickBooks Online account settings.
 
-## Connecting Amazon AppFlow to your QuickBooks Online
-
-account
+## Connecting Amazon AppFlow to your QuickBooks Online account
 
 To connect Amazon AppFlow to your QuickBooks Online account, provide details from your app so that
 Amazon AppFlow can access your data. If you haven't yet configured your QuickBooks Online account for

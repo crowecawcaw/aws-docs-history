@@ -46,9 +46,7 @@ in the _AWS General Reference._
 Note the client ID and client secret from your app settings. You provide these values to
 Amazon AppFlow when you create your connection.
 
-### Connecting Amazon AppFlow to your Adobe Analytics
-
-account
+### Connecting Amazon AppFlow to your Adobe Analytics account
 
 To connect Amazon AppFlow to your Adobe Analytics account, provide the client credentials from
 your Adobe Analytics app so that Amazon AppFlow can access your data. If you haven't yet configured

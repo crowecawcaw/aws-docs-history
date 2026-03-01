@@ -21,9 +21,7 @@ To get a high-level view of how Amazon AppFlow and other AWS services work with 
 IAM features, see [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon AppFlow
+## Identity-based policies for Amazon AppFlow
 
 **Supports identity-based policies:**
 
@@ -40,9 +38,7 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-### Other required permissions in identity-based
-
-policies for Amazon AppFlow
+### Other required permissions in identity-based policies for Amazon AppFlow
 
 Because Amazon AppFlow always encrypts data at rest and in motion, ensure that the
 user that is creating and running a flow has the following AWS KMS permissions in
@@ -63,12 +59,9 @@ For the complete list of AWS services that are integrated with AWS KMS, see
 [AWS
 Service Integration](https://aws.amazon.com/kms/features/#AWS_Service_Integration "https://aws.amazon.com/kms/features/#AWS_Service_Integration").
 
-###
+### Identity-based policy examples for Amazon AppFlow
 
-Identity-based policy examples for Amazon AppFlow
-
-To view examples of Amazon AppFlow identity-based policies, see [Identity-based policy examples
-for Amazon AppFlow](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon AppFlow identity-based policies, see [Identity-based policy examples for Amazon AppFlow](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within Amazon AppFlow
 
@@ -86,9 +79,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy
-
-actions for Amazon AppFlow
+## Policy actions for Amazon AppFlow
 
 **Supports policy actions:**
 
@@ -127,12 +118,9 @@ action.
 "Action": "appflow:Describe*"
 ```
 
-To view examples of Amazon AppFlow identity-based policies, see [Identity-based policy examples
-for Amazon AppFlow](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon AppFlow identity-based policies, see [Identity-based policy examples for Amazon AppFlow](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon AppFlow
+## Policy resources for Amazon AppFlow
 
 **Supports policy resources:**
 
@@ -239,9 +227,7 @@ support using some [global condition keys](../../../service-authorization/latest
 condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
 _IAM User Guide_.
 
-## Access control lists (ACLs) in
-
-Amazon AppFlow
+## Access control lists (ACLs) in Amazon AppFlow
 
 **Supports ACLs:**
 
@@ -250,9 +236,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with Amazon AppFlow
+## Attribute-based access control (ABAC) with Amazon AppFlow
 
 **Supports ABAC (tags in policies):**
 
@@ -269,9 +253,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Amazon AppFlow
+## Using temporary credentials with Amazon AppFlow
 
 **Supports temporary credentials:**
 
@@ -283,9 +265,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Amazon AppFlow
+## Cross-service principal permissions for Amazon AppFlow
 
 **Supports forward access sessions (FAS):**
 
@@ -294,9 +274,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon AppFlow
+## Service roles for Amazon AppFlow
 
 **Supports service roles:**
 
@@ -306,9 +284,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-## Service-linked
-
-roles for Amazon AppFlow
+## Service-linked roles for Amazon AppFlow
 
 **Supports service-linked roles:**
 

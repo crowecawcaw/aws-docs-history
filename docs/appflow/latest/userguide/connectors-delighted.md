@@ -25,9 +25,7 @@ From your account settings, note the API key. You provide this value to Amazon A
 create a connection to your Delighted account. For more information about
 Delighted API keys, see [Authentication](https://app.delighted.com/docs/api?gclid=Cj0KCQiAq5meBhCyARIsAJrtdr7AtSu0W6hS8OmoyWdqLMzzNUNTd9TQ8DoGMwsRitprPQrZNCMXZ-gaAqbDEALw_wcB#authentication "https://app.delighted.com/docs/api?gclid=Cj0KCQiAq5meBhCyARIsAJrtdr7AtSu0W6hS8OmoyWdqLMzzNUNTd9TQ8DoGMwsRitprPQrZNCMXZ-gaAqbDEALw_wcB#authentication") in the Delighted API documentation.
 
-## Connecting Amazon AppFlow to your Delighted
-
-account
+## Connecting Amazon AppFlow to your Delighted account
 
 To connect Amazon AppFlow to your Delighted account, provide the API key from your Delighted
 account settings so that Amazon AppFlow can access your data.

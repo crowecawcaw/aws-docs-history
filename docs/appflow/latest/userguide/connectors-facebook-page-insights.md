@@ -78,9 +78,7 @@ requirements:
 From the settings for your app, note the app ID and app secret. You provide these values to
 Amazon AppFlow in the connection settings.
 
-## Connecting Amazon AppFlow to your Facebook Page Insights
-
-account
+## Connecting Amazon AppFlow to your Facebook Page Insights account
 
 To connect Amazon AppFlow to your Facebook account, provide the app credentials from your Meta for
 Developers app so that Amazon AppFlow can access your data. If you haven't yet configured an app for

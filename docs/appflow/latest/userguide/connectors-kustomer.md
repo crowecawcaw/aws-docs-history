@@ -32,9 +32,7 @@ To connect Amazon AppFlow to your Kustomer account, you provide the token of you
 You can view and copy this token only when you create the API key. If you don't have the token
 value, create a new API key.
 
-## Connecting Amazon AppFlow
-
-to your Kustomer account
+## Connecting Amazon AppFlow to your Kustomer account
 
 To connect Amazon AppFlow to your Kustomer account,
 provide details from your Kustomer project so that Amazon AppFlow can access your data. If you

@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AmazonAppFlowFullAccess
+## AWS managed policy: AmazonAppFlowFullAccess
 
 You can attach the `AmazonAppFlowFullAccess` policy to your IAM
 identities.
@@ -183,9 +181,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-AmazonAppFlowReadOnlyAccess
+## AWS managed policy: AmazonAppFlowReadOnlyAccess
 
 You can attach the `AmazonAppFlowReadOnlyAccess` policy to your IAM
 identities.
@@ -231,9 +227,7 @@ JSON
 
 ```
 
-## Amazon AppFlow updates to AWS managed
-
-policies
+## Amazon AppFlow updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon AppFlow since this
 service began tracking these changes. For automatic alerts about changes to this

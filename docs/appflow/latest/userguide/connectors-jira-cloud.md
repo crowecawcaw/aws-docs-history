@@ -127,9 +127,7 @@ console.
   - `read:issue-type-hierarchy:jira`
   - `read:webhook:jira`
 
-## Connecting Amazon AppFlow to your Jira Cloud
-
-account
+## Connecting Amazon AppFlow to your Jira Cloud account
 
 To connect Amazon AppFlow to your Jira Cloud account, provide details from your OAuth 2.0
 integration app so that Amazon AppFlow can access your data. If you haven't yet configured your

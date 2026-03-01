@@ -63,9 +63,7 @@ in the _AWS General Reference._
 Note the client ID and client secret from the settings for your OAuth 2.0 client ID. You
 provide these values to Amazon AppFlow when you connect to your Google Cloud project.
 
-## Connecting Amazon AppFlow to your Google Search Console
-
-account
+## Connecting Amazon AppFlow to your Google Search Console account
 
 To connect Amazon AppFlow to your Google Search Console account, provide the client credentials from
 the OAuth 2.0 client ID from your Google Cloud project. Amazon AppFlow uses these credentials to access

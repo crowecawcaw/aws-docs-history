@@ -10,8 +10,7 @@ account, you can transfer data about your ads, campaigns, budgets, and more.
 - [Facebook Ads support](#facebook-ads-support "#facebook-ads-support")
 - [Before you begin](#facebook-ads-prereqs "#facebook-ads-prereqs")
 - [Connecting Amazon AppFlow to the Facebook Marketing API](#facebook-ads-connecting "#facebook-ads-connecting")
-- [Transferring data from the Facebook Marketing API with a
-  flow](#facebook-ads-import-data "#facebook-ads-import-data")
+- [Transferring data from the Facebook Marketing API with a flow](#facebook-ads-import-data "#facebook-ads-import-data")
 - [Supported objects](#facebook-ads-reference-objects "#facebook-ads-reference-objects")
 - [Supported destinations](#facebook-ads-reference-destinations "#facebook-ads-reference-destinations")
 
@@ -128,9 +127,7 @@ On the **Manage connections** page, your new connection appears in the
 **Connections** table. When you create a flow
 that uses Facebook Ads as the data source, you can select this connection.
 
-## Transferring data from the Facebook Marketing API with a
-
-flow
+## Transferring data from the Facebook Marketing API with a flow
 
 To transfer data about your Facebook ads from the Marketing API, create an Amazon AppFlow flow, and
 choose Facebook Ads as the data source. For the steps to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").

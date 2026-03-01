@@ -102,9 +102,7 @@ You don't provide this URL to Amazon AppFlow directly. Instead, you provide segm
 fields **Custom authorization code URL** and **Instance
 URL**.
 
-## Connecting Amazon AppFlow to your Microsoft Dynamics 365
-
-account
+## Connecting Amazon AppFlow to your Microsoft Dynamics 365 account
 
 To connect Amazon AppFlow to Microsoft Dynamics 365, provide details from your registered app in
 Microsoft Azure so that Amazon AppFlow can access your data. If you haven't yet configured your Microsoft

@@ -31,9 +31,7 @@ requirements:
 From your account settings, note your API token key because you provide this value to Amazon AppFlow
 when you connect to your Recharge account.
 
-## Connecting Amazon AppFlow to your Recharge
-
-account
+## Connecting Amazon AppFlow to your Recharge account
 
 To connect Amazon AppFlow to your Recharge account, provide the API token from your
 account settings.

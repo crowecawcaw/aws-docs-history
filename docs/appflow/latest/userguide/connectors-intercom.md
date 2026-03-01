@@ -55,9 +55,7 @@ You must add your connecting profile region redirect URL (or URLs) to the list o
 From the settings for your app, note the client ID and client Secret. You provide these
 values to Amazon AppFlow when you connect to your Intercom account.
 
-## Connecting Amazon AppFlow to your Intercom
-
-account
+## Connecting Amazon AppFlow to your Intercom account
 
 To connect Amazon AppFlow to your Intercom account, provide the client credentials from
 your Intercom app so that Amazon AppFlow can access your data. If you haven't yet configured

@@ -19,9 +19,7 @@ No. You can't use Amazon AppFlow to transfer data to Oracle HCM.
 To use Amazon AppFlow to transfer data from Oracle HCM to supported destinations, you must
 have an account with Oracle HCM that contains the data that you want to transfer.
 
-## Connecting Amazon AppFlow to your Oracle HCM
-
-account
+## Connecting Amazon AppFlow to your Oracle HCM account
 
 To connect Amazon AppFlow to your Oracle HCM account, provide your account credentials and
 instance URL.

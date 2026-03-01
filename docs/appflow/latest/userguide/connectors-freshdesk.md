@@ -31,9 +31,7 @@ Amazon AppFlow.
   the key, see [How to find your API key](https://support.freshdesk.com/en/support/solutions/articles/215517-how-to-find-your-api-key "https://support.freshdesk.com/en/support/solutions/articles/215517-how-to-find-your-api-key") at the Freshdesk support site.
 - Your Freshdesk address.
 
-## Connecting Amazon AppFlow to your Freshdesk
-
-account
+## Connecting Amazon AppFlow to your Freshdesk account
 
 To connect Amazon AppFlow to your Freshdesk account, provide your API key and
 Freshdesk address.

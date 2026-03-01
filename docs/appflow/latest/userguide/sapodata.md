@@ -87,9 +87,7 @@ requirements:
   - For the hub system (SAP Gateway), the SAP NetWeaver AS ABAP of the hub system must be
     7.50 SP01 or above for remote hub setup.
 
-### Private Connection
-
-Requirements
+### Private Connection Requirements
 
 Before you can create a private connection to SAP, you need to meet the following
 requirements:

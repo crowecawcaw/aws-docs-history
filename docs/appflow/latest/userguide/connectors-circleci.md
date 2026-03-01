@@ -28,9 +28,7 @@ requirements:
 You provide the personal API token to Amazon AppFlow in the settings for your CircleCI
 connection.
 
-## Connecting Amazon AppFlow to your CircleCI
-
-account
+## Connecting Amazon AppFlow to your CircleCI account
 
 To connect Amazon AppFlow to your CircleCI account, provide your personal API token so
 that Amazon AppFlow can access your data. If you haven't yet configured your CircleCI account

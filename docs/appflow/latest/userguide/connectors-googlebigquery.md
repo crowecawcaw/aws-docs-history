@@ -52,9 +52,7 @@ in the _AWS General Reference._
 - Note the client ID and client secret from the settings for your OAuth 2.0 client ID. You
   provide these values to Amazon AppFlow when you connect to your Google BigQuery project.
 
-## Connecting Amazon AppFlow
-
-to your Google BigQuery account
+## Connecting Amazon AppFlow to your Google BigQuery account
 
 To connect Amazon AppFlow to your Google BigQuery account, provide the client credentials from
 your Google Cloud web app so that Amazon AppFlow can access your data. If you haven't yet configured your
@@ -113,9 +111,7 @@ You can choose one of these options:
 - **Bulk** — Amazon AppFlow runs Google BigQuery asynchronous data transfers,
   and it's optimal for large datasets.
 
-## Transferring data to or from Google BigQuery
-
-with a flow
+## Transferring data to or from Google BigQuery with a flow
 
 To transfer data to or from Google BigQuery, create an Amazon AppFlow flow, and choose
 Google BigQuery as the data source or destination. For the steps to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").

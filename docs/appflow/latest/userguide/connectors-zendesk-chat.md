@@ -46,9 +46,7 @@ in the _AWS General Reference._
 In the settings for your API client, note the client ID and client secret because you will
 need them to create a connection in Amazon AppFlow.
 
-## Connecting Amazon AppFlow to your Zendesk Chat
-
-account
+## Connecting Amazon AppFlow to your Zendesk Chat account
 
 To connect Amazon AppFlow to your Zendesk Chat account, provide your Zendesk subdomain and the
 client credentials that authorize Amazon AppFlow to access your data. If you haven't yet configured your

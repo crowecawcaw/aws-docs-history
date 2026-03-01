@@ -84,9 +84,7 @@ requirements:
 From your app settings, note your client ID and client secret because you specify these
 values in the connection settings in Amazon AppFlow.
 
-## Connecting Amazon AppFlow to your HubSpot
-
-account
+## Connecting Amazon AppFlow to your HubSpot account
 
 To connect Amazon AppFlow to your HubSpot account, provide details from your
 HubSpot Developers app so that Amazon AppFlow can access your data. If you haven't yet
@@ -121,9 +119,7 @@ On the **Manage connections** page, your new connection appears in the
 **Connections** table. When you create a flow
 that uses HubSpot as the data source, you can select this connection.
 
-## Transferring data to or from HubSpot
-
-with a flow
+## Transferring data to or from HubSpot with a flow
 
 To transfer data to or from HubSpot, create an Amazon AppFlow flow, and choose
 HubSpot as the data source or destination. For the steps to create a flow, see [Creating flows in Amazon AppFlow](create-flow.md "create-flow.md").
