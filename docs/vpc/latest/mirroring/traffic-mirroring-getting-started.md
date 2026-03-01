@@ -15,16 +15,14 @@ Traffic Mirroring applies the filter rules, and then copies the accepted traffic
 of the mirror source to the network interface of the mirror target. You can run your capture and
 analysis tools on the packets delivered to the mirror target.
 
-![A traffic mirror session where the mirror target is an EC2 instance.](images/get-started.png)
+![A traffic mirror session where the mirror target is an EC2 instance.](/images/vpc/latest/mirroring/images/get-started.png)
 
 ###### Tasks
 
 - [Prerequisites](#traffic-mirroring-prerequisites "#traffic-mirroring-prerequisites")
 - [Step 1: Create the traffic mirror target](#step-create-traffic-mirroring-target "#step-create-traffic-mirroring-target")
-- [Step 2: Create the traffic mirror
-  filter](#step-create-traffic-mirroring-filters "#step-create-traffic-mirroring-filters")
-- [Step 3: Create the traffic mirror
-  session](#step-create-traffic-mirroring-sessions "#step-create-traffic-mirroring-sessions")
+- [Step 2: Create the traffic mirror filter](#step-create-traffic-mirroring-filters "#step-create-traffic-mirroring-filters")
+- [Step 3: Create the traffic mirror session](#step-create-traffic-mirroring-sessions "#step-create-traffic-mirroring-sessions")
 - [Step 4: Analyze the data](#analyze-data "#analyze-data")
 
 ## Prerequisites
@@ -64,9 +62,7 @@ Use an EC2 instance as the destination for the mirrored traffic.
    and tag value.
 10. Choose **Create**.
 
-## Step 2: Create the traffic mirror
-
-filter
+## Step 2: Create the traffic mirror filter
 
 A traffic mirror filter contains one or more traffic mirror rules, and a set of network
 services. The filters and rules that you add define the traffic that is mirrored.
@@ -97,9 +93,7 @@ services. The filters and rules that you add define the traffic that is mirrored
    and tag value.
 7. Choose **Create**.
 
-## Step 3: Create the traffic mirror
-
-session
+## Step 3: Create the traffic mirror session
 
 Create a traffic mirror session that sends mirrored packets from the source to a target so
 that you can monitor and analyze traffic.

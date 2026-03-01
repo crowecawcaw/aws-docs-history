@@ -52,8 +52,7 @@ first [accept the resource share](tm-share-accept.md "tm-share-accept.md"). 13. 
      filter criteria are copied to the target.
     4. For **Filter**, choose an existing traffic mirror filter.
      Alternatively, choose **Create filter**. For more information,
-     see [Step 2: Create the traffic mirror
-     filter](traffic-mirroring-getting-started.md#step-create-traffic-mirroring-filters "traffic-mirroring-getting-started.md#step-create-traffic-mirroring-filters").
+     see [Step 2: Create the traffic mirror filter](traffic-mirroring-getting-started.md#step-create-traffic-mirroring-filters "traffic-mirroring-getting-started.md#step-create-traffic-mirroring-filters").
 
 14. (Optional) For each tag to add, choose **Add new tag** and enter the tag key
     and tag value.

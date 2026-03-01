@@ -26,9 +26,7 @@ traffic mirror entities for this example:
   - A traffic mirror target for the appliance
   - A traffic mirror filter with a traffic mirror rule for the TCP inbound traffic
 
-## Step 1: Install the Suricata
-
-software on the EC2 instance target
+## Step 1: Install the Suricata software on the EC2 instance target
 
 Launch an EC2 instance, and then install the Suricata software on it by using the
 following commands.
@@ -50,9 +48,7 @@ suricata -c /etc/suricata/suricata.yaml -k none -i eth0 -D
 # Capture logs can be found in /var/log/suricata/fast.log
 ```
 
-## Step 2: Create a traffic mirror
-
-target
+## Step 2: Create a traffic mirror target
 
 Create a traffic mirror target (Target A) for the EC2 instance. Depending on your
 configuration, the target is one of the following types:

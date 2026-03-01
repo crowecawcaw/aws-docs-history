@@ -112,9 +112,7 @@ the target is one of the following types:
 
 For more information, see [Create or delete a traffic mirror target](create-traffic-mirroring-target.md "create-traffic-mirroring-target.md").
 
-### Step 3: Create a traffic mirror filter with a rule
-
-for TCP traffic
+### Step 3: Create a traffic mirror filter with a rule for TCP traffic
 
 Create a traffic mirror filter (Filter 1) with the following inbound rule for TCP traffic. For more
 information, see [Create, modify, or delete a traffic mirror filter](create-traffic-mirroring-filter.md "create-traffic-mirroring-filter.md")
@@ -129,9 +127,7 @@ information, see [Create, modify, or delete a traffic mirror filter](create-traf
 | **Destination CIDR block** | 0.0.0.0/0 |
 | **Description**            | TCP Rule  |
 
-### Step 4: Create a traffic mirror filter with a rule
-
-for UDP traffic
+### Step 4: Create a traffic mirror filter with a rule for UDP traffic
 
 Create a traffic mirror filter (Filter 2) with the following inbound rule for UDP traffic. For more
 information, see [Create, modify, or delete a traffic mirror filter](create-traffic-mirroring-filter.md "create-traffic-mirroring-filter.md")
@@ -146,9 +142,7 @@ information, see [Create, modify, or delete a traffic mirror filter](create-traf
 | **Destination CIDR block** | 0.0.0.0/0 |
 | **Description**            | UDP Rule  |
 
-### Step 5: Create a traffic mirror session for the TCP
-
-traffic
+### Step 5: Create a traffic mirror session for the TCP traffic
 
 Create and configure a traffic mirror session with the following options. For more
 information, see [Create, modify, or delete a traffic mirror session](create-traffic-mirroring-session.md "create-traffic-mirroring-session.md").
@@ -277,9 +271,7 @@ information, see [Create, modify, or delete a traffic mirror session](create-tra
 | **Mirror target** | Target A                                                        |
 | **Filter**        | Filter F                                                        |
 
-## Example: Mirror traffic to appliances behind a Gateway Load Balancer
-
-using Gateway Load Balancer endpoints
+## Example: Mirror traffic to appliances behind a Gateway Load Balancer using Gateway Load Balancer endpoints
 
 You can deploy a Gateway Load Balancer (GWLB) and Gateway Load Balancer endpoint (GWLBe) to securely send mirror traffic
 across VPC and accounts. The GWLBe is a VPC endpoint that provides private connectivity between
@@ -312,9 +304,7 @@ send it to a Gateway Load Balancer using a Gateway Load Balancer endpoint. You n
   - A Traffic Mirroring target (Target B) for the Gateway Load Balancer endpoint
   - A Traffic Mirroring filter (Filter 1) with a Traffic Mirroring rule for the TCP inbound traffic
 
-### Step 1: Create a traffic mirror target in
-
-Spoke VPC1
+### Step 1: Create a traffic mirror target in Spoke VPC1
 
 Create a traffic mirror target (Target A) for the Gateway Load Balancer endpoint in Spoke VPC1. For more
 information, see [Create or delete a traffic mirror target](create-traffic-mirroring-target.md "create-traffic-mirroring-target.md").
@@ -322,9 +312,7 @@ information, see [Create or delete a traffic mirror target](create-traffic-mirro
 The Gateway Load Balancer endpoint will be the target when the monitoring appliances are deployed behind a
 Gateway Load Balancer.
 
-### Step 2: Create a traffic mirror target in Spoke
-
-VPC2
+### Step 2: Create a traffic mirror target in Spoke VPC2
 
 Create a traffic mirror target (Target B) for the Gateway Load Balancer endpoint in Spoke VPC1. For more
 information, see [Create or delete a traffic mirror target](create-traffic-mirroring-target.md "create-traffic-mirroring-target.md").

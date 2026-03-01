@@ -6,8 +6,7 @@ This section contains the limitations for Traffic Mirroring.
 
 - [General limitations](#traffic-mirroring-network-limitations-gen "#traffic-mirroring-network-limitations-gen")
 - [MTU and packet length limitations](#traffic-mirroring-mtu "#traffic-mirroring-mtu")
-- [Traffic bandwidth and prioritization
-  limitations](#traffic-mirroring-bandwidth "#traffic-mirroring-bandwidth")
+- [Traffic bandwidth and prioritization limitations](#traffic-mirroring-bandwidth "#traffic-mirroring-bandwidth")
 - [Checksum offloading limitations](#traffic-checksum-offloading "#traffic-checksum-offloading")
 
 ## General limitations
@@ -71,9 +70,7 @@ bytes (for IPv6 traffic).
 For more information about configuring the network MTU value, see [Network maximum transmission unit (MTU)](../../../AWSEC2/latest/UserGuide/network_mtu.md "../../../AWSEC2/latest/UserGuide/network_mtu.md")
 in the _Amazon EC2 User Guide_.
 
-## Traffic bandwidth and prioritization
-
-limitations
+## Traffic bandwidth and prioritization limitations
 
 Mirrored traffic counts toward instance bandwidth. For example, if you mirror a
 network interface that has 1 Gbps of inbound traffic and 1 Gbps of outbound traffic, the
