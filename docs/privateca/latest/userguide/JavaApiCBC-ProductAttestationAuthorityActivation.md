@@ -1,6 +1,4 @@
-# Activate a Product
-
-Attestation Authority (PAA)
+# Activate a Product Attestation Authority (PAA)
 
 This Java sample shows how to use the [RootCACertificate_APIPassthrough/V1 definition](template-definitions.md#RootCACertificate_APIPassthrough "template-definitions.md#RootCACertificate_APIPassthrough") template to create and install a
 [Matter](https://buildwithmatter.com "https://buildwithmatter.com") Root CA (PAA) certificate

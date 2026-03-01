@@ -13,19 +13,14 @@ with AWS Managed Microsoft AD Connector.
 
 ###### Topics
 
-- [Are You a First-Time Connector for AD
-  User?](#first-time-user "#first-time-user")
+- [Are You a First-Time Connector for AD User?](#first-time-user "#first-time-user")
 - [Set up Connector for AD](connector-for-ad-getting-started-prerequisites.md "connector-for-ad-getting-started-prerequisites.md")
-- [Get started with
-  AWS Private CA Connector for Active Directory](connector-for-ad-getting-started.md "connector-for-ad-getting-started.md")
+- [Get started with AWS Private CA Connector for Active Directory](connector-for-ad-getting-started.md "connector-for-ad-getting-started.md")
 - [AWS Private CA connectors for Active Directory](connector-for-ad-procedures.md "connector-for-ad-procedures.md")
-- [Integrating Connector for AD into
-  event-driven applications using Amazon EventBridge](eventbridge-integration.md "eventbridge-integration.md")
+- [Integrating Connector for AD into event-driven applications using Amazon EventBridge](eventbridge-integration.md "eventbridge-integration.md")
 - [Troubleshoot issues with AWS Private CA Connector for Active Directory](troubleshoot-connector-ad.md "troubleshoot-connector-ad.md")
 
-## Are You a First-Time Connector for AD
-
-User?
+## Are You a First-Time Connector for AD User?
 
 If you are a first-time user of Connector for AD, we recommend that you
 begin by reading the following sections:
@@ -34,9 +29,7 @@ begin by reading the following sections:
 - [What is
   Directory Service?](../../../directoryservice/latest/admin-guide/what_is.md "../../../directoryservice/latest/admin-guide/what_is.md")
 
-### Access
-
-Connector for AD
+### Access Connector for AD
 
 You can access Connector for AD through the console, AWS CLI, and APIs. You can get access to the connector in the
 console from the AWS Private CA console, from your Directory Service console, or by searching for

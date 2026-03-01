@@ -29,9 +29,7 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   provide a URL to an external server, we strongly recommend that you do not include credentials
   information in the URL to validate your request to that server.
 
-## Storage and security compliance of AWS Private CA private
-
-keys
+## Storage and security compliance of AWS Private CA private keys
 
 The private keys for private CAs are stored in AWS managed hardware security
 modules (HSMs). The HSMs comply with FIPS PUB 140-2 Level 3 Security Requirements

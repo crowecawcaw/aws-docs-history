@@ -10,8 +10,7 @@ The required information provided to a CA in order to have a digital certificate
 
 **Challenge password**
 
-The SCEP protocol uses challenge passwords to authenticate a request before issuing a certificate from a CA. Connector for SCEP handles SCEP challenge passwords based on the connector type. For more information, see [Configure your MDM system for
-Connector for SCEP](using-connector-for-scep-with-mdm.md "using-connector-for-scep-with-mdm.md").
+The SCEP protocol uses challenge passwords to authenticate a request before issuing a certificate from a CA. Connector for SCEP handles SCEP challenge passwords based on the connector type. For more information, see [Configure your MDM system for Connector for SCEP](using-connector-for-scep-with-mdm.md "using-connector-for-scep-with-mdm.md").
 
 **Certificate revocation**
 

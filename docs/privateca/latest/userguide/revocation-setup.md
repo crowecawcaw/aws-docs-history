@@ -89,9 +89,7 @@ the status change.
   is revoked. If for any reason a CRL update fails, AWS Private CA makes further attempts
   every 15 minutes.
 
-## General requirements for revocation
-
-configurations
+## General requirements for revocation configurations
 
 The following requirements apply to all revocation configurations.
 

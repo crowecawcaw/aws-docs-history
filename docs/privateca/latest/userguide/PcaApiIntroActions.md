@@ -4,13 +4,10 @@ The following code examples show how to use select AWS Private CA API actions an
 
 ###### Topics
 
-- [Create and activate a root CA
-  programmatically](JavaApi-ActivateRootCA.md "JavaApi-ActivateRootCA.md")
-- [Create and activate a subordinate CA
-  programmatically](JavaApi-ActivateSubordinateCA.md "JavaApi-ActivateSubordinateCA.md")
+- [Create and activate a root CA programmatically](JavaApi-ActivateRootCA.md "JavaApi-ActivateRootCA.md")
+- [Create and activate a subordinate CA programmatically](JavaApi-ActivateSubordinateCA.md "JavaApi-ActivateSubordinateCA.md")
 - [CreateCertificateAuthority](JavaApi-CreatePrivateCertificateAuthority.md "JavaApi-CreatePrivateCertificateAuthority.md")
-- [Using CreateCertificateAuthority
-  to support Active Directory](JavaApi-CreatePrivateCertificateAuthorityAD.md "JavaApi-CreatePrivateCertificateAuthorityAD.md")
+- [Using CreateCertificateAuthority to support Active Directory](JavaApi-CreatePrivateCertificateAuthorityAD.md "JavaApi-CreatePrivateCertificateAuthorityAD.md")
 - [CreateCertificateAuthorityAuditReport](JavaApi-CreateCertificateAuthorityAuditReport.md "JavaApi-CreateCertificateAuthorityAuditReport.md")
 - [CreatePermission](JavaApi-CreatePermission.md "JavaApi-CreatePermission.md")
 - [DeleteCertificateAuthority](JavaApi-DeleteCertificateAuthority.md "JavaApi-DeleteCertificateAuthority.md")
@@ -33,7 +30,5 @@ The following code examples show how to use select AWS Private CA API actions an
 - [TagCertificateAuthorities](JavaApi-TagPCA.md "JavaApi-TagPCA.md")
 - [UntagCertificateAuthority](JavaApi-UnTagPCA.md "JavaApi-UnTagPCA.md")
 - [UpdateCertificateAuthority](JavaApi-UpdateCertificateAuthority.md "JavaApi-UpdateCertificateAuthority.md")
-- [Create CAs and certificates with custom subject
-  names](JavaApi-CustomAttributes.md "JavaApi-CustomAttributes.md")
-- [Create certificates with custom
-  extensions](JavaApi-CustomExtensions.md "JavaApi-CustomExtensions.md")
+- [Create CAs and certificates with custom subject names](JavaApi-CustomAttributes.md "JavaApi-CustomAttributes.md")
+- [Create certificates with custom extensions](JavaApi-CustomExtensions.md "JavaApi-CustomExtensions.md")

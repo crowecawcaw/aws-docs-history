@@ -5,7 +5,7 @@ that your private CA has issued or revoked. The report is saved in a new or exis
 S3 bucket that you specify on input.
 
 For information about adding encryption protection to your audit reports, see
-[Encrypting your audit reports](#audit-report-encryption "#audit-report-encryption") .
+[Encrypting your audit reports](#audit-report-encryption "#audit-report-encryption").
 
 The audit report file has the following path and file name. The ARN for an Amazon S3
 bucket is the value for `amzn-s3-demo-bucket`. `CA_ID` is the

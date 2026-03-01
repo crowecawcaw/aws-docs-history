@@ -23,9 +23,7 @@ AWS Private CA does not require the use of AWS PrivateLink, but we recommend it 
 additional layer of security. For more information about AWS PrivateLink and VPC
 endpoints, see [Accessing Services Through AWS PrivateLink](../../../vpc/latest/userguide/privatelink-access-aws-services.md "../../../vpc/latest/userguide/privatelink-access-aws-services.md").
 
-## Considerations for AWS Private CA
-
-VPC endpoints
+## Considerations for AWS Private CA VPC endpoints
 
 Before you set up interface VPC endpoints for AWS Private CA, be aware of the
 following considerations:
@@ -77,9 +75,7 @@ AWS Regions:
 - Middle East (UAE)
 - South America (São Paulo)
 
-## Creating the VPC endpoints for
-
-AWS Private CA
+## Creating the VPC endpoints for AWS Private CA
 
 You can create a VPC endpoint for the AWS Private CA service using either the
 VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/") or the AWS Command Line Interface. For more information, see the
@@ -109,9 +105,7 @@ Quotas](../../../general/latest/gr/pca.md "../../../general/latest/gr/pca.md").
 
 For more information, see [AWS Private CA VPC endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpc-endpoints.md "../../../vpc/latest/userguide/vpc-endpoints.md") in the _Amazon VPC User Guide_.
 
-## Create a VPC endpoint policy for
-
-AWS Private CA
+## Create a VPC endpoint policy for AWS Private CA
 
 You can create a policy for Amazon VPC endpoints for AWS Private CA to specify the
 following:

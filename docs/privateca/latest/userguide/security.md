@@ -27,12 +27,9 @@ cloud and security _in_ the cloud:
 
 ###### Topics
 
-- [Identity and Access Management (IAM) for
-  AWS Private Certificate Authority](security-iam.md "security-iam.md")
-- [Security best practices for Cross-account access
-  to private CAs](pca-resource-sharing.md "pca-resource-sharing.md")
+- [Identity and Access Management (IAM) for AWS Private Certificate Authority](security-iam.md "security-iam.md")
+- [Security best practices for Cross-account access to private CAs](pca-resource-sharing.md "pca-resource-sharing.md")
 - [Data protection in AWS Private Certificate Authority](data-protection.md "data-protection.md")
-- [Compliance validation for
-  AWS Private Certificate Authority](security-compliance-validation.md "security-compliance-validation.md")
+- [Compliance validation for AWS Private Certificate Authority](security-compliance-validation.md "security-compliance-validation.md")
 - [Infrastructure security in AWS Private Certificate Authority](infrastructure-security.md "infrastructure-security.md")
 - [AWS Private Certificate Authority Customer CP/CPS Framework](pca-customer-cpcps.md "pca-customer-cpcps.md")

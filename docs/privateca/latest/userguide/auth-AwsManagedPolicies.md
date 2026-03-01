@@ -36,9 +36,7 @@ Grants essential permissions for the AWS Private CA Connector for Kubernetes.
 
 For a JSON listing of the policy details, see [AWSPrivateCAConnectorForKubernetesPolicy](../../../aws-managed-policy/latest/reference/AWSPrivateCAConnectorForKubernetesPolicy.md "../../../aws-managed-policy/latest/reference/AWSPrivateCAConnectorForKubernetesPolicy.md").
 
-## Updates to AWS managed policies for
-
-AWS Private CA
+## Updates to AWS managed policies for AWS Private CA
 
 In the following table, view details about updates to AWS managed policies
 for AWS Private CA since the service began tracking these changes. For automatic

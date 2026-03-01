@@ -17,9 +17,7 @@ prerequisites:
 - If you are enrolling an Apple device, configure the Apple Push Notification
   Service (APNs) for MDM. For more information, see [APNs Certificates](https://docs.omnissa.com/bundle/WorkspaceONE-UEM-Console-BasicsVSaaS/page/APNsCertificates.html "https://docs.omnissa.com/bundle/WorkspaceONE-UEM-Console-BasicsVSaaS/page/APNsCertificates.html") in the Omnissa documentation.
 
-## Step 1: Define a
-
-certificate authority and template in Omnissa Workspace ONE
+## Step 1: Define a certificate authority and template in Omnissa Workspace ONE
 
 After creating a private CA and SCEP connector in the AWS console, define the
 certificate authority and template in Omnissa Workspace ONE.
@@ -69,9 +67,7 @@ certificate authority and template in Omnissa Workspace ONE.
 
 3. Save the template.
 
-## Step 2: Set up
-
-an Omnissa Workspace ONE UEM profile configuration
+## Step 2: Set up an Omnissa Workspace ONE UEM profile configuration
 
 Create a profile in Omnissa Workspace ONE UEM that directs devices to Connector for SCEP to issue a
 certificate.
@@ -112,9 +108,7 @@ certificate.
 
 For more information, see [SCEP](https://docs.omnissa.com/bundle/CertificateAuthorityIntegrationsV2302/page/SCEP.html "https://docs.omnissa.com/bundle/CertificateAuthorityIntegrationsV2302/page/SCEP.html") in the Omnissa documentation.
 
-## Step 3: Enroll devices in
-
-Omnissa Workspace ONE
+## Step 3: Enroll devices in Omnissa Workspace ONE
 
 ###### Create or verify a smart group
 

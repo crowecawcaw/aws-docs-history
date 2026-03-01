@@ -1,6 +1,4 @@
-# Create and activate a root CA
-
-programmatically
+# Create and activate a root CA programmatically
 
 This Java sample shows how to activate a root CA using the following AWS Private CA API
 actions:

@@ -47,9 +47,7 @@ from the CA are not renewed automatically. Only the ACM user can resolve the
 problem, not the CA administrator. For more information, see [Using a Service Linked Role (SLR) with
 ACM](../../../acm/latest/userguide/acm-slr.md "../../../acm/latest/userguide/acm-slr.md").
 
-###### Cross-account case 2: Issuing managed and unmanaged certificates using the
-
-API or CLI
+###### Cross-account case 2: Issuing managed and unmanaged certificates using the API or CLI
 
 This second case demonstrates the sharing and issuance options that are
 possible using the AWS Certificate Manager and AWS Private CA API. All of these operations can

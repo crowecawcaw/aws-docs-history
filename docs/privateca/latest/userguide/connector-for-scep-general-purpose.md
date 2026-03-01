@@ -10,9 +10,7 @@ This guide provides instructions on how to configure Jamf Pro for use with Conne
 After you successfully configure Jamf Pro and Connector for SCEP, you'll be able to issue AWS Private CA
 certificates to your managed devices.
 
-### Jamf Pro
-
-requirements
+### Jamf Pro requirements
 
 Your implementation of Jamf Pro must meet the following requirements.
 
@@ -20,9 +18,7 @@ Your implementation of Jamf Pro must meet the following requirements.
   authentication** setting in Jamf Pro. You can find details on
   this setting on the Jamf Pro [Security Settings](https://learn.jamf.com/en-US/bundle/jamf-pro-documentation-current/page/Security_Settings.html "https://learn.jamf.com/en-US/bundle/jamf-pro-documentation-current/page/Security_Settings.html") page in the Jamf Pro documentation.
 
-### Step 1: (Optional -
-
-recommended) Obtain your private CA's fingerprint
+### Step 1: (Optional - recommended) Obtain your private CA's fingerprint
 
 A fingerprint is a unique identifier for your private CA that can be used to
 verify the identity of your CA when establishing trust with other systems or
@@ -44,9 +40,7 @@ Pro.
 openssl x509 -in ca.pem -sha256 -fingerprint
 ```
 
-### Step 2: Configure AWS Private CA
-
-as an external CA in Jamf Pro
+### Step 2: Configure AWS Private CA as an external CA in Jamf Pro
 
 After you create a connector for SCEP, you must set AWS Private CA as an external
 certificate authority (CA) in Jamf Pro. You can set AWS Private CA as a global, external CA.
@@ -55,9 +49,7 @@ certificates from AWS Private CA for different use cases, such as issuing certif
 subset of devices in your organization. Guidance on implementing Jamf Pro
 configuration profiles is beyond the scope of this document.
 
-###### To configure AWS Private CA as an external certificate authority (CA) in Jamf
-
-Pro
+###### To configure AWS Private CA as an external certificate authority (CA) in Jamf Pro
 
 1. In the Jamf Pro console, go to the **PKI certificates
    settings** page by going to **Settings** >
@@ -105,13 +97,10 @@ Pro
     **Fingerprint** field. We recommend that you add a CA
     fingerprint to allow managed devices to verify the CA, and only request
     certificates from the CA. For instructions on how to generate a fingerprint
-    for your private CA, see [Step 1: (Optional -
-    recommended) Obtain your private CA's fingerprint](#connector-for-scep-jamf-pro-ca-fingerprint "#connector-for-scep-jamf-pro-ca-fingerprint").
+    for your private CA, see [Step 1: (Optional - recommended) Obtain your private CA's fingerprint](#connector-for-scep-jamf-pro-ca-fingerprint "#connector-for-scep-jamf-pro-ca-fingerprint").
 17. Select **Save**.
 
-### Step 3: Set up a
-
-configuration profile signing certificate
+### Step 3: Set up a configuration profile signing certificate
 
 To use Jamf Pro with Connector for SCEP, you must provide the signing and CA certificates
 for the private CA that's associated with your connector. You can do this by
@@ -138,9 +127,7 @@ of Connector for SCEP with Jamf Pro.
 
 AWS Certificate Manager console
 
-###### To create a profile signing certificate using the ACM
-
-console
+###### To create a profile signing certificate using the ACM console
 
     1. Use ACM to request a private PKI
      certificate. Include the following:
@@ -190,9 +177,7 @@ console
 
 AWS Certificate Manager CLI
 
-###### To create a profile signing certificate using the ACM
-
-CLI
+###### To create a profile signing certificate using the ACM CLI
 
     * The following command shows how to create a
      certificate in ACM, and then export the files as a
@@ -234,9 +219,7 @@ CLI
 
 OpenSSL CLI
 
-###### To create a profile signing certificate using OpenSSL
-
-CLI
+###### To create a profile signing certificate using OpenSSL CLI
 
     1. Using OpenSSL, generate a private key by running the
      following command.
@@ -300,9 +283,7 @@ CLI
 4. Follow the onscreen instructions to upload the signing and CA certificates
    for the external CA.
 
-### Step 4:
-
-(Optional) Install certificate during user-initiated enrollment
+### Step 4: (Optional) Install certificate during user-initiated enrollment
 
 To establish trust between your client devices and your private CA, you must
 ensure your devices trust the certificates issued by Jamf Pro. You can use Jamf

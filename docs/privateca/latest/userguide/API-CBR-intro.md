@@ -16,20 +16,15 @@ that the relying parties performing certificate chain validation can fetch the C
 the certificate status. In Matter, the CDP URI is not written to certificates. Instead,
 users fetch CDPs from the Matter Distributed Compliance Ledger (DCL), the trusted Matter
 data store. You must upload the CDP URI to the Matter DCL so that it can be discovered when
-validating DACs. For more information about determining the CDP URI, see [Determining the CRL Distribution Point (CDP) URI](crl-planning.md#crl-url "crl-planning.md#crl-url") . For more information about Matter, see the
+validating DACs. For more information about determining the CDP URI, see [Determining the CRL Distribution Point (CDP) URI](crl-planning.md#crl-url "crl-planning.md#crl-url"). For more information about Matter, see the
 [Matter standard home
 page](https://csa-iot.org/all-solutions/matter/ "https://csa-iot.org/all-solutions/matter/").
 
 ###### Topics
 
-- [Activate a Product
-  Attestation Authority (PAA)](JavaApiCBC-ProductAttestationAuthorityActivation.md "JavaApiCBC-ProductAttestationAuthorityActivation.md")
-- [Activate an
-  Product Attestation Intermediate (PAI)](JavaApiCBC-ProductAttestationIntermediateActivation.md "JavaApiCBC-ProductAttestationIntermediateActivation.md")
-- [Create a Device Attestation
-  Certificate (DAC)](JavaApiCBC-DeviceAttestationCertificate.md "JavaApiCBC-DeviceAttestationCertificate.md")
+- [Activate a Product Attestation Authority (PAA)](JavaApiCBC-ProductAttestationAuthorityActivation.md "JavaApiCBC-ProductAttestationAuthorityActivation.md")
+- [Activate an Product Attestation Intermediate (PAI)](JavaApiCBC-ProductAttestationIntermediateActivation.md "JavaApiCBC-ProductAttestationIntermediateActivation.md")
+- [Create a Device Attestation Certificate (DAC)](JavaApiCBC-DeviceAttestationCertificate.md "JavaApiCBC-DeviceAttestationCertificate.md")
 - [Activate a Root CA for Node Operational Certificates (NOC).](JavaApiCBC-ActivateRootCA.md "JavaApiCBC-ActivateRootCA.md")
-- [Activate a
-  Subordinate CA for Node Operational Certificates (NOC)](JavaApiCBC-IntermediateCAActivation.md "JavaApiCBC-IntermediateCAActivation.md")
-- [Create a Node Operational
-  Certificate (NOC)](JavaApiCBC-NodeOperatingCertificate.md "JavaApiCBC-NodeOperatingCertificate.md")
+- [Activate a Subordinate CA for Node Operational Certificates (NOC)](JavaApiCBC-IntermediateCAActivation.md "JavaApiCBC-IntermediateCAActivation.md")
+- [Create a Node Operational Certificate (NOC)](JavaApiCBC-NodeOperatingCertificate.md "JavaApiCBC-NodeOperatingCertificate.md")

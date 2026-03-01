@@ -1,6 +1,4 @@
-# Get started with
-
-AWS Private CA Connector for Active Directory
+# Get started with AWS Private CA Connector for Active Directory
 
 With AWS Private CA Connector for Active Directory, you can issue certificates from your private CA to your
 Active Directory objects for authentication and encryption. When you create a connector,
@@ -15,11 +13,9 @@ groups.
 
 - [Before you begin](#connector-for-ad-before-you-begin "#connector-for-ad-before-you-begin")
 - [Step 1: Create a connector](#connector-for-ad-getting-started-step1 "#connector-for-ad-getting-started-step1")
-- [Step 2: Configure Microsoft Active Directory
-  policies](#connector-for-ad-getting-started-step2 "#connector-for-ad-getting-started-step2")
+- [Step 2: Configure Microsoft Active Directory policies](#connector-for-ad-getting-started-step2 "#connector-for-ad-getting-started-step2")
 - [Step 3: Create a template](#connector-for-ad-getting-started-step3 "#connector-for-ad-getting-started-step3")
-- [Step 4: Configure Microsoft group
-  permissions](#connector-for-ad-getting-started-step4 "#connector-for-ad-getting-started-step4")
+- [Step 4: Configure Microsoft group permissions](#connector-for-ad-getting-started-step4 "#connector-for-ad-getting-started-step4")
 
 ## Before you begin
 
@@ -29,9 +25,7 @@ The following tutorial guides you through the process of creating a connector fo
 
 To create a connector, see [Creating a connector for Active Directory](create-connector-for-ad.md "create-connector-for-ad.md").
 
-## Step 2: Configure Microsoft Active Directory
-
-policies
+## Step 2: Configure Microsoft Active Directory policies
 
 Connector for AD is unable to view or manage the customer's group
 policy object (GPO) configuration. The GPO controls the routing of AD requests to
@@ -132,8 +126,6 @@ certificates issued by AWS Private CA.
 
 To create a template, see [Create a connector template](create-ad-template.md "create-ad-template.md").
 
-## Step 4: Configure Microsoft group
-
-permissions
+## Step 4: Configure Microsoft group permissions
 
 To configure Microsoft group permissions, see [Manage Connector for AD template access control entries](ad-groups-permissions.md "ad-groups-permissions.md").

@@ -13,8 +13,7 @@ For more information, see [Create a Private CA](create-CA.md "create-CA.md").
 
 To attach tags to a private CA during the creation procedure, a CA administrator must
 first associate an inline IAM policy with the `CreateCertificateAuthority` action and explicitly allow
-tagging. For more information, see [Tag-on-create: Attaching tags to a CA at the
-time of creation](auth-InlinePolicies.md#tag-on-create "auth-InlinePolicies.md#tag-on-create").
+tagging. For more information, see [Tag-on-create: Attaching tags to a CA at the time of creation](auth-InlinePolicies.md#tag-on-create "auth-InlinePolicies.md#tag-on-create").
 
 Other AWS resources also support tagging. You can assign the same tag to different
 resources to indicate that those resources are related. For example, you can assign a

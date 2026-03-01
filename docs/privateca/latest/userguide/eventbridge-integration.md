@@ -1,6 +1,4 @@
-# Integrating Connector for AD into
-
-event-driven applications using Amazon EventBridge
+# Integrating Connector for AD into event-driven applications using Amazon EventBridge
 
 You can incorporate Connector for AD into event-driven applications (EDAs) that
 use events that occur in Connector for AD to communicate between application
@@ -17,9 +15,7 @@ Connector for AD events occur in your account:
   Connector for AD into event-driven architectures without additional code and
   operations.
 
-## How EventBridge routes
-
-Connector for AD events
+## How EventBridge routes Connector for AD events
 
 Here's how EventBridge works with Connector for AD events:
 
@@ -56,9 +52,7 @@ All events from AWS services contain two types of data:
 - A `detail` field that contains data specific to that particular
   service event.
 
-## Creating event patterns that match
-
-Connector for AD events
+## Creating event patterns that match Connector for AD events
 
 Event patterns are filters where specify what data the events you want to select
 should contain.

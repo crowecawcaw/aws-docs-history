@@ -192,9 +192,7 @@ JSON
 
 ```
 
-## Step 5: Share your private CA with
-
-Connector for AD
+## Step 5: Share your private CA with Connector for AD
 
 You will need to share your private CA with the connectors service by using
 AWS Resource Access Manager service principal sharing.

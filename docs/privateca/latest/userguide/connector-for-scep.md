@@ -12,10 +12,8 @@ Connector for Simple Certificate Enrollment Protocol (SCEP) links AWS Private Ce
 - [Connector for SCEP concepts](c4scep-concepts.md "c4scep-concepts.md")
 - [Understand Connector for SCEP considerations and limitations](c4scep-considerations-limitations.md "c4scep-considerations-limitations.md")
 - [Set up Connector for SCEP](connector-for-scep-setting-up.md "connector-for-scep-setting-up.md")
-- [Get started with
-  Connector for SCEP](connector-for-scep-getting-started.md "connector-for-scep-getting-started.md")
-- [Configure your MDM system for
-  Connector for SCEP](using-connector-for-scep-with-mdm.md "using-connector-for-scep-with-mdm.md")
+- [Get started with Connector for SCEP](connector-for-scep-getting-started.md "connector-for-scep-getting-started.md")
+- [Configure your MDM system for Connector for SCEP](using-connector-for-scep-with-mdm.md "using-connector-for-scep-with-mdm.md")
 - [Monitor Connector for SCEP](c4scep-monitoring-overview.md "c4scep-monitoring-overview.md")
 - [Troubleshoot AWS Private Certificate Authority Connector for SCEP issues](troubleshoot-connector-scep.md "troubleshoot-connector-scep.md")
 
@@ -29,8 +27,7 @@ Connector for Simple Certificate Enrollment Protocol (SCEP) links AWS Private Ce
 
 ## How to get started with Connector for SCEP
 
-To get started, launch the guided wizard from the [Connector for SCEP management console](https://console.aws.amazon.com/pca-connector-scep/home "https://console.aws.amazon.com/pca-connector-scep/home") which helps you create a connector and designate the private CA to use with the connector. After completing these steps, Connector for SCEP provides an endpoint and other configuration parameters that you can enter into your MDM systems or networking equipment. After configuring your MDM systems or networking equipment, your clients will automatically request certificates from AWS Private CA. To learn more about how to get started with Connector for SCEP, see [Get started with
-Connector for SCEP](connector-for-scep-getting-started.md "connector-for-scep-getting-started.md").
+To get started, launch the guided wizard from the [Connector for SCEP management console](https://console.aws.amazon.com/pca-connector-scep/home "https://console.aws.amazon.com/pca-connector-scep/home") which helps you create a connector and designate the private CA to use with the connector. After completing these steps, Connector for SCEP provides an endpoint and other configuration parameters that you can enter into your MDM systems or networking equipment. After configuring your MDM systems or networking equipment, your clients will automatically request certificates from AWS Private CA. To learn more about how to get started with Connector for SCEP, see [Get started with Connector for SCEP](connector-for-scep-getting-started.md "connector-for-scep-getting-started.md").
 
 ## Related services
 

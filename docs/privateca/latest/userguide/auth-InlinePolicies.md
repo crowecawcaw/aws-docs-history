@@ -15,17 +15,12 @@ you access AWS Private CA.
 ###### Topics
 
 - [Listing private CAs](#policy-list-pcas "#policy-list-pcas")
-- [Retrieving a private CA
-  certificate](#policy-retrieve-pca "#policy-retrieve-pca")
-- [Importing a private CA
-  certificate](#policy-import-pca-cert "#policy-import-pca-cert")
+- [Retrieving a private CA certificate](#policy-retrieve-pca "#policy-retrieve-pca")
+- [Importing a private CA certificate](#policy-import-pca-cert "#policy-import-pca-cert")
 - [Deleting a private CA](#policy-delete-pca "#policy-delete-pca")
-- [Tag-on-create: Attaching tags to a CA at the
-  time of creation](#tag-on-create "#tag-on-create")
-- [Tag-on-create: Restricted
-  tagging](#tag-on-create-restricted1 "#tag-on-create-restricted1")
-- [Controlling access to Private CA
-  using tags](#tag-on-create-restricted2 "#tag-on-create-restricted2")
+- [Tag-on-create: Attaching tags to a CA at the time of creation](#tag-on-create "#tag-on-create")
+- [Tag-on-create: Restricted tagging](#tag-on-create-restricted1 "#tag-on-create-restricted1")
+- [Controlling access to Private CA using tags](#tag-on-create-restricted2 "#tag-on-create-restricted2")
 - [Read-only access to AWS Private CA](#policy-pca-read-only "#policy-pca-read-only")
 - [Full access to AWS Private CA](#policy-pca-full-access "#policy-pca-full-access")
 
@@ -50,9 +45,7 @@ JSON
 
 ```
 
-## Retrieving a private CA
-
-certificate
+## Retrieving a private CA certificate
 
 The following policy allows a user to retrieve a specific private CA
 certificate.
@@ -71,9 +64,7 @@ JSON
 
 ```
 
-## Importing a private CA
-
-certificate
+## Importing a private CA certificate
 
 The following policy allows a user to import a private CA certificate.
 
@@ -108,9 +99,7 @@ JSON
 
 ```
 
-## Tag-on-create: Attaching tags to a CA at the
-
-time of creation
+## Tag-on-create: Attaching tags to a CA at the time of creation
 
 The following policy allows a user to apply tags during CA creation.
 
@@ -133,9 +122,7 @@ JSON
 
 ```
 
-## Tag-on-create: Restricted
-
-tagging
+## Tag-on-create: Restricted tagging
 
 The following tag-on-create policy _prevents_
 use of the key-value pair Environment=Prod during CA creation. Tagging with
@@ -169,9 +156,7 @@ JSON
 
 ```
 
-## Controlling access to Private CA
-
-using tags
+## Controlling access to Private CA using tags
 
 The following policy allows access only to CAs with the key-value pair
 Environment=PreProd. It also requires that new CAs include this tag.

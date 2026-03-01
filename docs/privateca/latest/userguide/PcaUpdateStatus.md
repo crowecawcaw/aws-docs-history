@@ -36,8 +36,7 @@ it was set to `DISABLED` before the certificate expired.
 certificates:**
 
 - CA certificates are not automatically renewed. For information about
-  automating renewal through AWS Certificate Manager, see [Assign certificate renewal permissions to
-  ACM](assign-permissions.md#PcaPermissions "assign-permissions.md#PcaPermissions").
+  automating renewal through AWS Certificate Manager, see [Assign certificate renewal permissions to ACM](assign-permissions.md#PcaPermissions "assign-permissions.md#PcaPermissions").
 - If you attempt to issue a new certificate with an expired CA, the
   `IssueCertificate` API returns
   `InvalidStateException`. An expired root CA must self-sign a

@@ -1,6 +1,4 @@
-# Configure your MDM system for
-
-Connector for SCEP
+# Configure your MDM system for Connector for SCEP
 
 Simple Certificate Enrollment Protocol (SCEP) is a standard protocol used for certificate
 enrollment and renewal. Connector for SCEP is a [RFC 8894](https://www.rfc-editor.org/rfc/rfc8894.html "https://www.rfc-editor.org/rfc/rfc8894.html")-based SCEP server
@@ -15,9 +13,7 @@ SCEP.
 Connector for SCEP offers two types of connectors—general-purpose and Connector for SCEP for Microsoft Intune. The following
 sections describe how they work, and how to configure your MDM system to use them.
 
-## General-purpose
-
-connector
+## General-purpose connector
 
 A general-purpose connector is designed to work with mobile device endpoints that
 support SCEP, except for Microsoft Intune, which has a dedicated connector. With

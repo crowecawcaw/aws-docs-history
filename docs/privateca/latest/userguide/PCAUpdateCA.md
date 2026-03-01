@@ -22,9 +22,7 @@ In this example, the status of an enabled CA is changed to disabled.
 3. On the **Actions** menu, choose
    **Disable** to disable the private CA.
 
-### Updating a CA's revocation configuration
-
-(console)
+### Updating a CA's revocation configuration (console)
 
 You can update the [revocation
 configuration](revocation-setup.md "revocation-setup.md") for your private CA, for example, by adding or removing
@@ -96,7 +94,7 @@ If you create a new bucket, AWS Private CA creates and attaches
 the [required access policy](crl-planning.md#s3-policies "crl-planning.md#s3-policies") to
 it. If you decide to use an existing bucket, you must attach an
 access policy it before you can begin generating CRLs. Use one
-of the policy patterns described in [Access policies for CRLs in Amazon S3](crl-planning.md#s3-policies "crl-planning.md#s3-policies") . For information about
+of the policy patterns described in [Access policies for CRLs in Amazon S3](crl-planning.md#s3-policies "crl-planning.md#s3-policies"). For information about
 attaching a policy, see [Adding a bucket policy by using the Amazon S3
 console](../../../AmazonS3/latest/user-guide/add-bucket-policy.md "../../../AmazonS3/latest/user-guide/add-bucket-policy.md").
 

@@ -1,6 +1,4 @@
-# Get started with
-
-Connector for SCEP
+# Get started with Connector for SCEP
 
 With AWS Private Certificate Authority Connector for SCEP, you can issue certificates from your private CA to SCEP-enabled devices and mobile device management (MDM) systems. When you create a connector, AWS Private Certificate Authority creates a public SCEP URL for you to request certificates, and also provides you with information that you can use to integrate into your MDM systems.
 
@@ -53,8 +51,7 @@ Sign in to your AWS account and open the Connector for SCEP console at
 1. Choose **Create connector**.
 2. On the **Create connector** page, optionally give the connector a friendly name in the **Name tag** field. The name will be displayed in your list of connectors. If you wish, you can add more tags to the connector by selecting **Add more tags**. A tag is a label that you assign to an AWS resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your AWS costs.
 3. Under **Connector type**, choose **Microsoft Intune**.
-   1. For **Application (client) ID**, enter the application (client) ID from your Microsoft Entra ID app registration. For information about using Microsoft Intune with Connector for SCEP, see [Configure your MDM system for
-      Connector for SCEP](using-connector-for-scep-with-mdm.md "using-connector-for-scep-with-mdm.md").
+   1. For **Application (client) ID**, enter the application (client) ID from your Microsoft Entra ID app registration. For information about using Microsoft Intune with Connector for SCEP, see [Configure your MDM system for Connector for SCEP](using-connector-for-scep-with-mdm.md "using-connector-for-scep-with-mdm.md").
    2. For **Directory (tenant) ID or primary domain**, enter either the directory (tenant) ID or primary domain from your Microsoft Entra ID app registration.
 
 4. Under **Private CA**, choose the private CA to use with this connector. Or, create a new one by selecting **Create private CA**. Due to the inherent vulnerabilities in the SCEP protocol, we recommend using a private CA that's dedicated to this connector. If you created a new CA, when you finish creating it in AWS Private CA, return to the Connector for SCEP console and refresh the list of private CAs. Your new private CA should be available for selection.
@@ -77,5 +74,4 @@ After you create your connector, you'll need to copy the following details from 
   Intune, you must copy the **Open ID issuer**, **Open ID
   subject**, and **Open ID audience** into your
   Microsoft Entra app registration's OpenID Connect (OIDC) credential. For more
-  information, see [Configure your MDM system for
-  Connector for SCEP](using-connector-for-scep-with-mdm.md "using-connector-for-scep-with-mdm.md").
+  information, see [Configure your MDM system for Connector for SCEP](using-connector-for-scep-with-mdm.md "using-connector-for-scep-with-mdm.md").

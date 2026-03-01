@@ -1,6 +1,4 @@
-# Security best practices for Cross-account access
-
-to private CAs
+# Security best practices for Cross-account access to private CAs
 
 An AWS Private CA administrator can share a CA with principals (users, roles, etc.) in
 another AWS account. When a share has been received and accepted, the principal can

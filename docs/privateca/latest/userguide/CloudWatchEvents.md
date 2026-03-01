@@ -61,9 +61,7 @@ call [DescribeCertificateAuthority](../APIReference/API_DescribeCertificateAutho
 }
 ```
 
-## Success or failure when issuing a
-
-certificate
+## Success or failure when issuing a certificate
 
 These events are triggered by the [IssueCertificate](../APIReference/API_IssueCertificate.md "../APIReference/API_IssueCertificate.md")
 operation.
@@ -177,9 +175,7 @@ CRL.
 }
 ```
 
-###### Failure 1 – CRL could not be saved to Amazon S3 because of a permission
-
-error
+###### Failure 1 – CRL could not be saved to Amazon S3 because of a permission error
 
 Check your Amazon S3 bucket permissions if this error occurs.
 
@@ -202,9 +198,7 @@ Check your Amazon S3 bucket permissions if this error occurs.
 }
 ```
 
-###### Failure 2 – CRL could not be saved to Amazon S3 because of an internal
-
-error
+###### Failure 2 – CRL could not be saved to Amazon S3 because of an internal error
 
 Retry the operation if this error occurs.
 
@@ -250,9 +244,7 @@ To troubleshoot this error, check your [CloudWatch metrics](../APIReference/PcaC
 }
 ```
 
-## Success or failure when creating a CA audit
-
-report
+## Success or failure when creating a CA audit report
 
 These events are triggered by the [CreateCertificateAuthorityAuditReport](../APIReference/API_CreateCertificateAuthorityAuditReport.md "../APIReference/API_CreateCertificateAuthorityAuditReport.md") operation.
 

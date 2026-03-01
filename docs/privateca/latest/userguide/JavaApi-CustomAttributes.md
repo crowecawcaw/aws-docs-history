@@ -1,6 +1,4 @@
-# Create CAs and certificates with custom subject
-
-names
+# Create CAs and certificates with custom subject names
 
 The [CustomAttribute](../APIReference/API_CustomAttribute.md "../APIReference/API_CustomAttribute.md") object
 allows administrators to pass custom object identifiers (OIDs) to private CAs and
@@ -35,8 +33,7 @@ table:
 ###### Topics
 
 - [Create CA with CustomAttribute](#CA_CustomAttribute "#CA_CustomAttribute")
-- [Issue a certificate with
-  CustomAttribute](#Certificate_CustomAttribute "#Certificate_CustomAttribute")
+- [Issue a certificate with CustomAttribute](#Certificate_CustomAttribute "#Certificate_CustomAttribute")
 
 ## Create CA with CustomAttribute
 
@@ -186,9 +183,7 @@ public class CreateCertificateAuthorityWithCustomAttributes {
 }
 ```
 
-## Issue a certificate with
-
-CustomAttribute
+## Issue a certificate with CustomAttribute
 
 ```
 package com.amazonaws.samples;

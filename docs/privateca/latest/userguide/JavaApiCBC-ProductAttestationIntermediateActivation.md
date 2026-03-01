@@ -1,6 +1,4 @@
-# Activate an
-
-Product Attestation Intermediate (PAI)
+# Activate an Product Attestation Intermediate (PAI)
 
 This Java sample shows how to use the [BlankSubordinateCACertificate_PathLen0_APIPassthrough/V1 definition](template-definitions.md#BlankSubordinateCACertificate_PathLen0_APIPassthrough "template-definitions.md#BlankSubordinateCACertificate_PathLen0_APIPassthrough") template to
 create and install a [Matter](https://buildwithmatter.com "https://buildwithmatter.com")

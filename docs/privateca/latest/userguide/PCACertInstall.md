@@ -71,9 +71,7 @@ console and AWS CLI operations.
 
 You can install a root CA certificate from the AWS Management Console or the AWS CLI.
 
-###### To create and install a certificate for your private root CA
-
-(console)
+###### To create and install a certificate for your private root CA (console)
 
 1.  (Optional) If you are not already on the CA's details page, open the
     AWS Private CA console at [https://console.aws.amazon.com/acm-pca/home](https://console.aws.amazon.com/acm-pca/home "https://console.aws.amazon.com/acm-pca/home"). On the **Private
@@ -112,9 +110,7 @@ You can install a root CA certificate from the AWS Management Console or the AWS
     newly completed root CA displays a status of **Active** in
     the **General** pane.
 
-###### To create and install a certificate for your private root CA
-
-(AWS CLI)
+###### To create and install a certificate for your private root CA (AWS CLI)
 
 1. Generate a certificate signing request (CSR).
 
@@ -395,16 +391,12 @@ The status now appears as ACTIVE.
 }
 ```
 
-## Install a subordinate CA certificate
-
-hosted by AWS Private CA
+## Install a subordinate CA certificate hosted by AWS Private CA
 
 You can use the AWS Management Console to create and install a certificate for your AWS Private CA
 hosted subordinate CA.
 
-###### To create and install a certificate for your AWS Private CA hosted subordinate
-
-CA
+###### To create and install a certificate for your AWS Private CA hosted subordinate CA
 
 1. (Optional) If you are not already on the CA's details page, open the
    AWS Private CA console at [https://console.aws.amazon.com/acm-pca/home](https://console.aws.amazon.com/acm-pca/home "https://console.aws.amazon.com/acm-pca/home"). On the **Private
@@ -460,9 +452,7 @@ CA
    **Active** in the **General**
    pane.
 
-## Install a subordinate CA certificate
-
-signed by an external parent CA
+## Install a subordinate CA certificate signed by an external parent CA
 
 After you create a subordinate private CA as described in [Create a private CA in AWS Private CA](create-CA.md "create-CA.md"), you have the option of
 activating it by installing a CA certificate signed by an external signing
@@ -484,4 +474,4 @@ authority, complete the following tasks:
 3. Import the CA certificate and chain into AWS Private CA to activate your
    subordinate CA.
 
-For detailed procedures, see [Use externally signed private CA certificates](PcaExternalRoot.md "PcaExternalRoot.md") .
+For detailed procedures, see [Use externally signed private CA certificates](PcaExternalRoot.md "PcaExternalRoot.md").

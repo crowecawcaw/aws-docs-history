@@ -32,8 +32,7 @@ However, if your organization's current practice is to issue end-entity certific
 directly from a root CA, AWS Private CA can support this workflow while improving security
 and operational controls. Issuing end-entity certificates in this scenario requires an
 IAM permissions policy that permits your root CA to use an end-entity certificate
-template. For information about IAM policies, see [Identity and Access Management (IAM) for
-AWS Private Certificate Authority](security-iam.md "security-iam.md").
+template. For information about IAM policies, see [Identity and Access Management (IAM) for AWS Private Certificate Authority](security-iam.md "security-iam.md").
 
 ###### Note
 
@@ -66,9 +65,7 @@ The CA administrator role should be separate from users who need only
 to issue end-entity certificates. If your CA administrator and certificate issuer reside in the
 same AWS account, you can limit issuer permissions by creating an IAM user specifically for that purpose.
 
-## Implement managed revocation of
-
-certificates
+## Implement managed revocation of certificates
 
 Managed revocation automatically provides notice to certificate clients when a
 certificate has been revoked. You might need to revoke a certificate if its

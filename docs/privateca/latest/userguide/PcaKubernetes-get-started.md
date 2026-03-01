@@ -273,9 +273,7 @@ ROLE_ARN=$(aws iam create-role \
   --policy-arn arn:aws:iam::aws:policy/AWSPrivateCAConnectorForKubernetesPolicy
 ```
 
-## Install and configure
-
-the AWS Private CA cluster issuer
+## Install and configure the AWS Private CA cluster issuer
 
 To install the `aws-privateca-connector-for-kubernetes` add-on, use the
 following commands:
@@ -480,9 +478,7 @@ Status:
     Type:                  Ready
 ```
 
-## Manage the AWS Private CA client certificate with
-
-cert-manager
+## Manage the AWS Private CA client certificate with cert-manager
 
 If you are not using an Amazon EKS cluster, after you manually bootstrap a trusted certificate in
 `aws-privateca-issuer` you can transition to a client authentication

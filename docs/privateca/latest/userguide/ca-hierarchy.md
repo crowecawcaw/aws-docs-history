@@ -49,8 +49,7 @@ only a handful of circumstances:
 
 - [Validate end-entity certificates](#end-entity-validation "#end-entity-validation")
 - [Plan the structure of a CA hierarchy](#ca-layers "#ca-layers")
-- [Set length constraints on the certification
-  path](#length-constraints "#length-constraints")
+- [Set length constraints on the certification path](#length-constraints "#length-constraints")
 
 ## Validate end-entity certificates
 
@@ -148,9 +147,7 @@ However, if you are already issuing certificates directly from a root CA,
 you can migrate to AWS Private CA. Doing so provides security and control
 advantages over using a root CA managed with [OpenSSL](https://www.openssl.org/ "https://www.openssl.org/") or other software.
 
-### Example of a private PKI for a
-
-manufacturer
+### Example of a private PKI for a manufacturer
 
 In this example, a hypothetical technology company manufactures two Internet
 of Things (IoT) products, a smart light bulb and a smart toaster. During
@@ -189,9 +186,7 @@ internal website. Operations engineers issue end-entity certificates that
 authenticate data center hosts and computer services to one another. This system
 helps keep sensitive data secure by encrypting it on the LAN.
 
-## Set length constraints on the certification
-
-path
+## Set length constraints on the certification path
 
 The structure of a CA hierarchy is defined and enforced by the _basics constraints_ extension that each certificate
 contains. The extension defines two constraints:
@@ -253,9 +248,7 @@ issuing CA certificate.
 
 For more information about certificate templates, see [Use AWS Private CA certificate templates](UsingTemplates.md "UsingTemplates.md").
 
-### Automate CA hierarchy setup with
-
-AWS CloudFormation
+### Automate CA hierarchy setup with AWS CloudFormation
 
 When you have settled on a design for your CA hierarchy, you can test it and
 put it into production using a AWS CloudFormation template. For an example of such a

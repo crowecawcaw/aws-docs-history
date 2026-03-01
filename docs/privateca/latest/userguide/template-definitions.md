@@ -52,9 +52,7 @@ For general information about blank templates, see [BlankEndEntityCertificate_AP
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-## BlankEndEntityCertificate_CriticalBasicConstraints_APICSRPassthrough/V1
-
-definition
+## BlankEndEntityCertificate_CriticalBasicConstraints_APICSRPassthrough/V1 definition
 
 For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
 
@@ -70,9 +68,7 @@ For general information about blank templates, see [BlankEndEntityCertificate_AP
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough/V1
-
-definition
+### BlankEndEntityCertificate_CriticalBasicConstraints_APIPassthrough/V1 definition
 
 For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
 
@@ -88,9 +84,7 @@ For general information about blank templates, see [BlankEndEntityCertificate_AP
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### BlankEndEntityCertificate_CriticalBasicConstraints_CSRPassthrough/V1
-
-definition
+### BlankEndEntityCertificate_CriticalBasicConstraints_CSRPassthrough/V1 definition
 
 For general information about blank templates, see [BlankEndEntityCertificate_APIPassthrough/V1 definition](#BlankEndEntityCertificate_APIPassthrough "#BlankEndEntityCertificate_APIPassthrough").
 
@@ -311,9 +305,7 @@ For general information about blank templates, see [BlankEndEntityCertificate_AP
 \* CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### CodeSigningCertificate/V1
-
-definition
+### CodeSigningCertificate/V1 definition
 
 This template is used to create certificates for code signing. You can use
 code-signing certificates from AWS Private CA with any code-signing solution that is
@@ -398,9 +390,7 @@ override extensions in the CSR.
 \*CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### EndEntityCertificate/V1
-
-definition
+### EndEntityCertificate/V1 definition
 
 This template is used to create certificates for end entities such as operating
 systems or web servers.
@@ -648,9 +638,7 @@ always override extensions in the CSR.
 \*CRL distribution points are included in the template only if the CA is
 configured with CRL generation enabled.
 
-### OCSPSigningCertificate/V1
-
-definition
+### OCSPSigningCertificate/V1 definition
 
 This template is used to create certificates for signing OCSP responses. The
 template is identical to the `CodeSigningCertificate` template, except

@@ -138,9 +138,7 @@ AWS Private CA immediately returns an ARN with a serial number when it receives 
 asynchronously and can still fail. If this happens, a **get-certificate**
 command using the new ARN will also fail.
 
-## Issue a certificate with a custom subject name using
-
-an APIPassthrough template
+## Issue a certificate with a custom subject name using an APIPassthrough template
 
 In this example, a certificate is issued containing customized subject name elements.
 In addition to supplying a CSR like the one in [Issue a standard certificate (AWS CLI)](#IssueCertCli "#IssueCertCli"), you pass two additional arguments to the
@@ -236,9 +234,7 @@ It is also possible to create a private CA that passes custom attributes to each
 certificate it
 issues.
 
-## Issue a certificate with custom extensions using an
-
-APIPassthrough template
+## Issue a certificate with custom extensions using an APIPassthrough template
 
 In this example, a certificate is issued that contains customized extensions. For
 this you need to pass three arguments to the **issue-certificate**

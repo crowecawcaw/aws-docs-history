@@ -1,13 +1,10 @@
-# Create single-account permissions for an IAM
-
-user
+# Create single-account permissions for an IAM user
 
 When the CA administrator (that is, the owner of the CA) and the certificate
 issuer reside in a single AWS account, a [best
 practice](ca-best-practices.md "ca-best-practices.md") is to separate the issuer and administrator roles by creating an
 AWS Identity and Access Management (IAM) user with limited permissions. For information about using IAM
-with AWS Private CA, along with example permissions, see [Identity and Access Management (IAM) for
-AWS Private Certificate Authority](security-iam.md "security-iam.md").
+with AWS Private CA, along with example permissions, see [Identity and Access Management (IAM) for AWS Private Certificate Authority](security-iam.md "security-iam.md").
 
 ###### Single-account case 1: Issuing an unmanaged certificate
 
@@ -45,9 +42,7 @@ ACM.
 
 The following section contains procedures for granting renewal permissions.
 
-## Assign certificate renewal permissions to
-
-ACM
+## Assign certificate renewal permissions to ACM
 
 With [managed renewal](../../../acm/latest/userguide/managed-renewal.md "../../../acm/latest/userguide/managed-renewal.md") in
 AWS Certificate Manager (ACM), you can automate the certificate renewal process for both
@@ -82,9 +77,7 @@ You can manage private CA permissions from the [AWS Private CA Console](https://
    by this account**.
 5. Choose **Save**.
 
-###### To manage ACM
-
-permissions in AWS Private CA (AWS CLI)
+###### To manage ACM permissions in AWS Private CA (AWS CLI)
 
 Use the [create-permission](../../../cli/latest/reference/acm-pca/create-permission.md "../../../cli/latest/reference/acm-pca/create-permission.md") command to assign permissions to ACM. You
 must assign the necessary permissions (`IssueCertificate`,

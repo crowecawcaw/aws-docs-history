@@ -1,6 +1,4 @@
-# Using CreateCertificateAuthority
-
-to support Active Directory
+# Using CreateCertificateAuthority to support Active Directory
 
 The following Java sample shows how to use the [CreateCerticateAuthority](../APIReference/API_CreateCertificateAuthority.md "../APIReference/API_CreateCertificateAuthority.md")
 operation to create a CA that can be installed in the Enterprise NTAuth store of Microsoft

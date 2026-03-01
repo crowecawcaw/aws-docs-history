@@ -23,12 +23,10 @@ Three elements are involved in configuring a custom URL for OCSP.
 
 - **CA configuration** – Specify a custom OCSP
   URL in the `RevocationConfiguration` for your CA as described in
-  [Example 2: Create a CA with OCSP and a custom CNAME
-  enabled](create-CA.md#example_2 "create-CA.md#example_2") in [Create a private CA in AWS Private CA](create-CA.md "create-CA.md").
+  [Example 2: Create a CA with OCSP and a custom CNAME enabled](create-CA.md#example_2 "create-CA.md#example_2") in [Create a private CA in AWS Private CA](create-CA.md "create-CA.md").
 - **DNS** – Add a CNAME record to your domain
   configuration to map the URL appearing in the certificates to a proxy server
-  URL. For more information, see [Example 2: Create a CA with OCSP and a custom CNAME
-  enabled](create-CA.md#example_2 "create-CA.md#example_2") in [Create a private CA in AWS Private CA](create-CA.md "create-CA.md").
+  URL. For more information, see [Example 2: Create a CA with OCSP and a custom CNAME enabled](create-CA.md#example_2 "create-CA.md#example_2") in [Create a private CA in AWS Private CA](create-CA.md "create-CA.md").
 - **Forwarding proxy server** – Set up a proxy
   server that can transparently forward OCSP traffic that it receives to the
   AWS OCSP responder.

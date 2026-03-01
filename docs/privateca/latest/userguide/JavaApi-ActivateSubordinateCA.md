@@ -1,6 +1,4 @@
-# Create and activate a subordinate CA
-
-programmatically
+# Create and activate a subordinate CA programmatically
 
 This Java sample shows how to activate a subordinate CA using the following AWS Private CA API
 actions:

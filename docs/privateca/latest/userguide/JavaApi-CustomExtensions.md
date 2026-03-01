@@ -1,6 +1,4 @@
-# Create certificates with custom
-
-extensions
+# Create certificates with custom extensions
 
 The [CustomExtension](../APIReference/API_CustomExtension.md "../APIReference/API_CustomExtension.md") object
 allows administrators to set custom X.509 extensions in private certificates. Customized
@@ -9,14 +7,10 @@ about templates, see [AWS Private CA template varieties](template-varieties.md "
 
 ###### Topics
 
-- [Activate a subordinate CA with the
-  NameConstraints extension](#Sub_CA_NameConstraints "#Sub_CA_NameConstraints")
-- [Issue a certificate with the QC statement
-  extension](#Certificate_QC_statement "#Certificate_QC_statement")
+- [Activate a subordinate CA with the NameConstraints extension](#Sub_CA_NameConstraints "#Sub_CA_NameConstraints")
+- [Issue a certificate with the QC statement extension](#Certificate_QC_statement "#Certificate_QC_statement")
 
-## Activate a subordinate CA with the
-
-NameConstraints extension
+## Activate a subordinate CA with the NameConstraints extension
 
 ```
 package com.amazonaws.samples;
@@ -430,9 +424,7 @@ public class SubordinateCAActivationWithNameConstraints {
 }
 ```
 
-## Issue a certificate with the QC statement
-
-extension
+## Issue a certificate with the QC statement extension
 
 ```
 package com.amazonaws.samples;

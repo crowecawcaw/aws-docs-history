@@ -21,6 +21,5 @@ they expire.
 
 ###### Topics
 
-- [Create single-account permissions for an IAM
-  user](assign-permissions.md "assign-permissions.md")
+- [Create single-account permissions for an IAM user](assign-permissions.md "assign-permissions.md")
 - [Attach a policy for cross-account access](pca-ram.md "pca-ram.md")
