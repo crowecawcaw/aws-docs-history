@@ -46,7 +46,7 @@ create a real-time inference pipeline to forecast demand.
 
 ## Real-Time ML Forecasting Diagram
 
-Using the data collected from the sample web application, AWS Glue, Amazon Athena, and Amazon Quick Suite transform
+Using the data collected from the sample web application, AWS Glue, Amazon Athena, and Amazon Quick transform
 and analyze the data for business analytics and data exploration. This data is also used as part of a
 full-machine learning (ML) lifecycle with Amazon SageMaker AI.
 
@@ -67,8 +67,8 @@ full-machine learning (ML) lifecycle with Amazon SageMaker AI.
 4. Data scientists and engineers use **Athena** to query
    the processed data with SQL statements as part of the data exploration stage of
    a machine learning lifecycle.
-5. **Quick Suite** provides visualization for the processed
-   data to show operational location-based insights. Data for **Quick Suite**
+5. **Quick** provides visualization for the processed
+   data to show operational location-based insights. Data for **Quick**
    is refreshed incrementality within a look-back window of time as new data arrives.
 6. Data from the processed data **Amazon S3** bucket is
    used to train a spatial-temporal machine learning model in **Amazon SageMaker AI**.
