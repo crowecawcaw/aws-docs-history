@@ -23,7 +23,7 @@ This reference architecture outlines a modern hybrid transactional/analytical pr
    asynchronously replicated to TiFlash using an extended Raft consensus algorithm for strong
    consistency. TiFlash is a separate set of nodes that isolates workloads and performance
    impact on the OLTP system.
-4. Build business intelligence (BI) reports using **Amazon Quick Suite**.
+4. Build business intelligence (BI) reports using **Amazon Quick**.
    Queries on TiDB are internally routed to TiFlash and optimized to handle analytical
    workloads. TiDB provides unified architecture and zero-ETL integration between
    OLTP and OLAP workloads.
