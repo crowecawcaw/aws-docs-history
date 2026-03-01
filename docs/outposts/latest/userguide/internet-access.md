@@ -6,9 +6,7 @@ ways:
 - Through the parent AWS Region
 - Through your local data center's network
 
-## Internet access through the parent AWS
-
-Region
+## Internet access through the parent AWS Region
 
 In this option, the workloads in the Outposts access the internet through the service link
 and then through the internet gateway (IGW) in the parent AWS Region. The outbound traffic to
@@ -37,9 +35,7 @@ internet going through the parent AWS Region.
 
 ![Shows the traffic between the workload in the Outposts instance and the internet going through the parent AWS Region.](images/racks-internet-access-via-region.png)
 
-## Internet access through your local data
-
-center's network
+## Internet access through your local data center's network
 
 In this option, the workloads residing in the Outposts access the internet through your
 local data center. The workload traffic accessing the internet traverses through your local

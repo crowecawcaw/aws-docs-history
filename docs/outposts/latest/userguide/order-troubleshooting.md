@@ -3,10 +3,7 @@
 Review the following known issues to resolve an issue related to capacity management in a
 new order. If you do not see your issue listed, contact Support.
 
-## Order
-
-`oo-xxxxxx` is not associated with Outpost ID
-`op-xxxxx`
+## Order `oo-xxxxxx` is not associated with Outpost ID `op-xxxxx`
 
 This issue occurs when you use the AWS CLI or API to run the [`StartCapacityTask`](../APIReference/API_StartCapacityTask.md "../APIReference/API_StartCapacityTask.md") and the Outpost ID in the request does not match
 the Outpost ID in the order.
@@ -22,9 +19,7 @@ To resolve this issue:
 6. Enter the correct Outpost ID in the `StartCapacityTask` API
    request.
 
-## The capacity plan includes
-
-instance types that are not supported
+## The capacity plan includes instance types that are not supported
 
 This issue occurs when you use the AWS CLI or API to create or modify the capacity task
 and the request contains unsupported instances types.
@@ -50,9 +45,7 @@ To resolve this issue, use the console or CLI.
    instance types.
 2. Create or modify the capacity task with the correct list of instance types.
 
-## No Outpost with Outpost ID
-
-`op-xxxxx`
+## No Outpost with Outpost ID `op-xxxxx`
 
 This issue occurs when you use the AWS CLI or API to run the [`StartCapacityTask`](../APIReference/API_StartCapacityTask.md "../APIReference/API_StartCapacityTask.md") and the request contains an Outpost ID that is
 not valid for one of the following reasons:
@@ -72,10 +65,7 @@ To resolve this issue:
 5. If you do not find the Outpost ID, use the `ListOutposts` API action
    again to check if the Outpost exists in a different AWS Region.
 
-## Active CapacityTask
-
-cap-`XXXX` already found for Outpost
-op-`XXXX`
+## Active CapacityTask cap-`XXXX` already found for Outpost op-`XXXX`
 
 This issue occurs when you use the AWS Outposts console or API to run [StartCapacityTask](../APIReference/API_StartCapacityTask.md "../APIReference/API_StartCapacityTask.md") on an Outpost and there is already a running capacity task for
 the Outpost. A capacity task is considered running if it has any of the following statuses:
@@ -103,10 +93,7 @@ To resolve this issue, use the AWS Outposts console or CLI.
 3. When there no running capacity tasks for the requested OutpostId, retry your request
    to create the capacity task.
 
-## Active CapacityTask
-
-cap-`XXXX` already found for Asset
-`XXXX` on Outpost op-XXXX
+## Active CapacityTask cap-`XXXX` already found for Asset `XXXX` on Outpost op-XXXX
 
 This issue occurs when you use the AWS Outposts console or API to run [StartCapacityTask](../APIReference/API_StartCapacityTask.md "../APIReference/API_StartCapacityTask.md") on an asset and there is already a running capacity task for
 the asset. A capacity task is considered running if it has any of the following statuses:
@@ -137,9 +124,7 @@ To resolve this issue, use the AWS Outposts console or CLI.
    desired.
 4. Retry your request to create the capacity task.
 
-## AssetId=`XXXX`
-
-is not valid for Outpost=op-`XXXX`
+## AssetId=`XXXX` is not valid for Outpost=op-`XXXX`
 
 This issue occurs when you use the AWS Outposts console or API to run [StartCapacityTask](../APIReference/API_StartCapacityTask.md "../APIReference/API_StartCapacityTask.md") on an asset and the AssetID is not valid for one of the
 following reasons:

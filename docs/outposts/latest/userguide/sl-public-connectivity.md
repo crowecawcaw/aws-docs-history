@@ -14,18 +14,14 @@ between your Outposts and the AWS Region:
 
 ![The service link public connection options.](images/outpost-rack-sl-public-connectivity-options.png)
 
-## Option 1. Public connectivity through the
-
-internet
+## Option 1. Public connectivity through the internet
 
 This option requires the AWS Outposts [service link
 infrastructure subnet IPs](local-rack.md#service-link-subnet "local-rack.md#service-link-subnet") to have access to the public IP ranges of your AWS
 Region or home Region. You must allow-list AWS Region public IPs or 0.0.0.0/0 on
 networking devices such as your firewall.
 
-## Option 2. Public connectivity through Direct Connect
-
-public VIFs
+## Option 2. Public connectivity through Direct Connect public VIFs
 
 This option requires the AWS Outposts [service link
 infrastructure subnet IPs](local-rack.md#service-link-subnet "local-rack.md#service-link-subnet") to have access to the public IP ranges of your AWS

@@ -86,9 +86,7 @@ on your behalf:
 After your Outpost is installed, confirm connectivity to the private IPs in your subnet
 from your Outpost.
 
-## Option 1. Private connectivity through Direct Connect
-
-private VIFs
+## Option 1. Private connectivity through Direct Connect private VIFs
 
 Create an AWS Direct Connect connection, private virtual interface, and virtual private
 gateway to allow your on-premises Outpost to access the VPC.
@@ -108,9 +106,7 @@ If the AWS Direct Connect connection is in a different AWS account from your VPC
 virtual private gateway across accounts](../../../directconnect/latest/UserGuide/multi-account-associate-vgw.md "../../../directconnect/latest/UserGuide/multi-account-associate-vgw.md") in the
 _Direct Connect User Guide_.
 
-## Option 2. Private connectivity through Direct Connect
-
-transit VIFs
+## Option 2. Private connectivity through Direct Connect transit VIFs
 
 Create an AWS Direct Connect connection, transit virtual interface, and transit gateway to
 allow your on-premises Outpost to access the VPC.

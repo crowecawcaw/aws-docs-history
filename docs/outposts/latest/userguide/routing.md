@@ -52,9 +52,7 @@ The following examples illustrate direct VPC routing.
 - [Internet connectivity through
   the on-premises network](#direct-vpc-routing-example-2 "#direct-vpc-routing-example-2")
 
-### Example: Internet connectivity through the
-
-VPC
+### Example: Internet connectivity through the VPC
 
 Instances in an Outpost subnet can access the internet through the internet gateway
 attached to the VPC.
@@ -88,9 +86,7 @@ Outpost subnet must have the following routes.
 | 0.0.0.0                    | `internet-gateway-id` | Sends traffic destined for the internet to the internet gateway.            |
 | `on-premises network CIDR` | `local-gateway-id`    | Sends traffic destined for the on-premises network to the local<br>gateway. |
 
-### Example: Internet connectivity through the
-
-on-premises network
+### Example: Internet connectivity through the on-premises network
 
 Instances in an Outpost subnet can access the internet through the on-premises
 network. Instances in the Outpost subnet do not need a public IP address or Elastic IP
@@ -184,9 +180,7 @@ the Outpost. For more information, see [Share your AWS Outposts resources](shari
 - [Internet connectivity through the
   on-premises network](#coip-routing-example-2 "#coip-routing-example-2")
 
-### Example: Internet connectivity through the
-
-VPC
+### Example: Internet connectivity through the VPC
 
 Instances in an Outpost subnet can access the internet through the internet gateway
 attached to the VPC.
@@ -214,9 +208,7 @@ subnet must have the following routes.
 | 0.0.0.0                    | `internet-gateway-id` | Sends traffic destined for the public internet to the internet<br>gateway.  |
 | `On-premises network CIDR` | `local-gateway-id`    | Sends traffic destined for the on-premises network to the local<br>gateway. |
 
-### Example: Internet connectivity through the
-
-on-premises network
+### Example: Internet connectivity through the on-premises network
 
 Instances in an Outpost subnet can access the internet through the on-premises
 network.

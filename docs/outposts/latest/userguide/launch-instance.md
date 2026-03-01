@@ -15,8 +15,7 @@ for an Outposts rack](launch-instance.md "launch-instance.md").
 
 - [Step 1: Create a VPC](#create-vpc "#create-vpc")
 - [Step 2: Create a subnet and custom route table](#create-subnet "#create-subnet")
-- [Step 3: Configure local gateway
-  connectivity](#configure-lgw-connectivity "#configure-lgw-connectivity")
+- [Step 3: Configure local gateway connectivity](#configure-lgw-connectivity "#configure-lgw-connectivity")
 - [Step 4: Configure the on-premises network](#configure-on-prem "#configure-on-prem")
 - [Step 5: Launch an instance on the Outpost](#launch-instances "#launch-instances")
 - [Step 6: Test the connectivity](#test-connecitivity "#test-connecitivity")
@@ -107,9 +106,7 @@ instance on the Outpost](launch-instance.md#launch-instances "launch-instance.md
 4. Select the check box for the subnet to associate with the route table.
 5. Choose **Save associations**.
 
-## Step 3: Configure local gateway
-
-connectivity
+## Step 3: Configure local gateway connectivity
 
 The local gateway (LGW) enables connectivity between your Outpost subnets and your
 on-premises network.
@@ -177,9 +174,7 @@ target of the local gateway.
 | --------------- | -------- |
 | 172.16.100.0/24 | `lgw-id` |
 
-###### To add a route entry with the local gateway as a target in the subnet route
-
-table
+###### To add a route entry with the local gateway as a target in the subnet route table
 
 1. Open the Amazon VPC console at
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
@@ -226,8 +221,7 @@ table
    IP address, or the ID of a prefix list.
 6. For **Target**, select the ID of the local gateway.
 7. Choose **Save routes**.
-   If you configured your Outposts in the [3a. Create a custom local gateway route
-   table](#create-lgw-routetable "#create-lgw-routetable") to use a
+   If you configured your Outposts in the [3a. Create a custom local gateway route table](#create-lgw-routetable "#create-lgw-routetable") to use a
    customer-owned IP (CoIP) address pool, you must allocate an Elastic IP address from the
    CoIP address pool and associate the Elastic IP address with the instance. For more
    information, see [Customer-owned IP
@@ -265,8 +259,7 @@ that:
   your CNDs are sending the BGP route advertisements of on-premises network subnets to
   Outposts (or 0.0.0.0/0). As an alternative, you can advertise a default route (e.g.
   0.0.0.0/0) to Outposts. The on-premises subnets advertised by the CNDs must have a CIDR
-  range that is equal to or included in the CIDR range that you configured in [3e: Add a route entry in the route
-  table](#add-route-entry-lg-route-table "#add-route-entry-lg-route-table").
+  range that is equal to or included in the CIDR range that you configured in [3e: Add a route entry in the route table](#add-route-entry-lg-route-table "#add-route-entry-lg-route-table").
 
 Consider the scenario where you have an Outpost, configured in Direct VPC mode, with
 two Outposts rack network devices connected by a local gateway VLAN to two customer local network
@@ -334,8 +327,7 @@ you launch the instance, just as you do for instances in an Availability Zone su
 
 - To use block data or boot volumes backed by compatible third-party storage, you
   must provision and configure these volumes for use with EC2 instances on Outposts.
-  For more information, see [Third-party block storage on
-  Outposts racks](outpost-third-party-block-storage.md "outpost-third-party-block-storage.md").
+  For more information, see [Third-party block storage on Outposts racks](outpost-third-party-block-storage.md "outpost-third-party-block-storage.md").
 - You can create a [placement group](outposts-optimizations.md "outposts-optimizations.md") to
   influence how Amazon EC2 should attempt to place groups of interdependent instances on the
   Outposts hardware. You can choose the placement group strategy that meets the needs of

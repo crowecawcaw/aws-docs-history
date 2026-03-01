@@ -53,8 +53,7 @@ see [ACE rack connectivity](local-rack.md#ace-rack-connectivity "local-rack.md#a
 
 - Uplink speed – Provide uplinks with speeds of 10
   Gbps, 40 Gbps, or 100 Gbps. For bandwidth recommendations for the service link connection,
-  [Service link bandwidth
-  recommendations](service-links.md#sl-bandwidth-recommendations "service-links.md#sl-bandwidth-recommendations").
+  [Service link bandwidth recommendations](service-links.md#sl-bandwidth-recommendations "service-links.md#sl-bandwidth-recommendations").
 
 ###### Important
 

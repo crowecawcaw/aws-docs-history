@@ -13,9 +13,7 @@ traffic:
 - Outposts management traffic, such as resource management, resource monitoring, and
   firmware and software updates.
 
-## Service link maximum transmission unit (MTU)
-
-requirements
+## Service link maximum transmission unit (MTU) requirements
 
 The maximum transmission unit (MTU) of a network connection is the size, in bytes, of
 the largest permissible packet that can be passed over the connection.
@@ -28,9 +26,7 @@ Note the following:
   an MTU of 1300 bytes, which is lower than the required MTU of 1500 bytes due to packet
   overheads.
 
-## Service link bandwidth
-
-recommendations
+## Service link bandwidth recommendations
 
 For an optimal experience and resiliency, AWS requires that you use
 redundant connectivity of at least 500 Mbps for each compute rack and a maximum of 175 ms

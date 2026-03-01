@@ -22,11 +22,9 @@ You need the following components to connect your Outposts rack to your on-premi
 - [Network layer connectivity](#network-layer-connectivity "#network-layer-connectivity")
 - [ACE rack connectivity](#ace-rack-connectivity "#ace-rack-connectivity")
 - [Service link BGP connectivity](#service-link-bgp-connectivity "#service-link-bgp-connectivity")
-- [Service link infrastructure subnet advertisement and IP
-  range](#service-link-subnet "#service-link-subnet")
+- [Service link infrastructure subnet advertisement and IP range](#service-link-subnet "#service-link-subnet")
 - [Local gateway BGP connectivity](#local-gateway-bgp-connectivity "#local-gateway-bgp-connectivity")
-- [Local gateway customer-owned IP subnet
-  advertisement](#local-gateway-subnet "#local-gateway-subnet")
+- [Local gateway customer-owned IP subnet advertisement](#local-gateway-subnet "#local-gateway-subnet")
 
 ## Physical connectivity
 
@@ -108,7 +106,7 @@ device, commonly known as Virtual Routing and Forwarding instances (VRF). The de
 exists at the port of the Outpost network devices. AWS manages any infrastructure on the AWS
 side of the connection, and you manage any infrastructure on your side of the line.
 
-![Virtual LANs.](images/two-isolated-networks.png)
+![Virtual LANs.](/images/outposts/latest/userguide/images/two-isolated-networks.png)
 
 To integrate your Outpost with your on-premises network during the installation and on-going
 operation, you must allocate the VLANs used between the Outpost network devices and the customer
@@ -252,9 +250,7 @@ required. This traffic shift requires equal BGP prefixes from the customer side 
 maintenance is required on the customer network, we recommend that you use AS-Path prepending to
 temporarily shift traffic array from specific uplinks.
 
-## Service link infrastructure subnet advertisement and IP
-
-range
+## Service link infrastructure subnet advertisement and IP range
 
 You provide a /26 CIDR range during the pre-installation process for the _service link infrastructure subnet_. The Outpost infrastructure uses
 this range to establish connectivity to the Region through the service link. The service link
@@ -315,9 +311,7 @@ maintenance is required. This traffic shift requires equal BGP prefixes from the
 side on all ONDs. If maintenance is required on the customer network, we recommend that you
 use AS-Path prepending to temporarily shift traffic array from specific uplinks.
 
-## Local gateway customer-owned IP subnet
-
-advertisement
+## Local gateway customer-owned IP subnet advertisement
 
 By default, the local gateway uses the private IP addresses of instances in your VPC (see
 [Direct VPC routing](routing.md#direct-vpc-routing "routing.md#direct-vpc-routing")) to facilitate communication with your on-premise network. However,
