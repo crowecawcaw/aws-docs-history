@@ -8,7 +8,5 @@ in DASH manifests to better fit your playback device's requirements.
 
 ###### Topics
 
-- [media Attribute in
-  SegmentTemplate](segtemp-format-media.md "segtemp-format-media.md")
-- [duration Attribute in the
-  SegmentTemplate](segtemp-format-duration.md "segtemp-format-duration.md")
+- [media Attribute in SegmentTemplate](segtemp-format-media.md "segtemp-format-media.md")
+- [duration Attribute in the SegmentTemplate](segtemp-format-duration.md "segtemp-format-duration.md")

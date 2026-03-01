@@ -13,8 +13,7 @@ purposes only. You can't delete or modify it.
 ###### Important
 
 To create live-to-VOD assets, you must allow MediaPackage to access and save to an
-Amazon S3 bucket. For instructions, see [Allowing AWS Elemental MediaPackage to access other
-AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
+Amazon S3 bucket. For instructions, see [Allowing AWS Elemental MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
 
 The following topics provide more information about live-to-VOD assets in
 MediaPackage.

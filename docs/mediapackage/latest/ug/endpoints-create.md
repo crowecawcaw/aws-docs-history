@@ -5,8 +5,7 @@ delivery. Content can't be served from a channel until it has an endpoint. If yo
 using input redundancy, each endpoint receives content from one input URL at a time. If
 MediaPackage performs a failover on the inputs for one input URL, the endpoints
 automatically start receiving content from the other input URL. For more information
-about input redundancy and failover, see [Live input redundancy AWS Elemental MediaPackage processing
-flow](what-is-flow-ir.md "what-is-flow-ir.md").
+about input redundancy and failover, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md "what-is-flow-ir.md").
 
 When you create an endpoint, MediaPackage assigns it a public URL that's fixed for the
 lifetime of the endpoint, regardless of any failures or upgrades that might happen over
@@ -22,6 +21,5 @@ MediaPackage doesn't require customer data from you, so endpoints don't include 
 
 - [Creating an HLS endpoint](endpoints-hls.md "endpoints-hls.md")
 - [Creating a DASH endpoint](endpoints-dash.md "endpoints-dash.md")
-- [Creating a Microsoft Smooth Streaming
-  endpoint](endpoints-smooth.md "endpoints-smooth.md")
+- [Creating a Microsoft Smooth Streaming endpoint](endpoints-smooth.md "endpoints-smooth.md")
 - [Creating a CMAF endpoint](endpoints-cmaf.md "endpoints-cmaf.md")

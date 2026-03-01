@@ -1,6 +1,4 @@
-# Basic examples for
-
-MediaPackage using AWS SDKs
+# Basic examples for MediaPackage using AWS SDKs
 
 The following code examples show how to use the basics of AWS Elemental MediaPackage with AWS
 SDKs.

@@ -12,6 +12,5 @@ The following sections describe how to use these resources to manage VOD content
 ###### Topics
 
 - [Working with packaging groups in AWS Elemental MediaPackage](pkg-group.md "pkg-group.md")
-- [Working with packaging configurations in
-  AWS Elemental MediaPackage](pkg-cfig.md "pkg-cfig.md")
+- [Working with packaging configurations in AWS Elemental MediaPackage](pkg-cfig.md "pkg-cfig.md")
 - [Working with assets in AWS Elemental MediaPackage](asset.md "asset.md")

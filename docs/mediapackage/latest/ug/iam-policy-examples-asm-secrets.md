@@ -1,6 +1,4 @@
-# IAM policy examples for secrets in
-
-AWS Secrets Manager
+# IAM policy examples for secrets in AWS Secrets Manager
 
 During setup, [you create
 an IAM policy](setting-up-create-trust-rel.md#setting-up-create-trust-rel-policy "setting-up-create-trust-rel.md#setting-up-create-trust-rel-policy") that you
@@ -15,16 +13,11 @@ the values that you store.
 
 ###### Topics
 
-- [Allow read access to specific
-  secrets in AWS Secrets Manager](#iam-policy-examples-asm-specific-secrets "#iam-policy-examples-asm-specific-secrets")
-- [Allow read access to all
-  secrets created in a specific Region in AWS Secrets Manager](#iam-policy-examples-asm-secrets-in-a-region "#iam-policy-examples-asm-secrets-in-a-region")
-- [Allow read access to all resources
-  in AWS Secrets Manager](#iam-policy-examples-asm-secrets-all "#iam-policy-examples-asm-secrets-all")
+- [Allow read access to specific secrets in AWS Secrets Manager](#iam-policy-examples-asm-specific-secrets "#iam-policy-examples-asm-specific-secrets")
+- [Allow read access to all secrets created in a specific Region in AWS Secrets Manager](#iam-policy-examples-asm-secrets-in-a-region "#iam-policy-examples-asm-secrets-in-a-region")
+- [Allow read access to all resources in AWS Secrets Manager](#iam-policy-examples-asm-secrets-all "#iam-policy-examples-asm-secrets-all")
 
-## Allow read access to specific
-
-secrets in AWS Secrets Manager
+## Allow read access to specific secrets in AWS Secrets Manager
 
 The following IAM policy allows read access to specific resources (secrets) that
 you create in AWS Secrets Manager.
@@ -54,9 +47,7 @@ JSON
 
 ```
 
-## Allow read access to all
-
-secrets created in a specific Region in AWS Secrets Manager
+## Allow read access to all secrets created in a specific Region in AWS Secrets Manager
 
 The following IAM policy allows read access to all secrets that you create in a
 specific AWS Region in AWS Secrets Manager. This policy applies to resources that you have
@@ -86,9 +77,7 @@ JSON
 
 ```
 
-## Allow read access to all resources
-
-in AWS Secrets Manager
+## Allow read access to all resources in AWS Secrets Manager
 
 The following IAM policy allows read access to all resources that you create in
 AWS Secrets Manager. This policy applies to resources that you have created already and all

@@ -1,6 +1,4 @@
-# Getting started with live-to-VOD content delivery
-
-in MediaPackage
+# Getting started with live-to-VOD content delivery in MediaPackage
 
 This Getting Started tutorial shows you how to use the AWS Elemental MediaPackage console to
 create a live-to-VOD (video on demand) asset and make it available for playback.
@@ -28,8 +26,7 @@ system administrator has completed the following steps in [Setting up MediaPacka
 - To create an AWS account, see [Signing up for AWS](setting-up-aws-sign-up.md "setting-up-aws-sign-up.md").
 - To allow non-administrative roles access to MediaPackage, see [Creating policies and non-administrative roles](setting-up-create-non-admin-iam.md "setting-up-create-non-admin-iam.md").
 - To allow MediaPackage to access your Amazon S3 bucket to save and retrieve the
-  live-to-VOD asset, see [Allowing AWS Elemental MediaPackage to access other
-  AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
+  live-to-VOD asset, see [Allowing AWS Elemental MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
 
 ## Step 1: Access MediaPackage
 
@@ -82,8 +79,7 @@ the channel's user name and password. The upstream encoder must use digest
 authentication and push WebDAV over HTTPS to MediaPackage, and include
 these credentials. If you're using input redundancy, the input streams to
 this channel must have identical encoder settings. For more information
-about setting up source streams for input redundancy, see [Live input redundancy AWS Elemental MediaPackage processing
-flow](what-is-flow-ir.md "what-is-flow-ir.md").
+about setting up source streams for input redundancy, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md "what-is-flow-ir.md").
 
 ### Create an endpoint
 
@@ -151,8 +147,7 @@ source content from the encoder. Therefore, we recommend that the
 upstream encoder provides an `EXT-X-PROGRAM-DATE-TIME` tag in
 the source. 6. For **IAM role ARN**, enter the IAM role that allows
 MediaPackage to write your live-to-VOD asset to your Amazon S3 bucket. For help
-with the role, see [Allowing AWS Elemental MediaPackage to access other
-AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md"). 7. For **Amazon S3 bucket name**, select the Amazon S3 bucket where you want
+with the role, see [Allowing AWS Elemental MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md"). 7. For **Amazon S3 bucket name**, select the Amazon S3 bucket where you want
 MediaPackage to store the live-to-VOD asset. 8. For **Manifest key**, enter the path in the Amazon S3
 bucket and identifier for the parent manifest for the live-to-VOD asset.
 MediaPackage creates a directory based on the path that you enter.
@@ -299,9 +294,7 @@ this asset and packaging configuration. Provide the URL to the person in charge 
 the downstream device (CDN or player). In the downstream device, this person must
 use the asset's URL as the request destination.
 
-## (Optional) Step 5: Monitor MediaPackage
-
-activity
+## (Optional) Step 5: Monitor MediaPackage activity
 
 Use Amazon CloudWatch to track MediaPackage activity, such as the counts of bytes that
 MediaPackage has received and sent, response times, and request counts. Metrics are
@@ -317,8 +310,7 @@ combinations within each namespace.
 4. Select the metric dimension to view the metrics (for example, choose
    `channel` to view metrics per channel).
 
-For a list of MediaPackage metrics, see [Monitoring AWS Elemental MediaPackage with Amazon CloudWatch
-metrics](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
+For a list of MediaPackage metrics, see [Monitoring AWS Elemental MediaPackage with Amazon CloudWatch metrics](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 
 ## Step 6: Clean up
 

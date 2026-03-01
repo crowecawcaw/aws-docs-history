@@ -1,6 +1,4 @@
-# `media` Attribute in
-
-`SegmentTemplate`
+# `media` Attribute in `SegmentTemplate`
 
 The `media` attribute in the `SegmentTemplate` properties
 defines the URL where playback devices send segment requests. By default, this URL uses

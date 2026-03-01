@@ -14,10 +14,7 @@ up for inclusion in diagnostic logs or Amazon CloudWatch Events.
 
 ###### Topics
 
-- [Creating an HLS packaging
-  configuration](pkg-cfig-create-hls.md "pkg-cfig-create-hls.md")
-- [Creating a DASH packaging
-  configuration](pkg-cfig-create-dash.md "pkg-cfig-create-dash.md")
-- [Creating a Microsoft Smooth packaging
-  configuration](pkg-cfig-create-mss.md "pkg-cfig-create-mss.md")
+- [Creating an HLS packaging configuration](pkg-cfig-create-hls.md "pkg-cfig-create-hls.md")
+- [Creating a DASH packaging configuration](pkg-cfig-create-dash.md "pkg-cfig-create-dash.md")
+- [Creating a Microsoft Smooth packaging configuration](pkg-cfig-create-mss.md "pkg-cfig-create-mss.md")
 - [Creating a CMAF packaging configuration](pkg-cfig-create-cmaf.md "pkg-cfig-create-cmaf.md")

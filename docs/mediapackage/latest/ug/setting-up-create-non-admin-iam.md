@@ -15,17 +15,12 @@ resources. This section also describes how your users can assume that role to gr
 
 ###### Topics
 
-- [(Optional) Step 1: Create an IAM
-  policy for Amazon CloudFront](#setting-up-create-non-admin-iam-cf "#setting-up-create-non-admin-iam-cf")
-- [(Optional) Step 2: Create an IAM policy for
-  MediaPackage VOD](#setting-up-create-non-admin-iam-vod "#setting-up-create-non-admin-iam-vod")
+- [(Optional) Step 1: Create an IAM policy for Amazon CloudFront](#setting-up-create-non-admin-iam-cf "#setting-up-create-non-admin-iam-cf")
+- [(Optional) Step 2: Create an IAM policy for MediaPackage VOD](#setting-up-create-non-admin-iam-vod "#setting-up-create-non-admin-iam-vod")
 - [Step 3: Create a role in the IAM console](#setting-up-create-role "#setting-up-create-role")
-- [Step 4: Assume the
-  role from the IAM console or AWS CLI](#setting-up-create-nonadmin-roles-assume-role "#setting-up-create-nonadmin-roles-assume-role")
+- [Step 4: Assume the role from the IAM console or AWS CLI](#setting-up-create-nonadmin-roles-assume-role "#setting-up-create-nonadmin-roles-assume-role")
 
-## (Optional) Step 1: Create an IAM
-
-policy for Amazon CloudFront
+## (Optional) Step 1: Create an IAM policy for Amazon CloudFront
 
 If you or your users will create Amazon CloudFront distributions from the AWS Elemental MediaPackage
 live console, create an IAM policy that allows access to CloudFront.
@@ -75,9 +70,7 @@ name** and a **Description** (optional) for the policy that
 you are creating. Review **Permissions defined in this policy** to see
 the permissions that are granted by your policy. 8. Choose **Create policy** to save your new policy.
 
-## (Optional) Step 2: Create an IAM policy for
-
-MediaPackage VOD
+## (Optional) Step 2: Create an IAM policy for MediaPackage VOD
 
 If you or your users will be using video on demand (VOD) functionality in
 MediaPackage, create an IAM policy that allows access to resources for the
@@ -208,8 +201,7 @@ a role rather than attaching individual policies to each user.
        in MediaPackage.
 
    - For access to video on demand (VOD) functionality, use the policy
-     that you created in [(Optional) Step 2: Create an IAM policy for
-     MediaPackage VOD](#setting-up-create-non-admin-iam-vod "#setting-up-create-non-admin-iam-vod").
+     that you created in [(Optional) Step 2: Create an IAM policy for MediaPackage VOD](#setting-up-create-non-admin-iam-vod "#setting-up-create-non-admin-iam-vod").
 
 7. Add policies to allow the MediaPackage console to make calls to Amazon CloudWatch
    on the user's behalf. Without these policies, the user is able to use the
@@ -224,8 +216,7 @@ a role rather than attaching individual policies to each user.
      read-only access to CloudWatch.
 
 8. (Optional) If this user will create Amazon CloudFront distributions from the
-   MediaPackage console, attach the policy that you created in [(Optional) Step 1: Create an IAM
-   policy for Amazon CloudFront](#setting-up-create-non-admin-iam-cf "#setting-up-create-non-admin-iam-cf").
+   MediaPackage console, attach the policy that you created in [(Optional) Step 1: Create an IAM policy for Amazon CloudFront](#setting-up-create-non-admin-iam-cf "#setting-up-create-non-admin-iam-cf").
 9. (Optional) Set a [permissions
    boundary](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md"). This is an advanced feature that is available for
    service roles, but not service-linked roles.
@@ -261,9 +252,7 @@ a role rather than attaching individual policies to each user.
     _IAM User Guide_.
 15. Review the role and then choose **Create role**.
 
-## Step 4: Assume the
-
-role from the IAM console or AWS CLI
+## Step 4: Assume the role from the IAM console or AWS CLI
 
 View the following resources for learning about granting permissions for users to assume
 the role and how users can switch to the role from the IAM console or AWS CLI.

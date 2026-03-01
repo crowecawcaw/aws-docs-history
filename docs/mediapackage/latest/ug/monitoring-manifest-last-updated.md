@@ -31,8 +31,7 @@ duration template. MediaPackage determines the
 `X-MediaPackage-Manifest-Last-Sequence` value from the highest segment
 number in the lowest rendition in the manifest. For example, in the following manifest, the highest segment number is
 `index_video_5_0_175232.mp4`, so the value of
-`X-MediaPackage-Manifest-Last-Sequence` is `175232`. See [duration Attribute in the
-SegmentTemplate](segtemp-format-duration.md "segtemp-format-duration.md") for information about how MediaPackage
+`X-MediaPackage-Manifest-Last-Sequence` is `175232`. See [duration Attribute in the SegmentTemplate](segtemp-format-duration.md "segtemp-format-duration.md") for information about how MediaPackage
 calculates the sequence `$Number$` value. The value of
 `X-MediaPackage-Manifest-Last-Updated` is the epoch timestamp in
 milliseconds when MediaPackage generates the segment referred to in `X-MediaPackage-Manifest-Last-Sequence`.
@@ -100,8 +99,7 @@ duration template. MediaPackage determines the
 `X-MediaPackage-Manifest-Last-Sequence` value from the highest segment
 number in the lowest rendition in the manifest. For example, in the following manifest, the highest segment number is
 `index_video_1_0_1675200.mp4`, so the value of
-`X-MediaPackage-Manifest-Last-Sequence` is `1675200`. See [media Attribute in
-SegmentTemplate](segtemp-format-media.md "segtemp-format-media.md") for information about how MediaPackage
+`X-MediaPackage-Manifest-Last-Sequence` is `1675200`. See [media Attribute in SegmentTemplate](segtemp-format-media.md "segtemp-format-media.md") for information about how MediaPackage
 calculates the sequence number. The value of
 `X-MediaPackage-Manifest-Last-Updated` is the is the epoch timestamp in
 milliseconds when MediaPackage generates the segment referred to in `X-MediaPackage-Manifest-Last-Sequence`.

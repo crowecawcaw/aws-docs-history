@@ -1,6 +1,4 @@
-# Live input redundancy AWS Elemental MediaPackage processing
-
-flow
+# Live input redundancy AWS Elemental MediaPackage processing flow
 
 Achieve input redundancy in AWS Elemental MediaPackage by sending two streams to separate
 input URLs on a channel in MediaPackage. One of the streams becomes the primary,

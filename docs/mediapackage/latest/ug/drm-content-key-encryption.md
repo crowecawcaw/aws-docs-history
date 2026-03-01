@@ -1,6 +1,4 @@
-# Preparing and managing certificates for use with
-
-content keys
+# Preparing and managing certificates for use with content keys
 
 AWS Elemental MediaPackage uses a Content Protection Information Exchange (CPIX) document to
 communicate with SPEKE about content keys that are used to encrypt your content. For the most

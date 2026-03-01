@@ -11,5 +11,4 @@ to apply the same configurations to multiple assets.
 - [Viewing packaging group details](pkg-group-view.md "pkg-group-view.md")
 - [Editing a packaging group](pkg-group-edit.md "pkg-group-edit.md")
 - [Deleting a packaging group](pkg-group-delete.md "pkg-group-delete.md")
-- [Adding a packaging configuration to a packaging
-  group](pkg-group-add-cfig.md "pkg-group-add-cfig.md")
+- [Adding a packaging configuration to a packaging group](pkg-group-add-cfig.md "pkg-group-add-cfig.md")

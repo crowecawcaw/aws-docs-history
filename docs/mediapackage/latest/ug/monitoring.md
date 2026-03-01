@@ -28,11 +28,9 @@ appropriate:
 
 ###### Topics
 
-- [Monitoring AWS Elemental MediaPackage with Amazon CloudWatch
-  metrics](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
+- [Monitoring AWS Elemental MediaPackage with Amazon CloudWatch metrics](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
 - [Monitoring AWS Elemental MediaPackage with CloudWatch Events](monitoring-cloudwatch-events.md "monitoring-cloudwatch-events.md")
 - [Logging AWS Elemental MediaPackage API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Access logging](access-logging.md "access-logging.md")
 - [Monitoring manifest update time](monitoring-manifest-last-updated.md "monitoring-manifest-last-updated.md")
-- [Monitoring AWS media services with
-  workflow monitor](monitor-with-workflow-monitor.md "monitor-with-workflow-monitor.md")
+- [Monitoring AWS media services with workflow monitor](monitor-with-workflow-monitor.md "monitor-with-workflow-monitor.md")

@@ -6,8 +6,7 @@ Complete the following steps to set up CDN authorization.
 
 - [Step 1: Configure a CDN custom origin HTTP header](#cdn-aut-setup-cdn "#cdn-aut-setup-cdn")
 - [Step 2: Store the value as a secret in AWS Secrets Manager](#cdn-aut-setup-secret "#cdn-aut-setup-secret")
-- [Step 3: Create an IAM policy and role for MediaPackage access
-  to Secrets Manager](#cdn-aut-setup-iam "#cdn-aut-setup-iam")
+- [Step 3: Create an IAM policy and role for MediaPackage access to Secrets Manager](#cdn-aut-setup-iam "#cdn-aut-setup-iam")
 - [Step 4: Enable CDN authorization in MediaPackage](#cdn-aut-setup-endpoint "#cdn-aut-setup-endpoint")
 
 ## Step 1: Configure a CDN custom origin HTTP header
@@ -94,14 +93,11 @@ ARN has a value similar to
 You use the Secret ARN when you configure CDN authorization for
 MediaPackage in Step 4: Enable CDN Authorization in MediaPackage.
 
-## Step 3: Create an IAM policy and role for MediaPackage access
-
-to Secrets Manager
+## Step 3: Create an IAM policy and role for MediaPackage access to Secrets Manager
 
 Create an IAM policy and role to give MediaPackage read access to Secrets Manager. When
 MediaPackage receives a playback request from the CDN, it verifies that the stored secret
-value matches the value in the custom HTTP header. Follow the steps in [Allowing AWS Elemental MediaPackage to access other
-AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md") to set up the policy and role.
+value matches the value in the custom HTTP header. Follow the steps in [Allowing AWS Elemental MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md") to set up the policy and role.
 
 ## Step 4: Enable CDN authorization in MediaPackage
 
@@ -127,8 +123,7 @@ CDN authorization is enabled on the endpoint.
 4. In **Access control settings**, select **Use
    CDN authorization**. Complete the fields:
    - In **Secrets role ARN**, enter the ARN for the
-     IAM role that you created in [Step 3: Create an IAM policy and role for MediaPackage access
-     to Secrets Manager](#cdn-aut-setup-iam "#cdn-aut-setup-iam").
+     IAM role that you created in [Step 3: Create an IAM policy and role for MediaPackage access to Secrets Manager](#cdn-aut-setup-iam "#cdn-aut-setup-iam").
    - In **CDN identifier secret ARN**, enter the ARN for the secret in Secrets Manager that
      your CDN uses for authorization to access your endpoint.
 
@@ -142,8 +137,7 @@ CDN authorization is enabled on the endpoint.
 4. In **Configure access control**, select **Enable
    authorization**. Complete the fields:
    - In **Secrets role ARN**, enter the ARN for the
-     IAM role that you created in [Step 3: Create an IAM policy and role for MediaPackage access
-     to Secrets Manager](#cdn-aut-setup-iam "#cdn-aut-setup-iam").
+     IAM role that you created in [Step 3: Create an IAM policy and role for MediaPackage access to Secrets Manager](#cdn-aut-setup-iam "#cdn-aut-setup-iam").
    - In **CDN identifier secret ARN**, enter the ARN for the secret in Secrets Manager that
      your CDN uses for authorization to access your endpoint.
 

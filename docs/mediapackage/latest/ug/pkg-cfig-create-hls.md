@@ -1,6 +1,4 @@
-# Creating an HLS packaging
-
-configuration
+# Creating an HLS packaging configuration
 
 Create a packaging configuration that formats content for devices that support
 Apple HLS.

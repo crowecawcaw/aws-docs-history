@@ -1,6 +1,4 @@
-# Viewing all endpoints associated with a
-
-channel
+# Viewing all endpoints associated with a channel
 
 View all endpoints that are associated with a specific channel to ensure that the
 content is available in all necessary stream formats.

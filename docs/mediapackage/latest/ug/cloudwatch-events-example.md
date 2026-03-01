@@ -64,8 +64,7 @@ One event is sent in a five-minute period. If the input switches multiple times 
 minutes (for example, if MediaPackage switches to one input, then back to the other), you
 receive only one event.
 
-For information about input redundancy and what causes inputs to switch, see [Live input redundancy AWS Elemental MediaPackage processing
-flow](what-is-flow-ir.md "what-is-flow-ir.md").
+For information about input redundancy and what causes inputs to switch, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md "what-is-flow-ir.md").
 
 ###### Example
 

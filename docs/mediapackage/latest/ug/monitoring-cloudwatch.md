@@ -1,6 +1,4 @@
-# Monitoring AWS Elemental MediaPackage with Amazon CloudWatch
-
-metrics
+# Monitoring AWS Elemental MediaPackage with Amazon CloudWatch metrics
 
 You can monitor AWS Elemental MediaPackage using CloudWatch, which collects raw data and processes it into
 readable, near real-time metrics. These statistics are kept for 15 months, so that you can access

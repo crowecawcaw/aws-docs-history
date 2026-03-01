@@ -1,6 +1,4 @@
-# Implementing CDN authorization with
-
-AWS Elemental MediaPackage
+# Implementing CDN authorization with AWS Elemental MediaPackage
 
 Use content delivery network (CDN) authorization to ensure only authorized devices can
 access your content. With CDN authorization, playback requests must include the

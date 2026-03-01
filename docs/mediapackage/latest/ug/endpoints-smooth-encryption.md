@@ -49,5 +49,4 @@ Define the encryption values.
 
    To enter a certificate ARN here, you must have already imported the corresponding certificate into AWS Certificate Manager. Then enter the certificate ARN from ACM here.
 
-   For information about key encryption, see [Preparing and managing certificates for use with
-   content keys](drm-content-key-encryption.md "drm-content-key-encryption.md").
+   For information about key encryption, see [Preparing and managing certificates for use with content keys](drm-content-key-encryption.md "drm-content-key-encryption.md").

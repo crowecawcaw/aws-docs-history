@@ -2,8 +2,7 @@
 
 The following fields describe how AWS Elemental MediaPackage accesses the source content in
 your Amazon S3 bucket. MediaPackage must have permissions to access the bucket. To
-create an IAM role with the right permissions, see [Allowing AWS Elemental MediaPackage to access other
-AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
+create an IAM role with the right permissions, see [Allowing AWS Elemental MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
 
 1. For **Amazon S3 bucket name**, choose from a list of buckets that MediaPackage has detected in
    your account or enter the name of the bucket. The Amazon S3 bucket holds the source content that

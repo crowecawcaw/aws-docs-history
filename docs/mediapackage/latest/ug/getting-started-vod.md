@@ -1,6 +1,4 @@
-# Getting started with VOD content delivery in
-
-MediaPackage
+# Getting started with VOD content delivery in MediaPackage
 
 This Getting Started tutorial shows you how to use the AWS Elemental MediaPackage console to
 ingest video on demand (VOD) content and make it available for playback.
@@ -26,9 +24,7 @@ Using your IAM credentials, sign in to the AWS Elemental MediaPackage console:
 https://`region`.console.aws.amazon.com/mediapackage/home
 ```
 
-## Step 2: Create a packaging
-
-group
+## Step 2: Create a packaging group
 
 A packaging group holds one or more packaging configurations. The packaging
 configurations enable you to define what kind of VOD outputs you want. To apply these output
@@ -113,8 +109,7 @@ thursday_night/lion_movie.m3u8
 ```
 
 For more information about using .smil manifests with MediaPackage, see [Requirements for .smil manifests](supported-inputs-vod-smil.md "supported-inputs-vod-smil.md"). 6. For **Packaging group**, choose the group that
-you created in [Step 2: Create a packaging
-group](#gs-create-grp "#gs-create-grp"). 7. Choose **Ingest assets**.
+you created in [Step 2: Create a packaging group](#gs-create-grp "#gs-create-grp"). 7. Choose **Ingest assets**.
 
 ## Step 5: Provide playback URLs
 
@@ -149,9 +144,7 @@ this asset and packaging configuration. Provide the URL to the person in charge 
 the downstream device (CDN or player). In the downstream device, this person must
 use the asset's URL as the request destination.
 
-## (Optional) Step 6: Monitor MediaPackage
-
-activity
+## (Optional) Step 6: Monitor MediaPackage activity
 
 Use Amazon CloudWatch to track MediaPackage activity, such as the counts of bytes that
 MediaPackage has received and sent, response times, and request counts. Metrics are

@@ -1,6 +1,4 @@
-# `duration` Attribute in the
-
-`SegmentTemplate`
+# `duration` Attribute in the `SegmentTemplate`
 
 In a default DASH manifest, `SegmentTemplate` holds a
 `SegmentTimeline`. The timeline describes all the segments in
@@ -21,14 +19,10 @@ works, see the following sections.
 
 ###### Topics
 
-- [How the duration attribute
-  works](#how-stemp-dur-works "#how-stemp-dur-works")
-- [duration Attribute with compacted
-  DASH manifests](#stemp-dur-combos "#stemp-dur-combos")
+- [How the duration attribute works](#how-stemp-dur-works "#how-stemp-dur-works")
+- [duration Attribute with compacted DASH manifests](#stemp-dur-combos "#stemp-dur-combos")
 
-## How the `duration` attribute
-
-works
+## How the `duration` attribute works
 
 Enable the `$duration$` attribute through the **Segment
 template format** setting on the DASH endpoint, as described in [Creating a DASH endpoint](endpoints-dash.md "endpoints-dash.md"). This is what happens
@@ -109,9 +103,7 @@ This calculation then becomes (600 seconds elapsed time) / (3 second
 segment durations) = 200 elapsed segments. Adding those segments to the
 175032 start segment makes the most recent segment 175232.
 
-## `duration` Attribute
-
-limitations
+## `duration` Attribute limitations
 
 To ensure proper playback and help prevent issues with conflicting segment
 durations, AWS Elemental MediaPackage enforces the following limitations for the
@@ -140,9 +132,7 @@ attribute.
 - Your ingest stream must use a regular segmentation cadence.
 - You can't use variable segment length in the ingest stream. For example, resulting of a SCTE-35-related segmentation.
 
-## `duration` Attribute with compacted
-
-DASH manifests
+## `duration` Attribute with compacted DASH manifests
 
 Combining compacted manifests with the `duration` attribute will
 further reduce the size of the manifest, but not by much. Compacted manifests have

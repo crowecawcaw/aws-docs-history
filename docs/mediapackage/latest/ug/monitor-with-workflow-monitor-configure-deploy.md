@@ -1,6 +1,4 @@
-# Deploying
-
-templates to the signal map of your AWS media workflow
+# Deploying templates to the signal map of your AWS media workflow
 
 After you have attached the alarm and event templates to your signal map, you
 must deploy the monitoring. Until the deployment is complete, the monitoring of

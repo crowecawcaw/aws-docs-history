@@ -23,8 +23,7 @@ and **Password** for each input URL. Provide this information
 for the upstream encoder stream destination settings. If you're using input
 redundancy, provide the information for both input URLs. If you're sending only
 one stream to the channel, you can provide the information for either input URL.
-For information about how input redundancy works, see [Live input redundancy AWS Elemental MediaPackage processing
-flow](what-is-flow-ir.md "what-is-flow-ir.md").
+For information about how input redundancy works, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md "what-is-flow-ir.md").
 
 ###### Note
 

@@ -61,8 +61,7 @@ Define the encryption values.
 
    To enter a certificate ARN here, you must have already imported the corresponding certificate into AWS Certificate Manager. Then enter the certificate ARN from ACM here.
 
-   For information about content key encryption, see [Preparing and managing certificates for use with
-   content keys](drm-content-key-encryption.md "drm-content-key-encryption.md"). 7. (Optional) For **Key rotation interval**, enter the frequency, in seconds, of key changes for live workflows, in which content is
+   For information about content key encryption, see [Preparing and managing certificates for use with content keys](drm-content-key-encryption.md "drm-content-key-encryption.md"). 7. (Optional) For **Key rotation interval**, enter the frequency, in seconds, of key changes for live workflows, in which content is
    streamed real time. The service retrieves content keys before the live content begins
    streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key
    rotation is set to 60 seconds, which is equivalent to setting it to `60`. To disable key rotation, set this interval to `0` (zero).

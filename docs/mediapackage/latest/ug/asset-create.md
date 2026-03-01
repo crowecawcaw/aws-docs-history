@@ -8,8 +8,7 @@ that's associated with the asset.
 
 To ingest an asset, MediaPackage must have permissions to access the Amazon S3 bucket
 where the source content is stored. To create a role that gives MediaPackage the
-right permissions, see [Allowing AWS Elemental MediaPackage to access other
-AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
+right permissions, see [Allowing AWS Elemental MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
 
 To create an asset, you can use the MediaPackage console, the AWS CLI, or the
 MediaPackage API.

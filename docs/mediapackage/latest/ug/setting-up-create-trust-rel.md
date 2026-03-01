@@ -1,6 +1,4 @@
-# Allowing AWS Elemental MediaPackage to access other
-
-AWS services
+# Allowing AWS Elemental MediaPackage to access other AWS services
 
 Some features require you to allow MediaPackage to access other AWS services, such as
 Amazon S3 and AWS Secrets Manager (Secrets Manager). To allow this access, create an IAM role and policy with the
@@ -93,8 +91,7 @@ policy that allows you to do these things in Amazon S3:
   resources.
   If you also use MediaPackage for VOD asset delivery, add these actions to the policy:
   `GetObject` and `GetBucketRequestPayment`. For more information
-  about the required policy for VOD workflows, see [Policy for Amazon S3 access for VOD
-  workflows](#setting-up-create-trust-rel-policy-vod "#setting-up-create-trust-rel-policy-vod").
+  about the required policy for VOD workflows, see [Policy for Amazon S3 access for VOD workflows](#setting-up-create-trust-rel-policy-vod "#setting-up-create-trust-rel-policy-vod").
 
 ###### To use the JSON policy editor to create a policy
 

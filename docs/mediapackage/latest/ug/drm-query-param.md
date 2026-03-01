@@ -1,6 +1,4 @@
-# Removing tags from the parent manifest from
-
-AWS Elemental MediaPackage
+# Removing tags from the parent manifest from AWS Elemental MediaPackage
 
 MediaPackage signals in the parent manifest the `#EXT-X-SESSION-KEY` tag for every
 track type on an HLS or CMAF endpoint. This tag enables playback devices to pre-fetch keys

@@ -1,6 +1,4 @@
-# Getting started with live content delivery in
-
-AWS Elemental MediaPackage
+# Getting started with live content delivery in AWS Elemental MediaPackage
 
 This Getting Started tutorial shows you how to use the AWS Elemental MediaPackage (MediaPackage) console to
 create a channel and endpoints for streaming live videos.
@@ -57,8 +55,7 @@ the channel's user name and password. The upstream encoder must use digest
 authentication and push WebDAV over HTTPS to MediaPackage, and include
 these credentials. If you're using input redundancy, the input streams to
 this channel must have identical encoder settings. For more information
-about setting up source streams for input redundancy, see [Live input redundancy AWS Elemental MediaPackage processing
-flow](what-is-flow-ir.md "what-is-flow-ir.md").
+about setting up source streams for input redundancy, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md "what-is-flow-ir.md").
 
 ## Step 3: Create endpoints
 
@@ -89,9 +86,7 @@ field for the endpoint. Provide this information to the person in charge of
 the downstream device (CDN or player). In the downstream device, this person
 must enter the request destination as the endpoint's URL.
 
-## (Optional) Step 4: Monitor MediaPackage
-
-activity
+## (Optional) Step 4: Monitor MediaPackage activity
 
 Use Amazon CloudWatch to track MediaPackage activity, such as the counts of bytes that
 MediaPackage has received and sent, response times, and request counts. Metrics are

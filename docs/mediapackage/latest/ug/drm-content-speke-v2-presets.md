@@ -10,15 +10,11 @@ tracks, based on the number of channels for audio tracks, and based on the video
 for video tracks. MediaPackage uses specific combinations of audio and video encryption presets to
 support three different encryption scenarios:
 
-- [Scenario 1:
-  Unencrypted tracks and encrypted tracks](#drm-content-speke-v2-presets-unencrypted-and-encrypted-tracks "#drm-content-speke-v2-presets-unencrypted-and-encrypted-tracks")
-- [Scenario
-  2: Single encryption key for all audio and video tracks](#drm-content-speke-v2-presets-single-encryption-key-for-all-tracks "#drm-content-speke-v2-presets-single-encryption-key-for-all-tracks")
+- [Scenario 1: Unencrypted tracks and encrypted tracks](#drm-content-speke-v2-presets-unencrypted-and-encrypted-tracks "#drm-content-speke-v2-presets-unencrypted-and-encrypted-tracks")
+- [Scenario 2: Single encryption key for all audio and video tracks](#drm-content-speke-v2-presets-single-encryption-key-for-all-tracks "#drm-content-speke-v2-presets-single-encryption-key-for-all-tracks")
 - [Scenario 3: Multiple encryption keys for audio and video tracks](#drm-content-speke-v2-presets-multiple-encryption-keys-for-audio-and-video-tracks "#drm-content-speke-v2-presets-multiple-encryption-keys-for-audio-and-video-tracks")
 
-## Scenario 1:
-
-Unencrypted tracks and encrypted tracks
+## Scenario 1: Unencrypted tracks and encrypted tracks
 
 You can choose _not_ to encrypt the audio or the video tracks by
 selecting the **UNENCRYPTED** preset in the **Video encryption
@@ -27,8 +23,7 @@ select **UNENCRYPTED** for both audio and video presets, because doing so
 would mean that you don’t intend to encrypt any of the tracks at all. Also, you can’t
 combine **UNENCRYPTED** and **SHARED** presets for audio
 and video, because **SHARED** is a special preset. For more information,
-see [Scenario
-2: Single encryption key for all audio and video tracks](#drm-content-speke-v2-presets-single-encryption-key-for-all-tracks "#drm-content-speke-v2-presets-single-encryption-key-for-all-tracks").
+see [Scenario 2: Single encryption key for all audio and video tracks](#drm-content-speke-v2-presets-single-encryption-key-for-all-tracks "#drm-content-speke-v2-presets-single-encryption-key-for-all-tracks").
 
 The following list describes valid combinations of **UNENCRYPTED**
 presets:
@@ -38,9 +33,7 @@ presets:
 - **UNENCRYPTED** for video tracks, and any audio preset with a name
   that starts with `PRESET-AUDIO-`
 
-## Scenario
-
-2: Single encryption key for all audio and video tracks
+## Scenario 2: Single encryption key for all audio and video tracks
 
 The SPEKE Version 2.0 **SHARED** preset uses a single encryption key
 for all audio and video tracks, as in SPEKE Version 1.0. When you select the

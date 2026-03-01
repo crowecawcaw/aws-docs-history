@@ -6,8 +6,7 @@ Create a harvest job to extract a live-to-VOD asset from an encrypted or clear (
 
 To run a harvest job and save the live-to-VOD asset, MediaPackage must have
 permissions to access and write to the Amazon S3 bucket where the asset will be stored.
-To create a role that gives MediaPackage the right permissions, see [Allowing AWS Elemental MediaPackage to access other
-AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
+To create a role that gives MediaPackage the right permissions, see [Allowing AWS Elemental MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
 
 You can use the MediaPackage console, the AWS CLI, or the MediaPackage API to create a
 harvest job. For information about creating a job through the AWS CLI or MediaPackage
@@ -104,8 +103,7 @@ after it has been harvested from the live stream.
 
 1. For **IAM role ARN**, enter the ARN for the IAM role that provides MediaPackage access to read and
    write from your Amazon S3 bucket where the live-to-VOD asset will be stored.
-   This is the role that you created in [Allowing AWS Elemental MediaPackage to access other
-   AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
+   This is the role that you created in [Allowing AWS Elemental MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
 2. For **Amazon S3 bucket name**, enter the bucket where you want
    MediaPackage to store the live-to-VOD asset. The Amazon S3 bucket name must be in the same region
    MediaPackage is harvesting from.

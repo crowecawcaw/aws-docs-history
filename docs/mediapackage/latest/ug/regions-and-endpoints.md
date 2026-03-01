@@ -4,6 +4,9 @@ To reduce latency in your applications, MediaPackage offers a regional endpoint
 for your requests. To view the list of AWS Regions where MediaPackage is available, see
 [MediaPackage Regions](../../../general/latest/gr/mediapackage.md "../../../general/latest/gr/mediapackage.md").
 
+MediaPackage control plane APIs support IPv6 in all supported regions.
+For more information, see [IPv6 support for AWS Elemental MediaPackage control plane](mediapackage-ipv6-support.md "mediapackage-ipv6-support.md").
+
 ## AWS opt-in Regions
 
 Although most AWS Regions are active by default for your AWS account, certain

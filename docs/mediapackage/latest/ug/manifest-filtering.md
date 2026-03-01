@@ -36,8 +36,7 @@ The base query parameter is `aws.manifestfilter`, which is followed by
 optional parameter name and value pairs. To construct the query, append
 `?aws.manifestfilter=` to the end of the MediaPackage endpoint URL,
 followed by parameter names and values. For a list of all of the available
-parameters, see [Manifest filter query
-parameters](#manifest-filter-query-parameters "#manifest-filter-query-parameters").
+parameters, see [Manifest filter query parameters](#manifest-filter-query-parameters "#manifest-filter-query-parameters").
 
 An Apple HLS filter query might look like this:
 
@@ -48,7 +47,7 @@ The query syntax is listed in the following table.
 | Query string component | Description                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `?`                    | A restricted character that marks the beginning of a query.                                                                                                                                                                                                                                                                                                                                                                                          |
-| `aws.manifestfilter=`  | The base query, which is followed by parameters constructed of name<br>and value pairs. For a list of all of the available parameters, see<br>[Manifest filter query<br>parameters](#manifest-filter-query-parameters "#manifest-filter-query-parameters").                                                                                                                                                                                          |
+| `aws.manifestfilter=`  | The base query, which is followed by parameters constructed of name<br>and value pairs. For a list of all of the available parameters, see<br>[Manifest filter query parameters](#manifest-filter-query-parameters "#manifest-filter-query-parameters").                                                                                                                                                                                             |
 | `:`                    | Used to associate the parameter name with a value. For example,<br>``parameter_name`:`value``.                                                                                                                                                                                                                                                                                                                                                       |
 | `;`                    | Separates parameters in a query that contains multiple parameters.<br>For example,<br>``parameter1_name:value`;`parameter2_name:minValue-maxValue``.                                                                                                                                                                                                                                                                                                 |
 | `,`                    | Separates a list of values. For example,<br>`parameter_name:`value1`,`value2`,`value3``.<br>Comma-separated values in a list imply an `OR`<br>relationship.                                                                                                                                                                                                                                                                                          |
@@ -59,9 +58,7 @@ The query syntax is listed in the following table.
 If you use Amazon CloudFront as your CDN, you might need to set additional configurations.
 For more information, see [Configure cache behavior for all endpoints.](../../../AmazonCloudFront/latest/DeveloperGuide/live-streaming.md#live-streaming-with-mediapackage-create-cache-behavior "../../../AmazonCloudFront/latest/DeveloperGuide/live-streaming.md#live-streaming-with-mediapackage-create-cache-behavior").
 
-## Manifest filter query
-
-parameters
+## Manifest filter query parameters
 
 MediaPackage supports the following query parameters.
 

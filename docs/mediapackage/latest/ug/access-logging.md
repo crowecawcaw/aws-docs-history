@@ -14,8 +14,7 @@ Access logging is an optional feature of MediaPackage that's disabled by default
 
 ## Permissions to publish access logs to CloudWatch
 
-When you enable access logging, MediaPackage creates an IAM service-linked role, `AWSServiceRoleForMediaPackage`, in your AWS account. This role allows MediaPackage to publish access logs to CloudWatch. For information about how MediaPackage uses service-linked roles, see [Using Service-Linked Roles for
-MediaPackage](using-service-linked-roles.md "using-service-linked-roles.md").
+When you enable access logging, MediaPackage creates an IAM service-linked role, `AWSServiceRoleForMediaPackage`, in your AWS account. This role allows MediaPackage to publish access logs to CloudWatch. For information about how MediaPackage uses service-linked roles, see [Using Service-Linked Roles for MediaPackage](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ## Enable access logging
 

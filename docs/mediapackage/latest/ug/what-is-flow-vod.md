@@ -31,8 +31,7 @@ device. As with input, AWS scales resources up and down to handle changes
 in traffic. 5. MediaPackage logs activity through Amazon CloudWatch. You can view information
 like the number of content requests and amount of content that MediaPackage
 has delivered. For information about viewing MediaPackage VOD
-metrics in CloudWatch, see [Monitoring AWS Elemental MediaPackage with Amazon CloudWatch
-metrics](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
+metrics in CloudWatch, see [Monitoring AWS Elemental MediaPackage with Amazon CloudWatch metrics](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 Throughout the content input and output processes, MediaPackage detects and
 mitigates potential infrastructure failures before they become a problem for
 viewers.

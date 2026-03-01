@@ -22,7 +22,5 @@
   more information, see [AWS Elemental MediaTailor](https://aws.amazon.com/mediatailor/ "https://aws.amazon.com/mediatailor/").
 - **Amazon Simple Storage Service (Amazon S3)** is a storage service. Pull
   video on demand (VOD) assets from Amazon S3, or store live-to-VOD assets in the
-  bucket of your choice. For more information, see [Getting started with VOD content delivery in
-  MediaPackage](getting-started-vod.md "getting-started-vod.md") and
-  [Getting started with live-to-VOD content delivery
-  in MediaPackage](getting-started-ltov.md "getting-started-ltov.md").
+  bucket of your choice. For more information, see [Getting started with VOD content delivery in MediaPackage](getting-started-vod.md "getting-started-vod.md") and
+  [Getting started with live-to-VOD content delivery in MediaPackage](getting-started-ltov.md "getting-started-ltov.md").

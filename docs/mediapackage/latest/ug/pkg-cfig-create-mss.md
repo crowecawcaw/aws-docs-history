@@ -1,6 +1,4 @@
-# Creating a Microsoft Smooth packaging
-
-configuration
+# Creating a Microsoft Smooth packaging configuration
 
 Create a packaging configuration that formats content for devices that support
 Microsoft Smooth.

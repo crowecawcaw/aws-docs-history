@@ -1,6 +1,4 @@
-# Using Service-Linked Roles for
-
-MediaPackage
+# Using Service-Linked Roles for MediaPackage
 
 AWS Elemental MediaPackage uses IAM [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that's
 linked directly to MediaPackage. Service-linked roles are predefined by MediaPackage and
@@ -22,9 +20,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-Linked Role** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Service-Linked Role Permissions for
-
-MediaPackage
+## Service-Linked Role Permissions for MediaPackage
 
 MediaPackage uses the service-linked role named **AWSServiceRoleForMediaPackage** –
 MediaPackage uses this service-linked role to invoke CloudWatch to create and manage log groups, log streams, and log events.
@@ -45,9 +41,7 @@ specified resources:
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a Service-Linked Role for
-
-MediaPackage
+## Creating a Service-Linked Role for MediaPackage
 
 You don't need to manually create a service-linked role. When you
 enable access logging in the AWS Management Console, the AWS CLI, or the AWS API, MediaPackage
@@ -64,9 +58,7 @@ information, see [Creating a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in the _IAM User Guide_. If you delete this
 service-linked role, you can use this same process to create the role again.
 
-## Editing a Service-Linked Role for
-
-MediaPackage
+## Editing a Service-Linked Role for MediaPackage
 
 MediaPackage does not allow you to edit the AWSServiceRoleForMediaPackage service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
@@ -74,9 +66,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a Service-Linked Role for
-
-MediaPackage
+## Deleting a Service-Linked Role for MediaPackage
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that's not
@@ -99,8 +89,6 @@ operation again.
   service-linked role. For more information, see [Deleting a
   Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported Regions for
-
-MediaPackage Service-Linked Roles
+## Supported Regions for MediaPackage Service-Linked Roles
 
 MediaPackage supports using service-linked roles in all of the regions where the service is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

@@ -49,8 +49,7 @@ Define the encryption values.
 
    To enter a certificate ARN here, you must have already imported the corresponding certificate into AWS Certificate Manager. Then enter the certificate ARN from ACM here.
 
-   For information about content key encryption, see [Preparing and managing certificates for use with
-   content keys](drm-content-key-encryption.md "drm-content-key-encryption.md"). 6. For **Encryption method**, choose **Sample-AES** for Apple HLS FairPlay or choose **AES-128** for Apple HLS AES-128. 7. (Optional) For **Constant initialization vector** enter a
+   For information about content key encryption, see [Preparing and managing certificates for use with content keys](drm-content-key-encryption.md "drm-content-key-encryption.md"). 6. For **Encryption method**, choose **Sample-AES** for Apple HLS FairPlay or choose **AES-128** for Apple HLS AES-128. 7. (Optional) For **Constant initialization vector** enter a
    128-bit, 16-byte hex value represented by a 32-character string,
    to be used with the key for encrypting content. 8. (Optional) For **Key rotation interval**, enter the frequency, in seconds, of key changes for live workflows, in which content is
    streamed real time. The service retrieves content keys before the live content begins

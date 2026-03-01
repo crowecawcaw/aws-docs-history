@@ -1,6 +1,4 @@
-# Working with packaging configurations in
-
-AWS Elemental MediaPackage
+# Working with packaging configurations in AWS Elemental MediaPackage
 
 A packaging configuration defines a single delivery point for an asset. The configuration
 holds all of the information that's needed for AWS Elemental MediaPackage to integrate with a player

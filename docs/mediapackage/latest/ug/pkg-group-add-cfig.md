@@ -1,6 +1,4 @@
-# Adding a packaging configuration to a packaging
-
-group
+# Adding a packaging configuration to a packaging group
 
 To define how AWS Elemental MediaPackage formats outputs from an asset, add a packaging
 configuration to a packaging group.

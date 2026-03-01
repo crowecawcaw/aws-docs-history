@@ -1,6 +1,4 @@
-# Creating a Microsoft Smooth Streaming
-
-endpoint
+# Creating a Microsoft Smooth Streaming endpoint
 
 Create an endpoint that formats content for devices that support Microsoft Smooth
 Streaming.

@@ -21,9 +21,7 @@ To get a high-level view of how MediaPackage and other AWS services work with mo
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for MediaPackage
+## Identity-based policies for MediaPackage
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for MediaPackage
 
-Identity-based policy examples for MediaPackage
+To view examples of MediaPackage identity-based policies, see [Identity-based policy examples for MediaPackage](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of MediaPackage identity-based policies, see [Identity-based policy
-examples for MediaPackage](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within MediaPackage
+## Resource-based policies within MediaPackage
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for MediaPackage
+## Policy actions for MediaPackage
 
 **Supports policy actions:**
 
@@ -105,12 +96,9 @@ action:
 "Action": "mediapackage:Describe*"
 ```
 
-To view examples of MediaPackage identity-based policies, see [Identity-based policy
-examples for MediaPackage](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of MediaPackage identity-based policies, see [Identity-based policy examples for MediaPackage](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for MediaPackage
+## Policy resources for MediaPackage
 
 **Supports policy resources:**
 
@@ -162,12 +150,9 @@ To see a list of MediaPackage resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by AWS Elemental MediaPackage](../../../service-authorization/latest/reference/list_awselementalmediapackage.md#awselementalmediapackage-actions-as-permissions "../../../service-authorization/latest/reference/list_awselementalmediapackage.md#awselementalmediapackage-actions-as-permissions").
 
-To view examples of MediaPackage identity-based policies, see [Identity-based policy
-examples for MediaPackage](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of MediaPackage identity-based policies, see [Identity-based policy examples for MediaPackage](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for MediaPackage
+## Policy condition keys for MediaPackage
 
 **Supports service-specific policy condition keys:**
 
@@ -186,8 +171,7 @@ To see a list of MediaPackage condition keys, see [Condition keys for AWS Elemen
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by AWS Elemental MediaPackage](../../../service-authorization/latest/reference/list_awselementalmediapackage.md#awselementalmediapackage-actions-as-permissions "../../../service-authorization/latest/reference/list_awselementalmediapackage.md#awselementalmediapackage-actions-as-permissions").
 
-To view examples of MediaPackage identity-based policies, see [Identity-based policy
-examples for MediaPackage](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of MediaPackage identity-based policies, see [Identity-based policy examples for MediaPackage](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in MediaPackage
 
@@ -215,9 +199,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with MediaPackage
+## Using temporary credentials with MediaPackage
 
 **Supports temporary credentials:**
 
@@ -229,9 +211,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for MediaPackage
+## Cross-service principal permissions for MediaPackage
 
 **Supports forward access sessions (FAS):**
 
@@ -240,9 +220,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-MediaPackage
+## Service roles for MediaPackage
 
 **Supports service roles:**
 
@@ -257,20 +235,15 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break MediaPackage functionality.
 Edit service roles only when MediaPackage provides guidance to do so.
 
-### Choosing an IAM role
-
-in MediaPackage
+### Choosing an IAM role in MediaPackage
 
 When you create an asset resource in MediaPackage, you must choose a role to
 allow MediaPackage to access Amazon S3 on your behalf. If you previously created a
 service role or service-linked role, MediaPackage provides you with a list of
 roles to choose from. It's important to choose a role that allows access to read from
-the Amazon S3 bucket and retrieve content. For more information, see [Allowing AWS Elemental MediaPackage to access other
-AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
+the Amazon S3 bucket and retrieve content. For more information, see [Allowing AWS Elemental MediaPackage to access other AWS services](setting-up-create-trust-rel.md "setting-up-create-trust-rel.md").
 
-## Service-linked
-
-roles for MediaPackage
+## Service-linked roles for MediaPackage
 
 **Supports service-linked roles:**
 

@@ -120,8 +120,7 @@ MediaPackage.
 
 MediaPackage creates two input URLs on every channel so that you can
 create input redundancy by sending two identical streams to the same
-channel. For information about how input redundancy works, see [Live input redundancy AWS Elemental MediaPackage processing
-flow](what-is-flow-ir.md "what-is-flow-ir.md").
+channel. For information about how input redundancy works, see [Live input redundancy AWS Elemental MediaPackage processing flow](what-is-flow-ir.md "what-is-flow-ir.md").
 
 **Subtitles**
 

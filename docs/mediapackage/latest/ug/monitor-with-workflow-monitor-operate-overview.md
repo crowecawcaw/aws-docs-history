@@ -1,6 +1,4 @@
-# Workflow monitor
-
-overview
+# Workflow monitor overview
 
 The **Overview** section of the workflow monitor console is a dashboard
 that provides at-a-glance information about your signal maps. In the overview

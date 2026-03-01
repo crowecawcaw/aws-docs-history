@@ -19,8 +19,7 @@ available stream formats:
 ###### Topics
 
 - [Creating an endpoint](endpoints-create.md "endpoints-create.md")
-- [Viewing all endpoints associated with a
-  channel](endpoints-view-all.md "endpoints-view-all.md")
+- [Viewing all endpoints associated with a channel](endpoints-view-all.md "endpoints-view-all.md")
 - [Viewing a single endpoint](endpoints-view-one.md "endpoints-view-one.md")
 - [Editing an endpoint](endpoints-edit.md "endpoints-edit.md")
 - [Deleting an endpoint](endpoints-delete.md "endpoints-delete.md")

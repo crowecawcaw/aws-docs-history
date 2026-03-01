@@ -1,6 +1,4 @@
-# Creating a DASH packaging
-
-configuration
+# Creating a DASH packaging configuration
 
 Create a packaging configuration that formats content for devices that support
 DASH-ISO.

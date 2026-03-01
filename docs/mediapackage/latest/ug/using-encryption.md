@@ -27,9 +27,7 @@ using SPEKE for MediaPackage.
 
 - [Choosing the right SPEKE Version](encryption-choosing-speke-version.md "encryption-choosing-speke-version.md")
 - [Deploying SPEKE](encryption-deploying-speke.md "encryption-deploying-speke.md")
-- [Preparing and managing certificates for use with
-  content keys](drm-content-key-encryption.md "drm-content-key-encryption.md")
+- [Preparing and managing certificates for use with content keys](drm-content-key-encryption.md "drm-content-key-encryption.md")
 - [Understanding key rotation behavior](drm-content-key-rotation.md "drm-content-key-rotation.md")
 - [SPEKE Version 2.0 presets](drm-content-speke-v2-presets.md "drm-content-speke-v2-presets.md")
-- [Removing tags from the parent manifest from
-  AWS Elemental MediaPackage](drm-query-param.md "drm-query-param.md")
+- [Removing tags from the parent manifest from AWS Elemental MediaPackage](drm-query-param.md "drm-query-param.md")

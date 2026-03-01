@@ -32,5 +32,4 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 ###### Topics
 
 - [Implementing DRM with AWS Elemental MediaPackage](data-protection-encrypt.md "data-protection-encrypt.md")
-- [Implementing CDN authorization with
-  AWS Elemental MediaPackage](encryption-static-key-set-up.md "encryption-static-key-set-up.md")
+- [Implementing CDN authorization with AWS Elemental MediaPackage](encryption-static-key-set-up.md "encryption-static-key-set-up.md")
