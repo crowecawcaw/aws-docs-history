@@ -14,9 +14,7 @@ Verify the status of the service link through Amazon CloudWatch metrics:
 3. If the service link is impaired, complete the steps in the following
    sections to resolve and reestablish the connection.
 
-## Step 1. Check physical
-
-connectivity
+## Step 1. Check physical connectivity
 
 1. Verify you are using the provided QSFP breakout cable. If issues persist, test with a different QSFP breakout cable if
    available.
@@ -28,9 +26,7 @@ connectivity
    the switch.
 5. Complete a general switch-sanity check such as, checking link lights.
 
-## Step 2. Test the Outposts server connection to
-
-AWS
+## Step 2. Test the Outposts server connection to AWS
 
 [Create a serial connection](../install-server/authorize-2.md "../install-server/authorize-2.md") to the Outposts server and perform the following
 tests:

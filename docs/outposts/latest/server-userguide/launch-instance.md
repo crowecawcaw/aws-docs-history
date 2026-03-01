@@ -69,8 +69,7 @@ you launch the instance, just as you do for instances in an Availability Zone su
   network.
 - To use block data or boot volumes backed by compatible third-party storage, you
   must provision and configure these volumes for use with EC2 instances on Outposts.
-  For more information, see [Third-party block storage on
-  Outposts servers](outpost-third-party-block-storage.md "outpost-third-party-block-storage.md").
+  For more information, see [Third-party block storage on Outposts servers](outpost-third-party-block-storage.md "outpost-third-party-block-storage.md").
 - To connect an instance in an Outpost subnet to your on-premises
   network, you must add a [local network
   interface](local-network-interface.md "local-network-interface.md"), as described in the following procedure.

@@ -108,18 +108,14 @@ Outpost back to the AWS Region. For Outposts service link connectivity, you can 
 PAT at your firewall or edge router. Service link establishment is always initiated from the
 Outpost.
 
-### Service link maximum transmission unit
-
-(MTU)
+### Service link maximum transmission unit (MTU)
 
 The network must support 1500-bytes MTU between the Outpost and the service link
 endpoints in the parent AWS Region. For more information about the service link, see
 [AWS Outposts connectivity to
 AWS Regions](region-connectivity.md "region-connectivity.md") in the _AWS Outposts user guide for servers_.
 
-### Service link bandwidth
-
-recommendations
+### Service link bandwidth recommendations
 
 For an optimal experience and resiliency, AWS requires that you
 use redundant connectivity of at least 500 Mbps and a maximum of 175 ms round trip latency for the service link connection to the AWS

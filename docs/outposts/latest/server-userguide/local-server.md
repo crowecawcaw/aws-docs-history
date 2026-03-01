@@ -81,9 +81,7 @@ The following example shows how to configure VLAN tagging for your local network
 interface on Amazon Linux 2023. If you are using another Linux distribution, see the
 documentation for your Linux distribution about configuring VLAN tagging.
 
-###### Example: To configure VLAN tagging for your local network interface on Amazon Linux 2023
-
-and Amazon Linux 2
+###### Example: To configure VLAN tagging for your local network interface on Amazon Linux 2023 and Amazon Linux 2
 
 1. Ensure that the 8021q module is loaded into the kernel. If not, load it using the
    `modprobe` command.

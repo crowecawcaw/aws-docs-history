@@ -1,6 +1,4 @@
-# Third-party block storage on
-
-Outposts servers
+# Third-party block storage on Outposts servers
 
 With Outposts servers, you can leverage existing data you're stored on
 third-party storage arrays. You can specify external block data volumes and external block boot

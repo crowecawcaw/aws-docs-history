@@ -1,6 +1,4 @@
-# Add a local network interface to an EC2 instance in an Outposts
-
-subnet
+# Add a local network interface to an EC2 instance in an Outposts subnet
 
 You can add a local network interface to an Amazon EC2 instance on an Outposts subnet during or
 after launch. You do so by adding a secondary network interface to the instance, using the

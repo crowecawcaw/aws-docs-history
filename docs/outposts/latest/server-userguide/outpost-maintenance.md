@@ -19,10 +19,8 @@ network storage device in your on-premises network.
 - [Update contact details](#outpost-owner-update "#outpost-owner-update")
 - [Hardware maintenance](#outpost-hardware-maintenance-events "#outpost-hardware-maintenance-events")
 - [Firmware updates](#outpost-firmware-updates "#outpost-firmware-updates")
-- [Best practices for power and network
-  events](#outpost-power-network-events "#outpost-power-network-events")
-- [Cryptographically shred server
-  data](#outpost-server-cryptographically-shred-data "#outpost-server-cryptographically-shred-data")
+- [Best practices for power and network events](#outpost-power-network-events "#outpost-power-network-events")
+- [Cryptographically shred server data](#outpost-server-cryptographically-shred-data "#outpost-server-cryptographically-shred-data")
 
 ## Update contact details
 
@@ -62,9 +60,7 @@ Updating the Outpost firmware does not typically affect the instances on your Ou
 the rare case that we need to reboot the Outpost equipment to install an update, you will
 receive an instance retirement notice for any instances running on that capacity.
 
-## Best practices for power and network
-
-events
+## Best practices for power and network events
 
 As stated in the [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/") for AWS Outposts customers, the facility where the Outposts equipment
 is located must meet the minimum [power](../userguide/outposts-requirements.md#facility-power "../userguide/outposts-requirements.md#facility-power") and
@@ -154,9 +150,7 @@ Outposts is operating normally after a planned or unplanned power or network eve
 - If you have questions or need more information, see [Creating a
   support case](../../../awssupport/latest/user/case-management.md#creating-a-support-case "../../../awssupport/latest/user/case-management.md#creating-a-support-case") in the _AWS Support User Guide_.
 
-## Cryptographically shred server
-
-data
+## Cryptographically shred server data
 
 The Nitro Security Key (NSK) is required to decrypt data on the server. When you return
 the server to AWS, either because you are replacing the server or discontinuing the service,

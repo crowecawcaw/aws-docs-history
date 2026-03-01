@@ -155,9 +155,7 @@ You are redirected to the AWS RAM console to finish sharing the Outpost using th
 procedure. To share a local gateway route table that you own, use the following procedure as
 well.
 
-###### To share an Outpost or local gateway route table that you own using the AWS RAM
-
-console
+###### To share an Outpost or local gateway route table that you own using the AWS RAM console
 
 See [Creating a Resource Share](../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-create "../../../ram/latest/userguide/working-with-sharing.md#working-with-sharing-create") in the _AWS RAM User Guide_.
 

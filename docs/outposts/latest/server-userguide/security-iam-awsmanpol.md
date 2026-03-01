@@ -15,16 +15,12 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AWSOutpostsServiceRolePolicy
+## AWS managed policy: AWSOutpostsServiceRolePolicy
 
 This policy is attached to a service-linked role that allows AWS Outposts to perform
 actions on your behalf. For more information, see [Service-linked roles](using-service-linked-roles.md "using-service-linked-roles.md").
 
-## AWS managed policy:
-
-AWSOutpostsAuthorizeServerPolicy
+## AWS managed policy: AWSOutpostsAuthorizeServerPolicy
 
 Use this policy to grant the permissions required to authorize Outposts server hardware in your
 on-premises network.
@@ -50,9 +46,7 @@ JSON
 
 ```
 
-## AWS Outposts updates to AWS managed
-
-policies
+## AWS Outposts updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Outposts since this service
 began tracking these changes.

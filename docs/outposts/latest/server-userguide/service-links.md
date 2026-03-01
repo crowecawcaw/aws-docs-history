@@ -24,9 +24,7 @@ managed by AWS. The service link is used for the following traffic:
 - Traffic between the Outpost and any associated VPCs, including customer data plane
   traffic.
 
-## Service link maximum transmission unit (MTU)
-
-requirements
+## Service link maximum transmission unit (MTU) requirements
 
 The maximum transmission unit (MTU) of a network connection is the size, in bytes, of
 the largest permissible packet that can be passed over the connection.
@@ -39,9 +37,7 @@ Note the following:
   an MTU of 1300 bytes, which is lower than the required MTU of 1500 bytes due to packet
   overheads.
 
-## Service link bandwidth
-
-recommendations
+## Service link bandwidth recommendations
 
 For an optimal experience and resiliency, AWS requires that you use
 redundant connectivity of at least 500 Mbps and a maximum of 175 ms round trip latency for

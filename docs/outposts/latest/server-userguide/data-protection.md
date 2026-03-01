@@ -33,5 +33,4 @@ to it is scrubbed (set to zero) by the hypervisor before it is allocated to a ne
 block of storage is reset.
 
 Destroying the Nitro Security Key cryptographically shreds the data on your Outpost.
-For more information, see [Cryptographically shred server
-data](outpost-maintenance.md#outpost-server-cryptographically-shred-data "outpost-maintenance.md#outpost-server-cryptographically-shred-data").
+For more information, see [Cryptographically shred server data](outpost-maintenance.md#outpost-server-cryptographically-shred-data "outpost-maintenance.md#outpost-server-cryptographically-shred-data").
