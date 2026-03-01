@@ -262,8 +262,7 @@ For example, if your objective is to maximize revenue from clicks, Amazon Person
 expensive recommendations by the revenue from all of the recommended items the user clicked. Amazon Personalize then returns a normalized average of all user scores. The closer the `average_rewards_at_k` is to 1, the more revenue on
 average you can expect to gain per user from recommendations.
 
-For more information, see [Optimizing a solution for an additional
-objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
+For more information, see [Optimizing a solution for an additional objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
 
 **normalized_discounted_cumulative_gain_with_event_weights_at_k**
 When you create a solution version (train a model) for a solution with an events configuration, Amazon Personalize

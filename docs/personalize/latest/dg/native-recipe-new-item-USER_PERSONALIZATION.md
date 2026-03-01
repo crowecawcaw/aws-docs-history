@@ -18,14 +18,10 @@ item and user metadata in your Items and Users datasets. For more information ab
 - [Recipe features](#user-personalization-features "#user-personalization-features")
 - [Required and optional datasets](#user-personalization-datasets "#user-personalization-datasets")
 - [Properties and hyperparameters](#bandit-hyperparameters "#bandit-hyperparameters")
-- [Training with the
-  User-Personalization recipe (console)](#training-user-personalization-recipe-console "#training-user-personalization-recipe-console")
-- [Training with the
-  User-Personalization recipe (Python SDK)](#training-user-personalization-recipe "#training-user-personalization-recipe")
-- [Getting
-  recommendations and recording impressions (SDK for Python (Boto3))](#user-personalization-get-recommendations-recording-impressions "#user-personalization-get-recommendations-recording-impressions")
-- [Sample Jupyter
-  notebook](#bandits-sample-notebooks "#bandits-sample-notebooks")
+- [Training with the User-Personalization recipe (console)](#training-user-personalization-recipe-console "#training-user-personalization-recipe-console")
+- [Training with the User-Personalization recipe (Python SDK)](#training-user-personalization-recipe "#training-user-personalization-recipe")
+- [Getting recommendations and recording impressions (SDK for Python (Boto3))](#user-personalization-get-recommendations-recording-impressions "#user-personalization-get-recommendations-recording-impressions")
+- [Sample Jupyter notebook](#bandits-sample-notebooks "#bandits-sample-notebooks")
 
 ## Recipe features
 
@@ -78,16 +74,14 @@ The User-Personalization recipe has the following properties:
 - Algorithm ARN –
   `arn:aws:personalize:::algorithm/aws-user-personalization`
 
-For more information, see [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+For more information, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 
 The following table describes the hyperparameters for the User-Personalization recipe.
 A _hyperparameter_ is an algorithm parameter that you
 can adjust to improve model performance. Algorithm hyperparameters control how the model
 performs. Featurization hyperparameters control how to filter the data to use in
 training. The process of choosing the best value for a hyperparameter is called
-hyperparameter optimization (HPO). For more information, see [Hyperparameters and
-HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
+hyperparameter optimization (HPO). For more information, see [Hyperparameters and HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
 
 The table provides the following information for each hyperparameter:
 
@@ -110,9 +104,7 @@ The table provides the following information for each hyperparameter:
 | `exploration_weight`                                        | Determines how frequently recommendations include items with less item interaction data or relevance. The closer the value is to 1.0,<br>the more exploration. At zero, no exploration occurs and recommendations are based on current data (relevance). For more information<br>see [CampaignConfig](API_CampaignConfig.md "API_CampaignConfig.md").<br>Default value: 0.3<br>Range: [0.0, 1.0]<br>Value type: Float<br>HPO tunable: No                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `exploration_item_age_cut_off`                              | Specify the maximum item age in days since<br>the latest interaction across all items in the Item interactions dataset. This defines the scope of item exploration based on<br>item age. Amazon Personalize determines an item's age based on its creation timestamp or, if creation timestamp data is missing,<br>item interaction data. For<br>more information how Amazon Personalize determines an item's age, see [Creation timestamp data](items-datasets.md#creation-timestamp-data "items-datasets.md#creation-timestamp-data").<br>To increase the items Amazon Personalize considers<br>during exploration, enter a greater value. The minimum is 1 day and the default is 30 days. Recommendations might include items<br>that are older than the item age cut off you specify. This is because these items are<br>relevant to the user and exploration didn't identify them.<br>Default value: 30.0<br>Range: Positive floats<br>Value type: Float<br>HPO tunable: No              |
 
-## Training with the
-
-User-Personalization recipe (console)
+## Training with the User-Personalization recipe (console)
 
 To use the User-Personalization recipe to generate recommendations in
 the console, first train a new solution version using the recipe. Then deploy a campaign
@@ -191,8 +183,7 @@ and get recommendations as follows:
 
 4. Choose **Create campaign**.
 5. On the campaign details page, when the campaign status is **Active**, you can use the campaign to get
-   recommendations and record impressions. For more information, see [Step 5: Get
-   recommendations](getting-started-console.md#getting-started-console-get-recommendations "getting-started-console.md#getting-started-console-get-recommendations") in "Getting
+   recommendations and record impressions. For more information, see [Step 5: Get recommendations](getting-started-console.md#getting-started-console-get-recommendations "getting-started-console.md#getting-started-console-get-recommendations") in "Getting
    Started."
 
 Amazon Personalize automatically updates your latest solution version
@@ -209,9 +200,7 @@ page of the console or by using the [UpdateCampaign](API_UpdateCampaign.md "API_
 
 Amazon Personalize doesn't automatically update solution versions you created before November 17, 2020.
 
-## Training with the
-
-User-Personalization recipe (Python SDK)
+## Training with the User-Personalization recipe (Python SDK)
 
 When you have created a dataset group and uploaded your dataset(s) with impressions data, you can train a
 solution with the User-Personalization recipe.
@@ -305,9 +294,7 @@ page of the console or by using the [UpdateCampaign](API_UpdateCampaign.md "API_
 
 Amazon Personalize doesn't automatically update solution versions you created before November 17, 2020.
 
-## Getting
-
-recommendations and recording impressions (SDK for Python (Boto3))
+## Getting recommendations and recording impressions (SDK for Python (Boto3))
 
 When your campaign is created, you can use it to get recommendations for a user and
 record impressions. For information on getting batch recommendations using the AWS SDKs see [Creating a batch inference job (AWS SDKs)](creating-batch-inference-job.md#batch-sdk "creating-batch-inference-job.md#batch-sdk").
@@ -366,9 +353,7 @@ personalize_events.put_events(
 )
 ```
 
-## Sample Jupyter
-
-notebook
+## Sample Jupyter notebook
 
 For a sample Jupyter notebook that shows how to use the User-Personalization recipe,
 see [User Personalization with Exploration](https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/user_personalization/user-personalization-with-exploration.ipynb "https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/user_personalization/user-personalization-with-exploration.ipynb").

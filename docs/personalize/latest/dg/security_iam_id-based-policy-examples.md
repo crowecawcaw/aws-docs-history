@@ -1,6 +1,4 @@
-# Identity-based policy
-
-examples for Amazon Personalize
+# Identity-based policy examples for Amazon Personalize
 
 By default, users and roles don't have permission to create or modify Amazon Personalize
 resources. To grant users permission to perform actions on the
@@ -14,21 +12,14 @@ For details about actions and resource types defined by Amazon Personalize, incl
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [AWS managed policies](#using-managed-policies "#using-managed-policies")
-- [Using the Amazon Personalize
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Allowing full access to
-  Amazon Personalize resources](#security_iam_id-based-policy-examples-full-access "#security_iam_id-based-policy-examples-full-access")
-- [Allowing read-only
-  access to Amazon Personalize resources](#security_iam_id-based-policy-examples-read-only "#security_iam_id-based-policy-examples-read-only")
+- [Using the Amazon Personalize console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Allowing full access to Amazon Personalize resources](#security_iam_id-based-policy-examples-full-access "#security_iam_id-based-policy-examples-full-access")
+- [Allowing read-only access to Amazon Personalize resources](#security_iam_id-based-policy-examples-read-only "#security_iam_id-based-policy-examples-read-only")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Personalize resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -90,9 +81,7 @@ actions:
 - View metrics and metric statistics.
 - Set metric based alarms.
 
-## Using the Amazon Personalize
-
-console
+## Using the Amazon Personalize console
 
 To access the Amazon Personalize console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Amazon Personalize resources
@@ -104,9 +93,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that they're trying to perform.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -146,9 +133,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Allowing full access to
-
-Amazon Personalize resources
+## Allowing full access to Amazon Personalize resources
 
 The following example gives an IAM user in your AWS account full access to all
 Amazon Personalize resources and actions.
@@ -171,9 +156,7 @@ JSON
 
 ```
 
-## Allowing read-only
-
-access to Amazon Personalize resources
+## Allowing read-only access to Amazon Personalize resources
 
 In this example, you grant an IAM user in your AWS account read-only access to
 your Amazon Personalize resources, including Amazon Personalize datasets, dataset groups, solutions,

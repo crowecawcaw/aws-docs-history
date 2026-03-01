@@ -1,6 +1,4 @@
-# Trending-Now
-
-recipe
+# Trending-Now recipe
 
 The Trending-Now recipe (aws-trending-now) generates recommendations for items that are rapidly
 becoming more popular with your users. You might use the Trending-Now recipe if items gaining in popularity are
@@ -33,15 +31,11 @@ based on data in these datasets. For more information, see [Filtering recommenda
 
 ###### Topics
 
-- [Properties and
-  hyperparameters](#trending-now-hyperparameters "#trending-now-hyperparameters")
+- [Properties and hyperparameters](#trending-now-hyperparameters "#trending-now-hyperparameters")
 - [Creating a solution (SDK for Python (Boto3))](#trending-now-python "#trending-now-python")
-- [Sample Jupyter
-  notebook](#trending-now-sample-notebooks "#trending-now-sample-notebooks")
+- [Sample Jupyter notebook](#trending-now-sample-notebooks "#trending-now-sample-notebooks")
 
-## Properties and
-
-hyperparameters
+## Properties and hyperparameters
 
 The Trending-Now recipe has the following properties:
 
@@ -53,13 +47,11 @@ The Trending-Now recipe has the following properties:
 - Algorithm ARN –
   `arn:aws:personalize:::algorithm/aws-trending-now-custom`
 
-For more information, see [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+For more information, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 
 The following table describes the hyperparameters for the Trending-Now recipe. A _hyperparameter_ is an algorithm parameter that you can adjust to improve model performance. Algorithm
 hyperparameters control how the model performs. The process of choosing the best value for a hyperparameter is called
-hyperparameter optimization (HPO). For more information, see [Hyperparameters and
-HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
+hyperparameter optimization (HPO). For more information, see [Hyperparameters and HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
 
 The table also provides the following information for each
 hyperparameter:
@@ -102,9 +94,7 @@ create_solution_response = personalize_client.create_solution(
 print(create_solution_response['solutionArn'])
 ```
 
-## Sample Jupyter
-
-notebook
+## Sample Jupyter notebook
 
 For a sample Jupyter notebook that shows how to use the Trending-Now recipe,
 see [trending_now_example.ipynb](https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/trending_now/trending_now_example.ipynb "https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/trending_now/trending_now_example.ipynb") in the Amazon Personalize samples GitHub repository.

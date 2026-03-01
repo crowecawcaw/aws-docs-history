@@ -7,8 +7,7 @@ corresponding schema is shown, along with an example row from the Item interacti
 Your application generates a unique `sessionId` when a user first visits your website or uses your
 application. You must use the same `sessionId` in all events throughout the session. Amazon Personalize uses the
 `sessionId` to associate events with the user before they log in (is anonymous). For more information, see
-[Recording events for
-anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
+[Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
 
 The event list is an array of [Event](API_UBS_Event.md "API_UBS_Event.md") objects. An
 `eventType` is required for each event. If you don't have event type data, you can provide a placeholder value to satisfy the requirement.

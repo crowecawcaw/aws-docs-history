@@ -1,6 +1,4 @@
-# Configuring permissions when resources are in the same
-
-account
+# Configuring permissions when resources are in the same account
 
 If your OpenSearch Service and
 Amazon Personalize resources are in the same account, you must create an IAM service role for OpenSearch Service. This role must have permission to get

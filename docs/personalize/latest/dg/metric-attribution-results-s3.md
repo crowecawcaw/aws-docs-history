@@ -32,8 +32,7 @@ COUNTWATCHES,WATCH,100.0,samplecount,arn:aws:personalize:us-west-2:acctNum:recom
 To publish metrics to an Amazon S3 bucket with the Amazon Personalize console, create a dataset import job and choose
 **Publish metrics for this import job** in **Publish event metrics to S3**.
 
-For step-by-step instructions, see [Creating a dataset import job
-(console)](bulk-data-import-step.md#bulk-data-import-console "bulk-data-import-step.md#bulk-data-import-console").
+For step-by-step instructions, see [Creating a dataset import job (console)](bulk-data-import-step.md#bulk-data-import-console "bulk-data-import-step.md#bulk-data-import-console").
 
 ## Publishing metrics for bulk data to Amazon S3 (AWS CLI)
 

@@ -53,8 +53,7 @@ Amazon Personalize dataset and use Amazon Personalize to analyze it. For more in
 
 ### VIDEO_ON_DEMAND domain requirements
 
-An item metadata is required for some use cases (see [VIDEO_ON_DEMAND use
-cases](VIDEO_ON_DEMAND-use-cases.md "VIDEO_ON_DEMAND-use-cases.md")). When optional,
+An item metadata is required for some use cases (see [VIDEO_ON_DEMAND use cases](VIDEO_ON_DEMAND-use-cases.md "VIDEO_ON_DEMAND-use-cases.md")). When optional,
 we still recommend importing item metadata to get the most relevant recommendations. If you import item metadata, your data must include the following columns:
 
 - ITEM_ID
@@ -189,8 +188,7 @@ Item metadata related objective in addition to maximum relevance, such as maximi
 solution, you choose the numerical metadata column in your Items dataset that is related to your objective. For example, you
 might choose a VIDEO_LENGTH column to maximize streaming minutes or a PRICE column to maximize revenue.
 
-For more information, see [Optimizing a solution for an additional
-objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
+For more information, see [Optimizing a solution for an additional objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
 
 ## Non-categorical string data
 

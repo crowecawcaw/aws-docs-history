@@ -1,6 +1,4 @@
-# Users dataset schema requirements
-
-(custom)
+# Users dataset schema requirements (custom)
 
 A _Users dataset_ stores metadata
 about your users. This might include information such as age, gender, and
@@ -28,16 +26,13 @@ value with more than 1000 characters, your dataset import job will fail.
 For more information on minimum requirements and maximum data limits
 for a Users dataset, see [Service quotas](limits.md#limits-table "limits.md#limits-table").
 
-## Users schema example
-
-(custom)
+## Users schema example (custom)
 
 The following example shows how to structure a Users schema. The
 `USER_ID` field is required and the `AGE` and
 `GENDER` fields are metadata. At least one metadata field
 is required and you can add at most 25 metadata
-fields. For information about schema requirements see [Custom dataset and schema
-requirements](custom-datasets-and-schemas.md#dataset-requirements "custom-datasets-and-schemas.md#dataset-requirements").
+fields. For information about schema requirements see [Custom dataset and schema requirements](custom-datasets-and-schemas.md#dataset-requirements "custom-datasets-and-schemas.md#dataset-requirements").
 
 ```
 {

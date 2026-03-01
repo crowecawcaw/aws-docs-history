@@ -7,8 +7,7 @@ in the console.
 ###### Note
 
 The solution backing the campaign must have been created using a recipe of type
-PERSONALIZED_RANKING. For more information, see [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+PERSONALIZED_RANKING. For more information, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 
 ###### Topics
 

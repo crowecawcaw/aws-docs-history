@@ -5,8 +5,7 @@ For information about the types of item data you can import into Amazon Personal
 [Item metadata](items-datasets.md "items-datasets.md"). For information about general Amazon Personalize schema requirements, such as formatting requirements and available field data types, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md "how-it-works-dataset-schema.md"). These requirements
 apply to all schemas, regardless of domain.
 
-An Items dataset is required for some use cases (see [VIDEO_ON_DEMAND use
-cases](VIDEO_ON_DEMAND-use-cases.md "VIDEO_ON_DEMAND-use-cases.md")). When optional,
+An Items dataset is required for some use cases (see [VIDEO_ON_DEMAND use cases](VIDEO_ON_DEMAND-use-cases.md "VIDEO_ON_DEMAND-use-cases.md")). When optional,
 we still recommend creating one to get the most relevant recommendations. If you create an Items dataset, your schema must include the following fields:
 
 - ITEM_ID

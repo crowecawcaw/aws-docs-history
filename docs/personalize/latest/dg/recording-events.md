@@ -24,19 +24,14 @@ How you record real-time events depends on the type of interactions data you are
 
 ###### Topics
 
-- [How real-time
-  events influence recommendations](#recorded-events-influence-recommendations "#recorded-events-influence-recommendations")
+- [How real-time events influence recommendations](#recorded-events-influence-recommendations "#recorded-events-influence-recommendations")
 - [Recording real-time item interaction events](recording-item-interaction-events.md "recording-item-interaction-events.md")
 - [Recording real-time action interaction events](recording-action-interaction-events.md "recording-action-interaction-events.md")
-- [Recording events for
-  anonymous users](#recording-anonymous-user-events "#recording-anonymous-user-events")
+- [Recording events for anonymous users](#recording-anonymous-user-events "#recording-anonymous-user-events")
 - [Third-party event tracking services](#record-events-third-parties "#record-events-third-parties")
-- [Sample
-  implementations](#recording-events-sample-architecture "#recording-events-sample-architecture")
+- [Sample implementations](#recording-events-sample-architecture "#recording-events-sample-architecture")
 
-## How real-time
-
-events influence recommendations
+## How real-time events influence recommendations
 
 If your recipe supports real-time personalization, after you create a recommender or custom campaign,
 Amazon Personalize uses new recorded event
@@ -52,15 +47,12 @@ data for existing items or actions within seconds of import. The following use c
 
 If you use the Trending-Now recipe, Amazon Personalize automatically considers items from new events data over configurable intervals. You don't have
 to create a new solution version. For more information,
-see [Trending-Now
-recipe](native-recipe-trending-now.md "native-recipe-trending-now.md").
+see [Trending-Now recipe](native-recipe-trending-now.md "native-recipe-trending-now.md").
 
 If the item, action, or user in the event is new, how the Amazon Personalize uses the data depends on your use case or recipe.
 For more information, see [Updating data in datasets after training](updating-datasets.md "updating-datasets.md").
 
-## Recording events for
-
-anonymous users
+## Recording events for anonymous users
 
 ###### Important
 
@@ -121,9 +113,7 @@ your application and send it to Amazon Personalize.
   AWS Partner Network (APN) blog post: [Measuring the Effectiveness of Personalization with Amplitude and Amazon Personalize](https://aws.amazon.com/blogs/apn/measuring-the-effectiveness-of-personalization-with-amplitude-and-amazon-personalize/ "https://aws.amazon.com/blogs/apn/measuring-the-effectiveness-of-personalization-with-amplitude-and-amazon-personalize/").
 - **Segment** – You can use Segment to send your data to Amazon Personalize. For more information on integrating Segment with Amazon Personalize, see [Amazon Personalize Destination](https://segment.com/docs/connections/destinations/catalog/amazon-personalize/ "https://segment.com/docs/connections/destinations/catalog/amazon-personalize/").
 
-## Sample
-
-implementations
+## Sample implementations
 
 For a sample Jupyter notebook that shows how to use Amazon Personalize to react to
 real-time behavior of users using an event tracker and the [PutEvents](API_UBS_PutEvents.md "API_UBS_PutEvents.md")

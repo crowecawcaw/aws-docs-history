@@ -66,8 +66,7 @@ recipe.
   guidelines and requirements, see [Automatic updates](use-case-recipe-features.md#automatic-updates "use-case-recipe-features.md#automatic-updates").
 - If you use Trending-Now, Amazon Personalize automatically identifies the top trending items in your interactions data over a configurable interval of time.
   Trending-Now can recommend items added since the last training through bulk or streaming interactions data. Your training frequency should still be at least weekly. For more information,
-  see [Trending-Now
-  recipe](native-recipe-trending-now.md "native-recipe-trending-now.md").
+  see [Trending-Now recipe](native-recipe-trending-now.md "native-recipe-trending-now.md").
 - If you don't use a recipe with automatic updates or the Trending-Now recipe, Amazon Personalize considers new items
   for recommendations only after the next training. For example, if you use the Similar-Items recipe, and you add new
   items daily, you must use a daily training frequency for these items to appear in recommendations that same day.

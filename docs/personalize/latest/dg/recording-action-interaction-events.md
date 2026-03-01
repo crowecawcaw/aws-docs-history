@@ -26,15 +26,12 @@ An action interaction event must have an event type attribute, which can be one 
 
 ###### Topics
 
-- [Requirements for recording
-  action interaction events](#recording-action-interaction-requirements "#recording-action-interaction-requirements")
+- [Requirements for recording action interaction events](#recording-action-interaction-requirements "#recording-action-interaction-requirements")
 - [Finding the ID of your action interaction event tracker](action-interaction-tracker-id.md "action-interaction-tracker-id.md")
 - [Recording a single action interaction event](record-single-action-interaction.md "record-single-action-interaction.md")
 - [Recording multiple action interaction events](recording-multiple-action-interactions.md "recording-multiple-action-interactions.md")
 
-## Requirements for recording
-
-action interaction events
+## Requirements for recording action interaction events
 
 To record real-time action interaction events, you need the following:
 

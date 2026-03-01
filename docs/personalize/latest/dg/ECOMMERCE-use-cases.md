@@ -19,12 +19,9 @@ here for the recipe ARN.
 
 - [Most viewed](#most-viewed-use-case "#most-viewed-use-case")
 - [Best sellers](#best-sellers-use-case "#best-sellers-use-case")
-- [Frequently bought
-  together](#frequently-bought-together-use-case "#frequently-bought-together-use-case")
-- [Customers who viewed X
-  also viewed](#customers-also-viewed-use-case "#customers-also-viewed-use-case")
-- [Recommended for
-  you](#recommended-for-you-use-case "#recommended-for-you-use-case")
+- [Frequently bought together](#frequently-bought-together-use-case "#frequently-bought-together-use-case")
+- [Customers who viewed X also viewed](#customers-also-viewed-use-case "#customers-also-viewed-use-case")
+- [Recommended for you](#recommended-for-you-use-case "#recommended-for-you-use-case")
 
 ## Most viewed
 
@@ -62,9 +59,7 @@ Get recommendations for popular items based on how many times your customers pur
 - **Required event types:** At
   minimum, 1000 `Purchase` events.
 
-## Frequently bought
-
-together
+## Frequently bought together
 
 Get recommendations for items that customers frequently buy together
 along with an item that you specify.
@@ -83,9 +78,7 @@ along with an item that you specify.
 - **Required event types:** At
   minimum, 1000 `Purchase` events.
 
-## Customers who viewed X
-
-also viewed
+## Customers who viewed X also viewed
 
 Get recommendations for items that customers also viewed based on an
 item that you specify. With this use case, Amazon Personalize automatically filters
@@ -116,9 +109,7 @@ consider the user's historical data. To consider this data, you must import the 
   types:**
   `Purchase` events.
 
-## Recommended for
-
-you
+## Recommended for you
 
 Get personalized recommendations for items based on a user that you specify. With this use case, Amazon Personalize automatically
 filters out items the user purchased based on the userId that you specify and `Purchase` events.

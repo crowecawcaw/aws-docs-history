@@ -4,8 +4,7 @@ After you complete [Creating a schema and a dataset](data-prep-creating-datasets
 [Actions dataset](actions-datasets.md "actions-datasets.md"), you can individually import one or more new actions into the
 dataset. When you individually import actions, you keep your Actions dataset current with small batch imports as your catalog
 grows. You can import up to 10 actions at a time. If you have a large number of new actions, we recommend
-that you first import data in bulk and then import action data individually as necessary. See [Importing bulk data into Amazon Personalize with a
-dataset import job](bulk-data-import-step.md "bulk-data-import-step.md").
+that you first import data in bulk and then import action data individually as necessary. See [Importing bulk data into Amazon Personalize with a dataset import job](bulk-data-import-step.md "bulk-data-import-step.md").
 
 You can use the Amazon Personalize console, the AWS Command Line Interface (AWS CLI), or AWS SDKs to
 import actions. If you import an action with the same `actionId` as an
@@ -17,16 +16,11 @@ how new records influence recommendations, see [Updating data in datasets after 
 
 ###### Topics
 
-- [Importing actions individually
-  (console)](#importing-actions-console "#importing-actions-console")
-- [Importing actions individually
-  (AWS CLI)](#importing-actions-cli "#importing-actions-cli")
-- [Importing actions individually
-  (AWS SDKs)](#importing-actions-cli-sdk "#importing-actions-cli-sdk")
+- [Importing actions individually (console)](#importing-actions-console "#importing-actions-console")
+- [Importing actions individually (AWS CLI)](#importing-actions-cli "#importing-actions-cli")
+- [Importing actions individually (AWS SDKs)](#importing-actions-cli-sdk "#importing-actions-cli-sdk")
 
-## Importing actions individually
-
-(console)
+## Importing actions individually (console)
 
 You can import up to 10 actions into an Actions dataset at a time. This
 section assumes that you have already created an Actions dataset. For
@@ -53,9 +47,7 @@ information about creating datasets, see [Creating a schema and a dataset](data-
    **Response**, the result of the import is listed
    and a success or failure message is displayed.
 
-## Importing actions individually
-
-(AWS CLI)
+## Importing actions individually (AWS CLI)
 
 Add one or more actions to your Actions dataset using the `PutActions` API
 operation.
@@ -88,9 +80,7 @@ aws personalize-events put-actions \
     }]'
 ```
 
-## Importing actions individually
-
-(AWS SDKs)
+## Importing actions individually (AWS SDKs)
 
 Add one or more actions to your Actions dataset using the PutActions operation.
 You can import up to 10 actions with a single `PutActions` call. If an action with the

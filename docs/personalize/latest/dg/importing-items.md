@@ -5,8 +5,7 @@ more new items into the dataset. Individually importing items allows you to
 keep your Items dataset current with small batch imports as your catalog grows. You can import
 up to 10 items at a time. If you have a large
 amount of new items, we recommend that you first import data in bulk and
-then import item data individually as necessary. See [Importing bulk data into Amazon Personalize with a
-dataset import job](bulk-data-import-step.md "bulk-data-import-step.md").
+then import item data individually as necessary. See [Importing bulk data into Amazon Personalize with a dataset import job](bulk-data-import-step.md "bulk-data-import-step.md").
 
 You can use the Amazon Personalize console, the AWS Command Line Interface (AWS CLI), or AWS SDKs to
 import items. If you import an item with the same `itemId` as an
@@ -18,16 +17,11 @@ how new records influence recommendations, see [Importing individual records int
 
 ###### Topics
 
-- [Importing items individually
-  (console)](#importing-items-console "#importing-items-console")
-- [Importing items individually
-  (AWS CLI)](#importing-items-cli "#importing-items-cli")
-- [Importing items individually
-  (AWS SDKs)](#importing-items-cli-sdk "#importing-items-cli-sdk")
+- [Importing items individually (console)](#importing-items-console "#importing-items-console")
+- [Importing items individually (AWS CLI)](#importing-items-cli "#importing-items-cli")
+- [Importing items individually (AWS SDKs)](#importing-items-cli-sdk "#importing-items-cli-sdk")
 
-## Importing items individually
-
-(console)
+## Importing items individually (console)
 
 You can import up to 10 items to an Items dataset at a time. This
 procedure assumes that you have already created an Items dataset. For
@@ -55,9 +49,7 @@ information about creating datasets, see [Creating a schema and a dataset](data-
    **Response**, the result of the import is listed
    and a success or failure message is displayed.
 
-## Importing items individually
-
-(AWS CLI)
+## Importing items individually (AWS CLI)
 
 Add one or more items to your Items dataset using the [PutItems](API_UBS_PutItems.md "API_UBS_PutItems.md") operation.
 You can import up to 10 items with a single `PutItems` call.
@@ -93,9 +85,7 @@ aws personalize-events put-items \
     }]'
 ```
 
-## Importing items individually
-
-(AWS SDKs)
+## Importing items individually (AWS SDKs)
 
 Add one or more items to your Items dataset using the [PutItems](API_UBS_PutItems.md "API_UBS_PutItems.md") operation.
 You can import up to 10 items with a single `PutItems` call. If an item with the

@@ -91,8 +91,7 @@ The User-Personalization-v2 recipe has the following properties:
 - Algorithm ARN –
   `arn:aws:personalize:::algorithm/aws-user-personalization-v2`
 
-For more information, see [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+For more information, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 
 The following table describes the hyperparameters for the User-Personalization-v2 recipe.
 A _hyperparameter_ is an algorithm parameter that you

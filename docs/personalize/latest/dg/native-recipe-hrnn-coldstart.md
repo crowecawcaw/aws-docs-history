@@ -48,15 +48,13 @@ The HRNN-Coldstart recipe has the following properties:
 - Feature transformation ARN –
   `arn:aws:personalize:::feature-transformation/featurize_coldstart`
 - Recipe type – `USER_PERSONALIZATION`
-  For more information, see [Choosing a
-  recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+  For more information, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 
 The following table describes the hyperparameters for the HRNN-Coldstart recipe. A _hyperparameter_ is an algorithm parameter that you can adjust to
 improve model performance. Algorithm hyperparameters control how the model performs.
 Featurization hyperparameters control how to filter the data to use in training. The process of
 choosing the best value for a hyperparameter is called hyperparameter optimization (HPO). For
-more information, see [Hyperparameters and
-HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
+more information, see [Hyperparameters and HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
 
 The table also provides the following information for each hyperparameter:
 

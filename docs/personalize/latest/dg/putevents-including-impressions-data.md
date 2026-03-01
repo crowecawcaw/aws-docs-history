@@ -1,6 +1,4 @@
-# Recording
-
-item interaction events with impressions data
+# Recording item interaction events with impressions data
 
 If you use the [User-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md "native-recipe-new-item-USER_PERSONALIZATION.md")
 recipe or add the IMPRESSIONS field to your schema for a dataset in a

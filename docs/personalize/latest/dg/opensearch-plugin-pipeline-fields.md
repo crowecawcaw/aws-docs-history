@@ -19,8 +19,7 @@ following fields.
   For OpenSearch Service, provide the Amazon Resource Name (ARN) for the role that you created when [setting up
   permissions](opensearch-granting-access-managed.md "opensearch-granting-access-managed.md") for OpenSearch Service to access your Amazon Personalize resources.
   If your OpenSearch Service and Amazon Personalize resources exist in different accounts, specify the role that grants
-  `AssumeRole` permissions for OpenSearch Service. For more information, see [Configuring permissions when resources are in different
-  accounts](configuring-multiple-accounts.md "configuring-multiple-accounts.md").
+  `AssumeRole` permissions for OpenSearch Service. For more information, see [Configuring permissions when resources are in different accounts](configuring-multiple-accounts.md "configuring-multiple-accounts.md").
 
 For open source OpenSearch, if you use multiple roles to restrict permissions for different groups of users in
 your organization, specify the ARN of the role that has permission to access Amazon Personalize. If you use only the AWS
@@ -34,6 +33,5 @@ credentials in your OpenSearch keystore, you can omit this field.
   you can specify `false` to view any errors that the plugin generates.
 - **external_account_iam_role_arn** – If you use OpenSearch Service, and your Amazon Personalize and OpenSearch Service
   resources exist in different accounts, specify the ARN of the role that has permission to access your Amazon Personalize resources.
-  This role must exist in the same account as your Amazon Personalize resources. For more information, see [Configuring permissions when resources are in different
-  accounts](configuring-multiple-accounts.md "configuring-multiple-accounts.md").
+  This role must exist in the same account as your Amazon Personalize resources. For more information, see [Configuring permissions when resources are in different accounts](configuring-multiple-accounts.md "configuring-multiple-accounts.md").
   For an OpenSearch Service code sample, see [Creating a pipeline in Amazon OpenSearch Service](managed-opensearch-plugin-pipeline-example.md "managed-opensearch-plugin-pipeline-example.md"). For an open source OpenSearch example, see [Creating a pipeline in open source OpenSearch](opensearch-plugin-pipeline-example.md "opensearch-plugin-pipeline-example.md").

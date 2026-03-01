@@ -36,8 +36,7 @@ For _bulk interactions_,
 for both incremental _and_ full dataset import jobs, your model learns from bulk item interaction or action interaction
 data only after the next training. Bulk data isn't used to update recommendations for real-time personalization.
 
-For more information about importing more bulk data, see [Importing bulk data into Amazon Personalize with a
-dataset import job](bulk-data-import-step.md "bulk-data-import-step.md").
+For more information about importing more bulk data, see [Importing bulk data into Amazon Personalize with a dataset import job](bulk-data-import-step.md "bulk-data-import-step.md").
 
 ## New items
 
@@ -55,8 +54,7 @@ New items are considered for recommendations as follows:
 - If you use the _Trending now_ use case,
   Amazon Personalize automatically evaluates your interactions data every two hours and identifies trending items. You don't have to wait
   for your recommender to train. If you use the _Trending-Now recipe_, Amazon Personalize automatically considers all new items over
-  configurable intervals without training. For information about configuring intervals, see [Trending-Now
-  recipe](native-recipe-trending-now.md "native-recipe-trending-now.md").
+  configurable intervals without training. For information about configuring intervals, see [Trending-Now recipe](native-recipe-trending-now.md "native-recipe-trending-now.md").
 - If you don't use the Trending-Now recipe or your use case or recipe doesn't support automatic updates,
   Amazon Personalize will consider new items only after the next training.
 
@@ -65,8 +63,7 @@ New items are considered for recommendations as follows:
 New users are users that you import after the latest training.
 They can come from either interactions data or user metadata in a Users dataset. For new, anonymous users (users without a userId),
 you can record events for the user with a `sessionId` and Amazon Personalize will
-associate events with the user before they log in. For more information, see [Recording events for
-anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
+associate events with the user before they log in. For more information, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
 
 Amazon Personalize generates recommendations for new users as follows:
 

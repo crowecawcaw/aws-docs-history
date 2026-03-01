@@ -13,8 +13,7 @@ After you create a recommender, you can update the recommender's configuration:
   recommendation request throughput that's provisioned by Amazon Personalize. A high value will increase your bill. We recommend
   starting with 1. Track your usage using Amazon CloudWatch
   metrics, and increase it as necessary. For more information, see
-  [Minimum recommendation requests per second and
-  auto-scaling](creating-recommenders.md#min-rrps-auto-scaling "creating-recommenders.md#min-rrps-auto-scaling").
+  [Minimum recommendation requests per second and auto-scaling](creating-recommenders.md#min-rrps-auto-scaling "creating-recommenders.md#min-rrps-auto-scaling").
 - For _Top picks for you_ and _Recommended for you_ use cases, you can update exploration configuration by adjusting the emphasis on exploring
   relevant items and the exploration item age cutoff. For information about exploration, see the section for your use case in
   [Choosing a use case](domain-use-cases.md "domain-use-cases.md").

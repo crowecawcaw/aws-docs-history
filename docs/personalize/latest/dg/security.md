@@ -28,14 +28,11 @@ cloud and security _in_ the cloud:
 
 ###### Topics
 
-- [Data protection in
-  Amazon Personalize](data-protection.md "data-protection.md")
+- [Data protection in Amazon Personalize](data-protection.md "data-protection.md")
 - [Identity and Access Management for Amazon Personalize](security-iam.md "security-iam.md")
 - [Monitoring Amazon Personalize with Amazon CloudWatch](personalize-monitoring.md "personalize-monitoring.md")
 - [Logging Amazon Personalize API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Compliance validation for Amazon Personalize](personalize-compliance.md "personalize-compliance.md")
-- [Resilience in
-  Amazon Personalize](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Resilience in Amazon Personalize](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Personalize](infrastructure-security.md "infrastructure-security.md")
-- [Amazon Personalize and interface VPC endpoints
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Amazon Personalize and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")

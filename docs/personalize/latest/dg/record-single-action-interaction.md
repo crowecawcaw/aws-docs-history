@@ -11,8 +11,7 @@ For more information, see [Finding the ID of your action interaction event track
 Your application generates a unique `sessionId` when a user first visits your website or uses your
 application. You must use the same `sessionId` in all events throughout the session. Amazon Personalize uses the
 `sessionId` to associate events with the user before they log in (is anonymous). For more information, see
-[Recording events for
-anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
+[Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
 
 The `userId`, `actionId`, and `sentAt` parameters map to the USER_ID, ACTION_ID,
 EVENT_TYPE, and TIMESTAMP fields of the Action interactions dataset.

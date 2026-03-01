@@ -1,6 +1,4 @@
-# Item interactions dataset schema
-
-requirements (custom)
+# Item interactions dataset schema requirements (custom)
 
 An _Item interactions dataset_ stores
 historical and real-time data from interactions between users and items in
@@ -29,9 +27,7 @@ value with more than 1000, your dataset import job will fail.
 For more information on minimum requirements and maximum data limits
 for an Item interactions dataset, see [Service quotas](limits.md#limits-table "limits.md#limits-table").
 
-## Interactions schema
-
-example (custom)
+## Interactions schema example (custom)
 
 The following example shows a schema for an Item interactions dataset.
 The `USER_ID`, `ITEM_ID`, and
@@ -41,8 +37,7 @@ The `USER_ID`, `ITEM_ID`, and
 recognized by Amazon Personalize. EVENT_TYPE must of type string and can't be
 categorical. `LOCATION` and `DEVICE` are optional
 contextual metadata fields. For information on schema requirements see
-[Custom dataset and schema
-requirements](custom-datasets-and-schemas.md#dataset-requirements "custom-datasets-and-schemas.md#dataset-requirements").
+[Custom dataset and schema requirements](custom-datasets-and-schemas.md#dataset-requirements "custom-datasets-and-schemas.md#dataset-requirements").
 
 ```
 {

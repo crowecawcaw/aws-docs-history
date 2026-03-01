@@ -32,8 +32,7 @@ To get action recommendations with the Amazon Personalize console, you provide t
 5. Under **Test campaign results**, enter your recommendation request details.
 
 If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events
-as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for
-anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events"). 6. Optionally choose a filter. For more information, see [Filtering recommendations and user segments](filter.md "filter.md"). 7. Choose **Get recommendations**. A table containing the user’s top 5 recommended actions
+as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events"). 6. Optionally choose a filter. For more information, see [Filtering recommendations and user segments](filter.md "filter.md"). 7. Choose **Get recommendations**. A table containing the user’s top 5 recommended actions
 appears.
 
 ## Getting action recommendations (AWS CLI)
@@ -48,8 +47,7 @@ To filter actions recommendations by custom criteria, you can create a filter an
 `get-action-recommendations` operation. For more information, see [Filtering recommendations and user segments](filter.md "filter.md").
 
 If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events
-as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for
-anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
+as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
 
 ```
 aws personalize-runtime get-action-recommendations \
@@ -71,8 +69,7 @@ To filter actions recommendations by custom criteria, you can create a filter an
 information, see [Filtering recommendations and user segments](filter.md "filter.md").
 
 If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events
-as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for
-anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
+as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
 
 ```
 import boto3

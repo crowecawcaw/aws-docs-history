@@ -5,8 +5,7 @@ includes detailed steps to create recommenders with the Amazon Personalize conso
 that show how to create a recommender with only the required fields.
 
 - For code samples that show how to enable metadata in recommendations, see [Enabling metadata in recommendations](create-recommender-return-metadata.md "create-recommender-return-metadata.md").
-- For code samples that show how to configure the columns used when training the models backing your recommender, see [Configuring columns used when creating an Amazon Personalize domain
-  recommender](create-recommender-configure-columns.md "create-recommender-configure-columns.md").
+- For code samples that show how to configure the columns used when training the models backing your recommender, see [Configuring columns used when creating an Amazon Personalize domain recommender](create-recommender-configure-columns.md "create-recommender-configure-columns.md").
 - For code samples that show how to configure exploration for the `Top picks for your` or `Recommended for you` use cases, see [Configuring exploration for a domain recommender](create-recommender-configure-exploration.md "create-recommender-configure-exploration.md").
 
 ###### Topics
@@ -21,8 +20,7 @@ that show how to create a recommender with only the required fields.
 
 A high `minRecommendationRequestsPerSecond` will increase your bill. We recommend starting with 1 for
 `minRecommendationRequestsPerSecond` (the default). Track your usage using Amazon CloudWatch metrics, and increase
-the `minRecommendationRequestsPerSecond` as necessary. For more information, see [Minimum recommendation requests per second and
-auto-scaling](creating-recommenders.md#min-rrps-auto-scaling "creating-recommenders.md#min-rrps-auto-scaling").
+the `minRecommendationRequestsPerSecond` as necessary. For more information, see [Minimum recommendation requests per second and auto-scaling](creating-recommenders.md#min-rrps-auto-scaling "creating-recommenders.md#min-rrps-auto-scaling").
 
 Create recommenders for each of your use cases with the Amazon Personalize console as follows. If you just created your
 Domain dataset group and you are already on the **Overview** page, skip to step 3.
@@ -41,13 +39,11 @@ Domain dataset group and you are already on the **Overview** page, skip to step 
    needs:
    - For each dataset used by the recommender's use case, you can choose the columns Amazon Personalize considers when training
      the models backing your recommender. By default, Amazon Personalize uses all columns that can be used when training. For more
-     information, see [Configuring columns used when creating an Amazon Personalize domain
-     recommender](create-recommender-configure-columns.md "create-recommender-configure-columns.md").
+     information, see [Configuring columns used when creating an Amazon Personalize domain recommender](create-recommender-configure-columns.md "create-recommender-configure-columns.md").
    - You can modify **Minimum recommendation requests per second** to specify a new minimum
      request capacity for your recommender. A high `minRecommendationRequestsPerSecond` will increase your
      bill. We recommend starting with 1 (the default). Track your usage using Amazon CloudWatch metrics, and increase the
-     `minRecommendationRequestsPerSecond` as necessary. For more information see [Minimum recommendation requests per second and
-     auto-scaling](creating-recommenders.md#min-rrps-auto-scaling "creating-recommenders.md#min-rrps-auto-scaling").
+     `minRecommendationRequestsPerSecond` as necessary. For more information see [Minimum recommendation requests per second and auto-scaling](creating-recommenders.md#min-rrps-auto-scaling "creating-recommenders.md#min-rrps-auto-scaling").
    - If you want the ability to include Items dataset metadata with recommendations, choose **Return items metadata in recommendation results**. If enabled, you can specify the columns from your
      Items dataset in your request for recommendations or personalized ranking. Amazon Personalize returns this data for each item
      in the recommendation response.

@@ -29,7 +29,6 @@ information, see [Domain recommenders in Amazon Personalize](creating-recommende
 
 ###### Topics
 
-- [Importing bulk data into Amazon Personalize with a
-  dataset import job](bulk-data-import-step.md "bulk-data-import-step.md")
+- [Importing bulk data into Amazon Personalize with a dataset import job](bulk-data-import-step.md "bulk-data-import-step.md")
 - [Preparing and importing bulk data using Amazon SageMaker AI Data Wrangler](preparing-importing-with-data-wrangler.md "preparing-importing-with-data-wrangler.md")
 - [Importing individual records into an Amazon Personalize dataset](incremental-data-updates.md "incremental-data-updates.md")

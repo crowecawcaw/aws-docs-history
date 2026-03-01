@@ -17,14 +17,11 @@ For more information about how Amazon S3 organizes objects, see [Organizing, lis
 
 ###### Topics
 
-- [Creating a batch segment job
-  (console)](#batch-segment-console "#batch-segment-console")
+- [Creating a batch segment job (console)](#batch-segment-console "#batch-segment-console")
 - [Creating a batch segment job (AWS CLI)](#batch-segment-cli "#batch-segment-cli")
 - [Creating a batch segment job (AWS SDKs)](#batch-segment-sdk "#batch-segment-sdk")
 
-## Creating a batch segment job
-
-(console)
+## Creating a batch segment job (console)
 
 After you have completed [Preparing input data for batch recommendations](batch-data-upload.md "batch-data-upload.md"), you are ready to create a batch
 segment job. This procedure assumes that you have already created a

@@ -21,9 +21,7 @@ To get a high-level view of how Amazon Personalize and other AWS services work w
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon Personalize
+## Identity-based policies for Amazon Personalize
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon Personalize
 
-Identity-based policy examples for Amazon Personalize
+To view examples of Amazon Personalize identity-based policies, see [Identity-based policy examples for Amazon Personalize](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Amazon Personalize identity-based policies, see [Identity-based policy
-examples for Amazon Personalize](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Amazon Personalize
+## Resource-based policies within Amazon Personalize
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Amazon Personalize
+## Policy actions for Amazon Personalize
 
 **Supports policy actions:**
 
@@ -105,12 +96,9 @@ action:
 "Action": "personalize:Describe*"
 ```
 
-To view examples of Amazon Personalize identity-based policies, see [Identity-based policy
-examples for Amazon Personalize](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Personalize identity-based policies, see [Identity-based policy examples for Amazon Personalize](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon Personalize
+## Policy resources for Amazon Personalize
 
 **Supports policy resources:**
 
@@ -130,12 +118,9 @@ To see a list of Amazon Personalize resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by Amazon Personalize](../../../service-authorization/latest/reference/list_amazonpersonalize.md#amazonpersonalize-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonpersonalize.md#amazonpersonalize-actions-as-permissions").
 
-To view examples of Amazon Personalize identity-based policies, see [Identity-based policy
-examples for Amazon Personalize](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Personalize identity-based policies, see [Identity-based policy examples for Amazon Personalize](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Amazon Personalize
+## Policy condition keys for Amazon Personalize
 
 **Supports service-specific policy condition keys:**
 
@@ -154,8 +139,7 @@ To see a list of Amazon Personalize condition keys, see [Condition keys for Amaz
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by Amazon Personalize](../../../service-authorization/latest/reference/list_amazonpersonalize.md#amazonpersonalize-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonpersonalize.md#amazonpersonalize-actions-as-permissions").
 
-To view examples of Amazon Personalize identity-based policies, see [Identity-based policy
-examples for Amazon Personalize](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Personalize identity-based policies, see [Identity-based policy examples for Amazon Personalize](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Amazon Personalize
 
@@ -189,9 +173,7 @@ resources, see [Tagging Amazon Personalize resources](tagging-resources.md "tagg
 To view an example identity-based policy for limiting access to a resource based on
 the tags on that resource, see [Using tags in IAM policies](tags-iam.md "tags-iam.md").
 
-## Using temporary
-
-credentials with Amazon Personalize
+## Using temporary credentials with Amazon Personalize
 
 **Supports temporary credentials:**
 
@@ -203,9 +185,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Amazon Personalize
+## Cross-service principal permissions for Amazon Personalize
 
 **Supports forward access sessions (FAS):**
 
@@ -214,9 +194,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon Personalize
+## Service roles for Amazon Personalize
 
 **Supports service roles:**
 
@@ -231,9 +209,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Amazon Personalize functionality.
 Edit service roles only when Amazon Personalize provides guidance to do so.
 
-## Service-linked
-
-roles for Amazon Personalize
+## Service-linked roles for Amazon Personalize
 
 **Supports service-linked roles:**
 

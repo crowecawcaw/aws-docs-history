@@ -24,8 +24,7 @@ For information about how new data influences batch recommendations, see
 - [Batch workflow scoring](#batch-scoring "#batch-scoring")
 - [Batch recommendations with themes from Content Generator](themed-batch-recommendations.md "themed-batch-recommendations.md")
 - [Preparing input data for batch recommendations](batch-data-upload.md "batch-data-upload.md")
-- [Creating a batch inference
-  job](creating-batch-inference-job.md "creating-batch-inference-job.md")
+- [Creating a batch inference job](creating-batch-inference-job.md "creating-batch-inference-job.md")
 - [Batch inference job output examples](batch-inference-job-output-examples.md "batch-inference-job-output-examples.md")
 
 ## Batch workflow
@@ -35,8 +34,7 @@ The batch workflow is as follows:
 1. Prepare and upload your input data in JSON format to an Amazon S3 bucket.
    The format of your input data depends on the recipe you use. See [Preparing input data for batch recommendations](batch-data-upload.md "batch-data-upload.md").
 2. Create a separate location for your output data, either a folder or a different Amazon S3 bucket.
-3. Create a batch inference job. See [Creating a batch inference
-   job](creating-batch-inference-job.md "creating-batch-inference-job.md").
+3. Create a batch inference job. See [Creating a batch inference job](creating-batch-inference-job.md "creating-batch-inference-job.md").
 4. When the batch inference is complete, retrieve the item recommendations from your output location in Amazon S3.
 
 ## Guidelines and requirements

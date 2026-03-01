@@ -4,8 +4,7 @@
 
 When you get batch recommendations with themes, you incur additional costs. For more information, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/ "https://aws.amazon.com/personalize/pricing/").
 
-If you use the [Similar-Items
-recipe](native-recipe-similar-items.md "native-recipe-similar-items.md"), Amazon Personalize Content Generator can add descriptive themes to batch recommendations.
+If you use the [Similar-Items recipe](native-recipe-similar-items.md "native-recipe-similar-items.md"), Amazon Personalize Content Generator can add descriptive themes to batch recommendations.
 _Content Generator_ is a generative artificial intelligence (generative AI) capability managed by
 Amazon Personalize.
 
@@ -43,8 +42,7 @@ The following are guidelines and requirements for generating recommendations wit
 
 - Your input file can have up to 100 items. For information about input data for batch
   recommendations, see [Preparing input data for batch recommendations](batch-data-upload.md "batch-data-upload.md").
-- Your solution must use the [Similar-Items
-  recipe](native-recipe-similar-items.md "native-recipe-similar-items.md").
+- Your solution must use the [Similar-Items recipe](native-recipe-similar-items.md "native-recipe-similar-items.md").
 - You must have an Items dataset with the following data. This data can help generate more relevant themes.
   - It must have a textual field, such as a DESCRIPTION field. For information about textual data, see [Unstructured text metadata](items-datasets.md#text-data "items-datasets.md#text-data").
   - It must have a string column with item name data, such as a TITLE field.
@@ -81,7 +79,6 @@ would for a `RELATED_ITEMS` recipe. For an example, see [RELATED_ITEMS recipes](
 When you create the batch inference job, you enable theme generation and specify the item title column of your Items
 dataset.
 
-- For information about using the Amazon Personalize console to create a batch inference job that generates themes, see [Creating a batch inference
-  job](creating-batch-inference-job.md "creating-batch-inference-job.md").
+- For information about using the Amazon Personalize console to create a batch inference job that generates themes, see [Creating a batch inference job](creating-batch-inference-job.md "creating-batch-inference-job.md").
 - For a code sample that shows how to use the SDK for Python (Boto3) to create a batch inference job
   that generates themes, see [Creating a batch inference job that generates themes](creating-batch-inference-job.md#batch-sdk-themes "creating-batch-inference-job.md#batch-sdk-themes").

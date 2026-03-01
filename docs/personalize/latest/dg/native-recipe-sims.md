@@ -3,8 +3,7 @@
 ###### Note
 
 All RELATED_ITEMS recipes use interactions data. Choose SIMS if you want to configure more hyperparameters for the model.
-Choose the [Similar-Items
-recipe](native-recipe-similar-items.md "native-recipe-similar-items.md") if you have item metadata
+Choose the [Similar-Items recipe](native-recipe-similar-items.md "native-recipe-similar-items.md") if you have item metadata
 and want Amazon Personalize to use it to find similar items.
 
 The Item-to-item similarities (SIMS) recipe uses collaborative
@@ -50,8 +49,7 @@ The SIMS recipe has the following properties:
   hyperparameters control how the model performs. Featurization
   hyperparameters control how to filter the data to use in training. The
   process of choosing the best value for a hyperparameter is called
-  hyperparameter optimization (HPO). For more information, see [Hyperparameters and
-  HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
+  hyperparameter optimization (HPO). For more information, see [Hyperparameters and HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
 
 The table also provides the following information for each
 hyperparameter:
@@ -74,9 +72,7 @@ hyperparameter:
 | `min_item_interaction_count_percentile` | The minimum percentile of item interaction counts to include<br>in model training. Use<br>`min_item_interaction_count_percentile` to exclude a<br>percentage of items with a short history of interactions. Items<br>with a short history often are new items. Removing them can train<br>models with more focus on items with a known history. Choose an<br>appropriate value after you review user history lengths, using a<br>histogram or similar tool. We recommend setting a value that<br>retains the majority of items, but removes the edge cases.<br>Default value: 0.01<br>Range: [0.0, 1.0]<br>Value type: Float<br>HPO tunable: No                                                                                                                                                                                                                                                                                |
 | `max_item_interaction_count_percentile` | The maximum percentile of item interaction counts to include<br>in model training. Use<br>`max_item_interaction_count_percentile` to exclude a<br>percentage of items with a long history of interactions. Items<br>with a long history tend to be older and might be out of date. For<br>example, a movie release that is out of print. Removing these<br>items can focus on more relevant items. Choose an appropriate<br>value after you review user history lengths using a histogram or<br>similar tool. We recommend setting a value that retains the<br>majority of items but removes the edge cases.<br>For example, `min_item_interaction_count_percentile =<br>0.05` and `max_item_interaction_count_percentile =<br>0.95` includes all items except ones with an interaction<br>count at the bottom or top 5%.<br>Default value: 0.9<br>Range: [0.0, 1.0]<br>Value type: Float<br>HPO tunable: No                   |
 
-## SIMS sample
-
-notebook
+## SIMS sample notebook
 
 For a sample Jupyter notebook that shows you how to use the SIMS
 recipe, see [Finding similar items + HPO](https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/related_items/personalize_sims_example.ipynb "https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/related_items/personalize_sims_example.ipynb").

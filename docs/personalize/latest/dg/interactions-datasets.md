@@ -176,8 +176,7 @@ shoe4336,13,1402185600,Phone,CLICK
 
 For Domain dataset groups, the following recommender use cases can use contextual metadata:
 
-- [Recommended for
-  you](ECOMMERCE-use-cases.md#recommended-for-you-use-case "ECOMMERCE-use-cases.md#recommended-for-you-use-case") (ECOMMERCE domain)
+- [Recommended for you](ECOMMERCE-use-cases.md#recommended-for-you-use-case "ECOMMERCE-use-cases.md#recommended-for-you-use-case") (ECOMMERCE domain)
 - [Top picks for you](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case") (VIDEO_ON_DEMAND domain)
 
 For custom resources, recipes that use contextual metadata include the following:
@@ -205,8 +204,7 @@ the user.
 Impression values can have at most 1000 characters (including the vertical bar character).
 For Domain dataset groups, the following recommender use cases can use impressions data:
 
-- [Recommended for
-  you](ECOMMERCE-use-cases.md#recommended-for-you-use-case "ECOMMERCE-use-cases.md#recommended-for-you-use-case") (ECOMMERCE domain)
+- [Recommended for you](ECOMMERCE-use-cases.md#recommended-for-you-use-case "ECOMMERCE-use-cases.md#recommended-for-you-use-case") (ECOMMERCE domain)
 - [Top picks for you](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case "VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case") (VIDEO_ON_DEMAND domain)
 
 For more information about exploration see [Exploration](use-case-recipe-features.md#about-exploration "use-case-recipe-features.md#about-exploration").
@@ -228,8 +226,7 @@ using explicit impressions might be as follows:
 3. You show the user only the recommended shoes that are in stock.
 4. For real-time incremental data import, when your user interacts with (for example, clicks) a pair of shoes, you
    record the choice in a call to the [PutEvents](API_UBS_PutEvents.md "API_UBS_PutEvents.md") API and
-   list the recommended items that are in stock in the `impression` parameter. For a code sample see [Recording
-   item interaction events with impressions data](putevents-including-impressions-data.md "putevents-including-impressions-data.md").
+   list the recommended items that are in stock in the `impression` parameter. For a code sample see [Recording item interaction events with impressions data](putevents-including-impressions-data.md "putevents-including-impressions-data.md").
 
 For importing impressions in historical item interactions data, you can list explicit impressions in your csv
 file and separate each item with a '|' character. The vertical bar character counts towards the 1000
@@ -273,14 +270,12 @@ workflow using implicit impressions might be as follows:
    `recommendationId` in the API response.
 3. You show the video recommendations to your user in your application.
 4. When your user interacts with (for example, clicks) a video, record the choice in a call to the [PutEvents](API_UBS_PutEvents.md "API_UBS_PutEvents.md") API and include the `recommendationId`
-   as a parameter. For a code sample see [Recording
-   item interaction events with impressions data](putevents-including-impressions-data.md "putevents-including-impressions-data.md").
+   as a parameter. For a code sample see [Recording item interaction events with impressions data](putevents-including-impressions-data.md "putevents-including-impressions-data.md").
 5. Amazon Personalize uses the `recommendationId` to derive the impression data from the previous video
    recommendations, and then uses the impression data to guide exploration, where future recommendations include new
    videos with less interactions data or relevance.
 
-For more information on recording events with implicit impression data, see [Recording
-item interaction events with impressions data](putevents-including-impressions-data.md "putevents-including-impressions-data.md").
+For more information on recording events with implicit impression data, see [Recording item interaction events with impressions data](putevents-including-impressions-data.md "putevents-including-impressions-data.md").
 
 ## Interactions data example
 

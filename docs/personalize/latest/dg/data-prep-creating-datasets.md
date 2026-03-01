@@ -18,14 +18,11 @@ For more information, see [Replacing a dataset's schema to add new columns](upda
 
 ###### Topics
 
-- [Creating a dataset and a schema
-  (console)](#data-prep-creating-ds-console "#data-prep-creating-ds-console")
+- [Creating a dataset and a schema (console)](#data-prep-creating-ds-console "#data-prep-creating-ds-console")
 - [Creating a dataset and a schema (AWS CLI)](#data-prep-creating-ds-cli "#data-prep-creating-ds-cli")
 - [Creating a dataset and a schema (AWS SDKs)](#data-prep-creating-ds-sdk "#data-prep-creating-ds-sdk")
 
-## Creating a dataset and a schema
-
-(console)
+## Creating a dataset and a schema (console)
 
 If this is your first dataset in your dataset group, your first dataset type will be an Item interactions dataset. To create your Item interactions dataset in the console,
 specify the dataset name and then specify a JSON schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html "https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html").

@@ -11,8 +11,7 @@ delete the resources that you created. For more information, see
 
 - [Prerequisites](#gs-sdk-prerequisites "#gs-sdk-prerequisites")
 - [Tutorial](#gs-python-custom-tutorial "#gs-python-custom-tutorial")
-- [Getting started using Amazon Personalize APIs with Jupyter
-  (iPython) notebooks](#gs-jupyter-notebook "#gs-jupyter-notebook")
+- [Getting started using Amazon Personalize APIs with Jupyter (iPython) notebooks](#gs-jupyter-notebook "#gs-jupyter-notebook")
 
 ## Prerequisites
 
@@ -229,9 +228,7 @@ for item in response['itemList']:
     print (item['itemId'])
 ```
 
-## Getting started using Amazon Personalize APIs with Jupyter
-
-(iPython) notebooks
+## Getting started using Amazon Personalize APIs with Jupyter (iPython) notebooks
 
 To get started using Amazon Personalize using Jupyter notebooks, clone or download a series of notebooks found in the [getting_started](https://github.com/aws-samples/amazon-personalize-samples/tree/master/getting_started "https://github.com/aws-samples/amazon-personalize-samples/tree/master/getting_started") folder of the [Amazon Personalize
 samples](https://github.com/aws-samples/amazon-personalize-samples "https://github.com/aws-samples/amazon-personalize-samples") repository. The notebooks walk you through importing training data,

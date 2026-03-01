@@ -217,8 +217,7 @@ The dataset ARN is displayed, for example:
     automatically starts training the first solution within an hour.
 
 You train a model using a recipe and your training data. Amazon Personalize provides a set
-of predefined recipes. For more information, see [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md"). For this exercise, you use the User-Personalization-v2 recipe.
+of predefined recipes. For more information, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md"). For this exercise, you use the User-Personalization-v2 recipe.
 
 1. Create the configuration for training a model by running the following
    command. This command creates a solution that uses automatic training. It automatically creates a new solution version every seven days (the default).
@@ -402,8 +401,7 @@ from the movie ratings dataset. For more information about the API, see [GetReco
 ###### Note
 
 Not all recipes support the `GetRecommendations` API. For more information,
-see [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 
 The AWS CLI command you call in this step, `personalize-runtime`, is
 different than in previous steps.

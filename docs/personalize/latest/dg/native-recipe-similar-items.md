@@ -1,6 +1,4 @@
-# Similar-Items
-
-recipe
+# Similar-Items recipe
 
 ###### Note
 
@@ -49,9 +47,7 @@ manually create a new solution version (retrain the model) for Amazon Personaliz
 the solution version. For more
 information, see [Maintaining recommendation relevance](maintaining-relevance.md "maintaining-relevance.md").
 
-## Properties and
-
-hyperparameters
+## Properties and hyperparameters
 
 The Similar-Items recipe has the following properties:
 
@@ -63,16 +59,14 @@ The Similar-Items recipe has the following properties:
 - Algorithm ARN –
   `arn:aws:personalize:::algorithm/aws-similar-items`
 
-For more information, see [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+For more information, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 
 The following table describes the hyperparameters for the
 Similar-Items recipe. A _hyperparameter_ is an algorithm parameter that you
 can adjust to improve model performance. Algorithm hyperparameters
 control how the model performs. The process of choosing the best
 value for a hyperparameter is called hyperparameter optimization
-(HPO). For more information, see [Hyperparameters and
-HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
+(HPO). For more information, see [Hyperparameters and HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
 
 The table also provides the following information for each
 hyperparameter:

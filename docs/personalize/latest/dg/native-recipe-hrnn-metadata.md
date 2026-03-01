@@ -31,8 +31,7 @@ The HRNN-Metadata recipe has the following properties:
   improve model performance. Algorithm hyperparameters control how the model performs.
   Featurization hyperparameters control how to filter the data to use in training. The process of
   choosing the best value for a hyperparameter is called hyperparameter optimization (HPO). For
-  more information, see [Hyperparameters and
-  HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
+  more information, see [Hyperparameters and HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
 
 The table also provides the following information for each hyperparameter:
 

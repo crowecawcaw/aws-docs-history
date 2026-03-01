@@ -10,8 +10,7 @@ _Amazon OpenSearch Service Developer Guide_. For policy examples, see [Policy ex
 ## Policy examples for OpenSearch Service user or role
 
 The following IAM policy example grants a user or role `PassRole` permissions for the IAM service role
-that you created for OpenSearch Service in [Configuring permissions when resources are in the same
-account](service-role-managed.md "service-role-managed.md").
+that you created for OpenSearch Service in [Configuring permissions when resources are in the same account](service-role-managed.md "service-role-managed.md").
 
 JSON
 

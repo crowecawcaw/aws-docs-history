@@ -1,6 +1,4 @@
-# Choosing a
-
-recipe
+# Choosing a recipe
 
 When you create a custom solution, you specify a recipe and configure training parameters. _Recipes_ are Amazon Personalize
 algorithms that are prepared for specific use cases. Amazon Personalize provides recipes, based on common use cases, for
@@ -15,8 +13,7 @@ Amazon Personalize recipes use the following during training:
 - Predefined algorithms
 - Initial parameter settings for the algorithms
   To optimize your model, you can override many of these parameters when
-  you create a solution. For more information, see [Hyperparameters and
-  HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
+  you create a solution. For more information, see [Hyperparameters and HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md").
 
 ###### Topics
 
@@ -25,14 +22,12 @@ Amazon Personalize recipes use the following during training:
 - [Viewing available Amazon Personalize recipes](#listing-recipes "#listing-recipes")
 - [User-Personalization-v2 recipe](native-recipe-user-personalization-v2.md "native-recipe-user-personalization-v2.md")
 - [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md "native-recipe-new-item-USER_PERSONALIZATION.md")
-- [Trending-Now
-  recipe](native-recipe-trending-now.md "native-recipe-trending-now.md")
+- [Trending-Now recipe](native-recipe-trending-now.md "native-recipe-trending-now.md")
 - [Popularity-Count recipe](native-recipe-popularity.md "native-recipe-popularity.md")
 - [Personalized-Ranking-v2 recipe](native-recipe-personalized-ranking-v2.md "native-recipe-personalized-ranking-v2.md")
 - [Personalized-Ranking recipe](native-recipe-search.md "native-recipe-search.md")
 - [Semantic-Similarity recipe](native-recipe-semantic-similarity.md "native-recipe-semantic-similarity.md")
-- [Similar-Items
-  recipe](native-recipe-similar-items.md "native-recipe-similar-items.md")
+- [Similar-Items recipe](native-recipe-similar-items.md "native-recipe-similar-items.md")
 - [SIMS recipe](native-recipe-sims.md "native-recipe-sims.md")
 - [Next-Best-Action recipe](native-recipe-next-best-action.md "native-recipe-next-best-action.md")
 - [Item-Affinity recipe](item-affinity-recipe.md "item-affinity-recipe.md")

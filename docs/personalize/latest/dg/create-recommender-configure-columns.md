@@ -1,6 +1,4 @@
-# Configuring columns used when creating an Amazon Personalize domain
-
-recommender
+# Configuring columns used when creating an Amazon Personalize domain recommender
 
 When you create a recommender, you can modify the columns Amazon Personalize considers when training the models backing your
 recommender.
@@ -24,8 +22,7 @@ when you create the recommender. For more information, see [Creating recommender
 
 To exclude columns from training, provide the `excludedDatasetColumns` object in the
 `trainingDataConfig` as part of the recommender configuration. For each key in the object, provide the
-dataset type. For each value, provide the list of columns to exclude. For more information, see [Configuring columns used when creating an Amazon Personalize domain
-recommender](create-recommender-configure-columns.md "create-recommender-configure-columns.md").
+dataset type. For each value, provide the list of columns to exclude. For more information, see [Configuring columns used when creating an Amazon Personalize domain recommender](create-recommender-configure-columns.md "create-recommender-configure-columns.md").
 
 ```
 aws personalize create-recommender \
@@ -38,8 +35,7 @@ aws personalize create-recommender \
 To exclude columns from training, provide the `excludedDatasetColumns` object in the
 `trainingDataConfig` as part of the recommender configuration. For each key, provide the dataset type. For
 each value, provide the list of columns to exclude. The following code shows how to exclude columns from training when
-you create a recommender. For more information, see [Configuring columns used when creating an Amazon Personalize domain
-recommender](create-recommender-configure-columns.md "create-recommender-configure-columns.md").
+you create a recommender. For more information, see [Configuring columns used when creating an Amazon Personalize domain recommender](create-recommender-configure-columns.md "create-recommender-configure-columns.md").
 
 SDK for Python (Boto3)
 

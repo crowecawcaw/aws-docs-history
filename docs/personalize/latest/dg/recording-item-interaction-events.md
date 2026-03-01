@@ -21,18 +21,14 @@ For more information, see [Amplify documentation](https://docs.amplify.aws/ "htt
 
 ###### Topics
 
-- [Requirements for recording
-  item interaction events and training a model](#recording-events-requirements "#recording-events-requirements")
+- [Requirements for recording item interaction events and training a model](#recording-events-requirements "#recording-events-requirements")
 - [Creating an item interaction event tracker](event-get-tracker.md "event-get-tracker.md")
 - [Recording a single item interaction event](putevents-example.md "putevents-example.md")
 - [Recording multiple item interaction events with event value data](recording-events-example-event-value.md "recording-events-example-event-value.md")
-- [Recording
-  item interaction events with impressions data](putevents-including-impressions-data.md "putevents-including-impressions-data.md")
+- [Recording item interaction events with impressions data](putevents-including-impressions-data.md "putevents-including-impressions-data.md")
 - [Event metrics and attribution reports](event-metrics.md "event-metrics.md")
 
-## Requirements for recording
-
-item interaction events and training a model
+## Requirements for recording item interaction events and training a model
 
 To record item interaction events, you need the following:
 

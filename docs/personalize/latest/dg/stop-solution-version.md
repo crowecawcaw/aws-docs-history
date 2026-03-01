@@ -15,16 +15,11 @@ You can stop the solution version creation process with the Amazon Personalize c
 
 ###### Topics
 
-- [Stopping the creation of a solution version
-  (console)](#stop-solution-version-console "#stop-solution-version-console")
-- [Stopping the creation of a solution version
-  (AWS CLI)](#stop-solution-version-cli "#stop-solution-version-cli")
-- [Stopping the creation of a solution version
-  (AWS SDKs)](#stop-solution-version-sdk "#stop-solution-version-sdk")
+- [Stopping the creation of a solution version (console)](#stop-solution-version-console "#stop-solution-version-console")
+- [Stopping the creation of a solution version (AWS CLI)](#stop-solution-version-cli "#stop-solution-version-cli")
+- [Stopping the creation of a solution version (AWS SDKs)](#stop-solution-version-sdk "#stop-solution-version-sdk")
 
-## Stopping the creation of a solution version
-
-(console)
+## Stopping the creation of a solution version (console)
 
 If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS, you can stop creating a solution version (stop training a model).
 
@@ -46,9 +41,7 @@ If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS, y
    - CREATE_IN_PROGRESS changes to CREATE_STOPPING and then
      CREATE_STOPPED.
 
-## Stopping the creation of a solution version
-
-(AWS CLI)
+## Stopping the creation of a solution version (AWS CLI)
 
 If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS, you can
 stop creating a solution version (stop training a model). Use the following
@@ -75,9 +68,7 @@ Depending on the original state of the solution version, the solution version st
 - CREATE_PENDING changes to CREATE_STOPPED.
 - CREATE_IN_PROGRESS changes to CREATE_STOPPING and then CREATE_STOPPED
 
-## Stopping the creation of a solution version
-
-(AWS SDKs)
+## Stopping the creation of a solution version (AWS SDKs)
 
 If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS, you can
 stop creating a solution version (stop training a model). The following code shows how

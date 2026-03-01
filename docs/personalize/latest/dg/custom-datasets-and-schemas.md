@@ -1,6 +1,4 @@
-# Custom datasets and
-
-schemas
+# Custom datasets and schemas
 
 When you create a Custom dataset group, you create your own schemas
 from scratch. Custom dataset group datasets and schemas have fewer
@@ -17,20 +15,14 @@ all Amazon Personalize schemas.
 
 ###### Topics
 
-- [Custom dataset and schema
-  requirements](#dataset-requirements "#dataset-requirements")
-- [Item interactions dataset schema
-  requirements (custom)](interactions-dataset-requirements.md "interactions-dataset-requirements.md")
-- [Users dataset schema requirements
-  (custom)](user-dataset-requirements.md "user-dataset-requirements.md")
-- [Items dataset schema requirements
-  (custom)](item-dataset-requirements.md "item-dataset-requirements.md")
+- [Custom dataset and schema requirements](#dataset-requirements "#dataset-requirements")
+- [Item interactions dataset schema requirements (custom)](interactions-dataset-requirements.md "interactions-dataset-requirements.md")
+- [Users dataset schema requirements (custom)](user-dataset-requirements.md "user-dataset-requirements.md")
+- [Items dataset schema requirements (custom)](item-dataset-requirements.md "item-dataset-requirements.md")
 - [Actions dataset schema requirements (custom)](action-dataset-requirements.md "action-dataset-requirements.md")
 - [Action interactions dataset schema requirements (custom)](action-interactions-dataset-requirements.md "action-interactions-dataset-requirements.md")
 
-## Custom dataset and schema
-
-requirements
+## Custom dataset and schema requirements
 
 When you create a dataset for a Custom dataset group, each dataset
 type has the following required fields and reserved keywords with required

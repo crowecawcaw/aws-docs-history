@@ -17,11 +17,9 @@ The following sections provide custom and domain requirements for creating a sch
 ###### Topics
 
 - [Schema formatting requirements](#general-schema-requirements "#general-schema-requirements")
-- [VIDEO_ON_DEMAND datasets and
-  schemas](VIDEO-ON-DEMAND-datasets-and-schemas.md "VIDEO-ON-DEMAND-datasets-and-schemas.md")
+- [VIDEO_ON_DEMAND datasets and schemas](VIDEO-ON-DEMAND-datasets-and-schemas.md "VIDEO-ON-DEMAND-datasets-and-schemas.md")
 - [ECOMMERCE datasets and schemas](ECOMMERCE-datasets-and-schemas.md "ECOMMERCE-datasets-and-schemas.md")
-- [Custom datasets and
-  schemas](custom-datasets-and-schemas.md "custom-datasets-and-schemas.md")
+- [Custom datasets and schemas](custom-datasets-and-schemas.md "custom-datasets-and-schemas.md")
 
 ## Schema formatting requirements
 
@@ -68,10 +66,8 @@ Amazon Personalize schemas support the following Avro types for fields:
 - null
 
 Some required and reserved fields support null data. Adding a `null` type to a field allows you to use imperfect data (for example, metadata with blank values) to generate recommendations.
-For information about which fields support null data, see the schema requirements topic for your domain: [VIDEO_ON_DEMAND datasets and
-schemas](VIDEO-ON-DEMAND-datasets-and-schemas.md "VIDEO-ON-DEMAND-datasets-and-schemas.md"),
-[ECOMMERCE datasets and schemas](ECOMMERCE-datasets-and-schemas.md "ECOMMERCE-datasets-and-schemas.md"), or [Custom datasets and
-schemas](custom-datasets-and-schemas.md "custom-datasets-and-schemas.md").
+For information about which fields support null data, see the schema requirements topic for your domain: [VIDEO_ON_DEMAND datasets and schemas](VIDEO-ON-DEMAND-datasets-and-schemas.md "VIDEO-ON-DEMAND-datasets-and-schemas.md"),
+[ECOMMERCE datasets and schemas](ECOMMERCE-datasets-and-schemas.md "ECOMMERCE-datasets-and-schemas.md"), or [Custom datasets and schemas](custom-datasets-and-schemas.md "custom-datasets-and-schemas.md").
 The following example shows how to add a null type for a GENDER field.
 
 ```

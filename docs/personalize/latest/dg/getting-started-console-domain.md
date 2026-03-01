@@ -1,6 +1,4 @@
-# Getting started with a Domain dataset group
-
-(console)
+# Getting started with a Domain dataset group (console)
 
 In this exercise, you use the Amazon Personalize console to create a Domain dataset group and a recommender that returns movie
 recommendations for a given user.
@@ -60,8 +58,7 @@ In this procedure, you create a recommender for the _Top picks for you_ use case
 recommender.
 
 You can monitor the status of each recommender on the **Recommenders** page. When your
-recommender status is **Active**, you can use it to get recommendations in [Step 4: Get
-recommendations](#getting-started-console-get-recommendations-domain "#getting-started-console-get-recommendations-domain").
+recommender status is **Active**, you can use it to get recommendations in [Step 4: Get recommendations](#getting-started-console-get-recommendations-domain "#getting-started-console-get-recommendations-domain").
 In this procedure you use the recommender that you created in the previous step to get
 recommendations.
 

@@ -1,6 +1,4 @@
-# Configuring permissions when resources are in different
-
-accounts
+# Configuring permissions when resources are in different accounts
 
 If your OpenSearch Service and Amazon Personalize resources are in separate accounts, you create an IAM role in each account and grant the role
 access to the resources in the account.

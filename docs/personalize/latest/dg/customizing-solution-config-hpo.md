@@ -1,6 +1,4 @@
-# Hyperparameters and
-
-HPO
+# Hyperparameters and HPO
 
 ###### Important
 
@@ -52,12 +50,9 @@ recipe.
 ```
 
 Different recipes use different hyperparameters. For the available
-hyperparameters, see the individual recipes in [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+hyperparameters, see the individual recipes in [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 
-## Enabling hyperparameter
-
-optimization
+## Enabling hyperparameter optimization
 
 Hyperparameter optimization (HPO), or tuning, is the task of
 choosing optimal hyperparameters for a specific learning objective.
@@ -128,9 +123,7 @@ create_solution_response = personalize.create_solution(
 
 For more information about HPO, see [Automatic model tuning](../../../sagemaker/latest/dg/automatic-model-tuning.md "../../../sagemaker/latest/dg/automatic-model-tuning.md").
 
-## Viewing
-
-hyperparameters
+## Viewing hyperparameters
 
 You can view the hyperparameters of the solution by calling the [DescribeSolution](API_DescribeSolution.md "API_DescribeSolution.md") operation. The following
 sample shows a `DescribeSolution` output. After creating a solution version (training a model),

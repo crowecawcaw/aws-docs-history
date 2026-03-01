@@ -1,6 +1,4 @@
-# VIDEO_ON_DEMAND use
-
-cases
+# VIDEO_ON_DEMAND use cases
 
 The following sections list the requirements and Amazon Resource Name
 (ARN) for each VIDEO_ON_DEMAND use case.
@@ -19,16 +17,13 @@ here for the recipe ARN.
 
 ###### Topics
 
-- [Because you watched
-  X](#because-you-watched-use-case "#because-you-watched-use-case")
+- [Because you watched X](#because-you-watched-use-case "#because-you-watched-use-case")
 - [More like X](#more-like-y-use-case "#more-like-y-use-case")
 - [Most popular](#hot-picks-use-case "#hot-picks-use-case")
 - [Trending now](#trending-now-use-case "#trending-now-use-case")
 - [Top picks for you](#top-picks-use-case "#top-picks-use-case")
 
-## Because you watched
-
-X
+## Because you watched X
 
 Get recommendations for videos that other users also watched based
 on a video that you specify. With this use case, Amazon Personalize automatically

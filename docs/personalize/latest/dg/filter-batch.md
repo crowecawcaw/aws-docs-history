@@ -20,10 +20,8 @@ To filter batch recommendations or user segments, you do the following:
 ###### Topics
 
 - [Providing filter values in your input JSON](#providing-filter-values "#providing-filter-values")
-- [Filtering batch workflows
-  (console)](#filter-batch-recommendations-console "#filter-batch-recommendations-console")
-- [Filtering batch workflows (AWS
-  SDKs)](#filter-batch-recommendations-sdk "#filter-batch-recommendations-sdk")
+- [Filtering batch workflows (console)](#filter-batch-recommendations-console "#filter-batch-recommendations-console")
+- [Filtering batch workflows (AWS SDKs)](#filter-batch-recommendations-sdk "#filter-batch-recommendations-sdk")
 
 ## Providing filter values in your input JSON
 
@@ -69,18 +67,13 @@ of the first few lines of a JSON input file with filter values for a _batch segm
 For more examples of batch inference job input data by recipe see [Batch segment job input and output JSON examples](prepare-input-data-user-segment.md#batch-segment-job-json-examples "prepare-input-data-user-segment.md#batch-segment-job-json-examples").
 You can use these examples as a starting point and add the `filterValues` object from the above example.
 
-## Filtering batch workflows
-
-(console)
+## Filtering batch workflows (console)
 
 To filter batch workflows with the Amazon Personalize console, you create a filter and then you create a batch inference job or batch segment job and choose the filter.
 For complete step by step instructions,
-see [Creating a batch inference job (console)](creating-batch-inference-job.md#batch-console "creating-batch-inference-job.md#batch-console") and [Creating a batch segment job
-(console)](creating-batch-seg-job.md#batch-segment-console "creating-batch-seg-job.md#batch-segment-console").
+see [Creating a batch inference job (console)](creating-batch-inference-job.md#batch-console "creating-batch-inference-job.md#batch-console") and [Creating a batch segment job (console)](creating-batch-seg-job.md#batch-segment-console "creating-batch-seg-job.md#batch-segment-console").
 
-## Filtering batch workflows (AWS
-
-SDKs)
+## Filtering batch workflows (AWS SDKs)
 
 To filter batch recommendations with the AWS SDKs, create a filter and include the `FilterArn` parameter in the [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md "API_CreateBatchInferenceJob.md") or
 [CreateBatchSegmentJob](API_CreateBatchSegmentJob.md "API_CreateBatchSegmentJob.md")

@@ -14,6 +14,5 @@ For all use cases, your interactions data must have the following:
 
 ###### Topics
 
-- [VIDEO_ON_DEMAND use
-  cases](VIDEO_ON_DEMAND-use-cases.md "VIDEO_ON_DEMAND-use-cases.md")
+- [VIDEO_ON_DEMAND use cases](VIDEO_ON_DEMAND-use-cases.md "VIDEO_ON_DEMAND-use-cases.md")
 - [ECOMMERCE use cases](ECOMMERCE-use-cases.md "ECOMMERCE-use-cases.md")

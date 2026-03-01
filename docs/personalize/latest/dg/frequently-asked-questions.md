@@ -44,8 +44,7 @@ For quality recommendations, we recommend that you have at minimum 50,000 item i
 You can start out with an empty Item interactions dataset and, when you
 have recorded enough data, create your recommender (Domain dataset group) or custom solution version using only new recorded events.
 Some recipes and use cases may have additional data requirements. For information on use case requirements, see [Choosing a use case](domain-use-cases.md "domain-use-cases.md").
-For information on recipe requirements, see [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+For information on recipe requirements, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 
 _How do I update an item or user's
 attributes?_
@@ -69,8 +68,7 @@ a schema.
 _What recipe should I use?_
 
 The Amazon Personalize recipe that you use depends on your use case. For information on matching
-use cases to recipes, see [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md"). The [Amazon Personalize Cheat Sheet](https://github.com/aws-samples/amazon-personalize-samples/blob/master/PersonalizeCheatSheet2.0.md "https://github.com/aws-samples/amazon-personalize-samples/blob/master/PersonalizeCheatSheet2.0.md") also includes use case and recipe information.
+use cases to recipes, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md"). The [Amazon Personalize Cheat Sheet](https://github.com/aws-samples/amazon-personalize-samples/blob/master/PersonalizeCheatSheet2.0.md "https://github.com/aws-samples/amazon-personalize-samples/blob/master/PersonalizeCheatSheet2.0.md") also includes use case and recipe information.
 
 _How often should I train?_
 
@@ -83,8 +81,7 @@ maintaining relevance, see [Maintaining recommendation relevance](maintaining-re
 _Should I use AutoML?_
 
 No, instead we recommend that you match your use case to different Amazon Personalize recipes and
-choose a recipe. For information on matching use cases to recipes, see [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+choose a recipe. For information on matching use cases to recipes, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 
 ## Model deployment (custom campaigns)
 
@@ -160,10 +157,8 @@ For more information, see [Filtering recommendations and user segments](filter.m
 _How can I remove already purchased items from
 recommendations?_
 
-For ECOMMERCE Domain dataset groups, if you create a recommender with the [Recommended for
-you](ECOMMERCE-use-cases.md#recommended-for-you-use-case "ECOMMERCE-use-cases.md#recommended-for-you-use-case") or
-[Customers who viewed X
-also viewed](ECOMMERCE-use-cases.md#customers-also-viewed-use-case "ECOMMERCE-use-cases.md#customers-also-viewed-use-case") use case,
+For ECOMMERCE Domain dataset groups, if you create a recommender with the [Recommended for you](ECOMMERCE-use-cases.md#recommended-for-you-use-case "ECOMMERCE-use-cases.md#recommended-for-you-use-case") or
+[Customers who viewed X also viewed](ECOMMERCE-use-cases.md#customers-also-viewed-use-case "ECOMMERCE-use-cases.md#customers-also-viewed-use-case") use case,
 Amazon Personalize automatically filters items the user
 purchased based on the userId that you specify and `Purchase`
 events.

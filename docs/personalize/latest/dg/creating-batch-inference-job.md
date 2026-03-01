@@ -1,6 +1,4 @@
-# Creating a batch inference
-
-job
+# Creating a batch inference job
 
 Create a batch inference job to get batch item recommendations for users based on input data from Amazon S3. The input data
 can be a list of users or items (or both) in JSON format. You can create a batch inference job with the Amazon Personalize console, the AWS Command Line Interface (AWS CLI),

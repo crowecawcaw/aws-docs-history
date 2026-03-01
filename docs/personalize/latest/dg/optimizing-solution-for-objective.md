@@ -1,6 +1,4 @@
-# Optimizing a solution for an additional
-
-objective
+# Optimizing a solution for an additional objective
 
 ###### Important
 
@@ -31,13 +29,11 @@ You can use the Amazon Personalize console, AWS Command Line Interface
 ###### Topics
 
 - [Guidelines and requirements](#optimize-objective-guidelines-req "#optimize-objective-guidelines-req")
-- [Balancing objective emphasis and
-  relevance](#balancing-objective-emphasis "#balancing-objective-emphasis")
+- [Balancing objective emphasis and relevance](#balancing-objective-emphasis "#balancing-objective-emphasis")
 - [Measuring optimization performance](#measuring-performance "#measuring-performance")
 - [Optimizing a solution (AWS CLI)](#optimizing-solution-cli "#optimizing-solution-cli")
 - [Optimizing a solution (AWS SDKs)](#optimizing-solution-sdk "#optimizing-solution-sdk")
-- [Sample Jupyter
-  notebook](#optimization-objective-sample-notebooks "#optimization-objective-sample-notebooks")
+- [Sample Jupyter notebook](#optimization-objective-sample-notebooks "#optimization-objective-sample-notebooks")
 
 ## Guidelines and requirements
 
@@ -49,9 +45,7 @@ Objective requirements are as follows:
 
 For more information about schemas and data types, see [Creating schema JSON files for Amazon Personalize schemas](how-it-works-dataset-schema.md "how-it-works-dataset-schema.md").
 
-## Balancing objective emphasis and
-
-relevance
+## Balancing objective emphasis and relevance
 
 There can be a trade-off when recommending items based more on your objective than
 relevance. For example, if you want to increase revenue through recommendations,
@@ -104,8 +98,7 @@ The `optimizationObjective` has the following fields:
   sensitivity level configures how Amazon Personalize balances recommending items based on
   your objective versus relevance through item interaction datas data. The
   `objectiveSensitivity` can be `OFF`, LOW,
-  `MEDIUM` or `HIGH`. For more information, see [Balancing objective emphasis and
-  relevance](#balancing-objective-emphasis "#balancing-objective-emphasis").
+  `MEDIUM` or `HIGH`. For more information, see [Balancing objective emphasis and relevance](#balancing-objective-emphasis "#balancing-objective-emphasis").
 
 The following is an example of the `create-solution` AWS CLI command. Replace
 the `solution name`, `dataset group arn`, and `recipe
@@ -144,8 +137,7 @@ key in the `solutionConfig` object for the solution. The
   sensitivity level configures how Amazon Personalize balances recommending items based on
   your objective versus relevance through item interaction datas data. The
   `objectiveSensitivity` can be `OFF`, `LOW`,
-  `MEDIUM` or `HIGH`. For more information, see [Balancing objective emphasis and
-  relevance](#balancing-objective-emphasis "#balancing-objective-emphasis").
+  `MEDIUM` or `HIGH`. For more information, see [Balancing objective emphasis and relevance](#balancing-objective-emphasis "#balancing-objective-emphasis").
 
 Use the following code to create a solution with an additional objective with the
 AWS SDK for Python (Boto3) or the AWS SDK for Java 2.x.
@@ -263,9 +255,7 @@ export const run = async () => {
 run();
 ```
 
-## Sample Jupyter
-
-notebook
+## Sample Jupyter notebook
 
 For a sample Jupyter notebook that shows how to create a solution that is optimized for an additional objective based item
 metadata, see the [objective_optimization](https://github.com/aws-samples/amazon-personalize-samples/tree/master/next_steps/core_use_cases/objective_optimization "https://github.com/aws-samples/amazon-personalize-samples/tree/master/next_steps/core_use_cases/objective_optimization") folder of the [Amazon Personalize

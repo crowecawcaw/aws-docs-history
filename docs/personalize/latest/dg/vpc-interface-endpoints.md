@@ -1,6 +1,4 @@
-# Amazon Personalize and interface VPC endpoints
-
-(AWS PrivateLink)
+# Amazon Personalize and interface VPC endpoints (AWS PrivateLink)
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can
 establish a private connection between your VPC and Amazon Personalize. This connection allows Amazon Personalize to communicate with your resources on your VPC
@@ -27,14 +25,10 @@ by AWS PrivateLink.
 
 ###### Topics
 
-- [Creating an interface VPC endpoint for
-  Amazon Personalize](#vpc-endpoint-create "#vpc-endpoint-create")
-- [Creating a VPC endpoint policy for
-  Amazon Personalize](#vpc-endpoint-policy "#vpc-endpoint-policy")
+- [Creating an interface VPC endpoint for Amazon Personalize](#vpc-endpoint-create "#vpc-endpoint-create")
+- [Creating a VPC endpoint policy for Amazon Personalize](#vpc-endpoint-policy "#vpc-endpoint-policy")
 
-## Creating an interface VPC endpoint for
-
-Amazon Personalize
+## Creating an interface VPC endpoint for Amazon Personalize
 
 You can create a VPC endpoint for the Amazon Personalize service with either the Amazon VPC console or
 the AWS Command Line Interface (AWS CLI). For more information, see [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint") in the _Amazon VPC User Guide_.
@@ -48,9 +42,7 @@ To create a VPC endpoint for Amazon Personalize, choose one of the following for
 If you enable private DNS for the endpoint, you can make API requests to Amazon Personalize using its
 default DNS name for the Region, for example, `personalize.us-east-1.api.aws`.
 
-## Creating a VPC endpoint policy for
-
-Amazon Personalize
+## Creating a VPC endpoint policy for Amazon Personalize
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 Amazon Personalize. The policy specifies the following information:
@@ -61,9 +53,7 @@ Amazon Personalize. The policy specifies the following information:
 
 For more information, see [Controlling access to services with VPC endpoints](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
 
-###### Example: VPC endpoint policy allowing all Amazon Personalize actions and passRole
-
-actions
+###### Example: VPC endpoint policy allowing all Amazon Personalize actions and passRole actions
 
 When attached to an endpoint, this policy grants access to all Amazon Personalize actions and
 passRole actions.

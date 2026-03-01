@@ -1,6 +1,4 @@
-# Items dataset schema requirements
-
-(custom)
+# Items dataset schema requirements (custom)
 
 An _Items dataset_ stores metadata
 about your items in your catalogue. This might include information such as
@@ -52,9 +50,7 @@ existing items with recent interactions data.
 For more information on minimum requirements and maximum data limits
 for an Items dataset, see [Service quotas](limits.md#limits-table "limits.md#limits-table").
 
-## Items dataset schema example
-
-(custom)
+## Items dataset schema example (custom)
 
 The following example shows how to structure an Items schema. The
 `ITEM_ID` field is required. The `GENRE` field
@@ -62,8 +58,7 @@ is categorical metadata and the `DESCRIPTION` field is
 textual metadata. At least one metadata field is required. You can add a
 maximum of 100 metadata fields. The
 `CREATION_TIMESTAMP` field is a reserved keyword. For
-information about schema requirements, see [Custom dataset and schema
-requirements](custom-datasets-and-schemas.md#dataset-requirements "custom-datasets-and-schemas.md#dataset-requirements").
+information about schema requirements, see [Custom dataset and schema requirements](custom-datasets-and-schemas.md#dataset-requirements "custom-datasets-and-schemas.md#dataset-requirements").
 
 ```
 {

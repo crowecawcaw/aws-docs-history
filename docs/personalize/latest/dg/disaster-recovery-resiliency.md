@@ -1,6 +1,4 @@
-# Resilience in
-
-Amazon Personalize
+# Resilience in Amazon Personalize
 
 The AWS global infrastructure is built around AWS Regions and
 Availability Zones. AWS Regions provide multiple physically separated

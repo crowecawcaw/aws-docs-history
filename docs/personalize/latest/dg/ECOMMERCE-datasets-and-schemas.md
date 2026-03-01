@@ -18,8 +18,7 @@ The following topics provide information about each dataset's required and recom
 ###### Topics
 
 - [ECOMMERCE domain dataset and schema requirements](#ECOMMERCE-dataset-requirements "#ECOMMERCE-dataset-requirements")
-- [Item interactions dataset requirements (ECOMMERCE
-  domain)](ECOMMERCE-interactions-dataset.md "ECOMMERCE-interactions-dataset.md")
+- [Item interactions dataset requirements (ECOMMERCE domain)](ECOMMERCE-interactions-dataset.md "ECOMMERCE-interactions-dataset.md")
 - [Users dataset requirements (ECOMMERCE domain)](ECOMMERCE-users-dataset.md "ECOMMERCE-users-dataset.md")
 - [Items dataset requirements (ECOMMERCE domain)](ECOMMERCE-items-dataset.md "ECOMMERCE-items-dataset.md")
 

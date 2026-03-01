@@ -115,7 +115,6 @@ After you create a role for Amazon Personalize, you are ready to grant it [acces
 After you create the role and grant it permissions to access your resources in Amazon Personalize, do the following:
 
 1. Modify your Amazon Personalize service role's trust policy so it prevents the [confused deputy problem](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
-   For a trust relationship policy example, see [Cross-service confused deputy
-   prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md"). For information modifying a role's trust policy, see [Modifying a role](../../../IAM/latest/UserGuide/id_roles_manage_modify.md "../../../IAM/latest/UserGuide/id_roles_manage_modify.md").
+   For a trust relationship policy example, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md"). For information modifying a role's trust policy, see [Modifying a role](../../../IAM/latest/UserGuide/id_roles_manage_modify.md "../../../IAM/latest/UserGuide/id_roles_manage_modify.md").
 2. If you use AWS Key Management Service (AWS KMS) for encryption, you must grant Amazon Personalize and your Amazon Personalize IAM service role
    permission to use your key. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md "granting-personalize-key-access.md").

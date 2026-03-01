@@ -6,10 +6,8 @@ using Amazon Personalize.
 ###### Topics
 
 - [Data import and management](#data-import-troubleshooting "#data-import-troubleshooting")
-- [Creating a solution and solution version
-  (custom resources)](#training-troubleshooting "#training-troubleshooting")
-- [Model deployment (custom
-  campaigns)](#deployment-troubleshooting "#deployment-troubleshooting")
+- [Creating a solution and solution version (custom resources)](#training-troubleshooting "#training-troubleshooting")
+- [Model deployment (custom campaigns)](#deployment-troubleshooting "#deployment-troubleshooting")
 - [Recommenders (Domain dataset groups)](#recommender-errors "#recommender-errors")
 - [Recommendations](#recommendations-troubleshooting "#recommendations-troubleshooting")
 - [Filtering recommendations](#filters-troubleshooting "#filters-troubleshooting")
@@ -64,9 +62,7 @@ any preceding textual fields for the following:
 - Make sure any textual data is wrapped in double quotes. Use the `\` character to escape any double quotes or `\` characters in your data.
 - Makes sure each record in your CSV file is on a single line.
 
-## Creating a solution and solution version
-
-(custom resources)
+## Creating a solution and solution version (custom resources)
 
 **Error message:**
 _Create failed. Dataset has fewer than 25 users with at least 2
@@ -87,9 +83,7 @@ For batch recommendations, import your data with a dataset import job when you h
 data. For more information, about importing bulk
 data see [Importing training data into Amazon Personalize datasets](import-data.md "import-data.md").
 
-## Model deployment (custom
-
-campaigns)
+## Model deployment (custom campaigns)
 
 **Error:**
 _Cannot create a campaign. More than 5 resources in ACTIVE state.

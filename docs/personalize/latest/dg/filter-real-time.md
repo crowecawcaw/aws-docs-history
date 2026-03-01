@@ -48,8 +48,7 @@ and build or insert your expression:
     * To use the expression builder, choose **Build
      expression**. The expression builder provides structure, fields, and
      guidelines for building correctly formatted filter expressions. For more
-     information, see [Using the filter expression
-     builder](#using-filter-expression-builder "#using-filter-expression-builder").
+     information, see [Using the filter expression builder](#using-filter-expression-builder "#using-filter-expression-builder").
     * To input your own expression, choose **Add expression
      manually**. For more information, see [Filter expression elements](creating-filter-expressions.md#filter-expression-elements "creating-filter-expressions.md#filter-expression-elements").
 
@@ -102,9 +101,7 @@ For example, if the user already bought a recommended item, the filter removes i
 recommendation list. In this example, items 2657, 2985 were replaced by the most
 suitable items that the user didn't buy (items 2641 and 1573).
 
-### Using the filter expression
-
-builder
+### Using the filter expression builder
 
 The **Expression builder** on the **Create filter** page provides structure, fields, and guidelines for building
 correctly formatted filter.

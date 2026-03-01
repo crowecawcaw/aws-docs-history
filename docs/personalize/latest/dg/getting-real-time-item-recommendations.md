@@ -25,8 +25,7 @@ recommender (Domain dataset group) or a custom campaign.
    recommendation request details based on your use case.
 
 If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events
-as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for
-anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events"). 6. Optionally choose a filter. For more information, see [Filtering recommendations and user segments](filter.md "filter.md"). 7. If you use contextual metadata, provide data for each context. For each context, for the **Key** enter the metadata field. For the **Value** enter the context data. For
+as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events"). 6. Optionally choose a filter. For more information, see [Filtering recommendations and user segments](filter.md "filter.md"). 7. If you use contextual metadata, provide data for each context. For each context, for the **Key** enter the metadata field. For the **Value** enter the context data. For
 more information, see [Increasing recommendation relevance with contextual metadata](contextual-metadata.md "contextual-metadata.md"). 8. If you enabled metadata in recommendations for your campaign or recommender, for **Items dataset
 columns**, choose the metadata columns that you want to include in recommendation results. For information
 about enabling metadata for a campaign, see [Item metadata in recommendations](campaigns.md#create-campaign-return-metadata "campaigns.md#create-campaign-return-metadata"). For information about enabling metadata for a recommender, see
@@ -49,8 +48,7 @@ maximum is 500 items. If you used a RELATED_ITEMS recipe to train the solution v
 `user-id` parameter with `item-id` and specify the item ID.
 
 If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events
-as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for
-anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
+as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
 
 ```
 aws personalize-runtime get-recommendations \
@@ -77,8 +75,7 @@ metadata columns to include in the response. For a code sample, see [Including i
 information about enabling metadata, see [Item metadata in recommendations](campaigns.md#create-campaign-return-metadata "campaigns.md#create-campaign-return-metadata").
 
 If you recorded events for a user before they logged in (an anonymous user), you can get recommendations for this user by providing the `sessionId` from those events
-as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for
-anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
+as if it is their `userId`. For more information about recording events for anonymous users, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
 
 SDK for Python (Boto3)
 

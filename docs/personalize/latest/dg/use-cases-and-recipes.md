@@ -34,5 +34,4 @@ can help as you prepare your data in [Preparing training data for Amazon Persona
 
 - [Use case and recipe features](use-case-recipe-features.md "use-case-recipe-features.md")
 - [Choosing a use case](domain-use-cases.md "domain-use-cases.md")
-- [Choosing a
-  recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md")
+- [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md")

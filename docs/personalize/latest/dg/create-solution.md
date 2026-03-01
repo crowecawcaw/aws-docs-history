@@ -40,8 +40,7 @@ a solution name, recipe, and optional training configuration.
    - Choose **User segmentation** to get user segments (groups of users) based on your item
      data.
 
-6. For **Recipe**, choose a recipe (see [Choosing a
-   recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md")).
+6. For **Recipe**, choose a recipe (see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md")).
 7. For **Tags**, optionally add any tags. For more information about tagging Amazon Personalize resources, see
    [Tagging Amazon Personalize resources](tagging-resources.md "tagging-resources.md").
 8. Choose **Next**.
@@ -56,8 +55,7 @@ a solution name, recipe, and optional training configuration.
    maintaining relevance, see [Maintaining recommendation relevance](maintaining-relevance.md "maintaining-relevance.md").
    - In **Hyperparameter configuration**, configure any hyperparameter options based on your recipe
      and business needs. Different recipes use different hyperparameters. For the hyperparameters available to you, see
-     the individual recipes in [Choosing a
-     recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+     the individual recipes in [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
    - In **Columns for training**, if your recipe generates item recommendations or user segments,
      optionally choose the columns that Amazon Personalize considers when creating solution versions. For more information, see [Configuring columns used when training](custom-config-columns.md "custom-config-columns.md").
    - In **Event configuration**, if your Item interactions dataset has EVENT_TYPE or both EVENT_TYPE and EVENT_VALUE columns,
@@ -71,8 +69,7 @@ a solution name, recipe, and optional training configuration.
    - If you use either the [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md "native-recipe-new-item-USER_PERSONALIZATION.md") or [Personalized-Ranking recipe](native-recipe-search.md "native-recipe-search.md") recipe, optionally specify an **Objective** and choose an
      **Objective sensitivity** to optimize your solution for an objective in addition to relevance.
      The objective sensitivity configures how Amazon Personalize balances recommending items based on your objective compared with
-     relevance through interactions data. For more information, see [Optimizing a solution for an additional
-     objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
+     relevance through interactions data. For more information, see [Optimizing a solution for an additional objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
 
 10. Choose **Next** and review the solution details. You can't change your solution's configuration after you create it.
 11. Choose **Create solution**. After you create a solution, Amazon Personalize starts creating your first solution version within an hour.
@@ -99,8 +96,7 @@ create a solution that uses automatic training. It automatically creates a new s
 
 To use the code, update it to give the solution a name, specify the Amazon Resource Name (ARN) of your
 dataset group, optionally change the training frequency, and specify the ARN of the recipe to use. For information about recipes,
-see [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 
 ```
 aws personalize create-solution \
@@ -116,12 +112,10 @@ aws personalize create-solution \
   7 days. Your training frequency depends on your business requirements, the recipe that you use,
   and how frequently you import data. For more information, see [Configuring automatic training](solution-config-auto-training.md "solution-config-auto-training.md").
 - Depending on your recipe, you can modify the code to configure recipe specific properties and hyperparameters (see
-  [Hyperparameters and
-  HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md")), configure the
+  [Hyperparameters and HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md")), configure the
   columns used for training (see [Configuring columns used when training (AWS CLI)](custom-config-columns.md#custom-config-columns-cli "custom-config-columns.md#custom-config-columns-cli")), or filter the item interactions data used for training (see [Choosing the item interaction data used for training](event-values-types.md "event-values-types.md")).
 - If you use either the [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md "native-recipe-new-item-USER_PERSONALIZATION.md") or [Personalized-Ranking recipe](native-recipe-search.md "native-recipe-search.md") recipe, you can optimize your solution for an objective, in addition to
-  relevance. For more information, see [Optimizing a solution for an additional
-  objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
+  relevance. For more information, see [Optimizing a solution for an additional objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
 
 After you create the solution, record the solution ARN for future use.
 With automatic training, solution version creation starts within one hour after the solution is ACTIVE. If you manually create a solution version within
@@ -150,8 +144,7 @@ a new solution version every five days.
 
 To use the code, update it to give the solution a name, specify the Amazon Resource Name (ARN) of your dataset group,
 optionally change the training frequency, and specify the ARN of the recipe that you want to use. For information about
-recipes, see [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+recipes, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 
 SDK for Python (Boto3)
 
@@ -220,12 +213,10 @@ run();
   7 days. Your training frequency depends on your business requirements, the recipe that you use,
   and how frequently you import data. For more information, see [Configuring automatic training](solution-config-auto-training.md "solution-config-auto-training.md").
 - Depending on your recipe, you can modify the code to configure recipe specific properties and hyperparameters (see
-  [Hyperparameters and
-  HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md")), configure the
+  [Hyperparameters and HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md")), configure the
   columns used for training (see [Configuring columns used when training (AWS SDKs)](custom-config-columns.md#custom-configure-columns-sdk "custom-config-columns.md#custom-configure-columns-sdk")), or filter the item interactions data used for training (see [Choosing the item interaction data used for training](event-values-types.md "event-values-types.md")).
 - If you use either the [User-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md "native-recipe-new-item-USER_PERSONALIZATION.md") or [Personalized-Ranking recipe](native-recipe-search.md "native-recipe-search.md") recipe, you can optimize your solution for an objective, in addition to
-  relevance. For more information, see [Optimizing a solution for an additional
-  objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
+  relevance. For more information, see [Optimizing a solution for an additional objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
 
 After you create the solution, record the solution ARN for future use.
 With automatic training, solution version creation starts within one hour after the solution is ACTIVE. If you manually create a solution version within

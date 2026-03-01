@@ -19,8 +19,7 @@ delete the resources that you created. For more information, see
 The following are prerequisite steps for completing this tutorial:
 
 - Complete the [Getting started prerequisites](gs-prerequisites.md "gs-prerequisites.md") to set up the required
-  permissions and create the training data. If you also completed the [Getting started with a Domain dataset group
-  (console)](getting-started-console-domain.md "getting-started-console-domain.md"), you can reuse the same source data. If you are using your own source
+  permissions and create the training data. If you also completed the [Getting started with a Domain dataset group (console)](getting-started-console-domain.md "getting-started-console-domain.md"), you can reuse the same source data. If you are using your own source
   data, make sure that your data is formatted like in the prerequisites.
 - Set up the SDK for JavaScript and AWS credentials as specified in the
   [Setting up the SDK for JavaScript](../../../sdk-for-javascript/v3/developer-guide/setting-up.md "../../../sdk-for-javascript/v3/developer-guide/setting-up.md") procedure in the _AWS SDK for JavaScript Developer Guide_.

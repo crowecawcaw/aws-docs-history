@@ -6,8 +6,7 @@ user metadata. They are organized by data type.
 ###### Topics
 
 - [Item interaction data](#item-interaction-filter-examples "#item-interaction-filter-examples")
-- [Item
-  data](#item-filter-examples "#item-filter-examples")
+- [Item data](#item-filter-examples "#item-filter-examples")
 - [User data](#user-filter-examples "#user-filter-examples")
 
 ## Item interaction data
@@ -31,9 +30,7 @@ The following expression includes only items that the user has clicked.
 INCLUDE ItemID WHERE Interactions.EVENT_TYPE IN ("click")
 ```
 
-## Item
-
-data
+## Item data
 
 The following expression excludes items based on a category or categories that you specify when you get
 recommendations using the `$CATEGORY` parameter.

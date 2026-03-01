@@ -5,8 +5,7 @@ more new users into the dataset. Individually importing users allows you to
 keep your Users dataset current with small batch imports as your catalog grows. You can import
 up to 10 users at a time. If you have a large
 amount of new users, we recommend that you first import data in bulk and
-then import user data individually as necessary. See [Importing bulk data into Amazon Personalize with a
-dataset import job](bulk-data-import-step.md "bulk-data-import-step.md").
+then import user data individually as necessary. See [Importing bulk data into Amazon Personalize with a dataset import job](bulk-data-import-step.md "bulk-data-import-step.md").
 
 You can use the Amazon Personalize console, the AWS Command Line Interface (AWS CLI), or AWS SDKs to
 import users. If you import a user with the same `userId` as a
@@ -18,16 +17,11 @@ new records influence recommendations, see [Importing individual records into an
 
 ###### Topics
 
-- [Importing users individually
-  (console)](#importing-users-console "#importing-users-console")
-- [Importing users individually
-  (AWS CLI)](#importing-users-cli "#importing-users-cli")
-- [Importing users individually
-  (AWS SDKs)](#importing-users-sdk "#importing-users-sdk")
+- [Importing users individually (console)](#importing-users-console "#importing-users-console")
+- [Importing users individually (AWS CLI)](#importing-users-cli "#importing-users-cli")
+- [Importing users individually (AWS SDKs)](#importing-users-sdk "#importing-users-sdk")
 
-## Importing users individually
-
-(console)
+## Importing users individually (console)
 
 You can import up to 10 users at a time. This procedure assumes you
 have already created a Users dataset. For information about creating
@@ -55,9 +49,7 @@ datasets, see [Creating a schema and a dataset](data-prep-creating-datasets.md "
    **Response**, the result of the import is listed
    and a success or failure message is displayed.
 
-## Importing users individually
-
-(AWS CLI)
+## Importing users individually (AWS CLI)
 
 Add one or more users to your Users dataset with the [PutUsers](API_UBS_PutUsers.md "API_UBS_PutUsers.md") operation.
 You can import up to 10 users with a single `PutUsers` call.
@@ -92,9 +84,7 @@ aws personalize-events put-users \
     }]'
 ```
 
-## Importing users individually
-
-(AWS SDKs)
+## Importing users individually (AWS SDKs)
 
 Add one or more users to your Users dataset with the [PutUsers](API_UBS_PutUsers.md "API_UBS_PutUsers.md") operation.
 If a user with the same

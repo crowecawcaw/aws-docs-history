@@ -1,6 +1,4 @@
-# Importing interactions
-
-individually
+# Importing interactions individually
 
 After you complete [Creating a schema and a dataset](data-prep-creating-datasets.md "data-prep-creating-datasets.md") to create an Item interactions dataset, you can individually import one or
 more new events into the dataset.
@@ -21,19 +19,14 @@ new records influence recommendations, see [Importing individual records into an
 
 ###### Topics
 
-- [Creating an event tracker
-  (console)](#event-tracker-console "#event-tracker-console")
-- [Importing events
-  individually (console)](#importing-interactions-console "#importing-interactions-console")
+- [Creating an event tracker (console)](#event-tracker-console "#event-tracker-console")
+- [Importing events individually (console)](#importing-interactions-console "#importing-interactions-console")
 
-## Creating an event tracker
-
-(console)
+## Creating an event tracker (console)
 
 ###### Note
 
-If you've created an event tracker, you can skip to [Importing events
-individually (console)](#importing-interactions-console "#importing-interactions-console").
+If you've created an event tracker, you can skip to [Importing events individually (console)](#importing-interactions-console "#importing-interactions-console").
 
 Before you can import an event to an Interactions
 dataset, you must create an _[event
@@ -63,13 +56,10 @@ console to upload event data. If you want to stream event data using
 AWS Amplify or AWS Lambda in the future, you can view this
 information by choosing the event tracker on the **Event
 trackers** page. 6. Choose **Finish**. You can now
-import events with the console (see [Importing events
-individually (console)](#importing-interactions-console "#importing-interactions-console") or record events in
+import events with the console (see [Importing events individually (console)](#importing-interactions-console "#importing-interactions-console") or record events in
 real time using the `PutEvents` operation (see [Recording real-time events to influence recommendations](recording-events.md "recording-events.md")).
 
-## Importing events
-
-individually (console)
+## Importing events individually (console)
 
 After you create an event tracker, you can import
 events individually into an Item interactions dataset. This procedure assumes you have already

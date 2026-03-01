@@ -26,10 +26,8 @@ costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/prici
 - [Creating a solution](create-solution.md "create-solution.md")
 - [Configuring automatic training](solution-config-auto-training.md "solution-config-auto-training.md")
 - [Configuring columns used when training](custom-config-columns.md "custom-config-columns.md")
-- [Optimizing a solution for an additional
-  objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md")
+- [Optimizing a solution for an additional objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md")
 - [Optimizing a solution with events configuration](optimizing-solution-events-config.md "optimizing-solution-events-config.md")
-- [Hyperparameters and
-  HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md")
+- [Hyperparameters and HPO](customizing-solution-config-hpo.md "customizing-solution-config-hpo.md")
 - [Choosing the item interaction data used for training](event-values-types.md "event-values-types.md")
 - [Cloning a solution (console)](cloning-solution.md "cloning-solution.md")

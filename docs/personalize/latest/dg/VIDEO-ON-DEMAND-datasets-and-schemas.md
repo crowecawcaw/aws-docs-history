@@ -1,6 +1,4 @@
-# VIDEO_ON_DEMAND datasets and
-
-schemas
+# VIDEO_ON_DEMAND datasets and schemas
 
 When you create a Domain dataset group for the VIDEO_ON_DEMAND domain, each dataset type has a default schema with a set of VIDEO_ON_DEMAND specific required and recommended fields.
 You can either use the default schema or create a new one based on the default schema.
@@ -18,8 +16,7 @@ The following topics provide information about each dataset's required and recom
 ###### Topics
 
 - [VIDEO_ON_DEMAND domain dataset and schema requirements](#VIDEO-ON-DEMAND-dataset-requirements "#VIDEO-ON-DEMAND-dataset-requirements")
-- [Item interactions dataset requirements
-  (VIDEO_ON_DEMAND domain)](VIDEO-ON-DEMAND-interactions-dataset.md "VIDEO-ON-DEMAND-interactions-dataset.md")
+- [Item interactions dataset requirements (VIDEO_ON_DEMAND domain)](VIDEO-ON-DEMAND-interactions-dataset.md "VIDEO-ON-DEMAND-interactions-dataset.md")
 - [Users dataset requirements (VIDEO_ON_DEMAND domain)](VIDEO-ON-DEMAND-users-dataset.md "VIDEO-ON-DEMAND-users-dataset.md")
 - [Items dataset requirements (VIDEO_ON_DEMAND domain)](VIDEO-ON-DEMAND-items-dataset.md "VIDEO-ON-DEMAND-items-dataset.md")
 

@@ -6,8 +6,7 @@ You use these resources to get recommendations. When you create custom resources
 1. **Create and configure a solution:** Customize solution parameters and recipe-specific
    hyperparameters so the model meets your specific business needs. By default, new solution versions use automatic training
    to create solution versions at a configurable frequency. The default frequency is every 7 days.
-   For more information about configuring a solution, see [Configuring a solution](customizing-solution-config.md "customizing-solution-config.md"). For more information about custom recipes in Amazon Personalize, see [Choosing a
-   recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+   For more information about configuring a solution, see [Configuring a solution](customizing-solution-config.md "customizing-solution-config.md"). For more information about custom recipes in Amazon Personalize, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 2. **Create a solution version (for solutions that don't use automatic training):** For
    solutions that use automatic training, solution version creation starts automatically after your solution is active. For
    solutions that use manual training, you manually create a solution version. The solution version generates Amazon Personalize

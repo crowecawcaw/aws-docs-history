@@ -1,6 +1,4 @@
-# Using AutoML to choose an HRNN recipe (API
-
-only)
+# Using AutoML to choose an HRNN recipe (API only)
 
 Amazon Personalize can automatically choose the most appropriate hierarchical recurrent
 neural network (HRNN) recipe based on its analysis of the input data. This option is called

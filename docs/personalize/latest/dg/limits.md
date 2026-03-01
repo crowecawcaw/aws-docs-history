@@ -2,16 +2,14 @@
 
 The following sections contain information about Amazon Personalize guidelines,
 quotas, and endpoints. For adjustable quotas, you can request a quota
-increase using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/"). For more information, see [Requesting a quota
-increase](#requesting-limit-increase "#requesting-limit-increase").
+increase using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/"). For more information, see [Requesting a quota increase](#requesting-limit-increase "#requesting-limit-increase").
 
 ###### Topics
 
 - [Amazon Personalize endpoints and regions](#regions "#regions")
 - [Compliance](#compliance "#compliance")
 - [Service quotas](#limits-table "#limits-table")
-- [Requesting a quota
-  increase](#requesting-limit-increase "#requesting-limit-increase")
+- [Requesting a quota increase](#requesting-limit-increase "#requesting-limit-increase")
 
 ## Amazon Personalize endpoints and regions
 
@@ -143,9 +141,7 @@ Each dataset group has the following quotas.
 | Total number of distinct dataset fields across all filters.                      | 20              |
 | Total number of data deletion jobs for a dataset group with a status of PENDING. | 5               |
 
-## Requesting a quota
-
-increase
+## Requesting a quota increase
 
 For adjustable quotas, you can request a quota increase using the
 [Service Quotas

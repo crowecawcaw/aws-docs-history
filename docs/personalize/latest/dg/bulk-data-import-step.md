@@ -1,6 +1,4 @@
-# Importing bulk data into Amazon Personalize with a
-
-dataset import job
+# Importing bulk data into Amazon Personalize with a dataset import job
 
 After you have formatted your input data (see [Preparing training data for Amazon Personalize](preparing-training-data.md "preparing-training-data.md")) and
 completed [Creating a schema and a dataset](data-prep-creating-datasets.md "data-prep-creating-datasets.md"),
@@ -35,8 +33,7 @@ information, see [Domain recommenders in Amazon Personalize](creating-recommende
 ###### Topics
 
 - [Import modes](#bulk-import-modes "#bulk-import-modes")
-- [Creating a dataset import job
-  (console)](#bulk-data-import-console "#bulk-data-import-console")
+- [Creating a dataset import job (console)](#bulk-data-import-console "#bulk-data-import-console")
 - [Creating a dataset import job (AWS CLI)](#bulk-data-import-cli "#bulk-data-import-cli")
 - [Creating a dataset import job (AWS SDKs)](#python-import-ex "#python-import-ex")
 
@@ -63,9 +60,7 @@ is a full replacement.
 To append data to an Item interactions dataset or Action interactions dataset with a dataset import job, you must have at
 minimum 1000 new item interaction or action interaction records.
 
-## Creating a dataset import job
-
-(console)
+## Creating a dataset import job (console)
 
 ###### Important
 

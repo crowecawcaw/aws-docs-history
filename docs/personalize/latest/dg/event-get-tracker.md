@@ -8,8 +8,7 @@ You create an event tracker with the Amazon Personalize console or the
 [CreateEventTracker](API_CreateEventTracker.md "API_CreateEventTracker.md") API operation. You pass as a
 parameter the Amazon Resource Name (ARN) of the dataset group that
 contains the target Item interactions dataset. For instructions on creating an
-event tracker using the Amazon Personalize console, see [Creating an event tracker
-(console)](importing-interactions.md#event-tracker-console "importing-interactions.md#event-tracker-console").
+event tracker using the Amazon Personalize console, see [Creating an event tracker (console)](importing-interactions.md#event-tracker-console "importing-interactions.md#event-tracker-console").
 
 An event tracker includes a _tracking
 ID_, which you pass as a parameter when you use the [PutEvents](API_UBS_PutEvents.md "API_UBS_PutEvents.md") operation. Amazon Personalize then appends the new event data to

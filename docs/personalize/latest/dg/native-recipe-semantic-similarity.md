@@ -99,8 +99,7 @@ The Semantic-Similarity recipe has the following properties:
 - Recipe type –
   `RELATED_ITEMS`
 
-For more information, see [Choosing a
-recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
+For more information, see [Choosing a recipe](working-with-predefined-recipes.md "working-with-predefined-recipes.md").
 
 The Semantic-Similarity recipe has no exposed hyperparameters but you can configure
 popularity and freshness factors when you create a campaign to influence the ranking of

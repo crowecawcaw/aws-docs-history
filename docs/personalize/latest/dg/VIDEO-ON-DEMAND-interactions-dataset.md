@@ -1,6 +1,4 @@
-# Item interactions dataset requirements
-
-(VIDEO_ON_DEMAND domain)
+# Item interactions dataset requirements (VIDEO_ON_DEMAND domain)
 
 An _Item interactions dataset_ stores historical and real-time data from interactions between users and items in your VIDEO_ON_DEMAND catalog.
 For more information about the types of data you can store in an interactions dataset, see [Item interaction data](interactions-datasets.md "interactions-datasets.md").

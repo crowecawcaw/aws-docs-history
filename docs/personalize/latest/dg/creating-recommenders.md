@@ -19,8 +19,7 @@ When you create a recommender, you can do the following:
 
 - Enable item metadata in recommendations.
   For more information, see [Enabling metadata in recommendations](create-recommender-return-metadata.md "create-recommender-return-metadata.md").
-- Configure the columns used when training the models backing your recommender. For more information, see [Configuring columns used when creating an Amazon Personalize domain
-  recommender](create-recommender-configure-columns.md "create-recommender-configure-columns.md").
+- Configure the columns used when training the models backing your recommender. For more information, see [Configuring columns used when creating an Amazon Personalize domain recommender](create-recommender-configure-columns.md "create-recommender-configure-columns.md").
 - For _Top picks for your_ or _Recommended for you_ use cases, you can configure exploration. For
   more information, see [Configuring exploration for a domain recommender](create-recommender-configure-exploration.md "create-recommender-configure-exploration.md").
   After you create a recommender, you can do the following:
@@ -37,12 +36,10 @@ When you create a recommender, you can do the following:
 ###### Topics
 
 - [Recommender statuses](#recommender-statuses "#recommender-statuses")
-- [Minimum recommendation requests per second and
-  auto-scaling](#min-rrps-auto-scaling "#min-rrps-auto-scaling")
+- [Minimum recommendation requests per second and auto-scaling](#min-rrps-auto-scaling "#min-rrps-auto-scaling")
 - [Creating domain recommenders in Amazon Personalize](creating-domain-recommenders.md "creating-domain-recommenders.md")
 - [Enabling metadata in recommendations for a domain recommender in Amazon Personalize](create-recommender-return-metadata.md "create-recommender-return-metadata.md")
-- [Configuring columns used when creating an Amazon Personalize domain
-  recommender](create-recommender-configure-columns.md "create-recommender-configure-columns.md")
+- [Configuring columns used when creating an Amazon Personalize domain recommender](create-recommender-configure-columns.md "create-recommender-configure-columns.md")
 - [Configuring exploration for a domain recommender](create-recommender-configure-exploration.md "create-recommender-configure-exploration.md")
 - [Evaluating an Amazon Personalize domain recommender](evaluating-recommenders.md "evaluating-recommenders.md")
 - [Updating a recommender](updating-recommender.md "updating-recommender.md")
@@ -57,9 +54,7 @@ A recommender can be in one of the following states:
 
 To get the recommender status, navigate to the Recommenders page in the Amazon Personalize console or use the [DescribeRecommender](API_DescribeRecommender.md "API_DescribeRecommender.md") operation.
 
-## Minimum recommendation requests per second and
-
-auto-scaling
+## Minimum recommendation requests per second and auto-scaling
 
 ###### Important
 

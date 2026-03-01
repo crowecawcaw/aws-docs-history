@@ -27,31 +27,23 @@ set.
 
 ###### Topics
 
-- [Retrieving
-  metrics](#retrieving-recommender-metrics "#retrieving-recommender-metrics")
+- [Retrieving metrics](#retrieving-recommender-metrics "#retrieving-recommender-metrics")
 - [Metric definitions](#metric-definitions-recommenders "#metric-definitions-recommenders")
 - [Example](#working-with-recommender-metrics-example "#working-with-recommender-metrics-example")
 - [Additional resources](#additional-metrics-resources-recommenders "#additional-metrics-resources-recommenders")
 
-## Retrieving
-
-metrics
+## Retrieving metrics
 
 After your recommender is active, you can view the metrics for the
 recommender in the Amazon Personalize console or retrieve metrics by calling the [DescribeRecommender](API_DescribeRecommender.md "API_DescribeRecommender.md") operation.
 
 ###### Topics
 
-- [Viewing metrics
-  (console)](#retrieving-recommender-metrics-console "#retrieving-recommender-metrics-console")
-- [Retrieving metrics
-  (AWS CLI)](#retrieving-recommender-metrics-cli "#retrieving-recommender-metrics-cli")
-- [Retrieving metrics
-  (AWS SDKs)](#retrieving-recommender-metrics-sdk "#retrieving-recommender-metrics-sdk")
+- [Viewing metrics (console)](#retrieving-recommender-metrics-console "#retrieving-recommender-metrics-console")
+- [Retrieving metrics (AWS CLI)](#retrieving-recommender-metrics-cli "#retrieving-recommender-metrics-cli")
+- [Retrieving metrics (AWS SDKs)](#retrieving-recommender-metrics-sdk "#retrieving-recommender-metrics-sdk")
 
-### Viewing metrics
-
-(console)
+### Viewing metrics (console)
 
 To view recommender metrics in the console, you navigate to the
 details page for your recommender.
@@ -65,9 +57,7 @@ details page for your recommender.
 4. From the list of recommenders, choose the one to view its
    metrics.
 
-### Retrieving metrics
-
-(AWS CLI)
+### Retrieving metrics (AWS CLI)
 
 The following code shows how to get metrics for a recommender with
 the AWS CLI.
@@ -106,9 +96,7 @@ use case for the VIDEO_ON_DEMAND domain.
 }
 ```
 
-### Retrieving metrics
-
-(AWS SDKs)
+### Retrieving metrics (AWS SDKs)
 
 The following code shows how to get metrics for a recommender with
 the SDK for Python (Boto3).

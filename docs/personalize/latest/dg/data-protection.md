@@ -1,6 +1,4 @@
-# Data protection in
-
-Amazon Personalize
+# Data protection in Amazon Personalize
 
 The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
 applies to data protection in Amazon Personalize. As described in this model, AWS is

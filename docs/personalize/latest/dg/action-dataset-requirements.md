@@ -25,8 +25,7 @@ For more information on minimum requirements and maximum data limits for an Acti
 The following example shows how to structure an Actions schema. The `ACTION_ID` field is required. The
 `MEMBERSHIP_LEVEL` field is a categorical string field. The `VALUE`,
 `CREATION_TIMESTAMP`, and `REPEAT_FREQUENCY` fields are reserved keywords with the required types. You
-can add a maximum of 10 columns. For information about schema requirements, see [Custom dataset and schema
-requirements](custom-datasets-and-schemas.md#dataset-requirements "custom-datasets-and-schemas.md#dataset-requirements").
+can add a maximum of 10 columns. For information about schema requirements, see [Custom dataset and schema requirements](custom-datasets-and-schemas.md#dataset-requirements "custom-datasets-and-schemas.md#dataset-requirements").
 
 ```
 {

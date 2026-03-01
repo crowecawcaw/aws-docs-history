@@ -11,8 +11,7 @@ delete the resources that you created. For more information, see
 
 - [Prerequisites](#gs-sdk-domain-prerequisites "#gs-sdk-domain-prerequisites")
 - [Tutorial](#gs-python-tutorial "#gs-python-tutorial")
-- [Getting started using Amazon Personalize APIs with Jupyter
-  (iPython) notebooks](#gs-jupyter-domain-notebook "#gs-jupyter-domain-notebook")
+- [Getting started using Amazon Personalize APIs with Jupyter (iPython) notebooks](#gs-jupyter-domain-notebook "#gs-jupyter-domain-notebook")
 
 ## Prerequisites
 
@@ -205,9 +204,7 @@ for item in response['itemList']:
     print (item['itemId'])
 ```
 
-## Getting started using Amazon Personalize APIs with Jupyter
-
-(iPython) notebooks
+## Getting started using Amazon Personalize APIs with Jupyter (iPython) notebooks
 
 To get started creating Domain dataset groups with Jupyter notebooks, clone or download a series of notebooks found in the [notebooks_managed_domains](https://github.com/aws-samples/amazon-personalize-samples/tree/master/getting_started/notebooks_managed_domains "https://github.com/aws-samples/amazon-personalize-samples/tree/master/getting_started/notebooks_managed_domains") folder of the [Amazon Personalize
 samples](https://github.com/aws-samples/amazon-personalize-samples "https://github.com/aws-samples/amazon-personalize-samples") repository. The notebooks walk you through importing training data,

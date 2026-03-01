@@ -3,9 +3,7 @@
 The following information explains where Amazon Personalize uses
 data encryption to protect your data.
 
-## Encryption at
-
-rest
+## Encryption at rest
 
 Any data stored within Amazon Personalize is always encrypted at rest with
 Amazon Personalize managed AWS Key Management Service (AWS KMS) keys. If you provide your own
@@ -22,9 +20,7 @@ For information about data encryption in Amazon S3 see [Protecting data using en
 about managing your own AWS KMS key, see [Managing
 keys](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") in the _AWS Key Management Service Developer Guide_.
 
-## Encryption in
-
-transit
+## Encryption in transit
 
 Amazon Personalize uses TLS with AWS certificates to encrypt
 any data sent to other AWS services. Any communication with

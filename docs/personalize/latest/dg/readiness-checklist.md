@@ -108,7 +108,6 @@ promote certain types of items from a certain category. The following Amazon Per
 - Promotions: You can use promotions to make sure a certain percentage of items satisfy your business requirements.
   For more information, see [Promoting items in real-time recommendations](promoting-items.md "promoting-items.md").
 - Optimizing for business objective: For some Custom dataset group recipes, you can optimize a solution for a
-  custom objective, such as maximizing streaming minutes or increasing revenue. For more information, see [Optimizing a solution for an additional
-  objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
+  custom objective, such as maximizing streaming minutes or increasing revenue. For more information, see [Optimizing a solution for an additional objective](optimizing-solution-for-objective.md "optimizing-solution-for-objective.md").
 - Filtering recommendations. Use filters to apply business rules to recommendations. You can use filters to include
   or exclude certain types of items from recommendations. For more information, see [Filtering recommendations and user segments](filter.md "filter.md").

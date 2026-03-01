@@ -1,6 +1,4 @@
-# Item interactions dataset requirements (ECOMMERCE
-
-domain)
+# Item interactions dataset requirements (ECOMMERCE domain)
 
 An _Item interactions dataset_ stores historical and real-time data from interactions between users and items in your ECOMMERCE catalog.
 For more information about the types of data you can store in an interactions dataset, see [Item interaction data](interactions-datasets.md "interactions-datasets.md").

@@ -16,8 +16,7 @@ For information see [Kafka Connector for Amazon Personalize](https://github.com/
 
 If you have a large amount of historical records, we recommend that you
 first import data in bulk and then import data individually as necessary.
-See [Importing bulk data into Amazon Personalize with a
-dataset import job](bulk-data-import-step.md "bulk-data-import-step.md").
+See [Importing bulk data into Amazon Personalize with a dataset import job](bulk-data-import-step.md "bulk-data-import-step.md").
 
 **Filter updates for individual record
 imports**
@@ -32,8 +31,7 @@ new individual records influence recommendations depends on the domain use case 
 
 ###### Topics
 
-- [Importing interactions
-  individually](importing-interactions.md "importing-interactions.md")
+- [Importing interactions individually](importing-interactions.md "importing-interactions.md")
 - [Importing users individually](importing-users.md "importing-users.md")
 - [Importing items individually](importing-items.md "importing-items.md")
 - [Importing actions individually](importing-actions.md "importing-actions.md")

@@ -18,16 +18,11 @@ Before you delete a dataset, note the following:
 
 ###### Topics
 
-- [Deleting a dataset
-  (console)](#delete-dataset-console "#delete-dataset-console")
-- [Deleting a dataset
-  (AWS CLI)](#delete-dataset-cli "#delete-dataset-cli")
-- [Deleting a dataset (AWS
-  SDKs)](#delete-dataset-sdk "#delete-dataset-sdk")
+- [Deleting a dataset (console)](#delete-dataset-console "#delete-dataset-console")
+- [Deleting a dataset (AWS CLI)](#delete-dataset-cli "#delete-dataset-cli")
+- [Deleting a dataset (AWS SDKs)](#delete-dataset-sdk "#delete-dataset-sdk")
 
-## Deleting a dataset
-
-(console)
+## Deleting a dataset (console)
 
 To delete a dataset with the Amazon Personalize console, navigate to the dataset details page and choose delete.
 
@@ -43,9 +38,7 @@ To delete a dataset with the Amazon Personalize console, navigate to the dataset
 5. Choose the dataset to open its details page.
 6. On the dataset's details page, choose **Delete** and confirm dataset deletion.
 
-## Deleting a dataset
-
-(AWS CLI)
+## Deleting a dataset (AWS CLI)
 
 The following code shows how to delete a dataset with the AWS CLI and the [DeleteDataset](API_DeleteDataset.md "API_DeleteDataset.md") operation.
 
@@ -53,9 +46,7 @@ The following code shows how to delete a dataset with the AWS CLI and the [Delet
 aws personalize delete-dataset --dataset-arn `dataset-arn`
 ```
 
-## Deleting a dataset (AWS
-
-SDKs)
+## Deleting a dataset (AWS SDKs)
 
 The following code shows how to delete a dataset with the AWS SDKs and the [DeleteDataset](API_DeleteDataset.md "API_DeleteDataset.md") operation.
 

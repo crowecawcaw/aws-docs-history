@@ -12,8 +12,7 @@ delete the resources that you created. For more information, see
 The following are prerequisite steps for completing this tutorial:
 
 - Complete the [Getting started prerequisites](gs-prerequisites.md "gs-prerequisites.md") to set up the required
-  permissions and create the training data. If you also completed the [Getting started with a Domain dataset group
-  (console)](getting-started-console-domain.md "getting-started-console-domain.md"), you can reuse the same source data. If you are using your own source
+  permissions and create the training data. If you also completed the [Getting started with a Domain dataset group (console)](getting-started-console-domain.md "getting-started-console-domain.md"), you can reuse the same source data. If you are using your own source
   data, make sure that your data is formatted like in the prerequisites.
 - Set up your SDK for Java 2.x environment and AWS credentials as specified in the
   [Setting up the AWS SDK for Java 2.x](../../../sdk-for-java/latest/developer-guide/setup.md "../../../sdk-for-java/latest/developer-guide/setup.md") procedure in the _AWS SDK for Java 2.x Developer Guide_.

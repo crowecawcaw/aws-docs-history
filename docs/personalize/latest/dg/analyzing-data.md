@@ -18,8 +18,7 @@ data aligns with Amazon Personalize data expectations. You can analyze data in a
 
 When generating insights and calculating statistics, Amazon Personalize considers all bulk and streamed data from non-anonymous users. Events from
 anonymous users aren't considered until you associate them with a `userId`.
-For more information, see [Recording events for
-anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
+For more information, see [Recording events for anonymous users](recording-events.md#recording-anonymous-user-events "recording-events.md#recording-anonymous-user-events").
 
 ###### Topics
 
