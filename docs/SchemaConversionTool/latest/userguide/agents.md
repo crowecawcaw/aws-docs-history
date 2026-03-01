@@ -78,9 +78,7 @@ source data warehouses:
 - [Migrating LOBs to Amazon Redshift](#agents.LOBs "#agents.LOBs")
 - [Best practices and troubleshooting for data extraction agents](#agents.BestPractices "#agents.BestPractices")
 
-##
-
-Prerequisites for using data extraction agents
+## Prerequisites for using data extraction agents
 
 Before you work with data extraction agents, add the required permissions for Amazon Redshift as a target
 to your Amazon Redshift user. For more information, see [Permissions for Amazon Redshift as a target](CHAP_Converting.md#CHAP_Converting.DW.ConfigureTarget "CHAP_Converting.md#CHAP_Converting.DW.ConfigureTarget").
@@ -382,9 +380,7 @@ ssl.option=OFF
 To change configuration settings, you can edit the `settings.properties`
 file using a text editor or run the agent configuration again.
 
-### Installing and configuring
-
-extraction agents with dedicated copying agents
+### Installing and configuring extraction agents with dedicated copying agents
 
 You can install extraction agents in a configuration that has shared storage and a
 dedicated copying agent. The following diagram illustrates this scenario.
@@ -841,9 +837,7 @@ AWS data store using AWS Snowball Edge Edge.
 8. Create a local task in AWS SCT.
 9. Run and monitor the data migration task in AWS SCT.
 
-### Step-by-step procedures for migrating data using
-
-AWS SCT and AWS Snowball Edge Edge
+### Step-by-step procedures for migrating data using AWS SCT and AWS Snowball Edge Edge
 
 The following sections provide detailed information on the migration steps.
 
@@ -1100,9 +1094,7 @@ the value `4` in the list of partition values and make sure that
 
 5. Choose **OK**.
 
-### DATE AUTO SPLIT
-
-partition type
+### DATE AUTO SPLIT partition type
 
 The DATE AUTO SPLIT partition type is an automated way of generating RANGE
 partitions. With DATA AUTO SPLIT, you tell AWS SCT the partitioning attribute,

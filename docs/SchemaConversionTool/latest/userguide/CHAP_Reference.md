@@ -6,17 +6,14 @@ reference of AWS SCT CLI commands, see [Reference material](#CHAP_Reference.Down
 
 ###### Topics
 
-- [Prerequisites for using the AWS SCT
-  command line interface](#CHAP_Reference.Prerequisites "#CHAP_Reference.Prerequisites")
+- [Prerequisites for using the AWS SCT command line interface](#CHAP_Reference.Prerequisites "#CHAP_Reference.Prerequisites")
 - [AWS SCT CLI interactive mode](#CHAP_Reference.InteractiveMode "#CHAP_Reference.InteractiveMode")
 - [Getting AWS SCT CLI scenarios](#CHAP_Reference.Scenario "#CHAP_Reference.Scenario")
 - [Editing AWS SCT CLI scenarios](#CHAP_Reference.Editing "#CHAP_Reference.Editing")
 - [AWS SCT CLI script mode](#CHAP_Reference.ScriptMode "#CHAP_Reference.ScriptMode")
 - [AWS SCT CLI reference material](#CHAP_Reference.Download "#CHAP_Reference.Download")
 
-## Prerequisites for using the AWS SCT
-
-command line interface
+## Prerequisites for using the AWS SCT command line interface
 
 Download and install the latest version of Amazon Corretto 11. For more information, see
 [Downloads for Amazon Corretto 11](../../../corretto/latest/corretto-11-ug/downloads-list.md "../../../corretto/latest/corretto-11-ug/downloads-list.md") in the _Amazon Corretto 11 User Guide_.

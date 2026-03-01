@@ -1,6 +1,4 @@
-# Converting SQL code in your applications with
-
-AWS SCT
+# Converting SQL code in your applications with AWS SCT
 
 You can use AWS SCT to convert SQL code embedded into your applications. The generic
 AWS SCT application converter treats your application code as plain text. It scans your

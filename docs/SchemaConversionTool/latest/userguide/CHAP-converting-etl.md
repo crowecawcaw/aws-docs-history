@@ -25,8 +25,7 @@ as shown in the following table.
 - [Converting SSIS to AWS Glue with AWS SCT](CHAP-converting-aws-glue-ssis.md "CHAP-converting-aws-glue-ssis.md")
 - [Converting SSIS pacakges to AWS Glue Studio with AWS Schema Conversion Tool](CHAP-converting-ssis-glue-studio.md "CHAP-converting-ssis-glue-studio.md")
 - [Converting Teradata BTEQ scripts to Amazon Redshift RSQL with AWS SCT](CHAP-converting-bteq-rsql.md "CHAP-converting-bteq-rsql.md")
-- [Converting shell scripts with embedded BTEQ
-  commands to Amazon Redshift RSQL with AWS Schema Conversion Tool](CHAP-converting-shell-rsql.md "CHAP-converting-shell-rsql.md")
+- [Converting shell scripts with embedded BTEQ commands to Amazon Redshift RSQL with AWS Schema Conversion Tool](CHAP-converting-shell-rsql.md "CHAP-converting-shell-rsql.md")
 - [Converting FastExport scripts to Amazon Redshift RSQL with AWS Schema Conversion Tool](CHAP-converting-fastexport-rsql.md "CHAP-converting-fastexport-rsql.md")
 - [Converting FastLoad job scripts to Amazon Redshift RSQL with AWS Schema Conversion Tool](CHAP-converting-fastload-rsql.md "CHAP-converting-fastload-rsql.md")
 - [Converting MultiLoad scripts to Amazon Redshift RSQL with AWS Schema Conversion Tool](CHAP-converting-multiload-rsql.md "CHAP-converting-multiload-rsql.md")

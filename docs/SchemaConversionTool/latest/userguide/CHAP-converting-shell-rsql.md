@@ -1,6 +1,4 @@
-# Converting shell scripts with embedded BTEQ
-
-commands to Amazon Redshift RSQL with AWS Schema Conversion Tool
+# Converting shell scripts with embedded BTEQ commands to Amazon Redshift RSQL with AWS Schema Conversion Tool
 
 You can use the AWS Schema Conversion Tool (AWS SCT) to convert shell scripts with embedded Teradata
 Basic Teradata Query (BTEQ) commands to shell scripts with embedded Amazon Redshift RSQL
@@ -15,21 +13,14 @@ more information, see [Converting Teradata BTEQ scripts to Amazon Redshift RSQL 
 
 ###### Topics
 
-- [Adding shell scripts with embedded Teradata BTEQ
-  commands to your AWS SCT project](#CHAP-converting-shell-rsql-create "#CHAP-converting-shell-rsql-create")
-- [Configuring substitution variables in shell
-  scripts with embedded Teradata BTEQ commands with AWS SCT](#CHAP-converting-shell-rsql-variables "#CHAP-converting-shell-rsql-variables")
-- [Converting shell scripts with embedded Teradata
-  BTEQ commands with AWS SCT](#CHAP-converting-shell-rsql-convert "#CHAP-converting-shell-rsql-convert")
-- [Managing shell scripts with embedded Teradata
-  BTEQ commands with AWS SCT](#CHAP-converting-shell-rsql-manage "#CHAP-converting-shell-rsql-manage")
-- [Creating an assessment report for a shell
-  script conversion with AWS SCT](#CHAP-converting-shell-rsql-assessment "#CHAP-converting-shell-rsql-assessment")
+- [Adding shell scripts with embedded Teradata BTEQ commands to your AWS SCT project](#CHAP-converting-shell-rsql-create "#CHAP-converting-shell-rsql-create")
+- [Configuring substitution variables in shell scripts with embedded Teradata BTEQ commands with AWS SCT](#CHAP-converting-shell-rsql-variables "#CHAP-converting-shell-rsql-variables")
+- [Converting shell scripts with embedded Teradata BTEQ commands with AWS SCT](#CHAP-converting-shell-rsql-convert "#CHAP-converting-shell-rsql-convert")
+- [Managing shell scripts with embedded Teradata BTEQ commands with AWS SCT](#CHAP-converting-shell-rsql-manage "#CHAP-converting-shell-rsql-manage")
+- [Creating an assessment report for a shell script conversion with AWS SCT](#CHAP-converting-shell-rsql-assessment "#CHAP-converting-shell-rsql-assessment")
 - [Editing and saving your converted shell scripts with AWS SCT](#CHAP-converting-shell-rsql-save "#CHAP-converting-shell-rsql-save")
 
-## Adding shell scripts with embedded Teradata BTEQ
-
-commands to your AWS SCT project
+## Adding shell scripts with embedded Teradata BTEQ commands to your AWS SCT project
 
 You can add multiple scripts to a single AWS SCT project.
 
@@ -58,9 +49,7 @@ AWS SCT displays the **Load scripts** window. 9. Do one of the following:
      variables. For more information, see [Configuring substitution
      variables in shell scripts](#CHAP-converting-shell-rsql-variables "#CHAP-converting-shell-rsql-variables").
 
-## Configuring substitution variables in shell
-
-scripts with embedded Teradata BTEQ commands with AWS SCT
+## Configuring substitution variables in shell scripts with embedded Teradata BTEQ commands with AWS SCT
 
 Your shell scripts can include substitution variables. For example, you can use a single
 script with substitution variables to manage databases in different environments.
@@ -90,9 +79,7 @@ in the Java documentation. 3. Choose **OK** to load scripts to your AWS SCT proj
 window. 4. Choose **Variables** to view all discovered substitution variables and their
 values. 5. For **Value**, enter the value for the substitution variable.
 
-## Converting shell scripts with embedded Teradata
-
-BTEQ commands with AWS SCT
+## Converting shell scripts with embedded Teradata BTEQ commands with AWS SCT
 
 Following, find how to convert shell scripts with embedded Teradata BTEQ commands to shell
 scripts with embedded Amazon Redshift RSQL commands using AWS SCT.
@@ -120,9 +107,7 @@ with Amazon Redshift RSQL. Find your converted scripts in the
 see [Editing and saving your converted
 shell scripts](#CHAP-converting-shell-rsql-save "#CHAP-converting-shell-rsql-save").
 
-## Managing shell scripts with embedded Teradata
-
-BTEQ commands with AWS SCT
+## Managing shell scripts with embedded Teradata BTEQ commands with AWS SCT
 
 You can add multiple shell scripts or remove a shell script from your AWS SCT
 project.
@@ -143,9 +128,7 @@ project.
 2. Choose the script to remove, and open the context (right-click) menu.
 3. Choose **Delete script**.
 
-## Creating an assessment report for a shell
-
-script conversion with AWS SCT
+## Creating an assessment report for a shell script conversion with AWS SCT
 
 The _shell script conversion assessment report_ provides information
 about converting the BTEQ commands and SQL statements. The conversion is from your

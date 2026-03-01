@@ -12,8 +12,7 @@ familiarize yourself with the command line interface (CLI) of AWS SCT. For more 
 - [Step 4: Create an assessment report](#big-data-oozie-assessment-report "#big-data-oozie-assessment-report")
 - [Step 5: Convert your Apache Oozie workflows to AWS Step Functions with AWS SCT](#big-data-oozie-migrate "#big-data-oozie-migrate")
 - [Running your CLI script](#big-data-oozie-run-migration "#big-data-oozie-run-migration")
-- [Apache Oozie nodes that AWS SCT can
-  convert to AWS Step Functions](#big-data-oozie-supported-nodes "#big-data-oozie-supported-nodes")
+- [Apache Oozie nodes that AWS SCT can convert to AWS Step Functions](#big-data-oozie-supported-nodes "#big-data-oozie-supported-nodes")
 
 ## Conversion overview
 
@@ -59,8 +58,7 @@ Make sure that your script includes the following steps.
 
 To start the conversion of your Apache Oozie cluster, create a new AWS SCT project. Next, connect to your
 source and target services. Make sure that you create and provision your target AWS resources before you
-start the migration. For more information, see [Prerequisites for using Apache Oozie as
-a source](CHAP_Source.md#CHAP_Source.Oozie.Prerequisites "CHAP_Source.md#CHAP_Source.Oozie.Prerequisites").
+start the migration. For more information, see [Prerequisites for using Apache Oozie as a source](CHAP_Source.md#CHAP_Source.Oozie.Prerequisites "CHAP_Source.md#CHAP_Source.Oozie.Prerequisites").
 
 In this step, you use the following AWS SCT CLI commands.
 
@@ -339,8 +337,7 @@ This command uses up to five parameters. Make sure that you use `Oozie2SF` for
   to create an execution role for AWS Step Functions.
 
 To install and use the extension pack, make sure that you provide the required permissions. For more information,
-see [Permissions for using AWS Lambda functions
-in the extension pack](CHAP_Source.md#CHAP_Source.Oozie.TargetPrerequisites "CHAP_Source.md#CHAP_Source.Oozie.TargetPrerequisites").
+see [Permissions for using AWS Lambda functions in the extension pack](CHAP_Source.md#CHAP_Source.Oozie.TargetPrerequisites "CHAP_Source.md#CHAP_Source.Oozie.TargetPrerequisites").
 
 For more information about the `Convert`, `SaveOnS3`, `ConfigureStateMachine`,
 `ApplyToTarget`, and `CreateLambdaExtPack` commands, see the [AWS Schema Conversion Tool CLI
@@ -360,9 +357,7 @@ RunSCTBatch.cmd --pathtoscts "C:\`script_path`\oozie.scts"
 In the preceding example, replace `script_path` with the path to your
 file with the CLI script. For more information about running CLI scripts in AWS SCT, see [Script mode](CHAP_Reference.md#CHAP_Reference.ScriptMode "CHAP_Reference.md#CHAP_Reference.ScriptMode").
 
-## Apache Oozie nodes that AWS SCT can
-
-convert to AWS Step Functions
+## Apache Oozie nodes that AWS SCT can convert to AWS Step Functions
 
 You can use AWS SCT to convert Apache Oozie action nodes and control flow nodes to
 AWS Step Functions.

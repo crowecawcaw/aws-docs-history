@@ -1,87 +1,120 @@
-# Installing JDBC drivers for AWS Schema Conversion Tool
+# Validating the AWS Schema Conversion Tool installation
 
-For AWS SCT to work correctly, download the JDBC drivers
-for your source and target database engines. If you use a
-virtual target database platform, you don't need to download
-the JDBC driver for your target database engine. For more
-information, see [Mapping to virtual targets in the AWS Schema Conversion Tool](CHAP_Mapping.md "CHAP_Mapping.md").
+There are several ways you can verify the distribution file of AWS SCT. The
+simplest is to compare the checksum of the file with the published checksum from AWS. As
+an additional level of security, you can use the procedures following to verify the
+distribution file, based on the operating system where you installed the file.
 
-After you download the drivers,
-you give the location of the driver files.
-For more information, see
-[Storing driver paths in the global settings](#CHAP_Installing.JDBCDrivers.Settings "#CHAP_Installing.JDBCDrivers.Settings").
+This section includes the following topics.
 
-You can download the database drivers from the following locations.
+###### Topics
 
-###### Important
+- [Verifying the checksum of the AWS SCT file](#CHAP_Installing.InstallValidation.Checksum "#CHAP_Installing.InstallValidation.Checksum")
+- [Verifying the AWS SCT RPM files on Fedora](#CHAP_Installing.InstallValidation.RPM "#CHAP_Installing.InstallValidation.RPM")
+- [Verifying the AWS SCT DEB files on Ubuntu](#CHAP_Installing.InstallValidation.DEB "#CHAP_Installing.InstallValidation.DEB")
+- [Verifying the AWS SCT MSI file on Microsoft Windows](#CHAP_Installing.InstallValidation.MSI "#CHAP_Installing.InstallValidation.MSI")
 
-Download the latest version of the driver available. The following table
-includes the lowest version of database driver supported by AWS SCT.
+## Verifying the checksum of the AWS SCT file
 
-| Database engine                             | Drivers                                                                                                                                                                                                                              | Download location                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon Aurora MySQL-Compatible Edition      | `mysql-connector-java-5.1.6.jar`                                                                                                                                                                                                     | [https://www.mysql.com/products/connector/](https://www.mysql.com/products/connector/ "https://www.mysql.com/products/connector/")                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Amazon Aurora PostgreSQL-Compatible Edition | `postgresql-42.2.19.jar`                                                                                                                                                                                                             | [https://jdbc.postgresql.org/download/postgresql-42.2.19.jar](https://jdbc.postgresql.org/download/postgresql-42.2.19.jar "https://jdbc.postgresql.org/download/postgresql-42.2.19.jar")                                                                                                                                                                                                                                                                                                                                                 |
-| Amazon EMR                                  | `HiveJDBC42.jar`                                                                                                                                                                                                                     | [http://awssupportdatasvcs.com/bootstrap-actions/Simba/latest/](http://awssupportdatasvcs.com/bootstrap-actions/Simba/latest/ "http://awssupportdatasvcs.com/bootstrap-actions/Simba/latest/")                                                                                                                                                                                                                                                                                                                                           |
-| Amazon Redshift                             | `redshift-jdbc42-2.1.0.9.jar`                                                                                                                                                                                                        | [https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.1.0.9/redshift-jdbc42-2.1.0.9.zip](https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.1.0.9/redshift-jdbc42-2.1.0.9.zip "https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.1.0.9/redshift-jdbc42-2.1.0.9.zip")                                                                                                                                                                                                                                              |
-| Amazon Redshift Serverless                  | `redshift-jdbc42-2.1.0.9.jar`                                                                                                                                                                                                        | [https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.1.0.9/redshift-jdbc42-2.1.0.9.zip](https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.1.0.9/redshift-jdbc42-2.1.0.9.zip "https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.1.0.9/redshift-jdbc42-2.1.0.9.zip")                                                                                                                                                                                                                                              |
-| Apache Hive                                 | `hive-jdbc-2.3.4-standalone.jar`                                                                                                                                                                                                     | [https://repo1.maven.org/maven2/org/apache/hive/hive-jdbc/2.3.4/hive-jdbc-2.3.4-standalone.jar](https://repo1.maven.org/maven2/org/apache/hive/hive-jdbc/2.3.4/hive-jdbc-2.3.4-standalone.jar "https://repo1.maven.org/maven2/org/apache/hive/hive-jdbc/2.3.4/hive-jdbc-2.3.4-standalone.jar")                                                                                                                                                                                                                                           |
-| Azure SQL Database                          | `mssql-jdbc-7.2.2.jre11.jar`                                                                                                                                                                                                         | [https://docs.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver15#72](https://docs.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver15#72 "https://docs.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver15#72")                                                                                                                                                                                              |
-| Azure Synapse Analytics                     | `mssql-jdbc-7.2.2.jre11.jar`                                                                                                                                                                                                         | [https://docs.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver15#72](https://docs.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver15#72 "https://docs.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver15#72")                                                                                                                                                                                              |
-| Greenplum Database                          | `postgresql-42.2.19.jar`                                                                                                                                                                                                             | [https://jdbc.postgresql.org/download/postgresql-42.2.19.jar](https://jdbc.postgresql.org/download/postgresql-42.2.19.jar "https://jdbc.postgresql.org/download/postgresql-42.2.19.jar")                                                                                                                                                                                                                                                                                                                                                 |
-| IBM Db2 for z/OS                            | `db2jcc-db2jcc4.jar`                                                                                                                                                                                                                 | [https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads-db2-zos](https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads-db2-zos "https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads-db2-zos")                                                                                                                                                                                                                                                                                  |
-| IBM Db2 LUW                                 | `db2jcc-db2jcc4.jar`                                                                                                                                                                                                                 | [https://www.ibm.com/support/pages/node/382667](https://www.ibm.com/support/pages/node/382667 "https://www.ibm.com/support/pages/node/382667")                                                                                                                                                                                                                                                                                                                                                                                           |
-| MariaDB                                     | `mariadb-java-client-2.4.1.jar`                                                                                                                                                                                                      | [https://downloads.mariadb.com/Connectors/java/connector-java-2.4.1/mariadb-java-client-2.4.1.jar](https://downloads.mariadb.com/Connectors/java/connector-java-2.4.1/mariadb-java-client-2.4.1.jar "https://downloads.mariadb.com/Connectors/java/connector-java-2.4.1/mariadb-java-client-2.4.1.jar")                                                                                                                                                                                                                                  |
-| Microsoft SQL Server                        | `mssql-jdbc-10.2.jar`                                                                                                                                                                                                                | [https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15")<br>NoteAWS SCT does not support the latest JDBC driver version<br>18.2.1.0 for MSSQL. we recommend installing JDBC driver version<br>10.2 `mssql-jdbc-10.2.jar).` |
-| MySQL                                       | `mysql-connector-java-8.0.15.jar`                                                                                                                                                                                                    | [https://dev.mysql.com/downloads/connector/j/](https://dev.mysql.com/downloads/connector/j/ "https://dev.mysql.com/downloads/connector/j/")                                                                                                                                                                                                                                                                                                                                                                                              |
-| Netezza                                     | `nzjdbc.jar`<br>Use the client tools software.<br>Download driver version 7.2.1,<br>which is backwards compatible with data warehouse version 7.2.0.                                                                                 | [http://www.ibm.com/support/knowledgecenter/SSULQD_7.2.1/com.ibm.nz.datacon.doc/c_datacon_plg_overview.html](http://www.ibm.com/support/knowledgecenter/SSULQD_7.2.1/com.ibm.nz.datacon.doc/c_datacon_plg_overview.html "http://www.ibm.com/support/knowledgecenter/SSULQD_7.2.1/com.ibm.nz.datacon.doc/c_datacon_plg_overview.html")                                                                                                                                                                                                    |
-| Oracle                                      | `ojdbc8.jar`<br>Driver versions 8 and higher are supported.                                                                                                                                                                          | [https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html](https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html "https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html")                                                                                                                                                                                                                                                                                                          |
-| PostgreSQL                                  | `postgresql-42.2.19.jar`                                                                                                                                                                                                             | [https://jdbc.postgresql.org/download/postgresql-42.2.19.jar](https://jdbc.postgresql.org/download/postgresql-42.2.19.jar "https://jdbc.postgresql.org/download/postgresql-42.2.19.jar")                                                                                                                                                                                                                                                                                                                                                 |
-| SAP ASE (Sybase ASE)                        | `jconn4.jar`                                                                                                                                                                                                                         | [The jConnect JDBC driver](https://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.help.sqlanywhere.12.0.1/dbprogramming/jconnect-using-jdbxextra.html "https://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.help.sqlanywhere.12.0.1/dbprogramming/jconnect-using-jdbxextra.html")                                                                                                                                                                                                                                      |
-| Snowflake                                   | `snowflake-jdbc-3.9.2.jar`<br>For more information, see<br>[_Downloading / Integrating the JDBC Driver_](https://docs.snowflake.com/en/user-guide/jdbc-download.html "https://docs.snowflake.com/en/user-guide/jdbc-download.html"). | [https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.9.2/snowflake-jdbc-3.9.2.jar](https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.9.2/snowflake-jdbc-3.9.2.jar "https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.9.2/snowflake-jdbc-3.9.2.jar")                                                                                                                                                                                                                                                    |
-| Teradata                                    | `terajdbc4.jar`<br>`tdgssconfig.jar`<br>For Teradata JDBC driver version 16.20.00.11 and higher, you don't<br>need the `tdgssconfig.jar` file.                                                                                       | [https://downloads.teradata.com/download/connectivity/jdbc-driver](https://downloads.teradata.com/download/connectivity/jdbc-driver "https://downloads.teradata.com/download/connectivity/jdbc-driver")                                                                                                                                                                                                                                                                                                                                  |
-| Vertica                                     | `vertica-jdbc-9.1.1-0.jar`<br>Driver versions 7.2.0 and higher are supported.                                                                                                                                                        | [https://www.vertica.com/client_drivers/9.1.x/9.1.1-0/vertica-jdbc-9.1.1-0.jar](https://www.vertica.com/client_drivers/9.1.x/9.1.1-0/vertica-jdbc-9.1.1-0.jar "https://www.vertica.com/client_drivers/9.1.x/9.1.1-0/vertica-jdbc-9.1.1-0.jar")                                                                                                                                                                                                                                                                                           |
+In order to detect any errors that could have been introduced when downloading or
+storing the AWS SCT compressed file, you can compare the file checksum with a
+value provided by AWS. AWS uses the SHA256 algorithm for the checksum.
 
-## Installing JDBC drivers on Linux
+###### To verify the AWS SCT distribution file using a checksum
 
-You can use the following steps to install the JDBC drivers on your Linux system
-for use with AWS SCT.
-
-###### To install JDBC drivers on your Linux system
-
-1. Create a directory to store the JDBC drivers in.
+1. Download the AWS SCT distribution file using the links in the Installing
+   section. For more information, see [Installing AWS Schema Conversion Tool](CHAP_Installing.md "CHAP_Installing.md").
+2. Download the latest checksum file, called [sha256Check.txt](https://d2fk11eyrwr7ob.cloudfront.net/sha256Check.txt "https://d2fk11eyrwr7ob.cloudfront.net/sha256Check.txt"). This file includes the checksums for the
+   latest AWS SCT version. For example, the file can appear as follows:
 
 ```
-PROMPT>sudo mkdir –p /usr/local/jdbc-drivers
+
+Fedora   b4f5f66f91bfcc1b312e2827e960691c269a9002cd1371cf1841593f88cbb5e6
+Ubuntu   4315eb666449d4fcd95932351f00399adb6c6cf64b9f30adda2eec903c54eca4
+Windows  6e29679a3c53c5396a06d8d50f308981e4ec34bd0acd608874470700a0ae9a23
+
 ```
 
-2. Install the JDBC driver for your database engine using the commands shown following.
+3. Run the SHA256 validation command for your operating system in the directory that contains the
+   distribution file. For example, run the following command in Linux.
 
-| Database engine                       | Installation commands                                                                                                                             |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon Aurora (MySQL compatible)      | `<br>PROMPT> cd /usr/local/jdbc-drivers<br>PROMPT> sudo tar xzvf /tmp/mysql-connector-java-X.X.X.tar.gz<br>`                                      |
-| Amazon Aurora (PostgreSQL compatible) | `<br>PROMPT> cd /usr/local/jdbc-drivers<br>PROMPT> sudo cp -a /tmp/postgresql-X.X.X.jre7.tar .<br>`                                               |
-| Microsoft SQL Server                  | `<br>PROMPT> cd /usr/local/jdbc-drivers<br>PROMPT> sudo tar xzvf /tmp/sqljdbc_X.X.X_enu.tar.gz<br>`                                               |
-| MySQL                                 | `<br>PROMPT> cd /usr/local/jdbc-drivers<br>PROMPT> sudo tar xzvf /tmp/mysql-connector-java-X.X.X.tar.gz<br>`                                      |
-| Oracle                                | `<br>PROMPT> cd /usr/local/jdbc-drivers<br>PROMPT> sudo mkdir oracle-jdbc<br>PROMPT> cd oracle-jdbc<br>PROMPT> sudo cp  -a /tmp/ojdbc8.jar .<br>` |
-| PostgreSQL                            | `<br>PROMPT> cd /usr/local/jdbc-drivers<br>PROMPT> sudo cp -a /tmp/postgresql-X.X.X.jre7.tar .<br>`                                               |
+```
+shasum -a 256 aws-schema-conversion-tool-1.0.latest.zip
+```
 
-## Storing driver paths in the global settings
+4. Compare the results of the command with the value shown in the sha256Check.txt file. If the
+   checksums match, then it is safe to run the distribution file. If the checksums don't match, then
+   don't run the distribution file, and
+   [contact AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-After you have downloaded and installed the required JDBC drivers,
-you can set the location of the drivers globally in the AWS SCT settings.
-If you don't set the location of the drivers globally,
-the application asks you for the location of the drivers
-when you connect to a database.
+## Verifying the AWS SCT RPM files on Fedora
 
-###### To update the driver file locations
+AWS provides another level of validation in addition to the distribution file
+checksum. All RPM files in the distribution file are signed by an AWS private key.
+The public GPG key can be viewed at [amazon.com.public.gpg-key](https://d2fk11eyrwr7ob.cloudfront.net/aws-dms-team@amazon.com.public.gpg-key "https://d2fk11eyrwr7ob.cloudfront.net/aws-dms-team@amazon.com.public.gpg-key").
 
-1. In AWS SCT, choose **Settings**,
-   and then choose **Global Settings**.
+###### To verify the AWS SCT RPM files on Fedora
 
-![Choose global settings](images/select_global_settings.png) 2. For **Global settings**,
-choose **Drivers**.
-Add the file path to the JDBC driver for your source database engine and your
-target Amazon RDS DB instance database engine.
+1. Download the AWS SCT distribution file using the links in the Installing section.
+2. Verify the checksum of the AWS SCT distribution file.
+3. Extract the contents of the distribution file. Locate the RPM file you want to verify.
+4. Download GPG public key from [amazon.com.public.gpg-key](https://d2fk11eyrwr7ob.cloudfront.net/aws-dms-team@amazon.com.public.gpg-key "https://d2fk11eyrwr7ob.cloudfront.net/aws-dms-team@amazon.com.public.gpg-key")
+5. Import the public key to your RPM DB (make sure you have the appropriate permissions) by using
+   the following command:
 
-![Global settings](images/driver-settings.png) 3. When you are finished adding the driver paths, choose **OK**.
+```
+sudo rpm --import aws-dms-team@amazon.com.public.gpg-key
+```
+
+6. Check that the import was successful by running the following command:
+
+```
+rpm -q --qf "%{NAME}-%{VERSION}-%{RELEASE} \n %{SUMMARY} \n" gpg-pubkey-ea22abf4-5a21d30c
+```
+
+7. Check the RPM signature by running the following command:
+
+```
+rpm --checksig -v aws-schema-conversion-tool-1.0.`build number`-1.x86_64.rpm
+```
+
+## Verifying the AWS SCT DEB files on Ubuntu
+
+AWS provides another level of validation in addition to the distribution file
+checksum. All DEB files in the distribution file are signed by a GPG detached
+signature.
+
+###### To verify the AWS SCT DEB files on Ubuntu
+
+1. Download the AWS SCT distribution file using the links in the Installing section.
+2. Verifying the checksum of the AWS SCT distribution file.
+3. Extract the contents of the distribution file. Locate the DEB file you want to verify.
+4. Download the detached signature from [aws-schema-conversion-tool-1.0.latest.deb.asc](https://d2fk11eyrwr7ob.cloudfront.net/Ubuntu/signatures/aws-schema-conversion-tool-1.0.latest.deb.asc "https://d2fk11eyrwr7ob.cloudfront.net/Ubuntu/signatures/aws-schema-conversion-tool-1.0.latest.deb.asc").
+5. Download the GPG public key from [amazon.com.public.gpg-key](https://d2fk11eyrwr7ob.cloudfront.net/aws-dms-team@amazon.com.public.gpg-key "https://d2fk11eyrwr7ob.cloudfront.net/aws-dms-team@amazon.com.public.gpg-key").
+6. Import the GPG public key by running the following command:
+
+```
+gpg --import aws-dms-team@amazon.com.public.gpg-key
+```
+
+7. Verify the signature by running the following command:
+
+```
+gpg --verify aws-schema-conversion-tool-1.0.latest.deb.asc aws-schema-conversion-tool-1.0.`build number`.deb
+```
+
+## Verifying the AWS SCT MSI file on Microsoft Windows
+
+AWS provides another level of validation in addition to the distribution file
+checksum. The MSI file has a digital signature you can check to ensure it was signed
+by AWS.
+
+###### To verify the AWS SCT MSI file on Windows
+
+1. Download the AWS SCT distribution file using the links in the Installing section.
+2. Verifying the checksum of the AWS SCT distribution file.
+3. Extract the contents of the distribution file. Locate the MSI file you want to verify.
+4. In Windows Explorer, right-click the MSI file and select
+   **Properties**.
+5. Choose the **Digital Signatures** tab.
+6. Verify that the digital signature is from Amazon Services LLC.

@@ -8,8 +8,7 @@ ETL scripts in Python](../../../glue/latest/dg/aws-glue-programming-python.md ".
 
 - [Step 1: Create a database](#CHAP-converting-aws-glue-step-api-create-db "#CHAP-converting-aws-glue-step-api-create-db")
 - [Step 2: Create a connection](#CHAP-converting-aws-glue-step-api-connection "#CHAP-converting-aws-glue-step-api-connection")
-- [Step 3: Create an AWS Glue
-  crawler](#CHAP-converting-aws-glue-step-api-crawler "#CHAP-converting-aws-glue-step-api-crawler")
+- [Step 3: Create an AWS Glue crawler](#CHAP-converting-aws-glue-step-api-crawler "#CHAP-converting-aws-glue-step-api-crawler")
 
 ## Step 1: Create a database
 
@@ -104,9 +103,7 @@ for example: `Redshift_abcde03_dev`
   - `AvailabilityZone` (UTF-8 string) – Required. The Availability Zone
     that contains the endpoint. This parameter is deprecated.
 
-## Step 3: Create an AWS Glue
-
-crawler
+## Step 3: Create an AWS Glue crawler
 
 Next, you create an AWS Glue crawler to populate the AWS Glue catalog. For more information, see
 [Cataloging tables with a

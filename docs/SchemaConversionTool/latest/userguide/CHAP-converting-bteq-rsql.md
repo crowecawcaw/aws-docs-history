@@ -12,11 +12,9 @@ conversion of extract, transform, and load (ETL) scripts to Amazon Redshift RSQL
 
 - [Adding BTEQ scripts to your AWS SCT project](#CHAP-converting-bteq-rsql-create "#CHAP-converting-bteq-rsql-create")
 - [Configuring substitution variables in BTEQ scripts with AWS SCT](#CHAP-converting-bteq-rsql-variables "#CHAP-converting-bteq-rsql-variables")
-- [Converting Teradata BTEQ scripts to Amazon Redshift RSQL
-  with AWS SCT](#CHAP-converting-bteq-rsql-convert "#CHAP-converting-bteq-rsql-convert")
+- [Converting Teradata BTEQ scripts to Amazon Redshift RSQL with AWS SCT](#CHAP-converting-bteq-rsql-convert "#CHAP-converting-bteq-rsql-convert")
 - [Managing BTEQ scripts with AWS SCT](#CHAP-converting-bteq-rsql-manage "#CHAP-converting-bteq-rsql-manage")
-- [Creating a BTEQ script conversion assessment
-  report with AWS SCT](#CHAP-converting-bteq-rsql-assessment "#CHAP-converting-bteq-rsql-assessment")
+- [Creating a BTEQ script conversion assessment report with AWS SCT](#CHAP-converting-bteq-rsql-assessment "#CHAP-converting-bteq-rsql-assessment")
 - [Editing and saving your converted BTEQ scripts with AWS SCT](#CHAP-converting-bteq-rsql-save "#CHAP-converting-bteq-rsql-save")
 
 ## Adding BTEQ scripts to your AWS SCT project
@@ -78,9 +76,7 @@ information, see [java.util.regex Class Pattern](https://docs.oracle.com/javase/
 window. 4. Choose **Variables** to view all discovered substitution variables and their
 values. 5. For **Value**, enter the value for the substitution variable.
 
-## Converting Teradata BTEQ scripts to Amazon Redshift RSQL
-
-with AWS SCT
+## Converting Teradata BTEQ scripts to Amazon Redshift RSQL with AWS SCT
 
 Following, find how to convert BTEQ ETL scripts to Amazon Redshift RSQL using AWS SCT.
 
@@ -128,9 +124,7 @@ from your AWS SCT project.
 2. Choose the script to remove, and open the context (right-click) menu.
 3. Choose **Delete script**.
 
-## Creating a BTEQ script conversion assessment
-
-report with AWS SCT
+## Creating a BTEQ script conversion assessment report with AWS SCT
 
 A _BTEQ script conversion assessment report_ provides information about
 converting the BTEQ commands and SQL statements from your BTEQ scripts to a format

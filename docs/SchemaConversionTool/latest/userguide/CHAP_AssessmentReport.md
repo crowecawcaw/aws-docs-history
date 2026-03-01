@@ -1,59 +1,16 @@
-# Saving the assessment report in AWS Schema Conversion Tool
+# Assessment report action items
 
-After you [create a database migration
-assessment report](CHAP_AssessmentReport.md "CHAP_AssessmentReport.md"), you can save a local copy of the database migration
-assessment report as either a PDF file or a comma-separated value (CSV) file.
+The assessment report view also includes an **Action Items** tab.
+This tab contains a list of items that can't be converted automatically
+to the database engine of your target Amazon RDS DB instance.
+If you select an action item from the list,
+AWS SCT highlights
+the item from your schema that the action item applies to.
 
-###### To save a database migration assessment report as a PDF file
+The report also contains recommendations for how to manually convert the schema item.
+For example, after the assessment runs, detailed reports for the database/schema show you
+the effort required to design and implement the recommendations for converting Action items.
+For more information about deciding how to handle manual conversions, see
+[Converting schemas using AWS SCT](CHAP_Converting.md "CHAP_Converting.md").
 
-1. In the top menu, choose **View**, and then choose **Assessment
-   report view**.
-2. Choose the **Summary** tab.
-3. Choose **Save to PDF** at upper right.
-
-###### To save a database migration assessment report as a CSV file
-
-1. In the top menu, choose **View**, and then choose **Assessment
-   report view**.
-2. Choose the **Summary** tab.
-3. Choose **Save to CSV** at upper right.
-
-The PDF file contains both the summary and action item information, as shown in the following example.
-
-![Database migration assessment report in the PDF file](images/assessment_report.png)
-
-When you choose the **Save to CSV** option, AWS SCT creates three CSV files.
-
-The first CSV file contains the following information about action items:
-
-- Category
-- Occurrence – The file name, line number, and position for the
-  item
-- Action item number
-- Subject
-- Group
-- Description
-- Documentation references
-- Recommended action
-- Estimated complexity
-  The second CSV file includes the `Action_Items_Summary` suffix in its
-  name and contains the information about the number of occurrences of all action items.
-
-In the following example, values in the **Learning curve effort**
-column indicate the amount of effort needed to design an approach to converting each
-action item. Values in the **Effort to convert an occurrence of the action
-item** column indicate the effort needed to convert each action item,
-following the designed approach. The values used to indicate the level of effort needed
-are based on a weighted scale, ranging from low (least) to high (most).
-
-![Action item assessment report](images/action-item-cvs.png)
-The third CSV file includes `Summary` in its name and contains the
-following summary:
-
-- Category
-- Number of objects
-- Objects automatically converted
-- Objects with simple actions
-- Objects with medium-complexity actions
-- Objects with complex actions
-- Total lines of code
+![Action items tab](images/action_items_tab.png)

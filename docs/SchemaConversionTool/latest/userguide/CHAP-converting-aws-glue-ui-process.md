@@ -7,10 +7,8 @@ used with the source databases and data warehouses.
 ###### Topics
 
 - [Prerequisites](#CHAP-converting-aws-glue-prerequisites "#CHAP-converting-aws-glue-prerequisites")
-- [Understanding the AWS Glue Data
-  Catalog](#CHAP-converting-aws-glue-data-catalog "#CHAP-converting-aws-glue-data-catalog")
-- [Limitations for converting using AWS SCT
-  with AWS Glue](#CHAP-converting-aws-glue-limitations "#CHAP-converting-aws-glue-limitations")
+- [Understanding the AWS Glue Data Catalog](#CHAP-converting-aws-glue-data-catalog "#CHAP-converting-aws-glue-data-catalog")
+- [Limitations for converting using AWS SCT with AWS Glue](#CHAP-converting-aws-glue-limitations "#CHAP-converting-aws-glue-limitations")
 - [Step 1: Create a new project](#CHAP-converting-aws-glue-step-ui-new-project "#CHAP-converting-aws-glue-step-ui-new-project")
 - [Step 2: Create an AWS Glue job](#CHAP-converting-aws-glue-step-ui-config-job "#CHAP-converting-aws-glue-step-ui-config-job")
   The following architecture diagram shows an example database migration project that includes
@@ -31,9 +29,7 @@ Also, AWS Glue needs permissions to access other AWS resources on your behalf.
 You provide those permissions by using AWS Identity and Access Management (IAM). Make sure that you created an IAM policy
 for AWS Glue. For more information, see [Create an IAM policy for the AWS Glueservice](../../../glue/latest/dg/create-service-policy.md "../../../glue/latest/dg/create-service-policy.md") in the _AWS Glue Developer Guide_.
 
-## Understanding the AWS Glue Data
-
-Catalog
+## Understanding the AWS Glue Data Catalog
 
 As part of the process of conversion, AWS Glue loads information regarding the source and
 target databases. It organizes this information into categories, in a structure called a
@@ -63,9 +59,7 @@ there are other ways to add metadata tables into your Data Catalog.
 When you define a table in your Data Catalog, you add it to a database. A database is used
 to organize tables in AWS Glue.
 
-## Limitations for converting using AWS SCT
-
-with AWS Glue
+## Limitations for converting using AWS SCT with AWS Glue
 
 The following limitations apply when converting using AWS SCT with AWS Glue.
 

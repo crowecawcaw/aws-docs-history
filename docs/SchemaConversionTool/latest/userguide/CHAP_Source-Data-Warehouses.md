@@ -1,6 +1,4 @@
-# Data warehouse sources for
-
-AWS Schema Conversion Tool
+# Data warehouse sources for AWS Schema Conversion Tool
 
 AWS SCT can convert schemas for the following source data warehouses to a supported
 target. For information about permissions, connections, and what AWS SCT can convert
@@ -16,6 +14,5 @@ for use with the target database or data warehouse, see details in the following
 - [Connecting Oracle Data Warehouse with AWS SCT](CHAP_Source.md "CHAP_Source.md")
 - [Connecting to a Snowflake data warehouse with AWS Schema Conversion Tool](CHAP_Source.md "CHAP_Source.md")
 - [Connecting to a SQL Server Data Warehouse with the AWS Schema Conversion Tool](CHAP_Source.md "CHAP_Source.md")
-- [Connecting to a Teradata Data Warehouse with the
-  AWS Schema Conversion Tool](CHAP_Source.md "CHAP_Source.md")
+- [Connecting to a Teradata Data Warehouse with the AWS Schema Conversion Tool](CHAP_Source.md "CHAP_Source.md")
 - [Connecting the AWS Schema Conversion Tool to Vertica databases](CHAP_Source.md "CHAP_Source.md")

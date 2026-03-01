@@ -36,8 +36,7 @@ Python libraries include the following modules:
     + `ssis_string.py` – To emulate string built-in
      functions.
 
-For more information about these libraries, see [Using custom libraries for AWS SCT
-extension packs](#CHAP_ExtensionPack.DW "#CHAP_ExtensionPack.DW").
+For more information about these libraries, see [Using custom libraries for AWS SCT extension packs](#CHAP_ExtensionPack.DW "#CHAP_ExtensionPack.DW").
 You can apply AWS SCT extension packs in two ways:
 
 - AWS SCT can automatically apply an extension pack when you apply a target database script by
@@ -65,10 +64,8 @@ packs.
 
 - [Permissions for using the AWS SCT extension pack](#CHAP_ExtensionPack.Permissions "#CHAP_ExtensionPack.Permissions")
 - [Using the extension pack schema](#CHAP_ExtensionPack.Schema "#CHAP_ExtensionPack.Schema")
-- [Using custom libraries for AWS SCT
-  extension packs](#CHAP_ExtensionPack.DW "#CHAP_ExtensionPack.DW")
-- [Using the AWS Lambda functions from the AWS SCT extension
-  pack](#CHAP_ExtensionPack.OLTP "#CHAP_ExtensionPack.OLTP")
+- [Using custom libraries for AWS SCT extension packs](#CHAP_ExtensionPack.DW "#CHAP_ExtensionPack.DW")
+- [Using the AWS Lambda functions from the AWS SCT extension pack](#CHAP_ExtensionPack.OLTP "#CHAP_ExtensionPack.OLTP")
 - [Configuring functions for the AWS SCT extension pack](#CHAP_ExtensionPack.ConfigureFunctions "#CHAP_ExtensionPack.ConfigureFunctions")
 
 ## Permissions for using the AWS SCT extension pack
@@ -130,16 +127,13 @@ source data store as follows:
 - Teradata: `AWS_TERADATA_EXT`
 - Vertica: `AWS_VERTICA_EXT`
 
-## Using custom libraries for AWS SCT
-
-extension packs
+## Using custom libraries for AWS SCT extension packs
 
 In some cases, AWS SCT can't convert source database features to equivalent
 features in your target database. The relevant AWS SCT extension pack contains custom
 libraries that emulate some source database functionality on in your target database.
 
-If you are converting a transactional database, see [Using the AWS Lambda functions from the AWS SCT extension
-pack](#CHAP_ExtensionPack.OLTP "#CHAP_ExtensionPack.OLTP") .
+If you are converting a transactional database, see [Using the AWS Lambda functions from the AWS SCT extension pack](#CHAP_ExtensionPack.OLTP "#CHAP_ExtensionPack.OLTP").
 
 ### Applying the extension pack
 
@@ -231,9 +225,7 @@ pack schema to your target data warehouse.
 When you use a combination of Amazon Redshift and AWS Glue as your target database platform,
 AWS SCT adds an additional schema in the extension pack.
 
-## Using the AWS Lambda functions from the AWS SCT extension
-
-pack
+## Using the AWS Lambda functions from the AWS SCT extension pack
 
 AWS SCT provides an extension pack that contains Lambda functions for email, job
 scheduling, and other features for databases hosted on Amazon EC2.
@@ -248,9 +240,7 @@ you can emulate these features by substituting AWS services for them.
 The AWS SCT extension pack wizard helps you install, create, and configure Lambda
 functions to emulate email, job scheduling, and other features.
 
-### Applying the extension pack to
-
-support Lambda functions
+### Applying the extension pack to support Lambda functions
 
 You can apply the extension pack to support Lambda functions using the extension pack
 wizard or when you apply the converted code to your target database.
