@@ -1,6 +1,4 @@
-# Tutorial: Start building from an empty
-
-app
+# Tutorial: Start building from an empty app
 
 In this tutorial, you'll build an internal Customer Meeting Request application using
 AWS App Studio. You'll learn about how to build apps in App Studio, while focusing on real-world
@@ -81,24 +79,17 @@ The following are high-level steps that describe what you'll do in this tutorial
 ###### Contents
 
 - [Prerequisites](getting-started-tutorial-empty.md#getting-started-tutorial-prerequisites "getting-started-tutorial-empty.md#getting-started-tutorial-prerequisites")
-- [Step 1: Create an
-  application](getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-application "getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-application")
-- [Step 2: Create an entity to define
-  your app's data](getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-entity "getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-entity")
-  - [Create a managed
-    entity](getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-managed-entity "getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-managed-entity")
+- [Step 1: Create an application](getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-application "getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-application")
+- [Step 2: Create an entity to define your app's data](getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-entity "getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-entity")
+  - [Create a managed entity](getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-managed-entity "getting-started-tutorial-empty.md#getting-started-tutorial-steps-create-managed-entity")
   - [Add fields to your entity](getting-started-tutorial-empty.md#getting-started-tutorial-steps-add-fields "getting-started-tutorial-empty.md#getting-started-tutorial-steps-add-fields")
 
-- [Step 3: Design the user interface
-  (UI) and logic](getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface "getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface")
-  - [Add a meeting
-    request dashboard page](getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface-create-page "getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface-create-page")
-  - [Add a
-    meeting request creation page](getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface-add-create-customer-page "getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface-add-create-customer-page")
+- [Step 3: Design the user interface (UI) and logic](getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface "getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface")
+  - [Add a meeting request dashboard page](getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface-create-page "getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface-create-page")
+  - [Add a meeting request creation page](getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface-add-create-customer-page "getting-started-tutorial-empty.md#getting-started-tutorial-steps-user-interface-add-create-customer-page")
 
 - [Step 4: Preview the application](getting-started-tutorial-empty.md#getting-started-tutorial-steps-preview "getting-started-tutorial-empty.md#getting-started-tutorial-steps-preview")
-- [Step 5: Publish the application to the
-  Testing environment](getting-started-tutorial-empty.md#getting-started-tutorial-steps-publish "getting-started-tutorial-empty.md#getting-started-tutorial-steps-publish")
+- [Step 5: Publish the application to the Testing environment](getting-started-tutorial-empty.md#getting-started-tutorial-steps-publish "getting-started-tutorial-empty.md#getting-started-tutorial-steps-publish")
 - [Next steps](getting-started-tutorial-empty.md#getting-started-tutorial-next-steps "getting-started-tutorial-empty.md#getting-started-tutorial-next-steps")
 
 ## Prerequisites
@@ -112,9 +103,7 @@ Before you get started, review and complete the following prerequisites:
   syntax.
 - Optional: Familiarity with AWS services.
 
-## Step 1: Create an
-
-application
+## Step 1: Create an application
 
 1. Sign in to App Studio.
 2. In the left-hand navigation, choose **Builder hub** and choose
@@ -130,9 +119,7 @@ application
 8. Choose **Edit app**, which brings you into the App Studio app
    builder.
 
-## Step 2: Create an entity to define
-
-your app's data
+## Step 2: Create an entity to define your app's data
 
 Entities represent tables that hold your application's data, similar to tables in a
 database. Instead of your application's user interface (UI) and automations connecting directly
@@ -143,9 +130,7 @@ data.
 There are four ways to create an entity. For this tutorial, you will use the App Studio
 managed entity.
 
-### Create a managed
-
-entity
+### Create a managed entity
 
 Creating a managed entity also creates a corresponding DynamoDB table that App Studio
 manages. When changes are made to the entity in the App Studio app, the DynamoDB table is updated
@@ -238,13 +223,9 @@ ensures that your application functions as intended when dealing with actual dat
 Optionally, choose **Connection** in the banner to review the details
 about the connector and the DynamoDB table created for you.
 
-## Step 3: Design the user interface
+## Step 3: Design the user interface (UI) and logic
 
-(UI) and logic
-
-### Add a meeting
-
-request dashboard page
+### Add a meeting request dashboard page
 
 In App Studio, each page represents a screen of your application's user interface (UI)
 that your users will interact with. Within these pages, you can add various components such as
@@ -286,9 +267,7 @@ getAll data action with a table component, for example, the table automatically 
 with all the data from the connected entity, and displays each record as a row in the
 table.
 
-### Add a
-
-meeting request creation page
+### Add a meeting request creation page
 
 Next, create a page that contains a form that end users will use to create meeting
 requests. You will also add a submit button that creates the record in the
@@ -308,9 +287,7 @@ App Studio offers a method of generating a form from an existing entity, which a
 the form fields based on the entity's fields and also generates a submit button for creating a
 record in the entity with the form inputs.
 
-###### To automatically generate a form from an entity on the meeting request creation
-
-page
+###### To automatically generate a form from an entity on the meeting request creation page
 
 1. On the right-side **Components** menu, find the
    **Form** component and drag it onto the canvas.
@@ -333,9 +310,7 @@ reviewing the dashboard can easily create meeting requests. Use the following pr
 create a button on the `MeetingRequestsDashboard` page that navigates to the
 `CreateMeetingRequest` page.
 
-###### To add a button to navigate from `MeetingRequestsDashboard` to
-
-`CreateMeetingRequest`
+###### To add a button to navigate from `MeetingRequestsDashboard` to `CreateMeetingRequest`
 
 1. In the top banner, choose **Pages**.
 2. Choose the `MeetingRequestsDashboard` page.
@@ -378,9 +353,7 @@ you can use sample data and mocked output to test functionality.
 2. Interact with the `MeetingRequestsDashboard` page, and test the table, form,
    and buttons.
 
-## Step 5: Publish the application to the
-
-**Testing** environment
+## Step 5: Publish the application to the **Testing** environment
 
 Now that you're done creating, configuring, and testing your application, it's time to
 publish it to the **Testing** environment to perform final testing and then

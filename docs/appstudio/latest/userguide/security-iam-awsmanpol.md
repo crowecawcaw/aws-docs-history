@@ -26,8 +26,7 @@ job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md ".
 
 You can't attach `AppStudioServiceRolePolicy` to your IAM entities. This policy is attached to a
 service-linked role that allows App Studio to perform actions on your behalf. For more
-information, see [Service-linked roles for
-App Studio](appstudio-service-linked-roles.md "appstudio-service-linked-roles.md").
+information, see [Service-linked roles for App Studio](appstudio-service-linked-roles.md "appstudio-service-linked-roles.md").
 
 This policy grants permissions that allow the service-linked role to manage AWS resources.
 
@@ -139,9 +138,7 @@ JSON
 
 ```
 
-## App Studio updates to AWS managed
-
-policies
+## App Studio updates to AWS managed policies
 
 View details about updates to AWS managed policies for App Studio since this service
 began tracking these changes.

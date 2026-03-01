@@ -47,9 +47,7 @@ You must have the Admin role in App Studio to create connectors. When creating c
 you must include proper credentials and information about the resources or API calls that you
 want to use.
 
-## Configuring the data model of your
-
-application
+## Configuring the data model of your application
 
 Your application’s data is the information that powers the application. In
 App Studio, you create and use _entities_ that represent the different types
@@ -201,8 +199,7 @@ To start building, we recommend that you try one of the getting started
 tutorials:
 
 - Follow [Tutorial: Generate an app using AI](getting-started-tutorial-ai.md "getting-started-tutorial-ai.md") to learn how to use the AI builder assistant to get a head start on building an app.
-- Follow [Tutorial: Start building from an empty
-  app](getting-started-tutorial-empty.md "getting-started-tutorial-empty.md") to learn how to build an app from scratch while
+- Follow [Tutorial: Start building from an empty app](getting-started-tutorial-empty.md "getting-started-tutorial-empty.md") to learn how to build an app from scratch while
   learning the basics.
 
 To learn more about the resources or concepts mentioned in this topic, see the following topics:

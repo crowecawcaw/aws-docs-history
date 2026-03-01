@@ -32,6 +32,5 @@ _in_ the cloud:
 - [Resilience in AWS App Studio](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in AWS App Studio](infrastructure-security.md "infrastructure-security.md")
 - [Configuration and vulnerability analysis in AWS App Studio](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Cross-Region data transfer in AWS App Studio](cross-region-data-transfer.md "cross-region-data-transfer.md")

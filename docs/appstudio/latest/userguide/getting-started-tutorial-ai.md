@@ -37,19 +37,13 @@ that are tailored to the app that you described:
 ###### Contents
 
 - [Prerequisites](getting-started-tutorial-ai.md#getting-started-tutorial-ai-prerequisites "getting-started-tutorial-ai.md#getting-started-tutorial-ai-prerequisites")
-- [Step 1: Create an
-  application](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-create-application "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-create-application")
-- [Step 2: Explore your new
-  application](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore")
-  - [Explore pages and
-    components](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-pages "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-pages")
-  - [Explore automations and
-    actions](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-automations "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-automations")
-  - [Explore data with
-    entities](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-data-entities "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-data-entities")
+- [Step 1: Create an application](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-create-application "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-create-application")
+- [Step 2: Explore your new application](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore")
+  - [Explore pages and components](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-pages "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-pages")
+  - [Explore automations and actions](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-automations "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-automations")
+  - [Explore data with entities](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-data-entities "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-explore-data-entities")
 
-- [Step 3: Preview your
-  application](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-preview "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-preview")
+- [Step 3: Preview your application](getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-preview "getting-started-tutorial-ai.md#getting-started-tutorial-ai-steps-preview")
 - [Next steps](getting-started-tutorial-ai.md#getting-started-tutorial-ai-next-steps "getting-started-tutorial-ai.md#getting-started-tutorial-ai-next-steps")
 
 ## Prerequisites
@@ -60,9 +54,7 @@ Before you get started, review and complete the following prerequisites:
 - Optional: Review [AWS App Studio concepts](concepts.md "concepts.md") to familiarize
   yourself with important App Studio concepts.
 
-## Step 1: Create an
-
-application
+## Step 1: Create an application
 
 The first step in generating an app is to describe the app that you want to create to the AI
 assistant in App Studio. You can review the application that will be generated, and iterate as
@@ -89,9 +81,7 @@ desired before generating it.
 10. Choose **Edit app** to enter the Development environment for your
     app.
 
-## Step 2: Explore your new
-
-application
+## Step 2: Explore your new application
 
 In the Development environment, you'll find the following resources:
 
@@ -121,9 +111,7 @@ In the Development environment, you'll find the following resources:
 Let's take a closer look at the **Pages**,
 **Automations**, and **Data** tabs.
 
-### Explore pages and
-
-components
+### Explore pages and components
 
 The **Pages** tab shows pages and their components that were generated for
 you.
@@ -136,9 +124,7 @@ Take some time to view the pages and their components by using the left-side nav
 menu. When you select a page or component, you can choose **Properties** on the
 right-side menu.
 
-### Explore automations and
-
-actions
+### Explore automations and actions
 
 The **Automations** tab shows automations and their actions that were
 generated for you.
@@ -163,9 +149,7 @@ choose an automation, you can view its properties on the right-side
 
 For more information, see [Automations concepts](automations-concepts.md "automations-concepts.md").
 
-### Explore data with
-
-entities
+### Explore data with entities
 
 The **Data** tab shows entities that were generated for you.
 
@@ -190,9 +174,7 @@ navigation menu. You can review the following details:
   that the entity is connected to. App Studio provides a managed data storage solution that
   uses a DynamoDB table. For more information, see [Managed data entities in AWS App Studio](managed-data-entities.md "managed-data-entities.md").
 
-## Step 3: Preview your
-
-application
+## Step 3: Preview your application
 
 You can preview an application in App Studio to see how it appears to users. You can also
 test its functionality by using it and checking logs in a debug panel.

@@ -19,31 +19,20 @@ use with no additional charge.
 
 ###### Topics
 
-- [Identity-based
-  policies for App Studio](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Resource-based
-  policies within App Studio](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Policy actions
-  for App Studio](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")
-- [Policy
-  resources for App Studio](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")
-- [Policy
-  condition keys for App Studio](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys")
+- [Identity-based policies for App Studio](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Resource-based policies within App Studio](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Policy actions for App Studio](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")
+- [Policy resources for App Studio](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")
+- [Policy condition keys for App Studio](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys")
 - [ACLs in App Studio](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")
 - [ABAC with App Studio](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Using temporary
-  credentials with App Studio](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")
-- [Cross-service
-  principal permissions for App Studio](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")
-- [Service roles for
-  App Studio](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")
-- [Service-linked
-  roles for App Studio](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")
+- [Using temporary credentials with App Studio](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")
+- [Cross-service principal permissions for App Studio](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")
+- [Service roles for App Studio](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")
+- [Service-linked roles for App Studio](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")
 - [AWS managed policies for AWS App Studio](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Service-linked roles for
-  App Studio](appstudio-service-linked-roles.md "appstudio-service-linked-roles.md")
-- [Identity-based policy
-  examples for AWS App Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Service-linked roles for App Studio](appstudio-service-linked-roles.md "appstudio-service-linked-roles.md")
+- [Identity-based policy examples for AWS App Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
   Before you use IAM to manage access to App Studio, learn what IAM features are
   available to use with App Studio.
 
@@ -65,9 +54,7 @@ To get a high-level view of how App Studio and other AWS services work with most
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for App Studio
+## Identity-based policies for App Studio
 
 **Supports identity-based policies:**
 
@@ -84,16 +71,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for App Studio
 
-Identity-based policy examples for App Studio
+To view examples of App Studio identity-based policies, see [Identity-based policy examples for AWS App Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of App Studio identity-based policies, see [Identity-based policy
-examples for AWS App Studio](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within App Studio
+## Resource-based policies within App Studio
 
 **Supports resource-based policies:**
 
@@ -109,9 +91,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for App Studio
+## Policy actions for App Studio
 
 **Supports policy actions:**
 
@@ -143,9 +123,7 @@ To specify multiple actions in a single statement, separate them with commas.
 
 The following statement lists all of the actions in App Studio:
 
-## Policy
-
-resources for App Studio
+## Policy resources for App Studio
 
 **Supports policy resources:**
 
@@ -153,9 +131,7 @@ Yes
 
 App Studio permissions only support a wildcard (`*`) in the `Resource` element of a policy.
 
-## Policy
-
-condition keys for App Studio
+## Policy condition keys for App Studio
 
 **Supports service-specific policy condition keys:**
 
@@ -180,9 +156,7 @@ No
 
 App Studio does not support attribute-based access control (ABAC).
 
-## Using temporary
-
-credentials with App Studio
+## Using temporary credentials with App Studio
 
 **Supports temporary credentials:**
 
@@ -194,9 +168,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for App Studio
+## Cross-service principal permissions for App Studio
 
 **Supports forward access sessions (FAS):**
 
@@ -205,9 +177,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-App Studio
+## Service roles for App Studio
 
 **Supports service roles:**
 
@@ -226,9 +196,7 @@ you set up App Studio.
 Changing the permissions for a service role might break App Studio functionality.
 Edit service roles only when App Studio provides guidance to do so.
 
-## Service-linked
-
-roles for App Studio
+## Service-linked roles for App Studio
 
 **Supports service-linked roles:**
 

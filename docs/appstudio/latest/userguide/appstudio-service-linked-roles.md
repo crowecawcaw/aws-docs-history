@@ -1,6 +1,4 @@
-# Service-linked roles for
-
-App Studio
+# Service-linked roles for App Studio
 
 App Studio uses [AWS Identity and Access Management (IAM) service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md"). A service-linked role
 is a unique type of IAM role that is linked directly to App Studio. Service-linked roles are predefined by App Studio and include all the permissions that

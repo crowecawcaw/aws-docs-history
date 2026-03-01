@@ -27,8 +27,7 @@ Before you get started, review and complete the following prerequisites:
 
 - Access to AWS App Studio. Note that you must have the Admin role to create a connector in this tutorial.
 - Optional: Review [AWS App Studio concepts](concepts.md "concepts.md") and the
-  [Tutorial: Start building from an empty
-  app](getting-started-tutorial-empty.md "getting-started-tutorial-empty.md") to familiarize yourself with important App Studio concepts.
+  [Tutorial: Start building from an empty app](getting-started-tutorial-empty.md "getting-started-tutorial-empty.md") to familiarize yourself with important App Studio concepts.
 
 ## Step 1: Create and configure an IAM role and App Studio connector
 

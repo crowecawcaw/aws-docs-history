@@ -32,6 +32,5 @@ Use the following procedure to create an application in App Studio.
    1. In the **Connect to existing data** dialog box, add any existing data sources to your app by select the **Connector** that
       provides App Studio access to the data sources, then select the **Tablse**, and choose **Next**. You can skip this step and add data sources later by choosing **Skip**.
    2. Once your app is created, choose **Edit app** to start editing your app. To learn about building from an empty app,
-      see [Tutorial: Start building from an empty
-      app](getting-started-tutorial-empty.md "getting-started-tutorial-empty.md"). For general
+      see [Tutorial: Start building from an empty app](getting-started-tutorial-empty.md "getting-started-tutorial-empty.md"). For general
       information about how building in App Studio works, see [How AWS App Studio works](how-it-works.md "how-it-works.md").
