@@ -7,8 +7,7 @@ the product ID. The product ID is used to track your product throughout its life
 ###### Note
 
 Before creating your listing, ensure that you have the required resources specified in
-[Requirements and best practices for
-creating machine learning products](ml-listing-requirements-and-best-practices.md "ml-listing-requirements-and-best-practices.md").
+[Requirements and best practices for creating machine learning products](ml-listing-requirements-and-best-practices.md "ml-listing-requirements-and-best-practices.md").
 
 1. Sign in to your seller AWS account and go to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management "https://aws.amazon.com/marketplace/management").
 2. In the top menu, go to **Products** and then choose

@@ -7,31 +7,24 @@ think that you should, contact the [AWS Marketplace Seller Operations](https://a
 contact the AWS Marketplace Seller Operations team to cancel email notifications for this report.
 
 You can access this report at the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/reports/ "https://aws.amazon.com/marketplace/management/reports/"). If you are registered
-for the [Accessing product and customer data with the
-AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md"), you can also access your reports using the
+for the [Accessing product and customer data with the AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md"), you can also access your reports using the
 AWS SDK.
 
 The report has two sections: one for hourly and monthly subscriptions and one for annual
 subscriptions. The report includes the list of AWS account IDs for all customers who are
 subscribed to your products.
 
-## Publication
-
-schedule
+## Publication schedule
 
 This report is published daily at 00:00 UTC and covers from 00:00 UTC through 23:59 UTC
 of the previous day.
 
 ###### Topics
 
-- [Section 1: Hourly and monthly
-  subscriptions](#section-1-hourlymonthly-subscriptions "#section-1-hourlymonthly-subscriptions")
-- [Section 2: Variable length
-  subscriptions](#section-2-annual-subscriptions "#section-2-annual-subscriptions")
+- [Section 1: Hourly and monthly subscriptions](#section-1-hourlymonthly-subscriptions "#section-1-hourlymonthly-subscriptions")
+- [Section 2: Variable length subscriptions](#section-2-annual-subscriptions "#section-2-annual-subscriptions")
 
-## Section 1: Hourly and monthly
-
-subscriptions
+## Section 1: Hourly and monthly subscriptions
 
 This section lists data for all usage-based subscriptions as of the previous day at
 23:59:59 UTC.
@@ -51,9 +44,7 @@ This section lists data for all usage-based subscriptions as of the previous day
 | Reseller account ID         | The unique identifier for the channel partner reseller.                                                                                                                                                                                   |
 | Reseller account name       | The name of the channel partner reseller.                                                                                                                                                                                                 |
 
-## Section 2: Variable length
-
-subscriptions
+## Section 2: Variable length subscriptions
 
 This section lists data for all fee-based subscriptions as of the previous day at
 23:59:59 UTC.

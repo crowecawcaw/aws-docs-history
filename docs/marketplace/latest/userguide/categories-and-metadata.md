@@ -10,9 +10,7 @@ can use to effectively name, describe, and categorize your products.
 
 All product detail page tabs and sections, such as **Pricing**, **Usage**, **Similar products**, or **Product comparison**, are dynamic and managed by AWS Marketplace. Sellers cannot customize product detail pages to add or remove a section.
 
-## Naming and describing your
-
-product
+## Naming and describing your product
 
 The information that you provide about your product is visible to buyers. Ensure that
 potential buyers have enough information to make informed decisions about buying your

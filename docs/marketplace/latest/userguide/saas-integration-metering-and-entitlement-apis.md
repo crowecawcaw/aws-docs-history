@@ -1,6 +1,4 @@
-# Accessing the AWS Marketplace
-
-Metering and Entitlement Service APIs
+# Accessing the AWS Marketplace Metering and Entitlement Service APIs
 
 This section outlines the process of integrating with the AWS Marketplace Metering Service or
 AWS Marketplace Entitlement Service, used to ensure that your billing and reporting for customer
@@ -20,8 +18,7 @@ to avoid double billing your customer.
 
 - [Configuring metering for usage with SaaS subscriptions](metering-for-usage.md "metering-for-usage.md")
 - [Checking entitlements using the AWS Marketplace Entitlement Service](checking-entitlements.md "checking-entitlements.md")
-- [SaaS product integration
-  checklist](aws-marketplace-integration-checklist.md "aws-marketplace-integration-checklist.md")
+- [SaaS product integration checklist](aws-marketplace-integration-checklist.md "aws-marketplace-integration-checklist.md")
   For information about setting up the AWS CLI, along with credentials, see [Configuring the
   AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md") in the _AWS Command Line Interface User Guide_. If you're new to
   the AWS Python SDK, see the Boto 3 [Quickstart](https://boto3.readthedocs.io/en/latest/guide/quickstart.html "https://boto3.readthedocs.io/en/latest/guide/quickstart.html").

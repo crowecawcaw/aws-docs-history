@@ -8,16 +8,13 @@ for your container products.
 ###### Note
 
 You can't add a version to your product until you have created the product ID and the
-pricing for your product. For more information about those steps, see [Step 1: Create the product ID and product
-code for your container product](container-product-getting-started.md#create-initial-container-product "container-product-getting-started.md#create-initial-container-product").
+pricing for your product. For more information about those steps, see [Step 1: Create the product ID and product code for your container product](container-product-getting-started.md#create-initial-container-product "container-product-getting-started.md#create-initial-container-product").
 
 ###### Topics
 
 - [Step 1: Add repositories](#add-repositories "#add-repositories")
-- [Step 2: Upload container images and artifacts to
-  repositories](#upload-resources "#upload-resources")
-- [Step 3: Add a new version to your container
-  product](#add-new-version "#add-new-version")
+- [Step 2: Upload container images and artifacts to repositories](#upload-resources "#upload-resources")
+- [Step 3: Add a new version to your container product](#add-new-version "#add-new-version")
 - [Step 4: Update version information](#container-product-updating-version "#container-product-updating-version")
 - [Restrict a version of your Amazon EKS add-on](#restriciting-version-eks-addon "#restriciting-version-eks-addon")
 
@@ -53,10 +50,16 @@ The repository will have this structure:
 When you add items to the repository (in the following procedure), they will get a tag
 and have this structure:
 `<repositoryID>.dkr.ecr.us-east-1.amazonaws.com/<sellerName>/<repositoryName>:<tag>`.
-The `repositoryID` is an internal ID for AWS Marketplace. The `sellerName`
-is based on the name you created for your seller account. You define the
-`respositoryName` in this step. The `tag` is set when you
-upload an artifact to the repository. 5. Select **Submit**.
+
+    * The `repositoryID` is an internal ID for AWS Marketplace.
+    * The `sellerName` is based on the name you created for your seller account.
+     When your seller display name generates an invalid `sellerName` for repository prefix,
+     AWS Marketplace automatically substitutes a UUID (Universally Unique Identifier) in place of the seller name.
+     To change the UUID prefix in your repository name, contact the AWS Marketplace operations team.
+    * The `respositoryName` is defined in this step.
+    * The `tag` is set when you upload an artifact to the repository.
+
+5. Select **Submit**.
 
 ###### Note
 
@@ -66,9 +69,7 @@ A new request is created and shown on the **Requests** tab. When it's
 completed, within minutes, you can start adding container images and other artifacts to the
 repositories you have created.
 
-## Step 2: Upload container images and artifacts to
-
-repositories
+## Step 2: Upload container images and artifacts to repositories
 
 ###### To upload container images and artifacts to repositories
 
@@ -142,9 +143,7 @@ repositories.
   Helm chart and container images into the Amazon ECR repository created in
   the AWS Marketplace console.
 
-## Step 3: Add a new version to your container
-
-product
+## Step 3: Add a new version to your container product
 
 ###### Note
 

@@ -25,8 +25,7 @@ For assistance with your SaaS products, contact the [AWS Marketplace Seller Oper
 - [Onboarding customers to your SaaS product through AWS Marketplace](saas-product-customer-setup.md "saas-product-customer-setup.md")
 - [Amazon SNS notifications for SaaS products](saas-notification.md "saas-notification.md")
 - [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md "saas-eventbridge-integration.md")
-- [Accessing the AWS Marketplace
-  Metering and Entitlement Service APIs](saas-integration-metering-and-entitlement-apis.md "saas-integration-metering-and-entitlement-apis.md")
+- [Accessing the AWS Marketplace Metering and Entitlement Service APIs](saas-integration-metering-and-entitlement-apis.md "saas-integration-metering-and-entitlement-apis.md")
 - [Reporting for SaaS products on AWS Marketplace](saas-reporting.md "saas-reporting.md")
 - [Code examples for SaaS product integration](saas-code-examples.md "saas-code-examples.md")
 - [Delivering your products through a Amazon VPC using AWS PrivateLink](privatelink.md "privatelink.md")

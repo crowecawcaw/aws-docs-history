@@ -314,9 +314,7 @@ You can integrate your AMI-based product with License Manager by using the [AWS 
 Make sure that you have completed the [License Manager integration prerequisites](#LM-prereqs "#LM-prereqs") before you perform
 the following procedure.
 
-###### To integrate your AMI-based product
-
-with License Manager
+###### To integrate your AMI-based product with License Manager
 
 1. Complete the procedure in [Creating a test license in License Manager](#creating-test-license "#creating-test-license"). You must create a
    test license in License Manager for testing your integration.

@@ -11,11 +11,9 @@ For more information about the container product pricing models for AWS Marketpl
 ###### Topics
 
 - [Adding a pricing dimension](#container-add-pricing-dimensions "#container-add-pricing-dimensions")
-- [Updating dimension
-  information](#container-update-dimensions-information "#container-update-dimensions-information")
+- [Updating dimension information](#container-update-dimensions-information "#container-update-dimensions-information")
 - [Updating pricing terms](#container-update-pricing-terms "#container-update-pricing-terms")
-- [Updating the refund policy of a
-  product](#container-update-refund-policy "#container-update-refund-policy")
+- [Updating the refund policy of a product](#container-update-refund-policy "#container-update-refund-policy")
 
 ## Adding a pricing dimension
 
@@ -47,9 +45,7 @@ assistance.
    status** as **Under review**. When the request completes, the
    status will update to **Succeeded** or **Failed**.
 
-## Updating dimension
-
-information
+## Updating dimension information
 
 You can change the dimensions information for your product. For more information about
 pricing models, see [Container pricing models](pricing-container-products.md#pricing-models-for-server-products "pricing-container-products.md#pricing-models-for-server-products").
@@ -97,9 +93,7 @@ terms**, you won't be able to update pricing for 90 days. A price increase locks
 the price for 90 days from the day you initiate the change. This price lock is only in
 effect for a price increase not a price decrease.
 
-## Updating the refund policy of a
-
-product
+## Updating the refund policy of a product
 
 You can update the refund policy for your product. Updates to the refund policy take
 effect for all users. For more information, see [Product refunds in AWS Marketplace](refunds.md "refunds.md").

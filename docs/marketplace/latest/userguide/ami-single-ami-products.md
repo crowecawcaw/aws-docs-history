@@ -12,8 +12,7 @@ your product already installed and configured.
 ###### Topics
 
 - [Prerequisites](#single-ami-prerequisites "#single-ami-prerequisites")
-- [Understand the self-service
-  experience](#understand-ami-self-service-exp "#understand-ami-self-service-exp")
+- [Understand the self-service experience](#understand-ami-self-service-exp "#understand-ami-self-service-exp")
 - [Create the listing](#ami-create-product "#ami-create-product")
 - [Additional resources](#ami-single-create-resources "#ami-single-create-resources")
 
@@ -24,8 +23,7 @@ prerequisites:
 
 1. Have access to the AWS Marketplace Management Portal. This is the tool that you use to register as a
    seller and manage the products that you sell on AWS Marketplace. To learn more about
-   getting access to the AWS Marketplace Management Portal, see [Policies and permissions for AWS Marketplace
-   sellers](detailed-management-portal-permissions.md "detailed-management-portal-permissions.md").
+   getting access to the AWS Marketplace Management Portal, see [Policies and permissions for AWS Marketplace sellers](detailed-management-portal-permissions.md "detailed-management-portal-permissions.md").
 2. Register as a seller and, if you want to charge for your products, submit your
    tax and banking information. To learn more about becoming a seller, see [Getting started as an AWS Marketplace seller](user-guide-for-sellers.md "user-guide-for-sellers.md").
 3. Have a product that you want to sell. For AMI-based products, this typically
@@ -33,9 +31,7 @@ prerequisites:
    your customers to use. To learn more about preparing an AMI for use in AWS Marketplace,
    see [Best practices for building AMIs for use with AWS Marketplace](best-practices-for-building-your-amis.md "best-practices-for-building-your-amis.md").
 
-## Understand the self-service
-
-experience
+## Understand the self-service experience
 
 The self-service experience guides you through creating your product on AWS Marketplace. As you
 proceed through the steps, you specify product information and AMI deployment settings,
@@ -94,8 +90,7 @@ You can only go to the next step when you complete the required fields in the
 current step. You can't save or submit an incomplete step. If you need to end your
 session before completing all the steps in the process, choose **Save and
 exit** to submit the steps that you completed to the staging area. For
-more information, see [Understand the self-service
-experience](#understand-ami-self-service-exp "#understand-ami-self-service-exp").
+more information, see [Understand the self-service experience](#understand-ami-self-service-exp "#understand-ami-self-service-exp").
 
 ###### To create a single-AMI product
 

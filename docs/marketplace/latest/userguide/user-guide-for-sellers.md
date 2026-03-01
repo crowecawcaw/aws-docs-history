@@ -20,17 +20,14 @@ To sell your software in AWS Marketplace, follow these steps:
 - Registering as an AWS Marketplace seller is a prerequisite to listing data products on AWS Data Exchange and
   making them available on AWS Marketplace. For more information about these requirements, see [Providing Data Products on AWS Data Exchange](../../../data-exchange/latest/userguide/providing-data-sets.md "../../../data-exchange/latest/userguide/providing-data-sets.md") in the _AWS Data Exchange User
   Guide_.
-- For information about the permissions that AWS Marketplace sellers need, see [Policies and permissions for AWS Marketplace
-  sellers](detailed-management-portal-permissions.md "detailed-management-portal-permissions.md").
+- For information about the permissions that AWS Marketplace sellers need, see [Policies and permissions for AWS Marketplace sellers](detailed-management-portal-permissions.md "detailed-management-portal-permissions.md").
 - For more information about product listing fees, registered sellers can view the
   [AWS Marketplace
   Seller Terms](https://aws.amazon.com/marketplace/management/seller-settings/terms "https://aws.amazon.com/marketplace/management/seller-settings/terms") in the AWS Marketplace Management Portal.
 - For answers to frequently asked questions, refer to the [AWS Marketplace Sellers
   FAQ](https://d1.awsstatic.com/awsmp/solutions/aws-seller-faq.pdf "https://d1.awsstatic.com/awsmp/solutions/aws-seller-faq.pdf").
 
-## Seller requirements for
-
-publishing free software products
+## Seller requirements for publishing free software products
 
 Regardless of whether you charge for your product when you offer it in AWS Marketplace, you're
 selling that product. The cost to the customer is $0.00, but you and the customer agree to a
@@ -46,9 +43,7 @@ To create and offer free products in AWS Marketplace, you must:
 - Be an AWS customer in good standing and meet the requirements in the terms and
   conditions for AWS Marketplace sellers.
 
-## Additional seller
-
-requirements for paid products
+## Additional seller requirements for paid products
 
 If you charge for your products or offer Bring Your Own License model (BYOL) products, you
 must also meet the following requirements and provide this additional information:

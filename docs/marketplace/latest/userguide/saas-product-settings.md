@@ -16,8 +16,7 @@ updating pricing details, product visibility, and other settings.
 - [Add pricing dimensions](#saas-add-pricing-dimensions "#saas-add-pricing-dimensions")
 - [Update pricing dimensions](#saas-update-dimension "#saas-update-dimension")
 - [Restrict pricing dimensions](#restrict-pricing-dimensions "#restrict-pricing-dimensions")
-- [Determine how buyers will access your
-  product](#configure-product-access "#configure-product-access")
+- [Determine how buyers will access your product](#configure-product-access "#configure-product-access")
 - [Configure Quick Launch](#saas-quick-launch "#saas-quick-launch")
 - [Update availability by country](#saas-availability-by-country "#saas-availability-by-country")
 - [Update the refund policy of a product](#update-refund-policy "#update-refund-policy")
@@ -269,15 +268,12 @@ removes the selected dimension from the product.
 
 Operations may not always be able to restrict pricing dimensions.
 
-## Determine how buyers will access your
-
-product
+## Determine how buyers will access your product
 
 You can choose one of the following options for how customers can access your
 product:
 
-- [Update the SaaS URL fulfillment
-  option](#update-fulfillment-options "#update-fulfillment-options") – Customers use a URL for
+- [Update the SaaS URL fulfillment option](#update-fulfillment-options "#update-fulfillment-options") – Customers use a URL for
   the site that they are redirected to after subscribing to your product in
   AWS Marketplace.
 - [Configure Quick Launch](#saas-quick-launch "#saas-quick-launch") – Customers use a simplified
@@ -285,9 +281,7 @@ product:
   configuration for existing products with either Limited or Public
   visibility.
 
-### Update the SaaS URL fulfillment
-
-option
+### Update the SaaS URL fulfillment option
 
 To update the URL that is used to fulfill your SaaS product, use the
 **Update fulfillment options** tab.

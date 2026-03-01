@@ -113,9 +113,7 @@ and percentage. You can also change date ranges.
 | **Clicks**                   | The number of times users click your listings from the AWS Marketplace search results.                                                                            |
 | **Click-through rate (CTR)** | The ratio between the number of clicks and the number of impressions. A measure of how effective your listings are at engaging customers from the search results. |
 
-## Section 4: Monthly trend for impressions, clicks,
-
-and click-through rate
+## Section 4: Monthly trend for impressions, clicks, and click-through rate
 
 This section of the dashboard provides monthly trends for a
 given date range. It provides KPIs for the number of

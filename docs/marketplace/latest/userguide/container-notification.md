@@ -16,14 +16,11 @@ team](https://aws.amazon.com/marketplace/management/contact-us "https://aws.amaz
 
 The following Amazon SNS topic is available for container products:
 
-- [Amazon SNS topic:
-  aws-mp-subscription-notification](#container-sns-subscription-message-body "#container-sns-subscription-message-body") – This topic notifies you
+- [Amazon SNS topic: aws-mp-subscription-notification](#container-sns-subscription-message-body "#container-sns-subscription-message-body") – This topic notifies you
   when a buyer subscribes or unsubscribes to a product. This is available for hourly pricing
   models, including hourly and hourly with long term.
 
-## Amazon SNS topic:
-
-`aws-mp-subscription-notification`
+## Amazon SNS topic: `aws-mp-subscription-notification`
 
 Each message in the `aws-mp-subscription-notification` topic has the following
 format.
@@ -62,9 +59,7 @@ account targeting facet of targeting rule for that offer, it is a private offer.
 not an AWS account in the account targeting facet of targeting rule for that offer, it is
 a public offer.
 
-## Subscribing an Amazon SQS queue to the Amazon SNS
-
-topic
+## Subscribing an Amazon SQS queue to the Amazon SNS topic
 
 We recommend subscribing an Amazon SQS queue to the provided SNS topics. For detailed
 instructions on creating an SQS queue and subscribing the queue to a topic, see [Subscribing
@@ -78,9 +73,7 @@ information, see [Sending Amazon SNS messages to
 an Amazon SQS queue in a different account](../../../sns/latest/dg/sns-send-message-to-sqs-cross-account.md "../../../sns/latest/dg/sns-send-message-to-sqs-cross-account.md") in the _Amazon Simple Notification Service Developer
 Guide_.
 
-### Polling the SQS queue for
-
-notifications
+### Polling the SQS queue for notifications
 
 After you subscribe your SQS queue to an SNS topic, the messages are stored in SQS. You
 must define a service that continually polls the queue, looks for messages, and handles them

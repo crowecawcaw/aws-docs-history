@@ -1,6 +1,4 @@
-# Security and intellectual
-
-property with Amazon SageMaker AI
+# Security and intellectual property with Amazon SageMaker AI
 
 Amazon SageMaker AI protects both your intellectual property and buyer data for models and
 algorithms obtained from AWS Marketplace. The following sections provide more information about
@@ -12,9 +10,7 @@ the ways that SageMaker AI protects intellectual property and the security of cu
 - [No network access](#ml-no-network-access "#ml-no-network-access")
 - [Security of customer data](#ml-security-of-customer-data "#ml-security-of-customer-data")
 
-##
-
-Protecting intellectual property
+## Protecting intellectual property
 
 When you create a product, the code is packaged in Docker
 container images. For more information, see
@@ -36,9 +32,7 @@ deploys images in an environment with no access to the network or AWS service
 endpoints. For example, a container image can't make outbound API calls to services on
 the internet, [VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints.md "../../../vpc/latest/userguide/vpc-endpoints.md"), or any other AWS services.
 
-##
-
-Security of customer data
+## Security of customer data
 
 Your product runs in SageMaker AI within the buyer’s AWS account. So, when a buyer uses
 your product to perform data inference, you as the seller can't access their data.

@@ -11,8 +11,7 @@ and then choose the **Billed revenue** tab.
 
 ###### Topics
 
-- [Refresh frequency of the billed revenue
-  dashboard](#publication-schedule "#publication-schedule")
+- [Refresh frequency of the billed revenue dashboard](#publication-schedule "#publication-schedule")
 - [Section 1: Controls](#billed-revenue-dashboard-controls "#billed-revenue-dashboard-controls")
 - [Section 2: Filters](#section-2-invoice-date-range "#section-2-invoice-date-range")
 - [Section 3: Key metrics](#section-3-metrics "#section-3-metrics")
@@ -20,9 +19,7 @@ and then choose the **Billed revenue** tab.
 - [Section 5: Breakdowns](#section-4-breakdowns "#section-4-breakdowns")
 - [Section 6: Granular data](#section-5-new-product-subscribers "#section-5-new-product-subscribers")
 
-## Refresh frequency of the billed revenue
-
-dashboard
+## Refresh frequency of the billed revenue dashboard
 
 Dashboards are updated daily at midnight UTC. If an invoice is created on May
 10 _before_ midnight UTC, the update on May 11 will display
@@ -63,8 +60,8 @@ You can also add a filter to an analysis, such as the range of dates that you wa
 in visuals. The filters selected within the controls update the data that is displayed in the
 metrics, trends, breakdowns, and granular data sections.
 
-For more information about filtering, see [Filtering data on Quick Suite](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md") in the
-_Quick Suite User Guide_.
+For more information about filtering, see [Filtering data on Quick](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md") in the
+_Quick User Guide_.
 
 ### Control descriptions
 
@@ -144,8 +141,8 @@ ID, subscriber AWS account ID, or subscriber company name.
 Customer charges display in this granular data section 24 hours after the customer has
 been billed. For example, if a customer was charged on November 3, then the dashboard reports
 this invoice on November 4. For more information about how to export and download data from a
-Quick Suite table, see [Exporting data from visuals](../../../quicksight/latest/user/exporting-data.md "../../../quicksight/latest/user/exporting-data.md") in the
-_Quick Suite User Guide_.
+Quick table, see [Exporting data from visuals](../../../quicksight/latest/user/exporting-data.md "../../../quicksight/latest/user/exporting-data.md") in the
+_Quick User Guide_.
 
 ### Granular data descriptions
 

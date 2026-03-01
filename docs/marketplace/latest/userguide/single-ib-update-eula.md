@@ -1,6 +1,4 @@
-# Updating end user license agreement (EULA) for your
-
-EC2 Image Builder AWS Marketplace product
+# Updating end user license agreement (EULA) for your EC2 Image Builder AWS Marketplace product
 
 As an AWS Marketplace seller, you can update the end user license agreement (EULA) that will govern
 the use of your EC2 Image Builder components. Your EULA is located on the

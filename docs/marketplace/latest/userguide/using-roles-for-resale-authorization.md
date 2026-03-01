@@ -1,6 +1,4 @@
-# Using service-linked roles for Resale Authorization
-
-with AWS Marketplace
+# Using service-linked roles for Resale Authorization with AWS Marketplace
 
 AWS Marketplace uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to AWS Marketplace. Service-linked roles are predefined by AWS Marketplace and
@@ -28,8 +26,7 @@ documentation for that service.
 - [Creating a service-linked role for AWS Marketplace](#create-slr "#create-slr")
 - [Editing a service-linked role for AWS Marketplace](#edit-slr "#edit-slr")
 - [Deleting a service-linked role for AWS Marketplace](#delete-slr "#delete-slr")
-- [Supported Regions for AWS Marketplace service-linked
-  roles](#slr-regions "#slr-regions")
+- [Supported Regions for AWS Marketplace service-linked roles](#slr-regions "#slr-regions")
 
 ## Service-linked role permissions for AWS Marketplace
 
@@ -107,9 +104,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for AWS Marketplace service-linked
-
-roles
+## Supported Regions for AWS Marketplace service-linked roles
 
 AWS Marketplace supports using service-linked roles in all of the Regions where the
 service is available. For more information, see [AWS Regions and endpoints](../../../general/latest/gr/aws-marketplace.md#aws-marketplace_region "../../../general/latest/gr/aws-marketplace.md#aws-marketplace_region").

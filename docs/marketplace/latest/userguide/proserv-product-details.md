@@ -1,6 +1,4 @@
-# Providing details for a professional services
-
-product in AWS Marketplace
+# Providing details for a professional services product in AWS Marketplace
 
 When you publish a professional services product on AWS Marketplace, you must provide the product
 metadata. Product metadata includes product settings for visibility and pricing and product information

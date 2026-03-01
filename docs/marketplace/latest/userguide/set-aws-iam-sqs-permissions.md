@@ -42,6 +42,4 @@ JSON
 
 The `Resource` ﬁeld is the Amazon Resource Name (ARN) of your Amazon SQS queue.
 
-For more information on message notification and queuing for your SaaS products, see [Subscribing an SQS queue to the
-SNS topic](saas-notification.md#subscribing-an-sqs-queue-to-the-sns-topic "saas-notification.md#subscribing-an-sqs-queue-to-the-sns-topic") and [Accessing the AWS Marketplace
-Metering and Entitlement Service APIs](saas-integration-metering-and-entitlement-apis.md "saas-integration-metering-and-entitlement-apis.md").
+For more information on message notification and queuing for your SaaS products, see [Subscribing an SQS queue to the SNS topic](saas-notification.md#subscribing-an-sqs-queue-to-the-sns-topic "saas-notification.md#subscribing-an-sqs-queue-to-the-sns-topic") and [Accessing the AWS Marketplace Metering and Entitlement Service APIs](saas-integration-metering-and-entitlement-apis.md "saas-integration-metering-and-entitlement-apis.md").

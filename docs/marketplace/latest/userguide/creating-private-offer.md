@@ -15,15 +15,13 @@ support](https://aws.amazon.com//marketplace/management/contact-us "https://aws.
 
 - [Starting a new private offer](#starting-new-private-offer "#starting-new-private-offer")
 - [Understanding offer statuses](#understanding-offer-statuses "#understanding-offer-statuses")
-- [Drafting and publishing the private
-  offer](#drafting-and-publishing-private-offer "#drafting-and-publishing-private-offer")
+- [Drafting and publishing the private offer](#drafting-and-publishing-private-offer "#drafting-and-publishing-private-offer")
 - [Adding private offer and demo request buttons](#private-offer-requests-demos "#private-offer-requests-demos")
 - [Sending a private offer to a buyer](#send-private-offer "#send-private-offer")
 - [Cloning your private offer](#cloning-your-private-offer "#cloning-your-private-offer")
 - [Downloading offer details](#download-offer-details "#download-offer-details")
 - [Saving your private offer progress](#saving-private-offer "#saving-private-offer")
-- [Updating the expiration of a private
-  offer](#updating-private-offer-expiration "#updating-private-offer-expiration")
+- [Updating the expiration of a private offer](#updating-private-offer-expiration "#updating-private-offer-expiration")
 - [Cancelling a private offer](#cancelling-private-offer "#cancelling-private-offer")
 
 ## Starting a new private offer
@@ -81,9 +79,7 @@ Offers have one of three statuses depending on the lifecycle:
 After the offer is accepted, it will show up as an agreement in the
 **Agreements** tab. The status of the offer won't change.
 
-## Drafting and publishing the private
-
-offer
+## Drafting and publishing the private offer
 
 Use the following process to draft and publish your private offer.
 
@@ -308,9 +304,7 @@ your offer, and then choose **Resume offer creation**. 3. When you're finished, 
 your progress or **Create offer** to publish and extend the private offer
 to your selected buyers.
 
-## Updating the expiration of a private
-
-offer
+## Updating the expiration of a private offer
 
 Use the following process to update the expiration date of a private offer.
 

@@ -6,13 +6,10 @@ releasing your product to public.
 
 ###### Topics
 
-- [Container image and Helm chart
-  delivery options](#container-helm-delivery "#container-helm-delivery")
+- [Container image and Helm chart delivery options](#container-helm-delivery "#container-helm-delivery")
 - [Amazon EKS add-on delivery option](#eks-addon-delivery "#eks-addon-delivery")
 
-## Container image and Helm chart
-
-delivery options
+## Container image and Helm chart delivery options
 
 This section provides guidance on the releasing your Container image and
 Helm chart.

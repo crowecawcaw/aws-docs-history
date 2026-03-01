@@ -1,6 +1,4 @@
-# Creating a change request for an
-
-AMI-based product in AWS Marketplace
+# Creating a change request for an AMI-based product in AWS Marketplace
 
 To make changes to a product or version in AWS Marketplace, you submit a **change request** through the AWS Marketplace Management Portal. Change requests are added
 to a queue and can take from minutes to days to resolve, depending on the type of request.
@@ -25,16 +23,12 @@ API](../../../marketplace-catalog/latest/api-reference/seller-products.md "../..
 
 ###### Topics
 
-- [Create a change request by using
-  self-service](#ami-self-service-change-req "#ami-self-service-change-req")
+- [Create a change request by using self-service](#ami-self-service-change-req "#ami-self-service-change-req")
 - [Create a change request](#single-ami-creating-change-request "#single-ami-creating-change-request")
-- [Get the status of a change
-  request](#single-ami-getting-change-request-status "#single-ami-getting-change-request-status")
+- [Get the status of a change request](#single-ami-getting-change-request-status "#single-ami-getting-change-request-status")
 - [Additional resources](#ami-single-change-req-resources "#ami-single-change-req-resources")
 
-## Create a change request by using
-
-self-service
+## Create a change request by using self-service
 
 To make modifications to versions or the product information, you create a _change request_ in the AWS Marketplace Management Portal. Change requests are the
 building blocks of a self-service listing that you use to make changes to your product.
@@ -74,8 +68,7 @@ find your requests on the AWS Marketplace Management Portal [Request](https://aw
 ###### Important
 
 On June 15, 2023, AWS Marketplace will discontinue the following procedure. After June 15,
-2023, use the [Create a change request by using
-self-service](#ami-self-service-change-req "#ami-self-service-change-req") procedure.
+2023, use the [Create a change request by using self-service](#ami-self-service-change-req "#ami-self-service-change-req") procedure.
 
 To make modifications to versions or the product information, you create a _change request_ in the AWS Marketplace Management Portal.
 
@@ -107,14 +100,10 @@ product from the **Server products** page, by selecting the
 product and then choosing **Download Product Load
 Form**.
 
-For more information about the status of a change request, see [Get the status of a change
-request](#single-ami-getting-change-request-status "#single-ami-getting-change-request-status"). For insight into potential
-issues with change requests, see [Troubleshooting common errors for change
-requests on AWS Marketplace](request-errors-and-issues.md "request-errors-and-issues.md").
+For more information about the status of a change request, see [Get the status of a change request](#single-ami-getting-change-request-status "#single-ami-getting-change-request-status"). For insight into potential
+issues with change requests, see [Troubleshooting common errors for change requests on AWS Marketplace](request-errors-and-issues.md "request-errors-and-issues.md").
 
-## Get the status of a change
-
-request
+## Get the status of a change request
 
 ###### Important
 
@@ -142,8 +131,7 @@ the following:
 For more details about change requests for specific types of updates, see the
 following resources:
 
-- [Updating AMI-based product information on
-  AWS Marketplace](single-ami-updating-product.md "single-ami-updating-product.md")
+- [Updating AMI-based product information on AWS Marketplace](single-ami-updating-product.md "single-ami-updating-product.md")
 - [Update version information](single-ami-versions.md#single-ami-updating-version "single-ami-versions.md#single-ami-updating-version")
 - [Add a new version](single-ami-versions.md#single-ami-adding-version "single-ami-versions.md#single-ami-adding-version")
 - [Restrict a version](single-ami-versions.md#single-ami-restricting-version "single-ami-versions.md#single-ami-restricting-version")

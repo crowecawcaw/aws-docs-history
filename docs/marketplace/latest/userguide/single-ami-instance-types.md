@@ -1,6 +1,4 @@
-# Adding and restricting AMI instances for
-
-AWS Marketplace
+# Adding and restricting AMI instances for AWS Marketplace
 
 As an AWS Marketplace seller, you can manage which instances buyers can use for your single
 Amazon Machine Imagine (AMI) product. You can add a new instance for your single AMI

@@ -10,8 +10,7 @@ product policies. For more information, see the following sections.
 - [Building an AMI](#building-an-ami "#building-an-ami")
 - [Preparing and securing your AMI for AWS Marketplace](#securing-an-ami "#securing-an-ami")
 - [Scanning your AMI for publishing requirements](#self-service-scanning "#self-service-scanning")
-- [Verifying your software is running on your AWS Marketplace
-  AMI](#verifying-ami-runtime "#verifying-ami-runtime")
+- [Verifying your software is running on your AWS Marketplace AMI](#verifying-ami-runtime "#verifying-ami-runtime")
 
 ## Securing resell rights
 
@@ -137,12 +136,9 @@ This option is available for sellers who have already created an AMI product. Le
 
 ###### Note
 
-To learn about giving AWS Marketplace access to your AMI, see [Giving AWS Marketplace access to your
-AMI](single-ami-marketplace-ami-access.md "single-ami-marketplace-ami-access.md").
+To learn about giving AWS Marketplace access to your AMI, see [Giving AWS Marketplace access to your AMI](single-ami-marketplace-ami-access.md "single-ami-marketplace-ami-access.md").
 
-## Verifying your software is running on your AWS Marketplace
-
-AMI
+## Verifying your software is running on your AWS Marketplace AMI
 
 We strongly recommend that your software verify at runtime that it is running on an Amazon EC2
 instance created from your AMI product.

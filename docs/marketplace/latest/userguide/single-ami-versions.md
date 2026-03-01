@@ -1,6 +1,4 @@
-# Managing versions for AMI-based products on
-
-AWS Marketplace
+# Managing versions for AMI-based products on AWS Marketplace
 
 When you create an Amazon Machine Image (AMI) based product on AWS Marketplace, you include a specific
 version of your software. The lifecycle of an AMI-based product for AWS Marketplace doesn't end after
@@ -54,8 +52,7 @@ previous version](#single-ami-restricting-version "#single-ami-restricting-versi
 
 You can check the status of your request at any time from the
 **Requests** tab of the [Server
-Products](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page. For more information, see [Get the status of a change
-request](single-ami-create-change-request.md#single-ami-getting-change-request-status "single-ami-create-change-request.md#single-ami-getting-change-request-status").
+Products](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page. For more information, see [Get the status of a change request](single-ami-create-change-request.md#single-ami-getting-change-request-status "single-ami-create-change-request.md#single-ami-getting-change-request-status").
 
 ## Add a new version
 
@@ -112,8 +109,7 @@ following information:
     * **IAM access role ARN** – Enter the Amazon
      Resource Name (ARN) for an AWS Identity and Access Management (IAM) role that allows AWS Marketplace to
      gain access to your AMI. For instructions on how to create the IAM
-     role, see [Giving AWS Marketplace access to your
-     AMI](single-ami-marketplace-ami-access.md "single-ami-marketplace-ami-access.md"). Use the
+     role, see [Giving AWS Marketplace access to your AMI](single-ami-marketplace-ami-access.md "single-ami-marketplace-ami-access.md"). Use the
      standard format for an IAM ARN, for example:
      `arn:aws:iam::123456789012:role/RoleName`.
      The ARN must exist in your AWS Marketplace Seller account.
@@ -295,13 +291,11 @@ for Windows Instances_.
 
 You can't restrict all versions of a product. If you try to restrict the last
 remaining public version of a product, you will receive an error. To completely
-remove a product, see [Removing a product from
-AWS Marketplace](removing-products-from-aws-marketplace.md "removing-products-from-aws-marketplace.md").
+remove a product, see [Removing a product from AWS Marketplace](removing-products-from-aws-marketplace.md "removing-products-from-aws-marketplace.md").
 
 You can check the status of your request at any time from the
 **Requests** tab of the [**Server
-products**](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page. For more information, see [Get the status of a change
-request](single-ami-create-change-request.md#single-ami-getting-change-request-status "single-ami-create-change-request.md#single-ami-getting-change-request-status").
+products**](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page. For more information, see [Get the status of a change request](single-ami-create-change-request.md#single-ami-getting-change-request-status "single-ami-create-change-request.md#single-ami-getting-change-request-status").
 
 ###### Note
 

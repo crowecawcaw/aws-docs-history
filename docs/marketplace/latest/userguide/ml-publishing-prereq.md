@@ -102,8 +102,7 @@ required assets:
 
 - **Amazon Resource Name (ARN)** — Provide the ARN
   of the model package or algorithm resource in the AWS Region that you are publishing
-  from (see [Supported AWS Regions for
-  publishing](ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing "ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing")).
+  from (see [Supported AWS Regions for publishing](ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing "ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing")).
   - An ARN for a model package has this form:
     `arn:aws:sagemaker:<region>:<account-id>:model-package/<model-package-name>`
 
@@ -113,12 +112,9 @@ required assets:
 
   To find your algorithm resource ARN, see [My algorithms](https://console.aws.amazon.com/sagemaker/home#/algorithms/my-resources "https://console.aws.amazon.com/sagemaker/home#/algorithms/my-resources").
 
-- [Requirements for usage
-  information](ml-listing-requirements-and-best-practices.md#ml-requirements-for-usage-information "ml-listing-requirements-and-best-practices.md#ml-requirements-for-usage-information") — Provide details about
+- [Requirements for usage information](ml-listing-requirements-and-best-practices.md#ml-requirements-for-usage-information "ml-listing-requirements-and-best-practices.md#ml-requirements-for-usage-information") — Provide details about
   inputs, outputs, and code examples.
-- [Requirements for inputs and
-  outputs](ml-listing-requirements-and-best-practices.md#ml-requirements-for-inputs-and-outputs "ml-listing-requirements-and-best-practices.md#ml-requirements-for-inputs-and-outputs") — Provide either files or
+- [Requirements for inputs and outputs](ml-listing-requirements-and-best-practices.md#ml-requirements-for-inputs-and-outputs "ml-listing-requirements-and-best-practices.md#ml-requirements-for-inputs-and-outputs") — Provide either files or
   text.
-- [Requirements for Jupyter
-  notebook](ml-listing-requirements-and-best-practices.md#ml-requirements-for-jupyter-notebook "ml-listing-requirements-and-best-practices.md#ml-requirements-for-jupyter-notebook") — Demonstrate complete
+- [Requirements for Jupyter notebook](ml-listing-requirements-and-best-practices.md#ml-requirements-for-jupyter-notebook "ml-listing-requirements-and-best-practices.md#ml-requirements-for-jupyter-notebook") — Demonstrate complete
   product usage.

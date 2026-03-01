@@ -1,6 +1,4 @@
-# Updating EC2 Image Builder product information on
-
-AWS Marketplace
+# Updating EC2 Image Builder product information on AWS Marketplace
 
 After you create your single EC2 Image Builder components, you can change some of
 the information associated with it in AWS Marketplace. For example, if a new version modifies the

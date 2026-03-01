@@ -1,6 +1,4 @@
-# Controlling access to
-
-AWS Marketplace Management Portal
+# Controlling access to AWS Marketplace Management Portal
 
 AWS Identity and Access Management (IAM) is an AWS service that helps you control access to AWS resources. If
 you are an administrator, you control who can be _authenticated_ (signed in) and _authorized_ (have
@@ -146,9 +144,7 @@ policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md") rather than creat
       policy.
    3. Choose **Create Policy**.
 
-###### To create an IAM group with appropriate permissions and add users to the
-
-group
+###### To create an IAM group with appropriate permissions and add users to the group
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

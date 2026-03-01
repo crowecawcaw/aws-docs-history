@@ -1,6 +1,4 @@
-# Custom metering pricing for AMI
-
-products with AWS Marketplace Metering Service
+# Custom metering pricing for AMI products with AWS Marketplace Metering Service
 
 With the AWS Marketplace Metering Service, you can modify your software to send metering records
 to an endpoint to capture usage. You can select a usage category and define up to 24
@@ -14,12 +12,10 @@ following sections provide information about AWS Marketplace Metering Service.
 - [Metering service concepts](#metering-service-concepts "#metering-service-concepts")
 - [Pricing your software](#pricing-your-software "#pricing-your-software")
 - [Adding your product to AWS Marketplace](#listing-your-product-on-aws-marketplace "#listing-your-product-on-aws-marketplace")
-- [Modifying your software
-  to use the Metering Service](#modifying-your-software-to-use-the-metering-service "#modifying-your-software-to-use-the-metering-service")
+- [Modifying your software to use the Metering Service](#modifying-your-software-to-use-the-metering-service "#modifying-your-software-to-use-the-metering-service")
 - [Vendor-metered tagging (Optional)](#ami-vendor-metered-tagging "#ami-vendor-metered-tagging")
 - [Configuring custom metering](#configure-custom-metering "#configure-custom-metering")
-- [Configuring custom metering for AMI products with
-  AWS Marketplace Metering Service](custom-metering-with-mp-metering-service.md "custom-metering-with-mp-metering-service.md")
+- [Configuring custom metering for AMI products with AWS Marketplace Metering Service](custom-metering-with-mp-metering-service.md "custom-metering-with-mp-metering-service.md")
 
 ## Metering service concepts
 
@@ -107,9 +103,7 @@ Next, you must decide how to price the selected usage category:
 [Adding your product to AWS Marketplace](#listing-your-product-on-aws-marketplace "#listing-your-product-on-aws-marketplace") describes how to provide a
 customer-friendly description of your dimension and pricing.
 
-### Example: Provisioned
-
-bandwidth with nonlinear pricing
+### Example: Provisioned bandwidth with nonlinear pricing
 
 Imagine you offer network appliance software. You choose to bill by provisioned
 bandwidth. For your usage category, select **Bandwidth**. In addition to
@@ -117,9 +111,7 @@ charging by bandwidth, you want to charge a different price as buyers scale up. 
 define multiple dimensions within the bandwidth category. You can define a distinct price
 for 25 Mbps, 100 Mbps, and 1 Gbps.
 
-### Example: Concurrent
-
-hosts with multiple dimensions
+### Example: Concurrent hosts with multiple dimensions
 
 Imagine you offer software that monitors other Amazon EC2 instances. You choose to bill by
 the number of hosts that are being monitored. For your usage category, select
@@ -139,8 +131,7 @@ replace your current product as the only version available to new users. If you 
 replacement, the existing product will be removed from the AWS Marketplace so that it is no longer
 available for new buyers. Existing customers will continue to have access to their old product
 and instances, but they can migrate to the new product at their convenience. The new product
-must meter usage to the AWS Marketplace Metering Service, as described in [Modifying your software
-to use the Metering Service](#modifying-your-software-to-use-the-metering-service "#modifying-your-software-to-use-the-metering-service").
+must meter usage to the AWS Marketplace Metering Service, as described in [Modifying your software to use the Metering Service](#modifying-your-software-to-use-the-metering-service "#modifying-your-software-to-use-the-metering-service").
 
 After you have your AMI, follow the standard process to share and scan your AMI using the
 self-service tool. In addition to using the template available on the management portal, fill
@@ -204,9 +195,7 @@ products.
 
 If you have questions, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") team.
 
-## Modifying your software
-
-to use the Metering Service
+## Modifying your software to use the Metering Service
 
 You will need to modify your software to record customer usage, send hourly usage reports
 to the Metering Service, and handle new failure modes. The software operates independently of
@@ -329,11 +318,9 @@ what the Seller sends to the Metering Service (as shown in the [Seller experienc
 | xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 5555          | Marketing                       |
 | xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 1111          | Marketing                       |
 
-For a code example, see [MeterUsage with usage allocation
-tagging (Optional)](custom-metering-with-mp-metering-service.md#ami-meterusage-code-example "custom-metering-with-mp-metering-service.md#ami-meterusage-code-example")
+For a code example, see [MeterUsage with usage allocation tagging (Optional)](custom-metering-with-mp-metering-service.md#ami-meterusage-code-example "custom-metering-with-mp-metering-service.md#ami-meterusage-code-example")
 
 ## Configuring custom metering
 
 For more information about working with AWS Marketplace Metering Service, see
-[Configuring custom metering for AMI products with
-AWS Marketplace Metering Service](custom-metering-with-mp-metering-service.md "custom-metering-with-mp-metering-service.md").
+[Configuring custom metering for AMI products with AWS Marketplace Metering Service](custom-metering-with-mp-metering-service.md "custom-metering-with-mp-metering-service.md").

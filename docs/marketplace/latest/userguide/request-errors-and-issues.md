@@ -1,6 +1,4 @@
-# Troubleshooting common errors for change
-
-requests on AWS Marketplace
+# Troubleshooting common errors for change requests on AWS Marketplace
 
 When you make changes to your product's information on AWS Marketplace, you might run into
 errors. This topic explains some common errors and provides suggestions for how to fix
@@ -11,8 +9,7 @@ them.
 
       + You have not granted AWS Marketplace permissions to scan your AMI. Grant AWS Marketplace
        permissions to access it. Or you have granted permissions, but the
-       permissions boundary is too restrictive. For more information, see [Giving AWS Marketplace access to your
-       AMI](single-ami-marketplace-ami-access.md "single-ami-marketplace-ami-access.md").
+       permissions boundary is too restrictive. For more information, see [Giving AWS Marketplace access to your AMI](single-ami-marketplace-ami-access.md "single-ami-marketplace-ami-access.md").
       + If scanning finds security issues or Common Vulnerabilities and Exposures
        (CVEs) in your AMI, make sure you're using the latest patches for the
        operating system in your image. For more information, see [AMI-based product requirements for AWS Marketplace](product-and-ami-policies.md "product-and-ami-policies.md").

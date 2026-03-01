@@ -1,6 +1,4 @@
-# Integrating your container product
-
-with the AWS Marketplace Metering Service using the AWS SDK for Java
+# Integrating your container product with the AWS Marketplace Metering Service using the AWS SDK for Java
 
 You can use the AWS SDK for Java to integrate with the AWS Marketplace Metering Service. Continuous metering for
 software use is automatically handled by the AWS Marketplace Metering Control Plane.
@@ -22,8 +20,7 @@ the AWS SDK language.
 2. From **Assets** choose **Containers** to start
    creating a new container product. Creating the product generates the product code
    for the product to integrate with your container image. For information about setting
-   IAM permissions, see [AWS Marketplace metering and entitlement
-   API permissions](iam-user-policy-for-aws-marketplace-actions.md "iam-user-policy-for-aws-marketplace-actions.md").
+   IAM permissions, see [AWS Marketplace metering and entitlement API permissions](iam-user-policy-for-aws-marketplace-actions.md "iam-user-policy-for-aws-marketplace-actions.md").
 3. Download the public [AWS Java
    SDK](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/").
 

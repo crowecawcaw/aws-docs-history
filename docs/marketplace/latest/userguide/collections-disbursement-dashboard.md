@@ -1,6 +1,4 @@
-# Collections and disbursement
-
-dashboard
+# Collections and disbursement dashboard
 
 The collections and disbursements dashboard provides data about funds disbursed to your bank
 accounts. It also provides a list of all invoices where a disbursement has been sent for a partial payment,
@@ -31,8 +29,7 @@ and then choose the **Collections and disbursements** tab.
 
 ###### Topics
 
-- [Refresh frequency of the collections and disbursements
-  dashboard](#publication-schedule "#publication-schedule")
+- [Refresh frequency of the collections and disbursements dashboard](#publication-schedule "#publication-schedule")
 - [Section 1: Controls](#collections-disbursement-dashboard-controls "#collections-disbursement-dashboard-controls")
 - [Section 2: Filters](#section-2-select-date-range "#section-2-select-date-range")
 - [Section 3: Key metrics](#section-3-metrics-collections "#section-3-metrics-collections")
@@ -40,9 +37,7 @@ and then choose the **Collections and disbursements** tab.
 - [Section 5: Breakdowns](#section-5-breakdowns "#section-5-breakdowns")
 - [Section 6: Granular data](#section-6-granular-data "#section-6-granular-data")
 
-## Refresh frequency of the collections and disbursements
-
-dashboard
+## Refresh frequency of the collections and disbursements dashboard
 
 The collections and disbursements dashboard is updated on North American business days
 only. You can expect to see disbursed invoices within one day of receiving a deposit to your
@@ -58,8 +53,8 @@ invoices open and unpaid. You can add a filter to an analysis, such as the range
 you want to include in visuals. The filters selected within the controls update the data
 displayed in the metrics, trends, breakdowns, and granular data sections.
 
-For more information about filtering, see [Filtering data on Quick Suite](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md") in the
-_Quick Suite User Guide_.
+For more information about filtering, see [Filtering data on Quick](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md") in the
+_Quick User Guide_.
 
 ### Control descriptions
 
@@ -142,8 +137,8 @@ customer, and offer details.
 Invoices created before April 1, 2021 might not have an associated agreement ID, offer
 ID, subscriber AWS account ID, or subscriber company name.
 
-For information about how to export and download data from a Quick Suite table, see [Exporting data from
-visuals](../../../quicksight/latest/user/exporting-data.md "../../../quicksight/latest/user/exporting-data.md") in the _Quick Suite User Guide_.
+For information about how to export and download data from a Quick table, see [Exporting data from
+visuals](../../../quicksight/latest/user/exporting-data.md "../../../quicksight/latest/user/exporting-data.md") in the _Quick User Guide_.
 
 ### Granular data descriptions
 

@@ -16,8 +16,7 @@ new product with the correct settings.
 - [Plan your pricing](#plan-pricing "#plan-pricing")
 - [Plan your billing integration](#saas-plan-integration "#saas-plan-integration")
 - [Plan your Amazon SNS integration](#saas-plan-sns "#saas-plan-sns")
-- [Plan how customers will access your
-  product](#saas-plan-customer-access "#saas-plan-customer-access")
+- [Plan how customers will access your product](#saas-plan-customer-access "#saas-plan-customer-access")
 
 ## Plan your pricing
 
@@ -41,8 +40,7 @@ AWS Marketplace Entitlement Service, depending on your chosen pricing model. The
 services help you ensure that your billing and usage reporting is accurate.
 
 After you plan your integration, you must test the integration with your product
-before it goes live. For more information about integration and testing, see [Accessing the AWS Marketplace
-Metering and Entitlement Service APIs](saas-integration-metering-and-entitlement-apis.md "saas-integration-metering-and-entitlement-apis.md").
+before it goes live. For more information about integration and testing, see [Accessing the AWS Marketplace Metering and Entitlement Service APIs](saas-integration-metering-and-entitlement-apis.md "saas-integration-metering-and-entitlement-apis.md").
 
 ## Plan your Amazon SNS integration
 
@@ -55,15 +53,11 @@ subscriptions from accessing your product. You have options for how your custome
 receive notifications depending on how you program the handling of these
 notifications.
 
-## Plan how customers will access your
-
-product
+## Plan how customers will access your product
 
 This section describes how to make your product accessible to buyers.
 
-### Plan your SaaS product registration
-
-website
+### Plan your SaaS product registration website
 
 Customers who buy your SaaS product need access to it. You must plan and implement
 how you want your customers to access the product. SaaS products support the
@@ -76,18 +70,14 @@ following access options:
 To validate AWS Marketplace customers using your registration website, see [SaaS
 customer onboarding](saas-product-customer-setup.md "saas-product-customer-setup.md").
 
-#### Using Quick Launch for customers to
-
-access your product
+#### Using Quick Launch for customers to access your product
 
 Use the Quick Launch deployment option to reduce the time and resources that
 are required for buyers to configure, deploy, and launch your products. Quick
 Launch reduces the number of sites that buyers must visit during the process.
 For more information, see [Configure Quick Launch](saas-product-settings.md#saas-quick-launch "saas-product-settings.md#saas-quick-launch").
 
-#### Using AWS PrivateLink for customers to
-
-access your SaaS product
+#### Using AWS PrivateLink for customers to access your SaaS product
 
 You can use [Delivering your products through a Amazon VPC using AWS PrivateLink](privatelink.md "privatelink.md") to
 conﬁgure your service as an Amazon Virtual Private Cloud (Amazon VPC) endpoint service. Your customers

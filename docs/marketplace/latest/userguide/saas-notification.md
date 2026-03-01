@@ -1,5 +1,9 @@
 # Amazon SNS notifications for SaaS products
 
+###### Important
+
+SNS notifications for AWS Marketplace SaaS products are being replaced with Amazon EventBridge notifications. If you have existing SaaS products integrated with SNS, they will continue to function. New listings will eventually transition to using Amazon EventBridge instead of SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md "saas-eventbridge-integration.md").
+
 To receive notifications, you subscribe to the Amazon Simple Notification Service (Amazon SNS) topics for AWS Marketplace provided to
 you during product creation. The topics provide notifications about changes to customers’
 subscriptions and contract entitlements for your products. This enables you to know when to
@@ -13,14 +17,12 @@ example: `arn:aws:sns:us-east-1:123456789012:aws-mp-subscription-notification-P
 
 The following Amazon SNS topics are available to software as a service (SaaS) products:
 
-- [Amazon SNS topic:
-  aws-mp-entitlement-notification](#saas-sns-message-body "#saas-sns-message-body") –
+- [Amazon SNS topic: aws-mp-entitlement-notification](#saas-sns-message-body "#saas-sns-message-body") –
   This topic notifies you when buyers create a new contract, upgrade it, renew it, or it
   expires. This is only available for products with pricing models that include a contract
   (also known as **SaaS Contracts** and **SaaS Contracts with
   Consumption (Overages)**).
-- [Amazon SNS topic:
-  aws-mp-subscription-notification](#saas-sns-subscription-message-body "#saas-sns-subscription-message-body") – This topic notifies you when
+- [Amazon SNS topic: aws-mp-subscription-notification](#saas-sns-subscription-message-body "#saas-sns-subscription-message-body") – This topic notifies you when
   a buyer subscribes to or unsubscribes from a product and includes the
   `offer-identifier` for private offers and a free trials flag for SaaS free
   trials. This is available for all pricing models, including contracts and subscriptions
@@ -33,9 +35,7 @@ The following Amazon SNS topics are available to software as a service (SaaS) pr
 - [Integrating your SaaS contract product with AWS Marketplace](saas-integrate-contract.md "saas-integrate-contract.md")
 - [Integrating your SaaS contract-based product with AWS Marketplace](saas-integrate-contract-with-pay.md "saas-integrate-contract-with-pay.md")
 
-## Amazon SNS topic:
-
-`aws-mp-entitlement-notification`
+## Amazon SNS topic: `aws-mp-entitlement-notification`
 
 Each message in the `aws-mp-entitlement-notification` topic has the following
 format.
@@ -67,12 +67,9 @@ The `<action-name>` will always be `entitlement-updated`.
   agreement.
 
 Products with contract pricing (including contracts with pay-as-you-go) must respond to
-these messages. For more information about how to respond, see [Scenario: Monitor changes to user
-subscriptions](saas-integrate-contract.md#saas-contract-monitor-changes "saas-integrate-contract.md#saas-contract-monitor-changes").
+these messages. For more information about how to respond, see [Scenario: Monitor changes to user subscriptions](saas-integrate-contract.md#saas-contract-monitor-changes "saas-integrate-contract.md#saas-contract-monitor-changes").
 
-## Amazon SNS topic:
-
-`aws-mp-subscription-notification`
+## Amazon SNS topic: `aws-mp-subscription-notification`
 
 Each message in the `aws-mp-subscription-notification` topic has the following
 format.
@@ -143,9 +140,7 @@ to these messages. For more information about how to respond, see the following 
 - [Integrating your SaaS subscription or Pay-As-You-Go product with AWS Marketplace](saas-integrate-subscription.md "saas-integrate-subscription.md")
 - [Integrating your SaaS contract-based product with AWS Marketplace](saas-integrate-contract-with-pay.md "saas-integrate-contract-with-pay.md")
 
-## Subscribing an SQS queue to the
-
-SNS topic
+## Subscribing an SQS queue to the SNS topic
 
 We recommend subscribing an Amazon SQS queue to the provided SNS topics. For detailed
 instructions on creating an SQS queue and subscribing the queue to a topic, see [Subscribing
@@ -159,9 +154,7 @@ information, see [Sending Amazon SNS messages to
 an Amazon SQS queue in a different account](../../../sns/latest/dg/sns-send-message-to-sqs-cross-account.md "../../../sns/latest/dg/sns-send-message-to-sqs-cross-account.md") in the _Amazon Simple Notification Service Developer
 Guide_.
 
-### Polling the SQS queue for
-
-notifications
+### Polling the SQS queue for notifications
 
 After you subscribe your SQS queue to an SNS topic, the messages are stored in SQS. You
 must define a service that continually polls the queue, looks for messages, and handles them

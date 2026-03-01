@@ -190,9 +190,7 @@ AWS Marketplace Management Portal.
    address (up to 10 total).
 6. Choose **Submit**.
 
-### Unsubscribing recipients from
-
-notifications
+### Unsubscribing recipients from notifications
 
 You can remove an email address so the recipient is unsubscribed from custom email
 notifications.

@@ -4,9 +4,7 @@ This section provides help for some common errors that you might encounter durin
 publishing process for your machine learning product. If your issue isn't listed, contact the
 [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") team.
 
-## General: I get a 400 error when I add the Amazon Resource Name
-
-(ARN) of my model package or algorithm in the AWS Marketplace Management Portal
+## General: I get a 400 error when I add the Amazon Resource Name (ARN) of my model package or algorithm in the AWS Marketplace Management Portal
 
 ### Common cause
 
@@ -28,9 +26,7 @@ is set to `true`.
 After you re-create your certified and validated model package or algorithm resource,
 add the new ARN in the AWS Marketplace Management Portal.
 
-## General: I get a 404 error when I add the ARN of my model package or
-
-algorithm in the AWS Marketplace Management Portal
+## General: I get a 404 error when I add the ARN of my model package or algorithm in the AWS Marketplace Management Portal
 
 ### Common cause
 
@@ -62,9 +58,7 @@ For algorithms, the action
 `sagemaker:DescribeAlgorithm`
 on the algorithm resource must be allowed.
 
-## Amazon SageMaker AI: I get a “Client error: Access denied for registry” failure
-
-message when I create a model package or algorithm resource
+## Amazon SageMaker AI: I get a “Client error: Access denied for registry” failure message when I create a model package or algorithm resource
 
 ### Common cause
 
@@ -78,10 +72,7 @@ cross-account images.
 Copy the image to an Amazon ECR repository owned by the AWS account that you
 are using to publish. Then, proceed with creating the resource using the new image location.
 
-## Amazon SageMaker AI: I get “Not Started” and “Client error: No scan
-
-scheduled...” failure messages when I create a model package or algorithm
-resource
+## Amazon SageMaker AI: I get “Not Started” and “Client error: No scan scheduled...” failure messages when I create a model package or algorithm resource
 
 ### Common cause
 

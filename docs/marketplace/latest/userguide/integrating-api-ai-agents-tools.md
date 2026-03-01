@@ -88,8 +88,7 @@ Learn more about QuickLaunch fulfillment in these resources:
 
 This following section outlines the process of integrating with the AWS Marketplace Metering Service or AWS Marketplace Entitlement Service, used to ensure that your billing and reporting for customer usage of your products is accurate.
 
-- To learn more about accessing AWS Marketplace APIs, see [Accessing the AWS Marketplace
-  Metering and Entitlement Service APIs](saas-integration-metering-and-entitlement-apis.md "saas-integration-metering-and-entitlement-apis.md").
+- To learn more about accessing AWS Marketplace APIs, see [Accessing the AWS Marketplace Metering and Entitlement Service APIs](saas-integration-metering-and-entitlement-apis.md "saas-integration-metering-and-entitlement-apis.md").
 
 ### SNS notifications
 
@@ -97,10 +96,8 @@ Subscribe to Amazon Simple Notification Service (Amazon SNS) topics to receive n
 
 The following Amazon SNS topics are available for SaaS API-based products:
 
-- [Amazon SNS topic:
-  aws-mp-entitlement-notification](saas-notification.md#saas-sns-message-body "saas-notification.md#saas-sns-message-body") – Notifies you when customers create, upgrade, or renew contracts, or when contracts expires. This is only available for products with pricing models that include a contract.
-- [Amazon SNS topic:
-  aws-mp-subscription-notification](saas-notification.md#saas-sns-subscription-message-body "saas-notification.md#saas-sns-subscription-message-body") – Notifies you when customers subscribe or unsubscribe from your product and includes the `offer-identifier` for private offers and a free trials flag for SaaS free trials. This is available for all pricing models, including contracts and subscriptions.
+- [Amazon SNS topic: aws-mp-entitlement-notification](saas-notification.md#saas-sns-message-body "saas-notification.md#saas-sns-message-body") – Notifies you when customers create, upgrade, or renew contracts, or when contracts expires. This is only available for products with pricing models that include a contract.
+- [Amazon SNS topic: aws-mp-subscription-notification](saas-notification.md#saas-sns-subscription-message-body "saas-notification.md#saas-sns-subscription-message-body") – Notifies you when customers subscribe or unsubscribe from your product and includes the `offer-identifier` for private offers and a free trials flag for SaaS free trials. This is available for all pricing models, including contracts and subscriptions.
 
 ## Usage instructions templates
 

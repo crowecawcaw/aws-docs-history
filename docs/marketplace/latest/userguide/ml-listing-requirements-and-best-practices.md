@@ -1,11 +1,8 @@
-# Requirements and best practices for
-
-creating machine learning products
+# Requirements and best practices for creating machine learning products
 
 It is important that your buyers find it easy to test your model package and algorithm
 products. The following sections describe best practices for ML products. For a complete summary
-of requirements and recommendations, see the [Summary of requirements
-and recommendations for ML product listings](#ml-summary-table-of-requirements-and-recommendations "#ml-summary-table-of-requirements-and-recommendations").
+of requirements and recommendations, see the [Summary of requirements and recommendations for ML product listings](#ml-summary-table-of-requirements-and-recommendations "#ml-summary-table-of-requirements-and-recommendations").
 
 ###### Note
 
@@ -15,14 +12,10 @@ published products don't meet them.
 ###### Topics
 
 - [General best practices for ML products](#ml-general-best-practices "#ml-general-best-practices")
-- [Requirements for usage
-  information](#ml-requirements-for-usage-information "#ml-requirements-for-usage-information")
-- [Requirements for inputs and
-  outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs")
-- [Requirements for Jupyter
-  notebook](#ml-requirements-for-jupyter-notebook "#ml-requirements-for-jupyter-notebook")
-- [Summary of requirements
-  and recommendations for ML product listings](#ml-summary-table-of-requirements-and-recommendations "#ml-summary-table-of-requirements-and-recommendations")
+- [Requirements for usage information](#ml-requirements-for-usage-information "#ml-requirements-for-usage-information")
+- [Requirements for inputs and outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs")
+- [Requirements for Jupyter notebook](#ml-requirements-for-jupyter-notebook "#ml-requirements-for-jupyter-notebook")
+- [Summary of requirements and recommendations for ML product listings](#ml-summary-table-of-requirements-and-recommendations "#ml-summary-table-of-requirements-and-recommendations")
 
 ## General best practices for ML products
 
@@ -41,9 +34,7 @@ Provide the following information for your machine learning product:
 - (Optional) For paid products, offer a free trial of 14–30 days for customers
   to try your product. For more information, see [Machine learning product pricing for AWS Marketplace](machine-learning-pricing.md "machine-learning-pricing.md").
 
-## Requirements for usage
-
-information
+## Requirements for usage information
 
 Clear usage information that describes the expected inputs and outputs of your product
 (with examples) is crucial for driving a positive buyer experience.
@@ -53,9 +44,7 @@ provide usage information.
 
 To edit the existing usage information for a specific version, see [Updating version information](ml-manage-product-version.md#ml-updating-versions "ml-manage-product-version.md#ml-updating-versions").
 
-## Requirements for inputs and
-
-outputs
+## Requirements for inputs and outputs
 
 A clear explanation of supported input parameters and returned output parameters with
 examples is important to help your buyers to understand and use your product. This
@@ -89,9 +78,7 @@ Explain both optional and mandatory features that can be provided by the buyer, 
 specify whether the `PIPE` input mode is supported. If [distributed training](../../../sagemaker/latest/dg/your-algorithms-training-algo-running-container.md#your-algorithms-training-algo-running-container-dist-training "../../../sagemaker/latest/dg/your-algorithms-training-algo-running-container.md#your-algorithms-training-algo-running-container-dist-training") (training with more than 1 CPU/GPU instance) is supported,
 specify this. For tuning, list the recommend hyperparameters.
 
-## Requirements for Jupyter
-
-notebook
+## Requirements for Jupyter notebook
 
 When adding your SageMaker AI resource to your product listing, provide a link to a sample Jupyter
 notebook hosted on [GitHub](https://github.com "https://github.com") that demonstrates the
@@ -123,9 +110,7 @@ A lack of example training data might prevent your buyer from running the Jupyte
 notebook successfully. An underdeveloped sample notebook might prevent your buyers from
 using your product and hinder adoption.
 
-## Summary of requirements
-
-and recommendations for ML product listings
+## Summary of requirements and recommendations for ML product listings
 
 The following table provides a summary of the requirements and recommendations for a
 machine learning product listing page.
@@ -142,15 +127,15 @@ machine learning product listing page.
 | Summarize model latency and/or throughput metrics on recommended instance type.                                                                                                                                                                                                                                                         | Required                       | Not applicable             |
 | Describe the algorithm category. For example, “This decision forest regression<br>algorithm is based on an ensemble of tree-structured classifiers that are built using<br>the general technique of bootstrap aggregation and a random choice of features.”                                                                             | Not applicable                 | Required                   |
 | **Usage<br>information**                                                                                                                                                                                                                                                                                                                |
-| For inference, provide a description of the expected input format for both the<br>real-time endpoint and batch transform job. Include limitations, if applicable. See<br>[Requirements for inputs and<br>outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs").                                   | Required                       | Required                   |
-| For inference, provide input samples for both the real-time endpoint and batch<br>transform job. Samples must be hosted on GitHub. See [Requirements for inputs and<br>outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs").                                                                     | Required                       | Required                   |
+| For inference, provide a description of the expected input format for both the<br>real-time endpoint and batch transform job. Include limitations, if applicable. See<br>[Requirements for inputs and outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs").                                      | Required                       | Required                   |
+| For inference, provide input samples for both the real-time endpoint and batch<br>transform job. Samples must be hosted on GitHub. See [Requirements for inputs and outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs").                                                                        | Required                       | Required                   |
 | For inference, provide the name and description of each input parameter. Provide<br>details about the its limitations and specify if it is required or optional.                                                                                                                                                                        | Recommended                    | Recommended                |
-| For inference, provide details about the output data your product returns for<br>both the real-time endpoint and batch transform job. Include any limitations, if<br>applicable. See [Requirements for inputs and<br>outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs").                       | Required                       | Required                   |
-| For inference, provide output samples for both the real-time endpoint and batch<br>transform job. Samples must be hosted on GitHub. See [Requirements for inputs and<br>outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs").                                                                    | Required                       | Required                   |
+| For inference, provide details about the output data your product returns for<br>both the real-time endpoint and batch transform job. Include any limitations, if<br>applicable. See [Requirements for inputs and outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs").                          | Required                       | Required                   |
+| For inference, provide output samples for both the real-time endpoint and batch<br>transform job. Samples must be hosted on GitHub. See [Requirements for inputs and outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs").                                                                       | Required                       | Required                   |
 | For inference, provide an example of using an endpoint or batch transform job.<br>Include a code example using the AWS Command Line Interface (AWS CLI) commands or using an AWS SDK.                                                                                                                                                   | Required                       | Required                   |
 | For inference, provide the name and description of each output parameter. Specify<br>if it is always returned.                                                                                                                                                                                                                          | Recommended                    | Recommended                |
-| For training, provide details about necessary information to train the model such<br>as minimum rows of data required. See [Requirements for inputs and<br>outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs").                                                                                 | Not applicable                 | Required                   |
-| For training, provide input samples hosted on GitHub. See [Requirements for inputs and<br>outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs").                                                                                                                                                  | Not applicable                 | Required                   |
+| For training, provide details about necessary information to train the model such<br>as minimum rows of data required. See [Requirements for inputs and outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs").                                                                                    | Not applicable                 | Required                   |
+| For training, provide input samples hosted on GitHub. See [Requirements for inputs and outputs](#ml-requirements-for-inputs-and-outputs "#ml-requirements-for-inputs-and-outputs").                                                                                                                                                     | Not applicable                 | Required                   |
 | For training, provide an example of performing training jobs. Describe the<br>supported hyperparameters, their ranges, and their overall impact. Specify if the<br>algorithm supports hyperparameter tuning, distributed training, or GPU instances.<br>Include code example such as AWS CLI commands or using an AWS SDK, for example. | Not applicable                 | Required                   |
-| Provide a Jupyter notebook hosted on GitHub demonstrating complete use of your<br>product. See [Requirements for Jupyter<br>notebook](#ml-requirements-for-jupyter-notebook "#ml-requirements-for-jupyter-notebook").                                                                                                                   | Required                       | Required                   |
+| Provide a Jupyter notebook hosted on GitHub demonstrating complete use of your<br>product. See [Requirements for Jupyter notebook](#ml-requirements-for-jupyter-notebook "#ml-requirements-for-jupyter-notebook").                                                                                                                      | Required                       | Required                   |
 | Provide technical information related to the usage of the product, including user<br>manuals and sample data.                                                                                                                                                                                                                           | Recommended                    | Recommended                |

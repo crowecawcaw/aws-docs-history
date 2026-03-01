@@ -1,6 +1,4 @@
-# Updating the refund policy for your
-
-EC2 Image Builder product on AWS Marketplace
+# Updating the refund policy for your EC2 Image Builder product on AWS Marketplace
 
 As an AWS Marketplace seller, you can set the refund policy for your EC2 Image Builder components. If you want to change the refund policy for your product, you can use **Update
 refund policy**. The following procedure shows you how to update your refund policy.

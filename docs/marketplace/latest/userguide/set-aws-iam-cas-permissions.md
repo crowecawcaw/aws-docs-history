@@ -45,5 +45,4 @@ JSON
 
 ```
 
-For more information about this feature, see [Accessing product and customer data with the
-AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md").
+For more information about this feature, see [Accessing product and customer data with the AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md").

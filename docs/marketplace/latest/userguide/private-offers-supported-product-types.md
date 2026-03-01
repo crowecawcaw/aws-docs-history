@@ -12,8 +12,7 @@ For more information about private offers, see [Preparing a private offer for yo
 
 - [Private offers for AMI products](#supported-products-private-offers "#supported-products-private-offers")
 - [Private offers for container products](#container-private-offers "#container-private-offers")
-- [Private offers for professional services
-  products](#proserv-private-offers "#proserv-private-offers")
+- [Private offers for professional services products](#proserv-private-offers "#proserv-private-offers")
 - [Private offers for SaaS products](#saas-private-offers "#saas-private-offers")
 - [Private offers for ML products](#ml-private-offers "#ml-private-offers")
 
@@ -76,9 +75,7 @@ those same units if the buyer uses more.
 
 Private offers are not available for monthly billing contracts.
 
-## Private offers for professional services
-
-products
+## Private offers for professional services products
 
 All professional services product offerings are done through private offers. For more
 information, see [Create private offers](proserv-getting-started.md#proserv-create-offer "proserv-getting-started.md#proserv-create-offer").

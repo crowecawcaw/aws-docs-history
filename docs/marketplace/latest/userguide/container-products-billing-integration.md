@@ -1,6 +1,4 @@
-# Container product billing, metering,
-
-and licensing integrations
+# Container product billing, metering, and licensing integrations
 
 AWS Marketplace integrates with other AWS services to provide both metering and contract-based
 pricing for your container product. For container-based products with usage pricing, you can use
@@ -12,19 +10,13 @@ and contract pricing with AWS License Manager.
 
 ###### Topics
 
-- [Hourly and custom metering with
-  AWS Marketplace Metering Service](#entitlement-and-metering-for-paid-products "#entitlement-and-metering-for-paid-products")
+- [Hourly and custom metering with AWS Marketplace Metering Service](#entitlement-and-metering-for-paid-products "#entitlement-and-metering-for-paid-products")
 - [Contract pricing with AWS License Manager](#container-products-contracts-license-manager "#container-products-contracts-license-manager")
-- [Configuring hourly metering with
-  AWS Marketplace Metering Service](container-metering-registerusage.md "container-metering-registerusage.md")
-- [Configuring custom metering for container products with
-  AWS Marketplace Metering Service](container-metering-meterusage.md "container-metering-meterusage.md")
-- [Contract pricing for container products
-  with AWS License Manager](container-license-manager-integration.md "container-license-manager-integration.md")
+- [Configuring hourly metering with AWS Marketplace Metering Service](container-metering-registerusage.md "container-metering-registerusage.md")
+- [Configuring custom metering for container products with AWS Marketplace Metering Service](container-metering-meterusage.md "container-metering-meterusage.md")
+- [Contract pricing for container products with AWS License Manager](container-license-manager-integration.md "container-license-manager-integration.md")
 
-## Hourly and custom metering with
-
-AWS Marketplace Metering Service
+## Hourly and custom metering with AWS Marketplace Metering Service
 
 To both check entitlement to use your product and to meter usage for billing, use the [AWS Marketplace
 Metering Service](../../../marketplacemetering/latest/APIReference/Welcome.md "../../../marketplacemetering/latest/APIReference/Welcome.md"). If you want to define your own pricing units and meter that usage to
@@ -77,9 +69,7 @@ guidelines in mind:
 For a list of all AWS Marketplace supported AWS Regions, see [Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/") on the
 Global Infrastructure website.
 
-#### Obtaining the AWS Region for
-
-metering
+#### Obtaining the AWS Region for metering
 
 When integrating your container for metering with either the `MeterUsage` or
 `RegisterUsage` API operation, don't configure the AWS SDK to use a specific

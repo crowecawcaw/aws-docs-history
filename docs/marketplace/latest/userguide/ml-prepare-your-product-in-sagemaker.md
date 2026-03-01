@@ -9,7 +9,6 @@ steps that are required to prepare your product:
 2. [Uploading your images to Amazon Elastic Container Registry](ml-uploading-your-images.md "ml-uploading-your-images.md")
    – After packaging your code in container images and testing them locally, upload the
    images and scan them for known vulnerabilities. Fix any vulnerabilities before continuing.
-3. [Creating your Amazon SageMaker AI
-   resource](ml-creating-your-amazon-sagemaker-resource.md "ml-creating-your-amazon-sagemaker-resource.md") – After your images
+3. [Creating your Amazon SageMaker AI resource](ml-creating-your-amazon-sagemaker-resource.md "ml-creating-your-amazon-sagemaker-resource.md") – After your images
    are scanned successfully, you can use them to create a model package or algorithm resource
    in SageMaker AI.

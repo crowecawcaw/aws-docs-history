@@ -6,15 +6,11 @@ These sections show you how to implement the Commerce Analytics Service by using
 
 ###### Topics
 
-- [IAM policies for
-  Commerce Analytics Service](#aws-marketplace-commerce-analytics-iam-permissions "#aws-marketplace-commerce-analytics-iam-permissions")
+- [IAM policies for Commerce Analytics Service](#aws-marketplace-commerce-analytics-iam-permissions "#aws-marketplace-commerce-analytics-iam-permissions")
 - [Making Requests with the AWS CLI](#making-requests-with-aws-cli "#making-requests-with-aws-cli")
-- [Making requests with the
-  AWS SDK for Java](#making-requests-with-aws-java-sdk "#making-requests-with-aws-java-sdk")
+- [Making requests with the AWS SDK for Java](#making-requests-with-aws-java-sdk "#making-requests-with-aws-java-sdk")
 
-## IAM policies for
-
-Commerce Analytics Service
+## IAM policies for Commerce Analytics Service
 
 To allow your users to use the Commerce Analytics Service, the following permissions are required.
 
@@ -96,9 +92,7 @@ following example is an example of this identifier.
 
 ```
 
-## Making requests with the
-
-AWS SDK for Java
+## Making requests with the AWS SDK for Java
 
 To start, download the [AWS Java
 SDK](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/"). The following AWS SDK for Java example makes a request for the **Hourly/Monthly Subscriptions** dataset for October 1, 2015. This

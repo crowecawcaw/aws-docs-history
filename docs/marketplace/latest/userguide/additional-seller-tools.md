@@ -18,8 +18,7 @@ AWS Marketplace provides the following additional seller tools:
 - **AWS Marketplace Commerce Analytics Service** – The AWS Marketplace Commerce Analytics Service lets you
   programmatically access product and customer data through AWS Marketplace. After you enroll in the
   service, you can access your usage, subscription, and billing reports through the AWS SDK.
-  For more information, see [Accessing product and customer data with the
-  AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md").
+  For more information, see [Accessing product and customer data with the AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md").
 - **AWS Marketplace Field Demonstration Program (FDP)** – The
   FDP allows the AWS field team (internally approved AWS employees) to use some products
   and solutions through AWS Marketplace at no charge. For more information, see [AWS Marketplace Field Demonstration Program](field-demonstration-program.md "field-demonstration-program.md").
@@ -30,8 +29,7 @@ AWS Marketplace provides the following additional seller tools:
 
 ###### Topics
 
-- [Accessing product and customer data with the
-  AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md")
+- [Accessing product and customer data with the AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md")
 - [AWS Marketplace Field Demonstration Program](field-demonstration-program.md "field-demonstration-program.md")
 - [AWS Partner Assistant](partner-assistant.md "partner-assistant.md")
 - [What is the Designated Seller of Record (DSOR) program?](designated-seller-of-record.md "designated-seller-of-record.md")

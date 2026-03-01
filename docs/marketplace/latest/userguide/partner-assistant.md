@@ -90,23 +90,17 @@ Following are frequently asked questions for AWS Partner Assistant.
 AWS Partner Assistant is a generative AI-powered chatbot that helps partners find
 information and answer questions.
 
-### How do I access AWS Partner
-
-Assistant?
+### How do I access AWS Partner Assistant?
 
 AWS Partner Assistant is available to both AWS Partners and Marketplace sellers, but
 not Marketplace buyers. You can access the chatbot from any page through AWS Partner
 Central or AWS Marketplace Management Portal (AMMP).
 
-### Is AWS Partner Assistant always
-
-available?
+### Is AWS Partner Assistant always available?
 
 Yes.
 
-### What languages does AWS
-
-Partner Assistant support?
+### What languages does AWS Partner Assistant support?
 
 Currently, AWS Partner Assistant supports only English, but it will support other
 languages in future releases.
@@ -117,25 +111,19 @@ The chatbot provides real-time answers and documentation summaries about AWS ser
 AWS Marketplace seller guidance, and AWS Partner programs, incentives, and benefits. The chatbot uses a
 library of published content that’s exclusive to partners.
 
-### What can I ask AWS Partner
-
-Assistant?
+### What can I ask AWS Partner Assistant?
 
 The chatbot provides real-time answers and documentation summaries about AWS services,
 AWS Marketplace seller guidance, and AWS Partner Network programs, incentives, and
 benefits. The chatbot uses a library of published content that’s exclusive to
 partners.
 
-### What issues should I not ask
-
-AWS Partner Assistant?
+### What issues should I not ask AWS Partner Assistant?
 
 For issues that require in-depth troubleshooting, account verification, or access to
 sensitive data, contact AWS customer support directly.
 
-### Can AWS Partner
-
-Assistant provide personalized responses?
+### Can AWS Partner Assistant provide personalized responses?
 
 Currently, AWS Partner Assistant provides only general information and guidance. It
 can’t generate creative content or perform tasks. If AWS Partner Assistant is unable to
@@ -152,23 +140,17 @@ additional examples:
 
 For account-related questions, partners must use existing [AWS support channels](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-### Can
-
-partners use AWS Partner Assistant to change their account or services?
+### Can partners use AWS Partner Assistant to change their account or services?
 
 No, but it can guide you on how to make these changes or direct you to support teams who
 can.
 
-### How does AWS
-
-Partner Assistant handle confidential information?
+### How does AWS Partner Assistant handle confidential information?
 
 AWS Partner Assistant is designed to safeguard user privacy and data, but we don’t
 recommend sharing sensitive information.
 
-### What happens
-
-if AWS Partner Assistant doesn’t understand my question?
+### What happens if AWS Partner Assistant doesn’t understand my question?
 
 If AWS Partner Assistant can’t answer your question, try rephrasing it. Alternatively,
 it can guide you to a support team for assistance. In this scenario, submit thumbs-down
@@ -176,23 +158,17 @@ feedback along with additional context, which will help us improve the chatbot�
 performance. Optionally, you can provide structured feedback from a picklist of common
 categories.
 
-### What should I do if
-
-AWS Partner Assistant isn't responding?
+### What should I do if AWS Partner Assistant isn't responding?
 
 Try refreshing the page or restarting the application. If the issue persists, report the
 problem to our support team.
 
-### What
-
-should I do if AWS Partner Assistant provides incorrect information?
+### What should I do if AWS Partner Assistant provides incorrect information?
 
 If you believe AWS Partner Assistant has given you incorrect information, provide
 feedback at the end of your session using the thumbs-down option.
 
-### Can I turn off
-
-AWS Partner Assistant if I don't want to use it?
+### Can I turn off AWS Partner Assistant if I don't want to use it?
 
 AWS Partner Assistant is an optional feature. If you prefer not to use it, contact our
 support team.

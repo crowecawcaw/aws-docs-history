@@ -33,8 +33,7 @@ To cancel getting notification emails, contact the [AWS Marketplace Seller Opera
 
 AWS Marketplace provides two ways to configure your reports:
 
-- Using an API interface. The [Accessing product and customer data with the
-  AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md") enables you to automatically access the
+- Using an API interface. The [Accessing product and customer data with the AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md") enables you to automatically access the
   data in your reports through an API interface. You can automate ingesting your information
   and download a portion of a report instead of the whole report. The service returns data
   asynchronously to a file in Amazon Simple Storage Service rather than directly as with a traditional

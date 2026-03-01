@@ -36,5 +36,4 @@ profiles for your software as a service (SaaS) products in AWS Marketplace.
 - [Setting up AWS Marketplace Vendor Insights](vendor-insights-setting-up.md "vendor-insights-setting-up.md")
 - [Viewing your AWS Marketplace Vendor Insights profile](vendor-insights-profile.md "vendor-insights-profile.md")
 - [Managing snapshots in AWS Marketplace Vendor Insights](vendor-insights-snapshot.md "vendor-insights-snapshot.md")
-- [Controlling access in
-  AWS Marketplace Vendor Insights](vendor-insights-seller-controlling-access.md "vendor-insights-seller-controlling-access.md")
+- [Controlling access in AWS Marketplace Vendor Insights](vendor-insights-seller-controlling-access.md "vendor-insights-seller-controlling-access.md")

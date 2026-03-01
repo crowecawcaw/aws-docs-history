@@ -1,6 +1,4 @@
-# Adding and restricting Amazon EC2 instances for
-
-AWS Marketplace
+# Adding and restricting Amazon EC2 instances for AWS Marketplace
 
 As an AWS Marketplace seller, you can manage which instances buyers can use. You can add a new instance for your
 product that buyers can use. Similarly, if you want to prevent new buyers from using your

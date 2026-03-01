@@ -1,6 +1,4 @@
-# Accessing product and customer data with the
-
-AWS Marketplace Commerce Analytics Service
+# Accessing product and customer data with the AWS Marketplace Commerce Analytics Service
 
 With the AWS Marketplace Commerce Analytics Service, you can programmatically access product and customer data through
 AWS Marketplace. After you enroll in the service, you can access your usage, subscription, and billing

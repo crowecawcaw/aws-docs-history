@@ -10,13 +10,11 @@ All products and their related metadata are reviewed when submitted to ensure th
 ###### Topics
 
 - [Security policies](#container-security-requirements "#container-security-requirements")
-- [Customer information
-  requirements](#container-customer-info-requirements "#container-customer-info-requirements")
+- [Customer information requirements](#container-customer-info-requirements "#container-customer-info-requirements")
 - [Product usage requirements](#container-usage-requirements "#container-usage-requirements")
 - [Architecture requirements](#container-architecture-requirements "#container-architecture-requirements")
 - [Helm chart structure requirements](#helm-chart-structure-requirements "#helm-chart-structure-requirements")
-- [Container product usage
-  instructions](#container-product-usage-instructions "#container-product-usage-instructions")
+- [Container product usage instructions](#container-product-usage-instructions "#container-product-usage-instructions")
 - [Requirements for Amazon EKS add-on products](#publishing-eks-add-on "#publishing-eks-add-on")
 
 ## Security policies
@@ -38,9 +36,7 @@ requirements:
 - Authentication in any services running inside the container must not use password-based authentication, even if the password is generated, reset, or defined by the user at launch. Null and blank passwords are not allowed as well.
 - Container images must not include layers with unsupported architectures (for example, in-toto Attestation Framework metadata).
 
-## Customer information
-
-requirements
+## Customer information requirements
 
 All container-based products must adhere to the following customer information
 requirements:
@@ -230,13 +226,10 @@ If your Helm chart does not meet these requirements, you may encounter the follo
 | `MISSING_VALUES_IMAGE_REFERENCE`            | Every container image reference must have a corresponding entry in `values.yaml`.                                                                                                                                                                                                      |
 | `MISSING_IMAGE_TAG`                         | Container image references in `values.yaml` must include explicit tag values or default to the chart version from `Chart.yaml`.                                                                                                                                                        |
 
-## Container product usage
-
-instructions
+## Container product usage instructions
 
 When creating usage instructions for your container product, follow the steps and
-guidance in [Creating AMI and container product usage
-instructions for AWS Marketplace](ami-container-product-usage-instructions.md "ami-container-product-usage-instructions.md").
+guidance in [Creating AMI and container product usage instructions for AWS Marketplace](ami-container-product-usage-instructions.md "ami-container-product-usage-instructions.md").
 
 ### Helm chart usage instructions
 
@@ -264,9 +257,7 @@ just as easily as they do the other add-ons.
 For more information, see [Amazon EKS add-ons](../../../eks/latest/userguide/eks-add-ons.md "../../../eks/latest/userguide/eks-add-ons.md") in the
 _Amazon EKS User Guide_.
 
-### Preparing your container product as an AWS Marketplace
-
-add-on
+### Preparing your container product as an AWS Marketplace add-on
 
 To publish your container product as an AWS Marketplace add-on, it must meet the following
 requirements:
@@ -353,8 +344,7 @@ any external licenses. The product should work based on AWS Marketplace
 entitlements.
 
 For more information about limitations for
-`aws_mp_configuration_schema.json`, see [Add-on configuration requirements and best
-practices for add-on providers](#eks-addon-configuration "#eks-addon-configuration").
+`aws_mp_configuration_schema.json`, see [Add-on configuration requirements and best practices for add-on providers](#eks-addon-configuration "#eks-addon-configuration").
 
 - **Identify and create the namespace that the software
   will be deployed in** – In the first release of your
@@ -397,12 +387,9 @@ true`. This is required because the customer might choose to
   instances. Third-party software must support both architectures.
 - **Integrate with licensing or metering APIs from
   AWS Marketplace** – AWS Marketplace supports multiple billing models. For
-  more information, see [Container product billing, metering,
-  and licensing integrations](container-products-billing-integration.md "container-products-billing-integration.md"). If you want to
-  sell your product through PAYG mechanisms, see [Configuring custom metering for container products with
-  AWS Marketplace Metering Service](container-metering-meterusage.md "container-metering-meterusage.md"). If you want to sell
-  your product through an upfront or contract model, see [Contract pricing for container products
-  with AWS License Manager](container-license-manager-integration.md "container-license-manager-integration.md").
+  more information, see [Container product billing, metering, and licensing integrations](container-products-billing-integration.md "container-products-billing-integration.md"). If you want to
+  sell your product through PAYG mechanisms, see [Configuring custom metering for container products with AWS Marketplace Metering Service](container-metering-meterusage.md "container-metering-meterusage.md"). If you want to sell
+  your product through an upfront or contract model, see [Contract pricing for container products with AWS License Manager](container-license-manager-integration.md "container-license-manager-integration.md").
 - **Upload the software and all the artifacts and
   dependencies** – The Helm chart must be self-contained,
   and it must not require dependencies from external sources, for example,
@@ -484,9 +471,7 @@ Identity and must use IAM Roles for Service Accounts (IRSA) for access control.
 - Software must be sold through AWS Marketplace and integrated with Licensing and
   metering APIs for paid products. BYOL products are not accepted.
 
-### Add-on configuration requirements and best
-
-practices for add-on providers
+### Add-on configuration requirements and best practices for add-on providers
 
 Amazon EKS requires configuration as a [Helm JSON schema](https://helm.sh/docs/topics/charts/#schema-files "https://helm.sh/docs/topics/charts/#schema-files")
 string from add-on providers. Add-ons that either need required configurations or
@@ -508,10 +493,8 @@ Amazon EKS recommends following best practices around configuration of Amazon EK
 add-ons.
 
 - [Schema requirements](#schema-requirements "#schema-requirements")
-- [Common parameters that are allowed for
-  configuration](#parameters-allowed "#parameters-allowed")
-- [Common parameters that aren't allowed for
-  configuration](#parameters-not-available "#parameters-not-available")
+- [Common parameters that are allowed for configuration](#parameters-allowed "#parameters-allowed")
+- [Common parameters that aren't allowed for configuration](#parameters-not-available "#parameters-not-available")
 
 #### Schema requirements
 
@@ -687,9 +670,7 @@ from the schema of AWS Distro for OpenTelemetry add-on.
     ]
 ```
 
-#### Common parameters that are allowed for
-
-configuration
+#### Common parameters that are allowed for configuration
 
 The following are recommended parameters in a customer facing Helm schema
 file.
@@ -778,9 +759,7 @@ the Helm Chart.
           }
 ```
 
-### Common parameters that aren't allowed for
-
-configuration
+### Common parameters that aren't allowed for configuration
 
 Cluster metadata parameters such `clusterName`, `region`,
 `vpcId`, `accountId`, and others may be required by

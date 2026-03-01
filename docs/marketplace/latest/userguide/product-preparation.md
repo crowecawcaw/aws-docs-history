@@ -10,17 +10,14 @@ products and services, you can use this process to prepare to publish a product 
 ###### Topics
 
 - [Product delivery for AWS Marketplace](#product-delivery "#product-delivery")
-- [Designation for products running on
-  AWS](#designation-delivery-methods "#designation-delivery-methods")
+- [Designation for products running on AWS](#designation-delivery-methods "#designation-delivery-methods")
 - [Product pricing for AWS Marketplace](pricing.md "pricing.md")
 - [Regions and countries for your AWS Marketplace product](regions-and-countries.md "regions-and-countries.md")
 - [Translation and languages](translation.md "translation.md")
 - [Using standardized contracts in AWS Marketplace](standardized-license-terms.md "standardized-license-terms.md")
 - [Providing metadata for AWS Marketplace products](categories-and-metadata.md "categories-and-metadata.md")
-- [Creating AMI and container product usage
-  instructions for AWS Marketplace](ami-container-product-usage-instructions.md "ami-container-product-usage-instructions.md")
-- [Optimizing your AWS Marketplace products for
-  search](search-engine-optimization.md "search-engine-optimization.md")
+- [Creating AMI and container product usage instructions for AWS Marketplace](ami-container-product-usage-instructions.md "ami-container-product-usage-instructions.md")
+- [Optimizing your AWS Marketplace products for search](search-engine-optimization.md "search-engine-optimization.md")
 - [Enhance your AWS Marketplace product with promotional media](promotional-media.md "promotional-media.md")
 
 ## Product delivery for AWS Marketplace
@@ -57,9 +54,7 @@ console.
 | Software as a service (SaaS)                      | **SaaS**                              | You can offer SaaS products with subscription<br>• based, contract-based, or contract<br>with consumption pricing models.<br>For more information, see [SaaS-based products in AWS Marketplace](saas-products.md "saas-products.md").                                                                                                                                                                                                                                                                                                                               |
 | Professional services                             | **Professional services**             | You can offer professional services that support or work with other AWS Marketplace products.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-## Designation for products running on
-
-AWS
+## Designation for products running on AWS
 
 ###### Note
 
@@ -69,11 +64,11 @@ Products that are deployed on AWS receive a special designation in the AWS Marke
 search results and their product details pages. The following table lists the product
 delivery types that can receive the designation.
 
-| **Product delivery method**                    | **Designated as deployed on AWS**                                                                                                                                                                                                                                                                                                                           |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AMI-based                                      | Yes                                                                                                                                                                                                                                                                                                                                                         |
-| Container-based                                | Yes, except for products deployed on Amazon EKS Anywhere. For more information about container products that enable this functionality,<br>see [Integrating an AWS Marketplace for Containers Anywhere<br>with License Manager](container-anywhere-license-manager-integration.md "container-anywhere-license-manager-integration.md") later in this guide. |
-| SageMaker AI algorithm and model package-based | Yes                                                                                                                                                                                                                                                                                                                                                         |
-| SaaS-based                                     | Only for products that run entirely on AWS. For more information, refer<br>to the [Architecture guidelines](saas-guidelines.md#saas-architecture "saas-guidelines.md#saas-architecture") later in this guide.                                                                                                                                               |
-| Data-based                                     | Yes                                                                                                                                                                                                                                                                                                                                                         |
-| Professional services-based                    | No                                                                                                                                                                                                                                                                                                                                                          |
+| **Product delivery method**                    | **Designated as deployed on AWS**                                                                                                                                                                                                                                                                                                                        |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AMI-based                                      | Yes                                                                                                                                                                                                                                                                                                                                                      |
+| Container-based                                | Yes, except for products deployed on Amazon EKS Anywhere. For more information about container products that enable this functionality,<br>see [Integrating an AWS Marketplace for Containers Anywhere with License Manager](container-anywhere-license-manager-integration.md "container-anywhere-license-manager-integration.md") later in this guide. |
+| SageMaker AI algorithm and model package-based | Yes                                                                                                                                                                                                                                                                                                                                                      |
+| SaaS-based                                     | Only for products that run entirely on AWS. For more information, refer<br>to the [Architecture guidelines](saas-guidelines.md#saas-architecture "saas-guidelines.md#saas-architecture") later in this guide.                                                                                                                                            |
+| Data-based                                     | Yes                                                                                                                                                                                                                                                                                                                                                      |
+| Professional services-based                    | No                                                                                                                                                                                                                                                                                                                                                       |

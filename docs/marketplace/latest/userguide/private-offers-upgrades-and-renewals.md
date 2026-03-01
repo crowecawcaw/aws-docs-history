@@ -24,15 +24,11 @@ when a buyer accepts its terms:
 
 ###### Topics
 
-- [Supported product
-  types for public and private offer amendments](#private-offers-upgrades-and-renewals-supported-products "#private-offers-upgrades-and-renewals-supported-products")
+- [Supported product types for public and private offer amendments](#private-offers-upgrades-and-renewals-supported-products "#private-offers-upgrades-and-renewals-supported-products")
 - [Creating public and private offer upgrades, renewals, and amendments](#private-offers-upgrades-and-renewals-process "#private-offers-upgrades-and-renewals-process")
-- [Reporting for upgrades,
-  renewals, and amendments](#private-offers-upgrades-and-renewals-reporting "#private-offers-upgrades-and-renewals-reporting")
+- [Reporting for upgrades, renewals, and amendments](#private-offers-upgrades-and-renewals-reporting "#private-offers-upgrades-and-renewals-reporting")
 
-## Supported product
-
-types for public and private offer amendments
+## Supported product types for public and private offer amendments
 
 Only the following product types support offer amendments:
 
@@ -108,9 +104,7 @@ For [Amazon SNS notifications for SaaS products](saas-notification.md#saas-sns-s
 `subscribe-success` message is sent with the new `offer-identifier`
 when the buyer accepts the amendment.
 
-## Reporting for upgrades,
-
-renewals, and amendments
+## Reporting for upgrades, renewals, and amendments
 
 Public and private offer upgrades and renewals appear on the existing seller reports and
 in the reports relevant to the offer. The [Daily customer subscriber report](daily-customer-subscriber-report.md "daily-customer-subscriber-report.md") and [Daily business report](daily-business-report.md "daily-business-report.md") are generated daily. The [Monthly billed revenue report](monthly-billed-revenue-report.md "monthly-billed-revenue-report.md") is

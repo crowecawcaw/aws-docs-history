@@ -10,8 +10,7 @@ If you don't receive this report and think that you should, contact the [AWS Mar
 contact that team when you want to cancel email notifications for the report.
 
 You can access this report at the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/reports/ "https://aws.amazon.com/marketplace/management/reports/"). If you are registered
-for the [Accessing product and customer data with the
-AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md"), you can also access your reports using the
+for the [Accessing product and customer data with the AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md"), you can also access your reports using the
 AWS SDK.
 
 You can use a unique identifier for each customer to identify customers over time and across
@@ -31,8 +30,7 @@ business report section.
 - [Section 3: Free trial conversions](#section-3-free-trial-conversions "#section-3-free-trial-conversions")
 - [Section 4: New instances](#section-4-new-instances "#section-4-new-instances")
 - [Section 5: New product subscribers](#section-5-new-product-subscribers "#section-5-new-product-subscribers")
-- [Section 6: Canceled product
-  subscribers](#section-6-canceled-product-subscribers "#section-6-canceled-product-subscribers")
+- [Section 6: Canceled product subscribers](#section-6-canceled-product-subscribers "#section-6-canceled-product-subscribers")
 
 ## Section 1: Usage by instance type
 
@@ -160,9 +158,7 @@ This section lists data for new buyers, and covers the previous 24-hour period.
 | Payer Reference ID          | A unique identifier that isn't the account. It's associated with the account<br>that fees are billed to. It helps with tracking usage, revenue, and subscriptions by<br>customers across all of the AWS Marketplace financial reports. |
 | Payer Address ID            | A unique identifier that represents the customer's address.                                                                                                                                                                            |
 
-## Section 6: Canceled product
-
-subscribers
+## Section 6: Canceled product subscribers
 
 This section lists data for buyer cancellations, and covers the previous 24-hour
 period.

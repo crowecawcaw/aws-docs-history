@@ -2,9 +2,7 @@
 
 For general AWS Marketplace issues, [contact us](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Finding your AWS account number for customer
-
-support
+## Finding your AWS account number for customer support
 
 If you or your users need to contact Support, you need your AWS account number.
 

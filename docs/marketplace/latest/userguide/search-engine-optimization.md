@@ -1,6 +1,4 @@
-# Optimizing your AWS Marketplace products for
-
-search
+# Optimizing your AWS Marketplace products for search
 
 As an AWS Marketplace seller, you can optimize your products for search so that buyers can more easily
 find them. Search is a critical tool in the buyer’s journey that enables customers to find the best

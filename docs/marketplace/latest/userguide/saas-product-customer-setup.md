@@ -14,8 +14,7 @@ addresses if you plan to contact them through email for usage notifications.
 The registration landing page must be able to identify and accept the
 `x-amzn-marketplace-token` token in the form data from AWS Marketplace with the
 customer’s identiﬁer for billing. It should then pass that token value to the AWS Marketplace Metering Service to
-resolve for the unique customer AWS account ID, customer identiﬁer (For new implementations or when updating your integration, use the customer AWS account ID instead), and corresponding product code. For a code example, see [ResolveCustomer code
-example](saas-code-examples.md#saas-resolvecustomer-example "saas-code-examples.md#saas-resolvecustomer-example").
+resolve for the unique customer AWS account ID, customer identiﬁer (For new implementations or when updating your integration, use the customer AWS account ID instead), and corresponding product code. For a code example, see [ResolveCustomer code example](saas-code-examples.md#saas-resolvecustomer-example "saas-code-examples.md#saas-resolvecustomer-example").
 
 ###### Note
 
@@ -23,9 +22,7 @@ The registration token resolves to a specific subscribed customer and each gener
 has an expiration window of 4 hours. As long as the caller is calling the API with the same
 token, it will keep returning the same response values until the token expires.
 
-## Configuring your
-
-SaaS product to accept new buyers
+## Configuring your SaaS product to accept new buyers
 
 You're responsible for correctly configuring your SaaS software to accept new customers and
 meter them appropriately. The following process outlines one recommended way of identifying,
@@ -48,8 +45,7 @@ implementing, and metering a new customer's access to your software:
    `free-trial`, will be added to the request.
 6. To redeem this registration token for a customer AWS account ID, customer
    identifier, and product code, your website must call [ResolveCustomer](../../../marketplacemetering/latest/APIReference/API_ResolveCustomer.md "../../../marketplacemetering/latest/APIReference/API_ResolveCustomer.md") on the AWS Marketplace Metering Service. For an example of a
-   `ResolveCustomer` call, see [ResolveCustomer code
-   example](saas-code-examples.md#saas-resolvecustomer-example "saas-code-examples.md#saas-resolvecustomer-example"). The customer identiﬁer isn't the
+   `ResolveCustomer` call, see [ResolveCustomer code example](saas-code-examples.md#saas-resolvecustomer-example "saas-code-examples.md#saas-resolvecustomer-example"). The customer identiﬁer isn't the
    customer’s AWS account ID, but it's universal between products and should be saved to an
    internal source as part of your customer records. The product code is a unique string for
    your SaaS product that AWS provides to you. Each AWS product has one unique product

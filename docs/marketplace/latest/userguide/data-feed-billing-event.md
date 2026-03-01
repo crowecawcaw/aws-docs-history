@@ -67,9 +67,7 @@ dictates how taxes are collected and remitted. Following are the possible scenar
   to the tax authorities. In these cases, AWS Marketplace doesn't perform tax calculations or receive
   tax information. The seller pays the taxes from the revenue share.
 
-## Examples of billing event data
-
-feed
+## Examples of billing event data feed
 
 This section shows examples of the billing event data period at the time of invoicing and
 one month later. Note the following for all tables in this section:
@@ -97,9 +95,7 @@ For the examples in this section, assume the following:
   - His account ID is `777788889999`.
   - He lives in Kansas, which is not subject to market facilitator laws.
 
-### Billing event data feed for seller
-
-of record
+### Billing event data feed for seller of record
 
 As the seller of record, Paulo invoices the buyer, Arnav.
 
@@ -137,9 +133,7 @@ the month, after Arnav pays the invoice.
 | I3                      | I14                           | 0.2    | USD      | 2018-12-31T00:04:07Z | 788576665  |
 |                         |                               | 19.8   | USD      |                      |            |
 
-### Billing event data feed for
-
-manufacturer
+### Billing event data feed for manufacturer
 
 The following tables show the relevant information in the Jane's data feed when Paulo
 invoices Arnav.
@@ -181,9 +175,7 @@ collected and stored as data feeds in your managed Amazon S3 bucket. This sectio
 examples of common ways you might do this. All examples assume that a single currency is
 used.
 
-## Example 1: Amount invoiced, including
-
-taxes
+## Example 1: Amount invoiced, including taxes
 
 To find out how much buyers were invoiced, including taxes, you can run a query as shown
 in the following example.
@@ -203,9 +195,7 @@ WHERE
 
 ```
 
-## Example 2: Amount invoiced to
-
-buyers on seller's behalf
+## Example 2: Amount invoiced to buyers on seller's behalf
 
 To find out how much buyers were invoiced on a seller's behalf, you can run a query as shown
 in the following example.
@@ -220,9 +210,7 @@ WHERE
 
 ```
 
-## Example 3: Amount AWS can collect on
-
-seller's behalf
+## Example 3: Amount AWS can collect on seller's behalf
 
 To find out how much AWS can collect on a seller's behalf, minus any refunds, credits,
 and forgiven accounts, you can run a query as shown in the following example.
@@ -238,9 +226,7 @@ WHERE
 
 ```
 
-## Example 4: Amount seller can
-
-collect
+## Example 4: Amount seller can collect
 
 To find out how much sellers can collect, you can run a query as shown in the following
 example. This example removes listing fees and taxes that AWS collects, and adds any
@@ -283,9 +269,7 @@ WHERE
 
 ```
 
-## Example 5: Amount of
-
-disbursements
+## Example 5: Amount of disbursements
 
 To find out the amount that's been disbursed, you can run a query as shown in the
 following example.
@@ -299,9 +283,7 @@ WHERE
 
 ```
 
-## Example 6: Amount pending
-
-disbursement
+## Example 6: Amount pending disbursement
 
 To find out the amount that's pending disbursement, you can run a query as shown in the
 following example. This query removes amounts that have already been disbursed.
@@ -376,9 +358,7 @@ from
 
 ```
 
-## Example 7: Balance of set of
-
-invoices
+## Example 7: Balance of set of invoices
 
 To learn the sum of a set of invoices, you can run a query as shown in the following
 example.

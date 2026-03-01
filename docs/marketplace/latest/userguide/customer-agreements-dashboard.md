@@ -15,8 +15,7 @@ data on your new and active agreements, plus customer trends and profiles.
 
 - [Section 1: Filters](#customer-agreements-filters "#customer-agreements-filters")
 - [Section 2: Date filter deep dive](#customer-agreements-date-deep-dive "#customer-agreements-date-deep-dive")
-- [Section 3:  Public and
-  private offer agreements](#customer-agreements-public-private-agreements "#customer-agreements-public-private-agreements")
+- [Section 3:  Public and private offer agreements](#customer-agreements-public-private-agreements "#customer-agreements-public-private-agreements")
 - [Section 4:  Customer metrics](#section-5-customer-metrics "#section-5-customer-metrics")
 
 ## Section 1: Filters
@@ -32,8 +31,8 @@ You can use the following filters to refine your agreements data.
 
 For more information about filtering, see
 [Filtering
-data on Quick Suite](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md") in the _Amazon
-Quick Suite User Guide_.
+data on Quick](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md") in the _Amazon
+Quick User Guide_.
 
 ## Section 2: Date filter deep dive
 
@@ -51,9 +50,7 @@ the follpwing metrics appear:
 | **Active customers**                  | Number of unique customers, identified as subscriber AWS<br>account ID, that have at least 1 active agreement within<br>YTD. Active agreement is defined as an agreement with at<br>least 1 active day during the time period. |
 | **New paying customers**              | Number of unique customers, identified as subscriber AWS<br>account ID, who have their first billing month within YTD.                                                                                                         |
 
-## Section 3:  Public and
-
-private offer agreements
+## Section 3:  Public and private offer agreements
 
 This section of the dashboard displays an overview of your
 agreements. Key performance indicators (KPIs) include the number of public offer agreements, the number of private offer

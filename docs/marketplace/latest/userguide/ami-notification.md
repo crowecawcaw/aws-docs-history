@@ -2,8 +2,7 @@
 
 To receive notifications about changes to customer subscriptions for your products, you can
 subscribe to the Amazon Simple Notification Service (Amazon SNS) topics for AWS Marketplace provided to you during product creation. For
-example, you can know when customers accept a private offer. [Amazon SNS topic:
-aws-mp-subscription-notification](#ami-sns-subscription-message-body "#ami-sns-subscription-message-body") is an Amazon SNS topic that is available for AMI products. This topic notifies you when a buyer
+example, you can know when customers accept a private offer. [Amazon SNS topic: aws-mp-subscription-notification](#ami-sns-subscription-message-body "#ami-sns-subscription-message-body") is an Amazon SNS topic that is available for AMI products. This topic notifies you when a buyer
 subscribes or unsubscribes to a product. This notification is available for hourly pricing
 models, including hourly and hourly with annual. For more information, see the following
 sections.
@@ -19,14 +18,10 @@ team](https://aws.amazon.com/marketplace/management/contact-us "https://aws.amaz
 
 ###### Topics
 
-- [Amazon SNS topic:
-  aws-mp-subscription-notification](#ami-sns-subscription-message-body "#ami-sns-subscription-message-body")
-- [Subscribing an Amazon SQS queue to the
-  Amazon SNS topic](#subscribing-an-sqs-queue-to-an-sns-topic "#subscribing-an-sqs-queue-to-an-sns-topic")
+- [Amazon SNS topic: aws-mp-subscription-notification](#ami-sns-subscription-message-body "#ami-sns-subscription-message-body")
+- [Subscribing an Amazon SQS queue to the Amazon SNS topic](#subscribing-an-sqs-queue-to-an-sns-topic "#subscribing-an-sqs-queue-to-an-sns-topic")
 
-## Amazon SNS topic:
-
-aws-mp-subscription-notification
+## Amazon SNS topic: aws-mp-subscription-notification
 
 Each message in the `aws-mp-subscription-notification` topic for the
 `subscribe-success` and `subscribe-fail` action has the following
@@ -66,9 +61,7 @@ account targeting facet of targeting rule for that offer, it is a private offer.
 not an AWS account in the account targeting facet of targeting rule for that offer, it is
 a public offer.
 
-## Subscribing an Amazon SQS queue to the
-
-Amazon SNS topic
+## Subscribing an Amazon SQS queue to the Amazon SNS topic
 
 We recommend subscribing an Amazon SQS queue to the provided SNS topics. For detailed
 instructions on creating an SQS queue and subscribing the queue to a topic, see [Subscribing
@@ -82,9 +75,7 @@ information, see [Sending Amazon SNS messages to
 an Amazon SQS queue in a different account](../../../sns/latest/dg/sns-send-message-to-sqs-cross-account.md "../../../sns/latest/dg/sns-send-message-to-sqs-cross-account.md") in the _Amazon Simple Notification Service Developer
 Guide_.
 
-### Polling the SQS queue for
-
-notifications
+### Polling the SQS queue for notifications
 
 After you subscribe your SQS queue to an SNS topic, the messages are stored in SQS. You
 must define a service that continually polls the queue, looks for messages, and handles them

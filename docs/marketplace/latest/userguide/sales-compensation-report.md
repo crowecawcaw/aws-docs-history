@@ -25,8 +25,7 @@ payable to them. Your use and sharing of such information must comply with the o
 our nondisclosure agreement with you and the terms and conditions for AWS Marketplace sellers,
 including, without limitation, Section 3.8 of the Terms and Conditions for AWS Marketplace sellers.
 
-To create your own report similar to this one you can use the AWS Marketplace [Seller delivery data feeds in AWS Marketplace](data-feed-service.md "data-feed-service.md"), including the [Sales compensation
-report](data-feed-full-examples.md#data-feed-example-sales-compensation "data-feed-full-examples.md#data-feed-example-sales-compensation") as a base report to customize to meet
+To create your own report similar to this one you can use the AWS Marketplace [Seller delivery data feeds in AWS Marketplace](data-feed-service.md "data-feed-service.md"), including the [Sales compensation report](data-feed-full-examples.md#data-feed-example-sales-compensation "data-feed-full-examples.md#data-feed-example-sales-compensation") as a base report to customize to meet
 your needs.
 
 ## Publication schedule

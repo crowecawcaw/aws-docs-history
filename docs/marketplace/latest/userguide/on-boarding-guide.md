@@ -7,31 +7,22 @@ configure your AWS account and AWS services to use the AWS Marketplace Commerce 
 
 ###### To use the AWS Marketplace Commerce Analytics Service
 
-- [Step 1: Set up your AWS account with
-  permissions](#permissions-for-commerce-analytics "#permissions-for-commerce-analytics")
-- [Step 2: Create a destination Amazon S3
-  bucket](#create-a-destination-amazon-s3-bucket "#create-a-destination-amazon-s3-bucket")
-- [Step 3: Configure an
-  Amazon SNS topic for response notifications](#create-an-amazon-sns-topic-for-response-notifications "#create-an-amazon-sns-topic-for-response-notifications")
-- [Step 4: Enroll in the
-  Commerce Analytics Service program](#enroll-in-the-commerce-analytics-service-program "#enroll-in-the-commerce-analytics-service-program")
+- [Step 1: Set up your AWS account with permissions](#permissions-for-commerce-analytics "#permissions-for-commerce-analytics")
+- [Step 2: Create a destination Amazon S3 bucket](#create-a-destination-amazon-s3-bucket "#create-a-destination-amazon-s3-bucket")
+- [Step 3: Configure an Amazon SNS topic for response notifications](#create-an-amazon-sns-topic-for-response-notifications "#create-an-amazon-sns-topic-for-response-notifications")
+- [Step 4: Enroll in the Commerce Analytics Service program](#enroll-in-the-commerce-analytics-service-program "#enroll-in-the-commerce-analytics-service-program")
 - [Step 5: Verify your configuration](#verify-your-configuration "#verify-your-configuration")
 
-## Step 1: Set up your AWS account with
-
-permissions
+## Step 1: Set up your AWS account with permissions
 
 AWS Marketplace **strongly** recommends using AWS Identity and Access Management (IAM)
-roles to sign in to the AWS Marketplace Management Portal rather than using your root account credentials. See [Policies and permissions for AWS Marketplace
-sellers](detailed-management-portal-permissions.md "detailed-management-portal-permissions.md") for specific IAM permissions for
+roles to sign in to the AWS Marketplace Management Portal rather than using your root account credentials. See [Policies and permissions for AWS Marketplace sellers](detailed-management-portal-permissions.md "detailed-management-portal-permissions.md") for specific IAM permissions for
 AWS Marketplace Commerce Analytics Service permissions. By creating individual users for people accessing your account,
 you can give each user a unique set of security credentials. You can also grant different
 permissions to each user. If necessary, you can change or revoke an user's permissions any
 time.
 
-## Step 2: Create a destination Amazon S3
-
-bucket
+## Step 2: Create a destination Amazon S3 bucket
 
 The Commerce Analytics Service delivers the data you request to an Amazon S3 bucket that you specify. If you
 already have an Amazon S3 bucket to use, proceed to the next step.
@@ -40,9 +31,7 @@ If you don't have an Amazon S3 bucket or you want to create an Amazon S3 bucket 
 for this data, see [How do I Create
 an Amazon S3 Bucket](../../../AmazonS3/latest/UG/CreatingaBucket.md "../../../AmazonS3/latest/UG/CreatingaBucket.md").
 
-## Step 3: Configure an
-
-Amazon SNS topic for response notifications
+## Step 3: Configure an Amazon SNS topic for response notifications
 
 The Commerce Analytics Service delivers response notifications using Amazon SNS. The service publishes messages to
 this topic to notify you when your datasets are available or if an error occurred. If you
@@ -54,9 +43,7 @@ now. For instructions, see [Create a Topic](../../../sns/latest/dg/CreateTopic.m
 Record the topic Amazon Resource Name (ARN) for the topic you created, because the ARN is required to
 call the service.
 
-## Step 4: Enroll in the
-
-Commerce Analytics Service program
+## Step 4: Enroll in the Commerce Analytics Service program
 
 The Commerce Analytics Service accesses the Amazon S3 bucket and Amazon SNS topic after you configure the service with
 the ARN for the topic and name of the bucket.
@@ -108,15 +95,12 @@ aws marketplacecommerceanalytics generate-data-set \
   `DD` is the two-digit day.
 - For `--role-name-arn`, replace `{YOUR-ROLE-NAME-ARN}` with
   the ARN of the role you received from the enrollment process in
-  [Step 4: Enroll in the
-  Commerce Analytics Service program](#enroll-in-the-commerce-analytics-service-program "#enroll-in-the-commerce-analytics-service-program").
+  [Step 4: Enroll in the Commerce Analytics Service program](#enroll-in-the-commerce-analytics-service-program "#enroll-in-the-commerce-analytics-service-program").
 - For _--destination-s3-bucket-name_, replace
   _{amzn-s3-demo-bucket}_ with the name of the Amazon S3 bucket you created
-  in [Step 2: Create a destination Amazon S3
-  bucket](#create-a-destination-amazon-s3-bucket "#create-a-destination-amazon-s3-bucket").
+  in [Step 2: Create a destination Amazon S3 bucket](#create-a-destination-amazon-s3-bucket "#create-a-destination-amazon-s3-bucket").
 - For _–sns-topic-arn_, replace _{YOUR-SNS-TOPIC-ARN}_ with the Amazon SNS topic you created in
-  [Step 3: Configure an
-  Amazon SNS topic for response notifications](#create-an-amazon-sns-topic-for-response-notifications "#create-an-amazon-sns-topic-for-response-notifications").
+  [Step 3: Configure an Amazon SNS topic for response notifications](#create-an-amazon-sns-topic-for-response-notifications "#create-an-amazon-sns-topic-for-response-notifications").
 
 If you receive a response including the _dataSetRequestId_ response from the service, you've completed the on-boarding
 process. A successful response looks like this:

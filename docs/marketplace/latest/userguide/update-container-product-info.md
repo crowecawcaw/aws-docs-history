@@ -1,6 +1,4 @@
-# Updating product information for
-
-your container product on AWS Marketplace
+# Updating product information for your container product on AWS Marketplace
 
 After you create your product ID and set the pricing, you can edit your product
 information, including what customers will see about your container product in the

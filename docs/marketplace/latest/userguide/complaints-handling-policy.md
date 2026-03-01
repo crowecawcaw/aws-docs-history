@@ -1,6 +1,4 @@
-# Submitting AWS Marketplace seller complaints for
-
-Amazon Payments Europe (APE)
+# Submitting AWS Marketplace seller complaints for Amazon Payments Europe (APE)
 
 As an AWS Marketplace seller, if you have any issues with the services provided by Amazon
 Payments Europe S.C.A (APE), you can submit a complaint. If you have any issues with the
@@ -31,9 +29,7 @@ handled by Amazon Payments Europe S.C.A.
    Account**, **Registration**.
 4. Provide details about your complaint and choose **Submit**.
 
-## Amazon Payments Europe Complaint resolution time
-
-frames
+## Amazon Payments Europe Complaint resolution time frames
 
 Amazon Payments Europe S.C.A. (APE) will respond with an update to your complaint within
 15 business days following the day on which it received your complaint. In exceptional

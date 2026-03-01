@@ -34,8 +34,7 @@ Private Offers in currencies other than USD, please note that:
 
 ###### Topics
 
-- [Refresh frequency of the usage
-  dashboard](#usage-publication-schedule "#usage-publication-schedule")
+- [Refresh frequency of the usage dashboard](#usage-publication-schedule "#usage-publication-schedule")
 - [Section 1: Controls](#usage-dashboard-controls "#usage-dashboard-controls")
 - [Section 2: Filters](#section-2-invoice-date-range "#section-2-invoice-date-range")
 - [Section 3: Metrics](#section-3-metrics "#section-3-metrics")
@@ -43,9 +42,7 @@ Private Offers in currencies other than USD, please note that:
 - [Section 5: Breakdowns](#section-4-breakdowns "#section-4-breakdowns")
 - [Section 6: Granular data](#section-5-new-product-subscribers "#section-5-new-product-subscribers")
 
-## Refresh frequency of the usage
-
-dashboard
+## Refresh frequency of the usage dashboard
 
 Dashboards are updated daily at 4 PM PST (midnight UTC). Note that the usage data is
 received from upstream data sources and may encounter delays, you can refer to the usage date
@@ -59,8 +56,8 @@ can select from the following filters.
 
 ###### Note
 
-For more information about filtering, see [Filtering data in Quick Suite](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md") in the
-_Quick Suite User Guide_.
+For more information about filtering, see [Filtering data in Quick](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md") in the
+_Quick User Guide_.
 
 ### Control descriptions
 
@@ -130,7 +127,7 @@ dashboard](billed-revenue-dashboard.md "billed-revenue-dashboard.md") in the **F
 ###### Note
 
 For more information about filtering, see [Exporting data from visuals](../../../quicksight/latest/user/exporting-data.md "../../../quicksight/latest/user/exporting-data.md") in
-the _Quick Suite User Guide_.
+the _Quick User Guide_.
 
 ### Granular data descriptions
 

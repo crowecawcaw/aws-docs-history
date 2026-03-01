@@ -1,6 +1,4 @@
-# Removing a product from
-
-AWS Marketplace
+# Removing a product from AWS Marketplace
 
 After you publish your product, you can remove it from AWS Marketplace. This is also referred to as
 _sunsetting_. To remove a product, identify the

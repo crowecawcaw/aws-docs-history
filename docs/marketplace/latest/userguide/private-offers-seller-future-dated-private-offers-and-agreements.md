@@ -1,6 +1,4 @@
-# Creating future
-
-dated agreements for private offers
+# Creating future dated agreements for private offers
 
 As an AWS Marketplace seller, you can use future dated agreements to sell a product that a buyer
 will receive on a _predetermined future date_. In a typical
@@ -34,14 +32,10 @@ Once an FDA is accepted, auto-renewal cannot be re-enabled.
 ###### Topics
 
 - [Considerations for future data agreements](#fda-considerations "#fda-considerations")
-- [Creating future dated
-  agreements](#seller-creating-future-dated-agreements "#seller-creating-future-dated-agreements")
-- [Using an
-  installment plan with future dated agreements](#seller-using-flexible-payment-scheduler-with-future-dated-agreements "#seller-using-flexible-payment-scheduler-with-future-dated-agreements")
-- [Receiving
-  notifications for future dated agreements](#seller-receiving-notifications-for-future-dated-agreements "#seller-receiving-notifications-for-future-dated-agreements")
-- [Using future dated
-  agreements with reselling for Channel Partner private offers](#seller-using-future-dated-agreements-with-reselling "#seller-using-future-dated-agreements-with-reselling")
+- [Creating future dated agreements](#seller-creating-future-dated-agreements "#seller-creating-future-dated-agreements")
+- [Using an installment plan with future dated agreements](#seller-using-flexible-payment-scheduler-with-future-dated-agreements "#seller-using-flexible-payment-scheduler-with-future-dated-agreements")
+- [Receiving notifications for future dated agreements](#seller-receiving-notifications-for-future-dated-agreements "#seller-receiving-notifications-for-future-dated-agreements")
+- [Using future dated agreements with reselling for Channel Partner private offers](#seller-using-future-dated-agreements-with-reselling "#seller-using-future-dated-agreements-with-reselling")
 
 ## Considerations for future data agreements
 
@@ -67,9 +61,7 @@ The contract term specified in your end user license agreement, order form, or o
 contract with a subscriber will control if there's a conflict with the term specified in the
 subscriber's AWS Marketplace invoice.
 
-## Creating future dated
-
-agreements
+## Creating future dated agreements
 
 The seller of record sets the agreement start date when generating a private offer with a
 future start date. Buyers can't change the start date, but they can review the start date before
@@ -92,9 +84,7 @@ should set the service start date to be 1/1/2025.
 
 Sellers can choose a service start date up to 3 years in the future.
 
-## Using an
-
-installment plan with future dated agreements
+## Using an installment plan with future dated agreements
 
 Using an installment plan with an FDA, you can set up payments for purchases to occur at any
 time between the agreement sign date and the agreement end date. This includes payments before
@@ -103,9 +93,7 @@ and after the agreement start date.
 The seller of record chooses private offer payment dates and amounts. For more details about
 setting up an installment plan, see [Creating an installment plan for a private offer](installment-plans.md#creating-a-payment-schedule "installment-plans.md#creating-a-payment-schedule").
 
-## Receiving
-
-notifications for future dated agreements
+## Receiving notifications for future dated agreements
 
 You receive [email
 notifications](email-notifications.md "email-notifications.md") to your designated root account for the following actions taken on your
@@ -123,9 +111,7 @@ All existing Amazon Simple Notification Service (Amazon SNS) notifications for S
 Amazon SNS topics are initiated on the agreement start date (and not agreement sign date). For
 more information, see [Amazon SNS notifications for SaaS products](saas-notification.md "saas-notification.md").
 
-## Using future dated
-
-agreements with reselling for Channel Partner private offers
+## Using future dated agreements with reselling for Channel Partner private offers
 
 Manufacturers and resellers can use future dated agreements for AWS Marketplace Channel Partner
 private offers.

@@ -1,6 +1,4 @@
-# Configuring hourly metering with
-
-AWS Marketplace Metering Service
+# Configuring hourly metering with AWS Marketplace Metering Service
 
 ###### Note
 
@@ -41,12 +39,9 @@ hourly metering](https://catalog.workshops.aws/mpseller/en-US/container/integrat
 ###### Topics
 
 - [Hourly metering prerequisites](#hourly-metering-prereqs "#hourly-metering-prereqs")
-- [Testing integration for
-  RegisterUsage](#testing-integration-for-registerusage "#testing-integration-for-registerusage")
-- [Error handling for
-  RegisterUsage](#hourly-metering-entitlement-error-handling "#hourly-metering-entitlement-error-handling")
-- [Integrating your container product
-  with the AWS Marketplace Metering Service using the AWS SDK for Java](java-integration-example-registerusage.md "java-integration-example-registerusage.md")
+- [Testing integration for RegisterUsage](#testing-integration-for-registerusage "#testing-integration-for-registerusage")
+- [Error handling for RegisterUsage](#hourly-metering-entitlement-error-handling "#hourly-metering-entitlement-error-handling")
+- [Integrating your container product with the AWS Marketplace Metering Service using the AWS SDK for Java](java-integration-example-registerusage.md "java-integration-example-registerusage.md")
 
 ## Hourly metering prerequisites
 
@@ -62,9 +57,7 @@ IAM permissions necessary to call `RegisterUsage`. The IAM managed policy
 in the task or pod definition. 4. Make a test call to the `RegisterUsage` API operation with a record for all
 of the pricing dimensions you define.
 
-## Testing integration for
-
-`RegisterUsage`
+## Testing integration for `RegisterUsage`
 
 Use the `RegisterUsage` API operation to test your integration before
 submitting your image to AWS Marketplace for publishing.
@@ -85,9 +78,7 @@ You can't fully test the integration until your product is published with all th
 metadata and pricing information. If requested, the AWS Marketplace catalog operations team can verify
 receipt of your metering records.
 
-## Error handling for
-
-`RegisterUsage`
+## Error handling for `RegisterUsage`
 
 If your container image integrates with the AWS Marketplace Metering Service and receives an exception other
 than `ThrottlingException` at container startup, you should terminate the container

@@ -31,8 +31,8 @@ add a filter to an analysis, such as the range of dates that you want to include
 The filters selected within the controls update the data that is displayed in the metrics,
 trends, breakdowns, and granular data sections.
 
-For more information about filtering, see [Filtering data on Quick Suite](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md") in the
-_Quick Suite User Guide_.
+For more information about filtering, see [Filtering data on Quick](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md") in the
+_Quick User Guide_.
 
 ### Control descriptions
 

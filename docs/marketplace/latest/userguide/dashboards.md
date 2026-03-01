@@ -1,14 +1,13 @@
 # Seller dashboards
 
-AWS Marketplace provides dashboards powered by [Amazon Quick Suite](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md") with charts, graphs, and insights
+AWS Marketplace provides dashboards powered by [Amazon Quick](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md") with charts, graphs, and insights
 that help you access and analyze financial, sales, and marketing data. The seller dashboards include:
 
 ###### [Dashboards for finance operations](finance-operations.md "finance-operations.md")
 
 - [Billed revenue dashboard](billed-revenue-dashboard.md "billed-revenue-dashboard.md") – Provides information about billed
   revenue for accounting and other financial reporting purposes.
-- [Collections and disbursement
-  dashboard](collections-disbursement-dashboard.md "collections-disbursement-dashboard.md") – Provides information about
+- [Collections and disbursement dashboard](collections-disbursement-dashboard.md "collections-disbursement-dashboard.md") – Provides information about
   funds that AWS collected and disbursed to your bank accounts since the previous
   disbursement.
 - [Taxation dashboard](taxation-dashboard.md "taxation-dashboard.md") – Provides information about taxes for

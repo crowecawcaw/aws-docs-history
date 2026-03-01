@@ -19,10 +19,8 @@ breakdown of traffic by marketing channels.
 - [Section 3:  Summary metrics](#listing-summary-metrics "#listing-summary-metrics")
 - [Section 4:  Monthly trend and funnel conversion](#monthly-trend-funnel "#monthly-trend-funnel")
 - [Section 5: Traffic trend by channel](#traffic-trend-by-channel "#traffic-trend-by-channel")
-- [Section 6: Monthly traffic and agreement
-  metrics](#monthly-traffic-agreement "#monthly-traffic-agreement")
-- [Section 7: Web traffic sources for unique
-  visitors](#traffic-sources-unique-visitors "#traffic-sources-unique-visitors")
+- [Section 6: Monthly traffic and agreement metrics](#monthly-traffic-agreement "#monthly-traffic-agreement")
+- [Section 7: Web traffic sources for unique visitors](#traffic-sources-unique-visitors "#traffic-sources-unique-visitors")
 - [Section 8: Web traffic source breakdown](#traffic-source-breakdown "#traffic-source-breakdown")
 
 ## Section 1: Filters
@@ -36,7 +34,7 @@ You can use the following filters to refine your data.
 
 For more information about filtering, see
 [Filtering
-data on Quick Suite](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md") in the _Quick Suite User Guide_.
+data on Quick](../../../quicksight/latest/user/adding-a-filter.md "../../../quicksight/latest/user/adding-a-filter.md") in the _Quick User Guide_.
 
 ## Section 2: Date filter deep dive
 
@@ -97,9 +95,7 @@ select unique visitors and page views as what the bars show as. You can select a
 channel or multiple ones in the channel filter to see the monthly trend for the selected
 channel(s).
 
-## Section 6: Monthly traffic and agreement
-
-metrics
+## Section 6: Monthly traffic and agreement metrics
 
 This section of the dashboard provides a monthly view for unique visitors, new agreements,
 conversion rate and total agreements. Conversion rate is defined as new agreements divided by
@@ -115,9 +111,7 @@ displayed first. You can choose to sort the table by any of the available column
 on the corresponding column header with the option to sort the data in either ascending or
 descending order.
 
-## Section 7: Web traffic sources for unique
-
-visitors
+## Section 7: Web traffic sources for unique visitors
 
 This section of the dashboard provides deep dives into unique visitors by marketing sources. The categories include seller
 organic discovery, seller-led marketing campaigns, AWS organic

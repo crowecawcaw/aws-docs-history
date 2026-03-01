@@ -1,6 +1,4 @@
-# Updating end user license agreement (EULA) for your
-
-AMI-based AWS Marketplace product
+# Updating end user license agreement (EULA) for your AMI-based AWS Marketplace product
 
 As an AWS Marketplace seller, you can update the end user license agreement (EULA) that will govern
 the use of your single Amazon Machine Image (AMI) product. Your EULA is located on the

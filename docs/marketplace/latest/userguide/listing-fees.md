@@ -13,9 +13,7 @@ Sellers in India have specific listing fee structures with GST applied and autom
 
 These listing fees are effective as of January 5, 2024 at midnight UTC.
 
-## Understanding fees for
-
-standard offer listings in AWS Marketplace
+## Understanding fees for standard offer listings in AWS Marketplace
 
 Learn about listing fees for standard public offers, private offers, channel partner
 private offers (CPPOs), and professional services. AWS Marketplace offers the following listing fees for products.
@@ -51,9 +49,7 @@ value of less than $1M, the listing fee would be 3.5%.
 
 All professional service offerings have a 2.5% listing fee for private offers.
 
-## Understanding fees for
-
-regional offer listings in AWS Marketplace
+## Understanding fees for regional offer listings in AWS Marketplace
 
 An additional regional listing fee will be applied to the standard listing fees for your
 transactions with buyers in the following jurisdiction(s).

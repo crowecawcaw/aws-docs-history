@@ -1,5 +1,9 @@
 # Integrating your SaaS subscription or Pay-As-You-Go product with AWS Marketplace
 
+###### Integration requirements changing June 1, 2026 for new SaaS products
+
+AWS Marketplace is introducing support for Concurrent Agreements, enabling multiple purchases of the same product on a single AWS account during the same agreement period. Starting June 1, 2026, all new SaaS products will be required to support updated integration requirements. [Review the new integration for Concurrent Agreements](https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements "https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements").
+
 Integrating your product with AWS Marketplace is one step in [Creating a SaaS product in AWS Marketplace](saas-create-product.md "saas-create-product.md"). To integrate your software as a service (SaaS)
 subscription product with AWS Marketplace, you must write code and demonstrate that it can respond
 successfully to several customer scenarios. The following sections show you how to integrate your SaaS
@@ -16,29 +20,23 @@ software-as-a-service (SaaS) product in AWS Marketplace. For more information, s
 
 ###### Topics
 
-- [Scenario: Your service validates
-  new customers](#saas-subscription-validate-customer "#saas-subscription-validate-customer")
+- [Scenario: Your service validates new customers](#saas-subscription-validate-customer "#saas-subscription-validate-customer")
 - [Scenario: Meter usage](#saas-subscription-meter-usage "#saas-subscription-meter-usage")
-- [Scenario: Monitor changes to user
-  subscriptions](#saas-subscription-monitor-changes "#saas-subscription-monitor-changes")
-- [Scenario: Verify customer
-  subscription](#saas-subscription-verify-subscriptions "#saas-subscription-verify-subscriptions")
-- [Testing your SaaS subscription
-  product integration](#saas-subscription-integration-testing "#saas-subscription-integration-testing")
+- [Scenario: Monitor changes to user subscriptions](#saas-subscription-monitor-changes "#saas-subscription-monitor-changes")
+- [Scenario: Verify customer subscription](#saas-subscription-verify-subscriptions "#saas-subscription-verify-subscriptions")
+- [Testing your SaaS subscription product integration](#saas-subscription-integration-testing "#saas-subscription-integration-testing")
 
-## Scenario: Your service validates
-
-new customers
+## Scenario: Your service validates new customers
 
 When a customer subscribes to your product, they are redirected to your registration
 URL which is an HTTP POST request with a temporary `x-amzn-marketplace-token`
 token. Respond to this request in the following ways:
 
 1. Exchange the token for a `CustomerIdentifier`,
-   `CustomerAWSAccountId`, and `ProductCode` by calling
+   `CustomerAWSAccountId`, `LicenseArn`, and `ProductCode` by calling
    the `ResolveCustomer` API operation in the AWS Marketplace Metering Service.
 2. Persist the `CustomerIdentifier`,
-   `CustomerAWSAccountID`, and `ProductCode` in your system
+   `CustomerAWSAccountId`, `LicenseArn`, and `ProductCode` in your system
    for future calls. You must store whether the customer has a valid subscription,
    along with whatever information you need about the customer.
 3. As a response to the request, you must show your user's first use experience
@@ -58,9 +56,7 @@ records:
 - We strongly recommend as a best practice that, even if there were no records
   in the last hour, you send metering records every hour, with usage of 0.
 
-## Scenario: Monitor changes to user
-
-subscriptions
+## Scenario: Monitor changes to user subscriptions
 
 Set up an Amazon Simple Queue Service (Amazon SQS) queue, and subscribe to your product's Amazon SNS topic. Your
 SNS topic information was included in the email message that you received from the AWS Marketplace Seller Operations
@@ -89,17 +85,13 @@ The notifications that you must respond to are:
   should not meter against their customer ID or create resources on behalf of the
   customer.
 
-## Scenario: Verify customer
-
-subscription
+## Scenario: Verify customer subscription
 
 Before creating resources on the customer's behalf, verify that the customer should
 have access to your product. Store the latest status of the customer from the
 notifications you receive via Amazon SQS to know if the customer has access.
 
-## Testing your SaaS subscription
-
-product integration
+## Testing your SaaS subscription product integration
 
 After you've integrated your SaaS subscription product with AWS Marketplace, you must conduct
 in-depth testing to ensure that the integration is successful. The following procedure
@@ -122,24 +114,20 @@ scenarios for new customers.
 2. After you've subscribed with the allowed account, ensure that the account is
    redirected to the registration URL, and that the redirect is a POST request that
    includes a temporary token. Make sure that your application persists the
-   customer ID for future calls. This tests part of [Scenario: Your service validates
-   new customers](#saas-subscription-validate-customer "#saas-subscription-validate-customer").
+   customer ID for future calls. This tests part of [Scenario: Your service validates new customers](#saas-subscription-validate-customer "#saas-subscription-validate-customer").
 3. After verifying the test account in the previous step, onboard the account
    into your application. For example, you can have the test customer fill out a
    form to create a new user. Or, provide them with other next steps to get access
-   to your SaaS application. This tests part of [Scenario: Your service validates
-   new customers](#saas-subscription-validate-customer "#saas-subscription-validate-customer").
+   to your SaaS application. This tests part of [Scenario: Your service validates new customers](#saas-subscription-validate-customer "#saas-subscription-validate-customer").
 4. After the test customer is onboarded, make requests that will send metering
    records to AWS for billing purposes by using the `BatchMeterUsage`
    API operation in the AWS Marketplace Metering Service. This tests [Scenario: Meter usage](#saas-subscription-meter-usage "#saas-subscription-meter-usage").
 5. Test for subscription changes. Possible scenarios include unsubscribes,
-   successful subscriptions, and failed subscriptions. This tests [Scenario: Monitor changes to user
-   subscriptions](#saas-subscription-monitor-changes "#saas-subscription-monitor-changes").
+   successful subscriptions, and failed subscriptions. This tests [Scenario: Monitor changes to user subscriptions](#saas-subscription-monitor-changes "#saas-subscription-monitor-changes").
 6. Verify a successful subscription. After you receive an Amazon SNS notification for
    your test account with a successful subscription message, metering can begin.
    Records that are sent to the AWS Marketplace Metering Service before you receive the Amazon SNS
-   notification aren't metered. This tests [Scenario: Verify customer
-   subscription](#saas-subscription-verify-subscriptions "#saas-subscription-verify-subscriptions").
+   notification aren't metered. This tests [Scenario: Verify customer subscription](#saas-subscription-verify-subscriptions "#saas-subscription-verify-subscriptions").
 
 ###### Note
 

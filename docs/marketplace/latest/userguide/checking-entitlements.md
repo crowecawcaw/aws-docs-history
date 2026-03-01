@@ -11,7 +11,7 @@ operation in the AWS Marketplace Entitlement Service. The AWS Marketplace Entitl
 only in the US East (N. Virginia) Region, accessible through
 `entitlement.marketplace.us-east-1.amazonaws.com` or `entitlement-marketplace.us-east-1.api.aws`.
 
-`GetEntitlements` accepts a customer AWS account ID, customer identifier and dimension as filters.
+`GetEntitlements` accepts a customer AWS account ID, customer identifier, license ARN, and dimension as filters.
 `ProductCode` is a required parameter. The operation returns a paginated list of
 entitlements. The result has an `ExpirationDate` field that shows the minimum period
 of time that the entitlement is valid for. If the customer has set up automatic renewal, the
@@ -19,9 +19,7 @@ date in the ExpirationDate field is the renewal date.
 
 For code examples, see [Code examples for SaaS product integration](saas-code-examples.md "saas-code-examples.md").
 
-## Retrieving entitlement on user
-
-actions
+## Retrieving entitlement on user actions
 
 The following examples can help you better understand the process for retrieving
 entitlement on user actions.

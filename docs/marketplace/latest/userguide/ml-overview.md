@@ -1,6 +1,4 @@
-#
-
-Understanding machine learning products
+# Understanding machine learning products
 
 AWS Marketplace supports two machine learning product types, using Amazon SageMaker AI. Both types, the model
 package products and the algorithm products, produce a deployable inference model for making

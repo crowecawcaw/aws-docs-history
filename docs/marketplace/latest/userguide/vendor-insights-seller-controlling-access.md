@@ -1,6 +1,4 @@
-# Controlling access in
-
-AWS Marketplace Vendor Insights
+# Controlling access in AWS Marketplace Vendor Insights
 
 AWS Identity and Access Management (IAM) is an AWS service that helps you control access to AWS resources.
 IAM is an AWS service that you can use with no additional charge. If you're an
@@ -36,9 +34,7 @@ For more information about the actions, resources, and condition keys that are a
 see [Actions,
 resources, and condition keys for AWS Marketplace Vendor Insights](../../../service-authorization/latest/reference/list_awsmarketplacevendorinsights.md "../../../service-authorization/latest/reference/list_awsmarketplacevendorinsights.md") in the _Service Authorization Reference_.
 
-## Permissions for AWS Marketplace Vendor Insights
-
-sellers
+## Permissions for AWS Marketplace Vendor Insights sellers
 
 You can use the following permissions in IAM policies for AWS Marketplace Vendor Insights. You can combine
 permissions into a single IAM policy to grant the permissions you want.

@@ -1,6 +1,4 @@
-# Configuring custom metering for container products with
-
-AWS Marketplace Metering Service
+# Configuring custom metering for container products with AWS Marketplace Metering Service
 
 ###### Note
 
@@ -71,15 +69,12 @@ these records in separately might lead to the buyer being overcharged.
 ###### Topics
 
 - [Custom metering prerequisites](#custom-metering-prereqs "#custom-metering-prereqs")
-- [Testing MeterUsage
-  integration for ECS and EKS](#testing-meterusage-integration "#testing-meterusage-integration")
+- [Testing MeterUsage integration for ECS and EKS](#testing-meterusage-integration "#testing-meterusage-integration")
 - [Testing MeterUsage integration for AgentCore](#testing-agentcore-metering "#testing-agentcore-metering")
-- [Error handling for
-  MeterUsage](#custom-metering-entitlement-error-handling "#custom-metering-entitlement-error-handling")
+- [Error handling for MeterUsage](#custom-metering-entitlement-error-handling "#custom-metering-entitlement-error-handling")
 - [(Optional) Vendor-metered tagging](#container-vendor-metered-tagging "#container-vendor-metered-tagging")
 - [Code example](#container-meter-code-example "#container-meter-code-example")
-- [Integrating your container product using
-  custom metering with the AWS Marketplace Metering Service and AWS SDK for Java](java-integration-example-meterusage.md "java-integration-example-meterusage.md")
+- [Integrating your container product using custom metering with the AWS Marketplace Metering Service and AWS SDK for Java](java-integration-example-meterusage.md "java-integration-example-meterusage.md")
 
 ## Custom metering prerequisites
 
@@ -96,9 +91,7 @@ Before publishing the product, you must do the following:
 4. Make a test call to the `MeterUsage` API operation with a record for all of
    the pricing dimensions you define.
 
-## Testing `MeterUsage`
-
-integration for ECS and EKS
+## Testing `MeterUsage` integration for ECS and EKS
 
 Use the `MeterUsage` operation to test your integration before submitting your
 image to AWS Marketplace for publishing.
@@ -145,9 +138,7 @@ treated idempotently.
 Due to differences in expected metering behavior between Amazon Bedrock AgentCore and other container products, we do not recommend
 sharing the same container image for use on Amazon Bedrock AgentCore and on Amazon ECS or EKS.
 
-## Error handling for
-
-`MeterUsage`
+## Error handling for `MeterUsage`
 
 Call `MeterUsage` setting the `DryRun` parameter to true at
 container startup to validate that metering integration is working. If your container image
@@ -251,17 +242,14 @@ what the Seller sends to the Metering Service (as shown in the [Seller experienc
 | xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 5555          | Marketing                       |
 | xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 1111          | Marketing                       |
 
-For a code example, see [MeterUsage code example
-with usage allocation tagging (Optional)](#container-meterusage-code-example "#container-meterusage-code-example").
+For a code example, see [MeterUsage code example with usage allocation tagging (Optional)](#container-meterusage-code-example "#container-meterusage-code-example").
 
 ## Code example
 
 The following code example is provided to help you integrate your container product with
 the AWS Marketplace APIs required for publishing and maintaining your product.
 
-### `MeterUsage` code example
-
-with usage allocation tagging (Optional)
+### `MeterUsage` code example with usage allocation tagging (Optional)
 
 The following code example is relevant for container products with consumption pricing
 models. The Python example sends a metering record with appropriate usage allocation tags to

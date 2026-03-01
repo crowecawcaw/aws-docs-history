@@ -9,8 +9,7 @@ locally.
 ###### Topics
 
 - [Overview](#ml-model-package-images-overview "#ml-model-package-images-overview")
-- [Create an inference image
-  for model packages](#ml-creating-an-inference-image-for-model-packages "#ml-creating-an-inference-image-for-model-packages")
+- [Create an inference image for model packages](#ml-creating-an-inference-image-for-model-packages "#ml-creating-an-inference-image-for-model-packages")
 
 ## Overview
 
@@ -59,9 +58,7 @@ Inference](../../../sagemaker/latest/dg/deploy-model.md "../../../sagemaker/late
 inference image are loaded dynamically at runtime. 5. SageMaker AI passes the buyer’s inference data to the container by using the container’s HTTP
 endpoints and returns the prediction results.
 
-## Create an inference image
-
-for model packages
+## Create an inference image for model packages
 
 This section provides a walkthrough for packaging your inference code into an inference
 image for your model package product. The process consists of the following steps:
@@ -69,8 +66,7 @@ image for your model package product. The process consists of the following step
 ###### Steps
 
 - [Step 1: Create the container image](#ml-step-1-creating-the-container-image "#ml-step-1-creating-the-container-image")
-- [Step 2: Build and
-  testing the image locally](#ml-step-2-building-and-testing-the-image-locally "#ml-step-2-building-and-testing-the-image-locally")
+- [Step 2: Build and testing the image locally](#ml-step-2-building-and-testing-the-image-locally "#ml-step-2-building-and-testing-the-image-locally")
 
 The inference image is a Docker image containing your inference logic. The container at
 runtime exposes HTTP endpoints to allow SageMaker AI to pass data to and from your container.
@@ -94,12 +90,9 @@ The following walkthrough uses the Docker CLI in a development environment using
 Linux Ubuntu distribution.
 
 - [Create the web server script](#ml-create-the-web-server-script "#ml-create-the-web-server-script")
-- [Create the script for the
-  container run](#ml-create-the-script-for-the-container-run "#ml-create-the-script-for-the-container-run")
-- [Create the
-  Dockerfile](#ml-create-the-dockerfile "#ml-create-the-dockerfile")
-- [Package or upload the model
-  artifacts](#ml-package-or-upload-the-model-artifacts "#ml-package-or-upload-the-model-artifacts")
+- [Create the script for the container run](#ml-create-the-script-for-the-container-run "#ml-create-the-script-for-the-container-run")
+- [Create the Dockerfile](#ml-create-the-dockerfile "#ml-create-the-dockerfile")
+- [Package or upload the model artifacts](#ml-package-or-upload-the-model-artifacts "#ml-package-or-upload-the-model-artifacts")
 
 #### Create the web server script
 
@@ -119,8 +112,7 @@ that SageMaker AI uses. The following are the two expected endpoints:
 - `/invocations` – SageMaker AI makes HTTP POST requests to this endpoint for
   inference. The input data for inference is sent in the body of the request. The
   user-specified content type is passed in the HTTP header. The body of the response is
-  the inference output. For details about timeouts, see [Requirements and best practices for
-  creating machine learning products](ml-listing-requirements-and-best-practices.md "ml-listing-requirements-and-best-practices.md").
+  the inference output. For details about timeouts, see [Requirements and best practices for creating machine learning products](ml-listing-requirements-and-best-practices.md "ml-listing-requirements-and-best-practices.md").
 
 **`./web_app_serve.py`**
 
@@ -168,9 +160,7 @@ have internet access, nor will it be able to make calls to any AWS services.
 
 This same code is called for both real-time and batch inferences
 
-#### Create the script for the
-
-container run
+#### Create the script for the container run
 
 Create a script named `serve` that SageMaker AI runs when it runs the
 Docker container image. The following script starts the HTTP web server.
@@ -184,9 +174,7 @@ Docker container image. The following script starts the HTTP web server.
 flask run --host 0.0.0.0 --port 8080
 ```
 
-#### Create the
-
-`Dockerfile`
+#### Create the `Dockerfile`
 
 Create a `Dockerfile` in your build context. This example uses
 Ubuntu 18.04, but you can start from any base image that works for your framework.
@@ -226,9 +214,7 @@ The `Dockerfile` adds the two previously created scripts to the
 image. The directory of the `serve` script is added to the PATH so it
 can run when the container runs.
 
-#### Package or upload the model
-
-artifacts
+#### Package or upload the model artifacts
 
 The two ways to provide the model artifacts from training the model to the inference
 image are as follows:
@@ -247,9 +233,7 @@ the container directory `/opt/ml/model/` when running your container.
 When publishing your model package, those artifacts are published and stored in AWS Marketplace
 owned Amazon S3 buckets that are inaccessible by the buyer directly.
 
-### Step 2: Build and
-
-testing the image locally
+### Step 2: Build and testing the image locally
 
 In the build context, the following files now exist:
 
@@ -330,9 +314,7 @@ Server: MyServer/0.16.0 Python/3.6.8
 Date: Mon, 21 Oct 2019 06:58:54 GMT`
 ```
 
-#### Test the inference HTTP
-
-endpoint
+#### Test the inference HTTP endpoint
 
 When the container indicates it is ready by returning a 200 status code to your ping,
 SageMaker AI passes the inference data to the `/invocations` HTTP endpoint via a

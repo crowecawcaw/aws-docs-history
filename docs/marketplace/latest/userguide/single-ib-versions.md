@@ -1,6 +1,4 @@
-# Managing versions for EC2 Image Builder products on
-
-AWS Marketplace
+# Managing versions for EC2 Image Builder products on AWS Marketplace
 
 Version management for EC2 Image Builder components can't be done from the UI. For more information, see the following catalog API sections:
 

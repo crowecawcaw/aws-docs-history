@@ -107,8 +107,7 @@ All AMIs must adhere to the following architecture policies:
 ## AMI product usage instructions
 
 When creating usage instructions for your AMI product, please follow the steps and
-guidance located in [Creating AMI and container product usage
-instructions for AWS Marketplace](ami-container-product-usage-instructions.md "ami-container-product-usage-instructions.md").
+guidance located in [Creating AMI and container product usage instructions for AWS Marketplace](ami-container-product-usage-instructions.md "ami-container-product-usage-instructions.md").
 
 ## AMI product version policies
 

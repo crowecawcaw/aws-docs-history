@@ -10,10 +10,8 @@ inference images are required when publishing an algorithm product.
 ###### Topics
 
 - [Overview](#ml-algorithm-images-overview "#ml-algorithm-images-overview")
-- [Creating a training image for
-  algorithms](#ml-creating-a-training-image-for-algorithms "#ml-creating-a-training-image-for-algorithms")
-- [Creating an inference image
-  for algorithms](#ml-creating-an-inference-image-for-algorithms "#ml-creating-an-inference-image-for-algorithms")
+- [Creating a training image for algorithms](#ml-creating-a-training-image-for-algorithms "#ml-creating-a-training-image-for-algorithms")
+- [Creating an inference image for algorithms](#ml-creating-an-inference-image-for-algorithms "#ml-creating-an-inference-image-for-algorithms")
 
 ## Overview
 
@@ -57,9 +55,7 @@ The workflow for creating a SageMaker AI algorithm for AWS Marketplace includes 
 
 For more information, see [Train Models](../../../sagemaker/latest/dg/train-model.md "../../../sagemaker/latest/dg/train-model.md").
 
-## Creating a training image for
-
-algorithms
+## Creating a training image for algorithms
 
 This section provides a walkthrough for packaging your training code into a training
 image. A training image is required to create an algorithm product.
@@ -83,14 +79,10 @@ SageMaker AI examples](https://github.com/aws/amazon-sagemaker-examples/tree/mas
 
 ###### Steps
 
-- [Step 1: Creating the container
-  image](#ml-step-1-creating-the-container-image-1 "#ml-step-1-creating-the-container-image-1")
-- [Step 2: Building and
-  testing the image locally](#ml-step-2-building-and-testing-the-image-locally-1 "#ml-step-2-building-and-testing-the-image-locally-1")
+- [Step 1: Creating the container image](#ml-step-1-creating-the-container-image-1 "#ml-step-1-creating-the-container-image-1")
+- [Step 2: Building and testing the image locally](#ml-step-2-building-and-testing-the-image-locally-1 "#ml-step-2-building-and-testing-the-image-locally-1")
 
-### Step 1: Creating the container
-
-image
+### Step 1: Creating the container image
 
 For the training image to be compatible with Amazon SageMaker AI, it must adhere to a specific
 file structure to allow SageMaker AI to copy the training data and configuration inputs to specific
@@ -100,20 +92,13 @@ stored in a specific directory path in the container where SageMaker AI copies f
 The following uses Docker CLI installed in a development environment on an Ubuntu
 distribution of Linux.
 
-- [Prepare your
-  program to read configuration inputs](#ml-prepare-your-program-to-read-configuration-inputs "#ml-prepare-your-program-to-read-configuration-inputs")
-- [Prepare your program to
-  read data inputs](#ml-prepare-your-program-to-read-data-inputs "#ml-prepare-your-program-to-read-data-inputs")
-- [Prepare your program
-  to write training outputs](#ml-prepare-your-program-to-write-training-outputs "#ml-prepare-your-program-to-write-training-outputs")
-- [Create the script for the
-  container run](#ml-create-the-script-for-the-container-run-1 "#ml-create-the-script-for-the-container-run-1")
-- [Create the
-  Dockerfile](#ml-create-the-dockerfile-1 "#ml-create-the-dockerfile-1")
+- [Prepare your program to read configuration inputs](#ml-prepare-your-program-to-read-configuration-inputs "#ml-prepare-your-program-to-read-configuration-inputs")
+- [Prepare your program to read data inputs](#ml-prepare-your-program-to-read-data-inputs "#ml-prepare-your-program-to-read-data-inputs")
+- [Prepare your program to write training outputs](#ml-prepare-your-program-to-write-training-outputs "#ml-prepare-your-program-to-write-training-outputs")
+- [Create the script for the container run](#ml-create-the-script-for-the-container-run-1 "#ml-create-the-script-for-the-container-run-1")
+- [Create the Dockerfile](#ml-create-the-dockerfile-1 "#ml-create-the-dockerfile-1")
 
-#### Prepare your
-
-program to read configuration inputs
+#### Prepare your program to read configuration inputs
 
 If your training program requires any buyer-provided configuration input, the
 following is where those are copied to inside your container when ran. If required, your
@@ -133,9 +118,7 @@ program must read from those specific file paths.
 For more information about configuration inputs, see [How
 Amazon SageMaker AI Provides Training Information](../../../sagemaker/latest/dg/your-algorithms-training-algo-running-container.md "../../../sagemaker/latest/dg/your-algorithms-training-algo-running-container.md").
 
-#### Prepare your program to
-
-read data inputs
+#### Prepare your program to read data inputs
 
 Training data can be passed to the container in one of the following two modes. Your
 training program that runs in the container digests the training data in one of those two
@@ -156,9 +139,7 @@ modes.
   read them. There is no limit to the number of epochs that you can run, but you must
   close each pipe before reading the next epoch.
 
-#### Prepare your program
-
-to write training outputs
+#### Prepare your program to write training outputs
 
 The output of the training is written to the following container directories:
 
@@ -173,9 +154,7 @@ The output of the training is written to the following container directories:
   `DescribeTrainingJob` result. For jobs that succeed, there is no reason
   to write this file because it’s ignored.
 
-#### Create the script for the
-
-container run
+#### Create the script for the container run
 
 Create a `train` shell script that SageMaker AI runs when it runs the
 Docker container image. When the training completes and the model artifacts are written to
@@ -193,9 +172,7 @@ their respective directories, exit the script.
 #
 ```
 
-#### Create the
-
-`Dockerfile`
+#### Create the `Dockerfile`
 
 Create a `Dockerfile` in your build context. This example uses
 Ubuntu 18.04 as the base image, but you can start from any base image that works for your
@@ -235,9 +212,7 @@ For more information, see [Use your own algorithms and
 models with the AWS Marketplace](../../../sagemaker/latest/dg/your-algorithms-marketplace.md "../../../sagemaker/latest/dg/your-algorithms-marketplace.md") and the [AWS Marketplace
 SageMaker AI examples](https://github.com/aws/amazon-sagemaker-examples/tree/master/aws_marketplace "https://github.com/aws/amazon-sagemaker-examples/tree/master/aws_marketplace") on GitHub.
 
-### Step 2: Building and
-
-testing the image locally
+### Step 2: Building and testing the image locally
 
 In the build context, the following files now exist:
 
@@ -305,12 +280,9 @@ not producing logs that you do not want, while ensuring enough information is pr
 about the training job.
 
 This completes packaging your training code for an algorithm product. Because an
-algorithm product also includes an inference image, continue to the next section, [Creating an inference image
-for algorithms](#ml-creating-an-inference-image-for-algorithms "#ml-creating-an-inference-image-for-algorithms").
+algorithm product also includes an inference image, continue to the next section, [Creating an inference image for algorithms](#ml-creating-an-inference-image-for-algorithms "#ml-creating-an-inference-image-for-algorithms").
 
-## Creating an inference image
-
-for algorithms
+## Creating an inference image for algorithms
 
 This section provides a walkthrough for packaging your inference code into an inference
 image for your algorithm product.
@@ -319,8 +291,7 @@ The inference image is a Docker image containing your inference logic. The conta
 runtime exposes HTTP endpoints to allow SageMaker AI to pass data to and from your container.
 
 Both the training and inference images are required when publishing an algorithm
-product. If you have not already done so, see the previous section about [Creating a training image for
-algorithms](#ml-creating-a-training-image-for-algorithms "#ml-creating-a-training-image-for-algorithms"). The two images can be
+product. If you have not already done so, see the previous section about [Creating a training image for algorithms](#ml-creating-a-training-image-for-algorithms "#ml-creating-a-training-image-for-algorithms"). The two images can be
 combined into one image or remain as separate images. Whether to combine the images or
 separate them is up to you. Typically, inference is simpler than training, and you might want
 separate images to help with inference performance.
@@ -336,14 +307,10 @@ The following example uses a web service, [Flask](https://pypi.org/project/Flask
 
 ###### Steps
 
-- [Step 1: Creating the inference
-  image](#ml-step-1-creating-the-inference-image "#ml-step-1-creating-the-inference-image")
-- [Step 2: Building and
-  testing the image locally](#ml-step-2-building-and-testing-the-image-locally-2 "#ml-step-2-building-and-testing-the-image-locally-2")
+- [Step 1: Creating the inference image](#ml-step-1-creating-the-inference-image "#ml-step-1-creating-the-inference-image")
+- [Step 2: Building and testing the image locally](#ml-step-2-building-and-testing-the-image-locally-2 "#ml-step-2-building-and-testing-the-image-locally-2")
 
-### Step 1: Creating the inference
-
-image
+### Step 1: Creating the inference image
 
 For the inference image to be compatible with SageMaker AI, the Docker image must expose HTTP
 endpoints. While your container is running, SageMaker AI passes inputs for inference provided by the
@@ -354,12 +321,9 @@ The following uses Docker CLI installed in a development environment on an Ubunt
 distribution of Linux.
 
 - [Create the web server script](#ml-create-the-web-server-script-1 "#ml-create-the-web-server-script-1")
-- [Create the script for the
-  container run](#ml-create-the-script-for-the-container-run-2 "#ml-create-the-script-for-the-container-run-2")
-- [Create the
-  Dockerfile](#ml-create-the-dockerfile-2 "#ml-create-the-dockerfile-2")
-- [Preparing
-  your program to dynamically load model artifacts](#ml-preparing-your-program-to-dynamically-load-model-artifacts "#ml-preparing-your-program-to-dynamically-load-model-artifacts")
+- [Create the script for the container run](#ml-create-the-script-for-the-container-run-2 "#ml-create-the-script-for-the-container-run-2")
+- [Create the Dockerfile](#ml-create-the-dockerfile-2 "#ml-create-the-dockerfile-2")
+- [Preparing your program to dynamically load model artifacts](#ml-preparing-your-program-to-dynamically-load-model-artifacts "#ml-preparing-your-program-to-dynamically-load-model-artifacts")
 
 #### Create the web server script
 
@@ -423,9 +387,7 @@ returns the prediction.
 Your inference image must contain all of its required dependencies because it will
 not have internet access.
 
-#### Create the script for the
-
-container run
+#### Create the script for the container run
 
 Create a script named `serve` that SageMaker AI runs when it runs the
 Docker container image. In this script, start the HTTP web server.
@@ -439,9 +401,7 @@ Docker container image. In this script, start the HTTP web server.
 flask run --host 0.0.0.0 --port 8080
 ```
 
-#### Create the
-
-`Dockerfile`
+#### Create the `Dockerfile`
 
 Create a `Dockerfile` in your build context. This example uses
 Ubuntu 18.04, but you can start from any base image that works for your framework.
@@ -481,9 +441,7 @@ The `Dockerfile` adds the two created previously scripts to the
 image. The directory of the `serve` script is added to the PATH so it
 can run when the container runs.
 
-#### Preparing
-
-your program to dynamically load model artifacts
+#### Preparing your program to dynamically load model artifacts
 
 For algorithm products, the buyer uses their own datasets with your training image to
 generate unique model artifacts. When the training process completes, your training
@@ -499,12 +457,9 @@ inference container code uses the model data.
 
 To protect any intellectual property that might be contained in the model artifact
 files, you can choose to encrypt the files before outputting them. For more information,
-see [Security and intellectual
-property with Amazon SageMaker AI](ml-security-and-intellectual-property.md "ml-security-and-intellectual-property.md").
+see [Security and intellectual property with Amazon SageMaker AI](ml-security-and-intellectual-property.md "ml-security-and-intellectual-property.md").
 
-### Step 2: Building and
-
-testing the image locally
+### Step 2: Building and testing the image locally
 
 In the build context, the following files now exist:
 
@@ -587,9 +542,7 @@ Server: MyServer/0.16.0 Python/3.6.8
 Date: Mon, 21 Oct 2019 06:58:54 GMT`
 ```
 
-#### Test the inference HTTP
-
-endpoint
+#### Test the inference HTTP endpoint
 
 When the container indicates it is ready by returning a 200 status code, SageMaker AI passes
 the inference data to the `/invocations` HTTP endpoint via a `POST`

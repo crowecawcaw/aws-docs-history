@@ -1,6 +1,4 @@
-# Integrating your container product using
-
-custom metering with the AWS Marketplace Metering Service and AWS SDK for Java
+# Integrating your container product using custom metering with the AWS Marketplace Metering Service and AWS SDK for Java
 
 AWS Marketplace container products can have custom metering on up to 24 different pricing
 dimensions per product. To enable custom metering, you integrate your container product with
@@ -17,8 +15,7 @@ language.
 1. Sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/tour "https://aws.amazon.com/marketplace/management/tour").
 2. From **Assets**, choose **Containers** to start
    creating a new container product. Creating the product generates the product code for the
-   product to integrate with your container image. For information about setting AWS Identity and Access Management (IAM) permissions, see [AWS Marketplace metering and entitlement
-   API permissions](iam-user-policy-for-aws-marketplace-actions.md "iam-user-policy-for-aws-marketplace-actions.md").
+   product to integrate with your container image. For information about setting AWS Identity and Access Management (IAM) permissions, see [AWS Marketplace metering and entitlement API permissions](iam-user-policy-for-aws-marketplace-actions.md "iam-user-policy-for-aws-marketplace-actions.md").
 3. Download the public [AWS Java
    SDK](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/").
 

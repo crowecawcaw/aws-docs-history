@@ -1,6 +1,4 @@
-# Listing your product in
-
-AWS Marketplace
+# Listing your product in AWS Marketplace
 
 After you package your code into model package images or algorithm images, upload your
 images, and create your Amazon SageMaker AI resources, you can publish your machine learning product in

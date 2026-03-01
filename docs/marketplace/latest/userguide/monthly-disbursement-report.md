@@ -17,8 +17,7 @@ Refunds appear as negative amounts because the money is returned to your custome
 authorize a refund.
 
 This report is available on the AWS Marketplace Management Portal under the **Reports** tab. To
-create your own report similar to this one you can use the AWS Marketplace [Seller delivery data feeds in AWS Marketplace](data-feed-service.md "data-feed-service.md"), including the [Disbursements by
-product](data-feed-full-examples.md#data-feed-example-disbursement-by-product "data-feed-full-examples.md#data-feed-example-disbursement-by-product") as a base report to customize to
+create your own report similar to this one you can use the AWS Marketplace [Seller delivery data feeds in AWS Marketplace](data-feed-service.md "data-feed-service.md"), including the [Disbursements by product](data-feed-full-examples.md#data-feed-example-disbursement-by-product "data-feed-full-examples.md#data-feed-example-disbursement-by-product") as a base report to customize to
 meet your needs.
 
 ###### Note
@@ -34,10 +33,8 @@ cadence. If there is no disbursement initiated, no disbursement report is genera
 ###### Topics
 
 - [Section 1: Disbursed amount by product](#disbursed-amount-by-product "#disbursed-amount-by-product")
-- [Section 2: Disbursed amount by
-  customer geography](#disbursed-amount-by-customer-geography "#disbursed-amount-by-customer-geography")
-- [Section 3: Disbursed amount by instance
-  hours](#disbursed-amount-by-instance-hours "#disbursed-amount-by-instance-hours")
+- [Section 2: Disbursed amount by customer geography](#disbursed-amount-by-customer-geography "#disbursed-amount-by-customer-geography")
+- [Section 3: Disbursed amount by instance hours](#disbursed-amount-by-instance-hours "#disbursed-amount-by-instance-hours")
 - [Section 4: Age of uncollected funds](#age-of-uncollected-funds "#age-of-uncollected-funds")
 - [Section 5: Age of disbursed funds](#age-of-disbursed-funds "#age-of-disbursed-funds")
 - [Section 6: Age of past due funds](#age-of-past-due-funds "#age-of-past-due-funds")
@@ -72,9 +69,7 @@ This section lists data for disbursements by product.
 | Payer Reference ID          | A unique identifier that isn't the account ID. It's associated with the account<br>that fees are billed to. It helps with tracking usage, revenue, and subscriptions by<br>customers across all of the AWS Marketplace financial reports.                                |
 | Payer Address ID            | A unique identifier that represents the customer's address.                                                                                                                                                                                                              |
 
-## Section 2: Disbursed amount by
-
-customer geography
+## Section 2: Disbursed amount by customer geography
 
 This section lists data for disbursements by the customer's geographic location.
 
@@ -94,9 +89,7 @@ This section lists data for disbursements by the customer's geographic location.
 | Seller U.S. Sales Tax        | The total amount of US sales and use tax that is billed for this transaction on<br>behalf of the Seller. (That is, related records in US Sales and Tax reports show “tax<br>liable party” == “SELLER”.)                                                                |
 | Seller U.S. Sales Tax Refund | The total amount of US sales and use tax that is refunded for this transaction if<br>a refund was processed, when such taxes were collected on behalf of the Seller. (That<br>is, related records in US Sales and Tax reports show “tax liable party” ==<br>“SELLER”.) |
 
-## Section 3: Disbursed amount by instance
-
-hours
+## Section 3: Disbursed amount by instance hours
 
 This section lists data for disbursements by Amazon EC2 instance hours.
 

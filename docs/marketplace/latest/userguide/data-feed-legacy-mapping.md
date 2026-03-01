@@ -18,9 +18,7 @@ The following table explains the names and descriptions of the data feed's colum
 | legacy_id    | The legacy ID for this product or offer.                                                                           |
 | new_id       | The friendly ID for this product or offer. This ID is used as the primary key and<br>with all current API actions. |
 
-## Example of legacy mapping data
-
-feed
+## Example of legacy mapping data feed
 
 The following shows an example of the legacy mapping data feed. For readability, the data
 history columns aren't shown. For information about data history fields, see [Historization of the data](data-feed-details.md#data-feed-historization "data-feed-details.md#data-feed-historization").

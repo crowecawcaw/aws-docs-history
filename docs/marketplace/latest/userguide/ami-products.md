@@ -30,15 +30,13 @@ For more information about AMI products, see the following topics.
 ###### AWS Marketplace
 
 - [Product pricing for AWS Marketplace](pricing.md "pricing.md")
-- [Configuring custom metering for AMI products with
-  AWS Marketplace Metering Service](custom-metering-with-mp-metering-service.md "custom-metering-with-mp-metering-service.md")
+- [Configuring custom metering for AMI products with AWS Marketplace Metering Service](custom-metering-with-mp-metering-service.md "custom-metering-with-mp-metering-service.md")
 
 ###### AMI-based products
 
 - [Understanding AMI-based products in AWS Marketplace](ami-getting-started.md "ami-getting-started.md")
 - [Creating AMI-based products](ami-single-ami-products.md "ami-single-ami-products.md")
-- [Managing AMI-based products as an AWS Marketplace
-  seller](concept-chapter-servicename.md "concept-chapter-servicename.md")
+- [Managing AMI-based products as an AWS Marketplace seller](concept-chapter-servicename.md "concept-chapter-servicename.md")
 - [Add CloudFormation templates to your product](cloudformation.md "cloudformation.md")
 - [Best practices for building AMIs for use with AWS Marketplace](best-practices-for-building-your-amis.md "best-practices-for-building-your-amis.md")
 - [AMI product pricing for AWS Marketplace](pricing-ami-products.md "pricing-ami-products.md")

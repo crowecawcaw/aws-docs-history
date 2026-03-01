@@ -47,10 +47,8 @@ have any problems making your submissions, contact the [AWS Marketplace Seller O
 
 - [Using the Products tab](#using-the-products-tab "#using-the-products-tab")
 - [Company and product logo requirements](#seller-and-product-logos "#seller-and-product-logos")
-- [Requirements for submitting paid repackaged
-  software](#paid-repackaged-software "#paid-repackaged-software")
-- [Requirements for products with a hardware
-  component](#product-requirements-hardware "#product-requirements-hardware")
+- [Requirements for submitting paid repackaged software](#paid-repackaged-software "#paid-repackaged-software")
+- [Requirements for products with a hardware component](#product-requirements-hardware "#product-requirements-hardware")
 - [CloudFormation-launched product (free or paid) or usage-based paid AMI product](#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product")
 - [Product changes and updates](#product-changes-and-updates "#product-changes-and-updates")
 - [Timing and expectations](#timing-and-expectations "#timing-and-expectations")
@@ -117,9 +115,7 @@ should have a transparent or white background and be 120 to 640 pixels in size, 
 should have a transparent background and be 220 x 220 pixels in size, allowing for 10 pixels
 of padding on each side within.
 
-## Requirements for submitting paid repackaged
-
-software
+## Requirements for submitting paid repackaged software
 
 Before you can submit a listing for repackaged software, you must meet the following requirements. In this case,
 _Repackaged software_ includes open-source AMIs or software created
@@ -173,9 +169,7 @@ requirements, you must also meet the following requirements:
   repackaged open source software product wherein additional charges apply for support
   with {SLA Details}_.
 
-## Requirements for products with a hardware
-
-component
+## Requirements for products with a hardware component
 
 The sale of hardware products isn't permitted on AWS Marketplace. If you're submitting a software
 product that requires a hardware component (for example, a SIM card, smart device, IoT device,
@@ -250,8 +244,7 @@ The following steps explain how to complete a product load form
 
 In the **Product Access
 Instructions** column, you must provide detailed, clear usage instructions .
-Follow the requirements listed at [Creating AMI and container product usage
-instructions for AWS Marketplace](ami-container-product-usage-instructions.md "ami-container-product-usage-instructions.md") in this guide. 2. In the **Type** to **Endpoint
+Follow the requirements listed at [Creating AMI and container product usage instructions for AWS Marketplace](ami-container-product-usage-instructions.md "ami-container-product-usage-instructions.md") in this guide. 2. In the **Type** to **Endpoint
 URL Relative URL** columns, enter the required information for your AMI.
 
 ###### Important
@@ -448,9 +441,7 @@ To include your AMI in the self-service scanning list, the AMI must be in the
 need to grant other accounts access to the AWS Marketplace Management Portal, you must register those accounts as
 sellers. For more information, see [Registration process](registration-process.md "registration-process.md").
 
-### AMI cloning and product code
-
-assignment
+### AMI cloning and product code assignment
 
 After your AMI is submitted, AWS Marketplace creates cloned AMIs for each Region that you have
 indicated that software should be available in. During this cloning and publishing process,
@@ -476,8 +467,7 @@ your product request.
 **For free or paid products**
 
 - No additional license is required to use the product.
-- Paid repackaged software meets the AWS Marketplace [Requirements for submitting paid repackaged
-  software](#paid-repackaged-software "#paid-repackaged-software").
+- Paid repackaged software meets the AWS Marketplace [Requirements for submitting paid repackaged software](#paid-repackaged-software "#paid-repackaged-software").
 - Buyer does not have to provide personally identifiable information (for example, an
   email address) to use the product.
 

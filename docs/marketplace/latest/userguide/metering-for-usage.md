@@ -12,6 +12,13 @@ on the amount of data sent into your application, you can measure the amount of 
 corresponding metering record once an hour. AWS calculates a customer’s bill using the
 metering data along with the prices that you provided when you created your product.
 
+For products that support Concurrent Agreements, metering operates at the license level
+rather than the product level. Each usage record must include a `LicenseArn` to
+identify which specific agreement the usage applies to. The `LicenseArn` is
+obtained from the `ResolveCustomer` API response during SaaS registration. This
+enables buyers to maintain multiple active agreements for the same product, with usage
+tracked and billed separately per agreement.
+
 ###### Note
 
 Optionally, you can split the usage across properties that you track. These properties are
@@ -25,8 +32,7 @@ by categories appropriate to your product. For more information, see [Vendor-met
 ###### Topics
 
 - [Meter on an hourly basis](#metering-hourly "#metering-hourly")
-- [Configure your product to meter
-  usage](#configure-application-for-meter-usage "#configure-application-for-meter-usage")
+- [Configure your product to meter usage](#configure-application-for-meter-usage "#configure-application-for-meter-usage")
 - [Vendor-metered tagging (Optional)](#saas-vendor-metered-tagging "#saas-vendor-metered-tagging")
 
 ## Meter on an hourly basis
@@ -40,8 +46,7 @@ example, one day), note the following considerations.
   you. You're responsible for ensuring that your product’s metering records are successfully
   transmitted and received. You can use AWS CloudTrail to verify the record or records that you send are
   accurate. You can also use the information to perform audits over time. For more information,
-  see [Logging AWS Marketplace API calls with
-  AWS CloudTrail](cloudtrail-logging.md "cloudtrail-logging.md").
+  see [Logging AWS Marketplace API calls with AWS CloudTrail](cloudtrail-logging.md "cloudtrail-logging.md").
 - If this is a SaaS with the pricing model "Subscription" (not pricing models "Contract"
   or "Contract with Consumption"), then the buyer can unsubscribe at any time. When the
   buyer initiates this unsubscribe action, the seller will receive an `unsubscribe-pending`
@@ -52,6 +57,12 @@ example, one day), note the following considerations.
   subscription and the buyer cannot unsubscribe during it. They can only turn off
   autorenewal. The same notification is sent at the end of that duration if not
   autorenewing.
+- For products with Concurrent Agreements: The unsubscribe notification and 1-hour
+  window applies per individual agreement, not per product. If a buyer cancels one of
+  multiple active agreements, you can continue metering against the remaining active
+  licenses. Only usage for the canceled agreement must be submitted within the 1-hour
+  window after receiving the `unsubscribe-pending` notification for that
+  specific license.
 - If you don't send metering records hourly and there is an application or network
   outage, your records will be further behind. This may result in unreported usage if the
   application or network outage is restored after the subscription expires.
@@ -78,9 +89,7 @@ integrate with AWS Marketplace metering service. Metering for your product shoul
 avoid double billing your customer. Note that AWS Marketplace isn't publishing new AWS WAF products
 at this time.
 
-## Configure your product to meter
-
-usage
+## Configure your product to meter usage
 
 You use the `BatchMeterUsage` operation in the AWS Marketplace Metering Service to deliver metering
 records to AWS. Keep the following in mind:
@@ -88,9 +97,9 @@ records to AWS. Keep the following in mind:
 - We require sellers to use batching by using the `BatchMeterUsage`
   operation.
 - We deduplicate metering requests on the hour.
-  - Requests are deduplicated per product/customer/hour/dimension.
+  - For non-Concurrent Agreements products: Requests are deduplicated per product/customer/hour/dimension. For Concurrent Agreements products: Requests are deduplicated per license/customer/hour/dimension.
   - You can always retry any request, but if you meter for a different quantity, the
-    original quantity is billed.
+    original quantity is billed. For Concurrent Agreements products: retrying with the same `LicenseArn` is safe and follows standard deduplication rules. However, switching between `ProductCode` and `LicenseArn` for the same usage window will cause duplicate billing.
   - If you send multiple requests for the same customer/dimension/hour, the records
     are not aggregated.
 
@@ -104,6 +113,22 @@ records to AWS. Keep the following in mind:
   quotas](../../../general/latest/gr/aws-marketplace.md "../../../general/latest/gr/aws-marketplace.md") in the _AWS General Reference_. By
   default, the US East (N. Virginia) Region is enabled for SaaS metering products when you
   request your product. If you intend to use other Regions, contact the [**AWS Marketplace Seller Operations**](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") team. For more information, see [BatchMeterUsage](../../../marketplacemetering/latest/APIReference/API_BatchMeterUsage.md "../../../marketplacemetering/latest/APIReference/API_BatchMeterUsage.md").
+- Concurrent agreements: A single customer may have multiple active agreements for
+  your product. Each agreement has a unique `LicenseArn` and usage is tracked
+  separately per license. Review the new integration for Concurrent Agreements [here](https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements "https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements"). For new implementations, each `UsageRecord` must include a
+  `LicenseArn` field to identify which agreement the usage applies to.
+  The `LicenseArn` is obtained from the `ResolveCustomer` API
+  response.
+
+###### Note
+
+For existing implementations: When you are migrating from product-based metering
+to license-based metering, don't send metering records with both
+`LicenseArn` and `ProductCode` for the same customer within
+the same hour. This will result in duplicate billing. Do not include
+`ProductCode` at the request level. The `LicenseArn` in each
+`UsageRecord` identifies both the product and the specific
+agreement.
 
 For code examples, see [Code examples for SaaS product integration](saas-code-examples.md "saas-code-examples.md").
 
@@ -142,6 +167,12 @@ view their costs split into usage by the tag values in their AWS Billing Console
 ([https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/")). Vendor-metered tagging doesn't change the price, dimensions,
 or the total usage that you report. It allows your customer to view their costs by categories
 appropriate to your product.
+
+###### Note
+
+Concurrent Agreements license-level metering is not currently supported for
+vendor-metered tagging (VMT) products. If your product uses VMT, continue using standard
+`ProductCode`-based metering.
 
 In a common use case, a buyer subscribes to your product with one AWS account. The buyer
 also has numerous users associated with the same product subscription. You can create usage
@@ -222,5 +253,4 @@ what the Seller sends to the Metering Service (as shown in the [Seller experienc
 | xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 5555          | Marketing                       |
 | xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 1111          | Marketing                       |
 
-For a code example, see [BatchMeterUsage with usage
-allocation tagging code example (Optional)](saas-code-examples.md#saas-batchmeterusage-tagging "saas-code-examples.md#saas-batchmeterusage-tagging").
+For a code example, see [BatchMeterUsage with usage allocation tagging code example (Optional)](saas-code-examples.md#saas-batchmeterusage-tagging "saas-code-examples.md#saas-batchmeterusage-tagging").

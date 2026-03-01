@@ -14,9 +14,7 @@ This topic provides a walkthrough for uploading your inference and training imag
 - [Create repository and upload image](#ml-create-repository-and-upload-image "#ml-create-repository-and-upload-image")
 - [Scan your uploaded image](#ml-scan-your-uploaded-image "#ml-scan-your-uploaded-image")
 
-##
-
-Which images must I upload?
+## Which images must I upload?
 
 If you're publishing a model package, upload only an inference image. If you're
 publishing an algorithm, upload both an inference image and a training image. If the inference
@@ -40,8 +38,7 @@ The links take you to the _AWS Managed Policy Reference_.
 
 ## Log your Docker client into AWS
 
-Set a variable for the AWS Region that you want to publish from (see [Supported AWS Regions for
-publishing](ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing "ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing")). For this example, use the
+Set a variable for the AWS Region that you want to publish from (see [Supported AWS Regions for publishing](ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing "ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing")). For this example, use the
 US East (Ohio) Region.
 
 ```
@@ -139,7 +136,5 @@ with information about the error.
 
 **Next steps**
 
-- See size limits in [Requirements and best practices for
-  creating machine learning products](ml-listing-requirements-and-best-practices.md "ml-listing-requirements-and-best-practices.md")
-- Continue to [Creating your Amazon SageMaker AI
-  resource](ml-creating-your-amazon-sagemaker-resource.md "ml-creating-your-amazon-sagemaker-resource.md")
+- See size limits in [Requirements and best practices for creating machine learning products](ml-listing-requirements-and-best-practices.md "ml-listing-requirements-and-best-practices.md")
+- Continue to [Creating your Amazon SageMaker AI resource](ml-creating-your-amazon-sagemaker-resource.md "ml-creating-your-amazon-sagemaker-resource.md")

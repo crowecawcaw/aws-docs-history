@@ -6,24 +6,19 @@ product. For more information, see the following sections.
 
 ###### Topics
 
-- [ResolveCustomer code
-  example](#saas-resolvecustomer-example "#saas-resolvecustomer-example")
-- [GetEntitlement code
-  example](#saas-getentitlement-example "#saas-getentitlement-example")
-- [BatchMeterUsage code
-  example](#saas-batchmeterusage-example "#saas-batchmeterusage-example")
-- [BatchMeterUsage with usage
-  allocation tagging code example (Optional)](#saas-batchmeterusage-tagging "#saas-batchmeterusage-tagging")
+- [ResolveCustomer code example](#saas-resolvecustomer-example "#saas-resolvecustomer-example")
+- [GetEntitlement code example](#saas-getentitlement-example "#saas-getentitlement-example")
+- [BatchMeterUsage code example](#saas-batchmeterusage-example "#saas-batchmeterusage-example")
+- [BatchMeterUsage code example: With License ARN](#saas-batchmeterusage-licensearn-example "#saas-batchmeterusage-licensearn-example")
+- [BatchMeterUsage with usage allocation tagging code example (Optional)](#saas-batchmeterusage-tagging "#saas-batchmeterusage-tagging")
 
-## `ResolveCustomer` code
-
-example
+## `ResolveCustomer` code example
 
 The following code example is relevant for all pricing models. The Python example
 exchanges a `x-amzn-marketplace-token` token for a
-`CustomerIdentifier`, `ProductCode`, and
+`CustomerIdentifier`, `ProductCode`, `LicenseArn`, and
 `CustomerAWSAccountId`. The `CustomerAWSAccountId` is the
-AWS account ID associated with the subscription. This code runs in an application on
+AWS account ID associated with the subscription, and `LicenseArn` is a unique identifier for a specific granted license. These are used for software purchased through AWS Marketplace. This code runs in an application on
 your registration website, when you are redirected there from the AWS Marketplace Management Portal. The
 redirect is a POST request that includes the token.
 
@@ -49,6 +44,7 @@ if (regToken):
     productCode = customerData['ProductCode']
     customerID = customerData['CustomerIdentifier']
     customerAWSAccountId = customerData['CustomerAWSAccountId']
+    licenseARN = customerData['LicenseArn']
 
     # TODO: Store customer information
     # TODO: Validate no other accounts share the same customerID
@@ -60,13 +56,12 @@ if (regToken):
 {
     'CustomerIdentifier': 'string',
     'CustomerAWSAccountId':'string',
-    'ProductCode': 'string'
+    'ProductCode': 'string',
+    'LicenseArn' : 'string'
 }
 ```
 
-## `GetEntitlement` code
-
-example
+## `GetEntitlement` code example
 
 The following code example is relevant for SaaS products with the contract and SaaS
 contract with consumption pricing model. The Python example verifies that a customer has
@@ -93,9 +88,13 @@ entitlement = marketplaceClient.get_entitlements({
         'CUSTOMER_IDENTIFIER': [
             'customerID',
         ]
-        # Option 2: Using CustomerAWSAccountID (preferred)
+        # Option 2: Using CustomerAWSAccountId (preferred)
         # 'CUSTOMER_AWS_ACCOUNT_ID': [
-        #     'awsAccountID',
+        #     'awsAccountId',
+        # ]
+        # Option 3: Using LICENSE_ARN (to get entitlements for the license)
+        # 'LICENSE_ARN': [
+        #     'licenseARN',
         # ]
     },
     'NextToken' : 'string',
@@ -117,10 +116,11 @@ product in the AWS Marketplace Management Portal.
    "Entitlements": [
       {
          "CustomerIdentifier": "string",
-         "CustomerAWSAccountID": "string",
+         "CustomerAWSAccountId": "string",
          "Dimension": "string",
          "ExpirationDate": number,
          "ProductCode": "string",
+         "LicenseArn": "string",
          "Value": {
             "BooleanValue": boolean,
             "DoubleValue": number,
@@ -134,9 +134,7 @@ product in the AWS Marketplace Management Portal.
 
 ```
 
-## `BatchMeterUsage` code
-
-example
+## `BatchMeterUsage` code example
 
 The following code example is relevant for SaaS subscription and contract with
 consumption pricing models, but not for SaaS contract products without consumption. The
@@ -152,7 +150,7 @@ pay-as-you-go fees.
 # published the product to limited
 #
 # You can use either:
-# - customerID from the ResolveCustomer response (deprecated after Dec 31, 2025)
+# - customerID from the ResolveCustomer response
 # - AWS account ID of the buyer
 
 # Import AWS Python SDK
@@ -169,11 +167,11 @@ usageRecord = [
     }
 ]
 
-# Option 2: Using CustomerAWSAccountID (preferred)
+# Option 2: Using CustomerAWSAccountId (preferred)
 # usageRecord = [
 #     {
 #         'Timestamp': datetime(2015, 1, 1),
-#         'CustomerAWSAccountID': 'awsAccountID',
+#         'CustomerAWSAccountId': 'awsAccountId',
 #         'Dimension': 'string',
 #         'Quantity': 123
 #     }
@@ -199,7 +197,7 @@ For more information about `BatchMeterUsage`, see [BatchMeterUsage](../../../mar
             'UsageRecord': {
                 'Timestamp': datetime(2015, 1, 1),
                 'CustomerIdentifier': 'string',
-                'CustomerAWSAccountID': 'string',
+                'CustomerAWSAccountId': 'string',
                 'Dimension': 'string',
                 'Quantity': 123
             },
@@ -211,7 +209,7 @@ For more information about `BatchMeterUsage`, see [BatchMeterUsage](../../../mar
         {
             'Timestamp': datetime(2015, 1, 1),
             'CustomerIdentifier': 'string',
-            'CustomerAWSAccountID': 'string',
+            'CustomerAWSAccountId': 'string',
             'Dimension': 'string',
             'Quantity': 123
         }
@@ -220,9 +218,73 @@ For more information about `BatchMeterUsage`, see [BatchMeterUsage](../../../mar
 
 ```
 
-## `BatchMeterUsage` with usage
+## `BatchMeterUsage` code example: With License ARN
 
-allocation tagging code example (Optional)
+The following code example is relevant for SaaS products that support Concurrent Agreements.
+The `LicenseArn` and `CustomerAWSAccountId` are returned by the
+`ResolveCustomer` API when a buyer registers to your product.
+
+```
+# NOTE: Your application will need to aggregate usage for the
+#       customer for the hour and set the quantity as seen below.
+#       AWS Marketplace can only accept records for up to an hour in the past.
+#
+# LicenseArn and CustomerAWSAccountId are returned by the ResolveCustomer
+# API when a buyer registers to your product
+
+# Import AWS Python SDK
+import boto3
+from datetime import datetime
+
+
+usageRecord = [{
+    'LicenseArn' : 'licenseArn',
+    'Timestamp': datetime(2015, 1, 1),
+    'CustomerAWSAccountId': 'awsAccountId',
+    'Dimension': 'string',
+    'Quantity': 123
+}]
+
+
+marketplaceClient = boto3.client('meteringmarketplace')
+
+response = marketplaceClient.batch_meter_usage(
+    UsageRecords = usageRecord
+)
+```
+
+### Example response
+
+```
+{
+    'Results': [
+        {
+            'UsageRecord': {
+                'Timestamp': datetime(2015, 1, 1),
+                'CustomerIdentifier': 'string',
+                'CustomerAWSAccountId': 'string',
+                'Dimension': 'string',
+                'Quantity': 123,
+                'LicenseArn': 'string'
+            },
+            'MeteringRecordId': 'string',
+            'Status': 'Success' | 'CustomerNotSubscribed' | 'DuplicateRecord'
+        },
+    ],
+    'UnprocessedRecords': [
+        {
+            'Timestamp': datetime(2015, 1, 1),
+            'CustomerIdentifier': 'string',
+            'CustomerAWSAccountId': 'string',
+            'Dimension': 'string',
+            'Quantity': 123,
+            'LicenseArn': 'string'
+        }
+    ]
+}
+```
+
+## `BatchMeterUsage` with usage allocation tagging code example (Optional)
 
 The following code example is relevant for SaaS subscriptions and contracts with
 usage pricing models, but not for SaaS contract products without usage. The
@@ -238,7 +300,7 @@ to charge your customers for pay-as-you-go fees.
 # published the product to limited
 #
 # You can use either:
-# - customerID from the ResolveCustomer response (deprecated after Dec 31, 2025)
+# - customerID from the ResolveCustomer response
 # - AWS account ID of the buyer
 
 # Import AWS Python SDK
@@ -271,11 +333,11 @@ usageRecords = [
     }
 ]
 
-# Option 2: Using CustomerAWSAccountID (preferred)
+# Option 2: Using CustomerAWSAccountId (preferred)
 # usageRecords = [
 #     {
 #         "Timestamp": int(time.time()),
-#         "CustomerAWSAccountID": "awsAccountID",
+#         "CustomerAWSAccountId": "awsAccountId",
 #         "Dimension": "Dimension1",
 #         "Quantity": 3,
 #         "UsageAllocations": [
@@ -316,8 +378,8 @@ Reference_.
     "Results": [
         {
             "Timestamp": "1634691015",
-            "CustomerIdentifier": "customerID",
-            "CustomerAWSAccountID": "awsAccountID",
+            "CustomerIdentifier": "customerId",
+            "CustomerAWSAccountId": "awsAccountId",
             "Dimension": "Dimension1",
             "Quantity": 3,
             "UsageAllocations": [
@@ -343,8 +405,8 @@ Reference_.
     "UnprocessedRecords": [
         {
             "Timestamp": "1634691015",
-            "CustomerIdentifier": "customerID",
-            "CustomerAWSAccountID": "awsAccountID",
+            "CustomerIdentifier": "customerId",
+            "CustomerAWSAccountId": "awsAccountId",
             "Dimension": "Dimension1",
             "Quantity": 3,
             "UsageAllocations": []

@@ -1,6 +1,4 @@
-# Managing AMI-based product availability by AWS Region
-
-and country
+# Managing AMI-based product availability by AWS Region and country
 
 When you create a product in AWS Marketplace, you choose the AWS Regions where it is available.
 You also choose the countries where buyers can purchase your product from. These two properties
@@ -14,10 +12,8 @@ product availability by Region and country.
 
 - [Add an AWS Region](#single-ami-adding-regions "#single-ami-adding-regions")
 - [Restrict an AWS Region](#single-ami-restricting-regions "#single-ami-restricting-regions")
-- [Update support for future
-  AWS Regions](#single-ami-updating-future-region-support "#single-ami-updating-future-region-support")
-- [Update availability by
-  country](#single-ami-update-availability-by-country "#single-ami-update-availability-by-country")
+- [Update support for future AWS Regions](#single-ami-updating-future-region-support "#single-ami-updating-future-region-support")
+- [Update availability by country](#single-ami-update-availability-by-country "#single-ami-update-availability-by-country")
 
 ## Add an AWS Region
 
@@ -112,9 +108,7 @@ trademark of Amazon.com, Inc. This message was produced and distributed by Amazo
 Services Inc., 410 Terry Ave. North, Seattle, WA 98109-5210.
 ```
 
-## Update support for future
-
-AWS Regions
+## Update support for future AWS Regions
 
 If you want your product to be onboarded to newly launched AWS Regions, you can use
 **Update future Region support**.
@@ -138,9 +132,7 @@ If you want your product to be onboarded to newly launched AWS Regions, you can 
    status** as **Under review**. When the request
    completes, the status becomes **Succeeded**.
 
-## Update availability by
-
-country
+## Update availability by country
 
 If you want to change the countries in which your product can be subscribed to and
 offered, you can use **Update availability**.

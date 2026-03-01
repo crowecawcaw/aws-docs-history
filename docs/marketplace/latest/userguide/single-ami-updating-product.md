@@ -1,6 +1,4 @@
-# Updating AMI-based product information on
-
-AWS Marketplace
+# Updating AMI-based product information on AWS Marketplace
 
 After you create your single Amazon Machine Image (AMI) product, you can change some of
 the information associated with it in AWS Marketplace. For example, if a new version modifies the
@@ -38,5 +36,4 @@ For details about the logo format, see [Company and product logo requirements](p
 see the request on the list.
 You can check the status of your request at any time from the
 **Requests** tab of the [Server
-Products](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page. For more information, see [Get the status of a change
-request](single-ami-create-change-request.md#single-ami-getting-change-request-status "single-ami-create-change-request.md#single-ami-getting-change-request-status").
+Products](https://aws.amazon.com/marketplace/management/products/server "https://aws.amazon.com/marketplace/management/products/server") page. For more information, see [Get the status of a change request](single-ami-create-change-request.md#single-ami-getting-change-request-status "single-ami-create-change-request.md#single-ami-getting-change-request-status").

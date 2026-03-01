@@ -1,6 +1,4 @@
-# Configuring custom metering for AMI products with
-
-AWS Marketplace Metering Service
+# Configuring custom metering for AMI products with AWS Marketplace Metering Service
 
 ###### Note
 
@@ -139,8 +137,7 @@ Service-enabled software:
 - **IAM role and internet gateway requirements for your
   customers** – Your customers must have an internet gateway and must
   launch your software with an IAM role with specific permissions. For more information,
-  see [AWS Marketplace metering and entitlement
-  API permissions](iam-user-policy-for-aws-marketplace-actions.md "iam-user-policy-for-aws-marketplace-actions.md"). Your software can't
+  see [AWS Marketplace metering and entitlement API permissions](iam-user-policy-for-aws-marketplace-actions.md "iam-user-policy-for-aws-marketplace-actions.md"). Your software can't
   connect to the Metering Service if these two conditions aren't met.
 - **Inability to add new or change usage category to existing Metering
   Service product** – When customers subscribe to your software product,
@@ -163,9 +160,7 @@ Service-enabled software:
 The following code example is provided to help you integrate your AMI product with the
 AWS Marketplace APIs required for publishing and maintaining your product.
 
-### `MeterUsage` with usage allocation
-
-tagging (Optional)
+### `MeterUsage` with usage allocation tagging (Optional)
 
 The following code example is relevant for AMI products with consumption pricing models.
 The Python example sends a metering record with appropriate usage allocation tags to AWS Marketplace

@@ -39,11 +39,9 @@ Container-based AI agents and tools running on Amazon Bedrock AgentCore Runtime 
 If the container image utilizes AgentCore, the **Hourly**
 and **Usage with long-term contract** pricing models are
 not supported. To learn more about contract pricing, see
-[Contract pricing for container products
-with AWS License Manager](container-license-manager-integration.md "container-license-manager-integration.md").
+[Contract pricing for container products with AWS License Manager](container-license-manager-integration.md "container-license-manager-integration.md").
 To learn more about custom metering for usage-based
-pricing, see [Configuring custom metering for container products with
-AWS Marketplace Metering Service](container-metering-meterusage.md "container-metering-meterusage.md"). 2. Select **Next**. 3. In **Set prices**. 4. Select **Next**.
+pricing, see [Configuring custom metering for container products with AWS Marketplace Metering Service](container-metering-meterusage.md "container-metering-meterusage.md"). 2. Select **Next**. 3. In **Set prices**. 4. Select **Next**.
 
 ## Step 3: Specify refund policy
 
@@ -205,8 +203,7 @@ A2A Server Requirements
 
 Usage instructions
 
-Ensure instructions thoroughly guides customers through launching and configuring the product. Refer to [Creating AMI and container product usage
-instructions for AWS Marketplace](ami-container-product-usage-instructions.md "ami-container-product-usage-instructions.md").
+Ensure instructions thoroughly guides customers through launching and configuring the product. Refer to [Creating AMI and container product usage instructions for AWS Marketplace](ami-container-product-usage-instructions.md "ami-container-product-usage-instructions.md").
 
 ## Testing and validation
 

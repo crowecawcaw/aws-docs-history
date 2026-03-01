@@ -1,6 +1,4 @@
-# Contract pricing for container products
-
-with AWS License Manager
+# Contract pricing for container products with AWS License Manager
 
 For container-based products with contract pricing, you can use AWS License Manager to associate
 licenses with your product. AWS License Manager is a license management tool that
@@ -10,8 +8,7 @@ product with AWS License Manager. After the integration is complete, you can pub
 your product listing on AWS Marketplace.
 
 If you're integrating License Manager with an AWS Marketplace for Containers Anywhere product for Amazon EKS Anywhere, Amazon ECS Anywhere, Amazon Elastic Compute Cloud
-(Amazon EC2), or on-premises infrastructure, follow the instructions in [Integrating an AWS Marketplace for Containers Anywhere
-with License Manager](container-anywhere-license-manager-integration.md "container-anywhere-license-manager-integration.md").
+(Amazon EC2), or on-premises infrastructure, follow the instructions in [Integrating an AWS Marketplace for Containers Anywhere with License Manager](container-anywhere-license-manager-integration.md "container-anywhere-license-manager-integration.md").
 
 For more information about AWS License Manager, see the [AWS License Manager User Guide](../../../license-manager/latest/userguide/license-manager.md "../../../license-manager/latest/userguide/license-manager.md") and the [AWS License Manager](../../../cli/latest/reference/license-manager/index.md "../../../cli/latest/reference/license-manager/index.md") section of the _AWS CLI Command
 Reference_.
@@ -25,14 +22,11 @@ workshop_.
 
 - [Contract pricing for container products](#container-contracts "#container-contracts")
 - [License models](#container-LM-license-models "#container-LM-license-models")
-- [AWS License Manager integration
-  prerequisites](#container-LM-prereqs "#container-LM-prereqs")
-- [Integrating a container product with
-  License Manager](#container-integrate-with-LM "#container-integrate-with-LM")
+- [AWS License Manager integration prerequisites](#container-LM-prereqs "#container-LM-prereqs")
+- [Integrating a container product with License Manager](#container-integrate-with-LM "#container-integrate-with-LM")
 - [License Manager API operations](#container-LM-API-calls "#container-LM-API-calls")
 - [License renewals and upgrades](#container-LM-lic-renew-upgrade "#container-LM-lic-renew-upgrade")
-- [Integrating an AWS Marketplace for Containers Anywhere
-  with License Manager](container-anywhere-license-manager-integration.md "container-anywhere-license-manager-integration.md")
+- [Integrating an AWS Marketplace for Containers Anywhere with License Manager](container-anywhere-license-manager-integration.md "container-anywhere-license-manager-integration.md")
 
 ## Contract pricing for container products
 
@@ -311,9 +305,7 @@ linux-machine  ~]$ aws  license-manager   checkout-license\
 }
 ```
 
-## AWS License Manager integration
-
-prerequisites
+## AWS License Manager integration prerequisites
 
 Before publishing the product, you must do the following:
 
@@ -353,14 +345,11 @@ JSON
 3. Make a test call to the `RegisterUsage` API operation with a record for all
    of the pricing dimensions you deﬁne.
 
-## Integrating a container product with
-
-License Manager
+## Integrating a container product with License Manager
 
 ###### To integrate your container-based product with License Manager
 
-1. Set IAM permissions to call License Manager. For more information, see [AWS License Manager integration
-   prerequisites](#container-LM-prereqs "#container-LM-prereqs").
+1. Set IAM permissions to call License Manager. For more information, see [AWS License Manager integration prerequisites](#container-LM-prereqs "#container-LM-prereqs").
 2. Download the AWS SDK.
 
 ###### Note

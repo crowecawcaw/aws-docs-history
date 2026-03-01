@@ -1,36 +1,25 @@
-# Integrating an AWS Marketplace for Containers Anywhere
-
-with License Manager
+# Integrating an AWS Marketplace for Containers Anywhere with License Manager
 
 As an AWS Marketplace seller, you can integrate AWS License Manager with an AWS Marketplace for
 Containers Anywhere product for Amazon EKS Anywhere, Amazon ECS Anywhere, Amazon EC2, or on-premises infrastructure. The following sections
 provide instructions for this integration.
 
 For general information about the License Manager integration with AWS Marketplace, including available license
-models, see [Contract pricing for container products
-with AWS License Manager](container-license-manager-integration.md "container-license-manager-integration.md"). For more information about
+models, see [Contract pricing for container products with AWS License Manager](container-license-manager-integration.md "container-license-manager-integration.md"). For more information about
 AWS License Manager, see the [AWS License Manager User Guide](../../../license-manager/latest/userguide/license-manager.md "../../../license-manager/latest/userguide/license-manager.md") and the [AWS License Manager](../../../cli/latest/reference/license-manager/index.md "../../../cli/latest/reference/license-manager/index.md") section of the _AWS CLI Command
 Reference_.
 
 ###### Topics
 
-- [Integrating an AWS Marketplace for Containers Anywhere product
-  with License Manager](#containers-anywhere-integrate-with-LM "#containers-anywhere-integrate-with-LM")
-- [Testing License Manager integration
-  locally](#container-testing-LM-integration-locally "#container-testing-LM-integration-locally")
-- [Testing License Manager integration on
-  Amazon EKS](#container-testing-LM-integration-EKS "#container-testing-LM-integration-EKS")
-- [Floating license entitlements with
-  License Manager](#container-LM-floating-license "#container-LM-floating-license")
-- [Best practices for integrating with
-  License Manager for on-premises deployments](#container-LM-best-practices-on-prem "#container-LM-best-practices-on-prem")
+- [Integrating an AWS Marketplace for Containers Anywhere product with License Manager](#containers-anywhere-integrate-with-LM "#containers-anywhere-integrate-with-LM")
+- [Testing License Manager integration locally](#container-testing-LM-integration-locally "#container-testing-LM-integration-locally")
+- [Testing License Manager integration on Amazon EKS](#container-testing-LM-integration-EKS "#container-testing-LM-integration-EKS")
+- [Floating license entitlements with License Manager](#container-LM-floating-license "#container-LM-floating-license")
+- [Best practices for integrating with License Manager for on-premises deployments](#container-LM-best-practices-on-prem "#container-LM-best-practices-on-prem")
 - [LicenseManagerCredentialsProvider - Java implementation](#container-license-manager-cred-provider-java "#container-license-manager-cred-provider-java")
-- [LicenseManagerCredentialsProvider - Golang
-  implementation](#container-license-manager-cred-provider-golang "#container-license-manager-cred-provider-golang")
+- [LicenseManagerCredentialsProvider - Golang implementation](#container-license-manager-cred-provider-golang "#container-license-manager-cred-provider-golang")
 
-## Integrating an AWS Marketplace for Containers Anywhere product
-
-with License Manager
+## Integrating an AWS Marketplace for Containers Anywhere product with License Manager
 
 Use the following instructions to integrate your AWS Marketplace for Containers Anywhere product with
 AWS License Manager.
@@ -67,8 +56,7 @@ complete source code for a custom credential provider,
 `LicenseCredentialProvider`, see the following sections:
 
     * [LicenseManagerCredentialsProvider - Java implementation](#container-license-manager-cred-provider-java "#container-license-manager-cred-provider-java")
-    * [LicenseManagerCredentialsProvider - Golang
-     implementation](#container-license-manager-cred-provider-golang "#container-license-manager-cred-provider-golang")
+    * [LicenseManagerCredentialsProvider - Golang implementation](#container-license-manager-cred-provider-golang "#container-license-manager-cred-provider-golang")
 
 `LicenseCredentialsProvider` extends the AWS SDK’s default credential
 provider chain for on-premises use by adding
@@ -120,8 +108,7 @@ API operation:
 
     	Example: User is entitled to 500 simultaneous users on the application. As
     	 users log in or log out, the users are drawn or returned to the pool of 500 users.
-    	 To learn more about floating license entitlements, see [Floating license entitlements with
-    	 License Manager](#container-LM-floating-license "#container-LM-floating-license").
+    	 To learn more about floating license entitlements, see [Floating license entitlements with License Manager](#container-LM-floating-license "#container-LM-floating-license").
     * `ClientToken` – A unique, case-sensitive identifier. We
      recommend using a random UUID for each unique request.
     * `Entitlements` – A list of entitlements to be checked
@@ -177,16 +164,14 @@ aws license-manager checkout-license \
 To check licenses, container applications require outbound network access to use
 License Manager. Applications deployed on-premises might experience unreliable or slow outbound
 network access. These applications should include adequate retries when calling License Manager.
-For more information, see [Best practices for integrating with
-License Manager for on-premises deployments](#container-LM-best-practices-on-prem "#container-LM-best-practices-on-prem"). 6. Call the `CheckoutLicense` API operation at a regular cadence to identify
+For more information, see [Best practices for integrating with License Manager for on-premises deployments](#container-LM-best-practices-on-prem "#container-LM-best-practices-on-prem"). 6. Call the `CheckoutLicense` API operation at a regular cadence to identify
 any changes to customers' licenses due to renewals, upgrades, or cancellations made on
 AWS Marketplace. The cadence depends on the application. We recommend checking licenses once a day
 to pick up changes automatically without any buyer intervention.
 
 An application deployed on-premises might have unreliable outbound network access to
 check licenses on a regular cadence. In such cases, the application should use a cached
-licenses for sufficient resiliency. For more information, see [Best practices for integrating with
-License Manager for on-premises deployments](#container-LM-best-practices-on-prem "#container-LM-best-practices-on-prem"). 7. After you integrate the `CheckoutLicense` call with your container
+licenses for sufficient resiliency. For more information, see [Best practices for integrating with License Manager for on-premises deployments](#container-LM-best-practices-on-prem "#container-LM-best-practices-on-prem"). 7. After you integrate the `CheckoutLicense` call with your container
 application, build a new version of your Docker container image with the changes. 8. Update your application’s Helm chart to accept a Kubernetes secret as optional input
 that contains configuration to access licenses using License Manager APIs. The configuration secret
 will contain an identity token issued by License Manager and an AWS Identity and Access Management role which will be used by
@@ -279,17 +264,13 @@ on-premises deployments. For AWS deployments, the deployment specification must
 include a service account for the License Manager integrated images. 10. Test the License Manager integration locally and on Amazon EKS by performing the steps in the
 following sections:
 
-    1. [Testing License Manager integration
-     locally](#container-testing-LM-integration-locally "#container-testing-LM-integration-locally")
-    2. [Testing License Manager integration on
-     Amazon EKS](#container-testing-LM-integration-EKS "#container-testing-LM-integration-EKS")
+    1. [Testing License Manager integration locally](#container-testing-LM-integration-locally "#container-testing-LM-integration-locally")
+    2. [Testing License Manager integration on Amazon EKS](#container-testing-LM-integration-EKS "#container-testing-LM-integration-EKS")
 
 11. After you successfully verify License Manager integration both on AWS and on-premises, you
     can create your container product listing by following the steps in [Overview: Create a container product](container-product-getting-started.md#create-container-product "container-product-getting-started.md#create-container-product").
 
-## Testing License Manager integration
-
-locally
+## Testing License Manager integration locally
 
 You can use minikube or any other setup to test License Manager integration on any Kubernetes
 cluster locally. Make sure that the Kubernetes cluster has outbound internet access to call
@@ -385,12 +366,9 @@ kubectl create secret generic "awsmp-license-access-config" \
 
 5. Deploy your application through Helm with the secret name as input and verify that the
    application can call License Manager API operations to perform entitlement checks. For Helm and
-   deployment specification changes, refer to Step 9 in [Integrating an AWS Marketplace for Containers Anywhere product
-   with License Manager](#containers-anywhere-integrate-with-LM "#containers-anywhere-integrate-with-LM").
+   deployment specification changes, refer to Step 9 in [Integrating an AWS Marketplace for Containers Anywhere product with License Manager](#containers-anywhere-integrate-with-LM "#containers-anywhere-integrate-with-LM").
 
-## Testing License Manager integration on
-
-Amazon EKS
+## Testing License Manager integration on Amazon EKS
 
 You can also test License Manager integration on Amazon EKS. Test to make sure that the application can
 call License Manager API operations without the license configuration secret. Also make sure that the
@@ -479,9 +457,7 @@ eksctl create iamserviceaccount \
    associated from the previous command. Verify that the application can call License Manager API
    operations to perform entitlement checks.
 
-## Floating license entitlements with
-
-License Manager
+## Floating license entitlements with License Manager
 
 With floating licenses, as users log into the application, a license is drawn from the
 pool of available licenses. As users log out, the licenses are added back to the pool of
@@ -515,9 +491,7 @@ aws license-manager extend-license-consumption \
 --license-consumption-token "f1603b3c1f574b7284db84a9e771ee12"
 ```
 
-## Best practices for integrating with
-
-License Manager for on-premises deployments
+## Best practices for integrating with License Manager for on-premises deployments
 
 Container application deployments in an on-premises environment might encounter unreliable
 outbound network access. Use the following best practices to add resiliency to avoid service
@@ -875,9 +849,7 @@ public class LicenseManagerTokenCredentialsProvider implements AwsCredentialsPro
 }
 ```
 
-## `LicenseManagerCredentialsProvider` - `Golang`
-
-implementation
+## `LicenseManagerCredentialsProvider` - `Golang` implementation
 
 **`LicenseCredentialsProvider`**
 

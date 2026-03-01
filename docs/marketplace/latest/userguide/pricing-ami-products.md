@@ -14,8 +14,7 @@ EU-based entities) as described in [Registering as a seller on AWS Marketplace](
 
 - [AMI pricing models](#pricing-models-for-ami-products "#pricing-models-for-ami-products")
 - [AWS charges and software charges](#aws-charges-vs-software-charges "#aws-charges-vs-software-charges")
-- [Custom metering pricing for AMI
-  products with AWS Marketplace Metering Service](custom-metering-pricing-ami-products.md "custom-metering-pricing-ami-products.md")
+- [Custom metering pricing for AMI products with AWS Marketplace Metering Service](custom-metering-pricing-ami-products.md "custom-metering-pricing-ami-products.md")
 - [Contract pricing for AMI products on AWS Marketplace](ami-contracts.md "ami-contracts.md")
 - [Associating licenses with AMI-based products using AWS License Manager](ami-license-manager-integration.md "ami-license-manager-integration.md")
 
@@ -70,8 +69,7 @@ described under **Refund Policy**.
 
 For more information about AMI product pricing, see the following topics:
 
-- [Custom metering pricing for AMI
-  products with AWS Marketplace Metering Service](custom-metering-pricing-ami-products.md "custom-metering-pricing-ami-products.md")
+- [Custom metering pricing for AMI products with AWS Marketplace Metering Service](custom-metering-pricing-ami-products.md "custom-metering-pricing-ami-products.md")
 - [Contract pricing for AMI products on AWS Marketplace](ami-contracts.md "ami-contracts.md")
 
 For more information bout billing, metering, and licensing integrations for AMI-based
@@ -79,6 +77,5 @@ products, see the following topics:
 
 about AMI product pricing, see the following topics:
 
-- [Configuring custom metering for AMI products with
-  AWS Marketplace Metering Service](custom-metering-with-mp-metering-service.md "custom-metering-with-mp-metering-service.md")
+- [Configuring custom metering for AMI products with AWS Marketplace Metering Service](custom-metering-with-mp-metering-service.md "custom-metering-with-mp-metering-service.md")
 - [Associating licenses with AMI-based products using AWS License Manager](ami-license-manager-integration.md "ami-license-manager-integration.md")

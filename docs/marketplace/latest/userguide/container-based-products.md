@@ -35,12 +35,10 @@ Docker-compatible runtime.
 ###### Topics
 
 - [Getting help](#container-help "#container-help")
-- [Getting started with container
-  products](container-product-getting-started.md "container-product-getting-started.md")
+- [Getting started with container products](container-product-getting-started.md "container-product-getting-started.md")
 - [Container-based product requirements for AWS Marketplace](container-product-policies.md "container-product-policies.md")
 - [Container products pricing for AWS Marketplace](pricing-container-products.md "pricing-container-products.md")
-- [Container product billing, metering,
-  and licensing integrations](container-products-billing-integration.md "container-products-billing-integration.md")
+- [Container product billing, metering, and licensing integrations](container-products-billing-integration.md "container-products-billing-integration.md")
 - [Amazon SNS notifications for container products](container-notification.md "container-notification.md")
 
 ## Getting help

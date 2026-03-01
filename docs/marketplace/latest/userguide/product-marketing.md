@@ -7,18 +7,15 @@ support to help you market the product or products that you have listed on AWS M
 ###### Topics
 
 - [180-day GTM Academy](#gtm-academy "#gtm-academy")
-- [Announcing your product's
-  availability](#AnnouncingYourProductsAvailability "#AnnouncingYourProductsAvailability")
+- [Announcing your product's availability](#AnnouncingYourProductsAvailability "#AnnouncingYourProductsAvailability")
 - [AWS Marketplace messaging](#AWSMarketplaceMessaging "#AWSMarketplaceMessaging")
 - [Reviews on AWS Marketplace](#syndicated-reviews "#syndicated-reviews")
 - [Linking to AWS Marketplace](#linking-to-aws-marketplace "#linking-to-aws-marketplace")
 - [Using AWS Marketplace branding](#using-the-aws-marketplace-logo "#using-the-aws-marketplace-logo")
 - [Understanding Buy with AWS as a seller](#buy-with-aws "#buy-with-aws")
-- [Linking directly to your
-  product on AWS Marketplace](#linking-directly-to-your-product-on-aws-marketplace "#linking-directly-to-your-product-on-aws-marketplace")
+- [Linking directly to your product on AWS Marketplace](#linking-directly-to-your-product-on-aws-marketplace "#linking-directly-to-your-product-on-aws-marketplace")
 - [Press releases](#press-releases "#press-releases")
-- [AWS Marketplace trademark usage
-  guidelines](#aws-marketplace-trademark-usage-guidelines "#aws-marketplace-trademark-usage-guidelines")
+- [AWS Marketplace trademark usage guidelines](#aws-marketplace-trademark-usage-guidelines "#aws-marketplace-trademark-usage-guidelines")
 
 ## 180-day GTM Academy
 
@@ -35,9 +32,7 @@ demand generation campaigns for your offering in AWS Marketplace. You can:
 You can access the 180-day GTM Academy from the **Marketplace Resources**
 section of the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/ "https://aws.amazon.com/marketplace/management/").
 
-## Announcing your product's
-
-availability
+## Announcing your product's availability
 
 We encourage you to broadly announce the availability of your product on AWS Marketplace. You can
 do this via press releases, tweets, blogs, or any other preferred media channels. We have
@@ -262,9 +257,7 @@ Alternatively, sellers that have linked their accounts can access metrics throug
 Partner Central. To view these metrics, log in to [**AWS Partner Central**](https://partnercentral.awspartner.com/partnercentral2/s/login?startURL=%2Fhome "https://partnercentral.awspartner.com/partnercentral2/s/login?startURL=%2Fhome") and navigate to the
 **Analytics** section.
 
-## Linking directly to your
-
-product on AWS Marketplace
+## Linking directly to your product on AWS Marketplace
 
 Add a deep link to your website or marketing materials to direct customers to a specific product page on AWS Marketplace. Use the following link format:
 
@@ -322,9 +315,7 @@ Additionally, review the [Amazon Web Services
 trademark guidelines](https://aws.amazon.com/trademark-guidelines/ "https://aws.amazon.com/trademark-guidelines/") before using any AWS trademarks. Guidelines specific to the
 AWS Marketplace trademark are in the following section.
 
-## AWS Marketplace trademark usage
-
-guidelines
+## AWS Marketplace trademark usage guidelines
 
 These Guidelines apply to your use of the AWS Marketplace logo and trademark, (each the “Trademark”
 and collectively the “Trademarks”) in materials that have been approved in advance by

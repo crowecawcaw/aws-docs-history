@@ -1,34 +1,30 @@
 # Integrating your SaaS contract-based product with AWS Marketplace
 
+###### Integration requirements changing June 1, 2026 for new SaaS products
+
+AWS Marketplace is introducing support for Concurrent Agreements, enabling multiple purchases of the same product on a single AWS account during the same agreement period. Starting June 1, 2026, all new SaaS products will be required to support updated integration requirements. [Review the new integration for Concurrent Agreements](https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements "https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements").
+
 Integrating your product with AWS Marketplace is one step in [Creating a SaaS product in AWS Marketplace](saas-create-product.md "saas-create-product.md"). To integrate your software as a service (SaaS)
 contract product with AWS Marketplace, you must write code and demonstrate that it can respond
 successfully to several customer scenarios. The following sections describe these scenarios,
 explain how to respond to them, and provide an overview of testing your integration.
 
-###### Important
+###### Note
 
 This guide is for _contract-based_ SaaS products only. If you are implementing a _Pay-As-You-Go (PAYG)_ SaaS product, use [Integrating your SaaS subscription or Pay-As-You-Go product with AWS Marketplace](saas-integrate-subscription.md "saas-integrate-subscription.md") instead. PAYG products do not use entitlement SNS topics or the GetEntitlements API.
-
-###### Note
 
 Before you begin, make sure you've chosen the right pricing model for your software as
 a service (SaaS) product in AWS Marketplace. For more information, see [Planning your SaaS product](saas-prepare.md "saas-prepare.md").
 
 ###### Topics
 
-- [Scenario: Your service
-  validates new customers](#saas-contract-with-pay-validate-customer "#saas-contract-with-pay-validate-customer")
-- [Scenario: Your service
-  handles customer requests](#saas-contract-with-pay-customer-requests "#saas-contract-with-pay-customer-requests")
+- [Scenario: Your service validates new customers](#saas-contract-with-pay-validate-customer "#saas-contract-with-pay-validate-customer")
+- [Scenario: Your service handles customer requests](#saas-contract-with-pay-customer-requests "#saas-contract-with-pay-customer-requests")
 - [Scenario: Meter usage](#saas-contract-with-pay-meter-usage "#saas-contract-with-pay-meter-usage")
-- [Scenario: Monitor changes to
-  user entitlements](#saas-contract-with-pay-monitor-changes "#saas-contract-with-pay-monitor-changes")
-- [Testing your SaaS contract
-  with pay-as-you-go integration](#saas-contract-consumption-integration-testing "#saas-contract-consumption-integration-testing")
+- [Scenario: Monitor changes to user entitlements](#saas-contract-with-pay-monitor-changes "#saas-contract-with-pay-monitor-changes")
+- [Testing your SaaS contract with pay-as-you-go integration](#saas-contract-consumption-integration-testing "#saas-contract-consumption-integration-testing")
 
-## Scenario: Your service
-
-validates new customers
+## Scenario: Your service validates new customers
 
 When a customer subscribes to your product, they are redirected to your registration
 URL, which is an HTTP POST request with a temporary
@@ -36,20 +32,18 @@ URL, which is an HTTP POST request with a temporary
 following ways:
 
 1. Exchange the token for a `CustomerIdentifier`,
-   `CustomerAWSAccountId`, and `ProductCode` by calling
+   `CustomerAWSAccountId`, `LicenseArn`, and `ProductCode` by calling
    the `ResolveCustomer` API operation in the AWS Marketplace Metering Service.
 2. Verify the subscription and quantity (if applicable) the customer has access
    to by calling the `GetEntitlements` action in the AWS Marketplace Entitlement Service.
 3. Persist the `CustomerIdentifier`,
-   `CustomerAWSAccountId`, and `ProductCode` in your system
+   `CustomerAWSAccountId`, `LicenseArn`, and `ProductCode` in your system
    for future calls. Store whether the customer has a valid subscription, along
    with whatever information you need about the customer.
 4. As a response to the request, you must show your user's first use experience
    (as applicable for your service).
 
-## Scenario: Your service
-
-handles customer requests
+## Scenario: Your service handles customer requests
 
 When a customer makes a request to your service, you must respond to the following
 scenarios with appropriate actions or messaging:
@@ -79,9 +73,7 @@ records:
 - We strongly recommend as a best practice that, even if there were no records
   in the last hour, you send metering records every hour, with usage of 0.
 
-## Scenario: Monitor changes to
-
-user entitlements
+## Scenario: Monitor changes to user entitlements
 
 Set up an Amazon Simple Queue Service (Amazon SQS) queue, and subscribe to your product's Amazon SNS
 topics—there are two SNS topics, one for entitlement changes and one for
@@ -127,9 +119,7 @@ The notifications that you must respond to are as follows:
 
 For additional information, see [Checking entitlements using the AWS Marketplace Entitlement Service](checking-entitlements.md "checking-entitlements.md").
 
-## Testing your SaaS contract
-
-with pay-as-you-go integration
+## Testing your SaaS contract with pay-as-you-go integration
 
 After you've integrated your contract with pay-as-you-go product with AWS Marketplace, you must
 conduct in-depth testing to ensure that the integration is successful. The following
@@ -153,25 +143,21 @@ scenarios for new customers.
    the registration URL, and that the redirect is a POST request that includes a
    temporary token. Make sure that your application persists the customer ID for
    future calls and correctly handles the entitlement the customer has. This tests
-   part of [Scenario: Your service
-   validates new customers](#saas-contract-with-pay-validate-customer "#saas-contract-with-pay-validate-customer").
+   part of [Scenario: Your service validates new customers](#saas-contract-with-pay-validate-customer "#saas-contract-with-pay-validate-customer").
 3. After verifying the test account in the previous step, onboard the account
    into your application. For example, you can have the test customer fill out a
    form to create a new user. Or, provide them with other next steps to get access
-   to your SaaS application. This tests part of [Scenario: Your service
-   validates new customers](#saas-contract-with-pay-validate-customer "#saas-contract-with-pay-validate-customer").
+   to your SaaS application. This tests part of [Scenario: Your service validates new customers](#saas-contract-with-pay-validate-customer "#saas-contract-with-pay-validate-customer").
 4. If no entitlement is returned from the `GetEntitlements` API
    operation, either during onboarding or in your ongoing verification passes, your
    application must correctly manage access and the experience for users who are
-   not entitled. This tests [Scenario: Your service
-   handles customer requests](#saas-contract-with-pay-customer-requests "#saas-contract-with-pay-customer-requests").
+   not entitled. This tests [Scenario: Your service handles customer requests](#saas-contract-with-pay-customer-requests "#saas-contract-with-pay-customer-requests").
 5. After the test customer is onboarded, make requests that will send metering
    records to AWS for billing purposes by using the `BatchMeterUsage`
    API operation in the AWS Marketplace Metering Service. This tests [Scenario: Meter usage](#saas-contract-with-pay-meter-usage "#saas-contract-with-pay-meter-usage").
 6. Test for subscription changes. Verify that your application correctly handles
    unsubscribes, successful subscription, and failed subscription scenarios. This
-   tests [Scenario: Monitor changes to
-   user entitlements](#saas-contract-with-pay-monitor-changes "#saas-contract-with-pay-monitor-changes").
+   tests [Scenario: Monitor changes to user entitlements](#saas-contract-with-pay-monitor-changes "#saas-contract-with-pay-monitor-changes").
 7. After you have completed all the integration requirements and tested the
    solution, notify the AWS Marketplace Seller Operations team. They will then test the solution by verifying
    that you have successfully called the `GetEntitlements` API operation

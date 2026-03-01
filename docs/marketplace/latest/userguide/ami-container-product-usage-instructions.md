@@ -1,6 +1,4 @@
-# Creating AMI and container product usage
-
-instructions for AWS Marketplace
+# Creating AMI and container product usage instructions for AWS Marketplace
 
 As an AWS Marketplace seller, you deliver your products to buyers in different ways. When delivering with Amazon Machine Images (AMIs) and container images, you are responsible for writing usage instructions for them. The following sections provide you with requirements and recommendations about writing usage instructions for these product types.
 

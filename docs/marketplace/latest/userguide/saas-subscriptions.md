@@ -58,9 +58,7 @@ unsubscribed customers. For example, your product might complete the customer's 
 but prevent them from creating work. You might want to display a message to the customer that
 their usage has been disabled. Customers can resubscribe to your product through AWS Marketplace.
 
-## When a SaaS subscription is
-
-cancelled
+## When a SaaS subscription is cancelled
 
 Key points of the SaaS subscription cancellation process include the following:
 

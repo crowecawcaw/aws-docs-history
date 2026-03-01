@@ -11,8 +11,7 @@ and **Limited** visibility allowlist.
 ###### Topics
 
 - [Update product visibility](#ami-update-self-service-visibility "#ami-update-self-service-visibility")
-- [Update the allowlist (preview
-  accounts)](#single-ami-updating-allowlist "#single-ami-updating-allowlist")
+- [Update the allowlist (preview accounts)](#single-ami-updating-allowlist "#single-ami-updating-allowlist")
 
 ## Update product visibility
 
@@ -40,9 +39,7 @@ review. 5. Verify that the **Requests** tab shows the **Request
 status** as **Under review**. When the request
 completes, the status becomes **Succeeded**.
 
-## Update the allowlist (preview
-
-accounts)
+## Update the allowlist (preview accounts)
 
 To change the list of AWS account IDs that can see your product in a
 **Limited** state, use **Update

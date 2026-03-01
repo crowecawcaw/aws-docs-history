@@ -9,7 +9,7 @@ product sales:
 - [Data feeds](data-feeds.md "data-feeds.md") that provide additional customer
   information that you can use to identify customer information for transactions listed in the
   reports.
-- [Dashboards](dashboards.md "dashboards.md") powered by [Amazon Quick Suite](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md") with charts, graphs, and
+- [Dashboards](dashboards.md "dashboards.md") powered by [Amazon Quick](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md") with charts, graphs, and
   insights that help you to access and analyze financial data.
   AWS Marketplace provides as much data as possible in reports, data feeds, and dashboards while
   adhering to the following:

@@ -1,6 +1,4 @@
-# Getting started with container
-
-products
+# Getting started with container products
 
 As an AWS Marketplace seller, you can create container-based software products. Container products
 consist of delivery options that are a set of container images and deployment templates that go
@@ -8,13 +6,10 @@ together.The following topic shows you how to get started with container product
 
 - [Product lifecycle](#container-product-lifecycle "#container-product-lifecycle")
 - [Prerequisites](#container-prereq "#container-prereq")
-- [Step 1: Create the product ID and product
-  code for your container product](#create-initial-container-product "#create-initial-container-product")
+- [Step 1: Create the product ID and product code for your container product](#create-initial-container-product "#create-initial-container-product")
 - [Step 2: Create an initial listing](#container-initial-listing "#container-initial-listing")
-- [Step 3: Add an initial version of your
-  product](#container-add-version-gs "#container-add-version-gs")
-- [Step 4: (For paid products only)
-  Integrate metering or contract pricing](#getting-started-integrate-metering "#getting-started-integrate-metering")
+- [Step 3: Add an initial version of your product](#container-add-version-gs "#container-add-version-gs")
+- [Step 4: (For paid products only) Integrate metering or contract pricing](#getting-started-integrate-metering "#getting-started-integrate-metering")
 - [Next steps](#getting-started-integrate-metering "#getting-started-integrate-metering")
 - [Container product scans for security issues](#container-security "#container-security")
 
@@ -70,27 +65,21 @@ advance of publicly publishing your product.
     * For information about the requirements for container-based products, see [Container-based product requirements for AWS Marketplace](container-product-policies.md "container-product-policies.md").
     * For information about setting the pricing for your product, see [Container products pricing for AWS Marketplace](pricing-container-products.md "pricing-container-products.md").
     * For information about custom metering for your paid container-based product, see
-     [Hourly and custom metering with
-     AWS Marketplace Metering Service](container-products-billing-integration.md#entitlement-and-metering-for-paid-products "container-products-billing-integration.md#entitlement-and-metering-for-paid-products").
+     [Hourly and custom metering with AWS Marketplace Metering Service](container-products-billing-integration.md#entitlement-and-metering-for-paid-products "container-products-billing-integration.md#entitlement-and-metering-for-paid-products").
 
 ## Overview: Create a container product
 
 Creating a container product involves the following steps:
 
-1. [Step 1: Create the product ID and product
-   code for your container product](#create-initial-container-product "#create-initial-container-product")
+1. [Step 1: Create the product ID and product code for your container product](#create-initial-container-product "#create-initial-container-product")
 2. [Step 2: Create an initial listing](#container-initial-listing "#container-initial-listing")
-3. [Step 3: Add an initial version of your
-   product](#container-add-version-gs "#container-add-version-gs")
-4. [Step 4: (For paid products only)
-   Integrate metering or contract pricing](#getting-started-integrate-metering "#getting-started-integrate-metering")
+3. [Step 3: Add an initial version of your product](#container-add-version-gs "#container-add-version-gs")
+4. [Step 4: (For paid products only) Integrate metering or contract pricing](#getting-started-integrate-metering "#getting-started-integrate-metering")
 5. [Update product visibility](#container-product-visibility "#container-product-visibility")
 
 For information on the product lifecycle, see [Product lifecycle](#container-product-lifecycle "#container-product-lifecycle").
 
-## Step 1: Create the product ID and product
-
-code for your container product
+## Step 1: Create the product ID and product code for your container product
 
 To get started with a container product, you must create a product ID and product code
 record in AWS Marketplace. The product ID is used to track your product throughout its lifecycle.
@@ -144,30 +133,24 @@ visibility.
 Your container product is initially created with a placeholder version. You'll add
 the final version when the product has a Limited visibility.
 
-## Step 3: Add an initial version of your
-
-product
+## Step 3: Add an initial version of your product
 
 Your product might have several versions over its lifetime. Each version has a set of
 container images that are specific to that version. To add an initial version of your product,
 see [Adding a new version of your container product on AWS Marketplace](container-add-version.md "container-add-version.md").
 
-## Step 4: (For paid products only)
-
-Integrate metering or contract pricing
+## Step 4: (For paid products only) Integrate metering or contract pricing
 
 For container-based products with usage pricing, you use the [AWS Marketplace Metering Service](../../../marketplacemetering/latest/APIReference/Welcome.md "../../../marketplacemetering/latest/APIReference/Welcome.md") for both checking
 entitlement to use your product and metering usage for billing. You must meter for the pricing
-model that you created when setting your pricing information. For more information, see [Hourly and custom metering with
-AWS Marketplace Metering Service](container-products-billing-integration.md#entitlement-and-metering-for-paid-products "container-products-billing-integration.md#entitlement-and-metering-for-paid-products").
+model that you created when setting your pricing information. For more information, see [Hourly and custom metering with AWS Marketplace Metering Service](container-products-billing-integration.md#entitlement-and-metering-for-paid-products "container-products-billing-integration.md#entitlement-and-metering-for-paid-products").
 
 ### Contract pricing
 
 For container-based products with contract pricing, you use the
 AWS License Manager to associate licenses with your product.
 
-For more information about integrating with AWS License Manager, see [Contract pricing for container products
-with AWS License Manager](container-license-manager-integration.md "container-license-manager-integration.md").
+For more information about integrating with AWS License Manager, see [Contract pricing for container products with AWS License Manager](container-license-manager-integration.md "container-license-manager-integration.md").
 
 ## Step 5: Update product visibility
 
@@ -182,8 +165,7 @@ For more information about product visibility and lifecycle, see [Product lifecy
 ###### Topics
 
 - [Update product visibility](#container-product-visibility "#container-product-visibility")
-- [Updating the allowlist of AWS account
-  IDs](#container-update-allowlist "#container-update-allowlist")
+- [Updating the allowlist of AWS account IDs](#container-update-allowlist "#container-update-allowlist")
 
 ### Update product visibility
 
@@ -206,9 +188,7 @@ the change request must go through an AWS Marketplace Seller Operations team app
 status** as **Under review**. When the request completes,
 the status becomes **Succeeded**.
 
-### Updating the allowlist of AWS account
-
-IDs
+### Updating the allowlist of AWS account IDs
 
 You can change the list of AWS account IDs that can view your product in a limited
 state. Allow-listed accounts display a Limited badge alongside the product version on the
@@ -234,12 +214,10 @@ product detail page.
 After you create a container product, you can use the information in the following topics
 to configure and manage it:
 
-- [Updating product information for
-  your container product on AWS Marketplace](update-container-product-info.md "update-container-product-info.md")
+- [Updating product information for your container product on AWS Marketplace](update-container-product-info.md "update-container-product-info.md")
 - [Adding a new version of your container product on AWS Marketplace](container-add-version.md "container-add-version.md")
 - [Managing container product pricing on AWS Marketplace](container-pricing.md "container-pricing.md")
-- [Updating container product availability by
-  country in AWS Marketplace](container-update-offer-avail-country.md "container-update-offer-avail-country.md")
+- [Updating container product availability by country in AWS Marketplace](container-update-offer-avail-country.md "container-update-offer-avail-country.md")
 - [Updating your end-user license agreement (EULA) for container products on AWS Marketplace](container-update-eula.md "container-update-eula.md")
 - [Testing and releasing your container product on AWS Marketplace](test-release-product.md "test-release-product.md")
 

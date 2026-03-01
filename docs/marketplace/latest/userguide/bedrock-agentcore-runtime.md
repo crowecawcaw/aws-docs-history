@@ -415,8 +415,7 @@ For more information, see the following:
 
 - [What is Amazon Bedrock AgentCore?](../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md "../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md")
 - [What is AWS Marketplace?](what-is-marketplace.md "what-is-marketplace.md")
-- [Getting started with container
-  products](container-product-getting-started.md "container-product-getting-started.md")
+- [Getting started with container products](container-product-getting-started.md "container-product-getting-started.md")
 
 ## Support for AgentCore Runtime on AWS Marketplace
 

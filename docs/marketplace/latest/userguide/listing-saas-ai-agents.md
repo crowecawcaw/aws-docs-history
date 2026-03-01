@@ -11,12 +11,9 @@ To sell software as a SaaS API-based AI agent or tools products in AWS Marketpla
   - For information about contract with pay-as-you-go products, see [Integrating your SaaS contract-based product with AWS Marketplace](saas-integrate-contract-with-pay.md "saas-integrate-contract-with-pay.md").
 
 - Test your product's integration:
-  - For information about testing subscription-based products, see [Testing your SaaS subscription
-    product integration](saas-integrate-subscription.md#saas-subscription-integration-testing "saas-integrate-subscription.md#saas-subscription-integration-testing").
-  - For information about testing contract-based products, see [Testing your SaaS contract product
-    integration](saas-integrate-contract.md#saas-contract-integration-testing "saas-integrate-contract.md#saas-contract-integration-testing").
-  - For information about testing contract with pay-as-you-go products, see [Testing your SaaS contract
-    with pay-as-you-go integration](saas-integrate-contract-with-pay.md#saas-contract-consumption-integration-testing "saas-integrate-contract-with-pay.md#saas-contract-consumption-integration-testing").
+  - For information about testing subscription-based products, see [Testing your SaaS subscription product integration](saas-integrate-subscription.md#saas-subscription-integration-testing "saas-integrate-subscription.md#saas-subscription-integration-testing").
+  - For information about testing contract-based products, see [Testing your SaaS contract product integration](saas-integrate-contract.md#saas-contract-integration-testing "saas-integrate-contract.md#saas-contract-integration-testing").
+  - For information about testing contract with pay-as-you-go products, see [Testing your SaaS contract with pay-as-you-go integration](saas-integrate-contract-with-pay.md#saas-contract-consumption-integration-testing "saas-integrate-contract-with-pay.md#saas-contract-consumption-integration-testing").
 
 - Submit your product for launch.
 

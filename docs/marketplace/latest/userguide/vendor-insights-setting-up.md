@@ -8,8 +8,7 @@ software as a service (SaaS) listing.
 1. [Create a security profile](#create-security-profile "#create-security-profile").
 2. (Optional) [Upload a certification](#upload-certification "#upload-certification").
 3. [Upload a self-assessment](#upload-self-assessment "#upload-self-assessment").
-4. (Optional) [Enable AWS Audit Manager automated
-   assessments](#enable-audit-manager-assessments "#enable-audit-manager-assessments").
+4. (Optional) [Enable AWS Audit Manager automated assessments](#enable-audit-manager-assessments "#enable-audit-manager-assessments").
 
 ## Create a security profile
 
@@ -173,9 +172,7 @@ The status is updated to one of the following:
      the system validation failed for one or more reasons. For details about the validation
      error, refer to the status message.
 
-## Enable AWS Audit Manager automated
-
-assessments
+## Enable AWS Audit Manager automated assessments
 
 AWS Marketplace Vendor Insights uses multiple AWS services to automatically gather evidence for your security
 profile.
@@ -275,9 +272,7 @@ AWS Marketplace Vendor Insights setup requires that you use the following CloudF
   the data on your AWS Marketplace Vendor Insights profile. Create this stack in both your seller account and
   production accounts that are hosting your SaaS solution through StackSets.
 
-#### Create the
-
-VendorInsightsPrerequisiteCFT stack
+#### Create the VendorInsightsPrerequisiteCFT stack
 
 By running the `VendorInsightsPrerequisiteCFT` CloudFormation stack, you set up
 IAM permissions to start onboarding stack sets.
@@ -311,9 +306,7 @@ note of the following roles that are created:
     * `AWSVendorInsightsOnboardingStackSetsAdmin`
     * `AWSVendorInsightsOnboardingStackSetsExecution`
 
-#### Create the
-
-VendorInsightsOnboardingCFT stack set
+#### Create the VendorInsightsOnboardingCFT stack set
 
 By running the `VendorInsightsOnboardingCFT` CloudFormation stack set, you set
 up the required AWS services and configure the appropriate IAM permissions. This

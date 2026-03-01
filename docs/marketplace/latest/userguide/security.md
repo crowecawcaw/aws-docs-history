@@ -29,8 +29,7 @@ the following topics:
 
 - [AMI-based product requirements for AWS Marketplace](product-and-ami-policies.md "product-and-ami-policies.md")
 - [Container-based product requirements for AWS Marketplace](container-product-policies.md "container-product-policies.md")
-- [Requirements and best practices for
-  creating machine learning products](ml-listing-requirements-and-best-practices.md "ml-listing-requirements-and-best-practices.md")
+- [Requirements and best practices for creating machine learning products](ml-listing-requirements-and-best-practices.md "ml-listing-requirements-and-best-practices.md")
 - [SaaS product guidelines for AWS Marketplace](saas-guidelines.md "saas-guidelines.md")
 - [Requirements for professional services products on AWS Marketplace](proserv-product-guidelines.md "proserv-product-guidelines.md")
 
@@ -44,16 +43,11 @@ _AWS Marketplace Buyer Guide_.
 
 ###### Topics
 
-- [Controlling access to
-  AWS Marketplace Management Portal](marketplace-management-portal-user-access.md "marketplace-management-portal-user-access.md")
-- [Policies and permissions for AWS Marketplace
-  sellers](detailed-management-portal-permissions.md "detailed-management-portal-permissions.md")
+- [Controlling access to AWS Marketplace Management Portal](marketplace-management-portal-user-access.md "marketplace-management-portal-user-access.md")
+- [Policies and permissions for AWS Marketplace sellers](detailed-management-portal-permissions.md "detailed-management-portal-permissions.md")
 - [AWS managed policies for AWS Marketplace sellers](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [AWS Marketplace Commerce Analytics Service account permissions](set-aws-iam-cas-permissions.md "set-aws-iam-cas-permissions.md")
 - [Amazon SQS permissions](set-aws-iam-sqs-permissions.md "set-aws-iam-sqs-permissions.md")
-- [AWS Marketplace metering and entitlement
-  API permissions](iam-user-policy-for-aws-marketplace-actions.md "iam-user-policy-for-aws-marketplace-actions.md")
-- [Using service-linked roles for Resale Authorization
-  with AWS Marketplace](using-roles-for-resale-authorization.md "using-roles-for-resale-authorization.md")
-- [Logging AWS Marketplace API calls with
-  AWS CloudTrail](cloudtrail-logging.md "cloudtrail-logging.md")
+- [AWS Marketplace metering and entitlement API permissions](iam-user-policy-for-aws-marketplace-actions.md "iam-user-policy-for-aws-marketplace-actions.md")
+- [Using service-linked roles for Resale Authorization with AWS Marketplace](using-roles-for-resale-authorization.md "using-roles-for-resale-authorization.md")
+- [Logging AWS Marketplace API calls with AWS CloudTrail](cloudtrail-logging.md "cloudtrail-logging.md")

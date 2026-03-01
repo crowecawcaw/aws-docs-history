@@ -31,8 +31,7 @@ more information, see [AMI-based product delivery methods](ami-products.md#ami-p
 
 For paid products, buyers are billed for the number of installed instances. To meter
 on a different dimension that your software tracks, such as the number of product users,
-integrate your product with the AWS Marketplace Metering Service. For more information, see [Configuring custom metering for AMI products with
-AWS Marketplace Metering Service](custom-metering-with-mp-metering-service.md "custom-metering-with-mp-metering-service.md").
+integrate your product with the AWS Marketplace Metering Service. For more information, see [Configuring custom metering for AMI products with AWS Marketplace Metering Service](custom-metering-with-mp-metering-service.md "custom-metering-with-mp-metering-service.md").
 
 When you create your product and the first version of your software, it's initially
 published in a limited scope so that only your account can access it. When you're ready,
@@ -137,8 +136,7 @@ As a seller, your software can get the product code for the running Amazon Elast
 instance at runtime from the instance metadata. You can use the product code for extra
 security, such as validating the product code at product start. You can't make API calls
 to an AMI's product code until the product has been published into a limited state for
-testing. For more information about verifying the product code, see [Verifying your software is running on your AWS Marketplace
-AMI](best-practices-for-building-your-amis.md#verifying-ami-runtime "best-practices-for-building-your-amis.md#verifying-ami-runtime") .
+testing. For more information about verifying the product code, see [Verifying your software is running on your AWS Marketplace AMI](best-practices-for-building-your-amis.md#verifying-ami-runtime "best-practices-for-building-your-amis.md#verifying-ami-runtime") .
 
 ## Change requests
 

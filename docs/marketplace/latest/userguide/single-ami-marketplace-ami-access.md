@@ -1,6 +1,4 @@
-# Giving AWS Marketplace access to your
-
-AMI
+# Giving AWS Marketplace access to your AMI
 
 When you create a request that includes adding a new Amazon Machine Image (AMI) to
 AWS Marketplace, the AMI must be copied into the AWS Marketplace system and then scanned for security
@@ -41,9 +39,7 @@ form _arn:aws:iam::123456789012:role/exampleRole_. Use the ARN for the
 when [adding a new version](single-ami-versions.md#single-ami-adding-version "single-ami-versions.md#single-ami-adding-version") to your
 product.
 
-## Giving AWS Marketplace access to your
-
-FPGA images
+## Giving AWS Marketplace access to your FPGA images
 
 If your AMI includes FPGA images (AFIs), you must also grant AWS Marketplace additional
 permissions to access and manage these FPGA images. In addition to the

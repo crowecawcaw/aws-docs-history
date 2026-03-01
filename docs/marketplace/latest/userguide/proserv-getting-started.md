@@ -1,6 +1,4 @@
-# Getting started with professional services
-
-products in AWS Marketplace
+# Getting started with professional services products in AWS Marketplace
 
 As a seller, you can offer professional services to AWS Marketplace buyers. Professional services
 include services to assess, migrate, support, manage, and train others in how to use AWS
@@ -31,8 +29,7 @@ prerequisites:
 
 - Have access to the AWS Marketplace Management Portal. This is the tool that you use to register as a
   seller and manage the products that you sell on AWS Marketplace. To learn more about
-  getting access to the AWS Marketplace Management Portal, see [Policies and permissions for AWS Marketplace
-  sellers](detailed-management-portal-permissions.md "detailed-management-portal-permissions.md").
+  getting access to the AWS Marketplace Management Portal, see [Policies and permissions for AWS Marketplace sellers](detailed-management-portal-permissions.md "detailed-management-portal-permissions.md").
 - Register as an AWS Marketplace seller and submit your tax and banking information. You
   must provide a non-UK bank account to receive disbursements. To learn more about
   becoming an seller, see [Getting started as an AWS Marketplace seller](user-guide-for-sellers.md "user-guide-for-sellers.md").
@@ -64,8 +61,7 @@ the AWS Marketplace Management Portal.
    **Create professional services product**.
 4. On the **Create product** page, provide the information for
    your product, and select **Submit**. For more information about
-   the details that you must provide, see [Providing details for a professional services
-   product in AWS Marketplace](proserv-product-details.md "proserv-product-details.md").
+   the details that you must provide, see [Providing details for a professional services product in AWS Marketplace](proserv-product-details.md "proserv-product-details.md").
 5. (Optional) From the **Products** menu of AWS Marketplace Management Portal, select
    **Professional services**, then choose the
    **Requests** tab. Verify that you see your product request
@@ -176,8 +172,7 @@ professional services product in the AWS Marketplace Management Portal.
    **Request changes** menu, select **Update product
    information**.
 4. Make the changes to the details. For more information about the fields you can
-   edit, see [Providing details for a professional services
-   product in AWS Marketplace](proserv-product-details.md "proserv-product-details.md").
+   edit, see [Providing details for a professional services product in AWS Marketplace](proserv-product-details.md "proserv-product-details.md").
 5. Select **Submit** to create the request.
 6. (Optional) If you are not already on the **Requests** tab of
    the **Professional services** page, then from the
@@ -213,8 +208,7 @@ or remove previously created dimensions, contact the [AWS Marketplace
 Seller Operations team](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") with your request. In your request,
 include the product ID and details about what dimensions you want to change
 or remove. 4. Add any new pricing dimensions that you want. For more information about the
-pricing fields, see [Providing details for a professional services
-product in AWS Marketplace](proserv-product-details.md "proserv-product-details.md"). 5. Select **Submit** to create the request. 6. (Optional) From the **Products** menu of AWS Marketplace Management Portal, select
+pricing fields, see [Providing details for a professional services product in AWS Marketplace](proserv-product-details.md "proserv-product-details.md"). 5. Select **Submit** to create the request. 6. (Optional) From the **Products** menu of AWS Marketplace Management Portal, select
 **Professional services**, then choose the
 **Requests** tab. Verify that you see your request with the
 correct **Product title**, and that the **Request

@@ -1,6 +1,4 @@
-# Creating your Amazon SageMaker AI
-
-resource
+# Creating your Amazon SageMaker AI resource
 
 To publish a model package or an algorithm product, you must create the respective [model package resource](ml-creating-your-amazon-sagemaker-resource.md#ml-creating-your-model-package-product "ml-creating-your-amazon-sagemaker-resource.md#ml-creating-your-model-package-product") or [algorithm resource](ml-creating-your-amazon-sagemaker-resource.md#ml-creating-your-algorithm-product "ml-creating-your-amazon-sagemaker-resource.md#ml-creating-your-algorithm-product") in Amazon SageMaker AI. When you create your resource for an AWS Marketplace
 product, it must be certified through a validation step. The validation step requires that you
@@ -44,8 +42,7 @@ The following procedures step you through creating the model package resources.
 1. Open the
    [Amazon SageMaker AI console](https://us-east-2.console.aws.amazon.com/sagemaker/home "https://us-east-2.console.aws.amazon.com/sagemaker/home").
 2. Ensure that you are in the AWS Region that you want to publish from by looking
-   at the top right of the page. For publishing, see the [Supported AWS Regions for
-   publishing](ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing "ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing") section. The inference
+   at the top right of the page. For publishing, see the [Supported AWS Regions for publishing](ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing "ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing") section. The inference
    image you uploaded to Amazon ECR in previous steps must be in the same Region.
 3. In the left navigation menu, choose **Model packages**.
 4. Choose **Create model package**.
@@ -114,8 +111,7 @@ the validation succeeds, the status changes to **Completed**.
 The validation step does not evaluate the accuracy of the model with your test
 data. The validation step checks if the container runs and responds as expected.
 
-You have completed creating your model product resources. Continue to [Listing your product in
-AWS Marketplace](ml-publishing-your-product-in-aws-marketplace.md "ml-publishing-your-product-in-aws-marketplace.md").
+You have completed creating your model product resources. Continue to [Listing your product in AWS Marketplace](ml-publishing-your-product-in-aws-marketplace.md "ml-publishing-your-product-in-aws-marketplace.md").
 
 ## Creating your algorithm
 
@@ -140,8 +136,7 @@ package.
 
 1. Open the [Amazon SageMaker AI console](https://us-east-2.console.aws.amazon.com/sagemaker/home "https://us-east-2.console.aws.amazon.com/sagemaker/home").
 2. Ensure that you are in the AWS Region that you want to publish from by looking at
-   the top right of the page (see [Supported AWS Regions for
-   publishing](ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing "ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing")). The training and inference
+   the top right of the page (see [Supported AWS Regions for publishing](ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing "ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing")). The training and inference
    images you uploaded to Amazon ECR in previous steps must be in this same Region.
 3. In the left navigation menu, choose **Algorithms**.
 4. Choose **Create algorithm**.
@@ -250,5 +245,4 @@ your test data. The validation step checks if the containers run and respond as 
 The validation step only validates batch processing. It is up to you to validate that
 real-time processing works with your product.
 
-You have completed creating your algorithm product resources. Continue to [Listing your product in
-AWS Marketplace](ml-publishing-your-product-in-aws-marketplace.md "ml-publishing-your-product-in-aws-marketplace.md").
+You have completed creating your algorithm product resources. Continue to [Listing your product in AWS Marketplace](ml-publishing-your-product-in-aws-marketplace.md "ml-publishing-your-product-in-aws-marketplace.md").

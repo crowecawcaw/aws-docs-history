@@ -56,8 +56,7 @@ For more information about tax inheritance in AWS Organizations, see [Managing t
 
 For security best practices, we recommend using AWS Identity and Access Management (IAM) roles to sign in to the AWS Marketplace Management Portal rather than using your root account credentials. For comprehensive security guidance, see [AWS Marketplace security](security.md "security.md").
 
-You can also configure your account to allow multiple users with different permissions to access the AWS Marketplace Management Portal. For more information about setting up user access, see [Controlling access to
-AWS Marketplace Management Portal](marketplace-management-portal-user-access.md "marketplace-management-portal-user-access.md").
+You can also configure your account to allow multiple users with different permissions to access the AWS Marketplace Management Portal. For more information about setting up user access, see [Controlling access to AWS Marketplace Management Portal](marketplace-management-portal-user-access.md "marketplace-management-portal-user-access.md").
 
 ## Setting up communications
 

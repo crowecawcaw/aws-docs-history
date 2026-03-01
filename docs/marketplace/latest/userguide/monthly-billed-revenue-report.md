@@ -23,8 +23,7 @@ that we collected.
 
 This report is available on the AWS Marketplace Management Portal under the **Reports** tab. If
 you're enrolled in the AWS Marketplace commerce analytics service, you can use API calls to pull down
-sections of this report. For more information, see [Accessing product and customer data with the
-AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md").
+sections of this report. For more information, see [Accessing product and customer data with the AWS Marketplace Commerce Analytics Service](commerce-analytics-service.md "commerce-analytics-service.md").
 
 ###### Note
 
@@ -46,18 +45,12 @@ through April 30 at 23:59 UTC.
 
 ###### Topics
 
-- [Section 1: Billing and revenue
-  data](#section-1-billing-and-revenue-data "#section-1-billing-and-revenue-data")
-- [Section 2: Variable length
-  subscriptions](#section-2-annual-subscriptions-1 "#section-2-annual-subscriptions-1")
-- [Section 3: AWS field demonstration
-  usage](#section-3-aws-field-demonstration-usage "#section-3-aws-field-demonstration-usage")
-- [Section 4: Contracts with
-  flexible payment schedule](#section-4-contracts-with-flexible-payments "#section-4-contracts-with-flexible-payments")
+- [Section 1: Billing and revenue data](#section-1-billing-and-revenue-data "#section-1-billing-and-revenue-data")
+- [Section 2: Variable length subscriptions](#section-2-annual-subscriptions-1 "#section-2-annual-subscriptions-1")
+- [Section 3: AWS field demonstration usage](#section-3-aws-field-demonstration-usage "#section-3-aws-field-demonstration-usage")
+- [Section 4: Contracts with flexible payment schedule](#section-4-contracts-with-flexible-payments "#section-4-contracts-with-flexible-payments")
 
-## Section 1: Billing and revenue
-
-data
+## Section 1: Billing and revenue data
 
 This section lists data for usage billing, refunds, fees, and US sales and use tax that
 is collected.
@@ -92,9 +85,7 @@ is collected.
 | Payer Reference ID                    | A unique identifier that isn't the account ID. It's associated with the account<br>that fees are billed to. It helps with tracking usage, revenue, and subscriptions by<br>customers across all of the AWS Marketplace financial reports.                              |
 | Payer Address ID                      | A unique identifier that represents the customer's address.                                                                                                                                                                                                            |
 
-## Section 2: Variable length
-
-subscriptions
+## Section 2: Variable length subscriptions
 
 This section lists data for fee-based charges.
 
@@ -134,9 +125,7 @@ This section lists data for fee-based charges.
 | Payer Reference ID                    | A unique identifier that isn't the account ID. It's associated with the account<br>that fees are billed to. It helps with tracking usage, revenue, and subscriptions by<br>customers across all of the AWS Marketplace financial reports.                              |
 | Payer Address ID                      | A unique identifier that represents the customer's address.                                                                                                                                                                                                            |
 
-## Section 3: AWS field demonstration
-
-usage
+## Section 3: AWS field demonstration usage
 
 The section lists data for AWS [field demonstration usage](field-demonstration-program.md "field-demonstration-program.md") of your product. You can
 configure your product to allow us to demonstrate your product to potential customers. Any
@@ -150,9 +139,7 @@ usage from the demonstrations is listed here.
 | Usage Units      | The number of units of usage that is associated with the product.                     |
 | Usage Unit Types | The usage units that are associated with the usage unit count: for example,<br>hours. |
 
-## Section 4: Contracts with
-
-flexible payment schedule
+## Section 4: Contracts with flexible payment schedule
 
 This section lists data for all contracts that you created with a flexible payment
 schedule in the previous reporting period.

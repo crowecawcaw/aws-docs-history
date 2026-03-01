@@ -13,17 +13,12 @@ architectural diagram for each template.
 
 ###### Topics
 
-- [Preparing your CloudFormation
-  template](#aws-cloudformation-template-preparation "#aws-cloudformation-template-preparation")
+- [Preparing your CloudFormation template](#aws-cloudformation-template-preparation "#aws-cloudformation-template-preparation")
 - [Architectural diagram](#topology-diagram "#topology-diagram")
-- [Convert CloudFormation templates of
-  existing products](#convert-cloudformation-templates "#convert-cloudformation-templates")
-- [Adding serverless application
-  components](cloudformation-serverless-application.md "cloudformation-serverless-application.md")
+- [Convert CloudFormation templates of existing products](#convert-cloudformation-templates "#convert-cloudformation-templates")
+- [Adding serverless application components](cloudformation-serverless-application.md "cloudformation-serverless-application.md")
 
-## Preparing your CloudFormation
-
-template
+## Preparing your CloudFormation template
 
 To build your CloudFormation templates, you must meet the template prerequisites and provide
 the required input and security parameters. When submitting your CloudFormation template, use the
@@ -62,8 +57,7 @@ guidelines in the following sections.
 
 If you create an **Amazon Machine Image (AMI) or AMI with
 CloudFormation** on the [server products](https://aws.amazon.com//marketplace/management/products/server "https://aws.amazon.com//marketplace/management/products/server") page of the seller portal and are prompted to
-download the [product load form](product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product"), see [Requirements for AMI details using the
-product load form](#ami-requirements-product-load-form "#ami-requirements-product-load-form") instead.
+download the [product load form](product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product"), see [Requirements for AMI details using the product load form](#ami-requirements-product-load-form "#ami-requirements-product-load-form") instead.
 
 When specifying the `ImageId` property of resources that deploy your AMI to
 EC2 instances such as [AWS::EC2::Instance](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.md"), [AWS::AutoScaling::LaunchConfiguration](../../../AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.md"), and [AWS::EC2::LaunchTemplate](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.md") resources, you must reference a
@@ -123,9 +117,7 @@ dynamically inherit its value from the root stack. Edit your root and nested sta
 in the root stack, setting the value of your template parameter overrides the AMI ID used in
 this nested stack.
 
-### Requirements for AMI details using the
-
-product load form
+### Requirements for AMI details using the product load form
 
 ###### Note
 
@@ -160,9 +152,7 @@ Resources:
         - ImageId
 ```
 
-### Requirements for nested stack
-
-templates
+### Requirements for nested stack templates
 
 ###### Note
 
@@ -369,9 +359,7 @@ The diagram must meet the following criteria:
 - Diagrams must be 1100 x 700 pixels in size. Maintain original diagram proportions
   without stretching or cropping.
 
-## Convert CloudFormation templates of
-
-existing products
+## Convert CloudFormation templates of existing products
 
 ###### Note
 
@@ -381,8 +369,7 @@ without using the product load form. If you are publishing a new product, see [P
 
 If you create an **Amazon Machine Image (AMI) or AMI with
 CloudFormation** on the [server products](https://aws.amazon.com//marketplace/management/products/server "https://aws.amazon.com//marketplace/management/products/server") page of the seller portal and are prompted to
-download the [product load form](product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product"), see [Requirements for AMI details using the
-product load form](#ami-requirements-product-load-form "#ami-requirements-product-load-form").
+download the [product load form](product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product"), see [Requirements for AMI details using the product load form](#ami-requirements-product-load-form "#ami-requirements-product-load-form").
 
 If you want to use the self-service experience to update an existing product that
 previously used the [product load form](product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product "product-submission.md#aws-cloudformation-launched-product-free-or-paid-or-usage-based-paid-ami-product") to publish, you must make changes to your existing CloudFormation
@@ -391,10 +378,10 @@ template.
 The following table describes the difference between using the product load form and the
 self-service experience:
 
-|                                                          | Product load form                                                                                                                                                                                                           | Self-service experience                                                                                                                                                                                                                         |
-| -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Value of `ImageId` property for EC2<br>resources**     | References a \*_mapping table_<br>• for your AMI ID. For<br>more information, see [Requirements for AMI details using the<br>product load form](#ami-requirements-product-load-form "#ami-requirements-product-load-form"). | References a \*_template parameter_<br>• for your AMI ID.<br>For more information, see [Requirements for AMI details](#ami-requirements-sse "#ami-requirements-sse").                                                                           |
-| **Value of `TemplateURL` property for nested<br>stacks** | Must be a fixed string and can't use intrinsic functions.                                                                                                                                                                   | Can be dynamic by using intrinsic functions. Must reference a set of **template parameters**. For more information, see [Requirements for nested stack<br>templates](#nested-stack-template-requirements "#nested-stack-template-requirements") |
+|                                                          | Product load form                                                                                                                                                                                                        | Self-service experience                                                                                                                                                                                                                      |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Value of `ImageId` property for EC2<br>resources**     | References a \*_mapping table_<br>• for your AMI ID. For<br>more information, see [Requirements for AMI details using the product load form](#ami-requirements-product-load-form "#ami-requirements-product-load-form"). | References a \*_template parameter_<br>• for your AMI ID.<br>For more information, see [Requirements for AMI details](#ami-requirements-sse "#ami-requirements-sse").                                                                        |
+| **Value of `TemplateURL` property for nested<br>stacks** | Must be a fixed string and can't use intrinsic functions.                                                                                                                                                                | Can be dynamic by using intrinsic functions. Must reference a set of **template parameters**. For more information, see [Requirements for nested stack templates](#nested-stack-template-requirements "#nested-stack-template-requirements") |
 
 The following example templates illustrate an example of an existing product that used the
 product load form to publish the template. In this example, the AMI ID is

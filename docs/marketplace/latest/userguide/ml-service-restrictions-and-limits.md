@@ -1,6 +1,4 @@
-# Service restrictions and quotas for machine
-
-learning products in AWS Marketplace
+# Service restrictions and quotas for machine learning products in AWS Marketplace
 
 This section describes restrictions and quotas on your machine learning (ML) products in
 AWS Marketplace.
@@ -19,8 +17,7 @@ AWS Marketplace.
 - [Managed spot training](#ml-managed-spot-training "#ml-managed-spot-training")
 - [Docker images and AWS accounts](#ml-docker-images-and-aws-accounts "#ml-docker-images-and-aws-accounts")
 - [Publishing model packages from built-in algorithms or AWS Marketplace](#ml-publishing-model-packages-from-built-in-algorithms-or-aws-marketplace "#ml-publishing-model-packages-from-built-in-algorithms-or-aws-marketplace")
-- [Supported AWS Regions for
-  publishing](#ml-supported-aws-regions-for-publishing "#ml-supported-aws-regions-for-publishing")
+- [Supported AWS Regions for publishing](#ml-supported-aws-regions-for-publishing "#ml-supported-aws-regions-for-publishing")
 
 ## Network isolation
 
@@ -104,9 +101,7 @@ For publishing, images must be stored in Amazon ECR repositories owned by the AW
 the seller. It isn't possible to publish images that are stored in a repository owned by
 another AWS account.
 
-##
-
-Publishing model packages from built-in algorithms or AWS Marketplace
+## Publishing model packages from built-in algorithms or AWS Marketplace
 
 Model packages created from training jobs using an [Amazon SageMaker AI built-in algorithm](../../../sagemaker/latest/dg/algos.md "../../../sagemaker/latest/dg/algos.md") or an algorithm
 from an AWS Marketplace subscription can't be published.
@@ -114,9 +109,7 @@ from an AWS Marketplace subscription can't be published.
 You can still use the model artifacts from the training job, but your own inference image
 is required for publishing model packages.
 
-## Supported AWS Regions for
-
-publishing
+## Supported AWS Regions for publishing
 
 AWS Marketplace supports publishing model package and algorithm resources from AWS Regions where
 the following are both true:

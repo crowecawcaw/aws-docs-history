@@ -1,6 +1,4 @@
-# Policies and permissions for AWS Marketplace
-
-sellers
+# Policies and permissions for AWS Marketplace sellers
 
 AWS Marketplace provides a set of managed policies for use with the AWS Marketplace Management Portal. In addition, you can
 use individual permissions to create your own AWS Identity and Access Management (IAM) policy.
@@ -212,9 +210,7 @@ must use either the `AWSMarketplaceSellerProductsFullAccess` or
 You can combine the preceding permissions into a single IAM policy to grant the
 permissions that you want. See the following examples.
 
-## Example 1: Permissions to view the KYC
-
-status
+## Example 1: Permissions to view the KYC status
 
 To grant permissions to view KYC status in the AWS Marketplace Management Portal, use a policy similar to the
 following example.
@@ -237,9 +233,7 @@ JSON
 
 ```
 
-## Example 2: Permissions to create upgrades
-
-and renewals for private offers
+## Example 2: Permissions to create upgrades and renewals for private offers
 
 To grant permissions to view and use the **Agreements** page to create
 upgrades and renewals for private offers, use a policy similar to the following
@@ -277,9 +271,7 @@ JSON
 
 ```
 
-## Example 3: Permissions to access the Offers
-
-page and create new private offers
+## Example 3: Permissions to access the Offers page and create new private offers
 
 To grant permissions to view and use the **Offers** page to view existing
 private offers and create private offers, use a policy similar to the following
@@ -305,9 +297,7 @@ JSON
 
 ```
 
-## Example 4: Permissions to access the Settings
-
-page
+## Example 4: Permissions to access the Settings page
 
 To grant permissions to view and use the **Settings** page, use a policy
 similar to the following example.
@@ -332,9 +322,7 @@ JSON
 
 ```
 
-## Example 5: Permissions to access the File Upload
-
-page
+## Example 5: Permissions to access the File Upload page
 
 To grant permissions to view and use the **File Upload** page, use a
 policy similar to the following example.

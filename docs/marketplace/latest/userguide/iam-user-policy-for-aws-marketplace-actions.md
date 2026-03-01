@@ -1,6 +1,4 @@
-# AWS Marketplace metering and entitlement
-
-API permissions
+# AWS Marketplace metering and entitlement API permissions
 
 Software as a service (SaaS) products, Amazon Machine Image (AMI) products, and container
 products can use the AWS Marketplace Metering Service and AWS Marketplace Entitlement Service APIs. Each type requires different AWS Identity and Access Management
@@ -15,8 +13,7 @@ integration.
 
 - [IAM policy for SaaS products](#iam-user-policy-for-saas-products "#iam-user-policy-for-saas-products")
 - [IAM policy for AMI products](#iam-user-policy-for-ami-products "#iam-user-policy-for-ami-products")
-- [IAM policy for container
-  products](#iam-user-policy-for-container-products "#iam-user-policy-for-container-products")
+- [IAM policy for container products](#iam-user-policy-for-container-products "#iam-user-policy-for-container-products")
 
 ## IAM policy for SaaS products
 
@@ -72,9 +69,7 @@ JSON
 
 For more information about AMI products, see [AMI-based products in AWS Marketplace](ami-products.md "ami-products.md").
 
-## IAM policy for container
-
-products
+## IAM policy for container products
 
 Use the following IAM policy for container products.
 

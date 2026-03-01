@@ -63,9 +63,7 @@ have entries in the tax item data feed. This means that, beginning August 5, 202
 AWS_TAX_SHARE and SELLER_TAX_SHARE record in the billing event data feed is expected to have a
 corresponding record in the tax item data feed.
 
-## Example of tax item data
-
-feed
+## Example of tax item data feed
 
 The following shows an example of the tax item data feed. In the data feed, this
 information is presented in a single table. For readability, the data is shown in multiple

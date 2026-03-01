@@ -6,9 +6,7 @@ allow you to set a total contract amount when creating a private offer. Once buy
 contract, you send payment requests, up to the total contract amount, over the duration of the
 contract.
 
-## Creating a private offer with variable
-
-payment
+## Creating a private offer with variable payment
 
 ###### To create a private offer with variable payment
 

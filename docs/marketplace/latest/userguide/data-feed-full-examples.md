@@ -11,10 +11,8 @@ need.
 - [Billed revenue](#data-feed-example-billed-revenue "#data-feed-example-billed-revenue")
 - [Uncollected or disbursed invoices](#data-feed-example-collections "#data-feed-example-collections")
 - [Taxed invoices](#data-feed-example-tax "#data-feed-example-tax")
-- [Disbursements by
-  product](#data-feed-example-disbursement-by-product "#data-feed-example-disbursement-by-product")
-- [Sales compensation
-  report](#data-feed-example-sales-compensation "#data-feed-example-sales-compensation")
+- [Disbursements by product](#data-feed-example-disbursement-by-product "#data-feed-example-disbursement-by-product")
+- [Sales compensation report](#data-feed-example-sales-compensation "#data-feed-example-sales-compensation")
 
 ## Agreements and renewals
 
@@ -4006,9 +4004,7 @@ where invoice_date >= date_add('DAY', -90, current_date)
 
 ```
 
-## Disbursements by
-
-product
+## Disbursements by product
 
 To find the amounts disbursed by product, you can run a set of queries like the
 following. This example is comparable to the [Disbursement report](monthly-disbursement-report.md "monthly-disbursement-report.md") seller report.
@@ -4310,9 +4306,7 @@ disbursed_amount_by_product as (
 select * from disbursed_amount_by_product;
 ```
 
-## Sales compensation
-
-report
+## Sales compensation report
 
 To find the billed revenue by customer, you can run a set of queries like the following. This
 example is comparable to the [Sales compensation report](sales-compensation-report.md "sales-compensation-report.md") seller report. These example queries build on each other to create the final list of

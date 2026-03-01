@@ -29,12 +29,10 @@ When creating a private offer, you can set a custom payment schedule with an ins
    - **First invoice date**
 
 4. Choose **Generate installment plan**. You will receive an error message if an invoice date falls outside the duration of the contract.
-5. After you verify all invoice amounts and dates, confirm that the **Total amount due from buyer** matches the total price that you want your buyer to pay over the course of the private offer. To finish creating the private offer, complete the remaining steps in [Drafting and publishing the private
-   offer](creating-private-offer.md#drafting-and-publishing-private-offer "creating-private-offer.md#drafting-and-publishing-private-offer").
+5. After you verify all invoice amounts and dates, confirm that the **Total amount due from buyer** matches the total price that you want your buyer to pay over the course of the private offer. To finish creating the private offer, complete the remaining steps in [Drafting and publishing the private offer](creating-private-offer.md#drafting-and-publishing-private-offer "creating-private-offer.md#drafting-and-publishing-private-offer").
 
 After the buyer has accepted the private offer, they will be invoiced at 00:00 UTC on the invoice dates that you defined in the payment schedule. You receive the payment for each invoice after AWS Marketplace receives the payment from the buyer. Only one invoice date can occur before the offer acceptance date. If the private offer is accepted after the first invoice date in the payment schedule, the first invoice will be generated immediately after the offer is accepted. After your buyers are subscribed, they can see all the payments on the schedule and on their AWS invoice, helping them track their spending.
 
 ## Installment plan reporting
 
-Reporting for private offers with installment plans appears in section 4 of the monthly billed revenue report. For more information, see [Section 4: Contracts with
-flexible payment schedule](monthly-billed-revenue-report.md#section-4-contracts-with-flexible-payments "monthly-billed-revenue-report.md#section-4-contracts-with-flexible-payments").
+Reporting for private offers with installment plans appears in section 4 of the monthly billed revenue report. For more information, see [Section 4: Contracts with flexible payment schedule](monthly-billed-revenue-report.md#section-4-contracts-with-flexible-payments "monthly-billed-revenue-report.md#section-4-contracts-with-flexible-payments").
