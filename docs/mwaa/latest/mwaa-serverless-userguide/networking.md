@@ -32,7 +32,7 @@ This section describes the Amazon VPC infrastructure of a workflow with public r
   - The security groups **must** be part of the same VPC.
   - The security group **must** specify a self-referencing inbound rule to itself.
   - The security group **must** specify an outbound rule for all traffic (`0.0.0.0/0`; for IPv6, use `::/0`).
-  - The security group **must** allow all traffic in the self-referencing rule. For example, [(Recommended) Example all access self-referencing security group](networking-security.md#networking-security-sg-example "networking-security.md#networking-security-sg-example") .
+  - The security group **must** allow all traffic in the self-referencing rule. For example, [(Recommended) Example all access self-referencing security group](networking-security.md#networking-security-sg-example "networking-security.md#networking-security-sg-example").
 
 - **Two private subnets**. A private subnet is a subnet that's **not** associated with a route table that has a route to an internet gateway.
   - **Minimum 2** and **Minimum 16** subnets are supported in Amazon MWAA Serverless.

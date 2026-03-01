@@ -59,9 +59,7 @@ The following basic limitations apply to tags:
   as a prefix for either keys or values. These are reserved only for AWS
   use.
 
-## Working with tags using the AWS CLI and the
-
-Amazon MWAA Serverless API
+## Working with tags using the AWS CLI and the Amazon MWAA Serverless API
 
 Use the following AWS CLI commands or Amazon MWAA Serverless API operations to add, update,
 list, and delete the tags for your workflows.

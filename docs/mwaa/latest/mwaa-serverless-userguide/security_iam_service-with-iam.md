@@ -38,8 +38,7 @@ _IAM User Guide_.
 
 ### Identity-based policy examples for Amazon MWAA Serverless
 
-To view examples of Amazon MWAA Serverless identity-based policies, see [Identity-based policy
-examples for Amazon MWAA Serverless](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon MWAA Serverless identity-based policies, see [Identity-based policy examples for Amazon MWAA Serverless](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within Amazon MWAA Serverless
 
@@ -102,8 +101,7 @@ action:
 
 It is best practice to grant least privilege and use only the permissions required in a policy. Do **not** use wildcards to specify all of the actions for a service.
 
-To view examples of Amazon MWAA Serverless identity-based policies, see [Identity-based policy
-examples for Amazon MWAA Serverless](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon MWAA Serverless identity-based policies, see [Identity-based policy examples for Amazon MWAA Serverless](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy resources for Amazon MWAA Serverless
 
@@ -125,12 +123,9 @@ To see a list of Amazon MWAA Serverless resource types and their ARNs, refer to
 which actions you can specify the ARN of each resource, refer to
 [Actions Defined by Amazon MWAA Serverless](../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions "../../../IAM/latest/UserGuide/list_your_service.md#your_service-actions-as-permissions").
 
-To view examples of Amazon MWAA Serverless identity-based policies, see [Identity-based policy
-examples for Amazon MWAA Serverless](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon MWAA Serverless identity-based policies, see [Identity-based policy examples for Amazon MWAA Serverless](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Amazon MWAA Serverless
+## Policy condition keys for Amazon MWAA Serverless
 
 **Supports service-specific policy condition keys:**
 
@@ -147,8 +142,7 @@ _IAM User Guide_.
 
 Amazon MWAA Serverless supports global context keys and does not have its own set of condition keys.
 
-To view examples of Amazon MWAA Serverless identity-based policies, see [Identity-based policy
-examples for Amazon MWAA Serverless](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon MWAA Serverless identity-based policies, see [Identity-based policy examples for Amazon MWAA Serverless](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Amazon MWAA Serverless
 
@@ -182,9 +176,7 @@ resources, refer to [Tag a workflow](workflows-tags.md "workflows-tags.md").
 To view an example identity-based policy for limiting access to a resource based on
 the tags on that resource, refer to ADD LINK .
 
-## Using temporary
-
-credentials with Amazon MWAA Serverless
+## Using temporary credentials with Amazon MWAA Serverless
 
 **Supports temporary credentials:**
 
@@ -196,9 +188,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Amazon MWAA Serverless
+## Cross-service principal permissions for Amazon MWAA Serverless
 
 **Supports forward access sessions (FAS):**
 
@@ -207,9 +197,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon MWAA Serverless
+## Service roles for Amazon MWAA Serverless
 
 **Supports service roles:**
 
@@ -223,9 +211,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 
 Changing the permissions for a service role can break service functionality. The only service role supported by Amazon MWAA Serverless is the execution role. Changing permissions for an execution role can affect the workflow that is associated with it.
 
-## Service-linked
-
-roles for Amazon MWAA Serverless
+## Service-linked roles for Amazon MWAA Serverless
 
 **Supports service-linked roles:**
 

@@ -29,9 +29,7 @@ This policy includes the following permissions:
 To review the permissions for this policy, see [AmazonMWAAServerlessServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonMWAAServerlessServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonMWAAServerlessServiceRolePolicy.md")
 in the AWS Managed Policy Reference Guide.
 
-##
-
-Amazon MWAA Serverless updates to AWS managed policies
+## Amazon MWAA Serverless updates to AWS managed policies
 
 The following table provides details about updates to AWS managed policies for Amazon MWAA Serverless since this service began tracking these changes.
 For automatic alerts about updates to the policies, subscribe to the RSS feed on the Amazon MWAA Serverless

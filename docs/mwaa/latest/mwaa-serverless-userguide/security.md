@@ -34,6 +34,5 @@ to monitor and secure your Amazon MWAA Serverless resources.
 - [Compliance validation for Amazon MWAA Serverless](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon MWAA Serverless](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in Amazon MWAA Serverless](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Security best practices on Amazon MWAA Serverless](security-best-practices.md "security-best-practices.md")

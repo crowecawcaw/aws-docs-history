@@ -37,7 +37,7 @@ Amazon MWAA Serverless currently supports a specific set of [Apache Airflow oper
 - `KinesisAnalyticsV2StopApplicationOperator`: Stops an Amazon Managed Service for Apache Flink application.
 - `OpenSearchServerlessCollectionActiveSensor`: Polls the state of the collection until it reaches a terminal state; fails if the query fails.
 - `QuickSightCreateIngestionOperator`: Creates and starts a new SPICE ingestion for a dataset; also helps refresh existing SPICE datasets.
-- `QuickSightSensor`: Watches for an Amazon Quick Suite ingestion status.
+- `QuickSightSensor`: Watches for an Amazon Quick ingestion status.
 - `RedshiftClusterSensor`: Waits for an Amazon Redshift cluster to reach a specific status.
 - `RedshiftCreateClusterOperator`: Creates a new cluster with the specified parameters.
 - `RedshiftCreateClusterSnapshotOperator`: Creates a manual snapshot of the specified cluster; the cluster must be in the available state.
