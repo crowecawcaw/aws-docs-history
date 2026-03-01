@@ -5,8 +5,7 @@ To add models to your scene, use the following procedure.
 ###### Note
 
 To add models in your scene, you must first upload the models to the AWS IoT TwinMaker
-Resource Library. For more information, see [Upload resources to the AWS IoT TwinMaker Resource
-Library](scenes-using-resource-library.md "scenes-using-resource-library.md").
+Resource Library. For more information, see [Upload resources to the AWS IoT TwinMaker Resource Library](scenes-using-resource-library.md "scenes-using-resource-library.md").
 
 1. On the scene composer page, choose the plus (**+**) sign, and
    then choose **Add 3D model**.

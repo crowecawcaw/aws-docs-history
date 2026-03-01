@@ -167,9 +167,7 @@ use a tag that follows this pattern: `WorkspaceA/WorkspaceB/WorkspaceC`. The
 Grafana plugin enforces that the AWS IoT TwinMaker workspaceId is used to group AWS IoT SiteWise asset data
 ingestion.
 
-## Add more permissions to your dashboard
-
-policy
+## Add more permissions to your dashboard policy
 
 The AWS IoT TwinMaker Grafana plugin uses your authentication provider to call AssumeRole on
 the dashboard role you create. Internally, the plugin restricts the highest scope of

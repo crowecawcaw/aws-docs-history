@@ -1,6 +1,4 @@
-# Create and manage a service role for
-
-AWS IoT TwinMaker
+# Create and manage a service role for AWS IoT TwinMaker
 
 AWS IoT TwinMaker requires that you use a service role to allow it to access resources in other services on your behalf. This role must have a
 trust relationship with AWS IoT TwinMaker. When you create a workspace, you must assign this role to the workspace. This topic contains example
@@ -76,9 +74,7 @@ file when you delete the workspace.
 AWS IoT TwinMaker places other objects related to your workspace. It's your responsibility to delete
 these objects when you delete a workspace.
 
-## Assign permissions to a specific
-
-Amazon S3 bucket
+## Assign permissions to a specific Amazon S3 bucket
 
 When you create a workspace in the AWS IoT TwinMaker console, you can choose to have AWS IoT TwinMaker
 create an Amazon S3 bucket for you. You can find information about this bucket by using

@@ -13,8 +13,7 @@ workspace named `IoTSiteWiseDefaultWorkspace`.
 Before creating `IoTSiteWiseDefaultWorkspace`, make sure you have
 done the following:
 
-- Create an AWS IoT TwinMaker service-linked role. See [Using service-linked roles for
-  AWS IoT TwinMaker](using-service-linked-roles.md "using-service-linked-roles.md")
+- Create an AWS IoT TwinMaker service-linked role. See [Using service-linked roles for AWS IoT TwinMaker](using-service-linked-roles.md "using-service-linked-roles.md")
   for more information.
 - Open the IAM console at
   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

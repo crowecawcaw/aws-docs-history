@@ -13,8 +13,7 @@ To create your first workspace and scene, you need the following AWS resources.
 
 If you don't choose to let AWS IoT TwinMaker automatically create a new IAM service role, you must specify one that you have already created.
 
-For instructions on creating and managing this service role, see [Create and manage a service role for
-AWS IoT TwinMaker](twinmaker-gs-service-role.md "twinmaker-gs-service-role.md").
+For instructions on creating and managing this service role, see [Create and manage a service role for AWS IoT TwinMaker](twinmaker-gs-service-role.md "twinmaker-gs-service-role.md").
 
 For more information about IAM service roles, see [Creating a role to delegate
 permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md").
@@ -29,8 +28,7 @@ other AWS services, add the necessary permissions for those services as well.
 
 ###### Topics
 
-- [Create and manage a service role for
-  AWS IoT TwinMaker](twinmaker-gs-service-role.md "twinmaker-gs-service-role.md")
+- [Create and manage a service role for AWS IoT TwinMaker](twinmaker-gs-service-role.md "twinmaker-gs-service-role.md")
 - [Create a workspace](twinmaker-gs-workspace.md "twinmaker-gs-workspace.md")
 - [Create your first entity](twinmaker-gs-entity.md "twinmaker-gs-entity.md")
 - [Setting up an AWS account](set-up-aws-account.md "set-up-aws-account.md")

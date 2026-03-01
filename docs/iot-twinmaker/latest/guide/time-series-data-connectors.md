@@ -1,6 +1,4 @@
-# Developing AWS IoT TwinMaker time-series data
-
-connectors
+# Developing AWS IoT TwinMaker time-series data connectors
 
 This section explains how to develop a time-series data connector in a step-by-step
 process. Additionally, we present an example time-series data connector based of the
@@ -9,23 +7,17 @@ and connectors. The cookie factory sample source is available on the [AWS IoT Tw
 
 ###### Topics
 
-- [AWS IoT TwinMaker time-series data connector
-  prerequisites](#time-series-data-connectors-prereqs "#time-series-data-connectors-prereqs")
-- [Time-series data
-  connector background](#time-series-data-connectors-background "#time-series-data-connectors-background")
+- [AWS IoT TwinMaker time-series data connector prerequisites](#time-series-data-connectors-prereqs "#time-series-data-connectors-prereqs")
+- [Time-series data connector background](#time-series-data-connectors-background "#time-series-data-connectors-background")
 - [Developing a time-series data connector](#time-series-data-connectors-develop "#time-series-data-connectors-develop")
-- [Improving your data
-  connector](#time-series-data-connectors-improve "#time-series-data-connectors-improve")
+- [Improving your data connector](#time-series-data-connectors-improve "#time-series-data-connectors-improve")
 - [Testing your connector](#time-series-data-connectors-test "#time-series-data-connectors-test")
 - [Security](#time-series-data-connectors-security "#time-series-data-connectors-security")
 - [Creating AWS IoT TwinMaker resources](#time-series-data-connectors-resources "#time-series-data-connectors-resources")
 - [What's next](#time-series-data-connectors-wn "#time-series-data-connectors-wn")
-- [AWS IoT TwinMakercookie
-  factory example time-series connector](time-series-data-connectors-example.md "time-series-data-connectors-example.md")
+- [AWS IoT TwinMaker cookie factory example time-series connector](time-series-data-connectors-example.md "time-series-data-connectors-example.md")
 
-## AWS IoT TwinMaker time-series data connector
-
-prerequisites
+## AWS IoT TwinMaker time-series data connector prerequisites
 
 Before developing your time-series data connector, we recommend that you complete the
 following tasks:
@@ -46,9 +38,7 @@ following tasks:
 For an example of a fully implemented connector, see our cookie factory example
 implementation.
 
-## Time-series data
-
-connector background
+## Time-series data connector background
 
 Imagine you are working with a
 factory that has a set of cookie mixers and a water tank.
@@ -66,9 +56,7 @@ which is populated through the use of a time-series connector.
 The datasets and the Timestream table used in this screenshot are available in the [AWS IoT TwinMaker samples GitHub repository](https://github.com/aws-samples/aws-iot-twinmaker-samples "https://github.com/aws-samples/aws-iot-twinmaker-samples"). Also see the [cookie factory example connector](time-series-data-connectors-example.md "time-series-data-connectors-example.md")
 for the implementation, which produces the result shown in the preceding screenshot.
 
-### Time-series data
-
-connector data flow
+### Time-series data connector data flow
 
 For data plane queries, AWS IoT TwinMaker fetches the corresponding properties of both
 components and component types from components and component types definitions.
@@ -499,13 +487,9 @@ data points in total.
 
 For an example implementation, see [Snowflake connector sample](https://github.com/aws-samples/aws-iot-twinmaker-samples-snowflake/blob/main/src/modules/snowflake/data-connector/lambda_connectors/data_reader_by_entity.py "https://github.com/aws-samples/aws-iot-twinmaker-samples-snowflake/blob/main/src/modules/snowflake/data-connector/lambda_connectors/data_reader_by_entity.py") on GitHub.
 
-## Improving your data
+## Improving your data connector
 
-connector
-
-### Handling
-
-exceptions
+### Handling exceptions
 
 It is safe for the Lambda connector to throw exceptions. In the data plane API
 call, the AWS IoT TwinMaker service waits for the Lambda function to return a response. If
@@ -513,9 +497,7 @@ the connector implementation throws an exception, AWS IoT TwinMaker translates t
 exception type to be `ConnectorFailure`, making the API client aware
 that an issue happened inside the connector.
 
-### Handling
-
-pagination
+### Handling pagination
 
 In the example, Timestream provides a [utility function](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query.html#TimestreamQuery.Client.query "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query.html#TimestreamQuery.Client.query") which can help support pagination natively.
 However, for some other query interfaces, such as SQL, it might need extra

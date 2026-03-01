@@ -51,8 +51,7 @@ WHERE vav.entityName LIKE 'vav_%'
 ###### Note
 
 The knowledge graph syntax uses [PartiQL](https://partiql.org/ "https://partiql.org/"). For information on
-this syntax, see [AWS IoT TwinMaker knowledge graph additional
-resources](tm-knowledge-graph-resources.md "tm-knowledge-graph-resources.md"). 3. Choose **Run query** to run the request you created.
+this syntax, see [AWS IoT TwinMaker knowledge graph additional resources](tm-knowledge-graph-resources.md "tm-knowledge-graph-resources.md"). 3. Choose **Run query** to run the request you created.
 
 A graph is generated based on your request.
 
@@ -65,5 +64,4 @@ list. 5. Optionally, choose **Export as** to export
 the query results in JSON or CSV format.
 
 This covers the basic use of knowledge graph in the console. For more information
-and examples demonstrating the knowledge graph syntax, see [AWS IoT TwinMaker knowledge graph additional
-resources](tm-knowledge-graph-resources.md "tm-knowledge-graph-resources.md").
+and examples demonstrating the knowledge graph syntax, see [AWS IoT TwinMaker knowledge graph additional resources](tm-knowledge-graph-resources.md "tm-knowledge-graph-resources.md").

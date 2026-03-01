@@ -32,9 +32,7 @@ that are consistent with our API timestamp format.
 
 You can use the schema initializer in the component type or entity lifecycle to fetch the component type or component properties from the underlying data source. The schema initializer automatically imports component type or component properties without explicitly calling an API action to set up `properties`.
 
-### SchemaInitializer request
-
-interface
+### SchemaInitializer request interface
 
 ```
 {
@@ -54,9 +52,7 @@ interface
 The map of properties in this request interface is a `PropertyRequest`. For more information,
 see [PropertyRequest](../apireference/API_PropertyRequest.md "../apireference/API_PropertyRequest.md").
 
-### SchemaInitializer response
-
-interface
+### SchemaInitializer response interface
 
 ```
 {
@@ -81,9 +77,7 @@ values of properties in a single component.
 For information about the property types, syntax, and format of this connector, see
 the [GetPropertyValueHistory](../apireference/API_GetPropertyValueHistory.md "../apireference/API_GetPropertyValueHistory.md") API action.
 
-### DataReaderByEntity
-
-request interface
+### DataReaderByEntity request interface
 
 ```
 {
@@ -110,9 +104,7 @@ request interface
   }
 ```
 
-### DataReaderByEntity
-
-response interface
+### DataReaderByEntity response interface
 
 ```
 {
@@ -293,9 +285,7 @@ points back to the underlying data store for properties in a single component.
 For information about the property types, syntax, and format of this connector, see
 the [BatchPutPropertyValues](../apireference/API_BatchPutPropertyValues.md "../apireference/API_BatchPutPropertyValues.md") API action.
 
-### DataWriter request
-
-interface
+### DataWriter request interface
 
 ```
 {
@@ -324,9 +314,7 @@ interface
 }
 ```
 
-### DataWriter response
-
-interface
+### DataWriter response interface
 
 ```
 {

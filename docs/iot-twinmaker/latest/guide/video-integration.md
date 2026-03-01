@@ -17,12 +17,9 @@ After you've created the required AWS IoT SiteWise models and configured the
 Kinesis Video Streams Greengrass component, you can stream or record video on the edge to your digital twin
 application in the AWS IoT TwinMaker console. You can also view livestreams and metadata from your
 devices in a Grafana dashboard. For more information about integrating Grafana and AWS IoT TwinMaker,
-see [AWS IoT TwinMaker
-Grafana dashboard integration](grafana-integration.md "grafana-integration.md").
+see [AWS IoT TwinMaker Grafana dashboard integration](grafana-integration.md "grafana-integration.md").
 
-## Use the edge connector for Kinesis video stream to
-
-stream video in AWS IoT TwinMaker
+## Use the edge connector for Kinesis video stream to stream video in AWS IoT TwinMaker
 
 With the edge connector for Kinesis video stream, you can stream video and data to an entity in
 your AWS IoT TwinMaker scene. You use a video component to do this. To create the video component
@@ -69,8 +66,7 @@ the video show up in the player. 6. To add the video component to your entity, c
 
 After you've created a video component for your entity in your AWS IoT TwinMaker scene, you can
 configure the video panel in Grafana to see live streams. Make sure you have properly
-integrated AWS IoT TwinMaker with Grafana. For more information, see [AWS IoT TwinMaker
-Grafana dashboard integration](grafana-integration.md "grafana-integration.md").
+integrated AWS IoT TwinMaker with Grafana. For more information, see [AWS IoT TwinMaker Grafana dashboard integration](grafana-integration.md "grafana-integration.md").
 
 ###### Important
 

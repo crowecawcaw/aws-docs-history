@@ -5,9 +5,7 @@ in AWS IoT TwinMaker. You can use your Athena data to build digital twins withou
 migration effort. You can either use the prebuilt connector or create a custom Athena
 connector to access data from your Athena data sources.
 
-## AWS IoT TwinMaker Athena data
-
-connector prerequisites
+## AWS IoT TwinMaker Athena data connector prerequisites
 
 Before you use the Athena tabular data connector, complete the following prerequisites:
 
@@ -96,9 +94,7 @@ component.
 You have now successfully created a component with the Athena data connector as the
 component type and attached it to an entity.
 
-## Using the Athena
-
-tabular data connector JSON reference
+## Using the Athena tabular data connector JSON reference
 
 The following example is the full the JSON reference for the Athena tabular data
 connector. Use this as a resource to create custom data connectors and component

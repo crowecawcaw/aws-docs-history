@@ -1,14 +1,11 @@
-# Resources synced from
-
-AWS IoT SiteWise
+# Resources synced from AWS IoT SiteWise
 
 This topic lists which assets you can sync from AWS IoT SiteWise to your
 AWS IoT TwinMaker workspace.
 
 ###### Important
 
-See [Differences between custom and default
-workspaces](tm-sw-default-ws-diffs.md "tm-sw-default-ws-diffs.md")
+See [Differences between custom and default workspaces](tm-sw-default-ws-diffs.md "tm-sw-default-ws-diffs.md")
 for information about the differences between the custom and default workspaces.
 
 ## Custom and default workspaces
@@ -121,9 +118,7 @@ The following resources are not synced:
   alias, unit of measure, and data type are synced. The values can
   be queried using the regular AWS IoT TwinMaker data connector API, [GetPropertyValueHistory](../apireference/API_GetPropertyValueHistory.md "../apireference/API_GetPropertyValueHistory.md").
 
-## Use synced entities and component
-
-types in AWS IoT TwinMaker
+## Use synced entities and component types in AWS IoT TwinMaker
 
 Once assets are synced from AWS IoT SiteWise, the synced component types
 are read only in AWS IoT TwinMaker. Any update or delete action must be done in

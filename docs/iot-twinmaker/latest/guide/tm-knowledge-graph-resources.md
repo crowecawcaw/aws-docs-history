@@ -1,6 +1,4 @@
-# AWS IoT TwinMaker knowledge graph additional
-
-resources
+# AWS IoT TwinMaker knowledge graph additional resources
 
 This section provides basic examples of the PartiQL syntax used to write queries in the
 knowledge graph, as well as links to PartiQL documentation that provide information on

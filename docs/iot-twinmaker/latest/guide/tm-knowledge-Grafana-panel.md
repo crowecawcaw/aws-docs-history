@@ -10,8 +10,7 @@ Before you use the AWS IoT TwinMaker knowledge graph in Grafana, complete the fo
 - Create an AWS IoT TwinMaker workspace. You can create a workspace in the
   [AWS IoT TwinMaker console](https://console.aws.amazon.com/iottwinmaker/ "https://console.aws.amazon.com/iottwinmaker/").
 - Configure AWS IoT TwinMaker for use with Grafana. For instructions, see
-  [AWS IoT TwinMaker
-  Grafana dashboard integration](grafana-integration.md "grafana-integration.md").
+  [AWS IoT TwinMaker Grafana dashboard integration](grafana-integration.md "grafana-integration.md").
 
 ###### Note
 
@@ -85,8 +84,7 @@ provided field. 6. Select **Apply** to save and confirm your new panel.
 
 The knowledge graph panel works in a similar way as the query editor provided in
 the AWS IoT TwinMaker console. You can run, write, and clear queries you make in the
-panel. For more information on how to write queries, see [AWS IoT TwinMaker knowledge graph additional
-resources](tm-knowledge-graph-resources.md "tm-knowledge-graph-resources.md").
+panel. For more information on how to write queries, see [AWS IoT TwinMaker knowledge graph additional resources](tm-knowledge-graph-resources.md "tm-knowledge-graph-resources.md").
 
 #### How to use the AWS IoT TwinMaker query editor
 

@@ -1,6 +1,4 @@
-# Add model shader augmented UI widgets
-
-to your scene
+# Add model shader augmented UI widgets to your scene
 
 Model shader widgets can change the color of an object under conditions that you define.
 For example, you can create a color widget that changes the color of a cookie mixer in
@@ -16,9 +14,7 @@ Use the following procedure to add model shader widgets to a selected object.
 3. Select the entityID, ComponentName, and PropertyName you want to bind the model
    shader to.
 
-## Create visual rules for your
-
-scenes
+## Create visual rules for your scenes
 
 You can use visual rule maps to specify the data driven conditions that change the
 visual appearance of an augmented UI widget, such as a tag or a model shader. There

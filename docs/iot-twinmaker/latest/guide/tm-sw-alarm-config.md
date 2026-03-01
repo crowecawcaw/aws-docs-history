@@ -27,8 +27,7 @@ reviewed the following prerequisites:
   AWS IoT SiteWise model. For more information, see [Defining AWS IoT Events alarms](../../../iot-sitewise/latest/userguide/define-iot-events-alarms.md "../../../iot-sitewise/latest/userguide/define-iot-events-alarms.md")
   in the _AWS IoT SiteWise User Guide_.
 - Integrate AWS IoT TwinMaker with Grafana so you can access your AWS IoT TwinMaker resources in Grafana.
-  For more information see, [AWS IoT TwinMaker
-  Grafana dashboard integration](grafana-integration.md "grafana-integration.md").
+  For more information see, [AWS IoT TwinMaker Grafana dashboard integration](grafana-integration.md "grafana-integration.md").
 
 ## Define the AWS IoT SiteWise alarm component IAM role
 

@@ -8,8 +8,7 @@ with your real-world use case.
 This section covers the following topics:
 
 - [Before you create your first scene](scenes-before-starting.md "scenes-before-starting.md")
-- [Upload resources to the AWS IoT TwinMaker Resource
-  Library](scenes-using-resource-library.md "scenes-using-resource-library.md")
+- [Upload resources to the AWS IoT TwinMaker Resource Library](scenes-using-resource-library.md "scenes-using-resource-library.md")
 - [Create your scenes](scenes-creation.md "scenes-creation.md")
 - [Add fixed cameras to entities](scenes-camera.md "scenes-camera.md")
 - [Scene enhanced editing](scenes-ee.md "scenes-ee.md")

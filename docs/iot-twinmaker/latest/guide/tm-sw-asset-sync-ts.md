@@ -4,8 +4,7 @@ This topic provides guidance on how to analyze sync errors and statuses.
 
 ###### Important
 
-See [Differences between custom and default
-workspaces](tm-sw-default-ws-diffs.md "tm-sw-default-ws-diffs.md") for information about the differences
+See [Differences between custom and default workspaces](tm-sw-default-ws-diffs.md "tm-sw-default-ws-diffs.md") for information about the differences
 between the custom and default workspaces.
 
 ## Sync job statuses

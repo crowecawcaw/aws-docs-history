@@ -6,9 +6,7 @@ the scene such as lighting, and your computer hardware, impact the performance o
 scenes. Use the information in this topic to reduce lag, loading times, and improve the
 frame rate of your scenes.
 
-## Optimize your resources before
-
-importing them into AWS IoT TwinMaker
+## Optimize your resources before importing them into AWS IoT TwinMaker
 
 You can use AWS IoT TwinMaker to interact with your digital twin in real time. For the best
 experience with your scenes, we recommend optimizing your resources for use in a
@@ -31,9 +29,7 @@ transparency in your textures, considering choosing the PEG image format over th
 format. You can compress your texture files by using open source texture compression
 tools, such as [Basis Universal texture compression](https://www.khronos.org/blog/google-and-binomial-contribute-basis-universal-texture-format-to-khronos-gltf-3d-transmission-open-standard "https://www.khronos.org/blog/google-and-binomial-contribute-basis-universal-texture-format-to-khronos-gltf-3d-transmission-open-standard").
 
-## Best practices for performance in
-
-AWS IoT TwinMaker
+## Best practices for performance in AWS IoT TwinMaker
 
 For the best performance with AWS IoT TwinMaker, note the following limitations and best
 practices.

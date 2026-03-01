@@ -1,6 +1,4 @@
-# Logging
-
-and monitoring in AWS IoT TwinMaker
+# Logging and monitoring in AWS IoT TwinMaker
 
 Monitoring is an important part of maintaining the reliability, availability, and
 performance of AWS IoT TwinMaker and your other AWS solutions. AWS IoT TwinMaker supports the following monitoring
@@ -29,5 +27,4 @@ appropriate:
 ###### Topics
 
 - [Monitoring AWS IoT TwinMaker with Amazon CloudWatch metrics](monitor-cloudwatch-metrics.md "monitor-cloudwatch-metrics.md")
-- [Logging AWS IoT TwinMaker API calls with
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging AWS IoT TwinMaker API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")

@@ -1,6 +1,4 @@
-# Logging AWS IoT TwinMaker API calls with
-
-AWS CloudTrail
+# Logging AWS IoT TwinMaker API calls with AWS CloudTrail
 
 AWS IoT TwinMaker is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, role, or an AWS service in AWS IoT TwinMaker. CloudTrail captures API calls for

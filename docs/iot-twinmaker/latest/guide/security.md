@@ -24,8 +24,7 @@ _of_ the cloud and security _in_ the cloud:
 
 - [Data protection in AWS IoT TwinMaker](data-protection.md "data-protection.md")
 - [Identity and Access Management for AWS IoT TwinMaker](security-iam.md "security-iam.md")
-- [AWS IoT TwinMaker and interface VPC
-  endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [AWS IoT TwinMaker and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Compliance Validation for AWS IoT TwinMaker](SERVICENAME-compliance.md "SERVICENAME-compliance.md")
 - [Resilience in AWS IoT TwinMaker](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in AWS IoT TwinMaker](infrastructure-security.md "infrastructure-security.md")

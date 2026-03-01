@@ -1,6 +1,4 @@
-# Differences between custom and default
-
-workspaces
+# Differences between custom and default workspaces
 
 ###### Important
 

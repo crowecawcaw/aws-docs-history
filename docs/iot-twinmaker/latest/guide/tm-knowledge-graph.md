@@ -13,8 +13,7 @@ The following topics show you how to use and integrate the knowledge graph.
 - [How to Run AWS IoT TwinMaker knowledge graph queries](tm-knowledge-graph-use.md "tm-knowledge-graph-use.md")
 - [Knowledge graph scene integration](tm-knowledge-graph-scene.md "tm-knowledge-graph-scene.md")
 - [How to use AWS IoT TwinMaker knowledge graph with Grafana](tm-knowledge-Grafana-panel.md "tm-knowledge-Grafana-panel.md")
-- [AWS IoT TwinMaker knowledge graph additional
-  resources](tm-knowledge-graph-resources.md "tm-knowledge-graph-resources.md")
+- [AWS IoT TwinMaker knowledge graph additional resources](tm-knowledge-graph-resources.md "tm-knowledge-graph-resources.md")
 
 ## AWS IoT TwinMaker knowledge graph core concepts
 

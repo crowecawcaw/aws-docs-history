@@ -12,5 +12,4 @@ interface so that AWS IoT TwinMaker can invoke your connector when necessary.
 
 - [AWS IoT TwinMaker data connectors](data-connector-interfaces.md "data-connector-interfaces.md")
 - [AWS IoT TwinMaker Athena tabular data connector](athena-tabular-data-connector.md "athena-tabular-data-connector.md")
-- [Developing AWS IoT TwinMaker time-series data
-  connectors](time-series-data-connectors.md "time-series-data-connectors.md")
+- [Developing AWS IoT TwinMaker time-series data connectors](time-series-data-connectors.md "time-series-data-connectors.md")

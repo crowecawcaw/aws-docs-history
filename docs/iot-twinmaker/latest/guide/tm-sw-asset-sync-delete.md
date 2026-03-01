@@ -4,8 +4,7 @@ Use the following procedure to delete a sync job.
 
 ###### Important
 
-See [Differences between custom and default
-workspaces](tm-sw-default-ws-diffs.md "tm-sw-default-ws-diffs.md") for information about the differences
+See [Differences between custom and default workspaces](tm-sw-default-ws-diffs.md "tm-sw-default-ws-diffs.md") for information about the differences
 between the custom and default workspaces.
 
 1. Navigate to the [AWS IoT TwinMaker console](https://console.aws.amazon.com/iottwinmaker/ "https://console.aws.amazon.com/iottwinmaker/").

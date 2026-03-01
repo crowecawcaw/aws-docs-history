@@ -101,9 +101,7 @@ JSON
 
 ```
 
-## AWS IoT TwinMaker updates to AWS managed
-
-policies
+## AWS IoT TwinMaker updates to AWS managed policies
 
 View details about updates to AWS managed policies for since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

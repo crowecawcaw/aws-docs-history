@@ -1,6 +1,4 @@
-# AWS IoT TwinMakercookie
-
-factory example time-series connector
+# AWS IoT TwinMaker cookie factory example time-series connector
 
 The complete [code of the cookie factory](https://github.com/aws-samples/aws-iot-twinmaker-samples/blob/main/src/modules/timestream_telemetry/lambda_function/udq_data_reader.py "https://github.com/aws-samples/aws-iot-twinmaker-samples/blob/main/src/modules/timestream_telemetry/lambda_function/udq_data_reader.py") Lambda function is available on GitHub.
 Though you can still update the implementation after you link the connector to the
@@ -9,9 +7,7 @@ integrating with AWS IoT TwinMaker. You can test your Lambda function in the Lam
 locally in the AWS CDK. For more information on testing your Lambda functions, see
 [Testing Lambda functions](../../../lambda/latest/dg/testing-functions.md "../../../lambda/latest/dg/testing-functions.md"), and [Locally testing AWS CDK applications](../../../serverless-application-model/latest/developerguide/serverless-cdk-testing.md "../../../serverless-application-model/latest/developerguide/serverless-cdk-testing.md").
 
-## Example cookie factory
-
-component types
+## Example cookie factory component types
 
 In a component type, we define common properties that are shared across
 components. For the cookie factory example, physical components of the same type

@@ -17,8 +17,7 @@ For more information about using Matterport, read Matterport's documentation on 
 - [Generate and record your Matterport credentials](#tm-matterport-integration-sdk-key "#tm-matterport-integration-sdk-key")
 - [Store your Matterport credentials in AWS Secrets Manager](#tm-matterport-integration-secrets "#tm-matterport-integration-secrets")
 - [Import Matterport spaces into AWS IoT TwinMaker scenes](#tm-matterport-integration-tm-console "#tm-matterport-integration-tm-console")
-- [Use Matterport spaces in your AWS IoT TwinMaker Grafana
-  dashboard](#tm-matterport-grafana "#tm-matterport-grafana")
+- [Use Matterport spaces in your AWS IoT TwinMaker Grafana dashboard](#tm-matterport-grafana "#tm-matterport-grafana")
 - [Use Matterport spaces in your AWS IoT TwinMaker web application](#tm-matterport-app-kit "#tm-matterport-app-kit")
 
 ## Integration overview
@@ -231,9 +230,7 @@ would with any other AWS IoT TwinMaker scene.
 
 For more information on working with AWS IoT TwinMaker scenes, see [Creating and editing AWS IoT TwinMaker scenes](scenes.md "scenes.md").
 
-## Use Matterport spaces in your AWS IoT TwinMaker Grafana
-
-dashboard
+## Use Matterport spaces in your AWS IoT TwinMaker Grafana dashboard
 
 Once you have imported your Matterport space into an AWS IoT TwinMaker scene, you can view that
 scene with the Matterport space in your Grafana dashboard. If you have already

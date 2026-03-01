@@ -1,6 +1,4 @@
-# AWS IoT TwinMaker and interface VPC
-
-endpoints (AWS PrivateLink)
+# AWS IoT TwinMaker and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your virtual private cloud (VPC) and
 AWS IoT TwinMaker by creating an _interface VPC endpoint_. Interface endpoints
@@ -17,9 +15,7 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for AWS IoT TwinMaker VPC
-
-endpoints
+## Considerations for AWS IoT TwinMaker VPC endpoints
 
 Before you set up an interface VPC endpoint for AWS IoT TwinMaker, review [Interface
 endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations") in the _Amazon VPC User Guide_.
@@ -71,9 +67,7 @@ The supported control plane API operations include the following:
     + [UpdateScene](../apireference/API_UpdateScene.md "../apireference/API_UpdateScene.md")
     + [UpdateWorkspace](../apireference/API_UpdateWorkspace.md "../apireference/API_UpdateWorkspace.md")
 
-## Creating an interface VPC endpoint for
-
-AWS IoT TwinMaker
+## Creating an interface VPC endpoint for AWS IoT TwinMaker
 
 You can create a VPC endpoint for the AWS IoT TwinMaker service by using either the Amazon VPC
 console or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an
@@ -122,9 +116,7 @@ availability zones: `usw2-az1`, `usw2-az2`, and
 
 For more information on availability zones, see [Availability Zone IDs for your AWS resources - AWS Resource Access Manager](../../../ram/latest/userguide/working-with-az-ids.md "../../../ram/latest/userguide/working-with-az-ids.md").
 
-## Accessing AWS IoT TwinMaker through an interface VPC
-
-endpoint
+## Accessing AWS IoT TwinMaker through an interface VPC endpoint
 
 When you create an interface endpoint, AWS IoT TwinMaker generates endpoint-specific DNS hostnames
 that you can use to communicate with AWS IoT TwinMaker. The private DNS option is enabled by
