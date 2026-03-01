@@ -2,9 +2,7 @@
 
 Amazon EKS Auth sends service events to EventBridge via AWS CloudTrail.
 
-## Amazon EKS Auth events delivered via
-
-AWS CloudTrail
+## Amazon EKS Auth events delivered via AWS CloudTrail
 
 AWS CloudTrail sends events originating from Amazon EKS Auth to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")

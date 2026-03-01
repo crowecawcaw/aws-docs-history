@@ -92,9 +92,7 @@ specifying an array of event names to match. For example:
 For more information, see
 [Creating event patterns](../userguide/eb-event-patterns.md#eb-create-pattern "../userguide/eb-event-patterns.md#eb-create-pattern") in the _Amazon EventBridge User Guide_.
 
-## SageMaker AI events delivered via
-
-AWS CloudTrail
+## SageMaker AI events delivered via AWS CloudTrail
 
 AWS CloudTrail sends events originating from SageMaker AI to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")

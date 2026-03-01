@@ -11,17 +11,6 @@ Amazon Connect Cases sends the following events directly to EventBridge:
 _Delivery type_:
 [Best effort](event-delivery-level.md "event-delivery-level.md")
 
-### Supported Event Types
-
-Amazon Connect Cases supports filtering by specific event types using the `detail.eventType` field. The following event types are supported:
-
-| Event Type             | Description                                      |
-| ---------------------- | ------------------------------------------------ |
-| `CASE.CREATED`         | Triggered when a new case is created             |
-| `CASE.UPDATED`         | Triggered when an existing case is updated       |
-| `CASE.DELETED`         | Triggered when a case is deleted                 |
-| `RELATED_ITEM.CREATED` | Triggered when a related item is added to a case |
-
 To match against all events from this service, create an event pattern that matches
 against the following event attribute:
 
@@ -43,48 +32,10 @@ specifying an array of event names to match. For example:
 }
 ```
 
-To filter by specific event types, use the `detail.eventType` field. For example, to match only case creation events:
-
-```
-{
-  "source": ["aws.cases"],
-  "detail-type": ["Amazon Connect Cases Change"],
-  "detail": {
-    "eventType": ["CASE.CREATED"]
-  }
-}
-```
-
-To match multiple event types:
-
-```
-{
-  "source": ["aws.cases"],
-  "detail-type": ["Amazon Connect Cases Change"],
-  "detail": {
-    "eventType": ["CASE.CREATED", "CASE.UPDATED", "CASE.DELETED"]
-  }
-}
-```
-
-To match related item events:
-
-```
-{
-  "source": ["aws.cases"],
-  "detail-type": ["Amazon Connect Cases Change"],
-  "detail": {
-    "eventType": ["RELATED_ITEM.CREATED"]
-  }
-}
-```
-
 For more information, see
 [Creating event patterns](../userguide/eb-event-patterns.md#eb-create-pattern "../userguide/eb-event-patterns.md#eb-create-pattern") in the _Amazon EventBridge User Guide_.
 
-## Amazon Connect Cases events delivered via
-
-AWS CloudTrail
+## Amazon Connect Cases events delivered via AWS CloudTrail
 
 AWS CloudTrail sends events originating from Amazon Connect Cases to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")

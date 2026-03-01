@@ -1,10 +1,10 @@
-# Amazon Quick Suite events
+# Amazon Quick events
 
-Quick Suite sends service events directly to EventBridge, as well as via AWS CloudTrail.
+Quick sends service events directly to EventBridge, as well as via AWS CloudTrail.
 
-## Quick Suite service events
+## Quick service events
 
-Quick Suite sends the following events directly to EventBridge:
+Quick sends the following events directly to EventBridge:
 
 - QuickSight Theme Creation Successful
 - QuickSight Theme Creation Failed
@@ -77,11 +77,9 @@ specifying an array of event names to match. For example:
 For more information, see
 [Creating event patterns](../userguide/eb-event-patterns.md#eb-create-pattern "../userguide/eb-event-patterns.md#eb-create-pattern") in the _Amazon EventBridge User Guide_.
 
-## Quick Suite events delivered via
+## Quick events delivered via AWS CloudTrail
 
-AWS CloudTrail
-
-AWS CloudTrail sends events originating from Quick Suite to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
+AWS CloudTrail sends events originating from Quick to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")
 in the _Amazon EventBridge User Guide_.
 

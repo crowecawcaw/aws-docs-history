@@ -2,9 +2,7 @@
 
 Amazon EMR sends service events to EventBridge via AWS CloudTrail.
 
-## Amazon EMR events delivered via
-
-AWS CloudTrail
+## Amazon EMR events delivered via AWS CloudTrail
 
 AWS CloudTrail sends events originating from Amazon EMR to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")

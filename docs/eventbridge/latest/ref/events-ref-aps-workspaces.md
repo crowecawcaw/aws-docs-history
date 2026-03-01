@@ -2,9 +2,7 @@
 
 Amazon Managed Service for Prometheus workspaces sends service events to EventBridge via AWS CloudTrail.
 
-## Amazon Managed Service for Prometheus workspaces events delivered via
-
-AWS CloudTrail
+## Amazon Managed Service for Prometheus workspaces events delivered via AWS CloudTrail
 
 AWS CloudTrail sends events originating from Amazon Managed Service for Prometheus workspaces to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")

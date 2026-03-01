@@ -2,9 +2,7 @@
 
 AWS IoT FleetWise sends service events to EventBridge via AWS CloudTrail.
 
-## AWS IoT FleetWise events delivered via
-
-AWS CloudTrail
+## AWS IoT FleetWise events delivered via AWS CloudTrail
 
 AWS CloudTrail sends events originating from AWS IoT FleetWise to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")

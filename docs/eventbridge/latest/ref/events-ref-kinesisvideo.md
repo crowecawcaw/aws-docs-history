@@ -2,9 +2,7 @@
 
 Kinesis Video Streams sends service events to EventBridge via AWS CloudTrail.
 
-## Kinesis Video Streams events delivered via
-
-AWS CloudTrail
+## Kinesis Video Streams events delivered via AWS CloudTrail
 
 AWS CloudTrail sends events originating from Kinesis Video Streams to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")

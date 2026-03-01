@@ -46,9 +46,7 @@ specifying an array of event names to match. For example:
 For more information, see
 [Creating event patterns](../userguide/eb-event-patterns.md#eb-create-pattern "../userguide/eb-event-patterns.md#eb-create-pattern") in the _Amazon EventBridge User Guide_.
 
-## AWS ARC - Zonal Shift events delivered via
-
-AWS CloudTrail
+## AWS ARC - Zonal Shift events delivered via AWS CloudTrail
 
 AWS CloudTrail sends events originating from AWS ARC - Zonal Shift to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md "event-delivery-level.md") basis. For more information,
 see [AWS service events delivered via AWS CloudTrail](../userguide/eb-service-event-cloudtrail.md "../userguide/eb-service-event-cloudtrail.md")
@@ -83,3 +81,7 @@ To match against a specific API calls from this service, include an
   }
 }
 ```
+
+For more information about how AWS ARC - Zonal Shift uses EventBridge, see
+[Using zonal autoshift with Amazon EventBridge](../../../r53recovery/latest/dg/eventbridge-zonal-autoshift.md "../../../r53recovery/latest/dg/eventbridge-zonal-autoshift.md")
+in the _AWS ARC - Zonal Shift documentation_.
