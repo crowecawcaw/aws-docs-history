@@ -57,9 +57,7 @@ This policy includes the following permissions.
 To view the permissions for this policy, see [AWSMigrationHubOrchestratorConsoleFullAccess](../../../aws-managed-policy/latest/reference/AWSMigrationHubOrchestratorConsoleFullAccess.md "../../../aws-managed-policy/latest/reference/AWSMigrationHubOrchestratorConsoleFullAccess.md")
 in the _AWS Managed Policy Reference Guide_.
 
-## AWS managed
-
-policy: AWSMigrationHubOrchestratorPlugin
+## AWS managed policy: AWSMigrationHubOrchestratorPlugin
 
 Attach the `AWSMigrationHubOrchestratorPlugin` policy to your IAM
 identities.
@@ -105,9 +103,7 @@ This policy includes the following permissions.
 To view the permissions for this policy, see [AWSMigrationHubOrchestratorInstanceRolePolicy](../../../aws-managed-policy/latest/reference/AWSMigrationHubOrchestratorInstanceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSMigrationHubOrchestratorInstanceRolePolicy.md") in the
 _AWS Managed Policy Reference Guide_.
 
-## Migration Hub Orchestrator updates to AWS managed
-
-policies
+## Migration Hub Orchestrator updates to AWS managed policies
 
 View details about updates to AWS managed policies for Migration Hub Orchestrator since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

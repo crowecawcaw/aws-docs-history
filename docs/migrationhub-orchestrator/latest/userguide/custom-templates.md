@@ -122,9 +122,7 @@ made your updates, you can save your updates to a new custom template.
 
 Console
 
-###### To update a custom template and save them as a new template using the
-
-Migration Hub Orchestrator console
+###### To update a custom template and save them as a new template using the Migration Hub Orchestrator console
 
 1. Sign in to the AWS Management Console and open the Migration Hub Orchestrator console at [https://console.aws.amazon.com/migrationhub/orchestrator/?region=us-east-1#/templates](https://console.aws.amazon.com/migrationhub/orchestrator/ "https://console.aws.amazon.com/migrationhub/orchestrator/").
 2. Choose the custom template from the list that you want to

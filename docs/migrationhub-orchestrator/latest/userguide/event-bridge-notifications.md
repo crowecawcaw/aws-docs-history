@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Configure User Notifications for Migration Hub Orchestrator status change
-
-events
+# Configure User Notifications for Migration Hub Orchestrator status change events
 
 You can configure AWS User Notifications to send notifications in response to status changes that
 occur in Migration Hub Orchestrator. User Notifications uses EventBridge to send notifications about events

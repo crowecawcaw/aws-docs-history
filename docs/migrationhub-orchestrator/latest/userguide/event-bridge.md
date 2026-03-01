@@ -9,14 +9,12 @@ _EventBridge User Guide_.
 
 With EventBridge, you can establish rules that trigger programmatic actions in response to these
 events. For example, you can create a rule that sends a notification to your email when a
-workflow requires manual inputs. For more information, see [Configure User Notifications for Migration Hub Orchestrator status change
-events](event-bridge-notifications.md "event-bridge-notifications.md").
+workflow requires manual inputs. For more information, see [Configure User Notifications for Migration Hub Orchestrator status change events](event-bridge-notifications.md "event-bridge-notifications.md").
 
 ###### Topics
 
 - [Migration Hub Orchestrator event JSON structure](#event-bridge-events "#event-bridge-events")
-- [Configure User Notifications for Migration Hub Orchestrator status change
-  events](event-bridge-notifications.md "event-bridge-notifications.md")
+- [Configure User Notifications for Migration Hub Orchestrator status change events](event-bridge-notifications.md "event-bridge-notifications.md")
 
 ## Migration Hub Orchestrator event JSON structure
 

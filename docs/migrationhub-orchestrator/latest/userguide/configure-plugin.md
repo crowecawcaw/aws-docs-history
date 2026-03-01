@@ -16,10 +16,8 @@ supports VMware vCenter Server 6.0, 6.5, 6.7 and 7.0.
 - [Download and configure the plugin](#w2aac18b9 "#w2aac18b9")
 - [Set up AWS configurations](#cli-plugin-setup-aws-config "#cli-plugin-setup-aws-config")
 - [Set up vCenter configurations](#cli-plugin-setup-vcenter-config "#cli-plugin-setup-vcenter-config")
-- [Set up source server
-  configurations](#cli-plugin-setup-source-server-config "#cli-plugin-setup-source-server-config")
-- [Enable the Migration Hub Orchestrator plugin to communicate
-  with source servers](#cli-plugin-setup-source-servers "#cli-plugin-setup-source-servers")
+- [Set up source server configurations](#cli-plugin-setup-source-server-config "#cli-plugin-setup-source-server-config")
+- [Enable the Migration Hub Orchestrator plugin to communicate with source servers](#cli-plugin-setup-source-servers "#cli-plugin-setup-source-servers")
 
 ## Download and configure the plugin
 
@@ -153,8 +151,7 @@ asked.
 
 
     If you choose to use SSH authentication, you must copy the generated key
-     credentials to your Linux servers. For more information, see [Set up key-based authentication on Linux
-     servers](#cli-plugin-setup-linux-key "#cli-plugin-setup-linux-key").
+     credentials to your Linux servers. For more information, see [Set up key-based authentication on Linux servers](#cli-plugin-setup-linux-key "#cli-plugin-setup-linux-key").
 
 The following is an example.
 
@@ -194,9 +191,7 @@ Your Linux remote server configurations are saved successfully.
 
 ```
 
-## Set up source server
-
-configurations
+## Set up source server configurations
 
 Set up source server configurations using the `plugin setup` command or the
 `plugin setup --remote-server-configurations` command.
@@ -221,16 +216,13 @@ first interaction with windows servers?**. Windows Server certificates are
 stored in the directory
 `/opt/amazon/mhub-orchestrator-plugin/remote-auth/windows/certs`. You must
 copy the generated server credentials to your Windows servers. For more information, see
-[Set up the source server configuration on Windows
-servers](#cli-plugin-setup-windows "#cli-plugin-setup-windows"). 2. Enter **Y** for yes to **Setup for
+[Set up the source server configuration on Windows servers](#cli-plugin-setup-windows "#cli-plugin-setup-windows"). 2. Enter **Y** for yes to **Setup for
 Linux using SSH or Cert** if you want to configure Linux servers. 3. Enter **1** for **Enter your
 options** if you want to configure for SSH key based authentication. If you
 choose to use SSH authentication, you must copy the generated key credentials to your
-Linux servers. For more information, see [Set up key-based authentication on Linux
-servers](#cli-plugin-setup-linux-key "#cli-plugin-setup-linux-key"). 4. Enter **2** for **Enter your
+Linux servers. For more information, see [Set up key-based authentication on Linux servers](#cli-plugin-setup-linux-key "#cli-plugin-setup-linux-key"). 4. Enter **2** for **Enter your
 options** if you want to configure for certificate-based authentication. For
-information about setting up certificate-based authentication, see [Set up certificate-based
-authentication on Linux servers](#cli-plugin-setup-linux-certificate "#cli-plugin-setup-linux-certificate").
+information about setting up certificate-based authentication, see [Set up certificate-based authentication on Linux servers](#cli-plugin-setup-linux-certificate "#cli-plugin-setup-linux-certificate").
 
 The following is an example.
 
@@ -257,9 +249,7 @@ Your Linux remote server configurations are saved successfully.
 
 ```
 
-## Enable the Migration Hub Orchestrator plugin to communicate
-
-with source servers
+## Enable the Migration Hub Orchestrator plugin to communicate with source servers
 
 ###### Note
 
@@ -279,9 +269,7 @@ Guide](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/
 
 ### Prepare source Linux servers
 
-#### Set up key-based authentication on Linux
-
-servers
+#### Set up key-based authentication on Linux servers
 
 If you choose to set up SSH key-based authentication for Linux when configuring source
 server configurations, you must perform the following steps to set up key-based
@@ -298,9 +286,7 @@ for all of the remote machines. If there is no file available, create it using t
 `755` or less. You can use the `chmod` command to restrict
 permissions.
 
-#### Set up certificate-based
-
-authentication on Linux servers
+#### Set up certificate-based authentication on Linux servers
 
 If you choose to set up certificate-based authentication for Linux when configuring
 source server configurations, you must perform the following steps so that the Migration Hub Orchestrator
@@ -325,17 +311,13 @@ location in the plugin:
 
 The name of the certificate must be **id_rsa_rubix-cert.pub**. 4. Provide the certificate file name during setup.
 
-### Set up the source server configuration on Windows
-
-servers
+### Set up the source server configuration on Windows servers
 
 If you choose to set up Windows when you set up the source server in the **plugin
 setup**, you must perform the following steps so that the Migration Hub Orchestrator plugin can
 communicate with the source server.
 
-###### To understand more about the PowerShell script that's executed on the source server,
-
-read this note.
+###### To understand more about the PowerShell script that's executed on the source server, read this note.
 
 The script enables PowerShell remote and disables all authentication methods other
 than negotiate. This is used for Windows NT LAN Manager (NTLM) and sets the

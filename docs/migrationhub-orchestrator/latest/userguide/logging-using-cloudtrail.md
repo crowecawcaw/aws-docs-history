@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Logging Migration Hub Orchestrator API calls using
-
-AWS CloudTrail
+# Logging Migration Hub Orchestrator API calls using AWS CloudTrail
 
 Migration Hub Orchestrator is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service that provides a record of actions taken by a user, role, or an
 AWS service. CloudTrail captures all

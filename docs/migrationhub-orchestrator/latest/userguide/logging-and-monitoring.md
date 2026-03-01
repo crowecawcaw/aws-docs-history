@@ -21,6 +21,5 @@ appropriate:
 
 ###### Topics
 
-- [Logging Migration Hub Orchestrator API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging Migration Hub Orchestrator API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Migration Hub Orchestrator events in EventBridge](event-bridge.md "event-bridge.md")

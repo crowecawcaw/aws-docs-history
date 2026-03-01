@@ -11,13 +11,10 @@ container or with multiple applications in a single container.
 ###### Topics
 
 - [Prerequisites](#replatform-to-ecs-prerequisites "#replatform-to-ecs-prerequisites")
-- [Configuring a
-  workflow](#replatform-to-ecs-configure-workflow "#replatform-to-ecs-configure-workflow")
+- [Configuring a workflow](#replatform-to-ecs-configure-workflow "#replatform-to-ecs-configure-workflow")
 - [Running a workflow](#replatform-to-ecs-run-workflow "#replatform-to-ecs-run-workflow")
-- [Combining multiple
-  applications in one container](replatform-to-ecs-combining-applications.md "replatform-to-ecs-combining-applications.md")
-- [Completing the required
-  steps](#replatform-to-ecs-complete-steps "#replatform-to-ecs-complete-steps")
+- [Combining multiple applications in one container](replatform-to-ecs-combining-applications.md "replatform-to-ecs-combining-applications.md")
+- [Completing the required steps](#replatform-to-ecs-complete-steps "#replatform-to-ecs-complete-steps")
 
 ## Prerequisites
 
@@ -33,16 +30,11 @@ while using this template.
 
 ###### Topics
 
-- [Application support
-  and compatibility](#replatform-to-ecs-prerequisites-setup "#replatform-to-ecs-prerequisites-setup")
-- [SSM
-  agent](#replatform-to-ecs-prerequisites-ssm-agent "#replatform-to-ecs-prerequisites-ssm-agent")
-- [IAM
-  instance profile for EC2 instances](#replatform-to-ecs-prerequisites-permissions-instances "#replatform-to-ecs-prerequisites-permissions-instances")
+- [Application support and compatibility](#replatform-to-ecs-prerequisites-setup "#replatform-to-ecs-prerequisites-setup")
+- [SSM agent](#replatform-to-ecs-prerequisites-ssm-agent "#replatform-to-ecs-prerequisites-ssm-agent")
+- [IAM instance profile for EC2 instances](#replatform-to-ecs-prerequisites-permissions-instances "#replatform-to-ecs-prerequisites-permissions-instances")
 
-#### Application support
-
-and compatibility
+#### Application support and compatibility
 
 Before using this template on Amazon EC2 instances, ensure that your servers
 and applications are supported for App2Container. For more information, see [App2Container
@@ -54,9 +46,7 @@ _AWS App2Container User Guide_.
 You don't need to install Docker on your application server to use
 this template.
 
-#### SSM
-
-agent
+#### SSM agent
 
 To use this template with Amazon EC2 instances, they must be managed nodes in
 AWS Systems Manager (Systems Manager). The SSM agent is required for your instances to become
@@ -65,9 +55,7 @@ require manual installation. For more information on verifying if the SSM
 agent is installed, and how to manually install it if required, see [Amazon Machine Images (AMIs) with SSM Agent preinstalled](../../../systems-manager/latest/userguide/ami-preinstalled-agent.md "../../../systems-manager/latest/userguide/ami-preinstalled-agent.md") in the
 _AWS Systems Manager User Guide_.
 
-#### IAM
-
-instance profile for EC2 instances
+#### IAM instance profile for EC2 instances
 
 This template requires that your EC2 instances have an instance profile
 role with the necessary permissions attached. The permissions provided by an
@@ -159,13 +147,10 @@ while using this template.
 
 ###### Topics
 
-- [Amazon S3
-  buckets](#replatform-to-ecs-prerequisites-s3-bucket "#replatform-to-ecs-prerequisites-s3-bucket")
+- [Amazon S3 buckets](#replatform-to-ecs-prerequisites-s3-bucket "#replatform-to-ecs-prerequisites-s3-bucket")
 - [Application artifacts](#replatform-to-ecs-prerequisites-application-artifacts "#replatform-to-ecs-prerequisites-application-artifacts")
 
-#### Amazon S3
-
-buckets
+#### Amazon S3 buckets
 
 This template requires that you have an Amazon S3 bucket for the S3 input path
 and the Amazon S3 output path. You can create different buckets for the input and
@@ -221,9 +206,7 @@ the following:
 }
 ```
 
-### Required IAM
-
-resources
+### Required IAM resources
 
 Multiple resources must have the required permissions in order to use this
 template. Ensure that you have the following required policies and roles
@@ -232,8 +215,7 @@ created.
 ###### Topics
 
 - [IAM policy for users and roles](#replatform-to-ecs-prerequisites-permissions-users-roles "#replatform-to-ecs-prerequisites-permissions-users-roles")
-- [IAM
-  policies and roles for Amazon ECS](#replatform-to-ecs-prerequisites-permissions-ecs "#replatform-to-ecs-prerequisites-permissions-ecs")
+- [IAM policies and roles for Amazon ECS](#replatform-to-ecs-prerequisites-permissions-ecs "#replatform-to-ecs-prerequisites-permissions-ecs")
 - [(Optional) KMS key policy](#replatform-to-ecs-prerequisites-permissions-kms "#replatform-to-ecs-prerequisites-permissions-kms")
 
 #### IAM policy for users and roles
@@ -657,9 +639,7 @@ JSON
 
 [Show moreShow less](# "#")
 
-#### IAM
-
-policies and roles for Amazon ECS
+#### IAM policies and roles for Amazon ECS
 
 To deploy your containerized applications on Amazon ECS, you must create IAM
 policies and roles in your Amazon ECS tasks. For more information about these IAM
@@ -698,9 +678,7 @@ AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest
 
 [Show moreShow less](# "#")
 
-## Configuring a
-
-workflow
+## Configuring a workflow
 
 You must configure the workflow for the template in order to replatform your
 application.
@@ -795,9 +773,7 @@ Some steps might require additional action to complete. All steps must be
 completed in order to replatform your application. The following section
 details this process.
 
-## Completing the required
-
-steps
+## Completing the required steps
 
 The workflow will require additional input for certain steps in order to complete
 them. The workflow might take some time to reach this status before you can take action
@@ -825,8 +801,7 @@ on the steps.
          provision one application per container, or **Combine
          applications in one container** to provision all
          applications in one container. For more information on the
-         requirements to combine applications in one container, see [Combining multiple
-         applications in one container](replatform-to-ecs-combining-applications.md "replatform-to-ecs-combining-applications.md").
+         requirements to combine applications in one container, see [Combining multiple applications in one container](replatform-to-ecs-combining-applications.md "replatform-to-ecs-combining-applications.md").
       3. Choose **Confirm** to complete the
          step.
 

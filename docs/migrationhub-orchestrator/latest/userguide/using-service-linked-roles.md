@@ -1,8 +1,6 @@
 AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
-# Using service-linked roles for
-
-Migration Hub Orchestrator
+# Using service-linked roles for Migration Hub Orchestrator
 
 Migration Hub Orchestrator uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to Migration Hub Orchestrator. Service-linked roles are predefined by Migration Hub Orchestrator and
@@ -118,8 +116,7 @@ AWS Application Migration Service actions
 To view the permissions for this policy, see [AWSMigrationHubOrchestratorServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSMigrationHubOrchestratorServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSMigrationHubOrchestratorServiceRolePolicy.md") in the
 _AWS Managed Policy Reference Guide_.
 
-To view the update history of this policy, see [Migration Hub Orchestrator updates to AWS managed
-policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
+To view the update history of this policy, see [Migration Hub Orchestrator updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates").
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
