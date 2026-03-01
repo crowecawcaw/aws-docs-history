@@ -248,9 +248,7 @@ For more information about Amazon MQ security and how messaging data is encrypte
 [Data Protection in Amazon MQ](../developer-guide/data-protection.md "../developer-guide/data-protection.md") in the
 _Amazon MQ Developer Guide_.
 
-### Broker
-
-quotas
+### Broker quotas
 
 By default, each Amazon MQ broker can support 1,000 connections (or 100 connections for
 `mq.t2.micro` brokers). To allow multiple consumers to share connections

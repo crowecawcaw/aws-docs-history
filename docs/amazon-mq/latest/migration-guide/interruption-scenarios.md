@@ -3,9 +3,7 @@
 Use the following topics to learn more about potential service interruptions
 before migrating your on-premises message broker to Amazon MQ.
 
-## Migrating to Amazon MQ without
-
-service interruption
+## Migrating to Amazon MQ without service interruption
 
 You can migrate from an on-premises message broker to an Amazon MQ broker in the AWS Cloud without service interruption.
 
