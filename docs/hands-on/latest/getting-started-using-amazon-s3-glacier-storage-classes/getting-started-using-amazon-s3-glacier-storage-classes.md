@@ -1,6 +1,4 @@
-# Getting started using the Amazon Glacier storage
-
-classes
+# Getting started using the Amazon Glacier storage classes
 
 |                      |                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------- |
