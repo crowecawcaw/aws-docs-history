@@ -52,5 +52,5 @@ The data from these sources is typically represented with a common
 schema that can represent the different types of consumption in
 your application (counts, durations, features, etc.). In this
 example, this data is ingested with Amazon Data Firehose,
-which publishes the data to Amazon Redshift. Finally, Amazon Quick Suite is used to build the different dashboards that are used
+which publishes the data to Amazon Redshift. Finally, Amazon Quick is used to build the different dashboards that are used
 across the organizations to view the trends of tenants and tiers.

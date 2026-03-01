@@ -57,7 +57,7 @@ agreement (SLA).
   Amazon Glacier classes in particular) can be used to store or archive a tenant’s data for
   long-term retention and with reduced energy consumption.
 - [Amazon EC2 Auto Scaling](https://aws.amazon.com/ec2/autoscaling/ "https://aws.amazon.com/ec2/autoscaling/") and  [Application Auto Scaling](../../../autoscaling/application/userguide/what-is-application-auto-scaling.md "../../../autoscaling/application/userguide/what-is-application-auto-scaling.md") can help you make smart scaling decisions.
-- [Quick Suite](https://aws.amazon.com/quicksight/features/ "https://aws.amazon.com/quicksight/features/") provides you with data
+- [Quick](https://aws.amazon.com/quicksight/features/ "https://aws.amazon.com/quicksight/features/") provides you with data
   driven analysis and visualization.
 
 | SaaS SUS 4: How do you provide per-tenant footprint visibility (such as<br>resource utilization and carbon emission data) in your SaaS environment? |
