@@ -1,6 +1,4 @@
-# TELCOOPS03-BP01 Implement an enterprise-grade IP Address
-
-Management solution with cloud infrastructure integration
+# TELCOOPS03-BP01 Implement an enterprise-grade IP Address Management solution with cloud infrastructure integration
 
 Implement a cloud-based IPAM solution that is optimized for
 performance and tightly integrated with the underlying cloud networking infrastructure. This

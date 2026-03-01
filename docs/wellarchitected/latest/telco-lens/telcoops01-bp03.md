@@ -1,6 +1,4 @@
-# TELCOOPS01-BP03 Evaluate tradeoffs and threats while managing
-
-benefits and risks for telecommunication workloads
+# TELCOOPS01-BP03 Evaluate tradeoffs and threats while managing benefits and risks for telecommunication workloads
 
 Conduct comprehensive analysis of benefits, risks, and tradeoffs associated with telco
 workloads to make informed architectural and operational decisions. This involves evaluating

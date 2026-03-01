@@ -1,6 +1,4 @@
-# TELCOOPS04-BP01 Implement the Bring Your Own IP (BYOIP)
-
-address processes and associate the prefixes with the IPAM solution
+# TELCOOPS04-BP01 Implement the Bring Your Own IP (BYOIP) address processes and associate the prefixes with the IPAM solution
 
 The IPAM is a shared resource that can be provisioned in a single Region in a shared
 services account. Pools of IP addresses can be shared using Resource Access Manager to

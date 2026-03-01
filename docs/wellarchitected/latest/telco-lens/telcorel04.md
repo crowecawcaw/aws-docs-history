@@ -16,9 +16,6 @@ from individual component outages to large-scale disruptive events.
 
 ###### Best practices
 
-- [TELCOREL04-BP01 Implement the Bypass Mode on peripheral
-  network devices such as firewalls and network probes while connecting to the cloud](telcorel04-bp01.md "telcorel04-bp01.md")
-- [TELCOREL04-BP02 Implement dual network planes for signaling or
-  control plane](telcorel04-bp02.md "telcorel04-bp02.md")
-- [TELCOREL04-BP03 Implement default configuration to bypass
-  billing and charging services in case the system is down](telcorel04-bp03.md "telcorel04-bp03.md")
+- [TELCOREL04-BP01 Implement the Bypass Mode on peripheral network devices such as firewalls and network probes while connecting to the cloud](telcorel04-bp01.md "telcorel04-bp01.md")
+- [TELCOREL04-BP02 Implement dual network planes for signaling or control plane](telcorel04-bp02.md "telcorel04-bp02.md")
+- [TELCOREL04-BP03 Implement default configuration to bypass billing and charging services in case the system is down](telcorel04-bp03.md "telcorel04-bp03.md")

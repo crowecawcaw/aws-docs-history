@@ -16,6 +16,5 @@ service disruptions during system scaling, updates, and upgrades.
 
 ###### Best practices
 
-- [TELCOREL03-BP01 Use a controlled change management mechanism
-  for software updates in production](telcorel03-bp01.md "telcorel03-bp01.md")
+- [TELCOREL03-BP01 Use a controlled change management mechanism for software updates in production](telcorel03-bp01.md "telcorel03-bp01.md")
 - [TELCOREL03-BP02 Design a stateful, session-aware load balancing solution for cloud network functions (CNFs) to enable scaling and resilience](telcorel03-bp02.md "telcorel03-bp02.md")

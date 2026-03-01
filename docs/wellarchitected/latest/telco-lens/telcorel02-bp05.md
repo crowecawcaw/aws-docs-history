@@ -1,6 +1,4 @@
-# TELCOREL02-BP05 Optimize failure recovery timers for the
-
-shared tenancy and potential for transient network issues in cloud environments
+# TELCOREL02-BP05 Optimize failure recovery timers for the shared tenancy and potential for transient network issues in cloud environments
 
 Many telecom network function vendors implement health monitoring thresholds based on
 on-premises architectural assumptions, where redundant network interfaces and multiple physical

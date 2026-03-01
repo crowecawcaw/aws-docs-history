@@ -1,6 +1,4 @@
-# TELCOSEC02-BP02 Implement features such as concealed or
-
-spoofed subscriber identities for signaling over the interfaces with access network
+# TELCOSEC02-BP02 Implement features such as concealed or spoofed subscriber identities for signaling over the interfaces with access network
 
 The 3rd Generation Partnership Project (3GPP) recommends that telco organizations use the
 Subscription Concealed Identifier (SUCI) instead of the Subscription Permanent Identifier (SUPI)

@@ -1,6 +1,4 @@
-# TELCOREL02-BP02 Implement full mesh between control plane and
-
-user plane functions
+# TELCOREL02-BP02 Implement full mesh between control plane and user plane functions
 
 Implement a resilient architecture design where each control plane node can manage user
 plane functions in a mesh configuration. For each user plane function, one control plane node

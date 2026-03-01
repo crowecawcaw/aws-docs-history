@@ -1,6 +1,4 @@
-# TELCOOPS05-BP01 Implement standardized provisioning and
-
-management of high-performance network interfaces
+# TELCOOPS05-BP01 Implement standardized provisioning and management of high-performance network interfaces
 
 telco and high-performance network workloads require specialized networking interfaces (like
 SR-IOV, DPDK, and Multus) for separating control, management, and data plane traffic. While

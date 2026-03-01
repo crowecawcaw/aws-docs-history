@@ -19,12 +19,8 @@ telecommunication needs.
 
 ###### Best practices
 
-- [TELCOREL02-BP01 Deploy user plane functions in a distributed
-  architecture and highly available configuration](telcorel02-bp01.md "telcorel02-bp01.md")
-- [TELCOREL02-BP02 Implement full mesh between control plane and
-  user plane functions](telcorel02-bp02.md "telcorel02-bp02.md")
-- [TELCOREL02-BP03 Implement a flexible network function (NF)
-  design to leverage available infrastructure resources for autoscaling](telcorel02-bp03.md "telcorel02-bp03.md")
+- [TELCOREL02-BP01 Deploy user plane functions in a distributed architecture and highly available configuration](telcorel02-bp01.md "telcorel02-bp01.md")
+- [TELCOREL02-BP02 Implement full mesh between control plane and user plane functions](telcorel02-bp02.md "telcorel02-bp02.md")
+- [TELCOREL02-BP03 Implement a flexible network function (NF) design to leverage available infrastructure resources for autoscaling](telcorel02-bp03.md "telcorel02-bp03.md")
 - [TELCOREL02-BP04 Introduce an SCTP load balancer designed for control-plane network functions, carrier-grade performance, and high availability](telcorel02-bp04.md "telcorel02-bp04.md")
-- [TELCOREL02-BP05 Optimize failure recovery timers for the
-  shared tenancy and potential for transient network issues in cloud environments](telcorel02-bp05.md "telcorel02-bp05.md")
+- [TELCOREL02-BP05 Optimize failure recovery timers for the shared tenancy and potential for transient network issues in cloud environments](telcorel02-bp05.md "telcorel02-bp05.md")

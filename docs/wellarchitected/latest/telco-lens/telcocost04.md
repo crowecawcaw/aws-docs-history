@@ -11,7 +11,5 @@ billing systems, and more.
 
 ###### Best practices
 
-- [TELCOCOST04-BP01 Choose the appropriate type of storage for
-  network functions backups, metrics, KPIs and the event records to reduce costs](telcocost04-bp01.md "telcocost04-bp01.md")
-- [TELCOCOST04-BP02 Use ETSI ENI based architectures to implement intelligent network
-  slicing](telcocost04-bp02.md "telcocost04-bp02.md")
+- [TELCOCOST04-BP01 Choose the appropriate type of storage for network functions backups, metrics, KPIs and the event records to reduce costs](telcocost04-bp01.md "telcocost04-bp01.md")
+- [TELCOCOST04-BP02 Use ETSI ENI based architectures to implement intelligent network slicing](telcocost04-bp02.md "telcocost04-bp02.md")

@@ -13,9 +13,6 @@ touchpoints.
 
 ###### Best practices
 
-- [TELCOSEC03-BP01 Secure the APIs used to expose telco network
-  functionality](telcosec03-bp01.md "telcosec03-bp01.md")
-- [TELSEC03-BP02 Deploy signaling firewall on the roaming and
-  interconnecting interfaces with other telco networks](telsec03-bp02.md "telsec03-bp02.md")
-- [TELSEC03-BP03 Perform regular penetration testing on each of
-  the protocols implemented on the signaling layer](telsec03-bp03.md "telsec03-bp03.md")
+- [TELCOSEC03-BP01 Secure the APIs used to expose telco network functionality](telcosec03-bp01.md "telcosec03-bp01.md")
+- [TELSEC03-BP02 Deploy signaling firewall on the roaming and interconnecting interfaces with other telco networks](telsec03-bp02.md "telsec03-bp02.md")
+- [TELSEC03-BP03 Perform regular penetration testing on each of the protocols implemented on the signaling layer](telsec03-bp03.md "telsec03-bp03.md")

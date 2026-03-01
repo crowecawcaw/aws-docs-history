@@ -10,9 +10,6 @@ maintaining security and operational efficiency.
 
 ###### Best practices
 
-- [TELCOOPS02-BP01 Telecommunication resources, operations and
-  projects have identified owners](telcoops02-bp01.md "telcoops02-bp01.md")
-- [TELCOOPS02-BP02 Adopt a multi-account strategy to isolate
-  different telecommunication workload](telcoops02-bp02.md "telcoops02-bp02.md")
-- [TELCOOPS02-BP03 Predict and mitigate deployment risks by
-  adapting least disruptive deployment strategy for telecommunication workloads](telcoops02-bp03.md "telcoops02-bp03.md")
+- [TELCOOPS02-BP01 Telecommunication resources, operations and projects have identified owners](telcoops02-bp01.md "telcoops02-bp01.md")
+- [TELCOOPS02-BP02 Adopt a multi-account strategy to isolate different telecommunication workload](telcoops02-bp02.md "telcoops02-bp02.md")
+- [TELCOOPS02-BP03 Predict and mitigate deployment risks by adapting least disruptive deployment strategy for telecommunication workloads](telcoops02-bp03.md "telcoops02-bp03.md")

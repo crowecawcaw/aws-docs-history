@@ -1,6 +1,4 @@
-# TELCOPERF03-BP03 Implement network timing synchronization and
-
-distribution mechanisms to verify service consistency
+# TELCOPERF03-BP03 Implement network timing synchronization and distribution mechanisms to verify service consistency
 
 Establishing robust network timing synchronization across distributed infrastructure is
 critical for maintaining consistent service quality in telco workloads. Proper timing mechanisms

@@ -1,6 +1,4 @@
-# TELCOSUS01-BP01 Implement energy-efficient infrastructure for
-
-telco networks
+# TELCOSUS01-BP01 Implement energy-efficient infrastructure for telco networks
 
 When designing telco network infrastructure for sustainability, focus on optimizing
 compute resources, implementing intelligent scaling, and leveraging edge computing to reduce

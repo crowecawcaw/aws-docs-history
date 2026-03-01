@@ -13,9 +13,6 @@ ranging from voice and data to IoT and multimedia applications.
 
 ###### Best practices
 
-- [TELCOPERF03-BP01 Implement dedicated network infrastructure
-  for control and user plane functions](telcoperf03-bp01.md "telcoperf03-bp01.md")
-- [TELCOPERF03-BP02 Deploy hardware acceleration solutions for
-  enhanced packet processing and network performance](telcoperf03-bp02.md "telcoperf03-bp02.md")
-- [TELCOPERF03-BP03 Implement network timing synchronization and
-  distribution mechanisms to verify service consistency](telcoperf03-bp03.md "telcoperf03-bp03.md")
+- [TELCOPERF03-BP01 Implement dedicated network infrastructure for control and user plane functions](telcoperf03-bp01.md "telcoperf03-bp01.md")
+- [TELCOPERF03-BP02 Deploy hardware acceleration solutions for enhanced packet processing and network performance](telcoperf03-bp02.md "telcoperf03-bp02.md")
+- [TELCOPERF03-BP03 Implement network timing synchronization and distribution mechanisms to verify service consistency](telcoperf03-bp03.md "telcoperf03-bp03.md")

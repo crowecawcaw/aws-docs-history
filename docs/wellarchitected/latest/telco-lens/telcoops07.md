@@ -13,5 +13,4 @@ telecommunication architectures.
 
 ###### Best practices
 
-- [TELCOOPS07-BP01 Design architecture patterns that maximize
-  redundancy within available geographical constraints](telcoops07-bp01.md "telcoops07-bp01.md")
+- [TELCOOPS07-BP01 Design architecture patterns that maximize redundancy within available geographical constraints](telcoops07-bp01.md "telcoops07-bp01.md")

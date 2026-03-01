@@ -1,6 +1,4 @@
-# TELCOSUS04-BP01 Enhance telco network resilience to climate
-
-change risks
+# TELCOSUS04-BP01 Enhance telco network resilience to climate change risks
 
 Climate resilience for telco networks requires architecting for extreme weather events,
 implementing geographic redundancy, and establishing automated failover mechanisms. Design

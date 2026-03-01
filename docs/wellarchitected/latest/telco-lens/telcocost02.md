@@ -9,7 +9,5 @@ telco Network Functions.
 
 ###### Best practices
 
-- [TELCOCOST02-BP01 Implement dynamic CNF sizing and scaling
-  strategies based on actual subscriber demands and usage patterns](telcocost02-bp01.md "telcocost02-bp01.md")
-- [TELCOCOST02-BP02 Choose the most efficient compute resource
-  for your Network Function](telcocost02-bp02.md "telcocost02-bp02.md")
+- [TELCOCOST02-BP01 Implement dynamic CNF sizing and scaling strategies based on actual subscriber demands and usage patterns](telcocost02-bp01.md "telcocost02-bp01.md")
+- [TELCOCOST02-BP02 Choose the most efficient compute resource for your Network Function](telcocost02-bp02.md "telcocost02-bp02.md")

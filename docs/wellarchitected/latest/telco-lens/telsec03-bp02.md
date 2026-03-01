@@ -1,6 +1,4 @@
-# TELSEC03-BP02 Deploy signaling firewall on the roaming and
-
-interconnecting interfaces with other telco networks
+# TELSEC03-BP02 Deploy signaling firewall on the roaming and interconnecting interfaces with other telco networks
 
 The Global System for Mobile Communications Association (GSMA) recommends deploying
 signaling firewalls on the roaming and interconnecting interfaces with other telco networks.

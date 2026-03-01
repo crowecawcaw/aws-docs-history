@@ -1,6 +1,4 @@
-# TELCOPERF04-BP02 Monitor deviations from nominal performance
-
-parameters using system alerts and automated responses
+# TELCOPERF04-BP02 Monitor deviations from nominal performance parameters using system alerts and automated responses
 
 Effective monitoring of telecom workloads requires establishing and tracking performance
 baselines to quickly identify anomalies and deviations from expected behavior. By leveraging

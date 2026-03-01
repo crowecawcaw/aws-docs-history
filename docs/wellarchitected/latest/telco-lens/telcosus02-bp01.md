@@ -1,6 +1,4 @@
-# TELCOSUS02-BP01 Implement efficient data lifecycle management
-
-for telco networks
+# TELCOSUS02-BP01 Implement efficient data lifecycle management for telco networks
 
 telco networks generate diverse data types with varying retention requirements. Call
 detail records (CDRs) requiring long-term retention for regulatory adherence, network

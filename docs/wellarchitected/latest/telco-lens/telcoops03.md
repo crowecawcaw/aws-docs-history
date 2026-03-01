@@ -13,5 +13,4 @@ performance, scalability, and support for cloud-native architectures.
 
 ###### Best practices
 
-- [TELCOOPS03-BP01 Implement an enterprise-grade IP Address
-  Management solution with cloud infrastructure integration](telcoops03-bp01.md "telcoops03-bp01.md")
+- [TELCOOPS03-BP01 Implement an enterprise-grade IP Address Management solution with cloud infrastructure integration](telcoops03-bp01.md "telcoops03-bp01.md")

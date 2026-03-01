@@ -1,6 +1,4 @@
-# TELCOPERF03-BP02 Deploy hardware acceleration solutions for
-
-enhanced packet processing and network performance
+# TELCOPERF03-BP02 Deploy hardware acceleration solutions for enhanced packet processing and network performance
 
 Implementing hardware acceleration solutions such as SmartNICs and FPGAs is crucial for
 meeting the demanding performance requirements of modern telco workloads. These solutions

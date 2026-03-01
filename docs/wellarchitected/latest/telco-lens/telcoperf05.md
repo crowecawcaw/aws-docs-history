@@ -11,5 +11,4 @@ accordingly.
 
 ###### Best practices
 
-- [TELCOPERF05-BP01 Implement data lifecycle management
-  strategies for IVR and call logs to optimize storage costs and performance](telcoperf05-bp01.md "telcoperf05-bp01.md")
+- [TELCOPERF05-BP01 Implement data lifecycle management strategies for IVR and call logs to optimize storage costs and performance](telcoperf05-bp01.md "telcoperf05-bp01.md")

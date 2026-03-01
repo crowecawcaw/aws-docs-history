@@ -13,5 +13,4 @@ subscribers and gives CSPs responsibility and accountability of the address spac
 
 ###### Best practices
 
-- [TELCOOPS04-BP01 Implement the Bring Your Own IP (BYOIP)
-  address processes and associate the prefixes with the IPAM solution](telcoops04-bp01.md "telcoops04-bp01.md")
+- [TELCOOPS04-BP01 Implement the Bring Your Own IP (BYOIP) address processes and associate the prefixes with the IPAM solution](telcoops04-bp01.md "telcoops04-bp01.md")

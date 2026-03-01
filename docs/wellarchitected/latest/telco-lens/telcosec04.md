@@ -11,5 +11,4 @@ access or misuse of customer information.
 
 ###### Best practices
 
-- [TELCOSEC04-BP01 Enable encryption for CPNI and PII information
-  at rest and in transit and access restriction](telcosec04-bp01.md "telcosec04-bp01.md")
+- [TELCOSEC04-BP01 Enable encryption for CPNI and PII information at rest and in transit and access restriction](telcosec04-bp01.md "telcosec04-bp01.md")

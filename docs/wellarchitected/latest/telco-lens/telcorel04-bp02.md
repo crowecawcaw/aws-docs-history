@@ -1,6 +1,4 @@
-# TELCOREL04-BP02 Implement dual network planes for signaling or
-
-control plane
+# TELCOREL04-BP02 Implement dual network planes for signaling or control plane
 
 A resilient network architecture implementing two independent and redundant signaling
 networks that operate in parallel. Each signaling plane handles messages and controls network

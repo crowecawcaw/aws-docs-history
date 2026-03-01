@@ -1,6 +1,4 @@
-# TELCOCOST04-BP01 Choose the appropriate type of storage for
-
-network functions backups, metrics, KPIs and the event records to reduce costs
+# TELCOCOST04-BP01 Choose the appropriate type of storage for network functions backups, metrics, KPIs and the event records to reduce costs
 
 Telecom companies generate and store massive amounts of data to support their business and
 customer operations. However, data is accessed or needed at various frequencies. By aligning

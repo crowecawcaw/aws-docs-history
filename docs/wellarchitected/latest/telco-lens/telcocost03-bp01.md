@@ -1,6 +1,4 @@
-# TELCOCOST03-BP01 Use edge-zones and services to implement cloud workloads made up of
-
-containers and microservices
+# TELCOCOST03-BP01 Use edge-zones and services to implement cloud workloads made up of containers and microservices
 
 Telecom companies can take advantage of the cloud's ability to replicate resources across
 Availability Zones (AZs) within the same Region to reduce data transfer costs. When launching

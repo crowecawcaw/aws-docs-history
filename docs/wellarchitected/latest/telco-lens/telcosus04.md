@@ -10,5 +10,4 @@ to climate change.
 
 ###### Best practices
 
-- [TELCOSUS04-BP01 Enhance telco network resilience to climate
-  change risks](telcosus04-bp01.md "telcosus04-bp01.md")
+- [TELCOSUS04-BP01 Enhance telco network resilience to climate change risks](telcosus04-bp01.md "telcosus04-bp01.md")

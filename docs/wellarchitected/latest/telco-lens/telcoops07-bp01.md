@@ -1,6 +1,4 @@
-# TELCOOPS07-BP01 Design architecture patterns that maximize
-
-redundancy within available geographical constraints
+# TELCOOPS07-BP01 Design architecture patterns that maximize redundancy within available geographical constraints
 
 For telco CSPs requiring 200 or more kilometers of geo-redundancy while maintaining in-country data residency,
 it is essential to design cloud-based architectural solutions within available geographical

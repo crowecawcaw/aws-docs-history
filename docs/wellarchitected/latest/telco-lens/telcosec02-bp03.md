@@ -1,6 +1,4 @@
-# TELCOSEC02-BP03 Segment and isolate telco network domains and
-
-slices
+# TELCOSEC02-BP03 Segment and isolate telco network domains and slices
 
 To maintain the security and resilience of a telco network in a cloud environment, segment
 and isolate the various domains within the network. The same understanding applies to the

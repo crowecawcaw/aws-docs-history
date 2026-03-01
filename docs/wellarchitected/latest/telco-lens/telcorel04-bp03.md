@@ -1,6 +1,4 @@
-# TELCOREL04-BP03 Implement default configuration to bypass
-
-billing and charging services in case the system is down
+# TELCOREL04-BP03 Implement default configuration to bypass billing and charging services in case the system is down
 
 Implementing a default configuration to bypass billing and charging services in a telecom
 network maintains service continuity for customers in the event of a failure or outage in the

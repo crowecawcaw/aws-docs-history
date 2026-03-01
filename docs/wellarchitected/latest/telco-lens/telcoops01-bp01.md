@@ -1,6 +1,4 @@
-# TELCOOPS01-BP01 Promote cross-functional collaboration across
-
-internal and external stakeholders
+# TELCOOPS01-BP01 Promote cross-functional collaboration across internal and external stakeholders
 
 Involve key stakeholders, including business, development, and operations teams, to
 determine where to focus efforts on external and internal goals. Identify long-term and

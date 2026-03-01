@@ -12,5 +12,4 @@ becomes increasingly complex.
 
 ###### Best practices
 
-- [TELCOCOST06-BP01 Implement load-balancing techniques to
-  achieve better utilization of hybrid network resources](telcocost06-bp01.md "telcocost06-bp01.md")
+- [TELCOCOST06-BP01 Implement load-balancing techniques to achieve better utilization of hybrid network resources](telcocost06-bp01.md "telcocost06-bp01.md")

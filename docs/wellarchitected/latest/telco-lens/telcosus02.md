@@ -10,5 +10,4 @@ while maintaining adherence with regulatory requirements and operational needs.
 
 ###### Best practices
 
-- [TELCOSUS02-BP01 Implement efficient data lifecycle management
-  for telco networks](telcosus02-bp01.md "telcosus02-bp01.md")
+- [TELCOSUS02-BP01 Implement efficient data lifecycle management for telco networks](telcosus02-bp01.md "telcosus02-bp01.md")

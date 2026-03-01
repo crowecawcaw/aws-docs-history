@@ -1,6 +1,4 @@
-# TELCOSEC03-BP01 Secure the APIs used to expose telco network
-
-functionality
+# TELCOSEC03-BP01 Secure the APIs used to expose telco network functionality
 
 In modern telco networks, the Network Exposure Function (NEF) for 5G networks and the
 Service Capability Exposure Function (SCEF) for 4G networks provide APIs to expose network

@@ -11,7 +11,5 @@ mandates in its serving regions.
 
 ###### Best practices
 
-- [TELCOSEC01-BP01 Follow the industry standards and local
-  regulations to host telecom networks in the cloud, demonstrating a security commitment](telcosec01-bp01.md "telcosec01-bp01.md")
-- [TELCOSEC01-BP02 Encrypt data at-rest and sensitive traffic
-  (control plane, data plane) using secure VPNs and custom encryption keys](telcosec01-bp02.md "telcosec01-bp02.md")
+- [TELCOSEC01-BP01 Follow the industry standards and local regulations to host telecom networks in the cloud, demonstrating a security commitment](telcosec01-bp01.md "telcosec01-bp01.md")
+- [TELCOSEC01-BP02 Encrypt data at-rest and sensitive traffic (control plane, data plane) using secure VPNs and custom encryption keys](telcosec01-bp02.md "telcosec01-bp02.md")

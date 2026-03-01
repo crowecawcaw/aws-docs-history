@@ -1,6 +1,4 @@
-# TELCOCOST02-BP02 Choose the most efficient compute resource
-
-for your Network Function
+# TELCOCOST02-BP02 Choose the most efficient compute resource for your Network Function
 
 When implementing cloud-based network functions (CNFs), it is important to benchmark your
 applications on different compute types to determine the optimal balance of performance and

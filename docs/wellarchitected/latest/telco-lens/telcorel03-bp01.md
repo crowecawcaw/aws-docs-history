@@ -1,6 +1,4 @@
-# TELCOREL03-BP01 Use a controlled change management mechanism
-
-for software updates in production
+# TELCOREL03-BP01 Use a controlled change management mechanism for software updates in production
 
 Follow a controlled change management approach that blocks automatic updates in production
 environments while maintaining changes are thoroughly tested in lower environments. This

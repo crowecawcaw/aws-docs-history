@@ -1,6 +1,4 @@
-# TELCOSUS05-BP01 Establish comprehensive carbon footprint
-
-monitoring for telco networks
+# TELCOSUS05-BP01 Establish comprehensive carbon footprint monitoring for telco networks
 
 Measuring carbon footprint across telco operations requires tracking emissions from
 multiple sources including data centers, network equipment, edge sites, and even supply chain
@@ -59,7 +57,7 @@ Communications Association (GSMA) climate targets.
    metrics, calculating total emissions using Regional emission factors.
 5. Set up Amazon Managed Grafana dashboards displaying real-time carbon intensity metrics, with
    drill-down capabilities by service, region, and network function.
-6. Configure Quick Suite to generate automated monthly sustainability reports aligned with
+6. Configure Quick to generate automated monthly sustainability reports aligned with
    GSMA or SBTi reporting requirements.
 7. Implement Amazon EventBridge rules to trigger alerts when carbon emissions exceed defined
    thresholds or deviate from reduction targets.
@@ -74,6 +72,6 @@ Communications Association (GSMA) climate targets.
 
 - [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/")
 - [AWS Glue](https://aws.amazon.com/glue/ "https://aws.amazon.com/glue/")
-- [Quick Suite](https://aws.amazon.com/quicksuite/quicksight/ "https://aws.amazon.com/quicksuite/quicksight/")
+- [Quick](https://aws.amazon.com/quicksuite/quicksight/ "https://aws.amazon.com/quicksuite/quicksight/")
 - [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/")
 - [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/")

@@ -11,5 +11,4 @@ and vendor dependence of the network infrastructure.
 
 ###### Best practices
 
-- [TELCOCOST05-BP01 Explore open interface-based technology like
-  RAN or vRAN to reduce network-related costs](telcocost05-bp01.md "telcocost05-bp01.md")
+- [TELCOCOST05-BP01 Explore open interface-based technology like RAN or vRAN to reduce network-related costs](telcocost05-bp01.md "telcocost05-bp01.md")

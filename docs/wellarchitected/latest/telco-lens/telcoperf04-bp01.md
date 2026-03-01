@@ -1,6 +1,4 @@
-# TELCOPERF04-BP01 Implement AI and ML-powered monitoring
-
-solutions to gain insights into network health and performance
+# TELCOPERF04-BP01 Implement AI and ML-powered monitoring solutions to gain insights into network health and performance
 
 Implementing advanced monitoring solutions that use artificial intelligence (AI) and
 machine learning (ML) technologies is crucial for optimizing telco network performance and

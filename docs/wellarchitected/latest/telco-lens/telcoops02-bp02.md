@@ -1,6 +1,4 @@
-# TELCOOPS02-BP02 Adopt a multi-account strategy to isolate
-
-different telecommunication workload
+# TELCOOPS02-BP02 Adopt a multi-account strategy to isolate different telecommunication workload
 
 Implement a strategic multi-account architecture that effectively separates and isolates
 telecommunications workloads while maintaining necessary interconnectivity and operational

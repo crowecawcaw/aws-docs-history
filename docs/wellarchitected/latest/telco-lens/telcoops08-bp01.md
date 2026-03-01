@@ -1,6 +1,4 @@
-# TELCOOPS08-BP01 Develop and execute comprehensive failure
-
-testing programs that reflect cloud infrastructure characteristics
+# TELCOOPS08-BP01 Develop and execute comprehensive failure testing programs that reflect cloud infrastructure characteristics
 
 ISVs and CSPs should adapt their testing approaches to account for cloud infrastructure
 characteristics that differ from on-premises environments. This includes developing

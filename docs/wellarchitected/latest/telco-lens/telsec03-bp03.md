@@ -1,6 +1,4 @@
-# TELSEC03-BP03 Perform regular penetration testing on each of
-
-the protocols implemented on the signaling layer
+# TELSEC03-BP03 Perform regular penetration testing on each of the protocols implemented on the signaling layer
 
 Perform regular penetration testing on each of the protocols implemented on the signaling
 layer of their network. This best practice is crucial for identifying and addressing

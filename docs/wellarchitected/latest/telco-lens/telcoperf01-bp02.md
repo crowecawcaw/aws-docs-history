@@ -1,6 +1,4 @@
-# TELCOPERF01-BP02 Select the infrastructure regions to deploy
-
-telco workloads based on performance requirements and regulatory considerations
+# TELCOPERF01-BP02 Select the infrastructure regions to deploy telco workloads based on performance requirements and regulatory considerations
 
 Selecting the appropriate infrastructure regions for deploying telco workloads is crucial
 for optimizing network performance and maintaining regulatory adherence. When choosing regions,

@@ -1,6 +1,4 @@
-# TELCOSEC04-BP01 Enable encryption for CPNI and PII information
-
-at rest and in transit and access restriction
+# TELCOSEC04-BP01 Enable encryption for CPNI and PII information at rest and in transit and access restriction
 
 It is recommended that telecommunications organizations implement comprehensive
 encryption measures for both customer proprietary network information (CPNI) and personally

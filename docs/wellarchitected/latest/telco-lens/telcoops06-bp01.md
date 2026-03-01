@@ -1,6 +1,4 @@
-# TELCOOPS06-BP01 Verify resource availability for
-
-scale-out scenarios in telecommunication workloads
+# TELCOOPS06-BP01 Verify resource availability for scale-out scenarios in telecommunication workloads
 
 If the cloud providers cannot guarantee instant EC2 instance availability, especially for
 large instance types commonly used in telco deployments, implement proactive capacity planning.

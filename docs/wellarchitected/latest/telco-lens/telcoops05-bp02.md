@@ -1,6 +1,4 @@
-# TELCOOPS05-BP02 Implement a structured sequence of interface
-
-assignment based on the persistent or ephemeral nature of the interfaces
+# TELCOOPS05-BP02 Implement a structured sequence of interface assignment based on the persistent or ephemeral nature of the interfaces
 
 The order of operations is important as the creation and termination of instances often
 creates and destroys interfaces. This is a useful property for ephemeral interfaces. However, it

@@ -1,6 +1,4 @@
-# TELCOSEC02-BP01 Use secure control plane protocols between the
-
-network functions (NF)
+# TELCOSEC02-BP01 Use secure control plane protocols between the network functions (NF)
 
 The 3rd Generation Partnership Project (3GPP) recommends that telco organizations use
 secure control plane protocols between the various network functions (NF) within their 5G core

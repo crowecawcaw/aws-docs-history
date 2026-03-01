@@ -1,6 +1,4 @@
-# TELCOPERF05-BP01 Implement data lifecycle management
-
-strategies for IVR and call logs to optimize storage costs and performance
+# TELCOPERF05-BP01 Implement data lifecycle management strategies for IVR and call logs to optimize storage costs and performance
 
 Implementing effective data lifecycle management for Interactive Voice Response (IVR)
 systems and call logs is crucial in telecommunications environments. This strategy involves

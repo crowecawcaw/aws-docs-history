@@ -1,6 +1,4 @@
-# TELCOSEC01-BP02 Encrypt data at-rest and sensitive traffic
-
-(control plane, data plane) using secure VPNs and custom encryption keys
+# TELCOSEC01-BP02 Encrypt data at-rest and sensitive traffic (control plane, data plane) using secure VPNs and custom encryption keys
 
 Due to regulatory requirements, the CSPs often need to apply
 additional encryption to traffic that is not already secured by the underlying transport or

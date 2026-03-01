@@ -13,5 +13,4 @@ services.
 
 ###### Best practices
 
-- [TELCOOPS08-BP01 Develop and execute comprehensive failure
-  testing programs that reflect cloud infrastructure characteristics](telcoops08-bp01.md "telcoops08-bp01.md")
+- [TELCOOPS08-BP01 Develop and execute comprehensive failure testing programs that reflect cloud infrastructure characteristics](telcoops08-bp01.md "telcoops08-bp01.md")

@@ -1,6 +1,4 @@
-# TELCOPERF02-BP01 Implement containers to achieve optimal
-
-performance and resource utilization
+# TELCOPERF02-BP01 Implement containers to achieve optimal performance and resource utilization
 
 Implementing containers in your telco architecture is a crucial step towards achieving
 optimal performance and resource utilization. When adopting this approach, it is essential to

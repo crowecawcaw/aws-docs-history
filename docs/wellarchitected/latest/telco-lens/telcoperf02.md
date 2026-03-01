@@ -13,5 +13,4 @@ processing.
 
 ###### Best practices
 
-- [TELCOPERF02-BP01 Implement containers to achieve optimal
-  performance and resource utilization](telcoperf02-bp01.md "telcoperf02-bp01.md")
+- [TELCOPERF02-BP01 Implement containers to achieve optimal performance and resource utilization](telcoperf02-bp01.md "telcoperf02-bp01.md")

@@ -1,6 +1,4 @@
-# TELCOOPS09-BP01 Implement comprehensive performance monitoring
-
-and baseline testing that accounts for shared infrastructure characteristics
+# TELCOOPS09-BP01 Implement comprehensive performance monitoring and baseline testing that accounts for shared infrastructure characteristics
 
 To address the challenges of performance baselining in cloud environments with shared
 resources (like Nitro-based instances), organizations should implement comprehensive monitoring
@@ -49,7 +47,7 @@ analytics to enable proactive performance optimization and capacity planning.
 - Configure AWS X-Ray for distributed tracing and Amazon Managed Service for Prometheus for metric storage.
 - Use Amazon CloudWatch Synthetics for performance testing and AWS Lambda for custom test
   execution.
-- Implement Amazon OpenSearch Service for log analytics and Quick Suite for performance analytics.
+- Implement Amazon OpenSearch Service for log analytics and Quick for performance analytics.
 - Deploy AWS Systems Manager OpsCenter for performance issue management and AWS Compute Optimizer for
   resource optimization.
 

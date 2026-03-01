@@ -12,5 +12,4 @@ availability for scale-out scenarios in dynamic telecommunication environments.
 
 ###### Best practices
 
-- [TELCOOPS06-BP01 Verify resource availability for
-  scale-out scenarios in telecommunication workloads](telcoops06-bp01.md "telcoops06-bp01.md")
+- [TELCOOPS06-BP01 Verify resource availability for scale-out scenarios in telecommunication workloads](telcoops06-bp01.md "telcoops06-bp01.md")

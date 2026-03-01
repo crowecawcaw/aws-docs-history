@@ -1,6 +1,4 @@
-# TELCOCOST06-BP01 Implement load-balancing techniques to
-
-achieve better utilization of hybrid network resources
+# TELCOCOST06-BP01 Implement load-balancing techniques to achieve better utilization of hybrid network resources
 
 Establish a comprehensive traffic classification system that identifies different types of
 network traffic (for example, real-time communications, bulk data transfers, best-effort

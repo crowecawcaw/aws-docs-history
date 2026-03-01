@@ -1,6 +1,4 @@
-# TELCOCOST01-BP01 Implement attribution of cost to each telco domain hosted on the AWS
-
-(access, core, edge, OSS, and BSS)
+# TELCOCOST01-BP01 Implement attribution of cost to each telco domain hosted on the AWS (access, core, edge, OSS, and BSS)
 
 Telcos with workloads running on AWS can take advantage of AWS' detailed cost and usage
 reporting to attribute costs to each of their domains (like access, core, edge, OSS, and BSS). By

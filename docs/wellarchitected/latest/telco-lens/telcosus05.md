@@ -10,5 +10,4 @@ demonstrate environmental responsibility to stakeholders.
 
 ###### Best practices
 
-- [TELCOSUS05-BP01 Establish comprehensive carbon footprint
-  monitoring for telco networks](telcosus05-bp01.md "telcosus05-bp01.md")
+- [TELCOSUS05-BP01 Establish comprehensive carbon footprint monitoring for telco networks](telcosus05-bp01.md "telcosus05-bp01.md")

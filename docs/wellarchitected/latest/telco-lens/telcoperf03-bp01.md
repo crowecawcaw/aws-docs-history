@@ -1,6 +1,4 @@
-# TELCOPERF03-BP01 Implement dedicated network infrastructure
-
-for control and user plane functions
+# TELCOPERF03-BP01 Implement dedicated network infrastructure for control and user plane functions
 
 Separating network infrastructure for control and user plane functions (CUPS) is essential
 for optimizing telco workload performance. Control plane infrastructure should be designed with

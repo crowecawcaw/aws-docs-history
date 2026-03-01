@@ -1,6 +1,4 @@
-# TELCOPERF01-BP01 Use Edge locations to deploy latency
-
-sensitive telco network workloads such as RAN and user-plane nodes
+# TELCOPERF01-BP01 Use Edge locations to deploy latency sensitive telco network workloads such as RAN and user-plane nodes
 
 Deploying latency-sensitive telco network workloads like Radio Access Network (RAN) and
 user plane nodes in edge locations is recommended. Placing these components closer to the

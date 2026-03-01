@@ -1,6 +1,4 @@
-# TELCOCOST04-BP02 Use ETSI ENI based architectures to implement intelligent network
-
-slicing
+# TELCOCOST04-BP02 Use ETSI ENI based architectures to implement intelligent network slicing
 
 The European Telecommunications Standards Institute (ETSI) Experiential Networked
 Intelligence (ENI) is an architectural framework that defines standards for cognitive network

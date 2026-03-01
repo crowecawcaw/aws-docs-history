@@ -13,5 +13,4 @@ environments to support effective capacity planning for telecommunication worklo
 
 ###### Best practices
 
-- [TELCOOPS09-BP01 Implement comprehensive performance monitoring
-  and baseline testing that accounts for shared infrastructure characteristics](telcoops09-bp01.md "telcoops09-bp01.md")
+- [TELCOOPS09-BP01 Implement comprehensive performance monitoring and baseline testing that accounts for shared infrastructure characteristics](telcoops09-bp01.md "telcoops09-bp01.md")

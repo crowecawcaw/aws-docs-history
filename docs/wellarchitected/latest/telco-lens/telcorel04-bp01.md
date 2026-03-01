@@ -1,6 +1,4 @@
-# TELCOREL04-BP01 Implement the Bypass Mode on peripheral
-
-network devices such as firewalls and network probes while connecting to the cloud
+# TELCOREL04-BP01 Implement the Bypass Mode on peripheral network devices such as firewalls and network probes while connecting to the cloud
 
 Implementing bypass mode on network peripheral devices like firewalls and network probes is
 crucial for maintaining service continuity during device failures or power outages. This

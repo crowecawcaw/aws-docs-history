@@ -13,5 +13,4 @@ microservices to minimize data transfers across the network.
 
 ###### Best practices
 
-- [TELCOCOST03-BP01 Use edge-zones and services to implement cloud workloads made up of
-  containers and microservices](telcocost03-bp01.md "telcocost03-bp01.md")
+- [TELCOCOST03-BP01 Use edge-zones and services to implement cloud workloads made up of containers and microservices](telcocost03-bp01.md "telcocost03-bp01.md")

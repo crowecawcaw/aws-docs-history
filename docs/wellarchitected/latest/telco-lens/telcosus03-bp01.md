@@ -1,6 +1,4 @@
-# TELCOSUS03-BP01 Adopt circular economy principles for telco
-
-network assets
+# TELCOSUS03-BP01 Adopt circular economy principles for telco network assets
 
 Implementing circular economy principles in telco networks requires comprehensive
 visibility into physical and virtual assets throughout their lifecycle. This includes tracking
@@ -53,7 +51,7 @@ waste.
    performance degradation patterns specific to telco equipment.
 5. Deploy Amazon SageMaker AI to build predictive maintenance models using historical failure
    data.
-6. Set up Quick Suite dashboards displaying asset utilization rates, predicted replacement
+6. Set up Quick dashboards displaying asset utilization rates, predicted replacement
    schedules, and opportunities for equipment redeployment.
 7. Implement AWS Systems Manager Inventory to track software licenses and virtual resource
    allocation, identifying underutilized assets for reallocation.
@@ -65,5 +63,5 @@ waste.
 **Key AWS services:**
 
 - [AWS IoT Core](https://aws.amazon.com/iot-core/ "https://aws.amazon.com/iot-core/")
-- [Quick Suite](https://aws.amazon.com/quicksuite/quicksight/ "https://aws.amazon.com/quicksuite/quicksight/")
+- [Quick](https://aws.amazon.com/quicksuite/quicksight/ "https://aws.amazon.com/quicksuite/quicksight/")
 - [Amazon SNS](https://aws.amazon.com/sns/ "https://aws.amazon.com/sns/")

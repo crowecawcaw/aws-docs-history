@@ -1,6 +1,4 @@
-# TELCOCOST02-BP01 Implement dynamic CNF sizing and scaling
-
-strategies based on actual subscriber demands and usage patterns
+# TELCOCOST02-BP01 Implement dynamic CNF sizing and scaling strategies based on actual subscriber demands and usage patterns
 
 In traditional on-premises environments, CNF infrastructure is typically sized for peak
 capacity expected over the hardware lifetime. To optimize costs in cloud environments,

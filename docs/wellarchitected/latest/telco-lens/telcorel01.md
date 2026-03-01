@@ -16,5 +16,4 @@ focused on critical service availability.
 
 ###### Best practices
 
-- [TELCOREL01-BP01 Conduct regular load and failure tests to
-  validate resilience on node, interface, and infrastructure levels](telcorel01-bp01.md "telcorel01-bp01.md")
+- [TELCOREL01-BP01 Conduct regular load and failure tests to validate resilience on node, interface, and infrastructure levels](telcorel01-bp01.md "telcorel01-bp01.md")

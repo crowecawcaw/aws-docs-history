@@ -1,6 +1,4 @@
-# TELCOPERF01-BP03 Deploy the control plane network functions
-
-on centralized locations to meet high scalability and agility requirements
+# TELCOPERF01-BP03 Deploy the control plane network functions on centralized locations to meet high scalability and agility requirements
 
 Running the control plane nodes in centralized geographical locations is a strategy used to
 meet the demands for high scalability and mobility. Centralizing the control plane components in

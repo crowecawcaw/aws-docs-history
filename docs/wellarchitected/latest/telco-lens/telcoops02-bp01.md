@@ -1,6 +1,4 @@
-# TELCOOPS02-BP01 Telecommunication resources, operations and
-
-projects have identified owners
+# TELCOOPS02-BP01 Telecommunication resources, operations and projects have identified owners
 
 Establish clear ownership and accountability frameworks for telecommunications assets,
 operations, and projects through formal assignment of responsibilities to specific individuals

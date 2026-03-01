@@ -1,6 +1,4 @@
-# TELCOREL01-BP01 Conduct regular load and failure tests to
-
-validate resilience on node, interface, and infrastructure levels
+# TELCOREL01-BP01 Conduct regular load and failure tests to validate resilience on node, interface, and infrastructure levels
 
 Implement a comprehensive testing strategy that evaluates network resilience through
 simulated failures of nodes, interfaces, and infrastructure components. This includes testing in

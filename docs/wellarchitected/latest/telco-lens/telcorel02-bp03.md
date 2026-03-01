@@ -1,6 +1,4 @@
-# TELCOREL02-BP03 Implement a flexible network function (NF)
-
-design to leverage available infrastructure resources for autoscaling
+# TELCOREL02-BP03 Implement a flexible network function (NF) design to leverage available infrastructure resources for autoscaling
 
 Designing a flexible network function design enables the telecom network to dynamically
 scale its resources based on the availability of suitable instance types in the deployment
