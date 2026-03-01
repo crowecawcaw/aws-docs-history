@@ -24,37 +24,33 @@ the PostgreSQL documentation.
 - [PostgreSQL 18 versions](#postgresql-version18 "#postgresql-version18")
 - [PostgreSQL 17 versions](#postgresql-version17 "#postgresql-version17")
 - [PostgreSQL 16 versions](#postgresql-version16 "#postgresql-version16")
-- [PostgreSQL 15 versions (Some of these versions have
-  reached the end of standard support or deprecated.)](#postgresql-version15 "#postgresql-version15")
+- [PostgreSQL 15 versions (Some of these versions have reached the end of standard support or deprecated.)](#postgresql-version15 "#postgresql-version15")
 - [PostgreSQL 14 versions](#postgresql-versions-version14 "#postgresql-versions-version14")
 - [PostgreSQL 13 versions](#postgresql-versions-version13 "#postgresql-versions-version13")
 - [PostgreSQL 12 versions (Some of these versions have reached the end of standard support or deprecated.)](#postgresql-versions-version12 "#postgresql-versions-version12")
-- [PostgreSQL 11 versions (Some of these versions
-  have reached the end of standard support or deprecated.)](#postgresql-versions-version11 "#postgresql-versions-version11")
+- [PostgreSQL 11 versions (Some of these versions have reached the end of standard support or deprecated.)](#postgresql-versions-version11 "#postgresql-versions-version11")
 - [PostgreSQL 10 versions (Deprecated)](#postgresql-versions-version10 "#postgresql-versions-version10")
 - [PostgreSQL 9.6 versions (Deprecated)](#postgresql-versions-version96 "#postgresql-versions-version96")
-- [Deprecation of
-  PostgreSQL 10](#postgresql-versions-version10-deprecation-notice "#postgresql-versions-version10-deprecation-notice")
-- [Deprecation of
-  PostgreSQL 9.6](#postgresql-versions-version96-deprecation-notice "#postgresql-versions-version96-deprecation-notice")
+- [Deprecation of PostgreSQL 10](#postgresql-versions-version10-deprecation-notice "#postgresql-versions-version10-deprecation-notice")
+- [Deprecation of PostgreSQL 9.6](#postgresql-versions-version96-deprecation-notice "#postgresql-versions-version96-deprecation-notice")
 
 ## PostgreSQL 18 versions
 
 ###### Minor versions
 
+- [PostgreSQL version 18.3 on Amazon RDS](#postgresql-versions-version183 "#postgresql-versions-version183")
 - [PostgreSQL version 18.2 on Amazon RDS](#postgresql-versions-version182 "#postgresql-versions-version182")
-- [PostgreSQL version 18.1 on
-  Amazon RDS](#postgresql-versions-version181 "#postgresql-versions-version181")
-- [PostgreSQL version 18.0 in the
-  Amazon RDS Preview environment](#postgresql-versions-version180Preview "#postgresql-versions-version180Preview")
-- [PostgreSQL version 18 RC1 in the
-  Amazon RDS Preview environment](#postgresql-versions-version18RC1 "#postgresql-versions-version18RC1")
-- [PostgreSQL version 18 Beta 3 in the
-  Amazon RDS Preview environment](#postgresql-versions-version18Beta3 "#postgresql-versions-version18Beta3")
-- [PostgreSQL version 18 Beta 2 in the
-  Amazon RDS Preview environment](#postgresql-versions-version18Beta2 "#postgresql-versions-version18Beta2")
-- [PostgreSQL version 18 Beta 1 in the
-  Amazon RDS Preview environment](#postgresql-versions-version18Beta1 "#postgresql-versions-version18Beta1")
+- [PostgreSQL version 18.1 on Amazon RDS](#postgresql-versions-version181 "#postgresql-versions-version181")
+- [PostgreSQL version 18.0 in the Amazon RDS Preview environment](#postgresql-versions-version180Preview "#postgresql-versions-version180Preview")
+- [PostgreSQL version 18 RC1 in the Amazon RDS Preview environment](#postgresql-versions-version18RC1 "#postgresql-versions-version18RC1")
+- [PostgreSQL version 18 Beta 3 in the Amazon RDS Preview environment](#postgresql-versions-version18Beta3 "#postgresql-versions-version18Beta3")
+- [PostgreSQL version 18 Beta 2 in the Amazon RDS Preview environment](#postgresql-versions-version18Beta2 "#postgresql-versions-version18Beta2")
+- [PostgreSQL version 18 Beta 1 in the Amazon RDS Preview environment](#postgresql-versions-version18Beta1 "#postgresql-versions-version18Beta1")
+
+### PostgreSQL version 18.3 on Amazon RDS
+
+PostgreSQL version 18.3 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 18.3 release](https://www.postgresql.org/docs/release/18.3/ "https://www.postgresql.org/docs/release/18.3/").
 
 ### PostgreSQL version 18.2 on Amazon RDS
 
@@ -87,9 +83,7 @@ The following extension was added:
 - The `oracle_fdw` extension was updated to version 2.8.0.
 - The `roaringbitmap` extension was updated to version 1.1.0.
 
-### PostgreSQL version 18.1 on
-
-Amazon RDS
+### PostgreSQL version 18.1 on Amazon RDS
 
 PostgreSQL 18 contains many new features and enhancements that can be seen in the
 following release documentation, [PostgreSQL 18](https://www.postgresql.org/docs/18/release-18.html "https://www.postgresql.org/docs/18/release-18.html").
@@ -125,12 +119,9 @@ RDS for PostgreSQL version 18:
 - `postgis_topology`
 - `plrust`
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
 
-### PostgreSQL version 18.0 in the
-
-Amazon RDS Preview environment
+### PostgreSQL version 18.0 in the Amazon RDS Preview environment
 
 ###### Note
 
@@ -156,12 +147,9 @@ RDS for PostgreSQL version 18.0 in preview:
 - `pgAudit`
 - `plrust`
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
 
-### PostgreSQL version 18 RC1 in the
-
-Amazon RDS Preview environment
+### PostgreSQL version 18 RC1 in the Amazon RDS Preview environment
 
 PostgreSQL 18 RC1 contains many new features and enhancements that can be seen in the
 release documentation: [PostgreSQL 18 RC1 Released!](https://www.postgresql.org/about/news/postgresql-18-rc-1-released-3130/ "https://www.postgresql.org/about/news/postgresql-18-rc-1-released-3130/").
@@ -192,12 +180,9 @@ The following extensions that are supported in Amazon RDS PostgreSQL version 17 
 - `postgis_tiger_geocoder`
 - `postgis_topology`
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
 
-### PostgreSQL version 18 Beta 3 in the
-
-Amazon RDS Preview environment
+### PostgreSQL version 18 Beta 3 in the Amazon RDS Preview environment
 
 PostgreSQL 18 Beta 3 contains many new features and enhancements that can be seen in the
 release documentation: [PostgreSQL 18 Beta 3 Released!](https://www.postgresql.org/about/news/postgresql-176-1610-1514-1419-1322-and-18-beta-3-released-3118/ "https://www.postgresql.org/about/news/postgresql-176-1610-1514-1419-1322-and-18-beta-3-released-3118/").
@@ -239,12 +224,9 @@ The following extensions that are supported in Amazon RDS PostgreSQL version 17 
 - `postgis_topology`
 - `tds_fdw`
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
 
-### PostgreSQL version 18 Beta 2 in the
-
-Amazon RDS Preview environment
+### PostgreSQL version 18 Beta 2 in the Amazon RDS Preview environment
 
 PostgreSQL 18 Beta 2 contains many new features and enhancements that can be seen in the
 release documentation: [PostgreSQL 18 Beta 2 Released!](https://www.postgresql.org/about/news/postgresql-18-beta-2-released-3103/ "https://www.postgresql.org/about/news/postgresql-18-beta-2-released-3103/").
@@ -283,12 +265,9 @@ The following extensions that are supported in Amazon RDS PostgreSQL version 17 
 - `postgis_topology`
 - `tds_fdw`
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
 
-### PostgreSQL version 18 Beta 1 in the
-
-Amazon RDS Preview environment
+### PostgreSQL version 18 Beta 1 in the Amazon RDS Preview environment
 
 PostgreSQL 18 Beta 1 contains many new features and enhancements that can be seen in the
 release documentation: [PostgreSQL 18 Beta 1 Released!](https://www.postgresql.org/about/news/postgresql-18-beta-1-released-3070/ "https://www.postgresql.org/about/news/postgresql-18-beta-1-released-3070/").
@@ -332,17 +311,16 @@ The following extensions that are supported in Amazon RDS PostgreSQL version 17 
 - `rdkit`
 - `tds_fdw`
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 18](postgresql-extensions.md#postgresql-extensions-18x "postgresql-extensions.md#postgresql-extensions-18x").
 
 ## PostgreSQL 17 versions
 
 ###### Minor versions
 
+- [PostgreSQL version 17.9 on Amazon RDS](#postgresql-versions-version179 "#postgresql-versions-version179")
 - [PostgreSQL version 17.8 on Amazon RDS](#postgresql-versions-version178 "#postgresql-versions-version178")
 - [PostgreSQL version 17.7 on Amazon RDS](#postgresql-versions-version177 "#postgresql-versions-version177")
-- [PostgreSQL version 17.6-R2 on
-  Amazon RDS](#postgresql-versions-version176R2 "#postgresql-versions-version176R2")
+- [PostgreSQL version 17.6-R2 on Amazon RDS](#postgresql-versions-version176R2 "#postgresql-versions-version176R2")
 - [PostgreSQL version 17.6 on Amazon RDS](#postgresql-versions-version176 "#postgresql-versions-version176")
 - [PostgreSQL version 17.5-R2 on Amazon RDS](#postgresql-versions-version175R2 "#postgresql-versions-version175R2")
 - [PostgreSQL version 17.5 on Amazon RDS](#postgresql-versions-version175R1 "#postgresql-versions-version175R1")
@@ -353,16 +331,16 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 17.2-R2 on Amazon RDS](#postgresql-versions-version172R2 "#postgresql-versions-version172R2")
 - [PostgreSQL version 17.2 on Amazon RDS](#postgresql-versions-version172 "#postgresql-versions-version172")
 - [PostgreSQL version 17.1 on Amazon RDS](#postgresql-versions-version171 "#postgresql-versions-version171")
-- [PostgreSQL version 17.0 in the
-  Amazon RDS Preview environment](#postgresql-versions-version170Preview "#postgresql-versions-version170Preview")
-- [PostgreSQL version 17 RC1 in the Amazon RDS
-  Preview environment](#postgresql-versions-version17RC1 "#postgresql-versions-version17RC1")
-- [PostgreSQL version 17 Beta 3 in the
-  Amazon RDS Preview environment](#postgresql-versions-version17Beta3 "#postgresql-versions-version17Beta3")
-- [PostgreSQL version 17 Beta 2 in the
-  Amazon RDS Preview environment](#postgresql-versions-version17Beta2 "#postgresql-versions-version17Beta2")
-- [PostgreSQL version 17 Beta 1 in the
-  Amazon RDS Preview environment](#postgresql-versions-version17Beta1 "#postgresql-versions-version17Beta1")
+- [PostgreSQL version 17.0 in the Amazon RDS Preview environment](#postgresql-versions-version170Preview "#postgresql-versions-version170Preview")
+- [PostgreSQL version 17 RC1 in the Amazon RDS Preview environment](#postgresql-versions-version17RC1 "#postgresql-versions-version17RC1")
+- [PostgreSQL version 17 Beta 3 in the Amazon RDS Preview environment](#postgresql-versions-version17Beta3 "#postgresql-versions-version17Beta3")
+- [PostgreSQL version 17 Beta 2 in the Amazon RDS Preview environment](#postgresql-versions-version17Beta2 "#postgresql-versions-version17Beta2")
+- [PostgreSQL version 17 Beta 1 in the Amazon RDS Preview environment](#postgresql-versions-version17Beta1 "#postgresql-versions-version17Beta1")
+
+### PostgreSQL version 17.9 on Amazon RDS
+
+PostgreSQL version 17.9 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 17.9 release](https://www.postgresql.org/docs/release/17.9/ "https://www.postgresql.org/docs/release/17.9/").
 
 ### PostgreSQL version 17.8 on Amazon RDS
 
@@ -408,9 +386,7 @@ This version also includes the following extension changes:
 - The `pg_tle` extension was updated to version 1.5.2.
 - The `h3-pg` extension was updated to version 4.2.3.
 
-### PostgreSQL version 17.6-R2 on
-
-Amazon RDS
+### PostgreSQL version 17.6-R2 on Amazon RDS
 
 PostgreSQL version 17.6-R2 is now available on Amazon RDS.
 
@@ -514,8 +490,7 @@ PostgreSQL version 17.3 is now available on Amazon RDS. This release contains se
 - The `prefix` extension was updated to 1.2.10.
 - The `PostGIS` extension was updated to 3.5.1.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
 
 ### PostgreSQL version 17.2-R3 on Amazon RDS
 
@@ -583,12 +558,9 @@ results in an error.
 - The `rdkit` extension was updated to version 2024_09_2(4.6.1).
 - The `rds_tools` extension was updated to version 1.8.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
 
-### PostgreSQL version 17.0 in the
-
-Amazon RDS Preview environment
+### PostgreSQL version 17.0 in the Amazon RDS Preview environment
 
 ###### Note
 
@@ -629,12 +601,9 @@ RDS for PostgreSQL version 17.0 in preview:
 
 - `plrust`
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
 
-### PostgreSQL version 17 RC1 in the Amazon RDS
-
-Preview environment
+### PostgreSQL version 17 RC1 in the Amazon RDS Preview environment
 
 ###### Note
 
@@ -672,12 +641,9 @@ RDS for PostgreSQL version 17 RC1 in preview:
 
 - `plrust`
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
 
-### PostgreSQL version 17 Beta 3 in the
-
-Amazon RDS Preview environment
+### PostgreSQL version 17 Beta 3 in the Amazon RDS Preview environment
 
 ###### Note
 
@@ -710,12 +676,9 @@ for Amazon RDS PostgreSQL version 17 Beta 3 in preview:
 - `pglogical`
 - `plrust`
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
 
-### PostgreSQL version 17 Beta 2 in the
-
-Amazon RDS Preview environment
+### PostgreSQL version 17 Beta 2 in the Amazon RDS Preview environment
 
 PostgreSQL 17 Beta 2 contains many new features and enhancements that can be seen in the
 following release documentation, [PostgreSQL 17 Beta 2 Released!](https://www.postgresql.org/about/news/postgresql-17-beta-2-released-2885/ "https://www.postgresql.org/about/news/postgresql-17-beta-2-released-2885/").
@@ -743,12 +706,9 @@ for Amazon RDS PostgreSQL version 17 Beta 2 in preview:
 - `plv8`
 - `rdkit`
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
 
-### PostgreSQL version 17 Beta 1 in the
-
-Amazon RDS Preview environment
+### PostgreSQL version 17 Beta 1 in the Amazon RDS Preview environment
 
 PostgreSQL 17 Beta 1 contains many new features and enhancements that can be seen in the
 release documentation: [PostgreSQL 17 Beta 1 Released!](https://www.postgresql.org/about/news/postgresql-164-158-1413-1316-1220-and-17-beta-3-released-2910/ "https://www.postgresql.org/about/news/postgresql-164-158-1413-1316-1220-and-17-beta-3-released-2910/").
@@ -769,17 +729,16 @@ for Amazon RDS PostgreSQL version 17 Beta 1 in preview:
 - `rdkit`
 - `tds_fdw`
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 17](postgresql-extensions.md#postgresql-extensions-17x "postgresql-extensions.md#postgresql-extensions-17x").
 
 ## PostgreSQL 16 versions
 
 ###### Minor versions
 
+- [PostgreSQL version 16.13 on Amazon RDS](#postgresql-versions-version1613 "#postgresql-versions-version1613")
 - [PostgreSQL version 16.12 on Amazon RDS](#postgresql-versions-version1612 "#postgresql-versions-version1612")
 - [PostgreSQL version 16.11 on Amazon RDS](#postgresql-versions-version1611 "#postgresql-versions-version1611")
-- [PostgreSQL version 16.10-R2 on
-  Amazon RDS](#postgresql-versions-version1610R2 "#postgresql-versions-version1610R2")
+- [PostgreSQL version 16.10-R2 on Amazon RDS](#postgresql-versions-version1610R2 "#postgresql-versions-version1610R2")
 - [PostgreSQL version 16.10 on Amazon RDS](#postgresql-versions-version1610 "#postgresql-versions-version1610")
 - [PostgreSQL version 16.9-R2 on Amazon RDS](#postgresql-versions-version169 "#postgresql-versions-version169")
 - [PostgreSQL version 16.9 on Amazon RDS](#postgresql-versions-version169R1 "#postgresql-versions-version169R1")
@@ -790,8 +749,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 16.6-R2 on Amazon RDS](#postgresql-versions-version166R2 "#postgresql-versions-version166R2")
 - [PostgreSQL version 16.6 on Amazon RDS](#postgresql-versions-version166 "#postgresql-versions-version166")
 - [PostgreSQL version 16.5 on Amazon RDS](#postgresql-versions-version165 "#postgresql-versions-version165")
-- [PostgreSQL version 16.4-R3 on
-  Amazon RDS](#postgresql-versions-version164R3 "#postgresql-versions-version164R3")
+- [PostgreSQL version 16.4-R3 on Amazon RDS](#postgresql-versions-version164R3 "#postgresql-versions-version164R3")
 - [PostgreSQL version 16.4-R2 on Amazon RDS](#postgresql-versions-version164R2 "#postgresql-versions-version164R2")
 - [PostgreSQL version 16.4 on Amazon RDS](#postgresql-versions-version164 "#postgresql-versions-version164")
 - [PostgreSQL version 16.3-R4 on Amazon RDS](#postgresql-versions-version163R4 "#postgresql-versions-version163R4")
@@ -803,14 +761,16 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 16.2 on Amazon RDS](#postgresql-versions-version162 "#postgresql-versions-version162")
 - [PostgreSQL version 16.1-R2 on Amazon RDS](#postgresql-versions-version161R2 "#postgresql-versions-version161R2")
 - [PostgreSQL version 16.1 on Amazon RDS](#postgresql-versions-version161 "#postgresql-versions-version161")
-- [PostgreSQL version 16.0 in the Amazon RDS
-  Preview environment](#postgresql-versions-version160Preview "#postgresql-versions-version160Preview")
-- [PostgreSQL version 16 RC1 in the Amazon RDS
-  Preview environment](#postgresql-versions-version16RC1 "#postgresql-versions-version16RC1")
-- [PostgreSQL version 16 Beta 3 in the
-  Amazon RDS Preview environment](#postgresql-versions-version16Beta3 "#postgresql-versions-version16Beta3")
+- [PostgreSQL version 16.0 in the Amazon RDS Preview environment](#postgresql-versions-version160Preview "#postgresql-versions-version160Preview")
+- [PostgreSQL version 16 RC1 in the Amazon RDS Preview environment](#postgresql-versions-version16RC1 "#postgresql-versions-version16RC1")
+- [PostgreSQL version 16 Beta 3 in the Amazon RDS Preview environment](#postgresql-versions-version16Beta3 "#postgresql-versions-version16Beta3")
 - [PostgreSQL version 16 Beta 2 in the Amazon RDS Preview environment](#postgresql-versions-version16Beta2 "#postgresql-versions-version16Beta2")
 - [PostgreSQL version 16 Beta 1 in the Amazon RDS Preview environment](#postgresql-versions-version16Beta1 "#postgresql-versions-version16Beta1")
+
+### PostgreSQL version 16.13 on Amazon RDS
+
+PostgreSQL version 16.13 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 16.13 release](https://www.postgresql.org/docs/release/16.13/ "https://www.postgresql.org/docs/release/16.13/").
 
 ### PostgreSQL version 16.12 on Amazon RDS
 
@@ -856,9 +816,7 @@ This version also includes the following extension changes:
 - The `pg_tle` extension was updated to version 1.5.2.
 - The `h3-pg` extension was updated to version 4.2.3.
 
-### PostgreSQL version 16.10-R2 on
-
-Amazon RDS
+### PostgreSQL version 16.10-R2 on Amazon RDS
 
 PostgreSQL version 16.10-R2 is now available on Amazon RDS.
 
@@ -958,8 +916,7 @@ PostgreSQL version 16.7 is now available on Amazon RDS. This release contains se
 - The `pg_partman` extension was updated to 5.2.4.
 - The `prefix` extension was updated to 1.2.10.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
 
 ### PostgreSQL version 16.6-R3 on Amazon RDS
 
@@ -1019,12 +976,9 @@ error.
 - The `rds_tools` extension was updated to version 1.7.
 - The `tds_fdw` extension was updated to version 2.0.4.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
 
-### PostgreSQL version 16.4-R3 on
-
-Amazon RDS
+### PostgreSQL version 16.4-R3 on Amazon RDS
 
 PostgreSQL version 16.4-R3 is now available on Amazon RDS. This release contains fixes for
 [CVE-2022-4174](https://nvd.nist.gov/vuln/detail/cve-2022-4174 "https://nvd.nist.gov/vuln/detail/cve-2022-4174") and
@@ -1058,8 +1012,7 @@ This version also includes the following extension updates:
 - The `rdkit` extension was updated to 4.5.0 (Release 2024_03_5).
 - The `wal2json` extension was updated to 2.6.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
 
 ### PostgreSQL version 16.3-R4 on Amazon RDS
 
@@ -1115,8 +1068,7 @@ This version also includes the following extension updates:
 - The `pgvector` extension was updated to 0.7.0.
 - The `postgis` extension was updated to 3.4.2.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
 
 ### PostgreSQL version 16.2-R3 on Amazon RDS
 
@@ -1147,8 +1099,7 @@ PostgreSQL version 16.2-R2 is now available on Amazon RDS. This release contains
 - The `pgtap` extension was updated to 1.3.2.
 - The `pgvector` extension was updated to 0.6.2.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
 
 ### PostgreSQL version 16.2 on Amazon RDS
 
@@ -1174,8 +1125,7 @@ This version includes the following changes:
 - The `plv8` extension was updated to 3.1.10.
 - The `PostGIS` extension was updated to 3.4.1.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
 
 ### PostgreSQL version 16.1-R2 on Amazon RDS
 
@@ -1195,8 +1145,7 @@ This version includes the following changes:
 - The `plrust` extension was updated to version 1.2.7.
 - The `plv8` extension was updated to version 3.1.9.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
 
 ### PostgreSQL version 16.1 on Amazon RDS
 
@@ -1232,12 +1181,9 @@ This version includes the following changes:
 - The `plv8` extension was updated to version 3.1.8.
 - The `rdkit` extension was updated to version 4.4.0.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
 
-### PostgreSQL version 16.0 in the Amazon RDS
-
-Preview environment
+### PostgreSQL version 16.0 in the Amazon RDS Preview environment
 
 ###### Note
 
@@ -1260,12 +1206,9 @@ This version includes the following changes:
 - The `pgrouting` extension was updated to version 3.5.0
 - The `pgvector` extension was updated to version 0.5.0
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
 
-### PostgreSQL version 16 RC1 in the Amazon RDS
-
-Preview environment
+### PostgreSQL version 16 RC1 in the Amazon RDS Preview environment
 
 ###### Note
 
@@ -1288,12 +1231,9 @@ This version also includes the following change:
 
 - The `PostGIS` extension was updated to version 3.4.0.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
 
-### PostgreSQL version 16 Beta 3 in the
-
-Amazon RDS Preview environment
+### PostgreSQL version 16 Beta 3 in the Amazon RDS Preview environment
 
 ###### Note
 
@@ -1320,8 +1260,7 @@ This version also includes the following change:
 
 - The `pg_tle` extension was updated to version 1.1.0.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
 
 ### PostgreSQL version 16 Beta 2 in the Amazon RDS Preview environment
 
@@ -1345,8 +1284,7 @@ This version also includes the following change:
 
 - `pgvector` was updated to version 0.4.4
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
 
 ### PostgreSQL version 16 Beta 1 in the Amazon RDS Preview environment
 
@@ -1379,19 +1317,16 @@ The following extensions supported in Amazon RDS PostgreSQL version 15 aren't su
 - `plv8`
 - `rdkit`
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 16](postgresql-extensions.md#postgresql-extensions-16x "postgresql-extensions.md#postgresql-extensions-16x").
 
-## PostgreSQL 15 versions (Some of these versions have
-
-reached the end of standard support or deprecated.)
+## PostgreSQL 15 versions (Some of these versions have reached the end of standard support or deprecated.)
 
 ###### Minor versions
 
+- [PostgreSQL version 15.17 on Amazon RDS](#postgresql-versions-version1517 "#postgresql-versions-version1517")
 - [PostgreSQL version 15.16 on Amazon RDS](#postgresql-versions-version1516 "#postgresql-versions-version1516")
 - [PostgreSQL version 15.15 on Amazon RDS](#postgresql-versions-version1515 "#postgresql-versions-version1515")
-- [PostgreSQL version 15.14-R2 on
-  Amazon RDS](#postgresql-versions-version1514R2 "#postgresql-versions-version1514R2")
+- [PostgreSQL version 15.14-R2 on Amazon RDS](#postgresql-versions-version1514R2 "#postgresql-versions-version1514R2")
 - [PostgreSQL version 15.14 on Amazon RDS](#postgresql-versions-version1514 "#postgresql-versions-version1514")
 - [PostgreSQL version 15.13-R2 on Amazon RDS](#postgresql-versions-version1513 "#postgresql-versions-version1513")
 - [PostgreSQL version 15.13 on Amazon RDS](#postgresql-versions-version1513R1 "#postgresql-versions-version1513R1")
@@ -1405,8 +1340,7 @@ reached the end of standard support or deprecated.)
 - [PostgreSQL version 15.8-R3 on Amazon RDS](#postgresql-versions-version158R3 "#postgresql-versions-version158R3")
 - [PostgreSQL version 15.8-R2 on Amazon RDS](#postgresql-versions-version158R2 "#postgresql-versions-version158R2")
 - [PostgreSQL version 15.8 on Amazon RDS](#postgresql-versions-version158 "#postgresql-versions-version158")
-- [PostgreSQL version 15.7-R4 on
-  Amazon RDS](#postgresql-versions-version157R4 "#postgresql-versions-version157R4")
+- [PostgreSQL version 15.7-R4 on Amazon RDS](#postgresql-versions-version157R4 "#postgresql-versions-version157R4")
 - [PostgreSQL version 15.7-R3 on Amazon RDS](#postgresql-versions-version157R3 "#postgresql-versions-version157R3")
 - [PostgreSQL version 15.7-R2 on Amazon RDS](#postgresql-versions-version157R2 "#postgresql-versions-version157R2")
 - [PostgreSQL version 15.7 on Amazon RDS](#postgresql-versions-version157 "#postgresql-versions-version157")
@@ -1415,14 +1349,18 @@ reached the end of standard support or deprecated.)
 - [PostgreSQL version 15.6 on Amazon RDS (This version has reached the end of standard support.)](#postgresql-versions-version156 "#postgresql-versions-version156")
 - [PostgreSQL version 15.5-R2 on Amazon RDS (This version has reached the end of standard support.)](#postgresql-versions-version155R2 "#postgresql-versions-version155R2")
 - [PostgreSQL version 15.5 on Amazon RDS (This version has reached the end of standard support.)](#postgresql-versions-version155 "#postgresql-versions-version155")
-- [PostgreSQL version 15.4-R3 on
-  Amazon RDS (This version has reached the end of standard support.)](#postgresql-versions-version154R3 "#postgresql-versions-version154R3")
+- [PostgreSQL version 15.4-R3 on Amazon RDS (This version has reached the end of standard support.)](#postgresql-versions-version154R3 "#postgresql-versions-version154R3")
 - [PostgreSQL version 15.4-R2 on Amazon RDS (This version has reached the end of standard support.)](#postgresql-versions-version154R2 "#postgresql-versions-version154R2")
 - [PostgreSQL version 15.4 on Amazon RDS (This version has reached the end of standard support.)](#postgresql-versions-version154 "#postgresql-versions-version154")
 - [PostgreSQL version 15.3-R2 on Amazon RDS (Deprecated)](#postgresql-versions-version153R2 "#postgresql-versions-version153R2")
 - [PostgreSQL version 15.3 on Amazon RDS (Deprecated)](#postgresql-versions-version153 "#postgresql-versions-version153")
 - [PostgreSQL version 15.2-R2 on Amazon RDS (Deprecated)](#postgresql-versions-version152R2 "#postgresql-versions-version152R2")
 - [PostgreSQL version 15.2 on Amazon RDS (Deprecated)](#postgresql-versions-version152 "#postgresql-versions-version152")
+
+### PostgreSQL version 15.17 on Amazon RDS
+
+PostgreSQL version 15.17 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 15.17 release](https://www.postgresql.org/docs/release/15.17/ "https://www.postgresql.org/docs/release/15.17/").
 
 ### PostgreSQL version 15.16 on Amazon RDS
 
@@ -1468,9 +1406,7 @@ This version also includes the following extension changes:
 - The `pg_tle` extension was updated to version 1.5.2.
 - The `h3-pg` extension was updated to version 4.2.3.
 
-### PostgreSQL version 15.14-R2 on
-
-Amazon RDS
+### PostgreSQL version 15.14-R2 on Amazon RDS
 
 PostgreSQL version 15.14-R2 is now available on Amazon RDS.
 
@@ -1570,8 +1506,7 @@ PostgreSQL version 15.11 is now available on Amazon RDS. This release contains s
 - The `pg_partman` extension was updated to 5.2.4.
 - The `prefix` extension was updated to 1.2.10.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
 
 ### PostgreSQL version 15.10-R3 on Amazon RDS
 
@@ -1631,8 +1566,7 @@ in an error.
 - The `rds_tools` extension was updated to version 1.7.
 - The `tds_fdw` extension was updated to version 2.0.4.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
 
 ### PostgreSQL version 15.8-R3 on Amazon RDS
 
@@ -1666,12 +1600,9 @@ This version also includes the following extension updates:
 - The `rdkit` extension was updated to 4.5.0 (Release 2024_03_5).
 - The `wal2json` extension was updated to 2.6.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
 
-### PostgreSQL version 15.7-R4 on
-
-Amazon RDS
+### PostgreSQL version 15.7-R4 on Amazon RDS
 
 PostgreSQL version 15.7-R4 is now available on Amazon RDS. This release contains fixes for
 [CVE-2022-4174](https://nvd.nist.gov/vuln/detail/cve-2022-4174 "https://nvd.nist.gov/vuln/detail/cve-2022-4174") and
@@ -1724,8 +1655,7 @@ This version also includes the following extension updates:
 - The `pgvector` extension was updated to 0.7.0.
 - The `postgis` extension was updated to 3.4.2.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
 
 ### PostgreSQL version 15.6-R3 on Amazon RDS (This version has reached the end of standard support.)
 
@@ -1755,8 +1685,7 @@ PostgreSQL version 15.6-R2 is now available on Amazon RDS. This release contains
 - The `pgtap` extension was updated to version 1.3.2.
 - The `pgvector` extension was updated to version 0.6.2.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
 
 ### PostgreSQL version 15.6 on Amazon RDS (This version has reached the end of standard support.)
 
@@ -1776,8 +1705,7 @@ This version includes the following changes:
 - The `plv8` extension was updated to 3.1.10.
 - The `PostGIS` extension was updated to 3.4.1.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
 
 ### PostgreSQL version 15.5-R2 on Amazon RDS (This version has reached the end of standard support.)
 
@@ -1835,9 +1763,7 @@ This version includes the following changes:
 - The `PostGIS` extension was updated to version 3.4.0.
 - The `rdkit` extension was updated to version 4.4.0.
 
-### PostgreSQL version 15.4-R3 on
-
-Amazon RDS (This version has reached the end of standard support.)
+### PostgreSQL version 15.4-R3 on Amazon RDS (This version has reached the end of standard support.)
 
 PostgreSQL version 15.4-R3 is now available on Amazon RDS. This release contains several fixes
 and improvements for PostgreSQL announced in the [PostgreSQL 15.4
@@ -1873,8 +1799,7 @@ This version also includes the following changes:
 - The `plv8` extension was updated to version 3.1.8.
 - The `rdkit` extension was updated to version 4.3.0.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
 
 ### PostgreSQL version 15.4 on Amazon RDS (This version has reached the end of standard support.)
 
@@ -1896,8 +1821,7 @@ This version also includes the following changes:
 - The `plrust` extension was updated to version 1.2.3.
 - The `PostGIS` extension was updated to version 3.3.3.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
 
 ### PostgreSQL version 15.3-R2 on Amazon RDS (Deprecated)
 
@@ -1916,8 +1840,7 @@ This version also includes the following changes:
 - The `pgvector` extension was updated to version 0.4.4.
 - The `plrust` extension was updated to version 1.1.3.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
 
 ### PostgreSQL version 15.3 on Amazon RDS (Deprecated)
 
@@ -1953,8 +1876,7 @@ This version also includes the following changes:
 - The `plv8` extension was updated to version 3.1.6.
 - The `PostGIS` extension was updated to version 3.3.2.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
 
 ### PostgreSQL version 15.2-R2 on Amazon RDS (Deprecated)
 
@@ -1966,8 +1888,7 @@ PostgreSQL version 15.2-R2 is now available on Amazon RDS. This release contains
 - The `pgvector` extension was added.
 - The `plrust` extension was added.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
 
 ### PostgreSQL version 15.2 on Amazon RDS (Deprecated)
 
@@ -2007,19 +1928,17 @@ This version also includes the following changes:
 - The `PostGIS` extension was updated to version 3.3.2.
 - The `tds_fdw` extension was updated to version 2.0.3.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 15](postgresql-extensions.md#postgresql-extensions-15x "postgresql-extensions.md#postgresql-extensions-15x").
 
 ## PostgreSQL 14 versions
 
 ###### Minor versions
 
+- [PostgreSQL version 14.22 on Amazon RDS](#postgresql-versions-version1422 "#postgresql-versions-version1422")
 - [PostgreSQL version 14.21 on Amazon RDS](#postgresql-versions-version1421 "#postgresql-versions-version1421")
-- [PostgreSQL version 14.20-R2 on
-  Amazon RDS](#postgresql-versions-version1420R2 "#postgresql-versions-version1420R2")
+- [PostgreSQL version 14.20-R2 on Amazon RDS](#postgresql-versions-version1420R2 "#postgresql-versions-version1420R2")
 - [PostgreSQL version 14.20 on Amazon RDS](#postgresql-versions-version1420 "#postgresql-versions-version1420")
-- [PostgreSQL version 14.19-R2 on
-  Amazon RDS](#postgresql-versions-version1419R2 "#postgresql-versions-version1419R2")
+- [PostgreSQL version 14.19-R2 on Amazon RDS](#postgresql-versions-version1419R2 "#postgresql-versions-version1419R2")
 - [PostgreSQL version 14.19 on Amazon RDS](#postgresql-versions-version1419 "#postgresql-versions-version1419")
 - [PostgreSQL version 14.18-R2 on Amazon RDS](#postgresql-versions-version1418 "#postgresql-versions-version1418")
 - [PostgreSQL version 14.18 on Amazon RDS](#postgresql-versions-version1418R1 "#postgresql-versions-version1418R1")
@@ -2030,14 +1949,11 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 14.15-R2 on Amazon RDS](#postgresql-versions-version1415R2 "#postgresql-versions-version1415R2")
 - [PostgreSQL version 14.15 on Amazon RDS](#postgresql-versions-version1415 "#postgresql-versions-version1415")
 - [PostgreSQL version 14.14 on Amazon RDS](#postgresql-versions-version1414 "#postgresql-versions-version1414")
-- [PostgreSQL version 14.13-R3 on
-  Amazon RDS](#postgresql-versions-version1413R3 "#postgresql-versions-version1413R3")
+- [PostgreSQL version 14.13-R3 on Amazon RDS](#postgresql-versions-version1413R3 "#postgresql-versions-version1413R3")
 - [PostgreSQL version 14.13-R2 on Amazon RDS](#postgresql-versions-version1413R2 "#postgresql-versions-version1413R2")
 - [PostgreSQL version 14.13 on Amazon RDS](#postgresql-versions-version1413 "#postgresql-versions-version1413")
-- [PostgreSQL version 14.12-R4 on
-  Amazon RDS](#postgresql-versions-version1412R4 "#postgresql-versions-version1412R4")
-- [PostgreSQL version 14.12-R3 on
-  Amazon RDS](#postgresql-versions-version1412R3 "#postgresql-versions-version1412R3")
+- [PostgreSQL version 14.12-R4 on Amazon RDS](#postgresql-versions-version1412R4 "#postgresql-versions-version1412R4")
+- [PostgreSQL version 14.12-R3 on Amazon RDS](#postgresql-versions-version1412R3 "#postgresql-versions-version1412R3")
 - [PostgreSQL version 14.12-R2 on Amazon RDS](#postgresql-versions-version1412-R2 "#postgresql-versions-version1412-R2")
 - [PostgreSQL version 14.12 on Amazon RDS](#postgresql-versions-version1412 "#postgresql-versions-version1412")
 - [PostgreSQL version 14.11-R4 on Amazon RDS](#postgresql-versions-version1411R4 "#postgresql-versions-version1411R4")
@@ -2049,8 +1965,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 14.9-R2 on Amazon RDS](#postgresql-versions-version149R2 "#postgresql-versions-version149R2")
 - [PostgreSQL version 14.9 on Amazon RDS](#postgresql-versions-version149 "#postgresql-versions-version149")
 - [PostgreSQL version 14.8-R2 on Amazon RDS (Deprecated)](#postgresql-versions-version148R2 "#postgresql-versions-version148R2")
-- [PostgreSQL version 14.8 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version148 "#postgresql-versions-version148")
+- [PostgreSQL version 14.8 on Amazon RDS (Deprecated)](#postgresql-versions-version148 "#postgresql-versions-version148")
 - [PostgreSQL version 14.7 on Amazon RDS (Deprecated)](#postgresql-versions-version147 "#postgresql-versions-version147")
 - [PostgreSQL version 14.6 on Amazon RDS (Deprecated)](#postgresql-versions-version146 "#postgresql-versions-version146")
 - [PostgreSQL version 14.5 on Amazon RDS (Deprecated)](#postgresql-versions-version145 "#postgresql-versions-version145")
@@ -2058,6 +1973,11 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 14.3 on Amazon RDS (Deprecated)](#postgresql-versions-version143 "#postgresql-versions-version143")
 - [PostgreSQL version 14.2 on Amazon RDS (Deprecated)](#postgresql-versions-version142 "#postgresql-versions-version142")
 - [PostgreSQL version 14.1 on Amazon RDS (Deprecated)](#postgresql-versions-version141 "#postgresql-versions-version141")
+
+### PostgreSQL version 14.22 on Amazon RDS
+
+PostgreSQL version 14.22 is now available on Amazon RDS. This release contains several fixes and
+improvements for PostgreSQL announced in the [PostgreSQL 14.22 release](https://www.postgresql.org/docs/release/14.22/ "https://www.postgresql.org/docs/release/14.22/").
 
 ### PostgreSQL version 14.21 on Amazon RDS
 
@@ -2084,9 +2004,7 @@ This version also includes the following extension changes:
 - The `mysql_fdw` extension was updated to version 2.9.3.
 - The `oracle_fdw` extension was updated to version 2.8.0.
 
-### PostgreSQL version 14.20-R2 on
-
-Amazon RDS
+### PostgreSQL version 14.20-R2 on Amazon RDS
 
 PostgreSQL version 14.20-R2 is now available on Amazon RDS.
 
@@ -2106,9 +2024,7 @@ This version also includes the following extension changes:
 - The `pg_tle` extension was updated to version 1.5.2.
 - The `h3-pg` extension was updated to version 4.2.3.
 
-### PostgreSQL version 14.19-R2 on
-
-Amazon RDS
+### PostgreSQL version 14.19-R2 on Amazon RDS
 
 PostgreSQL version 14.19-R2 is now available on Amazon RDS.
 
@@ -2208,8 +2124,7 @@ PostgreSQL version 14.16 is now available on Amazon RDS. This release contains s
 - The `pg_partman` extension was updated to 5.2.4.
 - The `prefix` extension was updated to 1.2.10.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 14.15-R3 on Amazon RDS
 
@@ -2271,12 +2186,9 @@ in an error.
 - The `rds_tools` extension was updated to version 1.7.
 - The `tds_fdw` extension was updated to version 2.0.4.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
-### PostgreSQL version 14.13-R3 on
-
-Amazon RDS
+### PostgreSQL version 14.13-R3 on Amazon RDS
 
 PostgreSQL version 14.13-R3 is now available on Amazon RDS. This release contains fixes for
 [CVE-2022-4174](https://nvd.nist.gov/vuln/detail/cve-2022-4174 "https://nvd.nist.gov/vuln/detail/cve-2022-4174") and
@@ -2313,21 +2225,16 @@ This version also includes the following extension updates:
 - The `rdkit` extension was updated to 4.5.0 (Release 2024_03_5).
 - The `wal2json` extension was updated to 2.6.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
-### PostgreSQL version 14.12-R4 on
-
-Amazon RDS
+### PostgreSQL version 14.12-R4 on Amazon RDS
 
 PostgreSQL version 14.12-R4 is now available on Amazon RDS. This release contains fixes for
 [CVE-2022-4174](https://nvd.nist.gov/vuln/detail/cve-2022-4174 "https://nvd.nist.gov/vuln/detail/cve-2022-4174") and
 Rust [CVE
 RUSTSEC-2024-042](https://rustsec.org/advisories/RUSTSEC-2024-0421.html "https://rustsec.org/advisories/RUSTSEC-2024-0421.html") for PostgreSQL announced in [PostgreSQL 14.12](https://www.postgresql.org/docs/release/14.12/ "https://www.postgresql.org/docs/release/14.12/").
 
-### PostgreSQL version 14.12-R3 on
-
-Amazon RDS
+### PostgreSQL version 14.12-R3 on Amazon RDS
 
 PostgreSQL version 14.12-R3 is now available on Amazon RDS. This release contains several fixes
 and improvements for PostgreSQL announced in the [PostgreSQL 14.12 release](https://www.postgresql.org/docs/release/14.12/ "https://www.postgresql.org/docs/release/14.12/").
@@ -2383,8 +2290,7 @@ This version also includes the following extension updates:
 - The `pgvector` extension was updated to 0.7.0.
 - The `postgis` extension was updated to 3.4.2.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 14.11-R4 on Amazon RDS
 
@@ -2428,8 +2334,7 @@ PostgreSQL version 14.11-R2 is now available on Amazon RDS. This release contain
 - The `pgtap` extension was updated to version 1.3.2.
 - The `pgvector` extension was updated to version 0.6.2.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 14.11 on Amazon RDS
 
@@ -2450,8 +2355,7 @@ This version includes the following changes:
 - The `pgvector` extension was updated to 0.6.0.
 - The `PostGIS` extension was updated to 3.4.1.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 14.10-R2 on Amazon RDS
 
@@ -2530,8 +2434,7 @@ This version also includes the following changes:
 - The `plrust` extension was updated to version 1.2.5.
 - The `rdkit` extension was updated to version 4.3.0.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 14.9 on Amazon RDS
 
@@ -2553,8 +2456,7 @@ This version also includes the following changes:
 - The `plrust` extension was added at version 1.2.3.
 - The `PostGIS` extension was updated to version 3.3.3
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 14.8-R2 on Amazon RDS (Deprecated)
 
@@ -2571,12 +2473,9 @@ This version also includes the following change:
 
 - The `pgvector` extension was updated to version 0.4.4.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
-### PostgreSQL version 14.8 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 14.8 on Amazon RDS (Deprecated)
 
 PostgreSQL version 14.8 is now available on Amazon RDS. This release contains several fixes and
 improvements for PostgreSQL announced in the [PostgreSQL 14.8
@@ -2608,8 +2507,7 @@ This version also includes the following changes:
 - The `pglogical` extension was updated to version 2.4.2.
 - The `PostGIS` extension was updated to version 3.3.2.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 14.7 on Amazon RDS (Deprecated)
 
@@ -2617,8 +2515,7 @@ PostgreSQL version 14.7 is now available on Amazon RDS. This release contains se
 improvements for PostgreSQL announced in the [PostgreSQL 14.7
 release](https://www.postgresql.org/docs/release/14.7/ "https://www.postgresql.org/docs/release/14.7/").
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 14.6 on Amazon RDS (Deprecated)
 
@@ -2654,8 +2551,7 @@ This version includes the following changes:
 - The `wal2json` extension was updated to version 2.5.
 - The `aws_s3` extension was updated to version 1.1.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 14.5 on Amazon RDS (Deprecated)
 
@@ -2669,8 +2565,7 @@ This version includes the following changes:
 - The `pg_partman` extension was updated to version 4.6.2.
 - The `pgrouting` extension was updated to version 3.2.2.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 14.4 on Amazon RDS (Deprecated)
 
@@ -2687,8 +2582,7 @@ release](https://www.postgresql.org/docs/release/14.4/ "https://www.postgresql.o
   release does not include any RDS specific changes or extension version
   updates.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 14.3 on Amazon RDS (Deprecated)
 
@@ -2716,8 +2610,7 @@ This version also includes the following changes:
   extension was updated to version 1.4.
 - The [postgresql-hll](https://github.com/citusdata/postgresql-hll "https://github.com/citusdata/postgresql-hll")extension was updated to version 2.16.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 14.2 on Amazon RDS (Deprecated)
 
@@ -2738,8 +2631,7 @@ This version also includes the following changes:
 - The [lo](https://www.postgresql.org/docs/current/lo.html "https://www.postgresql.org/docs/current/lo.html") (large
   objects) module is updated to version 1.1.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 14.1 on Amazon RDS (Deprecated)
 
@@ -2773,18 +2665,15 @@ This version also includes the following changes:
   extension was updated to version 3.2.0.
 - The [postgres_fdw](http://www.postgresql.org/docs/14/postgres-fdw.html "http://www.postgresql.org/docs/14/postgres-fdw.html") extension was updated to version 1.1.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ## PostgreSQL 13 versions
 
 ###### Minor versions
 
-- [PostgreSQL version 13.23-R2 on
-  Amazon RDS](#postgresql-versions-version1323R2 "#postgresql-versions-version1323R2")
+- [PostgreSQL version 13.23-R2 on Amazon RDS](#postgresql-versions-version1323R2 "#postgresql-versions-version1323R2")
 - [PostgreSQL version 13.23 on Amazon RDS](#postgresql-versions-version1323 "#postgresql-versions-version1323")
-- [PostgreSQL version 13.22-R2 on
-  Amazon RDS](#postgresql-versions-version1322R2 "#postgresql-versions-version1322R2")
+- [PostgreSQL version 13.22-R2 on Amazon RDS](#postgresql-versions-version1322R2 "#postgresql-versions-version1322R2")
 - [PostgreSQL version 13.22 on Amazon RDS](#postgresql-versions-version1322 "#postgresql-versions-version1322")
 - [PostgreSQL version 13.21-R2 on Amazon RDS](#postgresql-versions-version1321 "#postgresql-versions-version1321")
 - [PostgreSQL version 13.21 on Amazon RDS](#postgresql-versions-version1321R1 "#postgresql-versions-version1321R1")
@@ -2795,8 +2684,7 @@ For information on all extensions, see [Extensions supported for RDS for Postgre
 - [PostgreSQL version 13.18-R2 on Amazon RDS](#postgresql-versions-version1318R2 "#postgresql-versions-version1318R2")
 - [PostgreSQL version 13.18 on Amazon RDS](#postgresql-versions-version1318 "#postgresql-versions-version1318")
 - [PostgreSQL version 13.17 on Amazon RDS](#postgresql-versions-version1317 "#postgresql-versions-version1317")
-- [PostgreSQL version 13.16-R3 on
-  Amazon RDS](#postgresql-versions-version1316R3 "#postgresql-versions-version1316R3")
+- [PostgreSQL version 13.16-R3 on Amazon RDS](#postgresql-versions-version1316R3 "#postgresql-versions-version1316R3")
 - [PostgreSQL version 13.16-R2 on Amazon RDS](#postgresql-versions-version1316R2 "#postgresql-versions-version1316R2")
 - [PostgreSQL version 13.16 on Amazon RDS](#postgresql-versions-version1316 "#postgresql-versions-version1316")
 - [PostgreSQL version 13.15-R4 on Amazon RDS](#postgresql-versions-version1315R4 "#postgresql-versions-version1315R4")
@@ -2824,9 +2712,7 @@ For information on all extensions, see [Extensions supported for RDS for Postgre
 - [PostgreSQL version 13.2 on Amazon RDS (Deprecated)](#postgresql-versions-version132 "#postgresql-versions-version132")
 - [PostgreSQL version 13.1 on Amazon RDS (Deprecated)](#postgresql-versions-version131 "#postgresql-versions-version131")
 
-### PostgreSQL version 13.23-R2 on
-
-Amazon RDS
+### PostgreSQL version 13.23-R2 on Amazon RDS
 
 PostgreSQL version 13.23-R2 is now available on Amazon RDS.
 
@@ -2846,9 +2732,7 @@ This version also includes the following extension changes:
 - The `pg_tle` extension was updated to version 1.5.2.
 - The `h3-pg` extension was updated to version 4.2.3.
 
-### PostgreSQL version 13.22-R2 on
-
-Amazon RDS
+### PostgreSQL version 13.22-R2 on Amazon RDS
 
 PostgreSQL version 13.22-R2 is now available on Amazon RDS.
 
@@ -2943,8 +2827,7 @@ PostgreSQL version 13.19 is now available on Amazon RDS. This release contains s
 - The `pg_active` extension was updated to 2.1.4.
 - The `prefix` extension was updated to 1.2.10.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.18-R3 on Amazon RDS
 
@@ -3005,12 +2888,9 @@ error.
 - The `rds_tools` extension was updated to version 1.7.
 - The `tds_fdw` extension was updated to version 2.0.4.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
-### PostgreSQL version 13.16-R3 on
-
-Amazon RDS
+### PostgreSQL version 13.16-R3 on Amazon RDS
 
 PostgreSQL version 13.16-R3 is now available on Amazon RDS. This release contains fixes for [CVE-2022-4174](https://nvd.nist.gov/vuln/detail/cve-2022-4174 "https://nvd.nist.gov/vuln/detail/cve-2022-4174") and Rust [CVE RUSTSEC-2024-042](https://rustsec.org/advisories/RUSTSEC-2024-0421.html "https://rustsec.org/advisories/RUSTSEC-2024-0421.html")
 for PostgreSQL announced in [PostgreSQL 13.16](https://www.postgresql.org/docs/release/13.16/ "https://www.postgresql.org/docs/release/13.16/").
@@ -3044,8 +2924,7 @@ This version also includes the following extension updates:
 - The `pgvector` extension was updated to 0.7.3.
 - The `wal2json` extension was updated to 2.6.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.15-R4 on Amazon RDS
 
@@ -3086,8 +2965,7 @@ PostgreSQL version 13.15-R2 is now available on Amazon RDS. This release contain
 
 - The `plv8` extension was updated to 3.1.10.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.15 on Amazon RDS
 
@@ -3113,8 +2991,7 @@ This version also includes the following extension updates:
 - The `pgvector` extension was updated to 0.7.0.
 - The `postgis` extension was updated to 3.4.2.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.14-R4 on Amazon RDS
 
@@ -3140,8 +3017,7 @@ PostgreSQL version 13.14-R3 is now available on Amazon RDS. This release contain
 
 - The `plv8` extension was updated to 3.1.10.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.14-R2 on Amazon RDS
 
@@ -3160,8 +3036,7 @@ PostgreSQL version 13.14-R2 is now available on Amazon RDS. This release contain
 - The `pgtap` extension was updated to version 1.3.2.
 - The `pgvector` extension was updated to version 0.6.2.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.14 on Amazon RDS
 
@@ -3182,8 +3057,7 @@ This version includes the following changes:
 - The `pgvector` extension was updated to 0.6.0.
 - The `PostGIS` extension was updated to 3.4.1.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.13-R2 on Amazon RDS
 
@@ -3248,8 +3122,7 @@ This version includes the following change:
 - The `pgvector` extension was updated to version 0.5.0.
 - The `plrust` extension was updated to version 1.2.5.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.12 on Amazon RDS
 
@@ -3271,8 +3144,7 @@ This version also includes the following changes:
 - `plrust` was added at version 1.2.3
 - `PostGIS` was updated to 3.3.3
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.11-R2 on Amazon RDS
 
@@ -3283,8 +3155,7 @@ This version also includes the following change:
 
 - The `pgvector` extension was updated to version 0.4.4.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 14](postgresql-extensions.md#postgresql-extensions-14x "postgresql-extensions.md#postgresql-extensions-14x").
 
 ### PostgreSQL version 13.11 on Amazon RDS
 
@@ -3313,16 +3184,14 @@ This version also includes the following changes:
 - `pglogical` was updated to version 2.4.2
 - `PostGIS` was updated to version 3.3.2
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.10 on Amazon RDS (Deprecated)
 
 PostgreSQL version 13.10 is now available on Amazon RDS. This release contains several fixes and improvements for PostgreSQL announced in the
 [PostgreSQL 13.10 release](https://www.postgresql.org/docs/release/13.10/ "https://www.postgresql.org/docs/release/13.10/").
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.9 on Amazon RDS (Deprecated)
 
@@ -3358,8 +3227,7 @@ This version includes the following changes:
 - The wal2json extension is updated to 2.5.
 - The aws_s3 extension is updated to 1.1.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.8 on Amazon RDS (Deprecated)
 
@@ -3371,8 +3239,7 @@ This version includes the following changes:
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to 3.1.7
 - The [pgRouting](https://docs.pgrouting.org/latest/en/index.html "https://docs.pgrouting.org/latest/en/index.html") extension is updated to 3.1.4
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.7 on Amazon RDS (Deprecated)
 
@@ -3384,8 +3251,7 @@ This version also includes the following changes:
 - The [pglogical](https://github.com/2ndQuadrant/pglogical "https://github.com/2ndQuadrant/pglogical")
   extension is updated to 2.4.1
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.6 on Amazon RDS (Deprecated)
 
@@ -3407,8 +3273,7 @@ This version also includes the following changes:
 - The [lo](https://www.postgresql.org/docs/current/lo.html "https://www.postgresql.org/docs/current/lo.html") (large
   objects) module is updated to version 1.1.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.5 on Amazon RDS (Deprecated)
 
@@ -3420,8 +3285,7 @@ This version also includes the following change:
 - The [pg_cron](https://github.com/citusdata/pg_cron "https://github.com/citusdata/pg_cron") extension
   is updated to 1.4.1
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.4 on Amazon RDS (Deprecated)
 
@@ -3446,8 +3310,7 @@ This version also includes the following changes:
   - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
   - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.3 on Amazon RDS (Deprecated)
 
@@ -3473,8 +3336,7 @@ This version also includes the following changes:
   - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
   - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.2 on Amazon RDS (Deprecated)
 
@@ -3490,8 +3352,7 @@ This version also added the following new extensions:
 - The [pg_bigm](https://pgbigm.osdn.jp/pg_bigm_en-1-2.html "https://pgbigm.osdn.jp/pg_bigm_en-1-2.html")
   extension version 1.2.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ### PostgreSQL version 13.1 on Amazon RDS (Deprecated)
 
@@ -3505,19 +3366,15 @@ This version added:
 - The `bool_plperl` extension version 1.0.
 - The `rds_tools` extension version 1.0. For more information, see [Checking for users with non-SCRAM passwords](https://aws.amazon.com/blogs/database/scram-authentication-in-rds-for-postgresql-13/ "https://aws.amazon.com/blogs/database/scram-authentication-in-rds-for-postgresql-13/") .
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 13](postgresql-extensions.md#postgresql-extensions-13x "postgresql-extensions.md#postgresql-extensions-13x").
 
 ## PostgreSQL 12 versions (Some of these versions have reached the end of standard support or deprecated.)
 
 ###### Minor versions
 
-- [PostgreSQL version 12.22-R3 on Amazon RDS (This
-  version has reached the end of standard support.)](#postgresql-versions-version1222R3 "#postgresql-versions-version1222R3")
-- [PostgreSQL version 12.22-R2 on Amazon RDS (This
-  version has reached the end of standard support.)](#postgresql-versions-version1222R2 "#postgresql-versions-version1222R2")
-- [PostgreSQL version 12.22 on Amazon RDS (This
-  version has reached the end of standard support.)](#postgresql-versions-version1222 "#postgresql-versions-version1222")
+- [PostgreSQL version 12.22-R3 on Amazon RDS (This version has reached the end of standard support.)](#postgresql-versions-version1222R3 "#postgresql-versions-version1222R3")
+- [PostgreSQL version 12.22-R2 on Amazon RDS (This version has reached the end of standard support.)](#postgresql-versions-version1222R2 "#postgresql-versions-version1222R2")
+- [PostgreSQL version 12.22 on Amazon RDS (This version has reached the end of standard support.)](#postgresql-versions-version1222 "#postgresql-versions-version1222")
 - [PostgreSQL version 12.21 on Amazon RDS (Deprecated)](#postgresql-versions-version1221 "#postgresql-versions-version1221")
 - [PostgreSQL version 12.20-R3 on Amazon RDS (Deprecated)](#postgresql-versions-version1220R3 "#postgresql-versions-version1220R3")
 - [PostgreSQL version 12.20-R2 on Amazon RDS (Deprecated)](#postgresql-versions-version1220R2 "#postgresql-versions-version1220R2")
@@ -3549,9 +3406,7 @@ For information on all extensions, see [Extensions supported for RDS for Postgre
 - [PostgreSQL version 12.3 on Amazon RDS (Deprecated)](#postgresql-versions-version123 "#postgresql-versions-version123")
 - [PostgreSQL version 12.2 on Amazon RDS (Deprecated)](#postgresql-versions-version122 "#postgresql-versions-version122")
 
-### PostgreSQL version 12.22-R3 on Amazon RDS (This
-
-version has reached the end of standard support.)
+### PostgreSQL version 12.22-R3 on Amazon RDS (This version has reached the end of standard support.)
 
 PostgreSQL version 12.22-R3 is now available on Amazon RDS.
 
@@ -3560,17 +3415,13 @@ PostgreSQL version 12.22-R3 is now available on Amazon RDS.
 - Updated V8 engine to version 11.5.150.2 for the `plv8` extension
   3.1.10.
 
-### PostgreSQL version 12.22-R2 on Amazon RDS (This
-
-version has reached the end of standard support.)
+### PostgreSQL version 12.22-R2 on Amazon RDS (This version has reached the end of standard support.)
 
 PostgreSQL version 12.22-R2 is now available on Amazon RDS. This release contains several fix for PLV8 [CVE-2022-4174](https://nvd.nist.gov/vuln/detail/cve-2022-4174 "https://nvd.nist.gov/vuln/detail/cve-2022-4174") for
 PostgreSQL announced in
 [PostgreSQL 12.22](https://www.postgresql.org/docs/release/12.22/ "https://www.postgresql.org/docs/release/12.22/").
 
-### PostgreSQL version 12.22 on Amazon RDS (This
-
-version has reached the end of standard support.)
+### PostgreSQL version 12.22 on Amazon RDS (This version has reached the end of standard support.)
 
 PostgreSQL version 12.22 is now available on Amazon RDS. This release contains several fixes
 and improvements for PostgreSQL announced in the [PostgreSQL 12.22 release](https://www.postgresql.org/docs/release/12.22/ "https://www.postgresql.org/docs/release/12.22/").
@@ -3611,8 +3462,7 @@ error.
 - The `PostGIS` extension was updated to version 3.4.3.
 - The `rds_tools` extension was updated to version 1.7.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.20-R3 on Amazon RDS (Deprecated)
 
@@ -3648,8 +3498,7 @@ This version also includes the following extension updates:
 - The `pgvector` extension was updated to 0.7.3.
 - The `wal2json` extension was updated to 2.6.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.19-R4 on Amazon RDS (Deprecated)
 
@@ -3687,8 +3536,7 @@ and improvements for PostgreSQL announced in the [PostgreSQL 12.19 release](http
 
 - The `plv8` extension was updated to 3.1.10.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.19 on Amazon RDS (Deprecated)
 
@@ -3714,8 +3562,7 @@ This version also includes the following extension updates:
 - The `pgvector` extension was updated to 0.7.0.
 - The `postgis` extension was updated to 3.4.2.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.18-R4 on Amazon RDS (Deprecated)
 
@@ -3743,8 +3590,7 @@ improvements for PostgreSQL announced in the
 
 - The `plv8` extension was updated to 3.1.10.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.18-R2 on Amazon RDS (Deprecated)
 
@@ -3759,8 +3605,7 @@ improvements for PostgreSQL announced in the
 - The `pgtap` extension was updated to version 1.3.2.
 - The `pgvector` extension was updated to version 0.6.2.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.18 on Amazon RDS (Deprecated)
 
@@ -3781,8 +3626,7 @@ This version includes the following changes:
 - The `pgvector` extension was updated to 0.6.0.
 - The `PostGIS` extension was updated to 3.4.1.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.17-R2 on Amazon RDS (Deprecated)
 
@@ -3835,8 +3679,7 @@ This version includes the following changes:
 - The `plprofiler` extension was updated to version 4.2.4.
 - The `PostGIS` extension was updated to version 3.4.0.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.16-R2 on Amazon RDS (Deprecated)
 
@@ -3847,8 +3690,7 @@ PostgreSQL version 12.16-R2 is now available on Amazon RDS. This release contain
 
 - The `pgvector` extension was added.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.16 on Amazon RDS (Deprecated)
 
@@ -3871,8 +3713,7 @@ This version also includes the following changes:
 - The `pglogical` extension was updated to version 2.4.3.
 - The `PostGIS` extension was updated to version 3.3.3.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.15 on Amazon RDS (Deprecated)
 
@@ -3897,8 +3738,7 @@ This version also includes the following changes:
 - `pglogical` was updated to version 2.4.2
 - `PostGIS` was updated to version 3.3.2
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.14 on Amazon RDS (Deprecated)
 
@@ -3906,8 +3746,7 @@ PostgreSQL version 12.14 is now available on Amazon RDS. This release contains s
 and improvements for PostgreSQL announced in the [PostgreSQL 12.14
 release](https://www.postgresql.org/docs/release/12.14/ "https://www.postgresql.org/docs/release/12.14/").
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.13 on Amazon RDS (Deprecated)
 
@@ -3943,8 +3782,7 @@ This version includes the following changes:
 - The wal2json extension is updated to 2.5.
 - The aws_s3 extension is updated to 1.1.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.12 on Amazon RDS (Deprecated)
 
@@ -3957,8 +3795,7 @@ This version includes the following changes:
 - The [pgRouting](https://docs.pgrouting.org/latest/en/index.html "https://docs.pgrouting.org/latest/en/index.html")
   extension is updated to 3.0.6
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.11 on Amazon RDS (Deprecated)
 
@@ -3970,8 +3807,7 @@ This version also includes the following changes:
 - The [pglogical](https://github.com/2ndQuadrant/pglogical "https://github.com/2ndQuadrant/pglogical")
   extension is updated to 2.4.1.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.10 on Amazon RDS (Deprecated)
 
@@ -3987,8 +3823,7 @@ This version also includes the following changes:
 - The [lo](https://www.postgresql.org/docs/current/lo.html "https://www.postgresql.org/docs/current/lo.html") (large
   objects) module is updated to version 1.1.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.9 on Amazon RDS (Deprecated)
 
@@ -4002,8 +3837,7 @@ This version also includes the following changes:
 - The [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan/ "https://github.com/ossc-db/pg_hint_plan/")
   extension is updated to 1.3.7.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.8 on Amazon RDS (Deprecated)
 
@@ -4023,8 +3857,7 @@ This version also includes the following changes:
   - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
   - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.7 on Amazon RDS (Deprecated)
 
@@ -4050,8 +3883,7 @@ This version also includes the following changes:
   - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
   - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.6 on Amazon RDS (Deprecated)
 
@@ -4068,8 +3900,7 @@ This version also includes the following changes:
   extension version 1.2 is added.
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to version 3.0.2.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.5 on Amazon RDS (Deprecated)
 
@@ -4087,8 +3918,7 @@ This version also includes the following changes:
   with the PostgreSQL pg_cron extension](../UserGuide/PostgreSQL_pg_cron.md "../UserGuide/PostgreSQL_pg_cron.md") in the
   _Amazon RDS User Guide_.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.4 on Amazon RDS (Deprecated)
 
@@ -4103,8 +3933,7 @@ This version also includes the following changes:
 - Upgraded the `pglogical` extension to version 2.3.2
 - Upgraded the `wal2json` extension to version 2.3
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.3 on Amazon RDS (Deprecated)
 
@@ -4116,73 +3945,43 @@ This version also includes the following changes:
 - Upgraded the `pg_hint_plan` extension to version 1.3.5.
 - Upgraded the `pglogical` extension to version 2.3.1.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
 ### PostgreSQL version 12.2 on Amazon RDS (Deprecated)
 
 PostgreSQL version 12.2 is now available on Amazon RDS. PostgreSQL version 12.2 contains
 several improvements that were announced for PostgreSQL releases [12.0](https://www.postgresql.org/docs/12/release-12.html "https://www.postgresql.org/docs/12/release-12.html"), [12.1](https://www.postgresql.org/docs/12/release-12-1.html "https://www.postgresql.org/docs/12/release-12-1.html"), and [12.2](https://www.postgresql.org/docs/12/release-12-2.html "https://www.postgresql.org/docs/12/release-12-2.html").
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 12](postgresql-extensions.md#postgresql-extensions-12x "postgresql-extensions.md#postgresql-extensions-12x").
 
-## PostgreSQL 11 versions (Some of these versions
-
-have reached the end of standard support or deprecated.)
+## PostgreSQL 11 versions (Some of these versions have reached the end of standard support or deprecated.)
 
 ###### Minor versions
 
-- [PostgreSQL version 11.22-R2 on
-  Amazon RDS (This
-  version has reached the end of standard support.)](#postgresql-versions-version1122R2 "#postgresql-versions-version1122R2")
-- [PostgreSQL version 11.22 on Amazon RDS (This
-  version has reached the end of standard support.)](#postgresql-versions-version1122 "#postgresql-versions-version1122")
-- [PostgreSQL version 11.21 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1121 "#postgresql-versions-version1121")
-- [PostgreSQL version 11.20 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1120 "#postgresql-versions-version1120")
-- [PostgreSQL version 11.19 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1119 "#postgresql-versions-version1119")
-- [PostgreSQL version 11.18 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1118 "#postgresql-versions-version1118")
-- [PostgreSQL version 11.17 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1117 "#postgresql-versions-version1117")
-- [PostgreSQL version 11.16 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1116 "#postgresql-versions-version1116")
-- [PostgreSQL version 11.15 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1115 "#postgresql-versions-version1115")
-- [PostgreSQL version 11.14 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1114 "#postgresql-versions-version1114")
-- [PostgreSQL version 11.13 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1113 "#postgresql-versions-version1113")
-- [PostgreSQL version 11.12 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1112 "#postgresql-versions-version1112")
-- [PostgreSQL version 11.11 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1111 "#postgresql-versions-version1111")
-- [PostgreSQL version 11.10 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1110 "#postgresql-versions-version1110")
-- [PostgreSQL version 11.9 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version119 "#postgresql-versions-version119")
-- [PostgreSQL version 11.8 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version118 "#postgresql-versions-version118")
-- [PostgreSQL version 11.7 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version117 "#postgresql-versions-version117")
-- [PostgreSQL version 11.6 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version116 "#postgresql-versions-version116")
-- [PostgreSQL version 11.5 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version115 "#postgresql-versions-version115")
-- [PostgreSQL version 11.4 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version114 "#postgresql-versions-version114")
-- [PostgreSQL version 11.2 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version112 "#postgresql-versions-version112")
-- [PostgreSQL version 11.1 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version111 "#postgresql-versions-version111")
+- [PostgreSQL version 11.22-R2 on Amazon RDS (This version has reached the end of standard support.)](#postgresql-versions-version1122R2 "#postgresql-versions-version1122R2")
+- [PostgreSQL version 11.22 on Amazon RDS (This version has reached the end of standard support.)](#postgresql-versions-version1122 "#postgresql-versions-version1122")
+- [PostgreSQL version 11.21 on Amazon RDS (Deprecated)](#postgresql-versions-version1121 "#postgresql-versions-version1121")
+- [PostgreSQL version 11.20 on Amazon RDS (Deprecated)](#postgresql-versions-version1120 "#postgresql-versions-version1120")
+- [PostgreSQL version 11.19 on Amazon RDS (Deprecated)](#postgresql-versions-version1119 "#postgresql-versions-version1119")
+- [PostgreSQL version 11.18 on Amazon RDS (Deprecated)](#postgresql-versions-version1118 "#postgresql-versions-version1118")
+- [PostgreSQL version 11.17 on Amazon RDS (Deprecated)](#postgresql-versions-version1117 "#postgresql-versions-version1117")
+- [PostgreSQL version 11.16 on Amazon RDS (Deprecated)](#postgresql-versions-version1116 "#postgresql-versions-version1116")
+- [PostgreSQL version 11.15 on Amazon RDS (Deprecated)](#postgresql-versions-version1115 "#postgresql-versions-version1115")
+- [PostgreSQL version 11.14 on Amazon RDS (Deprecated)](#postgresql-versions-version1114 "#postgresql-versions-version1114")
+- [PostgreSQL version 11.13 on Amazon RDS (Deprecated)](#postgresql-versions-version1113 "#postgresql-versions-version1113")
+- [PostgreSQL version 11.12 on Amazon RDS (Deprecated)](#postgresql-versions-version1112 "#postgresql-versions-version1112")
+- [PostgreSQL version 11.11 on Amazon RDS (Deprecated)](#postgresql-versions-version1111 "#postgresql-versions-version1111")
+- [PostgreSQL version 11.10 on Amazon RDS (Deprecated)](#postgresql-versions-version1110 "#postgresql-versions-version1110")
+- [PostgreSQL version 11.9 on Amazon RDS (Deprecated)](#postgresql-versions-version119 "#postgresql-versions-version119")
+- [PostgreSQL version 11.8 on Amazon RDS (Deprecated)](#postgresql-versions-version118 "#postgresql-versions-version118")
+- [PostgreSQL version 11.7 on Amazon RDS (Deprecated)](#postgresql-versions-version117 "#postgresql-versions-version117")
+- [PostgreSQL version 11.6 on Amazon RDS (Deprecated)](#postgresql-versions-version116 "#postgresql-versions-version116")
+- [PostgreSQL version 11.5 on Amazon RDS (Deprecated)](#postgresql-versions-version115 "#postgresql-versions-version115")
+- [PostgreSQL version 11.4 on Amazon RDS (Deprecated)](#postgresql-versions-version114 "#postgresql-versions-version114")
+- [PostgreSQL version 11.2 on Amazon RDS (Deprecated)](#postgresql-versions-version112 "#postgresql-versions-version112")
+- [PostgreSQL version 11.1 on Amazon RDS (Deprecated)](#postgresql-versions-version111 "#postgresql-versions-version111")
 
-### PostgreSQL version 11.22-R2 on
-
-Amazon RDS (This
-version has reached the end of standard support.)
+### PostgreSQL version 11.22-R2 on Amazon RDS (This version has reached the end of standard support.)
 
 PostgreSQL version 11.22-R2 is now available on Amazon RDS. This release contains
 several fixes and improvements for PostgreSQL announced in the [PostgreSQL 11.22
@@ -4217,9 +4016,7 @@ release](https://www.postgresql.org/docs/release/11.22/ "https://www.postgresql.
 - Fixed the overflow in the `pg_transport` extension.
 - Removed the unsupported shared libraries from the engine binary.
 
-### PostgreSQL version 11.22 on Amazon RDS (This
-
-version has reached the end of standard support.)
+### PostgreSQL version 11.22 on Amazon RDS (This version has reached the end of standard support.)
 
 PostgreSQL version 11.22 is now available on Amazon RDS. This release contains several
 fixes and improvements for PostgreSQL announced in the [PostgreSQL 11.22
@@ -4246,9 +4043,7 @@ This version includes the following changes:
 - The `pgtap` extension was updated to version 1.3.1.
 - The `plprofiler` extension was updated to version 4.2.4.
 
-### PostgreSQL version 11.21 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.21 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.21 is now available on Amazon RDS. This release contains several
 fixes and improvements for PostgreSQL announced in the [PostgreSQL 11.21
@@ -4269,12 +4064,9 @@ This version also includes the following changes:
 - The `pglogical` extension was updated to version 2.4.3.
 - The `PostGIS` extension was updated to version 3.3.3.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.20 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.20 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.20 is now available on Amazon RDS. This release contains several
 fixes and improvements for PostgreSQL announced in the [PostgreSQL 11.20
@@ -4302,23 +4094,17 @@ This version also includes the following changes:
 - `pglogical` was updated to version 2.4.2
 - `PostGIS` was updated to version 3.3.2
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.19 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.19 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.19 is now available on Amazon RDS. This release contains several
 fixes and improvements for PostgreSQL announced in the [PostgreSQL 11.19
 release](https://www.postgresql.org/docs/release/11.19/ "https://www.postgresql.org/docs/release/11.19/").
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.18 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.18 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.18 is now available on Amazon RDS. This release contains several
 fixes and improvements for PostgreSQL announced in the [PostgreSQL 11.18
@@ -4353,12 +4139,9 @@ This version includes the following changes:
 - The wal2json extension is updated to 2.5.
 - The aws_s3 extension is updated to 1.1.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.17 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.17 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.17 is now available on Amazon RDS. This release contains several
 fixes and improvements for PostgreSQL announced in [PostgreSQL
@@ -4368,12 +4151,9 @@ This version includes the following change:
 
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to 3.1.7
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.16 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.16 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.16 is now available on Amazon RDS. This release contains several
 fixes and improvements that were announced in [PostgreSQL
@@ -4384,12 +4164,9 @@ This version also includes the following changes:
 - The [pglogical](https://github.com/2ndQuadrant/pglogical "https://github.com/2ndQuadrant/pglogical") extension is updated to 2.4.1.
 - The [aws_commons](../UserGuide/USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_s3_uri "../UserGuide/USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_s3_uri") extension is updated to 1.2.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.15 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.15 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.15 is now available on Amazon RDS. PostgreSQL version 11.15
 contains several improvements that were announced for PostgreSQL release [11.15](https://www.postgresql.org/docs/release/11.15/ "https://www.postgresql.org/docs/release/11.15/").
@@ -4402,12 +4179,9 @@ This version also includes the following changes:
   extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit").
 - The [lo](https://www.postgresql.org/docs/current/lo.html "https://www.postgresql.org/docs/current/lo.html") module is updated to version 1.1.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.14 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.14 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.14 is now available on Amazon RDS. PostgreSQL version 11.14
 contains several improvements that were announced for PostgreSQL release [11.14](https://www.postgresql.org/docs/release/11.14/ "https://www.postgresql.org/docs/release/11.14/").
@@ -4416,12 +4190,9 @@ This version also includes the following change:
 
 - The [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan/ "https://github.com/ossc-db/pg_hint_plan/") extension is updated to 1.3.7.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.13 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.13 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.13 is now available on Amazon RDS. PostgreSQL version 11.13
 contains several improvements that were announced for PostgreSQL release [11.13](https://www.postgresql.org/docs/release/11.13/ "https://www.postgresql.org/docs/release/11.13/").
@@ -4438,12 +4209,9 @@ This version also includes the following changes:
   - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
   - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.12 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.12 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.12 is now available on Amazon RDS. PostgreSQL version 11.12
 contains several improvements that were announced for PostgreSQL release [11.12](https://www.postgresql.org/docs/release/11.12/ "https://www.postgresql.org/docs/release/11.12/").
@@ -4453,12 +4221,9 @@ This version also includes the following change:
 - The [orafce](https://github.com/orafce/orafce "https://github.com/orafce/orafce") extension
   is updated to version 3.15.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.11 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.11 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.11 is now available on Amazon RDS. PostgreSQL version 11.11
 contains several improvements that were announced for PostgreSQL release [11.11](https://www.postgresql.org/docs/release/11.11/ "https://www.postgresql.org/docs/release/11.11/").
@@ -4467,22 +4232,16 @@ This version also added the following new extension:
 
 - The [pg_bigm](https://pgbigm.osdn.jp/pg_bigm_en-1-2.html "https://pgbigm.osdn.jp/pg_bigm_en-1-2.html") extension version 1.2.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.10 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.10 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.10 is now available on Amazon RDS. PostgreSQL version 11.10
 contains several improvements that were announced for PostgreSQL release [11.10](https://www.postgresql.org/docs/11/release-11-10.html "https://www.postgresql.org/docs/11/release-11-10.html").
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.9 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.9 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.9 is now available on Amazon RDS. PostgreSQL version 11.9
 contains several improvements that were announced for PostgreSQL release [11.9](https://www.postgresql.org/docs/11/release-11-9.html "https://www.postgresql.org/docs/11/release-11-9.html").
@@ -4495,12 +4254,9 @@ This version also includes the following changes:
 - Upgraded the `pglogical` extension to version 2.2.2
 - Added the `rdkit` extension version 3.8
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.8 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.8 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.8 contains several bug fixes for issues in release 11.7. For
 more information on the fixes in PostgreSQL 11.8, see the [PostgreSQL 11.8
@@ -4510,20 +4266,15 @@ This version also includes the following change:
 
 - Upgraded the `pg_hint_plan` extension to version 1.3.5.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.7 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.7 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.7 contains several bug fixes for issues in release 11.6. For
 more information on the fixes in PostgreSQL 11.7, see the [PostgreSQL 11.7
 documentation](https://www.postgresql.org/docs/11/release-11-7.html "https://www.postgresql.org/docs/11/release-11-7.html").
 
-### PostgreSQL version 11.6 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.6 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.6 contains several bug fixes for issues in release 11.5. For
 more information on the fixes in PostgreSQL 11.6, see the [PostgreSQL
@@ -4536,9 +4287,7 @@ This version also includes the following changes:
 - Added to `shared_preload_libraries` support for
   `pg_prewarm` to start automatically.
 
-### PostgreSQL version 11.5 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.5 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.5 contains several bug fixes for issues in release 11.4. For
 more information on the fixes in PostgreSQL 11.5, see the [PostgreSQL
@@ -4552,9 +4301,7 @@ This version also includes the following changes:
   S3 path deprecation plan – The rest of the story](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/ "https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/").
 - The `PostGIS` extension is updated to version 2.5.2.
 
-### PostgreSQL version 11.4 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.4 on Amazon RDS (Deprecated)
 
 This release contains an important security fix and also bug fixes and
 improvements done by the PostgreSQL community. For more information on the security
@@ -4567,9 +4314,7 @@ version 1.3.4.
 For more information on the fixes in PostgreSQL 11.4, see the [PostgreSQL
 documentation](https://www.postgresql.org/docs/11/release-11-4.html "https://www.postgresql.org/docs/11/release-11-4.html").
 
-### PostgreSQL version 11.2 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.2 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.2 contains several bug fixes for issues in release 11.1. For
 more information on the fixes in PostgreSQL 11.2, see the [PostgreSQL
@@ -4589,12 +4334,9 @@ For information on upgrading the engine version for your PostgreSQL DB instance,
 see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
 _Amazon RDS User Guide_.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
-### PostgreSQL version 11.1 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 11.1 on Amazon RDS (Deprecated)
 
 PostgreSQL version 11.1 contains several improvements that were announced in
 [PostgreSQL 11.1
@@ -4658,59 +4400,35 @@ pg_stat_statements;`. Also, `track_io_timing` is
   - `prefix` is updated to 1.2.8
   - `wal2json` is updated to hash 9e962bad
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 11](postgresql-extensions.md#postgresql-extensions-11x "postgresql-extensions.md#postgresql-extensions-11x").
 
 ## PostgreSQL 10 versions (Deprecated)
 
 ###### Minor versions
 
-- [PostgreSQL version 10.23 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1023 "#postgresql-versions-version1023")
-- [PostgreSQL version 10.22 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1022 "#postgresql-versions-version1022")
-- [PostgreSQL version 10.21 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1021 "#postgresql-versions-version1021")
-- [PostgreSQL version 10.20 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1020 "#postgresql-versions-version1020")
-- [PostgreSQL version 10.19 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1019 "#postgresql-versions-version1019")
-- [PostgreSQL version 10.18 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1018 "#postgresql-versions-version1018")
-- [PostgreSQL version 10.17 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1017 "#postgresql-versions-version1017")
-- [PostgreSQL version 10.16 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1016 "#postgresql-versions-version1016")
-- [PostgreSQL version 10.15 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1015 "#postgresql-versions-version1015")
-- [PostgreSQL version 10.14 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1014 "#postgresql-versions-version1014")
-- [PostgreSQL version 10.13 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1013 "#postgresql-versions-version1013")
-- [PostgreSQL version 10.12 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1012 "#postgresql-versions-version1012")
-- [PostgreSQL version 10.11 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1011 "#postgresql-versions-version1011")
-- [PostgreSQL version 10.10 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version1010 "#postgresql-versions-version1010")
-- [PostgreSQL version 10.9 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version109 "#postgresql-versions-version109")
-- [PostgreSQL version 10.7 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version107 "#postgresql-versions-version107")
-- [PostgreSQL version 10.6 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version106 "#postgresql-versions-version106")
-- [PostgreSQL version 10.5 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version105 "#postgresql-versions-version105")
-- [PostgreSQL version 10.4 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version104 "#postgresql-versions-version104")
-- [PostgreSQL version 10.3 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version103 "#postgresql-versions-version103")
-- [PostgreSQL version 10.1 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version101 "#postgresql-versions-version101")
+- [PostgreSQL version 10.23 on Amazon RDS (Deprecated)](#postgresql-versions-version1023 "#postgresql-versions-version1023")
+- [PostgreSQL version 10.22 on Amazon RDS (Deprecated)](#postgresql-versions-version1022 "#postgresql-versions-version1022")
+- [PostgreSQL version 10.21 on Amazon RDS (Deprecated)](#postgresql-versions-version1021 "#postgresql-versions-version1021")
+- [PostgreSQL version 10.20 on Amazon RDS (Deprecated)](#postgresql-versions-version1020 "#postgresql-versions-version1020")
+- [PostgreSQL version 10.19 on Amazon RDS (Deprecated)](#postgresql-versions-version1019 "#postgresql-versions-version1019")
+- [PostgreSQL version 10.18 on Amazon RDS (Deprecated)](#postgresql-versions-version1018 "#postgresql-versions-version1018")
+- [PostgreSQL version 10.17 on Amazon RDS (Deprecated)](#postgresql-versions-version1017 "#postgresql-versions-version1017")
+- [PostgreSQL version 10.16 on Amazon RDS (Deprecated)](#postgresql-versions-version1016 "#postgresql-versions-version1016")
+- [PostgreSQL version 10.15 on Amazon RDS (Deprecated)](#postgresql-versions-version1015 "#postgresql-versions-version1015")
+- [PostgreSQL version 10.14 on Amazon RDS (Deprecated)](#postgresql-versions-version1014 "#postgresql-versions-version1014")
+- [PostgreSQL version 10.13 on Amazon RDS (Deprecated)](#postgresql-versions-version1013 "#postgresql-versions-version1013")
+- [PostgreSQL version 10.12 on Amazon RDS (Deprecated)](#postgresql-versions-version1012 "#postgresql-versions-version1012")
+- [PostgreSQL version 10.11 on Amazon RDS (Deprecated)](#postgresql-versions-version1011 "#postgresql-versions-version1011")
+- [PostgreSQL version 10.10 on Amazon RDS (Deprecated)](#postgresql-versions-version1010 "#postgresql-versions-version1010")
+- [PostgreSQL version 10.9 on Amazon RDS (Deprecated)](#postgresql-versions-version109 "#postgresql-versions-version109")
+- [PostgreSQL version 10.7 on Amazon RDS (Deprecated)](#postgresql-versions-version107 "#postgresql-versions-version107")
+- [PostgreSQL version 10.6 on Amazon RDS (Deprecated)](#postgresql-versions-version106 "#postgresql-versions-version106")
+- [PostgreSQL version 10.5 on Amazon RDS (Deprecated)](#postgresql-versions-version105 "#postgresql-versions-version105")
+- [PostgreSQL version 10.4 on Amazon RDS (Deprecated)](#postgresql-versions-version104 "#postgresql-versions-version104")
+- [PostgreSQL version 10.3 on Amazon RDS (Deprecated)](#postgresql-versions-version103 "#postgresql-versions-version103")
+- [PostgreSQL version 10.1 on Amazon RDS (Deprecated)](#postgresql-versions-version101 "#postgresql-versions-version101")
 
-### PostgreSQL version 10.23 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.23 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.23 is now available on Amazon RDS. This release contains several
 fixes and improvements for PostgreSQL announced in the [PostgreSQL 10.23
@@ -4744,12 +4462,9 @@ This version includes the following changes:
 - The wal2json extension is updated to 2.5.
 - The aws_s3 extension is updated to 1.1.
 
-For version information on all extensions, see [Extensions supported for RDS for PostgreSQL
-10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
+For version information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
-### PostgreSQL version 10.22 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.22 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.22 is now available on Amazon RDS. This release contains several
 fixes and improvements for PostgreSQL announced in [PostgreSQL
@@ -4759,12 +4474,9 @@ This version includes the following change:
 
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md") extension is updated to 3.1.7
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
-### PostgreSQL version 10.21 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.21 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.21 is now available on Amazon RDS. This release contains several
 fixes and improvements that were announced in [PostgreSQL
@@ -4775,12 +4487,9 @@ This version also includes the following changes:
 - The [pglogical](https://github.com/2ndQuadrant/pglogical "https://github.com/2ndQuadrant/pglogical") extension is updated to 2.4.1.
 - The [aws_commons](../UserGuide/USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_s3_uri "../UserGuide/USER_PostgreSQL.S3Import.md#USER_PostgreSQL.S3Import.create_s3_uri") extension is updated to 1.2.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
-### PostgreSQL version 10.20 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.20 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.20 is now available on Amazon RDS. PostgreSQL version 10.20
 contains several improvements that were announced for PostgreSQL release [10.20](https://www.postgresql.org/docs/release/10.20/ "https://www.postgresql.org/docs/release/10.20/").
@@ -4793,12 +4502,9 @@ This version also includes the following changes:
   extension](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.md#Appendix.PostgreSQL.CommonDBATasks.pgaudit") in the _Amazon RDS User Guide_.
 - The [lo](https://www.postgresql.org/docs/current/lo.html "https://www.postgresql.org/docs/current/lo.html") module is updated to version 1.1.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
-### PostgreSQL version 10.19 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.19 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.19 is now available on Amazon RDS. PostgreSQL version 10.19
 contains several improvements that were announced for PostgreSQL release [10.19](https://www.postgresql.org/docs/release/10.19/ "https://www.postgresql.org/docs/release/10.19/").
@@ -4807,12 +4513,9 @@ This version also includes the following change:
 
 - The [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan/ "https://github.com/ossc-db/pg_hint_plan/") extension is updated to 1.3.6.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
-### PostgreSQL version 10.18 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.18 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.18 is now available on Amazon RDS. PostgreSQL version 10.18
 contains several improvements that were announced for PostgreSQL release [10.18](https://www.postgresql.org/docs/release/10.18/ "https://www.postgresql.org/docs/release/10.18/").
@@ -4829,12 +4532,9 @@ This version also includes the following changes:
   - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
   - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
-### PostgreSQL version 10.17 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.17 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.17 is now available on Amazon RDS. PostgreSQL version 10.17
 contains several improvements that were announced for PostgreSQL release [10.17](https://www.postgresql.org/docs/release/10.17/ "https://www.postgresql.org/docs/release/10.17/").
@@ -4844,32 +4544,23 @@ This version also includes the following change:
 - The [orafce](https://github.com/orafce/orafce "https://github.com/orafce/orafce") extension
   is updated to version 3.15.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
-### PostgreSQL version 10.16 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.16 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.16 is now available on Amazon RDS. PostgreSQL version 10.16
 contains several improvements that were announced for PostgreSQL release [10.16](https://www.postgresql.org/docs/release/10.16/ "https://www.postgresql.org/docs/release/10.16/").
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
-### PostgreSQL version 10.15 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.15 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.15 is now available on Amazon RDS. PostgreSQL version 10.15
 contains several improvements that were announced for PostgreSQL release [10.15](https://www.postgresql.org/docs/10/release-10-15.html "https://www.postgresql.org/docs/10/release-10-15.html").
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
-### PostgreSQL version 10.14 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.14 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.14 is now available on Amazon RDS. PostgreSQL version 10.14
 contains several improvements that were announced for PostgreSQL release [10.14](https://www.postgresql.org/docs/10/release-10-14.html "https://www.postgresql.org/docs/10/release-10-14.html").
@@ -4884,12 +4575,9 @@ This version also includes the following changes:
 - Upgraded the `pglogical` extension to version 2.2.2
 - Upgraded the `wal2json` extension to version 2.3
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
-### PostgreSQL version 10.13 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.13 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.13 contains several bug fixes for issues in release 10.12.
 For more information on the fixes in PostgreSQL 10.13, see the [PostgreSQL 10.13
@@ -4899,20 +4587,15 @@ This version also includes the following change:
 
 - Upgraded the `pg_hint_plan` extension to version 1.3.5.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL
-10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 10](postgresql-extensions.md#postgresql-extensions-101x "postgresql-extensions.md#postgresql-extensions-101x").
 
-### PostgreSQL version 10.12 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.12 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.12 contains several bug fixes for issues in release 10.11.
 For more information on the fixes in PostgreSQL 10.12, see the [PostgreSQL 10.12
 documentation](https://www.postgresql.org/docs/10/release-10-12.html "https://www.postgresql.org/docs/10/release-10-12.html").
 
-### PostgreSQL version 10.11 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.11 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.11 contains several bug fixes for issues in release 10.10.
 For more information on the fixes in PostgreSQL 10.11, see the [PostgreSQL
@@ -4920,9 +4603,7 @@ documentation](https://www.postgresql.org/docs/10/release-10-11.html "https://ww
 
 - Added the `plprofiler` extension.
 
-### PostgreSQL version 10.10 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.10 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.10 contains several bug fixes for issues in release 10.9.
 For more information on the fixes in PostgreSQL 10.10, see the [PostgreSQL
@@ -4933,9 +4614,7 @@ documentation](https://www.postgresql.org/docs/10/release-10-10.html "https://ww
   S3 path deprecation plan – The rest of the story](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/ "https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/").
 - The `The PostGIS` extension is updated to version 2.5.2.
 
-### PostgreSQL version 10.9 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.9 on Amazon RDS (Deprecated)
 
 This release contains an important security fix and also bug fixes and
 improvements done by the PostgreSQL community. For more information on the security
@@ -4949,9 +4628,7 @@ version 1.3.3.
 For more information on the fixes in PostgreSQL 10.9, see the [PostgreSQL
 documentation](https://www.postgresql.org/docs/10/release-10-9.html "https://www.postgresql.org/docs/10/release-10-9.html").
 
-### PostgreSQL version 10.7 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.7 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.7 contains several bug fixes for issues in release 10.6. For
 more information on the fixes in 10.7, see the [PostgreSQL
@@ -4969,9 +4646,7 @@ For information on upgrading the engine version for your PostgreSQL DB instance,
 see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
 _Amazon RDS User Guide_.
 
-### PostgreSQL version 10.6 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.6 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.6 contains several bug fixes for issues in release 10.5. For
 more information on the fixes in PostgreSQL 10.6, see the [PostgreSQL
@@ -5005,9 +4680,7 @@ extension in the next major release. We encourage customers still using pre-8.3
 text search to migrate to the equivalent built-in features. For more information
 about migrating, see the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/textsearch-migration.html "https://www.postgresql.org/docs/9.6/static/textsearch-migration.html").
 
-### PostgreSQL version 10.5 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.5 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.5 contains several bug fixes for issues in release 10.4. For
 more information on the fixes in 10.5, see the [PostgreSQL
@@ -5034,9 +4707,7 @@ _Amazon RDS User Guide_.
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
 
-### PostgreSQL version 10.4 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.4 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.4 contains several bug fixes for issues in release 10.3. For
 more information on the fixes in 10.4, see the [PostgreSQL
@@ -5078,9 +4749,7 @@ release. We encourage customers still using pre-8.3 text search to migrate to
 the equivalent built-in features. For more information about migrating, see the
 [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/textsearch-migration.html "https://www.postgresql.org/docs/9.6/static/textsearch-migration.html").
 
-### PostgreSQL version 10.3 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.3 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.3 contains several bug fixes for issues in release 10. For
 more information on the fixes in 10.3, see the [PostgreSQL
@@ -5097,9 +4766,7 @@ _Amazon RDS User Guide_.
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
 
-### PostgreSQL version 10.1 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 10.1 on Amazon RDS (Deprecated)
 
 PostgreSQL version 10.1 contains several bug fixes for issues in release 10. For
 more information on the fixes in 10.1, see the [PostgreSQL
@@ -5152,52 +4819,29 @@ For the complete list of extensions supported by Amazon RDS for PostgreSQL, see 
 
 ###### Minor versions
 
-- [PostgreSQL version 9.6.24 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9624 "#postgresql-versions-version9624")
-- [PostgreSQL version 9.6.23 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9623 "#postgresql-versions-version9623")
-- [PostgreSQL version 9.6.22 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9622 "#postgresql-versions-version9622")
-- [PostgreSQL version 9.6.21 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9621 "#postgresql-versions-version9621")
-- [PostgreSQL version 9.6.20 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9620 "#postgresql-versions-version9620")
-- [PostgreSQL version 9.6.19 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9619 "#postgresql-versions-version9619")
-- [PostgreSQL version 9.6.18 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9618 "#postgresql-versions-version9618")
-- [PostgreSQL version 9.6.17 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9617 "#postgresql-versions-version9617")
-- [PostgreSQL version 9.6.16 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9616 "#postgresql-versions-version9616")
-- [PostgreSQL version 9.6.15 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9615 "#postgresql-versions-version9615")
-- [PostgreSQL version 9.6.14 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9614 "#postgresql-versions-version9614")
-- [PostgreSQL version 9.6.12 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9612 "#postgresql-versions-version9612")
-- [PostgreSQL version 9.6.11 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9611 "#postgresql-versions-version9611")
-- [PostgreSQL version 9.6.10 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version9610 "#postgresql-versions-version9610")
-- [PostgreSQL version 9.6.9 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version969 "#postgresql-versions-version969")
-- [PostgreSQL version 9.6.8 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version968 "#postgresql-versions-version968")
-- [PostgreSQL version 9.6.6 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version966 "#postgresql-versions-version966")
-- [PostgreSQL version 9.6.5 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version965 "#postgresql-versions-version965")
-- [PostgreSQL version 9.6.3 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version963 "#postgresql-versions-version963")
-- [PostgreSQL version 9.6.2 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version962 "#postgresql-versions-version962")
-- [PostgreSQL version 9.6.1 on Amazon RDS
-  (Deprecated)](#postgresql-versions-version961 "#postgresql-versions-version961")
+- [PostgreSQL version 9.6.24 on Amazon RDS (Deprecated)](#postgresql-versions-version9624 "#postgresql-versions-version9624")
+- [PostgreSQL version 9.6.23 on Amazon RDS (Deprecated)](#postgresql-versions-version9623 "#postgresql-versions-version9623")
+- [PostgreSQL version 9.6.22 on Amazon RDS (Deprecated)](#postgresql-versions-version9622 "#postgresql-versions-version9622")
+- [PostgreSQL version 9.6.21 on Amazon RDS (Deprecated)](#postgresql-versions-version9621 "#postgresql-versions-version9621")
+- [PostgreSQL version 9.6.20 on Amazon RDS (Deprecated)](#postgresql-versions-version9620 "#postgresql-versions-version9620")
+- [PostgreSQL version 9.6.19 on Amazon RDS (Deprecated)](#postgresql-versions-version9619 "#postgresql-versions-version9619")
+- [PostgreSQL version 9.6.18 on Amazon RDS (Deprecated)](#postgresql-versions-version9618 "#postgresql-versions-version9618")
+- [PostgreSQL version 9.6.17 on Amazon RDS (Deprecated)](#postgresql-versions-version9617 "#postgresql-versions-version9617")
+- [PostgreSQL version 9.6.16 on Amazon RDS (Deprecated)](#postgresql-versions-version9616 "#postgresql-versions-version9616")
+- [PostgreSQL version 9.6.15 on Amazon RDS (Deprecated)](#postgresql-versions-version9615 "#postgresql-versions-version9615")
+- [PostgreSQL version 9.6.14 on Amazon RDS (Deprecated)](#postgresql-versions-version9614 "#postgresql-versions-version9614")
+- [PostgreSQL version 9.6.12 on Amazon RDS (Deprecated)](#postgresql-versions-version9612 "#postgresql-versions-version9612")
+- [PostgreSQL version 9.6.11 on Amazon RDS (Deprecated)](#postgresql-versions-version9611 "#postgresql-versions-version9611")
+- [PostgreSQL version 9.6.10 on Amazon RDS (Deprecated)](#postgresql-versions-version9610 "#postgresql-versions-version9610")
+- [PostgreSQL version 9.6.9 on Amazon RDS (Deprecated)](#postgresql-versions-version969 "#postgresql-versions-version969")
+- [PostgreSQL version 9.6.8 on Amazon RDS (Deprecated)](#postgresql-versions-version968 "#postgresql-versions-version968")
+- [PostgreSQL version 9.6.6 on Amazon RDS (Deprecated)](#postgresql-versions-version966 "#postgresql-versions-version966")
+- [PostgreSQL version 9.6.5 on Amazon RDS (Deprecated)](#postgresql-versions-version965 "#postgresql-versions-version965")
+- [PostgreSQL version 9.6.3 on Amazon RDS (Deprecated)](#postgresql-versions-version963 "#postgresql-versions-version963")
+- [PostgreSQL version 9.6.2 on Amazon RDS (Deprecated)](#postgresql-versions-version962 "#postgresql-versions-version962")
+- [PostgreSQL version 9.6.1 on Amazon RDS (Deprecated)](#postgresql-versions-version961 "#postgresql-versions-version961")
 
-### PostgreSQL version 9.6.24 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.24 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.24 is now available on Amazon RDS. PostgreSQL version 9.6.24
 contains several improvements that were announced for PostgreSQL release [9.6.24](https://www.postgresql.org/docs/release/9.6.24/ "https://www.postgresql.org/docs/release/9.6.24/").
@@ -5206,11 +4850,9 @@ This version also includes the following change:
 
 - The [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan/ "https://github.com/ossc-db/pg_hint_plan/") extension is updated to 1.2.7.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x") .
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x").
 
-### PostgreSQL version 9.6.23 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.23 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.23 is now available on Amazon RDS. PostgreSQL version 9.6.23
 contains several improvements that were announced for PostgreSQL release [9.6.23](https://www.postgresql.org/docs/release/9.6.23/ "https://www.postgresql.org/docs/release/9.6.23/").
@@ -5225,11 +4867,9 @@ This version also includes the following changes:
   - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
   - [PostGIS_topology](http://postgis.net/docs/manual-dev/Topology.html "http://postgis.net/docs/manual-dev/Topology.html")
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x") .
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x").
 
-### PostgreSQL version 9.6.22 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.22 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.22 is now available on Amazon RDS. PostgreSQL version 9.6.22
 contains several improvements that were announced for PostgreSQL release [9.6.22](https://www.postgresql.org/docs/release/9.6.22/ "https://www.postgresql.org/docs/release/9.6.22/").
@@ -5239,29 +4879,23 @@ This version also includes the following change:
 - The [orafce](https://github.com/orafce/orafce "https://github.com/orafce/orafce") extension
   is updated to version 3.15.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x") .
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x").
 
-### PostgreSQL version 9.6.21 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.21 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.21 is now available on Amazon RDS. PostgreSQL version 9.6.21
 contains several improvements that were announced for PostgreSQL release [9.6.21](https://www.postgresql.org/docs/release/9.6.21/ "https://www.postgresql.org/docs/release/9.6.21/").
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x") .
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x").
 
-### PostgreSQL version 9.6.20 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.20 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.20 is now available on Amazon RDS. PostgreSQL version 9.6.20
 contains several improvements that were announced for PostgreSQL release [9.6.20](https://www.postgresql.org/docs/9.6/release-9-6-20.html "https://www.postgresql.org/docs/9.6/release-9-6-20.html").
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x") .
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x").
 
-### PostgreSQL version 9.6.19 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.19 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.19 is now available on Amazon RDS. PostgreSQL version 9.6.19
 contains several improvements that were announced for PostgreSQL release [9.6.19](https://www.postgresql.org/docs/9.6/release-9-6-19.html "https://www.postgresql.org/docs/9.6/release-9-6-19.html").
@@ -5272,11 +4906,9 @@ This version also includes the following changes:
 - Upgraded the `pglogical` extension to version 2.2.2
 - Upgraded the `wal2json` extension to version 2.3
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x") .
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x").
 
-### PostgreSQL version 9.6.18 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.18 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.18 contains several bug fixes for issues in release 9.6.17.
 For more information on the fixes in PostgreSQL 9.6.18, see the [PostgreSQL 9.6.18
@@ -5286,27 +4918,21 @@ This version also includes the following change:
 
 - Upgraded the `pg_hint_plan` extension to version 1.2.6.
 
-For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x") .
+For information on all extensions, see [Extensions supported for RDS for PostgreSQL 9.6](postgresql-extensions.md#postgresql-extensions-96x "postgresql-extensions.md#postgresql-extensions-96x").
 
-### PostgreSQL version 9.6.17 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.17 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.17 contains several bug fixes for issues in release 9.6.16.
 For more information on the fixes in PostgreSQL 9.6.17, see the [PostgreSQL 9.6.17
 documentation](https://www.postgresql.org/docs/9.6/release-9-6-17.html "https://www.postgresql.org/docs/9.6/release-9-6-17.html").
 
-### PostgreSQL version 9.6.16 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.16 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.16 contains several bug fixes for issues in release 9.6.15.
 For more information on the fixes in PostgreSQL 9.6.16, see the [PostgreSQL
 documentation](https://www.postgresql.org/docs/9.6/release-9-6-16.html "https://www.postgresql.org/docs/9.6/release-9-6-16.html").
 
-### PostgreSQL version 9.6.15 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.15 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.15 contains several bug fixes for issues in release 9.6.14.
 For more information on the fixes in PostgreSQL 9.6.15, see the [PostgreSQL
@@ -5314,9 +4940,7 @@ documentation](https://www.postgresql.org/docs/9.6/release-9-6-15.html "https://
 
 The `PostGIS` extension is updated to version 2.5.2.
 
-### PostgreSQL version 9.6.14 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.14 on Amazon RDS (Deprecated)
 
 This release contains bug fixes and improvements done by the PostgreSQL community.
 
@@ -5326,9 +4950,7 @@ version 1.2.5.
 For more information on the fixes in PostgreSQL 9.6.14, see the [PostgreSQL
 documentation](https://www.postgresql.org/docs/9.6/release-9-6-14.html "https://www.postgresql.org/docs/9.6/release-9-6-14.html").
 
-### PostgreSQL version 9.6.12 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.12 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.12 contains several bug fixes for issues in release 9.6.11.
 For more information on the fixes in 9.6.12, see the [PostgreSQL
@@ -5338,9 +4960,7 @@ For information on upgrading the engine version for your PostgreSQL DB instance,
 see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
 _Amazon RDS User Guide_.
 
-### PostgreSQL version 9.6.11 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.11 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.11 contains several bug fixes for issues in release 9.6.10.
 For more information on the fixes in PostgreSQL 9.6.11, see the [PostgreSQL
@@ -5353,9 +4973,7 @@ updated to commit `9e962ba`.
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
 
-### PostgreSQL version 9.6.10 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.10 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.10 contains several bug fixes for issues in release 9.6.9.
 For more information on the fixes in 9.6.10, see the [PostgreSQL documentation](http://www.postgresql.org/docs/current/static/release-9-6-10.html "http://www.postgresql.org/docs/current/static/release-9-6-10.html").
@@ -5378,9 +4996,7 @@ _Amazon RDS User Guide_.
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
 
-### PostgreSQL version 9.6.9 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.9 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.9 contains several bug fixes for issues in release 9.6.8.
 For more information on the fixes in 9.6.9, see the [PostgreSQL
@@ -5408,9 +5024,7 @@ _Amazon RDS User Guide_.
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
 
-### PostgreSQL version 9.6.8 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.8 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.8 contains several bug fixes for issues in release 9.6.6.
 For more information on the fixes in 9.6.8, see the [PostgreSQL
@@ -5420,9 +5034,7 @@ _Amazon RDS User Guide_.
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
 
-### PostgreSQL version 9.6.6 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.6 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.6 contains several bug fixes for issues in release 9.6.5.
 For more information on the fixes in 9.6.6, see the [PostgreSQL
@@ -5446,9 +5058,7 @@ This version includes the following features:
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
 
-### PostgreSQL version 9.6.5 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.5 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.5 contains several bug fixes for issues in release 9.6.4.
 For more information on the fixes in 9.6.5, see the [PostgreSQL
@@ -5460,9 +5070,7 @@ This version also includes support for the [pgrouting](http://pgrouting.org/ "ht
 
 For the complete list of extensions supported by Amazon RDS for PostgreSQL, see [Extension versions for Amazon RDS for PostgreSQL](postgresql-extensions.md "postgresql-extensions.md").
 
-### PostgreSQL version 9.6.3 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.3 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.3 contains several new features and bug fixes. This version
 includes the following features:
@@ -5488,9 +5096,7 @@ LOAD '$libdir/plugins/auto_explain';
 
 For more information on using `auto_explain`, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/static/auto-explain.html "https://www.postgresql.org/docs/current/static/auto-explain.html").
 
-### PostgreSQL version 9.6.2 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.2 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.2 contains several new features and bug fixes. The new
 version also includes the following extension versions:
@@ -5519,9 +5125,7 @@ documentation](http://www.postgresql.org/docs/9.6/static/release-9-6-2.html "htt
 PostgreSQL DB instance, see [Upgrading the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
 _Amazon RDS User Guide_.
 
-### PostgreSQL version 9.6.1 on Amazon RDS
-
-(Deprecated)
+### PostgreSQL version 9.6.1 on Amazon RDS (Deprecated)
 
 PostgreSQL version 9.6.1 contains several new features and improvements. For more
 information about the fixes and improvements in PostgreSQL 9.6.1, see the [PostgreSQL
@@ -5566,9 +5170,7 @@ PostgreSQL version 9.6.1 includes the following changes:
   `max_worker_processes` parameter in a PostgreSQL version
   9.6.1 DB parameter group.
 
-## Deprecation of
-
-PostgreSQL 10
+## Deprecation of PostgreSQL 10
 
 On April 17, 2023, Amazon RDS deprecated PostgreSQL 10. For more information, see [Deprecation of PostgreSQL version 10](../UserGuide/CHAP_PostgreSQL.md#PostgreSQL.Concepts.General.DBVersions.Deprecation10 "../UserGuide/CHAP_PostgreSQL.md#PostgreSQL.Concepts.General.DBVersions.Deprecation10") in the
 _Amazon RDS User Guide_. We strongly recommend that you take action as
@@ -5577,9 +5179,7 @@ later major version, such as version 14. For information about how to do so, see
 the PostgreSQL DB engine for Amazon RDS](../UserGuide/USER_UpgradeDBInstance.md "../UserGuide/USER_UpgradeDBInstance.md") in the
 _Amazon RDS User Guide_.
 
-## Deprecation of
-
-PostgreSQL 9.6
+## Deprecation of PostgreSQL 9.6
 
 On March 31, 2022, Amazon RDS deprecated PostgreSQL 9.6. This extended the previously
 announced date of January 18, 2022 to April 26, 2022. For more information, see [Deprecation of PostgreSQL version 9.6](../UserGuide/CHAP_PostgreSQL.md#PostgreSQL.Concepts.General.DBVersions.Deprecation96 "../UserGuide/CHAP_PostgreSQL.md#PostgreSQL.Concepts.General.DBVersions.Deprecation96") in the

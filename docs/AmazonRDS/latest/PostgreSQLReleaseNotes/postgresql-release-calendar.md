@@ -1,10 +1,6 @@
-# Release calendars for
+# Release calendars for Amazon RDS for PostgreSQL
 
-Amazon RDS for PostgreSQL
-
-## Release calendar for Amazon RDS for PostgreSQL major
-
-versions
+## Release calendar for Amazon RDS for PostgreSQL major versions
 
 RDS for PostgreSQL major versions are available under standard support at least until
 community end of life for the corresponding community version. You can continue running
@@ -36,9 +32,7 @@ about support dates for major engine versions by using the AWS CLI or the RDS AP
 | PostgreSQL 10<br>Deprecated  | 5 October 2017         | 27 February 2018 | 10 November 2022           | April 2023                       | N/A                                          | N/A                                          | N/A                              |
 | PostgreSQL 9.6<br>Deprecated | 26 September 2016      | 11 November 2016 | 11 November 2021           | 30 April 2022                    | N/A                                          | N/A                                          | N/A                              |
 
-## Release calendar for
-
-Amazon RDS for PostgreSQL minor versions
+## Release calendar for Amazon RDS for PostgreSQL minor versions
 
 Amazon RDS currently supports the following minor versions of PostgreSQL.
 
@@ -55,7 +49,11 @@ exact date when it is known.
 
 | PostgreSQL minor engine version | Community release date | RDS release date | RDS end of standard support date |
 | ------------------------------- | ---------------------- | ---------------- | -------------------------------- |
-| 18.2                            | 12 February 2026       | 12 February 2026 | March 2027                       |
+| 18.1                            | 13 November 2025       | 14 November 2022 | March 2027                       |
+| 18.2\*\*                        | 12 February 2026       | 12 February 2026 | March 2027                       |
+| 18.3                            | 26 February 2026       | 27 February 2026 | March 2027                       |
+| 17.9                            | 26 February 2026       | 27 February 2026 | March 2027                       |
+| 17.8\*\*                        | 12 February 2026       | 12 February 2026 | March 2027                       |
 | 17.7                            | 13 November 2025       | 13 November 2025 | March 2027                       |
 | 17.6                            | 14 August 2025         | 14 August 2025   | September 2026                   |
 | 17.5                            | 08 May 2025            | 08 May 2025      | September 2026                   |
@@ -63,6 +61,8 @@ exact date when it is known.
 | 17.3\*\*                        | 13 February 2025       | 13 February 2025 | May 2026                         |
 | 17.2                            | 21 November 2024       | 21 November 2024 | May 2026                         |
 | 17.1\*\*                        | 14 November 2024       | 14 November 2024 | May 2026                         |
+| 16.13                           | 26 February 2026       | 27 February 2026 | March 2027                       |
+| 16.12\*\*                       | 12 February 2026       | 12 February 2026 | March 2027                       |
 | 16.11                           | 13 November 2025       | 13 November 2025 | March 2027                       |
 | 16.10                           | 14 August 2025         | 14 August 2025   | September 2026                   |
 | 16.9                            | 08 May 2025            | 08 May 2025      | September 2026                   |
@@ -70,6 +70,8 @@ exact date when it is known.
 | 16.7\*\*                        | 13 February 2025       | 13 February 2025 | May 2026                         |
 | 16.6                            | 21 November 2024       | 21 November 2024 | May 2026                         |
 | 16.5\*\*                        | 14 November 2024       | 14 November 2024 | May 2026                         |
+| 15.17                           | 26 February 2026       | 27 February 2026 | March 2027                       |
+| 15.16\*\*                       | 12 February 2026       | 12 February 2026 | March 2027                       |
 | 15.15                           | 13 November 2025       | 13 November 2025 | March 2027                       |
 | 15.14                           | 14 August 2025         | 14 August 2025   | September 2026                   |
 | 15.13                           | 08 May 2025            | 08 May 2025      | September 2026                   |
@@ -77,6 +79,8 @@ exact date when it is known.
 | 15.11\*\*                       | 13 February 2025       | 13 February 2025 | May 2026                         |
 | 15.10                           | 21 November 2024       | 21 November 2024 | May 2026                         |
 | 15.9\*\*                        | 14 November 2024       | 14 November 2024 | May 2026                         |
+| 14.22                           | 26 February 2026       | 27 February 2026 | March 2027                       |
+| 14.21\*\*                       | 12 February 2026       | 12 February 2026 | March 2027                       |
 | 14.20                           | 13 November 2025       | 13 November 2025 | February 2027                    |
 | 14.19                           | 14 August 2025         | 14 August 2025   | September 2026                   |
 | 14.18                           | 08 May 2025            | 08 May 2025      | September 2026                   |
@@ -98,7 +102,7 @@ exact date when it is known.
 [Using Amazon RDS Extended Support](../UserGuide/extended-support.md "../UserGuide/extended-support.md").
 
 \*\* RDS for PostgreSQL versions marked with this symbol will be set to
-`NO_CREATE` status on June 1, 2025. After this date, you won't be able to
+`NO_CREATE` status. You won't be able to
 create new DB instances using these versions.
 
 ## Release calendar for Amazon RDS Extended Support for RDS for PostgreSQL
