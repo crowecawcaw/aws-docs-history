@@ -1,6 +1,4 @@
-# Subscribing to and accessing an AWS Data Exchange product containing
-
-file-based data
+# Subscribing to and accessing an AWS Data Exchange product containing file-based data
 
 The following topics describe the complete process of subscribing to and accessing a
 product containing file-based data stored as files on AWS Data Exchange. To complete the process, use the
@@ -13,15 +11,12 @@ The process has the following steps:
 
 ###### Steps
 
-- [Step 1: Subscribing to a product containing the
-  file-based data](#subscribe-to-data-product "#subscribe-to-data-product")
+- [Step 1: Subscribing to a product containing the file-based data](#subscribe-to-data-product "#subscribe-to-data-product")
 - [Step 2: Accessing a product containing file-based data](#use-product "#use-product")
   To practice subscribing to and accessing a product containing file-based data, see the
   [AWS Data Exchange Heartbeat](heartbeat.md "heartbeat.md").
 
-## Step 1: Subscribing to a product containing the
-
-file-based data
+## Step 1: Subscribing to a product containing the file-based data
 
 If you subscribe to a paid product, you are billed on your AWS bill. You get access to
 all entitled data sets. For more information, see [Subscribing to AWS Data Exchange data products on AWS Data Exchange](subscribe-to-data-sets.md "subscribe-to-data-sets.md").
@@ -54,8 +49,7 @@ DSA.
 
 ###### Note
 
-Some products require subscription verification. For more information, see [Subscription verification for subscribers in
-AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 7. Review the pricing information, choose the pricing oﬀer, and then choose
+Some products require subscription verification. For more information, see [Subscription verification for subscribers in AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 7. Review the pricing information, choose the pricing oﬀer, and then choose
 **Subscribe**.
 
 ###### Note
@@ -74,8 +68,7 @@ will prepare its most recently published revision to be exported.
     1. Choose a **Simple** destination option to select an Amazon S3 bucket
      location or choose **Advanced** to configure an Amazon S3 key naming
      pattern. This choice determines where your revisions will be exported. For more
-     information about using key patterns, see [Key patterns when exporting asset revisions
-     from AWS Data Exchange](revision-export-keypatterns.md "revision-export-keypatterns.md").
+     information about using key patterns, see [Key patterns when exporting asset revisions from AWS Data Exchange](revision-export-keypatterns.md "revision-export-keypatterns.md").
     2. For **Auto-export future revisions**, choose whether to turn on
      or turn off automatic revision export:
 
@@ -121,9 +114,7 @@ according to the terms of the data subscription agreement (DSA).
 
 The following topic describes how to access a product containing file-based data.
 
-### Viewing data sets, revisions, and
-
-assets
+### Viewing data sets, revisions, and assets
 
 ###### To view the data sets, revisions, and assets
 
@@ -143,8 +134,7 @@ For more information, see [Data in AWS Data Exchange](data-sets.md "data-sets.md
 Revisions are listed from latest to oldest. 7. View the **Revision overview**, **Assets**, and
 the **Jobs** that have been performed.
 
-For information about exporting file-based assets, see [Exporting AWS Data Exchange assets to an S3 bucket as a
-subscriber (console)](export-asset-s3-console-sub.md "export-asset-s3-console-sub.md").
+For information about exporting file-based assets, see [Exporting AWS Data Exchange assets to an S3 bucket as a subscriber (console)](export-asset-s3-console-sub.md "export-asset-s3-console-sub.md").
 
 ### (Optional) Exporting data
 
@@ -155,8 +145,7 @@ You can export the associated assets to Amazon S3 or you can use jobs with a sig
 URL.
 
 If you want to export or download your data at a later time, including getting new
-revisions, see [Exporting AWS Data Exchange assets to an S3 bucket as a
-subscriber (console)](export-asset-s3-console-sub.md "export-asset-s3-console-sub.md").
+revisions, see [Exporting AWS Data Exchange assets to an S3 bucket as a subscriber (console)](export-asset-s3-console-sub.md "export-asset-s3-console-sub.md").
 
 ###### Important
 

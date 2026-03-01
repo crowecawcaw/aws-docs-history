@@ -1,6 +1,4 @@
-# Access an AWS Data Exchange data set containing Amazon S3 data
-
-access
+# Access an AWS Data Exchange data set containing Amazon S3 data access
 
 **Overview for recipients**
 

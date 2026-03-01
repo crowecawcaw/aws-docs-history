@@ -4,14 +4,10 @@ You can use signed URLs to import assets that are not stored in Amazon S3.
 
 ###### Topics
 
-- [Importing assets from a signed URL (AWS
-  SDKs)](#import-asset-signed-url-prog "#import-asset-signed-url-prog")
-- [Importing assets from a signed URL
-  (console)](#import-asset-signed-url-via-console "#import-asset-signed-url-via-console")
+- [Importing assets from a signed URL (AWS SDKs)](#import-asset-signed-url-prog "#import-asset-signed-url-prog")
+- [Importing assets from a signed URL (console)](#import-asset-signed-url-via-console "#import-asset-signed-url-via-console")
 
-## Importing assets from a signed URL (AWS
-
-SDKs)
+## Importing assets from a signed URL (AWS SDKs)
 
 ###### To import assets from a signed URL (AWS SDKs)
 
@@ -35,9 +31,7 @@ The signed URL expires one
 minute
 after it's created.
 
-## Importing assets from a signed URL
-
-(console)
+## Importing assets from a signed URL (console)
 
 ###### To import an asset from a signed URL (console)
 

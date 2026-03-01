@@ -1,6 +1,4 @@
-# Getting started with Open Data on AWS data sets without
-
-an AWS account
+# Getting started with Open Data on AWS data sets without an AWS account
 
 The following topics describe how you can find and use Open Data on AWS data sets without
 an AWS account. The process has the following steps:

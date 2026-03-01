@@ -1,6 +1,4 @@
-# Publishing a product in AWS Data Exchange containing
-
-AWS Lake Formation data permission data sets (Preview)
+# Publishing a product in AWS Data Exchange containing AWS Lake Formation data permission data sets (Preview)
 
 If you're interested in publishing products containing AWS Lake Formation data permission data
 sets during this Preview, contact [AWS Support](https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service "https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service").
@@ -23,20 +21,14 @@ data permissions. The process has the following steps:
 
 ###### Steps
 
-- [Step 1: Create an AWS Lake Formation data set
-  (Preview)](#create-LF-data-set "#create-LF-data-set")
-- [Step 2: Create an AWS Lake Formation data
-  permission (Preview)](#create-LF-data-permission "#create-LF-data-permission")
+- [Step 1: Create an AWS Lake Formation data set (Preview)](#create-LF-data-set "#create-LF-data-set")
+- [Step 2: Create an AWS Lake Formation data permission (Preview)](#create-LF-data-permission "#create-LF-data-permission")
 - [Step 3: Review and finalize](#review-and-finalize-LF "#review-and-finalize-LF")
 - [Step 5: (Optional) Create a revision](#create-revision-LF "#create-revision-LF")
-- [Step 6: Publish a new product containing
-  AWS Lake Formation data sets (Preview)](#publish-LF-product "#publish-LF-product")
-- [Considerations when publishing an
-  AWS Lake Formation data permission data set (Preview)](#considerations-LF-data-product "#considerations-LF-data-product")
+- [Step 6: Publish a new product containing AWS Lake Formation data sets (Preview)](#publish-LF-product "#publish-LF-product")
+- [Considerations when publishing an AWS Lake Formation data permission data set (Preview)](#considerations-LF-data-product "#considerations-LF-data-product")
 
-## Step 1: Create an AWS Lake Formation data set
-
-(Preview)
+## Step 1: Create an AWS Lake Formation data set (Preview)
 
 ###### To create an AWS Lake Formation data set
 
@@ -55,9 +47,7 @@ data permissions. The process has the following steps:
    tag**.
 7. Choose **Create data set** and continue.
 
-## Step 2: Create an AWS Lake Formation data
-
-permission (Preview)
+## Step 2: Create an AWS Lake Formation data permission (Preview)
 
 AWS Data Exchange uses LF-Tags to grant data permissions. Choose the LF-Tags that are
 associated with the data you want to share to grant subscriber permissions to the
@@ -163,8 +153,7 @@ provide your specific product details in the template. 9. Choose **Next**. 10. C
     	 agreement (DSA), and refund policy.
     	3. (Optional) Set **Subscription
     	 verification** to control who can subscribe to
-    	 this product. For more information, see [Subscription verification for providers in
-    	 AWS Data Exchange](subscription-verification-pro.md "subscription-verification-pro.md").
+    	 this product. For more information, see [Subscription verification for providers in AWS Data Exchange](subscription-verification-pro.md "subscription-verification-pro.md").
     	4. Choose your **Oﬀer auto-renewal** option.
     	 For more information, see [Creating an offer for AWS Data Exchange products](prepare-offers.md "prepare-offers.md").
     	5. Choose **Next**.
@@ -236,9 +225,7 @@ Job are deleted 90 days after they’re created. 3. Choose **Finalize**.
 6. From **Service access**, select an existing service role
    and then choose **Create Lake Formation data permission**.
 
-## Step 6: Publish a new product containing
-
-AWS Lake Formation data sets (Preview)
+## Step 6: Publish a new product containing AWS Lake Formation data sets (Preview)
 
 After you've created at least one data set and finalized a revision with assets,
 you're ready to publish a product with AWS Lake Formation data sets. For more information, see
@@ -279,9 +266,7 @@ without finalized revisions aren't added.
 
     For more details, see [Revision access rules in AWS Data Exchange](best-practices-revisions.md "best-practices-revisions.md").
 
-## Considerations when publishing an
-
-AWS Lake Formation data permission data set (Preview)
+## Considerations when publishing an AWS Lake Formation data permission data set (Preview)
 
 To ensure an optimal subscriber experience, we strongly advise against making any
 of the following modifications to any permissions where your product contains AWS Data Exchange

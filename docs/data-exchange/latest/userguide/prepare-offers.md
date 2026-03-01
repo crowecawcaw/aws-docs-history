@@ -91,8 +91,7 @@ processed on your behalf in the monthly billed revenue report.
 ## Subscription verification
 
 As a provider, you have the option to enable subscription verification for your data
-products on AWS Data Exchange. For more information, see [Subscription verification for providers in
-AWS Data Exchange](subscription-verification-pro.md "subscription-verification-pro.md").
+products on AWS Data Exchange. For more information, see [Subscription verification for providers in AWS Data Exchange](subscription-verification-pro.md "subscription-verification-pro.md").
 
 ## Offer auto-renewal
 

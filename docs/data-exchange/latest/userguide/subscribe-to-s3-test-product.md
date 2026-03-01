@@ -1,6 +1,4 @@
-# Subscribing to AWS Data Exchange for Amazon S3 (Test
-
-Product)
+# Subscribing to AWS Data Exchange for Amazon S3 (Test Product)
 
 The following procedure shows how to browse the AWS Data Exchange catalog to find and subscribe to
 AWS Data Exchange for Amazon S3 (Test Product).
@@ -39,8 +37,7 @@ AWS Data Exchange for Amazon S3 (Test Product).
 ###### Note
 
 **AWS Data Exchange for Amazon S3 (Test Product)** doesn't require subscription
-verification, but some products do. For more information, see [Subscription verification for subscribers in
-AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 7. Review the pricing information, choose the pricing offer, and then choose
+verification, but some products do. For more information, see [Subscription verification for subscribers in AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 7. Review the pricing information, choose the pricing offer, and then choose
 **Subscribe**.
 
 ###### Note

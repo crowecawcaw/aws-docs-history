@@ -1,6 +1,4 @@
-# Product description templates in
-
-AWS Data Exchange
+# Product description templates in AWS Data Exchange
 
 When listing a product on AWS Data Exchange, you should include a long description that contains all
 the information necessary for subscribers to understand what your product offers. For more

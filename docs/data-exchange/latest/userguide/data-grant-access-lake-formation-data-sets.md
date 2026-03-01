@@ -1,6 +1,4 @@
-# Access an AWS Data Exchange data set containing
-
-AWS Lake Formation data sets (Preview)
+# Access an AWS Data Exchange data set containing AWS Lake Formation data sets (Preview)
 
 **Overview for recipients**
 

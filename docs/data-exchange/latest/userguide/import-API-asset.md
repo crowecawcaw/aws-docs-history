@@ -4,9 +4,7 @@ AWS Data Exchange subscribers can use their IAM credentials and AWS SDKs to call
 providers. AWS Data Exchange manages access to APIs by handling authentication and subscription
 entitlements.
 
-## Importing API assets from an Amazon API Gateway API (AWS
-
-SDKs)
+## Importing API assets from an Amazon API Gateway API (AWS SDKs)
 
 ###### Note
 
@@ -34,9 +32,7 @@ SDKs:
    complete.
 5. (Optional) Update the assets' name property after they are created.
 
-## Importing API assets from an Amazon API Gateway API
-
-(console)
+## Importing API assets from an Amazon API Gateway API (console)
 
 ###### To import an asset from an Amazon API Gateway API (console)
 

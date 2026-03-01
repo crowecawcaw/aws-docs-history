@@ -1,6 +1,4 @@
-# AWS Data Exchange API permissions: actions and resources
-
-reference
+# AWS Data Exchange API permissions: actions and resources reference
 
 Use the following table as a reference when you are setting up [Access control](access-control.md "access-control.md") and writing a permissions
 policy that you can attach to an AWS Identity and Access Management (IAM) identity (identity-based policies).

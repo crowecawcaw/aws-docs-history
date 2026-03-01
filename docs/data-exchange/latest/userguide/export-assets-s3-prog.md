@@ -1,6 +1,4 @@
-# Exporting AWS Data Exchange assets to an S3 bucket (AWS
-
-SDKs)
+# Exporting AWS Data Exchange assets to an S3 bucket (AWS SDKs)
 
 You can use the AWS SDKs to export AWS Data Exchange assets to an S3 bucket using the following
 instructions.

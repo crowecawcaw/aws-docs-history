@@ -10,9 +10,7 @@ To do so, you can use the `StartChangeSet` API operation and specify the change 
 the product identifier, the product type, and the details including the data set Amazon Resource
 Name (ARN).
 
-## Tutorial: Adding new data sets to a published data
-
-product
+## Tutorial: Adding new data sets to a published data product
 
 This tutorial walks you through detailed steps to add new AWS Data Exchange data sets to a published
 product. The tutorial has the following high-level steps.
@@ -21,8 +19,7 @@ product. The tutorial has the following high-level steps.
 
 - [Set up IAM permissions](#data-set-catalog-iam-permissions "#data-set-catalog-iam-permissions")
 - [Access the AWS Marketplace Catalog API](#data-set-access-catalog-api "#data-set-access-catalog-api")
-- [Get your product ID from the AWS Data Exchange
-  console](#get-data-set-exchange-product-id "#get-data-set-exchange-product-id")
+- [Get your product ID from the AWS Data Exchange console](#get-data-set-exchange-product-id "#get-data-set-exchange-product-id")
 - [Start a change request](#start-data-set-change-request "#start-data-set-change-request")
 - [Check the status of your change set](#check-data-set-change-status "#check-data-set-change-status")
 
@@ -78,9 +75,7 @@ To access the AWS Marketplace Catalog API, use the following HTTP client endpoin
 catalog.marketplace.us-east-1.amazonaws.com
 ```
 
-### Get your product ID from the AWS Data Exchange
-
-console
+### Get your product ID from the AWS Data Exchange console
 
 Before you can use the AWS Marketplace Catalog API to publish new data sets, get your product ID
 from the AWS Data Exchange console. Navigate to the **Product Dashboard**, and then
@@ -92,8 +87,7 @@ with the `DataProduct@1.0` entity type.
 
 ###### To start a change request to add a data set in your test product
 
-1. Copy the entity ID that you get by following the instructions in [Get your product ID from the AWS Data Exchange
-   console](#get-data-set-exchange-product-id "#get-data-set-exchange-product-id").
+1. Copy the entity ID that you get by following the instructions in [Get your product ID from the AWS Data Exchange console](#get-data-set-exchange-product-id "#get-data-set-exchange-product-id").
 2. Make a `StartChangeSet` request with an `AddDataSets` change
    type.
 

@@ -17,28 +17,17 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [AWS managed policy:
-  AWSDataExchangeFullAccess](#security-iam-awsmanpol-awsdataexchangefullaccess "#security-iam-awsmanpol-awsdataexchangefullaccess")
-- [AWS managed
-  policy: AWSDataExchangeProviderFullAccess](#security-iam-awsmanpol-awsdataexchangeproviderfullaccess "#security-iam-awsmanpol-awsdataexchangeproviderfullaccess")
-- [AWS managed policy:
-  AWSDataExchangeReadOnly](#security-iam-awsmanpol-awsdataexchangereadonly "#security-iam-awsmanpol-awsdataexchangereadonly")
-- [AWS managed policy:
-  AWSDataExchangeServiceRolePolicyForLicenseManagement](#security-iam-awsmanpol-awsdataexchangeservicerolepolicyforlicensemanagement "#security-iam-awsmanpol-awsdataexchangeservicerolepolicyforlicensemanagement")
-- [AWS managed policy:
-  AWSDataExchangeServiceRolePolicyForOrganizationDiscovery](#security-iam-awsmanpol-awsdataexchangeservicerolepolicyfororganizationdiscovery "#security-iam-awsmanpol-awsdataexchangeservicerolepolicyfororganizationdiscovery")
-- [AWS
-  managed policy: AWSDataExchangeSubscriberFullAccess](#security-iam-awsmanpol-awsdataexchangesubscriberfullaccess "#security-iam-awsmanpol-awsdataexchangesubscriberfullaccess")
-- [AWS
-  managed policy: AWSDataExchangeDataGrantOwnerFullAccess](#security-iam-awsmanpol-awsdataexchangedatagrantownerfullaccess "#security-iam-awsmanpol-awsdataexchangedatagrantownerfullaccess")
-- [AWS managed policy:
-  AWSDataExchangeDataGrantReceiverFullAccess](#security-iam-awsmanpol-awsdataexchangedatagrantreceiverfullaccess "#security-iam-awsmanpol-awsdataexchangedatagrantreceiverfullaccess")
-- [AWS Data Exchange updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [AWS managed policy: AWSDataExchangeFullAccess](#security-iam-awsmanpol-awsdataexchangefullaccess "#security-iam-awsmanpol-awsdataexchangefullaccess")
+- [AWS managed policy: AWSDataExchangeProviderFullAccess](#security-iam-awsmanpol-awsdataexchangeproviderfullaccess "#security-iam-awsmanpol-awsdataexchangeproviderfullaccess")
+- [AWS managed policy: AWSDataExchangeReadOnly](#security-iam-awsmanpol-awsdataexchangereadonly "#security-iam-awsmanpol-awsdataexchangereadonly")
+- [AWS managed policy: AWSDataExchangeServiceRolePolicyForLicenseManagement](#security-iam-awsmanpol-awsdataexchangeservicerolepolicyforlicensemanagement "#security-iam-awsmanpol-awsdataexchangeservicerolepolicyforlicensemanagement")
+- [AWS managed policy: AWSDataExchangeServiceRolePolicyForOrganizationDiscovery](#security-iam-awsmanpol-awsdataexchangeservicerolepolicyfororganizationdiscovery "#security-iam-awsmanpol-awsdataexchangeservicerolepolicyfororganizationdiscovery")
+- [AWS managed policy: AWSDataExchangeSubscriberFullAccess](#security-iam-awsmanpol-awsdataexchangesubscriberfullaccess "#security-iam-awsmanpol-awsdataexchangesubscriberfullaccess")
+- [AWS managed policy: AWSDataExchangeDataGrantOwnerFullAccess](#security-iam-awsmanpol-awsdataexchangedatagrantownerfullaccess "#security-iam-awsmanpol-awsdataexchangedatagrantownerfullaccess")
+- [AWS managed policy: AWSDataExchangeDataGrantReceiverFullAccess](#security-iam-awsmanpol-awsdataexchangedatagrantreceiverfullaccess "#security-iam-awsmanpol-awsdataexchangedatagrantreceiverfullaccess")
+- [AWS Data Exchange updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## AWS managed policy:
-
-AWSDataExchangeFullAccess
+## AWS managed policy: AWSDataExchangeFullAccess
 
 You can attach the `AWSDataExchangeFullAccess` policy to your IAM
 identities.
@@ -51,9 +40,7 @@ To view permissions for this policy, see
 [AWSDataExchangeFullAccess](../../../aws-managed-policy/latest/reference/AWSDataExchangeFullAccess.md "../../../aws-managed-policy/latest/reference/AWSDataExchangeFullAccess.md")
 in the _AWS Managed Policy Reference_.
 
-## AWS managed
-
-policy: AWSDataExchangeProviderFullAccess
+## AWS managed policy: AWSDataExchangeProviderFullAccess
 
 You can attach the `AWSDataExchangeProviderFullAccess` policy to your IAM
 identities.
@@ -66,9 +53,7 @@ To view permissions for this policy, see
 [AWSDataExchangeProviderFullAccess](../../../aws-managed-policy/latest/reference/AWSDataExchangeProviderFullAccess.md "../../../aws-managed-policy/latest/reference/AWSDataExchangeProviderFullAccess.md")
 in the _AWS Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSDataExchangeReadOnly
+## AWS managed policy: AWSDataExchangeReadOnly
 
 You can attach the `AWSDataExchangeReadOnly` policy to your IAM
 identities.
@@ -80,40 +65,32 @@ To view permissions for this policy, see
 [AWSDataExchangeReadOnly](../../../aws-managed-policy/latest/reference/AWSDataExchangeReadOnly.md "../../../aws-managed-policy/latest/reference/AWSDataExchangeReadOnly.md")
 in the _AWS Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSDataExchangeServiceRolePolicyForLicenseManagement
+## AWS managed policy: AWSDataExchangeServiceRolePolicyForLicenseManagement
 
 You can't attach the `AWSDataExchangeServiceRolePolicyForLicenseManagement`
 to your IAM entities. This policy is attached to a service-linked role that allows
 AWS Data Exchange to perform actions on your behalf. It grants role permissions that allow
 AWS Data Exchange to retrieve information about your AWS organization and manage AWS Data Exchange
-data grants licenses. For more information, see [Service-linked role for
-AWS Data Exchange license management](using-service-linked-roles-license-management.md "using-service-linked-roles-license-management.md") later in this section.
+data grants licenses. For more information, see [Service-linked role for AWS Data Exchange license management](using-service-linked-roles-license-management.md "using-service-linked-roles-license-management.md") later in this section.
 
 To view permissions for this policy, see
 [AWSDataExchangeServiceRolePolicyForLicenseManagement](../../../aws-managed-policy/latest/reference/AWSDataExchangeServiceRolePolicyForLicenseManagement.md "../../../aws-managed-policy/latest/reference/AWSDataExchangeServiceRolePolicyForLicenseManagement.md")
 in the _AWS Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSDataExchangeServiceRolePolicyForOrganizationDiscovery
+## AWS managed policy: AWSDataExchangeServiceRolePolicyForOrganizationDiscovery
 
 You can't attach the
 `AWSDataExchangeServiceRolePolicyForOrganizationDiscovery` to your IAM
 entities. This policy is attached to a service-linked role that allows AWS Data Exchange to
 perform actions on your behalf. It grants role permissions that allow AWS Data Exchange to
 retrieve information about your AWS organization to determine eligibility for
-AWS Data Exchange data grants license distribution. For more information, see [Service-linked roles for AWS
-Organization discovery in AWS Data Exchange](using-service-linked-roles-aws-org-discovery.md "using-service-linked-roles-aws-org-discovery.md").
+AWS Data Exchange data grants license distribution. For more information, see [Service-linked roles for AWS Organization discovery in AWS Data Exchange](using-service-linked-roles-aws-org-discovery.md "using-service-linked-roles-aws-org-discovery.md").
 
 To view permissions for this policy, see
 [AWSDataExchangeServiceRolePolicyForOrganizationDiscovery](../../../aws-managed-policy/latest/reference/AWSDataExchangeServiceRolePolicyForOrganizationDiscovery.md "../../../aws-managed-policy/latest/reference/AWSDataExchangeServiceRolePolicyForOrganizationDiscovery.md")
 in the _AWS Managed Policy Reference_.
 
-## AWS
-
-managed policy: AWSDataExchangeSubscriberFullAccess
+## AWS managed policy: AWSDataExchangeSubscriberFullAccess
 
 You can attach the `AWSDataExchangeSubscriberFullAccess` policy to your
 IAM identities.
@@ -126,9 +103,7 @@ To view permissions for this policy, see
 [AWSDataExchangeSubscriberFullAccess](../../../aws-managed-policy/latest/reference/AWSDataExchangeSubscriberFullAccess.md "../../../aws-managed-policy/latest/reference/AWSDataExchangeSubscriberFullAccess.md")
 in the _AWS Managed Policy Reference_.
 
-## AWS
-
-managed policy: AWSDataExchangeDataGrantOwnerFullAccess
+## AWS managed policy: AWSDataExchangeDataGrantOwnerFullAccess
 
 You can attach the `AWSDataExchangeDataGrantOwnerFullAccess` policy to your
 IAM identities.
@@ -140,9 +115,7 @@ To view permissions for this policy, see
 [AWSDataExchangeDataGrantOwnerFullAccess](../../../aws-managed-policy/latest/reference/AWSDataExchangeDataGrantOwnerFullAccess.md "../../../aws-managed-policy/latest/reference/AWSDataExchangeDataGrantOwnerFullAccess.md")
 in the _AWS Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSDataExchangeDataGrantReceiverFullAccess
+## AWS managed policy: AWSDataExchangeDataGrantReceiverFullAccess
 
 You can attach the `AWSDataExchangeDataGrantReceiverFullAccess` policy to
 your IAM identities.
@@ -154,9 +127,7 @@ To view permissions for this policy, see
 [AWSDataExchangeDataGrantReceiverFullAccess](../../../aws-managed-policy/latest/reference/AWSDataExchangeDataGrantReceiverFullAccess.md "../../../aws-managed-policy/latest/reference/AWSDataExchangeDataGrantReceiverFullAccess.md")
 in the _AWS Managed Policy Reference_.
 
-## AWS Data Exchange updates to AWS managed
-
-policies
+## AWS Data Exchange updates to AWS managed policies
 
 The following table provides details about updates to AWS managed policies for
 AWS Data Exchange since this service began tracking these changes. For automatic alerts about

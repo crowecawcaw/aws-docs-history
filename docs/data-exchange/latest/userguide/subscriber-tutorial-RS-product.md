@@ -1,6 +1,4 @@
-# Worldwide Event
-
-Attendance (Test Product) on AWS Data Exchange
+# Worldwide Event Attendance (Test Product) on AWS Data Exchange
 
 Worldwide Event Attendance (Test Product) is a free product that helps subscribers
 understand how to subscribe to and interact with an AWS Data Exchange product containing Amazon Redshift data sets.
@@ -18,11 +16,5 @@ datashare.
 ###### Topics
 
 - [Subscribing to Worldwide Event Attendance (Test Product)](subscribe-to-test-product.md "subscribe-to-test-product.md")
-- [Querying Worldwide Event Attendance (Test
-  Product) data
-  with
-  an Amazon Redshift
-  cluster
-  (console)](query-RS-data-console.md "query-RS-data-console.md")
-- [Querying Worldwide Event Attendance (Test Product)
-  data on Amazon Redshift (SQL)](query-RS-data-SQL.md "query-RS-data-SQL.md")
+- [Querying Worldwide Event Attendance (Test Product) data with an Amazon Redshift cluster (console)](query-RS-data-console.md "query-RS-data-console.md")
+- [Querying Worldwide Event Attendance (Test Product) data on Amazon Redshift (SQL)](query-RS-data-SQL.md "query-RS-data-SQL.md")

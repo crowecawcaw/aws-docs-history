@@ -1,6 +1,4 @@
-# Creating Bring Your Own Subscription offers in
-
-AWS Data Exchange
+# Creating Bring Your Own Subscription offers in AWS Data Exchange
 
 AWS Data Exchange gives providers the option to create custom offers, such as Bring Your Own Subscription (BYOS)
 offers.

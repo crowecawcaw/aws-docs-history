@@ -6,16 +6,13 @@ access.
 
 If your Amazon S3 bucket contains data encrypted using AWS KMS customer managed keys, you must share these
 AWS KMS keys with AWS Data Exchange to configure your Amazon S3 data access data set. For more
-information, see [Step 2: Configure Amazon S3 data
-access](publish-s3-data-access-product.md#configure-s3-data-access-product "publish-s3-data-access-product.md#configure-s3-data-access-product").
+information, see [Step 2: Configure Amazon S3 data access](publish-s3-data-access-product.md#configure-s3-data-access-product "publish-s3-data-access-product.md#configure-s3-data-access-product").
 
 ###### Topics
 
 - [Creating AWS KMS grants](#create-kms-grants "#create-kms-grants")
-- [Encryption context and grant
-  constraints](#encryption-context-grant-constraint "#encryption-context-grant-constraint")
-- [Monitoring your AWS KMS keys in
-  AWS Data Exchange](#monitoring-your-kms-keys "#monitoring-your-kms-keys")
+- [Encryption context and grant constraints](#encryption-context-grant-constraint "#encryption-context-grant-constraint")
+- [Monitoring your AWS KMS keys in AWS Data Exchange](#monitoring-your-kms-keys "#monitoring-your-kms-keys")
 
 ## Creating AWS KMS grants
 
@@ -34,9 +31,7 @@ AWS Data Exchange retires the AWS KMS parent grant. For more information about A
 [AWS KMS
 API reference](../../../kms/latest/APIReference/API_Operations.md "../../../kms/latest/APIReference/API_Operations.md").
 
-## Encryption context and grant
-
-constraints
+## Encryption context and grant constraints
 
 AWS Data Exchange uses grant constraints to permit the decrypt operation only when the request
 includes the specified encryption context. You can use the Amazon S3 Bucket Key feature to
@@ -53,9 +48,7 @@ creates.
 
 ```
 
-## Monitoring your AWS KMS keys in
-
-AWS Data Exchange
+## Monitoring your AWS KMS keys in AWS Data Exchange
 
 When you share AWS KMS customer managed keys with AWS Data Exchange, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") to
 track requests that AWS Data Exchange or data subscribers send to AWS KMS. The following are examples

@@ -1,6 +1,4 @@
-# Subscribing to AWS Data Exchange for APIs (Test
-
-Product) on AWS Data Exchange
+# Subscribing to AWS Data Exchange for APIs (Test Product) on AWS Data Exchange
 
 The following procedure shows how to browse the AWS Data Exchange catalog to find and subscribe to
 AWS Data Exchange for APIs (Test Product).
@@ -32,8 +30,7 @@ subscription.
 ###### Note
 
 AWS Data Exchange for APIs (Test Product) doesn't require subscription verification,
-but some products do. For more information, see [Subscription verification for subscribers in
-AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 9. Choose **Subscribe**.
+but some products do. For more information, see [Subscription verification for subscribers in AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 9. Choose **Subscribe**.
 It can take a few minutes for your subscription to become active after you choose
 **Subscribe**. Navigating away from this page before your
 subscription becomes active will not prevent the subscription from processing.

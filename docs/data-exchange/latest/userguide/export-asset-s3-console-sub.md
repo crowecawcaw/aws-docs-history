@@ -1,6 +1,4 @@
-# Exporting AWS Data Exchange assets to an S3 bucket as a
-
-subscriber (console)
+# Exporting AWS Data Exchange assets to an S3 bucket as a subscriber (console)
 
 As a subscriber to AWS Data Exchange data products, you can use the AWS Data Exchange console to export AWS Data Exchange
 assets to an S3 bucket using the following instructions.

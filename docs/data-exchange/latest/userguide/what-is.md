@@ -68,9 +68,7 @@ A data product has the following parts:
   product available in the public AWS Marketplace Catalog, providers must define a public
   offer. This offer includes prices and durations, data subscription agreement,
   refund policy, and the option to create custom offers.
-  - For more information as a subscriber, see [Accepting private products and offers in
-    AWS Data Exchange](subscribe-to-private-offer.md "subscribe-to-private-offer.md") and [Accepting Bring Your Own Subscription (BYOS) offers in
-    AWS Data Exchange](subscribe-to-byos-offer.md "subscribe-to-byos-offer.md")
+  - For more information as a subscriber, see [Accepting private products and offers in AWS Data Exchange](subscribe-to-private-offer.md "subscribe-to-private-offer.md") and [Accepting Bring Your Own Subscription (BYOS) offers in AWS Data Exchange](subscribe-to-byos-offer.md "subscribe-to-byos-offer.md")
   - For more information as a provider, see [Creating an offer for AWS Data Exchange products](prepare-offers.md "prepare-offers.md").
 
 - **Data sets** – A product can contain one

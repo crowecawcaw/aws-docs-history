@@ -30,11 +30,8 @@ You can export up to 100 assets in a single job.
 
 ###### Topics
 
-- [Exporting AWS Data Exchange assets to an S3 bucket (AWS
-  SDKs)](export-assets-s3-prog.md "export-assets-s3-prog.md")
-- [Exporting AWS Data Exchange assets to an S3 bucket as a
-  subscriber (console)](export-asset-s3-console-sub.md "export-asset-s3-console-sub.md")
-- [Exporting AWS Data Exchange assets to an S3 bucket as a
-  provider (console)](export-asset-s3-console-prov.md "export-asset-s3-console-prov.md")
+- [Exporting AWS Data Exchange assets to an S3 bucket (AWS SDKs)](export-assets-s3-prog.md "export-assets-s3-prog.md")
+- [Exporting AWS Data Exchange assets to an S3 bucket as a subscriber (console)](export-asset-s3-console-sub.md "export-asset-s3-console-sub.md")
+- [Exporting AWS Data Exchange assets to an S3 bucket as a provider (console)](export-asset-s3-console-prov.md "export-asset-s3-console-prov.md")
   The following video explains more about how to export assets from
   AWS Data Exchange.

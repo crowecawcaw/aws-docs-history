@@ -18,11 +18,7 @@ console or the AWS Data Exchange `DeleteAsset` API operation.
 ###### Topics
 
 - [Revoking access to an AWS Data Exchange asset revision (AWS CLI)](revoke-rev-sdk.md "revoke-rev-sdk.md")
-- [Revoking access to a single AWS Data Exchange asset revision as a
-  provider (console)](revoke-rev-single.md "revoke-rev-single.md")
-- [Revoking multiple AWS Data Exchange asset revisions as a provider
-  (console)](revoke-rev-multi.md "revoke-rev-multi.md")
-- [Editing an AWS Data Exchange asset revocation reason as a provider
-  (console)](edit-revoked-rev.md "edit-revoked-rev.md")
-- [Viewing revoked revisions as a subscriber
-  (console)](view-revoked-rev.md "view-revoked-rev.md")
+- [Revoking access to a single AWS Data Exchange asset revision as a provider (console)](revoke-rev-single.md "revoke-rev-single.md")
+- [Revoking multiple AWS Data Exchange asset revisions as a provider (console)](revoke-rev-multi.md "revoke-rev-multi.md")
+- [Editing an AWS Data Exchange asset revocation reason as a provider (console)](edit-revoked-rev.md "edit-revoked-rev.md")
+- [Viewing revoked revisions as a subscriber (console)](view-revoked-rev.md "view-revoked-rev.md")

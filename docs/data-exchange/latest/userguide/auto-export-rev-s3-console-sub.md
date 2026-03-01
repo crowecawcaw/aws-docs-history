@@ -1,6 +1,4 @@
-# Automatically exporting AWS Data Exchange asset
-
-revisions to an S3 bucket as a subscriber
+# Automatically exporting AWS Data Exchange asset revisions to an S3 bucket as a subscriber
 
 When the provider publishes new revisions, you can select to automatically export new
 revisions to your Amazon S3 bucket. You can export new revisions to up to five S3 buckets. New
@@ -8,23 +6,17 @@ revisions will automatically appear in the S3 buckets you have selected.
 
 ###### Topics
 
-- [Prerequisites for S3 bucket
-  policy permissions](#auto-export-rev-s3-bucket-policy-prereq "#auto-export-rev-s3-bucket-policy-prereq")
-- [Automatically exporting revisions to
-  an S3 bucket as a subscriber (console)](#auto-export-rev-s3-console-sub-proc "#auto-export-rev-s3-console-sub-proc")
-- [Automatically exporting revisions to an S3
-  bucket as a subscriber (AWS SDKs)](#auto-export-rev-s3-prog-sub "#auto-export-rev-s3-prog-sub")
+- [Prerequisites for S3 bucket policy permissions](#auto-export-rev-s3-bucket-policy-prereq "#auto-export-rev-s3-bucket-policy-prereq")
+- [Automatically exporting revisions to an S3 bucket as a subscriber (console)](#auto-export-rev-s3-console-sub-proc "#auto-export-rev-s3-console-sub-proc")
+- [Automatically exporting revisions to an S3 bucket as a subscriber (AWS SDKs)](#auto-export-rev-s3-prog-sub "#auto-export-rev-s3-prog-sub")
 
 ###### Note
 
 To automatically export revisions to an S3 bucket of your choice, your S3 bucket must
 have a bucket policy with permissions set to allow AWS Data Exchange to export data into it. For more
-information, see [Prerequisites for S3 bucket
-policy permissions](#auto-export-rev-s3-bucket-policy-prereq "#auto-export-rev-s3-bucket-policy-prereq").
+information, see [Prerequisites for S3 bucket policy permissions](#auto-export-rev-s3-bucket-policy-prereq "#auto-export-rev-s3-bucket-policy-prereq").
 
-## Prerequisites for S3 bucket
-
-policy permissions
+## Prerequisites for S3 bucket policy permissions
 
 Before you can automatically export revisions to an Amazon S3 bucket,
 you must
@@ -46,14 +38,10 @@ during the automatic export process.
 
 ###### Topics
 
-- [Editing an existing S3
-  bucket policy](#bucket-policy-prereq-existing-s3-bucket-policy "#bucket-policy-prereq-existing-s3-bucket-policy")
-- [Creating an S3 bucket
-  policy](#bucket-policy-prereq-create-s3-bucket-policy "#bucket-policy-prereq-create-s3-bucket-policy")
+- [Editing an existing S3 bucket policy](#bucket-policy-prereq-existing-s3-bucket-policy "#bucket-policy-prereq-existing-s3-bucket-policy")
+- [Creating an S3 bucket policy](#bucket-policy-prereq-create-s3-bucket-policy "#bucket-policy-prereq-create-s3-bucket-policy")
 
-### Editing an existing S3
-
-bucket policy
+### Editing an existing S3 bucket policy
 
 If your S3 bucket has a bucket policy, complete the following procedure to allow
 AWS Data Exchange to export data to it.
@@ -93,9 +81,7 @@ AWS Data Exchange to export data to it.
 6. If you want to add more buckets as a destination for your auto-export jobs,
    repeat the procedure, starting from Step 1.
 
-### Creating an S3 bucket
-
-policy
+### Creating an S3 bucket policy
 
 If your S3 bucket does not have a bucket policy, complete the following procedure to
 create an S3 bucket policy to allow AWS Data Exchange to export data to it.
@@ -141,20 +127,15 @@ JSON
 6. If you want to add more buckets as a destination for your auto-export jobs,
    repeat the procedure, starting from Step 1.
 
-## Automatically exporting revisions to
-
-an S3 bucket as a subscriber (console)
+## Automatically exporting revisions to an S3 bucket as a subscriber (console)
 
 ###### Note
 
 To automatically export revisions to an S3 bucket of your choice, your S3 bucket
 must have a bucket policy with permissions set to allow AWS Data Exchange to export data into it.
-For more information, see [Prerequisites for S3 bucket
-policy permissions](#auto-export-rev-s3-bucket-policy-prereq "#auto-export-rev-s3-bucket-policy-prereq").
+For more information, see [Prerequisites for S3 bucket policy permissions](#auto-export-rev-s3-bucket-policy-prereq "#auto-export-rev-s3-bucket-policy-prereq").
 
-###### To automatically export a revision to an S3 bucket as a subscriber
-
-(console)
+###### To automatically export a revision to an S3 bucket as a subscriber (console)
 
 1. Open your web browser and sign in to the [AWS Data Exchange console](https://console.aws.amazon.com/dataexchange "https://console.aws.amazon.com/dataexchange").
 2. In the left side navigation pane, for **My subscriptions**,
@@ -203,16 +184,13 @@ configuration**.
 To delete, choose **Actions**, and then choose **Remove
 auto-export job destination**.
 
-## Automatically exporting revisions to an S3
-
-bucket as a subscriber (AWS SDKs)
+## Automatically exporting revisions to an S3 bucket as a subscriber (AWS SDKs)
 
 ###### Note
 
 To automatically export revisions to an S3 bucket of your choice, your S3 bucket
 must have a bucket policy with permissions set to allow AWS Data Exchange to export data into it.
-For more information, see [Prerequisites for S3 bucket
-policy permissions](#auto-export-rev-s3-bucket-policy-prereq "#auto-export-rev-s3-bucket-policy-prereq").
+For more information, see [Prerequisites for S3 bucket policy permissions](#auto-export-rev-s3-bucket-policy-prereq "#auto-export-rev-s3-bucket-policy-prereq").
 
 ###### To automatically export a revision to an S3 bucket (AWS SDKs)
 
@@ -237,8 +215,7 @@ policy permissions](#auto-export-rev-s3-bucket-policy-prereq "#auto-export-rev-s
 3. Modify the key pattern if necessary. The Amazon S3 object key defaults to the key
    pattern `{Revision.CreatedAt}/{Asset.Name}`.
 
-For more information about key patterns, see [Key patterns when exporting asset revisions
-from AWS Data Exchange](revision-export-keypatterns.md "revision-export-keypatterns.md").
+For more information about key patterns, see [Key patterns when exporting asset revisions from AWS Data Exchange](revision-export-keypatterns.md "revision-export-keypatterns.md").
 
 To verify that the prerequisites for S3 bucket policy permissions are met, an
 object with the naming format `_ADX-TEST-ACCOUNTID#` is added to the S3

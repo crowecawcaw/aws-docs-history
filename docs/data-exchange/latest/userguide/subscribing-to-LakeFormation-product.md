@@ -1,6 +1,4 @@
-# Subscribing to and accessing an AWS Data Exchange
-
-product containing AWS Lake Formation data sets (Preview)
+# Subscribing to and accessing an AWS Data Exchange product containing AWS Lake Formation data sets (Preview)
 
 An AWS Lake Formation data set is a data set that contains AWS Lake Formation data permission assets.
 
@@ -9,9 +7,7 @@ sets. Once you're entitled to an AWS Data Exchange for AWS Lake Formation data s
 and share access to the data within your AWS account using AWS Lake Formation, or across your AWS
 organization using AWS License Manager.
 
-## Step 1: Subscribing to products
-
-containing AWS Lake Formation data sets
+## Step 1: Subscribing to products containing AWS Lake Formation data sets
 
 If you subscribe to a paid product, you're billed on your AWS bill. You get access
 to all data sets included in the product. For more information, see [Subscribing to AWS Data Exchange data products on AWS Data Exchange](subscribe-to-data-sets.md "subscribe-to-data-sets.md").
@@ -43,8 +39,7 @@ subscription.
 
 ###### Note
 
-Some products require subscription verification. For more information, see [Subscription verification for subscribers in
-AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 8. Choose **Subscribe**. If you subscribe to a paid product, you're
+Some products require subscription verification. For more information, see [Subscription verification for subscribers in AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 8. Choose **Subscribe**. If you subscribe to a paid product, you're
 prompted to confirm your decision to subscribe. 9. Under **Data sets included with your subscription**, view the
 listed **Data sets**.
 
@@ -52,9 +47,7 @@ After the subscription finishes processing, you can choose a data set to access
 your entitled data or choose **View subscription** to view your
 subscription.
 
-## Step 2: Accessing the AWS Data Exchange datashares for
-
-AWS Lake Formation
+## Step 2: Accessing the AWS Data Exchange datashares for AWS Lake Formation
 
 After you subscribe to a product containing AWS Lake Formation data sets, you can use Lake Formation
 compatible query engines, like Amazon Athena, to query your data.

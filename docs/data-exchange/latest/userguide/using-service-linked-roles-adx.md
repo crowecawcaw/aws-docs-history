@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-AWS Data Exchange
+# Using service-linked roles for AWS Data Exchange
 
 AWS Data Exchange uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to AWS Data Exchange. Service-linked roles are predefined by AWS Data Exchange and
@@ -21,9 +19,7 @@ For information about other services that support service-linked roles, see [AWS
 column. Choose a **Yes** with a link to view the service-linked
 role documentation for that service.
 
-## Creating a service-linked role
-
-for AWS Data Exchange
+## Creating a service-linked role for AWS Data Exchange
 
 You don't need to manually create a service-linked role. When you distribute a data grant
 using license manager, it creates the service-linked role for you.
@@ -46,9 +42,7 @@ AWS CLI or the AWS API, create a service-linked role with the
 delete this service-linked role, you can use this same process to create the role
 again.
 
-## Editing a service-linked role
-
-for AWS Data Exchange
+## Editing a service-linked role for AWS Data Exchange
 
 AWS Data Exchange does not allow you to edit the service-linked role. After you create a
 service-linked role, you cannot change the name of the role because various entities might
@@ -56,9 +50,7 @@ reference the role. However, you can edit the description of the role using IAM.
 information, see [Editing
 a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role
-
-for AWS Data Exchange
+## Deleting a service-linked role for AWS Data Exchange
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -83,9 +75,7 @@ Before you can delete the service-linked role, you must:
 Use the IAM console, the AWS CLI, or the AWS API to delete the service-linked role. For
 more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported Regions for AWS Data Exchange service-linked
-
-roles
+## Supported Regions for AWS Data Exchange service-linked roles
 
 AWS Data Exchange supports using service-linked roles in all of the AWS Regions where the
 service is available. For more information, see [AWS Regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

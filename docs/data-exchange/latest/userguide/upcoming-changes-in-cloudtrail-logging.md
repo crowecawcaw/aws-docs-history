@@ -1,6 +1,4 @@
-# Upcoming changes in AWS Data Exchange CloudTrail
-
-logging
+# Upcoming changes in AWS Data Exchange CloudTrail logging
 
 This section summarizes the upcoming changes for logging API calls in AWS CloudTrail for AWS Data Exchange.
 The effective date for the change is on or after September 1, 2023. We recommend reviewing your

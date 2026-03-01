@@ -50,8 +50,7 @@ At a high level, this is how to list AWS Data Exchange data products on AWS Mark
 5. **(Optional) Provider enables subscription verification** – If you enable subscription verification, subscribers must
    request a subscription to your product. This gives you an opportunity to review
    potential subscribers before they access your data sets. For more information, see
-   [Subscription verification for providers in
-   AWS Data Exchange](subscription-verification-pro.md "subscription-verification-pro.md").
+   [Subscription verification for providers in AWS Data Exchange](subscription-verification-pro.md "subscription-verification-pro.md").
 6. **(Optional) Provider creates custom offers for the
    product** – In addition to a public offer, you can create custom
    offers, including private and Bring Your Own Subscription (BYOS) offers, for select
@@ -103,10 +102,8 @@ After you review this topic, you're ready to get started.
 - [Product best practices in AWS Data Exchange](product-details.md "product-details.md")
 - [Getting started as a provider in AWS Data Exchange](provider-getting-started.md "provider-getting-started.md")
 - [Publishing a new product in AWS Data Exchange](publishing-products.md "publishing-products.md")
-- [Product description templates in
-  AWS Data Exchange](product-description-templates.md "product-description-templates.md")
+- [Product description templates in AWS Data Exchange](product-description-templates.md "product-description-templates.md")
 - [Updating data products in AWS Marketplace Management Portal](updating-products.md "updating-products.md")
 - [Creating an offer for AWS Data Exchange products](prepare-offers.md "prepare-offers.md")
-- [Provider-generated notifications in
-  AWS Data Exchange](provider-generated-notifications.md "provider-generated-notifications.md")
+- [Provider-generated notifications in AWS Data Exchange](provider-generated-notifications.md "provider-generated-notifications.md")
 - [Data in AWS Data Exchange](data-sets.md "data-sets.md")

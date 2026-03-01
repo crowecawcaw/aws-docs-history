@@ -1,6 +1,4 @@
-# Subscribing to Worldwide Event Attendance
-
-(Test Product) on AWS Data Exchange
+# Subscribing to Worldwide Event Attendance (Test Product) on AWS Data Exchange
 
 The following procedure shows how to browse the AWS Data Exchange catalog to find and subscribe to
 Worldwide Event Attendance (Test Product).
@@ -43,8 +41,7 @@ Product)` and press **Enter**.
 ###### Note
 
 Worldwide Event Attendance (Test Product) doesn't require subscription
-verification, but some products do. For more information, see [Subscription verification for subscribers in
-AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 7. Review the pricing information, choose the pricing offer, and then choose
+verification, but some products do. For more information, see [Subscription verification for subscribers in AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 7. Review the pricing information, choose the pricing offer, and then choose
 **Subscribe**.
 
 ###### Note

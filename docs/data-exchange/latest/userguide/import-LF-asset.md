@@ -9,9 +9,7 @@ include the following abilities:
   beginning with **Lake Formation**
   For more information about required and recommended IAM permissions, see [Identity and access management in AWS Data Exchange](auth-access.md "auth-access.md").
 
-## Importing assets from AWS Lake Formation (Preview) (AWS
-
-SDKs)
+## Importing assets from AWS Lake Formation (Preview) (AWS SDKs)
 
 ###### To import assets from AWS Lake Formation (Preview) (AWS SDKs)
 
@@ -44,9 +42,7 @@ SDKs)
    complete.
 5. (Optional) Update the assets' name property after they are created.
 
-## Importing assets from AWS Lake Formation (Preview)
-
-(console)
+## Importing assets from AWS Lake Formation (Preview) (console)
 
 ###### To import an asset from AWS Lake Formation (Preview) (console)
 

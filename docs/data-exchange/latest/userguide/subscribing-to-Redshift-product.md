@@ -1,6 +1,4 @@
-# Subscribing to and accessing an AWS Data Exchange
-
-product containing Amazon Redshift data sets
+# Subscribing to and accessing an AWS Data Exchange product containing Amazon Redshift data sets
 
 **Overview for recipients**
 
@@ -27,16 +25,12 @@ The process has the following steps:
 
 ###### Steps
 
-- [Step 1: Subscribing to products containing
-  Amazon Redshift data sets](#subscribe-Redshift-product "#subscribe-Redshift-product")
+- [Step 1: Subscribing to products containing Amazon Redshift data sets](#subscribe-Redshift-product "#subscribe-Redshift-product")
 - [Step 2: Accessing the AWS Data Exchange datashares for Amazon Redshift](#use-Redshift-product "#use-Redshift-product")
   To practice subscribing to and accessing a product containing Amazon Redshift data sets, see the
-  [Worldwide Event
-  Attendance (Test Product) on AWS Data Exchange](subscriber-tutorial-RS-product.md "subscriber-tutorial-RS-product.md").
+  [Worldwide Event Attendance (Test Product) on AWS Data Exchange](subscriber-tutorial-RS-product.md "subscriber-tutorial-RS-product.md").
 
-## Step 1: Subscribing to products containing
-
-Amazon Redshift data sets
+## Step 1: Subscribing to products containing Amazon Redshift data sets
 
 If you subscribe to a paid product, you're billed on your AWS bill. You get access
 to all data sets included in the product. For more information, see [Subscribing to AWS Data Exchange data products on AWS Data Exchange](subscribe-to-data-sets.md "subscribe-to-data-sets.md").
@@ -76,8 +70,7 @@ subscription
 
 ###### Note
 
-Some products require subscription verification. For more information, see [Subscription verification for subscribers in
-AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 8. Choose **Subscribe**.
+Some products require subscription verification. For more information, see [Subscription verification for subscribers in AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 8. Choose **Subscribe**.
 
 ###### Note
 
@@ -107,5 +100,4 @@ For more information, see [Working with AWS Data Exchange datashares](../../../r
 
 You lose access to a product's datashares after your subscription expires.
 
-For more information about how to subscribe to an Amazon Redshift data set, see [Worldwide Event
-Attendance (Test Product) on AWS Data Exchange](subscriber-tutorial-RS-product.md "subscriber-tutorial-RS-product.md").
+For more information about how to subscribe to an Amazon Redshift data set, see [Worldwide Event Attendance (Test Product) on AWS Data Exchange](subscriber-tutorial-RS-product.md "subscriber-tutorial-RS-product.md").

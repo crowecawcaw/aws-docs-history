@@ -15,7 +15,5 @@ The following sections describe monitoring and logging in AWS Data Exchange:
 - [Monitoring AWS Data Exchange](monitoring-overview.md "monitoring-overview.md")
 - [Amazon EventBridge events for AWS Data Exchange](cloudwatch-events.md "cloudwatch-events.md")
 - [AWS User Notifications for AWS Data Exchange events](user-notifications.md "user-notifications.md")
-- [Logging AWS Data Exchange API calls with
-  AWS CloudTrail](logging-api-calls-with-cloudtrail.md "logging-api-calls-with-cloudtrail.md")
-- [Upcoming changes in AWS Data Exchange CloudTrail
-  logging](upcoming-changes-in-cloudtrail-logging.md "upcoming-changes-in-cloudtrail-logging.md")
+- [Logging AWS Data Exchange API calls with AWS CloudTrail](logging-api-calls-with-cloudtrail.md "logging-api-calls-with-cloudtrail.md")
+- [Upcoming changes in AWS Data Exchange CloudTrail logging](upcoming-changes-in-cloudtrail-logging.md "upcoming-changes-in-cloudtrail-logging.md")

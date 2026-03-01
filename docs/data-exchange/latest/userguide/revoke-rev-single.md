@@ -1,6 +1,4 @@
-# Revoking access to a single AWS Data Exchange asset revision as a
-
-provider (console)
+# Revoking access to a single AWS Data Exchange asset revision as a provider (console)
 
 As a provider of AWS Data Exchange data products, you can use the AWS Data Exchange console to revoke subscriber
 access to a single revision using the following instructions.
@@ -30,5 +28,4 @@ for revocation but can’t access or export the assets. This action can't be
 undone. 8. After a revision is revoked, you can delete the assets of the revision by navigating
 to the revision page, selecting the assets you want to delete in the **Imported
 assets** table, and then choosing **Delete**.
-To edit the reason for a revoked revision, see [Editing an AWS Data Exchange asset revocation reason as a provider
-(console)](edit-revoked-rev.md "edit-revoked-rev.md").
+To edit the reason for a revoked revision, see [Editing an AWS Data Exchange asset revocation reason as a provider (console)](edit-revoked-rev.md "edit-revoked-rev.md").

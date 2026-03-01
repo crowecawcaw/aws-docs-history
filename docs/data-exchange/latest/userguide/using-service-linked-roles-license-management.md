@@ -1,6 +1,4 @@
-# Service-linked role for
-
-AWS Data Exchange license management
+# Service-linked role for AWS Data Exchange license management
 
 AWS Data Exchange uses the service-linked role named `AWSServiceRoleForAWSDataExchangeLicenseManagement` –
 this role allows AWS Data Exchange to retrieve information about your AWS organization and manage AWS Data Exchange data grants licenses.
@@ -23,12 +21,10 @@ assume the role:
 
       + All resources (`*`)
 
-  For more information about the `AWSDataExchangeServiceRolePolicyForLicenseManagement` role, see [AWS managed policy:
-  AWSDataExchangeServiceRolePolicyForLicenseManagement](security-iam-awsmanpol.md#security-iam-awsmanpol-awsdataexchangeservicerolepolicyforlicensemanagement "security-iam-awsmanpol.md#security-iam-awsmanpol-awsdataexchangeservicerolepolicyforlicensemanagement").
+  For more information about the `AWSDataExchangeServiceRolePolicyForLicenseManagement` role, see [AWS managed policy: AWSDataExchangeServiceRolePolicyForLicenseManagement](security-iam-awsmanpol.md#security-iam-awsmanpol-awsdataexchangeservicerolepolicyforlicensemanagement "security-iam-awsmanpol.md#security-iam-awsmanpol-awsdataexchangeservicerolepolicyforlicensemanagement").
 
 For more information about using the `AWSServiceRoleForAWSDataExchangeLicenseManagement` service-linked role, see
-[Using service-linked roles for
-AWS Data Exchange](using-service-linked-roles-adx.md "using-service-linked-roles-adx.md").
+[Using service-linked roles for AWS Data Exchange](using-service-linked-roles-adx.md "using-service-linked-roles-adx.md").
 
 You must configure permissions to allow your users, groups, or roles to create, edit, or
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the

@@ -13,5 +13,4 @@ copying data files into Amazon S3 buckets, or paying associated storage fees.
 ###### Topics
 
 - [Subscribing to AWS Data Exchange for Amazon S3 (Test Product)](subscribe-to-s3-test-product.md "subscribe-to-s3-test-product.md")
-- [Setting up and querying AWS Data Exchange for Amazon S3 (Test
-  Product)](query-s3-data-access-cli.md "query-s3-data-access-cli.md")
+- [Setting up and querying AWS Data Exchange for Amazon S3 (Test Product)](query-s3-data-access-cli.md "query-s3-data-access-cli.md")

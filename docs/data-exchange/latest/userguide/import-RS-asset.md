@@ -1,13 +1,9 @@
-# Importing AWS Data Exchange assets from an AWS Data Exchange datashare for
-
-Amazon Redshift
+# Importing AWS Data Exchange assets from an AWS Data Exchange datashare for Amazon Redshift
 
 When you import assets using AWS Data Exchange datashare for Amazon Redshift, you can begin querying,
 analyzing, and operationalizing third-party Amazon Redshift tables after subscribing.
 
-## Importing assets from an AWS Data Exchange datashare for Amazon Redshift
-
-(AWS SDKs)
+## Importing assets from an AWS Data Exchange datashare for Amazon Redshift (AWS SDKs)
 
 ###### To import assets from an AWS Data Exchange datashare for Amazon Redshift (AWS SDKs)
 
@@ -26,9 +22,7 @@ analyzing, and operationalizing third-party Amazon Redshift tables after subscri
    complete.
 5. (Optional) Update the assets' name property after they are created.
 
-## Importing assets from an AWS Data Exchange datashare for
-
-Amazon Redshift (console)
+## Importing assets from an AWS Data Exchange datashare for Amazon Redshift (console)
 
 ###### To import an asset from an ADE datashare (for Amazon Redshift console)
 

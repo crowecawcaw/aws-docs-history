@@ -45,8 +45,7 @@ weekly updates).
 ###### Note
 
 You can use Markdown templates as a starting point for the long description of a number
-of popular product types. For more information, see [Product description templates in
-AWS Data Exchange](product-description-templates.md "product-description-templates.md").
+of popular product types. For more information, see [Product description templates in AWS Data Exchange](product-description-templates.md "product-description-templates.md").
 
 ### Product description additional information
 
@@ -75,12 +74,9 @@ recommend you add the following information to your product description:
   sets, typical use cases for your data sets, and any other factors that differentiate
   your data sets.
 
-For information about adding links in the description, see [Include links in your product
-description](#best-practices-links-in-listing "#best-practices-links-in-listing").
+For information about adding links in the description, see [Include links in your product description](#best-practices-links-in-listing "#best-practices-links-in-listing").
 
-### Include links in your product
-
-description
+### Include links in your product description
 
 The long description for an AWS Data Exchange product supports Markdown, which allows you to include
 links in your product's details page. The following procedure shows you how to add links to

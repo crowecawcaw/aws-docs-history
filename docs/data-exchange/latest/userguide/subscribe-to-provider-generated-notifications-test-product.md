@@ -1,6 +1,4 @@
-# Subscribing to AWS Data Exchange for Provider-Generated
-
-Notifications (Test Product)
+# Subscribing to AWS Data Exchange for Provider-Generated Notifications (Test Product)
 
 The following procedure shows how to subscribe to AWS Data Exchange Provider-Generated
 Notifications (Test Product).
@@ -23,8 +21,7 @@ Product)` and choose **Enter**.
 ###### Note
 
 **AWS Data Exchange for Provider-Generated Notifications (Test Product)** doesn't
-require subscription verification, but some products do. For more information, see [Subscription verification for subscribers in
-AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 7. Review the pricing information, choose the pricing offer, and then choose
+require subscription verification, but some products do. For more information, see [Subscription verification for subscribers in AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 7. Review the pricing information, choose the pricing offer, and then choose
 **Subscribe**.
 
 ###### Note

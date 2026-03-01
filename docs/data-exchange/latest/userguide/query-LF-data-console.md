@@ -1,6 +1,4 @@
-# Setting up and querying AWS Data Exchange for Lake Formation (Test Product)
-
-(Preview)
+# Setting up and querying AWS Data Exchange for Lake Formation (Test Product) (Preview)
 
 The following procedure shows how to set up and query a Lake Formation data permission set (Preview)
 using the AWS Management Console.
@@ -58,9 +56,7 @@ Link**, and then provide the following information:
      didn't select a shared table, enter your AWS account ID for a resource link to a
      local table, or the ID of the AWS account that shared the table.
 
-###### To query the AWS Data Exchange for Lake Formation (Test Product) data set (Preview) with Amazon Athena
-
-(Console)
+###### To query the AWS Data Exchange for Lake Formation (Test Product) data set (Preview) with Amazon Athena (Console)
 
 1. Sign in to the [Amazon Athena console](https://console.aws.amazon.com/athena "https://console.aws.amazon.com/athena") with a
    role that has permissions for Amazon Athena.
@@ -70,9 +66,7 @@ Link**, and then provide the following information:
    **Preview table**.
 4. Choose **Run query**.
 
-###### To allow querying on the AWS Data Exchange for Lake Formation (Test Product) data set (Preview)
-
-(AWS CLI)
+###### To allow querying on the AWS Data Exchange for Lake Formation (Test Product) data set (Preview) (AWS CLI)
 
 1. To retrieve a list of all invitations available to your AWS account, enter the
    following command. The AWS CLI `query` parameter lets you restrict the output to

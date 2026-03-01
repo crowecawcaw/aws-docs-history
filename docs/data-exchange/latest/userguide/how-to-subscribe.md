@@ -32,8 +32,7 @@ AWS Data Exchange Heartbeat.
 ###### Note
 
 AWS Data Exchange Heartbeat doesn't require subscription verification, but some products
-do. For more information, see [Subscription verification for subscribers in
-AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 7. Review the pricing information, choose the pricing offer, and then choose
+do. For more information, see [Subscription verification for subscribers in AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 7. Review the pricing information, choose the pricing offer, and then choose
 **Subscribe**.
 
 ###### Note
@@ -44,8 +43,7 @@ boxes for the data sets containing the revisions you would like to export.
 Selecting a data set will prepare its most recently published revision to be
 exported. 9. Choose an Amazon S3 bucket location or configure an Amazon S3 key naming pattern. This
 will determine where your revisions will be exported. For more information about
-using key patterns, see [Key patterns when exporting asset revisions
-from AWS Data Exchange](revision-export-keypatterns.md "revision-export-keypatterns.md"). 10. Choose **Export** to export the data to Amazon S3, or choose
+using key patterns, see [Key patterns when exporting asset revisions from AWS Data Exchange](revision-export-keypatterns.md "revision-export-keypatterns.md"). 10. Choose **Export** to export the data to Amazon S3, or choose
 **Skip** if you'd rather wait and export or download
 later.
 

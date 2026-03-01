@@ -1,6 +1,4 @@
-# Completing a subscription request in
-
-AWS Data Exchange
+# Completing a subscription request in AWS Data Exchange
 
 AWS Data Exchange public products require subscription verification. After choosing **Continue to subscribe**, you must complete an additional form on the **Complete subscription request** page.
 

@@ -1,6 +1,4 @@
-# Publishing a new data set revision in
-
-AWS Data Exchange
+# Publishing a new data set revision in AWS Data Exchange
 
 AWS Data Exchange supports dynamically updated products. Subscribers subscribe to the product for a
 certain duration and access all of the published data sets as long as their subscription is
@@ -53,9 +51,7 @@ revision using the console or the AWS Data Exchange API. For more information, s
    then choose **Finalize**.
    The revision has been published to the product and is now available to subscribers.
 
-## Suggested approach for historical data published
-
-with the Files delivery type
+## Suggested approach for historical data published with the Files delivery type
 
 Some dynamic products contain historical content that subscribers can access. For
 example, if your product includes a 30-year history of daily closing stock price for US

@@ -120,8 +120,7 @@ Developer Guide_.
 With Amazon Redshift datashare assets, recipients can get read-only access to query the data in
 Amazon Redshift without extracting, transforming, and loading data.
 
-For more information about importing Amazon Redshift datashare assets, see [Importing AWS Data Exchange assets from an AWS Data Exchange datashare for
-Amazon Redshift](import-RS-asset.md "import-RS-asset.md").
+For more information about importing Amazon Redshift datashare assets, see [Importing AWS Data Exchange assets from an AWS Data Exchange datashare for Amazon Redshift](import-RS-asset.md "import-RS-asset.md").
 
 #### AWS Lake Formation data permission (Preview)
 

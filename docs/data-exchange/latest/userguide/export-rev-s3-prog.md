@@ -1,6 +1,4 @@
-# Exporting AWS Data Exchange asset revisions to an S3 bucket (AWS
-
-SDKs)
+# Exporting AWS Data Exchange asset revisions to an S3 bucket (AWS SDKs)
 
 You can use the AWS SDKs to export AWS Data Exchange asset revisions to an S3 bucket using the
 following instructions.
@@ -26,11 +24,9 @@ following instructions.
 
 You can update the assets' name property after they are created.
 
-For more information about key patterns, see [Key patterns when exporting asset revisions
-from AWS Data Exchange](revision-export-keypatterns.md "revision-export-keypatterns.md").
+For more information about key patterns, see [Key patterns when exporting asset revisions from AWS Data Exchange](revision-export-keypatterns.md "revision-export-keypatterns.md").
 
 ###### Note
 
 If you are using `DataSet.Name` as the dynamic reference, you must have the
-IAM permission `dataexchange:GetDataSet`. For more information, see [AWS Data Exchange API permissions: actions and resources
-reference](api-permissions-ref.md "api-permissions-ref.md").
+IAM permission `dataexchange:GetDataSet`. For more information, see [AWS Data Exchange API permissions: actions and resources reference](api-permissions-ref.md "api-permissions-ref.md").

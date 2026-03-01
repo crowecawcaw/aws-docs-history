@@ -1,6 +1,4 @@
-# Subscription verification for providers in
-
-AWS Data Exchange
+# Subscription verification for providers in AWS Data Exchange
 
 ###### Important regulatory update
 
@@ -28,8 +26,7 @@ information that the subscriber provides.
 
 To view, approve, or decline all subscription verification requests for all of your
 products, in the AWS Marketplace Management Portal, under **Data Products**,
-choose **Subscription requests** tab. For more information, see [Approve or decline requests for
-subscription verification in AWS Data Exchange](approve-or-decline-requests.md "approve-or-decline-requests.md").
+choose **Subscription requests** tab. For more information, see [Approve or decline requests for subscription verification in AWS Data Exchange](approve-or-decline-requests.md "approve-or-decline-requests.md").
 
 ###### Note
 

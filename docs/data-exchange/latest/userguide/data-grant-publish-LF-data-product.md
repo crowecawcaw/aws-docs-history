@@ -1,6 +1,4 @@
-# Creating a data grant on AWS Data Exchange containing AWS Lake Formation
-
-data permission data sets (Preview)
+# Creating a data grant on AWS Data Exchange containing AWS Lake Formation data permission data sets (Preview)
 
 If you're interested in creating data grants containing AWS Lake Formation data permission data sets
 during this Preview, contact [AWS Support](https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service "https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service").
@@ -24,14 +22,11 @@ permissions. The process has the following steps:
 ###### Steps
 
 - [Step 1: Create an AWS Lake Formation data set (Preview)](#data-grant-create-LF-data-set "#data-grant-create-LF-data-set")
-- [Step 2: Create an AWS Lake Formation data permission
-  (Preview)](#data-grant-create-LF-data-permission "#data-grant-create-LF-data-permission")
+- [Step 2: Create an AWS Lake Formation data permission (Preview)](#data-grant-create-LF-data-permission "#data-grant-create-LF-data-permission")
 - [Step 3: Review and finalize](#data-grant-review-and-finalize-LF "#data-grant-review-and-finalize-LF")
 - [Step 4: Create a revision](#data-grant-create-revision-LF "#data-grant-create-revision-LF")
-- [Step 5:Create a new data grant containing
-  AWS Lake Formation data sets (Preview)](#data-grant-publish-LF-product "#data-grant-publish-LF-product")
-- [Considerations when creating data
-  grants containing an AWS Lake Formation data permission data set (Preview)](#data-grant-considerations-LF-data-product "#data-grant-considerations-LF-data-product")
+- [Step 5:Create a new data grant containing AWS Lake Formation data sets (Preview)](#data-grant-publish-LF-product "#data-grant-publish-LF-product")
+- [Considerations when creating data grants containing an AWS Lake Formation data permission data set (Preview)](#data-grant-considerations-LF-data-product "#data-grant-considerations-LF-data-product")
 
 ## Step 1: Create an AWS Lake Formation data set (Preview)
 
@@ -51,9 +46,7 @@ permissions. The process has the following steps:
    tag**.
 7. Choose **Create data set** and continue.
 
-## Step 2: Create an AWS Lake Formation data permission
-
-(Preview)
+## Step 2: Create an AWS Lake Formation data permission (Preview)
 
 AWS Data Exchange uses LF-Tags to grant data permissions. Choose the LF-Tags that are associated with
 the data you want to share to grant recipients permissions to the data.
@@ -116,9 +109,7 @@ Job are deleted 90 days after they’re created. 3. Choose **Finalize**.
 6. From **Service access**, select an existing service role and then
    choose **Create Lake Formation data permission**.
 
-## Step 5:Create a new data grant containing
-
-AWS Lake Formation data sets (Preview)
+## Step 5:Create a new data grant containing AWS Lake Formation data sets (Preview)
 
 After you've created at least one data set and finalized a revision with assets, you're
 ready to create a data grant with an AWS Lake Formation data permission data set.
@@ -159,9 +150,7 @@ data grants** tab on the **Sent data grants** page showing its
 status as **Pending acceptance** until the recipient account accepts
 it.
 
-## Considerations when creating data
-
-grants containing an AWS Lake Formation data permission data set (Preview)
+## Considerations when creating data grants containing an AWS Lake Formation data permission data set (Preview)
 
 To ensure an optimal receiver experience, we strongly advise against making any of the
 following modifications to any permissions where your product contains AWS Data Exchange for Lake Formation data

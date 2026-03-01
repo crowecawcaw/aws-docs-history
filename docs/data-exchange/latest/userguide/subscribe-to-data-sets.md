@@ -12,8 +12,7 @@ AWS Marketplace:
     console.
 3.  **Submit a request for a subscription** – You must submit a request to subscribe. The request form
     requires additional information about your identity and intended use case. For more
-    information, see [Subscription verification for subscribers in
-    AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md").
+    information, see [Subscription verification for subscribers in AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md").
 4.  **Subscriber subscribes to the product** – If
     you subscribe to a paid product, you are billed on your AWS bill. You get access
     to the entitled data set.
@@ -47,21 +46,14 @@ tax invoice from the seller. For more information, see [Tax Help - AWS Marketpla
 - [Product subscriptions in AWS Data Exchange](product-subscriptions.md "product-subscriptions.md")
 - [Getting started as a subscriber in AWS Data Exchange](subscriber-getting-started.md "subscriber-getting-started.md")
 - [Subscribing to and accessing an AWS Data Exchange product](subscribing-to-product.md "subscribing-to-product.md")
-- [Subscription verification for subscribers in
-  AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md")
-- [Sharing AWS Data Exchange license subscriptions in an
-  organization](organizations-sharing.md "organizations-sharing.md")
-- [Accepting Bring Your Own Subscription (BYOS) offers in
-  AWS Data Exchange](subscribe-to-byos-offer.md "subscribe-to-byos-offer.md")
-- [Accepting private products and offers in
-  AWS Data Exchange](subscribe-to-private-offer.md "subscribe-to-private-offer.md")
+- [Subscription verification for subscribers in AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md")
+- [Sharing AWS Data Exchange license subscriptions in an organization](organizations-sharing.md "organizations-sharing.md")
+- [Accepting Bring Your Own Subscription (BYOS) offers in AWS Data Exchange](subscribe-to-byos-offer.md "subscribe-to-byos-offer.md")
+- [Accepting private products and offers in AWS Data Exchange](subscribe-to-private-offer.md "subscribe-to-private-offer.md")
 - [AWS Data Exchange Heartbeat](heartbeat.md "heartbeat.md")
 - [AWS Data Exchange for APIs (Test Product)](subscriber-tutorial-api-product.md "subscriber-tutorial-api-product.md")
-- [Worldwide Event
-  Attendance (Test Product) on AWS Data Exchange](subscriber-tutorial-RS-product.md "subscriber-tutorial-RS-product.md")
-- [AWS Data Exchange for AWS Lake Formation (Test Product)
-  (Preview)](subscriber-tutorial-LF-product.md "subscriber-tutorial-LF-product.md")
+- [Worldwide Event Attendance (Test Product) on AWS Data Exchange](subscriber-tutorial-RS-product.md "subscriber-tutorial-RS-product.md")
+- [AWS Data Exchange for AWS Lake Formation (Test Product) (Preview)](subscriber-tutorial-LF-product.md "subscriber-tutorial-LF-product.md")
 - [AWS Data Exchange for Amazon S3 (Test Product)](subscriber-tutorial-s3-product.md "subscriber-tutorial-s3-product.md")
-- [AWS Data Exchange Provider-Generated
-  Notifications (Test Product)](subscriber-tutorial-provider-notifications.md "subscriber-tutorial-provider-notifications.md")
+- [AWS Data Exchange Provider-Generated Notifications (Test Product)](subscriber-tutorial-provider-notifications.md "subscriber-tutorial-provider-notifications.md")
 - [Data in AWS Data Exchange](data-sets.md "data-sets.md")

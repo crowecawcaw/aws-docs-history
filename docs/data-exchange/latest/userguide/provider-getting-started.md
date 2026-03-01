@@ -14,9 +14,7 @@ AWS Data Exchange using the AWS Data Exchange console. The process has the follo
 Before you can register, you must meet the following requirements to confirm your
 eligibility.
 
-### Requirements
-
-for publishing data products
+### Requirements for publishing data products
 
 Whether you charge for your AWS Data Exchange data product, you're selling that product on AWS Marketplace.
 To create and offer data products, you must:
@@ -46,9 +44,7 @@ provide the following information:
   information. If you don't have a US bank account, you can register for a
   virtual US bank account from [Hyperwallet](https://wssellers.hyperwallet.com/ "https://wssellers.hyperwallet.com/").
 
-#### Eligible jurisdictions for AWS Data Exchange
-
-products
+#### Eligible jurisdictions for AWS Data Exchange products
 
 To provide data products on AWS Data Exchange, you must be a permanent resident or
 citizen in one of the following countries or SARs, or a business entity

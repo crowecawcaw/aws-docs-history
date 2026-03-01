@@ -1,6 +1,4 @@
-# Creating a data grant on AWS Data Exchange
-
-containing Amazon S3 data access
+# Creating a data grant on AWS Data Exchange containing Amazon S3 data access
 
 With AWS Data Exchange for Amazon S3, data owners can share direct access to Amazon S3 buckets or specific
 prefixes and Amazon S3 objects. Data owners also use AWS Data Exchange to automatically manage entitlements
@@ -343,12 +341,9 @@ with Amazon S3 data sets using the AWS Data Exchange console. The process has th
 ###### Steps
 
 - [Step 1: Create an Amazon S3 data set](#data-grant-create-S3-data-set "#data-grant-create-S3-data-set")
-- [Step 2: Configure Amazon S3 data
-  access](#data-grant-configure-s3-data-access-product "#data-grant-configure-s3-data-access-product")
-- [Step 3: Review and finalize
-  the data set](#data-grant-review-finalize-s3-data-set-product "#data-grant-review-finalize-s3-data-set-product")
-- [Step 4: Create a new data
-  grant](#data-grant-add-s3-data-set-to-existing-product "#data-grant-add-s3-data-set-to-existing-product")
+- [Step 2: Configure Amazon S3 data access](#data-grant-configure-s3-data-access-product "#data-grant-configure-s3-data-access-product")
+- [Step 3: Review and finalize the data set](#data-grant-review-finalize-s3-data-set-product "#data-grant-review-finalize-s3-data-set-product")
+- [Step 4: Create a new data grant](#data-grant-add-s3-data-set-to-existing-product "#data-grant-add-s3-data-set-to-existing-product")
 
 ## Step 1: Create an Amazon S3 data set
 
@@ -365,9 +360,7 @@ with Amazon S3 data sets using the AWS Data Exchange console. The process has th
 5. (Optional) Under **Add tags – optional**, add tags.
 6. Choose **Create data set** and continue.
 
-## Step 2: Configure Amazon S3 data
-
-access
+## Step 2: Configure Amazon S3 data access
 
 Choose the Amazon S3 buckets or Amazon S3 bucket locations that you want to make available to
 recipients. You can select an entire Amazon S3 bucket, or specify up to five prefixes or objects
@@ -417,8 +410,7 @@ Pays** configuration. There are two options:
 
 5. If the Amazon S3 bucket contains objects encrypted using AWS KMS customer managed keys, you must
    share all such KMS keys with AWS Data Exchange. For information about required prerequisites when
-   using KMS keys to encrypt objects in your Amazon S3 bucket, see [Publishing a product in AWS Data Exchange
-   containing Amazon S3 data access](publish-s3-data-access-product.md "publish-s3-data-access-product.md"). To share these KMS keys with AWS Data Exchange, do
+   using KMS keys to encrypt objects in your Amazon S3 bucket, see [Publishing a product in AWS Data Exchange containing Amazon S3 data access](publish-s3-data-access-product.md "publish-s3-data-access-product.md"). To share these KMS keys with AWS Data Exchange, do
    the following:
    1. From the **Configure Amazon S3 data access** page, in
       **Customer managed KMS keys**, select **Choose from your
@@ -432,9 +424,7 @@ AWS KMS has a limit of 50,000 grants per KMS key including pre-existing
 grants. 6. Review your Amazon S3 locations, selected KMS keys, and configuration details, and
 choose **Save and continue**.
 
-## Step 3: Review and finalize
-
-the data set
+## Step 3: Review and finalize the data set
 
 Review and finalize your newly created data set. If you wish to create and add another
 Amazon S3 data access to share access to additional Amazon S3 buckets, prefixes, objects, choose
@@ -449,9 +439,7 @@ If you would like to make changes prior to publishing, you can save the data set
 draft by choosing **Save draft**. Then, choose **Finalize data
 set** to add it to your data grant.
 
-## Step 4: Create a new data
-
-grant
+## Step 4: Create a new data grant
 
 After you've created at least one data set and finalized a revision with assets, you're
 ready to use that data set as a part of a data grant.

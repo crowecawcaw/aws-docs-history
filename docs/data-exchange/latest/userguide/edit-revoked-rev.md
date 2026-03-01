@@ -1,6 +1,4 @@
-# Editing an AWS Data Exchange asset revocation reason as a provider
-
-(console)
+# Editing an AWS Data Exchange asset revocation reason as a provider (console)
 
 As a provider of AWS Data Exchange data products, you can use the AWS Data Exchange console to edit the reason
 for the revocation using the following instructions.

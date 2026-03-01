@@ -14,8 +14,7 @@ with your account.
 
 - [Authentication](#authentication "#authentication")
 - [Access control](access-control.md "access-control.md")
-- [AWS Data Exchange API permissions: actions and resources
-  reference](api-permissions-ref.md "api-permissions-ref.md")
+- [AWS Data Exchange API permissions: actions and resources reference](api-permissions-ref.md "api-permissions-ref.md")
 - [AWS managed policies for AWS Data Exchange](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 
 ## Authentication

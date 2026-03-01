@@ -1,6 +1,4 @@
-# Exporting AWS Data Exchange assets to a signed URL (AWS
-
-SDKs)
+# Exporting AWS Data Exchange assets to a signed URL (AWS SDKs)
 
 You can use the AWS SDKs to export AWS Data Exchange assets to destinations other than S3
 buckets.

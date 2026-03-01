@@ -1,6 +1,4 @@
-# Key patterns when exporting asset revisions
-
-from AWS Data Exchange
+# Key patterns when exporting asset revisions from AWS Data Exchange
 
 When you export an asset revision from AWS Data Exchange, each asset becomes an object in the S3
 bucket. The names of the objects are based on a key pattern that you provide. You can use

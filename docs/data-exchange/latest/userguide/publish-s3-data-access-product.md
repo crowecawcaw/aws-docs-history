@@ -1,6 +1,4 @@
-# Publishing a product in AWS Data Exchange
-
-containing Amazon S3 data access
+# Publishing a product in AWS Data Exchange containing Amazon S3 data access
 
 With AWS Data Exchange for Amazon S3, providers can share direct access to Amazon S3 buckets or specific
 prefixes and Amazon S3 objects. Providers also use AWS Data Exchange to automatically manage
@@ -354,14 +352,10 @@ steps:
 ###### Steps
 
 - [Step 1: Create an Amazon S3 data set](#create-S3-data-set "#create-S3-data-set")
-- [Step 2: Configure Amazon S3 data
-  access](#configure-s3-data-access-product "#configure-s3-data-access-product")
-- [Step 3: Review and finalize
-  the data set](#review-finalize-s3-data-set-product "#review-finalize-s3-data-set-product")
-- [Step 4: Add an Amazon S3 data set
-  to an AWS Data Exchange product](#add-s3-data-set-to-existing-product "#add-s3-data-set-to-existing-product")
-- [Step 5: Publish a new product containing access
-  to Amazon S3](#publish-s3-product "#publish-s3-product")
+- [Step 2: Configure Amazon S3 data access](#configure-s3-data-access-product "#configure-s3-data-access-product")
+- [Step 3: Review and finalize the data set](#review-finalize-s3-data-set-product "#review-finalize-s3-data-set-product")
+- [Step 4: Add an Amazon S3 data set to an AWS Data Exchange product](#add-s3-data-set-to-existing-product "#add-s3-data-set-to-existing-product")
+- [Step 5: Publish a new product containing access to Amazon S3](#publish-s3-product "#publish-s3-product")
 - [Step 6: (Optional) Copy a product](#copy-s3-product "#copy-s3-product")
 
 ## Step 1: Create an Amazon S3 data set
@@ -384,9 +378,7 @@ steps:
    tags.
 7. Choose **Create data set** and continue.
 
-## Step 2: Configure Amazon S3 data
-
-access
+## Step 2: Configure Amazon S3 data access
 
 Choose the Amazon S3 buckets or Amazon S3 bucket locations that you want to make available
 to subscribers. You can select an entire Amazon S3 bucket, or specify up to five prefixes
@@ -443,8 +435,7 @@ options:
 5. If the Amazon S3 bucket contains objects encrypted using AWS KMS customer managed keys, you
    must share all such KMS keys with AWS Data Exchange. For information about required
    prerequisites when using KMS keys to encrypt objects in your
-   Amazon S3 bucket, see [Publishing a product in AWS Data Exchange
-   containing Amazon S3 data access](publish-s3-data-access-product.md "publish-s3-data-access-product.md"). To share these KMS keys with AWS Data Exchange, do the following:
+   Amazon S3 bucket, see [Publishing a product in AWS Data Exchange containing Amazon S3 data access](publish-s3-data-access-product.md "publish-s3-data-access-product.md"). To share these KMS keys with AWS Data Exchange, do the following:
    1. From the **Configure Amazon S3 data access** page, in
       **Customer managed KMS keys**, select
       **Choose from your AWS KMS keys** or
@@ -459,9 +450,7 @@ AWS KMS has a limit of 50,000 grants per KMS key including
 pre-existing grants. 6. Review your Amazon S3 locations, selected KMS keys, and configuration
 details, and choose **Save and continue**.
 
-## Step 3: Review and finalize
-
-the data set
+## Step 3: Review and finalize the data set
 
 Review and finalize your newly created data set. If you wish to create and add
 another Amazon S3 data access to share access to additional Amazon S3 buckets, prefixes,
@@ -477,9 +466,7 @@ If you would like to make changes prior to publishing, you can save the data set
 as a draft by choosing **Save draft**. Then, choose
 **Finalize data set** to add it to your product.
 
-## Step 4: Add an Amazon S3 data set
-
-to an AWS Data Exchange product
+## Step 4: Add an Amazon S3 data set to an AWS Data Exchange product
 
 In the following procedure, you add your data set to a new or existing AWS Data Exchange
 product.
@@ -500,9 +487,7 @@ When a customer subscribes to your product, the customer receives
 access permission to read and use your data using the Amazon S3 access point
 created on your behalf.
 
-## Step 5: Publish a new product containing access
-
-to Amazon S3
+## Step 5: Publish a new product containing access to Amazon S3
 
 After you create at least one data set and finalize a revision with assets, you
 can publish a product with Amazon S3 data access. For more information, see [Product best practices in AWS Data Exchange](product-details.md "product-details.md"). Make sure that you
@@ -624,8 +609,7 @@ provide your specific product details in the template. 8. Choose **Next**. 9. Co
     	 agreement (DSA), and refund policy.
     	3. (Optional) Set **Subscription
     	 verification** to control who can subscribe to
-    	 this product. For more information, see [Subscription verification for providers in
-    	 AWS Data Exchange](subscription-verification-pro.md "subscription-verification-pro.md").
+    	 this product. For more information, see [Subscription verification for providers in AWS Data Exchange](subscription-verification-pro.md "subscription-verification-pro.md").
     	4. Choose your **Oﬀer auto-renewal** option.
     	 For more information, see [Creating an offer for AWS Data Exchange products](prepare-offers.md "prepare-offers.md").
     	5. Choose **Next**.

@@ -1,6 +1,4 @@
-# Subscribing to and accessing an AWS Data Exchange product
-
-containing Amazon S3 data access
+# Subscribing to and accessing an AWS Data Exchange product containing Amazon S3 data access
 
 AWS Data Exchange for Amazon S3 allows data subscribers to access third-party data files directly from
 data providers' Amazon S3 buckets.
@@ -32,14 +30,10 @@ The process has the following steps:
 
 ###### Steps
 
-- [Step 1: Subscribing to products
-  containing Amazon S3 data access](#subscribe-s3-data-access-product "#subscribe-s3-data-access-product")
-- [Step 2: Accessing a product containing Amazon S3
-  data access](#use-S3-data-access-product "#use-S3-data-access-product")
+- [Step 1: Subscribing to products containing Amazon S3 data access](#subscribe-s3-data-access-product "#subscribe-s3-data-access-product")
+- [Step 2: Accessing a product containing Amazon S3 data access](#use-S3-data-access-product "#use-S3-data-access-product")
 
-## Step 1: Subscribing to products
-
-containing Amazon S3 data access
+## Step 1: Subscribing to products containing Amazon S3 data access
 
 If you subscribe to a paid product, you're billed on your AWS bill. You get access
 to all data sets included in the product. For more information, see [Subscribing to AWS Data Exchange data products on AWS Data Exchange](subscribe-to-data-sets.md "subscribe-to-data-sets.md").
@@ -73,8 +67,7 @@ subscription
 
 ###### Note
 
-Some products require subscription verification. For more information, see [Subscription verification for subscribers in
-AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 8. Choose **Subscribe**.
+Some products require subscription verification. For more information, see [Subscription verification for subscribers in AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 8. Choose **Subscribe**.
 
 ###### Note
 
@@ -86,9 +79,7 @@ After the subscription finishes processing, you can choose a data set to access
 your entitled data or choose **View subscription** to view your
 subscription.
 
-## Step 2: Accessing a product containing Amazon S3
-
-data access
+## Step 2: Accessing a product containing Amazon S3 data access
 
 You can run queries to analyze the data in-place without setting up your own Amazon S3
 buckets, copying data files into Amazon S3 buckets, or paying associated storage fees. You
@@ -197,5 +188,4 @@ consistency. You might not have access to the Amazon S3 data access data set
 until this is complete. For more information, see [Grant in AWS KMS](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the
 _AWS Key Management Service Developer Guide_.
 
-For more information about how to subscribe to an Amazon S3 data set, see Subscribing to and accessing an AWS Data Exchange product
-containing Amazon S3 data access.
+For more information about how to subscribe to an Amazon S3 data set, see Subscribing to and accessing an AWS Data Exchange product containing Amazon S3 data access.

@@ -1,6 +1,4 @@
-# Accepting Bring Your Own Subscription (BYOS) offers in
-
-AWS Data Exchange
+# Accepting Bring Your Own Subscription (BYOS) offers in AWS Data Exchange
 
 As a subscriber, you might want to migrate your existing data subscriptions to AWS Data Exchange. Bring
 your own subscription (BYOS) functionality allows you to migrate and fulfill existing

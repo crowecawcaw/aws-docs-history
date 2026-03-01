@@ -1,6 +1,4 @@
-# Access an AWS Data Exchange data set containing Amazon Redshift
-
-data sets
+# Access an AWS Data Exchange data set containing Amazon Redshift data sets
 
 **Overview for recipients**
 

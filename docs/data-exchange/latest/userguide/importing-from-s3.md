@@ -9,14 +9,10 @@ You can import up to 100 assets in a single job.
 
 ###### Topics
 
-- [Importing assets from an S3 bucket (AWS
-  SDKs)](#import-assets-s3-prog "#import-assets-s3-prog")
-- [Importing assets from an S3 bucket
-  (console)](#import-assets-via-console "#import-assets-via-console")
+- [Importing assets from an S3 bucket (AWS SDKs)](#import-assets-s3-prog "#import-assets-s3-prog")
+- [Importing assets from an S3 bucket (console)](#import-assets-via-console "#import-assets-via-console")
 
-## Importing assets from an S3 bucket (AWS
-
-SDKs)
+## Importing assets from an S3 bucket (AWS SDKs)
 
 ###### To import assets from an Amazon S3 bucket (AWS SDKs)
 
@@ -34,9 +30,7 @@ SDKs)
    that requires the `JobId` returned in step 1.
 4. (Optional) Update the assets' name property after they are created.
 
-## Importing assets from an S3 bucket
-
-(console)
+## Importing assets from an S3 bucket (console)
 
 ###### To import an asset from an S3 bucket (console)
 

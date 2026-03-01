@@ -1,6 +1,4 @@
-# Getting started with Open Data on AWS data sets
-
-using the AWS Data Exchange console
+# Getting started with Open Data on AWS data sets using the AWS Data Exchange console
 
 The following topics describe how you can find and use an Open Data on AWS data set on
 AWS Data Exchange by using the AWS Data Exchange console. You must have an AWS account to complete this process.
@@ -9,14 +7,10 @@ The process has the following steps:
 
 ###### Steps
 
-- [Step 1: Find an Open Data on AWS data
-  set](#find-open-data-ds-on-data-exchange "#find-open-data-ds-on-data-exchange")
-- [Step 2: Use an Open Data on AWS data
-  set](#use-open-data-ds-on-data-exchange "#use-open-data-ds-on-data-exchange")
+- [Step 1: Find an Open Data on AWS data set](#find-open-data-ds-on-data-exchange "#find-open-data-ds-on-data-exchange")
+- [Step 2: Use an Open Data on AWS data set](#use-open-data-ds-on-data-exchange "#use-open-data-ds-on-data-exchange")
 
-## Step 1: Find an Open Data on AWS data
-
-set
+## Step 1: Find an Open Data on AWS data set
 
 ###### To find an Open Data on AWS data set on AWS Data Exchange
 
@@ -50,9 +44,7 @@ examples, and links.
     2. (Optional) For **Labels**, choose a label to view a list of similar
      products.
 
-## Step 2: Use an Open Data on AWS data
-
-set
+## Step 2: Use an Open Data on AWS data set
 
 ###### To use an Open Data on AWS data set
 

@@ -1,6 +1,4 @@
-# Publishing a product in AWS Data Exchange containing
-
-APIs
+# Publishing a product in AWS Data Exchange containing APIs
 
 The following topics describe the process of creating a REST API data set and
 publishing a new product that contains APIs on AWS Data Exchange. You can complete the process by
@@ -38,13 +36,11 @@ The process has the following steps:
 ###### Steps
 
 - [Prerequisites](#publish-api-prereq "#publish-api-prereq")
-- [Step 1: Update the API resource
-  policy](#update-API-resource-policy "#update-API-resource-policy")
+- [Step 1: Update the API resource policy](#update-API-resource-policy "#update-API-resource-policy")
 - [Step 2: Create an API data set](#create-api-data-set "#create-api-data-set")
 - [Step 3: Create a revision](#create-api-revision "#create-api-revision")
 - [Step 4: Add API assets to a revision](#add-api-asset "#add-api-asset")
-- [Step 5: Publish a new product containing
-  APIs](#publish-api-data-product "#publish-api-data-product")
+- [Step 5: Publish a new product containing APIs](#publish-api-data-product "#publish-api-data-product")
 - [Step 6: (Optional) Copy a product](#copy-api-product "#copy-api-product")
 
 ## Prerequisites
@@ -155,9 +151,7 @@ removes:
 The `host` header will be overwritten as a consequence of the
 proxying.
 
-## Step 1: Update the API resource
-
-policy
+## Step 1: Update the API resource policy
 
 If you have an Amazon API Gateway REST API that meets the [Prerequisites](#publish-api-prereq "#publish-api-prereq"), you must update your API resource policy to grant AWS Data Exchange
 the ability to invoke your API when a subscriber makes a request to get your API’s
@@ -204,13 +198,10 @@ revision containing at least one asset. For more information, see [Data in AWS D
 You use either the AWS Data Exchange console or the AWS Command Line Interface to create an API data
 set:
 
-- [Creating an API data set
-  (console)](#create-api-ds-console "#create-api-ds-console")
+- [Creating an API data set (console)](#create-api-ds-console "#create-api-ds-console")
 - [Creating an API data set (AWS CLI)](#create-api-ds-cli "#create-api-ds-cli")
 
-### Creating an API data set
-
-(console)
+### Creating an API data set (console)
 
 ###### To create an API data set (console)
 
@@ -271,13 +262,10 @@ For more information, see [Revisions](data-sets.md#revisions "data-sets.md#revis
 You use either the AWS Data Exchange console or the AWS Command Line Interface to create a
 revision:
 
-- [Creating a revision
-  (console)](#create-api-revision-console "#create-api-revision-console")
+- [Creating a revision (console)](#create-api-revision-console "#create-api-revision-console")
 - [Creating a revision (AWS CLI)](#create-api-revision-cli "#create-api-revision-cli")
 
-### Creating a revision
-
-(console)
+### Creating a revision (console)
 
 ###### To create a revision (console)
 
@@ -341,14 +329,10 @@ revision.
 
 You use either the AWS Data Exchange console or the AWS CLI to add assets to a revision:
 
-- [Adding API assets to a revision
-  (console)](#add-api-assets "#add-api-assets")
-- [Adding API assets to a revision
-  (AWS CLI)](#add-api-assets-cli "#add-api-assets-cli")
+- [Adding API assets to a revision (console)](#add-api-assets "#add-api-assets")
+- [Adding API assets to a revision (AWS CLI)](#add-api-assets-cli "#add-api-assets-cli")
 
-### Adding API assets to a revision
-
-(console)
+### Adding API assets to a revision (console)
 
 ###### To add assets to the revision (console)
 
@@ -443,9 +427,7 @@ a product.
 You are now ready to [publish a new
 API data product](#publish-api-data-product "#publish-api-data-product").
 
-### Adding API assets to a revision
-
-(AWS CLI)
+### Adding API assets to a revision (AWS CLI)
 
 You can add API assets by running an
 `IMPORT_ASSET_FROM_API_GATEWAY_API` job.
@@ -566,9 +548,7 @@ choose **Actions**, **Edit**. 3. Make your changes, and then choose **Update**. 
 This deletes the revision and all of its assets. This action cannot be
 undone.
 
-## Step 5: Publish a new product containing
-
-APIs
+## Step 5: Publish a new product containing APIs
 
 After you've created at least one data set and finalized a revision with assets,
 you're ready to publish that data set as a part of a product. For more information,
@@ -579,12 +559,9 @@ You use the AWS Data Exchange console or the AWS Marketplace Catalog API to publ
 containing APIs. For more information about how to publish a new product using the
 AWS Marketplace Catalog API, see [Using AWS Data Exchange with the AWS Marketplace Catalog API](appendices.md "appendices.md").
 
-- [Publishing a new product
-  containing APIs (console)](#publish-api-product-console "#publish-api-product-console")
+- [Publishing a new product containing APIs (console)](#publish-api-product-console "#publish-api-product-console")
 
-### Publishing a new product
-
-containing APIs (console)
+### Publishing a new product containing APIs (console)
 
 ###### To publish a new product containing APIs
 
@@ -789,8 +766,7 @@ All AWS Data Exchange products with visibility set to **Public** require a publi
      **Refund policy**.
     6. (Optional) For public offers only, set **Subscription
      verification**, which enables you to control who
-     can subscribe to this product. For more information, see [Subscription verification for providers in
-     AWS Data Exchange](subscription-verification-pro.md "subscription-verification-pro.md").
+     can subscribe to this product. For more information, see [Subscription verification for providers in AWS Data Exchange](subscription-verification-pro.md "subscription-verification-pro.md").
     7. Choose your **Oﬀer auto-renewal** option. For
      more information, see [Creating an offer for AWS Data Exchange products](prepare-offers.md "prepare-offers.md").
     8. Choose **Next**.

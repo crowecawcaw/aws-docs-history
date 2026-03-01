@@ -1,6 +1,4 @@
-# AWS Data Exchange and interface VPC endpoints
-
-(AWS PrivateLink)
+# AWS Data Exchange and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your virtual private cloud (VPC) and
 AWS Data Exchange by creating an _interface VPC endpoint_. Interface endpoints
@@ -21,18 +19,14 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for AWS Data Exchange VPC
-
-endpoints
+## Considerations for AWS Data Exchange VPC endpoints
 
 Before you set up an interface VPC endpoint for AWS Data Exchange, ensure that you review [Interface
 endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/userguide/vpce-interface.md#vpce-interface-limitations") in the _Amazon VPC User Guide_.
 
 AWS Data Exchange supports making calls to all of its API operations from your VPC.
 
-## Creating an interface VPC endpoint for
-
-AWS Data Exchange
+## Creating an interface VPC endpoint for AWS Data Exchange
 
 You can create a VPC endpoint for the AWS Data Exchange service using either the Amazon VPC console or
 the AWS Command Line Interface (AWS CLI). For more information, see [Creating an

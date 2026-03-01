@@ -1,6 +1,4 @@
-# Subscribing to AWS Data Exchange for AWS Lake Formation (Test
-
-Product) on AWS Data Exchange (Preview)
+# Subscribing to AWS Data Exchange for AWS Lake Formation (Test Product) on AWS Data Exchange (Preview)
 
 The following procedure shows how to browse the AWS Data Exchange catalog to find and subscribe to
 AWS Data Exchange for Lake Formation (Test Product). (Preview)
@@ -37,8 +35,7 @@ AWS Data Exchange for Lake Formation (Test Product). (Preview)
 ###### Note
 
 **AWS Data Exchange for Lake Formation (Test Product)** doesn't require subscription
-verification, but some products do. For more information, see [Subscription verification for subscribers in
-AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 8. Review the pricing information, choose the pricing offer, and then choose
+verification, but some products do. For more information, see [Subscription verification for subscribers in AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 8. Review the pricing information, choose the pricing offer, and then choose
 **Subscribe**.
 
 ###### Note

@@ -1,6 +1,4 @@
-# Turning subscription auto-renewal on or off in
-
-AWS Data Exchange
+# Turning subscription auto-renewal on or off in AWS Data Exchange
 
 Manage your subscription auto-renewals through the AWS Data Exchange console.
 

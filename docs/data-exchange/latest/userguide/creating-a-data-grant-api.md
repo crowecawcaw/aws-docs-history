@@ -1,6 +1,4 @@
-# Creating a data grant on AWS Data Exchange containing
-
-APIs
+# Creating a data grant on AWS Data Exchange containing APIs
 
 The following topics describe the process of creating a REST API data set and adding it to
 a data grant that contains APIs on AWS Data Exchange. You can complete the process by using either the
@@ -21,8 +19,7 @@ The process has the following steps:
 - [Step 2: Create an API data set](#data-grant-create-api-data-set "#data-grant-create-api-data-set")
 - [Step 3: Create a revision](#data-grant-create-api-revision "#data-grant-create-api-revision")
 - [Step 4: Add API assets to a revision](#data-grant-add-api-asset "#data-grant-add-api-asset")
-- [Step 5: Create a new data grant
-  containing APIs](#data-grant-publish-api-data-product "#data-grant-publish-api-data-product")
+- [Step 5: Create a new data grant containing APIs](#data-grant-publish-api-data-product "#data-grant-publish-api-data-product")
 
 ## Prerequisites
 
@@ -162,8 +159,7 @@ containing at least one asset. For more information, see [Data in AWS Data Excha
 You use either the AWS Data Exchange console or the AWS Command Line Interface to create an API data
 set:
 
-- [Creating an API data set
-  (console)](publish-API-product.md#create-api-ds-console "publish-API-product.md#create-api-ds-console")
+- [Creating an API data set (console)](publish-API-product.md#create-api-ds-console "publish-API-product.md#create-api-ds-console")
 - [Creating an API data set (AWS CLI)](publish-API-product.md#create-api-ds-cli "publish-API-product.md#create-api-ds-cli")
 
 ### Creating an API data set (console)
@@ -221,8 +217,7 @@ more information, see [Revisions](data-sets.md#revisions "data-sets.md#revisions
 
 You use either the AWS Data Exchange console or the AWS Command Line Interface to create a revision:
 
-- [Creating a revision
-  (console)](publish-API-product.md#create-api-revision-console "publish-API-product.md#create-api-revision-console")
+- [Creating a revision (console)](publish-API-product.md#create-api-revision-console "publish-API-product.md#create-api-revision-console")
 - [Creating a revision (AWS CLI)](publish-API-product.md#create-api-revision-cli "publish-API-product.md#create-api-revision-cli")
 
 ### Creating a revision (console)
@@ -285,10 +280,8 @@ In the following procedure, you import data assets, and then finalize the revisi
 
 You use either the AWS Data Exchange console or the AWS CLI to add assets to a revision:
 
-- [Adding API assets to a revision
-  (console)](publish-API-product.md#add-api-assets "publish-API-product.md#add-api-assets")
-- [Adding API assets to a revision
-  (AWS CLI)](publish-API-product.md#add-api-assets-cli "publish-API-product.md#add-api-assets-cli")
+- [Adding API assets to a revision (console)](publish-API-product.md#add-api-assets "publish-API-product.md#add-api-assets")
+- [Adding API assets to a revision (AWS CLI)](publish-API-product.md#add-api-assets-cli "publish-API-product.md#add-api-assets-cli")
 
 ### Adding API assets to a revision (console)
 
@@ -486,9 +479,7 @@ You see a message that the revision is no longer in the finalized state. 2. To e
 
 This deletes the revision and all of its assets. This action can't be undone.
 
-## Step 5: Create a new data grant
-
-containing APIs
+## Step 5: Create a new data grant containing APIs
 
 After you've created at least one data set and finalized a revision with assets, you're
 ready to publish that data set as a part of a data grant.

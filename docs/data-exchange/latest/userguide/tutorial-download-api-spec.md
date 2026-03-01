@@ -1,6 +1,4 @@
-# Downloading the AWS Data Exchange API
-
-specification
+# Downloading the AWS Data Exchange API specification
 
 You can download the API specification with AWS Data Exchange for APIs (Test Product) using
 the following steps.

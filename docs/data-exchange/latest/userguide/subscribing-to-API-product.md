@@ -1,6 +1,4 @@
-# Subscribing to and accessing an AWS Data Exchange product
-
-containing APIs
+# Subscribing to and accessing an AWS Data Exchange product containing APIs
 
 The following topics describe the complete process of subscribing to and accessing a
 product containing APIs on AWS Data Exchange by using the AWS Data Exchange console.
@@ -12,14 +10,11 @@ The process has the following steps:
 
 ###### Steps
 
-- [Step 1: Subscribing to a product containing
-  APIs](#subscribe-to-API-product "#subscribe-to-API-product")
+- [Step 1: Subscribing to a product containing APIs](#subscribe-to-API-product "#subscribe-to-API-product")
 - [Step 2: Accessing an API product](#use-API-product "#use-API-product")
   To practice subscribing to and accessing a product containing APIs, see the [AWS Data Exchange for APIs (Test Product)](subscriber-tutorial-api-product.md "subscriber-tutorial-api-product.md").
 
-## Step 1: Subscribing to a product containing
-
-APIs
+## Step 1: Subscribing to a product containing APIs
 
 If you subscribe to a paid product, you're billed on your AWS bill. You get access to
 all entitled data sets. For more information, see [Subscribing to AWS Data Exchange data products on AWS Data Exchange](subscribe-to-data-sets.md "subscribe-to-data-sets.md").
@@ -73,8 +68,7 @@ offer](subscribe-to-byos-offer.md "subscribe-to-byos-offer.md")), you see those 
 
 ###### Note
 
-Some products require subscription verification. For more information, see [Subscription verification for subscribers in
-AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 7. Review the pricing information, choose the pricing oﬀer, and then choose
+Some products require subscription verification. For more information, see [Subscription verification for subscribers in AWS Data Exchange](subscription-verification-sub.md "subscription-verification-sub.md"). 7. Review the pricing information, choose the pricing oﬀer, and then choose
 **Subscribe**.
 
 ###### Note

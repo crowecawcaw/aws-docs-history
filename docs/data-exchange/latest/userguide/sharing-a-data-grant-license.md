@@ -1,6 +1,4 @@
-# Sharing an AWS Data Exchange data grant license in an
-
-organization
+# Sharing an AWS Data Exchange data grant license in an organization
 
 When you accept a data grant, you receive a license that allows you to share the underlying data set under the following conditions:
 
@@ -27,5 +25,4 @@ Before you can share licenses, you must complete the following setup tasks:
 - In the AWS Data Exchange console, use the **Data Grant settings** page to enable integration with AWS Organizations.
 - Give AWS Data Exchange permission to read information about accounts in your organization and manage licenses on your behalf so that
   it can create the associated license grants when you share your licenses. For more information, see
-  [Using service-linked roles for
-  AWS Data Exchange](using-service-linked-roles-adx.md "using-service-linked-roles-adx.md"), in this guide.
+  [Using service-linked roles for AWS Data Exchange](using-service-linked-roles-adx.md "using-service-linked-roles-adx.md"), in this guide.

@@ -5,18 +5,12 @@ using the AWS Data Exchange console.
 
 ###### Topics
 
-- [Subscribing to and accessing an AWS Data Exchange product containing
-  file-based data](subscribing-to-data-product.md "subscribing-to-data-product.md")
-- [Subscribing to and accessing an AWS Data Exchange product
-  containing APIs](subscribing-to-API-product.md "subscribing-to-API-product.md")
-- [Subscribing to and accessing an AWS Data Exchange
-  product containing Amazon Redshift data sets](subscribing-to-Redshift-product.md "subscribing-to-Redshift-product.md")
-- [Subscribing to and accessing an AWS Data Exchange product
-  containing Amazon S3 data access](subscribing-to-S3-data-access.md "subscribing-to-S3-data-access.md")
-- [Subscribing to and accessing an AWS Data Exchange
-  product containing AWS Lake Formation data sets (Preview)](subscribing-to-LakeFormation-product.md "subscribing-to-LakeFormation-product.md")
-- [Viewing and downloading a data dictionary in
-  AWS Data Exchange](view-download-dictionaries.md "view-download-dictionaries.md")
+- [Subscribing to and accessing an AWS Data Exchange product containing file-based data](subscribing-to-data-product.md "subscribing-to-data-product.md")
+- [Subscribing to and accessing an AWS Data Exchange product containing APIs](subscribing-to-API-product.md "subscribing-to-API-product.md")
+- [Subscribing to and accessing an AWS Data Exchange product containing Amazon Redshift data sets](subscribing-to-Redshift-product.md "subscribing-to-Redshift-product.md")
+- [Subscribing to and accessing an AWS Data Exchange product containing Amazon S3 data access](subscribing-to-S3-data-access.md "subscribing-to-S3-data-access.md")
+- [Subscribing to and accessing an AWS Data Exchange product containing AWS Lake Formation data sets (Preview)](subscribing-to-LakeFormation-product.md "subscribing-to-LakeFormation-product.md")
+- [Viewing and downloading a data dictionary in AWS Data Exchange](view-download-dictionaries.md "view-download-dictionaries.md")
 
 ###### Note
 

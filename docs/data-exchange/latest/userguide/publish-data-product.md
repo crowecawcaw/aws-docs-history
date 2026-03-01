@@ -1,6 +1,4 @@
-# Publishing a product in AWS Data Exchange containing
-
-file-based data
+# Publishing a product in AWS Data Exchange containing file-based data
 
 The following topics describe the process of creating a data set and publishing a new
 product in AWS Data Exchange containing file-based data on AWS Data Exchange by using the AWS Data Exchange console. The

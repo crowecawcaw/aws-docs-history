@@ -1,6 +1,4 @@
-# Setting up and querying AWS Data Exchange for Amazon S3 (Test
-
-Product)
+# Setting up and querying AWS Data Exchange for Amazon S3 (Test Product)
 
 The following procedure shows how to set up and query an Amazon S3 data access data set using
 the AWS Command Line Interface (AWS CLI). Before querying, you must obtain the appropriate AWS Identity and Access Management (IAM)
@@ -53,9 +51,7 @@ JSON
 
 ```
 
-###### To allow querying on the AWS Data Exchange for Amazon S3 (Test Product) data access data set using the
-
-AWS CLI
+###### To allow querying on the AWS Data Exchange for Amazon S3 (Test Product) data access data set using the AWS CLI
 
 1. Open **AWS CloudShell** in **us-east-1**.
 2. Choose the copy button next to the access point alias to copy and paste the code

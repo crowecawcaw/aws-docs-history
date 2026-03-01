@@ -1,6 +1,4 @@
-# Create a data grant on AWS Data Exchange containing
-
-Amazon Redshift data sets
+# Create a data grant on AWS Data Exchange containing Amazon Redshift data sets
 
 An Amazon Redshift data set contains AWS Data Exchange datashares for Amazon Redshift. When customers subscribe to a product
 containing datashares, they are granted read-only access to the tables, views, schemas, and
@@ -25,8 +23,7 @@ containig it using the AWS Data Exchange console. The process has the following 
 - [Step 1: Create an Amazon Redshift datashare asset](#data-grant-create-RS-asset "#data-grant-create-RS-asset")
 - [Step 2: Create an Amazon Redshift data set](#data-grant-create-RS-data-set "#data-grant-create-RS-data-set")
 - [Step 3: Create a revision](#data-grant-create-RS-revision "#data-grant-create-RS-revision")
-- [Step 4: Add Amazon Redshift datashare assets to a
-  revision](#data-grant-add-RS-assets "#data-grant-add-RS-assets")
+- [Step 4: Add Amazon Redshift datashare assets to a revision](#data-grant-add-RS-assets "#data-grant-add-RS-assets")
 - [Step 5: Create a new data grant](#data-grant-publish-RS-product "#data-grant-publish-RS-product")
 
 ## Step 1: Create an Amazon Redshift datashare asset
@@ -86,9 +83,7 @@ AWS Data Exchange console. For more information, see [Revisions](data-sets.md#re
 5. Choose **Create**.
 6. Review, edit, or delete your changes from the previous step.
 
-## Step 4: Add Amazon Redshift datashare assets to a
-
-revision
+## Step 4: Add Amazon Redshift datashare assets to a revision
 
 In the following procedure, you add Amazon Redshift datashare assets to a revision, and then
 finalize the revision in the AWS Data Exchange console. For more information, see [Assets](data-sets.md#assets "data-sets.md#assets").

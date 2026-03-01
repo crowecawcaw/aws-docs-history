@@ -100,21 +100,17 @@ product details page in the AWS Data Exchange console.
 After you subscribe to a product containing files, you can manually export each revision
 or asset individually, or you can select to automatically export new revisions to your Amazon S3
 buckets (up to five buckets maximum) when the provider publishes new revisions. For more
-information, see [Subscribing to and accessing an AWS Data Exchange product containing
-file-based data](subscribing-to-data-product.md "subscribing-to-data-product.md"). For more information about how to export
+information, see [Subscribing to and accessing an AWS Data Exchange product containing file-based data](subscribing-to-data-product.md "subscribing-to-data-product.md"). For more information about how to export
 revisions, see [Exporting revisions from AWS Data Exchange](exporting-revisions.md "exporting-revisions.md").
 
 After you subscribe to a product containing an Amazon API Gateway API, you can view and invoke the
-data provider's API. For more information, see [Subscribing to and accessing an AWS Data Exchange product
-containing APIs](subscribing-to-API-product.md "subscribing-to-API-product.md").
+data provider's API. For more information, see [Subscribing to and accessing an AWS Data Exchange product containing APIs](subscribing-to-API-product.md "subscribing-to-API-product.md").
 
 After you subscribe to a product containing Amazon Redshift data sets, you get access to query the
-data in Amazon Redshift. For more information, see [Subscribing to and accessing an AWS Data Exchange
-product containing Amazon Redshift data sets](subscribing-to-Redshift-product.md "subscribing-to-Redshift-product.md").
+data in Amazon Redshift. For more information, see [Subscribing to and accessing an AWS Data Exchange product containing Amazon Redshift data sets](subscribing-to-Redshift-product.md "subscribing-to-Redshift-product.md").
 
 After you subscribe to an Amazon S3 data access data set, you can view and directly use the
-provider's Amazon S3 objects. For more information, see [Subscribing to and accessing an AWS Data Exchange product
-containing Amazon S3 data access](subscribing-to-S3-data-access.md "subscribing-to-S3-data-access.md").
+provider's Amazon S3 objects. For more information, see [Subscribing to and accessing an AWS Data Exchange product containing Amazon S3 data access](subscribing-to-S3-data-access.md "subscribing-to-S3-data-access.md").
 
 After you subscribe to a product containing AWS Lake Formation data permission data sets (Preview),
 you can manage the data in AWS Lake Formation and query it with downstream services like

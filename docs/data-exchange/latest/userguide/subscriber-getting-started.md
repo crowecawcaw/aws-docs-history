@@ -7,10 +7,8 @@ AWS Data Exchange using the AWS Data Exchange console. The process has the follo
 
 - [Step 1: Set up AWS Data Exchange](#subscriber-prereqs "#subscriber-prereqs")
 - [Step 2: Browse the catalog](#browse-catalog "#browse-catalog")
-- [Step 3: (Optional) Request a recommendation for a data
-  product](#request-new-products "#request-new-products")
-- [Step 4: (Optional) Evaluate products containing data
-  dictionaries and samples](#evaluate-products "#evaluate-products")
+- [Step 3: (Optional) Request a recommendation for a data product](#request-new-products "#request-new-products")
+- [Step 4: (Optional) Evaluate products containing data dictionaries and samples](#evaluate-products "#evaluate-products")
 - [Step 5: Subscribe to and access a product](#subscribe-to-product "#subscribe-to-product")
 
 ## Step 1: Set up AWS Data Exchange
@@ -59,9 +57,7 @@ If the provider has issued a private oﬀer to your account, the product is avai
 7. Select a product from the list of returned results, and review its product details
    page.
 
-## Step 3: (Optional) Request a recommendation for a data
-
-product
+## Step 3: (Optional) Request a recommendation for a data product
 
 If you're unable to find a product in the catalog, you can request personalized
 recommendations from the [AWS Data Exchange Data Discovery Team](https://aws.amazon.com/data-exchange/discover-data/ "https://aws.amazon.com/data-exchange/discover-data/").
@@ -98,9 +94,7 @@ recommendations from the [AWS Data Exchange Data Discovery Team](https://aws.ama
 You should receive a response from the AWS Data Exchange Data Discovery Team within 2 business
 days.
 
-## Step 4: (Optional) Evaluate products containing data
-
-dictionaries and samples
+## Step 4: (Optional) Evaluate products containing data dictionaries and samples
 
 A provider might include a data dictionary and samples of the data set with their product.
 To help you determine if the product’s data set will meet your needs, you can view and
@@ -150,9 +144,7 @@ A provider can add one data dictionary per data set that you can download.
 
 The data dictionary file is downloaded to your computer.
 
-### Viewing and downloading all data
-
-dictionaries
+### Viewing and downloading all data dictionaries
 
 If the product has multiple data sets, the provider might add a data dictionary for each
 data set. To evaluate all the data sets, you might want to view and download all data
@@ -207,13 +199,8 @@ the entitled data set. For more information, see [Subscribing to AWS Data Exchan
 For more information about how to subscribe to products containing different types of data
 sets, see the following:
 
-- [Subscribing to and accessing an AWS Data Exchange product containing
-  file-based data](subscribing-to-data-product.md "subscribing-to-data-product.md")
-- [Subscribing to and accessing an AWS Data Exchange product
-  containing APIs](subscribing-to-API-product.md "subscribing-to-API-product.md")
-- [Subscribing to and accessing an AWS Data Exchange
-  product containing Amazon Redshift data sets](subscribing-to-Redshift-product.md "subscribing-to-Redshift-product.md")
-- [Subscribing to and accessing an AWS Data Exchange product
-  containing Amazon S3 data access](subscribing-to-S3-data-access.md "subscribing-to-S3-data-access.md")
-- [Subscribing to and accessing an AWS Data Exchange
-  product containing AWS Lake Formation data sets (Preview)](subscribing-to-LakeFormation-product.md "subscribing-to-LakeFormation-product.md")
+- [Subscribing to and accessing an AWS Data Exchange product containing file-based data](subscribing-to-data-product.md "subscribing-to-data-product.md")
+- [Subscribing to and accessing an AWS Data Exchange product containing APIs](subscribing-to-API-product.md "subscribing-to-API-product.md")
+- [Subscribing to and accessing an AWS Data Exchange product containing Amazon Redshift data sets](subscribing-to-Redshift-product.md "subscribing-to-Redshift-product.md")
+- [Subscribing to and accessing an AWS Data Exchange product containing Amazon S3 data access](subscribing-to-S3-data-access.md "subscribing-to-S3-data-access.md")
+- [Subscribing to and accessing an AWS Data Exchange product containing AWS Lake Formation data sets (Preview)](subscribing-to-LakeFormation-product.md "subscribing-to-LakeFormation-product.md")

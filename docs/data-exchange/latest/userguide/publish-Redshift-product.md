@@ -1,6 +1,4 @@
-# Publishing a product in AWS Data Exchange containing Amazon Redshift
-
-data sets
+# Publishing a product in AWS Data Exchange containing Amazon Redshift data sets
 
 An Amazon Redshift data set contains AWS Data Exchange datashares for Amazon Redshift. When customers subscribe to a
 product containing datashares, they are granted read-only access to the tables, views,
@@ -27,10 +25,8 @@ steps:
 - [Step 1: Create an Amazon Redshift datashare asset](#create-RS-asset "#create-RS-asset")
 - [Step 2: Create an Amazon Redshift data set](#create-RS-data-set "#create-RS-data-set")
 - [Step 3: Create a revision](#create-RS-revision "#create-RS-revision")
-- [Step 4: Add Amazon Redshift datashare assets to a
-  revision](#add-RS-assets "#add-RS-assets")
-- [Step 5: Publish a new product containing Amazon Redshift
-  data sets](#publish-RS-product "#publish-RS-product")
+- [Step 4: Add Amazon Redshift datashare assets to a revision](#add-RS-assets "#add-RS-assets")
+- [Step 5: Publish a new product containing Amazon Redshift data sets](#publish-RS-product "#publish-RS-product")
 - [Step 6: (Optional) Copy a product](#copy-RS-product "#copy-RS-product")
 
 ## Step 1: Create an Amazon Redshift datashare asset
@@ -95,9 +91,7 @@ in the AWS Data Exchange console. For more information, see [Revisions](data-set
 5. Choose **Create**.
 6. Review, edit, or delete your changes from the previous step.
 
-## Step 4: Add Amazon Redshift datashare assets to a
-
-revision
+## Step 4: Add Amazon Redshift datashare assets to a revision
 
 In the following procedure, you add Amazon Redshift datashare assets to a revision, and then
 finalize the revision in the AWS Data Exchange console. For more information, see [Assets](data-sets.md#assets "data-sets.md#assets").
@@ -123,9 +117,7 @@ You have successfully finalized a revision for a data set.
 You can [edit](publish-data-product.md#edit-revision "publish-data-product.md#edit-revision") or [delete a revision](publish-data-product.md#delete-revision "publish-data-product.md#delete-revision") before you add it to a
 product.
 
-## Step 5: Publish a new product containing Amazon Redshift
-
-data sets
+## Step 5: Publish a new product containing Amazon Redshift data sets
 
 After you've created at least one data set and finalized a revision with assets,
 you're ready to publish a product with Amazon Redshift data sets. For more information, see
@@ -243,8 +235,7 @@ fill out the template with your specific product details. 8. Choose **Next**. 9.
     	3. (Optional) Set **Subscription
     	 verification**, which enables you to control
     	 who can subscribe to this product. For more information, see
-    	 [Subscription verification for providers in
-    	 AWS Data Exchange](subscription-verification-pro.md "subscription-verification-pro.md").
+    	 [Subscription verification for providers in AWS Data Exchange](subscription-verification-pro.md "subscription-verification-pro.md").
     	4. Choose your **Oﬀer auto-renewal** option.
     	 For more information, see [Creating an offer for AWS Data Exchange products](prepare-offers.md "prepare-offers.md").
     	5. Choose **Next**.

@@ -1,6 +1,4 @@
-# Approve or decline requests for
-
-subscription verification in AWS Data Exchange
+# Approve or decline requests for subscription verification in AWS Data Exchange
 
 ###### Important regulatory update
 

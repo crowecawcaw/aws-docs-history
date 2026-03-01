@@ -25,30 +25,30 @@ The table includes events received by a subscriber when a provider adds a data s
 product, adds a revision to a product, revokes a revision to a product, or removes access to
 a product.
 
-| Actions                                                                                              | Event received                                                        | Related topic                                                                                                                                                                                      |
-| ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Adds a file-based data set to a product and publishes it                                             | `Data Sets Published To Product`                                      | [Events for adding file-based data sets](#events-add-data-sets "#events-add-data-sets")                                                                                                            |
-| Adds an Amazon S3 data access data set to a product and publishes it                                 | `Amazon S3 Data Access Data Sets Published To Product`                | [Events for adding Amazon S3 data access<br>data sets](#events-add-s3-data-access-data-sets "#events-add-s3-data-access-data-sets")                                                                |
-| Adds an AWS Lake Formation data permission data set and publishes it                                 | `AWS Lake Formation Data Permission Data Set Published To<br>Product` | [Events for adding AWS Lake Formation data permission<br>data sets](#events-add-LF-data-sets "#events-add-LF-data-sets")                                                                           |
-| Adds an Amazon Redshift data set to a product and publishes it                                       | `Redshift Data Shares Data Sets Published To Product`                 | [Events for adding Amazon Redshift datashare data sets](#events-add-RS-data-sets "#events-add-RS-data-sets")                                                                                       |
-| Adds an Amazon API Gateway data set to a product and publishes it                                    | `API Gateway API Data Sets Published To Product`                      | [Events for adding Amazon API Gateway API<br>data sets](#events-add-api-gateway-api-data-sets "#events-add-api-gateway-api-data-sets")                                                             |
-| Adds a file-based data set revision to a product and publishes it                                    | `Revision Published To Data Set`                                      | [Events for adding revisions](#events-add-revisions "#events-add-revisions")                                                                                                                       |
-| Adds an Amazon S3 data access data set revision to a product and publishes<br>it                     | `Revision Published to Amazon S3 Data Access Data Set`                | [Events for adding Amazon S3 data access data set<br>revisions](#events-add-s3-revisions "#events-add-s3-revisions")                                                                               |
-| Adds an AWS Lake Formation data permission data set revision to a product and<br>publishes it        | `Revision Published To Lake Formation Data Permission Data Set`       | [Events for adding AWS Lake Formation data permission data<br>set revisions (Preview)](#events-add-LF-revision "#events-add-LF-revision")                                                          |
-| Adds an Amazon Redshift datashare data set revision to a product and publishes<br>it                 | `Revision Published To Redshift Data Shares Data Set`                 | [Events for adding Amazon Redshift datashare data set<br>revisions](#events-add-RS-revision "#events-add-RS-revision")                                                                             |
-| Adds an Amazon API Gateway data set revision to a product and publishes it                           | `Revision Published To API Gateway API Data Set`                      | [Events for adding<br>Amazon API Gateway API data set revisions](#events-add-api-gateway-api-data-sets-revisions "#events-add-api-gateway-api-data-sets-revisions")                                |
-| Revokes revision to a product                                                                        | `Revision Revoked`                                                    | [Events for revoking revisions](#events-revoke-revisions "#events-revoke-revisions")                                                                                                               |
-| Takes an action on their Amazon Redshift resources that \*might<br>• remove access from a subscriber | `Action Performed On Redshift Data Share By Provider`                 | [Events for an action performed on an Amazon Redshift<br>resource](#events-RS-action "#events-RS-action")                                                                                          |
-| Takes an action on their Amazon Redshift resources that removes access from a<br>subscriber          | `Redshift Data Share Access Lost`                                     | [Events for losing access to an Amazon Redshift<br>datashare](#events-RS-lost-access "#events-RS-lost-access")                                                                                     |
-| Sends a notification for a data update                                                               | `Data Updated in Data Set`                                            | [Events for<br>a provider-generated notification of a data update](#events-provider-generated-notification-of-data-update "#events-provider-generated-notification-of-data-update")                |
-| Sends a notification for a schema change                                                             | `Schema Change Planned for Data Set`                                  | [Events<br>for a provider-generated notification of a schema change](#events-provider-generated-notification-of-schema-change "#events-provider-generated-notification-of-schema-change")          |
-| Sends a notification for a data delay                                                                | `Data Set Update Delayed`                                             | [Events for a<br>provider-generated notification of a data delay](#events-provider-generated-notification-of-data-delay "#events-provider-generated-notification-of-data-delay")                   |
-| Sends a notification for a data deprecation                                                          | `Deprecation Planned for Data Set`                                    | [Events for<br>a provider-generated notification of a data deprecation](#events-provider-generated-notification-of-data-deprecation "#events-provider-generated-notification-of-data-deprecation") |
-| Sends an event when a data consumer accepts a data grant                                             | `Data Grant Accepted`                                                 | [Events for accepting a data grant](#data-grant-accepted-event "#data-grant-accepted-event")                                                                                                       |
-| Sends an event when a data producer extends a data grant                                             | `Data Grant Extended`                                                 | [Events for extending data grants](#data-grant-extended-event "#data-grant-extended-event")                                                                                                        |
-| Sends an event when a data producer revokes a data grant                                             | `Data Grant Revoked`                                                  | [Events for revoking a data grant](#data-grant-revoked-event "#data-grant-revoked-event")                                                                                                          |
-| Auto-export job completed                                                                            | `Auto-export Job Completed`                                           | [Events for an auto-export job completed](#events-auto-export-job-complete "#events-auto-export-job-complete")                                                                                     |
-| Auto-export job failed                                                                               | `Auto-export Job Failed`                                              | [Events for an auto-export job<br>failed](#events-auto-export-job-failed "#events-auto-export-job-failed")                                                                                         |
+| Actions                                                                                              | Event received                                                        | Related topic                                                                                                                                                                                   |
+| ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Adds a file-based data set to a product and publishes it                                             | `Data Sets Published To Product`                                      | [Events for adding file-based data sets](#events-add-data-sets "#events-add-data-sets")                                                                                                         |
+| Adds an Amazon S3 data access data set to a product and publishes it                                 | `Amazon S3 Data Access Data Sets Published To Product`                | [Events for adding Amazon S3 data access data sets](#events-add-s3-data-access-data-sets "#events-add-s3-data-access-data-sets")                                                                |
+| Adds an AWS Lake Formation data permission data set and publishes it                                 | `AWS Lake Formation Data Permission Data Set Published To<br>Product` | [Events for adding AWS Lake Formation data permission data sets](#events-add-LF-data-sets "#events-add-LF-data-sets")                                                                           |
+| Adds an Amazon Redshift data set to a product and publishes it                                       | `Redshift Data Shares Data Sets Published To Product`                 | [Events for adding Amazon Redshift datashare data sets](#events-add-RS-data-sets "#events-add-RS-data-sets")                                                                                    |
+| Adds an Amazon API Gateway data set to a product and publishes it                                    | `API Gateway API Data Sets Published To Product`                      | [Events for adding Amazon API Gateway API data sets](#events-add-api-gateway-api-data-sets "#events-add-api-gateway-api-data-sets")                                                             |
+| Adds a file-based data set revision to a product and publishes it                                    | `Revision Published To Data Set`                                      | [Events for adding revisions](#events-add-revisions "#events-add-revisions")                                                                                                                    |
+| Adds an Amazon S3 data access data set revision to a product and publishes<br>it                     | `Revision Published to Amazon S3 Data Access Data Set`                | [Events for adding Amazon S3 data access data set revisions](#events-add-s3-revisions "#events-add-s3-revisions")                                                                               |
+| Adds an AWS Lake Formation data permission data set revision to a product and<br>publishes it        | `Revision Published To Lake Formation Data Permission Data Set`       | [Events for adding AWS Lake Formation data permission data set revisions (Preview)](#events-add-LF-revision "#events-add-LF-revision")                                                          |
+| Adds an Amazon Redshift datashare data set revision to a product and publishes<br>it                 | `Revision Published To Redshift Data Shares Data Set`                 | [Events for adding Amazon Redshift datashare data set revisions](#events-add-RS-revision "#events-add-RS-revision")                                                                             |
+| Adds an Amazon API Gateway data set revision to a product and publishes it                           | `Revision Published To API Gateway API Data Set`                      | [Events for adding Amazon API Gateway API data set revisions](#events-add-api-gateway-api-data-sets-revisions "#events-add-api-gateway-api-data-sets-revisions")                                |
+| Revokes revision to a product                                                                        | `Revision Revoked`                                                    | [Events for revoking revisions](#events-revoke-revisions "#events-revoke-revisions")                                                                                                            |
+| Takes an action on their Amazon Redshift resources that \*might<br>• remove access from a subscriber | `Action Performed On Redshift Data Share By Provider`                 | [Events for an action performed on an Amazon Redshift resource](#events-RS-action "#events-RS-action")                                                                                          |
+| Takes an action on their Amazon Redshift resources that removes access from a<br>subscriber          | `Redshift Data Share Access Lost`                                     | [Events for losing access to an Amazon Redshift datashare](#events-RS-lost-access "#events-RS-lost-access")                                                                                     |
+| Sends a notification for a data update                                                               | `Data Updated in Data Set`                                            | [Events for a provider-generated notification of a data update](#events-provider-generated-notification-of-data-update "#events-provider-generated-notification-of-data-update")                |
+| Sends a notification for a schema change                                                             | `Schema Change Planned for Data Set`                                  | [Events for a provider-generated notification of a schema change](#events-provider-generated-notification-of-schema-change "#events-provider-generated-notification-of-schema-change")          |
+| Sends a notification for a data delay                                                                | `Data Set Update Delayed`                                             | [Events for a provider-generated notification of a data delay](#events-provider-generated-notification-of-data-delay "#events-provider-generated-notification-of-data-delay")                   |
+| Sends a notification for a data deprecation                                                          | `Deprecation Planned for Data Set`                                    | [Events for a provider-generated notification of a data deprecation](#events-provider-generated-notification-of-data-deprecation "#events-provider-generated-notification-of-data-deprecation") |
+| Sends an event when a data consumer accepts a data grant                                             | `Data Grant Accepted`                                                 | [Events for accepting a data grant](#data-grant-accepted-event "#data-grant-accepted-event")                                                                                                    |
+| Sends an event when a data producer extends a data grant                                             | `Data Grant Extended`                                                 | [Events for extending data grants](#data-grant-extended-event "#data-grant-extended-event")                                                                                                     |
+| Sends an event when a data producer revokes a data grant                                             | `Data Grant Revoked`                                                  | [Events for revoking a data grant](#data-grant-revoked-event "#data-grant-revoked-event")                                                                                                       |
+| Auto-export job completed                                                                            | `Auto-export Job Completed`                                           | [Events for an auto-export job completed](#events-auto-export-job-complete "#events-auto-export-job-complete")                                                                                  |
+| Auto-export job failed                                                                               | `Auto-export Job Failed`                                              | [Events for an auto-export job failed](#events-auto-export-job-failed "#events-auto-export-job-failed")                                                                                         |
 
 ###### Note
 
@@ -99,9 +99,7 @@ The following example shows the event body for the detail type.
 }
 ```
 
-## Events for adding Amazon S3 data access
-
-data sets
+## Events for adding Amazon S3 data access data sets
 
 When a provider adds an Amazon S3 data access data set to a product and publishes it, the
 subscriber receives an event with the following detail type: `Amazon S3
@@ -143,9 +141,7 @@ The following example shows the event body for the detail type.
 }
 ```
 
-## Events for adding AWS Lake Formation data permission
-
-data sets
+## Events for adding AWS Lake Formation data permission data sets
 
 When a provider adds an AWS Lake Formation data permission data set to a product and publishes
 it, the subscriber receives an event with the `Lake
@@ -233,9 +229,7 @@ The following example shows the event body for the detail type.
 }
 ```
 
-## Events for adding Amazon API Gateway API
-
-data sets
+## Events for adding Amazon API Gateway API data sets
 
 When a provider adds an Amazon API Gateway API data set to a product and publishes it, the
 subscriber receives an event with the `Amazon API Gateway Data Sets
@@ -321,9 +315,7 @@ The following example shows the event body for the detail type.
 }
 ```
 
-## Events for adding Amazon S3 data access data set
-
-revisions
+## Events for adding Amazon S3 data access data set revisions
 
 When a provider adds an Amazon S3 data access data set revision to a product and publishes
 it, the subscriber receives an event with the `Revision
@@ -367,9 +359,7 @@ The following example shows the event body for the detail type.
 }
 ```
 
-## Events for adding AWS Lake Formation data permission data
-
-set revisions (Preview)
+## Events for adding AWS Lake Formation data permission data set revisions (Preview)
 
 When a provider adds an AWS Lake Formation data permission data set revision to a product and
 publishes it, the subscriber receives an event with the `Revision Published to Lake
@@ -412,9 +402,7 @@ The following example shows the event body for the detail type.
 }
 ```
 
-## Events for adding Amazon Redshift datashare data set
-
-revisions
+## Events for adding Amazon Redshift datashare data set revisions
 
 When a provider adds an Amazon Redshift datashare data set revision to a product and publishes
 it, the subscriber receives an event with the `Revision
@@ -458,9 +446,7 @@ The following example shows the event body for the detail type.
 }
 ```
 
-## Events for adding
-
-Amazon API Gateway API data set revisions
+## Events for adding Amazon API Gateway API data set revisions
 
 When a provider adds an Amazon API Gateway API data set revision to a product and publishes it,
 the subscriber receives an event with the `Revision
@@ -558,9 +544,7 @@ The following example shows the event body for the detail type.
 }
 ```
 
-## Events for an action performed on an Amazon Redshift
-
-resource
+## Events for an action performed on an Amazon Redshift resource
 
 When a provider takes an action on their Amazon Redshift resources that _might_ remove access from a subscriber, the subscriber receives an event
 with the `Action Performed On Redshift Data Share By
@@ -607,9 +591,7 @@ The following example shows the event body for the detail type.
 }
 ```
 
-## Events for losing access to an Amazon Redshift
-
-datashare
+## Events for losing access to an Amazon Redshift datashare
 
 When a provider takes an action on their Amazon Redshift resources that removes access from a
 subscriber, the subscriber receives an event with the `Redshift Data Share Access Lost` detail type.
@@ -698,9 +680,7 @@ The following example shows the event body for the detail type.
 }
 ```
 
-## Events for an auto-export job
-
-failed
+## Events for an auto-export job failed
 
 When an auto-export job fails, the subscriber receives an event with the `Auto-export Job
  Failed` detail type.
@@ -747,9 +727,7 @@ The following example shows the event body for the detail type.
 }
 ```
 
-## Events for
-
-a provider-generated notification of a data update
+## Events for a provider-generated notification of a data update
 
 When a provider sends a notification for a data update, the subscriber receives an
 event with the `Data Updated in Data
@@ -805,9 +783,7 @@ The following example shows the event body for the detail type.
 
 ```
 
-## Events
-
-for a provider-generated notification of a schema change
+## Events for a provider-generated notification of a schema change
 
 When a provider sends a notification for a schema change, the subscriber receives an
 event with the `Schema Change Planned for Data
@@ -878,9 +854,7 @@ The following example shows the event body for the detail type.
 }
 ```
 
-## Events for a
-
-provider-generated notification of a data delay
+## Events for a provider-generated notification of a data delay
 
 When a provider sends a notification for a data delay, the subscriber receives an
 event with the following detail type: **Data Set Update
@@ -930,9 +904,7 @@ The following example shows the event body for the detail type.
 }
 ```
 
-## Events for
-
-a provider-generated notification of a data deprecation
+## Events for a provider-generated notification of a data deprecation
 
 When a provider sends a notification for a data deprecation, the subscriber receives
 an event with the `Deprecation Planned for Data

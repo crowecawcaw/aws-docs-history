@@ -4,9 +4,7 @@ To create, update, delete, or list AWS Data Exchange resources, you need permiss
 the operation and to access the corresponding resources. To perform the operation
 programmatically, you also need valid access keys.
 
-## Overview of managing access permissions to
-
-your AWS Data Exchange resources
+## Overview of managing access permissions to your AWS Data Exchange resources
 
 Every AWS resource is owned by an AWS account, and permissions to create or
 access a resource are governed by permissions policies. An account administrator can
@@ -35,19 +33,13 @@ in the _IAM User Guide_.
 
 ###### Topics
 
-- [AWS Data Exchange resources and
-  operations](#access-control-resources "#access-control-resources")
+- [AWS Data Exchange resources and operations](#access-control-resources "#access-control-resources")
 - [Understanding resource ownership](#access-control-owner "#access-control-owner")
-- [Managing access to
-  resources](#access-control-manage-access-intro "#access-control-manage-access-intro")
-- [Specifying policy
-  elements: actions, effects, and principals](#access-control-specify-control-tower-actions "#access-control-specify-control-tower-actions")
-- [Specifying conditions in a
-  policy](#specifying-conditions "#specifying-conditions")
+- [Managing access to resources](#access-control-manage-access-intro "#access-control-manage-access-intro")
+- [Specifying policy elements: actions, effects, and principals](#access-control-specify-control-tower-actions "#access-control-specify-control-tower-actions")
+- [Specifying conditions in a policy](#specifying-conditions "#specifying-conditions")
 
-### AWS Data Exchange resources and
-
-operations
+### AWS Data Exchange resources and operations
 
 In AWS Data Exchange, there are two different kinds of primary resources with different
 control planes:
@@ -86,9 +78,7 @@ subscriber, your account has read access to entitled data sets; however, it
 does not own the entitled data sets. Any entitled data sets that are
 exported to Amazon S3 are owned by the subscriber's AWS account.
 
-### Managing access to
-
-resources
+### Managing access to resources
 
 This section discusses using IAM in the context of AWS Data Exchange. It doesn't provide
 detailed information about the IAM service. For complete IAM documentation,
@@ -232,9 +222,7 @@ Other services, such as Amazon S3, do support resource-based permissions
 policies. For example, you can attach a policy to an S3 bucket to manage
 access permissions to that bucket.
 
-### Specifying policy
-
-elements: actions, effects, and principals
+### Specifying policy elements: actions, effects, and principals
 
 To use AWS Data Exchange, your user permissions must be defined in an IAM policy.
 
@@ -244,8 +232,7 @@ The following are the most basic policy elements:
   use an Amazon Resource Name (ARN) to identify the resource to which the
   policy applies. All AWS Data Exchange API operations support resource level
   permissions (RLP), but AWS Marketplace actions don't support RLP. For more
-  information, see [AWS Data Exchange resources and
-  operations](#access-control-resources "#access-control-resources").
+  information, see [AWS Data Exchange resources and operations](#access-control-resources "#access-control-resources").
 - **Action** – You use action
   keywords to identify resource operations that you want to allow or
   deny.
@@ -265,9 +252,7 @@ The following are the most basic policy elements:
 For more information about IAM policy syntax and descriptions, see [AWS Identity and Access Management Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md")
 in the _IAM User Guide_.
 
-### Specifying conditions in a
-
-policy
+### Specifying conditions in a policy
 
 When you grant permissions, you can use the IAM policy language to specify
 the conditions when a policy should take effect. With AWS Data Exchange, the

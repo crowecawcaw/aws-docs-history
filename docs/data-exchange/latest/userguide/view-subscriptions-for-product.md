@@ -4,9 +4,7 @@ You can view all of the subscriptions for any of your products through the
 **Product overview** page. You can also view subscriptions for each
 of your offers.
 
-## Viewing subscriptions for a
-
-product
+## Viewing subscriptions for a product
 
 ###### To view subscriptions for a product
 
@@ -21,9 +19,7 @@ product
    ended) subscriptions from the dropdown at the top left of the
    **Subscriptions** tab.
 
-## Viewing subscriptions for an
-
-offer
+## Viewing subscriptions for an offer
 
 ###### To view subscriptions for a specific offer
 
