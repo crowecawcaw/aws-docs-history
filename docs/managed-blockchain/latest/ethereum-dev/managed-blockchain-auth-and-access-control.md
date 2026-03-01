@@ -1,6 +1,4 @@
-# Authentication and access control
-
-for Amazon Managed Blockchain (AMB) Access Ethereum
+# Authentication and access control for Amazon Managed Blockchain (AMB) Access Ethereum
 
 IAM permissions policies are associated with AWS users in your account and determine
 who has access to what. Permissions policies specify the actions that each user can perform using

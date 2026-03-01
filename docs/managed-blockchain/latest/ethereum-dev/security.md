@@ -8,5 +8,4 @@ This chapter covers security information specific to AMB Access Ethereum. For se
 ###### Topics
 
 - [Data protection for Amazon Managed Blockchain (AMB) Access Ethereum](ethereum-data-protection.md "ethereum-data-protection.md")
-- [Authentication and access control
-  for Amazon Managed Blockchain (AMB) Access Ethereum](managed-blockchain-auth-and-access-control.md "managed-blockchain-auth-and-access-control.md")
+- [Authentication and access control for Amazon Managed Blockchain (AMB) Access Ethereum](managed-blockchain-auth-and-access-control.md "managed-blockchain-auth-and-access-control.md")

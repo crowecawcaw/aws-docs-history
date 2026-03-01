@@ -28,9 +28,7 @@ Ethereum API calls to an Ethereum node in Amazon Managed Blockchain (AMB) can be
 This means that only authorized IAM principals in the AWS account that created the node can interact with it using
 the Ethereum APIs. AWS credentials (an access key ID and secret access key) must be provided with the call.
 
-## Identity-based
-
-policies for AMB Access Ethereum
+## Identity-based policies for AMB Access Ethereum
 
 **Supports identity-based policies:**
 
@@ -47,16 +45,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AMB Access Ethereum
 
-Identity-based policy examples for AMB Access Ethereum
+To view examples of AMB Access Ethereum identity-based policies, see [Identity-based policy examples for Amazon Managed Blockchain (AMB) Access Ethereum](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of AMB Access Ethereum identity-based policies, see [Identity-based policy
-examples for Amazon Managed Blockchain (AMB) Access Ethereum](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within AMB Access Ethereum
+## Resource-based policies within AMB Access Ethereum
 
 **Supports resource-based policies:**
 
@@ -72,9 +65,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for AMB Access Ethereum
+## Policy actions for AMB Access Ethereum
 
 **Supports policy actions:**
 
@@ -118,12 +109,9 @@ action:
 "Action": "managedblockchain::List*"
 ```
 
-To view examples of AMB Access Ethereum identity-based policies, see [Identity-based policy
-examples for Amazon Managed Blockchain (AMB) Access Ethereum](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AMB Access Ethereum identity-based policies, see [Identity-based policy examples for Amazon Managed Blockchain (AMB) Access Ethereum](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AMB Access Ethereum
+## Policy resources for AMB Access Ethereum
 
 **Supports policy resources:**
 
@@ -159,12 +147,9 @@ To see a list of AMB Access Ethereum resource types and their ARNs, see
 which actions you can specify the ARN of each resource, see
 [Actions defined by Amazon Managed Blockchain (AMB) Access Ethereum](../../../service-authorization/latest/reference/list_amazonmanagedblockchain.md#amazonmanagedblockchain-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonmanagedblockchain.md#amazonmanagedblockchain-actions-as-permissions").
 
-To view examples of AMB Access Ethereum identity-based policies, see [Identity-based policy
-examples for Amazon Managed Blockchain (AMB) Access Ethereum](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AMB Access Ethereum identity-based policies, see [Identity-based policy examples for Amazon Managed Blockchain (AMB) Access Ethereum](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for AMB Access Ethereum
+## Policy condition keys for AMB Access Ethereum
 
 **Supports service-specific policy condition keys:**
 
@@ -189,8 +174,7 @@ To see a list of the AWS global condition keys supported, see
 [Condition keys for Amazon Managed Blockchain (AMB) Access Ethereum](../../../service-authorization/latest/reference/list_amazonmanagedblockchain.md#amazonmanagedblockchain-policy-keys "../../../service-authorization/latest/reference/list_amazonmanagedblockchain.md#amazonmanagedblockchain-policy-keys") in the _Service Authorization Reference_. To learn with
 which actions and resources you can use a condition key, see [Actions defined by Amazon Managed Blockchain (AMB) Access Ethereum](../../../service-authorization/latest/reference/list_amazonmanagedblockchain.md#amazonmanagedblockchain-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonmanagedblockchain.md#amazonmanagedblockchain-actions-as-permissions").
 
-To view examples of AMB Access Ethereum identity-based policies, see [Identity-based policy
-examples for Amazon Managed Blockchain (AMB) Access Ethereum](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AMB Access Ethereum identity-based policies, see [Identity-based policy examples for Amazon Managed Blockchain (AMB) Access Ethereum](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in AMB Access Ethereum
 
@@ -228,9 +212,7 @@ AMB Access Ethereum resources, see [Tagging Amazon Managed Blockchain (AMB) reso
 
 To view example identity-based policies for allowing or denying access to resources and actions based on tags, see [Controlling access using tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-tags").
 
-## Using temporary
-
-credentials with AMB Access Ethereum
+## Using temporary credentials with AMB Access Ethereum
 
 **Supports temporary credentials:**
 
@@ -242,9 +224,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for AMB Access Ethereum
+## Cross-service principal permissions for AMB Access Ethereum
 
 **Supports forward access sessions (FAS):**
 
@@ -253,9 +233,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AMB Access Ethereum
+## Service roles for AMB Access Ethereum
 
 **Supports service roles:**
 
@@ -270,9 +248,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break AMB Access Ethereum functionality.
 Edit service roles only when AMB Access Ethereum provides guidance to do so.
 
-## Service-linked
-
-roles for AMB Access Ethereum
+## Service-linked roles for AMB Access Ethereum
 
 **Supports service-linked roles:**
 

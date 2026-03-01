@@ -1,6 +1,4 @@
-# Logging Amazon Managed Blockchain API calls using
-
-AWS CloudTrail
+# Logging Amazon Managed Blockchain API calls using AWS CloudTrail
 
 Amazon Managed Blockchain is integrated with AWS CloudTrail, a service that provides a record of actions taken
 by a user, role, or an AWS service in Managed Blockchain. CloudTrail captures all API calls for Managed Blockchain as
@@ -50,9 +48,7 @@ the identity information to determine the following:
 
 For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding Managed Blockchain log file
-
-entries
+## Understanding Managed Blockchain log file entries
 
 A trail is a configuration that enables delivery of events as log files to an S3 bucket
 that you specify. Managed Blockchain supports logging management events. For more information, see [Logging
@@ -65,7 +61,7 @@ any source. It includes information about the requested action, the date and tim
 action, and request parameters. CloudTrail log files aren't an ordered stack trace of the public API
 calls. This way, they don't appear in any specific order.
 
-###### Example – Management event log entry
+###### Example– Management event log entry
 
 The following example shows a CloudTrail management event log entry that demonstrates the `GetNode`
 action.

@@ -4,14 +4,10 @@ The following examples demonstrate ways to make Ethereum Consensus API calls to 
 
 ###### Topics
 
-- [Using Consensus API calls signed using Signature Version 4 to an
-  Ethereum node](#consensus-api-sigv4-examples "#consensus-api-sigv4-examples")
-- [Using token based access to make Consensus API calls
-  to an Ethereum node](#consensus-api-tba-examples "#consensus-api-tba-examples")
+- [Using Consensus API calls signed using Signature Version 4 to an Ethereum node](#consensus-api-sigv4-examples "#consensus-api-sigv4-examples")
+- [Using token based access to make Consensus API calls to an Ethereum node](#consensus-api-tba-examples "#consensus-api-tba-examples")
 
-## Using Consensus API calls signed using Signature Version 4 to an
-
-Ethereum node
+## Using Consensus API calls signed using Signature Version 4 to an Ethereum node
 
 The following sections demonstrate ways to make Consensus API calls to an Ethereum node on Amazon Managed Blockchain (AMB) using the Signature Version 4 signing process.
 
@@ -29,14 +25,11 @@ credentials.
 
 ###### Topics
 
-- [Endpoint format for making Consensus API calls
-  over HTTP](#consensus-sigv4-api-endpoints "#consensus-sigv4-api-endpoints")
+- [Endpoint format for making Consensus API calls over HTTP](#consensus-sigv4-api-endpoints "#consensus-sigv4-api-endpoints")
 - [Making Consensus API calls using AWS SDK for JavaScript over HTTP](#consensus-sigv4-connect-to-node-http-awsjssdk "#consensus-sigv4-connect-to-node-http-awsjssdk")
 - [Using awscurl to make Consensus API calls over HTTP](#consensus-sigv4-connect-to-node-http "#consensus-sigv4-connect-to-node-http")
 
-### Endpoint format for making Consensus API calls
-
-over HTTP
+### Endpoint format for making Consensus API calls over HTTP
 
 An Ethereum node that's created using AMB Access Ethereum hosts one endpoint for HTTP
 connections. This endpoint conforms to the following patterns.
@@ -77,9 +70,7 @@ npm install aws-sdk
 Otherwise, the alternative is that the ~/.aws/credentials file is
 populated.
 
-###### Example— Make a Consensus API call using AWS SDK for JavaScript with an HTTP connection to an Ethereum
-
-node in Amazon Managed Blockchain (AMB)
+###### Example— Make a Consensus API call using AWS SDK for JavaScript with an HTTP connection to an Ethereum node in Amazon Managed Blockchain (AMB)
 
 1. Copy the contents of the script that follows and save it to a file on your machine (for
    example, `consensus-ethereum-example.js`).
@@ -164,9 +155,7 @@ The command returns output similar to the following.
 {"data":{"genesis_time":"1606824023","genesis_validators_root":"0x4b363db94e286120d76eb905340fdd4e54bfe9f06bf33ff6cf5ad27f511bfe95","genesis_fork_version":"0x00000000"}}
 ```
 
-## Using token based access to make Consensus API calls
-
-to an Ethereum node
+## Using token based access to make Consensus API calls to an Ethereum node
 
 You can use Accessor tokens to make Ethereum API calls to an Ethereum node as a convenient
 alternative to the Signature Version 4 (SigV4) signing process. You must provide a `BILLING_TOKEN`
@@ -188,15 +177,11 @@ Ethereum node on Amazon Managed Blockchain (AMB) using token based access.
 
 ###### Topics
 
-- [Endpoint format for making Consensus API calls
-  over HTTP using token based access](#consensus-tba-api-endpoints "#consensus-tba-api-endpoints")
+- [Endpoint format for making Consensus API calls over HTTP using token based access](#consensus-tba-api-endpoints "#consensus-tba-api-endpoints")
 - [Making Consensus API calls using AWS SDK for JavaScript over HTTP using token based access](#consensus-tba-connect-to-node-http-awsjssdk "#consensus-tba-connect-to-node-http-awsjssdk")
-- [Using awscurl to make Consensus API calls over HTTP using
-  token based access](#consensus-tba-connect-to-node-http "#consensus-tba-connect-to-node-http")
+- [Using awscurl to make Consensus API calls over HTTP using token based access](#consensus-tba-connect-to-node-http "#consensus-tba-connect-to-node-http")
 
-### Endpoint format for making Consensus API calls
-
-over HTTP using token based access
+### Endpoint format for making Consensus API calls over HTTP using token based access
 
 An Ethereum node that's created using AMB Access Ethereum hosts one endpoint for HTTP
 connections. This endpoint conforms to the following patterns.
@@ -237,9 +222,7 @@ npm install aws-sdk
 Otherwise, the alternative is that the ~/.aws/credentials file is
 populated.
 
-###### Example— Make a Consensus API call using AWS SDK for JavaScript with an HTTP connection using token based access to an Ethereum
-
-node in Amazon Managed Blockchain (AMB)
+###### Example— Make a Consensus API call using AWS SDK for JavaScript with an HTTP connection using token based access to an Ethereum node in Amazon Managed Blockchain (AMB)
 
 1. Copy the contents of the script that follows and save it to a file on your machine (for
    example, `consensus-ethereum-example.js`).
@@ -344,9 +327,7 @@ new AWS.CredentialProviderChain()
 NODE_ID=`nd-6eaj5va43jggnpxouzp7y47e4y` AWS_DEFAULT_REGION=us-east-1 node `consensus-ethereum-example.js`
 ```
 
-### Using awscurl to make Consensus API calls over HTTP using
-
-token based access
+### Using awscurl to make Consensus API calls over HTTP using token based access
 
 The following example uses [awscurl](https://pypi.org/project/awscurl/0.6/ "https://pypi.org/project/awscurl/0.6/"), which sends a signed HTTP request based on the credentials that you
 set for the AWS CLI.

@@ -1,6 +1,4 @@
-# Using token based access to make Ethereum API calls to Ethereum
-
-nodes in Amazon Managed Blockchain (AMB)
+# Using token based access to make Ethereum API calls to Ethereum nodes in Amazon Managed Blockchain (AMB)
 
 You can use Accessor tokens to make Ethereum API calls to an Ethereum node as a convenient
 alternative to the Signature Version 4 (SigV4) signing process. You must provide a `BILLING_TOKEN`
@@ -21,8 +19,7 @@ from one of the Accessor tokens that you create as a query parameter with the ca
 To learn more about how to make Ethereum API calls using token based access with your Accessor tokens, see:
 
 - [Using token based access to make JSON-RPC API calls to an Ethereum node](json-rpc-api-examples.md#json-rpc-api-tba-examples "json-rpc-api-examples.md#json-rpc-api-tba-examples").
-- [Using token based access to make Consensus API calls
-  to an Ethereum node](consensus-api-examples.md#consensus-api-tba-examples "consensus-api-examples.md#consensus-api-tba-examples").
+- [Using token based access to make Consensus API calls to an Ethereum node](consensus-api-examples.md#consensus-api-tba-examples "consensus-api-examples.md#consensus-api-tba-examples").
   You can create and manage Accessor tokens using the AWS Management Console. You can also create and
   manage Accessor tokens using the following API operations: `CreateAccessor`, `GetAccessor`,
   `ListAccessors`, and `DeleteAccessor`. A `BILLING_TOKEN` is a property of the Accessor. This
@@ -32,9 +29,7 @@ To learn more about how to make Ethereum API calls using token based access with
 All API actions related to creating and managing Accessor tokens are also available through
 the AWS CLI and SDKs.
 
-## Creating an Accessor token for token based
-
-access
+## Creating an Accessor token for token based access
 
 You can create an Accessor token and use it to make Ethereum API calls on any Ethereum node in
 your AWS account.

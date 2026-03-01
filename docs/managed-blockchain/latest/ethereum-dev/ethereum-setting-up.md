@@ -45,9 +45,7 @@ account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/U
 permissions for an IAM user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md"). For an example of a permissions policy that you can use to
 give a user permission to work with AMB Access Ethereum resources, see [Performing all available actions for AMB Access Ethereum](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-example "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-example").
 
-## Install and configure the
-
-AWS Command Line Interface
+## Install and configure the AWS Command Line Interface
 
 If you have not already done so, install the latest AWS Command Line Interface (AWS CLI) to work
 with AWS resources from a terminal. For more information, see [Installing or updating the latest

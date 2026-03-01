@@ -25,16 +25,12 @@ credentials.
 
 ###### Topics
 
-- [Endpoint format for making JSON-RPC API calls over
-  WebSocket and HTTP connections using Signature Version 4](#json-rpc-sigv4-api-endpoints "#json-rpc-sigv4-api-endpoints")
+- [Endpoint format for making JSON-RPC API calls over WebSocket and HTTP connections using Signature Version 4](#json-rpc-sigv4-api-endpoints "#json-rpc-sigv4-api-endpoints")
 - [Using web3.js to make JSON-RPC API calls](#json-rpc-web3-sigv4-examples "#json-rpc-web3-sigv4-examples")
-- [Making JSON-RPC API call
-  using AWS SDK for JavaScript with a WebSocket connection to an Ethereum node in Amazon Managed Blockchain (AMB)](#json-rpc-connect-to-node-websockets-awsjssdk "#json-rpc-connect-to-node-websockets-awsjssdk")
+- [Making JSON-RPC API call using AWS SDK for JavaScript with a WebSocket connection to an Ethereum node in Amazon Managed Blockchain (AMB)](#json-rpc-connect-to-node-websockets-awsjssdk "#json-rpc-connect-to-node-websockets-awsjssdk")
 - [Making JSON-RPC API calls using awscurl over HTTP](#sigv4-connect-to-node-http "#sigv4-connect-to-node-http")
 
-### Endpoint format for making JSON-RPC API calls over
-
-WebSocket and HTTP connections using Signature Version 4
+### Endpoint format for making JSON-RPC API calls over WebSocket and HTTP connections using Signature Version 4
 
 ###### Example
 
@@ -345,9 +341,7 @@ The output is similar to following.
 Geth/v1.9.24-stable-cc05b050/linux-amd64/go1.15.5
 ```
 
-### Making JSON-RPC API call
-
-using AWS SDK for JavaScript with a WebSocket connection to an Ethereum node in Amazon Managed Blockchain (AMB)
+### Making JSON-RPC API call using AWS SDK for JavaScript with a WebSocket connection to an Ethereum node in Amazon Managed Blockchain (AMB)
 
 The following example uses a JavaScript file for Node.js to open a WebSocket
 connection to the Ethereum node endpoint in AMB Access and sends an Ethereum JSON-RPC API
