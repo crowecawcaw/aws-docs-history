@@ -1,6 +1,4 @@
-# Using reputation metrics to track bounce and
-
-complaint rates
+# Using reputation metrics to track bounce and complaint rates
 
 The reputation metrics console page contains the same information that the Amazon SES team sees
 when determining the health of individual accounts.

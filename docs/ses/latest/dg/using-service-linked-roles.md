@@ -20,9 +20,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 Choose a **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role permissions for
-
-Amazon SES
+## Service-linked role permissions for Amazon SES
 
 SES uses the service-linked role named **AWSServiceRoleForAmazonSES** –
 Allows SES to publish Amazon CloudWatch basic monitoring metrics on behalf of your SES resources.
@@ -54,9 +52,7 @@ You must configure permissions to allow your users, groups, or roles to create, 
 or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Amazon SES
+## Creating a service-linked role for Amazon SES
 
 You don't need to manually create a service-linked role. When you create SES
 resources in the AWS Management Console, the AWS CLI, or the AWS API, SES
@@ -66,27 +62,21 @@ If you delete this service-linked role, and then need to create it again, you ca
 the same process to recreate the role in your account. When you create SES
 resources, SES creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-Amazon SES
+## Editing a service-linked role for Amazon SES
 
 SES does not allow you to edit the AWSServiceRoleForAmazonSES service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various
 entities might reference the role. However, you can edit the description of the role
 using IAM.
 
-## Deleting a service-linked role for
-
-SES
+## Deleting a service-linked role for SES
 
 If you no longer need to use a feature or service that requires a service-linked role,
 we recommend that you delete that role. That way you don’t have an unused entity that is
 not actively monitored or maintained. However, you must clean up your service-linked
 role before you can manually delete it.
 
-### Cleaning Up a
-
-service-linked role
+### Cleaning Up a service-linked role
 
 Before you can use IAM to delete a service-linked role, you must first delete
 all SES resources.

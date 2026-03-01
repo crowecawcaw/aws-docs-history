@@ -1,6 +1,4 @@
-# Request production access (Moving out of the
-
-Amazon SES sandbox)
+# Request production access (Moving out of the Amazon SES sandbox)
 
 To help prevent fraud and abuse, and to help protect your reputation as a sender, we apply
 certain restrictions to new Amazon SES accounts.
@@ -49,9 +47,7 @@ sandbox and placed into production.
   instance. For more information, see [How do I remove the throttle on port 25 from my EC2 instance?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-port-25-throttle/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-port-25-throttle/") in
   the AWS Knowledge Center.
 
-###### To request production access (remove your account from the sandbox) using the
-
-AWS Management Console
+###### To request production access (remove your account from the sandbox) using the AWS Management Console
 
 1. Open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation panel, choose **Account
@@ -97,9 +93,7 @@ Submitting your request using the AWS CLI is helpful when you want to request pr
 access for a large number of identities, or when you want to automate the process of setting
 up Amazon SES.
 
-###### To request that your account be removed from the Amazon SES sandbox using the
-
-AWS CLI
+###### To request that your account be removed from the Amazon SES sandbox using the AWS CLI
 
 1. **Prerequisite**: you have to install and configure the AWS CLI.
    For more information, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").

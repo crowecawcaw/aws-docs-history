@@ -1,6 +1,4 @@
-# Automatically
-
-pausing email sending for a configuration set
+# Automatically pausing email sending for a configuration set
 
 You can configure Amazon SES to export reputation metrics that are specific to emails that are
 sent using a specific configuration set to Amazon CloudWatch. You can then use these metrics to
@@ -18,24 +16,15 @@ this solution.
 
 ###### Topics in this section:
 
-- [Part 1:
-  Enable Reputation Metric Reporting for the Configuration Set](#monitoring-sender-reputation-pausing-configuration-set-part-1 "#monitoring-sender-reputation-pausing-configuration-set-part-1")
-- [Part 2:
-  Create an IAM Role](#monitoring-sender-reputation-pausing-configuration-set-part-2 "#monitoring-sender-reputation-pausing-configuration-set-part-2")
-- [Part 3:
-  Create the Lambda Function](#monitoring-sender-reputation-pausing-configuration-set-part-3 "#monitoring-sender-reputation-pausing-configuration-set-part-3")
-- [Part 4:
-  Re-Enable Email Sending for the Configuration Set](#monitoring-sender-reputation-pausing-configuration-set-part-4 "#monitoring-sender-reputation-pausing-configuration-set-part-4")
-- [Part 5:
-  Create an Amazon SNS Topic](#monitoring-sender-reputation-pausing-configuration-set-part-5 "#monitoring-sender-reputation-pausing-configuration-set-part-5")
-- [Part 6:
-  Create a CloudWatch Alarm](#monitoring-sender-reputation-pausing-configuration-set-part-6 "#monitoring-sender-reputation-pausing-configuration-set-part-6")
-- [Part 7: Test
-  the solution](#monitoring-sender-reputation-pausing-configuration-set-part-7 "#monitoring-sender-reputation-pausing-configuration-set-part-7")
+- [Part 1: Enable Reputation Metric Reporting for the Configuration Set](#monitoring-sender-reputation-pausing-configuration-set-part-1 "#monitoring-sender-reputation-pausing-configuration-set-part-1")
+- [Part 2: Create an IAM Role](#monitoring-sender-reputation-pausing-configuration-set-part-2 "#monitoring-sender-reputation-pausing-configuration-set-part-2")
+- [Part 3: Create the Lambda Function](#monitoring-sender-reputation-pausing-configuration-set-part-3 "#monitoring-sender-reputation-pausing-configuration-set-part-3")
+- [Part 4: Re-Enable Email Sending for the Configuration Set](#monitoring-sender-reputation-pausing-configuration-set-part-4 "#monitoring-sender-reputation-pausing-configuration-set-part-4")
+- [Part 5: Create an Amazon SNS Topic](#monitoring-sender-reputation-pausing-configuration-set-part-5 "#monitoring-sender-reputation-pausing-configuration-set-part-5")
+- [Part 6: Create a CloudWatch Alarm](#monitoring-sender-reputation-pausing-configuration-set-part-6 "#monitoring-sender-reputation-pausing-configuration-set-part-6")
+- [Part 7: Test the solution](#monitoring-sender-reputation-pausing-configuration-set-part-7 "#monitoring-sender-reputation-pausing-configuration-set-part-7")
 
-## Part 1:
-
-Enable Reputation Metric Reporting for the Configuration Set
+## Part 1: Enable Reputation Metric Reporting for the Configuration Set
 
 Before you can configure Amazon SES to automatically pause email sending for a
 configuration set, you must first enable the export of reputation metrics for the
@@ -44,9 +33,7 @@ configuration set.
 To enable the export of bounce and complaint metrics for the configuration set,
 complete the steps in [Viewing and exporting reputation metrics](configuration-sets-export-metrics.md "configuration-sets-export-metrics.md").
 
-## Part 2:
-
-Create an IAM Role
+## Part 2: Create an IAM Role
 
 The first step in configuring automatic pausing of email sending is to create an IAM
 role that can execute the `UpdateConfigurationSetSendingEnabled` API
@@ -78,9 +65,7 @@ these policies.
 Choose **Next: Review**. 7. On the **Review** page, for **Name**, type a
 name for the role. Choose **Create role**.
 
-## Part 3:
-
-Create the Lambda Function
+## Part 3: Create the Lambda Function
 
 After you create an IAM role, you can create the Lambda function that pauses email
 sending for the configuration set.
@@ -109,8 +94,7 @@ steps:
     * For **Role**, choose **Choose an existing
      role**.
     * For **Existing role**, choose the IAM role you
-     created in [Part 2:
-     Create an IAM Role](#monitoring-sender-reputation-pausing-configuration-set-part-2 "#monitoring-sender-reputation-pausing-configuration-set-part-2").
+     created in [Part 2: Create an IAM Role](#monitoring-sender-reputation-pausing-configuration-set-part-2 "#monitoring-sender-reputation-pausing-configuration-set-part-2").
 
 Choose **Create function**. 6. Under **Function code**, in the code editor, paste the
 following code:
@@ -165,18 +149,14 @@ name** field, and then choose **Create**. 8. Ensure that the notification bar at
 `Execution result: succeeded`. If the
 function failed to execute, do the following:
 
-    * Verify that the IAM role you created in [Part 2:
-     Create an IAM Role](#monitoring-sender-reputation-pausing-configuration-set-part-2 "#monitoring-sender-reputation-pausing-configuration-set-part-2") contains the correct policies.
+    * Verify that the IAM role you created in [Part 2: Create an IAM Role](#monitoring-sender-reputation-pausing-configuration-set-part-2 "#monitoring-sender-reputation-pausing-configuration-set-part-2") contains the correct policies.
     * Verify that the code in the Lambda function does not contain any
      errors. The Lambda code editor automatically highlights syntax errors and
      other potential issues.
 
-## Part 4:
+## Part 4: Re-Enable Email Sending for the Configuration Set
 
-Re-Enable Email Sending for the Configuration Set
-
-A side effect of testing the Lambda function in [Part 3:
-Create the Lambda Function](#monitoring-sender-reputation-pausing-configuration-set-part-3 "#monitoring-sender-reputation-pausing-configuration-set-part-3") is that
+A side effect of testing the Lambda function in [Part 3: Create the Lambda Function](#monitoring-sender-reputation-pausing-configuration-set-part-3 "#monitoring-sender-reputation-pausing-configuration-set-part-3") is that
 email sending for the configuration set is paused. In most cases, you do not want to
 pause sending for the configuration set until the CloudWatch alarm is triggered.
 
@@ -223,9 +203,7 @@ The command produces output that resembles the following example:
 If the value of `SendingEnabled` is `true`, then email
 sending for the configuration set was successfully re-enabled.
 
-## Part 5:
-
-Create an Amazon SNS Topic
+## Part 5: Create an Amazon SNS Topic
 
 For CloudWatch to execute the Lambda function when an alarm is triggered, you must first
 create an Amazon SNS topic and subscribe the Lambda function to it.
@@ -250,23 +228,18 @@ selections:
     * For **Protocol**, choose
      **AWS Lambda**.
     * For **Endpoint**, choose the Lambda function you
-     created in [Part 3:
-     Create the Lambda Function](#monitoring-sender-reputation-pausing-configuration-set-part-3 "#monitoring-sender-reputation-pausing-configuration-set-part-3").
+     created in [Part 3: Create the Lambda Function](#monitoring-sender-reputation-pausing-configuration-set-part-3 "#monitoring-sender-reputation-pausing-configuration-set-part-3").
     * For **Version or alias**, choose
      **default**.
 
 8. Choose **Create subscription**.
 
-## Part 6:
-
-Create a CloudWatch Alarm
+## Part 6: Create a CloudWatch Alarm
 
 This section contains procedures for creating an alarm in CloudWatch that is triggered when
 a metric reaches a certain threshold. When the alarm is triggered, it delivers a
-notification to the Amazon SNS topic you created in [Part 5:
-Create an Amazon SNS Topic](#monitoring-sender-reputation-pausing-configuration-set-part-5 "#monitoring-sender-reputation-pausing-configuration-set-part-5"), which
-then executes the Lambda function you created in [Part 3:
-Create the Lambda Function](#monitoring-sender-reputation-pausing-configuration-set-part-3 "#monitoring-sender-reputation-pausing-configuration-set-part-3").
+notification to the Amazon SNS topic you created in [Part 5: Create an Amazon SNS Topic](#monitoring-sender-reputation-pausing-configuration-set-part-5 "#monitoring-sender-reputation-pausing-configuration-set-part-5"), which
+then executes the Lambda function you created in [Part 3: Create the Lambda Function](#monitoring-sender-reputation-pausing-configuration-set-part-3 "#monitoring-sender-reputation-pausing-configuration-set-part-3").
 
 ###### To create a CloudWatch alarm
 
@@ -314,14 +287,11 @@ Create the Lambda Function](#monitoring-sender-reputation-pausing-configuration-
         * Under **Actions**, for **Whenever this
          alarm**, choose **State is ALARM**. For
          **Send notification to**, choose the Amazon SNS topic
-         you created in [Part 5:
-         Create an Amazon SNS Topic](#monitoring-sender-reputation-pausing-configuration-set-part-5 "#monitoring-sender-reputation-pausing-configuration-set-part-5").
+         you created in [Part 5: Create an Amazon SNS Topic](#monitoring-sender-reputation-pausing-configuration-set-part-5 "#monitoring-sender-reputation-pausing-configuration-set-part-5").
 
     Choose **Create Alarm**.
 
-## Part 7: Test
-
-the solution
+## Part 7: Test the solution
 
 You can now test the alarm to ensure that it executes the Lambda function when it
 enters the `ALARM` state. You can use the `SetAlarmState`
@@ -366,8 +336,7 @@ aws cloudwatch set-alarm-state \
 ```
 
 Replace `MyAlarm` in the preceding command with the
-name of the alarm you created in [Part 6:
-Create a CloudWatch Alarm](#monitoring-sender-reputation-pausing-configuration-set-part-6 "#monitoring-sender-reputation-pausing-configuration-set-part-6").
+name of the alarm you created in [Part 6: Create a CloudWatch Alarm](#monitoring-sender-reputation-pausing-configuration-set-part-6 "#monitoring-sender-reputation-pausing-configuration-set-part-6").
 
 ###### Note
 
@@ -400,6 +369,5 @@ following example:
 
 If the value of `SendingEnabled` is `false`, then email
 sending for the configuration set is disabled, indicating that the Lambda
-function executed successfully. 4. Complete the steps in [Part 4:
-Re-Enable Email Sending for the Configuration Set](#monitoring-sender-reputation-pausing-configuration-set-part-4 "#monitoring-sender-reputation-pausing-configuration-set-part-4") to
+function executed successfully. 4. Complete the steps in [Part 4: Re-Enable Email Sending for the Configuration Set](#monitoring-sender-reputation-pausing-configuration-set-part-4 "#monitoring-sender-reputation-pausing-configuration-set-part-4") to
 re-enable email sending for the configuration set.

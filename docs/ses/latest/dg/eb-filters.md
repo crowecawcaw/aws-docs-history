@@ -44,9 +44,7 @@ based on the implicit hierarchy of how it evaluates email:
 The procedure in the next section explains how to create traffic policies and their
 policy statements in the SES console.
 
-## Creating traffic policies and policy statements in
-
-the SES console
+## Creating traffic policies and policy statements in the SES console
 
 The following procedure shows you how to use the **Traffic policies**
 page in the SES console to create traffic policies and their policy statements, and

@@ -1,6 +1,4 @@
-# Delegate sender tasks for
-
-Amazon SES sending authorization
+# Delegate sender tasks for Amazon SES sending authorization
 
 As a delegate sender, you're sending
 emails on behalf of an identity that you don't own, but are

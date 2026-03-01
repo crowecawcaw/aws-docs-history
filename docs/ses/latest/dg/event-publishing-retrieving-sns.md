@@ -1,6 +1,4 @@
-# Interpreting Amazon SES event data from
-
-Amazon SNS
+# Interpreting Amazon SES event data from Amazon SNS
 
 Amazon SES publishes email sending events to Amazon Simple Notification Service (Amazon SNS) as JSON records. Amazon SNS then
 delivers notifications to the endpoints that are subscribed to the Amazon SNS topic associated

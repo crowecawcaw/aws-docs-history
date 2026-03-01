@@ -30,9 +30,7 @@ API validation performs the following evaluations on each email address:
 - Random String Patterns ('IsRandomInput') – Checks randomly generated
   patterns.
 
-## Using API validation with the
-
-Amazon SES console
+## Using API validation with the Amazon SES console
 
 The following procedure shows you how to validate an email address using the Amazon SES
 console.
@@ -56,9 +54,7 @@ panel, showing:
      with confidence verdicts for syntax, DNS records, mailbox existence, and
      risk factors listed above.
 
-## Using API validation with the
-
-AWS CLI
+## Using API validation with the AWS CLI
 
 The following examples show you how to validate email addresses using the
 AWS CLI.

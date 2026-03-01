@@ -1,6 +1,4 @@
-# Domain and Email address verification
-
-problems
+# Domain and Email address verification problems
 
 To verify a domain or an email address with Amazon SES, you initiate the process using either
 the Amazon SES console or the Amazon SES API. This section contains information that may help resolve
@@ -13,12 +11,9 @@ or TXT records depending on which form of DKIM you used. Easy DKIM uses CNAME re
 and Bring Your Own DKIM (BYODKIM) uses TXT records. Detailed verification procedures are
 provided for each of [Easy DKIM](creating-identities.md#easy-dkim-verify-tab "creating-identities.md#easy-dkim-verify-tab") or [BYODKIM](creating-identities.md#byodkim-verify-tab "creating-identities.md#byodkim-verify-tab").
 
-## Common domain verification
+## Common domain verification problems
 
-problems
-
-If you attempt to verify a domain using the procedure in [Verifying a DKIM domain identity with your DNS
-provider](creating-identities.md#just-verify-domain-proc "creating-identities.md#just-verify-domain-proc") and you encounter problems, review the possible
+If you attempt to verify a domain using the procedure in [Verifying a DKIM domain identity with your DNS provider](creating-identities.md#just-verify-domain-proc "creating-identities.md#just-verify-domain-proc") and you encounter problems, review the possible
 causes and solutions below.
 
 - You're attempting to verify a domain that you don't
@@ -77,9 +72,7 @@ causes and solutions below.
   downside of this solution is that you can only verify the same domain two
   times.
 
-## Checking domain verification
-
-settings
+## Checking domain verification settings
 
 You can check that your Amazon SES domain verification DNS record is published correctly to
 your DNS server by using the following procedure. This procedure uses the [nslookup](http://en.wikipedia.org/wiki/Nslookup "http://en.wikipedia.org/wiki/Nslookup") tool, which is
@@ -94,9 +87,7 @@ query those servers to view the CNAME records. You query the DNS servers that se
 domain because those servers contain the most up-to-date information for your domain,
 which can take time to propagate to other DNS servers.
 
-###### To verify that your domain verification CNAME records are published to your DNS
-
-server
+###### To verify that your domain verification CNAME records are published to your DNS server
 
 1. Find the name servers for your domain by taking the following steps.
    1. Go to the command line. To get to the command line on Windows 7,
@@ -162,9 +153,7 @@ server
    4hzwn5lmznmmjyl2pqf2agr3uzzzzxyz_domainkey.ses-example.com canonical name = "4hzwn5lmznmmjyl2pqf2agr3uzzzzxyz.dkim.amazonses.com"
    ```
 
-## Common email verification
-
-problems
+## Common email verification problems
 
 - The verification email didn't arrive – If
   you complete the procedures in [Verifying an email address identity](creating-identities.md#just-verify-email-proc "creating-identities.md#just-verify-email-proc") but you don't receive the

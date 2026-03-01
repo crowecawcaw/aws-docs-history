@@ -1,6 +1,4 @@
-# Set up a CloudWatch event
-
-destination for event publishing
+# Set up a CloudWatch event destination for event publishing
 
 With [Amazon CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md"), you can
 use event destinations to publish Amazon SES email sending events to CloudWatch. Because a CloudWatch event
@@ -23,14 +21,10 @@ to add a CloudWatch event destination to a configuration set.
 
 ###### Topics in this section
 
-- [Adding a CloudWatch
-  Event Destination](#event-publishing-add-event-destination-cloudwatch-add "#event-publishing-add-event-destination-cloudwatch-add")
-- [Choosing
-  CloudWatch Dimensions](#event-publishing-add-event-destination-cloudwatch-dimensions "#event-publishing-add-event-destination-cloudwatch-dimensions")
+- [Adding a CloudWatch Event Destination](#event-publishing-add-event-destination-cloudwatch-add "#event-publishing-add-event-destination-cloudwatch-add")
+- [Choosing CloudWatch Dimensions](#event-publishing-add-event-destination-cloudwatch-dimensions "#event-publishing-add-event-destination-cloudwatch-dimensions")
 
-## Adding a CloudWatch
-
-Event Destination
+## Adding a CloudWatch Event Destination
 
 The procedure in this section shows how to add CloudWatch event destination details to a
 configuration set and assumes you have completed steps 1 through 6 in [Creating an event destination](event-destinations-manage.md#event-destination-add "event-destinations-manage.md#event-destination-add").
@@ -38,9 +32,7 @@ configuration set and assumes you have completed steps 1 through 6 in [Creating 
 You can also use the [UpdateConfigurationSetEventDestination](../APIReference-V2/API_UpdateConfigurationSetEventDestination.md "../APIReference-V2/API_UpdateConfigurationSetEventDestination.md") operation in the Amazon SES API V2 to
 create and modify event destinations.
 
-###### To add CloudWatch event destination details to a configuration set using the
-
-console
+###### To add CloudWatch event destination details to a configuration set using the console
 
 1. These are the detailed instructions for selecting CloudWatch as your event
    destination type in [Step 7](event-destinations-manage.md#specify-event-dest-step "event-destinations-manage.md#specify-event-dest-step") and
@@ -55,8 +47,7 @@ console
    - **Message Tag** – Amazon SES retrieves the dimension
      name and value from a tag that you specify by using the
      `X-SES-MESSAGE-TAGS` header or the `EmailTags`
-     API parameter. For more information about using message tags, see [Step 3: Specify your configuration set when
-     you send email](event-publishing-send-email.md "event-publishing-send-email.md").
+     API parameter. For more information about using message tags, see [Step 3: Specify your configuration set when you send email](event-publishing-send-email.md "event-publishing-send-email.md").
 
    ###### Note
 
@@ -71,8 +62,7 @@ console
    configuration set auto-tag, use `ses:configuration-set` for
    the **Dimension Name**, and the name of the
    configuration set for the **Default Value**. For a
-   complete list of auto-tags, see [How event publishing works with
-   configuration sets and message tags](monitor-using-event-publishing.md#event-publishing-how-works "monitor-using-event-publishing.md#event-publishing-how-works").
+   complete list of auto-tags, see [How event publishing works with configuration sets and message tags](monitor-using-event-publishing.md#event-publishing-how-works "monitor-using-event-publishing.md#event-publishing-how-works").
    - **Email Header** – Amazon SES retrieves the
      dimension name and value from a header in the email.
 
@@ -107,9 +97,7 @@ allowed. 5. If you want to add more dimensions, choose **Add Dimension**.
 Otherwise, choose **Next**. 6. On the review screen, if you're satisfied with how you defined your event
 destination, choose **Add destination**.
 
-## Choosing
-
-CloudWatch Dimensions
+## Choosing CloudWatch Dimensions
 
 When you choose names and values to use as CloudWatch dimensions, consider the following
 factors:

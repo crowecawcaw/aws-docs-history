@@ -1,6 +1,4 @@
-# Provide your own DKIM
-
-authentication token (BYODKIM) in Amazon SES
+# Provide your own DKIM authentication token (BYODKIM) in Amazon SES
 
 As an alternative to using [Easy
 DKIM](send-email-authentication-dkim-easy.md "send-email-authentication-dkim-easy.md"), you can instead configure DKIM authentication by using your own
@@ -14,12 +12,9 @@ want.
 
 ###### Topics in this section:
 
-- [Step 1:
-  Create the key pair](#send-email-authentication-dkim-bring-your-own-create-key-pair "#send-email-authentication-dkim-bring-your-own-create-key-pair")
-- [Step 2: Add
-  the selector and public key to your DNS provider's domain configuration](#send-email-authentication-dkim-bring-your-own-update-dns "#send-email-authentication-dkim-bring-your-own-update-dns")
-- [Step
-  3: Configure and verify a domain to use BYODKIM](#send-email-authentication-dkim-bring-your-own-configure-identity "#send-email-authentication-dkim-bring-your-own-configure-identity")
+- [Step 1: Create the key pair](#send-email-authentication-dkim-bring-your-own-create-key-pair "#send-email-authentication-dkim-bring-your-own-create-key-pair")
+- [Step 2: Add the selector and public key to your DNS provider's domain configuration](#send-email-authentication-dkim-bring-your-own-update-dns "#send-email-authentication-dkim-bring-your-own-update-dns")
+- [Step 3: Configure and verify a domain to use BYODKIM](#send-email-authentication-dkim-bring-your-own-configure-identity "#send-email-authentication-dkim-bring-your-own-configure-identity")
 
 ###### Warning
 
@@ -33,9 +28,7 @@ signing method to the other (e.g., using a subdomain of your domain with Easy DK
 enabled and then deleting it once BYODKIM verification has passed), or perform this
 activity during your application's downtime, if any.
 
-## Step 1:
-
-Create the key pair
+## Step 1: Create the key pair
 
 To use the Bring Your Own DKIM feature, you first have to create an RSA key
 pair.
@@ -43,8 +36,7 @@ pair.
 The private key that you generate has to be in either PKCS #1 or PKCS #8 format, must
 use at least 1024-bit RSA encryption and up to 2048-bit, and be encoded using base64
 [(PEM)](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail "https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail")
-encoding. See [DKIM signing key
-length](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048") to learn more
+encoding. See [DKIM signing key length](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048") to learn more
 about DKIM signing key lengths and how to change them.
 
 ###### Note
@@ -76,9 +68,7 @@ openssl genrsa -f4 -out private.key `nnnn`
 openssl rsa -in private.key -outform PEM -pubout -out public.key
 ```
 
-## Step 2: Add
-
-the selector and public key to your DNS provider's domain configuration
+## Step 2: Add the selector and public key to your DNS provider's domain configuration
 
 Now that you've created a key pair, you have to add the public key as a TXT record to
 the DNS configuration for your domain.
@@ -148,9 +138,7 @@ with Amazon SES.
 | Names.co.uk          | [Changing your domains DNS Settings](https://www.names.co.uk/support/1156-changing_your_domains_dns_settings.html "https://www.names.co.uk/support/1156-changing_your_domains_dns_settings.html") (external<br>link)                                                                                                          |
 | Wix                  | [Adding or Updating TXT Records in Your Wix<br>Account](https://support.wix.com/en/article/adding-or-updating-txt-records-in-your-wix-account "https://support.wix.com/en/article/adding-or-updating-txt-records-in-your-wix-account") (external link)                                                                        |
 
-## Step
-
-3: Configure and verify a domain to use BYODKIM
+## Step 3: Configure and verify a domain to use BYODKIM
 
 You can set up BYODKIM for both new domains (that is, domains that you don't currently
 use to send email through Amazon SES) and existing domains (that is, domains that you've

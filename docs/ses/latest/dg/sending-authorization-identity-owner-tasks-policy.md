@@ -1,6 +1,4 @@
-# Creating a sending
-
-authorization policy in Amazon SES
+# Creating a sending authorization policy in Amazon SES
 
 Similar to creating any authorization policy in Amazon SES, as explained in [Creating an identity
 authorization policy](identity-authorization-policies-creating.md "identity-authorization-policies-creating.md"), to authorize a
@@ -9,8 +7,7 @@ _identity_) that you own, you create the policy with SES
 sending API actions specified, and then attach that policy to the identity.
 
 For a list of API actions that can be specified in a sending authorization policy, see the
-_Action_ row in the [Statements specific to
-the policy](policy-anatomy.md#identity-authorization-policy-statements "policy-anatomy.md#identity-authorization-policy-statements")
+_Action_ row in the [Statements specific to the policy](policy-anatomy.md#identity-authorization-policy-statements "policy-anatomy.md#identity-authorization-policy-statements")
 table.
 
 You can create a sending authorization policy by either using the policy generator or by
@@ -144,9 +141,7 @@ identity, you have the following options:
   policy editor in the Amazon SES console. The following procedure describes this
   method.
 
-###### To create a custom sending authorization policy by using the custom policy
-
-editor
+###### To create a custom sending authorization policy by using the custom policy editor
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose

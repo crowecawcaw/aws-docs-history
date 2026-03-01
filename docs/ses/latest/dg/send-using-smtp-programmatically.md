@@ -1,6 +1,4 @@
-# Sending emails programmatically through
-
-the Amazon SES SMTP interface
+# Sending emails programmatically through the Amazon SES SMTP interface
 
 To send an email using the Amazon SES SMTP interface, you can use an SMTP-enabled programming
 language, email server, or application. Before you start, complete the tasks in [Setting up Amazon Simple Email Service](setting-up.md "setting-up.md"). You also need to get the following
@@ -222,8 +220,7 @@ addresses are exactly the same as the ones you verified.
     * `recipient@example.com` –
      Replace with your "To" email address. If your account is
      still in the sandbox, you must verify this address before
-     you use it. For more information, see [Request production access (Moving out of the
-     Amazon SES sandbox)](request-production-access.md "request-production-access.md").
+     you use it. For more information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").
 
 9. In **AmazonSESSample.java** replace the following
    with your own values:
@@ -392,8 +389,7 @@ function fetchSMTPPasswordFromSecureStorage() {
    - `recipient@example.com` –
      Replace with the address of the recipient. If your account
      is still in the sandbox, you must verify this address before
-     you use it. For more information, see [Request production access (Moving out of the
-     Amazon SES sandbox)](request-production-access.md "request-production-access.md"). Make sure
+     you use it. For more information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md"). Make sure
      that the address you enter is exactly the same as the one
      you verified.
    - `smtp_username` – Replace

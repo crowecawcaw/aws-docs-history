@@ -1,6 +1,4 @@
-# Setting up Amazon SES event
-
-publishing
+# Setting up Amazon SES event publishing
 
 This section describes what you need to do to configure Amazon SES to publish your email
 sending events to the following AWS services:
@@ -22,9 +20,6 @@ sending events to the following AWS services:
 
 ###### Topics in this section
 
-- [Step 1: Create a configuration
-  set](event-publishing-create-configuration-set.md "event-publishing-create-configuration-set.md")
-- [Step 2: Add an event
-  destination](event-publishing-add-event-destination.md "event-publishing-add-event-destination.md")
-- [Step 3: Specify your configuration set when
-  you send email](event-publishing-send-email.md "event-publishing-send-email.md")
+- [Step 1: Create a configuration set](event-publishing-create-configuration-set.md "event-publishing-create-configuration-set.md")
+- [Step 2: Add an event destination](event-publishing-add-event-destination.md "event-publishing-add-event-destination.md")
+- [Step 3: Specify your configuration set when you send email](event-publishing-send-email.md "event-publishing-send-email.md")

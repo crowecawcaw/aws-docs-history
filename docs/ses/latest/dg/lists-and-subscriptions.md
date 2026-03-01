@@ -1,6 +1,4 @@
-# Managing lists and subscriptions in
-
-Amazon Simple Email Service
+# Managing lists and subscriptions in Amazon Simple Email Service
 
 You can manage your own lists for mailing and subscriptions as well as for email
 suppression in Amazon SES. To help you maintain your sender reputation, SES offers
@@ -15,9 +13,7 @@ how they differ as well as a key change with global suppression list management.
 suggested that you read this overview before working with any of the lists discussed in this
 chapter.
 
-###### Overview of suppression lists and suppression
-
-override mechanism
+###### Overview of suppression lists and suppression override mechanism
 
 The global suppression list removal feature is no longer customer facing and you no
 longer interact with it to manage suppression. The global suppression list operates and
@@ -51,8 +47,7 @@ explained below.
   longer directly interact with the global suppression list, it still operates in the
   background and the general tenets of how the global suppression list works can also be
   applied to explain the overall principles of how the other types of suppression work. See
-  [Amazon SES global suppression
-  list](sending-email-global-suppression-list.md "sending-email-global-suppression-list.md").
+  [Amazon SES global suppression list](sending-email-global-suppression-list.md "sending-email-global-suppression-list.md").
 
 ###### Note
 
@@ -70,8 +65,7 @@ _(which means you want to send to it)_, and you do send to it, Amazon SES
 will still attempt delivery, but if it bounces, the bounce will affect your own reputation,
 but no one else will get bounces because they can’t send to that email address if they
 aren’t using their own account level suppression list; therefore, the account-level
-suppression list overrides the global suppression list for your account only. See [Using the Amazon SES account-level suppression
-list](sending-email-suppression-list.md "sending-email-suppression-list.md").
+suppression list overrides the global suppression list for your account only. See [Using the Amazon SES account-level suppression list](sending-email-suppression-list.md "sending-email-suppression-list.md").
 
 _Configuration set-level suppression_, while not a list per se, but a
 mechanism that enables you to configure suppression customizations and overrides to your
@@ -84,17 +78,12 @@ set's suppression overrides so that email addresses are added to your account-le
 suppression list only for complaints (not bounces and complaints like is set in your
 account-level suppression list) from email sent with this configuration set. With
 configuration set-level suppression, there are different levels of overriding your
-account-level suppression, including not using any suppression at all. See [Using configuration set-level
-suppression to override your account-level suppression list](sending-email-suppression-list-config-level.md "sending-email-suppression-list-config-level.md").
+account-level suppression, including not using any suppression at all. See [Using configuration set-level suppression to override your account-level suppression list](sending-email-suppression-list-config-level.md "sending-email-suppression-list-config-level.md").
 
 ###### Topics in this section
 
-- [Amazon SES global suppression
-  list](sending-email-global-suppression-list.md "sending-email-global-suppression-list.md")
-- [Using the Amazon SES account-level suppression
-  list](sending-email-suppression-list.md "sending-email-suppression-list.md")
-- [Using configuration set-level
-  suppression to override your account-level suppression list](sending-email-suppression-list-config-level.md "sending-email-suppression-list-config-level.md")
+- [Amazon SES global suppression list](sending-email-global-suppression-list.md "sending-email-global-suppression-list.md")
+- [Using the Amazon SES account-level suppression list](sending-email-suppression-list.md "sending-email-suppression-list.md")
+- [Using configuration set-level suppression to override your account-level suppression list](sending-email-suppression-list-config-level.md "sending-email-suppression-list-config-level.md")
 - [Using list management](sending-email-list-management.md "sending-email-list-management.md")
-- [Using subscription
-  management](sending-email-subscription-management.md "sending-email-subscription-management.md")
+- [Using subscription management](sending-email-subscription-management.md "sending-email-subscription-management.md")

@@ -1,6 +1,4 @@
-# Identity policy examples in
-
-Amazon SES
+# Identity policy examples in Amazon SES
 
 Identity authorization enables you to specify the fine-grained conditions under which you
 allow or deny API actions for an identity.
@@ -9,16 +7,11 @@ allow or deny API actions for an identity.
 
 aspects API actions:
 
-- [Specifying the
-  principal](#identity-authorization-policy-example-delegate-user "#identity-authorization-policy-example-delegate-user")
-- [Restricting the
-  action](#sending-authorization-policy-example-restricting-action "#sending-authorization-policy-example-restricting-action")
-- [Using multiple
-  statements](#identity-authorization-policy-example-multiple-statements "#identity-authorization-policy-example-multiple-statements")
+- [Specifying the principal](#identity-authorization-policy-example-delegate-user "#identity-authorization-policy-example-delegate-user")
+- [Restricting the action](#sending-authorization-policy-example-restricting-action "#sending-authorization-policy-example-restricting-action")
+- [Using multiple statements](#identity-authorization-policy-example-multiple-statements "#identity-authorization-policy-example-multiple-statements")
 
-## Specifying the
-
-principal
+## Specifying the principal
 
 The _principal_, which is the entity to which you are granting
 permission, can be an AWS account, an AWS Identity and Access Management (IAM) user, or an AWS service that
@@ -86,9 +79,7 @@ JSON
 
 ```
 
-## Restricting the
-
-action
+## Restricting the action
 
 There are multiple actions that can be specified in an identity authorization policy
 depending on the level of control you want to authorize:
@@ -141,9 +132,7 @@ JSON
 
 ```
 
-## Using multiple
-
-statements
+## Using multiple statements
 
 Your identity authorization policy can include multiple statements. The following example
 policy has two statements. The first statement denies two users to access

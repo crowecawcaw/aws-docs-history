@@ -1,6 +1,4 @@
-# Using subscription
-
-management
+# Using subscription management
 
 Amazon SES provides a subscription management capability, in which Amazon SES automatically enables
 the unsubscribe links in every outgoing email when you specify the
@@ -21,9 +19,7 @@ sending to the contact for that topic or list in the future.
   For information about list management and how to use it, including retrieving a list of
   all your contacts who have subscribed to a particular topic, see [Using list management](sending-email-list-management.md "sending-email-list-management.md").
 
-## Subscription management
-
-overview
+## Subscription management overview
 
 You should consider the following factors when you use subscription management:
 
@@ -63,9 +59,7 @@ You should consider the following factors when you use subscription management:
 - For transactional emails where you don't want contacts to be able to
   unsubscribe, you can omit the [`ListManagementOptions`](../APIReference-V2/API_ListManagementOptions.md "../APIReference-V2/API_ListManagementOptions.md") field with your [`SendEmail`](../APIReference-V2/API_SendEmail.md "../APIReference-V2/API_SendEmail.md") request.
 
-## Unsubscribe header
-
-considerations
+## Unsubscribe header considerations
 
 Subscription management through an unsubscribe link is enabled when the email contains
 the following headers:

@@ -16,12 +16,9 @@ AWS Secrets Manager](../../../secretsmanager/latest/userguide/auth-and-access_ex
 ## Permission policies for Ingress endpoint
 
 Both of the polices in this section are required to create an ingress endpoint. To learn how
-to create an ingress endpoint and where to use these policies, see [Creating an ingress endpoint in the SES
-console](eb-ingress.md#eb-ingress-create-console "eb-ingress.md#eb-ingress-create-console").
+to create an ingress endpoint and where to use these policies, see [Creating an ingress endpoint in the SES console](eb-ingress.md#eb-ingress-create-console "eb-ingress.md#eb-ingress-create-console").
 
-### Secrets Manager secrets resource permission
-
-policy for ingress endpoint
+### Secrets Manager secrets resource permission policy for ingress endpoint
 
 The following Secrets Manager secrets resource permission policy is required to allow
 SES to access the secret using the ingress endpoint resource.
@@ -54,9 +51,7 @@ JSON
 
 ```
 
-### KMS customer managed key (CMK) key policy for
-
-ingress endpoint
+### KMS customer managed key (CMK) key policy for ingress endpoint
 
 It is required to use a customer managed key (CMK) for your secret.
 The following statement is required within your KMS key policy to allow SES to use your key for your secret.
@@ -84,12 +79,9 @@ The following statement is required within your KMS key policy to allow SES to u
 ## Permission policies for SMTP relay
 
 Both of the polices in this section are required to create an SMTP relay. To learn how to
-create an SMTP relay and where to use these policies, see [Creating an SMTP relay in the SES
-console](eb-relay.md#eb-relay-create-console "eb-relay.md#eb-relay-create-console").
+create an SMTP relay and where to use these policies, see [Creating an SMTP relay in the SES console](eb-relay.md#eb-relay-create-console "eb-relay.md#eb-relay-create-console").
 
-### Secrets Manager secrets resource permission policy
-
-for SMTP relay
+### Secrets Manager secrets resource permission policy for SMTP relay
 
 The following Secrets Manager secrets resource permission policy is required to allow
 SES to access the secret using the SMTP relay resource.
@@ -126,9 +118,7 @@ JSON
 
 ```
 
-### KMS customer managed key (CMK) key policy for
-
-SMTP relay
+### KMS customer managed key (CMK) key policy for SMTP relay
 
 The following statement is required within your KMS key policy to allow SES to use your key for your secret.
 
@@ -261,7 +251,7 @@ JSON
  "kms:Decrypt",
  "kms:GenerateDataKey"
  ],
- "Resource": "arn:aws:kms:`us-west-2`:`111122223333`:key/`MyKmsKeyArnID`"
+ "Resource": "arn:aws:kms:`us-east-1`:`111122223333`:key/`MyKmsKeyArnID`"
  }
 }`
 
@@ -311,9 +301,7 @@ JSON
 
 ```
 
-## Permission and trust polices to execute rule
-
-actions
+## Permission and trust polices to execute rule actions
 
 The SES rules execution role is an AWS Identity and Access Management (IAM) role that grants the rules
 execution permission to access AWS services and resources. Before you create a rule in
@@ -364,9 +352,7 @@ JSON
   policy](#eb-policies-q "#eb-policies-q")
 - [Publish to SNS policy](#eb-policies-sns "#eb-policies-sns")
 
-### Permission policy for \*Write to
-
-S3\* rule action
+### Permission policy for _Write to S3_ rule action
 
 The following policy is required for your IAM role to use the **Write to
 S3** rule action which delivers the received email to an
@@ -435,9 +421,7 @@ JSON
 For more information about attaching policies to AWS KMS keys, see [Using Key Policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the
 _AWS Key Management Service Developer Guide_.
 
-### Permission policy for \*Deliver to
-
-mailbox\* rule action
+### Permission policy for _Deliver to mailbox_ rule action
 
 The following policy is required for your IAM role to use the **Deliver to
 mailbox** rule action which delivers the received email to an Amazon WorkMail
@@ -459,9 +443,7 @@ JSON
 
 ```
 
-### Permission policy for \*Send to
-
-internet\* rule action
+### Permission policy for _Send to internet_ rule action
 
 The following policy is required for your IAM role to use the **Send to internet**
 rule action which sends the received email to an external domain.
@@ -491,9 +473,7 @@ JSON
 
 ```
 
-### Permission policy for \*Deliver to Q
-
-Business\* rule action
+### Permission policy for _Deliver to Q Business_ rule action
 
 The following policies are required to use the **Deliver to Q
 Business** rule action, which delivers the received email to an
@@ -561,9 +541,7 @@ JSON
 For more information about attaching policies to AWS KMS keys, see [Using Key Policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the
 _AWS Key Management Service Developer Guide_.
 
-### Permission policy for \*Publish to
-
-SNS\* rule action
+### Permission policy for _Publish to SNS_ rule action
 
 The following policies are required to use the **Publish to SNS**
 rule action, which delivers the received email to an Amazon SNS topic.

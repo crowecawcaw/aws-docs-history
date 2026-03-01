@@ -27,9 +27,6 @@ must first complete the following set up prerequisites:
 
 in the following topics:
 
-- [Verifying your domain for Amazon SES email
-  receiving](receiving-email-verification.md "receiving-email-verification.md")
-- [Publishing an MX record for Amazon SES email
-  receiving](receiving-email-mx-record.md "receiving-email-mx-record.md")
-- [Giving permissions to Amazon SES for email
-  receiving](receiving-email-permissions.md "receiving-email-permissions.md")
+- [Verifying your domain for Amazon SES email receiving](receiving-email-verification.md "receiving-email-verification.md")
+- [Publishing an MX record for Amazon SES email receiving](receiving-email-mx-record.md "receiving-email-mx-record.md")
+- [Giving permissions to Amazon SES for email receiving](receiving-email-permissions.md "receiving-email-permissions.md")

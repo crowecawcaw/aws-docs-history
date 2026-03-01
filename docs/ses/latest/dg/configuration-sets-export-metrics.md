@@ -34,9 +34,7 @@ Replace `ConfigSet` in the preceding command with the
 name of the configuration set for which you want to start exporting reputation
 metrics.
 
-## Disabling the export of
-
-reputation metrics
+## Disabling the export of reputation metrics
 
 You can also use the `UpdateConfigurationSetReputationMetricsEnabled` API
 operation to disable the exporting of reputation metrics for a configuration set.

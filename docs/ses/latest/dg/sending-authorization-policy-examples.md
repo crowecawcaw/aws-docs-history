@@ -7,24 +7,15 @@ allow delegate senders to send on your behalf.
 
 control different aspects of sending:
 
-- [Conditions specific to sending
-  authorization](#sending-authorization-policy-conditions "#sending-authorization-policy-conditions")
-- [Specifying the delegate
-  sender](#sending-authorization-policy-example-sender "#sending-authorization-policy-example-sender")
-- [Restricting the "From"
-  address](#sending-authorization-policy-example-from "#sending-authorization-policy-example-from")
-- [Restricting the time at which the
-  delegate can send email](#sending-authorization-policy-example-time "#sending-authorization-policy-example-time")
-- [Restricting the email sending
-  action](#sending-authorization-policy-example-action "#sending-authorization-policy-example-action")
-- [Restricting the display
-  name of the email sender](#sending-authorization-policy-example-display-name "#sending-authorization-policy-example-display-name")
-- [Using multiple
-  statements](#sending-authorization-policy-example-multiple-statements "#sending-authorization-policy-example-multiple-statements")
+- [Conditions specific to sending authorization](#sending-authorization-policy-conditions "#sending-authorization-policy-conditions")
+- [Specifying the delegate sender](#sending-authorization-policy-example-sender "#sending-authorization-policy-example-sender")
+- [Restricting the "From" address](#sending-authorization-policy-example-from "#sending-authorization-policy-example-from")
+- [Restricting the time at which the delegate can send email](#sending-authorization-policy-example-time "#sending-authorization-policy-example-time")
+- [Restricting the email sending action](#sending-authorization-policy-example-action "#sending-authorization-policy-example-action")
+- [Restricting the display name of the email sender](#sending-authorization-policy-example-display-name "#sending-authorization-policy-example-display-name")
+- [Using multiple statements](#sending-authorization-policy-example-multiple-statements "#sending-authorization-policy-example-multiple-statements")
 
-## Conditions specific to sending
-
-authorization
+## Conditions specific to sending authorization
 
 A _condition_ is any restriction about the permission in the statement.
 The part of the statement that specifies the conditions can be the most detailed of all the
@@ -41,12 +32,12 @@ Keys](../../../IAM/latest/UserGuide/AccessPolicyLanguage_ElementDescriptions.md#
 following keys specific to SES that are useful in sending authorization
 policies:
 
-| Condition key         | Description                                                                                                                                                                                                                                                                                                                                                             |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ses:Recipients`      | Restricts the recipient addresses, which include the To:, "CC", and "BCC"<br>addresses.                                                                                                                                                                                                                                                                                 |
-| `ses:FromAddress`     | Restricts the "From" address.                                                                                                                                                                                                                                                                                                                                           |
-| `ses:FromDisplayName` | Restricts the contents of the string that is used as the "From" display name<br>(sometimes called "friendly from"). For example, the display name of "John Doe<br><johndoe@example.com>" is John Doe.                                                                                                                                                                   |
-| `ses:FeedbackAddress` | Restricts the "Return Path" address, which is the address where bounce and<br>complaints can be sent to you by email feedback forwarding. For information about<br>email feedback forwarding, see [Receiving Amazon SES<br>notifications through email](monitor-sending-activity-using-notifications-email.md "monitor-sending-activity-using-notifications-email.md"). |
+| Condition key         | Description                                                                                                                                                                                                                                                                                                                                                          |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ses:Recipients`      | Restricts the recipient addresses, which include the To:, "CC", and "BCC"<br>addresses.                                                                                                                                                                                                                                                                              |
+| `ses:FromAddress`     | Restricts the "From" address.                                                                                                                                                                                                                                                                                                                                        |
+| `ses:FromDisplayName` | Restricts the contents of the string that is used as the "From" display name<br>(sometimes called "friendly from"). For example, the display name of "John Doe<br><johndoe@example.com>" is John Doe.                                                                                                                                                                |
+| `ses:FeedbackAddress` | Restricts the "Return Path" address, which is the address where bounce and<br>complaints can be sent to you by email feedback forwarding. For information about<br>email feedback forwarding, see [Receiving Amazon SES notifications through email](monitor-sending-activity-using-notifications-email.md "monitor-sending-activity-using-notifications-email.md"). |
 
 You can use the `StringEquals` and `StringLike` conditions with
 Amazon SES keys. These conditions are for case-sensitive string matching. For
@@ -81,9 +72,7 @@ policy statement:
 For more information about how to specify conditions, see [IAM JSON Policy Elements:
 Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
 
-## Specifying the delegate
-
-sender
+## Specifying the delegate sender
 
 The _principal_, which is the entity to which you are granting
 permission, can be an AWS account, an AWS Identity and Access Management (IAM) user, or an AWS service.
@@ -224,9 +213,7 @@ JSON
 
 ```
 
-## Restricting the "From"
-
-address
+## Restricting the "From" address
 
 If you use a verified domain, you may want to create a policy that allows only the
 delegate sender to send from a specified email address. To restrict the "From" address, you
@@ -266,9 +253,7 @@ JSON
 
 ```
 
-## Restricting the time at which the
-
-delegate can send email
+## Restricting the time at which the delegate can send email
 
 You can also configure your sender authorization policy so that a delegate sender can send
 email only at a certain time of day, or within a certain date range. For example, if you plan
@@ -309,9 +294,7 @@ JSON
 
 ```
 
-## Restricting the email sending
-
-action
+## Restricting the email sending action
 
 There are two actions that senders can use to send an email with Amazon SES:
 `SendEmail` and `SendRawEmail`, depending on how much control the
@@ -354,9 +337,7 @@ JSON
 
 ```
 
-## Restricting the display
-
-name of the email sender
+## Restricting the display name of the email sender
 
 Some email clients display the "friendly" name of the email sender (if the email header
 provides it), rather than the actual "From" address. For example, the display name of "John
@@ -398,9 +379,7 @@ JSON
 
 ```
 
-## Using multiple
-
-statements
+## Using multiple statements
 
 Your sending authorization policy can include multiple statements. The following example
 policy has two statements. The first statement authorizes two AWS accounts to send from

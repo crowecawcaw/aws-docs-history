@@ -1,6 +1,4 @@
-# Complying with DMARC authentication
-
-protocol in Amazon SES
+# Complying with DMARC authentication protocol in Amazon SES
 
 Domain-based Message Authentication, Reporting and Conformance (DMARC) is an email
 authentication protocol that uses Sender Policy Framework (SPF) and DomainKeys Identified
@@ -70,14 +68,11 @@ authenticated by either SPF or DKIM:
 
 DMARC also allows you to instruct email servers how to handle emails when they fail DMARC
 authentication through policies that you set. This will be explained in the following
-section, [Setting up the DMARC policy on
-your domain](#send-email-authentication-dmarc-dns "#send-email-authentication-dmarc-dns"), that contains information on
+section, [Setting up the DMARC policy on your domain](#send-email-authentication-dmarc-dns "#send-email-authentication-dmarc-dns"), that contains information on
 how to configure your SES domains so that the emails you send comply with the DMARC
 authentication protocol through both SPF and DKIM.
 
-## Setting up the DMARC policy on
-
-your domain
+## Setting up the DMARC policy on your domain
 
 To set up DMARC, you have to modify the DNS settings for your domain. The DNS settings
 for your domain should include a TXT record that specifies the domain's DMARC settings.
@@ -105,8 +100,7 @@ following:
   outright by using `p=reject`.
   - The next section discusses how and when to use these three policy
     settings—_using the wrong one at the wrong time can
-    cause your email to not be delivered,_ see [Best practices for
-    implementing DMARC](#send-email-authentication-dmarc-implement "#send-email-authentication-dmarc-implement").
+    cause your email to not be delivered,_ see [Best practices for implementing DMARC](#send-email-authentication-dmarc-implement "#send-email-authentication-dmarc-implement").
 
 - Send reports about all emails that failed authentication in a digest (that is,
   a report that aggregates the data for a certain time period, rather than sending
@@ -121,9 +115,7 @@ To learn more about configuring DMARC for your domain, see the [Overview](https:
 For complete specifications of the DMARC system, see [Internet
 Engineering Task Force (IETF) DMARC Draft](https://datatracker.ietf.org/doc/draft-ietf-dmarc-dmarcbis/ "https://datatracker.ietf.org/doc/draft-ietf-dmarc-dmarcbis/").
 
-## Best practices for
-
-implementing DMARC
+## Best practices for implementing DMARC
 
 It's best to implement your DMARC policy enforcement in a gradual and phased approach
 so that it doesn't interrupt the rest of your mail flow. Create and implement a roll-out
@@ -178,9 +170,7 @@ to the next step.
    - Best for new domains or existing domains that have gone through the
      prior two steps.
 
-## Complying with DMARC through
-
-SPF
+## Complying with DMARC through SPF
 
 For an email to comply with DMARC based on SPF, both of the following conditions must
 be met:
@@ -231,9 +221,7 @@ MxToolBox
 website, to determine your domain's policy alignment for
 SPF.
 
-## Complying with DMARC through
-
-DKIM
+## Complying with DMARC through DKIM
 
 For an email to comply with DMARC based on DKIM, both of the following conditions must
 be met:

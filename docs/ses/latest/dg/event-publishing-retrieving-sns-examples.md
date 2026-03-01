@@ -1,6 +1,4 @@
-# Examples of event data that Amazon SES
-
-publishes to Amazon SNS
+# Examples of event data that Amazon SES publishes to Amazon SNS
 
 This section provides examples of the types of email sending event records that Amazon SES
 publishes to Amazon SNS.
@@ -14,12 +12,9 @@ publishes to Amazon SNS.
 - [Reject record](#event-publishing-retrieving-sns-reject "#event-publishing-retrieving-sns-reject")
 - [Open record](#event-publishing-retrieving-sns-open "#event-publishing-retrieving-sns-open")
 - [Click record](#event-publishing-retrieving-sns-click "#event-publishing-retrieving-sns-click")
-- [Rendering Failure
-  record](#event-publishing-retrieving-sns-failure "#event-publishing-retrieving-sns-failure")
-- [DeliveryDelay
-  record](#event-publishing-retrieving-sns-delayed-delivery "#event-publishing-retrieving-sns-delayed-delivery")
-- [Subscription
-  record](#event-publishing-retrieving-sns-subscription "#event-publishing-retrieving-sns-subscription")
+- [Rendering Failure record](#event-publishing-retrieving-sns-failure "#event-publishing-retrieving-sns-failure")
+- [DeliveryDelay record](#event-publishing-retrieving-sns-delayed-delivery "#event-publishing-retrieving-sns-delayed-delivery")
+- [Subscription record](#event-publishing-retrieving-sns-subscription "#event-publishing-retrieving-sns-subscription")
 
 ###### Note
 
@@ -628,9 +623,7 @@ to Amazon SNS.
 }
 ```
 
-## Rendering Failure
-
-record
+## Rendering Failure record
 
 The following is an example of a `Rendering Failure` event record that
 Amazon SES publishes to Amazon SNS.
@@ -661,9 +654,7 @@ Amazon SES publishes to Amazon SNS.
 }
 ```
 
-## DeliveryDelay
-
-record
+## DeliveryDelay record
 
 The following is an example of a `DeliveryDelay` event record that Amazon SES
 publishes to Amazon SNS.
@@ -700,9 +691,7 @@ publishes to Amazon SNS.
 }
 ```
 
-## Subscription
-
-record
+## Subscription record
 
 The following is an example of a `Subscription` event record that Amazon SES
 publishes to Firehose.

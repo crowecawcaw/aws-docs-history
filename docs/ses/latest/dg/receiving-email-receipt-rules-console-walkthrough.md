@@ -1,6 +1,4 @@
-# Creating receipt rules
-
-console walkthrough
+# Creating receipt rules console walkthrough
 
 This section will walk you through creating and defining receipt rules using the Amazon SES
 console. The key points to understanding how receipt rules work are:
@@ -47,9 +45,7 @@ based email control using receipt rules:
    permission](receiving-email-permissions.md "receiving-email-permissions.md") to access other AWS resources in order to execute
    receipt rule actions.
 
-## Creating rule sets and receipt
-
-rules
+## Creating rule sets and receipt rules
 
 This walkthrough begins by first creating a rule set to contain your rules and
 progresses into the **Create rule** wizard to create, define, and order
@@ -165,9 +161,7 @@ maximum of 100 recipient conditions per receipt rule.
 15. On the confirmation page for the rule set, choose **Set as
     active** if you want to enforce the rule set immediately.
 
-### Rule modifications after
-
-creation
+### Rule modifications after creation
 
 After you've created a rule set, you can edit both the rule set and the receipt
 rules it contains. Not only can they be edited, but there's also the option to

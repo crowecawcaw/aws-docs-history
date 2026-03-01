@@ -1,6 +1,4 @@
-# Using identity authorization in
-
-Amazon SES
+# Using identity authorization in Amazon SES
 
 Identity authorization policies define how individual verified identities can use Amazon SES by
 specifying which SES API actions are allowed or denied for the identity and under
@@ -14,9 +12,6 @@ SES accounts.
 ###### Topics
 
 - [Amazon SES policy anatomy](policy-anatomy.md "policy-anatomy.md")
-- [Creating an identity
-  authorization policy in Amazon SES](identity-authorization-policies-creating.md "identity-authorization-policies-creating.md")
-- [Identity policy examples in
-  Amazon SES](identity-authorization-policy-examples.md "identity-authorization-policy-examples.md")
-- [Managing your identity authorization policies in
-  Amazon SES](managing-policies.md "managing-policies.md")
+- [Creating an identity authorization policy in Amazon SES](identity-authorization-policies-creating.md "identity-authorization-policies-creating.md")
+- [Identity policy examples in Amazon SES](identity-authorization-policy-examples.md "identity-authorization-policy-examples.md")
+- [Managing your identity authorization policies in Amazon SES](managing-policies.md "managing-policies.md")

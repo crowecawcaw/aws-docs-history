@@ -1,6 +1,4 @@
-# Sending email through Amazon SES using
-
-software packages
+# Sending email through Amazon SES using software packages
 
 There are a number of commercial and open source software packages that support sending
 email through SMTP. Here are some examples:

@@ -9,13 +9,10 @@ email marketing company) to send email from a domain you own.
 
 This chapter covers the specifics of sending authorization which replaces the legacy
 cross-account notifications feature. You should first understand the basics of identity
-based authorization using authorization policies as explained in [Using identity authorization in
-Amazon SES](identity-authorization-policies.md "identity-authorization-policies.md") which covers important topics such as
+based authorization using authorization policies as explained in [Using identity authorization in Amazon SES](identity-authorization-policies.md "identity-authorization-policies.md") which covers important topics such as
 the anatomy of an authorization policy and how to manage your polices.
 
-## Cross-account
-
-notifications legacy support
+## Cross-account notifications legacy support
 
 Feedback notifications for bounces, complaints, and deliveries associated with email
 sent from a delegate sender that's been authorized by an identity owner to send from one
@@ -60,9 +57,6 @@ with your own SNS topics](sending-authorization-identity-owner-tasks-policy.md#c
 
 ###### Topics
 
-- [Overview of Amazon SES sending
-  authorization](sending-authorization-overview.md "sending-authorization-overview.md")
-- [Identity owner tasks for Amazon SES
-  sending authorization](sending-authorization-identity-owner-tasks.md "sending-authorization-identity-owner-tasks.md")
-- [Delegate sender tasks for
-  Amazon SES sending authorization](sending-authorization-delegate-sender-tasks.md "sending-authorization-delegate-sender-tasks.md")
+- [Overview of Amazon SES sending authorization](sending-authorization-overview.md "sending-authorization-overview.md")
+- [Identity owner tasks for Amazon SES sending authorization](sending-authorization-identity-owner-tasks.md "sending-authorization-identity-owner-tasks.md")
+- [Delegate sender tasks for Amazon SES sending authorization](sending-authorization-delegate-sender-tasks.md "sending-authorization-delegate-sender-tasks.md")

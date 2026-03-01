@@ -19,11 +19,8 @@ impact your sender reputation.
 
 ###### In this section, you will find the following topics:
 
-- [Using reputation metrics to track bounce and
-  complaint rates](reputation-dashboard-dg.md "reputation-dashboard-dg.md")
+- [Using reputation metrics to track bounce and complaint rates](reputation-dashboard-dg.md "reputation-dashboard-dg.md")
 - [Reputation metrics messages](reputationdashboardmessages.md "reputationdashboardmessages.md")
-- [Creating reputation monitoring alarms
-  using CloudWatch](reputationdashboard-cloudwatch-alarm.md "reputationdashboard-cloudwatch-alarm.md")
+- [Creating reputation monitoring alarms using CloudWatch](reputationdashboard-cloudwatch-alarm.md "reputationdashboard-cloudwatch-alarm.md")
 - [SNDS metrics for dedicated IPs](snds-metrics-dedicated-ips.md "snds-metrics-dedicated-ips.md")
-- [Automatically pausing email
-  sending](monitoring-sender-reputation-pausing.md "monitoring-sender-reputation-pausing.md")
+- [Automatically pausing email sending](monitoring-sender-reputation-pausing.md "monitoring-sender-reputation-pausing.md")

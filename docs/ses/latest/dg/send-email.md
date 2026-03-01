@@ -7,8 +7,7 @@ SMTP interface or the API. For information about Amazon SES email pricing, see [
 
 - If you want to use an SMTP-enabled software package, application, or programming
   language to send email through Amazon SES, or integrate Amazon SES with your existing mail
-  server, use the Amazon SES SMTP interface. For more information, see [Sending emails programmatically through
-  the Amazon SES SMTP interface](send-using-smtp-programmatically.md "send-using-smtp-programmatically.md").
+  server, use the Amazon SES SMTP interface. For more information, see [Sending emails programmatically through the Amazon SES SMTP interface](send-using-smtp-programmatically.md "send-using-smtp-programmatically.md").
 - If you want to call Amazon SES by using raw HTTP requests, use the Amazon SES API. For more
   information, see [Using the Amazon SES API to send email](send-email-api.md "send-email-api.md").
 

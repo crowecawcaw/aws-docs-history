@@ -1,14 +1,10 @@
-# Managing your identity authorization policies in
-
-Amazon SES
+# Managing your identity authorization policies in Amazon SES
 
 In
 addition to creating and attaching policies to identities, you can edit, remove, list, and
 retrieve an identity's policies as described in the following sections.
 
-## Managing policies using the Amazon SES
-
-console
+## Managing policies using the Amazon SES console
 
 Managing Amazon SES polices entails viewing, editing, or deleting a policy attached to an
 identity by using the Amazon SES console.

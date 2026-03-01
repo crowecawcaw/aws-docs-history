@@ -49,13 +49,11 @@ When your account is in the Amazon SES sandbox, you can only send 200 messages p
 period, and your maximum sending rate is one message per second. When you submit a request
 to have your account removed from the sandbox, you can also request that your quotas are
 increased at the same time. For more information about having your account removed from the
-sandbox, see [Request production access (Moving out of the
-Amazon SES sandbox)](request-production-access.md "request-production-access.md").
+sandbox, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").
 
 When your account has been removed from the sandbox, you can request additional quota
 increases at any time by creating a new case in the AWS Support Center. For more
-information, see [Increasing your Amazon SES sending
-quotas](manage-sending-quotas-request-increase.md "manage-sending-quotas-request-increase.md").
+information, see [Increasing your Amazon SES sending quotas](manage-sending-quotas-request-increase.md "manage-sending-quotas-request-increase.md").
 
 ###### Note
 
@@ -65,10 +63,8 @@ you send an email to multiple recipients in a single call to the `SendEmail`
 API operation, because if the call fails, the entire email is rejected. We recommend
 that you call `SendEmail` once for every recipient.
 
-- To increase your sending quotas, see [Increasing your Amazon SES sending
-  quotas](manage-sending-quotas-request-increase.md "manage-sending-quotas-request-increase.md").
+- To increase your sending quotas, see [Increasing your Amazon SES sending quotas](manage-sending-quotas-request-increase.md "manage-sending-quotas-request-increase.md").
 - To monitor your sending quotas by using the Amazon SES console or the Amazon SES API, see
   [Monitoring your Amazon SES sending quotas](manage-sending-quotas-monitor.md "manage-sending-quotas-monitor.md").
 - For information about the errors your application receives when you reach your
-  sending quotas, see [Errors related to the sending quotas for your
-  Amazon SES account](manage-sending-quotas-errors.md "manage-sending-quotas-errors.md").
+  sending quotas, see [Errors related to the sending quotas for your Amazon SES account](manage-sending-quotas-errors.md "manage-sending-quotas-errors.md").

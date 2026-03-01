@@ -9,9 +9,7 @@ The following sections introduce the core email sending principals you must pay 
 to in order to ensure that your email communications reach your intended audience while
 maintaining a good sender reputation.
 
-## Domain and "From" address
-
-considerations
+## Domain and "From" address considerations
 
 - Think carefully about the addresses you send email from. The "From" address is
   one of the first pieces of information your recipients see, and therefore can
@@ -56,9 +54,7 @@ considerations
   whether your attempts to authenticate and sign the message were
   successful.
 
-## Building and maintaining your
-
-lists
+## Building and maintaining your lists
 
 - Implement a double opt-in strategy. When users sign up to receive email from
   you, send them a message with a confirmation link, and do not start sending them

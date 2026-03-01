@@ -1,6 +1,4 @@
-# Sending email through Amazon SES using
-
-an AWS SDK
+# Sending email through Amazon SES using an AWS SDK
 
 You can use an AWS SDK to send email through Amazon SES. AWS SDKs are available for several
 programming languages. For more information, see [Tools for Amazon Web Services](https://aws.amazon.com/tools/#sdk "https://aws.amazon.com/tools/#sdk").
@@ -15,8 +13,7 @@ samples in the next section:
   Amazon SES—Before you can send an email with Amazon SES, you must verify
   that you own the sender's email address. If your account is still in the Amazon SES
   sandbox, you must also verify the recipient email address. We recommend you use
-  the Amazon SES console to verify email addresses. For more information, see [Creating an email address
-  identity](creating-identities.md#verify-email-addresses-procedure "creating-identities.md#verify-email-addresses-procedure").
+  the Amazon SES console to verify email addresses. For more information, see [Creating an email address identity](creating-identities.md#verify-email-addresses-procedure "creating-identities.md#verify-email-addresses-procedure").
 - Get your AWS credentials—You need an
   AWS access key ID and AWS secret access key to access Amazon SES using an SDK.
   You can find your credentials by using the [Security
@@ -26,9 +23,7 @@ samples in the next section:
   sample code in this section to function properly, you must create a shared
   credentials file. For more information, see [Creating a shared credentials file to use when sending email through Amazon SES using an AWS SDK](create-shared-credentials-file.md "create-shared-credentials-file.md").
 
-## Code
-
-examples
+## Code examples
 
 ###### Important
 
@@ -361,8 +356,7 @@ addresses are exactly the same as the ones you verified.
     * `RECIPIENT@EXAMPLE.COM`—Replace with your
      "To" email address. If your account is still in the sandbox,
      you must verify this address before you use it. For more
-     information, see [Request production access (Moving out of the
-     Amazon SES sandbox)](request-production-access.md "request-production-access.md").
+     information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").
     * (Optional)
      `us-west-2`—If you want to use
      Amazon SES in a Region other than US West (Oregon), replace
@@ -501,8 +495,7 @@ try {
      `recipient2@example.com`—Replace
      with the addresses of your recipients. If your account is
      still in the sandbox, your recipients' addresses must also
-     be verified. For more information, see [Request production access (Moving out of the
-     Amazon SES sandbox)](request-production-access.md "request-production-access.md"). Make sure
+     be verified. For more information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md"). Make sure
      that the address you enter is exactly the same as the one
      you verified.
    - (Optional)
@@ -665,8 +658,7 @@ end
    - `recipient@example.com`—Replace
      with the address of the recipient. If your account is still
      in the sandbox, you must verify this address before you use
-     it. For more information, see [Request production access (Moving out of the
-     Amazon SES sandbox)](request-production-access.md "request-production-access.md"). Make sure
+     it. For more information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md"). Make sure
      that the address you enter is exactly the same as the one
      you verified.
    - (Optional)
@@ -698,8 +690,7 @@ email through Amazon SES.
   you must verify that you own the sender's email address. If your
   account is still in the Amazon SES sandbox, you must also verify the
   recipient email address. We recommend you use the Amazon SES console to
-  verify email addresses. For more information, see [Creating an email address
-  identity](creating-identities.md#verify-email-addresses-procedure "creating-identities.md#verify-email-addresses-procedure").
+  verify email addresses. For more information, see [Creating an email address identity](creating-identities.md#verify-email-addresses-procedure "creating-identities.md#verify-email-addresses-procedure").
 - Get your AWS
   credentials—You need an AWS access key ID and AWS
   secret access key to access Amazon SES using an SDK. You can find your
@@ -818,8 +809,7 @@ else:
    - `recipient@example.com`—Replace
      with the address of the recipient. If your account is still
      in the sandbox, you must verify this address before you use
-     it. For more information, see [Request production access (Moving out of the
-     Amazon SES sandbox)](request-production-access.md "request-production-access.md"). Make sure
+     it. For more information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md"). Make sure
      that the address you enter is exactly the same as the one
      you verified.
    - (Optional)

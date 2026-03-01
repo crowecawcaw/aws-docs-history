@@ -1,6 +1,4 @@
-# Increasing your Amazon SES sending
-
-quotas
+# Increasing your Amazon SES sending quotas
 
 Your account has the following quotas per your current region that can be
 increased.
@@ -10,9 +8,7 @@ increased.
 | Sending quota | 200           | Maximum number of emails that you can send in a 24-hour period for this<br>account in the current AWS Region.  |
 | Sending rate  | 1             | Maximum number of emails that Amazon SES can accept each second for this<br>account in the current AWS Region. |
 
-## Automatically increased sending
-
-quotas
+## Automatically increased sending quotas
 
 When your account is out of the sandbox and you're sending high-quality production
 email, we might automatically increase the sending quotas for your account. Often, we
@@ -40,9 +36,7 @@ true:
   a high number of bounces and complaints can have a negative impact on your
   sending quotas.
 
-## User requested increased
-
-sending quotas
+## User requested increased sending quotas
 
 If your current sending quotas aren't adequate for your needs and we haven't
 automatically increased them, you can request an increase:
@@ -51,9 +45,7 @@ automatically increased them, you can request an increase:
   requests for either of these can be submitted through the _AWS
   Service Quotas console_.
 
-###### To request an increase on your Amazon SES sending quotas using the Service Quotas
-
-console.
+###### To request an increase on your Amazon SES sending quotas using the Service Quotas console.
 
 1. Open the [Service Quotas
    console](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").

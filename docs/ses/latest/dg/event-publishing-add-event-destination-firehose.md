@@ -1,6 +1,4 @@
-# Set up a Data Firehose event
-
-destination for Amazon SES event publishing
+# Set up a Data Firehose event destination for Amazon SES event publishing
 
 An Amazon Data Firehose event destination represents an entity that publishes specific Amazon SES email
 sending events to Firehose. Because a Firehose event destination can only be set up in a
@@ -13,9 +11,7 @@ configuration set and assumes you have completed steps 1 through 6 in [Creating 
 You can also use the [UpdateConfigurationSetEventDestination](../APIReference-V2/API_UpdateConfigurationSetEventDestination.md "../APIReference-V2/API_UpdateConfigurationSetEventDestination.md") operation in the Amazon SES API V2
 destination to create and update event destinations.
 
-###### To add Firehose event destination details to a configuration set using the
-
-console
+###### To add Firehose event destination details to a configuration set using the console
 
 1. These are the detailed instructions for selecting Firehose as your event destination
    type in [Step 7](event-destinations-manage.md#specify-event-dest-step "event-destinations-manage.md#specify-event-dest-step") and assumes you have
@@ -41,9 +37,7 @@ destination, choose **Add destination**.
 For information about how to use the `UpdateConfigurationSetEventDestination`
 API to add a Firehose event destination, see the [Amazon Simple Email Service API Reference](../APIReference/API_UpdateConfigurationSetEventDestination.md "../APIReference/API_UpdateConfigurationSetEventDestination.md").
 
-## Giving Amazon SES
-
-Permission to Publish to Your Firehose Delivery Stream
+## Giving Amazon SES Permission to Publish to Your Firehose Delivery Stream
 
 To enable Amazon SES to publish records to your Firehose delivery stream, you must use an
 AWS Identity and Access Management (IAM) [role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") and attach or
@@ -89,9 +83,7 @@ Make the following changes to the preceding policy example:
 - Replace `delivery-stream-name` with the name of
   the Firehose delivery stream.
 
-### Trust
-
-Policy
+### Trust Policy
 
 The following trust policy enables Amazon SES to assume the role.
 

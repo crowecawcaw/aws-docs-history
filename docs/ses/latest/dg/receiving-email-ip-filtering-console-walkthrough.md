@@ -1,6 +1,4 @@
-# Create IP address filters
-
-console walkthrough
+# Create IP address filters console walkthrough
 
 This section will walk you through setting up IP address filters using the Amazon SES console.
 IP address filtering allows you to provide a broad level of control. These IP filters allow

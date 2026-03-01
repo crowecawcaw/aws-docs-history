@@ -25,9 +25,7 @@ can also be accessed from the Mail Manager console.
 The procedure in the next section will walk you through subscribing to an Email Add On in
 the Mail Manager console.
 
-## Subscribing to Email Add Ons in the Mail Manager
-
-console
+## Subscribing to Email Add Ons in the Mail Manager console
 
 The following procedure shows you how to use the **Email Add Ons**
 page in the Mail Manager console to subscribe to an Add On so that it can be used in any of
@@ -63,8 +61,7 @@ originates from a domain listed in Spamhaus:
 ![Using the Spamhaus Domain Block List Add On in a policy statement condition to block email coming into your ingress endpoint.](images/SpamhausAddOnPolicyStmnt.png)
 
 For details on how to create traffic policies and build policy statement conditions
-with Email Add Ons, see [Creating traffic policies and policy statements in
-the SES console](eb-filters.md#eb-filters-create-console "eb-filters.md#eb-filters-create-console").
+with Email Add Ons, see [Creating traffic policies and policy statements in the SES console](eb-filters.md#eb-filters-create-console "eb-filters.md#eb-filters-create-console").
 
 ###### Rule condition example using an Add On
 
@@ -75,8 +72,7 @@ scan:
 ![Using the Trend Micro Virus Scanning Add On in a rule condition to determine a rule action for email that passes the virus scan.](images/TrendMicroAddOnRule.png)
 
 For details on how to create rule sets and build rule conditions with
-Email Add Ons, see [Creating rule sets and rules in the SES
-console](eb-rules.md#eb-rules-create-console "eb-rules.md#eb-rules-create-console"). 5. To view general details or access support for any Add On you're subscribed
+Email Add Ons, see [Creating rule sets and rules in the SES console](eb-rules.md#eb-rules-create-console "eb-rules.md#eb-rules-create-console"). 5. To view general details or access support for any Add On you're subscribed
 to, select its name on the **Email Add Ons** page to open its
 overview page:
 

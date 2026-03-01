@@ -17,8 +17,7 @@ addresses that contain Unicode characters in the domain part of an address, you 
 encode the domain using Punycode. For more information, see [RFC 3492](https://tools.ietf.org/html/rfc3492 "https://tools.ietf.org/html/rfc3492").
 
 For examples of how to compose a formatted message using various programming languages,
-see [Code
-examples](send-an-email-using-sdk-programmatically.md#send-an-email-using-sdk-programmatically-examples "send-an-email-using-sdk-programmatically.md#send-an-email-using-sdk-programmatically-examples").
+see [Code examples](send-an-email-using-sdk-programmatically.md#send-an-email-using-sdk-programmatically-examples "send-an-email-using-sdk-programmatically.md#send-an-email-using-sdk-programmatically-examples").
 
 For tips on how to increase your email sending speed when you make multiple calls to
 `SendEmail`, see [Increasing throughput with Amazon SES](troubleshoot-throughput-problems.md "troubleshoot-throughput-problems.md").

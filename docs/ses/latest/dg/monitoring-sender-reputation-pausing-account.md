@@ -1,6 +1,4 @@
-# Automatically pausing email
-
-sending for your entire Amazon SES account
+# Automatically pausing email sending for your entire Amazon SES account
 
 The procedures in this section explain the steps to set up Amazon SES, Amazon SNS, Amazon CloudWatch, and
 AWS Lambda to automatically pause email sending for your Amazon SES account in a single AWS
@@ -9,22 +7,14 @@ each region in which you want to implement this solution.
 
 ###### Topics in this section:
 
-- [Part 1: Create an
-  IAM Role](#monitoring-sender-reputation-pausing-account-part-1 "#monitoring-sender-reputation-pausing-account-part-1")
-- [Part 2: Create the
-  Lambda Function](#monitoring-sender-reputation-pausing-account-part-2 "#monitoring-sender-reputation-pausing-account-part-2")
-- [Part 3: Re-Enable
-  Email Sending for Your Account](#monitoring-sender-reputation-pausing-account-part-3 "#monitoring-sender-reputation-pausing-account-part-3")
-- [Part 4: Create an
-  Amazon SNS Topic and Subscription](#monitoring-sender-reputation-pausing-account-part-4 "#monitoring-sender-reputation-pausing-account-part-4")
-- [Part 5: Create a
-  CloudWatch Alarm](#monitoring-sender-reputation-pausing-account-part-5 "#monitoring-sender-reputation-pausing-account-part-5")
-- [Part 6: Test the
-  solution](#monitoring-sender-reputation-pausing-account-part-6 "#monitoring-sender-reputation-pausing-account-part-6")
+- [Part 1: Create an IAM Role](#monitoring-sender-reputation-pausing-account-part-1 "#monitoring-sender-reputation-pausing-account-part-1")
+- [Part 2: Create the Lambda Function](#monitoring-sender-reputation-pausing-account-part-2 "#monitoring-sender-reputation-pausing-account-part-2")
+- [Part 3: Re-Enable Email Sending for Your Account](#monitoring-sender-reputation-pausing-account-part-3 "#monitoring-sender-reputation-pausing-account-part-3")
+- [Part 4: Create an Amazon SNS Topic and Subscription](#monitoring-sender-reputation-pausing-account-part-4 "#monitoring-sender-reputation-pausing-account-part-4")
+- [Part 5: Create a CloudWatch Alarm](#monitoring-sender-reputation-pausing-account-part-5 "#monitoring-sender-reputation-pausing-account-part-5")
+- [Part 6: Test the solution](#monitoring-sender-reputation-pausing-account-part-6 "#monitoring-sender-reputation-pausing-account-part-6")
 
-## Part 1: Create an
-
-IAM Role
+## Part 1: Create an IAM Role
 
 The first step in configuring automatic pausing of email sending is to create an IAM
 role that can execute the `UpdateAccountSendingEnabled` API operation.
@@ -58,9 +48,7 @@ the **Role name** field. 8. Verify that the two policies you selected are listed
 **Permissions policy summary** table, then choose
 **Create role**.
 
-## Part 2: Create the
-
-Lambda Function
+## Part 2: Create the Lambda Function
 
 After you create an IAM role, you can create the Lambda function that pauses email
 sending for your account.
@@ -92,8 +80,7 @@ steps:
      role** and choose **Use an existing
      role**.
     * Click inside the **Existing role** list box, and
-     choose the IAM role you created in [Part 1: Create an
-     IAM Role](#monitoring-sender-reputation-pausing-account-part-1 "#monitoring-sender-reputation-pausing-account-part-1").
+     choose the IAM role you created in [Part 1: Create an IAM Role](#monitoring-sender-reputation-pausing-account-part-1 "#monitoring-sender-reputation-pausing-account-part-1").
 
 Then choose **Create function**. 6. Under **Code source**, in the code editor, paste the
 following code:
@@ -134,19 +121,15 @@ you just created, and then choose **Test**. 9. The **Execution results** tab wil
 to the right, ensure that `Status: Succeeded` is
 displayed. If the function failed to execute, do the following:
 
-    * Verify that the IAM role you created in [Part 1: Create an
-     IAM Role](#monitoring-sender-reputation-pausing-account-part-1 "#monitoring-sender-reputation-pausing-account-part-1")
+    * Verify that the IAM role you created in [Part 1: Create an IAM Role](#monitoring-sender-reputation-pausing-account-part-1 "#monitoring-sender-reputation-pausing-account-part-1")
      contains the correct policies.
     * Verify that the code in the Lambda function does not contain any
      errors. The Lambda code editor automatically highlights syntax errors and
      other potential issues.
 
-## Part 3: Re-Enable
+## Part 3: Re-Enable Email Sending for Your Account
 
-Email Sending for Your Account
-
-A side effect of testing the Lambda function in [Part 2: Create the
-Lambda Function](#monitoring-sender-reputation-pausing-account-part-2 "#monitoring-sender-reputation-pausing-account-part-2") is that email
+A side effect of testing the Lambda function in [Part 2: Create the Lambda Function](#monitoring-sender-reputation-pausing-account-part-2 "#monitoring-sender-reputation-pausing-account-part-2") is that email
 sending for your Amazon SES account is paused. In most cases, you do not want to pause
 sending for your account until the CloudWatch alarm is triggered.
 
@@ -180,9 +163,7 @@ sending for your account:
 }
 ```
 
-## Part 4: Create an
-
-Amazon SNS Topic and Subscription
+## Part 4: Create an Amazon SNS Topic and Subscription
 
 For CloudWatch to execute your Lambda function when an alarm is triggered, you must first
 create an Amazon SNS topic and subscribe the Lambda function to it.
@@ -202,19 +183,14 @@ create an Amazon SNS topic and subscribe the Lambda function to it.
    1. For **Protocol** choose
       **AWS Lambda**.
    2. For **Endpoint**, choose the Lambda function you
-      created in [Part 2: Create the
-      Lambda Function](#monitoring-sender-reputation-pausing-account-part-2 "#monitoring-sender-reputation-pausing-account-part-2").
+      created in [Part 2: Create the Lambda Function](#monitoring-sender-reputation-pausing-account-part-2 "#monitoring-sender-reputation-pausing-account-part-2").
 
-## Part 5: Create a
-
-CloudWatch Alarm
+## Part 5: Create a CloudWatch Alarm
 
 This section contains procedures for creating an alarm in CloudWatch that is triggered when
 a metric reaches a certain threshold. When the alarm is triggered, it delivers a
-notification to the Amazon SNS topic you created in [Part 4: Create an
-Amazon SNS Topic and Subscription](#monitoring-sender-reputation-pausing-account-part-4 "#monitoring-sender-reputation-pausing-account-part-4"), which then executes
-the Lambda function you created in [Part 2: Create the
-Lambda Function](#monitoring-sender-reputation-pausing-account-part-2 "#monitoring-sender-reputation-pausing-account-part-2").
+notification to the Amazon SNS topic you created in [Part 4: Create an Amazon SNS Topic and Subscription](#monitoring-sender-reputation-pausing-account-part-4 "#monitoring-sender-reputation-pausing-account-part-4"), which then executes
+the Lambda function you created in [Part 2: Create the Lambda Function](#monitoring-sender-reputation-pausing-account-part-2 "#monitoring-sender-reputation-pausing-account-part-2").
 
 ###### To create a CloudWatch alarm
 
@@ -259,14 +235,11 @@ Lambda Function](#monitoring-sender-reputation-pausing-account-part-2 "#monitori
         * Under **Actions**, for **Whenever this
          alarm**, choose **State is ALARM**. For
          **Send notification to**, choose the Amazon SNS topic
-         you created in [Part 4: Create an
-         Amazon SNS Topic and Subscription](#monitoring-sender-reputation-pausing-account-part-4 "#monitoring-sender-reputation-pausing-account-part-4").
+         you created in [Part 4: Create an Amazon SNS Topic and Subscription](#monitoring-sender-reputation-pausing-account-part-4 "#monitoring-sender-reputation-pausing-account-part-4").
 
     Choose **Create Alarm**.
 
-## Part 6: Test the
-
-solution
+## Part 6: Test the solution
 
 You can now test the alarm to ensure that it executes the Lambda function when it
 enters the `ALARM` state. You can use the `SetAlarmState` API
@@ -298,8 +271,7 @@ If sending is enabled for your account, you see the following output:
    `region`**
 
 Replace `MyAlarm` in the preceding command with the
-name of the alarm you created in [Part 5: Create a
-CloudWatch Alarm](#monitoring-sender-reputation-pausing-account-part-5 "#monitoring-sender-reputation-pausing-account-part-5"), and replace
+name of the alarm you created in [Part 5: Create a CloudWatch Alarm](#monitoring-sender-reputation-pausing-account-part-5 "#monitoring-sender-reputation-pausing-account-part-5"), and replace
 `region` with the Region in which you want to
 automatically pause email sending.
 
@@ -325,6 +297,5 @@ output:
 }
 ```
 
-4. Complete the steps in [Part 3: Re-Enable
-   Email Sending for Your Account](#monitoring-sender-reputation-pausing-account-part-3 "#monitoring-sender-reputation-pausing-account-part-3") to re-enable
+4. Complete the steps in [Part 3: Re-Enable Email Sending for Your Account](#monitoring-sender-reputation-pausing-account-part-3 "#monitoring-sender-reputation-pausing-account-part-3") to re-enable
    email sending for your account.

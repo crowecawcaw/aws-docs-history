@@ -7,28 +7,19 @@ every time email is sent from the identity.
 
 ###### Topics in this section:
 
-- [View, edit, & delete
-  configuration set (console)](#console-detail-configuration-sets "#console-detail-configuration-sets")
+- [View, edit, & delete configuration set (console)](#console-detail-configuration-sets "#console-detail-configuration-sets")
 - [List configuration sets (AWS CLI)](#cli-list-configuration-sets "#cli-list-configuration-sets")
-- [Get configuration set details
-  (AWS CLI)](#cli-get-configuration-set "#cli-get-configuration-set")
-- [Delete a configuration set
-  (AWS CLI)](#cli-delete-configuration-set "#cli-delete-configuration-set")
-- [Stop sending email from a
-  configuration set (AWS CLI)](#cli-configuration-set-stop-sending "#cli-configuration-set-stop-sending")
+- [Get configuration set details (AWS CLI)](#cli-get-configuration-set "#cli-get-configuration-set")
+- [Delete a configuration set (AWS CLI)](#cli-delete-configuration-set "#cli-delete-configuration-set")
+- [Stop sending email from a configuration set (AWS CLI)](#cli-configuration-set-stop-sending "#cli-configuration-set-stop-sending")
 - [Understanding default configuration sets](#default-config-sets "#default-config-sets")
 - [Creating Amazon SES event destinations](event-destinations-manage.md "event-destinations-manage.md")
 - [Assigning IP pools in Amazon SES](managing-ip-pools.md "managing-ip-pools.md")
-- [Configuring custom domains to handle
-  open and click tracking](configure-custom-open-click-domains.md "configure-custom-open-click-domains.md")
+- [Configuring custom domains to handle open and click tracking](configure-custom-open-click-domains.md "configure-custom-open-click-domains.md")
 
-## View, edit, & delete
+## View, edit, & delete configuration set (console)
 
-configuration set (console)
-
-###### Access an existing configuration set's
-
-detail page
+###### Access an existing configuration set's detail page
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose
@@ -38,8 +29,7 @@ detail page
    or disable the options you've selected. The same can be done for
    **Events destination** options by selecting its tab. For
    more information about each option and their fields, see the related section in
-   [Create a configuration set
-   (console)](creating-configuration-sets.md#config-sets-create-console "creating-configuration-sets.md#config-sets-create-console").
+   [Create a configuration set (console)](creating-configuration-sets.md#config-sets-create-console "creating-configuration-sets.md#config-sets-create-console").
 4. At the top of each configuration set's details page, visible from either the
    **Overview** or **Events destination**
    tab, are the following options:
@@ -58,9 +48,7 @@ current Region, as follows:
 `aws sesv2 list-configuration-sets`
 ```
 
-## Get configuration set details
-
-(AWS CLI)
+## Get configuration set details (AWS CLI)
 
 You can use the **get-configuration-set** command in the AWS CLI to get
 details for a specific configuration set, as follows:
@@ -69,9 +57,7 @@ details for a specific configuration set, as follows:
 `aws sesv2 get-configuration-set --configuration-set-name `name``
 ```
 
-## Delete a configuration set
-
-(AWS CLI)
+## Delete a configuration set (AWS CLI)
 
 You can use the **delete-configuration-set** command in the AWS CLI to
 delete a specific configuration set, as follows:
@@ -80,9 +66,7 @@ delete a specific configuration set, as follows:
 `aws sesv2 delete-configuration-set --configuration-set-name `name``
 ```
 
-## Stop sending email from a
-
-configuration set (AWS CLI)
+## Stop sending email from a configuration set (AWS CLI)
 
 You can use the **put-configuration-set-sending-options** command in
 the AWS CLI to stop sending email from a specific configuration set, as follows:

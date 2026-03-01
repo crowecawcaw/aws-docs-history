@@ -28,8 +28,7 @@ following issues:
 
     If you are able to connect to the SMTP server using this command, and you
      are trying to connect to Amazon SES using TLS Wrapper or STARTTLS, complete the
-     procedures shown in [Testing your connection to the Amazon SES
-     SMTP interface using the command line](send-email-smtp-client-command-line.md "send-email-smtp-client-command-line.md").
+     procedures shown in [Testing your connection to the Amazon SES SMTP interface using the command line](send-email-smtp-client-command-line.md "send-email-smtp-client-command-line.md").
 
 
     If you can't connect to the Amazon SES SMTP endpoint using `telnet`
@@ -96,9 +95,7 @@ definitive list of all of the IP addresses for the Amazon SES endpoints. We reco
 that you allowlist the `amazonses.com` domain, rather than allowlisting
 individual IP addresses.
 
-## SMTP response codes returned by
-
-Amazon SES
+## SMTP response codes returned by Amazon SES
 
 This section contains a list of response codes that the Amazon SES SMTP interface
 returns.

@@ -14,9 +14,7 @@ The examples in this section include line breaks to make them easier to read. If
 the examples in this section, you should remove the additional line breaks to produce valid
 JSON objects.
 
-## Event records provided by
-
-the Lambda action
+## Event records provided by the Lambda action
 
 When you add a Lambda action to a receipt rule, Amazon SES sends an event record to Lambda every
 time it receives an incoming message. This event contains information about several of the
@@ -164,9 +162,7 @@ The following example shows the values that these event records typically contai
 }
 ```
 
-## Event records provided by the
-
-Amazon SNS action
+## Event records provided by the Amazon SNS action
 
 When you add an Amazon SNS action to your receipt rule, the notification contains the entire
 contents of the email. If you want to have a Lambda function process the body of the email, you

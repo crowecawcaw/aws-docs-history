@@ -1,6 +1,4 @@
-# Verifying an
-
-identity for Amazon SES sending authorization
+# Verifying an identity for Amazon SES sending authorization
 
 The first step in configuring sending authorization is to prove that you own the email
 address or domain that the delegate sender will use to send email. The verification
@@ -12,8 +10,7 @@ Verified Identities section of the [https://console.aws.amazon.com/ses/](https:/
 
 Before you or the delegate sender can send email to non-verified email addresses, you have
 to submit a request to have your account removed from the Amazon SES sandbox. For more
-information, see [Request production access (Moving out of the
-Amazon SES sandbox)](request-production-access.md "request-production-access.md").
+information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").
 
 ###### Important
 

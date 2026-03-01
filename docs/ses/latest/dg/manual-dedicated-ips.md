@@ -21,5 +21,4 @@ up and manage dedicated IPs (standard) in SES.
 
 - [Requesting and relinquishing dedicated IP addresses (standard)](dedicated-ip-case.md "dedicated-ip-case.md")
 - [Warming up dedicated IP addresses (standard)](dedicated-ip-warming.md "dedicated-ip-warming.md")
-- [Creating standard dedicated IP pools for
-  dedicated IPs (standard)](dedicated-ip-pools.md "dedicated-ip-pools.md")
+- [Creating standard dedicated IP pools for dedicated IPs (standard)](dedicated-ip-pools.md "dedicated-ip-pools.md")

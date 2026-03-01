@@ -1,33 +1,21 @@
-# Contents of event data that Amazon SES
-
-publishes to Amazon SNS
+# Contents of event data that Amazon SES publishes to Amazon SNS
 
 Amazon SES publishes email sending event records to Amazon Simple Notification Service in JSON format.
 
-You can find example records for all of these notification types in [Examples of event data that Amazon SES
-publishes to Amazon SNS](event-publishing-retrieving-sns-examples.md "event-publishing-retrieving-sns-examples.md").
+You can find example records for all of these notification types in [Examples of event data that Amazon SES publishes to Amazon SNS](event-publishing-retrieving-sns-examples.md "event-publishing-retrieving-sns-examples.md").
 
 ###### Topics in this section:
 
 - [Top-level JSON object](#event-publishing-retrieving-sns-contents-top-level-json-object "#event-publishing-retrieving-sns-contents-top-level-json-object")
-- [Mail
-  object](#event-publishing-retrieving-sns-contents-mail-object "#event-publishing-retrieving-sns-contents-mail-object")
-- [Bounce
-  object](#event-publishing-retrieving-sns-contents-bounce-object "#event-publishing-retrieving-sns-contents-bounce-object")
-- [Complaint
-  object](#event-publishing-retrieving-sns-contents-complaint-object "#event-publishing-retrieving-sns-contents-complaint-object")
-- [Delivery
-  object](#event-publishing-retrieving-sns-contents-delivery-object "#event-publishing-retrieving-sns-contents-delivery-object")
-- [Send
-  object](#event-publishing-retrieving-sns-contents-send-object "#event-publishing-retrieving-sns-contents-send-object")
-- [Reject
-  object](#event-publishing-retrieving-sns-contents-reject-object "#event-publishing-retrieving-sns-contents-reject-object")
-- [Open
-  object](#event-publishing-retrieving-sns-contents-open-object "#event-publishing-retrieving-sns-contents-open-object")
-- [Click
-  object](#event-publishing-retrieving-sns-contents-click-object "#event-publishing-retrieving-sns-contents-click-object")
-- [Rendering
-  Failure object](#event-publishing-retrieving-sns-contents-failure-object "#event-publishing-retrieving-sns-contents-failure-object")
+- [Mail object](#event-publishing-retrieving-sns-contents-mail-object "#event-publishing-retrieving-sns-contents-mail-object")
+- [Bounce object](#event-publishing-retrieving-sns-contents-bounce-object "#event-publishing-retrieving-sns-contents-bounce-object")
+- [Complaint object](#event-publishing-retrieving-sns-contents-complaint-object "#event-publishing-retrieving-sns-contents-complaint-object")
+- [Delivery object](#event-publishing-retrieving-sns-contents-delivery-object "#event-publishing-retrieving-sns-contents-delivery-object")
+- [Send object](#event-publishing-retrieving-sns-contents-send-object "#event-publishing-retrieving-sns-contents-send-object")
+- [Reject object](#event-publishing-retrieving-sns-contents-reject-object "#event-publishing-retrieving-sns-contents-reject-object")
+- [Open object](#event-publishing-retrieving-sns-contents-open-object "#event-publishing-retrieving-sns-contents-open-object")
+- [Click object](#event-publishing-retrieving-sns-contents-click-object "#event-publishing-retrieving-sns-contents-click-object")
+- [Rendering Failure object](#event-publishing-retrieving-sns-contents-failure-object "#event-publishing-retrieving-sns-contents-failure-object")
 - [DeliveryDelay object](#event-publishing-retrieving-sns-contents-delivery-delay-object "#event-publishing-retrieving-sns-contents-delivery-delay-object")
 - [Subscription object](#event-publishing-retrieving-sns-contents-subscription-object "#event-publishing-retrieving-sns-contents-subscription-object")
 
@@ -51,9 +39,7 @@ fields. The event type determines which other objects are present.
 | `deliveryDelay` | This field is only present if `eventType` is<br>`DeliveryDelay`. It contains information about the delayed<br>delivery of an email.                                                                                                                                                                                                                                                                 |
 | `subscription`  | This field is only present if `eventType` is<br>`Subscription`. It contains information about the<br>subscription preferences.                                                                                                                                                                                                                                                                      |
 
-## Mail
-
-object
+## Mail object
 
 Each email sending event record contains information about the original email in the
 `mail` object. The JSON object that contains information about a
@@ -72,9 +58,7 @@ Each email sending event record contains information about the original email in
 | `commonHeaders`    | A<br>mapping of the email's original, commonly used headers.<br>NoteAny message ID within the `commonHeaders` field is<br>the message ID that Amazon SES<br>subsequently assigned to the message in the `messageId` field of<br>the `mail` object.                                                                                                                                                       |
 | `tags`             | A list of tags associated with the email.                                                                                                                                                                                                                                                                                                                                                                |
 
-## Bounce
-
-object
+## Bounce object
 
 The JSON object that contains information about a `Bounce` event has the
 following fields.
@@ -108,9 +92,7 @@ present.
 | `status`         | The value of the `Status` field from the DSN.<br>This is the per-recipient transport-independent status code<br>that indicates the delivery status of the message.                                |
 | `diagnosticCode` | The status code issued by the reporting MTA. This is the<br>value of the `Diagnostic-Code` field from the<br>DSN. This field may be absent in the DSN (and therefore also<br>absent in the JSON). |
 
-### Bounce
-
-types
+### Bounce types
 
 Each bounce event is of one of the types shown in the following table.
 
@@ -122,23 +104,21 @@ to you when a message has soft bounced several times, and Amazon SES has stopped
 to re-deliver it. You may be able to successfully resend to an address that
 initially resulted in a `Transient` bounce in the future.
 
-| bounceType     | bounceSubType              | Description                                                                                                                                                                                                                                                                                              |
-| -------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Undetermined` | `Undetermined`             | Amazon SES was unable to determine a specific bounce reason.                                                                                                                                                                                                                                             |
-| `Permanent`    | `General`                  | Amazon SES received a general hard bounce. If you receive this type of bounce,<br>you should remove the recipient's email address from your mailing<br>list.                                                                                                                                             |
-| `Permanent`    | `NoEmail`                  | Amazon SES received a permanent hard bounce because the target email address<br>does not exist. If you receive this type of bounce, you should remove the<br>recipient's email address from your mailing list.                                                                                           |
-| `Permanent`    | `Suppressed`               | Amazon SES has suppressed sending to this address because it has a recent<br>history of bouncing as an invalid address. To override the global<br>suppression list, see [Using the Amazon SES account-level suppression<br>list](sending-email-suppression-list.md "sending-email-suppression-list.md"). |
-| `Permanent`    | `OnAccountSuppressionList` | Amazon SES has suppressed sending to this address because it is on the [account-level suppression<br>list](sending-email-suppression-list.md "sending-email-suppression-list.md"). This does not count toward your bounce rate metric.                                                                   |
-| `Transient`    | `General`                  | Amazon SES received a general bounce. You may be able to successfully send to<br>this recipient in the future.                                                                                                                                                                                           |
-| `Transient`    | `MailboxFull`              | Amazon SES received a mailbox full bounce. You may be able to successfully send<br>to this recipient in the future.                                                                                                                                                                                      |
-| `Transient`    | `MessageTooLarge`          | Amazon SES received a message too large bounce. You may be able to successfully<br>send to this recipient if you reduce the size of the message.                                                                                                                                                         |
-| `Transient`    | `CustomTimeoutExceeded`    | Amazon SES was not able to successfully deliver the email within the time<br>specified by the email sender. _(The bounce message will specify<br>the reason for any possible delivery attempt failures within the defined<br>TTL.)_                                                                      |
-| `Transient`    | `ContentRejected`          | Amazon SES received a content rejected bounce. You may be able to successfully<br>send to this recipient if you change the content of the message.                                                                                                                                                       |
-| `Transient`    | `AttachmentRejected`       | Amazon SES received an attachment rejected bounce. You may be able to<br>successfully send to this recipient if you remove or change the<br>attachment.                                                                                                                                                  |
+| bounceType     | bounceSubType              | Description                                                                                                                                                                                                                                                                                           |
+| -------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Undetermined` | `Undetermined`             | Amazon SES was unable to determine a specific bounce reason.                                                                                                                                                                                                                                          |
+| `Permanent`    | `General`                  | Amazon SES received a general hard bounce. If you receive this type of bounce,<br>you should remove the recipient's email address from your mailing<br>list.                                                                                                                                          |
+| `Permanent`    | `NoEmail`                  | Amazon SES received a permanent hard bounce because the target email address<br>does not exist. If you receive this type of bounce, you should remove the<br>recipient's email address from your mailing list.                                                                                        |
+| `Permanent`    | `Suppressed`               | Amazon SES has suppressed sending to this address because it has a recent<br>history of bouncing as an invalid address. To override the global<br>suppression list, see [Using the Amazon SES account-level suppression list](sending-email-suppression-list.md "sending-email-suppression-list.md"). |
+| `Permanent`    | `OnAccountSuppressionList` | Amazon SES has suppressed sending to this address because it is on the [account-level suppression<br>list](sending-email-suppression-list.md "sending-email-suppression-list.md"). This does not count toward your bounce rate metric.                                                                |
+| `Transient`    | `General`                  | Amazon SES received a general bounce. You may be able to successfully send to<br>this recipient in the future.                                                                                                                                                                                        |
+| `Transient`    | `MailboxFull`              | Amazon SES received a mailbox full bounce. You may be able to successfully send<br>to this recipient in the future.                                                                                                                                                                                   |
+| `Transient`    | `MessageTooLarge`          | Amazon SES received a message too large bounce. You may be able to successfully<br>send to this recipient if you reduce the size of the message.                                                                                                                                                      |
+| `Transient`    | `CustomTimeoutExceeded`    | Amazon SES was not able to successfully deliver the email within the time<br>specified by the email sender. _(The bounce message will specify<br>the reason for any possible delivery attempt failures within the defined<br>TTL.)_                                                                   |
+| `Transient`    | `ContentRejected`          | Amazon SES received a content rejected bounce. You may be able to successfully<br>send to this recipient if you change the content of the message.                                                                                                                                                    |
+| `Transient`    | `AttachmentRejected`       | Amazon SES received an attachment rejected bounce. You may be able to<br>successfully send to this recipient if you remove or change the<br>attachment.                                                                                                                                               |
 
-## Complaint
-
-object
+## Complaint object
 
 The JSON object that contains information about a `Complaint` event has the
 following fields.
@@ -177,9 +157,7 @@ JSON objects in this list contain the following field.
 | -------------- | ----------------------------------- |
 | `emailAddress` | The email address of the recipient. |
 
-### Complaint
-
-types
+### Complaint types
 
 You may see the following complaint types in the
 `complaintFeedbackType` field as assigned by the reporting ISP,
@@ -202,9 +180,7 @@ The value of the `complaintSubType` field can either be null or
 attempt to send it because it was on the [account-level suppression
 list](sending-email-suppression-list.md "sending-email-suppression-list.md").
 
-## Delivery
-
-object
+## Delivery object
 
 The JSON object that contains information about a `Delivery` event has the
 following fields.
@@ -218,16 +194,12 @@ following fields.
 | `reportingMTA`         | The host name of the Amazon SES mail server that sent the mail.                                                                                                          |
 | `remoteMtaIp`          | The IP address of the MTA to which Amazon SES delivered the email.                                                                                                       |
 
-## Send
-
-object
+## Send object
 
 The JSON object that contains information about a `send` event is always
 empty.
 
-## Reject
-
-object
+## Reject object
 
 The JSON object that contains information about a `Reject` event has the
 following fields.
@@ -236,9 +208,7 @@ following fields.
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `reason`   | The reason the email was rejected. The only possible value is `Bad<br>content`, which means that Amazon SES detected that the email contained<br>a virus. When a message is rejected, Amazon SES stops processing it, and doesn't<br>attempt to deliver it to the recipient's mail server. |
 
-## Open
-
-object
+## Open object
 
 The JSON object that contains information about a `Open` event has the
 following fields.
@@ -249,24 +219,20 @@ following fields.
 | `timestamp` | The date and time when the open event occurred in ISO8601 format<br>(_YYYY-MM-DDThh:mm:ss.sZ_). |
 | `userAgent` | The user agent of the device or email client that the recipient used to open the<br>email.      |
 
-## Click
-
-object
+## Click object
 
 The JSON object that contains information about a `Click` event has the
 following fields.
 
-| Field Name  | Description                                                                                                                                                                                                                                                                                                                                                                              |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ipAddress` | The recipient's IP address.                                                                                                                                                                                                                                                                                                                                                              |
-| `timestamp` | The date and time when the click event occurred in ISO8601 format<br>(_YYYY-MM-DDThh:mm:ss.sZ_).                                                                                                                                                                                                                                                                                         |
-| `userAgent` | The user agent of the client that the recipient used to click a link in<br>the email.                                                                                                                                                                                                                                                                                                    |
-| `link`      | The URL of the link that the recipient clicked.                                                                                                                                                                                                                                                                                                                                          |
-| `linkTags`  | A list of tags that were added to the link using the `ses:tags`<br>attribute. For more information about adding tags to links in your emails,<br>see [Q5. Can I tag links with unique<br>identifiers?](faqs-metrics.md#sending-metric-faqs-clicks-q5 "faqs-metrics.md#sending-metric-faqs-clicks-q5") in the [Amazon SES email sending metrics FAQs](faqs-metrics.md "faqs-metrics.md"). |
+| Field Name  | Description                                                                                                                                                                                                                                                                                                                                                                           |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ipAddress` | The recipient's IP address.                                                                                                                                                                                                                                                                                                                                                           |
+| `timestamp` | The date and time when the click event occurred in ISO8601 format<br>(_YYYY-MM-DDThh:mm:ss.sZ_).                                                                                                                                                                                                                                                                                      |
+| `userAgent` | The user agent of the client that the recipient used to click a link in<br>the email.                                                                                                                                                                                                                                                                                                 |
+| `link`      | The URL of the link that the recipient clicked.                                                                                                                                                                                                                                                                                                                                       |
+| `linkTags`  | A list of tags that were added to the link using the `ses:tags`<br>attribute. For more information about adding tags to links in your emails,<br>see [Q5. Can I tag links with unique identifiers?](faqs-metrics.md#sending-metric-faqs-clicks-q5 "faqs-metrics.md#sending-metric-faqs-clicks-q5") in the [Amazon SES email sending metrics FAQs](faqs-metrics.md "faqs-metrics.md"). |
 
-## Rendering
-
-Failure object
+## Rendering Failure object
 
 The JSON object that contains information about a `Rendering Failure` event
 has the following fields.

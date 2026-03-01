@@ -76,9 +76,7 @@ JSON
 
 ```
 
-### Enabling logging in the SES
-
-console
+### Enabling logging in the SES console
 
 To enable logging for Mail Manager resources using the console:
 
@@ -134,16 +132,11 @@ log type:
 
 ###### Log examples
 
-- [Ingress endpoint logs –
-  APPLICATION_LOGS](#ingress-endpoint-logs-app "#ingress-endpoint-logs-app")
-- [Ingress endpoint logs –
-  TRAFFIC_POLICY_DEBUG_LOGS](#ingress-endpoint-logs-traffic "#ingress-endpoint-logs-traffic")
-- [Rule set logs –
-  APPLICATION_LOGS](#rule-set-logs "#rule-set-logs")
+- [Ingress endpoint logs – APPLICATION_LOGS](#ingress-endpoint-logs-app "#ingress-endpoint-logs-app")
+- [Ingress endpoint logs – TRAFFIC_POLICY_DEBUG_LOGS](#ingress-endpoint-logs-traffic "#ingress-endpoint-logs-traffic")
+- [Rule set logs – APPLICATION_LOGS](#rule-set-logs "#rule-set-logs")
 
-### Ingress endpoint logs –
-
-`APPLICATION_LOGS`
+### Ingress endpoint logs – `APPLICATION_LOGS`
 
 The logs are generated per message.
 
@@ -175,9 +168,7 @@ Logs are created only for messages that are accepted by the ingress endpoint. An
 ingress endpoint that rejects all the incoming messages will not publish any
 application logs.
 
-#### Example CloudWatch Logs Insights
-
-queries
+#### Example CloudWatch Logs Insights queries
 
 Query messages from sender@domain.com:
 
@@ -197,9 +188,7 @@ fields @timestamp, @message, @logStream, @log
 | limit 10000
 ```
 
-### Ingress endpoint logs –
-
-`TRAFFIC_POLICY_DEBUG_LOGS`
+### Ingress endpoint logs – `TRAFFIC_POLICY_DEBUG_LOGS`
 
 The logs are generated per recipient.
 
@@ -266,9 +255,7 @@ The logs are generated per recipient.
   your configuration and may terminate early once a verdict is
   determined.
 
-#### Example CloudWatch Logs Insights
-
-queries
+#### Example CloudWatch Logs Insights queries
 
 Query messages from sender@domain.com:
 
@@ -298,9 +285,7 @@ fields @timestamp, @message, @logStream, @log
 | limit 10000
 ```
 
-### Rule set logs –
-
-`APPLICATION_LOGS`
+### Rule set logs – `APPLICATION_LOGS`
 
 The logs are generated per message per action. This means that a log record is
 generated each time a message is processed by an action in a rule in the rule

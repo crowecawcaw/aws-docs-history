@@ -1,6 +1,4 @@
-# Set up an Amazon Pinpoint event
-
-destination for event publishing
+# Set up an Amazon Pinpoint event destination for event publishing
 
 An Amazon Pinpoint event destination notifies you about the email sending events you specify in a
 configuration set. Because an Amazon Pinpoint event destination can only be set up in a configuration
@@ -18,9 +16,7 @@ There are additional charges for the types of channels you have configured in yo
 projects. For more information, see [Amazon Pinpoint
 Pricing](https://aws.amazon.com/pinpoint/pricing/ "https://aws.amazon.com/pinpoint/pricing/").
 
-###### To add Amazon Pinpoint event destination details to a configuration set using the
-
-console
+###### To add Amazon Pinpoint event destination details to a configuration set using the console
 
 1. These are the detailed instructions for selecting Amazon Pinpoint as your event destination
    type in [Step 7](event-destinations-manage.md#specify-event-dest-step "event-destinations-manage.md#specify-event-dest-step") and assumes you have

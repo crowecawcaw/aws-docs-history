@@ -1,6 +1,4 @@
-# Using your own IP addresses to send email using
-
-Amazon SES
+# Using your own IP addresses to send email using Amazon SES
 
 Amazon SES includes a feature called _Bring Your Own IP_
 (_BYOIP_), which makes it possible to use your own IP addresses to
@@ -55,9 +53,7 @@ your IP ranges to Amazon SES:
   more information, see [Amazon SES
   Pricing](https://aws.amazon.com/ses/pricing/ "https://aws.amazon.com/ses/pricing/").
 
-## Using your own IP addresses with
-
-Amazon SES
+## Using your own IP addresses with Amazon SES
 
 In order to prevent our systems from being used to send unsolicited or malicious
 content, we have to consider each BYOIP request carefully.

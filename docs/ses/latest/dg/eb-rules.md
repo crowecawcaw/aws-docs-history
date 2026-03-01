@@ -61,9 +61,7 @@ email coming into your ingress endpoint.
 The procedure in the next section will walk you through creating rule sets and their
 rules in the SES console.
 
-## Creating rule sets and rules in the SES
-
-console
+## Creating rule sets and rules in the SES console
 
 The following procedure shows you how to use the **Rule sets** page
 in the SES console to create rule sets and their rules, and manage the ones

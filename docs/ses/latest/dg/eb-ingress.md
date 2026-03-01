@@ -18,21 +18,16 @@ set that have _already been created_. Therefore, the workflow for
 creating an ingress endpoint should be in the following order:
 
 1. Start by creating a traffic policy to determine the email you want to block or allow.
-   For details, see [Creating traffic policies and policy statements in
-   the SES console](eb-filters.md#eb-filters-create-console "eb-filters.md#eb-filters-create-console").
+   For details, see [Creating traffic policies and policy statements in the SES console](eb-filters.md#eb-filters-create-console "eb-filters.md#eb-filters-create-console").
 2. Next, create a rule set to perform actions on the email you allow in. For details,
-   see [Creating rule sets and rules in the SES
-   console](eb-rules.md#eb-rules-create-console "eb-rules.md#eb-rules-create-console").
+   see [Creating rule sets and rules in the SES console](eb-rules.md#eb-rules-create-console "eb-rules.md#eb-rules-create-console").
 3. Finally, create your ingress endpoint and assign to it the traffic policy and rule set you
    just created or any others you previously created.
    Once you create your ingress endpoint, you must configure it with the environment you're using to
    receive email, whether that be the configuration of an on-premise SMTP client or a web-based
-   DNS domain host. This is discussed below in [Receiving email through the public
-   endpoints](#eb-ingress-a-record "#eb-ingress-a-record").
+   DNS domain host. This is discussed below in [Receiving email through the public endpoints](#eb-ingress-a-record "#eb-ingress-a-record").
 
-## Configuring your environment to use an
-
-ingress endpoint
+## Configuring your environment to use an ingress endpoint
 
 SES supports both public endpoints and Amazon Virtual Private Cloud (VPC) endpoints for ingress
 endpoints to accept incoming email. The following sections explain how to configure your
@@ -45,9 +40,7 @@ ingress endpoint to use either of these options.
 - [VPC endpoint
   configuration](#eb-ingress-vpc-endpoint "#eb-ingress-vpc-endpoint")
 
-### Receiving email through the public
-
-endpoints
+### Receiving email through the public endpoints
 
 ###### Using the "A" record
 
@@ -138,9 +131,7 @@ LOGIN` is used here.
 - `SW5ncmVzc1Bhc3N3b3Jk` – Client responding with ingress endpoint
   password in Base64.
 
-### Receiving email through Amazon VPC
-
-endpoints
+### Receiving email through Amazon VPC endpoints
 
 In addition to public ingress endpoints, you can use VPC endpoints with SES
 ingress endpoints for secure, private email ingestion within your private network
@@ -232,9 +223,7 @@ After configuring your VPC endpoint and ingress endpoint:
    appropriate base64-encoded credentials used with your authenticated
    ingress endpoint.
 
-## Creating an ingress endpoint in the SES
-
-console
+## Creating an ingress endpoint in the SES console
 
 The following procedure shows you how to use the **Ingress endpoint** page
 in the SES console to create ingress endpoints and manage the ones you've already

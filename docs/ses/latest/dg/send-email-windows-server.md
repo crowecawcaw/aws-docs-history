@@ -1,6 +1,4 @@
-# Integrating Amazon SES with Microsoft Windows Server
-
-IIS SMTP
+# Integrating Amazon SES with Microsoft Windows Server IIS SMTP
 
 You can configure Microsoft Windows Server's IIS SMTP server to send email through Amazon SES.
 These instructions were written using Microsoft Windows Server 2022 on an Amazon EC2 instance.

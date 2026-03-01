@@ -24,5 +24,4 @@ verify your first identity (email address or domain).
 - [Creating and verifying identities in Amazon SES](creating-identities.md "creating-identities.md")
 - [Managing identities in Amazon SES](managing-identities.md "managing-identities.md")
 - [Configuring identities in Amazon SES](configure-identities.md "configure-identities.md")
-- [Sending test emails in Amazon SES with the
-  simulator](send-an-email-from-console.md "send-an-email-from-console.md")
+- [Sending test emails in Amazon SES with the simulator](send-an-email-from-console.md "send-an-email-from-console.md")

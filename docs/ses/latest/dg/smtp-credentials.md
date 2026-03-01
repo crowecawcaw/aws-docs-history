@@ -15,9 +15,7 @@ about credentials, see [Types of Amazon SES credentials](send-email-concepts-cre
 For a list of currently available SMTP endpoints, see [SMTP endpoints](../../../general/latest/gr/ses.md#ses_smtp_endpoints "../../../general/latest/gr/ses.md#ses_smtp_endpoints") in the
 _AWS General Reference_.
 
-## Obtaining SES SMTP credentials using
-
-the SES console
+## Obtaining SES SMTP credentials using the SES console
 
 ###### Requirement
 
@@ -76,9 +74,7 @@ If you want to change your SMTP password, delete your existing SMTP user in the 
 console. Then, to generate a new set of SMTP credentials, complete the previous
 procedures.
 
-## Obtaining SES SMTP credentials by
-
-converting existing AWS credentials
+## Obtaining SES SMTP credentials by converting existing AWS credentials
 
 If you have a user that you set up using the IAM interface, you can derive the
 user's SES SMTP credentials from their AWS credentials.
@@ -89,9 +85,7 @@ Don't use temporary AWS credentials to derive SMTP credentials. The SES
 SMTP interface doesn't support SMTP credentials that have been generated from
 temporary security credentials.
 
-###### To enable the IAM user to send email using the SES SMTP
-
-interface
+###### To enable the IAM user to send email using the SES SMTP interface
 
 1. Derive the user's SMTP credentials from their AWS credentials by using the
    algorithm provided in this section following these procedures.
@@ -280,9 +274,7 @@ In the preceding command, do the following:
 When this script runs successfully, the only output is your SMTP
 password.
 
-## Migrating a SMTP user from an existing
-
-inline policy to a group policy (security recommendation)
+## Migrating a SMTP user from an existing inline policy to a group policy (security recommendation)
 
 ###### Important
 

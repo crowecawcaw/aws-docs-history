@@ -1,6 +1,4 @@
-# Providing the delegate
-
-sender with the identity information for Amazon SES sending authorization
+# Providing the delegate sender with the identity information for Amazon SES sending authorization
 
 After you create your sending authorization policy and attach it to your identity, you can
 provide the delegate sender with the Amazon Resource Name (ARN) of the identity. The

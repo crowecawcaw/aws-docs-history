@@ -1,6 +1,4 @@
-# Monitoring your usage statistics using the
-
-Amazon SES API
+# Monitoring your usage statistics using the Amazon SES API
 
 The Amazon SES API provides the `GetSendStatistics` operation, which returns
 information about your service usage. We recommend that you check your sending statistics
@@ -21,14 +19,10 @@ period:
 
 In this section, you will find the following topics:
 
-- [Calling the
-  GetSendStatistics API operation using the AWS CLI](#monitor-sending-activity-api-cli "#monitor-sending-activity-api-cli")
-- [Calling the
-  GetSendStatistics operation programmatically](#monitor-sending-activity-api-sdk "#monitor-sending-activity-api-sdk")
+- [Calling the GetSendStatistics API operation using the AWS CLI](#monitor-sending-activity-api-cli "#monitor-sending-activity-api-cli")
+- [Calling the GetSendStatistics operation programmatically](#monitor-sending-activity-api-sdk "#monitor-sending-activity-api-sdk")
 
-## Calling the
-
-`GetSendStatistics` API operation using the AWS CLI
+## Calling the `GetSendStatistics` API operation using the AWS CLI
 
 The easiest way to call the `GetSendStatistics` API operation is to use the
 [AWS Command Line Interface](https://aws.amazon.com/cli "https://aws.amazon.com/cli") (AWS CLI).
@@ -51,9 +45,7 @@ If the AWS CLI is properly configured, you see a list of sending statistics in
 JSON format. Each JSON object includes aggregated sending statistics for a
 15-minute period.
 
-## Calling the
-
-`GetSendStatistics` operation programmatically
+## Calling the `GetSendStatistics` operation programmatically
 
 You can also call the `GetSendStatistics` operation using the AWS SDKs.
 This section includes code examples for the AWS SDKs for Go, PHP, Python, and Ruby.
@@ -75,9 +67,7 @@ that contains your AWS access key ID, your AWS secret access key, and your
 preferred AWS Region. For more information, see [Shared credentials
 and config files](../../../credref/latest/refdocs/creds-config-files.md "../../../credref/latest/refdocs/creds-config-files.md").
 
-### Calling
-
-`GetSendStatistics` using the AWS SDK for Go
+### Calling `GetSendStatistics` using the AWS SDK for Go
 
 ```
 package main
@@ -129,9 +119,7 @@ func main() {
 }
 ```
 
-### Calling
-
-`GetSendStatistics` using the AWS SDK for PHP
+### Calling `GetSendStatistics` using the AWS SDK for PHP
 
 ```
 <?php
@@ -162,9 +150,7 @@ try {
 ?>
 ```
 
-### Calling
-
-`GetSendStatistics` using the AWS SDK for Python (Boto)
+### Calling `GetSendStatistics` using the AWS SDK for Python (Boto)
 
 ```
 import boto3 #pip install boto3
@@ -182,9 +168,7 @@ else:
     print(json.dumps(response, indent=4, sort_keys=True, default=str))
 ```
 
-### Calling
-
-`GetSendStatistics` using the AWS SDK for Ruby
+### Calling `GetSendStatistics` using the AWS SDK for Ruby
 
 ```
 require 'aws-sdk' # gem install aws-sdk

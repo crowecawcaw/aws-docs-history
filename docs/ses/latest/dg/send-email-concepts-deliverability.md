@@ -1,6 +1,4 @@
-# Understanding email deliverability in
-
-Amazon SES
+# Understanding email deliverability in Amazon SES
 
 You want your recipients to read your emails, find them valuable, and not label them as
 spam. In other words, you want to maximize email
@@ -16,9 +14,7 @@ steps and how Amazon SES helps you through the process.
 
 ![Circular diagram showing four steps to improve email delivery: understand issues, be proactive, stay informed, and improve program.](images/deliverability_concepts-diagram.png)
 
-## Understand email
-
-delivery issues
+## Understand email delivery issues
 
 In most cases, your messages are delivered successfully to recipients who expect them.
 In some cases, however, a delivery might fail, or a recipient might not want to receive
@@ -30,8 +26,7 @@ to these delivery issues and are described in the following sections.
 If your recipient's receiver (for example, an email provider) fails to deliver
 your message to the recipient, the receiver bounces the message back to Amazon SES. Amazon SES
 then notifies you of the bounced email through email or through Amazon Simple Notification Service (Amazon SNS),
-depending on how you have your system set up. For more information, see [Setting up event
-notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
+depending on how you have your system set up. For more information, see [Setting up event notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
 
 There are _hard bounces_ and _soft bounces_,
 as follows:
@@ -70,14 +65,11 @@ spammer, and Amazon SES has a feedback loop set up with the email provider, then
 email provider will send the complaint back to Amazon SES. When Amazon SES receives such a
 complaint, it forwards the complaint to you either by email or by using an Amazon SNS
 notification, depending on how you have your system set up. For more information,
-see [Setting up event
-notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md"). We recommend
+see [Setting up event notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md"). We recommend
 that you do not make repeated delivery attempts to email addresses that generate
 complaints.
 
-### Global
-
-suppression list
+### Global suppression list
 
 The Amazon SES _global suppression list_, owned and managed by SES
 to protect the reputation of addresses in the SES shared IP pool, contains
@@ -94,8 +86,7 @@ bounces, the bounce will affect your own reputation, but no one else will get
 bounces because they can’t send to that email address if they aren’t using their own
 account-level suppression list.
 To understand more about the account-level suppression
-list, see [Using the Amazon SES account-level suppression
-list](sending-email-suppression-list.md "sending-email-suppression-list.md").
+list, see [Using the Amazon SES account-level suppression list](sending-email-suppression-list.md "sending-email-suppression-list.md").
 
 ## Be proactive
 
@@ -118,13 +109,11 @@ to ensure that its senders are who they say they are. You are therefore required
 verify all email addresses from which you send emails through Amazon SES to protect your
 sending identity. You can verify email addresses by using the Amazon SES console or by
 using the Amazon SES API. You can also verify entire domains. For more information, see
-[Creating an email address
-identity](creating-identities.md#verify-email-addresses-procedure "creating-identities.md#verify-email-addresses-procedure") and [Creating a domain identity](creating-identities.md#verify-domain-procedure "creating-identities.md#verify-domain-procedure").
+[Creating an email address identity](creating-identities.md#verify-email-addresses-procedure "creating-identities.md#verify-email-addresses-procedure") and [Creating a domain identity](creating-identities.md#verify-domain-procedure "creating-identities.md#verify-domain-procedure").
 
 If your account is still in the Amazon SES sandbox, you also need to verify all
 recipient addresses except for addresses provided by the Amazon SES mailbox simulator.
-For information about getting out of the sandbox, see [Request production access (Moving out of the
-Amazon SES sandbox)](request-production-access.md "request-production-access.md").
+For information about getting out of the sandbox, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").
 For more information about the mailbox simulator, see [Using the mailbox simulator manually](send-an-email-from-console.md#send-email-simulator "send-an-email-from-console.md#send-email-simulator").
 
 ### Authentication
@@ -137,9 +126,7 @@ that is not authenticated. Amazon SES supports two methods of authentication: Se
 Policy Framework (SPF) and DomainKeys Identified Mail (DKIM). For more information,
 see [Configuring identities in Amazon SES](configure-identities.md "configure-identities.md").
 
-### Sending
-
-quotas
+### Sending quotas
 
 If an email provider detects sudden, unexpected spikes in the volume or rate of
 your emails, the email provider might suspect you are a spammer and block your
@@ -156,9 +143,7 @@ an [SES Sending Limits Increase case](https://aws.amazon.com/ses/extendedaccessr
 
 For more information about sending quotas and how to increase them, see [Managing your Amazon SES sending limits](manage-sending-quotas.md "manage-sending-quotas.md").
 
-### Content
-
-filtering
+### Content filtering
 
 Many email providers use content filtering to determine if incoming emails are
 spam. Content filters look for questionable content and block the email if the email
@@ -188,9 +173,7 @@ test your system, instead of sending to email addresses that you have created
 yourself. Emails to the mailbox simulator do not count toward your bounce and
 complaint metrics. For more information about the mailbox simulator, see [Using the mailbox simulator manually](send-an-email-from-console.md#send-email-simulator "send-an-email-from-console.md#send-email-simulator").
 
-### High-quality
-
-email
+### High-quality email
 
 High-quality email is email that recipients find valuable and want to receive.
 Value means different things to different recipients and can come in the form of
@@ -213,12 +196,9 @@ Many email providers also forward complaints, and Amazon SES sets up complaint f
 loops with the major email providers so you don't have to. Amazon SES can notify you of
 bounces, complaints, and successful deliveries in two ways: you can set your account
 up to receive notifications through Amazon SNS, or you can receive notifications by email
-(bounces and complaints only). For more information, see [Setting up event
-notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
+(bounces and complaints only). For more information, see [Setting up event notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
 
-### Usage
-
-statistics
+### Usage statistics
 
 Amazon SES provides usage statistics so that you can view your failed deliveries to
 determine and resolve the root causes. You can view your usage statistics by using
@@ -226,9 +206,7 @@ the Amazon SES console or by calling the Amazon SES API. You can view how many d
 bounces, complaints, and virus-infected rejected emails you have, and you can also
 view your sending quotas to ensure that you stay within them.
 
-## Improve your email-sending
-
-program
+## Improve your email-sending program
 
 If you are getting large numbers of bounces and complaints, it's time to reassess your
 email-sending strategy. Remember that excessive bounces, complaints, and attempts to
@@ -236,9 +214,7 @@ send low-quality email constitute abuse and put your AWS account at risk of
 termination. Ultimately, you need to be sure that you use Amazon SES to send high-quality
 emails and to only send emails to recipients who want to receive them.
 
-## At-least-once
-
-delivery
+## At-least-once delivery
 
 Amazon SES stores copies of your messages on multiple servers for redundancy and high
 availability. On rare occasions, one of the servers that stores a copy of a message

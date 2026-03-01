@@ -11,8 +11,7 @@ By using the [`ListContacts`](../APIReference-V2/API_ListContacts.md "../APIRefe
 list of all your contacts who have subscribed to a particular topic, to whom you can send
 emails using the [`SendEmail`](../APIReference-V2/API_SendEmail.md "../APIReference-V2/API_SendEmail.md") operation.
 
-For information about subscription management, see [Using subscription
-management](sending-email-subscription-management.md "sending-email-subscription-management.md").
+For information about subscription management, see [Using subscription management](sending-email-subscription-management.md "sending-email-subscription-management.md").
 
 ## List management overview
 
@@ -31,8 +30,7 @@ You should consider the following factors when you use list management:
   topics in the list.
 - You can import your existing contact lists to SES using the [`CreateImportJob`](../APIReference-V2/API_CreateImportJob.md "../APIReference-V2/API_CreateImportJob.md") API.
 - SES will issue a bounce event for a message that is sent to an
-  unsubscribed contact on your contact list. For more information, see [Using subscription
-  management](sending-email-subscription-management.md "sending-email-subscription-management.md").
+  unsubscribed contact on your contact list. For more information, see [Using subscription management](sending-email-subscription-management.md "sending-email-subscription-management.md").
 - Each contact can have associated attributes which you can use to store
   information about that contact.
 
@@ -42,9 +40,7 @@ You can use the following operations to configure list management capabilities. 
 the full list of contact list and contact operations, see the [Amazon SES API v2
 Reference](../APIReference-V2/Welcome.md "../APIReference-V2/Welcome.md").
 
-### Create a contact
-
-list
+### Create a contact list
 
 You can use the [`CreateContactList`](../APIReference-V2/API_CreateContactList.md "../APIReference-V2/API_CreateContactList.md") operation in the SES API v2
 to create a contact list. You can quickly and easily configure this setting by using
@@ -148,9 +144,7 @@ emails to the "_Sports_" topic.
 The `AttributesData` is a JSON field where you can put any
 metadata about our contact. It must be a valid JSON object.
 
-### Bulk importing contacts to
-
-your contact list
+### Bulk importing contacts to your contact list
 
 You can manually add addresses in bulk by first uploading your contacts into an
 Amazon S3 object followed by using the [`CreateImportJob`](../APIReference-V2/API_CreateImportJob.md "../APIReference-V2/API_CreateImportJob.md") operation in the SES API v2 or
@@ -298,9 +292,7 @@ name.
 aws sesv2 create-import-job --import-destination ContactListDestination={ContactListName=ExampleContactListName,ContactListImportAction=PUT} --import-data-source S3Url="s3://s3bucket/s3object",DataFormat=CSV
 ```
 
-## List management walkthrough
-
-with examples
+## List management walkthrough with examples
 
 The following walkthrough provides examples of how you can use list management to list
 your contacts, utilize `ListManagementOptions` to specify a contact list and
@@ -383,8 +375,7 @@ enable SES to add unsubscribe footer links in your email using the
 SES needs to insert the unsubscribe URL. Placeholder replacement is
 supported only for HTML and TEXT content types. You can include the placeholder
 two times maximum. If used more than two times, only the first two occurrences
-are replaced. For more information, see [Using subscription
-management](sending-email-subscription-management.md "sending-email-subscription-management.md").
+are replaced. For more information, see [Using subscription management](sending-email-subscription-management.md "sending-email-subscription-management.md").
 
 Alternatively, if you're using the SMTP interface to send email, you can use
 the `X-SES-LIST-MANAGEMENT-OPTIONS` header to specify a list and

@@ -1,6 +1,4 @@
-# Creating an identity
-
-authorization policy in Amazon SES
+# Creating an identity authorization policy in Amazon SES
 
 An identity authorization policy is comprised of statements specifying what API actions
 are allowed or denied for an identity and under what conditions.
@@ -11,8 +9,7 @@ zero, one, or many policies. However, a single policy can only be associated wit
 identity.
 
 For a list of API actions that can be used in an identity authorization policy, see the
-_Action_ row in the [Statements specific to
-the policy](policy-anatomy.md#identity-authorization-policy-statements "policy-anatomy.md#identity-authorization-policy-statements") table.
+_Action_ row in the [Statements specific to the policy](policy-anatomy.md#identity-authorization-policy-statements "policy-anatomy.md#identity-authorization-policy-statements") table.
 
 You can create an identity authorization policy in the following ways:
 

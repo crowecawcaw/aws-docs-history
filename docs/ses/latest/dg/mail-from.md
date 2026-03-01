@@ -32,9 +32,7 @@ By using a custom MAIL FROM domain, you have the flexibility to use SPF, DKIM, o
 to achieve [Domain-based Message
 Authentication, Reporting and Conformance (DMARC)](send-email-authentication-dmarc.md "send-email-authentication-dmarc.md") validation. DMARC enables a
 sender's domain to indicate that emails sent from the domain are protected by one or
-more authentication systems. There are two ways to achieve DMARC validation: [Complying with DMARC through
-SPF](send-email-authentication-dmarc.md#send-email-authentication-dmarc-spf "send-email-authentication-dmarc.md#send-email-authentication-dmarc-spf") and [Complying with DMARC through
-DKIM](send-email-authentication-dmarc.md#send-email-authentication-dmarc-dkim "send-email-authentication-dmarc.md#send-email-authentication-dmarc-dkim").
+more authentication systems. There are two ways to achieve DMARC validation: [Complying with DMARC through SPF](send-email-authentication-dmarc.md#send-email-authentication-dmarc-spf "send-email-authentication-dmarc.md#send-email-authentication-dmarc-spf") and [Complying with DMARC through DKIM](send-email-authentication-dmarc.md#send-email-authentication-dmarc-dkim "send-email-authentication-dmarc.md#send-email-authentication-dmarc-dkim").
 
 ## Choosing a custom MAIL FROM domain
 
@@ -50,9 +48,7 @@ requirements:
 - The MAIL FROM domain shouldn't be a subdomain that you use to receive
   email.
 
-## Using SPF with your custom MAIL
-
-FROM domain
+## Using SPF with your custom MAIL FROM domain
 
 _Sender Policy Framework_ (SPF) is an email validation standard
 that's designed to prevent email spoofing. You can configure your custom MAIL FROM
@@ -66,8 +62,7 @@ your custom MAIL FROM domain, it checks the DNS records for that domain to make 
 that the email was sent from an authorized server.
 
 If you want to use this SPF record as a way to comply with DMARC, the domain in the
-From address must match the MAIL FROM domain. See [Complying with DMARC through
-SPF](send-email-authentication-dmarc.md#send-email-authentication-dmarc-spf "send-email-authentication-dmarc.md#send-email-authentication-dmarc-spf").
+From address must match the MAIL FROM domain. See [Complying with DMARC through SPF](send-email-authentication-dmarc.md#send-email-authentication-dmarc-spf "send-email-authentication-dmarc.md#send-email-authentication-dmarc-spf").
 
 The next section, [Configuring your custom MAIL FROM domain](#mail-from-set "#mail-from-set"), explains how to set up SPF for your
 custom MAIL FROM domain.
@@ -89,9 +84,7 @@ These procedures show you how to configure a custom MAIL FROM domain for an
 entire domain or subdomain so that all messages sent from addresses on that
 domain will use the this custom MAIL FROM domain.
 
-###### To configure a verified domain to use a specified custom MAIL FROM
-
-domain
+###### To configure a verified domain to use a specified custom MAIL FROM domain
 
 1. Open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the left navigation panel, under
@@ -103,8 +96,7 @@ domain
    _Verified_.
    1. If the **Status** is
       _Unverified_, complete the procedures at
-      [Verifying a DKIM domain identity with your DNS
-      provider](creating-identities.md#just-verify-domain-proc "creating-identities.md#just-verify-domain-proc") to verify the
+      [Verifying a DKIM domain identity with your DNS provider](creating-identities.md#just-verify-domain-proc "creating-identities.md#just-verify-domain-proc") to verify the
       email address's domain.
 
 4. At the bottom of the screen in the **Custom MAIL FROM
@@ -229,9 +221,7 @@ you don't own (for example, you can't create a custom MAIL FROM domain for
 an address on the `gmail.com` domain, because you can't
 add the necessary DNS records to the domain).
 
-###### To configure a verified email address to use a specified MAIL FROM
-
-domain
+###### To configure a verified email address to use a specified MAIL FROM domain
 
 1. Open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the left navigation panel, under
@@ -351,9 +341,7 @@ informing you that your custom MAIL FROM domain was set up successfully.
 Depending on your DNS provider, there might be a delay of up to 72 hours
 before Amazon SES detects the MX record.
 
-## Custom MAIL FROM domain setup states with
-
-Amazon SES
+## Custom MAIL FROM domain setup states with Amazon SES
 
 After you configure an identity to use a custom MAIL FROM domain, the state of the
 setup is "pending" while Amazon SES attempts to detect the required MX record in your DNS

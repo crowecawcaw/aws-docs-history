@@ -126,9 +126,7 @@ If you send small volumes of email (less than a few hundred per day over a few
 days), it would be more beneficial to send through the SES [shared IP pool](managing-ip-pools.md "managing-ip-pools.md"). See if dedicated IPs (managed) is right for
 how you send mail by reviewing the comparison table in [Dedicated IP addresses for Amazon SES](dedicated-ip.md "dedicated-ip.md").
 
-## Understanding the shared responsibility between you
-
-and SES when using dedicated IPs (managed)
+## Understanding the shared responsibility between you and SES when using dedicated IPs (managed)
 
 While dedicated IP addresses (managed) offers numerous automated features for dedicated IP management,
 scaling, and warmup, the extent of this automation and SES' responsibilities
@@ -148,9 +146,7 @@ delisting requests yourself:
 
 - [Dedicated IP addresses (managed) FAQs](faqs-managed-dips.md "faqs-managed-dips.md")
 
-## Creating a managed IP pool to enable
-
-dedicated IPs (managed)
+## Creating a managed IP pool to enable dedicated IPs (managed)
 
 To enable dedicated IPs (managed), you first create a managed IP pool. After you create a managed
 pool, the feature determines how many dedicated IPs you require based on your sending
@@ -336,12 +332,9 @@ Convert standard to managed
      set.
 
 Event publishing can be used to track the managed pool's sending performance. For more
-information, see [Monitor email sending using Amazon SES event
-publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md").
+information, see [Monitor email sending using Amazon SES event publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md").
 
-## Viewing managed IP pool sending
-
-and capacity in the Amazon SES console
+## Viewing managed IP pool sending and capacity in the Amazon SES console
 
 For the managed IP pools you've created, the SES console provides an easy way
 for you to observe how they're being used for your email sending through the use of
@@ -360,9 +353,7 @@ capacity.
 
 Amazon SES console
 
-###### To view sending and capacity metrics in the Amazon SES
-
-console
+###### To view sending and capacity metrics in the Amazon SES console
 
     1. In the **All Dedicated IP (managed)
      pools** table, select the name of a managed IP
@@ -440,9 +431,7 @@ console
 
 Amazon CloudWatch console
 
-###### To view sending and capacity metrics in the Amazon CloudWatch
-
-console
+###### To view sending and capacity metrics in the Amazon CloudWatch console
 
     * In the **All Dedicated IP (managed)
      pools** table, select the
@@ -475,9 +464,7 @@ console
     	 last 24 hours. (Labeled *Capacity for
     	 ISP* in the SES console.)
 
-## Deleting a managed IP pool and opting
-
-out of dedicated IPs (managed)
+## Deleting a managed IP pool and opting out of dedicated IPs (managed)
 
 When you delete a managed IP pool, all of its allocated IP addresses are automatically
 relinquished. If you only have one managed IP pool and you delete it, or you delete your

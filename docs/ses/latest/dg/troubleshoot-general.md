@@ -3,9 +3,7 @@
 The information on this page will explain and help diagnose issues that you may encounter
 when using Amazon SES.
 
-## Changes that I make are not immediately
-
-visible
+## Changes that I make are not immediately visible
 
 As a service that is accessed through computers in data centers around the world,
 Amazon SES uses a distributed computing model called [eventual consistency](https://wikipedia.org/wiki/Eventual_consistency "https://wikipedia.org/wiki/Eventual_consistency").

@@ -91,9 +91,7 @@ reputation, this automation helps to improve overall deliverability and reduce b
 rates when compared to equivalent workloads on manually configured dedicated IP
 addresses.
 
-## Predictability of sending
-
-patterns
+## Predictability of sending patterns
 
 An IP address with a consistent history of sending email has a better reputation than
 one that suddenly starts sending out large volumes of email with no prior sending
@@ -158,9 +156,7 @@ addresses to improve email deliverability to your recipients. Utilization data c
 surfaced by using additional services such as Amazon CloudWatch metrics and the built-in
 dashboards that are in Amazon SES.
 
-## Ability to isolate sender
-
-reputation
+## Ability to isolate sender reputation
 
 Shared IP addresses—your sender reputation is set
 at the account level and can't be isolated.

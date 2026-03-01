@@ -1,6 +1,4 @@
-# Edit an identity to use a
-
-default configuration set using the SES API
+# Edit an identity to use a default configuration set using the SES API
 
 You can use the [PutEmailIdentityConfigurationSetAttributes](../APIReference-V2/API_PutEmailIdentityConfigurationSetAttributes.md "../APIReference-V2/API_PutEmailIdentityConfigurationSetAttributes.md") operation to add or remove a default
 configuration set from an existing email identity.

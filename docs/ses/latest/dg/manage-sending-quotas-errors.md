@@ -1,6 +1,4 @@
-# Errors related to the sending quotas for your
-
-Amazon SES account
+# Errors related to the sending quotas for your Amazon SES account
 
 If you attempt to send an email after reaching your daily sending quota (the maximum
 amount of email you can send in a 24-hour period) or your maximum sending rate (the maximum
@@ -14,9 +12,7 @@ For a technique that you can use when you reach your maximum send rate, see [How
 to handle a "Throttling – Maximum sending rate exceeded" error](https://aws.amazon.com//blogs/messaging-and-targeting/how-to-handle-a-throttling-maximum-sending-rate-exceeded-error/ "https://aws.amazon.com//blogs/messaging-and-targeting/how-to-handle-a-throttling-maximum-sending-rate-exceeded-error/") on the
 AWS Messaging and Targeting Blog.
 
-## Reaching sending limits with the
-
-Amazon SES API
+## Reaching sending limits with the Amazon SES API
 
 If you attempt to send an email by using the Amazon SES API (or an AWS SDK), but you've
 already exceeded your account's sending limits, the API produces a
@@ -29,9 +25,7 @@ following messages:
 If you encounter a throttling error, you should program your application to wait for
 an interval of up to 10 minutes, and then retry the send request.
 
-## Reaching sending limits with
-
-SMTP
+## Reaching sending limits with SMTP
 
 If you attempt to send an email by using the Amazon SES SMTP interface, but you've already
 exceeded your account's sending limits, your SMTP client might display one of the

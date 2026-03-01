@@ -28,16 +28,12 @@ overview of the sending process:
     The following sections review the individual possible outcomes after a sender sends an
     email request to SES and after SES sends an email message to the recipient.
 
-## After a sender sends an
-
-email request to SES
+## After a sender sends an email request to SES
 
 When the sender makes a request to SES to send an email, the call may succeed
 or fail. The following sections describe what happens in each case.
 
-### Successful
-
-sending request
+### Successful sending request
 
 If the request to SES succeeds, SES returns a success response to
 the sender. This message includes the _message ID_, a string of
@@ -57,9 +53,7 @@ If SES accepts the sender's request and then determines that the
 message contains a virus, SES stops processing the message and doesn't
 attempt to deliver it to the recipient's mail server.
 
-### Failed sending
-
-request
+### Failed sending request
 
 If the sender's email-sending request to SES fails, SES responds to
 the sender with an error and drops the email. The request could fail for several
@@ -84,9 +78,7 @@ returned:
 For information about errors that can occur when you send an email with
 SES, see [Amazon SES email sending errors](troubleshoot-error-messages.md "troubleshoot-error-messages.md").
 
-## After Amazon SES sends an
-
-email
+## After Amazon SES sends an email
 
 If the sender's request to SES succeeds, then SES sends the email and
 one of the following outcomes occurs:

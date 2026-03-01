@@ -13,8 +13,7 @@ other AWS services for monitoring:
 - Subscriptions
 - Opens
 - Clicks
-  To learn more about setting up event publishing, see [Monitor email sending using Amazon SES event
-  publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md").
+  To learn more about setting up event publishing, see [Monitor email sending using Amazon SES event publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md").
 
 ## Creating an event destination
 
@@ -23,8 +22,7 @@ destinations for your configuration set which enables event publishing that is t
 on the event types you specify for the event destination. A configuration set can have
 multiple event destinations with multiple event types defined.
 
-If you haven't created a configuration set, see [Creating configuration sets in
-SES](creating-configuration-sets.md "creating-configuration-sets.md").
+If you haven't created a configuration set, see [Creating configuration sets in SES](creating-configuration-sets.md "creating-configuration-sets.md").
 
 The following steps show how to create or add an event destination to a configuration
 set.
@@ -142,8 +140,7 @@ To learn more about event types, see [Monitoring your Amazon SES sending activit
     		 [Tracking
     		 options](creating-configuration-sets.md#create-config-set-step-4 "creating-configuration-sets.md#create-config-set-step-4") in Step 4 of [Create configuration
     		 sets](creating-configuration-sets.md "creating-configuration-sets.md"). For more information about configuring custom
-    		 open and click domains see [Configuring custom domains to handle
-    		 open and click tracking](configure-custom-open-click-domains.md "configure-custom-open-click-domains.md").
+    		 open and click domains see [Configuring custom domains to handle open and click tracking](configure-custom-open-click-domains.md "configure-custom-open-click-domains.md").
     2. Choose **Next** to continue.
 
 7. ###### Specify destination
@@ -186,8 +183,7 @@ you want to capture and how you want to receive the data.
 
     		+ [Amazon SNS](event-publishing-add-event-destination-sns.md "event-publishing-add-event-destination-sns.md")
     	To learn more about using the event publishing model to
-    	 monitor your email operation, see [Monitor email sending using Amazon SES event
-    	 publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md").
+    	 monitor your email operation, see [Monitor email sending using Amazon SES event publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md").
     	* **Name** – enter the name of the
     	 destination for this configuration set. The name can include
     	 letters, numbers, dashes, and hyphens.
@@ -208,16 +204,12 @@ the Amazon SES CLI v2.
 
 - For creating an event destination using the SES API, see [`CreateConfigurationSetEventDestination`](../APIReference/API_CreateConfigurationSetEventDestination.md "../APIReference/API_CreateConfigurationSetEventDestination.md").
 
-## Editing, disabling/enabling, or deleting an
-
-event destination
+## Editing, disabling/enabling, or deleting an event destination
 
 Follow these steps to edit, disable/enable, or delete an event destination using the
 SES console:
 
-###### To edit, disable/enable, or delete an event destination using the SES
-
-console:
+###### To edit, disable/enable, or delete an event destination using the SES console:
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose
@@ -241,9 +233,7 @@ console:
 You can also edit, disable/enable, or delete an event destination using the Amazon SES
 console, the Amazon SES API v2, or the Amazon SES CLI v2.
 
-###### To edit, disable/enable, or delete an event destination using the SES
-
-API:
+###### To edit, disable/enable, or delete an event destination using the SES API:
 
 1. For disabling/enabling an event destination using the SES API, see
    [`UpdateConfigurationSetEventDestination`](../APIReference/API_UpdateConfigurationSetEventDestination.md "../APIReference/API_UpdateConfigurationSetEventDestination.md").

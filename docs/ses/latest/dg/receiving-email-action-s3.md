@@ -57,8 +57,7 @@ endpoint you use to receive email.
     + To use a customer managed key that you created in KMS, provide the ARN of
      the KMS key and ensure that you add a statement to your key's policy to give
      SES permission to use it. For more information about giving
-     permissions, see [Giving permissions to Amazon SES for email
-     receiving](receiving-email-permissions.md "receiving-email-permissions.md").
+     permissions, see [Giving permissions to Amazon SES for email receiving](receiving-email-permissions.md "receiving-email-permissions.md").
 
 For more information about using KMS with SES, see the [AWS Key Management Service Developer Guide](../../../kms/latest/developerguide/services-ses.md "../../../kms/latest/developerguide/services-ses.md"). If you do not
 specify a KMS key in the console or API, SES will not encrypt your
@@ -77,8 +76,7 @@ client is available in the [AWS SDK for Java](https://aws.amazon.com/sdk-for-jav
   SES to access the resources in the _Deliver to S3_
   action (Amazon S3 bucket, SNS topic, and KMS key). If not provided, you'll need to
   explicitly give permissions to SES to access each resource
-  individually—see [Giving permissions to Amazon SES for email
-  receiving](receiving-email-permissions.md "receiving-email-permissions.md").
+  individually—see [Giving permissions to Amazon SES for email receiving](receiving-email-permissions.md "receiving-email-permissions.md").
 
 If you want to write to an S3 bucket that exists in a region where
 SES _Email receiving_ isn't available, you must use an

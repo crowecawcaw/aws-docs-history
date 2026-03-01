@@ -1,6 +1,4 @@
-# Setting up VPC endpoints with
-
-Amazon SES
+# Setting up VPC endpoints with Amazon SES
 
 Many Amazon SES customers have corporate policies in place that limit the ability of their
 internal systems to connect to the public internet. These policies prevent the use of the
@@ -30,12 +28,9 @@ accounts without the need to utilize an internet gateway.
 - The SMTP endpoint used within the VPC is restricted to the AWS Region
   currently being used for your account.
   You can also use VPC endpoints with Mail Manager ingress endpoints for secure, private email
-  ingestion within your private network infrastructure. See [Receiving email through Amazon VPC
-  endpoints](eb-ingress.md#eb-ingress-vpc-endpoint "eb-ingress.md#eb-ingress-vpc-endpoint") in the Mail Manager chapter.
+  ingestion within your private network infrastructure. See [Receiving email through Amazon VPC endpoints](eb-ingress.md#eb-ingress-vpc-endpoint "eb-ingress.md#eb-ingress-vpc-endpoint") in the Mail Manager chapter.
 
-## Walkthrough example of
-
-setting up SES in Amazon VPC
+## Walkthrough example of setting up SES in Amazon VPC
 
 ### Prerequisites
 
@@ -57,9 +52,7 @@ the resource. Because Amazon EC2 restricts email traffic over port 25 by
 default, for SMTP endpoints you'll have to use a different port other than TCP 25, such as
 TCP 465, 587, 2465, or 2587—for more information, see [Restriction on email sent using port 25](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#port-25-throttle "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md#port-25-throttle"). For API endpoints use port 443.
 
-### Setting up SES in
-
-Amazon VPC
+### Setting up SES in Amazon VPC
 
 The process of setting up a VPC endpoint to use with SES consists of a few
 separate steps. First, you have to
@@ -67,9 +60,7 @@ create a security group that allows the instance to communicate with the chosen 
 then create a VPC endpoint for Amazon SES, and finally, test the connection to the VPC
 endpoint to ensure that it's configured properly.
 
-#### Step 1:
-
-Create the security group
+#### Step 1: Create the security group
 
 In this step,
 you create a security group that lets Amazon EC2 instances communicate with VPC
@@ -112,9 +103,7 @@ interface endpoint you'll be creating.
 6. When you finish, choose **Create security
    group**.
 
-#### Step 2:
-
-Create the VPC endpoint
+#### Step 2: Create the VPC endpoint
 
 In Amazon VPC, a _VPC endpoint_ lets you connect your VPC to
 supported AWS services. In this example, you configure Amazon VPC so that your
@@ -155,9 +144,7 @@ minutes while Amazon VPC creates the endpoint. When the endpoint is ready to
 use, the value in the **Status** column changes to
 _Available_.
 
-#### (Optional)
-
-Step 3: Test the connection to the VPC endpoint
+#### (Optional) Step 3: Test the connection to the VPC endpoint
 
 When you complete the process of configuring the VPC endpoint, you can test
 the connection to ensure that the VPC endpoint is configured properly. You can

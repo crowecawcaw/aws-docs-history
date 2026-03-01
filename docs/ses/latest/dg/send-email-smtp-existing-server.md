@@ -1,6 +1,4 @@
-# Integrating Amazon SES with your existing email
-
-server
+# Integrating Amazon SES with your existing email server
 
 If you currently administer your own email server, you can use the Amazon SES SMTP endpoint to
 send all of your outgoing email to Amazon SES. There is no need to modify your existing email
@@ -17,5 +15,4 @@ Security (TLS).
 
 - [Integrating Amazon SES with Postfix](postfix.md "postfix.md")
 - [Integrating Amazon SES with Sendmail](send-email-sendmail.md "send-email-sendmail.md")
-- [Integrating Amazon SES with Microsoft Windows Server
-  IIS SMTP](send-email-windows-server.md "send-email-windows-server.md")
+- [Integrating Amazon SES with Microsoft Windows Server IIS SMTP](send-email-windows-server.md "send-email-windows-server.md")

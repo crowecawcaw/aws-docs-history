@@ -182,9 +182,7 @@ The "Duplicate configuration sets" feature allows you to:
   configuration set using an archive created in the secondary region with
   the same name.
 
-### Duplicating verified domain
-
-identities
+### Duplicating verified domain identities
 
 To ensure the Global endpoint configuration works effectively, your sending domain identity
 needs to be verified in both the primary and secondary regions. SES uses
@@ -279,13 +277,10 @@ missing metrics.
 
 ###### Topics
 
-- [Integrating with your
-  application](#integrating-with-application "#integrating-with-application")
+- [Integrating with your application](#integrating-with-application "#integrating-with-application")
 - [Monitoring and metrics](#monitoring-and-metrics "#monitoring-and-metrics")
 
-### Integrating with your
-
-application
+### Integrating with your application
 
 Using a Global endpoint in your application requires that you obtain its Endpoint ID.
 
@@ -359,9 +354,7 @@ aws cloudwatch get-metric-statistics \
 Replace `abcdef12.g3h` with your actual Endpoint
 ID.
 
-## Best practices and
-
-considerations
+## Best practices and considerations
 
 Following these best practices and considerations helps ensure effective utilization,
 monitoring, and cost optimization of Global endpoints across multiple AWS Regions for improved

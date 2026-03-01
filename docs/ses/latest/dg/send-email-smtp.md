@@ -42,19 +42,14 @@ about how to generate your SMTP credentials, see [Obtaining Amazon SES SMTP cred
 You can send email over SMTP through any of the following methods:
 
 - To configure SMTP-enabled software to send email through the Amazon SES SMTP
-  interface, see [Sending email through Amazon SES using
-  software packages](send-email-smtp-software-package.md "send-email-smtp-software-package.md").
-- To program an application to send email through Amazon SES, see [Sending emails programmatically through
-  the Amazon SES SMTP interface](send-using-smtp-programmatically.md "send-using-smtp-programmatically.md").
+  interface, see [Sending email through Amazon SES using software packages](send-email-smtp-software-package.md "send-email-smtp-software-package.md").
+- To program an application to send email through Amazon SES, see [Sending emails programmatically through the Amazon SES SMTP interface](send-using-smtp-programmatically.md "send-using-smtp-programmatically.md").
 - To configure your existing email server to send all of your outgoing mail
-  through Amazon SES, see [Integrating Amazon SES with your existing email
-  server](send-email-smtp-existing-server.md "send-email-smtp-existing-server.md").
+  through Amazon SES, see [Integrating Amazon SES with your existing email server](send-email-smtp-existing-server.md "send-email-smtp-existing-server.md").
 - To interact with the Amazon SES SMTP interface using the command line, which can be
-  useful for testing, see [Testing your connection to the Amazon SES
-  SMTP interface using the command line](send-email-smtp-client-command-line.md "send-email-smtp-client-command-line.md").
+  useful for testing, see [Testing your connection to the Amazon SES SMTP interface using the command line](send-email-smtp-client-command-line.md "send-email-smtp-client-command-line.md").
 
-For a list of SMTP response codes, see [SMTP response codes returned by
-Amazon SES](troubleshoot-smtp.md#troubleshoot-smtp-response-codes "troubleshoot-smtp.md#troubleshoot-smtp-response-codes").
+For a list of SMTP response codes, see [SMTP response codes returned by Amazon SES](troubleshoot-smtp.md#troubleshoot-smtp-response-codes "troubleshoot-smtp.md#troubleshoot-smtp-response-codes").
 
 ## Email information to provide
 

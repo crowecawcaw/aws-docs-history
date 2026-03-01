@@ -23,9 +23,7 @@ signing method to the other (e.g., using a subdomain of your domain with BYODKIM
 and then deleting it once Easy DKIM verification has passed), or perform this activity
 during your application's downtime, if any.
 
-## Setting up Easy DKIM
-
-for a verified domain identity
+## Setting up Easy DKIM for a verified domain identity
 
 The procedure in this section is streamlined to just show the steps necessary to
 configure Easy DKIM on a domain identity that you've already created. If you haven't yet
@@ -35,8 +33,7 @@ tags, see [Creating a domain identity](creating-identities.md#verify-domain-proc
 
 Part of creating an Easy DKIM domain identity is configuring its DKIM-based
 verification where you will have the choice to either accept the Amazon SES default of 2048
-bits, or to override the default by selecting 1024 bits. See [DKIM signing key
-length](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048") to learn more about DKIM
+bits, or to override the default by selecting 1024 bits. See [DKIM signing key length](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048") to learn more about DKIM
 signing key lengths and how to change them.
 
 ###### To set up Easy DKIM for a domain
@@ -56,13 +53,10 @@ Identified Mail (DKIM)** container, choose
 type** field. 6. In the **DKIM signing key length** field, choose either [RSA_2048_BIT or
 RSA_1024_BIT](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048"). 7. In the **DKIM signatures** field, check the
 **Enabled** box. 8. Choose **Save changes**. 9. Now that you’ve configured your domain identity with Easy DKIM, you must
-complete the verification process with your DNS provider - proceed to [Verifying a DKIM domain identity with your DNS
-provider](creating-identities.md#just-verify-domain-proc "creating-identities.md#just-verify-domain-proc") and follow the DNS authentication
+complete the verification process with your DNS provider - proceed to [Verifying a DKIM domain identity with your DNS provider](creating-identities.md#just-verify-domain-proc "creating-identities.md#just-verify-domain-proc") and follow the DNS authentication
 procedures for Easy DKIM.
 
-## Change
-
-the Easy DKIM signing key length for an identity
+## Change the Easy DKIM signing key length for an identity
 
 The procedure in this section shows how you can easily change the Easy DKIM bits
 required for the signing algorithm. While a signing length of 2048 bits is always

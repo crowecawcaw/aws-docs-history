@@ -6,8 +6,7 @@ Before you start using Amazon SES, you must complete the following tasks.
 
 - [Sign up for AWS](#setting-up-aws-sign-up "#setting-up-aws-sign-up")
 - [Set up your SES account](#quick-start-verify-email-addresses "#quick-start-verify-email-addresses")
-- [Grant programmatic access (To interact with SES outside of
-  the console)](#get-aws-keys "#get-aws-keys")
+- [Grant programmatic access (To interact with SES outside of the console)](#get-aws-keys "#get-aws-keys")
 - [Download an AWS SDK (For using the SES APIs)](#download-aws-sdk "#download-aws-sdk")
 
 ## Sign up for AWS
@@ -31,9 +30,7 @@ Get started with SES by verifying an email address and sending domain so that yo
 start sending email through SES and request production access for your account by using
 the _SES account set up_ wizard.
 
-###### Using the _SES account set up_ wizard to set up your
-
-account
+###### Using the _SES account set up_ wizard to set up your account
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. Select **Get started** from the SES console home page and the
@@ -42,9 +39,7 @@ account
 _The_ SES account set up _wizard will only be presented
 if you have not yet created any identities (email address or domain) in SES._
 
-## Grant programmatic access (To interact with SES outside of
-
-the console)
+## Grant programmatic access (To interact with SES outside of the console)
 
 Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
 

@@ -58,9 +58,7 @@ conditions to your statements.
 For specific information about the syntax of the elements, see [Grammar of the IAM Policy
 Language](../../../IAM/latest/UserGuide/policies-grammar.md "../../../IAM/latest/UserGuide/policies-grammar.md") in the _IAM User Guide_.
 
-### Policy-wide
-
-information
+### Policy-wide information
 
 There are two policy-wide elements: `Id` and `Version`. The
 following table provides information about these elements.
@@ -70,9 +68,7 @@ following table provides information about these elements.
 | `Id`      | Uniquely identifies the policy.               | No       | Any string                                                                                                |
 | `Version` | Specifies the policy access language version. | No       | Any string. As a best practice, we recommend that you include<br>this field with a value of "2012-10-17". |
 
-### Statements specific to
-
-the policy
+### Statements specific to the policy
 
 Identity authorization policies require at least one statement. Each statement can
 include the elements described in the following table.

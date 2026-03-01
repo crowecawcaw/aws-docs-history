@@ -61,9 +61,7 @@ the specified tenant has permission to use the identity, configuration set, and
 template in the request. If the resources aren't properly associated, the send
 request fails.
 
-### Reputation monitoring and
-
-enforcement
+### Reputation monitoring and enforcement
 
 SES continuously monitors key reputation metrics for each tenant, including
 bounce rates, complaint rates (including those from the mailbox provider Feedback
@@ -104,10 +102,8 @@ when ready to resume sending.
 ###### Topics
 
 - [Creating tenants](#creating-tenants "#creating-tenants")
-- [Assigning resources to a
-  tenant](#assigning-resources-to-tenant "#assigning-resources-to-tenant")
-- [Configuring reputation
-  policies](#configuring-reputation-policies "#configuring-reputation-policies")
+- [Assigning resources to a tenant](#assigning-resources-to-tenant "#assigning-resources-to-tenant")
+- [Configuring reputation policies](#configuring-reputation-policies "#configuring-reputation-policies")
 
 ### Creating tenants
 
@@ -129,9 +125,7 @@ aws sesv2 create-tenant \
     --region us-east-1
 ```
 
-### Assigning resources to a
-
-tenant
+### Assigning resources to a tenant
 
 After creating a tenant, you must assign at least one verified identity and one
 configuration set before the tenant can send email.
@@ -172,9 +166,7 @@ aws sesv2 create-tenant-resource-association \
     --region us-east-1
 ```
 
-### Configuring reputation
-
-policies
+### Configuring reputation policies
 
 Reputation policies determine when a tenant's email sending is automatically
 paused based on reputation metrics. When you create a tenant, SES
@@ -216,13 +208,10 @@ SMTP headers and ensure that all resources used are associated with that tenant.
 
 ###### Topics
 
-- [Using the SendEmail API with
-  tenants](#using-sendemail-api-with-tenants "#using-sendemail-api-with-tenants")
+- [Using the SendEmail API with tenants](#using-sendemail-api-with-tenants "#using-sendemail-api-with-tenants")
 - [Using SMTP with tenants](#using-smtp-with-tenants "#using-smtp-with-tenants")
 
-### Using the SendEmail API with
-
-tenants
+### Using the SendEmail API with tenants
 
 **AWS CLI Example:**
 
@@ -280,14 +269,10 @@ reputation tracking.
 
 ###### Topics
 
-- [Viewing tenant status and
-  metrics](#viewing-tenant-status-and-metrics "#viewing-tenant-status-and-metrics")
-- [Pausing and unpausing
-  tenants](#pausing-and-unpausing-tenants "#pausing-and-unpausing-tenants")
+- [Viewing tenant status and metrics](#viewing-tenant-status-and-metrics "#viewing-tenant-status-and-metrics")
+- [Pausing and unpausing tenants](#pausing-and-unpausing-tenants "#pausing-and-unpausing-tenants")
 
-### Viewing tenant status and
-
-metrics
+### Viewing tenant status and metrics
 
 **Using the console:**
 
@@ -329,9 +314,7 @@ aws sesv2 get-tenant --tenant-name "MyTenant"
 
 ```
 
-### Pausing and unpausing
-
-tenants
+### Pausing and unpausing tenants
 
 You can manually pause a tenant's sending capabilities when needed, and unpause it
 when ready to resume sending.
@@ -368,15 +351,12 @@ aws sesv2 update-reputation-entity-customer-managed-status \
   --sending-status ENABLED
 ```
 
-## Working with reputation
-
-findings
+## Working with reputation findings
 
 ###### Topics
 
 - [Viewing reputation findings](#viewing-reputation-findings "#viewing-reputation-findings")
-- [Understanding reputation
-  findings](#understanding-reputation-findings "#understanding-reputation-findings")
+- [Understanding reputation findings](#understanding-reputation-findings "#understanding-reputation-findings")
 - [Resolving reputation issues](#resolving-reputation-issues "#resolving-reputation-issues")
 
 ### Viewing reputation findings
@@ -415,9 +395,7 @@ The response includes details about all active findings:
 }
 ```
 
-### Understanding reputation
-
-findings
+### Understanding reputation findings
 
 Reputation findings provide insights into potential issues with your tenants'
 email sending practices. Each finding includes:
@@ -469,8 +447,7 @@ cause and take corrective action promptly:
 ###### Topics
 
 - [Setting up CloudWatch metrics](#cloud-watch-metrics "#cloud-watch-metrics")
-- [Setting up EventBridge
-  notifications](#setting-up-eventbridge-notifications "#setting-up-eventbridge-notifications")
+- [Setting up EventBridge notifications](#setting-up-eventbridge-notifications "#setting-up-eventbridge-notifications")
 
 ### Setting up CloudWatch metrics
 
@@ -492,9 +469,7 @@ are available for each tenant:
 4. Choose **By TenantId** and
    **TenantName** to view tenant-specific metrics.
 
-### Setting up EventBridge
-
-notifications
+### Setting up EventBridge notifications
 
 By default, SES sends events to the EventBridge default event bus when tenant
 reputation findings are detected or when tenant status changes occur.
@@ -607,9 +582,7 @@ You can use these events to monitor tenant status changes and automate responses
 in your applications. For example, you might want to trigger alerts when tenants are
 disabled or track tenant health metrics over time.
 
-## Integration with AWS Trust &
-
-Safety
+## Integration with AWS Trust & Safety
 
 When AWS Trust & Safety detects issues that would normally result in
 account-level enforcement, the tenant system enables more targeted responses. Instead of

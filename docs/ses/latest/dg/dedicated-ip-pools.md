@@ -1,6 +1,4 @@
-# Creating standard dedicated IP pools for
-
-dedicated IPs (standard)
+# Creating standard dedicated IP pools for dedicated IPs (standard)
 
 If you purchased several dedicated IP addresses (standard) to use with Amazon SES, you can create groups of those
 addresses, called _dedicated IP pools_.

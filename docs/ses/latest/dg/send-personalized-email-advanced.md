@@ -21,10 +21,8 @@ it on the client side.
 
 - [Parsing nested attributes](#send-personalized-email-advanced-nested "#send-personalized-email-advanced-nested")
 - [Iterating through lists](#send-personalized-email-advanced-iterating "#send-personalized-email-advanced-iterating")
-- [Using basic conditional
-  statements](#send-personalized-email-advanced-conditionals "#send-personalized-email-advanced-conditionals")
-- [Creating inline
-  partials](#send-personalized-email-advanced-inline-partials "#send-personalized-email-advanced-inline-partials")
+- [Using basic conditional statements](#send-personalized-email-advanced-conditionals "#send-personalized-email-advanced-conditionals")
+- [Creating inline partials](#send-personalized-email-advanced-inline-partials "#send-personalized-email-advanced-inline-partials")
 
 ## Parsing nested attributes
 
@@ -152,9 +150,7 @@ shown in the following image:
 
 ![Preferences notification listing Sports, Travel, and Cooking as selected interests.](images/send-personalized-email-advanced-condition-interest.png)
 
-## Using basic conditional
-
-statements
+## Using basic conditional statements
 
 This section builds on the example described in the previous section. The example in the
 previous section uses the `each` helper to iterate through a list of interests.
@@ -249,9 +245,7 @@ the following image:
 
 ![Email message with header "Your Preferences" and text about updating subscription preferences.](images/send-personalized-email-advanced-condition-nointerest.png)
 
-## Creating inline
-
-partials
+## Creating inline partials
 
 You can use inline partials to simplify templates that include repeated strings. For
 example, you could create an inline partial that includes the recipient's first name, and, if

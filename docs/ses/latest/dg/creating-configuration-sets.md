@@ -1,15 +1,11 @@
-# Creating configuration sets in
-
-SES
+# Creating configuration sets in SES
 
 You can use the SES console, the `CreateConfigurationSet` action in the
 Amazon SES API v2, or the `aws sesv2 create-configuration-set` command in the Amazon SES CLI v2
 to create a new configuration set. This section shows how to create configuration sets using
 the SES console and the Amazon SES CLI v2.
 
-## Create a configuration set
-
-(console)
+## Create a configuration set (console)
 
 To create a configuration set using the SES console, follow these steps:
 
@@ -51,8 +47,7 @@ To create a configuration set using the SES console, follow these steps:
           - You must first create and verify a custom redirect
            domain in the AWS Region you want to send and
            track email, as well as set up a Content Delivery
-           Network (CDN). This is explained in [Configuring custom domains to handle
-           open and click tracking](configure-custom-open-click-domains.md "configure-custom-open-click-domains.md").
+           Network (CDN). This is explained in [Configuring custom domains to handle open and click tracking](configure-custom-open-click-domains.md "configure-custom-open-click-domains.md").
           - Then, to use your custom redirect domain for open
            and click tracking, you must indicate it while
            creating or editing your configuration set here in
@@ -77,8 +72,7 @@ To create a configuration set using the SES console, follow these steps:
           You can use this information simply as a
            confirmation that you chose the correct tracking
            domain from the table when you set up your CDN as
-           explained in [Configuring custom domains to handle
-           open and click tracking](configure-custom-open-click-domains.md "configure-custom-open-click-domains.md"), or you can do this first, and use the CNAME
+           explained in [Configuring custom domains to handle open and click tracking](configure-custom-open-click-domains.md "configure-custom-open-click-domains.md"), or you can do this first, and use the CNAME
            record values from here to use in your CDN
            setup.
 

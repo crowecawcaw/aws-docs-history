@@ -1,6 +1,4 @@
-# Configuring custom domains to handle
-
-open and click tracking
+# Configuring custom domains to handle open and click tracking
 
 When you use [event publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md") to
 capture open and click events, Amazon SES makes minor changes to the emails you send. To capture
@@ -52,18 +50,14 @@ which enables event publishing that is triggered on the event types you specify,
 open and click events. A configuration set can have multiple event destinations with
 multiple event types defined. See [Creating Amazon SES event destinations](event-destinations-manage.md "event-destinations-manage.md").
 
-## Part 1: Setting up a domain for
-
-handling open and click link redirects
+## Part 1: Setting up a domain for handling open and click link redirects
 
 The specific procedures for setting up a redirect domain vary depending on your web
 hosting provider (and your Content Delivery Network, if you use an HTTPS server). The
 procedures in the following sections provide general guidance rather than specific
 steps.
 
-### Option 1:
-
-Configuring an HTTP domain
+### Option 1: Configuring an HTTP domain
 
 If you plan to use an HTTP domain to handle open and click links (as opposed to an
 HTTPS domain), the process for configuring the subdomain involves only a few
@@ -99,9 +93,7 @@ for the changes you make to the subdomain's DNS record to take effect.
 Your web hosting provider or IT organization can provide additional
 information about these delays.
 
-### Option 2:
-
-Configuring an HTTPS domain
+### Option 2: Configuring an HTTPS domain
 
 You can also use an HTTPS domain for tracking open and link clicks. To set up an
 HTTPS domain for tracking open and link clicks, you have to perform some additional
@@ -170,10 +162,7 @@ This response contains the following properties:
 If your setup is correct, the region should reflect the region your domain
 was created in and the protocol should be HTTPS.
 
-## Part 2: Specifying your
-
-custom redirect domain and HTTPS policy through a configuration
-set
+## Part 2: Specifying your custom redirect domain and HTTPS policy through a configuration set
 
 After you configure your domain to handle open and click tracking redirects, you must
 specify your custom domain and HTTPS policy in a configuration set.
@@ -237,9 +226,7 @@ custom redirect domain:
      wrapped using HTTPS. Click tracking links will be wrapped using the
      original protocol of the link.
 
-## Part 3: Specifying open and click
-
-event types through a configuration set
+## Part 3: Specifying open and click event types through a configuration set
 
 After specifying your custom domain and HTTPS policy in the configuration set in the
 previous step, you must specify open and/or click event types to track in an event

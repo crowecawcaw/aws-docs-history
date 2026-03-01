@@ -1,6 +1,4 @@
-# Testing your connection to the Amazon SES
-
-SMTP interface using the command line
+# Testing your connection to the Amazon SES SMTP interface using the command line
 
 You can use the methods described in this section from the command line to test your
 connection to the Amazon SES SMTP endpoint, validate your SMTP credentials, and troubleshoot
@@ -16,9 +14,7 @@ credentials. These SMTP credentials are different from your standard AWS credent
 The two types of credentials aren't interchangeable. For more information about
 obtaining your SMTP credentials, see [Obtaining Amazon SES SMTP credentials](smtp-credentials.md "smtp-credentials.md").
 
-## Testing your connection to
-
-the Amazon SES SMTP interface
+## Testing your connection to the Amazon SES SMTP interface
 
 You can use the command line to test your connection to the Amazon SES SMTP interface
 without authenticating or sending any messages. This procedure is useful for
@@ -110,9 +106,7 @@ install OpenSSL for
 Windows
 to send a test email.
 
-###### To connect to the SMTP interface using the
-
-`Test-NetConnection` cmdlet
+###### To connect to the SMTP interface using the `Test-NetConnection` cmdlet
 
 - In PowerShell, enter the following command to connect to the
   Amazon SES SMTP server:
@@ -139,9 +133,7 @@ SourceAddress    : 203.0.113.46
 TcpTestSucceeded : True
 ```
 
-## Using the command line to send email using
-
-the Amazon SES SMTP interface
+## Using the command line to send email using the Amazon SES SMTP interface
 
 You can also use the command line to send messages using the Amazon SES SMTP interface.
 This procedure is useful for testing SMTP credentials and for testing the ability of
@@ -159,9 +151,7 @@ When you use OpenSSL to connect to the SMTP interface, you have to encode
 your SMTP credentials using base64 encoding. This section includes
 procedures for encoding your credentials using base64.
 
-###### To send an email from the command line using the SMTP
-
-interface
+###### To send an email from the command line using the SMTP interface
 
 1. Enter the following at the command line and replace
    `email-smtp.us-west-2.amazonaws.com` with the

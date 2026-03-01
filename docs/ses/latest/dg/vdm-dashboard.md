@@ -53,17 +53,13 @@ with the ability to drill-down to specific data sets:
 
 ![Drill-down data displayed in the Virtual Deliverability Manager dashboard for the selected sending identity, example.com—cards display deliverability and reputation metrics. The table displays all of the ISPs that the sending identity sent mail to with metric rates for each ISP within the date range entered.](images/vdm_db_ident_drill_sort_export.png)
 
-## Using the Virtual Deliverability Manager dashboard in the Amazon SES
-
-console
+## Using the Virtual Deliverability Manager dashboard in the Amazon SES console
 
 The following procedure shows you how to use the Virtual Deliverability Manager dashboard in the Amazon SES console
 to view your overall deliverability and reputation statistics and to drill-down into
 problematic areas.
 
-###### To use the Virtual Deliverability Manager dashboard to view high level and more detailed data of your
-
-account’s deliverability metrics
+###### To use the Virtual Deliverability Manager dashboard to view high level and more detailed data of your account’s deliverability metrics
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the left navigation pane, choose **Dashboard** under
@@ -283,9 +279,7 @@ messages:
      viewing in this table, select its **Export**
      button.
 
-## Accessing your Virtual Deliverability Manager metric data using the
-
-AWS CLI
+## Accessing your Virtual Deliverability Manager metric data using the AWS CLI
 
 The following example shows you how to access your Virtual Deliverability Manager metric data using the AWS CLI.
 This is the same data used in the Virtual Deliverability Manager dashboard in the console.
@@ -322,9 +316,7 @@ More information about parameter values and related data types can be found by
 linking from the [`BatchGetMetricDataQuery`](../APIReference-V2/API_BatchGetMetricDataQuery.md "../APIReference-V2/API_BatchGetMetricDataQuery.md") data type in the
 Amazon SES API v2 reference.
 
-## Filtering and exporting your
-
-deliverability metric data using the AWS CLI
+## Filtering and exporting your deliverability metric data using the AWS CLI
 
 This example shows you how to use the [`CreateExportJob`](../APIReference-V2/API_CreateExportJob.md "../APIReference-V2/API_CreateExportJob.md")
 operation to filter and export your deliverability metric data to a .csv or .json file
@@ -332,9 +324,7 @@ using the AWS CLI. This is the same data used in the Virtual Deliverability Mana
 **ISP**, **Sending identities**, and
 **Configuration sets** tables.
 
-###### To filter and export your deliverability metric data to a .csv or .json file
-
-using the AWS CLI
+###### To filter and export your deliverability metric data to a .csv or .json file using the AWS CLI
 
 You can use the [`CreateExportJob`](../APIReference-V2/API_CreateExportJob.md "../APIReference-V2/API_CreateExportJob.md") operation along with the [`MetricsDataSource`](../APIReference-V2/API_MetricsDataSource.md "../APIReference-V2/API_MetricsDataSource.md") data type in the Amazon SES API v2 to filter
 and export your metric data to a .csv or .json file. You call this operation from
@@ -377,9 +367,7 @@ aws --region us-east-1 sesv2 create-export-job --cli-input-json file://metric-ex
 More information about parameter values and related data types can be found in
 [`MetricsDataSource`](../APIReference-V2/API_MetricsDataSource.md "../APIReference-V2/API_MetricsDataSource.md") as an object of the type [`ExportDataSource`](../APIReference-V2/API_ExportDataSource.md "../APIReference-V2/API_ExportDataSource.md") in the Amazon SES API v2 reference.
 
-## Finding your sent messages, their
-
-delivery & engagement status, and exporting the results using the AWS CLI
+## Finding your sent messages, their delivery & engagement status, and exporting the results using the AWS CLI
 
 These examples show you how to use the [`CreateExportJob`](../APIReference-V2/API_CreateExportJob.md "../APIReference-V2/API_CreateExportJob.md")
 operation to search and find particular messages you've sent, see their current delivery
@@ -387,9 +375,7 @@ and engagement status, and export the results of your search to a .csv or .json 
 using the AWS CLI. This is the same data used in the Virtual Deliverability Manager dashboard's
 **Messages** table.
 
-###### To find sent messages, their delivery and engagement status, and export the
-
-results to a .csv or .json file using the AWS CLI
+###### To find sent messages, their delivery and engagement status, and export the results to a .csv or .json file using the AWS CLI
 
 You can use the [`CreateExportJob`](../APIReference-V2/API_CreateExportJob.md "../APIReference-V2/API_CreateExportJob.md") operation along with the [`MessageInsightsDataSource`](../APIReference-V2/API_MessageInsightsDataSource.md "../APIReference-V2/API_MessageInsightsDataSource.md") data type in the Amazon SES API v2
 to apply filters in order to find particular messages you've sent, see their
@@ -567,9 +553,7 @@ More information about parameter values and related data types can be found in
 [`ExportDataSource`](../APIReference-V2/API_ExportDataSource.md "../APIReference-V2/API_ExportDataSource.md") in the Amazon SES API v2
 reference.
 
-## Managing your export jobs using the
-
-AWS CLI
+## Managing your export jobs using the AWS CLI
 
 These examples show you how to manage your export jobs by listing them, getting
 information about them, and canceling them using the AWS CLI.
@@ -662,9 +646,7 @@ aws --region us-east-1 sesv2 cancel-export-job --cli-input-json file://cancel-ex
 More information about parameter values for the [`CancelExportJob`](../APIReference-V2/API_API_CancelExportJob.md "../APIReference-V2/API_API_CancelExportJob.md") operation can be found in the
 Amazon SES API v2 reference.
 
-## Seeing a message’s full event history and
-
-ISP responses using the AWS CLI
+## Seeing a message’s full event history and ISP responses using the AWS CLI
 
 The following example shows you how to see details of a message’s full event history
 and any responses or diagnostic codes returned by the mailbox provider using the AWS CLI.

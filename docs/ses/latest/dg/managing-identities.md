@@ -13,12 +13,8 @@ procedures for each AWS Region.
 ###### Contents
 
 - [View identities using the SES console](view-verified-domains.md "view-verified-domains.md")
-- [Delete an identity using the SES
-  console](remove-verified-domain.md "remove-verified-domain.md")
+- [Delete an identity using the SES console](remove-verified-domain.md "remove-verified-domain.md")
 - [Edit an identity using the SES console](edit-verified-domain.md "edit-verified-domain.md")
-- [Edit an identity to use a
-  default configuration set using the SES API](managing-configuration-sets-default-adding.md "managing-configuration-sets-default-adding.md")
-- [Retrieve the default
-  configuration set used by the identity using the SES API](managing-configuration-sets-default-returning.md "managing-configuration-sets-default-returning.md")
-- [Override the current
-  default configuration set used by the identity using the SES API](managing-configuration-sets-default-overriding.md "managing-configuration-sets-default-overriding.md")
+- [Edit an identity to use a default configuration set using the SES API](managing-configuration-sets-default-adding.md "managing-configuration-sets-default-adding.md")
+- [Retrieve the default configuration set used by the identity using the SES API](managing-configuration-sets-default-returning.md "managing-configuration-sets-default-returning.md")
+- [Override the current default configuration set used by the identity using the SES API](managing-configuration-sets-default-overriding.md "managing-configuration-sets-default-overriding.md")

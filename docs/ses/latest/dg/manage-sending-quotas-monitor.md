@@ -6,14 +6,11 @@ whether by calling the Query (HTTPS) interface directly or indirectly through an
 ###### Important
 
 We recommend that you frequently check your sending statistics to ensure that you are
-not close to your sending quotas. If you are close to your sending quotas, see [Increasing your Amazon SES sending
-quotas](manage-sending-quotas-request-increase.md "manage-sending-quotas-request-increase.md") for information about how
+not close to your sending quotas. If you are close to your sending quotas, see [Increasing your Amazon SES sending quotas](manage-sending-quotas-request-increase.md "manage-sending-quotas-request-increase.md") for information about how
 to increase them. Don't wait until you reach your sending quotas to consider increasing
 them.
 
-## Monitoring your sending quotas
-
-using the Amazon SES console
+## Monitoring your sending quotas using the Amazon SES console
 
 The following procedure shows you how to view your sending quotas using the Amazon SES
 console.
@@ -29,9 +26,7 @@ console.
 ![Account dashboard showing sending limits, daily email usage, and SMTP settings for Amazon SES.](images/account_dashboard.png) 3. To update the display, select the refresh icon in the upper right-hand corner
 of the **Daily email usage** box.
 
-## Monitoring your sending quotas using
-
-the Amazon SES API
+## Monitoring your sending quotas using the Amazon SES API
 
 The Amazon SES API provides the `GetSendQuota` action, which returns your
 sending quotas. When you call `GetSendQuota` action, you receive the

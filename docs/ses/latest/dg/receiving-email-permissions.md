@@ -1,6 +1,4 @@
-# Giving permissions to Amazon SES for email
-
-receiving
+# Giving permissions to Amazon SES for email receiving
 
 Some of the tasks that you can perform when you receive email in SES, such as
 sending email to an Amazon Simple Storage Service (Amazon S3) bucket or calling a AWS Lambda function, require special
@@ -8,20 +6,13 @@ permissions. This section includes example policies for several common use cases
 
 ###### Topics in this section:
 
-- [Setting up IAM role
-  permissions for Deliver to S3 bucket action](#receiving-email-permissions-s3-iam-role "#receiving-email-permissions-s3-iam-role")
-- [Give SES permission to write to
-  an S3 bucket](#receiving-email-permissions-s3 "#receiving-email-permissions-s3")
-- [Give SES permission to use your
-  AWS KMS key](#receiving-email-permissions-kms "#receiving-email-permissions-kms")
-- [Give SES permission to
-  invoke a AWS Lambda function](#receiving-email-permissions-lambda "#receiving-email-permissions-lambda")
-- [Give SES permission to publish
-  to an Amazon SNS topic that belongs to a different AWS account](#receiving-email-permissions-sns "#receiving-email-permissions-sns")
+- [Setting up IAM role permissions for Deliver to S3 bucket action](#receiving-email-permissions-s3-iam-role "#receiving-email-permissions-s3-iam-role")
+- [Give SES permission to write to an S3 bucket](#receiving-email-permissions-s3 "#receiving-email-permissions-s3")
+- [Give SES permission to use your AWS KMS key](#receiving-email-permissions-kms "#receiving-email-permissions-kms")
+- [Give SES permission to invoke a AWS Lambda function](#receiving-email-permissions-lambda "#receiving-email-permissions-lambda")
+- [Give SES permission to publish to an Amazon SNS topic that belongs to a different AWS account](#receiving-email-permissions-sns "#receiving-email-permissions-sns")
 
-## Setting up IAM role
-
-permissions for Deliver to S3 bucket action
+## Setting up IAM role permissions for Deliver to S3 bucket action
 
 The following points are applicable to this IAM role:
 
@@ -45,8 +36,7 @@ key in the S3 action.)
 
 - You have the option to set up the S3 action without specifying an
   IAM role by allowing just the SES service in the S3 bucket
-  policy as shown [Give SES permission to write to
-  an S3 bucket](#receiving-email-permissions-s3 "#receiving-email-permissions-s3"). This will
+  policy as shown [Give SES permission to write to an S3 bucket](#receiving-email-permissions-s3 "#receiving-email-permissions-s3"). This will
   work for cross-account scenarios as well.
 - If you specify an IAM role for the S3 action, SES assumes
   that role for 'PutObject' operation, and the IAM permissions specified
@@ -97,9 +87,7 @@ Make the following changes to the preceding policy example:
 - Replace `key-id` with the ID of your
   KMS key.
 
-### Trust policy for
-
-S3 action IAM role
+### Trust policy for S3 action IAM role
 
 The following trust policy should be added into the _Trust
 relationships_ of the IAM role to allow SES to assume that
@@ -151,16 +139,13 @@ Make the following changes to the preceding policy example:
 - Replace `receipt_rule_name` with the name of the
   receipt rule that contains the deliver to Amazon S3 bucket action.
 
-## Give SES permission to write to
-
-an S3 bucket
+## Give SES permission to write to an S3 bucket
 
 When you apply the following policy to an S3 bucket, it gives SES
 permission to write to that bucket as long as it exists in a region where SES
 [Email receiving](../../../general/latest/gr/ses.md#ses_inbound_endpoints "../../../general/latest/gr/ses.md#ses_inbound_endpoints") is
 available—if you want to write to a bucket outside of an _Email
-receiving_ region, see [Setting up IAM role
-permissions for Deliver to S3 bucket action](#receiving-email-permissions-s3-iam-role "#receiving-email-permissions-s3-iam-role"). For more information
+receiving_ region, see [Setting up IAM role permissions for Deliver to S3 bucket action](#receiving-email-permissions-s3-iam-role "#receiving-email-permissions-s3-iam-role"). For more information
 about creating receipt rules that transfer incoming email to Amazon S3, see [Deliver to S3 bucket action](receiving-email-action-s3.md "receiving-email-action-s3.md").
 
 For more information about attaching policies to S3 buckets, see [Using Bucket Policies and User
@@ -206,9 +191,7 @@ Make the following changes to the preceding policy example:
 - Replace `receipt_rule_name` with the name of the
   receipt rule that contains the deliver to Amazon S3 bucket action.
 
-## Give SES permission to use your
-
-AWS KMS key
+## Give SES permission to use your AWS KMS key
 
 In order for SES to encrypt your emails, it must have permission to use the
 AWS KMS key that you specified when you set up your receipt rule. You can either use the
@@ -283,9 +266,7 @@ For more
 information about attaching policies to AWS KMS keys, see [Using Key Policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the
 _AWS Key Management Service Developer Guide_.
 
-## Give SES permission to
-
-invoke a AWS Lambda function
+## Give SES permission to invoke a AWS Lambda function
 
 To enable SES to call a AWS Lambda function, you can choose the function when
 you create a receipt rule in the SES console. When you do, SES
@@ -320,9 +301,7 @@ Make the following changes to the preceding policy example:
 - Replace `receipt_rule_name` with the name of the
   receipt rule containing your Lambda function.
 
-## Give SES permission to publish
-
-to an Amazon SNS topic that belongs to a different AWS account
+## Give SES permission to publish to an Amazon SNS topic that belongs to a different AWS account
 
 To publish notifications to a topic in a separate AWS account, you must attach a
 policy to the Amazon SNS topic. The SNS topic must be in the same Region as the domain and

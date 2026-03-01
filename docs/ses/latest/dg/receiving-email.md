@@ -40,9 +40,7 @@ email receiving.
 
 ###### Topics in this section:
 
-- [Amazon SES email receiving concepts and use
-  cases](receiving-email-concepts.md "receiving-email-concepts.md")
+- [Amazon SES email receiving concepts and use cases](receiving-email-concepts.md "receiving-email-concepts.md")
 - [Setting up Amazon SES email receiving](receiving-email-setting-up.md "receiving-email-setting-up.md")
-- [Amazon SES email receiving console
-  walkthroughs](receiving-email-walkthroughs.md "receiving-email-walkthroughs.md")
+- [Amazon SES email receiving console walkthroughs](receiving-email-walkthroughs.md "receiving-email-walkthroughs.md")
 - [Viewing metrics for Amazon SES email receiving](receiving-email-metrics.md "receiving-email-metrics.md")

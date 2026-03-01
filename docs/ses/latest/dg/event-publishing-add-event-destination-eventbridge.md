@@ -1,6 +1,4 @@
-# Set up an Amazon EventBridge
-
-destination for event publishing
+# Set up an Amazon EventBridge destination for event publishing
 
 An Amazon EventBridge event destination notifies you about the email sending events you specify in a
 configuration set. SES generates and sends email sending events that you define when
@@ -16,9 +14,7 @@ configuration set and assumes you have completed steps 1 through 6 in [Creating 
 You can also use the [UpdateConfigurationSetEventDestination](../APIReference-V2/API_UpdateConfigurationSetEventDestination.md "../APIReference-V2/API_UpdateConfigurationSetEventDestination.md") operation in the Amazon SES API V2 to create
 and modify event destinations.
 
-###### To add EventBridge event destination details to a configuration set using the
-
-console
+###### To add EventBridge event destination details to a configuration set using the console
 
 1. These are the detailed instructions for selecting EventBridge as your event destination
    type in [Step 7](event-destinations-manage.md#specify-event-dest-step "event-destinations-manage.md#specify-event-dest-step") and assumes you have

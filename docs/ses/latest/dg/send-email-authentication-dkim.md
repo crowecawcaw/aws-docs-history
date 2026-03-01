@@ -1,6 +1,4 @@
-# Authenticating Email with DKIM in
-
-Amazon SES
+# Authenticating Email with DKIM in Amazon SES
 
 _DomainKeys Identified Mail_ (_DKIM_) is an email
 security standard designed to make sure that an email that claims to have come from a
@@ -19,18 +17,14 @@ options for signing your messages using a DKIM signature:
 - **Deterministic Easy DKIM (DEED)**: Enables you to maintain
   consistent DKIM signing across multiple AWS Regions by creating replica identities
   that automatically inherit the DKIM signing attributes as a parent identity that is
-  using Easy DKIM, see [Using Deterministic Easy DKIM (DEED)
-  in Amazon SES](send-email-authentication-dkim-deed.md "send-email-authentication-dkim-deed.md").
+  using Easy DKIM, see [Using Deterministic Easy DKIM (DEED) in Amazon SES](send-email-authentication-dkim-deed.md "send-email-authentication-dkim-deed.md").
 - **BYODKIM (Bring Your Own DKIM)**: You provide your own
   public-private key pair and SES adds a DKIM signature to every message that
-  you send from that identity, see [Provide your own DKIM
-  authentication token (BYODKIM) in Amazon SES](send-email-authentication-dkim-bring-your-own.md "send-email-authentication-dkim-bring-your-own.md").
+  you send from that identity, see [Provide your own DKIM authentication token (BYODKIM) in Amazon SES](send-email-authentication-dkim-bring-your-own.md "send-email-authentication-dkim-bring-your-own.md").
 - **Manually add DKIM signature**: You add your own DKIM signature
   to email that you send using the `SendRawEmail` API, see [Manual DKIM signing in Amazon SES](send-email-authentication-dkim-manual.md "send-email-authentication-dkim-manual.md").
 
-## DKIM signing key
-
-length
+## DKIM signing key length
 
 Since many DNS providers now fully support DKIM 2048 bit RSA encryption, Amazon SES also
 supports DKIM 2048 to allow more secure authentication of emails and therefore uses it
@@ -58,9 +52,7 @@ email; therefore, if you change keys too quickly or frequently, DNS may not be a
 DKIM authenticate your email as the former key may already be invalidated, thus, these
 restrictions safeguard against that.
 
-## DKIM
-
-considerations
+## DKIM considerations
 
 When you use DKIM to authenticate your email, the following rules apply:
 
@@ -87,9 +79,7 @@ When you use DKIM to authenticate your email, the following rules apply:
       authentication, as well as the ability to re-enable
       later.
 
-## Understanding inherited DKIM signing
-
-properties
+## Understanding inherited DKIM signing properties
 
 It's important to first understand that an email address identity inherits its DKIM
 signing properties from its parent domain if that domain was configured with DKIM,
@@ -124,5 +114,4 @@ spam folders or having your domain spoofed.
 However, the capability exists to override the domain inherited DKIM signing
 properties on an email address identity for any particular use case or outlying business
 decision that you might have to either permanently or temporarily disable DKIM signing,
-or to re-enable it at a later time. See [Overriding inherited
-DKIM signing on an email address identity](send-email-authentication-dkim-easy-managing.md#send-email-authentication-dkim-easy-setup-email "send-email-authentication-dkim-easy-managing.md#send-email-authentication-dkim-easy-setup-email").
+or to re-enable it at a later time. See [Overriding inherited DKIM signing on an email address identity](send-email-authentication-dkim-easy-managing.md#send-email-authentication-dkim-easy-setup-email "send-email-authentication-dkim-easy-managing.md#send-email-authentication-dkim-easy-setup-email").

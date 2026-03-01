@@ -1,6 +1,4 @@
-# Specifying a configuration set when you
-
-send email
+# Specifying a configuration set when you send email
 
 To use a configuration set when sending an email, you must pass the name of the
 configuration set in the headers of the email. All of the Amazon SES email sending
@@ -21,6 +19,5 @@ SDKs and the Amazon SES SMTP interface. Each of these examples includes a method
 specifying a configuration set. To see step-by-step procedures for sending emails that
 include references to configuration sets, see the following:
 
-- [Sending email through Amazon SES using
-  an AWS SDK](send-an-email-using-sdk-programmatically.md "send-an-email-using-sdk-programmatically.md")
+- [Sending email through Amazon SES using an AWS SDK](send-an-email-using-sdk-programmatically.md "send-an-email-using-sdk-programmatically.md")
 - [Using the Amazon SES SMTP interface to send email](send-email-smtp.md "send-email-smtp.md")

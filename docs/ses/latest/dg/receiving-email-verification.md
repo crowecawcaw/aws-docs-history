@@ -1,6 +1,4 @@
-# Verifying your domain for Amazon SES email
-
-receiving
+# Verifying your domain for Amazon SES email receiving
 
 As with any domain you want to use for sending or receiving email with Amazon SES, you must
 first prove that you own it. The verification procedure includes initiating domain

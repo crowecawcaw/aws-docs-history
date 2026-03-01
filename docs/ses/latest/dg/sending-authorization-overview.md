@@ -1,6 +1,4 @@
-# Overview of Amazon SES sending
-
-authorization
+# Overview of Amazon SES sending authorization
 
 This topic provides an overview of the sending authorization process and then explains how
 the email sending features of Amazon SES, such as sending quotas and notifications, work with
@@ -101,9 +99,7 @@ tasks](sending-authorization-identity-owner-tasks.md "sending-authorization-iden
 tasks](sending-authorization-delegate-sender-tasks.md "sending-authorization-delegate-sender-tasks.md"),
 respectively.
 
-## Attribution of email sending
-
-features
+## Attribution of email sending features
 
 It's important to understand the role of the delegate sender and the identity owner
 with respect to Amazon SES email sending features such as daily sending quota, bounces and

@@ -45,8 +45,6 @@ You can call the API in the following ways:
 
 - [Sending formatted email using the Amazon SES API](send-email-formatted.md "send-email-formatted.md")
 - [Sending raw email using the Amazon SES API v2](send-email-raw.md "send-email-raw.md")
-- [Using templates to send personalized email
-  with the Amazon SES API](send-personalized-email-api.md "send-personalized-email-api.md")
-- [Sending email through Amazon SES using
-  an AWS SDK](send-an-email-using-sdk-programmatically.md "send-an-email-using-sdk-programmatically.md")
+- [Using templates to send personalized email with the Amazon SES API](send-personalized-email-api.md "send-personalized-email-api.md")
+- [Sending email through Amazon SES using an AWS SDK](send-an-email-using-sdk-programmatically.md "send-an-email-using-sdk-programmatically.md")
 - [Content encodings supported by Amazon SES](content-encodings.md "content-encodings.md")

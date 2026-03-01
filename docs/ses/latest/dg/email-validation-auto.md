@@ -31,9 +31,7 @@ Auto Validation currently supports three validation thresholds:
 If you choose High or Medium thresholds instead of SES managed, it is important to
 monitor your delivery metrics and validation results regularly.
 
-## Managing Auto Validation with the Amazon SES
-
-console
+## Managing Auto Validation with the Amazon SES console
 
 The following procedure shows you how to enable or change Auto Validation settings
 using the Amazon SES console.
@@ -90,9 +88,7 @@ If you don't override the account-level settings, the configuration set will use
 Auto Validation settings defined at the account level. You can also set up [event destinations](event-publishing-add-event-destination.md "event-publishing-add-event-destination.md") to track
 which emails did not pass the validation threshold.
 
-## Managing Auto Validation with the
-
-AWS CLI
+## Managing Auto Validation with the AWS CLI
 
 The following examples show you how to enable and configure Auto Validation using the
 AWS CLI.

@@ -1,6 +1,4 @@
-# Contents of notifications for Amazon SES
-
-email receiving
+# Contents of notifications for Amazon SES email receiving
 
 All notifications for email receiving are published to Amazon Simple Notification Service (Amazon SNS) topics in
 JavaScript Object Notation (JSON) format.
@@ -10,12 +8,9 @@ examples](receiving-email-notifications-examples.md "receiving-email-notificatio
 
 ###### Contents
 
-- [Top-level
-  JSON object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-top-level-json-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-top-level-json-object")
-- [receipt
-  object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-receipt-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-receipt-object")
-  - [action
-    object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-action-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-action-object")
+- [Top-level JSON object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-top-level-json-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-top-level-json-object")
+- [receipt object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-receipt-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-receipt-object")
+  - [action object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-action-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-action-object")
   - [dkimVerdict object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-dkimverdict-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-dkimverdict-object")
   - [dmarcVerdict object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-dmarcverdict-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-dmarcverdict-object")
   - [spamVerdict object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-spamverdict-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-spamverdict-object")
@@ -25,9 +20,7 @@ examples](receiving-email-notifications-examples.md "receiving-email-notificatio
 - [mail object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-mail-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-mail-object")
   - [commonHeaders object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-mail-object-commonHeaders "receiving-email-notifications-contents.md#receiving-email-notifications-contents-mail-object-commonHeaders")
 
-## Top-level
-
-JSON object
+## Top-level JSON object
 
 The top-level JSON object contains the following fields.
 
@@ -38,15 +31,13 @@ The top-level JSON object contains the following fields.
 | [mail](#receiving-email-notifications-contents-mail-object "#receiving-email-notifications-contents-mail-object")          | Object that contains information about the email associated with<br>the notification.                                                                                                                                                                                                                                                                                                                                                      |
 | `content`                                                                                                                  | String that contains the raw, unmodified email, which is typically<br>in Multipurpose Internet Mail Extensions (MIME) format. For more<br>information about MIME format, see [RFC<br>2045](https://tools.ietf.org/html/rfc2045 "https://tools.ietf.org/html/rfc2045").<br>NoteThis field is present only if the notification was triggered<br>by an SNS action. Notifications triggered by all other actions<br>do not contain this field. |
 
-## receipt
-
-object
+## receipt object
 
 The `receipt` object has the following fields.
 
 | Field Name                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [action](#receiving-email-notifications-contents-action-object "#receiving-email-notifications-contents-action-object")                   | Object that encapsulates information about the action that was<br>executed. For a list of possible values, see [action<br>object](#receiving-email-notifications-contents-action-object "#receiving-email-notifications-contents-action-object").                                                                                                                                                                                                                                                                                                                                                                                                          |
+| [action](#receiving-email-notifications-contents-action-object "#receiving-email-notifications-contents-action-object")                   | Object that encapsulates information about the action that was<br>executed. For a list of possible values, see [action object](#receiving-email-notifications-contents-action-object "#receiving-email-notifications-contents-action-object").                                                                                                                                                                                                                                                                                                                                                                                                             |
 | [dkimVerdict](#receiving-email-notifications-contents-dkimverdict-object "#receiving-email-notifications-contents-dkimverdict-object")    | Object that indicates whether the DomainKeys Identified Mail<br>(DKIM) check passed. For a list of possible values, see [dkimVerdict object](#receiving-email-notifications-contents-dkimverdict-object "#receiving-email-notifications-contents-dkimverdict-object").                                                                                                                                                                                                                                                                                                                                                                                     |
 | `dmarcPolicy`                                                                                                                             | Indicates the Domain-based Message Authentication, Reporting<br>& Conformance (DMARC) settings for the sending domain. This<br>field only appears if the message fails DMARC authentication.<br>Possible values for this field are:<br>• `none`: The owner of the sending domain<br>requests that no specific action be taken on messages that<br>fail DMARC authentication.<br>• `quarantine`: The owner of the sending domain<br>requests that messages that fail DMARC authentication be<br>treated by receivers as suspicious.<br>• `reject`: The owner of the sending domain<br>requests that messages that fail DMARC authentication be<br>rejected. |
 | [dmarcVerdict](#receiving-email-notifications-contents-dmarcverdict-object "#receiving-email-notifications-contents-dmarcverdict-object") | Object that indicates whether the Domain-based Message<br>Authentication, Reporting & Conformance (DMARC) check passed. For a<br>list of possible values, see [dmarcVerdict object](#receiving-email-notifications-contents-dmarcverdict-object "#receiving-email-notifications-contents-dmarcverdict-object").                                                                                                                                                                                                                                                                                                                                            |
@@ -57,9 +48,7 @@ The `receipt` object has the following fields.
 | `timestamp`                                                                                                                               | String that specifies the qualified date and time at which the<br>action was triggered, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601 "https://en.wikipedia.org/wiki/ISO_8601")<br>format.                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | [virusVerdict](#receiving-email-notifications-contents-virusverdict-object "#receiving-email-notifications-contents-virusverdict-object") | Object that indicates whether the message contains a virus. For a<br>list of possible values, see [virusVerdict object](#receiving-email-notifications-contents-virusverdict-object "#receiving-email-notifications-contents-virusverdict-object").                                                                                                                                                                                                                                                                                                                                                                                                        |
 
-### action
-
-object
+### action object
 
 The `action` object has the following fields.
 

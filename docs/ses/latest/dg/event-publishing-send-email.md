@@ -1,6 +1,4 @@
-# Step 3: Specify your configuration set when
-
-you send email
+# Step 3: Specify your configuration set when you send email
 
 After you [create a configuration
 set](event-publishing-create-configuration-set.md "event-publishing-create-configuration-set.md") and [add an event
@@ -26,12 +24,9 @@ depends on which email sending interface you use, as shown in the following tabl
 The following sections describe how to specify the configuration set and message tags
 using headers and using API parameters.
 
-- [Using Amazon SES API
-  Parameters](#event-publishing-using-ses-parameters "#event-publishing-using-ses-parameters")
-- [Using Amazon SES-Specific Email
-  Headers](#event-publishing-using-ses-headers "#event-publishing-using-ses-headers")
-- [Using Custom Email
-  Headers](#event-publishing-using-custom-headers "#event-publishing-using-custom-headers")
+- [Using Amazon SES API Parameters](#event-publishing-using-ses-parameters "#event-publishing-using-ses-parameters")
+- [Using Amazon SES-Specific Email Headers](#event-publishing-using-ses-headers "#event-publishing-using-ses-headers")
+- [Using Custom Email Headers](#event-publishing-using-custom-headers "#event-publishing-using-custom-headers")
 
 ###### Note
 
@@ -39,9 +34,7 @@ You can optionally include message tags in the headers of your emails. Message t
 can include the numbers 0–9, the letters A–Z (both uppercase and lowercase),
 hyphens (-), and underscores (\_).
 
-## Using Amazon SES API
-
-Parameters
+## Using Amazon SES API Parameters
 
 To use [SendEmail](../APIReference/API_SendEmail.md "../APIReference/API_SendEmail.md"), [SendTemplatedEmail](../APIReference/API_SendTemplatedEmail.md "../APIReference/API_SendTemplatedEmail.md"), [SendBulkTemplatedEmail](../APIReference/API_SendBulkTemplatedEmail.md "../APIReference/API_SendBulkTemplatedEmail.md"),
 [SendCustomVerificationEmail](../APIReference/API_SendCustomVerificationEmail.md "../APIReference/API_SendCustomVerificationEmail.md"), or [SendRawEmail](../APIReference/API_SendRawEmail.md "../APIReference/API_SendRawEmail.md") with event publishing,
@@ -52,9 +45,7 @@ call.
 
 For more information about using the Amazon SES API, see the [Amazon Simple Email Service API Reference](../APIReference.md "../APIReference.md").
 
-## Using Amazon SES-Specific Email
-
-Headers
+## Using Amazon SES-Specific Email Headers
 
 When you use `SendRawEmail` or the SMTP interface, you can specify the
 configuration set and the message tags by adding Amazon SES-specific headers to the email.
@@ -91,9 +82,7 @@ body
 ------=_boundary--
 ```
 
-## Using Custom Email
-
-Headers
+## Using Custom Email Headers
 
 Although you must specify the configuration set name using the Amazon SES-specific header
 `X-SES-CONFIGURATION-SET`, you can specify the message tags by using your

@@ -33,11 +33,9 @@ application.
   package. If you use a Debian- or Ubuntu-based system, you should install the
   `libsasl2-modules` package.
 - Verify an email address or domain to use for sending email. For more
-  information, see [Creating an email address
-  identity](creating-identities.md#verify-email-addresses-procedure "creating-identities.md#verify-email-addresses-procedure").
+  information, see [Creating an email address identity](creating-identities.md#verify-email-addresses-procedure "creating-identities.md#verify-email-addresses-procedure").
 - If your account is still in the sandbox, you can only send email to verified
-  email addresses. For more information, see [Request production access (Moving out of the
-  Amazon SES sandbox)](request-production-access.md "request-production-access.md").
+  email addresses. For more information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").
 
 ## Configuring Postfix
 

@@ -1,15 +1,11 @@
-# Managing Easy DKIM and
-
-BYODKIM
+# Managing Easy DKIM and BYODKIM
 
 You can manage the DKIM settings for your identities authenticated with either Easy DKIM
 or BYODKIM by using the web-based Amazon SES console, or by using the Amazon SES API. You can use
 either of these methods to obtain the DKIM records for an identity, or to enable or disable
 DKIM signing for an identity.
 
-## Obtaining
-
-DKIM Records for an identity
+## Obtaining DKIM Records for an identity
 
 You can obtain the DKIM records for your domain or email address at any time by using
 the Amazon SES console.
@@ -98,9 +94,7 @@ Not all AWS Regions use the default SES DKIM domain,
 `dkim.amazonses.com`—to see if your region uses a region
 specific DKIM domain, check the [DKIM domains table](../../../general/latest/gr/ses.md#ses_dkim_domains "../../../general/latest/gr/ses.md#ses_dkim_domains") in the _AWS General Reference_.
 
-## Disabling Easy
-
-DKIM for an identity
+## Disabling Easy DKIM for an identity
 
 You can quickly disable DKIM authentication for an identity by using the Amazon SES
 console.
@@ -134,9 +128,7 @@ In the preceding example, replace `example.com` with
 the identity that you want to disable DKIM for. You can specify either an email
 address or a domain.
 
-## Enabling Easy
-
-DKIM for an identity
+## Enabling Easy DKIM for an identity
 
 If you previously disabled DKIM for an identity, you can enable it again by using the
 Amazon SES console.
@@ -170,9 +162,7 @@ In the preceding example, replace `example.com` with
 the identity that you want to enable DKIM for. You can specify either an email
 address or a domain.
 
-## Overriding inherited
-
-DKIM signing on an email address identity
+## Overriding inherited DKIM signing on an email address identity
 
 In this section you'll learn how to override (disable or enable) the inherited DKIM
 signing properties from the parent domain on a specific email address identity that
@@ -193,16 +183,11 @@ You can't disable/enable DKIM signing for email address identities...
 
 This section contains the following topics:
 
-- [Understanding inherited DKIM
-  signing properties](#dkim-easy-setup-email-key-points-mng "#dkim-easy-setup-email-key-points-mng")
-- [Overriding DKIM signing on an
-  email address identity (console)](#override-dkim-email-console-mng "#override-dkim-email-console-mng")
-- [Overriding DKIM signing on an email
-  address identity (AWS CLI)](#override-dkim-email-cli-mng "#override-dkim-email-cli-mng")
+- [Understanding inherited DKIM signing properties](#dkim-easy-setup-email-key-points-mng "#dkim-easy-setup-email-key-points-mng")
+- [Overriding DKIM signing on an email address identity (console)](#override-dkim-email-console-mng "#override-dkim-email-console-mng")
+- [Overriding DKIM signing on an email address identity (AWS CLI)](#override-dkim-email-cli-mng "#override-dkim-email-cli-mng")
 
-### Understanding inherited DKIM
-
-signing properties
+### Understanding inherited DKIM signing properties
 
 It's important to first understand that an email address identity inherits its
 DKIM signing properties from its parent domain if that domain was configured with
@@ -239,17 +224,13 @@ properties on an email address identity for any particular use case or outlying
 business decision that you might have to either permanently or temporarily disable
 DKIM signing, or to re-enable it at a later time.
 
-### Overriding DKIM signing on an
-
-email address identity (console)
+### Overriding DKIM signing on an email address identity (console)
 
 The following SES console procedure explains how to override (disable or
 enable) the inherited DKIM signing properties from the parent domain on a specific
 email address identity that you've already verified with Amazon SES.
 
-###### To disable/enable DKIM signing for an email address identity using the
-
-console
+###### To disable/enable DKIM signing for an email address identity using the console
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose
@@ -271,18 +252,14 @@ signatures** field, clear the **Enabled**
 checkbox to disable DKIM signing, or select it to re-enable DKIM signing (if
 it had been overridden previously). 6. Choose **Save changes**.
 
-### Overriding DKIM signing on an email
-
-address identity (AWS CLI)
+### Overriding DKIM signing on an email address identity (AWS CLI)
 
 The following example uses the AWS CLI with a SES API command and parameters
 that will override (disable or enable) the inherited DKIM signing properties from
 the parent domain on a specific email address identity that you've already verified
 with SES.
 
-###### To disable/enable DKIM signing for an email address identity using the
-
-AWS CLI
+###### To disable/enable DKIM signing for an email address identity using the AWS CLI
 
 - Assuming you own the _example.com_ domain, and you
   want to disable DKIM signing for one of the domain's email addresses, at the

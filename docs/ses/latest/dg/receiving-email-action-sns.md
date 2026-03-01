@@ -57,7 +57,5 @@ see the [Amazon Simple Notification Service Developer Guide](../../../sns/latest
 
 provide an example of each type of notification:
 
-- [Contents of notifications for Amazon SES
-  email receiving](receiving-email-notifications-contents.md "receiving-email-notifications-contents.md")
-- [Examples of notifications for Amazon SES
-  email receiving](receiving-email-notifications-examples.md "receiving-email-notifications-examples.md")
+- [Contents of notifications for Amazon SES email receiving](receiving-email-notifications-contents.md "receiving-email-notifications-contents.md")
+- [Examples of notifications for Amazon SES email receiving](receiving-email-notifications-examples.md "receiving-email-notifications-examples.md")

@@ -10,42 +10,29 @@ considered personal.
 
 ###### Contents
 
-- [Delete Email Addresses
-  From the Account-Level Suppression List](#deleting-personal-data-account-suppression-list "#deleting-personal-data-account-suppression-list")
-- [Delete Data About Email Sent Using
-  Amazon SES](#deleting-personal-data-message-data "#deleting-personal-data-message-data")
+- [Delete Email Addresses From the Account-Level Suppression List](#deleting-personal-data-account-suppression-list "#deleting-personal-data-account-suppression-list")
+- [Delete Data About Email Sent Using Amazon SES](#deleting-personal-data-message-data "#deleting-personal-data-message-data")
 - [Delete Data About Identities](#deleting-personal-data-identities "#deleting-personal-data-identities")
-- [Delete Sender Authentication
-  Data](#deleting-personal-data-sender-authentication "#deleting-personal-data-sender-authentication")
-- [Delete Data Related to
-  Receiving Rules](#deleting-personal-data-receiving-rules "#deleting-personal-data-receiving-rules")
-- [Delete Data Related to IP
-  Address Filters](#deleting-personal-data-ip-address-filters "#deleting-personal-data-ip-address-filters")
-- [Delete Data in Email
-  Templates](#deleting-personal-data-email-templates "#deleting-personal-data-email-templates")
-- [Delete Data in Custom
-  Verification Email Templates](#deleting-personal-data-cve-templates "#deleting-personal-data-cve-templates")
-- [Delete All Personal Data by
-  Closing Your AWS Account](#deleting-personal-data-closing-account "#deleting-personal-data-closing-account")
+- [Delete Sender Authentication Data](#deleting-personal-data-sender-authentication "#deleting-personal-data-sender-authentication")
+- [Delete Data Related to Receiving Rules](#deleting-personal-data-receiving-rules "#deleting-personal-data-receiving-rules")
+- [Delete Data Related to IP Address Filters](#deleting-personal-data-ip-address-filters "#deleting-personal-data-ip-address-filters")
+- [Delete Data in Email Templates](#deleting-personal-data-email-templates "#deleting-personal-data-email-templates")
+- [Delete Data in Custom Verification Email Templates](#deleting-personal-data-cve-templates "#deleting-personal-data-cve-templates")
+- [Delete All Personal Data by Closing Your AWS Account](#deleting-personal-data-closing-account "#deleting-personal-data-closing-account")
 
-## Delete Email Addresses
-
-From the Account-Level Suppression List
+## Delete Email Addresses From the Account-Level Suppression List
 
 Amazon SES includes an optional account-level suppression list. When you enable this
 feature, email addresses are automatically added to a suppression list when they result
 in a bounce or complaint. Email addresses remain on this list until you delete them. For
-more information about the account-level suppression list, see [Using the Amazon SES account-level suppression
-list](sending-email-suppression-list.md "sending-email-suppression-list.md").
+more information about the account-level suppression list, see [Using the Amazon SES account-level suppression list](sending-email-suppression-list.md "sending-email-suppression-list.md").
 
 You can remove email addresses from the account-level suppression list by using the
 `DeleteSuppressedDestination` operation in the [Amazon SES API v2](../APIReference-V2/API_DeleteSuppressedDestination.md "../APIReference-V2/API_DeleteSuppressedDestination.md"). This section includes a procedure for deleting email
 addresses by using the AWS CLI. For more information about installing and configuring the
 AWS CLI, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
 
-###### To remove an address from the account-level suppression list by using the
-
-AWS CLI
+###### To remove an address from the account-level suppression list by using the AWS CLI
 
 - At the command line, enter the following command:
 
@@ -57,9 +44,7 @@ In the preceding command, replace
 `recipient@example.com` with the email address that
 you want to remove from the account-level suppression list.
 
-## Delete Data About Email Sent Using
-
-Amazon SES
+## Delete Data About Email Sent Using Amazon SES
 
 When you use Amazon SES to send an email, you can send information about that email to
 other AWS services. For example, you can send information about email events (such as
@@ -84,8 +69,7 @@ Amazon SES event data to Firehose, you must delete the Firehose event destinatio
    ![Close or cancel icon represented by an X symbol in a circular shape.](images/delete_icon.png)
    ) button.
 5. If necessary, remove the data that Firehose wrote to other services. For more
-   information, see [Remove Stored Event
-   Data](#deleting-personal-data-message-data-storage "#deleting-personal-data-message-data-storage").
+   information, see [Remove Stored Event Data](#deleting-personal-data-message-data-storage "#deleting-personal-data-message-data-storage").
 
 You can also use the Amazon SES API to delete event destinations. The following procedure
 uses the AWS Command Line Interface (AWS CLI) to interact with the Amazon SES API. You can also interact with
@@ -104,12 +88,9 @@ In this command, replace `configSet` with the name of
 the configuration set that contains the Firehose event destination. Replace
 `eventDestination` with the name of the Firehose event
 destination. 2. If necessary, remove the data that Firehose wrote to other services. For more
-information, see [Remove Stored Event
-Data](#deleting-personal-data-message-data-storage "#deleting-personal-data-message-data-storage").
+information, see [Remove Stored Event Data](#deleting-personal-data-message-data-storage "#deleting-personal-data-message-data-storage").
 
-### Remove Stored Event
-
-Data
+### Remove Stored Event Data
 
 For more information about deleting information from other AWS services, see the
 following documents:
@@ -164,9 +145,7 @@ aws ses delete-identity --identity `sender@example.com`
 In this command, replace `sender@example.com` with
 the identity that you want to delete.
 
-## Delete Sender Authentication
-
-Data
+## Delete Sender Authentication Data
 
 Sender authentication refers to the process of configuring Amazon SES so that another user
 can send email on your behalf. To enable sender authorization, you must create a policy,
@@ -207,9 +186,7 @@ identity that contains the sender authentication policy. Replace
 `samplePolicy` with the name of the sender
 authentication policy.
 
-## Delete Data Related to
-
-Receiving Rules
+## Delete Data Related to Receiving Rules
 
 If you use Amazon SES to receive incoming email, you can create receipt rules that are
 applied to one or more identities (email addresses or domains). These rules determine
@@ -245,9 +222,7 @@ the receipt rule set that contains the receipt rule. Replace
 `myReceiptRule` with the name of the receipt rule
 that you want to delete.
 
-## Delete Data Related to IP
-
-Address Filters
+## Delete Data Related to IP Address Filters
 
 If you use Amazon SES to receive incoming email, you can create filters to explicitly
 accept or block messages that are sent from specific IP addresses.
@@ -275,9 +250,7 @@ aws ses delete-receipt-filter --filter-name `IPfilter`
 In this command, replace `IPfilter` with the name of
 the IP address filter you want to delete.
 
-## Delete Data in Email
-
-Templates
+## Delete Data in Email Templates
 
 If you use email templates for sending email, it's possible that those templates might
 contain personal data, depending on how you configured them. For example, you might have
@@ -297,9 +270,7 @@ aws ses delete-template --template-name `sampleTemplate`
 In this command, replace `sampleTemplate` with the
 name of the email template that you want to delete.
 
-## Delete Data in Custom
-
-Verification Email Templates
+## Delete Data in Custom Verification Email Templates
 
 If you use customized templates for verifying new email sending addresses, it's
 possible that those templates might contain personal data, depending on how you
@@ -320,9 +291,7 @@ In this command, replace `verificationEmailTemplate`
 with the name of the custom verification email template that you want to
 delete.
 
-## Delete All Personal Data by
-
-Closing Your AWS Account
+## Delete All Personal Data by Closing Your AWS Account
 
 It's also possible to delete all personal data that's stored in Amazon SES by closing your
 AWS account. However, this action also deletes all other data—personal or

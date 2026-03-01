@@ -1,6 +1,4 @@
-# Automatically pausing email
-
-sending
+# Automatically pausing email sending
 
 To protect your sender reputation, you can temporarily pause email sending for messages
 sent using specific configuration sets, or for all messages sent from your Amazon SES account in
@@ -12,7 +10,5 @@ certain thresholds. This topic contains procedures for setting up this solution.
 
 ###### Topics in this section:
 
-- [Automatically pausing email
-  sending for your entire Amazon SES account](monitoring-sender-reputation-pausing-account.md "monitoring-sender-reputation-pausing-account.md")
-- [Automatically
-  pausing email sending for a configuration set](monitoring-sender-reputation-pausing-configuration-set.md "monitoring-sender-reputation-pausing-configuration-set.md")
+- [Automatically pausing email sending for your entire Amazon SES account](monitoring-sender-reputation-pausing-account.md "monitoring-sender-reputation-pausing-account.md")
+- [Automatically pausing email sending for a configuration set](monitoring-sender-reputation-pausing-configuration-set.md "monitoring-sender-reputation-pausing-configuration-set.md")

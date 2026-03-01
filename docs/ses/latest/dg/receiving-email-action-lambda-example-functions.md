@@ -1,12 +1,8 @@
-# Lambda function
-
-examples
+# Lambda function examples
 
 This topic contains examples of Lambda functions that control mail flow.
 
-## Example 1: Drop
-
-spam
+## Example 1: Drop spam
 
 This example stops processing messages that have at least one spam indicator.
 
@@ -33,9 +29,7 @@ export const handler = async (event, context, callback) => {
 };
 ```
 
-## Example 2: Continue
-
-if a particular header is found
+## Example 2: Continue if a particular header is found
 
 This example continues processing the current rule only if the email contains a
 specific header value.
@@ -64,9 +58,7 @@ export const handler = async (event, context, callback) => {
 };
 ```
 
-## Example 3: Retrieve
-
-email from Amazon S3
+## Example 3: Retrieve email from Amazon S3
 
 This example gets the raw email from Amazon S3 and processes it.
 
@@ -109,9 +101,7 @@ export const handler = async (event, context, callback) => {
 };
 ```
 
-## Example 4: Bounce
-
-messages that fail DMARC authentication
+## Example 4: Bounce messages that fail DMARC authentication
 
 This examples sends a bounce message if an incoming email fails DMARC
 authentication.

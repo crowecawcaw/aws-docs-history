@@ -36,9 +36,7 @@ archives**, that you can use to search for email in your archives, export
 the results, and manage your archives. In the following procedures, instructions are
 provided for each table.
 
-###### To use the **Email archiving** page to search, export, and manage your
-
-archives
+###### To use the **Email archiving** page to search, export, and manage your archives
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the left navigation panel, choose **Email archiving** under

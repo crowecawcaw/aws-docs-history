@@ -56,8 +56,7 @@ observing the following rules:
   ISP.
 - Make sure that the address you use to receive bounce notifications is able to
   receive email. For more information about setting up bounce and complaint
-  notifications, see [Setting up event
-  notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
+  notifications, see [Setting up event notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
 - If your inbound email comes to you from an ISP, instead of through your own
   internal servers, an influx of bounce notifications can land in your spam folder
   or be dropped completely. Ideally, you should not use a hosted email address to
@@ -101,8 +100,7 @@ observing the following rules:
 
 - Make sure that the address you use to receive complaint notifications is able
   to receive email. For more information about setting up bounce and complaint
-  notifications, see [Setting up event
-  notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
+  notifications, see [Setting up event notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
 - Make sure that your complaint notifications aren't being marked as spam by
   your ISP or mail system.
 - Complaint notifications usually contain the body of the email; this is

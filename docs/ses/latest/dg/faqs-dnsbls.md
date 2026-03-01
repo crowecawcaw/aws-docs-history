@@ -15,8 +15,7 @@ removing Amazon SES IP addresses from DNSBLs.
 
 This topic is about the DNSBLs that email providers use to block incoming messages.
 For information about how Amazon SES blocks outgoing email sent to recipients whose email
-addresses have previously generated bounces, see [Amazon SES global suppression
-list](sending-email-global-suppression-list.md "sending-email-global-suppression-list.md").
+addresses have previously generated bounces, see [Amazon SES global suppression list](sending-email-global-suppression-list.md "sending-email-global-suppression-list.md").
 
 ## Q1. How do DNSBLs impact email delivery?
 
@@ -41,9 +40,7 @@ addresses. A few DNSBLs even allow users to submit entire IP address ranges. Oth
 DNSBLs are maintained through contributions by email administrators, and can include IP
 addresses that administrators believe are abusing their own systems.
 
-## Q3. How does Amazon SES prevent its IP addresses from appearing on
-
-DNSBLs?
+## Q3. How does Amazon SES prevent its IP addresses from appearing on DNSBLs?
 
 Our systems look for signs of abuse. If we detect sending patterns or other
 characteristics that could lead to an IP address being added to a DNSBL, we send a
@@ -52,9 +49,7 @@ issue after we send the notification, we'll pause the sender's ability to send e
 until they resolve the issue. Enforcing our sending policies in this way helps reduce
 the chances that our IP addresses end up on DNSBLs.
 
-## Q4. Can Amazon SES have its IP addresses removed from a
-
-DNSBL?
+## Q4. Can Amazon SES have its IP addresses removed from a DNSBL?
 
 For SES shared IPs, we
 actively monitor DNSBLs that could impact delivery across the entire Amazon SES service, or
@@ -74,9 +69,7 @@ For dedicated IP address (managed or standard) listed in any RBL of recipient ma
 providers, it is not the responsibility of SES to delist the IPs and you must
 request removal yourself directly to the RBL administrator.
 
-## Q5. An email provider is rejecting my email because the sending
-
-IP address is listed by a DNSBL other than Spamhaus. What can I do?
+## Q5. An email provider is rejecting my email because the sending IP address is listed by a DNSBL other than Spamhaus. What can I do?
 
 First, confirm that the message was truly blocked because of a DNSBL. If your email
 was rejected because the sending IP address was added to a DNSBL, you'll receive a
@@ -118,10 +111,7 @@ email, the more likely the postmaster is to make an exception for you.
   and your rates of bounces, complaints, and spamtrap hits low. Good sending
   practices can help ensure that your addresses don't end up on DNSBLs.
 
-## Q6. Email that I send to Gmail, Yahoo, Hotmail, or another major
-
-provider is being sent to the spam folder. Is this happening because my sending IP
-address is on a DNSBL?
+## Q6. Email that I send to Gmail, Yahoo, Hotmail, or another major provider is being sent to the spam folder. Is this happening because my sending IP address is on a DNSBL?
 
 Probably not. If an IP address is listed by a DNSBL with significant impact, such as
 one of the DNSBLs from Spamhaus, major email providers will reject email from that IP

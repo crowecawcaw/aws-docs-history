@@ -18,8 +18,7 @@ The way that you observe this error message depends on the way that you call Ama
 - If you call Amazon SES through its SMTP interface, the way that you experience the
   error depends on the application. Some applications might display a specific error
   message, and others might not. For a list of SMTP response codes that Amazon SES returns,
-  see [SMTP response codes returned by
-  Amazon SES](troubleshoot-smtp.md#troubleshoot-smtp-response-codes "troubleshoot-smtp.md#troubleshoot-smtp-response-codes").
+  see [SMTP response codes returned by Amazon SES](troubleshoot-smtp.md#troubleshoot-smtp-response-codes "troubleshoot-smtp.md#troubleshoot-smtp-response-codes").
 
 ###### Note
 
@@ -83,8 +82,7 @@ information, see [Amazon SES Sending review process FAQs](faqs-enforcement.md "f
   You should regularly monitor your sending activity to see how close you are to
   your sending quotas. For more information, see [Monitoring your Amazon SES sending quotas](manage-sending-quotas-monitor.md "manage-sending-quotas-monitor.md"). For general information about
   sending quotas, see [Managing your Amazon SES sending limits](manage-sending-quotas.md "manage-sending-quotas.md"). For information about how to increase
-  your sending quotas, see [Increasing your Amazon SES sending
-  quotas](manage-sending-quotas-request-increase.md "manage-sending-quotas-request-increase.md").
+  your sending quotas, see [Increasing your Amazon SES sending quotas](manage-sending-quotas-request-increase.md "manage-sending-quotas-request-increase.md").
 
 ###### Important
 
@@ -110,5 +108,4 @@ information about the service status, go to the [AWS Service Health Dashboard](h
 - Configuration set does not exist—The
   configuration set that you specified does not exist. A configuration set is an
   optional parameter that you use to publish email sending events. For more
-  information, see [Monitor email sending using Amazon SES event
-  publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md").
+  information, see [Monitor email sending using Amazon SES event publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md").

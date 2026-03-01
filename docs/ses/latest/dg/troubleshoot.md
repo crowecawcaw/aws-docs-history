@@ -3,8 +3,7 @@
 This section contains the following topics that may help you when you encounter problems:
 
 - For information about domain verification problems that you might encounter, see
-  [Domain and Email address verification
-  problems](troubleshoot-verification.md "troubleshoot-verification.md").
+  [Domain and Email address verification problems](troubleshoot-verification.md "troubleshoot-verification.md").
 - For solutions to DKIM-related issues, see [Troubleshooting DKIM problems in Amazon SES](troubleshoot-dkim.md "troubleshoot-dkim.md").
 - For a list of common delivery problems that you might encounter when you send
   email, along with corrective actions that you can take, see [Amazon SES Delivery problems](troubleshoot-delivery.md "troubleshoot-delivery.md").
@@ -36,8 +35,7 @@ Us](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/") pag
 ###### Contents
 
 - [General Amazon SES issues](troubleshoot-general.md "troubleshoot-general.md")
-- [Domain and Email address verification
-  problems](troubleshoot-verification.md "troubleshoot-verification.md")
+- [Domain and Email address verification problems](troubleshoot-verification.md "troubleshoot-verification.md")
 - [Troubleshooting DKIM problems in Amazon SES](troubleshoot-dkim.md "troubleshoot-dkim.md")
 - [Amazon SES Delivery problems](troubleshoot-delivery.md "troubleshoot-delivery.md")
 - [Problems with emails received from Amazon SES](troubleshoot-receiving.md "troubleshoot-receiving.md")

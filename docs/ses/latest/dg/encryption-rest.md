@@ -240,9 +240,7 @@ all assets.
         },
 ```
 
-## Monitoring your encryption keys for
-
-Amazon SES
+## Monitoring your encryption keys for Amazon SES
 
 When you use an AWS KMS customer managed key with your Amazon SES resources, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track
 requests that SES sends to AWS KMS.

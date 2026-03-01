@@ -22,9 +22,7 @@ launches a new feature, AWS adds read-only permissions for new operations and re
 For a list and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS managed policy:
-
-AmazonSESFullAccess
+## AWS managed policy: AmazonSESFullAccess
 
 You can attach the `AmazonSESFullAccess` policy to your IAM identities.
 Provides full access to Amazon SES.
@@ -32,9 +30,7 @@ Provides full access to Amazon SES.
 To view the permissions for this policy, see [AmazonSESFullAccess](../../../aws-managed-policy/latest/reference/AmazonSESFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonSESFullAccess.md") in the _AWS Managed
 Policy Reference_.
 
-## AWS managed policy:
-
-AmazonSESReadOnlyAccess
+## AWS managed policy: AmazonSESReadOnlyAccess
 
 You can attach the `AmazonSESReadOnlyAccess` policy to your IAM
 identities. Provides read only access to Amazon SES.
@@ -42,21 +38,16 @@ identities. Provides read only access to Amazon SES.
 To view the permissions for this policy, see [AmazonSESReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonSESReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonSESReadOnlyAccess.md") in the _AWS Managed
 Policy Reference_.
 
-## AWS managed
-
-policy: AmazonSESServiceRolePolicy
+## AWS managed policy: AmazonSESServiceRolePolicy
 
 You can't attach the `AmazonSESServiceRolePolicy` policy to your IAM
 entities. This policy is attached to a service-linked role that allows Amazon SES to perform
-actions on your behalf. For more information, see [Service-linked role permissions for
-Amazon SES](using-service-linked-roles.md#service-linked-role-permissions "using-service-linked-roles.md#service-linked-role-permissions").
+actions on your behalf. For more information, see [Service-linked role permissions for Amazon SES](using-service-linked-roles.md#service-linked-role-permissions "using-service-linked-roles.md#service-linked-role-permissions").
 
 To view the permissions for this policy, see [AmazonSESServiceRolePolicy](../../../aws-managed-policy/latest/reference/AmazonSESServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AmazonSESServiceRolePolicy.md") in the _AWS
 Managed Policy Reference_.
 
-## Amazon Simple Email Service updates to AWS managed
-
-policies
+## Amazon Simple Email Service updates to AWS managed policies
 
 View details and about updates to AWS managed policies for Amazon Simple Email Service since this
 service began tracking these changes.

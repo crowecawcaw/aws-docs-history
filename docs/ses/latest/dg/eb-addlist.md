@@ -38,13 +38,10 @@ over your email traffic.
 
 ###### Topics
 
-- [Creating and populating an
-  Address List](#creating-address-lists "#creating-address-lists")
+- [Creating and populating an Address List](#creating-address-lists "#creating-address-lists")
 - [Managing Address Lists](#managing-address-lists "#managing-address-lists")
 
-### Creating and populating an
-
-Address List
+### Creating and populating an Address List
 
 Part of creating an Address List in the console is to populate it with one or more
 addresses. Using the Mail Manager APIs, you can create empty Address Lists and populate them
@@ -252,9 +249,7 @@ Using the AWS CLI:
 aws mailmanager delete-address-list --address-list-id `al-123456789abc`
 ```
 
-## Using Address Lists
-
-in Traffic Policies and Rule Sets
+## Using Address Lists in Traffic Policies and Rule Sets
 
 Address Lists can be used in traffic policy statements and rule conditions to process
 emails based on list membership giving control over email flow. The following sections
@@ -266,9 +261,7 @@ set.
 - [Traffic policy example](#traffic-policy-example "#traffic-policy-example")
 - [Rule set example](#rule-set-example "#rule-set-example")
 
-### Using an Address List in a traffic policy
-
-statement
+### Using an Address List in a traffic policy statement
 
 Address Lists can be selected when you build the condition of a traffic policy
 statement to either allow or deny email coming into your ingress endpoint.
@@ -374,9 +367,7 @@ aws mailmanager create-rule-set \
 
 ```
 
-## Best Practices and
-
-Considerations
+## Best Practices and Considerations
 
 - Be mindful of list sizes—very large lists may impact
   performance.

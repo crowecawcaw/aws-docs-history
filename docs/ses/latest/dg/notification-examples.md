@@ -2,23 +2,16 @@
 
 The following sections provide examples of the three types of notifications:
 
-- For bounce notification examples, see [Amazon SNS bounce notification
-  examples](#notification-examples-bounce "#notification-examples-bounce").
-- For complaint notification examples, see [Amazon SNS complaint notification
-  examples](#notification-examples-complaint "#notification-examples-complaint").
-- For delivery notification examples, see [Amazon SNS delivery notification
-  example](#notification-examples-delivery "#notification-examples-delivery").
+- For bounce notification examples, see [Amazon SNS bounce notification examples](#notification-examples-bounce "#notification-examples-bounce").
+- For complaint notification examples, see [Amazon SNS complaint notification examples](#notification-examples-complaint "#notification-examples-complaint").
+- For delivery notification examples, see [Amazon SNS delivery notification example](#notification-examples-delivery "#notification-examples-delivery").
 
-## Amazon SNS bounce notification
-
-examples
+## Amazon SNS bounce notification examples
 
 This section contains examples of bounce notifications with and without a Delivery
 Status Notification (DSN) provided by the email receiver that sent the feedback.
 
-### Bounce notification with a
-
-DSN
+### Bounce notification with a DSN
 
 The following is an example of a bounce notification that contains a DSN and the
 original email headers. When bounce notifications are not configured to include the
@@ -103,9 +96,7 @@ not include the `headersTruncated`, `headers`, and
     }
 ```
 
-### Bounce notification without a
-
-DSN
+### Bounce notification without a DSN
 
 The following is an example of a bounce notification that includes the original
 email headers but does not include a DSN. When bounce notifications are not
@@ -190,16 +181,12 @@ within the notifications does not include the `headersTruncated`,
   }
 ```
 
-## Amazon SNS complaint notification
-
-examples
+## Amazon SNS complaint notification examples
 
 This section contains examples of complaint notifications, with and without a feedback
 report, provided by the email receiver that sent the feedback.
 
-### Complaint
-
-notification with a feedback report
+### Complaint notification with a feedback report
 
 The following is an example of a complaint notification that contains a feedback
 report and the original email headers. When complaint notifications are not
@@ -281,9 +268,7 @@ within the notifications does not include the `headersTruncated`,
    }
 ```
 
-### Complaint notification
-
-without a feedback report
+### Complaint notification without a feedback report
 
 The following is an example of a complaint notification that includes the original
 email headers but does not include a feedback report. When complaint notifications
@@ -363,9 +348,7 @@ object within the notifications does not include the `headersTruncated`,
 
 ```
 
-## Amazon SNS delivery notification
-
-example
+## Amazon SNS delivery notification example
 
 The following is an example of a delivery notification that includes the original
 email headers. When delivery notifications are not configured to include the original

@@ -1,6 +1,4 @@
-# Monitor email sending using Amazon SES event
-
-publishing
+# Monitor email sending using Amazon SES event publishing
 
 To enable you to track your email sending at a granular level, you can set up Amazon SES to
 publish _email sending events_ to Amazon CloudWatch, Amazon Data Firehose, Amazon Pinpoint, Amazon Simple Notification Service,
@@ -13,9 +11,7 @@ publish your email sending data to CloudWatch and create dashboards that track t
 your email campaigns, or you can use Amazon SNS to send you notifications when certain events
 occur.
 
-## How event publishing works with
-
-configuration sets and message tags
+## How event publishing works with configuration sets and message tags
 
 To use event publishing, you first set up one or more _configuration
 sets_. A configuration set specifies where to publish your events and
@@ -48,9 +44,7 @@ send using SES.
 | `ses:source-tls-version`   | The TLS protocol version the caller used to send the email.  |
 | `ses:outgoing-tls-version` | The TLS protocol version that SES used to send the<br>email. |
 
-## Fine-grained feedback for email
-
-campaigns
+## Fine-grained feedback for email campaigns
 
 The `ses:feedback-id-<`a`or
 `b`>` tag is an optional message tag that you
@@ -121,8 +115,7 @@ SES-specific header [X-SES-MESSAGE-TAGS](event-publishing-send-email.md#event-pu
 The `ses:feedback-id-<`a`or
 `b`>` message tag can also be tracked in
 Amazon CloudWatch by specifying it as a CloudWatch value source just like any other message tag, see
-[Adding a CloudWatch
-Event Destination](event-publishing-add-event-destination-cloudwatch.md#event-publishing-add-event-destination-cloudwatch-add "event-publishing-add-event-destination-cloudwatch.md#event-publishing-add-event-destination-cloudwatch-add")
+[Adding a CloudWatch Event Destination](event-publishing-add-event-destination-cloudwatch.md#event-publishing-add-event-destination-cloudwatch-add "event-publishing-add-event-destination-cloudwatch.md#event-publishing-add-event-destination-cloudwatch-add")
 _(Additional charges apply, see [Price per metric
 for CloudWatch](event-publishing-add-event-destination-cloudwatch.md#cw-add-pricing "event-publishing-add-event-destination-cloudwatch.md#cw-add-pricing").)_
 

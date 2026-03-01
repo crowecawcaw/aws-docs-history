@@ -14,8 +14,7 @@ can set up [DomainKeys Identified
 Mail](send-email-authentication-dkim.md "send-email-authentication-dkim.md") (DKIM). When you authenticate your emails using DKIM, email
 clients typically don't show the "via" domain because the DKIM signature shows
 that the email is from the domain that it claims to be from. For information
-about setting up DKIM, see [Authenticating Email with DKIM in
-Amazon SES](send-email-authentication-dkim.md "send-email-authentication-dkim.md").
+about setting up DKIM, see [Authenticating Email with DKIM in Amazon SES](send-email-authentication-dkim.md "send-email-authentication-dkim.md").
 
 ###### Note
 

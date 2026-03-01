@@ -34,8 +34,7 @@ may want to consider the following tips to help you improve your throughput:
   help to buffer the messages and asynchronously transmit them to Amazon SES. Some mail
   servers support delivery concurrency, which means that even if your application is
   generating emails to the mail server in a single-threaded fashion, the mail server
-  will use multiple threads when sending to Amazon SES. For more information, see [Integrating Amazon SES with your existing email
-  server](send-email-smtp-existing-server.md "send-email-smtp-existing-server.md").
+  will use multiple threads when sending to Amazon SES. For more information, see [Integrating Amazon SES with your existing email server](send-email-smtp-existing-server.md "send-email-smtp-existing-server.md").
 - Consider hosting your application closer to the Amazon SES API
   endpoint—You may wish to consider hosting your application in a
   data center close to the Amazon SES API endpoint, or on an Amazon EC2 instance in the same

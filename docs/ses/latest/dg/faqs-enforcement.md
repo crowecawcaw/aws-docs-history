@@ -20,9 +20,7 @@ interruptions and deliverability issues.
 
 ## Account under review FAQ
 
-### Q1. I received a message stating that my account is under
-
-review. What does that mean?
+### Q1. I received a message stating that my account is under review. What does that mean?
 
 We've detected an issue related to the email sent from your account, and we're
 giving you time to fix it. You can continue to send email as you normally would, but
@@ -30,16 +28,12 @@ you should also correct the issue that caused your account to be placed under
 review. If you don't correct the issue before the review period is over, we might
 pause your ability to send additional email.
 
-### Q2. Will I always be notified if my account is placed under
-
-review?
+### Q2. Will I always be notified if my account is placed under review?
 
 Yes. You'll receive a notification at the email address associated with your AWS
 account.
 
-### Q3. Why didn't I receive a notification that my account is
-
-under review?
+### Q3. Why didn't I receive a notification that my account is under review?
 
 When your account is placed under review, we automatically send a notice to the
 email address associated with your AWS account. This email address is the one you
@@ -53,9 +47,7 @@ Amazon CloudWatch](reputationdashboard-cloudwatch-alarm.md "reputationdashboard-
 metrics exceed certain thresholds. You can also configure Amazon CloudWatch to contact you in
 other ways, such as by sending a text message to your mobile phone.
 
-### Q4. Will the fact that my SES account is under review
-
-impact my use of other AWS services?
+### Q4. Will the fact that my SES account is under review impact my use of other AWS services?
 
 You'll still be able to use other AWS services while your SES account is
 under review. However, if you request a service quota increase for another AWS
@@ -113,17 +105,12 @@ Typically we can give you only a high-level overview of your issue (for example,
 that you have a problem with bounces). You'll need to investigate the root cause on
 your end.
 
-### Q9. How will I know if my account is no longer under
-
-review?
+### Q9. How will I know if my account is no longer under review?
 
 Reputation metrics includes information about the current status of your account.
-For more information, see [Using reputation metrics to track bounce and
-complaint rates](reputation-dashboard-dg.md "reputation-dashboard-dg.md").
+For more information, see [Using reputation metrics to track bounce and complaint rates](reputation-dashboard-dg.md "reputation-dashboard-dg.md").
 
-### Q10. Do you place my account under review every time
-
-there's a problem?
+### Q10. Do you place my account under review every time there's a problem?
 
 No. In some situations, we might pause your account's ability to send email
 without first placing your account under review. For example:
@@ -141,17 +128,13 @@ without first placing your account under review. For example:
 In either of these situations, we automatically send you a notification when we
 pause your account's ability to send email.
 
-### Q11. What if I make my fixes shortly before the review
-
-period expires?
+### Q11. What if I make my fixes shortly before the review period expires?
 
 Sign into the AWS Management Console and go to Support Center. Reply to the case we opened on
 your behalf. In your reply to the case, let us know that you've resolved the
 issue.
 
-### Q12. Can I get help from my AWS representative or Premium
-
-Support?
+### Q12. Can I get help from my AWS representative or Premium Support?
 
 If you're already working with an AWS account representative, we'll
 automatically contact him or her when your account is placed under review. Your
@@ -161,9 +144,7 @@ that team for additional help.
 
 ## Sending pause FAQ
 
-### Q1. I received a message stating that my account's ability
-
-to send email is paused. What does that mean?
+### Q1. I received a message stating that my account's ability to send email is paused. What does that mean?
 
 We paused your account's ability to send email because of a critical issue with
 emails you sent. Most often, we pause accounts for one of the following
@@ -178,16 +159,12 @@ reasons:
   these violations are serious, we might pause your account's ability to send
   email without placing your account under review first.
 
-### Q2. Will I always be notified if my account's ability to
-
-send email is paused?
+### Q2. Will I always be notified if my account's ability to send email is paused?
 
 Yes. You'll receive a notification at the email address associated with your AWS
 account.
 
-### Q3. My account's ability to send email is paused. Why didn't
-
-I receive a notification?
+### Q3. My account's ability to send email is paused. Why didn't I receive a notification?
 
 When we pause an account's ability to send email, we automatically send a
 notification to the email address associated with that account.
@@ -204,8 +181,7 @@ complaint rates are too high. Creating an alarm is a good way to receive an earl
 warning of factors that could cause us to pause your account's ability to send
 email. However, there are factors other than bounces and complaints that could cause
 us to pause your ability to send email. For more information about creating alarms
-in CloudWatch, see [Creating reputation monitoring alarms
-using CloudWatch](reputationdashboard-cloudwatch-alarm.md "reputationdashboard-cloudwatch-alarm.md").
+in CloudWatch, see [Creating reputation monitoring alarms using CloudWatch](reputationdashboard-cloudwatch-alarm.md "reputationdashboard-cloudwatch-alarm.md").
 
 You can also use the [Account
 dashboard](monitor-sending-activity-console.md "monitor-sending-activity-console.md") to determine the current status of your account. For example,
@@ -228,18 +204,14 @@ Personal Health Dashboard. For more information, see [Monitoring AWS Health
 Events with CloudWatch Events](../../../health/latest/ug/cloudwatch-events-health.md "../../../health/latest/ug/cloudwatch-events-health.md") in the
 _AWS Health User Guide_.
 
-### Q4. My account's ability to send email is paused. Does this
-
-impact my ability to use of other AWS services?
+### Q4. My account's ability to send email is paused. Does this impact my ability to use of other AWS services?
 
 You can still use other AWS services while your account's ability to send email
 is paused. However, if you request a service quota increase for another AWS
 service that sends outbound communications (such as Amazon SNS), we might deny your
 request until your account's ability to send email is restored.
 
-### Q5. What should I do if my account's ability to send email
-
-is paused?
+### Q5. What should I do if my account's ability to send email is paused?
 
 You should do the following:
 
@@ -289,17 +261,12 @@ Typically we can give you only a high-level overview of your issue (for example,
 that you have a problem with bounces). It's your responsibility to correct the
 issue.
 
-### Q10. How do I know if my account's ability to send email
-
-has been restored?
+### Q10. How do I know if my account's ability to send email has been restored?
 
 Reputation metrics includes information about the current status of your account.
-For more information, see [Using reputation metrics to track bounce and
-complaint rates](reputation-dashboard-dg.md "reputation-dashboard-dg.md").
+For more information, see [Using reputation metrics to track bounce and complaint rates](reputation-dashboard-dg.md "reputation-dashboard-dg.md").
 
-### Q11. Can I get help from my AWS representative or Premium
-
-Support?
+### Q11. Can I get help from my AWS representative or Premium Support?
 
 If you're already working with an AWS account representative, we'll
 automatically contact him or her if we pause your account's ability to send email.
@@ -316,10 +283,7 @@ organizations to detect senders who engage in bad email-sending practices. High
 bounce rates can lead to email being sent to the spam folder rather than the
 inbox.
 
-### Q2. What should I do if I receive a notification stating
-
-that my account is under review or that my sending is paused because of my
-account's bounce rate?
+### Q2. What should I do if I receive a notification stating that my account is under review or that my sending is paused because of my account's bounce rate?
 
 Identify the cause of the issue, and then correct it. After you make changes that
 you believe will resolve the issue, sign into the AWS Console and go to Support Center. Reply to the case we opened on your behalf. In your message, provide
@@ -332,19 +296,14 @@ the following information:
   to sending to them. For example, which of the recommendations are you
   following in [Q11. What can I do to minimize bounces?](#bn-q11 "#bn-q11")
 
-### Q3. What types of bounces count toward my bounce
-
-rate?
+### Q3. What types of bounces count toward my bounce rate?
 
 Your bounce rate includes only hard bounces to domains you haven't verified. Hard
 bounces are permanent delivery failures such as "address does not exist." Temporary
 and intermittent failures such as "mailbox full," or bounces due to blocked IP
 addresses, don't count toward your bounce rate.
 
-### Q4. Do you disclose the bounce rates that could cause my
-
-account to be placed under review or that could cause my sending to be
-paused?
+### Q4. Do you disclose the bounce rates that could cause my account to be placed under review or that could cause my sending to be paused?
 
 For best results, you should maintain a bounce rate below 2%. Higher bounce rates
 can impact the delivery of your emails.
@@ -354,9 +313,7 @@ your bounce rate is 10% or greater, we might pause your account's ability to sen
 additional email until you resolve the issue that resulted in the high bounce
 rate.
 
-### Q5. Over what period of time is my bounce rate
-
-calculated?
+### Q5. Over what period of time is my bounce rate calculated?
 
 We don't calculate your bounce rate based on a fixed period of time, because
 different senders send at different rates. Instead, we look at a
@@ -365,12 +322,9 @@ represents your typical sending practices. To be fair to both high- and low-volu
 senders, the representative volume is different for each user and changes as the
 user's sending patterns change.
 
-### Q6. Can I calculate my own bounce rate by using the
+### Q6. Can I calculate my own bounce rate by using the information from the SES console or the GetSendStatistics API?
 
-information from the SES console or the GetSendStatistics API?
-
-No. The bounce rate is calculated using representative volume (see [Q5. Over what period of time is my bounce rate
-calculated?](#bn-q5 "#bn-q5")). Depending on your sending rate, your
+No. The bounce rate is calculated using representative volume (see [Q5. Over what period of time is my bounce rate calculated?](#bn-q5 "#bn-q5")). Depending on your sending rate, your
 bounce rate can stretch farther back in time than the SES console or
 `GetSendStatistics` can retrieve. In addition, only emails to
 non-verified domains are considered when calculating your bounce rate. However, if
@@ -379,23 +333,17 @@ good indicator that you can use to catch problems before they get to levels that
 cause us to place your account under review or pause your account's ability to send
 email.
 
-### Q7. How can I find out which email addresses
-
-bounced?
+### Q7. How can I find out which email addresses bounced?
 
 Examine the bounce notifications that SES sends you. The email address to
 which SES forwards the notifications depends on how you sent the original
-messages, as described at [Receiving Amazon SES
-notifications through email](monitor-sending-activity-using-notifications-email.md "monitor-sending-activity-using-notifications-email.md"). You can
-also set up bounce notifications through Amazon Simple Notification Service (Amazon SNS), as described at [Setting up event
-notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md"). Note that simply
+messages, as described at [Receiving Amazon SES notifications through email](monitor-sending-activity-using-notifications-email.md "monitor-sending-activity-using-notifications-email.md"). You can
+also set up bounce notifications through Amazon Simple Notification Service (Amazon SNS), as described at [Setting up event notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md"). Note that simply
 removing bounced addresses from your list without any additional investigation might
 not solve the underlying problem. For information about what you can do to reduce
 bounces, see [Q11. What can I do to minimize bounces?](#bn-q11 "#bn-q11").
 
-### Q8. If I haven't been monitoring my bounces, can you give me
-
-a list of addresses that have bounced?
+### Q8. If I haven't been monitoring my bounces, can you give me a list of addresses that have bounced?
 
 No, we can't provide a complete list of addresses that have bounced. You are
 responsible for monitoring and acting upon the bounces for your account.
@@ -408,12 +356,9 @@ monitor bounces through email and manually remove bounced addresses from your
 mailing list. If your volume is higher, you'll probably want to set up automation
 for this process, either by programmatically processing the mailbox where you
 receive bounces, or by setting up bounce notifications through Amazon SNS. For more
-information, see [Setting up event
-notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
+information, see [Setting up event notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
 
-### Q10. Could my emails be bouncing because I've reached my
-
-sending quota?
+### Q10. Could my emails be bouncing because I've reached my sending quota?
 
 No. Bounces aren't related to sending quotas. If you try to exceed your sending
 quota, you'll receive an error from the SES API or SMTP interface when you
@@ -421,8 +366,7 @@ try to send an email.
 
 ### Q11. What can I do to minimize bounces?
 
-First, be sure that you're aware of your bounces (see [Q7. How can I find out which email addresses
-bounced?](#bn-q7 "#bn-q7")). Then follow these guidelines:
+First, be sure that you're aware of your bounces (see [Q7. How can I find out which email addresses bounced?](#bn-q7 "#bn-q7")). Then follow these guidelines:
 
 - Don't buy, rent, or share email addresses. Send email only to recipients
   who explicitly requested to receive email from you.
@@ -462,12 +406,9 @@ other method. This topic includes general information about complaints. If your
 notification contains specific information about the source of the complaints, also
 read the relevant topic:
 
-- [SES complaints through feedback loops
-  FAQ](#cm-feedback-loop "#cm-feedback-loop")
-- [SES complaints directly from recipients
-  FAQ](#cm-direct "#cm-direct")
-- [SES complaints through email providers
-  FAQ](#cm-email-provider "#cm-email-provider")
+- [SES complaints through feedback loops FAQ](#cm-feedback-loop "#cm-feedback-loop")
+- [SES complaints directly from recipients FAQ](#cm-direct "#cm-direct")
+- [SES complaints through email providers FAQ](#cm-email-provider "#cm-email-provider")
 
 ### Q2. Why do you care about my complaints?
 
@@ -476,10 +417,7 @@ anti-spam organizations as indicators that a sender is sending to recipients who
 didn't specifically sign up to receive emails, or that the sender is sending content
 that is different from the type that recipients signed up for.
 
-### Q3. What should I do if I receive a notice saying that my
-
-account is under review or that my sending is paused because of an issue with
-complaints?
+### Q3. What should I do if I receive a notice saying that my account is under review or that my sending is paused because of an issue with complaints?
 
 Review your list acquisition process and the content of your emails to try to
 understand why your recipients might not appreciate the email they're receiving from
@@ -493,8 +431,7 @@ future.
 
 First, be sure that you monitor the complaints that SES can notify you
 about, which are complaints that SES receives through feedback loops (see the
-[SES complaints through feedback loops
-FAQ](#cm-feedback-loop "#cm-feedback-loop")). Then
+[SES complaints through feedback loops FAQ](#cm-feedback-loop "#cm-feedback-loop")). Then
 follow these guidelines:
 
 - Do not buy, rent, or share email addresses. Use only addresses that
@@ -515,17 +452,13 @@ follow these guidelines:
 - Provide users an obvious and easy way to unsubscribe from your
   mail.
 
-### SES complaints through feedback loops
-
-FAQ
+### SES complaints through feedback loops FAQ
 
 This topic provides information about complaints that SES receives from
 email providers through feedback loops. For general information that applies to all
 types of complaints, see the [Complaint FAQ](#e-faq-cm "#e-faq-cm").
 
-#### Q1. How is this type of complaint
-
-reported?
+#### Q1. How is this type of complaint reported?
 
 Most email client programs provide a button labeled "Mark as Spam" or similar,
 which moves the message to a spam folder and forwards it to the email provider.
@@ -554,38 +487,28 @@ such:
   Optionally, in addition to the standard Feedback-ID header value that
   SES provides, you can also specify your own customized feedback IDs
   (up to two) using the `ses:feedback-id-a` and
-  `ses:feedback-id-b` message tags, see [Fine-grained feedback for email
-  campaigns](monitor-using-event-publishing.md#event-publishing-fine-grained-feedback "monitor-using-event-publishing.md#event-publishing-fine-grained-feedback").
+  `ses:feedback-id-b` message tags, see [Fine-grained feedback for email campaigns](monitor-using-event-publishing.md#event-publishing-fine-grained-feedback "monitor-using-event-publishing.md#event-publishing-fine-grained-feedback").
 
-#### Q2. Are these complaints included in the
-
-complaint rate statistic shown in the SES console and returned by the
-GetSendStatistics API?
+#### Q2. Are these complaints included in the complaint rate statistic shown in the SES console and returned by the GetSendStatistics API?
 
 Yes. However, the complaint rate statistic doesn't include complaints from
 email providers that don't provide feedback to SES. The complaint rate
 from domains that provide feedback is likely to be representative of the rest of
 your sending as well.
 
-#### Q3. How can I be notified of these
-
-complaints?
+#### Q3. How can I be notified of these complaints?
 
 You can be notified through email or through Amazon SNS notifications. See the
-set-up instructions in [Setting up event
-notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
+set-up instructions in [Setting up event notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
 
-#### Q4. What should I do if I receive a
-
-complaint notification through email or through Amazon SNS?
+#### Q4. What should I do if I receive a complaint notification through email or through Amazon SNS?
 
 First, you need to remove addresses that generated complaints from your
 mailing list and stop sending mail to them immediately. Do not even send an
 email that says you've received the request to unsubscribe. Consider setting up
 automation for this process, either by programmatically processing the mailbox
 where you receive complaints, or by setting up complaint notifications through
-Amazon SNS. For more information, see [Setting up event
-notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
+Amazon SNS. For more information, see [Setting up event notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
 
 Then, take a close look at your sending to determine why your recipients don't
 appreciate the mail you're sending, and address that underlying problem. For
@@ -594,11 +517,7 @@ your mail who didn't (or weren't able to) complain. If you only remove the
 recipients who actually complain, you're not addressing the underlying
 problem.
 
-#### Q5. Do you disclose the SES
-
-complaint rates that could cause my account to be placed under review or
-that could result in my account's ability to send email being
-paused?
+#### Q5. Do you disclose the SES complaint rates that could cause my account to be placed under review or that could result in my account's ability to send email being paused?
 
 For best results, you should maintain a complaint rate below 0.1%. Higher
 complaint rates can impact the delivery of your emails.
@@ -608,9 +527,7 @@ review. If your complaint rate is 0.5% or greater, we might pause your account's
 ability to send additional email until you resolve the issue that resulted in
 the high complaint rate.
 
-#### Q6. Over what period of time is my
-
-complaint rate calculated?
+#### Q6. Over what period of time is my complaint rate calculated?
 
 We don't calculate your complaint rate based on a fixed period of time,
 because different senders send at different rates. Instead, we look at a
@@ -622,16 +539,12 @@ isn't calculated based on every email. Instead, it's calculated as the
 percentage of complaints on mail sent to domains that send complaint feedback to
 SES.
 
-#### Q7. Can I calculate my own complaint rate
-
-by using metrics from the SES console or the GetSendStatistics
-API?
+#### Q7. Can I calculate my own complaint rate by using metrics from the SES console or the GetSendStatistics API?
 
 No. There are two primary reasons for this:
 
 - The complaint rate is calculated using representative volume (see
-  [Q6. Over what period of time is my
-  complaint rate calculated?](#cm-feedback-loop-q6 "#cm-feedback-loop-q6")). Depending on your sending
+  [Q6. Over what period of time is my complaint rate calculated?](#cm-feedback-loop-q6 "#cm-feedback-loop-q6")). Depending on your sending
   rate, your complaint rate can stretch farther back in time than the
   SES console or `GetSendStatistics` API can retrieve.
   For this reason, we recommend that you regularly use these methods to
@@ -643,13 +556,10 @@ No. There are two primary reasons for this:
   rate is calculated as the percentage of complaints on mail sent to
   domains that send complaint feedback to SES.
 
-#### Q8. How can I find out which email
-
-addresses complained?
+#### Q8. How can I find out which email addresses complained?
 
 Examine the complaint notifications that SES sends you through email or
-through Amazon SNS (see [Setting up event
-notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md")). However,
+through Amazon SNS (see [Setting up event notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md")). However,
 different email providers provide differing amounts of information, and some
 providers redact the recipient's email address before passing the complaint
 notification to SES. To enable you to find the recipient's email address
@@ -658,10 +568,7 @@ identifier and the SES message ID that SES passes back to you when
 it accepts the email. Note that SES doesn't retain any custom message IDs
 that you add.
 
-#### Q9. If I haven't been monitoring my
-
-complaints, can you give me a list of addresses that have
-complained?
+#### Q9. If I haven't been monitoring my complaints, can you give me a list of addresses that have complained?
 
 Unfortunately, we can't give you a comprehensive list. However, you can
 monitor future complaints by email or through Amazon SNS.
@@ -669,46 +576,33 @@ monitor future complaints by email or through Amazon SNS.
 #### Q10. Can I get a sample email?
 
 We can't send you a sample email upon request, but you might find this
-information in the complaint notification. For more information, see [Q8. How can I find out which email
-addresses complained?](#cm-feedback-loop-q8 "#cm-feedback-loop-q8").
+information in the complaint notification. For more information, see [Q8. How can I find out which email addresses complained?](#cm-feedback-loop-q8 "#cm-feedback-loop-q8").
 
-### SES complaints directly from recipients
-
-FAQ
+### SES complaints directly from recipients FAQ
 
 This topic provides information about complaints that SES receives directly
 from recipients. For general information that applies to all types of complaints,
 see the [Complaint FAQ](#e-faq-cm "#e-faq-cm").
 
-#### Q1. How is this type of complaint
-
-reported?
+#### Q1. How is this type of complaint reported?
 
 Multiple recipients directly contacted SES about your mail through
 email or some other means.
 
-#### Q2. Are these complaints included in the
-
-complaint rate statistic shown in the SES console and returned by the
-GetSendStatistics API?
+#### Q2. Are these complaints included in the complaint rate statistic shown in the SES console and returned by the GetSendStatistics API?
 
 No. The complaint rate statistic you retrieve using the SES console or
 the `GetSendStatistics` API only includes complaints that SES
 receives through feedback loops. For more information about those types of
-complaints, see the [SES complaints through feedback loops
-FAQ](#cm-feedback-loop "#cm-feedback-loop").
+complaints, see the [SES complaints through feedback loops FAQ](#cm-feedback-loop "#cm-feedback-loop").
 
-#### Q3. Why haven't I heard about these complaints
-
-through email feedback notifications or through Amazon SNS?
+#### Q3. Why haven't I heard about these complaints through email feedback notifications or through Amazon SNS?
 
 Email feedback forwarding and Amazon SNS notifications only include complaints that
 SES receives through feedback loops. You won't receive notifications for
 complaints that recipients filed directly with SES.
 
-#### Q4. How can I find out which email addresses
-
-complained?
+#### Q4. How can I find out which email addresses complained?
 
 To protect the identities of the recipients who complained, we can't list the
 email addresses that complained about your email.
@@ -725,10 +619,7 @@ your emails to try to understand why your recipients are complaining.
 To protect the identities of the recipients who complained, we can't provide
 copies of the emails that caused your recipients to complain.
 
-#### Q6. What should I do if I receive a notification
-
-stating that my account is under review or that my sending is paused because
-of direct complaints?
+#### Q6. What should I do if I receive a notification stating that my account is under review or that my sending is paused because of direct complaints?
 
 Immediately change your sending processes so that you're only sending messages
 recipients who have specifically signed up to receive them. Also, ensure that
@@ -742,42 +633,30 @@ If you don't request a review within three weeks, and we continue to receive
 direct recipient complaints, we might pause your account's ability to send
 email.
 
-### SES complaints through email providers
-
-FAQ
+### SES complaints through email providers FAQ
 
 This topic provides information about complaints that SES receives through
 email providers (also called _mailbox providers_). For general
 information that applies to all types of complaints, see the [Complaint FAQ](#e-faq-cm "#e-faq-cm").
 
-#### Q1. How is this type of complaint
-
-reported?
+#### Q1. How is this type of complaint reported?
 
 An email provider reported to SES that a significant number of its
 customers marked your emails as spam. The report was provided to SES
-through a means other than the feedback loops described in the [SES complaints through feedback loops
-FAQ](#cm-feedback-loop "#cm-feedback-loop").
+through a means other than the feedback loops described in the [SES complaints through feedback loops FAQ](#cm-feedback-loop "#cm-feedback-loop").
 
-#### Q2. Are these complaints included in the
-
-complaint rate statistic shown in the SES console and returned by the
-GetSendStatistics API?
+#### Q2. Are these complaints included in the complaint rate statistic shown in the SES console and returned by the GetSendStatistics API?
 
 No. The complaint rate statistic you retrieve using the SES console or
 the `GetSendStatistics` API only includes complaints that SES
 receives through feedback loops.
 
-#### Q3. Why haven't I heard about these
-
-complaints through email feedback notifications or through Amazon SNS?
+#### Q3. Why haven't I heard about these complaints through email feedback notifications or through Amazon SNS?
 
 Email feedback forwarding and Amazon SNS notifications only include complaints that
 SES receives through feedback loops.
 
-#### Q4. How can I find out which email
-
-addresses complained?
+#### Q4. How can I find out which email addresses complained?
 
 Email providers typically don't disclose this information. However, rather
 than focusing on removing individual recipients from your list, you need to
@@ -789,10 +668,7 @@ recipients might not appreciate your email.
 
 No. Email providers typically don't provide an example email.
 
-#### Q6. What should I do if I receive a
-
-notification stating that my account is under review or that my sending is
-paused because of email provider complaints?
+#### Q6. What should I do if I receive a notification stating that my account is under review or that my sending is paused because of email provider complaints?
 
 Identify the cause of the issue, and then correct it. After you make changes
 that you believe will resolve the issue, sign into the AWS Console and go to Support Center. Reply to the case we opened on your behalf. In your message,
@@ -822,9 +698,7 @@ addresses that are close to real addresses (for example, introducing a typo into
 common domain name). Often, but not always, spamtraps are "seeded" into the world by
 putting them on the internet in a variety of ways.
 
-### Q3. How does SES know if I am sending to
-
-spamtraps?
+### Q3. How does SES know if I am sending to spamtraps?
 
 Certain organizations that operate spamtraps send SES notifications when
 their spamtraps are hit by SES senders.
@@ -838,10 +712,7 @@ pause your account's ability to send additional email. If your spamtrap problem 
 very severe, we might pause your account's ability to send email immediately,
 without placing your account under review first.
 
-### Q5. What should I do if a receive a notice saying that my
-
-account is under review or that my sending is paused because of an issue with
-spamtraps?
+### Q5. What should I do if a receive a notice saying that my account is under review or that my sending is paused because of an issue with spamtraps?
 
 First, you should address the issue that caused us to place your account under
 review or pause your ability to send email. Next, sign into the AWS Console and go to Support Center. Reply to the case we opened on your behalf. In your
@@ -853,9 +724,7 @@ we'll cancel the review period or remove the sending pause from your account.
 Because of the way that spamtrap hits are reported, it may take three weeks or
 more before we are able to determine if the changes you made solved the issue.
 
-### Q6. How many spamtrap hits can I have before you place my
-
-account under review or pause my account's ability to send email?
+### Q6. How many spamtrap hits can I have before you place my account under review or pause my account's ability to send email?
 
 We don't disclose the specific number of spamtrap hits that cause us to take
 action on your account. However, it's important to note that even a small number of
@@ -902,10 +771,7 @@ To reduce the risk of sending to spamtraps, follow these guidelines:
 
 ## Manual investigation FAQ
 
-### Q1. What should I do if I receive a notification stating
-
-that my account is under review or that my sending is paused because of a manual
-investigation?
+### Q1. What should I do if I receive a notification stating that my account is under review or that my sending is paused because of a manual investigation?
 
 An SES investigator has identified a significant problem with your sending.
 Typical problems include, but aren't limited to, the following:
@@ -926,9 +792,7 @@ If we don't believe that the problem can be corrected, or if the problem is very
 severe, we might pause your account's ability to send email without first placing
 your account under review.
 
-### Q2. What issues could cause you to perform a manual review
-
-of my email sending?
+### Q2. What issues could cause you to perform a manual review of my email sending?
 
 There are several issues that could cause us to begin a manual review of your
 account. These reasons include, but aren't limited to, the following:
@@ -964,10 +828,7 @@ sign into the AWS Console and go to Support Center. Reply to the case we opened 
 - How do your subscribe and unsubscribe processes work? You should include
   your opt-in and opt-out links.
 
-### Q4. What should I do if I receive a notification stating
-
-that my account is under review or that my sending is paused because of a manual
-review?
+### Q4. What should I do if I receive a notification stating that my account is under review or that my sending is paused because of a manual review?
 
 Identify the cause of the issue, and then correct it. After you make changes that
 you believe will resolve the issue, sign into the AWS Console and go to Support Center. Reply to the case we opened on your behalf. In your message, provide
@@ -976,9 +837,7 @@ how these steps prevent the issue from happening again in the future. If we agre
 that the changes you've made appropriately address the issue, we'll cancel the
 review period on your account.
 
-### Q5. What types of problems do you view as
-
-"correctable?"
+### Q5. What types of problems do you view as "correctable?"
 
 Generally, we believe the situation is correctable if you have a history of good
 sending practices, and if there are steps you can take to eliminate the problematic

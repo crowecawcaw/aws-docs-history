@@ -1,6 +1,4 @@
-# Delete an identity using the SES
-
-console
+# Delete an identity using the SES console
 
 You can use the Amazon SES console to remove a domain or email address identity from your
 account in the selected AWS Region.

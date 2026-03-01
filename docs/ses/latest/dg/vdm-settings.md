@@ -10,17 +10,12 @@ defined in Virtual Deliverability Manager. This gives you the flexibility to tai
 email campaigns. For example, you can enable engagement tracking and optimized shared delivery for your marketing email and
 disable them for your transactional email.
 
-## Changing your Virtual Deliverability Manager account settings using the
-
-Amazon SES console
+## Changing your Virtual Deliverability Manager account settings using the Amazon SES console
 
 The following procedure shows you how to change your Virtual Deliverability Manager account settings using the
 Amazon SES console.
 
-###### To change your Virtual Deliverability Manager account settings using
-
-the
-Amazon SES console
+###### To change your Virtual Deliverability Manager account settings using the Amazon SES console
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the left navigation pane, choose **Settings** under
@@ -68,9 +63,7 @@ settings:
 
 6. To reenable Virtual Deliverability Manager, see [Getting started with Virtual Deliverability Manager](vdm-get-started.md "vdm-get-started.md").
 
-## Changing your Virtual Deliverability Manager account settings using the
-
-AWS CLI
+## Changing your Virtual Deliverability Manager account settings using the AWS CLI
 
 You can change your Virtual Deliverability Manager account settings using the AWS CLI.
 

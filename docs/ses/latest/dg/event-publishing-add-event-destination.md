@@ -1,6 +1,4 @@
-# Step 2: Add an event
-
-destination
+# Step 2: Add an event destination
 
 Event destinations are places that you publish Amazon SES events to. Each event destination
 that you set up belongs to one, and only one, configuration set. When you set up an event
@@ -27,13 +25,8 @@ If you want to receive notifications when certain events occur, you can use Amaz
 
 ###### This section contains the following topics
 
-- [Set up a CloudWatch event
-  destination for event publishing](event-publishing-add-event-destination-cloudwatch.md "event-publishing-add-event-destination-cloudwatch.md")
-- [Set up a Data Firehose event
-  destination for Amazon SES event publishing](event-publishing-add-event-destination-firehose.md "event-publishing-add-event-destination-firehose.md")
-- [Set up an Amazon EventBridge
-  destination for event publishing](event-publishing-add-event-destination-eventbridge.md "event-publishing-add-event-destination-eventbridge.md")
-- [Set up an Amazon Pinpoint event
-  destination for event publishing](event-publishing-add-event-destination-pinpoint.md "event-publishing-add-event-destination-pinpoint.md")
-- [Set up an Amazon SNS event
-  destination for event publishing](event-publishing-add-event-destination-sns.md "event-publishing-add-event-destination-sns.md")
+- [Set up a CloudWatch event destination for event publishing](event-publishing-add-event-destination-cloudwatch.md "event-publishing-add-event-destination-cloudwatch.md")
+- [Set up a Data Firehose event destination for Amazon SES event publishing](event-publishing-add-event-destination-firehose.md "event-publishing-add-event-destination-firehose.md")
+- [Set up an Amazon EventBridge destination for event publishing](event-publishing-add-event-destination-eventbridge.md "event-publishing-add-event-destination-eventbridge.md")
+- [Set up an Amazon Pinpoint event destination for event publishing](event-publishing-add-event-destination-pinpoint.md "event-publishing-add-event-destination-pinpoint.md")
+- [Set up an Amazon SNS event destination for event publishing](event-publishing-add-event-destination-sns.md "event-publishing-add-event-destination-sns.md")

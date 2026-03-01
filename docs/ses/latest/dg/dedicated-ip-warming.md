@@ -60,9 +60,7 @@ target volume. If an email provider sees a large, sudden increase in the number 
 emails that are sent from an IP address, they may block or throttle the delivery of
 messages from that address.
 
-## Disable the automatic warmup process
-
-on dedicated IPs (standard)
+## Disable the automatic warmup process on dedicated IPs (standard)
 
 When you purchase new standard dedicated IP addresses, Amazon SES automatically warms them
 up for you because the automatic IP address warmup feature is enabled by default for
@@ -82,9 +80,7 @@ If you disable the automatic warm up feature, you're responsible for warming up
 your dedicated IP addresses yourself. If you send email from addresses that haven't
 been warmed up, you may experience poor delivery rates.
 
-###### To disable (or re-enable) the automatic warmup feature for all dedicated IPs
-
-(standard) in your account
+###### To disable (or re-enable) the automatic warmup feature for all dedicated IPs (standard) in your account
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the left navigation pane, choose **Dedicated IPs**.

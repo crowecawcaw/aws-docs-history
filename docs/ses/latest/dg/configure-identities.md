@@ -18,12 +18,9 @@ Framework (SPF) and DomainKeys Identified Mail (DKIM)—and provide instructions
 to use these standards with Amazon SES.
 
 - To learn about SPF, which provides a way to trace an email message back to the
-  system from which it was sent, see [Authenticating Email with SPF in
-  Amazon SES](send-email-authentication-spf.md "send-email-authentication-spf.md").
+  system from which it was sent, see [Authenticating Email with SPF in Amazon SES](send-email-authentication-spf.md "send-email-authentication-spf.md").
 - To learn about DKIM, a standard that allows you to sign your email messages to
   show ISPs that your messages are legitimate and have not been modified in transit,
-  see [Authenticating Email with DKIM in
-  Amazon SES](send-email-authentication-dkim.md "send-email-authentication-dkim.md").
+  see [Authenticating Email with DKIM in Amazon SES](send-email-authentication-dkim.md "send-email-authentication-dkim.md").
 - To learn how to comply with Domain-based Message Authentication, Reporting and
-  Conformance (DMARC), which relies on SPF and DKIM, see [Complying with DMARC authentication
-  protocol in Amazon SES](send-email-authentication-dmarc.md "send-email-authentication-dmarc.md").
+  Conformance (DMARC), which relies on SPF and DKIM, see [Complying with DMARC authentication protocol in Amazon SES](send-email-authentication-dmarc.md "send-email-authentication-dmarc.md").

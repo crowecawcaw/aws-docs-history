@@ -1,6 +1,4 @@
-# Amazon SES email receiving concepts and use
-
-cases
+# Amazon SES email receiving concepts and use cases
 
 When you use Amazon SES as your email receiver, you tell the service what to do with your mail.
 The primary method, receipt rules, gives you fine-grained control over your email receiving
@@ -15,19 +13,13 @@ filter, and process your email when setting up rules and filters.
 
 ###### Topics in this section:
 
-- [Recipient-based control using receipt
-  rules](#receiving-email-concepts-rules "#receiving-email-concepts-rules")
-- [IP-based control using IP address
-  filters](#receiving-email-concepts-ip-filters "#receiving-email-concepts-ip-filters")
+- [Recipient-based control using receipt rules](#receiving-email-concepts-rules "#receiving-email-concepts-rules")
+- [IP-based control using IP address filters](#receiving-email-concepts-ip-filters "#receiving-email-concepts-ip-filters")
 - [Email-receiving process](#receiving-email-process "#receiving-email-process")
-- [Use cases and restrictions for Amazon SES
-  email receiving](#receiving-email-consider-use-case "#receiving-email-consider-use-case")
-- [Email-receiving authentication and
-  malware scanning](#receiving-email-auth-and-scan "#receiving-email-auth-and-scan")
+- [Use cases and restrictions for Amazon SES email receiving](#receiving-email-consider-use-case "#receiving-email-consider-use-case")
+- [Email-receiving authentication and malware scanning](#receiving-email-auth-and-scan "#receiving-email-auth-and-scan")
 
-## Recipient-based control using receipt
-
-rules
+## Recipient-based control using receipt rules
 
 The primary way to control your incoming mail is to specify how mail is handled
 through an ordered list of actions for any of your verified identities which includes
@@ -85,9 +77,7 @@ rule sets, and actions relate to each other.
 
 ![Inbound email overview](images/inbound_overview_v2.png)
 
-## IP-based control using IP address
-
-filters
+## IP-based control using IP address filters
 
 You can control your mail flow by setting up **IP address filters**.
 IP address filters are optional and enable you to specify whether to accept or block
@@ -160,18 +150,14 @@ When Amazon SES receives an email for your domain, the following events occur:
     order you've defined; and within each receipt rule, the actions are executed in
     the order you've defined.
 
-## Use cases and restrictions for Amazon SES
-
-email receiving
+## Use cases and restrictions for Amazon SES email receiving
 
 This section goes over some general considerations and use cases for Amazon SES email
 receiving. Presented in question and answer format, are commonly asked questions and
 facts to help determine if it would be beneficial for using Amazon SES to receive and manage
 email on behalf of one or more of the verified domains that you own.
 
-### Regional
-
-availability
+### Regional availability
 
 Does Amazon SES support email receiving in your
 Region?
@@ -180,9 +166,7 @@ Amazon SES only supports email receiving in certain AWS Regions. For a complete 
 of Regions where email receiving is supported, see [Amazon Simple Email Service endpoints and quotas](../../../general/latest/gr/ses.md "../../../general/latest/gr/ses.md") in the
 AWS General Reference.
 
-### POP or IMAP based email
-
-clients
+### POP or IMAP based email clients
 
 Can Microsoft Outlook be used to receive incoming
 email?
@@ -192,9 +176,7 @@ that you can't use an email client such as Microsoft Outlook to receive incoming
 email. If you need a solution that can both send and receive email by using an
 email client, consider using [Amazon WorkMail](https://aws.amazon.com/workmail "https://aws.amazon.com/workmail").
 
-### Using other AWS
-
-services
+### Using other AWS services
 
 Have you set up the appropriate permissions?
 
@@ -277,8 +259,7 @@ addresses. The benefit of using IP address filters to block unwanted mail is tha
 don't charge you for messages that are blocked during the SMTP conversation. The
 drawback to using IP address filters is that they block email from the IP addresses
 you specify without performing any analysis on the actual content of the messages.
-For more information about IP address filters, see [Create IP address filters
-console walkthrough](receiving-email-ip-filtering-console-walkthrough.md "receiving-email-ip-filtering-console-walkthrough.md").
+For more information about IP address filters, see [Create IP address filters console walkthrough](receiving-email-ip-filtering-console-walkthrough.md "receiving-email-ip-filtering-console-walkthrough.md").
 
 You can use receipt rules to send a bounce notification to the sender of an email
 based on the address (or domain, or subdomain) that the message was sent to. The
@@ -289,10 +270,8 @@ authentication or are identified as spam. The drawback to using receipt rules is
 that, because receipt rules are processed after the SMTP conversation, we bill you
 for each message that you receive. You might also be charged if you use Lambda to
 analyze the content of incoming messages. For more information about receipt rules,
-see [Creating receipt rules
-console walkthrough](receiving-email-receipt-rules-console-walkthrough.md "receiving-email-receipt-rules-console-walkthrough.md"). For more
-information about using Lambda to analyze incoming email, see [Lambda function
-examples](receiving-email-action-lambda-example-functions.md "receiving-email-action-lambda-example-functions.md").
+see [Creating receipt rules console walkthrough](receiving-email-receipt-rules-console-walkthrough.md "receiving-email-receipt-rules-console-walkthrough.md"). For more
+information about using Lambda to analyze incoming email, see [Lambda function examples](receiving-email-action-lambda-example-functions.md "receiving-email-action-lambda-example-functions.md").
 
 ### Mail streams
 
@@ -307,9 +286,7 @@ that it can be processed differently. For information about how to set up receip
 rules, see [Creating
 receipt rules](receiving-email-receipt-rules-console-walkthrough.md "receiving-email-receipt-rules-console-walkthrough.md").
 
-## Email-receiving authentication and
-
-malware scanning
+## Email-receiving authentication and malware scanning
 
 Amazon SES authenticates each received email and optionally scans the email’s content for
 spam and malware. SES doesn’t take any actions on received email based on the

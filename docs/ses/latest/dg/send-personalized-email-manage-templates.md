@@ -12,9 +12,7 @@ SES templates.
 The procedures in this section assume that you've already installed and configured the
 AWS CLI. For more information about installing and configuring the AWS CLI, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
 
-## Viewing a list of email
-
-templates
+## Viewing a list of email templates
 
 You can use the [`ListEmailTemplate`](../APIReference-V2/API_ListEmailTemplate.md "../APIReference-V2/API_ListEmailTemplate.md") SES v2 API operation to view a
 list of all of your existing email templates.
@@ -49,9 +47,7 @@ example:
 If you haven't created any templates, the command returns a
 `TemplatesMetadata` object with no members.
 
-## Viewing the contents of a
-
-specific email template
+## Viewing the contents of a specific email template
 
 You can use the [`GetEmailTemplate`](../APIReference-V2/API_GetEmailTemplate.md "../APIReference-V2/API_GetEmailTemplate.md") SES v2 API operation to view the
 contents of a specific email template.
@@ -86,9 +82,7 @@ If the template name that you provided doesn't match a template that exists in
 your SES account, the command returns a `NotFoundException`
 error.
 
-## Deleting an email
-
-template
+## Deleting an email template
 
 You can use the [`DeleteEmailTemplate`](../APIReference-V2/API_DeleteEmailTemplate.md "../APIReference-V2/API_DeleteEmailTemplate.md") SES v2 API operation to delete
 a specific email template.
@@ -108,9 +102,7 @@ This command doesn't provide any output. You can verify that the template was
 deleted by using the [GetTemplate](#send-personalized-email-manage-templates-get "#send-personalized-email-manage-templates-get")
 operation.
 
-## Updating an email
-
-template
+## Updating an email template
 
 You can use the [`UpdateEmailTemplate`](../APIReference-V2/API_UpdateEmailTemplate.md "../APIReference-V2/API_UpdateEmailTemplate.md") SES v2 API operation to update
 an existing email template. For example, this operation is helpful if you want to change

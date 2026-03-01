@@ -1,6 +1,4 @@
-# Publishing an MX record for Amazon SES email
-
-receiving
+# Publishing an MX record for Amazon SES email receiving
 
 A _mail exchanger_ record (_MX record_) is a
 configuration that specifies which mail servers can accept email that's sent to your domain.
@@ -75,9 +73,7 @@ The specific procedures for creating an MX record depend on your DNS or hosting
 provider. See your provider's documentation or contact them for information about adding
 an MX record to the DNS configuration for your domain.
 
-## Instructions for creating MX records
-
-for various providers
+## Instructions for creating MX records for various providers
 
 The procedures for creating an MX record for your domain depend on which DNS provider
 you use. This section includes links to the documentation for several common DNS

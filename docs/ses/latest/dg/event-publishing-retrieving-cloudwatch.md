@@ -1,6 +1,4 @@
-# Retrieving Amazon SES event data from
-
-CloudWatch
+# Retrieving Amazon SES event data from CloudWatch
 
 Amazon SES can publish metrics for your email sending events to Amazon CloudWatch. When you publish
 event data to CloudWatch, it provides these metrics as an ordered set of time-series data. You can
@@ -23,9 +21,7 @@ CloudWatch:
   provides.
   This section describes the available metrics and how to view the metrics in CloudWatch.
 
-## Available
-
-Metrics
+## Available Metrics
 
 You can publish following Amazon SES email sending metrics to CloudWatch:
 
@@ -64,17 +60,12 @@ You can publish following Amazon SES email sending metrics to CloudWatch:
 - **Click** – The recipient clicked one or more
   links in the email.
 
-## Available
-
-Dimensions
+## Available Dimensions
 
 CloudWatch uses the dimension names that you specify when you add a CloudWatch event destination
-to a configuration set in Amazon SES. For more information, see [Set up a CloudWatch event
-destination for event publishing](event-publishing-add-event-destination-cloudwatch.md "event-publishing-add-event-destination-cloudwatch.md").
+to a configuration set in Amazon SES. For more information, see [Set up a CloudWatch event destination for event publishing](event-publishing-add-event-destination-cloudwatch.md "event-publishing-add-event-destination-cloudwatch.md").
 
-## Viewing Amazon SES Metrics
-
-in the CloudWatch Console
+## Viewing Amazon SES Metrics in the CloudWatch Console
 
 The following procedure describes how to view your Amazon SES event publishing metrics
 using the CloudWatch console.

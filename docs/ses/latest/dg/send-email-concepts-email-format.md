@@ -110,9 +110,7 @@ clients, so that they can click embedded hyperlinks in the message. Recipients u
 text-based email clients will need you to include URLs that they can copy and open using
 a web browser.
 
-## Email information you
-
-need to provide to Amazon SES
+## Email information you need to provide to Amazon SES
 
 When you send an email with Amazon SES, the email information you need to provide depends
 on how you call Amazon SES. You can provide a minimal amount of information and have Amazon SES
@@ -121,9 +119,7 @@ advanced like send an attachment, you can provide the raw message yourself. The
 following sections review what you need to provide when you send an email by using the
 Amazon SES API, the Amazon SES SMTP interface, or the Amazon SES console.
 
-### Amazon SES
-
-API
+### Amazon SES API
 
 If you call the Amazon SES API directly, you call either the `SendEmail` or
 the `SendRawEmail` API. The amount of information you need to provide
@@ -149,9 +145,7 @@ above to the corresponding functions (for example, `SendEmail` and
 
 For more information about sending email using the Amazon SES API, see [Using the Amazon SES API to send email](send-email-api.md "send-email-api.md").
 
-### Amazon SES SMTP
-
-interface
+### Amazon SES SMTP interface
 
 When you access Amazon SES through the SMTP interface, your SMTP client application
 assembles the message, so the information you need to provide depends on the
@@ -160,9 +154,7 @@ server requires a source address, a destination address, and message data.
 
 For more information about sending email using the Amazon SES SMTP interface, see [Using the Amazon SES SMTP interface to send email](send-email-smtp.md "send-email-smtp.md").
 
-### Amazon SES
-
-console
+### Amazon SES console
 
 When you send an email by using the Amazon SES console, the amount of information you
 need to provide depends on whether you choose to send a formatted or raw

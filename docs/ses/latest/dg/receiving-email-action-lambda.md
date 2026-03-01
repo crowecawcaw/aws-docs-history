@@ -34,9 +34,7 @@ _AWS Lambda Developer Guide_.
 - The Amazon SNS topic that you choose must be in the same AWS Region as the Amazon SES
   endpoint that you use to receive email.
 
-## Writing your Lambda
-
-function
+## Writing your Lambda function
 
 To process your email, your Lambda function can be invoked asynchronously (that is,
 using the `Event` invocation type). The event object passed to your Lambda
@@ -59,8 +57,7 @@ end of your Lambda function code:
 callback( null, { "disposition" : "STOP_RULE_SET" });
 ```
 
-For AWS Lambda code samples, see [Lambda function
-examples](receiving-email-action-lambda-example-functions.md "receiving-email-action-lambda-example-functions.md"). For examples of
+For AWS Lambda code samples, see [Lambda function examples](receiving-email-action-lambda-example-functions.md "receiving-email-action-lambda-example-functions.md"). For examples of
 high-level use cases, see [Use case examples](receiving-email-action-lambda-example-use-cases.md "receiving-email-action-lambda-example-use-cases.md").
 
 ### Input format
@@ -99,9 +96,7 @@ provides to the Lambda function.
 }
 ```
 
-### Return
-
-values
+### Return values
 
 Your Lambda function can control mail flow by returning one of the following
 values:
@@ -119,5 +114,4 @@ high-level use cases, and AWS Lambda code examples:
 
 - [Sample incoming email event](receiving-email-action-lambda-event.md "receiving-email-action-lambda-event.md")
 - [Use case examples](receiving-email-action-lambda-example-use-cases.md "receiving-email-action-lambda-example-use-cases.md")
-- [Lambda function
-  examples](receiving-email-action-lambda-example-functions.md "receiving-email-action-lambda-example-functions.md")
+- [Lambda function examples](receiving-email-action-lambda-example-functions.md "receiving-email-action-lambda-example-functions.md")

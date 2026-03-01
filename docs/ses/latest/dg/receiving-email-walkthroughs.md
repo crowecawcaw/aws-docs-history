@@ -1,6 +1,4 @@
-# Amazon SES email receiving console
-
-walkthroughs
+# Amazon SES email receiving console walkthroughs
 
 This section describes the email receiving console wizards that are used for configuring
 _receipt rules_ and _IP address filters_ to manage
@@ -14,7 +12,5 @@ to make sure you've completed the set up prerequisites.
 
 are explained in the following:
 
-- [Creating receipt rules
-  console walkthrough](receiving-email-receipt-rules-console-walkthrough.md "receiving-email-receipt-rules-console-walkthrough.md")
-- [Create IP address filters
-  console walkthrough](receiving-email-ip-filtering-console-walkthrough.md "receiving-email-ip-filtering-console-walkthrough.md")
+- [Creating receipt rules console walkthrough](receiving-email-receipt-rules-console-walkthrough.md "receiving-email-receipt-rules-console-walkthrough.md")
+- [Create IP address filters console walkthrough](receiving-email-ip-filtering-console-walkthrough.md "receiving-email-ip-filtering-console-walkthrough.md")

@@ -1,29 +1,21 @@
-# Setting up event
-
-notifications for Amazon SES
+# Setting up event notifications for Amazon SES
 
 In order to send email using Amazon SES, you must have a system in place for managing bounces
 and complaints. Amazon SES can notify you of bounce or complaint events in three ways: by sending
 a notification email, by notifying an Amazon SNS topic, or by publishing sending events. This
 section contains information about setting up Amazon SES to send certain kinds of notifications
 by email or by notifying an Amazon SNS topic. For more information about publishing sending
-events, see [Monitor email sending using Amazon SES event
-publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md").
+events, see [Monitor email sending using Amazon SES event publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md").
 
 You can set up notifications using the Amazon SES console or the Amazon SES API.
 
 ###### Topics
 
-- [Important
-  considerations](#monitor-sending-activity-using-notifications-considerations "#monitor-sending-activity-using-notifications-considerations")
-- [Receiving Amazon SES
-  notifications through email](monitor-sending-activity-using-notifications-email.md "monitor-sending-activity-using-notifications-email.md")
-- [Receiving Amazon SES
-  notifications using Amazon SNS](monitor-sending-activity-using-notifications-sns.md "monitor-sending-activity-using-notifications-sns.md")
+- [Important considerations](#monitor-sending-activity-using-notifications-considerations "#monitor-sending-activity-using-notifications-considerations")
+- [Receiving Amazon SES notifications through email](monitor-sending-activity-using-notifications-email.md "monitor-sending-activity-using-notifications-email.md")
+- [Receiving Amazon SES notifications using Amazon SNS](monitor-sending-activity-using-notifications-sns.md "monitor-sending-activity-using-notifications-sns.md")
 
-## Important
-
-considerations
+## Important considerations
 
 There are several important points to consider when you set up Amazon SES to send
 notifications:

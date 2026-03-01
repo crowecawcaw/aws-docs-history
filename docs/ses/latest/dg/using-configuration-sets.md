@@ -25,17 +25,14 @@ and can contain one, both, or neither of these types:
   ways:
 
 - Include a reference to the configuration set in the headers of the email. For more
-  information about specifying configuration sets in your emails, see [Specifying a configuration set when you
-  send email](using-configuration-sets-in-email.md "using-configuration-sets-in-email.md").
+  information about specifying configuration sets in your emails, see [Specifying a configuration set when you send email](using-configuration-sets-in-email.md "using-configuration-sets-in-email.md").
 - Specify an existing configuration set to be used as the identity's
   _default configuration set_, either at the time of identity
   creation, or later while editing a verified identity. See [Understanding default configuration sets](managing-configuration-sets.md#default-config-sets "managing-configuration-sets.md#default-config-sets").
 
 ###### Contents
 
-- [Creating configuration sets in
-  SES](creating-configuration-sets.md "creating-configuration-sets.md")
+- [Creating configuration sets in SES](creating-configuration-sets.md "creating-configuration-sets.md")
 - [Managing configuration sets in Amazon SES](managing-configuration-sets.md "managing-configuration-sets.md")
-- [Specifying a configuration set when you
-  send email](using-configuration-sets-in-email.md "using-configuration-sets-in-email.md")
+- [Specifying a configuration set when you send email](using-configuration-sets-in-email.md "using-configuration-sets-in-email.md")
 - [Viewing and exporting reputation metrics](configuration-sets-export-metrics.md "configuration-sets-export-metrics.md")

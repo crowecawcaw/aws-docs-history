@@ -11,8 +11,7 @@ account's bounce, complaint and reject rates. Excessively high bounce and compla
 may jeopardize your ability to send emails using SES. These methods can also be used
 to measure the rates at which your customers engage with the emails you send by helping you
 to identify your overall open and click through rates utilizing event publishing and custom
-domains associated with configuration sets - see [Configuring custom domains to handle
-open and click tracking](configure-custom-open-click-domains.md "configure-custom-open-click-domains.md").
+domains associated with configuration sets - see [Configuring custom domains to handle open and click tracking](configure-custom-open-click-domains.md "configure-custom-open-click-domains.md").
 
 The first step in setting up monitoring is to identify the types of email events related
 to your sending activity that you want to measure and monitor using SES. You can
@@ -81,9 +80,6 @@ quotas](manage-sending-quotas-monitor.md "manage-sending-quotas-monitor.md").
 
 topics:
 
-- [Monitoring your sending statistics using
-  the Amazon SES console](monitor-sending-activity-console.md "monitor-sending-activity-console.md")
-- [Monitoring your usage statistics using the
-  Amazon SES API](monitor-sending-activity-api.md "monitor-sending-activity-api.md")
-- [Monitor email sending using Amazon SES event
-  publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md")
+- [Monitoring your sending statistics using the Amazon SES console](monitor-sending-activity-console.md "monitor-sending-activity-console.md")
+- [Monitoring your usage statistics using the Amazon SES API](monitor-sending-activity-api.md "monitor-sending-activity-api.md")
+- [Monitor email sending using Amazon SES event publishing](monitor-using-event-publishing.md "monitor-using-event-publishing.md")

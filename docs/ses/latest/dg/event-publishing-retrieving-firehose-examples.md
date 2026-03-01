@@ -1,6 +1,4 @@
-# Examples of event data
-
-that Amazon SES publishes to Firehose
+# Examples of event data that Amazon SES publishes to Firehose
 
 This section provides examples of the types of email sending event record that Amazon SES
 publishes to Firehose.
@@ -8,19 +6,15 @@ publishes to Firehose.
 ###### Topics in this section:
 
 - [Bounce record](#event-publishing-retrieving-firehose-bounce "#event-publishing-retrieving-firehose-bounce")
-- [Complaint
-  record](#event-publishing-retrieving-firehose-complaint "#event-publishing-retrieving-firehose-complaint")
-- [Delivery
-  record](#event-publishing-retrieving-firehose-delivery "#event-publishing-retrieving-firehose-delivery")
+- [Complaint record](#event-publishing-retrieving-firehose-complaint "#event-publishing-retrieving-firehose-complaint")
+- [Delivery record](#event-publishing-retrieving-firehose-delivery "#event-publishing-retrieving-firehose-delivery")
 - [Send record](#event-publishing-retrieving-firehose-send "#event-publishing-retrieving-firehose-send")
 - [Reject record](#event-publishing-retrieving-firehose-reject "#event-publishing-retrieving-firehose-reject")
 - [Open record](#event-publishing-retrieving-firehose-open "#event-publishing-retrieving-firehose-open")
 - [Click record](#event-publishing-retrieving-firehose-click "#event-publishing-retrieving-firehose-click")
-- [Rendering Failure
-  record](#event-publishing-retrieving-firehose-failure "#event-publishing-retrieving-firehose-failure")
+- [Rendering Failure record](#event-publishing-retrieving-firehose-failure "#event-publishing-retrieving-firehose-failure")
 - [DeliveryDelay record](#event-publishing-retrieving-firehose-delayed-delivery "#event-publishing-retrieving-firehose-delayed-delivery")
-- [Subscription
-  record](#event-publishing-retrieving-firehose-subscription "#event-publishing-retrieving-firehose-subscription")
+- [Subscription record](#event-publishing-retrieving-firehose-subscription "#event-publishing-retrieving-firehose-subscription")
 
 ###### Note
 
@@ -114,9 +108,7 @@ publishes to Firehose.
 }
 ```
 
-## Complaint
-
-record
+## Complaint record
 
 The following is an example of a `Complaint` event record that Amazon SES
 publishes to Firehose.
@@ -195,9 +187,7 @@ publishes to Firehose.
 }
 ```
 
-## Delivery
-
-record
+## Delivery record
 
 The following is an example of a `Delivery` event record that Amazon SES
 publishes to Firehose.
@@ -633,9 +623,7 @@ publishes to Firehose.
 }
 ```
 
-## Rendering Failure
-
-record
+## Rendering Failure record
 
 The following is an example of a `Rendering Failure` event record that
 Amazon SES publishes to Firehose.
@@ -703,9 +691,7 @@ Amazon SES publishes to Firehose.
 }
 ```
 
-## Subscription
-
-record
+## Subscription record
 
 The following is an example of a `Subscription` event record that Amazon SES
 publishes to Firehose.

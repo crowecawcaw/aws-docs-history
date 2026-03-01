@@ -1,6 +1,4 @@
-# Retrieve the default
-
-configuration set used by the identity using the SES API
+# Retrieve the default configuration set used by the identity using the SES API
 
 You can use the [GetEmailIdentity](../APIReference-V2/API_GetEmailIdentity.md "../APIReference-V2/API_GetEmailIdentity.md") operation to return the default configuration set for an email
 identity, if applicable.

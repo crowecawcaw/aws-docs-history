@@ -1,6 +1,4 @@
-# Using templates to send personalized email
-
-with the Amazon SES API
+# Using templates to send personalized email with the Amazon SES API
 
 In Amazon SES you can send templated email either by using a _stored
 template_ or by using an _inline template_.
@@ -59,9 +57,7 @@ The following limits apply when using _stored templates_:
 The procedures in this section assume that you've already installed and configured the
 AWS CLI. For more information about installing and configuring the AWS CLI, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
 
-## (Optional) Part 1: Set up
-
-Rendering Failure event notifications
+## (Optional) Part 1: Set up Rendering Failure event notifications
 
 If you send an email that contains invalid personalization content, Amazon SES might
 accept the message, but won't be able to deliver it. For this reason, if you plan to
@@ -81,14 +77,11 @@ The procedure in this section is optional, but highly recommended.
    address) to the topic.
 
 For procedures, see [Subscribe to
-a Topic](../../../sns/latest/dg/SubscribeTopic.md "../../../sns/latest/dg/SubscribeTopic.md") in the _Amazon Simple Notification Service Developer Guide_. 3. Complete the procedures in [Set up an Amazon SNS event
-destination for event publishing](event-publishing-add-event-destination-sns.md "event-publishing-add-event-destination-sns.md") to set up your
+a Topic](../../../sns/latest/dg/SubscribeTopic.md "../../../sns/latest/dg/SubscribeTopic.md") in the _Amazon Simple Notification Service Developer Guide_. 3. Complete the procedures in [Set up an Amazon SNS event destination for event publishing](event-publishing-add-event-destination-sns.md "event-publishing-add-event-destination-sns.md") to set up your
 configuration sets to publish Rendering Failure events to your Amazon SNS
 topic.
 
-## (Optional) Part 2: Create an
-
-email template
+## (Optional) Part 2: Create an email template
 
 If you intend on using a _stored template_, this section will show
 you how to use the [`CreateEmailTemplate`](../APIReference-V2/API_CreateEmailTemplate.md "../APIReference-V2/API_CreateEmailTemplate.md") SES v2 API operation to create
@@ -148,9 +141,7 @@ This code contains the following properties:
 aws sesv2 create-email-template --cli-input-json file://`mytemplate.json`
 ```
 
-## Part 3: Sending the
-
-personalized email
+## Part 3: Sending the personalized email
 
 You can use the following two SES v2 API operations to send emails using either
 _stored templates_ or _inline
@@ -169,9 +160,7 @@ templates_:
 This section provides examples of how to use the AWS CLI to send templated email using
 both of these send operations.
 
-### Sending templated email to
-
-a single destination object
+### Sending templated email to a single destination object
 
 You can use the [`SendEmail`](../APIReference-V2/API_SendEmail.md "../APIReference-V2/API_SendEmail.md") operation to send an email to one or more
 recipients defined in a single destination object. All of the recipients in the
@@ -238,8 +227,7 @@ This code contains the following properties:
 
     We recommend that you use a configuration set that
      is configured to publish Rendering Failure events to
-     Amazon SNS. For more information, see [(Optional) Part 1: Set up
-     Rendering Failure event notifications](#send-personalized-email-set-up-notifications "#send-personalized-email-set-up-notifications").
+     Amazon SNS. For more information, see [(Optional) Part 1: Set up Rendering Failure event notifications](#send-personalized-email-set-up-notifications "#send-personalized-email-set-up-notifications").
 
 Inline template code example
 Notice that the `TemplateContent` properties (that
@@ -321,8 +309,7 @@ This code contains the following properties:
 
     We recommend that you use a configuration set that
      is configured to publish Rendering Failure events to
-     Amazon SNS. For more information, see [(Optional) Part 1: Set up
-     Rendering Failure event notifications](#send-personalized-email-set-up-notifications "#send-personalized-email-set-up-notifications").
+     Amazon SNS. For more information, see [(Optional) Part 1: Set up Rendering Failure event notifications](#send-personalized-email-set-up-notifications "#send-personalized-email-set-up-notifications").
 
 2. Customize the preceding example to fit your needs, and then save the file
    as `myemail.json`.
@@ -333,9 +320,7 @@ This code contains the following properties:
 aws sesv2 send-email --cli-input-json file://`myemail.json`
 ```
 
-### Sending templated email
-
-to multiple destination objects
+### Sending templated email to multiple destination objects
 
 You can use the [`SendBulkEmail`](../APIReference-V2/API_SendBulkEmail.md "../APIReference-V2/API_SendBulkEmail.md") operation to send an email to multiple
 destination objects in a single call to the SES v2 API. SES sends a
@@ -464,8 +449,7 @@ This code contains the following properties:
 
     We recommend that you use a configuration set that
      is configured to publish Rendering Failure events to
-     Amazon SNS. For more information, see [(Optional) Part 1: Set up
-     Rendering Failure event notifications](#send-personalized-email-set-up-notifications "#send-personalized-email-set-up-notifications").
+     Amazon SNS. For more information, see [(Optional) Part 1: Set up Rendering Failure event notifications](#send-personalized-email-set-up-notifications "#send-personalized-email-set-up-notifications").
 
 Inline template code example
 Notice that the `TemplateContent` properties (that
@@ -609,8 +593,7 @@ This code contains the following properties:
 
     We recommend that you use a configuration set that
      is configured to publish Rendering Failure events to
-     Amazon SNS. For more information, see [(Optional) Part 1: Set up
-     Rendering Failure event notifications](#send-personalized-email-set-up-notifications "#send-personalized-email-set-up-notifications").
+     Amazon SNS. For more information, see [(Optional) Part 1: Set up Rendering Failure event notifications](#send-personalized-email-set-up-notifications "#send-personalized-email-set-up-notifications").
 
 2. Change the values in the code in the previous step to meet your needs, and
    then save the file as `mybulkemail.json`.

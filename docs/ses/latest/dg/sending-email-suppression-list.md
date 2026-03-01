@@ -1,6 +1,4 @@
-# Using the Amazon SES account-level suppression
-
-list
+# Using the Amazon SES account-level suppression list
 
 The Amazon SES account-level suppression list was introduced so that customers can create and
 control their own suppression list and manage their reputation, thus, your account-level
@@ -16,8 +14,7 @@ console.
 ###### Note
 
 To bulk add or remove addresses, you must have production access. To learn more about
-the sandbox, see [Request production access (Moving out of the
-Amazon SES sandbox)](request-production-access.md "request-production-access.md").
+the sandbox, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").
 
 ###### Important
 
@@ -31,9 +28,7 @@ require an exact case match. Thus, when using APIs related to suppression list
 management, ensure you use the exact case of the email address as it appears in the
 suppression list.
 
-## Amazon SES Account-level
-
-suppression list considerations
+## Amazon SES Account-level suppression list considerations
 
 You should consider the following factors when you use your account-level suppression
 list:
@@ -91,11 +86,9 @@ list:
   suppression list.
 - You can enable your account-level suppression list if your account is in the
   SES sandbox. However, you can't use the [PutSuppressedDestination](../APIReference-V2/API_PutSuppressedDestination.md "../APIReference-V2/API_PutSuppressedDestination.md") or [CreateImportJob](../APIReference-V2/API_CreateImportJob.md "../APIReference-V2/API_CreateImportJob.md") operation until your account is removed from the
-  sandbox. To learn more about the sandbox, see [Request production access (Moving out of the
-  Amazon SES sandbox)](request-production-access.md "request-production-access.md").
+  sandbox. To learn more about the sandbox, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").
 - Only hard bounces are added to your account-level suppression list. For
-  information about the differences between soft and hard bounces, see [After Amazon SES sends an
-  email](send-email-concepts-process.md#send-email-concepts-process-after-send "send-email-concepts-process.md#send-email-concepts-process-after-send").
+  information about the differences between soft and hard bounces, see [After Amazon SES sends an email](send-email-concepts-process.md#send-email-concepts-process-after-send "send-email-concepts-process.md#send-email-concepts-process-after-send").
 - When you use your account-level suppression list, SES adds addresses
   that result in hard bounces to the global suppression list as well.
 
@@ -105,9 +98,7 @@ The procedures in the following sections assume that you've already installed th
 AWS CLI. For more information about installing and configuring the AWS CLI, see the
 [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
 
-## Enabling the Amazon SES
-
-account-level suppression list
+## Enabling the Amazon SES account-level suppression list
 
 You can use the [PutAccountSuppressionAttributes](../APIReference-V2/API_PutAccountSuppressionAttributes.md "../APIReference-V2/API_PutAccountSuppressionAttributes.md") operation in the Amazon SES API v2 to enable and
 set up your account-level suppression list. You can quickly and easily configure this
@@ -137,9 +128,7 @@ one reason for the `suppressed-reasons` parameter. You can specify
 either `BOUNCE` or `COMPLAINT`, or you can specify both,
 as shown in the preceding example.
 
-###### To configure your account-level suppression list using the SES
-
-console:
+###### To configure your account-level suppression list using the SES console:
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose
@@ -153,18 +142,14 @@ console:
    account-level suppression list.
 6. Choose **Save changes**.
 
-## Enabling the
-
-Amazon SES account-level suppression list for a configuration set
+## Enabling the Amazon SES account-level suppression list for a configuration set
 
 You can also configure your Amazon SES account-level suppression so that it only applies to
 specific [configuration sets](using-configuration-sets.md "using-configuration-sets.md"). When you
 do, addresses are only added to the suppression list if you specified the configuration
 set when you sent the email that caused the bounce or complaint event.
 
-###### To configure your account-level suppression list for a configuration set using
-
-the AWS CLI
+###### To configure your account-level suppression list for a configuration set using the AWS CLI
 
 - At the command line, enter the following command:
 
@@ -188,9 +173,7 @@ In the preceding example, replace `configSet` with
 the name of the configuration set that should use your account-level suppression
 list.
 
-###### To configure your account-level suppression list for a configuration set using
-
-the SES console:
+###### To configure your account-level suppression list for a configuration set using the SES console:
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose
@@ -240,18 +223,14 @@ the SES console:
 
 6. Choose **Save changes**.
 
-## Adding individual email
-
-addresses to the Amazon SES account-level suppression list
+## Adding individual email addresses to the Amazon SES account-level suppression list
 
 You can add individual addresses to your Amazon SES account-level suppression list by using
 the [PutSuppressedDestination](../APIReference-V2/API_PutSuppressedDestination.md "../APIReference-V2/API_PutSuppressedDestination.md") operation in the SES API v2. There's no
 limit to the number of addresses that you can add to your account-level suppression
 list.
 
-###### To add individual addresses to your account-level suppression list using the
-
-AWS CLI
+###### To add individual addresses to your account-level suppression list using the AWS CLI
 
 - At the command line, enter the following command:
 
@@ -278,9 +257,7 @@ you want to add to your account-level suppression list, and
 address to the suppression list (acceptable values are `BOUNCE` and
 `COMPLAINT`).
 
-###### To add individual addresses to your account-level suppression list using the
-
-SES console:
+###### To add individual addresses to your account-level suppression list using the SES console:
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose
@@ -297,9 +274,7 @@ SES console:
 6. Choose **Save changes** to add the entered email
    addresses to your account-level suppression list.
 
-## Adding email addresses
-
-in bulk to your Amazon SES account-level suppression list
+## Adding email addresses in bulk to your Amazon SES account-level suppression list
 
 You can add addresses in bulk by first uploading your contact list into an Amazon S3 object
 followed by using the [CreateImportJob](#CIJ-add-bulk-API "#CIJ-add-bulk-API") operation in the Amazon SES API v2.
@@ -384,9 +359,7 @@ At the command line, enter the following command. Replace
 aws sesv2 create-import-job --import-destination SuppressionListDestination={SuppressionListImportAction=PUT} --import-data-source S3Url=s3://`s3bucket`/`s3object`,DataFormat=CSV
 ```
 
-###### To add email addresses in bulk to your account-level suppression list using the
-
-SES console:
+###### To add email addresses in bulk to your account-level suppression list using the SES console:
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose
@@ -454,16 +427,12 @@ SES console:
       want to remove from your account suppression list and choose
       **Remove**.
 
-## Viewing a list of
-
-addresses that are on your Amazon SES account-level suppression list
+## Viewing a list of addresses that are on your Amazon SES account-level suppression list
 
 You can view a list of all of the email addresses that are on your account-level
 suppression list for your account by using the [ListSuppressedDestinations](../APIReference-V2/API_ListSuppressedDestinations.md "../APIReference-V2/API_ListSuppressedDestinations.md") operation in the SES API v2.
 
-###### To view a list of all of the email addresses that are on your account-level
-
-suppression list
+###### To view a list of all of the email addresses that are on your account-level suppression list
 
 - At the command line, enter the following command:
 
@@ -517,9 +486,7 @@ list](https://aws.amazon.com/blogs/messaging-and-targeting/how-to-list-over-1000
 You can use the `StartDate` option to only show email addresses that were
 added to the list _after_ a certain date.
 
-###### To view a list of addresses that were added to your account-level suppression
-
-list after a specific date
+###### To view a list of addresses that were added to your account-level suppression list after a specific date
 
 - At the command line, enter the following command:
 
@@ -533,9 +500,7 @@ the Unix timestamp of the start date.
 You can also use the `EndDate` option to only show email addresses that
 were added to the list _before_ a certain date.
 
-###### To view a list of addresses that were added to your account-level suppression
-
-list before a specific date
+###### To view a list of addresses that were added to your account-level suppression list before a specific date
 
 - At the command line, enter the following command:
 
@@ -561,9 +526,7 @@ In the preceding command, replace `example.com` with
 the string of text (such as the address or domain) that you want to search
 for.
 
-###### To view a list of all of the email addresses that are on your account-level
-
-suppression list using the SES console:
+###### To view a list of all of the email addresses that are on your account-level suppression list using the SES console:
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose
@@ -583,16 +546,12 @@ suppression list using the SES console:
      **Confirm**. The suppression list table will
      reflect your viewing choices.
 
-## Removing individual email
-
-addresses from your Amazon SES account-level suppression list
+## Removing individual email addresses from your Amazon SES account-level suppression list
 
 If an address is on the suppression list for your account, but you know that the
 address shouldn't be on the list, you can remove it by using [DeleteSuppressedDestination](../APIReference-V2/API_DeleteSuppressedDestination.md "../APIReference-V2/API_DeleteSuppressedDestination.md") operation in the SES API v2.
 
-###### To remove individual addresses from your account-level suppression list using the
-
-AWS CLI
+###### To remove individual addresses from your account-level suppression list using the AWS CLI
 
 - At the command line, enter the following command:
 
@@ -614,9 +573,7 @@ In the preceding example, replace
 `recipient@example.com` with the email address that
 you want to remove from your account-level suppression list.
 
-###### To remove individual addresses from your account-level suppression list using the
-
-SES console:
+###### To remove individual addresses from your account-level suppression list using the SES console:
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose
@@ -640,9 +597,7 @@ SES console:
       4. Choose **Save changes** to remove the entered
          email addresses from your account-level suppression list.
 
-## Removing email
-
-addresses in bulk from your Amazon SES account-level suppression list
+## Removing email addresses in bulk from your Amazon SES account-level suppression list
 
 You can remove addresses in bulk by first uploading your contact list into an Amazon S3
 object followed by using the [CreateImportJob](#CIJ-remove-bulk-API "#CIJ-remove-bulk-API") operation in the SES API v2.
@@ -724,9 +679,7 @@ At the command line, enter the following command. Replace
 aws sesv2 create-import-job --import-destination SuppressionListDestination={SuppressionListImportAction=DELETE} --import-data-source S3Url="s3://`s3bucket`/`s3object`",DataFormat=CSV
 ```
 
-###### To remove email addresses in bulk from your account-level suppression list using
-
-the SES console:
+###### To remove email addresses in bulk from your account-level suppression list using the SES console:
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose
@@ -785,9 +738,7 @@ the SES console:
    imported email addresses that were removed from your suppression list will no
    longer be displayed.
 
-## Viewing a list of
-
-import jobs for the account
+## Viewing a list of import jobs for the account
 
 You can view a list of all of the email addresses that are on your account-level
 suppression list for your account by using the [ListImportJobs](../APIReference-V2/API_ListImportJobs.md "../APIReference-V2/API_ListImportJobs.md") operation in the Amazon SES API v2.
@@ -840,9 +791,7 @@ resembles the following example:
 }
 ```
 
-###### To view a list of all of the import jobs for the account using the SES
-
-console:
+###### To view a list of all of the import jobs for the account using the SES console:
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose
@@ -861,9 +810,7 @@ console:
       was JSON or CSV, the URI of the Amazon S3 bucket where the bulk file was
       stored, and the time and date the bulk action was created.
 
-## Getting information
-
-about an import job for the account
+## Getting information about an import job for the account
 
 You can get information about an import job for the account by using the [GetImportJob](../APIReference-V2/API_GetImportJob.md "../APIReference-V2/API_GetImportJob.md") operation in the Amazon SES API v2.
 
@@ -901,9 +848,7 @@ output resembles the following example:
 }
 ```
 
-###### To get information about an import job for the account using the SES
-
-console:
+###### To get information about an import job for the account using the SES console:
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose
@@ -922,9 +867,7 @@ console:
       was JSON or CSV, the URI of the Amazon S3 bucket where the bulk file was
       stored, and the time and date the bulk action was created.
 
-## Disabling the Amazon SES
-
-account-level suppression list
+## Disabling the Amazon SES account-level suppression list
 
 You can use the [PutAccountSuppressionAttributes](../APIReference-V2/API_PutAccountSuppressionAttributes.md "../APIReference-V2/API_PutAccountSuppressionAttributes.md") operation in the SES API v2 to
 effectively disable your account-level suppression list by removing the values from the
@@ -938,9 +881,7 @@ effectively disable your account-level suppression list by removing the values f
 aws sesv2 put-account-suppression-attributes --suppressed-reasons
 ```
 
-###### To disable your account-level suppression list using the SES
-
-console:
+###### To disable your account-level suppression list using the SES console:
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose

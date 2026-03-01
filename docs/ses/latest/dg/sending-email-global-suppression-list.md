@@ -1,6 +1,4 @@
-# Amazon SES global suppression
-
-list
+# Amazon SES global suppression list
 
 Amazon SES maintains an internal _global suppression list_ which operates
 and is managed in the background by SES. When any SES customer sends an email
@@ -16,20 +14,15 @@ replace this functionality, Amazon SES now offers a new way for you to manage yo
 making available an **account-level suppression list** and
 **configuration set-level suppression overrides** that
 offer you more customized control over how you handle email suppression for your own
-account. For more information, see [Using the Amazon SES account-level suppression
-list](sending-email-suppression-list.md "sending-email-suppression-list.md") and [Using configuration set-level
-suppression to override your account-level suppression list](sending-email-suppression-list-config-level.md "sending-email-suppression-list-config-level.md").
+account. For more information, see [Using the Amazon SES account-level suppression list](sending-email-suppression-list.md "sending-email-suppression-list.md") and [Using configuration set-level suppression to override your account-level suppression list](sending-email-suppression-list-config-level.md "sending-email-suppression-list-config-level.md").
 
 ###### Important
 
 The global suppression list email address removal request form is no longer in the
 Amazon SES console because the account-level suppression list has superseded it. To learn how
-to use the account-level suppression list, see [Using the Amazon SES account-level suppression
-list](sending-email-suppression-list.md "sending-email-suppression-list.md").
+to use the account-level suppression list, see [Using the Amazon SES account-level suppression list](sending-email-suppression-list.md "sending-email-suppression-list.md").
 
-## Global
-
-suppression list considerations
+## Global suppression list considerations
 
 Key factors regarding the global suppression list:
 

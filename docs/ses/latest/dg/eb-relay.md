@@ -47,9 +47,7 @@ You must first create an SMTP relay before it can be designated in a rule action
 procedure in the next section will walk you through creating an SMTP relay in the SES
 console.
 
-## Creating an SMTP relay in the SES
-
-console
+## Creating an SMTP relay in the SES console
 
 The following procedure shows you how to use the **SMTP relays** page in
 the SES console to create SMTP relays and manage the ones you've already
@@ -239,9 +237,7 @@ Outbound
    **Update** button followed by **Save
    changes**.
 
-## Setting up Google Workspaces for inbound
-
-(non-authenticated) SMTP relay
+## Setting up Google Workspaces for inbound (non-authenticated) SMTP relay
 
 The following walkthrough example shows you how to setup Google Workspaces to work
 with a Mail Manager inbound (non-authenticated) SMTP relay.
@@ -279,9 +275,7 @@ with a Mail Manager inbound (non-authenticated) SMTP relay.
        console will show the **Inbound gateway** as
        enabled.
 
-## Setting up Microsoft Office 365 for inbound
-
-(non-authenticated) SMTP relay
+## Setting up Microsoft Office 365 for inbound (non-authenticated) SMTP relay
 
 The following walkthrough example shows you how to setup Microsoft Office 365 to work
 with a Mail Manager inbound (non-authenticated) SMTP relay.

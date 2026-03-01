@@ -20,9 +20,7 @@ help you make improvements to your deliverability and reputation.
   option to turn them off. We highly recommend that you keep both features enabled to get the
   most out of Virtual Deliverability Manager.
 
-## Getting started with Virtual Deliverability Manager using the Amazon SES
-
-console
+## Getting started with Virtual Deliverability Manager using the Amazon SES console
 
 The following procedure shows you how to get started with Virtual Deliverability Manager using the Amazon SES
 console.

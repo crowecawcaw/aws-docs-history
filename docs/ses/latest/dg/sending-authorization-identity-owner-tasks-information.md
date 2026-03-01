@@ -1,6 +1,4 @@
-# Getting information
-
-from the delegate sender for Amazon SES sending authorization
+# Getting information from the delegate sender for Amazon SES sending authorization
 
 Your sending authorization policy must specify at least one
 _principal_, which is the entity of your delegate sender that you're

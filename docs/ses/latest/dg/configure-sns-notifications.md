@@ -1,6 +1,4 @@
-# Configuring Amazon SNS notifications for
-
-Amazon SES
+# Configuring Amazon SNS notifications for Amazon SES
 
 Amazon SES can notify you of your bounces, complaints, and deliveries through [Amazon Simple Notification Service (Amazon SNS)](https://aws.amazon.com/sns "https://aws.amazon.com/sns").
 
@@ -9,12 +7,9 @@ You can configure notifications in the Amazon SES console, or by using the Amazo
 ###### Topics in this section:
 
 - [Prerequisites](#configure-feedback-notifications-prerequisites "#configure-feedback-notifications-prerequisites")
-- [Configuring notifications
-  using the Amazon SES console](#configure-feedback-notifications-console "#configure-feedback-notifications-console")
-- [Configuring notifications using
-  the Amazon SES API](#configure-feedback-notifications-api "#configure-feedback-notifications-api")
-- [Troubleshooting
-  feedback notifications](#configure-feedback-notifications-troubleshooting "#configure-feedback-notifications-troubleshooting")
+- [Configuring notifications using the Amazon SES console](#configure-feedback-notifications-console "#configure-feedback-notifications-console")
+- [Configuring notifications using the Amazon SES API](#configure-feedback-notifications-api "#configure-feedback-notifications-api")
+- [Troubleshooting feedback notifications](#configure-feedback-notifications-troubleshooting "#configure-feedback-notifications-troubleshooting")
 
 ## Prerequisites
 
@@ -107,9 +102,7 @@ JSON
 
 ```
 
-## Configuring notifications
-
-using the Amazon SES console
+## Configuring notifications using the Amazon SES console
 
 ###### To configure notifications using the Amazon SES console
 
@@ -180,9 +173,7 @@ the change by email. If multiple identities are configured to use the topic, the
 topic configuration for each identity is changed when each identity experiences a
 failure to publish to the topic.
 
-## Configuring notifications using
-
-the Amazon SES API
+## Configuring notifications using the Amazon SES API
 
 You can also configure bounce, complaint, and delivery notifications by using the
 Amazon SES API. Use the following operations to configure notifications:
@@ -196,9 +187,7 @@ You can use these API actions to write a customized front-end application for
 notifications. For a complete description of the API actions related to notifications,
 see the [Amazon Simple Email Service API Reference](../APIReference.md "../APIReference.md").
 
-## Troubleshooting
-
-feedback notifications
+## Troubleshooting feedback notifications
 
 ###### Not receiving notifications
 

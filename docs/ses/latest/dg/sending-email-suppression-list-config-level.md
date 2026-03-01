@@ -1,6 +1,4 @@
-# Using configuration set-level
-
-suppression to override your account-level suppression list
+# Using configuration set-level suppression to override your account-level suppression list
 
 While the account-level suppression list is set for your entire account, you can customize
 it separately for different configuration sets by overriding it with configuration set-level
@@ -48,13 +46,9 @@ configuration set-level suppression is interacting with your account-level suppr
 by simply changing (overriding) the suppression reasons that determine what email addresses
 get added to your account-level suppression list.
 
-## Enabling configuration
+## Enabling configuration set-level suppression
 
-set-level suppression
-
-###### To enable configuration set-level suppression using the Amazon SES new
-
-console:
+###### To enable configuration set-level suppression using the Amazon SES new console:
 
 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. In the navigation pane, under **Configuration**, choose

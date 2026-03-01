@@ -1,6 +1,4 @@
-# Set up an Amazon SNS event
-
-destination for event publishing
+# Set up an Amazon SNS event destination for event publishing
 
 An Amazon SNS event destination notifies you about the email sending events you specify in a
 configuration set. Because an Amazon SNS event destination can only be set up in a configuration
@@ -18,16 +16,13 @@ and modify event destinations.
 
 Feedback notifications for bounces, complaints, and deliveries can also be set up
 through Amazon SNS for any of your verified sending identities. For more information, see.
-[Configuring Amazon SNS notifications for
-Amazon SES](configure-sns-notifications.md "configure-sns-notifications.md").
+[Configuring Amazon SNS notifications for Amazon SES](configure-sns-notifications.md "configure-sns-notifications.md").
 
 There are additional charges for sending messages to the endpoints that are subscribed to
 your Amazon SNS topics. For more information, see [Amazon SNS
 Pricing](https://aws.amazon.com/sns/pricing/ "https://aws.amazon.com/sns/pricing/").
 
-###### To add Amazon SNS event destination details to a configuration set using the
-
-console
+###### To add Amazon SNS event destination details to a configuration set using the console
 
 1. These are the detailed instructions for selecting Amazon SNS as your event destination
    type in [Step 7](event-destinations-manage.md#specify-event-dest-step "event-destinations-manage.md#specify-event-dest-step") and assumes you have

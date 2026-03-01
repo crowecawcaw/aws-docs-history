@@ -98,17 +98,15 @@ following email addresses:
 These email address condition keys apply only to the APIs noted in the
 following table.
 
-| Condition Key               | Description                                                                                                                                                                                                                                                                                                                                                                 | API                                          |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| `ses:Recipients`            | Restricts the recipient addresses, which include the To:,<br>"CC", and "BCC" addresses.                                                                                                                                                                                                                                                                                     | `SendEmail`,<br>`SendRawEmail`               |
-| `ses:FromAddress`           | Restricts the "From" address.                                                                                                                                                                                                                                                                                                                                               | `SendEmail`, `SendRawEmail`,<br>`SendBounce` |
-| `ses:FromDisplayName`       | Restricts the "From" address that is used as the display<br>name.                                                                                                                                                                                                                                                                                                           | `SendEmail`,<br>`SendRawEmail`               |
-| `ses:FeedbackAddress`       | Restricts the "Return-Path" address, which is the address<br>where bounces and complaints can be sent to you by email<br>feedback forwarding. For information about email feedback<br>forwarding, see [Receiving Amazon SES<br>notifications through email](monitor-sending-activity-using-notifications-email.md "monitor-sending-activity-using-notifications-email.md"). | `SendEmail`,<br>`SendRawEmail`               |
-| `ses:MultiRegionEndpointId` | Allows you to control what endpoint ID is used when sending<br>email                                                                                                                                                                                                                                                                                                        | `SendEmail`,<br>`SendBulkEmail`              |
+| Condition Key               | Description                                                                                                                                                                                                                                                                                                                                                              | API                                          |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------- |
+| `ses:Recipients`            | Restricts the recipient addresses, which include the To:,<br>"CC", and "BCC" addresses.                                                                                                                                                                                                                                                                                  | `SendEmail`,<br>`SendRawEmail`               |
+| `ses:FromAddress`           | Restricts the "From" address.                                                                                                                                                                                                                                                                                                                                            | `SendEmail`, `SendRawEmail`,<br>`SendBounce` |
+| `ses:FromDisplayName`       | Restricts the "From" address that is used as the display<br>name.                                                                                                                                                                                                                                                                                                        | `SendEmail`,<br>`SendRawEmail`               |
+| `ses:FeedbackAddress`       | Restricts the "Return-Path" address, which is the address<br>where bounces and complaints can be sent to you by email<br>feedback forwarding. For information about email feedback<br>forwarding, see [Receiving Amazon SES notifications through email](monitor-sending-activity-using-notifications-email.md "monitor-sending-activity-using-notifications-email.md"). | `SendEmail`,<br>`SendRawEmail`               |
+| `ses:MultiRegionEndpointId` | Allows you to control what endpoint ID is used when sending<br>email                                                                                                                                                                                                                                                                                                     | `SendEmail`,<br>`SendBulkEmail`              |
 
-### Restricting by SES API
-
-version
+### Restricting by SES API version
 
 By using the `ses:ApiVersion` key in conditions, you can restrict
 access to SES based on the version of the SES API.
@@ -118,9 +116,7 @@ access to SES based on the version of the SES API.
 The SES SMTP interface uses SES API version 2 of
 `ses:SendRawEmail`.
 
-### Restricting General API
-
-Usage
+### Restricting General API Usage
 
 By using AWS-wide keys in conditions, you can restrict access to SES
 based on aspects such as the date and time that user is permitted access to APIs.
@@ -144,26 +140,16 @@ only under certain conditions.
 
 ###### Policy examples in this section:
 
-- [Allowing Full Access to All
-  SES Actions](#iam-and-ses-examples-full-access "#iam-and-ses-examples-full-access")
-- [Allowing
-  Access to only SES API version 2](#iam-and-ses-examples-access-specific-ses-api-version "#iam-and-ses-examples-access-specific-ses-api-version")
-- [Allowing Access to
-  Email-Sending Actions Only](#iam-and-ses-examples-email-sending-actions "#iam-and-ses-examples-email-sending-actions")
-- [Restricting the Time Period of
-  Sending](#iam-and-ses-examples-time-period "#iam-and-ses-examples-time-period")
-- [Restricting the Recipient
-  Addresses](#iam-and-ses-examples-recipients "#iam-and-ses-examples-recipients")
-- [Restricting the "From"
-  Address](#iam-and-ses-examples-from-address "#iam-and-ses-examples-from-address")
-- [Restricting the Display Name of
-  the Email Sender](#iam-and-ses-examples-display-name "#iam-and-ses-examples-display-name")
-- [Restricting the Destination of
-  Bounce and Complaint Feedback](#iam-and-ses-examples-feedback "#iam-and-ses-examples-feedback")
+- [Allowing Full Access to All SES Actions](#iam-and-ses-examples-full-access "#iam-and-ses-examples-full-access")
+- [Allowing Access to only SES API version 2](#iam-and-ses-examples-access-specific-ses-api-version "#iam-and-ses-examples-access-specific-ses-api-version")
+- [Allowing Access to Email-Sending Actions Only](#iam-and-ses-examples-email-sending-actions "#iam-and-ses-examples-email-sending-actions")
+- [Restricting the Time Period of Sending](#iam-and-ses-examples-time-period "#iam-and-ses-examples-time-period")
+- [Restricting the Recipient Addresses](#iam-and-ses-examples-recipients "#iam-and-ses-examples-recipients")
+- [Restricting the "From" Address](#iam-and-ses-examples-from-address "#iam-and-ses-examples-from-address")
+- [Restricting the Display Name of the Email Sender](#iam-and-ses-examples-display-name "#iam-and-ses-examples-display-name")
+- [Restricting the Destination of Bounce and Complaint Feedback](#iam-and-ses-examples-feedback "#iam-and-ses-examples-feedback")
 
-### Allowing Full Access to All
-
-SES Actions
+### Allowing Full Access to All SES Actions
 
 The following policy allows a user to call any SES action.
 
@@ -185,9 +171,7 @@ JSON
 
 ```
 
-### Allowing
-
-Access to only SES API version 2
+### Allowing Access to only SES API version 2
 
 The following policy allows a user to call only the SES actions of API
 version 2.
@@ -215,9 +199,7 @@ JSON
 
 ```
 
-### Allowing Access to
-
-Email-Sending Actions Only
+### Allowing Access to Email-Sending Actions Only
 
 The following policy permits a user to send email using SES, but does not
 permit the user to perform administrative actions such as accessing SES
@@ -242,9 +224,7 @@ JSON
 
 ```
 
-### Restricting the Time Period of
-
-Sending
+### Restricting the Time Period of Sending
 
 The following policy permits a user to call SES email-sending APIs only
 during the month of September 2018.
@@ -276,9 +256,7 @@ JSON
 
 ```
 
-### Restricting the Recipient
-
-Addresses
+### Restricting the Recipient Addresses
 
 The following policy permits a user to call the SES email-sending APIs, but
 only to recipient addresses in domain _example.com_
@@ -311,9 +289,7 @@ JSON
 
 ```
 
-### Restricting the "From"
-
-Address
+### Restricting the "From" Address
 
 The following policy permits a user to call the SES email-sending APIs, but
 only if the "From" address is *marketing@example.com*.
@@ -368,9 +344,7 @@ JSON
 
 ```
 
-### Restricting the Display Name of
-
-the Email Sender
+### Restricting the Display Name of the Email Sender
 
 The following policy permits a user to call the SES email-sending APIs, but
 only if the display name of the "From" address includes
@@ -401,9 +375,7 @@ JSON
 
 ```
 
-### Restricting the Destination of
-
-Bounce and Complaint Feedback
+### Restricting the Destination of Bounce and Complaint Feedback
 
 The following policy permits a user to call the SES email-sending APIs, but
 only if the "Return-Path" of the email is set to

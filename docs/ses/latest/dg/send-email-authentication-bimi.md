@@ -61,8 +61,7 @@ In the preceding DMARC policy example as required for BIMI:
      your subdomain in addition to what is posted for the parent domain, your
      subdomain must also have the same enforcement policy to be eligible for
      BIMI.
-    * If you've never set up a DMARC policy for your domain, see [Complying with DMARC authentication
-     protocol in Amazon SES](send-email-authentication-dmarc.md "send-email-authentication-dmarc.md") ensuring that you only
+    * If you've never set up a DMARC policy for your domain, see [Complying with DMARC authentication protocol in Amazon SES](send-email-authentication-dmarc.md "send-email-authentication-dmarc.md") ensuring that you only
      use the DMARC policy values specific to BIMI as shown.
 
 4. Produce your BIMI logo as a Scalable Vector Graphics (SVG) `.svg`

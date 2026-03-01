@@ -1,6 +1,4 @@
-# Using Deterministic Easy DKIM (DEED)
-
-in Amazon SES
+# Using Deterministic Easy DKIM (DEED) in Amazon SES
 
 Deterministic Easy DKIM (DEED) offers a solution for managing DKIM configurations across
 multiple AWS Regions. By simplifying DNS management and ensuring consistent DKIM signing,
@@ -75,9 +73,7 @@ Important considerations:
 - Parent identities cannot be deleted until all replica identities are
   deleted.
 
-## Setting up a replica identity using
-
-DEED
+## Setting up a replica identity using DEED
 
 This section will provide examples showing you how to create and verify a replica
 identity using DEED along with the necessary permissions required.
@@ -85,8 +81,7 @@ identity using DEED along with the necessary permissions required.
 ###### Topics
 
 - [Creating a replica identity](#creating-replica-identity "#creating-replica-identity")
-- [Verifying replica identity
-  configuration](#verifying-replica-identity "#verifying-replica-identity")
+- [Verifying replica identity configuration](#verifying-replica-identity "#verifying-replica-identity")
 - [Required Permissions to use DEED](#required-permissions "#required-permissions")
 
 ### Creating a replica identity
@@ -135,9 +130,7 @@ The `AWS_SES_` prefix indicates that DKIM was configured
 for the parent identity by using Easy DKIM, and `US_EAST_1`
 is the AWS Region where it was created.
 
-### Verifying replica identity
-
-configuration
+### Verifying replica identity configuration
 
 After creating the replica identity, you can verify that it was configured
 correctly with the parent identity's DKIM signing configuration.
@@ -185,9 +178,7 @@ To use DEED, you need:
 2. Permission to replicate the DKIM signing key from the parent
    region.
 
-#### Example IAM policy for DKIM
-
-replication
+#### Example IAM policy for DKIM replication
 
 The following policy allows DKIM signing key replication from a parent
 identity to specified replica regions:
@@ -205,7 +196,7 @@ JSON
  "Resource": "arn:aws:ses:us-east-1:123456789124:identity/example.com",
  "Condition": {
  "ForAllValues:StringEquals": {
- "ses:ReplicaRegion": ["us-west-2", "eu-west-1"]
+ "ses:ReplicaRegion": ["us-east-1", "us-east-1"]
  }
  }
  }

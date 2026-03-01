@@ -30,12 +30,10 @@ need to install the following packages: `sendmail-cf`,
 `m4`, and `cyrus-sasl-plain`.
 
 - Verify an identity to use as your From address. For more information, see
-  [Creating an email address
-  identity](creating-identities.md#verify-email-addresses-procedure "creating-identities.md#verify-email-addresses-procedure").
+  [Creating an email address identity](creating-identities.md#verify-email-addresses-procedure "creating-identities.md#verify-email-addresses-procedure").
 
 If your account is in the Amazon SES sandbox, you must also verify the addresses
-that you send email to. For more information, see [Request production access (Moving out of the
-Amazon SES sandbox)](request-production-access.md "request-production-access.md").
+that you send email to. For more information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").
 
 If you're using Amazon SES to send email from an Amazon EC2 instance, you should also complete
 the following steps:

@@ -15,17 +15,14 @@ This section contains information that you need to know if you plan to use SES i
 multiple AWS Regions. It discusses the following subjects:
 
 - [SES regions and endpoints](#region-endpoints "#region-endpoints")
-- [Sandbox removal and sending limit
-  increases](#region-quota-increases "#region-quota-increases")
-- [Verification of email addresses and
-  domains](#region-verification "#region-verification")
+- [Sandbox removal and sending limit increases](#region-quota-increases "#region-quota-increases")
+- [Verification of email addresses and domains](#region-verification "#region-verification")
 - [Easy DKIM](#region-dkim "#region-dkim")
 - [Account-level suppression list](#region-suppression-list "#region-suppression-list")
 - [Feedback notifications](#region-feedback-notifications "#region-feedback-notifications")
 - [SMTP credentials](#region-smtp "#region-smtp")
 - [Sending authorization](#region-sending-authorization "#region-sending-authorization")
-- [Feedback endpoints used for custom MAIL FROM
-  domains](#region-feedback "#region-feedback")
+- [Feedback endpoints used for custom MAIL FROM domains](#region-feedback "#region-feedback")
 - [Email receiving](#region-receive-email "#region-receive-email")
 - [Setting up (MX) records](receiving-email-mx-record.md "receiving-email-mx-record.md")
   For general information about AWS Regions, see [AWS
@@ -58,9 +55,7 @@ The inbound SMTP URLs aren't IMAP server addresses. In other words, you
 can't use them to receive email by using an application such as Outlook. For
 a service that provides an IMAP server for incoming email, see [Amazon WorkMail](https://aws.amazon.com/workmail "https://aws.amazon.com/workmail").
 
-## Sandbox removal and sending limit
-
-increases
+## Sandbox removal and sending limit increases
 
 The sandbox status for your account can differ between AWS Regions. In other words,
 if your account has been removed from the sandbox in the US West (Oregon) region, it
@@ -77,9 +72,7 @@ account's sending quotas increased](manage-sending-quotas-request-increase.md#us
 AWS Regions that your request applies to. You can submit several requests in a single
 Support Center case.
 
-## Verification of email addresses and
-
-domains
+## Verification of email addresses and domains
 
 Before you can send email using SES, you have to verify that you own the email
 address or domain that you plan to send from. The verification status of email addresses
@@ -107,8 +100,7 @@ Your SES account-level suppression list applies to your AWS account only in
 the current AWS Region. You can manually add or remove, individually or in bulk,
 addresses from your account-level suppression list by using the SES API v2 or console.
 
-For more information about using your account-level suppression list, see [Using the Amazon SES account-level suppression
-list](sending-email-suppression-list.md "sending-email-suppression-list.md").
+For more information about using your account-level suppression list, see [Using the Amazon SES account-level suppression list](sending-email-suppression-list.md "sending-email-suppression-list.md").
 
 ## Feedback notifications
 
@@ -126,8 +118,7 @@ multiple AWS Regions:
   region where you use SES.
 
 For more information about monitoring your sending activity through feedback
-notifications, see [Setting up event
-notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
+notifications, see [Setting up event notifications for Amazon SES](monitor-sending-activity-using-notifications.md "monitor-sending-activity-using-notifications.md").
 
 ## SMTP credentials
 
@@ -144,9 +135,7 @@ purposes, you should delete credentials that you created before this date, and
 replace them with newer credentials. You can [delete older
 credentials by using the IAM console](../../../IAM/latest/UserGuide/id_users_manage.md#id_users_deleting "../../../IAM/latest/UserGuide/id_users_manage.md#id_users_deleting").
 
-## Feedback endpoints used for custom MAIL FROM
-
-domains
+## Feedback endpoints used for custom MAIL FROM domains
 
 If you use a custom MAIL FROM domain, SES requires you to publish an MX record
 so that your domain can receive the bounce and complaint notifications that email

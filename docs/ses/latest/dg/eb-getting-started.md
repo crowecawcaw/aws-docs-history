@@ -18,9 +18,7 @@ infrastructure component that utilizes:
   the following procedure will walk you through the correct order of configuring your first
   ingress endpoint.
 
-## Getting started with Mail Manager using the SES
-
-console
+## Getting started with Mail Manager using the SES console
 
 The following procedure shows you how to get started with Mail Manager using the SES
 console.
@@ -35,8 +33,7 @@ console.
    traffic policy** on the _Create a traffic policy_
    card.
    1. Complete the workflow on the _Create a traffic policy_
-      page. If you need additional information, see [Creating traffic policies and policy statements in
-      the SES console](eb-filters.md#eb-filters-create-console "eb-filters.md#eb-filters-create-console").
+      page. If you need additional information, see [Creating traffic policies and policy statements in the SES console](eb-filters.md#eb-filters-create-console "eb-filters.md#eb-filters-create-console").
    2. After creating your first traffic policy and policy statements, use your
       browser's back button to return to the _Get set up_
       page or select **Get set up** under
@@ -45,8 +42,7 @@ console.
 4. On the _Get set up_ page, select **Create rule
    set** on the _Create a rule set_ card.
    1. Complete the workflow on the _Create a rule set_
-      page. If you need additional information, see [Creating rule sets and rules in the SES
-      console](eb-rules.md#eb-rules-create-console "eb-rules.md#eb-rules-create-console").
+      page. If you need additional information, see [Creating rule sets and rules in the SES console](eb-rules.md#eb-rules-create-console "eb-rules.md#eb-rules-create-console").
    2. After creating your first rule set and rules, use your browser's back
       button to return to the _Get set up_ page or select
       **Get set up** under _Mail Manager_ in
@@ -58,8 +54,7 @@ console.
    ingress endpoint_ card.
    1. Part of the workflow on the _Email ingress endpoint_ page
       will be to assign the traffic policy and rule set you just created to the
-      ingress endpoint. If you need additional information, see [Creating an ingress endpoint in the SES
-      console](eb-ingress.md#eb-ingress-create-console "eb-ingress.md#eb-ingress-create-console").
+      ingress endpoint. If you need additional information, see [Creating an ingress endpoint in the SES console](eb-ingress.md#eb-ingress-create-console "eb-ingress.md#eb-ingress-create-console").
 
 With your first ingress endpoint created, you can start using Mail Manager and utilize its other
 features such as SMTP relays and email archiving. You can also create additional ingress endpoints

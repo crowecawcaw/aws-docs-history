@@ -1,6 +1,4 @@
-# Monitoring your sending statistics using
-
-the Amazon SES console
+# Monitoring your sending statistics using the Amazon SES console
 
 From the Amazon SES console's **Account dashboard**, **Reputation
 metrics**, and **SMTP settings** pages, you can monitor all
@@ -164,9 +162,7 @@ and managing your SMTP credentials:
   - Authentication links provided for SMTP and IAM credential creation and
     management
 
-## Using the console to monitor send and reputation
-
-metrics
+## Using the console to monitor send and reputation metrics
 
 The following procedures will get you started in exploring your send and reputation
 metrics either using the **Account dashboard** page for metrics based

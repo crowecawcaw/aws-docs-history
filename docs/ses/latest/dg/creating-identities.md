@@ -97,15 +97,11 @@ verify your first identity (email address or domain).
 ###### Contents
 
 - [Creating a domain identity](#verify-domain-procedure "#verify-domain-procedure")
-- [Verifying a DKIM domain identity with your DNS
-  provider](#just-verify-domain-proc "#just-verify-domain-proc")
-- [Creating an email address
-  identity](#verify-email-addresses-procedure "#verify-email-addresses-procedure")
+- [Verifying a DKIM domain identity with your DNS provider](#just-verify-domain-proc "#just-verify-domain-proc")
+- [Creating an email address identity](#verify-email-addresses-procedure "#verify-email-addresses-procedure")
 - [Verifying an email address identity](#just-verify-email-proc "#just-verify-email-proc")
-- [Create and verify an identity and assign
-  a default configuration set at the same time](#default-config-set-at-create-api "#default-config-set-at-create-api")
-- [Using custom verification email
-  templates](#send-email-verify-address-custom "#send-email-verify-address-custom")
+- [Create and verify an identity and assign a default configuration set at the same time](#default-config-set-at-create-api "#default-config-set-at-create-api")
+- [Using custom verification email templates](#send-email-verify-address-custom "#send-email-verify-address-custom")
 
 ## Creating a domain identity
 
@@ -121,16 +117,14 @@ follows:
 - **BYODKIM** - private key length must be at least 1024 bits and
   up to 2048-bits.
 
-See [DKIM signing key
-length](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048") to learn more about DKIM
+See [DKIM signing key length](send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048 "send-email-authentication-dkim.md#send-email-authentication-dkim-1024-2048") to learn more about DKIM
 signing key lengths and how to change them.
 
 The following procedure shows you how to create a domain identity using the Amazon SES
 console.
 
 - If you've already created your domain and just need to verify it, skip to the
-  procedure [Verifying a DKIM domain identity with your DNS
-  provider](#just-verify-domain-proc "#just-verify-domain-proc") on this page.
+  procedure [Verifying a DKIM domain identity with your DNS provider](#just-verify-domain-proc "#just-verify-domain-proc") on this page.
 
 ###### To create a domain identity
 
@@ -239,8 +233,7 @@ select the check box.
 
         	1. Ensure you've already generated a public-private key pair and have
         	 added the public key to your DNS host provider. For more
-        	 information, see [Provide your own DKIM
-        	 authentication token (BYODKIM) in Amazon SES](send-email-authentication-dkim-bring-your-own.md "send-email-authentication-dkim-bring-your-own.md").
+        	 information, see [Provide your own DKIM authentication token (BYODKIM) in Amazon SES](send-email-authentication-dkim-bring-your-own.md "send-email-authentication-dkim-bring-your-own.md").
         	2. Under **Identity type**, choose **Provide
         	 DKIM authentication token (BYODKIM)**.
         	3. For **Private key**, paste the private key you
@@ -274,15 +267,12 @@ select the check box.
 11. Choose **Create identity**.
 
 Now that you’ve created and configured your domain identity with DKIM, you must complete
-the verification process with your DNS provider - proceed to [Verifying a DKIM domain identity with your DNS
-provider](#just-verify-domain-proc "#just-verify-domain-proc") and follow the DNS authentication procedures for the
+the verification process with your DNS provider - proceed to [Verifying a DKIM domain identity with your DNS provider](#just-verify-domain-proc "#just-verify-domain-proc") and follow the DNS authentication procedures for the
 type of DKIM you configured your identity with.
 
 ###### Note
 
-## Verifying a DKIM domain identity with your DNS
-
-provider
+## Verifying a DKIM domain identity with your DNS provider
 
 After you’ve created your domain identity configured with DKIM, you must complete the
 verification process with your DNS provider by following the respective authentication
@@ -481,9 +471,7 @@ use the domain with Amazon SES.
 | Names.co.uk          | [Changing your domains DNS Settings](https://www.names.co.uk/support/1156-changing_your_domains_dns_settings.html "https://www.names.co.uk/support/1156-changing_your_domains_dns_settings.html") (external link)                                                                                                                |
 | Wix                  | [Adding or Updating CNAME Records in Your Wix Account](https://support.wix.com/en/article/adding-or-updating-cname-records-in-your-wix-account "https://support.wix.com/en/article/adding-or-updating-cname-records-in-your-wix-account")<br>(external link)                                                                     |
 
-### Troubleshooting domain
-
-verification
+### Troubleshooting domain verification
 
 If you completed the steps above, but your domain isn't verified after 72 hours, check
 the following:
@@ -509,9 +497,7 @@ the following:
   multiple AWS Regions, you have to create and verify a separate domain identity
   for each of those Regions.
 
-## Creating an email address
-
-identity
+## Creating an email address identity
 
 Complete the following procedure to create an email address identity by using the Amazon SES
 console.
@@ -556,8 +542,7 @@ console.
 ###### Note
 
 You can customize the messages that are sent to the email addresses you
-attempt to verify. For more information, see [Using custom verification email
-templates](#send-email-verify-address-custom "#send-email-verify-address-custom").
+attempt to verify. For more information, see [Using custom verification email templates](#send-email-verify-address-custom "#send-email-verify-address-custom").
 
 Now that you’ve created your email address identity, you must complete the verification
 process - proceed to [Verifying an email address identity](#just-verify-email-proc "#just-verify-email-proc").
@@ -567,8 +552,7 @@ process - proceed to [Verifying an email address identity](#just-verify-email-pr
 After you’ve created your email address identity, you must complete the verification
 process.
 
-If you haven't created an email address identity, see [Creating an email address
-identity](#verify-email-addresses-procedure "#verify-email-addresses-procedure").
+If you haven't created an email address identity, see [Creating an email address identity](#verify-email-addresses-procedure "#verify-email-addresses-procedure").
 
 ###### To verify an email address identity
 
@@ -578,9 +562,7 @@ identity](#verify-email-addresses-procedure "#verify-email-addresses-procedure")
    email address. After it's complete, the **Identity status** updates
    to **Verified**.
 
-### Troubleshooting email address
-
-verification
+### Troubleshooting email address verification
 
 If you don't receive the verification email within five minutes of creating your
 identity, try the following troubleshooting steps:
@@ -594,9 +576,7 @@ identity, try the following troubleshooting steps:
   verification email, choose **Resend** at the top of the
   identity details page.
 
-## Create and verify an identity and assign
-
-a default configuration set at the same time
+## Create and verify an identity and assign a default configuration set at the same time
 
 You can use the [CreateEmailIdentity](../APIReference-V2/API_CreateEmailIdentity.md "../APIReference-V2/API_CreateEmailIdentity.md") operation in the Amazon SES API v2 to create a new email
 identity and set its default configuration set at the same time.
@@ -646,9 +626,7 @@ If you entered a domain name for the `--email-identity` parameter in the above
 command line procedure, see [Verifying a domain
 identity](#just-verify-domain-proc "#just-verify-domain-proc") for more information.
 
-## Using custom verification email
-
-templates
+## Using custom verification email templates
 
 When you attempt to verify an email address, Amazon SES sends an email to that address that
 resembles the example shown in the following image.
@@ -669,23 +647,16 @@ registration process.
 ###### Note
 
 To use this feature, your Amazon SES account has to be out of the sandbox. For more
-information, see [Request production access (Moving out of the
-Amazon SES sandbox)](request-production-access.md "request-production-access.md").
+information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").
 
 ###### Topics in this section:
 
-- [Creating a custom
-  verification email template](#send-email-verify-address-custom-creating "#send-email-verify-address-custom-creating")
-- [Editing a custom verification
-  email template](#send-email-verify-address-custom-editing "#send-email-verify-address-custom-editing")
-- [Sending verification emails
-  using custom templates](#send-email-verify-address-custom-sending "#send-email-verify-address-custom-sending")
-- [Custom verification email
-  frequently asked questions](#send-email-verify-address-custom-faq "#send-email-verify-address-custom-faq")
+- [Creating a custom verification email template](#send-email-verify-address-custom-creating "#send-email-verify-address-custom-creating")
+- [Editing a custom verification email template](#send-email-verify-address-custom-editing "#send-email-verify-address-custom-editing")
+- [Sending verification emails using custom templates](#send-email-verify-address-custom-sending "#send-email-verify-address-custom-sending")
+- [Custom verification email frequently asked questions](#send-email-verify-address-custom-faq "#send-email-verify-address-custom-faq")
 
-### Creating a custom
-
-verification email template
+### Creating a custom verification email template
 
 To create a custom verification email, use the
 `CreateCustomVerificationEmailTemplate` API operation. This operation
@@ -696,7 +667,7 @@ takes the following inputs:
 | `TemplateName`          | The name of the template. The name you specify must be<br>unique.                                                                                                                                                                                                   |
 | `FromEmailAddress`      | The email address that the verification email is sent from. The<br>address or domain you specify must be verified for use with your Amazon SES account.NoteThe `FromEmailAddress` attribute doesn't support<br>display names (also known as "friendly from" names). |
 | `TemplateSubject`       | The subject line of the verification email.                                                                                                                                                                                                                         |
-| `TemplateContent`       | The body of the email. The email body can contain HTML, with certain<br>restrictions. For more information, see [Custom verification email<br>frequently asked questions](#send-email-verify-address-custom-faq "#send-email-verify-address-custom-faq").           |
+| `TemplateContent`       | The body of the email. The email body can contain HTML, with certain<br>restrictions. For more information, see [Custom verification email frequently asked questions](#send-email-verify-address-custom-faq "#send-email-verify-address-custom-faq").              |
 | `SuccessRedirectionURL` | The URL that users are sent to, if their email addresses are<br>successfully verified.                                                                                                                                                                              |
 | `FailureRedirectionURL` | The URL that users are sent to, if their email addresses are not<br>successfully verified.                                                                                                                                                                          |
 
@@ -774,9 +745,7 @@ aws sesv2 create-custom-verification-email-template --cli-input-json file://cust
 aws sesv2 list-custom-verification-email-templates
 ```
 
-### Editing a custom verification
-
-email template
+### Editing a custom verification email template
 
 You can edit a custom verification email template by using the
 `UpdateCustomVerificationEmailTemplate` operation. This operation accepts
@@ -790,9 +759,7 @@ operation, none of these attributes are required. When you pass a value for
 verification email template, the attributes you specify overwrite the attributes that
 were originally in the template.
 
-### Sending verification emails
-
-using custom templates
+### Sending verification emails using custom templates
 
 After you create at least one custom verification email template, you can send it to
 your customers by calling the [SendCustomVerificationEmail](../APIReference/API_SendCustomVerificationEmail.md "../APIReference/API_SendCustomVerificationEmail.md") API operation. You can call the
@@ -814,36 +781,27 @@ address and the name of the template you want to use.
 Your customer receives an email that uses the customized email template you created.
 Amazon SES automatically adds a unique link to the recipient, and also a brief disclaimer.
 The following image shows a sample verification email that uses the template created in
-[Creating a custom
-verification email template](#send-email-verify-address-custom-creating "#send-email-verify-address-custom-creating").
+[Creating a custom verification email template](#send-email-verify-address-custom-creating "#send-email-verify-address-custom-creating").
 
 ![Email verification message with instructions and a link to confirm the recipient's address.](images/cve_sample_message.png)
 
-### Custom verification email
-
-frequently asked questions
+### Custom verification email frequently asked questions
 
 This section contains answers to frequently asked questions about the custom
 verification email template feature.
 
-#### Q1. How many custom
-
-verification email templates can I create?
+#### Q1. How many custom verification email templates can I create?
 
 You can create up to 50 custom verification email templates per Amazon SES
 account.
 
-#### Q2. How do custom
-
-verification emails appear to recipients?
+#### Q2. How do custom verification emails appear to recipients?
 
 Custom verification emails include the content you specified when you created the
 template, followed by a link that recipients must click to verify their email
 addresses.
 
-#### Q3. Can I preview the
-
-custom verification email?
+#### Q3. Can I preview the custom verification email?
 
 To preview a custom verification email, use the
 `SendCustomVerificationEmail` operation to send a verification email
@@ -852,9 +810,7 @@ create a new identity. If you do click the verification link, you can optionally
 delete the newly created identity by using the `DeleteIdentity`
 operation.
 
-#### Q4. Can I include images
-
-in my custom verification email templates?
+#### Q4. Can I include images in my custom verification email templates?
 
 You can embed images in the HTML for your templates by using base64 encoding. When
 you embed images in this way, Amazon SES automatically converts them into attachments.
@@ -887,10 +843,7 @@ the file type of the encoded image (such as jpg or gif), and replace
 encoded image (that is, the contents of `output.txt` from one of
 the preceding commands).
 
-#### Q5. Are there any limits
-
-to the content that I can include in custom verification email
-templates?
+#### Q5. Are there any limits to the content that I can include in custom verification email templates?
 
 Custom verification email templates can't exceed 10 MB in size. Additionally,
 custom verification email templates that contain HTML can only use the tags and
@@ -977,37 +930,26 @@ attributes listed in the following table.
 
 Custom verification email templates can't include comment tags.
 
-#### Q6. How many verified
-
-email addresses can exist in my account?
+#### Q6. How many verified email addresses can exist in my account?
 
 Your Amazon SES account can have up to 10,000 verified identities in each AWS Region.
 In Amazon SES, _identities_ include both verified domains and email
 addresses.
 
-#### Q7. Can I create custom
-
-verification email templates using the Amazon SES console?
+#### Q7. Can I create custom verification email templates using the Amazon SES console?
 
 Currently, it's only possible to create, edit, and delete custom verification
 emails using the Amazon SES API.
 
-#### Q8. Can I track open and
-
-click events that occur when customers receive custom verification
-emails?
+#### Q8. Can I track open and click events that occur when customers receive custom verification emails?
 
 Custom verification emails can't include open or click tracking.
 
-#### Q9. Can custom
-
-verification emails include custom headers?
+#### Q9. Can custom verification emails include custom headers?
 
 Custom verification emails can't include custom headers.
 
-#### Q10. Can I remove the
-
-text that appears at the bottom of custom verification emails?
+#### Q10. Can I remove the text that appears at the bottom of custom verification emails?
 
 The following text is automatically added to the end of every custom verification
 email and can't be removed:
@@ -1015,19 +957,14 @@ email and can't be removed:
 _If you did not request to verify this email address, please disregard
 this message._
 
-#### Q11. Are custom
-
-verification emails DKIM-signed?
+#### Q11. Are custom verification emails DKIM-signed?
 
 In order for verification emails to be DKIM-signed, the email address that you
 specify in the `FromEmailAddress` attribute when you create the
 verification email template must be configured to generate a DKIM signature. For
-more information about setting up DKIM for domains and email addresses, see [Authenticating Email with DKIM in
-Amazon SES](send-email-authentication-dkim.md "send-email-authentication-dkim.md").
+more information about setting up DKIM for domains and email addresses, see [Authenticating Email with DKIM in Amazon SES](send-email-authentication-dkim.md "send-email-authentication-dkim.md").
 
-#### Q12. Why don't the custom
-
-verification email template API operations appear in the SDK or CLI?
+#### Q12. Why don't the custom verification email template API operations appear in the SDK or CLI?
 
 If you're unable to use the custom verification email template operations in an
 SDK or the AWS CLI, you may be using an older version of the SDK or CLI. The custom
@@ -1044,12 +981,8 @@ verification email template operations are available in the following SDKs and C
 - Version 1.5.0 or later of the `aws-sdk-ses` gem in the
   AWS SDK for Ruby
 
-#### Q13. Why do I receive
-
-`ProductionAccessNotGranted` errors when I send custom
-verification emails?
+#### Q13. Why do I receive `ProductionAccessNotGranted` errors when I send custom verification emails?
 
 The `ProductionAccessNotGranted` error indicates that your account is
 still in the Amazon SES sandbox. You can only send custom verification emails if your
-account has been removed from the sandbox. For more information, see [Request production access (Moving out of the
-Amazon SES sandbox)](request-production-access.md "request-production-access.md").
+account has been removed from the sandbox. For more information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").

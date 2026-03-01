@@ -64,9 +64,7 @@ to.
 | BIMI configured               | _BIMI record not found or configured without default<br>selector._ | BIMI TXT records are missing or lack the selector attribute.                                                                                   | [Setting up BIMI](send-email-authentication-bimi.md#bimi-setup-procedure "send-email-authentication-bimi.md#bimi-setup-procedure")                                                               |
 | BIMI format validation        | _BIMI has malformed TXT record._                                   | BIMI TXT record determined as misconfigured after checking for the<br>presence and valid format of: version, certificate URL, and logo<br>URL. | [Setting up BIMI](send-email-authentication-bimi.md#bimi-setup-procedure "send-email-authentication-bimi.md#bimi-setup-procedure")                                                               |
 
-## Using the Virtual Deliverability Manager advisor in the Amazon SES
-
-console
+## Using the Virtual Deliverability Manager advisor in the Amazon SES console
 
 The following procedure shows you how to use the Virtual Deliverability Manager advisor in the Amazon SES console to
 resolve identified deliverability issues using the Amazon SES console.
@@ -98,9 +96,7 @@ After you implement a solution, the resolved issue can take up to six
 hours to be reflected. You can view the resolved issue on the
 **Resolved recommendations** tab.
 
-## Accessing your Virtual Deliverability Manager recommendations using the
-
-AWS CLI
+## Accessing your Virtual Deliverability Manager recommendations using the AWS CLI
 
 The following examples show you how to access your Virtual Deliverability Manager recommendations using the
 AWS CLI.

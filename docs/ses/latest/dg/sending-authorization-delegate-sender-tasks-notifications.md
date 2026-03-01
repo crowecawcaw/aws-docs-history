@@ -1,6 +1,4 @@
-# Using delegate
-
-sender notifications for Amazon SES sending authorization
+# Using delegate sender notifications for Amazon SES sending authorization
 
 As a delegate sender, you're sending emails on behalf of an identity that you don't own,
 but are authorized to use; however, bounces and complaints still count toward
@@ -23,9 +21,7 @@ complaint notifications to Amazon SNS or Firehose.
 If you set up Amazon SES to send notifications by using Amazon SNS, you're charged standard
 Amazon SNS rates for the notifications you receive. For more information, see the [Amazon SNS pricing page](https://aws.amazon.com/sns/pricing "https://aws.amazon.com/sns/pricing").
 
-## Create a
-
-new delegate sender notification
+## Create a new delegate sender notification
 
 You can set up delegate sending notifications with either configuration sets using
 [event publishing](event-destinations-manage.md "event-destinations-manage.md"), or with verified
@@ -48,9 +44,7 @@ either method:
    verified identity the identity owner authorized you to send from. See [Sending
    emails for the identity owner](sending-authorization-delegate-sender-tasks-email.md "sending-authorization-delegate-sender-tasks-email.md").
 
-###### To set up feedback notifications to SNS topics you own for your delegate
-
-sending
+###### To set up feedback notifications to SNS topics you own for your delegate sending
 
 1. After you've decided which of your SNS topics you'd like to use for
    feedback notifications, follow the procedures [to find your SNS topic ARN](sending-authorization-delegate-sender-tasks-information.md#find-sns-topic-arn "sending-authorization-delegate-sender-tasks-information.md#find-sns-topic-arn") and copy the full ARN and share it

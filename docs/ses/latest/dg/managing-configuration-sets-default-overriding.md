@@ -1,6 +1,4 @@
-# Override the current
-
-default configuration set used by the identity using the SES API
+# Override the current default configuration set used by the identity using the SES API
 
 You can use the [SendEmail](../APIReference-V2/API_SendEmail.md "../APIReference-V2/API_SendEmail.md") operation to send email with a different configuration set. If you
 do, the configuration set that you specify overrides the default configuration set for the

@@ -21,8 +21,7 @@ on a best-effort basis, and they might be delivered out of order.
 
 - [SES events](#supported-events "#supported-events")
 - [SES events schema reference](#eventbridge-events "#eventbridge-events")
-- [Using EventBridge with SES
-  events](#eventbridge-enable-event-notifications "#eventbridge-enable-event-notifications")
+- [Using EventBridge with SES events](#eventbridge-enable-event-notifications "#eventbridge-enable-event-notifications")
 - [Additional EventBridge resources](#eventbridge-additonal-resources "#eventbridge-additonal-resources")
 
 ## SES events
@@ -80,14 +79,10 @@ address, and many other email attributes.
 
 ###### Topics
 
-- [Virtual Deliverability Manager advisor status
-  schema](#schema-resource-status-event-vdm "#schema-resource-status-event-vdm")
-- [SES email
-  sending status schema](#schema-resource-status-event-email-sending "#schema-resource-status-event-email-sending")
+- [Virtual Deliverability Manager advisor status schema](#schema-resource-status-event-vdm "#schema-resource-status-event-vdm")
+- [SES email sending status schema](#schema-resource-status-event-email-sending "#schema-resource-status-event-email-sending")
 
-### Virtual Deliverability Manager advisor status
-
-schema
+### Virtual Deliverability Manager advisor status schema
 
 The following schema reference defines the fields specific to Virtual Deliverability Manager advisor status
 events.
@@ -154,9 +149,7 @@ this example is `SPF record was not found.`.
 }
 ```
 
-### SES email
-
-sending status schema
+### SES email sending status schema
 
 The following schema reference defines the fields specific to SES email
 sending status events.
@@ -256,9 +249,7 @@ event for a specific email.
 }
 ```
 
-## Using EventBridge with SES
-
-events
+## Using EventBridge with SES events
 
 By default, SES sends events to the EventBridge default event bus. You can create
 rules on the default event bus to identify specific events for EventBridge to send to one or
@@ -278,9 +269,7 @@ first create or edit a rule. For detailed instructions on using the Sandbox, see
 pattern using the EventBridge Sandbox](../../../eventbridge/latest/userguide/eb-event-pattern-sandbox.md "../../../eventbridge/latest/userguide/eb-event-pattern-sandbox.md") in the _EventBridge User
 Guide_.
 
-### Specify a SES sample event in
-
-the EventBridge Sandbox
+### Specify a SES sample event in the EventBridge Sandbox
 
 You can select sample events for SES events to use them in testing the
 event patterns you create.
@@ -308,17 +297,13 @@ You can then use this event to test the event pattern you create in the
 creating your own sample events for pattern testing covered in the following
 section.
 
-### Creating and testing event patterns for
-
-SES events
+### Creating and testing event patterns for SES events
 
 Once you've selected a sample event, as explained in the previous section, you can
 create an event pattern and use the sample event to make sure it is matching events
 as desired.
 
-###### To create and test an event pattern that matches SES events in the
-
-EventBridge Sandbox
+###### To create and test an event pattern that matches SES events in the EventBridge Sandbox
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2. In the navigation pane, choose **Developer resources,**

@@ -1,6 +1,4 @@
-# Sending emails for the
-
-identity owner for Amazon SES sending authorization
+# Sending emails for the identity owner for Amazon SES sending authorization
 
 As a delegate sender, you send emails the same way that other Amazon SES senders do, except
 that you provide the Amazon Resource Name (ARN) of the identity that the identity owner has
@@ -18,8 +16,7 @@ operations or the Amazon SES SMTP interface.
 - Additionally, the AWS accounts of **both** the
   identity owner and the delegate sender have to be removed from the sandbox
   before either account can send email to non-verified addresses. For more
-  information, see [Request production access (Moving out of the
-  Amazon SES sandbox)](request-production-access.md "request-production-access.md").
+  information, see [Request production access (Moving out of the Amazon SES sandbox)](request-production-access.md "request-production-access.md").
 - If the identity you've been authorized to use is duplicated in a secondary
   region as part of the [Global endpoints](global-endpoints.md "global-endpoints.md")
   feature:
@@ -30,9 +27,7 @@ operations or the Amazon SES SMTP interface.
   - The identity owner should have created sending authorization policies
     for you in both the primary and secondary regions.
 
-## Using the Amazon SES
-
-API
+## Using the Amazon SES API
 
 As with any Amazon SES email sender, if you access Amazon SES through the Amazon SES API (either
 directly through HTTPS or indirectly through an AWS SDK), you can choose between one
@@ -164,9 +159,7 @@ else:
     print(response['ResponseMetadata']['RequestId'])
 ```
 
-## Using the Amazon SES SMTP
-
-interface
+## Using the Amazon SES SMTP interface
 
 When you use the Amazon SES SMTP interface for delegate sending, you have to include the
 `X-SES-SOURCE-ARN`, `X-SES-FROM-ARN`, and
