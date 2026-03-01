@@ -16,9 +16,7 @@ If you made a change, click **Save**.
 
 ###### Topics
 
-- [Adding custom
-  actions with AWS DRS](post-launch-action-settings-adding-custom-source.md "post-launch-action-settings-adding-custom-source.md")
-- [Activating,
-  deactivating, and editing predefined or custom actions](post-launch-action-settings-editing-source.md "post-launch-action-settings-editing-source.md")
+- [Adding custom actions with AWS DRS](post-launch-action-settings-adding-custom-source.md "post-launch-action-settings-adding-custom-source.md")
+- [Activating, deactivating, and editing predefined or custom actions](post-launch-action-settings-editing-source.md "post-launch-action-settings-editing-source.md")
 - [Deleting custom actions](post-launch-action-settings-deleting-source.md "post-launch-action-settings-deleting-source.md")
 - [Predefined post-launch actions](predefined-post-launch-actions-source.md "predefined-post-launch-actions-source.md")

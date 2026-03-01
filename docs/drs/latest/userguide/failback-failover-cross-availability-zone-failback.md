@@ -14,9 +14,7 @@ To find out which availability zone hosts an instance, visit the AWS EC2 console
 Configure the replication settings and launch template to use a subnet hosted on an availability
 zone different from the one hosting the EC2 instance being protected.
 
-######
-
-Example
+###### Example
 
 If the protected EC2 is hosted on availability zone eu-west-1a, the
 replication settings subnet (and launch template subnet) are hosted on

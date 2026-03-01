@@ -1,6 +1,4 @@
-# AWS
-
-managed policy: AWSElasticDisasterRecoveryEc2InstancePolicy
+# AWS managed policy: AWSElasticDisasterRecoveryEc2InstancePolicy
 
 This policy allows installing and using the AWS Replication Agent, which is
 used by AWS Elastic Disaster Recovery (AWS DRS) to recover source servers that run on EC2

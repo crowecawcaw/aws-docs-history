@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AWSElasticDisasterRecoveryRecoveryInstancePolicy
+# AWS managed policy: AWSElasticDisasterRecoveryRecoveryInstancePolicy
 
 This policy is attached to the instance role of AWS Elastic Disaster Recovery's recovery instance.
 

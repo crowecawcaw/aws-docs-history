@@ -22,23 +22,17 @@ interruption.
 
 Elastic Disaster Recovery encrypts all the data in transit.
 
-## How is the replication server
-
-provisioned and managed in the Staging Area?
+## How is the replication server provisioned and managed in the Staging Area?
 
 Elastic Disaster Recovery provisions the replication server(s) and automatically manages
 the addition and removal of the servers as necessary.
 
-## What type of replication
-
-server is utilized in the Elastic Disaster Recovery Staging Area?
+## What type of replication server is utilized in the Elastic Disaster Recovery Staging Area?
 
 AWS Elastic Disaster Recovery provisions a t3.small server by default. The typical ratio of
 volumes to replication servers is 15:1.
 
-## Does AWS Elastic Disaster Recovery compress data during
-
-replication?
+## Does AWS Elastic Disaster Recovery compress data during replication?
 
 Yes, AWS Elastic Disaster Recovery utilizes LZ4 compression during transit resulting in 60-70%
 compression depending on the type of data.
@@ -51,9 +45,7 @@ as events. The calls captured include calls from the AWS DRS console and code ca
 operations. [Learn more about AWS DRS and
 Cloudtrail.](logging-using-cloudtrail.md#logging-using-cloudtrail- "logging-using-cloudtrail.md#logging-using-cloudtrail-")
 
-## How many snapshots does Elastic Disaster Recovery
-
-create?
+## How many snapshots does Elastic Disaster Recovery create?
 
 Point in Time (PIT) is a disaster recovery feature which allows launching an instance
 from a snapshot captured at a specific Point In Time. As source servers are replicated,
@@ -76,16 +68,12 @@ AWS Elastic Disaster Recovery automatically deletes snapshots that are no longer
 those left over after source servers have been removed from the Elastic Disaster Recovery
 Console) or those that are past the designated retention setting.
 
-## How much capacity is allocated to the staging
-
-area?
+## How much capacity is allocated to the staging area?
 
 A volume is created for each volume in the source infrastructure of the same size. The EBS
 volumes will be a 1:1 match for the source machines provisioned size.
 
-## Why is 0.0.0.0:1500 added to inbound rules in the
-
-Staging Area?
+## Why is 0.0.0.0:1500 added to inbound rules in the Staging Area?
 
 AWS Elastic Disaster Recovery uses TCP Port 1500 for replication between the source
 agents and the replication server. The connection is open for all IPs and can be
@@ -107,15 +95,11 @@ Causes of rescans include:
   and [Supported Linux operating systems](Supported-Operating-Systems-Linux.md "Supported-Operating-Systems-Linux.md").
 - Writing data to disks while the Replication Agent driver is unhooked.
 
-## Is the Elastic Disaster Recovery replication crash
-
-consistent?
+## Is the Elastic Disaster Recovery replication crash consistent?
 
 Yes, AWS Elastic Disaster Recovery's replication is crash consistent.
 
-## How can I perform an SSL
-
-connectivity and bandwidth test?
+## How can I perform an SSL connectivity and bandwidth test?
 
 ###### Note
 

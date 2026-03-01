@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AWSElasticDisasterRecoveryAgentInstallationPolicy
+# AWS managed policy: AWSElasticDisasterRecoveryAgentInstallationPolicy
 
 This policy allows installing the AWS Replication Agent, which is used with
 AWS Elastic Disaster Recovery (AWS DRS) to recover external servers to AWS. Attach this policy to

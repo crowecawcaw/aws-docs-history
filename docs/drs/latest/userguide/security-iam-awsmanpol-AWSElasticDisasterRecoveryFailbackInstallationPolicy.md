@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AWSElasticDisasterRecoveryFailbackInstallationPolicy
+# AWS managed policy: AWSElasticDisasterRecoveryFailbackInstallationPolicy
 
 You can attach the AWSElasticDisasterRecoveryFailbackInstallationPolicy policy to
 your IAM identities.

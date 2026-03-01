@@ -1,6 +1,4 @@
-# Editing the default EC2
-
-launch template
+# Editing the default EC2 launch template
 
 To edit the default EC2 launch template, follow these steps:
 
@@ -10,9 +8,7 @@ To edit the default EC2 launch template, follow these steps:
 3. Change the settings according to your preferences.
 4. select **Save**.
 
-## Amazon EC2 launch template
-
-parameters
+## Amazon EC2 launch template parameters
 
 AWS Elastic Disaster Recovery (AWS DRS) Amazon EC2 launch settings are divided into basic and
 advanced settings.
@@ -121,9 +117,7 @@ transferred to EC2 launch template created by AWS Elastic Disaster Recovery
 Learn more about EC2 launch template settings and configuration options in
 [this EC2 article](../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md "../../../AWSEC2/latest/UserGuide/ec2-launch-templates.md").
 
-## Amazon EC2 template
-
-considerations
+## Amazon EC2 template considerations
 
 1. **Revert to previous version –** The
    right-sizing mechanism can fix issues such as an incorrect instance

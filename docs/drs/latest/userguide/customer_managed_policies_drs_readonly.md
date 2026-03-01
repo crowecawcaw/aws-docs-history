@@ -1,6 +1,4 @@
-# Console Read-Only Access Policy
-
-- AWSElasticDisasterRecoveryReadOnlyAccess
+# Console Read-Only Access Policy - AWSElasticDisasterRecoveryReadOnlyAccess
 
 You can attach the AWSElasticDisasterRecoveryReadOnlyAccess policy to your IAM
 identities.

@@ -1,6 +1,4 @@
-# Authenticating with identities in
-
-AWS Elastic Disaster Recovery
+# Authenticating with identities in AWS Elastic Disaster Recovery
 
 Authentication is how you sign in to AWS using your identity credentials. You must be authenticated as the AWS account root user, an IAM user, or by assuming an IAM role.
 

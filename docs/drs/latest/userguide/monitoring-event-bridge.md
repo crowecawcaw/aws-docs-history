@@ -4,9 +4,7 @@
 
 The following are sample events for Elastic Disaster Recovery:
 
-### Source server data replication
-
-status
+### Source server data replication status
 
 These events are triggered when source servers' data replication state changes from
 Stalled (replication not functioning properly) and not stalled (replication is functioning
@@ -54,9 +52,7 @@ as expected).
 
 ```
 
-### Source server launch
-
-result
+### Source server launch result
 
 These events are triggered when a drill or recovery instance is launched for a source
 server and indicate whether the launch succeeded or failed.
@@ -109,9 +105,7 @@ server and indicate whether the launch succeeded or failed.
 
 ```
 
-### Recovery instance failback
-
-State Change
+### Recovery instance failback State Change
 
 These events are triggered as part of the failback process and indicate if failback is
 in progress, completed or failed.

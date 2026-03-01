@@ -1,6 +1,4 @@
-# Adding custom
-
-actions with AWS DRS
+# Adding custom actions with AWS DRS
 
 AWS Elastic Disaster Recovery (AWS DRS) allows you to run any SSM document that you like – public SSM documents, SSM documents that you created and uploaded to your account or SSM documents that are shared with you.
 You can configure a custom action to run any SSM document that is available in your account.

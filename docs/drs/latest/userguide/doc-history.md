@@ -1,6 +1,4 @@
-# Document history for the AWS Elastic Disaster Recovery User
-
-Guide
+# Document history for the AWS Elastic Disaster Recovery User Guide
 
 The following are the latest documentation updates for AWS Elastic Disaster Recovery. We update the
 documentation frequently to address the feedback that you send us.

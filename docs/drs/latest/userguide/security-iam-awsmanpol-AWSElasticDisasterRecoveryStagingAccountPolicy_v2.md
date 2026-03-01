@@ -1,6 +1,4 @@
-# AWS
-
-managed policy: AWSElasticDisasterRecoveryStagingAccountPolicy_v2
+# AWS managed policy: AWSElasticDisasterRecoveryStagingAccountPolicy_v2
 
 This policy is used by AWS Elastic Disaster Recovery (AWS DRS) to recover source servers into a
 separate target account and to allow failing back. We do not recommend that you

@@ -43,9 +43,7 @@ and these failback-specific requirements:
 - Ensure the hardware clock the on the server on which the Failback Client
   is run is set to UTC rather than Local Time.
 
-### Failback AWS
-
-credentials
+### Failback AWS credentials
 
 In order to perform a failback with the Elastic Disaster Recovery Failback
 Client, you must first generate the required AWS credentials. You can
@@ -55,9 +53,7 @@ during Failback Client installation.
 You will need to enter your credentials into the Failback Client when
 prompted.
 
-#### Generating temporary failback
-
-credentials
+#### Generating temporary failback credentials
 
 In order to generate the temporary credentials required to install the
 AWS Elastic Disaster Recovery Failback Client, take these steps:
@@ -72,9 +68,7 @@ Learn more about creating a role to delegate permissions to an AWS
 service [in the IAM documentation](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md"). Attach this policy to the role:
 **AWSElasticDisasterRecoveryFailbackInstallationPolicy**.
 
-### Failback Client detailed
-
-walkthrough
+### Failback Client detailed walkthrough
 
 Once you are ready to perform a failback to your original source servers
 or to different servers, take these steps:
@@ -243,9 +237,7 @@ completed successfully. You can reboot the server and check that it has the need
 The server client iso should not be in the boot order when you want to recover into the original OS. 20. You can opt to either terminate, delete, or disconnect the Recovery instance.
 [Learn more about each action.](monitoring-recovery-instances.md#recovery-instances-actions "monitoring-recovery-instances.md#recovery-instances-actions")
 
-### Failback Client
-
-program arguments
+### Failback Client program arguments
 
 The arguments supported by Failback Client LiveCD process are:
 
@@ -340,9 +332,7 @@ The examples of valid --device-mapping for `--dm-value-format by-path` are:
 No matter which format you choose, you need to provide either valid Failback Client device name
 or EXCLUDE for each Recovery Instance device.
 
-## Using the failback client to
-
-perform a failback to the original source server
+## Using the failback client to perform a failback to the original source server
 
 When using the failback client, you can fail back to the original source
 server or a different source server using AWS Elastic Disaster Recovery.

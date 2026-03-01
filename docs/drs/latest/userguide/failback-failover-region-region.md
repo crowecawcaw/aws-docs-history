@@ -1,6 +1,4 @@
-# Performing a cross-Region
-
-failback
+# Performing a cross-Region failback
 
 AWS Elastic Disaster Recovery (AWS DRS) allows you to perform failover and failback your EC2-based
 applications from one AWS Region to another AWS Region. The failover process is the same as failing

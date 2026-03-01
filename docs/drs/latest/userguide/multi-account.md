@@ -65,9 +65,7 @@ staging account on the source account (the AWS account that owns the EC2 instanc
 On a target account, the source servers list view shows all the source servers that were
 extended into the account, or those that are replicating in it.
 
-## Extending source servers from a staging account into a
-
-target AWS account
+## Extending source servers from a staging account into a target AWS account
 
 You can extend source servers from both new and existing AWS DRS accounts into a target AWS
 account.
@@ -113,9 +111,7 @@ account you plan to use:
 4. Once you have added your accounts, choose **Add trusted accounts and
    create roles**.
 
-### Using an existing account as a staging
-
-account
+### Using an existing account as a staging account
 
 To use an account as a staging account, the default replication settings and replication
 settings of each source server that is to be extended into a target account should be
@@ -152,9 +148,7 @@ account you plan to use:
 4. Once you have added your accounts, choose **Add trusted accounts and
    create roles**.
 
-## Share the EBS encryption key with the target
-
-account
+## Share the EBS encryption key with the target account
 
 Sharing the EBS encryption key is mandatory only if your volumes are encrypted.
 
@@ -211,9 +205,7 @@ the existing one.
 
 ```
 
-## Managing extended source servers within the target AWS
-
-account
+## Managing extended source servers within the target AWS account
 
 In order to manage extended source servers within the target accounts, you should extend
 source servers you wish to recover in the target account into that account from any staging

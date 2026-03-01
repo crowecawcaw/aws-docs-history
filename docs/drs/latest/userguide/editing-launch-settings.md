@@ -1,6 +1,4 @@
-# Editing the default AWS DRS launch
-
-settings
+# Editing the default AWS DRS launch settings
 
 The default launch settings are applied to every newly launched source server
 in AWS Elastic Disaster Recovery (AWS DRS). You can change these settings for a single or multiple
@@ -14,9 +12,7 @@ To edit these settings, follow these steps:
 3. Change the settings according to your preferences.
 4. select **Save**.
 
-## Launch settings
-
-parameters
+## Launch settings parameters
 
 AWS Elastic Disaster Recovery (AWS DRS) launch settings include:
 

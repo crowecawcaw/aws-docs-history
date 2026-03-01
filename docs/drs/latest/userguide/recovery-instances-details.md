@@ -43,16 +43,12 @@ process, including:
 - **Failback replication settings** - configure settings for failback to on-premises servers. Not relevant for in-AWS launches.
 - **Post-launch actions status** - the progress or result of the last post-launch actions run.
 
-## Launch
-
-dashboard
+## Launch dashboard
 
 The **Launch** dashboard provides a detailed overview
 of the reversed direction launch process.
 
-### Reversed
-
-direction launch state
+### Reversed direction launch state
 
 The **Reversed direction launch state** panel
 provides an overview of the reversed direction launch process, including:
@@ -71,9 +67,7 @@ provides an overview of the reversed direction launch process, including:
 - **Last launch results** – the results of
   the most recent launch.
 
-### Data
-
-replication status
+### Data replication status
 
 The Data replication status panel displays the current data replication status
 state for the recovery instance, including:
@@ -96,9 +90,7 @@ state for the recovery instance, including:
 - **Replication start time** – and date and
   time replication was started for the recovery instance.
 
-### Events and
-
-metrics
+### Events and metrics
 
 The Events and metrics section contains external links to monitor your
 recovery instance in AWS CloudTrail. [Learn more about monitoring DRS with
@@ -133,9 +125,7 @@ Choose **Manage tags** to add or remove tags. On the
 To remove a tag, choose **Remove** to the right of the tag you
 want to remove, and then choose **Save**.
 
-## Failback replication
-
-settings
+## Failback replication settings
 
 The Failback replication settings tab allows you to edit various failback
 replication settings for the recovery instance prior to performing a failback.
@@ -146,9 +136,7 @@ You can configure the failback replication settings for multiple recovery
 instances at once. The **Selected recovery instances**
 box displays the recovery instances for which you are updating the settings.
 
-### Network
-
-bandwidth throttling
+### Network bandwidth throttling
 
 You can control the amount of network bandwidth used for data replication per
 server. By default, Elastic Disaster Recovery uses all available network
@@ -161,9 +149,7 @@ instance, in Mbps)** enter the bandwidth in Mbps.
 Otherwise, choose **Do not throttle
 bandwidth**.
 
-### Use
-
-private IP
+### Use private IP
 
 By default, data is sent from the recovery instance to the source servers over
 the public internet, using the public IP that was automatically assigned to the
@@ -194,9 +180,7 @@ Direct Connect, or VPC peering in the AWS Console.
 - Choosing the **Use Private IP**
   option does not create a new private connection.
 
-### Saving
-
-failback replication settings
+### Saving failback replication settings
 
 Once you have configured your failback replication settings, choose
 **Save failback replication settings.**

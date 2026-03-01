@@ -55,9 +55,7 @@ Click **View job details** on the dialog to view
 the specific job for the test launch in the **Recovery job
 history** tab.
 
-### Successful recovery instance launch
-
-indicators
+### Successful recovery instance launch indicators
 
 You can tell that the recovery instance launch started successfully through
 several indicators on the **Source servers** page.

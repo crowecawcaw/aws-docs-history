@@ -1,6 +1,4 @@
-# Installation requirements for AWS Replication
-
-Agent
+# Installation requirements for AWS Replication Agent
 
 Before installing the AWS Replication Agent on your source servers, ensure that they meet
 the following requirements:

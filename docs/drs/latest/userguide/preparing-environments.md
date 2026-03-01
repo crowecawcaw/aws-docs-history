@@ -10,6 +10,5 @@ proxy, and solving common networking issues.
 ###### Topics
 
 - [Elastic Disaster Recovery network diagrams](Network-diagrams.md "Network-diagrams.md")
-- [Elastic Disaster Recovery network setting
-  preparations](Network-Settings-Preparations.md "Network-Settings-Preparations.md")
+- [Elastic Disaster Recovery network setting preparations](Network-Settings-Preparations.md "Network-Settings-Preparations.md")
 - [Elastic Disaster Recovery network requirements](Network-Requirements.md "Network-Requirements.md")

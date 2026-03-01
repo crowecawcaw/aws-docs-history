@@ -1,6 +1,4 @@
-# AWS managed policy:
-
-AWSElasticDisasterRecoveryConversionServerPolicy
+# AWS managed policy: AWSElasticDisasterRecoveryConversionServerPolicy
 
 This policy is attached to the AWS Elastic Disaster Recovery conversion server’s instance role.
 

@@ -1,26 +1,20 @@
 # AWS related
 
-## What does the Elastic Disaster Recovery
-
-machine conversion server do?
+## What does the Elastic Disaster Recovery machine conversion server do?
 
 The machine conversion server converts the disks to boot and run on AWS.
 
 Specifically, it makes bootloader changes, injects hypervisor drivers, and
 installs cloud tools.
 
-## How do I change the server AMI on AWS after
-
-recovery?
+## How do I change the server AMI on AWS after recovery?
 
 After the machine has been launched by AWS Elastic Disaster Recovery, switching the AMI can be
 done by launching a vanilla machine from the required AMI, stopping that machine, detaching
 all the disks (including the root) and then attaching the disks from the drill or recovery
 instance created by Elastic Disaster Recovery.
 
-## Which AWS services are
-
-automatically installed when launching a drill or recovery instance?
+## Which AWS services are automatically installed when launching a drill or recovery instance?
 
 AWS Elastic Disaster Recovery (AWS DRS) automatically installs EC2Config. After installation, EC2Config
 automatically installs the SSM EC2 Configuration Service.
@@ -36,16 +30,12 @@ configure EC2Launch based on the specific requirements explained [here](../../..
 wizard in C:\Program Data\Amazon\EC2-Windows\Launch\Settings\Ec2LaunchSettings.exe on the
 drill or recovery instance.
 
-## How long does it take to copy a disk
-
-from the AWS Elastic Disaster Recovery staging area to production?
+## How long does it take to copy a disk from the AWS Elastic Disaster Recovery staging area to production?
 
 AWS Elastic Disaster Recovery uses internal cloud provider snapshots. This process typically
 takes less than a minute and the size of the volume does not impact the time.
 
-## What are
-
-the differences between conversion servers and replication servers?
+## What are the differences between conversion servers and replication servers?
 
 Replication servers run on Linux and conversion servers (for Windows machines) run
 on Windows.
@@ -66,9 +56,7 @@ The conversion servers machines, just like the Replication servers are managed
 automatically by Elastic Disaster Recovery. Any attempt to disrupt their automated
 functionality will result in failed conversions.
 
-## Can I prevent Elastic Disaster Recovery
-
-from cleaning up drill instance resources in AWS?
+## Can I prevent Elastic Disaster Recovery from cleaning up drill instance resources in AWS?
 
 AWS Elastic Disaster Recovery will, by default, remove any resources created during the drill
 process either when requested by the user or when a new drill instance is launched.
@@ -76,9 +64,7 @@ process either when requested by the user or when a new drill instance is launch
 To prevent this in AWS, you can [Activate Termination Protection](../../../AWSEC2/latest/UserGuide/terminating-instances.md#Using_ChangingDisableAPITermination "../../../AWSEC2/latest/UserGuide/terminating-instances.md#Using_ChangingDisableAPITermination") for the drill or recovery instance, and the
 resources will not be removed upon a new instance launch.
 
-## Why are my Windows Server disks read-only
-
-after launching the drill or recovery instance?
+## Why are my Windows Server disks read-only after launching the drill or recovery instance?
 
 When launching drill or recovery instances Windows Server may boot with all the disks as
 read-only.
@@ -87,9 +73,7 @@ This is a common issue that occurs when detaching and attaching data disks. It c
 resolved by following the steps in [this
 Microsoft TechNet article](https://blogs.technet.microsoft.com/askcore/2011/06/02/my-disk-is-read-only-help/ "https://blogs.technet.microsoft.com/askcore/2011/06/02/my-disk-is-read-only-help/").
 
-## What impacts the conversion and boot
-
-time of drill and recovery instances?
+## What impacts the conversion and boot time of drill and recovery instances?
 
 Prior to launching the drill or recovery instance, AWS Elastic Disaster Recovery goes
 through a machine conversion server process on the boot volume. The conversion
@@ -123,16 +107,12 @@ recovery times are of importance.
 The first boot of Windows machines on AWS may take up to 45 minutes due to Windows
 adjusting to the AWS virtual hardware.
 
-## How is the AWS Licensing Model Tenancy chosen for
-
-Elastic Disaster Recovery?
+## How is the AWS Licensing Model Tenancy chosen for Elastic Disaster Recovery?
 
 Elastic Disaster Recovery conforms to the [Microsoft Licensing on
 AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com/windows/resources/licensing/") guidelines.
 
-## How does Elastic Disaster Recovery interact with interface VPC
-
-endpoints?
+## How does Elastic Disaster Recovery interact with interface VPC endpoints?
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you
 can establish a private connection between your Amazon VPC and AWS Elastic Disaster Recovery.
@@ -172,9 +152,7 @@ If the AWS replication agents are installed with a principal using
  }`
 ```
 
-## Will AWS Elastic Disaster Recovery reserve EC2 capacity for
-
-recovery?
+## Will AWS Elastic Disaster Recovery reserve EC2 capacity for recovery?
 
 AWS Elastic Disaster Recovery relies on Amazon EC2 On-Demand pools by default. If a specific Amazon EC2 instance type is
 unavailable to support your recovery, DRS will automatically attempt scale up the

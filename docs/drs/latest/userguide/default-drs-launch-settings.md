@@ -1,6 +1,4 @@
-# Default AWS DRS launch
-
-settings
+# Default AWS DRS launch settings
 
 AWS Elastic Disaster Recovery (AWS DRS) allows you to configure the default launch settings and
 change them at any time.

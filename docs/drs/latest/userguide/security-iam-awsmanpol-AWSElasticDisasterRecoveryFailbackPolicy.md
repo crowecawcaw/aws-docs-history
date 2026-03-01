@@ -1,6 +1,4 @@
-# AWS
-
-managed policy: AWSElasticDisasterRecoveryFailbackPolicy
+# AWS managed policy: AWSElasticDisasterRecoveryFailbackPolicy
 
 This policy allows using the AWS Elastic Disaster Recovery Failback Client, which is used to
 failback recovery instances back to your original source infrastructure. We do

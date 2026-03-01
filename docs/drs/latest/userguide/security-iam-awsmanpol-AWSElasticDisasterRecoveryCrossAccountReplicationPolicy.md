@@ -1,6 +1,4 @@
-# AWS
-
-managed policy: AWSElasticDisasterRecoveryCrossAccountReplicationPolicy
+# AWS managed policy: AWSElasticDisasterRecoveryCrossAccountReplicationPolicy
 
 This policy allows AWS Elastic Disaster Recovery (DRS) to support cross-account replication and
 cross-account failback.

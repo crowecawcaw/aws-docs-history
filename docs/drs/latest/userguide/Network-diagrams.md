@@ -2,9 +2,7 @@
 
 The following are the network diagrams for AWS Elastic Disaster Recovery :
 
-## General Architecture - On-Premises
-
-to AWS
+## General Architecture - On-Premises to AWS
 
 This diagram shows the general architecture of DRS protecting source servers
 located in an on-premises environment.
@@ -42,9 +40,7 @@ about protecting source servers using Outposts.](outposts.md "outposts.md")
 
 ![AWS Elastic Disaster Recovery architecture showing replication between main and recovery data centers using AWS Outposts.](images/drs-networkrequirements-outpost2.png)
 
-## On-Premises to AWS Local
-
-Zone
+## On-Premises to AWS Local Zone
 
 This diagram shows the network architecture of DRS protecting source servers located in an on-premises environment.
 The staging area is located in an AWS Region and the and recovery is in an AWS Local Zone.

@@ -99,9 +99,7 @@ Possible values include:
   specified region. This value only applies to in-AWS and cross-region
   replications.
 
-### Replicating to
-
-source server
+### Replicating to source server
 
 The **Replicating to source server** category
 identifies the source server to which the recovery instance is replicating. When
@@ -129,9 +127,7 @@ This category indicated the results of the last launch. Possible values include:
 - Launch failed
 - Failback failed
 
-### Launched from
-
-source server
+### Launched from source server
 
 The **Launched from source server** column
 identifies the source server from which the recovery instance was
@@ -157,18 +153,14 @@ process.
 
 Actions available on the **Actions** menu:
 
-#### View instance
-
-details
+#### View instance details
 
 Select a recovery instance and choose the **View
 instance details** option under the **Actions** menu to open the **Recovery
 instance details** view. [Learn more about the recovery
 instance details view.](recovery-instances-details.md "recovery-instances-details.md")
 
-#### Edit failback replication
-
-settings
+#### Edit failback replication settings
 
 Select one or more recovery instances and choose the **Edit failback replication settings** option under the
 **Actions** menu to edit the failback
@@ -203,9 +195,7 @@ for example, if it was for a drill.
 On the **Terminate recovery instances**
 dialog choose **Terminate**.
 
-#### Disconnect from
-
-AWS
+#### Disconnect from AWS
 
 Select one or more recovery instances and choose the **Disconnect from AWS** option under the **Actions** menu to disconnect the recovery instance or
 instances from AWS. This deletes the AWS Replication Agent from the recovery
@@ -219,9 +209,7 @@ Disaster Recovery Console.
 On the **Disconnect X recovery instances from
 service** dialog choose **Disconnect**.
 
-#### Delete
-
-recovery instances
+#### Delete recovery instances
 
 Select one or more recovery instances and choose the **Delete recovery instances** option under the **Actions** menu to delete the recovery instance or
 instances. This removes all of resources associated with the selected

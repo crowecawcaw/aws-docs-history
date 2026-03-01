@@ -1,6 +1,4 @@
-# Installing the AWS Replication Agent in
-
-AWS
+# Installing the AWS Replication Agent in AWS
 
 When installing an AWS Replication Agent on an AWS EC2 instance (when the source and
 recovery servers are both in AWS Regions), you don't need to generate credentials.

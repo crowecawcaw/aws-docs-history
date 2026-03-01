@@ -1,6 +1,4 @@
-# AWS managed
-
-policy: AWSElasticDisasterRecoveryAgentPolicy
+# AWS managed policy: AWSElasticDisasterRecoveryAgentPolicy
 
 This policy gives the AWS Replication Agent, which is used with
 AWS Elastic Disaster Recovery (AWS DRS) to replicate source servers to AWS,

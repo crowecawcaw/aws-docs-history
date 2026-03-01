@@ -12,12 +12,9 @@ All communication is encrypted with TLS.
 ###### Topics
 
 - [Communication over TCP port 443](#TCP-443 "#TCP-443")
-- [Communication between the source servers and Elastic
-  Disaster Recovery over TCP port 443](#Source-Manager-TCP-443 "#Source-Manager-TCP-443")
-- [Communication between the staging area subnet and
-  AWS Elastic Disaster Recovery over TCP port 443](#Communication-TCP-443-Staging "#Communication-TCP-443-Staging")
-- [Communication between the source servers and the
-  Staging Area Subnet over TCP port 1500](#Communication-TCP-1500 "#Communication-TCP-1500")
+- [Communication between the source servers and Elastic Disaster Recovery over TCP port 443](#Source-Manager-TCP-443 "#Source-Manager-TCP-443")
+- [Communication between the staging area subnet and AWS Elastic Disaster Recovery over TCP port 443](#Communication-TCP-443-Staging "#Communication-TCP-443-Staging")
+- [Communication between the source servers and the Staging Area Subnet over TCP port 1500](#Communication-TCP-1500 "#Communication-TCP-1500")
 
 **Communication over TCP Port 1500:**
 
@@ -98,9 +95,7 @@ TCP port 443 is used for two communication routes:
 
 2. Between the staging area subnet and AWS Elastic Disaster Recovery.
 
-## Communication between the source servers and Elastic
-
-Disaster Recovery over TCP port 443
+## Communication between the source servers and Elastic Disaster Recovery over TCP port 443
 
 Each source server that is added to AWS Elastic Disaster Recovery (AWS DRS) must continuously communicate
 with AWS DRS (DRS.<region>.amazonaws.com) over TCP port 443.
@@ -123,17 +118,13 @@ These are the main operations performed through TCP port 443:
 
 Make sure that your corporate firewall allows connections over TCP port 443.
 
-### Solving communication problems over TCP port 443
-
-between the source servers and AWS Elastic Disaster Recovery
+### Solving communication problems over TCP port 443 between the source servers and AWS Elastic Disaster Recovery
 
 If there is no connection between your source servers and AWS Elastic Disaster Recovery, make sure that your
 corporate firewall facilitates connectivity from the source servers to AWS Elastic Disaster Recovery over TCP Port 443. If the
 connectivity is blocked, activate it.
 
-#### Enabling Windows Firewall for TCP port 443
-
-connectivity
+#### Enabling Windows Firewall for TCP port 443 connectivity
 
 ###### Important
 
@@ -174,9 +165,7 @@ select the rule that relates to the connectivity to Remote Port - 443. Check if 
 
 ![Outbound Rules table with BranchCache Hosted Cache Client rule highlighted and Enable Rule option.](images/network-requirements-3-re.png)
 
-#### Enabling Linux Firewall for TCP port 443
-
-connectivity
+#### Enabling Linux Firewall for TCP port 443 connectivity
 
 1. Enter this command to add the required Firewall rule:
 
@@ -199,9 +188,7 @@ _target prot opt source destination_
 
 _ACCEPT tcp -- anywhere anywhere tcp dpt:443_
 
-## Communication between the staging area subnet and
-
-AWS Elastic Disaster Recovery over TCP port 443
+## Communication between the staging area subnet and AWS Elastic Disaster Recovery over TCP port 443
 
 The replication servers in the staging area subnet must continuously communicate
 with Elastic Disaster Recovery over TCP port 443. The main operations that are
@@ -219,9 +206,7 @@ performed through this route are:
 
 The staging area subnet requires S3 access.
 
-### Configuring
-
-communication over TCP port 443 between the staging area subnet and AWS Elastic Disaster Recovery
+### Configuring communication over TCP port 443 between the staging area subnet and AWS Elastic Disaster Recovery
 
 You can establish communication between the staging area subnet and AWS Elastic Disaster Recovery over TCP port 443 directly.
 
@@ -232,9 +217,7 @@ VPC of the staging area, as described in the [VPC FAQ](https://aws.amazon.com/vp
 
 2. [Private IP address + NAT instance](../../../AmazonVPC/latest/UserGuide/vpc-nat-gateway.md "../../../AmazonVPC/latest/UserGuide/vpc-nat-gateway.md")
 
-## Communication between the source servers and the
-
-Staging Area Subnet over TCP port 1500
+## Communication between the source servers and the Staging Area Subnet over TCP port 1500
 
 Each source server with an installed AWS Replication Agent continuously
 communicates with the AWS Elastic Disaster Recovery replication servers in the staging
@@ -254,18 +237,14 @@ source server to the replication server. Each replication server gets assigned a
 specific TLS server certificate, which is distributed to the corresponding agent and
 validated against on the agent side.
 
-### Establishing communication
-
-over TCP port 1500
+### Establishing communication over TCP port 1500
 
 ###### Important
 
 To allow traffic over TCP port 1500, make sure that your corporate firewall enables this
 connectivity.
 
-###
-
-Required bandwidth between the source servers and the staging area subnet
+### Required bandwidth between the source servers and the staging area subnet
 
 Replicated data is transferred from the source servers to the staging area
 over the network. For replication to succeed, your average network bandwidth

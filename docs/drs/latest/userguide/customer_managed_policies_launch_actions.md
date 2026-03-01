@@ -1,6 +1,4 @@
-# Launch Actions Policy -
-
-AWSElasticDisasterRecoveryLaunchActionsPolicy
+# Launch Actions Policy - AWSElasticDisasterRecoveryLaunchActionsPolicy
 
 This policy allows you to use Amazon SSM and additional services required permissions to run
 post-launch actions in AWS Elastic Disaster Recovery (AWS DRS). Attach this policy to your IAM roles or users.

@@ -1,6 +1,4 @@
-# AWS DRS individual replication
-
-settings
+# AWS DRS individual replication settings
 
 AWS Elastic Disaster Recovery attempts to reduce costs by consolidating the replication of as many source
 servers as possible onto the same Replication Server based on the individual Source
@@ -121,9 +119,7 @@ Command Line
   Update-EDRSReplicationConfiguration -SourceServerID `s-123456789abcdefgh` -ReplicationServerInstanceType  `m5.large`
   ```
 
-### Dedicated instance for replication
-
-server
+### Dedicated instance for replication server
 
 The **Dedicated instance for replication server**
 setting specifies whether or not the Source Server's can use to a

@@ -1,6 +1,4 @@
-# Performing a failback with the DRS
-
-Mass Failback Automation Client
+# Performing a failback with the DRS Mass Failback Automation Client
 
 DRS allows you to perform a scalable failback for vCenter with the DRS Mass
 Failback Automation Client (DRSFA Client). This allows you to perform a
@@ -121,9 +119,7 @@ These are security best practices for using the DRSFA Client:
     the
     failback attempt.
 
-## Installing the DRSFA
-
-Client
+## Installing the DRSFA Client
 
 Prior to running the DRSFA Client, you must first install it. Installing
 the client is a one-time operation.
@@ -215,9 +211,7 @@ you can run this command to delete the seed creator:
 Once you have completed the initial installation, you can generate the
 required credentials and run the DRSFA client.
 
-## Generating IAM credentials and configuring
-
-Cloudwatch logging
+## Generating IAM credentials and configuring Cloudwatch logging
 
 In order to run the DRSFA Client, you must first generate the required AWS
 credentials.
@@ -301,9 +295,7 @@ press enter. The full parameters and command should look like this example:
   than 10 servers). To change the default value, use the
   THREAD_POOL_SIZE parameter.
 
-## One-click
-
-failback
+## One-click failback
 
 Once the client has connected successfully and finished verification,
 select the **One-Click Failback** option under
@@ -370,9 +362,7 @@ configuration file, in which you can edit specific settings for each individual 
 will then use this file to perform a failback in a flow that is similar to that of the one-step
 failback.
 
-### Generating the configuration
-
-file
+### Generating the configuration file
 
 To use the custom failback option, you can either create a custom configuration JSON file
 or generate a default failback configuration file through the client.

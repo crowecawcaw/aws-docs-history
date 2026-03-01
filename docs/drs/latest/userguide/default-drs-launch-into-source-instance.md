@@ -51,9 +51,7 @@ This only happens if:
 
 ![AWS multi-region setup with EC2 instances and DRS servers for disaster recovery.](images/recover-into-source-instance-cross-regions.png)
 
-## Cross Availability
-
-Zone
+## Cross Availability Zone
 
 With this setting active, customers who replicate their EC2 instances into the same region
 (and if following our recommendation, into a different availability zone within that region), launch in

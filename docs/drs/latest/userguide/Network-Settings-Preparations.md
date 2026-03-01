@@ -1,6 +1,4 @@
-# Elastic Disaster Recovery network setting
-
-preparations
+# Elastic Disaster Recovery network setting preparations
 
 ###### Topics
 

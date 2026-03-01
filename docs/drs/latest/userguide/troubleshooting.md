@@ -4,18 +4,13 @@
 
 ###### Topics
 
-- [Error – Could not
-  associate failback client to recovery instances](#Troubleshooting-Failback-Errors-credentials "#Troubleshooting-Failback-Errors-credentials")
-- [Error – Could
-  not verify recovery instance connectivity to DRS](#Troubleshooting-Failback-Errors-connectivity-instance "#Troubleshooting-Failback-Errors-connectivity-instance")
-- [Error message: AWS Replication agent is not connected to DRS.
-  Verify the agent is installed and running, and that it has connectivity to the service](#w2aac39b3b9 "#w2aac39b3b9")
+- [Error – Could not associate failback client to recovery instances](#Troubleshooting-Failback-Errors-credentials "#Troubleshooting-Failback-Errors-credentials")
+- [Error – Could not verify recovery instance connectivity to DRS](#Troubleshooting-Failback-Errors-connectivity-instance "#Troubleshooting-Failback-Errors-connectivity-instance")
+- [Error message: AWS Replication agent is not connected to DRS. Verify the agent is installed and running, and that it has connectivity to the service](#w2aac39b3b9 "#w2aac39b3b9")
 - [Error message: botocore.exceptions.CredentialRetrievalError: Error when retrieving credentials from cert](#w2aac39b3c11 "#w2aac39b3c11")
 - [Error message: Some Recovery instances could not be processed: recovery-instance-id](#w2aac39b3c13 "#w2aac39b3c13")
 
-### Error – Could not
-
-associate failback client to recovery instances
+### Error – Could not associate failback client to recovery instances
 
 If you see the "Could not associate failback client to recovery instances" error
 when using the Failback Client, that may mean that you associated the incorrect
@@ -23,9 +18,7 @@ credentials with your User. Ensure that you attach the **AWSElasticDisasterRecov
 user or role and restart the failback process. [Learn more about Failback Client
 credentials.](failback-performing.md#failback-performing-credentials "failback-performing.md#failback-performing-credentials")
 
-### Error – Could
-
-not verify recovery instance connectivity to DRS
+### Error – Could not verify recovery instance connectivity to DRS
 
 If you see the "Could not verify recovery instance connectivity to Elastic
 Disaster Recovery" error when using the Failback Client, you should troubleshoot
@@ -39,10 +32,7 @@ potential connectivity issues:
 4. Make sure that you don't have this error in your agent logs: [Error – driver was compiled for a
    different kernel not loading](#error-driver-compiled "#error-driver-compiled").
 
-###
-
-Error message: AWS Replication agent is not connected to DRS.
-Verify the agent is installed and running, and that it has connectivity to the service
+### Error message: AWS Replication agent is not connected to DRS. Verify the agent is installed and running, and that it has connectivity to the service
 
 In certain cases, following an attempt to perform a reverse replication action,
 you will receive an error message indicating that the AWS Replication agent is not
@@ -54,18 +44,14 @@ connected to AWS Elastic Disaster Recovery. In this case, verify that:
 If after performing the steps above you did not identify any agent or connectivity issues,
 reinstall the agent as recovery instance and try again.
 
-###
-
-Error message: botocore.exceptions.CredentialRetrievalError: Error when retrieving credentials from cert
+### Error message: botocore.exceptions.CredentialRetrievalError: Error when retrieving credentials from cert
 
 The Failback Client uses Amazon Linux 2 (AL2) and leverages certificate-based authentication to AWS Elastic Disaster Recovery endpoints for
 certain actions. AL2 assumes that the hardware clock time provided from the underlying hardware or hypervisor is UTC, which can
 result in time skew if it is not. Ensure that the time configured within the BIOS or EFI Shell of the
 failback target is set to UTC, and not LocalTime.
 
-###
-
-Error message: Some Recovery instances could not be processed: `recovery-instance-id`
+### Error message: Some Recovery instances could not be processed: `recovery-instance-id`
 
 You may receive this error when attempting to start reverse replication in Elastic Disaster Recovery. The error occurs when:
 
@@ -77,24 +63,16 @@ Resolve this issue by:
 - Disabling the **Launch into source instance** in the source Region's default launch settings.
 - Adding the `AWSDRS:AllowLaunchingIntoThisInstance` tag to the source Amazon EC2 instance/A1.
 
-## Troubleshooting Communication
-
-Errors
+## Troubleshooting Communication Errors
 
 ###### Topics
 
-- [Solving Communication Problems over
-  TCP Port 443 between the staging area and the Elastic Disaster Recovery Service
-  Manager](#Solving-Communication-Problems "#Solving-Communication-Problems")
-- [Calculating the required bandwidth for TCP Port
-  1500](#Calculating-Bandwidth "#Calculating-Bandwidth")
+- [Solving Communication Problems over TCP Port 443 between the staging area and the Elastic Disaster Recovery Service Manager](#Solving-Communication-Problems "#Solving-Communication-Problems")
+- [Calculating the required bandwidth for TCP Port 1500](#Calculating-Bandwidth "#Calculating-Bandwidth")
 - [Verifying Communication over Port 1500](#Verifying-Communication-1500 "#Verifying-Communication-1500")
 - [Solving Communication Problems over Port 1500](#Solving-Problems-1500 "#Solving-Problems-1500")
 
-### Solving Communication Problems over
-
-TCP Port 443 between the staging area and the Elastic Disaster Recovery Service
-Manager
+### Solving Communication Problems over TCP Port 443 between the staging area and the Elastic Disaster Recovery Service Manager
 
 - **DHCP** – [Check the DHCP options set of the VPC of the staging area.](../../../directoryservice/latest/admin-guide/dhcp_options_set.md "../../../directoryservice/latest/admin-guide/dhcp_options_set.md")
 
@@ -182,9 +160,7 @@ To check and set the Route Rules on the staging area subnet:
   staging area subnet may block the traffic. Verify that the ephemeral ports
   are open.
 
-### Calculating the required bandwidth for TCP Port
-
-1500
+### Calculating the required bandwidth for TCP Port 1500
 
 The required bandwidth for transferring the replicated data over TCP Port 1500 should be
 based on the write speed of the participating Source machines. The recommended bandwidth should
@@ -368,9 +344,7 @@ address space of the source machines.
     **Note**: If you are using VPN, enter a specific IP
      address range in the **Destination** column.
 
-#### Firewall (both internal and external) in the Source server /
-
-infrastructure.
+#### Firewall (both internal and external) in the Source server / infrastructure.
 
 Firewall issues may have several causes. Check the following if you experience any
 firewall issues, such as Windows Firewall connection issues:
@@ -398,9 +372,7 @@ and therefore the server will not appear on the AWS Elastic Disaster Recovery Co
 issue that caused the installation to fail, you need to rerun the Agent Installer
 file to install the Agent.
 
-#### This app cant run on your PC error –
-
-Windows
+#### This app cant run on your PC error – Windows
 
 If you encounter the following error "This app can't run on your PC", when trying to
 install the AWS Replication Agent on your Windows 10 source machine, try the following.
@@ -429,18 +401,14 @@ installation of your agent. The block is actually coming from the Windows
 Operating System itself. You would need to identify what the cause is, (for
 example, broken registry key),
 
-#### Is having a mounted '/tmp' directory a requirement for the
-
-Agent?
+#### Is having a mounted '/tmp' directory a requirement for the Agent?
 
 The simple requirement is just to have enough free space. There is no need for this to be
 a separate mount. The need for the '/tmp' requirement is actually only if '/tmp' is a separate
 mount. If '/tmp' is not a separate mount, then it would fall under '/', for which we have the 2
 GiB free requirement. This allows for the '/tmp' to fall into this requirement.
 
-#### Installation Failed – Old
-
-Agent
+#### Installation Failed – Old Agent
 
 Installation may fail due to an old AWS Replication Agent. Ensure that you are attempting
 to install the latest version of the AWS Replication Agent. You can learn how to download the
@@ -728,9 +696,7 @@ Variable**.
 
     ![Edit System Variable dialog showing Variable name "Path" and Variable value field with text input.](images/troubleshooting-37-re.png)
 
-#### Windows – Installation Failed -
-
-Request Signature
+#### Windows – Installation Failed - Request Signature
 
 If the AWS Replication Agent installation fails on Windows with the following error:
 
@@ -746,9 +712,7 @@ Attempt to rerun the installer with power shell instead of CMD. At times, when t
 installer is ran in CMD, the AWS Secret Key does not get pasted properly into the installer and
 causes installation to fail.
 
-#### Error – driver was compiled for a
-
-different kernel not loading
+#### Error – driver was compiled for a different kernel not loading
 
 This error may manifest if a significant amount of time has passed between when you
 performed a failover and when you are performing a failback.
@@ -786,8 +750,7 @@ This section describes common replication errors and possible explanations and p
 - [Failback client not seen](#common-failback-not-seen "#common-failback-not-seen")
 - [Snapshot failure](#common-snapshot-failure "#common-snapshot-failure")
 - [Unstable network](#common-unstable-network "#common-unstable-network")
-- [Failed to download
-  replication software to failback client](#common-download-replication-software "#common-download-replication-software")
+- [Failed to download replication software to failback client](#common-download-replication-software "#common-download-replication-software")
 - [Failed to configure replication software](#common-configure-replication-software "#common-configure-replication-software")
 - [Failed to establish communication with recovery instance](#common-communication-recovery-instance "#common-communication-recovery-instance")
 - [Failed to connect AWS replication Agent to replication software](#common-connection-agent-replication-software "#common-connection-agent-replication-software")
@@ -796,8 +759,7 @@ This section describes common replication errors and possible explanations and p
 - [Failed to authenticate with service](#common-failed-authenticate-service "#common-failed-authenticate-service")
 - [Failed to create staging disks](#common-failed-create-staging-disks "#common-failed-create-staging-disks")
 - [Failed to pair the replication agent with replication server](#common-pair-replication-agent-server "#common-pair-replication-agent-server")
-- [Unknown data replication
-  error](#common-unknown-data-replication-error "#common-unknown-data-replication-error")
+- [Unknown data replication error](#common-unknown-data-replication-error "#common-unknown-data-replication-error")
 
 ### Agent not seen
 
@@ -847,9 +809,7 @@ This can be caused by:
 This error message (UNSTABLE_NETWORK) may indicate that there are network issues.
 Check your connectivity, then [run the network bandwidth test](Replication-Related-FAQ.md#perform-connectivity-bandwidth-test "Replication-Related-FAQ.md#perform-connectivity-bandwidth-test").
 
-### Failed to download
-
-replication software to failback client
+### Failed to download replication software to failback client
 
 This error message (FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT)
 may indicate that there are connectivity issues. [Check your connectivity to the S3
@@ -923,9 +883,7 @@ be caused by multiple reasons. Make sure that you have connectivity between the
 replication agent, the replication server, and the DRS endpoint. If the issue
 persists, contact Support.
 
-### Unknown data replication
-
-error
+### Unknown data replication error
 
 Unknown errors (unknown_error) can occur for any number of reasons. There are
 several steps you can take to attempt to mitigate the issue:
@@ -942,17 +900,14 @@ several steps you can take to attempt to mitigate the issue:
 
 ###### Topics
 
-- [Windows License activation –
-  AWS](#Windows-License-Activation "#Windows-License-Activation")
+- [Windows License activation – AWS](#Windows-License-Activation "#Windows-License-Activation")
 - [Replicating Instance Store Volumes](#Replicating-Instance-Stores "#Replicating-Instance-Stores")
 - [Replication lag issues](#Replication-Lag-Issues "#Replication-Lag-Issues")
 - [Windows Drive changes](#Windows-Drive-Changes "#Windows-Drive-Changes")
 - [Error: Failed to connect using HTTP channel](#Error-Failed-to-connect-using-HTTP-channel "#Error-Failed-to-connect-using-HTTP-channel")
 - [Windows Dynamic Disk troubleshooting](#Windows-Dynamic-Disk "#Windows-Dynamic-Disk")
 
-### Windows License activation –
-
-AWS
+### Windows License activation – AWS
 
 AWS Elastic Disaster Recovery converts the Windows OS licenses to AWS Windows licenses and
 activates them against the AWS KMS.

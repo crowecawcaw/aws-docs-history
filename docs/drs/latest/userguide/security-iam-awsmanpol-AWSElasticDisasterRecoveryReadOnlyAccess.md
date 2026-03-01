@@ -1,6 +1,4 @@
-# AWS
-
-managed policy: AWSElasticDisasterRecoveryReadOnlyAccess
+# AWS managed policy: AWSElasticDisasterRecoveryReadOnlyAccess
 
 You can attach the AWSElasticDisasterRecoveryReadOnlyAccess policy to your IAM
 identities.

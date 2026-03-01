@@ -1,6 +1,4 @@
-# Console Full Access Policy -
-
-AWSElasticDisasterRecoveryConsoleFullAccess_v2
+# Console Full Access Policy - AWSElasticDisasterRecoveryConsoleFullAccess_v2
 
 Allows full administrative access to AWS Elastic Disaster Recovery (AWS DRS) Console. Attach this policy to your users or roles.
 

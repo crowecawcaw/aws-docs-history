@@ -8,7 +8,5 @@ a specific source server has completed its initial sync.
 
 ###### Topics
 
-- [Default AWS DRS launch
-  settings](default-drs-launch-settings.md "default-drs-launch-settings.md")
-- [Default Amazon Elastic Compute Cloud (Amazon EC2) launch
-  template](default-ec2-launch-template.md "default-ec2-launch-template.md")
+- [Default AWS DRS launch settings](default-drs-launch-settings.md "default-drs-launch-settings.md")
+- [Default Amazon Elastic Compute Cloud (Amazon EC2) launch template](default-ec2-launch-template.md "default-ec2-launch-template.md")

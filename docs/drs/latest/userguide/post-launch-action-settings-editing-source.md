@@ -1,6 +1,4 @@
-# Activating,
-
-deactivating, and editing predefined or custom actions
+# Activating, deactivating, and editing predefined or custom actions
 
 You can activate, deactivate and edit actions available for this source server.
 Activating an action ensures it runs after launching a recovery instance. Likewise,

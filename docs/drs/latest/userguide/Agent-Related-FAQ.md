@@ -8,9 +8,7 @@ Agent then acts as an OS-level read filter to capture writes and synchronizes an
 block level modifications to the Elastic Disaster Recovery replication server,
 ensuring near-zero RPO.
 
-## What kind of data is transferred between the Agent and
-
-the AWS Elastic Disaster Recovery Service Manager?
+## What kind of data is transferred between the Agent and the AWS Elastic Disaster Recovery Service Manager?
 
 The AWS Replication Agent sends the following types of information to the AWS Elastic Disaster Recovery Service Manager:
 
@@ -33,9 +31,7 @@ information on the machine:
 - Running services.
 - Machine's Private IP address.
 
-## Can a proxy server be used between the source server and the
-
-Elastic Disaster Recovery Console?
+## Can a proxy server be used between the source server and the Elastic Disaster Recovery Console?
 
 Yes. You can configure the proxy either by using an environment variable prior to the installation
 (Linux and Windows), or by using the `--proxy-address` flag in the Linux installer.
@@ -49,9 +45,7 @@ Using environment variable:
 
 Make sure the proxy has a trailing forward slash (`/`).
 
-## What are the pre-requisites needed to install the
-
-AWS Replication Agent?
+## What are the pre-requisites needed to install the AWS Replication Agent?
 
 The installation requirements for source server depend on the type of OS that the
 server runs – either Linux or Windows.
@@ -63,9 +57,7 @@ server runs – either Linux or Windows.
 The Agent utilizes TCP Port 443 to communicate to the Elastic Disaster Recovery Service
 Manager and TCP Port 1500 for replication to AWS.
 
-## What kind of resources does the AWS Replication Agent
-
-utilize?
+## What kind of resources does the AWS Replication Agent utilize?
 
 The AWS Replication Agent is lightweight and nondisruptive. The agent utilizes
 approximately 5% CPU and 300 MB of RAM.
@@ -76,9 +68,7 @@ Elastic Disaster Recovery only supports the replication of full servers. Neverth
 Elastic Disaster Recovery replicates on a server level and therefore any containers within
 the selected servers will be replicated.
 
-## Does the AWS Replication Agent cache any data to
-
-disk?
+## Does the AWS Replication Agent cache any data to disk?
 
 Elastic Disaster Recovery does not write any cache or do any sort of journalling
 to disk. The Agent holds a buffer which is large enough to map all volume's blocks
@@ -90,23 +80,17 @@ memory, the Agent will read the block from the volume directly. This is the case
 where you may see backlog in the Elastic Disaster Recovery Console. The cause of
 this is the volume of change is greater than the bandwidth available.
 
-## How is communication between the AWS Replication
-
-Agent and the Elastic Disaster Recovery Service Manager secured?
+## How is communication between the AWS Replication Agent and the Elastic Disaster Recovery Service Manager secured?
 
 All communication is encrypted using SSL. In addition, each Agent is assigned a key during
 installation which is used to encrypt all traffic. All keys are unique and are not shared across
 multiple Agents.
 
-## Is it possible to change the port the AWS Replication
-
-Agent utilizes from TCP Port 1500 to a different port?
+## Is it possible to change the port the AWS Replication Agent utilizes from TCP Port 1500 to a different port?
 
 No. The Elastic Disaster Recovery Agent can only utilize TCP Port 1500 for replication.
 
-## How do I manually uninstall the Elastic Disaster
-
-Recovery Agent from a server?
+## How do I manually uninstall the Elastic Disaster Recovery Agent from a server?
 
 Please refer to:[Uninstalling the agent](uninstalling-agent.md "uninstalling-agent.md").
 
@@ -118,33 +102,25 @@ Agent re-installations are required in these cases:
 - Windows OS upgrades (ex. Windows Server 2012 to Windows Server 2016)
 - Some new features require a re-installation to apply. In this case, the feature documentation will specifically state that this is a requirement for the feature to be activated.
 
-## How much bandwidth does the AWS Replication Agent
-
-consume?
+## How much bandwidth does the AWS Replication Agent consume?
 
 The AWS Replication Agent opens up to five connections and will attempt to maximize
 available bandwidth.
 
 Throttling can be activated by selecting the specific server and selecting the **Settings** page in the Elastic Disaster Recovery Console.
 
-## How many disks can the AWS Replication Agent
-
-replicate?
+## How many disks can the AWS Replication Agent replicate?
 
 The Agent can replicate up to 50 disks from a single server. Ensure that the replication server instance type supports at least the number of disks being replicated.
 
-## Is it possible to add a disk to replication
-
-without a complete resync of any disks that have already been replicated??
+## Is it possible to add a disk to replication without a complete resync of any disks that have already been replicated??
 
 When you add a disk to a source server, AWS Elastic Disaster Recovery will automatically identify it
 and add it to the **Disk settings** tab in the console.
 
 This feature is activated automatically for newly added servers. [Learn how to deactivate or reactivated this feature.](volumes-drs.md#auto-replicate "volumes-drs.md#auto-replicate")
 
-## Which Windows and Linux OSs support no-rescan upon
-
-reboot?
+## Which Windows and Linux OSs support no-rescan upon reboot?
 
 A shutdown (from the OS menu or CLI) of any supported Linux or Windows
 source server no longer causes a rescan in DRS once the source server is restarted.
@@ -195,9 +171,7 @@ credentials' creation process relies on generating a x509 certificate per agent 
 then using this x509 certificate to receive temporary IAM credentials. This process
 utilizes a similar mechanism to the one used by [IAM Roles Anywhere](../../../rolesanywhere/latest/userguide/introduction.md "../../../rolesanywhere/latest/userguide/introduction.md").
 
-## Where can I find the AWS DRS Replication Agent
-
-logs
+## Where can I find the AWS DRS Replication Agent logs
 
 The AWS DRS agent logs are stored in agent.log.0:
 

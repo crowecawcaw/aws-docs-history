@@ -1,8 +1,6 @@
 # Elastic Disaster Recovery Concepts
 
-## What is the Recovery Time Objective (RTO) of Elastic Disaster
-
-Recovery?
+## What is the Recovery Time Objective (RTO) of Elastic Disaster Recovery?
 
 The Recovery Time Objective (RTO) of Elastic Disaster Recovery is typically measured in
 minutes. The RTO is highly dependent on the OS boot time.
@@ -27,9 +25,7 @@ following environment conditions:
 4. Target volume performance: Using a lower performance volume type will result in a slower
    boot time than that of a higher performance volume type with more provisioned IOPS.
 
-## What is the Recovery Point Objective (RPO) of Elastic Disaster
-
-Recovery?
+## What is the Recovery Point Objective (RPO) of Elastic Disaster Recovery?
 
 The Recovery Point Objective (RPO) of Elastic Disaster Recovery is typically in the
 sub-second range.
@@ -49,9 +45,7 @@ RPO is measured based on the latest point in time in which block data was writte
 source server volume(s) and successfully copied in a crash-consistent state into the
 replication staging area located in the customer’s target AWS account.
 
-#### How does AWS DRS allow an RPO of
-
-seconds?
+#### How does AWS DRS allow an RPO of seconds?
 
 The AWS Replication Agent continuously monitors the blocks written to the
 source server volume(s), and immediately attempts to copy the blocks across
@@ -72,9 +66,7 @@ in-memory application data is written to the volume(s), this data will
 not be available on the target server when launched for test or recovery
 purposes.
 
-#### What environment conditions can impact the ability to
-
-achieve a typical RPO of seconds?
+#### What environment conditions can impact the ability to achieve a typical RPO of seconds?
 
 To achieve an RPO of seconds, AWS Elastic Disaster Recovery primarily requires that the outbound network, inbound
 network, and staging area resources must allow data to be copied across the network and
@@ -101,9 +93,7 @@ point the RPO will return to seconds. Examples:
    servers
    and sent by the source network in order to maintain an RPO of seconds.
 
-#### What happens if the block data written to the source volume(s)
-
-cannot be sent immediately to the target replication Staging Area Subnet?
+#### What happens if the block data written to the source volume(s) cannot be sent immediately to the target replication Staging Area Subnet?
 
 If the block data written on the source volume(s) cannot be sent immediately to the
 target replication Staging Area, the RPO will increase until the data can be flushed across

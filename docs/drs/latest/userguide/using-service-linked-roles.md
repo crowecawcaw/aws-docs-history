@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-AWS Elastic Disaster Recovery
+# Using service-linked roles for AWS Elastic Disaster Recovery
 
 AWS Elastic Disaster Recovery uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM
 role that is linked directly to AWS Elastic Disaster Recovery. Service-linked roles are predefined by
@@ -97,8 +95,6 @@ AWSServiceRoleForElasticDisasterRecovery service-linked role. For more
 information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported AWS Regions for AWS Elastic Disaster Recovery service-linked
-
-roles
+## Supported AWS Regions for AWS Elastic Disaster Recovery service-linked roles
 
 AWS Elastic Disaster Recovery supports using service-linked roles in all of the [AWS Regions where the service is available](supported-regions.md "supported-regions.md").

@@ -1,6 +1,4 @@
-# AWS
-
-managed policy: AWSElasticDisasterRecoveryServiceRolePolicy
+# AWS managed policy: AWSElasticDisasterRecoveryServiceRolePolicy
 
 This policy allows AWS Elastic Disaster Recovery to manage AWS resources on your
 behalf.

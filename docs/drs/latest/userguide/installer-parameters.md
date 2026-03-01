@@ -1,6 +1,4 @@
-# AWS Replication Agent Installer
-
-parameters
+# AWS Replication Agent Installer parameters
 
 The AWS Replication Agent Installer supports the following command line parameters.
 

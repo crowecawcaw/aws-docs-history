@@ -1,6 +1,4 @@
-# Using identity-based
-
-policies
+# Using identity-based policies
 
 By default, IAM users and roles don't have permission to create or modify AWS Elastic Disaster Recovery resources.
 They also can't perform tasks using the AWS
@@ -15,12 +13,7 @@ documents, see [Creating policies on the JSON tab in the IAM User Guide.](../../
 ###### Topics
 
 - [Customer-managed policies in AWS Elastic Disaster Recovery](customer_managed_policies_drs.md "customer_managed_policies_drs.md")
-- [Console Full Access Policy -
-  AWSElasticDisasterRecoveryConsoleFullAccess](customer_managed_policies_drs_full_access.md "customer_managed_policies_drs_full_access.md")
-- [Console Full Access Policy -
-  AWSElasticDisasterRecoveryConsoleFullAccess_v2](customer_managed_policies_drs_full_access_v2.md "customer_managed_policies_drs_full_access_v2.md")
-- [Launch Actions Policy -
-  AWSElasticDisasterRecoveryLaunchActionsPolicy](customer_managed_policies_launch_actions.md "customer_managed_policies_launch_actions.md")
-- [Console Read-Only Access Policy
-
-* AWSElasticDisasterRecoveryReadOnlyAccess](customer_managed_policies_drs_readonly.md "customer_managed_policies_drs_readonly.md")
+- [Console Full Access Policy - AWSElasticDisasterRecoveryConsoleFullAccess](customer_managed_policies_drs_full_access.md "customer_managed_policies_drs_full_access.md")
+- [Console Full Access Policy - AWSElasticDisasterRecoveryConsoleFullAccess_v2](customer_managed_policies_drs_full_access_v2.md "customer_managed_policies_drs_full_access_v2.md")
+- [Launch Actions Policy - AWSElasticDisasterRecoveryLaunchActionsPolicy](customer_managed_policies_launch_actions.md "customer_managed_policies_launch_actions.md")
+- [Console Read-Only Access Policy - AWSElasticDisasterRecoveryReadOnlyAccess](customer_managed_policies_drs_readonly.md "customer_managed_policies_drs_readonly.md")

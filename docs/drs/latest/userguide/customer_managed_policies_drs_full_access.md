@@ -1,6 +1,4 @@
-# Console Full Access Policy -
-
-AWSElasticDisasterRecoveryConsoleFullAccess
+# Console Full Access Policy - AWSElasticDisasterRecoveryConsoleFullAccess
 
 This policy provides full access to all public APIs of AWS Elastic Disaster Recovery (AWS
 DRS), as well as permissions to read KMS key, License Manager, Resource

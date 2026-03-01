@@ -92,9 +92,7 @@ JSON
 
 ```
 
-## Creating the Failback and in-AWS
-
-right-sizing roles
+## Creating the Failback and in-AWS right-sizing roles
 
 The **Failback and in-AWS right-sizing roles** are required
 to utilize various AWS Elastic Disaster Recovery capabilities, including cross account failback and in-AWS

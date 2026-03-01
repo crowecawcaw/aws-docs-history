@@ -1,8 +1,6 @@
 # Monitoring with Elastic Disaster Recovery
 
-## Logging AWS Elastic Disaster Recovery API calls using
-
-AWS CloudTrail
+## Logging AWS Elastic Disaster Recovery API calls using AWS CloudTrail
 
 AWS Elastic Disaster Recovery is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, role, or an AWS service in AWS Elastic Disaster Recovery. CloudTrail captures all API calls for
@@ -16,9 +14,7 @@ request was made, who made the request, when it was made, and additional details
 
 To learn more about CloudTrail, see the[AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
 
-### AWS Elastic Disaster Recovery information in
-
-CloudTrail
+### AWS Elastic Disaster Recovery information in CloudTrail
 
 CloudTrail is activated on your AWS account when you create the account. When activity
 occurs in AWS Elastic Disaster Recovery, that activity is recorded in a CloudTrail event along with other
@@ -59,9 +55,7 @@ identity information helps you determine the following:
 For more information, see the[CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-### Understanding AWS Elastic Disaster Recovery log
-
-file entries
+### Understanding AWS Elastic Disaster Recovery log file entries
 
 A trail is a configuration that allows delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single

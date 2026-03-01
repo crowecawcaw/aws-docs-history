@@ -1,6 +1,4 @@
-# AWS
-
-managed policy: AWSElasticDisasterRecoveryConsoleFullAccess_v2
+# AWS managed policy: AWSElasticDisasterRecoveryConsoleFullAccess_v2
 
 You can attach the **AWSElasticDisasterRecoveryConsoleFullAccess_v2** policy to your IAM
 identities.

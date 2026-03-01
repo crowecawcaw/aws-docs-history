@@ -1,6 +1,4 @@
-# Default Amazon Elastic Compute Cloud (Amazon EC2) launch
-
-template
+# Default Amazon Elastic Compute Cloud (Amazon EC2) launch template
 
 The default Amazon EC2 launch template sets the default values that are copied to EC2
 templates created for newly added source servers. This template defines how drill,
@@ -14,5 +12,4 @@ your AWS account).
 
 ###### Topics
 
-- [Editing the default EC2
-  launch template](edit-default-ec2-launch-template.md "edit-default-ec2-launch-template.md")
+- [Editing the default EC2 launch template](edit-default-ec2-launch-template.md "edit-default-ec2-launch-template.md")

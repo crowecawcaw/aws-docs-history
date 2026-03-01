@@ -1,8 +1,6 @@
 # Elastic Disaster Recovery FAQ
 
-## What source infrastructure does AWS Elastic Disaster Recovery
-
-support?
+## What source infrastructure does AWS Elastic Disaster Recovery support?
 
 With AWS Elastic Disaster Recovery, you can recover your applications on AWS from any source
 infrastructure on which you can install the AWS Replication Agent, and on which you can
@@ -10,9 +8,7 @@ run the DRS Failback Client. This includes physical infrastructure, virtual mach
 on hypervisors by VMware, Microsoft, and others, and cloud infrastructure from other
 cloud providers.
 
-## How do I upgrade from CloudEndure Disaster Recovery to
-
-AWS Elastic Disaster Recovery?
+## How do I upgrade from CloudEndure Disaster Recovery to AWS Elastic Disaster Recovery?
 
 You can use the CEDR to DRS Upgrade Assessment Tool and the Server Upgrade Tool
 and to move your source servers from CloudEndure Disaster Recovery (CEDR) to
@@ -34,31 +30,23 @@ For manual upgrading instructions, refer to [this section](#cedr-to-drs-instruct
 Because AWS Elastic Disaster Recovery works at the OS layer it can protect not only virtual servers
 but physical ones as well.
 
-## What data is stored on and transmitted through
-
-AWS Elastic Disaster Recovery servers?
+## What data is stored on and transmitted through AWS Elastic Disaster Recovery servers?
 
 AWS Elastic Disaster Recovery store only configuration and log data on the AWS Elastic Disaster Recovery Console's
 encrypted database. Replicated data is always stored on the customer’s own cloud
 VPC. The replicated data is encrypted in transit.
 
-## What is the Recovery Time Objective (RTO) of
-
-AWS Elastic Disaster Recovery?
+## What is the Recovery Time Objective (RTO) of AWS Elastic Disaster Recovery?
 
 The Recovery Time Objective (RTO) of Elastic Disaster Recovery is typically
 measured in minutes. The RTO is highly dependent on the OS boot time.
 
-## What is the Recovery Point Objective (RPO) of
-
-AWS Elastic Disaster Recovery?
+## What is the Recovery Point Objective (RPO) of AWS Elastic Disaster Recovery?
 
 The Recovery Point Objective (RPO) of AWS Elastic Disaster Recovery is typically in the sub-second
 range.
 
-## What to consider when replicating Active
-
-Directory
+## What to consider when replicating Active Directory
 
 There are two main approaches when it comes to migrating Active Directory or
 domain controllers from a disaster:
@@ -76,9 +64,7 @@ In this case, it is important to conduct any drills using an isolated
 subnet in the AWS cloud, so to avoid having the drill or recovery instances
 communicate into the source AD server outside of a recovery.
 
-## Does AWS Elastic Disaster Recovery work with LVM and RAID
-
-configurations?
+## Does AWS Elastic Disaster Recovery work with LVM and RAID configurations?
 
 AWS Elastic Disaster Recovery works with any hardware RAID configuration and LVM configuration.
 
@@ -97,9 +83,7 @@ replicate only one physical disk of the mirrored boot partition using the
 
 The SSM agent is intentionally not installed on these servers as part of our security architecture to maintain isolation and prevent any potential unauthorized access paths.
 
-## What is there to note regarding SAN/NAS
-
-Support?
+## What is there to note regarding SAN/NAS Support?
 
 If the disks are represented as block devices on the machine, as most SAN are,
 Elastic Disaster Recovery will replicate them transparently, just like actual local
@@ -109,23 +93,17 @@ If the disks are mounted over the network, such as an NFS share, as most NAS
 implementations are, the AWS Replication Agent would need to be installed on the
 actual NFS server in order to replicate the disk.
 
-## Does AWS Elastic Disaster Recovery support Windows
-
-License Migration?
+## Does AWS Elastic Disaster Recovery support Windows License Migration?
 
 AWS Elastic Disaster Recovery conforms to the [Microsoft Licensing on
 AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com/windows/resources/licensing/") guidelines.
 
-## Can you perform an OS (Operating System) upgrade
-
-with AWS Elastic Disaster Recovery?
+## Can you perform an OS (Operating System) upgrade with AWS Elastic Disaster Recovery?
 
 No. AWS Elastic Disaster Recovery copies the entire machine as-is. However, you can copy the data
 disks exclusively and attach them to a new machine with an upgraded OS.
 
-## What are the private APIs used by AWS DRS to define
-
-actions in the IAM Policy?
+## What are the private APIs used by AWS DRS to define actions in the IAM Policy?
 
 AWS Elastic Disaster Recovery (AWS DRS)utilizes the following private API resources as actions in the
 IAM Policy. Learn more about actions, resources, and condition keys for Elastic Disaster Recovery.
@@ -179,9 +157,7 @@ IAM Policy. Learn more about actions, resources, and condition keys for Elastic 
 - CreateConvertedSnapshotForDrs – Grants permission to create converted
   snapshot.
 
-## What post-launch scripts does
-
-AWS Elastic Disaster Recovery support?
+## What post-launch scripts does AWS Elastic Disaster Recovery support?
 
 DRS can run scripts on a launched drill or recovery instance. This is done by
 creating the following folder on the source server and placing the scripts within
@@ -202,16 +178,12 @@ instance boots for the first time.
 Post-launch scripts on Windows run under the Local System context. Post-launch
 scripts on Linux run under the 'root' user.
 
-## Is BitLocker
-
-encryption supported?
+## Is BitLocker encryption supported?
 
 DRS does not support OS-based disk encryption features such as BitLocker. These
 should be deactivated before using AWS Elastic Disaster Recovery.
 
-## Can I set instance metadata on my launched
-
-instance to support IMDSv2 only?
+## Can I set instance metadata on my launched instance to support IMDSv2 only?
 
 You can easily set Instance Metadata Service Version 2 (IMDSv2) on your recovery
 instances using the EC2 launch template associated with your DRS source server.
@@ -228,9 +200,7 @@ following steps
 
 You can then set this launch template as your default version.
 
-## Upgrading from CEDR to AWS DRS - Manual
-
-instructions
+## Upgrading from CEDR to AWS DRS - Manual instructions
 
 ###### Important
 

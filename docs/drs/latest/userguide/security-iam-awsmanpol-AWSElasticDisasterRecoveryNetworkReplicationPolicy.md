@@ -1,6 +1,4 @@
-# AWS
-
-managed policy: AWSElasticDisasterRecoveryNetworkReplicationPolicy
+# AWS managed policy: AWSElasticDisasterRecoveryNetworkReplicationPolicy
 
 This policy allows AWS Elastic Disaster Recovery (DRS) to support network replication.
 

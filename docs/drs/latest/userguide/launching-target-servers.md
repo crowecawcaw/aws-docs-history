@@ -10,9 +10,7 @@ by utilizing EC2 launch templates. EC2 launch templates always use the latest EC
 and technology. EC2 launch templates integrate with AWS Elastic Disaster Recovery in order to give you full
 control over every single setting within your drill and recovery instance.
 
-## Preparing for drill and recovery instance
-
-launch
+## Preparing for drill and recovery instance launch
 
 Prior to launching your instances, make sure that your environment is set up properly
 to ensure successful launches. Check the following prior to continuing:
