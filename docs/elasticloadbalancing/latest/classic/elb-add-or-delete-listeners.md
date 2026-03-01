@@ -23,8 +23,7 @@ For information about creating a new HTTPS listener, see [Create a Classic Load 
 ###### Contents
 
 - [Prerequisites](#add-listener-prerequisites "#add-listener-prerequisites")
-- [Add an HTTPS listener using the
-  console](#add-listener-console "#add-listener-console")
+- [Add an HTTPS listener using the console](#add-listener-console "#add-listener-console")
 - [Add an HTTPS listener using the AWS CLI](#add-listener-cli "#add-listener-cli")
 
 ## Prerequisites
@@ -34,9 +33,7 @@ certificate on your load balancer. The load balancer uses the certificate to
 terminate and then decrypt requests before sending them to the instances. If you do
 not have an SSL certificate, you can create one. For more information, see [SSL/TLS certificates for Classic Load Balancers](ssl-server-cert.md "ssl-server-cert.md").
 
-## Add an HTTPS listener using the
-
-console
+## Add an HTTPS listener using the console
 
 You can add an HTTPS listener to an existing load balancer.
 
@@ -195,8 +192,7 @@ The following is an example response:
 4. (Optional) Your HTTPS listener was created using the default security
    policy. If you want to specify a different predefined security policy or a
    custom security policy, use the [create-load-balancer-policy](../../../cli/latest/reference/elb/create-load-balancer-policy.md "../../../cli/latest/reference/elb/create-load-balancer-policy.md") and [set-load-balancer-policies-of-listener](../../../cli/latest/reference/elb/set-load-balancer-policies-of-listener.md "../../../cli/latest/reference/elb/set-load-balancer-policies-of-listener.md") commands. For more
-   information, see [Update the SSL negotiation configuration
-   using the AWS CLI](ssl-config-update.md#ssl-config-update-cli "ssl-config-update.md#ssl-config-update-cli").
+   information, see [Update the SSL negotiation configuration using the AWS CLI](ssl-config-update.md#ssl-config-update-cli "ssl-config-update.md#ssl-config-update-cli").
 5. (Optional) To set up back-end instance authentication, use the [set-load-balancer-policies-for-backend-server](../../../cli/latest/reference/elb/set-load-balancer-policies-for-backend-server.md "../../../cli/latest/reference/elb/set-load-balancer-policies-for-backend-server.md") command. For more
    information, see [Configure
    Back-end Instance Authentication](elb-create-https-ssl-load-balancer.md#configure_backendauth_clt "elb-create-https-ssl-load-balancer.md#configure_backendauth_clt").

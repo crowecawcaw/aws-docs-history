@@ -19,12 +19,9 @@ The AWS Management Console does not support enabling proxy protocol.
 ###### Contents
 
 - [Proxy protocol header](#proxy-protocol "#proxy-protocol")
-- [Prerequisites for enabling proxy
-  protocol](#proxy-protocol-prerequisites "#proxy-protocol-prerequisites")
-- [Enable proxy protocol using the
-  AWS CLI](#enable-proxy-protocol-cli "#enable-proxy-protocol-cli")
-- [Disable proxy protocol using the
-  AWS CLI](#proxy-protocol-disable-policy-cli "#proxy-protocol-disable-policy-cli")
+- [Prerequisites for enabling proxy protocol](#proxy-protocol-prerequisites "#proxy-protocol-prerequisites")
+- [Enable proxy protocol using the AWS CLI](#enable-proxy-protocol-cli "#enable-proxy-protocol-cli")
+- [Disable proxy protocol using the AWS CLI](#proxy-protocol-disable-policy-cli "#proxy-protocol-disable-policy-cli")
 
 ## Proxy protocol header
 
@@ -57,9 +54,7 @@ The following is an example of the proxy protocol line for IPv4.
 PROXY TCP4 198.51.100.22 203.0.113.7 35646 80\r\n
 ```
 
-## Prerequisites for enabling proxy
-
-protocol
+## Prerequisites for enabling proxy protocol
 
 Before you begin, do the following:
 
@@ -73,9 +68,7 @@ Before you begin, do the following:
 - Confirm that your listener settings support proxy protocol. For more
   information, see [Listener configurations for Classic Load Balancers](using-elb-listenerconfig-quickref.md "using-elb-listenerconfig-quickref.md").
 
-## Enable proxy protocol using the
-
-AWS CLI
+## Enable proxy protocol using the AWS CLI
 
 To enable proxy protocol, you must create a policy of type
 `ProxyProtocolPolicyType` and then enable the policy on the instance
@@ -168,9 +161,7 @@ The response includes the following information, which shows that the
 }
 ```
 
-## Disable proxy protocol using the
-
-AWS CLI
+## Disable proxy protocol using the AWS CLI
 
 You can disable the policies associated with your instance and then enable them at
 a later time.

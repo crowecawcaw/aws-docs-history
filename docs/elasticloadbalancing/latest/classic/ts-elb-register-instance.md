@@ -9,8 +9,7 @@ your EC2 instances, the potential causes, and the steps you can take to resolve 
 ###### Issues
 
 - [Taking too long to register an EC2 instance](#ts-elb-register-too-long "#ts-elb-register-too-long")
-- [Unable to register an instance launched from a
-  paid AMI](#ts-elb-paid-ami-instance "#ts-elb-paid-ami-instance")
+- [Unable to register an instance launched from a paid AMI](#ts-elb-paid-ami-instance "#ts-elb-paid-ami-instance")
 
 ## Taking too long to register an EC2 instance
 
@@ -24,9 +23,7 @@ Your instance is not `InService` until one health check succeeds.
 
 **Solution**: See [Connection to the instances has timed out](ts-elb-healthcheck.md#ts-elb-healthcheck-failed "ts-elb-healthcheck.md#ts-elb-healthcheck-failed").
 
-## Unable to register an instance launched from a
-
-paid AMI
+## Unable to register an instance launched from a paid AMI
 
 **Problem**: Elastic Load Balancing is not registering an instance launched using a paid AMI.
 

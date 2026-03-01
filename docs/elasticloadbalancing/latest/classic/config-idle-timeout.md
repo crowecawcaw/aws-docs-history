@@ -22,14 +22,10 @@ connection because they do not send data in the payload.
 
 ###### Contents
 
-- [Configure the idle timeout using the
-  console](#config-idle-timeout-console "#config-idle-timeout-console")
-- [Configure the idle timeout using the
-  AWS CLI](#config-idle-timeout-awscli "#config-idle-timeout-awscli")
+- [Configure the idle timeout using the console](#config-idle-timeout-console "#config-idle-timeout-console")
+- [Configure the idle timeout using the AWS CLI](#config-idle-timeout-awscli "#config-idle-timeout-awscli")
 
-## Configure the idle timeout using the
-
-console
+## Configure the idle timeout using the console
 
 By default, Elastic Load Balancing sets the idle timeout for your load balancer to 60 seconds. Use
 the following procedure to set a different value for the idle timeout.
@@ -45,9 +41,7 @@ the following procedure to set a different value for the idle timeout.
 5. On the **Edit load balancer attributes** page, in the **Traffic configuration** section, type a value for **Idle timeout**. The range for the idle timeout is from 1 to 4,000 seconds.
 6. Choose **Save changes**.
 
-## Configure the idle timeout using the
-
-AWS CLI
+## Configure the idle timeout using the AWS CLI
 
 Use the following [modify-load-balancer-attributes](../../../cli/latest/reference/elb/modify-load-balancer-attributes.md "../../../cli/latest/reference/elb/modify-load-balancer-attributes.md") command to set the idle timeout for
 your load balancer:

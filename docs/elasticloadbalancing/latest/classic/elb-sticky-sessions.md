@@ -41,14 +41,10 @@ instance.
 
 ###### Contents
 
-- [Duration-based session
-  stickiness](#enable-sticky-sessions-duration "#enable-sticky-sessions-duration")
-- [Application-controlled session
-  stickiness](#enable-sticky-sessions-application "#enable-sticky-sessions-application")
+- [Duration-based session stickiness](#enable-sticky-sessions-duration "#enable-sticky-sessions-duration")
+- [Application-controlled session stickiness](#enable-sticky-sessions-application "#enable-sticky-sessions-application")
 
-## Duration-based session
-
-stickiness
+## Duration-based session stickiness
 
 The load balancer uses a special cookie, AWSELB, to track the instance for each
 request to each listener. When the load balancer receives a request, it first checks
@@ -76,9 +72,7 @@ no cookie and the session is no longer sticky.
 If a client switches to a listener with a different backend port, stickiness is
 lost.
 
-###### To enable duration-based sticky sessions for a load balancer using the
-
-console
+###### To enable duration-based sticky sessions for a load balancer using the console
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -94,9 +88,7 @@ console
 8. Choose **Save changes** to close the pop-up window.
 9. Choose **Save changes** to return to the load balancer details page.
 
-###### To enable duration-based sticky sessions for a load balancer using the
-
-AWS CLI
+###### To enable duration-based sticky sessions for a load balancer using the AWS CLI
 
 1. Use the following [create-lb-cookie-stickiness-policy](../../../cli/latest/reference/elb/create-lb-cookie-stickiness-policy.md "../../../cli/latest/reference/elb/create-lb-cookie-stickiness-policy.md") command to create a load
    balancer-generated cookie stickiness policy with a cookie expiration period
@@ -170,9 +162,7 @@ policy is enabled for the listener on the specified port:
 }
 ```
 
-## Application-controlled session
-
-stickiness
+## Application-controlled session stickiness
 
 The load balancer uses a special cookie to associate the session with the instance
 that handled the initial request, but follows the lifetime of the application cookie

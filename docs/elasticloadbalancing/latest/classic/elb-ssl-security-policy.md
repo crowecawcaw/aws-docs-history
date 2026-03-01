@@ -43,8 +43,7 @@ as PCI and SOC) might require a specific set of protocols and ciphers to ensure
 that the security standards are met. In such cases, you can create a custom
 security policy to meet those standards.
 
-For information about creating a custom security policy, see [Update the SSL negotiation configuration of your
-Classic Load Balancer](ssl-config-update.md "ssl-config-update.md").
+For information about creating a custom security policy, see [Update the SSL negotiation configuration of your Classic Load Balancer](ssl-config-update.md "ssl-config-update.md").
 
 ## SSL protocols
 

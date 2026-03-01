@@ -26,14 +26,10 @@ target.
 
 ###### Contents
 
-- [Replace the SSL certificate using the
-  console](#us-update-lb-SSLcert-console "#us-update-lb-SSLcert-console")
-- [Replace the SSL certificate using the
-  AWS CLI](#us-update-lb-SSLcert-cli "#us-update-lb-SSLcert-cli")
+- [Replace the SSL certificate using the console](#us-update-lb-SSLcert-console "#us-update-lb-SSLcert-console")
+- [Replace the SSL certificate using the AWS CLI](#us-update-lb-SSLcert-cli "#us-update-lb-SSLcert-cli")
 
-## Replace the SSL certificate using the
-
-console
+## Replace the SSL certificate using the console
 
 You can replace the certificate deployed on your load balancer with a certificate
 provided by ACM or a certificate uploaded to IAM.
@@ -82,9 +78,7 @@ provided by ACM or a certificate uploaded to IAM.
      implicitly accept the certificate.
    - Choose **Save changes**.
 
-## Replace the SSL certificate using the
-
-AWS CLI
+## Replace the SSL certificate using the AWS CLI
 
 You can replace the certificate deployed on your load balancer with a certificate
 provided by ACM or a certificate uploaded to IAM.

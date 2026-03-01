@@ -1,6 +1,4 @@
-# Update the SSL negotiation configuration of your
-
-Classic Load Balancer
+# Update the SSL negotiation configuration of your Classic Load Balancer
 
 Elastic Load Balancing provides security policies that have predefined SSL negotiation configurations
 to use to negotiate SSL connections between clients and your load balancer. If you are
@@ -26,23 +24,17 @@ configuration will be used with new requests that are received.
 
 ###### Contents
 
-- [Update the SSL negotiation configuration
-  using the console](#ssl-config-update-console "#ssl-config-update-console")
-- [Update the SSL negotiation configuration
-  using the AWS CLI](#ssl-config-update-cli "#ssl-config-update-cli")
+- [Update the SSL negotiation configuration using the console](#ssl-config-update-console "#ssl-config-update-console")
+- [Update the SSL negotiation configuration using the AWS CLI](#ssl-config-update-cli "#ssl-config-update-cli")
 
-## Update the SSL negotiation configuration
-
-using the console
+## Update the SSL negotiation configuration using the console
 
 By default, Elastic Load Balancing associates the latest predefined policy with your load balancer.
 When a new predefined policy is added, we recommend that you update your load
 balancer to use the new predefined policy. Alternatively, you can select a different
 predefined security policy or create a custom policy.
 
-###### To update SSL negotiation configuration for an HTTPS/SSL load
-
-balancer using the console
+###### To update SSL negotiation configuration for an HTTPS/SSL load balancer using the console
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -71,9 +63,7 @@ balancer using the console
         signing algorithm.
      4. Choose **Save changes**.
 
-## Update the SSL negotiation configuration
-
-using the AWS CLI
+## Update the SSL negotiation configuration using the AWS CLI
 
 You can use the default predefined security policy, `ELBSecurityPolicy-2016-08`,
 a different predefined security policy, or a custom security policy.

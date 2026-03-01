@@ -33,9 +33,7 @@ The wild-card name will appear in the **Subject** field and in the
 **Subject Alternative Name** extension of the certificate. For more
 information about public certificates, see [Requesting a public certificate](../../../acm/latest/userguide/gs-acm-request-public.md#request-public-console "../../../acm/latest/userguide/gs-acm-request-public.md#request-public-console") in the _AWS Certificate Manager User Guide_.
 
-## Create or import an SSL/TLS certificate
-
-using AWS Certificate Manager
+## Create or import an SSL/TLS certificate using AWS Certificate Manager
 
 We recommend that you use AWS Certificate Manager (ACM) to create or import certificates for
 your load balancer. ACM integrates with Elastic Load Balancing so that you can deploy the

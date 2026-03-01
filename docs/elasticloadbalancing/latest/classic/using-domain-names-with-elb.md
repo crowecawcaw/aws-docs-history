@@ -17,16 +17,11 @@ DNS name for your load balancer.
 
 ###### Contents
 
-- [Associating your custom domain name with
-  your load balancer name](#dns-associate-custom-elb "#dns-associate-custom-elb")
-- [Using Route 53 DNS failover for your load
-  balancer](#configure-dns-failover "#configure-dns-failover")
-- [Disassociating your custom domain name
-  from your load balancer](#dns-disassociate-custom-elb "#dns-disassociate-custom-elb")
+- [Associating your custom domain name with your load balancer name](#dns-associate-custom-elb "#dns-associate-custom-elb")
+- [Using Route 53 DNS failover for your load balancer](#configure-dns-failover "#configure-dns-failover")
+- [Disassociating your custom domain name from your load balancer](#dns-disassociate-custom-elb "#dns-disassociate-custom-elb")
 
-## Associating your custom domain name with
-
-your load balancer name
+## Associating your custom domain name with your load balancer name
 
 First, if you haven't already done so, register your domain name. The Internet
 Corporation for Assigned Names and Numbers (ICANN) manages domain names on the
@@ -58,9 +53,7 @@ Finally, create a hosted zone and an alias record set for your domain using Rout
 For more information, see [Routing traffic to a load
 balancer](../../../Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.md "../../../Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.md") in the _Amazon Route 53 Developer Guide_.
 
-## Using Route 53 DNS failover for your load
-
-balancer
+## Using Route 53 DNS failover for your load balancer
 
 If you use Route 53 to route DNS queries to your load balancer, you can also
 configure DNS failover for your load balancer using Route 53. In a failover
@@ -97,9 +90,7 @@ load balancer otherwise.
 For more information, see [Configuring DNS failover](../../../Route53/latest/DeveloperGuide/dns-failover-configuring.md "../../../Route53/latest/DeveloperGuide/dns-failover-configuring.md") in the
 _Amazon Route 53 Developer Guide_.
 
-## Disassociating your custom domain name
-
-from your load balancer
+## Disassociating your custom domain name from your load balancer
 
 You can disassociate your custom domain name from a load balancer instance by
 first deleting the resource record sets in your hosted zone and then deleting the

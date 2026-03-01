@@ -1,8 +1,6 @@
 # Troubleshoot a Classic Load Balancer: Client connectivity
 
-## Clients cannot connect to an internet-facing
-
-load balancer
+## Clients cannot connect to an internet-facing load balancer
 
 If the load balancer is not responding to requests, check for the following
 issues:

@@ -17,8 +17,7 @@ the potential causes, and the steps you can take to resolve the issues.
 
 - [Health check target page error](#ts-elb-healthcheck-targetpage "#ts-elb-healthcheck-targetpage")
 - [Connection to the instances has timed out](#ts-elb-healthcheck-failed "#ts-elb-healthcheck-failed")
-- [Public key authentication is
-  failing](#ts-elb-healthcheck-publickey "#ts-elb-healthcheck-publickey")
+- [Public key authentication is failing](#ts-elb-healthcheck-publickey "#ts-elb-healthcheck-publickey")
 - [Instance is not receiving traffic from the load balancer](#ts-elb-healthcheck-securitygroup "#ts-elb-healthcheck-securitygroup")
 - [Ports on instance are not open](#ts-elb-healthcheck-ports "#ts-elb-healthcheck-ports")
 - [Instances in an Auto Scaling group are failing the ELB health check](#ts-elb-healthcheck-autoscaling "#ts-elb-healthcheck-autoscaling")
@@ -97,9 +96,7 @@ target page might be taking longer to respond than your configured timeout.
 
 **Solution 3**: Use a simpler health check target page or adjust the health check interval settings.
 
-## Public key authentication is
-
-failing
+## Public key authentication is failing
 
 **Problem**: A load balancer configured to use the HTTPS or
 SSL protocol with back-end authentication enabled fails public key

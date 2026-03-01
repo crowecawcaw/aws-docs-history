@@ -208,16 +208,12 @@ AWS CLI.
 ###### Tasks
 
 - [Step 1: Configure listeners](#configuring_listener_clt "#configuring_listener_clt")
-- [Step 2: Configure the SSL security
-  policy](#configure_ciphers_clt "#configure_ciphers_clt")
-- [Step 3: Configure back-end instance
-  authentication (optional)](#configure_backendauth_clt "#configure_backendauth_clt")
-- [Step 4: Configure health checks
-  (optional)](#configure_healthcheck_clt "#configure_healthcheck_clt")
+- [Step 2: Configure the SSL security policy](#configure_ciphers_clt "#configure_ciphers_clt")
+- [Step 3: Configure back-end instance authentication (optional)](#configure_backendauth_clt "#configure_backendauth_clt")
+- [Step 4: Configure health checks (optional)](#configure_healthcheck_clt "#configure_healthcheck_clt")
 - [Step 5: Register EC2 instances](#add_ec2instances_clt "#add_ec2instances_clt")
 - [Step 6: Verify the instances](#verify-ec2instances-clt "#verify-ec2instances-clt")
-- [Step 7: Delete your load balancer
-  (optional)](#us-tearing-lb-cli "#us-tearing-lb-cli")
+- [Step 7: Delete your load balancer (optional)](#us-tearing-lb-cli "#us-tearing-lb-cli")
 
 ### Step 1: Configure listeners
 
@@ -277,18 +273,14 @@ The following is an example response:
 `aws elb describe-load-balancers --load-balancer-name `my-load-balancer``
 ```
 
-### Step 2: Configure the SSL security
-
-policy
+### Step 2: Configure the SSL security policy
 
 You can select one of the predefined security policies, or you can create your
 own custom security policy. Otherwise, Elastic Load Balancing configures your load balancer with
 the default predefined security policy, `ELBSecurityPolicy-2016-08`. For more
 information, see [SSL negotiation configurations for Classic Load Balancers](elb-ssl-security-policy.md "elb-ssl-security-policy.md").
 
-###### To verify that your load balancer is associated with the default security
-
-policy
+###### To verify that your load balancer is associated with the default security policy
 
 Use the following [describe-load-balancers](../../../cli/latest/reference/elb/describe-load-balancers.md "../../../cli/latest/reference/elb/describe-load-balancers.md") command:
 
@@ -508,9 +500,7 @@ enabled on port 443.
 }
 ```
 
-### Step 3: Configure back-end instance
-
-authentication (optional)
+### Step 3: Configure back-end instance authentication (optional)
 
 If you set up HTTPS/SSL on the back-end connection, you can optionally set up
 authentication of your instances.
@@ -594,9 +584,7 @@ HTTPS. In this example, the instance port is port 443.
 `aws elb describe-load-balancer-policies --load-balancer-name `my-loadbalancer` --policy-names `my-authentication-policy``
 ```
 
-### Step 4: Configure health checks
-
-(optional)
+### Step 4: Configure health checks (optional)
 
 Elastic Load Balancing regularly checks the health of each registered EC2 instance based on the
 health checks that you configured. If Elastic Load Balancing finds an unhealthy instance, it
@@ -700,9 +688,7 @@ of the load balancer and paste it into the address field of an
 internet-connected web browser. If your load balancer is working, you see the
 default page of your HTTP server.
 
-### Step 7: Delete your load balancer
-
-(optional)
+### Step 7: Delete your load balancer (optional)
 
 Deleting a the load balancer automatically de-registers its associated EC2
 instances. As soon as the load balancer is deleted, you stop incurring charges

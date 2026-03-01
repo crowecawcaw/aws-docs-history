@@ -16,8 +16,7 @@ github.
 
 - [Classifications](#desync-mitigation-classification "#desync-mitigation-classification")
 - [Modes](#desync-mitigation-modes "#desync-mitigation-modes")
-- [Modify desync mitigation
-  mode](#update-desync-mitigation-mode "#update-desync-mitigation-mode")
+- [Modify desync mitigation mode](#update-desync-mitigation-mode "#update-desync-mitigation-mode")
 
 ###### Tip
 
@@ -91,9 +90,7 @@ classification.
 
 ¹ Routes the requests but closes the client and target connections.
 
-## Modify desync mitigation
-
-mode
+## Modify desync mitigation mode
 
 ###### To update desync mitigation mode using the console
 

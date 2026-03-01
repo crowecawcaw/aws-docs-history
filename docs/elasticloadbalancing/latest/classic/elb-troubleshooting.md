@@ -30,18 +30,18 @@ work with a Classic Load Balancer.
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | [Health check target page error](ts-elb-healthcheck.md#ts-elb-healthcheck-targetpage "ts-elb-healthcheck.md#ts-elb-healthcheck-targetpage")                                        |
 | [Connection to the instances has timed out](ts-elb-healthcheck.md#ts-elb-healthcheck-failed "ts-elb-healthcheck.md#ts-elb-healthcheck-failed")                                     |
-| [Public key authentication is<br>failing](ts-elb-healthcheck.md#ts-elb-healthcheck-publickey "ts-elb-healthcheck.md#ts-elb-healthcheck-publickey")                                 |
+| [Public key authentication is failing](ts-elb-healthcheck.md#ts-elb-healthcheck-publickey "ts-elb-healthcheck.md#ts-elb-healthcheck-publickey")                                    |
 | [Instance is not receiving traffic from the load balancer](ts-elb-healthcheck.md#ts-elb-healthcheck-securitygroup "ts-elb-healthcheck.md#ts-elb-healthcheck-securitygroup")        |
 | [Ports on instance are not open](ts-elb-healthcheck.md#ts-elb-healthcheck-ports "ts-elb-healthcheck.md#ts-elb-healthcheck-ports")                                                  |
 | [Instances in an Auto Scaling group are failing the ELB health check](ts-elb-healthcheck.md#ts-elb-healthcheck-autoscaling "ts-elb-healthcheck.md#ts-elb-healthcheck-autoscaling") |
 
 | Connectivity issues                                                                                                                                                                    | Issue |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| [Clients cannot connect to an internet-facing<br>load balancer](ts-elb-connection-failed.md#client-cannot-connect "ts-elb-connection-failed.md#client-cannot-connect")                 |
+| [Clients cannot connect to an internet-facing load balancer](ts-elb-connection-failed.md#client-cannot-connect "ts-elb-connection-failed.md#client-cannot-connect")                    |
 | [Requests sent to a custom domain aren't received by the load balancer](ts-elb-connection-failed.md#custom-domain-request "ts-elb-connection-failed.md#custom-domain-request")         |
 | [HTTPS requests sent to the load balancer return "NET::ERR_CERT_COMMON_NAME_INVALID"](ts-elb-connection-failed.md#https-cert-invalid "ts-elb-connection-failed.md#https-cert-invalid") |
 
-| Instance registration issues                                                                                                                                              | Issue |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| [Taking too long to register an EC2 instance](ts-elb-register-instance.md#ts-elb-register-too-long "ts-elb-register-instance.md#ts-elb-register-too-long")                |
-| [Unable to register an instance launched from a<br>paid AMI](ts-elb-register-instance.md#ts-elb-paid-ami-instance "ts-elb-register-instance.md#ts-elb-paid-ami-instance") |
+| Instance registration issues                                                                                                                                           | Issue |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| [Taking too long to register an EC2 instance](ts-elb-register-instance.md#ts-elb-register-too-long "ts-elb-register-instance.md#ts-elb-register-too-long")             |
+| [Unable to register an instance launched from a paid AMI](ts-elb-register-instance.md#ts-elb-paid-ami-instance "ts-elb-register-instance.md#ts-elb-paid-ami-instance") |
