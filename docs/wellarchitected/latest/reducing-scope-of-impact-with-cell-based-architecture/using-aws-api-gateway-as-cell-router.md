@@ -1,6 +1,4 @@
-# Using Amazon API Gateway as cell
-
-router
+# Using Amazon API Gateway as cell router
 
 [Amazon API Gateway](../../../apigateway/latest/developerguide/welcome.md "../../../apigateway/latest/developerguide/welcome.md") is an AWS service for creating, publishing, maintaining, monitoring,
 and securing REST, HTTP, and WebSocket APIs at any scale. It's a serverless regional service

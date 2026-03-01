@@ -35,8 +35,7 @@ In addition, we can say that control planes are designed to fail rather than cor
 provide incorrect information (CP in the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem "https://en.wikipedia.org/wiki/CAP_theorem")), while data planes
 generally prefer AP in the [CAP
 theorem](https://en.wikipedia.org/wiki/CAP_theorem "https://en.wikipedia.org/wiki/CAP_theorem") (Data planes try their best to remain available, even if they depend on
-stale information for decisions.) An example would be [Using a compute layer like Amazon EC2, Amazon ECS or Amazon EKS and Amazon S3 for cell mapping as cell
-router](using-a-compute-layer-like-ec2-ecs-or-eks-and-s3-for-cell-mapping-as-cell-router.md "using-a-compute-layer-like-ec2-ecs-or-eks-and-s3-for-cell-mapping-as-cell-router.md")
+stale information for decisions.) An example would be [Using a compute layer like Amazon EC2, Amazon ECS or Amazon EKS and Amazon S3 for cell mapping as cell router](using-a-compute-layer-like-ec2-ecs-or-eks-and-s3-for-cell-mapping-as-cell-router.md "using-a-compute-layer-like-ec2-ecs-or-eks-and-s3-for-cell-mapping-as-cell-router.md")
 described later in this paper. Routes to cells are loaded into memory from an S3 bucket. Even
 if the control plane, Amazon S3 or a zone is unavailable, the router is still able to direct
 traffic to the cells.

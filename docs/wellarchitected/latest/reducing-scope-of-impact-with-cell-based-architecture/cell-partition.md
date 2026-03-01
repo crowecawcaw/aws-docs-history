@@ -37,8 +37,6 @@ Regardless of algorithm, there needs to be:
 
 - [Full mapping](full-mapping.md "full-mapping.md")
 - [Prefix and range-based mapping](prefix-and-range-based-mapping.md "prefix-and-range-based-mapping.md")
-- [Naïve modulo mapping or
-  fixed partition number](naive-modulo-mapping-or-fixed-partition-number.md "naive-modulo-mapping-or-fixed-partition-number.md")
+- [Naïve modulo mapping or fixed partition number](naive-modulo-mapping-or-fixed-partition-number.md "naive-modulo-mapping-or-fixed-partition-number.md")
 - [Consistent hashing](consistent-hashing.md "consistent-hashing.md")
-- [A warning for all mapping
-  approaches](a-warning-for-all-mapping-approaches.md "a-warning-for-all-mapping-approaches.md")
+- [A warning for all mapping approaches](a-warning-for-all-mapping-approaches.md "a-warning-for-all-mapping-approaches.md")

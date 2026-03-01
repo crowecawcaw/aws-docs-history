@@ -1,6 +1,4 @@
-# Naïve modulo mapping or
-
-fixed partition number
+# Naïve modulo mapping or fixed partition number
 
 Naïve modulo mapping uses modular arithmetic to map keys to cells, typically on a
 cryptographic hash of the key. This scheme has an effective zero peak-to-average ratio (very

@@ -1,6 +1,4 @@
-# Know and respect your cell's
-
-limit
+# Know and respect your cell's limit
 
 Cell sizing is fully related with the limits of traffic that your cell can support
 without impact negatively the cell's customers. [Using load shedding to avoid overload](https://aws.amazon.com/builders-library/using-load-shedding-to-avoid-overload/?did=ba_card&trk=ba_card "https://aws.amazon.com/builders-library/using-load-shedding-to-avoid-overload/?did=ba_card&trk=ba_card") is fundamental and can reduce unknown

@@ -1,6 +1,4 @@
-# About resilience of the cell
-
-router
+# About resilience of the cell router
 
 In a cell-based architecture, the only component that has the shared state of all cells
 is the cell router. It presents itself as a single point of failure. Therefore, it is

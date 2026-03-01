@@ -1,6 +1,4 @@
-# Should a Single-AZ cell fail over if an AZ becomes unavailable? Or in the event of a gray
-
-failure?
+# Should a Single-AZ cell fail over if an AZ becomes unavailable? Or in the event of a gray failure?
 
 Cells are implemented primarily to limit the scope of a failure's impact. The failures
 this mainly helps with are those that cause cascading failures. Mainly, they are excessive

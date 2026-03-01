@@ -1,6 +1,4 @@
-# A warning for all mapping
-
-approaches
+# A warning for all mapping approaches
 
 Regardless of partition mapping approach, it's important to also use an override table
 to force specific keys to specific cells (except for [full mapping](full-mapping.md "full-mapping.md"),

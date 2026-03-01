@@ -1,6 +1,4 @@
-# Using a compute layer like Amazon EC2, Amazon ECS or Amazon EKS and Amazon S3 for cell mapping as cell
-
-router
+# Using a compute layer like Amazon EC2, Amazon ECS or Amazon EKS and Amazon S3 for cell mapping as cell router
 
 Another approach to designing your cell router is to have the control plane write the
 cell mapping to an S3 bucket and a computer layer, whatever it is, it could be an EC2

@@ -36,10 +36,7 @@ Cell router features to keep in mind:
 ###### Topics
 
 - [Using Amazon Route 53](using-amazon-route-53.md "using-amazon-route-53.md")
-- [Using Amazon API Gateway as cell
-  router](using-aws-api-gateway-as-cell-router.md "using-aws-api-gateway-as-cell-router.md")
-- [Using a compute layer like Amazon EC2, Amazon ECS or Amazon EKS and Amazon S3 for cell mapping as cell
-  router](using-a-compute-layer-like-ec2-ecs-or-eks-and-s3-for-cell-mapping-as-cell-router.md "using-a-compute-layer-like-ec2-ecs-or-eks-and-s3-for-cell-mapping-as-cell-router.md")
+- [Using Amazon API Gateway as cell router](using-aws-api-gateway-as-cell-router.md "using-aws-api-gateway-as-cell-router.md")
+- [Using a compute layer like Amazon EC2, Amazon ECS or Amazon EKS and Amazon S3 for cell mapping as cell router](using-a-compute-layer-like-ec2-ecs-or-eks-and-s3-for-cell-mapping-as-cell-router.md "using-a-compute-layer-like-ec2-ecs-or-eks-and-s3-for-cell-mapping-as-cell-router.md")
 - [Routing no-HTTP requests](routing-no-http-requests.md "routing-no-http-requests.md")
-- [About resilience of the cell
-  router](about-resilience-of-the-cell-router.md "about-resilience-of-the-cell-router.md")
+- [About resilience of the cell router](about-resilience-of-the-cell-router.md "about-resilience-of-the-cell-router.md")

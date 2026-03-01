@@ -45,9 +45,7 @@ unlikely for a service outage to span multiple cells.
 
 _Cell-based architectures can reduce scope of impact_
 
-## Higher scalability or cells as a
-
-unit scale
+## Higher scalability or cells as a unit scale
 
 As recommended in [Manage service quotas and constraints](../reliability-pillar/manage-service-quotas-and-constraints.md "../reliability-pillar/manage-service-quotas-and-constraints.md") in the Well-Architected Framework, for your
 workloads, defining, testing, and managing the limits and capacity of a cell is also
@@ -75,9 +73,7 @@ workload of all their tenants, but it is reasonable to simulate the largest work
 fit into a cell, which should match the largest workload that a single customer can send to
 your application.
 
-## Higher mean time between failure
-
-(MTBF)
+## Higher mean time between failure (MTBF)
 
 Not only is the scope of impact of an outage reduced with cells, but so is the
 probability of an outage. Cells have a consistent capped size that is regularly tested and
@@ -116,9 +112,7 @@ There is also the availability defined by:
 
 With cells, you can minimize the amount of time the numerator is zero.
 
-## More control over
-
-the impact of deployments and rollbacks
+## More control over the impact of deployments and rollbacks
 
 Like [one-box and Single-AZ
 deployments](https://aws.amazon.com/builders-library/cicd-pipeline/ "https://aws.amazon.com/builders-library/cicd-pipeline/"), cells provide another dimension in which to phase deployments and
