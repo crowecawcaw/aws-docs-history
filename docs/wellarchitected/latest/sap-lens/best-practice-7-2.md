@@ -1,6 +1,4 @@
-# Best Practice 7.2 – Manage privileged
-
-access to your SAP workload
+# Best Practice 7.2 – Manage privileged access to your SAP workload
 
 Adopt an approach of least privilege where possible. Only grant the minimum access
 required to perform a particular role to a minimum set of users, while managing usability

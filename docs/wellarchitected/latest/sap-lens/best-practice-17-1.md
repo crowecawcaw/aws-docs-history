@@ -1,6 +1,4 @@
-# Best Practice 17.1 – Evaluate your use
-
-of SAP managed service offerings
+# Best Practice 17.1 – Evaluate your use of SAP managed service offerings
 
 Per the AWS shared responsibility model, the customer has the responsibility of
 managing their SAP workloads on AWS. Optionally, a service provider can be used to

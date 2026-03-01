@@ -1,6 +1,4 @@
-# Best Practice 20.5 – Review usage for opportunities
-
-to optimize
+# Best Practice 20.5 – Review usage for opportunities to optimize
 
 Review your SAP workload periodically to identify opportunities to optimize cost.
 Regular reviews should focus on: minimizing the differences and anomalies found between your

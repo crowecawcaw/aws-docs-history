@@ -1,6 +1,4 @@
-# Best Practice 13.3 – Select
-
-architectures which allow for independent scaling of systems or components
+# Best Practice 13.3 – Select architectures which allow for independent scaling of systems or components
 
 SAP systems and components should have the flexibility to scale without being
 constrained. This might be accomplished within the allocated hardware or by using

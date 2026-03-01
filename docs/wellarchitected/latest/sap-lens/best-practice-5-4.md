@@ -1,6 +1,4 @@
-# Best Practice 5.4 – Create a strategy
-
-for managing security controls
+# Best Practice 5.4 – Create a strategy for managing security controls
 
 Having evaluated business requirements based on data classification, create a strategy
 that balances the security controls of your broader organization with the application

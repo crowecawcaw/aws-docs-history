@@ -1,6 +1,4 @@
-# Best Practice 17.3 – Understand
-
-business requirements to make cost-optimized design decisions per environment
+# Best Practice 17.3 – Understand business requirements to make cost-optimized design decisions per environment
 
 Optimize the cost of each system or environment individually based on its differing
 characteristics. Consider capacity, performance, reliability and operating hours to match

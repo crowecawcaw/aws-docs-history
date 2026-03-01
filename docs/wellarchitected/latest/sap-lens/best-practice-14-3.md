@@ -1,6 +1,4 @@
-# Best Practice 14.3 - Evaluate Amazon
-
-EFS and Amazon FSx performance suitability for your SAP use case
+# Best Practice 14.3 - Evaluate Amazon EFS and Amazon FSx performance suitability for your SAP use case
 
 Amazon EFS (Linux) and Amazon FSx (Windows) provide highly durable and available file
 systems that can span multiple Availability Zones. Both solutions are designed to deliver

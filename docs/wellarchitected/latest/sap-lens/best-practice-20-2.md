@@ -1,6 +1,4 @@
-# Best Practice 20.2 – Establish a
-
-multi-year planned cost model taking advantage of different pricing approaches
+# Best Practice 20.2 – Establish a multi-year planned cost model taking advantage of different pricing approaches
 
 Establish a multi-year plan of your capacity requirements to ensure that you are
 taking full advantage of pricing models to maximize any discounts available from AWS.

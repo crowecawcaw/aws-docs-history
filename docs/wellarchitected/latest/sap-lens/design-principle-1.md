@@ -1,6 +1,4 @@
-# 1 - Design SAP workload to allow understanding and
-
-reaction to its state
+# 1 - Design SAP workload to allow understanding and reaction to its state
 
 **How do you design your SAP workload so that you can understand its
 state?** Design your SAP workload so that it provides the information necessary

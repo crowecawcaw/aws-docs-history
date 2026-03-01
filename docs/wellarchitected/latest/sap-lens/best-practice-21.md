@@ -89,8 +89,7 @@ lower productivity or increased risk that less stringent SLAs may bring. When a 
 prioritizes sustainability, the higher cost of doing business may be acceptable.
 
 - AWS Documentation: [Multi-Region Architecture Patterns](../../../sap/latest/general/arch-guide-multi-region-architecture-patterns.md "../../../sap/latest/general/arch-guide-multi-region-architecture-patterns.md")
-- SAP Lens [Performance Efficiency]: [Best Practice 13.1 – Evaluate or
-  estimate performance requirements](best-practice-13-1.md "best-practice-13-1.md")
+- SAP Lens [Performance Efficiency]: [Best Practice 13.1 – Evaluate or estimate performance requirements](best-practice-13-1.md "best-practice-13-1.md")
 - Well-Architected Framework [Sustainability]: [Align SLAs with sustainability goals](../sustainability-pillar/align-slas-with-sustainability-goals.md "../sustainability-pillar/align-slas-with-sustainability-goals.md")
 - Well-Architected Framework [Sustainability]: [Optimize software and architecture for asynchronous and scheduled jobs](../sustainability-pillar/optimize-software-and-architecture-for-asynchronous-and-scheduled-jobs.md "../sustainability-pillar/optimize-software-and-architecture-for-asynchronous-and-scheduled-jobs.md")
   **Suggestion 21.1.3 – Understand how changes to SAP end user

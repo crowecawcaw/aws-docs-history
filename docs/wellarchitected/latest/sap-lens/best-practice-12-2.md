@@ -1,6 +1,4 @@
-# Best Practice 12.2 – Establish a
-
-method for recovering configuration data
+# Best Practice 12.2 – Establish a method for recovering configuration data
 
 A number of different types of data, which are required to run an SAP workload, do not
 reside in the SAP database. This includes operating system configuration, metadata to

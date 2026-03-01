@@ -1,6 +1,4 @@
-# 18 – Evaluate SAP compute resources for cost
-
-efficiency
+# 18 – Evaluate SAP compute resources for cost efficiency
 
 **How do you assess compute and storage options for your SAP
 workloads?** When implementing or migrating SAP to AWS, you should select

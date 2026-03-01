@@ -1,6 +1,4 @@
-# Best Practice 1.6 – Implement
-
-dependency monitoring
+# Best Practice 1.6 – Implement dependency monitoring
 
 Configure your workload to provide information about the status (for example,
 reachability or response time) of resources it depends on. Examples of external

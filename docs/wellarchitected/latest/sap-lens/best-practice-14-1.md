@@ -1,6 +1,4 @@
-# Best Practice 14.1 – Create mount
-
-points and volume associations to align with function
+# Best Practice 14.1 – Create mount points and volume associations to align with function
 
 SAP filesystems have unique performance and sharing requirements. For example, the
 performance profile of the database may require the data filesystem to support a high

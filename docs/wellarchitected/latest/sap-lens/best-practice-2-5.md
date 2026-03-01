@@ -1,6 +1,4 @@
-# Best Practice 2.5 – Test and validate
-
-changes
+# Best Practice 2.5 – Test and validate changes
 
 Changes should be tested and the results validated at all lifecycle stages (for
 example, development, test, and production). Use testing results to confirm new features

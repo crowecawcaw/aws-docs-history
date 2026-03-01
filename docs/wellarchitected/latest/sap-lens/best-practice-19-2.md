@@ -1,6 +1,4 @@
-# Best Practice 19.2 – Delete
-
-unnecessary data through regular housekeeping
+# Best Practice 19.2 – Delete unnecessary data through regular housekeeping
 
 Reduce your data footprint to save costs by minimizing database size and other
 filesystem usage through regular housekeeping and reorganization activities.

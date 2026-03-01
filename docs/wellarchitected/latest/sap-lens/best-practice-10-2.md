@@ -1,6 +1,4 @@
-# Best Practice 10.2 – Select an
-
-architecture suitable for your availability and capacity requirements
+# Best Practice 10.2 – Select an architecture suitable for your availability and capacity requirements
 
 There are standard architectural patterns for SAP availability to suit the
 requirements of most customers deploying SAP on AWS. Use the following suggestions to

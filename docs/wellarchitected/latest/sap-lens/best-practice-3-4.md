@@ -1,6 +1,4 @@
-# Best Practice 3.4 – Use runbooks to
-
-perform SAP landscape operations
+# Best Practice 3.4 – Use runbooks to perform SAP landscape operations
 
 Runbooks are documented procedures to achieve specific outcomes. Enable consistent
 and prompt responses to well-understood events by documenting procedures in runbooks.

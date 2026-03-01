@@ -1,6 +1,4 @@
-# Best Practice 14.5 – Choose
-
-appropriate backup solutions and schedule
+# Best Practice 14.5 – Choose appropriate backup solutions and schedule
 
 Depending on the backup method, there is the potential to dramatically increase both
 read and write operations on your storage, which can negatively impact the performance of

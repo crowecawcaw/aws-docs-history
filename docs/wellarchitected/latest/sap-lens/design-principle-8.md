@@ -1,6 +1,4 @@
-# 8 – Protect your SAP data at rest and in
-
-transit
+# 8 – Protect your SAP data at rest and in transit
 
 **How do you protect your SAP data?** SAP systems often run the
 core functions within a business and store sensitive enterprise data. Best practice is to

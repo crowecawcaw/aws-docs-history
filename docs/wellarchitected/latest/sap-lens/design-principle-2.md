@@ -1,6 +1,4 @@
-# 2 – Reduce defects, ease remediation, and improve
-
-workflow of SAP change
+# 2 – Reduce defects, ease remediation, and improve workflow of SAP change
 
 **How do you reduce defects, ease remediation, and improve flow into
 production?** Adopt approaches that improve flow of changes into production,

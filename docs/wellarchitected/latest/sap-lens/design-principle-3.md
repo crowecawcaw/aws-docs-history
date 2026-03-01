@@ -1,6 +1,4 @@
-# 3 – Understand how you will operate the
-
-workload
+# 3 – Understand how you will operate the workload
 
 **How do you know that you are ready to support and operate a
 workload?** Evaluate the operational readiness of your [workload](../userguide/workloads.md "../userguide/workloads.md"), processes and procedures, and personnel to understand the operational

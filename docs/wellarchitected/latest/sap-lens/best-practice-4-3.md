@@ -1,6 +1,4 @@
-# Best Practice 4.3 – Regularly test
-
-business continuity plans and fault recovery
+# Best Practice 4.3 – Regularly test business continuity plans and fault recovery
 
 SAP systems are generally business critical and depended upon for major customer
 facing transactions. Enabling the quick resumption of IT operations and minimizing data

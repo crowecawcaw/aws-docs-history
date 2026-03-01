@@ -1,6 +1,4 @@
-# Best Practice 3.2 – Ensure your cloud
-
-operating model matches your operational aims
+# Best Practice 3.2 – Ensure your cloud operating model matches your operational aims
 
 Identify the appropriate cloud operating model for your SAP workloads such that it
 aligns with your identified business requirements for speed to deployment, security,

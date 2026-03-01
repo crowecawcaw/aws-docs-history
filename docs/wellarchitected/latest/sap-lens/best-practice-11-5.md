@@ -1,6 +1,4 @@
-# Best Practice 11.5 – Automate reaction
-
-to failure
+# Best Practice 11.5 – Automate reaction to failure
 
 You can minimize the impact to service by automating the response to failure. Design
 automation to respond to failure, impaired capacity, or loss of connectivity. Ensure clear

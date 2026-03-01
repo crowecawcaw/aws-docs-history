@@ -1,6 +1,4 @@
-# Best Practice 3.3 – Share design
-
-standards and educate new support personnel in procedures
+# Best Practice 3.3 – Share design standards and educate new support personnel in procedures
 
 Share existing best practices, design standards, checklists, operating procedures, and
 governance requirements across teams. Ensure all teams are aware of support procedures

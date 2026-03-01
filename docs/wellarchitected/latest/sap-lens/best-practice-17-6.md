@@ -1,6 +1,4 @@
-# Best Practice 17.6 – Evaluate cost
-
-benefits and impact of shared services and solutions
+# Best Practice 17.6 – Evaluate cost benefits and impact of shared services and solutions
 
 Where the same function is required by multiple SAP systems, it can be a
 cost-effective option to centralize the management and costs by using existing solutions,

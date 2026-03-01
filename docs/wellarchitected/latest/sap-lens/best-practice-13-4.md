@@ -1,6 +1,4 @@
-# Best Practice 13.4 – Choose location
-
-to minimize latency
+# Best Practice 13.4 – Choose location to minimize latency
 
 Deploy your SAP instances in Regions and Availability Zones that minimize latency for
 key business processes impacting end users, critical interfaces, and intra-system

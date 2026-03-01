@@ -1,6 +1,4 @@
-# Best Practice 20.1 – Plan consumption
-
-model and environment usage during project phases
+# Best Practice 20.1 – Plan consumption model and environment usage during project phases
 
 During projects, including but not limited to migration or implementation projects,
 there is often a phased approach to how you deploy systems. There is also a stabilization

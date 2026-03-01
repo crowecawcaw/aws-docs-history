@@ -1,6 +1,4 @@
-# 6 – Use infrastructure and software controls to reduce
-
-security misconfigurations
+# 6 – Use infrastructure and software controls to reduce security misconfigurations
 
 **How do you protect your SAP application and the underlying database,
 operating system, storage, and networks?** We recommend that SAP software

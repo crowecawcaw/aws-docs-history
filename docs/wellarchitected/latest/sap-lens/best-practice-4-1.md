@@ -1,6 +1,4 @@
-# Best Practice 4.1 – Understand and
-
-plan for lifecycle events of your SAP workload
+# Best Practice 4.1 – Understand and plan for lifecycle events of your SAP workload
 
 SAP workloads are highly reliant on SAP to provide new software and vulnerability
 patching, operating system and database kernels, and escalation for support. SAP regularly

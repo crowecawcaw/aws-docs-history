@@ -1,6 +1,4 @@
-# Best Practice 16.7 – Continually
-
-optimize sizing and configuration based on performance data
+# Best Practice 16.7 – Continually optimize sizing and configuration based on performance data
 
 Review performance metrics on a regular basis outside of your incident response
 process. By doing so, you can discover system components that are undersized, oversized,

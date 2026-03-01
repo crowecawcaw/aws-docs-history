@@ -1,6 +1,4 @@
-# Best Practice 1.4 – Implement workload
-
-configuration monitoring
+# Best Practice 1.4 – Implement workload configuration monitoring
 
 Design and configure your workload to provide information about its current
 configuration and changes to this configuration. Some examples are new or removed EC2

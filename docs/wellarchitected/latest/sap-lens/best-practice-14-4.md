@@ -1,6 +1,4 @@
-# Best Practice 14.4 – Consider memory
-
-as an alternative to storage
+# Best Practice 14.4 – Consider memory as an alternative to storage
 
 Consider the performance advantages of using memory for supported scenarios in the
 database or application layer. SAP HANA uses memory by default, but might benefit from

@@ -1,6 +1,4 @@
-# Best Practice 17.2 – Evaluate the cost
-
-characteristics of your SAP application architecture pattern
+# Best Practice 17.2 – Evaluate the cost characteristics of your SAP application architecture pattern
 
 As you develop the architecture of your SAP landscape, consider the cost of the number
 of infrastructure components in addition to their size and location. By establishing the

@@ -1,6 +1,4 @@
-# Best Practice 9.3 – Have a documented
-
-plan for responding to security events
+# Best Practice 9.3 – Have a documented plan for responding to security events
 
 Without a documented plan for addressing a security event involving your SAP
 applications, the security team’s response may be delayed, less comprehensive, and less

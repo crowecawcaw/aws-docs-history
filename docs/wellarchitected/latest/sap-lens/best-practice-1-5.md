@@ -1,6 +1,4 @@
-# Best Practice 1.5 – Implement user
-
-activity monitoring
+# Best Practice 1.5 – Implement user activity monitoring
 
 Configure your SAP applications to provide information about user activity, for
 example, response time, number of active users, transaction abandonment rates, and order

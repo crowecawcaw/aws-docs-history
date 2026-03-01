@@ -1,6 +1,4 @@
-# Best Practice 17.5 – Consider using
-
-on-demand capacity to improve cost efficiency
+# Best Practice 17.5 – Consider using on-demand capacity to improve cost efficiency
 
 The on-demand pricing model is suitable for SAP workloads needing reduced operating
 hours, short-term projects, experimentation, or expanded capacity for small periods of

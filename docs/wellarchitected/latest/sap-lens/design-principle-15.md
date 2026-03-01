@@ -1,6 +1,4 @@
-# 15 – Evaluate tuning options for the operating system,
-
-database, and SAP application
+# 15 – Evaluate tuning options for the operating system, database, and SAP application
 
 **How do you understand and weigh the effects of different tuning
 options on your SAP system performance?** The great variance in performance

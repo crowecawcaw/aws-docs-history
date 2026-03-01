@@ -1,6 +1,4 @@
-# Best Practice 2.6 – Make frequent,
-
-small, and reversible changes
+# Best Practice 2.6 – Make frequent, small, and reversible changes
 
 Frequent, small, and reversible changes reduce the scope and impact of a change.
 Although many SAP NetWeaver solutions only support a “patch forward” approach, consider

@@ -1,6 +1,4 @@
-# Best Practice 19.3 – Use compression,
-
-reorganization, and reclaim strategies
+# Best Practice 19.3 – Use compression, reorganization, and reclaim strategies
 
 All databases supported by SAP provide mechanisms for reclaiming space. These
 mechanisms should be part of regular maintenance activities to minimize cost increases

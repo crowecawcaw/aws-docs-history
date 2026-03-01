@@ -1,6 +1,4 @@
-# Best Practice 6.2 – Build and protect
-
-the operating system
+# Best Practice 6.2 – Build and protect the operating system
 
 Protecting the operating system underlying your SAP software reduces the possibility
 that a malicious actor could gain unauthorized access to data within the SAP application,

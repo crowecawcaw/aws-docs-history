@@ -1,6 +1,4 @@
-# Best Practice 18.2 – Use cost as a key
-
-consideration for EC2 instance selection
+# Best Practice 18.2 – Use cost as a key consideration for EC2 instance selection
 
 By selecting the appropriate SAP Certified EC2 instances for your workload, it is
 possible to optimize for cost. Perform a thorough analysis of each system, ensuring that

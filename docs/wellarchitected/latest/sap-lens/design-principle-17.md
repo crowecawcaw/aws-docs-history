@@ -1,6 +1,4 @@
-# 17 – Evaluate SAP architecture patterns for cost
-
-efficiency
+# 17 – Evaluate SAP architecture patterns for cost efficiency
 
 **How do you incorporate cost considerations into the evaluation of SAP
 architecture patterns?** Ensure that when there is a decision to be made on

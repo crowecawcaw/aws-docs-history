@@ -1,6 +1,4 @@
-# 19 – Optimize SAP data usage for storage cost
-
-efficiency
+# 19 – Optimize SAP data usage for storage cost efficiency
 
 **How do you optimize your SAP data usage to minimize your storage and
 memory-related costs?** Design your database storage, backup, and supporting file

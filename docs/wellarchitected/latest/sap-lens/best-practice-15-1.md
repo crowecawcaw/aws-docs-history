@@ -1,6 +1,4 @@
-# Best Practice 15.1 – Follow operating
-
-system guidelines for SAP performance
+# Best Practice 15.1 – Follow operating system guidelines for SAP performance
 
 SAP provides specific guidance on how best to tune for optimal performance for each of
 the operating systems that are supported for the SAP software you are deploying. Be sure

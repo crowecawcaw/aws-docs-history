@@ -1,6 +1,4 @@
-# Best Practice 1.1 – Implement
-
-prerequisites for monitoring SAP on AWS
+# Best Practice 1.1 – Implement prerequisites for monitoring SAP on AWS
 
 SAP certification requirements for SAP on AWS are outlined in SAP Note 1656250. This
 note includes instructions for setting up the AWS Data Provider for SAP, enabling Amazon

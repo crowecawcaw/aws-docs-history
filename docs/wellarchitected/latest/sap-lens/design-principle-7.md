@@ -1,6 +1,4 @@
-# 7 – Control access to your SAP workload through
-
-identity and permissions
+# 7 – Control access to your SAP workload through identity and permissions
 
 **How do you control access to your SAP workload?** Use
 mechanisms provided by AWS, SAP, and other third parties to ensure that end users and

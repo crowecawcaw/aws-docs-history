@@ -1,6 +1,4 @@
-# Best Practice 7.1 – Understand your
-
-SAP user categories and access mechanisms
+# Best Practice 7.1 – Understand your SAP user categories and access mechanisms
 
 The types of users accessing your SAP system will determine the security controls you
 need to apply. By examining each use case, you can develop a strategy. This should include

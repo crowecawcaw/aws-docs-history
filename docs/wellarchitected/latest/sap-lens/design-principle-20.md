@@ -1,6 +1,4 @@
-# 20 – Manage costs with visibility, planning, and
-
-governance
+# 20 – Manage costs with visibility, planning, and governance
 
 **How do you practice Cloud Financial Management (CFM) to ensure cost
 optimization and awareness?** From inception to operation, how do you establish

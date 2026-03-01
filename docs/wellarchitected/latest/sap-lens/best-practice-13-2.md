@@ -1,6 +1,4 @@
-# Best Practice 13.2 - Select EC2
-
-instances suitable for SAP workloads
+# Best Practice 13.2 - Select EC2 instances suitable for SAP workloads
 
 AWS works with SAP to ensure that AWS services are suitable to implement and
 operate SAP software across a wide selection of instance types. Use guidance from the

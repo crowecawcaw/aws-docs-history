@@ -1,6 +1,4 @@
-# Best Practice 16.1 – Have data to
-
-evaluate performance
+# Best Practice 16.1 – Have data to evaluate performance
 
 To evaluate the performance of an SAP system and take action in the event performance
 is suboptimal, monitoring data must be collected for compute, memory, storage, and

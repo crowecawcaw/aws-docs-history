@@ -1,6 +1,4 @@
-# Best Practice 2.4 – Use multiple
-
-environments
+# Best Practice 2.4 – Use multiple environments
 
 Use multiple SAP environments to experiment, develop, and test your workload. Use
 increasing levels of controls as environments approach production to gain confidence your

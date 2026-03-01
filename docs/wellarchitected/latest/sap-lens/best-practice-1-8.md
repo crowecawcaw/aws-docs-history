@@ -1,6 +1,4 @@
-# Best Practice 1.8 – Use automated
-
-response and recovery techniques to react to monitoring alerts
+# Best Practice 1.8 – Use automated response and recovery techniques to react to monitoring alerts
 
 Automate responses to events to reduce errors caused by manual processes, and to
 ensure prompt and consistent responses.

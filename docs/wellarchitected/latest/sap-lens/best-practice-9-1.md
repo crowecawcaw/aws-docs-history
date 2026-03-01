@@ -1,6 +1,4 @@
-# Best Practice 9.1 – Understand your
-
-strategy for SAP application and database security event analysis
+# Best Practice 9.1 – Understand your strategy for SAP application and database security event analysis
 
 Without keeping security logs at the appropriate levels of granularity, vital data
 required for incident response, forensic security analysis, and threat modeling can be

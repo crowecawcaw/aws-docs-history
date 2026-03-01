@@ -1,6 +1,4 @@
-# Best Practice 19.6 – Evaluate
-
-archiving and offloading options
+# Best Practice 19.6 – Evaluate archiving and offloading options
 
 By considering options to archive infrequently accessed data or offload large objects
 to near-line storage, you can reduce your infrastructure and backup costs.

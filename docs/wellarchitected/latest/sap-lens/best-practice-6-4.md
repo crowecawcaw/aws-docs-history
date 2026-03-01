@@ -1,6 +1,4 @@
-# Best Practice 6.4 – Establish a plan
-
-for upgrading and patching all applicable software
+# Best Practice 6.4 – Establish a plan for upgrading and patching all applicable software
 
 SAP and the vendors of the underlying operating systems and databases release standard
 security updates on a fixed schedule as well as provide emergency updates to fix

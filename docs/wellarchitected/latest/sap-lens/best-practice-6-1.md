@@ -1,6 +1,4 @@
-# Best Practice 6.1 – Ensure that
-
-security and auditing are built into the SAP network design
+# Best Practice 6.1 – Ensure that security and auditing are built into the SAP network design
 
 Protecting access to the network that hosts your SAP workloads is the first line of
 defense against malicious activity. Evaluate your business requirements and the specific

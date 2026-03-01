@@ -1,6 +1,4 @@
-# 9 – Implement a security strategy for logging, testing,
-
-and responding to security events
+# 9 – Implement a security strategy for logging, testing, and responding to security events
 
 **Do you have a strategic security plan that is supported by the
 appropriate logging, testing, and documented response methodology?** Having a

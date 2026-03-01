@@ -1,6 +1,4 @@
-# Best Practice 19.5 – Consider tiering
-
-options for live data
+# Best Practice 19.5 – Consider tiering options for live data
 
 The primary driver of compute cost with SAP HANA is the amount of memory required.
 Therefore, the use of data offload and tiering options can drive the compute costs down.

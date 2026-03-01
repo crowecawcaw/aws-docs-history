@@ -1,6 +1,4 @@
-# Best Practice 7.3 – Understand your
-
-organization’s identity management approach, and its application to SAP
+# Best Practice 7.3 – Understand your organization’s identity management approach, and its application to SAP
 
 Typical SAP workloads will consist of multiple systems and therefore multiple
 identities. A centralized approach for managing these users can reduce the security risk and

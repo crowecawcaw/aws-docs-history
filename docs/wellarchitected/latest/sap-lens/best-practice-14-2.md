@@ -1,6 +1,4 @@
-# Best Practice 14.2 – Select and
-
-configure EBS types aligned with performance requirements
+# Best Practice 14.2 – Select and configure EBS types aligned with performance requirements
 
 For each filesystem function and storage service, evaluate storage layout guidelines
 and tuning options to ensure that IOPS and throughput performance are optimized.

@@ -1,6 +1,4 @@
-# Best Practice 6.3 – Protect the
-
-database and the application
+# Best Practice 6.3 – Protect the database and the application
 
 Security vigilance is imperative at the database and application layers, as a
 malicious actor gaining access at even a read-only level could compromise the security of

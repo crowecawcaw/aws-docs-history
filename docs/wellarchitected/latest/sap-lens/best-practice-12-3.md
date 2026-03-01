@@ -1,6 +1,4 @@
-# Best Practice 12.3 - Define a recovery
-
-approach for your complete SAP estate
+# Best Practice 12.3 - Define a recovery approach for your complete SAP estate
 
 If your SAP estate consists of multiple SAP systems, you need to create a detailed
 approach that defines the order in which each system is recovered, based on business

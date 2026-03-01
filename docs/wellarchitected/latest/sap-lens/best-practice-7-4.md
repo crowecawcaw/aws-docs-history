@@ -1,6 +1,4 @@
-# Best Practice 7.4 – Implement logging
-
-and reporting for user access and authorization changes and events
+# Best Practice 7.4 – Implement logging and reporting for user access and authorization changes and events
 
 User access and authorization events in your SAP systems should be logged, analyzed,
 and audited regularly. Consolidate and correlate security events from your SAP applications

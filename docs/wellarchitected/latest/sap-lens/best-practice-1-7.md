@@ -1,6 +1,4 @@
-# Best Practice 1.7 – Implement single
-
-pane of glass health monitoring across your SAP workloads
+# Best Practice 1.7 – Implement single pane of glass health monitoring across your SAP workloads
 
 Configure your SAP applications, AWS services, and any dependent components to
 provide information about the flow of transactions across the workload. Combine metrics

@@ -1,6 +1,4 @@
-# Best Practice 16.5 – Scale to meet
-
-performance demands
+# Best Practice 16.5 – Scale to meet performance demands
 
 One of the primary benefits of operating workloads in AWS is the ability to increase
 or decrease the compute capacity and change the storage performance characteristics to

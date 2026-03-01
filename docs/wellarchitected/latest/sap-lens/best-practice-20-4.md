@@ -1,6 +1,4 @@
-# Best Practice 20.4 – Establish
-
-cost-related procedures and controls
+# Best Practice 20.4 – Establish cost-related procedures and controls
 
 It might be necessary to adapt traditional cost assessment processes to be cloud
 ready. Gain familiarity with how to implement the right financial practices and policies

@@ -1,6 +1,4 @@
-# Best Practice 1.3 – Implement
-
-application and database monitoring for SAP
+# Best Practice 1.3 – Implement application and database monitoring for SAP
 
 Set up your application and database monitoring to provide information about its
 internal state, status, and achievement of business outcomes. Some examples include

@@ -1,6 +1,4 @@
-# Best Practice 1.2 – Implement
-
-infrastructure monitoring for SAP
+# Best Practice 1.2 – Implement infrastructure monitoring for SAP
 
 Set up your infrastructure monitoring to provide information about supporting services
 that are used to keep your SAP application running and supporting your users. Some examples

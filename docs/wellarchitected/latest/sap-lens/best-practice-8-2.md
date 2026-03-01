@@ -1,6 +1,4 @@
-# Best Practice 8.2 – Encrypt data in
-
-transit
+# Best Practice 8.2 – Encrypt data in transit
 
 Using encryption of data in transit makes it harder for your data to be intercepted,
 accessed, or tampered with while it’s moving from one point to another. Ensure that there

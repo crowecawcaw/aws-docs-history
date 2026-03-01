@@ -1,6 +1,4 @@
-# Best Practice 8.3 – Secure your data
-
-recovery mechanisms to protect against threats
+# Best Practice 8.3 – Secure your data recovery mechanisms to protect against threats
 
 To help protect against malicious activities, follow the guidelines set out within
 your organization’s security framework. [Protecting against ransomware](https://aws.amazon.com/security/protecting-against-ransomware/ "https://aws.amazon.com/security/protecting-against-ransomware/")

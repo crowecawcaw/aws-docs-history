@@ -1,6 +1,4 @@
-# Best Practice 15.4 – Consider
-
-performance tuning for recovery and availability options
+# Best Practice 15.4 – Consider performance tuning for recovery and availability options
 
 In alignment with both the Well-Architected Reliability and Operational Excellence
 pillars, tuning of the SAP system given your chosen recovery and resiliency requirements

@@ -1,6 +1,4 @@
-# Best Practice 17.4 – Review the size,
-
-granularity, and latest available EC2 instances for SAP components
+# Best Practice 17.4 – Review the size, granularity, and latest available EC2 instances for SAP components
 
 Smaller EC2 instances provide greater cost flexibility in SAP workloads. They
 introduce options for horizontal scaling that allow for compute to be switched off when

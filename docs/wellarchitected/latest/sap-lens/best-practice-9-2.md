@@ -1,6 +1,4 @@
-# Best Practice 9.2 – Perform periodic
-
-tests for security bugs
+# Best Practice 9.2 – Perform periodic tests for security bugs
 
 As described in the Well-Architected Framework Security Pillar incident response
 sections on simulations, assembling a runbook and conducting game days are recommended for all

@@ -1,6 +1,4 @@
-# Best Practice 4.2 – Regularly perform
-
-patch management for software currency
+# Best Practice 4.2 – Regularly perform patch management for software currency
 
 Perform regular patch management to gain features, address issues, and remain
 compliant with governance. Consider patches at the operating system, database and SAP

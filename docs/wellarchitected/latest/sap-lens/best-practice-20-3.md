@@ -1,7 +1,4 @@
-# Best Practice 20.3 – Establish a
-
-budget and mechanisms for cost allocation and tracking including anomaly
-detection
+# Best Practice 20.3 – Establish a budget and mechanisms for cost allocation and tracking including anomaly detection
 
 There are [guidelines](../cost-optimization-pillar/expenditure-and-usage-awareness.md "../cost-optimization-pillar/expenditure-and-usage-awareness.md") in the Well-Architected Framework for implementing financial
 management. Set expectations around cloud costs with annual, quarterly, monthly, or even

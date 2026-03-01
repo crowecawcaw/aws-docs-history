@@ -1,6 +1,4 @@
-# Best practice 16.3 – Identify
-
-performance trends using data
+# Best practice 16.3 – Identify performance trends using data
 
 After baselines for performance are established, system administrators must monitor
 trends over time to see if KPIs remain stable within preferred norms. If the performance

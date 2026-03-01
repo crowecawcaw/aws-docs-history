@@ -1,6 +1,4 @@
-# Best Practice 16.2 – Establish
-
-baseline performance requirements
+# Best Practice 16.2 – Establish baseline performance requirements
 
 Every SAP application has unique performance requirements. Using historical monitoring
 data helps SAP administration teams understand the baseline performance of these

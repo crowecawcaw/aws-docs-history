@@ -1,6 +1,4 @@
-# Best Practice 3.1 – Ensure personnel
-
-capability
+# Best Practice 3.1 – Ensure personnel capability
 
 Have a mechanism to validate that you have the appropriate number of trained personnel
 to provide hands-on support for operational needs and that they have the appropriate SAP,

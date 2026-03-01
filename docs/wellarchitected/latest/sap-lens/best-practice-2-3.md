@@ -1,6 +1,4 @@
-# Best Practice 2.3 – Use build and
-
-deployment management systems
+# Best Practice 2.3 – Use build and deployment management systems
 
 Use build and deployment management systems. Ensure you are using SAP certified build
 and deployment systems such as the ABAP Change and Transport System (CTS), Web IDE or SAP

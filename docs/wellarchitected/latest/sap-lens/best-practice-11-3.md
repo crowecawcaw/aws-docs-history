@@ -1,6 +1,4 @@
-# Best Practice 11.3 – Define an
-
-approach to restore service availability
+# Best Practice 11.3 – Define an approach to restore service availability
 
 Restoring availability assumes that for a particular failure scenario, some loss of
 service will occur. The restore approach should examine the amount of time needed to

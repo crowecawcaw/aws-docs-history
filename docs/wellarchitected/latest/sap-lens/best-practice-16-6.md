@@ -1,6 +1,4 @@
-# Best Practice 16.6 – Develop
-
-mechanisms for simulating production load for analysis purposes
+# Best Practice 16.6 – Develop mechanisms for simulating production load for analysis purposes
 
 Having a clone of production data in a test system allows system administrators to
 simulate production SAP workloads and conduct vital performance tests, such as stress and

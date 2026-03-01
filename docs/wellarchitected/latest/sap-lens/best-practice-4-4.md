@@ -1,6 +1,4 @@
-# Best Practice 4.4 – Perform regular
-
-workload reviews to optimize for resiliency, performance, agility, and cost
+# Best Practice 4.4 – Perform regular workload reviews to optimize for resiliency, performance, agility, and cost
 
 When running SAP on AWS, plan and dedicate time and resources for continual
 incremental improvement to evolve the effectiveness and efficiency of your workload. AWS

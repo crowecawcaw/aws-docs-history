@@ -1,6 +1,4 @@
-# Best Practice 13.1 – Evaluate or
-
-estimate performance requirements
+# Best Practice 13.1 – Evaluate or estimate performance requirements
 
 Future hardware requirements can be estimated by examining the capacity and usage
 patterns of existing SAP systems. SAP provides several tools for sizing hardware for new

@@ -1,6 +1,4 @@
-# Best Practice 10.1 – Agree on SAP
-
-workload availability goals that align with your business requirements
+# Best Practice 10.1 – Agree on SAP workload availability goals that align with your business requirements
 
 Understanding your availability goals is the first step to help ensure that you focus
 on the factors important to your organization. This helps you to define criteria that can

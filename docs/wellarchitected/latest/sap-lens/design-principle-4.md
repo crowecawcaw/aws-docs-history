@@ -1,6 +1,4 @@
-# 4 – Validate and improve your SAP workload
-
-regularly
+# 4 – Validate and improve your SAP workload regularly
 
 **How will you validate your SAP workloads continue to operate
 efficiently?** Aim to improve your SAP workload regularly and take advantage of

@@ -1,6 +1,4 @@
-# Best Practice 16.4 – Identify and
-
-triage performance issues
+# Best Practice 16.4 – Identify and triage performance issues
 
 When key metrics indicate performance is degrading, have a process in place to
 remediate the underlying cause. Using automation (see the following best practice on

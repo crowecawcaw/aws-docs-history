@@ -1,6 +1,4 @@
-# Best Practice 17.7 – Evaluate the cost
-
-benefits of automation
+# Best Practice 17.7 – Evaluate the cost benefits of automation
 
 The benefits of adopting automation in AWS can include improved efficiency and
 productivity, which can translate into lower costs for your organization.

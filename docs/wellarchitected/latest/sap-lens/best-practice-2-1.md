@@ -1,6 +1,4 @@
-# Best Practice 2.1 – Use version
-
-control and configuration management
+# Best Practice 2.1 – Use version control and configuration management
 
 Configuration Management systems reduce errors caused by manual processes and reduce
 the level of effort to deploy changes. Doing so supports tracking changes, deploying new

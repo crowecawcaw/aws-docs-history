@@ -1,6 +1,4 @@
-# Best Practice 5.1 – Define security
-
-roles and responsibilities
+# Best Practice 5.1 – Define security roles and responsibilities
 
 By defining the requirements to secure your SAP workloads, you can identify risks that
 must be addressed and ensure that security-related roles and responsibilities are

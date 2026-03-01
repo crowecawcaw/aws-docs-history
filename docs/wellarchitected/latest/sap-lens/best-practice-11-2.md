@@ -1,6 +1,4 @@
-# Best Practice 11.2 – Define an
-
-approach to maintain availability
+# Best Practice 11.2 – Define an approach to maintain availability
 
 Maintain availability by having a resilient architecture that can sustain the failure
 of a single technical component or AWS service. Implement mechanisms, which could include

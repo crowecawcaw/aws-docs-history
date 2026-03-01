@@ -1,6 +1,4 @@
-# 16 – Understand ongoing performance and optimization
-
-options
+# 16 – Understand ongoing performance and optimization options
 
 **What processes and procedures do you put in place to measure
 performance changes and opportunities for optimization?** Baseline your

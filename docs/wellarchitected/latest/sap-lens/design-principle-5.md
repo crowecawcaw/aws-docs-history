@@ -1,6 +1,4 @@
-# 5 – Understand security standards and how they apply to
-
-your SAP workload
+# 5 – Understand security standards and how they apply to your SAP workload
 
 **How do you define the security standards and controls to align with the
 criticality of your SAP workload?** Standards are published documents that define
