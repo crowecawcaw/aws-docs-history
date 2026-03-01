@@ -15,7 +15,7 @@ This architecture enables customers to build data analytics pipelines using a Mo
 5. **AWS Lake Formation** also enables unified governance to centrally manage the security, access control, and audit trails.
 6. **AWS Glue** and **AWS Glue DataBrew** catalog, transform, enrich, move, and replicate data across multiple data stores and the data lake.
 7. **Amazon Managed Service for Apache Flink** is used to transform and analyze streaming data in real time.
-8. **Quick Suite** provides machine learning (ML)-powered business intelligence.
+8. **Quick** provides machine learning (ML)-powered business intelligence.
 9. **Amazon OpenSearch Service** offers operational analytics.
 10. **Amazon Redshift** is a cloud data warehouse. With federated queries, you can query and analyze data across operational databases, data warehouses, and data lakes.
 11. **Amazon EMR** provides the cloud big data platform for processing vast amounts of data using open-source tools.
