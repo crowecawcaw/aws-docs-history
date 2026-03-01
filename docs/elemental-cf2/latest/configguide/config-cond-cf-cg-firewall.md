@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Conductor File documentation. This is 
 latest version. For prior versions, see the _Archive_ section of
 [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Open Ports on the Firewall for AWS Elemental Conductor File
-
-Nodes
+# Open Ports on the Firewall for AWS Elemental Conductor File Nodes
 
 You can enable or disable the firewall. By default, the firewall is enabled.
 

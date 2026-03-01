@@ -2,9 +2,7 @@ This is version 2.18 of the AWS Elemental Conductor File documentation. This is 
 latest version. For prior versions, see the _Archive_ section of
 [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Configure Redundancy for AWS Elemental Conductor File
-
-Nodes
+# Configure Redundancy for AWS Elemental Conductor File Nodes
 
 Read this section if you have two Conductor nodes.
 
