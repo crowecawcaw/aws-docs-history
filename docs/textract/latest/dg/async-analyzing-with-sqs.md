@@ -1,6 +1,4 @@
-# Detecting or Analyzing Text in a Multipage
-
-Document
+# Detecting or Analyzing Text in a Multipage Document
 
 This procedure shows you how to detect or analyze text in a multipage document by
 using Amazon Textract detection operations, a document stored in an Amazon S3 bucket, an Amazon SNS
@@ -53,8 +51,7 @@ Before you begin, install the appropriate AWS SDK. For more information, see [St
 ###### To detect or analyze text in a multipage document
 
 1. Configure user access to Amazon Textract, and configure Amazon Textract access
-   to Amazon SNS. For more information, see [Configuring Amazon Textract for Asynchronous
-   Operations](api-async-roles.md "api-async-roles.md"). To complete this procedure, you need a
+   to Amazon SNS. For more information, see [Configuring Amazon Textract for Asynchronous Operations](api-async-roles.md "api-async-roles.md"). To complete this procedure, you need a
    multipage document ﬁle in PDF format. Skip steps 3 – 6 because the example
    code creates and configures the Amazon SNS topic and Amazon SQS queue. If completing the
    CLI example, you don't need to set up an SQS queue.
@@ -67,8 +64,7 @@ or analyze text in a multipage document. In the `main`
 function:
 
     * Replace the value of `roleArn` with the IAM role ARN that
-     you saved in [Giving Amazon Textract Access to Your
-     Amazon SNS Topic](api-async-roles.md#api-async-roles-all-topics "api-async-roles.md#api-async-roles-all-topics").
+     you saved in [Giving Amazon Textract Access to Your Amazon SNS Topic](api-async-roles.md#api-async-roles-all-topics "api-async-roles.md#api-async-roles-all-topics").
     * Replace the values of `bucket` and `document`
      with the bucket and document file name that you specified in step 2.
     * Replace the value of the `type` input parameter of the
@@ -985,8 +981,7 @@ if self.processType == ProcessType.ANALYSIS:
 
 Node.JS
 In this example, replace the value of `roleArn` with
-the IAM role ARN that you saved in [Giving Amazon Textract Access to Your
-Amazon SNS Topic](api-async-roles.md#api-async-roles-all-topics "api-async-roles.md#api-async-roles-all-topics"). Replace the values
+the IAM role ARN that you saved in [Giving Amazon Textract Access to Your Amazon SNS Topic](api-async-roles.md#api-async-roles-all-topics "api-async-roles.md#api-async-roles-all-topics"). Replace the values
 of `bucket` and `document` with the bucket and
 document file name you specified in step 2 above. Replace the value
 of `processType` with the type of processing you'd like

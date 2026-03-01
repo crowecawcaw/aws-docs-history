@@ -1,6 +1,4 @@
-# Amazon Textract Identity-Based
-
-Policy Examples
+# Amazon Textract Identity-Based Policy Examples
 
 By default, users and roles don't have permission to create or modify
 Amazon Textract resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -14,24 +12,15 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy Best
-  Practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Allow Users
-  to View Their Own Permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Giving Access
-  to Synchronous Operations in Amazon Textract](#security_iam_sync-actions "#security_iam_sync-actions")
-- [Giving Access to
-  Asynchronous Operations in Amazon Textract](#security_iam_async-actions "#security_iam_async-actions")
-- [Giving access to specific adapters in
-  inference operations in Amazon Textract](#security_iam_adapter-inference "#security_iam_adapter-inference")
-- [Disallow user to use adapters in
-  inference operations](#security_iam_disallow-inference "#security_iam_disallow-inference")
-- [Allow user to only use a specific group of
-  adapters in inference operations, or no adapters](#security_iam_adapter-groups "#security_iam_adapter-groups")
+- [Policy Best Practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Allow Users to View Their Own Permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Giving Access to Synchronous Operations in Amazon Textract](#security_iam_sync-actions "#security_iam_sync-actions")
+- [Giving Access to Asynchronous Operations in Amazon Textract](#security_iam_async-actions "#security_iam_async-actions")
+- [Giving access to specific adapters in inference operations in Amazon Textract](#security_iam_adapter-inference "#security_iam_adapter-inference")
+- [Disallow user to use adapters in inference operations](#security_iam_disallow-inference "#security_iam_disallow-inference")
+- [Allow user to only use a specific group of adapters in inference operations, or no adapters](#security_iam_adapter-groups "#security_iam_adapter-groups")
 
-## Policy Best
-
-Practices
+## Policy Best Practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Textract resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -64,9 +53,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Allow Users
-
-to View Their Own Permissions
+## Allow Users to View Their Own Permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -106,9 +93,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Giving Access
-
-to Synchronous Operations in Amazon Textract
+## Giving Access to Synchronous Operations in Amazon Textract
 
 This example policy grants access to the synchronous actions in Amazon Textract to
 an IAM user in your AWS account.
@@ -128,9 +113,7 @@ an IAM user in your AWS account.
 
 ```
 
-## Giving Access to
-
-Asynchronous Operations in Amazon Textract
+## Giving Access to Asynchronous Operations in Amazon Textract
 
 The following example policy gives an IAM user on your AWS account access to all
 asynchronous operations used in Amazon Textract.
@@ -156,32 +139,22 @@ JSON
 
 ```
 
-## Giving access to specific adapters in
-
-inference operations in Amazon Textract
+## Giving access to specific adapters in inference operations in Amazon Textract
 
 Although you can use `*` to access all resources in inference operations,
 you can control a user's access to specific adapters.
 
-## Disallow user to use adapters in
+## Disallow user to use adapters in inference operations
 
-inference operations
-
-## Allow user to only use a specific group of
-
-adapters in inference operations, or no adapters
+## Allow user to only use a specific group of adapters in inference operations, or no adapters
 
 Tag the specific adapters that you want to control by using the
 `TagResource` operation. The following example controls access to adapters
 tagged with `{"env":"prod"}`.
 
-### Allow user to manage adapter and
+### Allow user to manage adapter and versions
 
-versions
-
-### Permissions needed for
-
-CreateAdapterVersion
+### Permissions needed for CreateAdapterVersion
 
 In addition to `"textract:CreateAdapterVersion"` permission, the caller
 identity also needs Amazon S3 and AWS Key Management Service (AWS KMS) permission to your training data in

@@ -256,9 +256,7 @@ respectively.
 You use this file in the next section to handle the detection of text in your input
 documents.
 
-## Processing Your Documents and Sending the Text to
-
-Comprehend
+## Processing Your Documents and Sending the Text to Comprehend
 
 Your application will use the class you created in the proceeding section to:
 

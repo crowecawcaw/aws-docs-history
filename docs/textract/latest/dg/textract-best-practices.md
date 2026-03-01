@@ -12,8 +12,7 @@ registration form, a tax form, or an insurance claim form.
 
 A document can be in JPEG, PNG, PDF, or TIFF format. With PDF and TIFF format files,
 you can process multipage documents. For information about how Amazon Textract represents
-documents as `Block` objects, see [Text Detection and Document Analysis
-Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
+documents as `Block` objects, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
 
 The following is an acceptable input document example.
 

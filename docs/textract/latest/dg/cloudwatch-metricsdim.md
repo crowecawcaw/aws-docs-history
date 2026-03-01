@@ -1,6 +1,4 @@
-# CloudWatch
-
-Metrics for Amazon Textract
+# CloudWatch Metrics for Amazon Textract
 
 This section contains information about the Amazon CloudWatch metrics and the
 _Operation_ dimension that are available for
@@ -20,9 +18,7 @@ The following table summarizes the Amazon Textract metrics.
 | ServerErrorCount       | The number of server errors. The response code range for a server<br>error is 500 to 599.<br>Unit: Count<br>Valid statistics: `Sum,Average`                                                                                                                                                                                                                                                                           |
 | UserErrorCount         | The number of user errors (invalid parameters, invalid image, no<br>permission, and so on). The response code range for a user error<br>is 400 to 499.<br>Unit: Count<br>Valid statistics: `Sum,Average`                                                                                                                                                                                                              |
 
-## CloudWatch
-
-Dimension for Amazon Textract
+## CloudWatch Dimension for Amazon Textract
 
 To retrieve operation-specific metrics, use the `AWS/Textract` namespace
 and provide an operation dimension. For more information about dimensions, see [Dimensions](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Dimension "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Dimension") in the

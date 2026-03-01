@@ -1,6 +1,4 @@
-# Step 3: Get Started Using the AWS CLI and AWS SDK
-
-API
+# Step 3: Get Started Using the AWS CLI and AWS SDK API
 
 After you've set up the AWS CLI and AWS SDKs that you want to use, you can build
 applications that use Amazon Textract. The following topics show you how to get started with

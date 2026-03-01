@@ -12,8 +12,7 @@ Detected key-value pairs are returned as [Block](API_Block.md "API_Block.md") ob
 `FeatureTypes` input parameter to retrieve information about
 key-value pairs, tables, or both. For key-value pairs only, use the value
 `FORMS`. For an example, see [Extracting Key-Value Pairs from a Form Document](examples-extract-kvp.md "examples-extract-kvp.md"). For general information about how a
-document is represented by `Block` objects, see [Text Detection and Document Analysis
-Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
+document is represented by `Block` objects, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
 
 Dates found through key-value pair detection are returned exactly as detected
 on the input document, with most date formats supported.

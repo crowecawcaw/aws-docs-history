@@ -48,9 +48,7 @@ see [Authentication and Access Control for Amazon CloudWatch](../../../AmazonClo
 The following examples show how to access Amazon Textract metrics using the CloudWatch console, the AWS CLI, and the CloudWatch
 API.
 
-###### To view metrics
-
-(console)
+###### To view metrics (console)
 
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch").
 2. Choose **Metrics**, choose the **All
@@ -63,9 +61,7 @@ For example, choose the **StartDocumentAnalysis** metric to measure how many tim
 analysis has been started. 4. Choose a value for the date range. The metric count displayed in the
 graph.
 
-###### To view metrics for successful `StartDocumentAnalysis` operation
-
-calls that have been made over a period of time (CLI)
+###### To view metrics for successful `StartDocumentAnalysis` operation calls that have been made over a period of time (CLI)
 
 - Open the AWS CLI and enter the following command:
 

@@ -7,5 +7,4 @@ metrics.
 ###### Topics
 
 - [Monitoring Amazon Textract](textract-monitoring.md "textract-monitoring.md")
-- [CloudWatch
-  Metrics for Amazon Textract](cloudwatch-metricsdim.md "cloudwatch-metricsdim.md")
+- [CloudWatch Metrics for Amazon Textract](cloudwatch-metricsdim.md "cloudwatch-metricsdim.md")

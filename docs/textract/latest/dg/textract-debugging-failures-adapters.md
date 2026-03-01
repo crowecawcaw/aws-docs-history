@@ -1,6 +1,4 @@
-# Debugging training
-
-failures
+# Debugging training failures
 
 If you are notified on the adapter details page that training has failed, refer to the
 status message to understand the error and correct it. There are two types of errors:

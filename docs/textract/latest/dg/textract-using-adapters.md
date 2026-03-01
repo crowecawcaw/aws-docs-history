@@ -41,8 +41,7 @@ You must divide all of your documents into training and test sets. The training 
 used to train the adapter. The adapter learns the patterns contained in these annotated
 documents. The test set is used to evaluate the adapter performance.
 
-For more information on training and testing data, see [Preparing training and testing
-datasets](textract-preparing-training-testing.md "textract-preparing-training-testing.md").
+For more information on training and testing data, see [Preparing training and testing datasets](textract-preparing-training-testing.md "textract-preparing-training-testing.md").
 
 **Annotating documents with queries and responses**
 
@@ -59,8 +58,7 @@ After you annotate the training data, you can initiate the training process for 
 adapter. Amazon Textract trains an adapter that's tailored to your documents. The adapter
 training takes 2-30 hours, depending on the size of the dataset and the AWS Region. When
 the training is complete, you can view the training status in the adapter details page. If
-the status is `training failed`, see [Debugging training
-failures](textract-debugging-failures-adapters.md "textract-debugging-failures-adapters.md") to debug the failure.
+the status is `training failed`, see [Debugging training failures](textract-debugging-failures-adapters.md "textract-debugging-failures-adapters.md") to debug the failure.
 
 **Evaluate the adapter**
 
@@ -71,8 +69,7 @@ training documents or by reviewing annotations for documents that have low accur
 After you create an improved version of the adapter, you can use the AWS Console to delete
 any earlier adapter versions that you no longer need.
 
-For more information on evaluation metrics, see [Evaluating and improving your
-adapters](textract-evaluating-improving-adapters.md "textract-evaluating-improving-adapters.md").
+For more information on evaluation metrics, see [Evaluating and improving your adapters](textract-evaluating-improving-adapters.md "textract-evaluating-improving-adapters.md").
 
 **Get the AdapterId**
 

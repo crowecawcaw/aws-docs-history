@@ -40,9 +40,7 @@ You can use Amazon Textract asynchronous operations for the following purposes:
 ###### Topics
 
 - [Calling Amazon Textract Asynchronous Operations](api-async.md "api-async.md")
-- [Configuring Amazon Textract for Asynchronous
-  Operations](api-async-roles.md "api-async-roles.md")
-- [Detecting or Analyzing Text in a Multipage
-  Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md")
+- [Configuring Amazon Textract for Asynchronous Operations](api-async-roles.md "api-async-roles.md")
+- [Detecting or Analyzing Text in a Multipage Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md")
 - [Using the Analyze Lending Workflow](async-using-lending.md "async-using-lending.md")
 - [Amazon Textract Results Notification](async-notification-payload.md "async-notification-payload.md")

@@ -8,8 +8,7 @@ The information in this topic uses text detection operations to show how you to 
 Amazon Textract asynchronous operations. You can use the same approach with the text
 analysis operations of [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") and [GetDocumentAnalysis](API_GetDocumentAnalysis.md "API_GetDocumentAnalysis.md"). It also works the same with [StartExpenseAnalysis](API_StartExpenseAnalysis.md "API_StartExpenseAnalysis.md") and [GetExpenseAnalysis](API_GetExpenseAnalysis.md "API_GetExpenseAnalysis.md").
 
-For an example, see [Detecting or Analyzing Text in a Multipage
-Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md").
+For an example, see [Detecting or Analyzing Text in a Multipage Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md").
 
 If you are analyzing lending documents, you can use the
 `StartLendingAnalysis` operation to classify document pages and send the
@@ -29,8 +28,7 @@ you have the completion status, you call a `Get` operation, such as [GetDocument
 Results of asynchronous calls are encrypted and stored for 7 days in a Amazon Textract
 owned bucket by default, unless you specify an Amazon S3 bucket using an operation's
 `OutputConfig` argument. For information on how to let Amazon Textract
-send encrypted documents to your Amazon S3 bucket, see [Permissions for Output
-Configuration](api-async-roles.md#async-output-config "api-async-roles.md#async-output-config").
+send encrypted documents to your Amazon S3 bucket, see [Permissions for Output Configuration](api-async-roles.md#async-output-config "api-async-roles.md#async-output-config").
 
 The following table shows the corresponding Start and Get operations for the different
 types of asynchronous processing supported by Amazon Textract:
@@ -83,8 +81,7 @@ the text detection request finishes. The Amazon SNS topic must be in the same AW
 as the Amazon Textract endpoint that you're calling. `NotificationChannel`
 also contains the ARN for a role that allows Amazon Textract to publish to the Amazon SNS
 topic. You give Amazon Textract publishing permissions to your Amazon SNS topics by
-creating an IAM service role. For more information, see [Configuring Amazon Textract for Asynchronous
-Operations](api-async-roles.md "api-async-roles.md").
+creating an IAM service role. For more information, see [Configuring Amazon Textract for Asynchronous Operations](api-async-roles.md "api-async-roles.md").
 
 You can also specify an optional input parameter, `JobTag`, that
 enables you to identify the job, or groups of jobs, in the completion status that's
@@ -149,9 +146,7 @@ Support if you find that your average number of concurrent requests can't be man
 by an Amazon SQS queue and you're still receiving
 `LimitExceededException` exceptions.
 
-## Getting the Completion Status of an
-
-Amazon Textract Analysis Request
+## Getting the Completion Status of an Amazon Textract Analysis Request
 
 Amazon Textract sends an analysis completion notification to the registered Amazon SNS
 topic. The notification includes the job identifier and the completion status of the
@@ -188,8 +183,7 @@ one of the following options:
 - **Amazon SQS** – You can subscribe an Amazon SQS
   queue to an Amazon SNS topic. You then poll the Amazon SQS queue to retrieve the
   completion status published by Amazon Textract when a text detection request
-  completes. For more information, see [Detecting or Analyzing Text in a Multipage
-  Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md"). Use an Amazon SQS queue if you
+  completes. For more information, see [Detecting or Analyzing Text in a Multipage Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md"). Use an Amazon SQS queue if you
   want to call Amazon Textract operations only from a client application.
 
 ###### Important
@@ -207,9 +201,7 @@ account is secure by limiting the scope of Amazon Textract's access to just the 
 you are using. This can be done by attaching a trust policy to your IAM service
 role. For information on how to do this, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
-## Getting Amazon Textract Text Detection
-
-Results
+## Getting Amazon Textract Text Detection Results
 
 To get the results of a text detection request, first ensure that the completion
 status that's retrieved from the Amazon SNS topic is `SUCCEEDED`. Then call
@@ -242,8 +234,7 @@ The `GetDocumentTextDetection` operation response JSON is similar to
 the following. The total number of pages that are detected is returned in
 `DocumentMetadata`. The detected text is returned in the
 `Blocks` array. For information about `Block` objects, see
-[Text Detection and Document Analysis
-Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
+[Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
 
 ```
 {

@@ -56,9 +56,7 @@ element in the `Geometry` field. A `SELECTION_ELEMENT`
 `Block` object isn't a child of a `PAGE`
 `Block` object.
 
-## Form Data (Key-Value
-
-Pairs)
+## Form Data (Key-Value Pairs)
 
 A key-value pair is used to represent a selection element that's detected
 on a form. The `KEY` block contains the text for the selection

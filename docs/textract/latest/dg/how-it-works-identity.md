@@ -22,10 +22,8 @@ returns three categories of data types:
 Analyze ID returns information in the structures called
 `IdentityDocumentFields`. These are `JSON` structures
 containing two pieces of information: the normalized Type and the Value associated with
-the Type. These both also have a confidence score. For more information, see [Identity Documentation Response
-Objects](identitydocumentfields.md "identitydocumentfields.md"). For more
-information regarding the text detection returned by Analyze ID, see [Text Detection and Document Analysis
-Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md")
+the Type. These both also have a confidence score. For more information, see [Identity Documentation Response Objects](identitydocumentfields.md "identitydocumentfields.md"). For more
+information regarding the text detection returned by Analyze ID, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md")
 
 You can use synchronous operations to analyze a driver's license or passport. To
 analyze these documents, you use the AnalyzeID operation and pass an identity document

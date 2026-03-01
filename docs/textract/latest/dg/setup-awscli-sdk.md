@@ -93,5 +93,4 @@ permissions for using Amazon Textract operations.
 
 ## Next Step
 
-[Step 3: Get Started Using the AWS CLI and AWS SDK
-API](get-started-exercise.md "get-started-exercise.md")
+[Step 3: Get Started Using the AWS CLI and AWS SDK API](get-started-exercise.md "get-started-exercise.md")

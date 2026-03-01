@@ -251,8 +251,7 @@ attributes:
   the detected signatures.
   ExpenseDocument extractions contain structures defined in [Invoice and Receipt Response Objects](expensedocuments.md "expensedocuments.md").
 
-IdentityDocument extractions contain structures defined in [Identity Documentation Response
-Objects](identitydocumentfields.md "identitydocumentfields.md").
+IdentityDocument extractions contain structures defined in [Identity Documentation Response Objects](identitydocumentfields.md "identitydocumentfields.md").
 
 For an example of the summary returned by the
 `GetLendingAnalysisSummary` operation, see the following:

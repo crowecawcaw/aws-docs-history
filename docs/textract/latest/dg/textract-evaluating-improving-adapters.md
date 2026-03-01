@@ -1,6 +1,4 @@
-# Evaluating and improving your
-
-adapters
+# Evaluating and improving your adapters
 
 Once you have finished the training process and created your adapter, it's important
 to evaluate how well the adapter is extracting information from your documents.

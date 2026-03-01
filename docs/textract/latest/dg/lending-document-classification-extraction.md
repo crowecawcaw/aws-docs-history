@@ -263,7 +263,7 @@ document type, which are stored in DocumentGroups:
 
 ```
 
-For descriptions of the response objects, see [Analyze Lending Response Objects](lending-response-objects.md "lending-response-objects.md") .
+For descriptions of the response objects, see [Analyze Lending Response Objects](lending-response-objects.md "lending-response-objects.md").
 
 Consult the file included with the assets folder for a list of all possible recognized
 classes.

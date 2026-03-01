@@ -120,8 +120,7 @@ information, see [Analyzing Document Text with Amazon Textract](analyzing-docume
 To detect text asynchronously, use [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md") to start processing. To get the results,
 call [GetDocumentAnalysis](API_GetDocumentAnalysis.md "API_GetDocumentAnalysis.md").
 The results are returned in one or more responses from `GetDocumentAnalysis`.
-For more information and an example, see [Detecting or Analyzing Text in a Multipage
-Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md").
+For more information and an example, see [Detecting or Analyzing Text in a Multipage Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md").
 
 To specify which type of analysis to perform, you can use the
 `FeatureTypes` list input parameter. Add TABLES to the list to return

@@ -1,6 +1,4 @@
-# Identity Documentation Response
-
-Objects
+# Identity Documentation Response Objects
 
 When you submit an identity document to the AnalyzeID API, it returns a series of
 `IdentityDocumentField` objects. Each of these objects contains

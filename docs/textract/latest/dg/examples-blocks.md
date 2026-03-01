@@ -9,8 +9,7 @@ The tutorials use synchronous Amazon Textract operations that return all results
 want to use asynchronous operations such as [StartDocumentAnalysis](API_StartDocumentAnalysis.md "API_StartDocumentAnalysis.md"), you
 need to change the example code to accommodate multiple batches of returned
 `Block` objects. To make use of the asynchronous operations example, ensure
-that you have followed the instructions given at [Configuring Amazon Textract for Asynchronous
-Operations](api-async-roles.md "api-async-roles.md").
+that you have followed the instructions given at [Configuring Amazon Textract for Asynchronous Operations](api-async-roles.md "api-async-roles.md").
 
 For examples that show you other ways to use Amazon Textract, see [Additional Code Samples](other-examples.md "other-examples.md").
 

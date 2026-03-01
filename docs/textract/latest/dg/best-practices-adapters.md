@@ -1,6 +1,4 @@
-# Best practices for Amazon Textract Custom
-
-Queries
+# Best practices for Amazon Textract Custom Queries
 
 Amazon Textract lets you customize the output of its pretrained Queries feature by
 training and using an adapter for its base model. With Amazon Textract Custom Queries, you

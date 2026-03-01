@@ -1,6 +1,4 @@
-# Preparing training and testing
-
-datasets
+# Preparing training and testing datasets
 
 ###### Training and Testing Datasets
 
@@ -109,8 +107,7 @@ Note that the manifest file contains the following info:
   the line item for training. Otherwise, use false.
 - **schema-version:** (Optional) Version of the
   manifest file. The valid value is 1.0.
-  For optimal accuracy improvements, see [Best practices for Amazon Textract Custom
-  Queries](best-practices-adapters.md "best-practices-adapters.md").
+  For optimal accuracy improvements, see [Best practices for Amazon Textract Custom Queries](best-practices-adapters.md "best-practices-adapters.md").
 
 ###### Annotating the documents with queries and responses
 

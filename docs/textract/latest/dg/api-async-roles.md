@@ -1,6 +1,4 @@
-# Configuring Amazon Textract for Asynchronous
-
-Operations
+# Configuring Amazon Textract for Asynchronous Operations
 
 The following procedures show you how to configure Amazon Textract to use with an
 Amazon Simple Notification Service (Amazon SNS) topic and an Amazon Simple Queue Service
@@ -8,8 +6,7 @@ Amazon Simple Notification Service (Amazon SNS) topic and an Amazon Simple Queue
 
 ###### Note
 
-If you're using these instructions to set up the [Detecting or Analyzing Text in a Multipage
-Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md")
+If you're using these instructions to set up the [Detecting or Analyzing Text in a Multipage Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md")
 example, you don't need to do steps 3 – 6. The example includes code to create
 and configure the Amazon SNS topic and Amazon SQS queue.
 
@@ -62,17 +59,13 @@ JSON
    the Amazon SNS topic to send messages to the Amazon SQS queue](../../../sns/latest/dg/subscribe-sqs-queue-to-sns-topic.md "../../../sns/latest/dg/subscribe-sqs-queue-to-sns-topic.md").
 7. Create an IAM service role to give Amazon Textract access to your Amazon SNS
    topics. Note the Amazon Resource Name (ARN) of the service role. For more
-   information, see [Giving Amazon Textract Access to Your
-   Amazon SNS Topic](#api-async-roles-all-topics "#api-async-roles-all-topics").
+   information, see [Giving Amazon Textract Access to Your Amazon SNS Topic](#api-async-roles-all-topics "#api-async-roles-all-topics").
 8. [Add the following inline policy](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#embed-inline-policy-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#embed-inline-policy-console") to the IAM user that you created
    in step 1.
 
-Give the inline policy a name. 9. You can now run the examples in [Detecting or Analyzing Text in a Multipage
-Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md").
+Give the inline policy a name. 9. You can now run the examples in [Detecting or Analyzing Text in a Multipage Document](async-analyzing-with-sqs.md "async-analyzing-with-sqs.md").
 
-## Giving Amazon Textract Access to Your
-
-Amazon SNS Topic
+## Giving Amazon Textract Access to Your Amazon SNS Topic
 
 Amazon Textract needs permission to send a message to your Amazon SNS topic when an
 asynchronous operation is complete. You use an IAM service role to give
@@ -110,8 +103,7 @@ name with `AmazonTextract`—for example,
     policy. Ensure that your trust policy includes conditions that limit the
     scope of permissions to just the required resources, as this will help
     prevent the confused deputy problem. For more details about this potential
-    security issue, see [Cross-service confused deputy
-    prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md"). In the
+    security issue, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md"). In the
     example below, replace the `red` text with your AWS
     account ID.
 
@@ -142,9 +134,7 @@ JSON
 
 15. Choose **Update Trust Policy**.
 
-## Permissions for Output
-
-Configuration
+## Permissions for Output Configuration
 
 You can have Amazon Textract send the results of asynchronous analysis operations to a
 designated Amazon S3 bucket by using the `OutputConfig` feature of asynchrnous

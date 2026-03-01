@@ -187,8 +187,7 @@ data as a table, and saves the tables to a CSV file.
 ###### To export tables into a CSV file
 
 1. Configure your environment. For more information, see [Prerequisites](examples-blocks.md#examples-prerequisites "examples-blocks.md#examples-prerequisites").
-2. Ensure that you have followed the instructions given at see [Configuring Amazon Textract for Asynchronous
-   Operations](api-async-roles.md "api-async-roles.md"). The
+2. Ensure that you have followed the instructions given at see [Configuring Amazon Textract for Asynchronous Operations](api-async-roles.md "api-async-roles.md"). The
    process documented on that page enables you to send and receive
    messages about the completion status of asynchronous jobs.
 3. In the following code example, replace the value of

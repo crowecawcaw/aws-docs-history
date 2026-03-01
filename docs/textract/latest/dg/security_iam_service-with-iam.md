@@ -1,6 +1,4 @@
-# How Amazon Textract Works with
-
-IAM
+# How Amazon Textract Works with IAM
 
 Before you use IAM to manage access to Amazon Textract, you should understand what
 IAM features are available to use with Amazon Textract. To get a high-level view of how
@@ -9,18 +7,12 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [Amazon Textract
-  Identity-Based Policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Amazon Textract
-  Resource-Based Policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization Based on
-  Amazon Textract Tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Amazon Textract IAM
-  Roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Amazon Textract Identity-Based Policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Amazon Textract Resource-Based Policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization Based on Amazon Textract Tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Amazon Textract IAM Roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Amazon Textract
-
-Identity-Based Policies
+## Amazon Textract Identity-Based Policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources and the conditions under which actions are allowed or denied.
@@ -111,18 +103,13 @@ Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md
 
 ### Examples
 
-To view examples of Amazon Textract identity-based policies, see [Amazon Textract Identity-Based
-Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Textract identity-based policies, see [Amazon Textract Identity-Based Policy Examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Amazon Textract
-
-Resource-Based Policies
+## Amazon Textract Resource-Based Policies
 
 Amazon Textract does not support resource-based policies.
 
-## Authorization Based on
-
-Amazon Textract Tags
+## Authorization Based on Amazon Textract Tags
 
 Amazon Textract resources supports tagging resources and controlling access based on tags.
 You can use the [TagResource](../../../STS/latest/APIReference/API_TagResource.md "../../../STS/latest/APIReference/API_TagResource.md"),
@@ -131,16 +118,12 @@ operations to manage resource tags.
 
 For access control based on tags, you can refer to [AccessTags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md").
 
-## Amazon Textract IAM
-
-Roles
+## Amazon Textract IAM Roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using Temporary
-
-Credentials with Amazon Textract
+### Using Temporary Credentials with Amazon Textract
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -148,9 +131,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 Amazon Textract supports using temporary credentials.
 
-### Service-Linked
-
-Roles
+### Service-Linked Roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your

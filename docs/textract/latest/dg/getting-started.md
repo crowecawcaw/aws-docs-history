@@ -12,5 +12,4 @@ You can try the API by using the demonstration in the Amazon Textract console. F
 
 - [Step 1: Set Up an AWS Account and Create a User](setting-up.md "setting-up.md")
 - [Step 2: Set Up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md")
-- [Step 3: Get Started Using the AWS CLI and AWS SDK
-  API](get-started-exercise.md "get-started-exercise.md")
+- [Step 3: Get Started Using the AWS CLI and AWS SDK API](get-started-exercise.md "get-started-exercise.md")

@@ -15,9 +15,7 @@ Use the following topics to learn how to secure your Amazon Textract resources.
 - [Tagging resources](tagging-adapters.md "tagging-adapters.md")
 - [Compliance Validation for Amazon Textract](SERVICENAME-compliance.md "SERVICENAME-compliance.md")
 - [Resilience in Amazon Textract](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Infrastructure Security in Amazon Textract](infrastructure-security.md "infrastructure-security.md")
 - [Configuration and Vulnerability Analysis in Amazon Textract](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
-- [Amazon Textract and interface VPC endpoints
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Amazon Textract and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")

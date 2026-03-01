@@ -3,8 +3,7 @@
 Amazon Textract can detect and analyze text in single-page documents that are provided as
 images in JPEG, PNG, PDF, and TIFF format. The operations are synchronous and return results in near real
 time. For more information about documents,
-see [Text Detection and Document Analysis
-Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
+see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
 
 This section covers how you can use Amazon Textract to detect and analyze text in a
 single-page document synchronously. To detect and analyze text in multipage documents,

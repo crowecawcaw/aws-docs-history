@@ -8,10 +8,8 @@ the following sections:
 ###### Topics
 
 - [Locating Items on a Document Page](text-location.md "text-location.md")
-- [Text Detection and Document Analysis
-  Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md")
+- [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md")
 - [Layout Response Objects](layoutresponse.md "layoutresponse.md")
 - [Invoice and Receipt Response Objects](expensedocuments.md "expensedocuments.md")
-- [Identity Documentation Response
-  Objects](identitydocumentfields.md "identitydocumentfields.md")
+- [Identity Documentation Response Objects](identitydocumentfields.md "identitydocumentfields.md")
 - [Analyze Lending Response Objects](lending-response-objects.md "lending-response-objects.md")

@@ -20,8 +20,7 @@ The results of the StartLendingAnalysis operation can be sent to an Amazon S3
 bucket of your choice by using the OutputConfig feature. If you use this
 feature, you may have to do some additional configuration of your User and
 Service Role. For information on how to let Amazon Textract send encrypted
-documents to your Amazon S3 bucket, see [Permissions for Output
-Configuration](api-async-roles.md#async-output-config "api-async-roles.md#async-output-config"). 6. Get and display the processing results by calling the
+documents to your Amazon S3 bucket, see [Permissions for Output Configuration](api-async-roles.md#async-output-config "api-async-roles.md#async-output-config"). 6. Get and display the processing results by calling the
 `GetLendingAnalysis` operation or the
 `GetLendingAnalysisSummary` operation. 7. Once you are finished processing documents, be sure to delete the Amazon SNS topic
 and the Amazon SQS queue. If you need to process additional documents, you can leave

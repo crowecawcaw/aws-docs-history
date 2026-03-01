@@ -20,15 +20,12 @@ and process documents at scale](https://s12d.com/aws-idp-scale-workshop "https:/
 
 ###### Topics
 
-- [Step 1: Create an AWS Lambda function
-  (console)](#example-lambda-create-function "#example-lambda-create-function")
+- [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function")
 - [Step 2: (Optional) Create a layer (console)](#example-lambda-create-layer "#example-lambda-create-layer")
 - [Step 3: Add Python code (console)](#example-lambda-add-code "#example-lambda-add-code")
 - [Step 4: Try your Lambda function](#example-lambda-test "#example-lambda-test")
 
-## Step 1: Create an AWS Lambda function
-
-(console)
+## Step 1: Create an AWS Lambda function (console)
 
 In this step, you create an empty AWS Lambda function and an IAM execution role that
 lets your function call the `DetectDocumentText` operation. If you are
@@ -37,9 +34,7 @@ bucket that stores your documents.
 
 Later you add the source code and optionally add a layer to the Lambda function.
 
-###### To create an AWS Lambda function
-
-(console)
+###### To create an AWS Lambda function (console)
 
 1. Sign in to the AWS Management Console and open the AWS Lambda console at
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
@@ -147,8 +142,7 @@ zip boto3-layer.zip -r python/
 10. Choose **Create** to create the layer.
 11. Choose the navigation pane menu icon.
 12. In the navigation pane, choose **Functions**.
-13. In the resources list, choose the function that you created previously in [Step 1: Create an AWS Lambda function
-    (console)](#example-lambda-create-function "#example-lambda-create-function").
+13. In the resources list, choose the function that you created previously in [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function").
 14. Choose the **Code** tab.
 15. In the **Layers** section, choose **Add a
     layer**.
@@ -450,8 +444,7 @@ python client.py `function_name s3://bucket/path/document.jpg`
 ```
 
 If the document is in an Amazon S3 bucket. make sure that it is the same bucket that you
-specified previously in step 12 of [Step 1: Create an AWS Lambda function
-(console)](#example-lambda-create-function "#example-lambda-create-function").
+specified previously in step 12 of [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function").
 
 If successful, your code returns a partial JSON response for each Block
 type detected in the document.

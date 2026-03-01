@@ -21,8 +21,7 @@ printed using the `TextTypes` field. These return as HANDWRITING and
 PRINTED respectively.
 
 The other `Block` properties are common to all block types, such as
-the ID, confidence, and geometry information. For more information, see [Text Detection and Document Analysis
-Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
+the ID, confidence, and geometry information. For more information, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
 
 To detect only lines and words, you can use [DetectDocumentText](API_DetectDocumentText.md "API_DetectDocumentText.md") or
 [StartDocumentTextDetection](API_StartDocumentTextDetection.md "API_StartDocumentTextDetection.md"). For more information, see

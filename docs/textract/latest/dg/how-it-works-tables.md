@@ -9,8 +9,7 @@ Detected tables are returned as [Block](API_Block.md "API_Block.md") objects in 
 `FeatureTypes` input parameter to retrieve information about
 key-value pairs, tables, or both. For tables only, use the value
 `TABLES`. For an example, see [Exporting Tables into a CSV File](examples-export-table-csv.md "examples-export-table-csv.md"). For general information about
-how a document is represented by `Block` objects, see [Text Detection and Document Analysis
-Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
+how a document is represented by `Block` objects, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
 
 The following is an example of a table that could be detected by Amazon
 Textract.

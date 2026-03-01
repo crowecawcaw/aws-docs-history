@@ -54,8 +54,7 @@ You can now create the datasets that will be used to train and test your adapter
 In this step, you create a training dataset and a test dataset by uploading images
 from your local computer or from an Amazon S3 bucket. For more information about
 datasets, see [Detecting Text](how-it-works-detecting.md "how-it-works-detecting.md")
-[Preparing training and testing
-datasets](textract-preparing-training-testing.md "textract-preparing-training-testing.md")
+[Preparing training and testing datasets](textract-preparing-training-testing.md "textract-preparing-training-testing.md")
 
 When uploading images from your local computer, you can upload up to 30 images at
 one time. If you have a large number of images to upload, consider creating the
@@ -104,9 +103,7 @@ documents with Queries. This is required to create the "annotations-ref" entries
 your manifest file. After you add all your documents to the training or testing set,
 you can start the annotation process.
 
-## Annotation and
-
-verification
+## Annotation and verification
 
 In this step, you assign Queries and labels to each document you uploaded to
 your training and test datasets. You link a Query to the relevant answers on a
@@ -213,8 +210,7 @@ You can also view baseline metrics at any time by toggling the **Switch to basel
 The summary of your adapter version’s performance also contains some tips on
 how to improve your adapter’s performance. You can review these tips at any time to
 improve your adapter. For more information about how to manage and improve your
-adapter, see [Evaluating and improving your
-adapters](textract-evaluating-improving-adapters.md "textract-evaluating-improving-adapters.md").
+adapter, see [Evaluating and improving your adapters](textract-evaluating-improving-adapters.md "textract-evaluating-improving-adapters.md").
 
 To demo your adapter and see its performance on a document:
 
@@ -231,9 +227,7 @@ inference, using your adapter in a call to [AnalyzeDocument](API_AnalyzeDocument
 . Otherwise, you can improve your adapter’s performance by retraining your adapter
 with additional documents.
 
-## Improving an
-
-adapter
+## Improving an adapter
 
 To improve your adapter’s performance:
 

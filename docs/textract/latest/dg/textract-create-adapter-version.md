@@ -5,14 +5,12 @@ adapter. After you create an adapter, you need to train the adapter. You can sta
 training an adapter by calling the [CreateAdapterVersion](API_CreateAdapterVersion.md "API_CreateAdapterVersion.md") operation. You provide the operation
 with an AdapterId and use the DatasetConfig to specify an Amazon S3 bucket
 containing the dataset you want to train the adapter on. The manifest file you
-provide must follow a specific format. For more information, see [Preparing training and testing
-datasets](textract-preparing-training-testing.md "textract-preparing-training-testing.md"). You can also provide the
+provide must follow a specific format. For more information, see [Preparing training and testing datasets](textract-preparing-training-testing.md "textract-preparing-training-testing.md"). You can also provide the
 operation with an optional KMSKeyId, optional ClientRequestToken, or any Tags to add
 to the adapter version.
 
 Running this operation requires the appropriate IAM permissions. For a sample
-IAM policy, see [Permissions needed for
-CreateAdapterVersion](security_iam_id-based-policy-examples.md#security_iam_create-adapter-version "security_iam_id-based-policy-examples.md#security_iam_create-adapter-version").
+IAM policy, see [Permissions needed for CreateAdapterVersion](security_iam_id-based-policy-examples.md#security_iam_create-adapter-version "security_iam_id-based-policy-examples.md#security_iam_create-adapter-version").
 
 To create a new adapter version with the console:
 

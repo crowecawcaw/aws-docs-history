@@ -1,6 +1,4 @@
-# Text Detection and Document Analysis
-
-Response Objects
+# Text Detection and Document Analysis Response Objects
 
 When Amazon Textract processes a document, it creates a list of [Block](API_Block.md "API_Block.md") objects for the detected or
 analyzed text. Each block contains information about a detected item, where it's

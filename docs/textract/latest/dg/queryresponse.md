@@ -10,8 +10,7 @@ Detected queries are returned as Block objects in the responses from
 AnalyzeDocument and GetDocumentAnalysis. You can use the FeatureTypes input
 parameter to retrieve information about key-value pairs, tables, or Queries. For
 general information about how a document is represented by Block objects, see
-[Text Detection and Document Analysis
-Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
+[Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
 
 The following shows a diagram of how a query response is represented in
 `Block` objects.

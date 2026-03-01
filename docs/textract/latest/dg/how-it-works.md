@@ -25,7 +25,7 @@ Amazon Textract Custom Queries, you can use your own documents and train an adap
 the base model, keeping complete control over your proprietary documents. See [Customizing your Queries Responses](textract-using-adapters.md "textract-using-adapters.md") for more
 information.
 
-For information regarding the results returned by Analyze Lending, see [Analyze Lending Response Objects](lending-response-objects.md "lending-response-objects.md") .
+For information regarding the results returned by Analyze Lending, see [Analyze Lending Response Objects](lending-response-objects.md "lending-response-objects.md").
 
 ###### Topics
 
