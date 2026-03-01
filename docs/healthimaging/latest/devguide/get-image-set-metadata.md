@@ -20,8 +20,7 @@ processing completes.
 
 Use `GetDICOMInstanceMetadata`, HealthImaging's representation of a DICOMweb
 service, to return DICOM instance metadata (`.json` file). For more
-information, see [Getting DICOM instance metadata from
-HealthImaging](dicomweb-retrieve-instance-metadata.md "dicomweb-retrieve-instance-metadata.md").
+information, see [Getting DICOM instance metadata from HealthImaging](dicomweb-retrieve-instance-metadata.md "dicomweb-retrieve-instance-metadata.md").
 
 ###### To get image set metadata
 

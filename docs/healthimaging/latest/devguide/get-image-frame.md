@@ -30,8 +30,7 @@ image/jph header`. For more information, see [`GetImageFrame`](../APIReference/A
 - You can also use `GetDICOMInstanceFrames`, HealthImaging's representation
   of a DICOMweb service, to retrieve DICOM instance frames (`multipart`
   request) for DICOMweb-compatible viewers and applications. For more information,
-  see [Getting DICOM instance frames from
-  HealthImaging](dicomweb-retrieve-instance-frames.md "dicomweb-retrieve-instance-frames.md").
+  see [Getting DICOM instance frames from HealthImaging](dicomweb-retrieve-instance-frames.md "dicomweb-retrieve-instance-frames.md").
 
 ###### To get image set pixel data
 

@@ -17,18 +17,12 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [AWS managed policy:
-  AWSHealthImagingServiceRolePolicy](#security-iam-awsmanpol-AWSHealthImagingServiceRolePolicy "#security-iam-awsmanpol-AWSHealthImagingServiceRolePolicy")
-- [AWS managed policy:
-  AWSHealthImagingFullAccess](#security-iam-awsmanpol-AWSHealthImagingFullAccess "#security-iam-awsmanpol-AWSHealthImagingFullAccess")
-- [AWS managed
-  policy: AWSHealthImagingReadOnlyAccess](#security-iam-awsmanpol-AWSHealthImagingReadOnlyAccess "#security-iam-awsmanpol-AWSHealthImagingReadOnlyAccess")
-- [HealthImaging updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [AWS managed policy: AWSHealthImagingServiceRolePolicy](#security-iam-awsmanpol-AWSHealthImagingServiceRolePolicy "#security-iam-awsmanpol-AWSHealthImagingServiceRolePolicy")
+- [AWS managed policy: AWSHealthImagingFullAccess](#security-iam-awsmanpol-AWSHealthImagingFullAccess "#security-iam-awsmanpol-AWSHealthImagingFullAccess")
+- [AWS managed policy: AWSHealthImagingReadOnlyAccess](#security-iam-awsmanpol-AWSHealthImagingReadOnlyAccess "#security-iam-awsmanpol-AWSHealthImagingReadOnlyAccess")
+- [HealthImaging updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## AWS managed policy:
-
-AWSHealthImagingServiceRolePolicy
+## AWS managed policy: AWSHealthImagingServiceRolePolicy
 
 This policy is attached to service-linked role `AWSServiceRoleForHealthImaging`.
 It grants permissions for HealthImaging to manage service operations and publish service metrics.
@@ -37,9 +31,7 @@ For more information about this policy, including the JSON policy document,
 see [AWSHealthImagingServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSHealthImagingServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSHealthImagingServiceRolePolicy.md")
 in the _AWS Managed Policy Reference Guide_.
 
-## AWS managed policy:
-
-AWSHealthImagingFullAccess
+## AWS managed policy: AWSHealthImagingFullAccess
 
 You can attach the `AWSHealthImagingFullAccess` policy to your IAM
 identities.
@@ -74,9 +66,7 @@ JSON
 
 ```
 
-## AWS managed
-
-policy: AWSHealthImagingReadOnlyAccess
+## AWS managed policy: AWSHealthImagingReadOnlyAccess
 
 You can attach the `AWSHealthImagingReadOnlyAccess` policy to your IAM
 identities.
@@ -108,9 +98,7 @@ JSON
 
 ```
 
-## HealthImaging updates to AWS managed
-
-policies
+## HealthImaging updates to AWS managed policies
 
 View details about updates to AWS managed policies for HealthImaging since this service began
 tracking these changes. For automatic alerts about changes to this page, subscribe to the

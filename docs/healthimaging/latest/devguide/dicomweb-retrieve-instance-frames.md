@@ -1,6 +1,4 @@
-# Getting DICOM instance frames from
-
-HealthImaging
+# Getting DICOM instance frames from HealthImaging
 
 Use the `GetDICOMInstanceFrames` action to retrieve single or batch image frames
 (`multipart` request) from a DICOM instance in a HealthImaging [data store](getting-started-concepts.md#concept-data-store "getting-started-concepts.md#concept-data-store") by specifying the Series UID, Study UID, Instance

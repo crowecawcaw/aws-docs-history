@@ -150,8 +150,7 @@ responses. For more information, see [Tools to Build on AWS](https://aws.amazon.
 **HTTP requests**
 
 You can call HealthImaging actions using HTTP requests, but you must specify different
-endpoints depending on the type of actions being used. For more information, see [Supported API actions for HTTP
-requests](endpoints-quotas.md#supported-runtime-apis "endpoints-quotas.md#supported-runtime-apis").
+endpoints depending on the type of actions being used. For more information, see [Supported API actions for HTTP requests](endpoints-quotas.md#supported-runtime-apis "endpoints-quotas.md#supported-runtime-apis").
 
 ## HIPAA eligibility and data security
 

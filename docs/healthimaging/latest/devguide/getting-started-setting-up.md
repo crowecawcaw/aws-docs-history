@@ -10,10 +10,8 @@ the next section.
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
 - [Create S3 buckets](#setting-up-create-s3-buckets "#setting-up-create-s3-buckets")
 - [Create a data store](#setting-up-create-data-store "#setting-up-create-data-store")
-- [Create an IAM user with HealthImaging full access
-  permission](#setting-up-create-iam-user "#setting-up-create-iam-user")
-- [Create an IAM role for
-  import](#setting-up-create-iam-role-import "#setting-up-create-iam-role-import")
+- [Create an IAM user with HealthImaging full access permission](#setting-up-create-iam-user "#setting-up-create-iam-user")
+- [Create an IAM role for import](#setting-up-create-iam-role-import "#setting-up-create-iam-role-import")
 - [Install the AWS CLI (optional)](#setting-up-install-cli "#setting-up-install-cli")
 
 ## Sign up for an AWS account
@@ -113,9 +111,7 @@ later in this section.
 
 To create a data store, see [Creating a data store](create-data-store.md "create-data-store.md").
 
-## Create an IAM user with HealthImaging full access
-
-permission
+## Create an IAM user with HealthImaging full access permission
 
 ###### Best practice
 
@@ -133,16 +129,13 @@ in the next section, you will be using a single IAM user.
    Consider naming the user `ahiadmin` (or similar) for clarification
    purposes.
 2. Assign the `AWSHealthImagingFullAccess` managed policy to the IAM
-   user. For more information, see [AWS managed policy:
-   AWSHealthImagingFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSHealthImagingFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSHealthImagingFullAccess").
+   user. For more information, see [AWS managed policy: AWSHealthImagingFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSHealthImagingFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSHealthImagingFullAccess").
 
 ###### Note
 
 IAM permissions can be narrowed. For more information, see [AWS managed policies for AWS HealthImaging](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
-## Create an IAM role for
-
-import
+## Create an IAM role for import
 
 ###### Note
 

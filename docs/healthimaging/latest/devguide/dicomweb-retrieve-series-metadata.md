@@ -1,6 +1,4 @@
-# Getting DICOM series metadata from
-
-HealthImaging
+# Getting DICOM series metadata from HealthImaging
 
 Use the `GetDICOMSeriesMetadata` action to retrieve the metadata for a DICOM
 series (`.json` file) from a HealthImaging [data store](getting-started-concepts.md#concept-data-store "getting-started-concepts.md#concept-data-store").

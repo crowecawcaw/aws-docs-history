@@ -1,6 +1,4 @@
-# Getting DICOM instance metadata from
-
-HealthImaging
+# Getting DICOM instance metadata from HealthImaging
 
 Use the `GetDICOMInstanceMetadata` action to retrieve the metadata from a DICOM
 instance in a HealthImaging [data store](getting-started-concepts.md#concept-data-store "getting-started-concepts.md#concept-data-store") by specifying the

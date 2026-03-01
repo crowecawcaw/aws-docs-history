@@ -31,10 +31,7 @@ for retrieving data from HealthImaging.
 ###### Topics
 
 - [Getting a DICOM instance from HealthImaging](dicomweb-retrieve-instance.md "dicomweb-retrieve-instance.md")
-- [Getting DICOM instance metadata from
-  HealthImaging](dicomweb-retrieve-instance-metadata.md "dicomweb-retrieve-instance-metadata.md")
-- [Getting DICOM series metadata from
-  HealthImaging](dicomweb-retrieve-series-metadata.md "dicomweb-retrieve-series-metadata.md")
-- [Getting DICOM instance frames from
-  HealthImaging](dicomweb-retrieve-instance-frames.md "dicomweb-retrieve-instance-frames.md")
+- [Getting DICOM instance metadata from HealthImaging](dicomweb-retrieve-instance-metadata.md "dicomweb-retrieve-instance-metadata.md")
+- [Getting DICOM series metadata from HealthImaging](dicomweb-retrieve-series-metadata.md "dicomweb-retrieve-series-metadata.md")
+- [Getting DICOM instance frames from HealthImaging](dicomweb-retrieve-instance-frames.md "dicomweb-retrieve-instance-frames.md")
 - [Getting DICOM bulkdata from HealthImaging](dicom-retrieve-bulkdata.md "dicom-retrieve-bulkdata.md")

@@ -21,9 +21,7 @@ To get a high-level view of how HealthImaging and other AWS services work with m
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for HealthImaging
+## Identity-based policies for HealthImaging
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for HealthImaging
 
-Identity-based policy examples for HealthImaging
+To view examples of HealthImaging identity-based policies, see [Identity-based policy examples for AWS HealthImaging](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of HealthImaging identity-based policies, see [Identity-based
-policy examples for AWS HealthImaging](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within HealthImaging
+## Resource-based policies within HealthImaging
 
 **Supports resource-based policies:**
 
@@ -65,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for HealthImaging
+## Policy actions for HealthImaging
 
 **Supports policy actions:**
 
@@ -97,12 +88,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of HealthImaging identity-based policies, see [Identity-based
-policy examples for AWS HealthImaging](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of HealthImaging identity-based policies, see [Identity-based policy examples for AWS HealthImaging](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for HealthImaging
+## Policy resources for HealthImaging
 
 **Supports policy resources:**
 
@@ -121,12 +109,9 @@ To see a list of HealthImaging resource types and their ARNs, see [Resource type
 _Service Authorization Reference_. To learn with which actions and resources you
 can use an ARN, see [Actions defined by AWS HealthImaging](../../../service-authorization/latest/reference/list_awshealthimaging.md#awshealthimaging-actions-as-permissions "../../../service-authorization/latest/reference/list_awshealthimaging.md#awshealthimaging-actions-as-permissions").
 
-To view examples of HealthImaging identity-based policies, see [Identity-based
-policy examples for AWS HealthImaging](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of HealthImaging identity-based policies, see [Identity-based policy examples for AWS HealthImaging](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for HealthImaging
+## Policy condition keys for HealthImaging
 
 **Supports service-specific policy condition keys:**
 
@@ -144,8 +129,7 @@ _IAM User Guide_.
 To see a list of HealthImaging condition keys, see [Condition keys for AWS HealthImaging](../../../service-authorization/latest/reference/list_awshealthimaging.md#awshealthimaging-policy-keys "../../../service-authorization/latest/reference/list_awshealthimaging.md#awshealthimaging-policy-keys") in the _Service Authorization Reference_.
 To learn with which actions and resources you can use a condition key, see [Actions defined by AWS HealthImaging](../../../service-authorization/latest/reference/list_awshealthimaging.md#awshealthimaging-actions-as-permissions "../../../service-authorization/latest/reference/list_awshealthimaging.md#awshealthimaging-actions-as-permissions").
 
-To view examples of HealthImaging identity-based policies, see [Identity-based
-policy examples for AWS HealthImaging](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of HealthImaging identity-based policies, see [Identity-based policy examples for AWS HealthImaging](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in HealthImaging
 
@@ -195,9 +179,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with HealthImaging
+## Using temporary credentials with HealthImaging
 
 **Supports temporary credentials:**
 
@@ -209,9 +191,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for HealthImaging
+## Cross-service principal permissions for HealthImaging
 
 **Supports forward access sessions (FAS):**
 
@@ -225,9 +205,7 @@ requires additional dependent actions in a policy, see [Actions,
 resources, and condition keys for AWS HealthImaging](../../../service-authorization/latest/reference/list_awshealthimaging.md "../../../service-authorization/latest/reference/list_awshealthimaging.md") in the
 _Service Authorization Reference_.
 
-## Service roles for
-
-HealthImaging
+## Service roles for HealthImaging
 
 **Supports service roles:**
 
@@ -242,9 +220,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break HealthImaging functionality. Edit
 service roles only when HealthImaging provides guidance to do so.
 
-## Service-linked
-
-roles for HealthImaging
+## Service-linked roles for HealthImaging
 
 **Supports service-linked roles:**
 

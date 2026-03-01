@@ -10,8 +10,7 @@ _Amazon EventBridge User Guide_.
 ###### Topics
 
 - [HealthImaging events sent to EventBridge](#event-notifications-listing "#event-notifications-listing")
-- [HealthImaging event structure and
-  examples](#event-notifications-structure-examples "#event-notifications-structure-examples")
+- [HealthImaging event structure and examples](#event-notifications-structure-examples "#event-notifications-structure-examples")
 
 ## HealthImaging events sent to EventBridge
 
@@ -45,9 +44,7 @@ The following table lists all HealthImaging events sent to EventBridge for proce
 | Image Set Deleted                                                                                                                                                                                                                                                                                                | `DELETED`                       |
 | For more information, see [ImageSetWorkflowStatus](../APIReference/API_ImageSetProperties.md#healthimaging-Type-ImageSetProperties-ImageSetWorkflowStatus "../APIReference/API_ImageSetProperties.md#healthimaging-Type-ImageSetProperties-ImageSetWorkflowStatus") in the _AWS HealthImaging API<br>Reference._ |
 
-## HealthImaging event structure and
-
-examples
+## HealthImaging event structure and examples
 
 HealthImaging events are objects with JSON structure that also contain metadata details. You
 can use the metadata as input to either recreate an event or learn more information. All

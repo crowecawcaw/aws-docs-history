@@ -1,6 +1,4 @@
-# AWS HealthImaging and interface VPC endpoints
-
-(AWS PrivateLink)
+# AWS HealthImaging and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and AWS HealthImaging by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that you can use
@@ -18,15 +16,11 @@ Guide_.
 
 ###### Topics
 
-- [Considerations for HealthImaging VPC
-  endpoints](#vpc-endpoint-considerations "#vpc-endpoint-considerations")
-- [Creating an interface VPC endpoint for
-  HealthImaging](#vpc-endpoint-create "#vpc-endpoint-create")
+- [Considerations for HealthImaging VPC endpoints](#vpc-endpoint-considerations "#vpc-endpoint-considerations")
+- [Creating an interface VPC endpoint for HealthImaging](#vpc-endpoint-create "#vpc-endpoint-create")
 - [Creating a VPC endpoint policy for HealthImaging](#vpc-endpoint-policy "#vpc-endpoint-policy")
 
-## Considerations for HealthImaging VPC
-
-endpoints
+## Considerations for HealthImaging VPC endpoints
 
 Before you set up an interface VPC endpoint for HealthImaging, make sure that you review
 [Interface
@@ -34,9 +28,7 @@ endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interfac
 
 HealthImaging supports making calls to all AWS HealthImaging actions from your VPC.
 
-## Creating an interface VPC endpoint for
-
-HealthImaging
+## Creating an interface VPC endpoint for HealthImaging
 
 You can create a VPC endpoint for the HealthImaging service using the Amazon VPC console or the
 AWS Command Line Interface (AWS CLI). For more information, see [Creating an

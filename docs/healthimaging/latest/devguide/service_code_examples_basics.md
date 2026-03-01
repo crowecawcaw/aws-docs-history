@@ -1,6 +1,4 @@
-# Basic examples for
-
-HealthImaging using AWS SDKs
+# Basic examples for HealthImaging using AWS SDKs
 
 The following code examples show how to use the basics of AWS HealthImaging with AWS
 SDKs.

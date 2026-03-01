@@ -71,9 +71,7 @@ interact with a data store in HealthImaging which is encrypted by that key:
 
 ```
 
-## Required IAM permissions for using a customer
-
-managed KMS key
+## Required IAM permissions for using a customer managed KMS key
 
 When creating a data store with AWS KMS encryption enabled using a customer managed
 KMS key, there are required permissions for both the key policy and the IAM
@@ -123,9 +121,7 @@ you revoke or retire a grant for HealthImaging, the change occurs immediately. T
 access rights, you should delete the data store rather than revoke the grant.
 When a data store is deleted, HealthImaging retires the grants on your behalf.
 
-### Monitoring your encryption keys for
-
-HealthImaging
+### Monitoring your encryption keys for HealthImaging
 
 You can use CloudTrail to track the requests that HealthImaging sends to AWS KMS on your
 behalf when using a customer managed KMS key. The log entries in the CloudTrail log

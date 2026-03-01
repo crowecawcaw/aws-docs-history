@@ -31,9 +31,7 @@ The following procedures show how to search image sets using the `Series
 
 Series Instance UID
 
-###### Search image sets using the `Series Instance UID`
-
-property filter
+###### Search image sets using the `Series Instance UID` property filter
 
 1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores "https://console.aws.amazon.com/medical-imaging/home#/dataStores").
 2. Choose a data store.
@@ -61,9 +59,7 @@ are returned in Newest order by default.
 
 Updated at
 
-###### Search image sets using the `Updated at` property
-
-filter
+###### Search image sets using the `Updated at` property filter
 
 1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores "https://console.aws.amazon.com/medical-imaging/home#/dataStores").
 2. Choose a data store.
