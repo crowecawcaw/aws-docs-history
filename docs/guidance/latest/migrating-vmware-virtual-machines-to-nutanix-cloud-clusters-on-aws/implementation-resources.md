@@ -1,6 +1,4 @@
-# Implementation
-
-resources
+# Implementation resources
 
 **Step 1 – Prerequisites**
 

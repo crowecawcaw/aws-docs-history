@@ -1,6 +1,4 @@
-# Nutanix Sizer and deployment
-
-planning
+# Nutanix Sizer and deployment planning
 
 It's important to right-size the environment when migrating to NC2 on AWS. Nutanix [Collector](https://portal.nutanix.com/page/products?product=collector "https://portal.nutanix.com/page/products?product=collector")
 provides a simple method to quickly capture production workload utilization metrics, which

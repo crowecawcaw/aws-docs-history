@@ -1,6 +1,4 @@
-# Nutanix Move architecture
-
-overview
+# Nutanix Move architecture overview
 
 Nutanix Move is delivered as a virtual machine (VM) appliance, which is typically hosted
 on the target Nutanix AHV cluster running on AWS. The Nutanix Move tool is composed of

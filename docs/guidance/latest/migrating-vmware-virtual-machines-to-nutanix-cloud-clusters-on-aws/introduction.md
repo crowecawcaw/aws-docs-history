@@ -1,6 +1,4 @@
-# Guidance for Migrating VMware Virtual Machines to Nutanix
-
-Cloud Clusters on AWS
+# Guidance for Migrating VMware Virtual Machines to Nutanix Cloud Clusters on AWS
 
 ## Overview
 
