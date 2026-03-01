@@ -15,8 +15,7 @@ their customers integrate their activity events into CloudTrail Lake.
 
 - [How integrations with CloudTrail Lake add value](#lake-partner-onboarding-value "#lake-partner-onboarding-value")
 - [Terminology](#lake-partner-onboarding-terminology "#lake-partner-onboarding-terminology")
-- [How partner integration
-  works](#lake-partner-onboarding-how-works "#lake-partner-onboarding-how-works")
+- [How partner integration works](#lake-partner-onboarding-how-works "#lake-partner-onboarding-how-works")
 - [Onboard to AWS CloudTrail Lake](lake-partner-onboarding-tasks.md "lake-partner-onboarding-tasks.md")
 - [Understanding the CloudTrail Lake event schema](lake-onboarding-cloudtrail-event-schema.md "lake-onboarding-cloudtrail-event-schema.md")
 - [Learn more about CloudTrail Lake](lake-partner-onboarding-learning.md "lake-partner-onboarding-learning.md")
@@ -76,9 +75,7 @@ CloudTrail supports two integration types: direct and solution. With a direct in
 CloudTrail supports two integration types: direct and solution. With a solution integration, the application runs in the customer's AWS account and the application calls the
 `PutAuditEvents` API to deliver events to the event data store for the customer's AWS account.
 
-## How partner integration
-
-works
+## How partner integration works
 
 The following diagram shows how an AWS customer configures event integration with an
 onboarded partner. The diagram assumes that the person who is responsible for managing
