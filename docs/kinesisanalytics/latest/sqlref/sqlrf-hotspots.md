@@ -164,9 +164,7 @@ price           REAL)
 
 ```
 
-### Example 1: Return Hotspots on the Sample Data
-
-Stream
+### Example 1: Return Hotspots on the Sample Data Stream
 
 In this example, a destination stream is created for the output of the HOTSPOTS
 function. A pump is then created that runs the HOTSPOTS function on the specified values in

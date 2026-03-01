@@ -1,15 +1,13 @@
-# Date, Timestamp, and Interval
-
-Operators
+# Date, Timestamp, and Interval Operators
 
 The arithmetic operators +, -, \*, and / are binary operators.
 
-| Operator | Description    | Notes                                                                                                                                                                                  |
-| -------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| +        | Addition       | interval + interval = interval<br>interval + datetime = datetime<br>datetime + interval = datetime                                                                                     |
-| -        | Subtraction    | interval<br>• interval = interval<br>datetime<br>• interval = datetime<br>( <datetime><br>• <datetime> ) Date, Timestamp, and Interval<br>Operators <interval qualifier> =<br>interval |
-| \*       | Multiplication | interval \<br>• numeric = interval<br>numeric \<br>• interval = interval                                                                                                               |
-| /        | Division       | interval / numeric = interval                                                                                                                                                          |
+| Operator | Description    | Notes                                                                                                                                                                               |
+| -------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| +        | Addition       | interval + interval = interval<br>interval + datetime = datetime<br>datetime + interval = datetime                                                                                  |
+| -        | Subtraction    | interval<br>• interval = interval<br>datetime<br>• interval = datetime<br>( <datetime><br>• <datetime> ) Date, Timestamp, and Interval Operators <interval qualifier> =<br>interval |
+| \*       | Multiplication | interval \<br>• numeric = interval<br>numeric \<br>• interval = interval                                                                                                            |
+| /        | Division       | interval / numeric = interval                                                                                                                                                       |
 
 ## Examples
 

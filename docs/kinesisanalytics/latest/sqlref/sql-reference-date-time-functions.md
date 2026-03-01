@@ -5,10 +5,8 @@ The following built-in functions relate to dates and time.
 ###### Topics
 
 - [Time Zones](#sql-reference-date-time-functions-time-zones "#sql-reference-date-time-functions-time-zones")
-- [Datetime Conversion
-  Functions](sql-reference-datetime-conversion-functions.md "sql-reference-datetime-conversion-functions.md")
-- [Date, Timestamp, and Interval
-  Operators](sql-reference-date-timestamp-interval.md "sql-reference-date-timestamp-interval.md")
+- [Datetime Conversion Functions](sql-reference-datetime-conversion-functions.md "sql-reference-datetime-conversion-functions.md")
+- [Date, Timestamp, and Interval Operators](sql-reference-date-timestamp-interval.md "sql-reference-date-timestamp-interval.md")
 - [Date and Time Patterns](sql-reference-parse-timestamp-format.md "sql-reference-parse-timestamp-format.md")
 - [CURRENT_DATE](sql-reference-current-date.md "sql-reference-current-date.md")
 - [CURRENT_ROW_TIMESTAMP](sql-reference-current-row-timestamp.md "sql-reference-current-row-timestamp.md")

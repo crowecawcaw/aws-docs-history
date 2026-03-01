@@ -102,9 +102,7 @@ definitions:
 
 ```
 
-##### Creating the ORDERS_STREAM
-
-In-Application Stream
+##### Creating the ORDERS_STREAM In-Application Stream
 
 ```
 CREATE OR REPLACE STREAM "ORDERS_STREAM" ("orderid" int, "orderrowtime" timestamp);
@@ -114,9 +112,7 @@ FROM "SOURCE_SQL_STREAM_001" WHERE "orders" = 1;
 
 ```
 
-##### Creating the SHIPMENTS_STREAM
-
-In-Application Stream
+##### Creating the SHIPMENTS_STREAM In-Application Stream
 
 ```
 CREATE OR REPLACE STREAM "SHIPMENTS_STREAM" ("orderid" int, "shipmentrowtime" timestamp);
@@ -159,9 +155,7 @@ INSERT INTO "OUTPUT_STREAM"
 
 \* - Record with orderid = 100 is a late event in the Orders stream.
 
-##### Visual Representation of the
-
-Join
+##### Visual Representation of the Join
 
 The following diagram represents a query that returns all orders with shipments that
 executed in the last minute.
@@ -227,9 +221,7 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 \* - Record with orderid = 100 is a late event in the Orders stream.
 
-##### Visual Representation of the
-
-Join
+##### Visual Representation of the Join
 
 The following diagram represents a query that returns all orders that executed in
 the last minute, with shipments that executed in the last minute.
@@ -293,9 +285,7 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 \* - Record with orderid = 100 is a late event in the Orders stream.
 
-##### Visual Representation of the
-
-Join
+##### Visual Representation of the Join
 
 The following diagram represents a query that returns all shipments that executed in
 the last minute, whether or not there are corresponding orders in the last
@@ -356,9 +346,7 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 \* - Record with orderid = 100 is a late event in the Orders stream.
 
-##### Visual Representation of the
-
-Join
+##### Visual Representation of the Join
 
 The following diagram represents a query that returns all shipments that executed in
 the last minute, whether or not they have corresponding orders.
@@ -427,9 +415,7 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 \* - Record with orderid = 100 is a late event in the Orders stream.
 
-##### Visual Representation of the
-
-Join
+##### Visual Representation of the Join
 
 The following diagram represents a query that returns all orders that executed in
 the last minute, whether or not there are corresponding shipments in the last
@@ -493,9 +479,7 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 \* - Record with orderid = 100 is a late event in the Orders stream.
 
-##### Visual Representation of the
-
-Join
+##### Visual Representation of the Join
 
 The following diagram represents a query that returns all orders that executed in
 the last minute, whether or not they have corresponding shipments.

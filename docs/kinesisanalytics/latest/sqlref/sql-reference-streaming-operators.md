@@ -18,8 +18,7 @@ categories:
   - LIKE patterns
   - SIMILAR TO patterns
 
-- [Date, Timestamp, and Interval
-  Operators](sql-reference-date-timestamp-interval.md "sql-reference-date-timestamp-interval.md")
+- [Date, Timestamp, and Interval Operators](sql-reference-date-timestamp-interval.md "sql-reference-date-timestamp-interval.md")
 - [Logical Operators](sql-reference-logical-operators.md "sql-reference-logical-operators.md")
   - 3-state boolean logic
   - Examples

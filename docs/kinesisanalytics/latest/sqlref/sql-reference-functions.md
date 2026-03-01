@@ -13,7 +13,6 @@ The topics in this section describe functions supported by streaming SQL.
 - [Numeric Functions](sql-reference-numeric-functions.md "sql-reference-numeric-functions.md")
 - [Log Parsing Functions](sql-reference-pattern-matching-functions.md "sql-reference-pattern-matching-functions.md")
 - [Sorting Functions](sql-reference-sorting-functions.md "sql-reference-sorting-functions.md")
-- [Statistical Variance and
-  Deviation Functions](sql-reference-statistical-variance-deviation-functions.md "sql-reference-statistical-variance-deviation-functions.md")
+- [Statistical Variance and Deviation Functions](sql-reference-statistical-variance-deviation-functions.md "sql-reference-statistical-variance-deviation-functions.md")
 - [Streaming SQL Functions](sql-reference-streaming-sql-functions.md "sql-reference-streaming-sql-functions.md")
 - [String and Search Functions](sql-reference-string-and-search-functions.md "sql-reference-string-and-search-functions.md")

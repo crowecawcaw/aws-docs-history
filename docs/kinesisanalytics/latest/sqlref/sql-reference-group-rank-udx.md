@@ -19,9 +19,7 @@ include the following:
 
 The functional attributes and DDL are described in the sections that follow.
 
-###### Functional Attributes for
-
-Group_Rank
+###### Functional Attributes for Group_Rank
 
 This function acts as follows:
 
@@ -76,9 +74,7 @@ price           REAL)
 
 ```
 
-### Example 1: Sort the Results of a GROUP BY
-
-Clause
+### Example 1: Sort the Results of a GROUP BY Clause
 
 In this example, the aggregate query has a `GROUP BY` clause on `ROWTIME` that groups the stream into finite rows.
 The `GROUP_RANK` function then sorts the rows returned by the `GROUP BY` clause.

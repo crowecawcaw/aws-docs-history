@@ -1,6 +1,4 @@
-# Windowed Aggregation on
-
-Streams
+# Windowed Aggregation on Streams
 
 To illustrate how windowed aggregation works on Amazon Kinesis data streams, assume that the data
 in the following table is flowing through a stream called WEATHERSTREAM.
@@ -107,9 +105,7 @@ the `AVG` analytic function over the same window to the selection list:
 | 2018-11-03 01:00:00.0 | Denver    | 36        | 56        | 45        |
 | 2018-11-03 01:00:00.0 | Anchorage | 1         | 4         | 2         |
 
-## Examples of Rowtime Bounds and Windowed
-
-Aggregation
+## Examples of Rowtime Bounds and Windowed Aggregation
 
 This is an example of a windowed aggregate query:
 

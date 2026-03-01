@@ -238,9 +238,7 @@ values appropriately as they occur.
 
 ## Examples
 
-### Stock Ticker Data
-
-Example
+### Stock Ticker Data Example
 
 This example is based on the sample stock dataset that is part of the [Getting Started Exercise](../dev/get-started-exercise.md "../dev/get-started-exercise.md") in the
 _Amazon Kinesis Analytics Developer Guide_. To run the example, you
@@ -273,9 +271,7 @@ The preceding example outputs a stream similar to the following.
 
 ![Screenshot showing an output stream containing anomaly scores and explanation information.](images/anomaly_results.png)
 
-### Network and CPU
-
-Utilization Example
+### Network and CPU Utilization Example
 
 This theoretical example shows two sets of data that follow an oscillating pattern. In
 the following graph, they're represented by the red and blue curves at the top. The red

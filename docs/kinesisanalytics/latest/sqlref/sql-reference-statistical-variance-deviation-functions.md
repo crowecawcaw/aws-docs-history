@@ -1,6 +1,4 @@
-# Statistical Variance and
-
-Deviation Functions
+# Statistical Variance and Deviation Functions
 
 Each of these functions takes a set of numbers, ignores nulls, and can be used as either an aggregate function or an analytical function. For more information, see
 [Aggregate Functions](sql-reference-aggregate-functions.md "sql-reference-aggregate-functions.md") and [Analytic Functions](sql-reference-analytic-functions.md "sql-reference-analytic-functions.md").

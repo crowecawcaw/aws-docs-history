@@ -25,9 +25,7 @@ The subclauses of the SELECT statement are described in the topics [SELECT claus
 
 ```
 
-## The STREAM keyword and the principle of streaming
-
-SQL
+## The STREAM keyword and the principle of streaming SQL
 
 The SQL query language was designed for querying stored relations, and producing
 finite relational results.

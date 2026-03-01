@@ -38,7 +38,6 @@ returns zero.
 
 ## Related Topics
 
-- [Windowed Aggregation on
-  Streams](sql-reference-windowed-aggregation-stream.md "sql-reference-windowed-aggregation-stream.md")
+- [Windowed Aggregation on Streams](sql-reference-windowed-aggregation-stream.md "sql-reference-windowed-aggregation-stream.md")
 - [SELECT statement](sql-reference-select.md "sql-reference-select.md")
 - [SELECT clause](sql-reference-select-clause.md "sql-reference-select-clause.md")

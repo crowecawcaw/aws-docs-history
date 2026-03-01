@@ -30,8 +30,7 @@ produced.
 
 Performing an aggregate query on streams is often referred to as streaming aggregation, as
 distinct from the windowed aggregation discussed in [Analytic Functions](sql-reference-analytic-functions.md "sql-reference-analytic-functions.md")
-and [Windowed Aggregation on
-Streams](sql-reference-windowed-aggregation-stream.md "sql-reference-windowed-aggregation-stream.md"). For more information about
+and [Windowed Aggregation on Streams](sql-reference-windowed-aggregation-stream.md "sql-reference-windowed-aggregation-stream.md"). For more information about
 stream-to-stream joins, see [JOIN clause](sql-reference-join-clause.md "sql-reference-join-clause.md").
 
 If an input row contains a `null` in a column used as an input to a data analysis

@@ -67,8 +67,7 @@ seconds, as illustrated in the following call.
 
 Then, the resulting TIMESTAMP would be 2009-01-01 03:15:00.
 
-[Template Strings to
-Create Specific Output Timestamps](sql-reference-template-strings-create-output-timestamps.md "sql-reference-template-strings-create-output-timestamps.md") shows further illustrative
+[Template Strings to Create Specific Output Timestamps](sql-reference-template-strings-create-output-timestamps.md "sql-reference-template-strings-create-output-timestamps.md") shows further illustrative
 examples of templates and input strings used to create the indicated output TIMESTAMPs.
 
 ###### Note

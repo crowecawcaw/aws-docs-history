@@ -104,9 +104,7 @@ The preceding examples output a stream similar to the following:
 
 ![Table showing ROWTIME, TICKER_SYMBOL, and VAR_SAMP_PRICE columns with sample data entries.](images/sql-reference-varsamp-1.png)
 
-### Example 2: Determine the sample variance of the values in a column in a sliding window
-
-query
+### Example 2: Determine the sample variance of the values in a column in a sliding window query
 
 The following example demonstrates how to use the `VAR_SAMP` function to
 determine the sample variance of the values in a sliding window of the PRICE column of the

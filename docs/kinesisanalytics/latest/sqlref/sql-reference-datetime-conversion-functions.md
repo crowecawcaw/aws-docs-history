@@ -1,6 +1,4 @@
-# Datetime Conversion
-
-Functions
+# Datetime Conversion Functions
 
 You specify date and time formats using patterned letters. Date and time pattern strings use
 unquoted letters from 'A' to 'Z' and from 'a' to 'z', with each letter representing a formatting

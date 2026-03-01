@@ -99,9 +99,7 @@ value. (Fractional seconds are disallowed.)
 If the input string is thus not in the appropriate format to be CAST, then to convert the
 string to a timestamp, you must use the CHAR_TO_TIMESTAMP method.
 
-## Using CHAR_TO_TIMESTAMP to convert a String to a
-
-Timestamp
+## Using CHAR_TO_TIMESTAMP to convert a String to a Timestamp
 
 When the input string is not in the appropriate format to be CAST, you can use the
 CHAR_TO_TIMESTAMP method. It has the additional advantage that you can specify which parts of
