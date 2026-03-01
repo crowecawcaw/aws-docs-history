@@ -15,14 +15,10 @@ about each of these architecture types.
 
 ###### Topics in this chapter:
 
-- [Amazon Pinpoint active-active reference
-  architecture](#architectures-activeactive "#architectures-activeactive")
-- [Amazon Pinpoint warm standby reference
-  architecture](#architectures-warmstandby "#architectures-warmstandby")
+- [Amazon Pinpoint active-active reference architecture](#architectures-activeactive "#architectures-activeactive")
+- [Amazon Pinpoint warm standby reference architecture](#architectures-warmstandby "#architectures-warmstandby")
 
-## Amazon Pinpoint active-active reference
-
-architecture
+## Amazon Pinpoint active-active reference architecture
 
 This section describes an active-active architecture for Amazon Pinpoint. In this type of
 architecture, two identical instances of Amazon Pinpoint are maintained in two separate AWS Regions.
@@ -33,16 +29,11 @@ normal, the traffic is again divided between both Regions.
 
 ###### Topics in this section:
 
-- [Active-active architecture
-  considerations](#architectures-activeactive-considerations "#architectures-activeactive-considerations")
-- [Active-active architecture
-  details](#architectures-activeactive-details "#architectures-activeactive-details")
-- [Benefits and drawbacks of
-  an active-active architecture](#architectures-activeactive-benefitsdrawbacks "#architectures-activeactive-benefitsdrawbacks")
+- [Active-active architecture considerations](#architectures-activeactive-considerations "#architectures-activeactive-considerations")
+- [Active-active architecture details](#architectures-activeactive-details "#architectures-activeactive-details")
+- [Benefits and drawbacks of an active-active architecture](#architectures-activeactive-benefitsdrawbacks "#architectures-activeactive-benefitsdrawbacks")
 
-### Active-active architecture
-
-considerations
+### Active-active architecture considerations
 
 Consider the following factors when implementing an active-active architecture with
 Amazon Pinpoint:
@@ -70,9 +61,7 @@ types of origination identities that are available in each country, see
 countries and regions](../userguide/channels-sms-countries.md "../userguide/channels-sms-countries.md") in the
 _Amazon Pinpoint User Guide_.
 
-### Active-active architecture
-
-details
+### Active-active architecture details
 
 The following diagram shows an active-active architecture for Amazon Pinpoint:
 
@@ -94,9 +83,7 @@ An active-active architecture involves three main parts:
 
 For more information about replicating event data, see [Synchronizing event data](customerdata-events.md "customerdata-events.md"). 3. Messages are delivered to their recipients.
 
-### Benefits and drawbacks of
-
-an active-active architecture
+### Benefits and drawbacks of an active-active architecture
 
 Consider the benefits and drawbacks of implementing an active-active
 architecture.
@@ -117,9 +104,7 @@ traffic evenly between two Regions in this architecture, you have to obtain iden
 resources for both Regions. For example, if you want to use a short code to send SMS
 messages, you must obtain two separate short codes (one for each Region).
 
-## Amazon Pinpoint warm standby reference
-
-architecture
+## Amazon Pinpoint warm standby reference architecture
 
 This section describes a warm standby architecture for Amazon Pinpoint. In this architecture, a
 fully functional environment is maintained in an AWS Region that is separate from the
@@ -132,16 +117,11 @@ to maintain redundant resources in each of the Regions in which you use Amazon P
 
 ###### Topics in this section:
 
-- [Warm standby architecture
-  considerations](#architectures-warmstandby-considerations "#architectures-warmstandby-considerations")
-- [Warm standby architecture
-  details](#architectures-warmstandby-details "#architectures-warmstandby-details")
-- [Benefits and drawbacks of
-  a warm standby architecture](#architectures-warmstandby-benefitsdrawbacks "#architectures-warmstandby-benefitsdrawbacks")
+- [Warm standby architecture considerations](#architectures-warmstandby-considerations "#architectures-warmstandby-considerations")
+- [Warm standby architecture details](#architectures-warmstandby-details "#architectures-warmstandby-details")
+- [Benefits and drawbacks of a warm standby architecture](#architectures-warmstandby-benefitsdrawbacks "#architectures-warmstandby-benefitsdrawbacks")
 
-### Warm standby architecture
-
-considerations
+### Warm standby architecture considerations
 
 Consider the following factors when implementing a warm standby architecture with
 Amazon Pinpoint:
@@ -169,9 +149,7 @@ see [Supported
 countries and regions](../userguide/channels-sms-countries.md "../userguide/channels-sms-countries.md") in the
 _Amazon Pinpoint User Guide_.
 
-### Warm standby architecture
-
-details
+### Warm standby architecture details
 
 The following diagram shows a warm standby architecture for Amazon Pinpoint:
 
@@ -193,9 +171,7 @@ A warm standby architecture involves three main steps:
 
 For more information about replicating event data, see [Synchronizing event data](customerdata-events.md "customerdata-events.md"). 3. Messages are delivered to their recipients.
 
-### Benefits and drawbacks of
-
-a warm standby architecture
+### Benefits and drawbacks of a warm standby architecture
 
 Like any other type of resilient architecture, you must carefully consider the
 benefits and drawbacks of implementing a warm standby architecture.

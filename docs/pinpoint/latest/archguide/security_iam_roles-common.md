@@ -37,12 +37,8 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [IAM role for importing endpoints or
-  segments](permissions-import-segment.md "permissions-import-segment.md")
-- [IAM role for exporting endpoints or
-  segments](permissions-export-endpoints.md "permissions-export-endpoints.md")
-- [Retrieving recommendations from
-  Amazon Personalize](permissions-get-recommendations.md "permissions-get-recommendations.md")
+- [IAM role for importing endpoints or segments](permissions-import-segment.md "permissions-import-segment.md")
+- [IAM role for exporting endpoints or segments](permissions-export-endpoints.md "permissions-export-endpoints.md")
+- [Retrieving recommendations from Amazon Personalize](permissions-get-recommendations.md "permissions-get-recommendations.md")
 - [IAM role for streaming events to Kinesis](permissions-streams.md "permissions-streams.md")
-- [IAM role for streaming email
-  events to Firehose](permissions-stream-email-events-kinesis.md "permissions-stream-email-events-kinesis.md")
+- [IAM role for streaming email events to Firehose](permissions-stream-email-events-kinesis.md "permissions-stream-email-events-kinesis.md")

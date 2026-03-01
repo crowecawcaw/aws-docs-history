@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Event logging and monitoring in
-
-Amazon Pinpoint
+# Event logging and monitoring in Amazon Pinpoint
 
 Logging and monitoring are an important part of maintaining the reliability, availability,
 and performance of your Amazon Pinpoint projects and other types of Amazon Pinpoint resources. You can log

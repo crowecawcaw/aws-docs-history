@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# IAM role for streaming email
-
-events to Firehose
+# IAM role for streaming email events to Firehose
 
 In the Amazon Pinpoint Email API, you can create _configuration sets_ that
 specify how to handle certain email events. For example, you can create a configuration set
@@ -65,9 +63,7 @@ role that has the appropriate permissions. The role must use the following polic
   automatically. For more information, see [Streaming Amazon Pinpoint events to
   Kinesis](../developerguide/event-streams.md "../developerguide/event-streams.md") in the _Amazon Pinpoint Developer Guide_.
 
-## Trust
-
-policy
+## Trust policy
 
 To allow the Amazon Pinpoint Email API to assume the IAM role and perform the actions allowed
 by the permissions policy, attach the following trust policy to the role:
@@ -130,9 +126,7 @@ the AWS Region in which you created the delivery stream. Replace
 replace `deliveryStreamName` with the name of the delivery
 stream.
 
-## Creating the IAM role
-
-(AWS CLI)
+## Creating the IAM role (AWS CLI)
 
 Complete the following steps to create the IAM role by using the AWS Command Line Interface (AWS CLI).
 For information about installing and configuring the AWS CLI, see [Installing the AWS CLI](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md") in the

@@ -13,14 +13,11 @@ high availability architectures. It includes terms, concepts, and best practices
 
 ###### Topics in this chapter:
 
-- [Is a resilient, multi-Region architecture necessary
-  for your use case?](#overview-usecase "#overview-usecase")
+- [Is a resilient, multi-Region architecture necessary for your use case?](#overview-usecase "#overview-usecase")
 - [High availability concepts](#overview-terms "#overview-terms")
 - [When to fail over to another AWS Region](#overview-failover "#overview-failover")
 
-## Is a resilient, multi-Region architecture necessary
-
-for your use case?
+## Is a resilient, multi-Region architecture necessary for your use case?
 
 AWS was designed to help you achieve your system availability goals. Even if you
 only deploy services in a single AWS Region, those services are distributed across

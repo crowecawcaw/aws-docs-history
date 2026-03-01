@@ -81,5 +81,4 @@ Amazon Pinpoint.
 ###### Topics
 
 - [Data encryption](security-data-protection-encryption.md "security-data-protection-encryption.md")
-- [Internetwork traffic
-  privacy](security-data-protection-internetwork-traffic.md "security-data-protection-internetwork-traffic.md")
+- [Internetwork traffic privacy](security-data-protection-internetwork-traffic.md "security-data-protection-internetwork-traffic.md")

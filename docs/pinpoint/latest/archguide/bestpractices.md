@@ -6,9 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Best practices for creating resilient Amazon Pinpoint
-
-architectures
+# Best practices for creating resilient Amazon Pinpoint architectures
 
 This chapter contains best practices for creating resilient architectures in Amazon Pinpoint.
 
@@ -16,8 +14,7 @@ This chapter contains best practices for creating resilient architectures in Ama
 
 - [Enable the Amazon Pinpoint event stream](#bestpractices-eventstream "#bestpractices-eventstream")
 - [Use exponential backoff](#bestpractices-exponentialbackoff "#bestpractices-exponentialbackoff")
-- [Tailor your retry strategy to the channels that
-  you use](#bestpractices-retries "#bestpractices-retries")
+- [Tailor your retry strategy to the channels that you use](#bestpractices-retries "#bestpractices-retries")
 - [Replicate infrastructure with code](#bestpractices-infraascode "#bestpractices-infraascode")
 
 ## Enable the Amazon Pinpoint event stream
@@ -41,9 +38,7 @@ increasing amount of time before issuing the command again. For more information
 [Retry
 behavior](../../../general/latest/gr/api-retries.md "../../../general/latest/gr/api-retries.md") in the _AWS General Reference_.
 
-## Tailor your retry strategy to the channels that
-
-you use
+## Tailor your retry strategy to the channels that you use
 
 Depending on the channels that you use with Amazon Pinpoint, you might need to adopt a different
 message retry strategy. Some channels, such as push notifications, provide results in

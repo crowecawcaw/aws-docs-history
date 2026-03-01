@@ -6,7 +6,7 @@ support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint
 mobile push, OTP, and phone number validate are not impacted by this change and are
 supported by AWS End User Messaging.
 
-# Document history for the _Amazon Pinpoint\*\*Resilient Architecture Guide_
+# Document history for the _Amazon Pinpoint_ _Resilient Architecture Guide_
 
 The following table describes important changes in each release of the _Amazon Pinpoint
 Resilient Architecture Guide_. To receive notifications when this guide is

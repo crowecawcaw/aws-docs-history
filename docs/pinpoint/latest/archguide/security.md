@@ -37,8 +37,7 @@ cloud and security _in_ the cloud:
 
 - [Data protection in Amazon Pinpoint](security-data-protection.md "security-data-protection.md")
 - [Identity and access management for Amazon Pinpoint](security-iam.md "security-iam.md")
-- [Event logging and monitoring in
-  Amazon Pinpoint](security-incident-response.md "security-incident-response.md")
+- [Event logging and monitoring in Amazon Pinpoint](security-incident-response.md "security-incident-response.md")
 - [Compliance validation for Amazon Pinpoint](security-compliance-validation.md "security-compliance-validation.md")
 - [Infrastructure security in Amazon Pinpoint](security-infrastructure-security.md "security-infrastructure-security.md")
 - [Security best practices for Amazon Pinpoint](security-best-practices.md "security-best-practices.md")

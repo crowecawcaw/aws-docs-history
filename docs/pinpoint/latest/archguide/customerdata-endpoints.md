@@ -13,13 +13,10 @@ across multiple AWS Regions.
 
 ###### Topics in this section:
 
-- [Create and update individual
-  endpoints](#customerdata-endpoints-individual "#customerdata-endpoints-individual")
+- [Create and update individual endpoints](#customerdata-endpoints-individual "#customerdata-endpoints-individual")
 - [Create or update endpoints in bulk](#customerdata-endpoints-bulk "#customerdata-endpoints-bulk")
 
-## Create and update individual
-
-endpoints
+## Create and update individual endpoints
 
 If your application or service uses the [UpdateEndpoint](../apireference/apps-application-id-endpoints-endpoint-id.md#UpdateEndpoint "../apireference/apps-application-id-endpoints-endpoint-id.md#UpdateEndpoint") API to create individual endpoints in your Amazon Pinpoint account,
 you can simultaneously call the API in each of your target Regions. Your call to each
