@@ -14,6 +14,16 @@ Type: [LogsBackupConfiguration](API_LogsBackupConfiguration.md "API_LogsBackupCo
 
 Required: No
 
+**LogGroupNameConfiguration**
+
+Configuration that specifies a naming pattern for destination log groups created during centralization.
+The pattern supports static text and dynamic variables that are replaced with source attributes
+when log groups are created.
+
+Type: [LogGroupNameConfiguration](API_LogGroupNameConfiguration.md "API_LogGroupNameConfiguration.md") object
+
+Required: No
+
 **LogsEncryptionConfiguration**
 
 The encryption configuration for centralization destination log groups.

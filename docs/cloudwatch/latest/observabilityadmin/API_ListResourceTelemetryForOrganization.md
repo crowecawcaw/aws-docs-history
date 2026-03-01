@@ -141,7 +141,8 @@ Content-type: application/json
          "ResourceType": "***string***",
          "TelemetryConfigurationState": {
             "***string***" : "***string***"
-         }
+         },
+         "TelemetrySourceType": "***string***"
       }
    ]
 }

@@ -69,6 +69,16 @@ Valid Values: `Enabled | Disabled | NotApplicable`
 
 Required: No
 
+**TelemetrySourceType**
+
+Specifies the type of telemetry source for a resource, such as EKS cluster logs.
+
+Type: String
+
+Valid Values: `VPC_FLOW_LOGS | ROUTE53_RESOLVER_QUERY_LOGS | EKS_AUDIT_LOGS | EKS_AUTHENTICATOR_LOGS | EKS_CONTROLLER_MANAGER_LOGS | EKS_SCHEDULER_LOGS | EKS_API_LOGS`
+
+Required: No
+
 ## See Also
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:

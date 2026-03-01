@@ -19,6 +19,9 @@ Content-type: application/json
                "KmsKeyArn": "`string`",
                "Region": "`string`"
             },
+            "LogGroupNameConfiguration": {
+               "LogGroupNamePattern": "`string`"
+            },
             "LogsEncryptionConfiguration": {
                "EncryptionConflictResolutionStrategy": "`string`",
                "EncryptionStrategy": "`string`",

@@ -28,6 +28,7 @@ The following data types are supported:
 - [LabelNameCondition](API_LabelNameCondition.md "API_LabelNameCondition.md")
 - [LogDeliveryParameters](API_LogDeliveryParameters.md "API_LogDeliveryParameters.md")
 - [LoggingFilter](API_LoggingFilter.md "API_LoggingFilter.md")
+- [LogGroupNameConfiguration](API_LogGroupNameConfiguration.md "API_LogGroupNameConfiguration.md")
 - [LogsBackupConfiguration](API_LogsBackupConfiguration.md "API_LogsBackupConfiguration.md")
 - [LogsEncryptionConfiguration](API_LogsEncryptionConfiguration.md "API_LogsEncryptionConfiguration.md")
 - [PipelineOutput](API_PipelineOutput.md "API_PipelineOutput.md")
