@@ -1,6 +1,4 @@
-# Using tag-based access control in
-
-Amazon ECR public
+# Using tag-based access control in Amazon ECR public
 
 The Amazon ECR Public `CreateRepository` API action enables you to specify tags
 when you create the repository. For more information, see [Tag an Amazon ECR Public repository](ecr-public-using-tags.md "ecr-public-using-tags.md").

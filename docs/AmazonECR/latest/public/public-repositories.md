@@ -14,15 +14,11 @@ see [Amazon ECR Public Gallery](public-gallery.md "public-gallery.md").
 ###### Topics
 
 - [Public repository concepts](#public-repository-concepts "#public-repository-concepts")
-- [Creating an Amazon ECR public repository to store
-  images](public-repository-create.md "public-repository-create.md")
+- [Creating an Amazon ECR public repository to store images](public-repository-create.md "public-repository-create.md")
 - [Editing an Amazon ECR public repository](public-repository-edit.md "public-repository-edit.md")
-- [Specifying the repository catalog data
-  in Amazon ECR public](public-repository-catalog-data.md "public-repository-catalog-data.md")
-- [Viewing the contents and details of a
-  repository in Amazon ECR public](public-repository-info.md "public-repository-info.md")
-- [Deleting a public repository policy statement
-  Amazon ECR public](public-repository-delete.md "public-repository-delete.md")
+- [Specifying the repository catalog data in Amazon ECR public](public-repository-catalog-data.md "public-repository-catalog-data.md")
+- [Viewing the contents and details of a repository in Amazon ECR public](public-repository-info.md "public-repository-info.md")
+- [Deleting a public repository policy statement Amazon ECR public](public-repository-delete.md "public-repository-delete.md")
 - [Public repository policies in Amazon ECR Public](public-repository-policies.md "public-repository-policies.md")
 - [Tag an Amazon ECR Public repository](ecr-public-using-tags.md "ecr-public-using-tags.md")
 

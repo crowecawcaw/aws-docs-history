@@ -1,6 +1,4 @@
-# Viewing the contents and details of a
-
-repository in Amazon ECR public
+# Viewing the contents and details of a repository in Amazon ECR public
 
 After you create a public repository, you can view details about it in the AWS Management Console.
 For each image in the repository, you can view the image size, the URI for pulling the
@@ -34,8 +32,7 @@ AWS Management Console.
    - Choose **Images** to view information about the
      images in the repository. If there are untagged images that you want to
      delete, you can select the box to the left of the repositories to delete
-     and choose **Delete**. For more information, see [Deleting an image in a public repository in Amazon ECR
-     public](public-image-delete.md "public-image-delete.md").
+     and choose **Delete**. For more information, see [Deleting an image in a public repository in Amazon ECR public](public-image-delete.md "public-image-delete.md").
    - Choose **Gallery detail** to view the public catalog
      data for the repository.
    - Choose **Permissions** to view the repository

@@ -1,6 +1,4 @@
-# AWS managed policies for Amazon ECR
-
-Public
+# AWS managed policies for Amazon ECR Public
 
 Amazon ECR Public provides several managed policies that you can attach to users or Amazon EC2
 instances. These policies allow for differing levels of control over Amazon ECR resources and API
@@ -14,8 +12,7 @@ _Amazon ECR Public API Reference_.
 - [AmazonElasticContainerRegistryPublicFullAccess](#public-security-iam-awsmanpol-AmazonElasticContainerRegistryPublicFullAccess "#public-security-iam-awsmanpol-AmazonElasticContainerRegistryPublicFullAccess")
 - [AmazonElasticContainerRegistryPublicPowerUser](#public-security-iam-awsmanpol-AmazonElasticContainerRegistryPublicPowerUser "#public-security-iam-awsmanpol-AmazonElasticContainerRegistryPublicPowerUser")
 - [AmazonElasticContainerRegistryPublicReadOnly](#public-security-iam-awsmanpol-AmazonElasticContainerRegistryPublicReadOnly "#public-security-iam-awsmanpol-AmazonElasticContainerRegistryPublicReadOnly")
-- [Amazon ECR Public updates to AWS
-  managed policies](#public-security-iam-awsmanpol-updates "#public-security-iam-awsmanpol-updates")
+- [Amazon ECR Public updates to AWS managed policies](#public-security-iam-awsmanpol-updates "#public-security-iam-awsmanpol-updates")
 
 ## `AmazonElasticContainerRegistryPublicFullAccess`
 
@@ -47,9 +44,7 @@ repositories, describe images, and pull images with the Docker CLI.
 To view the permissions for this policy, see [AmazonElasticContainerRegistryPublicReadOnly](../../../aws-managed-policy/latest/reference/AmazonElasticContainerRegistryPublicReadOnly.md "../../../aws-managed-policy/latest/reference/AmazonElasticContainerRegistryPublicReadOnly.md") in the _AWS Managed Policy
 Reference_.
 
-## Amazon ECR Public updates to AWS
-
-managed policies
+## Amazon ECR Public updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon ECR Public since the time
 that this service began tracking these changes. For automatic alerts about changes to

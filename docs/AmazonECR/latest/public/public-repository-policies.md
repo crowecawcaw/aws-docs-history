@@ -13,9 +13,7 @@ repository.
 All public repositories are visible on the Amazon ECR Public Gallery. Using a repository
 policy to deny access to view or pull from a public repository is not supported.
 
-## Repository policies vs IAM
-
-policies
+## Repository policies vs IAM policies
 
 Amazon ECR public repository policies are a subset of IAM policies that are both scoped
 for and specifically used for controlling access to individual Amazon ECR repositories. In
@@ -95,9 +93,6 @@ JSON
 
 ###### Topics
 
-- [Setting a repository policy
-  statement in Amazon ECR Public](set-public-repository-policy.md "set-public-repository-policy.md")
-- [Deleting a public repository policy
-  statement in Amazon ECR Public](delete-public-repository-policy.md "delete-public-repository-policy.md")
-- [Public repository policy
-  examples in Amazon ECR Public](public-repository-policy-examples.md "public-repository-policy-examples.md")
+- [Setting a repository policy statement in Amazon ECR Public](set-public-repository-policy.md "set-public-repository-policy.md")
+- [Deleting a public repository policy statement in Amazon ECR Public](delete-public-repository-policy.md "delete-public-repository-policy.md")
+- [Public repository policy examples in Amazon ECR Public](public-repository-policy-examples.md "public-repository-policy-examples.md")

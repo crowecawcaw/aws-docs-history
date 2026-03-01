@@ -1,6 +1,4 @@
-# Pushing a multi-architecture
-
-image to a public repository in Amazon ECR public
+# Pushing a multi-architecture image to a public repository in Amazon ECR public
 
 Amazon ECR Public supports creating and pushing Docker manifest lists which are used for
 multi-architecture images. A _manifest list_ is a list of images that
@@ -19,8 +17,7 @@ spec like other Amazon ECR Public images.
 
 The following steps can be used to create and push a Docker manifest list to an Amazon ECR
 public repository. You must already have the images pushed to your public repository to
-reference in the Docker manifest. For information on pushing an image, see [Pushing an image to a public repository in Amazon ECR
-public](docker-push-ecr-image.md "docker-push-ecr-image.md").
+reference in the Docker manifest. For information on pushing an image, see [Pushing an image to a public repository in Amazon ECR public](docker-push-ecr-image.md "docker-push-ecr-image.md").
 
 ###### To push a multi-architecture Docker image to an Amazon ECR public repository
 

@@ -21,9 +21,7 @@ The following table provides the default service quotas for Amazon ECR Public. F
 | Registered repositories                      | Each supported Region: 10,000         | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ecr-public/quotas/L-502CB705 "https://console.aws.amazon.com/servicequotas/home/services/ecr-public/quotas/L-502CB705") | The maximum number of repositories that you can create in this account in the current Region.                                                                                                                                                                                                                                               |
 | Tags per image                               | Each supported Region: 1,000          | No                                                                                                                                                                                       | The maximum number of tags per image.                                                                                                                                                                                                                                                                                                       |
 
-## Managing your Amazon ECR Public service quotas in the
-
-AWS Management Console
+## Managing your Amazon ECR Public service quotas in the AWS Management Console
 
 Amazon ECR Public has integrated with Service Quotas, an AWS service that enables you to view and
 manage your quotas from a central location. For more information, see [What Is Service

@@ -4,8 +4,7 @@ This quick start guide walks you through the steps needed to create a Docker ima
 publish the image to a public repository, pull the image down from the Amazon ECR Public Gallery,
 and then clean up the resources using the Docker CLI and the AWS CLI.
 
-To use the AWS Management Console instead of the AWS CLI, see [Creating an Amazon ECR public repository to store
-images](public-repository-create.md "public-repository-create.md").
+To use the AWS Management Console instead of the AWS CLI, see [Creating an Amazon ECR public repository to store images](public-repository-create.md "public-repository-create.md").
 
 For more information on the other tools available for managing your AWS resources,
 including the different AWS SDKs, IDE toolkits, and the Windows PowerShell command line
@@ -194,9 +193,7 @@ container.
 
 You should see a web page with your "Hello World!" statement. 7. Stop the Docker container by typing **Ctrl + c**.
 
-## Step 2: Authenticate to the public
-
-registry
+## Step 2: Authenticate to the public registry
 
 After you have installed and configured the AWS CLI, authenticate the Docker CLI to your
 public registry. That way, the **docker** command can push to and pull
@@ -323,14 +320,11 @@ a6785352b25c: Pushed
 latest: digest: sha256:215d7e4121b30157d8839e81c4e0912606fca105775bb0636b95EXAMPLE size: 1569
 ```
 
-## Step 5: Pull an image from the
-
-Amazon ECR Public Gallery
+## Step 5: Pull an image from the Amazon ECR Public Gallery
 
 After your image has been pushed to your Amazon ECR public repository, you can pull it from
 other locations. It is considered best practice to authenticate prior to pulling images
-from the public gallery. If you need to reauthenticate, see [Step 2: Authenticate to the public
-registry](#cli-authenticate-registry "#cli-authenticate-registry").
+from the public gallery. If you need to reauthenticate, see [Step 2: Authenticate to the public registry](#cli-authenticate-registry "#cli-authenticate-registry").
 
 ###### Note
 

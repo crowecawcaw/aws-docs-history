@@ -1,6 +1,4 @@
-# Logging Amazon ECR Public actions with
-
-AWS CloudTrail
+# Logging Amazon ECR Public actions with AWS CloudTrail
 
 Amazon ECR Public is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user, a role, or an AWS service in Amazon ECR Public. When activity occurs in Amazon ECR
@@ -17,9 +15,7 @@ originating IP address, who made the request, when it was made, and additional d
 
 For more information, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-## Amazon ECR Public information in
-
-CloudTrail
+## Amazon ECR Public information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity
 occurs in Amazon ECR Public, that activity is recorded in a CloudTrail event along with other AWS
@@ -63,9 +59,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail
 `userIdentity` element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding Amazon ECR Public log file
-
-entries
+## Understanding Amazon ECR Public log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event
@@ -92,14 +86,10 @@ file, you see entries and events from multiple AWS services.
 
 ###### Topics
 
-- [Example: Create
-  repository action](#cloudtrail-examples-create-repository "#cloudtrail-examples-create-repository")
-- [Example: Image push
-  action](#cloudtrail-examples-push-image "#cloudtrail-examples-push-image")
+- [Example: Create repository action](#cloudtrail-examples-create-repository "#cloudtrail-examples-create-repository")
+- [Example: Image push action](#cloudtrail-examples-push-image "#cloudtrail-examples-push-image")
 
-#### Example: Create
-
-repository action
+#### Example: Create repository action
 
 The following example shows a CloudTrail log entry that demonstrates the
 `CreateRepository` action.
@@ -150,9 +140,7 @@ The following example shows a CloudTrail log entry that demonstrates the
 }
 ```
 
-#### Example: Image push
-
-action
+#### Example: Image push action
 
 The following example shows a CloudTrail log entry that demonstrates an image push
 which uses the `PutImage` action.

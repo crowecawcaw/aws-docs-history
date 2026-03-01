@@ -33,12 +33,10 @@ repository detail page. This text
 must
 be in
 the
-GitHub Flavored Markdown format. For examples, see [Specifying the repository catalog data
-in Amazon ECR public](public-repository-catalog-data.md "public-repository-catalog-data.md"). 9. For **Usage**, enter details about how to use the images in
+GitHub Flavored Markdown format. For examples, see [Specifying the repository catalog data in Amazon ECR public](public-repository-catalog-data.md "public-repository-catalog-data.md"). 9. For **Usage**, enter details about how to use the images in
 the repository. This field is publicly visible on the Amazon ECR Public Gallery on
 the repository detail page. This text
 must
 be in
 the
-GitHub Flavored Markdown format. For examples, see [Specifying the repository catalog data
-in Amazon ECR public](public-repository-catalog-data.md "public-repository-catalog-data.md"). 10. Choose **Save** to update the repository settings.
+GitHub Flavored Markdown format. For examples, see [Specifying the repository catalog data in Amazon ECR public](public-repository-catalog-data.md "public-repository-catalog-data.md"). 10. Choose **Save** to update the repository settings.

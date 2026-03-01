@@ -1,6 +1,4 @@
-# Pushing a Helm chart to a public repository in Amazon ECR
-
-public
+# Pushing a Helm chart to a public repository in Amazon ECR public
 
 Amazon ECR Public supports pushing Open Container Initiative (OCI) artifacts to your public
 repositories. To display this functionality, use the following steps to push a Helm
@@ -52,8 +50,7 @@ Successfully packaged chart and saved it to: /Users/`username`/`helm-test-chart`
 ```
 
 4. Create a public repository to store your Helm chart. For more information, see
-   [Creating an Amazon ECR public repository to store
-   images](public-repository-create.md "public-repository-create.md").
+   [Creating an Amazon ECR public repository to store images](public-repository-create.md "public-repository-create.md").
 
 ```
 `aws ecr-public create-repository \

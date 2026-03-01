@@ -1,6 +1,4 @@
-# Updating registry settings in Amazon ECR
-
-public
+# Updating registry settings in Amazon ECR public
 
 Your public registry provides settings to configure a custom alias and display
 name.
@@ -26,13 +24,10 @@ avoided:
 ## Prerequisites
 
 Before you can update your public registry settings in Amazon ECR, you must first have
-the required IAM permissions. See, [Required IAM permissions for Amazon ECR
-public registries](public-registry-settings-iam.md "public-registry-settings-iam.md") to ensure you have the necessary
+the required IAM permissions. See, [Required IAM permissions for Amazon ECR public registries](public-registry-settings-iam.md "public-registry-settings-iam.md") to ensure you have the necessary
 permissions before continuing with the steps outlined on this page.
 
-## Update your registry
-
-settings
+## Update your registry settings
 
 Use the following steps to edit your public registry settings.
 

@@ -25,9 +25,7 @@ password. The AWS CLI `get-login-password` command simplifies this by
 retrieving and decoding the authorization token which you can then pipe into a
 **docker login** command to authenticate.
 
-### To authenticate Docker to an Amazon ECR registry
-
-with get-login-password
+### To authenticate Docker to an Amazon ECR registry with get-login-password
 
 To authenticate Docker to an Amazon ECR registry with get-login-password, run the
 **aws ecr-public get-login-password** command. When passing

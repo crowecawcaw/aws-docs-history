@@ -1,6 +1,4 @@
-# How Amazon ECR Public works with
-
-IAM
+# How Amazon ECR Public works with IAM
 
 Before you use IAM to manage access to Amazon ECR, you should understand what IAM
 features are available to use with Amazon ECR. To get a high-level view of how Amazon ECR and
@@ -9,15 +7,11 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 
 ###### Topics
 
-- [Amazon ECR
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Amazon ECR
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Amazon ECR identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Amazon ECR resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
 - [Amazon ECR IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Amazon ECR
-
-identity-based policies
+## Amazon ECR identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied. Amazon ECR
@@ -132,12 +126,9 @@ resources you can use a condition key, see [Actions defined by Amazon ECR](../..
 
 ### Examples
 
-To view examples of Amazon ECR identity-based policies, see [Amazon ECR public identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon ECR identity-based policies, see [Amazon ECR public identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Amazon ECR
-
-resource-based policies
+## Amazon ECR resource-based policies
 
 Resource-based policies are JSON policy documents that specify what actions a
 specified principal can perform on an Amazon ECR Public resource and under what
@@ -168,17 +159,14 @@ To learn how to attach a resource-based policy to a repository, see [Public repo
 
 ### Examples
 
-To view examples of Amazon ECR resource-based policies, see [Public repository policy
-examples in Amazon ECR Public](public-repository-policy-examples.md "public-repository-policy-examples.md").
+To view examples of Amazon ECR resource-based policies, see [Public repository policy examples in Amazon ECR Public](public-repository-policy-examples.md "public-repository-policy-examples.md").
 
 ## Amazon ECR IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Amazon ECR
+### Using temporary credentials with Amazon ECR
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security

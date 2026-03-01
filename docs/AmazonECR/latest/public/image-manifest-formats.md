@@ -1,6 +1,4 @@
-# Container image manifest formats in Amazon ECR
-
-public
+# Container image manifest formats in Amazon ECR public
 
 Amazon ECR Public supports the following container image manifest formats:
 

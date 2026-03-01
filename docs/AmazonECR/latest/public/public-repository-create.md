@@ -1,6 +1,4 @@
-# Creating an Amazon ECR public repository to store
-
-images
+# Creating an Amazon ECR public repository to store images
 
 Before you can push your Docker or Open Container Initiative (OCI) images to Amazon ECR,
 you must create a repository to store them in. Public repositories are visible on the
@@ -47,17 +45,14 @@ architecture tags to associate with the repository. These tags are publicly
 displayed in the Amazon ECR Public Gallery as badges on the repository and are used
 as search filters. 10. For **About**, enter a detailed description for the
 repository. This text should be in Github Flavored Markdown format. For format
-examples, see [Specifying the repository catalog data
-in Amazon ECR public](public-repository-catalog-data.md "public-repository-catalog-data.md"). This field is publicly
+examples, see [Specifying the repository catalog data in Amazon ECR public](public-repository-catalog-data.md "public-repository-catalog-data.md"). This field is publicly
 visible on the Amazon ECR Public Gallery on the repository detail page. 11. For **Usage**, enter details about how to use the images in
 the repository. This text should be in Github Flavored Markdown format. For
-format examples, see [Specifying the repository catalog data
-in Amazon ECR public](public-repository-catalog-data.md "public-repository-catalog-data.md"). This field is publicly
+format examples, see [Specifying the repository catalog data in Amazon ECR public](public-repository-catalog-data.md "public-repository-catalog-data.md"). This field is publicly
 visible on the Amazon ECR Public Gallery on the repository detail page. 12. Choose **Create repository**.
 
 ## Next steps
 
 To view the steps to push an image to your repository, select the repository and
 choose **View push commands**. For more information about pushing
-an image to your repository, see [Pushing an image to a public repository in Amazon ECR
-public](docker-push-ecr-image.md "docker-push-ecr-image.md").
+an image to your repository, see [Pushing an image to a public repository in Amazon ECR public](docker-push-ecr-image.md "docker-push-ecr-image.md").

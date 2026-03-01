@@ -1,11 +1,8 @@
-# Setting a repository policy
-
-statement in Amazon ECR Public
+# Setting a repository policy statement in Amazon ECR Public
 
 You can add an access policy statement to a public repository in the AWS Management Console by
 following these steps. You can add multiple policy statements per public repository. For
-example policies, see [Public repository policy
-examples in Amazon ECR Public](public-repository-policy-examples.md "public-repository-policy-examples.md").
+example policies, see [Public repository policy examples in Amazon ECR Public](public-repository-policy-examples.md "public-repository-policy-examples.md").
 
 ###### Important
 

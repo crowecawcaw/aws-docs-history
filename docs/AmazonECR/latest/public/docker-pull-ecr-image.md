@@ -1,6 +1,4 @@
-# Pulling an image from the
-
-Amazon ECR Public Gallery
+# Pulling an image from the Amazon ECR Public Gallery
 
 If you would like to run a Docker image that is available in Amazon ECR Public, you can
 pull it to your local environment with the **docker pull** command. You

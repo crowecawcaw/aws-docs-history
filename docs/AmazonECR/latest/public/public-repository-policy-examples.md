@@ -1,6 +1,4 @@
-# Public repository policy
-
-examples in Amazon ECR Public
+# Public repository policy examples in Amazon ECR Public
 
 The following examples show policy statements that you use to control the permissions
 that users have to your public repositories.
@@ -17,9 +15,7 @@ Amazon ECR requires that users have permission to make calls to the
 can authenticate to a registry and push any images to an Amazon ECR
 repository.
 
-## Example: Allow an IAM user within your
-
-account
+## Example: Allow an IAM user within your account
 
 The following repository policy allows users within your account to push
 images.

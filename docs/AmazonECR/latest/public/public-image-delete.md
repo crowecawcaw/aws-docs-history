@@ -1,6 +1,4 @@
-# Deleting an image in a public repository in Amazon ECR
-
-public
+# Deleting an image in a public repository in Amazon ECR public
 
 If you are done using an image, you can delete it from your public repository. You can
 delete an image using the AWS Management Console, or the AWS CLI.
@@ -8,8 +6,7 @@ delete an image using the AWS Management Console, or the AWS CLI.
 ###### Note
 
 If you are done with a public repository, you can delete the entire repository and
-all of the images within it. For more information, see [Deleting a public repository policy statement
-Amazon ECR public](public-repository-delete.md "public-repository-delete.md").
+all of the images within it. For more information, see [Deleting a public repository policy statement Amazon ECR public](public-repository-delete.md "public-repository-delete.md").
 
 ###### To delete a public image with the AWS Management Console
 

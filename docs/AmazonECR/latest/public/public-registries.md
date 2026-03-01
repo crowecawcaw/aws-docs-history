@@ -11,10 +11,8 @@ registries](../userguide/Registries.md "../userguide/Registries.md") in the _Ama
 
 - [Public registry concepts](#public-registry-concepts "#public-registry-concepts")
 - [Registry authentication in Amazon ECR public](public-registry-auth.md "public-registry-auth.md")
-- [Required IAM permissions for Amazon ECR
-  public registries](public-registry-settings-iam.md "public-registry-settings-iam.md")
-- [Updating registry settings in Amazon ECR
-  public](public-registry-settings.md "public-registry-settings.md")
+- [Required IAM permissions for Amazon ECR public registries](public-registry-settings-iam.md "public-registry-settings-iam.md")
+- [Updating registry settings in Amazon ECR public](public-registry-settings.md "public-registry-settings.md")
 
 ## Public registry concepts
 

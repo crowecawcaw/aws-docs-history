@@ -1,6 +1,4 @@
-# Amazon ECR public identity-based
-
-policy examples
+# Amazon ECR public identity-based policy examples
 
 By default, users and roles don't have permission to create or modify Amazon ECR Public
 resources. To grant users permission to perform actions on the
@@ -14,18 +12,12 @@ For details about actions and resource types defined by Amazon ECR, including th
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Amazon ECR
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow
-  users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Accessing
-  an Amazon ECR public repository](#security_iam_id-based-policy-examples-access-one-bucket "#security_iam_id-based-policy-examples-access-one-bucket")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon ECR console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Accessing an Amazon ECR public repository](#security_iam_id-based-policy-examples-access-one-bucket "#security_iam_id-based-policy-examples-access-one-bucket")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon ECR Public resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -58,9 +50,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Amazon ECR
-
-console
+## Using the Amazon ECR console
 
 ###### Note
 
@@ -86,9 +76,7 @@ You don't need to allow minimum console permissions for users that are making
 calls only to the AWS CLI or the AWS API. Instead, allow access to only the actions
 that match the API operation that you're trying to perform.
 
-## Allow
-
-users to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -128,9 +116,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Accessing
-
-an Amazon ECR public repository
+## Accessing an Amazon ECR public repository
 
 In this example, you want to grant an IAM user in your AWS account access to
 one of your Amazon ECR public repositories, `my-repo`.

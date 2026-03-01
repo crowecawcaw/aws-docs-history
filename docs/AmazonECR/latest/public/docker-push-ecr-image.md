@@ -1,6 +1,4 @@
-# Pushing an image to a public repository in Amazon ECR
-
-public
+# Pushing an image to a public repository in Amazon ECR public
 
 You can push your Docker images to an Amazon ECR public repository with the **docker
 push** command.
@@ -14,8 +12,7 @@ repository.
 
 Amazon ECR Public also supports creating and pushing Docker manifest lists which are used
 for multi-architecture images. Each image referenced in a manifest list must already be
-pushed to your repository. For more information, see [Pushing a multi-architecture
-image to a public repository in Amazon ECR public](docker-push-multi-architecture-image.md "docker-push-multi-architecture-image.md").
+pushed to your repository. For more information, see [Pushing a multi-architecture image to a public repository in Amazon ECR public](docker-push-multi-architecture-image.md "docker-push-multi-architecture-image.md").
 
 ###### To push a Docker image to an Amazon ECR public repository
 
@@ -23,8 +20,7 @@ image to a public repository in Amazon ECR public](docker-push-multi-architectur
    intend to push your image. Authentication tokens are valid for 12 hours. For
    more information, see [Registry authentication in Amazon ECR public](public-registry-auth.md "public-registry-auth.md").
 2. If your public repository does not exist in the registry you intend to push to
-   yet, create it. For more information, see [Creating an Amazon ECR public repository to store
-   images](public-repository-create.md "public-repository-create.md").
+   yet, create it. For more information, see [Creating an Amazon ECR public repository to store images](public-repository-create.md "public-repository-create.md").
 3. Identify the image to push. Run the **docker images** command
    to list the images on your system.
 
