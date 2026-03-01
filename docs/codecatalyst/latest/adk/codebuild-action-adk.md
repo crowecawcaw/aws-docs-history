@@ -14,8 +14,7 @@ on the runtime image, see [Curated images](../userguide/build-images.md#build-cu
 - [Prerequisites](#prerequisites-codebuild "#prerequisites-codebuild")
 - [Update the action definition](#update-action-definition-codebuild "#update-action-definition-codebuild")
 - [Update the action code](#update-action-code-codebuild "#update-action-code-codebuild")
-- [Validate the action within the CodeCatalyst
-  workflow](#validate-action-google-script "#validate-action-google-script")
+- [Validate the action within the CodeCatalyst workflow](#validate-action-google-script "#validate-action-google-script")
 
 ## Prerequisites
 
@@ -94,9 +93,7 @@ generated in [Step 4: Bootstrap the action code](getting-started.md#bootstrap-ac
 After bootstrapping and updating the action code, continue with [Step 4: Bootstrap the action code](getting-started.md#bootstrap-action-code "getting-started.md#bootstrap-action-code")
 to complete the local build.
 
-## Validate the action within the CodeCatalyst
-
-workflow
+## Validate the action within the CodeCatalyst workflow
 
 After [Testing an action](testing-action.md "testing-action.md"),
 validate
