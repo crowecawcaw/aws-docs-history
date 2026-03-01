@@ -1,6 +1,4 @@
-# Permissions for AWS KMS–encrypted Amazon SNS
-
-topics
+# Permissions for AWS KMS–encrypted Amazon SNS topics
 
 The Amazon SNS topic you specify might be encrypted by AWS Key Management Service. To allow DevOps Guru to work
 with encrypted topics, you must first create a AWS KMS key and then add the following

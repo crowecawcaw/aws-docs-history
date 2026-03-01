@@ -18,8 +18,7 @@ insights for every supported resource in your account, including those in stacks
 created from anomalies in a resource that is not in a stack is grouped at the
 _account level_. If an insight is created from anomalies in a
 resource that is in a stack,then it is grouped at the _stack level_. For
-more information, see [Understanding how anomalous behaviors are
-grouped into insights](working-with-insights.md#how-insights-are-grouped "working-with-insights.md#how-insights-are-grouped").
+more information, see [Understanding how anomalous behaviors are grouped into insights](working-with-insights.md#how-insights-are-grouped "working-with-insights.md#how-insights-are-grouped").
 
 ## Choosing stacks for DevOps Guru to analyze
 
@@ -28,14 +27,10 @@ that create them. You can do this using the AWS Management Console or the SDK.
 
 ###### Topics
 
-- [Choosing stacks for DevOps Guru to analyze
-  (console)](#choose-stacks-console "#choose-stacks-console")
-- [Choosing stacks for DevOps Guru to analyze (DevOps Guru
-  SDK)](#choose-stacks-sdk "#choose-stacks-sdk")
+- [Choosing stacks for DevOps Guru to analyze (console)](#choose-stacks-console "#choose-stacks-console")
+- [Choosing stacks for DevOps Guru to analyze (DevOps Guru SDK)](#choose-stacks-sdk "#choose-stacks-sdk")
 
-### Choosing stacks for DevOps Guru to analyze
-
-(console)
+### Choosing stacks for DevOps Guru to analyze (console)
 
 You can add AWS CloudFormation stacks using the console.
 
@@ -61,9 +56,7 @@ You can add AWS CloudFormation stacks using the console.
 
 5. Choose **Save**.
 
-### Choosing stacks for DevOps Guru to analyze (DevOps Guru
-
-SDK)
+### Choosing stacks for DevOps Guru to analyze (DevOps Guru SDK)
 
 To specify CloudFormation stacks using the Amazon DevOps Guru SDK, use the
 `UpdateResourceCollection` method. For more information, see [UpdateResourceCollection](../APIReference/API_UpdateResourceCollection.md "../APIReference/API_UpdateResourceCollection.md") in the _Amazon DevOps Guru API

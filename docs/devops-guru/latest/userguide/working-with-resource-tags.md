@@ -1,6 +1,4 @@
-# Using tags to identify resources in your DevOps Guru
-
-applications
+# Using tags to identify resources in your DevOps Guru applications
 
 You can use tags to identify the AWS resources that Amazon DevOps Guru analyzes and to specify which resources are grouped for monitoring with the selected tag key and tag values.
 You can edit these configurations when you set up DevOps Guru or when you choose **Edit analyzed resources** from the **Analyzed resources** page.
@@ -34,8 +32,7 @@ information about the supported services and resources, see
 ###### Topics
 
 - [What is an AWS tag?](#what-is-a-tag "#what-is-a-tag")
-- [Defining a DevOps Guru
-  application using a tag](#define-a-devops-guru-application-using-a-tag "#define-a-devops-guru-application-using-a-tag")
+- [Defining a DevOps Guru application using a tag](#define-a-devops-guru-application-using-a-tag "#define-a-devops-guru-application-using-a-tag")
 - [Using tags with DevOps Guru](#choose-tags "#choose-tags")
 - [Adding AWS tags to AWS resources](#add-tags-to-aws-resources "#add-tags-to-aws-resources")
 
@@ -60,9 +57,7 @@ Each AWS tag has two parts.
 
 Together these are known as _key_-_value_ pairs.
 
-## Defining a DevOps Guru
-
-application using a tag
+## Defining a DevOps Guru application using a tag
 
 To define your Amazon DevOps Guru application using a tag, add that tag to the AWS resources
 in your account that make up your application. Your tag contains a _key_ and a

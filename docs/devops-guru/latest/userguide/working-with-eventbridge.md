@@ -27,9 +27,7 @@ learn more about event patterns, see [Getting started with Amazon
 EventBridge](../../../eventbridge/latest/userguide/eb-get-started.md "../../../eventbridge/latest/userguide/eb-get-started.md") or [Amazon EventBridge event
 patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md").
 
-### DevOpsGuru
-
-New Insight Open Event
+### DevOps Guru New Insight Open Event
 
 When DevOps Guru opens a new insight, it sends the following event.
 
@@ -85,9 +83,7 @@ When DevOps Guru opens a new insight, it sends the following event.
   },
 ```
 
-### Custom sample
-
-event pattern for high severity new Insight
+### Custom sample event pattern for high severity new Insight
 
 Rules use event patterns to select events and route them to targets. The following is a
 sample DevOps Guru event pattern.

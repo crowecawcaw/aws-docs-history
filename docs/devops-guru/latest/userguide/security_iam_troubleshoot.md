@@ -1,23 +1,16 @@
-# Troubleshooting Amazon DevOps Guru identity and
-
-access
+# Troubleshooting Amazon DevOps Guru identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with DevOps Guru and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in DevOps Guru](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform an action in DevOps Guru](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
 - [I want to give users programmatic access](#security_iam_troubleshoot-keys "#security_iam_troubleshoot-keys")
-- [I am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow
-  people outside of my AWS account to access my DevOps Guru resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to allow people outside of my AWS account to access my DevOps Guru resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I am not authorized to
-
-perform an action in DevOps Guru
+## I am not authorized to perform an action in DevOps Guru
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then
 you must contact your administrator for assistance.
@@ -50,9 +43,7 @@ To grant users programmatic access, choose one of the following options.
 | IAM                                                          | Use temporary credentials to sign programmatic requests to the AWS CLI, AWS SDKs, or<br>AWS APIs.                                   | Following the instructions in [Using temporary<br>credentials with AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the _IAM User Guide_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | IAM                                                          | (Not recommended)Use long-term credentials to sign programmatic requests<br>to the AWS CLI, AWS SDKs, or AWS APIs.                  | Following the instructions for the interface that you want to use.<br>• For the AWS CLI, see [Authenticating using IAM user credentials](../../../cli/latest/userguide/cli-authentication-user.md "../../../cli/latest/userguide/cli-authentication-user.md") in<br>the _AWS Command Line Interface User Guide_.<br>• For AWS SDKs and tools, see [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in the<br>_AWS SDKs and Tools Reference Guide_.<br>• For AWS APIs, see [Managing access keys for<br>IAM users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_. |
 
-## I am not authorized to perform
-
-iam:PassRole
+## I am not authorized to perform iam:PassRole
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to DevOps Guru.
 
@@ -71,9 +62,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow
-
-people outside of my AWS account to access my DevOps Guru resources
+## I want to allow people outside of my AWS account to access my DevOps Guru resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant
@@ -81,8 +70,7 @@ people access to your resources.
 
 To learn more, consult the following:
 
-- To learn whether DevOps Guru supports these features, see [How Amazon DevOps Guru works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+- To learn whether DevOps Guru supports these features, see [How Amazon DevOps Guru works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 - To learn how to provide access to your resources across AWS accounts that you own, see [Providing access to an IAM user in another AWS account that you
   own](../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.md") in the _IAM User Guide_.
 - To learn how to provide access to your resources to third-party AWS accounts, see [Providing access to AWS accounts owned by third parties](../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios_third-party.md") in the

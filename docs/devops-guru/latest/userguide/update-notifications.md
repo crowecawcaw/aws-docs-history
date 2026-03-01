@@ -30,8 +30,7 @@ To update your notifications, first navigate to the notifications page and then 
 - [Adding Amazon SNS notification topics in the DevOps Guru console](#add-notification-topics "#add-notification-topics")
 - [Removing Amazon SNS notification topics in the DevOps Guru console](#remove-notification-topics "#remove-notification-topics")
 - [Updating Amazon SNS notification configurations](#update-notification-configurations "#update-notification-configurations")
-- [Permissions added to
-  your Amazon SNS topic](#permissions-added-to-sns-topic-on-update "#permissions-added-to-sns-topic-on-update")
+- [Permissions added to your Amazon SNS topic](#permissions-added-to-sns-topic-on-update "#permissions-added-to-sns-topic-on-update")
 
 ## Navigate to notification settings in the DevOps Guru console
 
@@ -99,9 +98,7 @@ By default, you receive only **High** and **Medium** severity level notification
 5. Choose **Notify me on all updates to the insight**, or choose **Notify me when an insight is opened or closed, or the severity level changes from Low or Medium to High**.
 6. Choose **Save**.
 
-## Permissions added to
-
-your Amazon SNS topic
+## Permissions added to your Amazon SNS topic
 
 An Amazon SNS topic is a resource that contains
 an AWS Identity and Access Management (IAM) resource policy. When you specify a topic here, DevOps Guru appends the following permissions

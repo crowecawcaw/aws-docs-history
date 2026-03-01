@@ -1,6 +1,4 @@
-# Defining applications using AWS
-
-resources
+# Defining applications using AWS resources
 
 Amazon DevOps Guru groups the resources that are in the coverage boundary that specifies which
 resources it analyzes for operational insights. The resources are grouped by resources in
@@ -32,6 +30,5 @@ You can define your coverage boundary that contains the resources in your applic
 
 ###### Topics
 
-- [Using tags to identify resources in your DevOps Guru
-  applications](working-with-resource-tags.md "working-with-resource-tags.md")
+- [Using tags to identify resources in your DevOps Guru applications](working-with-resource-tags.md "working-with-resource-tags.md")
 - [Using CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md")

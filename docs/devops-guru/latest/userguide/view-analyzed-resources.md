@@ -32,8 +32,7 @@ resources are grouped in applications. You have four boundary coverage options.
 - Specify resources by using AWS tags. DevOps Guru either analyzes all the resources in
   your account and Region or all the resources that contain the tag key that you choose.
   Resources are grouped based on selected tag values. For more
-  information, see [Using tags to identify resources in your DevOps Guru
-  applications](working-with-resource-tags.md "working-with-resource-tags.md").
+  information, see [Using tags to identify resources in your DevOps Guru applications](working-with-resource-tags.md "working-with-resource-tags.md").
 - Specify to have no resources analyzed so that you stop incurring charges from
   resource analyzation.
 
@@ -89,8 +88,7 @@ information about the supported services and resources, see
            resources into applications by your tag's *values*.
 
       For more
-      information, see [Using tags to identify resources in your DevOps Guru
-      applications](working-with-resource-tags.md "working-with-resource-tags.md").
+      information, see [Using tags to identify resources in your DevOps Guru applications](working-with-resource-tags.md "working-with-resource-tags.md").
 
     - Choose **None** if you do not want DevOps Guru to analyze
       any resources. This option disables DevOps Guru so that you stop incurring

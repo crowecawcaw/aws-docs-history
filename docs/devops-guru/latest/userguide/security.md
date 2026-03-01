@@ -25,10 +25,8 @@ _in_ the cloud:
 ###### Topics
 
 - [Data protection in Amazon DevOps Guru](data-protection.md "data-protection.md")
-- [Identity and Access Management for
-  Amazon DevOps Guru](security-iam.md "security-iam.md")
+- [Identity and Access Management for Amazon DevOps Guru](security-iam.md "security-iam.md")
 - [Logging and monitoring DevOps Guru](monitoring-overview.md "monitoring-overview.md")
-- [DevOps Guru and interface VPC endpoints
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [DevOps Guru and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Infrastructure security in DevOps Guru](infrastructure-security.md "infrastructure-security.md")
 - [Resilience in Amazon DevOps Guru](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

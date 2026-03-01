@@ -21,10 +21,8 @@ in place:
 Use the following steps to set up DevOps Guru without Quick Setup.
 
 - [Step 1 – Sign up for AWS](#setting-up-aws-sign-up "#setting-up-aws-sign-up")
-- [Step 2 – Determine coverage for
-  DevOps Guru](#setting-up-determine-coverage "#setting-up-determine-coverage")
-- [Step 3 – Identify your Amazon SNS
-  notifications topic](#setting-up-notifications "#setting-up-notifications")
+- [Step 2 – Determine coverage for DevOps Guru](#setting-up-determine-coverage "#setting-up-determine-coverage")
+- [Step 3 – Identify your Amazon SNS notifications topic](#setting-up-notifications "#setting-up-notifications")
 
 ## Step 1 – Sign up for AWS
 
@@ -86,9 +84,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Step 2 – Determine coverage for
-
-DevOps Guru
+## Step 2 – Determine coverage for DevOps Guru
 
 Your boundary coverage determines the AWS resources that are analyzed by Amazon DevOps Guru
 for anomalous behavior. We recommend that you group your resources into your operational
@@ -121,22 +117,18 @@ _key_. Use one _value_ for all the resources in one of your
 applications. If you have multiple applications, then use a tag with the same
 _key_ for all of them, and group the resources into your applications using
 the tags' _values_. All of the resources with the tags that you choose make
-up the coverage boundary for DevOps Guru. For more information, see [Using tags to identify resources in your DevOps Guru
-applications](working-with-resource-tags.md "working-with-resource-tags.md").
+up the coverage boundary for DevOps Guru. For more information, see [Using tags to identify resources in your DevOps Guru applications](working-with-resource-tags.md "working-with-resource-tags.md").
 
 If your boundary coverage includes resources that make up more than one application,
 you can use tags to filter your insights by to view them by one application at a time.
 For more information, see Step 4 in [Viewing DevOps Guru insights](working-with-insights.md#view-insights "working-with-insights.md#view-insights").
 
-For more information, see [Defining applications using AWS
-resources](working-with-resource-collections.md "working-with-resource-collections.md").
+For more information, see [Defining applications using AWS resources](working-with-resource-collections.md "working-with-resource-collections.md").
 For more
 information about the supported services and resources, see
 [Amazon DevOps Guru pricing](https://aws.amazon.com/devops-guru/pricing/ "https://aws.amazon.com/devops-guru/pricing/").
 
-## Step 3 – Identify your Amazon SNS
-
-notifications topic
+## Step 3 – Identify your Amazon SNS notifications topic
 
 You use one or two Amazon SNS topics to generate notifications about important DevOps Guru
 events, such as when an insight is created. This ensures you know about issues that
@@ -148,9 +140,7 @@ your topics. If you don't have a topic, you can create one when you enable DevOp
 the DevOps Guru console. For more information, see [Creating a topic](../../../sns/latest/dg/sns-tutorial-create-topic.md "../../../sns/latest/dg/sns-tutorial-create-topic.md") in the
 _Amazon Simple Notification Service Developer Guide_.
 
-### Permissions added
-
-to your Amazon SNS topic
+### Permissions added to your Amazon SNS topic
 
 An Amazon SNS topic is a resource that contains
 an AWS Identity and Access Management (IAM) resource policy. When you specify a topic here, DevOps Guru appends the following permissions

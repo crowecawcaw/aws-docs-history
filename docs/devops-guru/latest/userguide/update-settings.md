@@ -11,21 +11,15 @@ You can update the following Amazon DevOps Guru settings:
 
 ###### Topics
 
-- [Updating your management account
-  settings](#update-management-account "#update-management-account")
+- [Updating your management account settings](#update-management-account "#update-management-account")
 - [Updating your AWS analysis coverage in DevOps Guru](#update-coverage "#update-coverage")
 - [Updating your notifications in DevOps Guru](update-notifications.md "update-notifications.md")
 - [Filtering your DevOps Guru notifications](update-notifications-filter.md "update-notifications-filter.md")
-- [Updating AWS Systems Manager integration in
-  DevOps Guru](#update-systems-manager-integration "#update-systems-manager-integration")
-- [Updating log anomaly detection in
-  DevOps Guru](#update-log-analysis "#update-log-analysis")
-- [Updating encryption settings in
-  DevOps Guru](#update-encryption "#update-encryption")
+- [Updating AWS Systems Manager integration in DevOps Guru](#update-systems-manager-integration "#update-systems-manager-integration")
+- [Updating log anomaly detection in DevOps Guru](#update-log-analysis "#update-log-analysis")
+- [Updating encryption settings in DevOps Guru](#update-encryption "#update-encryption")
 
-## Updating your management account
-
-settings
+## Updating your management account settings
 
 You can configure DevOps Guru for accounts in your organization. If you haven't registered a
 delegated administrator, you can do so by choosing **Register delegated
@@ -39,9 +33,7 @@ You can update which AWS resources in your account DevOps Guru analyzes. To do 
 to the **Analyzed resources** page in the console and then choose
 **Edit**. For more information, see [Viewing resources analyzed by DevOps Guru](view-analyzed-resources.md "view-analyzed-resources.md").
 
-## Updating AWS Systems Manager integration in
-
-DevOps Guru
+## Updating AWS Systems Manager integration in DevOps Guru
 
 You can enable the creation of an OpsItem for each new insight in AWS Systems Manager OpsCenter.
 OpsCenter is a centralized system where you can view, investigate, and review
@@ -69,9 +61,7 @@ something else, then DevOps Guru cannot update that OpsItem.
 
 You are charged for OpsItems created in your account. For more information, see [AWS Systems Manager pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/").
 
-## Updating log anomaly detection in
-
-DevOps Guru
+## Updating log anomaly detection in DevOps Guru
 
 ###### To manage your log anomaly detection settings
 
@@ -81,9 +71,7 @@ DevOps Guru
    **Enable log anomaly detection by granting DevOps Guru permissions to display log data associated with an insight.** to have
    DevOps Guru display log data related to insights.
 
-## Updating encryption settings in
-
-DevOps Guru
+## Updating encryption settings in DevOps Guru
 
 You can update encryption settings to use AWS owned keys or AWS KMS customer managed keys.
 When switching to a new customer managed AWS KMS key from an existing customer managed AWS KMS key, DevOps Guru automatically starts encrypting newly ingested metadata using the new key.

@@ -1,6 +1,4 @@
-# Monitor accounts across your
-
-organization
+# Monitor accounts across your organization
 
 If you choose to monitor applications across your organization, log into your
 organization management account. You can optionally set up an organization member
@@ -32,12 +30,9 @@ organization.
    setup, see [Configure DevOps Guru with Quick Setup](../../../systems-manager/latest/userguide/quick-setup-devops.md "../../../systems-manager/latest/userguide/quick-setup-devops.md"). To learn more about
    setting up with stack sets, see [Working with
    stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in the _CloudFormation User Guide_, and
-   [Step 2 – Determine coverage for
-   DevOps Guru](setting-up.md#setting-up-determine-coverage "setting-up.md#setting-up-determine-coverage"). and [Using CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
+   [Step 2 – Determine coverage for DevOps Guru](setting-up.md#setting-up-determine-coverage "setting-up.md#setting-up-determine-coverage"). and [Using CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md "working-with-cfn-stacks.md").
 
-## Onboard with the AWS
-
-CLI
+## Onboard with the AWS CLI
 
 You can use the AWS CLI to enable DevOps Guru to view aggregated insights. Run the
 following commands.

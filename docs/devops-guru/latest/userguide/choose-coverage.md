@@ -55,8 +55,7 @@ For more information about supported services and resources, see [Amazon DevOps�
            resources into applications by your tag's *values*.
 
       For more
-      information, see [Using tags to identify resources in your DevOps Guru
-      applications](working-with-resource-tags.md "working-with-resource-tags.md").
+      information, see [Using tags to identify resources in your DevOps Guru applications](working-with-resource-tags.md "working-with-resource-tags.md").
 
     - Choose **None** if you do not want DevOps Guru to analyze
       any resources. This option disables DevOps Guru so that you stop incurring

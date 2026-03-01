@@ -25,9 +25,7 @@ AWS Region for each AWS account.
 
 \*\*To request a change in this limit, contact Support at [https://aws.amazon.com/contact-us](https://aws.amazon.com/contact-us "https://aws.amazon.com/contact-us"). You can request an Amazon SQS queue monitoring limit of 100, 500, 1,000, 5,000, or 10,000.
 
-## DevOps Guru quotas for creating,
-
-deploying, and managing an API
+## DevOps Guru quotas for creating, deploying, and managing an API
 
 The following fixed quotas apply to creating, deploying, and managing an API in DevOps Guru,
 using the AWS CLI, the API Gateway console, or the API Gateway REST API and its SDKs.

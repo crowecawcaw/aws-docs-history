@@ -1,7 +1,4 @@
-# Step 2:
-
-Enable
-DevOps Guru
+# Step 2: Enable DevOps Guru
 
 To configure Amazon DevOps Guru to use for the first time, you must choose how you want to set
 up DevOps Guru. You can either monitor applications across your organization or monitor

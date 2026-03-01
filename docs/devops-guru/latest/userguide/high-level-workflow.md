@@ -51,5 +51,4 @@ The Amazon DevOps Guru workflow can be broken down into three high level steps.
      see [Updating your notifications in DevOps Guru](update-notifications.md "update-notifications.md").
    - If you enabled AWS Systems Manager during DevOps Guru setup, each insight creates
      a corresponding OpsItem to help you track and manage the issues
-     discovered. For more information, see [Updating AWS Systems Manager integration in
-     DevOps Guru](update-settings.md#update-systems-manager-integration "update-settings.md#update-systems-manager-integration").
+     discovered. For more information, see [Updating AWS Systems Manager integration in DevOps Guru](update-settings.md#update-systems-manager-integration "update-settings.md#update-systems-manager-integration").

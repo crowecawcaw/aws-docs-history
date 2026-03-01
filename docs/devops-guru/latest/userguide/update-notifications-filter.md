@@ -6,8 +6,7 @@ filter policy.
 ###### Topics
 
 - [Filtering notifications with a Amazon SNS subscription filter policy](#use-subscription-filter-policy "#use-subscription-filter-policy")
-- [Example filtered Amazon SNS notification
-  for Amazon DevOps Guru](#sample-filtered-notification "#sample-filtered-notification")
+- [Example filtered Amazon SNS notification for Amazon DevOps Guru](#sample-filtered-notification "#sample-filtered-notification")
 
 ## Filtering notifications with a Amazon SNS subscription filter policy
 
@@ -43,9 +42,7 @@ from an insight.
 }
 ```
 
-## Example filtered Amazon SNS notification
-
-for Amazon DevOps Guru
+## Example filtered Amazon SNS notification for Amazon DevOps Guru
 
 The following is an example of an Amazon Simple Notification Service (Amazon SNS) notification from an Amazon SNS
 topic with a filter policy. Its `MessageType` is set to

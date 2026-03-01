@@ -8,8 +8,7 @@ that includes how it works with other AWS services.
 This diagram shows a scenario in which DevOps Guru coverage is specified by the AWS resources
 that are defined in AWS CloudFormation stacks or using AWS tags. If no stacks or tags are
 chosen, then DevOps Guru coverage analyzes all AWS resources in your account. For more
-information, see [Defining applications using AWS
-resources](working-with-resource-collections.md "working-with-resource-collections.md") and [Determine coverage for
+information, see [Defining applications using AWS resources](working-with-resource-collections.md "working-with-resource-collections.md") and [Determine coverage for
 DevOps Guru](setting-up.md#setting-up-determine-coverage "setting-up.md#setting-up-determine-coverage").
 
 1. During setup, you specify one or two Amazon SNS topics that are used to notify

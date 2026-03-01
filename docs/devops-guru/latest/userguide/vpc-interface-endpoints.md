@@ -1,6 +1,4 @@
-# DevOps Guru and interface VPC endpoints
-
-(AWS PrivateLink)
+# DevOps Guru and interface VPC endpoints (AWS PrivateLink)
 
 You can use VPC endpoints when you call Amazon DevOps Guru APIs. When you use VPC endpoints, your
 API calls are more secure because they are contained within your VPC and do not access the
@@ -20,9 +18,7 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for DevOps Guru VPC
-
-endpoints
+## Considerations for DevOps Guru VPC endpoints
 
 Before you set up an interface VPC endpoint for DevOps Guru, ensure that you
 review [Interface
@@ -31,9 +27,7 @@ endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interfac
 DevOps Guru supports making calls to
 all of its API actions from your VPC.
 
-## Creating an interface VPC endpoint for
-
-DevOps Guru
+## Creating an interface VPC endpoint for DevOps Guru
 
 You can create a VPC endpoint for the DevOps Guru service using either the Amazon VPC console
 or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an
@@ -50,9 +44,7 @@ its default DNS name for the Region, for example,
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-DevOps Guru
+## Creating a VPC endpoint policy for DevOps Guru
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 DevOps Guru. The policy specifies the following information:

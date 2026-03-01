@@ -28,9 +28,7 @@ We recommend that you complete the following steps:
 3. **Use** DevOps Guru, following the instructions in
    [Getting started with DevOps Guru](getting-started.md "getting-started.md").
 
-## How do I stop incurring DevOps Guru
-
-charges?
+## How do I stop incurring DevOps Guru charges?
 
 To disable Amazon DevOps Guru so that it stops incurring charges from analyzing resources in your
 AWS account and Region, update your coverage settings so that it doesn't analyze

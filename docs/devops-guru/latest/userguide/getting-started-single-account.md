@@ -1,6 +1,4 @@
-# Monitor
-
-your current account
+# Monitor your current account
 
 If you choose to monitor applications in your current AWS account, choose which
 AWS resources in your account and Region are covered or analyzed and specify one

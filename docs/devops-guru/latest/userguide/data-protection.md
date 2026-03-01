@@ -55,8 +55,7 @@ content and sensitive metadata such as log anomalies generated from CloudWatch L
 customer managed keys. This feature provides you the option of adding a
 self-managed security layer to help you meet the compliance and regulatory
 requirements of your organization. For information on enabling customer managed
-keys in your DevOps Guru settings, see [Updating encryption settings in
-DevOps Guru](update-settings.md#update-encryption "update-settings.md#update-encryption").
+keys in your DevOps Guru settings, see [Updating encryption settings in DevOps Guru](update-settings.md#update-encryption "update-settings.md#update-encryption").
 
 Because you have full control of this layer of encryption, you can perform such tasks as:
 
@@ -178,8 +177,7 @@ The following statement includes policy statement examples you can add for DevOp
 You can improve the security of your resource analysis and insight generation by configuring DevOps Guru to use an interface
 VPC endpoint. To do this, you do not need an internet gateway, NAT device, or virtual
 private gateway. It also is not required to configure PrivateLink, though it is
-recommended. For more information, see [DevOps Guru and interface VPC endpoints
-(AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md"). For more information about
+recommended. For more information, see [DevOps Guru and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md"). For more information about
 PrivateLink and VPC endpoints, see [AWS
 PrivateLink](https://aws.amazon.com/privatelink/ "https://aws.amazon.com/privatelink/") and [Accessing AWS services
 through PrivateLink](../../../vpc/latest/userguide/VPC_Introduction.md#what-is-privatelink "../../../vpc/latest/userguide/VPC_Introduction.md#what-is-privatelink").
