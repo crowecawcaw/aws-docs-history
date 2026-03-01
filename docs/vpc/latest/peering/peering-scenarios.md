@@ -7,14 +7,10 @@ requirements.
 
 ###### Scenarios
 
-- [Peering two or more VPCs to provide full access to
-  resources](#peering-scenarios-full "#peering-scenarios-full")
-- [Peering to one VPC to access centralized
-  resources](#peering-scenarios-partial "#peering-scenarios-partial")
+- [Peering two or more VPCs to provide full access to resources](#peering-scenarios-full "#peering-scenarios-full")
+- [Peering to one VPC to access centralized resources](#peering-scenarios-partial "#peering-scenarios-partial")
 
-## Peering two or more VPCs to provide full access to
-
-resources
+## Peering two or more VPCs to provide full access to resources
 
 In this scenario, you have two or more VPCs that you want to peer to enable full
 sharing of resources between all VPCs. The following are some examples:
@@ -37,9 +33,7 @@ route tables for this scenario, see the following documentation:
   For more information about creating and working with VPC peering
   connections in the Amazon VPC console, see [VPC peering connections](working-with-vpc-peering.md "working-with-vpc-peering.md").
 
-## Peering to one VPC to access centralized
-
-resources
+## Peering to one VPC to access centralized resources
 
 In this scenario, you have a central VPC that contains resources that you want to
 share with other VPCs. Your central VPC may require full or partial access to the peer

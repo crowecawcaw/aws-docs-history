@@ -12,21 +12,14 @@ route tables, see [Update your route tables for a VPC peering connection](vpc-pe
 
 ###### Configurations
 
-- [Two VPCs that access specific subnets in one
-  VPC](#one-to-two-vpcs-simple-hub "#one-to-two-vpcs-simple-hub")
-- [Two VPCs that access specific CIDR blocks in one
-  VPC](#two-vpcs-peered-specific-cidr "#two-vpcs-peered-specific-cidr")
-- [One VPC that accesses specific subnets in two
-  VPCs](#one-to-two-vpcs-specific-subnets "#one-to-two-vpcs-specific-subnets")
-- [Instances in one VPC that access specific instances in
-  two VPCs](#one-to-two-vpcs-instances "#one-to-two-vpcs-instances")
-- [One VPC that accesses two VPCs using longest prefix
-  matches](#one-to-two-vpcs-lpm "#one-to-two-vpcs-lpm")
+- [Two VPCs that access specific subnets in one VPC](#one-to-two-vpcs-simple-hub "#one-to-two-vpcs-simple-hub")
+- [Two VPCs that access specific CIDR blocks in one VPC](#two-vpcs-peered-specific-cidr "#two-vpcs-peered-specific-cidr")
+- [One VPC that accesses specific subnets in two VPCs](#one-to-two-vpcs-specific-subnets "#one-to-two-vpcs-specific-subnets")
+- [Instances in one VPC that access specific instances in two VPCs](#one-to-two-vpcs-instances "#one-to-two-vpcs-instances")
+- [One VPC that accesses two VPCs using longest prefix matches](#one-to-two-vpcs-lpm "#one-to-two-vpcs-lpm")
 - [Multiple VPC configurations](#multiple-configurations "#multiple-configurations")
 
-## Two VPCs that access specific subnets in one
-
-VPC
+## Two VPCs that access specific subnets in one VPC
 
 In this configuration, there is a central VPC with two subnets (VPC A), a peering
 connection between VPC A and VPC B (`pcx-aaaabbbb`), and a peering connection
@@ -76,9 +69,7 @@ B with a destination of the IPv6 CIDR of subnet 1 in VPC A.
 | VPC C                | `VPC C IPv4 CIDR` | Local                                                                            |       |
 | `Subnet 2 IPv4 CIDR` | pcx-aaaacccc      |                                                                                  |
 
-## Two VPCs that access specific CIDR blocks in one
-
-VPC
+## Two VPCs that access specific CIDR blocks in one VPC
 
 In this configuration, there is a central VPC (VPC A), a peering connection between VPC A and
 VPC B (`pcx-aaaabbbb`), and a peering connection between VPC A and VPC C
@@ -95,9 +86,7 @@ VPC B (`pcx-aaaabbbb`), and a peering connection between VPC A and VPC C
 | VPC C          | `VPC C CIDR`   | Local  |
 | `VPC A CIDR 2` | pcx-aaaacccc   |
 
-## One VPC that accesses specific subnets in two
-
-VPCs
+## One VPC that accesses specific subnets in two VPCs
 
 In this configuration, there is a central VPC (VPC A) with one subnet, a peering connection
 between VPC A and VPC B (`pcx-aaaabbbb`), and a peering connection between
@@ -184,9 +173,7 @@ uses longest prefix match to prioritize the routes):
 | `Specific IP address in subnet 2` | pcx-aaaabbbb |
 | `VPC B CIDR`                      | pcx-aaaacccc |
 
-## Instances in one VPC that access specific instances in
-
-two VPCs
+## Instances in one VPC that access specific instances in two VPCs
 
 In this configuration, there is a central VPC (VPC A) with one subnet, a peering
 connection between VPC A and VPC B (`pcx-aaaabbbb`), and a peering connection
@@ -209,9 +196,7 @@ IP address (and therefore a specific instance) in the peer VPC.
 | VPC C                   | `VPC C CIDR` | Local  |
 | `Instance 2 IP address` | pcx-aaaacccc |
 
-## One VPC that accesses two VPCs using longest prefix
-
-matches
+## One VPC that accesses two VPCs using longest prefix matches
 
 In this configuration, there is a central VPC (VPC A) with one subnet, a peering connection
 between VPC A and VPC B (`pcx-aaaabbbb`), and a peering connection between

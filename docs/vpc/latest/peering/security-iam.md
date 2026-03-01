@@ -102,6 +102,11 @@ JSON
  "ec2:RequesterVpc": "arn:aws:ec2:`us-east-1`:`111122223333`:vpc/*"
  }
  }
+ },
+ {
+ "Effect":"Allow",
+ "Action": "ec2:AcceptVpcPeeringConnection",
+ "Resource": "arn:aws:ec2:`us-east-1`:`123456789012`:vpc/*"
  }
  ]
 }`
@@ -117,6 +122,11 @@ JSON
 `{
  "Version":"2012-10-17",
  "Statement":[
+ {
+ "Effect":"Allow",
+ "Action": "ec2:AcceptVpcPeeringConnection",
+ "Resource": "arn:aws:ec2:`us-east-1`:`123456789012`:vpc-peering-connection/*"
+ },
  {
  "Effect": "Allow",
  "Action": "ec2:AcceptVpcPeeringConnection",
@@ -218,9 +228,7 @@ JSON
 
 ```
 
-## Example: Manage VPC peering connections
-
-using the console
+## Example: Manage VPC peering connections using the console
 
 To view VPC peering connections in the Amazon VPC console, users must have permission to
 use the `ec2:DescribeVpcPeeringConnections` action. To use the
