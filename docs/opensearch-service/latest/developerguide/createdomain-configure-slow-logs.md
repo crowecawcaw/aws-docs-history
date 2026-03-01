@@ -1,6 +1,4 @@
-# Monitoring OpenSearch logs with
-
-Amazon CloudWatch Logs
+# Monitoring OpenSearch logs with Amazon CloudWatch Logs
 
 Amazon OpenSearch Service exposes the following OpenSearch logs through Amazon CloudWatch Logs:
 
@@ -51,23 +49,16 @@ OpenSearch Service does not log all errors that occur.
 
 ###### Topics
 
-- [Enabling log publishing
-  (console)](#createdomain-configure-slow-logs-console "#createdomain-configure-slow-logs-console")
+- [Enabling log publishing (console)](#createdomain-configure-slow-logs-console "#createdomain-configure-slow-logs-console")
 - [Enabling log publishing (AWS CLI)](#createdomain-configure-slow-logs-cli "#createdomain-configure-slow-logs-cli")
-- [Enabling log publishing (AWS
-  SDKs)](#createdomain-configure-slow-logs-sdk "#createdomain-configure-slow-logs-sdk")
-- [Enabling log publishing
-  (CloudFormation)](#createdomain-configure-slow-logs-cfn "#createdomain-configure-slow-logs-cfn")
-- [Setting search request slow
-  log thresholds](#createdomain-configure-search-request-slow-logs "#createdomain-configure-search-request-slow-logs")
-- [Setting shard slow log
-  thresholds](#createdomain-configure-slow-logs-indices "#createdomain-configure-slow-logs-indices")
+- [Enabling log publishing (AWS SDKs)](#createdomain-configure-slow-logs-sdk "#createdomain-configure-slow-logs-sdk")
+- [Enabling log publishing (CloudFormation)](#createdomain-configure-slow-logs-cfn "#createdomain-configure-slow-logs-cfn")
+- [Setting search request slow log thresholds](#createdomain-configure-search-request-slow-logs "#createdomain-configure-search-request-slow-logs")
+- [Setting shard slow log thresholds](#createdomain-configure-slow-logs-indices "#createdomain-configure-slow-logs-indices")
 - [Testing slow logs](#createdomain-configure-slow-logs-testing "#createdomain-configure-slow-logs-testing")
 - [Viewing logs](#createdomain-configure-slow-logs-viewing "#createdomain-configure-slow-logs-viewing")
 
-## Enabling log publishing
-
-(console)
+## Enabling log publishing (console)
 
 The OpenSearch Service console is the simplest way to enable the publishing of logs to CloudWatch.
 
@@ -140,9 +131,7 @@ The status of your domain changes from **Active** to
 **Processing**. The status must return to **Active** before log publishing is enabled. This change typically
 takes 30 minutes, but can take longer depending on your domain configuration.
 
-If you enabled one of the shard slow logs, see [Setting shard slow log
-thresholds](#createdomain-configure-slow-logs-indices "#createdomain-configure-slow-logs-indices"). If you enabled audit logs, see [Step 2: Turn on audit logs in
-OpenSearch Dashboards](audit-logs.md#audit-log-dashboards-ui "audit-logs.md#audit-log-dashboards-ui"). If you enabled only error logs, you don't need to
+If you enabled one of the shard slow logs, see [Setting shard slow log thresholds](#createdomain-configure-slow-logs-indices "#createdomain-configure-slow-logs-indices"). If you enabled audit logs, see [Step 2: Turn on audit logs in OpenSearch Dashboards](audit-logs.md#audit-log-dashboards-ui "audit-logs.md#audit-log-dashboards-ui"). If you enabled only error logs, you don't need to
 perform any additional configuration steps.
 
 ## Enabling log publishing (AWS CLI)
@@ -211,14 +200,10 @@ aws opensearch update-domain-config \
 To disable publishing to CloudWatch, run the same command with
 `Enabled=false`.
 
-If you enabled one of the shard slow logs, see [Setting shard slow log
-thresholds](#createdomain-configure-slow-logs-indices "#createdomain-configure-slow-logs-indices"). If you enabled audit logs, see [Step 2: Turn on audit logs in
-OpenSearch Dashboards](audit-logs.md#audit-log-dashboards-ui "audit-logs.md#audit-log-dashboards-ui"). If you enabled only error logs, you don't need to
+If you enabled one of the shard slow logs, see [Setting shard slow log thresholds](#createdomain-configure-slow-logs-indices "#createdomain-configure-slow-logs-indices"). If you enabled audit logs, see [Step 2: Turn on audit logs in OpenSearch Dashboards](audit-logs.md#audit-log-dashboards-ui "audit-logs.md#audit-log-dashboards-ui"). If you enabled only error logs, you don't need to
 perform any additional configuration steps.
 
-## Enabling log publishing (AWS
-
-SDKs)
+## Enabling log publishing (AWS SDKs)
 
 Before you can enable log publishing, you must first create a CloudWatch log group, get its ARN,
 and give OpenSearch Service permissions to write to it. The relevant operations are documented in the
@@ -236,13 +221,10 @@ defined in the [Amazon OpenSearch Service API Reference](../APIReference/Welcome
 including the `--log-publishing-options` option for `CreateDomain` and
 `UpdateDomainConfig`.
 
-If you enabled one of the shard slow logs, see [Setting shard slow log
-thresholds](#createdomain-configure-slow-logs-indices "#createdomain-configure-slow-logs-indices"). If you enabled only error logs, you
+If you enabled one of the shard slow logs, see [Setting shard slow log thresholds](#createdomain-configure-slow-logs-indices "#createdomain-configure-slow-logs-indices"). If you enabled only error logs, you
 don't need to perform any additional configuration steps.
 
-## Enabling log publishing
-
-(CloudFormation)
+## Enabling log publishing (CloudFormation)
 
 In this example, we use CloudFormation to create a log group called
 `opensearch-logs`, assign the appropriate permissions, and then create a domain
@@ -323,9 +305,7 @@ Resources:
 
 For detailed syntax information, see the [log publishing options](../../../AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-logpublishingoption.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-logpublishingoption.md") in the _CloudFormation User Guide._
 
-## Setting search request slow
-
-log thresholds
+## Setting search request slow log thresholds
 
 [Search request slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#search-request-slow-logs "https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#search-request-slow-logs") are available for search on OpenSearch Service domains running on
 version 2.13 and later. Search request slow log thresholds are configured for total request
@@ -346,9 +326,7 @@ PUT `domain-endpoint`/_cluster/settings
 }
 ```
 
-## Setting shard slow log
-
-thresholds
+## Setting shard slow log thresholds
 
 OpenSearch disables [shard slow logs](https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#shard-slow-logs "https://opensearch.org/docs/latest/install-and-configure/configuring-opensearch/logs/#shard-slow-logs") by default. After you enable the _publishing_ of shard slow logs to CloudWatch, you still must specify logging thresholds
 for each OpenSearch index. These thresholds define precisely what should be logged and at which

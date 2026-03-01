@@ -17,9 +17,7 @@ configuration file. Logstash 8.0 introduced a breaking change where all plugins 
 in [ECS compatibility mode by default](https://www.elastic.co/guide/en/logstash/current/ecs-ls.html#_specific_plugin_instance "https://www.elastic.co/guide/en/logstash/current/ecs-ls.html#_specific_plugin_instance"). You must override the default value to
 maintain legacy behavior.
 
-### Fine-grained access control
-
-configuration
+### Fine-grained access control configuration
 
 If your OpenSearch Service domain uses [fine-grained access control](fgac.md "fgac.md")
 with HTTP basic authentication, configuration is similar to any other OpenSearch

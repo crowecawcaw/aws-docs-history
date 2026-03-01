@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion
-
-pipeline with Fluentd
+# Using an OpenSearch Ingestion pipeline with Fluentd
 
 Fluentd is an open-source data collection ecosystem that provides SDKs for different
 languages and sub-projects like Fluent Bit. This sample [Fluentd

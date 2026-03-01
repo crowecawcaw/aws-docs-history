@@ -20,10 +20,8 @@ rate for the instances and storage provisioned in Amazon EBS and Amazon S3.
 
 - [Limitations](#or1-considerations "#or1-considerations")
 - [Tuning for better ingestion throughput](#or1-ultrawarm-tuning "#or1-ultrawarm-tuning")
-- [How OpenSearch optimized instances differ from
-  other instances](#or1-optimized-instances "#or1-optimized-instances")
-- [How OpenSearch optimized instances differ from UltraWarm
-  instances](#or1-ultrawarm-differences "#or1-ultrawarm-differences")
+- [How OpenSearch optimized instances differ from other instances](#or1-optimized-instances "#or1-optimized-instances")
+- [How OpenSearch optimized instances differ from UltraWarm instances](#or1-ultrawarm-differences "#or1-ultrawarm-differences")
 - [Provisioning a domain with OpenSearch optimized instances](#or1-using "#or1-using")
 
 ## Limitations
@@ -36,8 +34,7 @@ Consider the following limitations when using OpenSearch optimized instances for
 - Your domain must have encryption at rest enabled. For more information, see
   [Encryption of data at rest for Amazon OpenSearch Service](encryption-at-rest.md "encryption-at-rest.md").
 - If your domain uses dedicated master nodes, they must use Graviton instances.
-  For more information about dedicated master nodes, see [Dedicated master nodes in
-  Amazon OpenSearch Service](managedomains-dedicatedmasternodes.md "managedomains-dedicatedmasternodes.md").
+  For more information about dedicated master nodes, see [Dedicated master nodes in Amazon OpenSearch Service](managedomains-dedicatedmasternodes.md "managedomains-dedicatedmasternodes.md").
 - The refresh interval for indexes on OpenSearch optimized instances must be 10 seconds or
   higher. The default refresh interval for OpenSearch optimized instances is 10 seconds.
 
@@ -52,9 +49,7 @@ the following:
 - Set your number of active primary shards to match the number of data nodes to
   maximize resource utilization.
 
-## How OpenSearch optimized instances differ from
-
-other instances
+## How OpenSearch optimized instances differ from other instances
 
 OpenSearch optimized instances differ from non-optimized instances in the following
 ways:
@@ -76,9 +71,7 @@ include time to sync translog.
 - Replica shards can be a few seconds behind primary shards. You can monitor the
   lag using the `ReplicationLagMaxTime` Amazon CloudWatch metric
 
-## How OpenSearch optimized instances differ from UltraWarm
-
-instances
+## How OpenSearch optimized instances differ from UltraWarm instances
 
 OpenSearch Service provides UltraWarm instances that are a cost-effective way to store large amounts
 of read-only data. Both OpenSearch optimized and UltraWarm instances store data locally in Amazon EBS and

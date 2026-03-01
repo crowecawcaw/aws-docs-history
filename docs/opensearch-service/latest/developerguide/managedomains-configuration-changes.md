@@ -1,6 +1,4 @@
-# Making configuration changes in
-
-Amazon OpenSearch Service
+# Making configuration changes in Amazon OpenSearch Service
 
 Amazon OpenSearch Service uses a _blue/green_ deployment process when updating domains. A
 blue/green deployment creates an idle environment for domain updates that copies the production
@@ -18,13 +16,10 @@ new environment is unsuccessful.
 
 - [Changes that usually cause blue/green deployments](#bg "#bg")
 - [Changes that usually don't cause blue/green deployments](#nobg "#nobg")
-- [Determining whether a change will cause a blue/green
-  deployment](#dryrun "#dryrun")
-- [Tracking a configuration
-  change](#initiating-tracking-configuration-changes "#initiating-tracking-configuration-changes")
+- [Determining whether a change will cause a blue/green deployment](#dryrun "#dryrun")
+- [Tracking a configuration change](#initiating-tracking-configuration-changes "#initiating-tracking-configuration-changes")
 - [Stages of a configuration change](#managedomains-config-stages "#managedomains-config-stages")
-- [Performance impact of blue/green
-  deployments](#performance-impact-bluegreen "#performance-impact-bluegreen")
+- [Performance impact of blue/green deployments](#performance-impact-bluegreen "#performance-impact-bluegreen")
 - [Charges for configuration changes](#managedomains-config-charges "#managedomains-config-charges")
 - [Troubleshooting validation errors](#validation "#validation")
 
@@ -91,9 +86,7 @@ run](#dryrun "#dryrun") before updating your domain, if this option is available
 offer a dry run option. We generally recommend that you make changes to your cluster outside
 of peak traffic hours.
 
-## Determining whether a change will cause a blue/green
-
-deployment
+## Determining whether a change will cause a blue/green deployment
 
 You can test some types of planned configuration changes to determine whether they will
 cause a blue/green deployment, without having to commit to those changes. Before you initiate
@@ -273,9 +266,7 @@ while True:
     time.sleep(30)
 ```
 
-## Tracking a configuration
-
-change
+## Tracking a configuration change
 
 You can request one configuration change at a time, or group multiple changes in a single
 request. Use the **Domain processing status** and **Configuration
@@ -377,9 +368,7 @@ The following are possible stages an update can go through during a configuratio
 | Applying dedicated master related changes | Displayed when the dedicated master instance type or count is changed.                                                           |
 | Applying volume related changes           | Displayed when volume size, type, IOPS and throughput are changed.                                                               |
 
-## Performance impact of blue/green
-
-deployments
+## Performance impact of blue/green deployments
 
 During blue/green deployment your Amazon OpenSearch Service cluster is available for incoming search and
 indexing requests. However, you might experience the following performance issues:
@@ -396,8 +385,7 @@ indexing requests. However, you might experience the following performance issue
 ## Charges for configuration changes
 
 If you change the configuration for a domain, OpenSearch Service creates a new cluster as described in
-[Making configuration changes in
-Amazon OpenSearch Service](managedomains-configuration-changes.md "managedomains-configuration-changes.md"). During the migration of old to new,
+[Making configuration changes in Amazon OpenSearch Service](managedomains-configuration-changes.md "managedomains-configuration-changes.md"). During the migration of old to new,
 you incur the following charges:
 
 - If you change the instance type, you're charged for both clusters for the first hour.
@@ -437,14 +425,14 @@ resolve them.
 | Security group not found                                               | `SecurityGroupNotFound`         | The security group associated with your OpenSearch Service domain does not exist. To resolve<br>this issue, [create a<br>security group](../../../vpc/latest/userguide/VPC_SecurityGroups.md#creating-security-groups "../../../vpc/latest/userguide/VPC_SecurityGroups.md#creating-security-groups") with the specified name.                                                                                                                                                                                                                                                                                                                             |
 | Subnet not found                                                       | `SubnetNotFound`                | The subnet associated with your OpenSearch Service domain does not exist. To resolve this<br>issue, [create a<br>subnet](../../../vpc/latest/userguide/working-with-subnets.md#create-subnets "../../../vpc/latest/userguide/working-with-subnets.md#create-subnets") in your VPC.                                                                                                                                                                                                                                                                                                                                                                         |
 | Service-linked role not configured                                     | `SLRNotConfigured`              | The [service-linked role](slr.md "slr.md") for OpenSearch Service is not configured.<br>The service-linked role is predefined by OpenSearch Service and includes all the permissions the<br>service requires to call other AWS services on your behalf. If the role doesn't<br>exist, you might need to [create it manually](slr-aos.md#create-slr "slr-aos.md#create-slr").                                                                                                                                                                                                                                                                               |
-| Not enough IP addresses                                                | `InsufficientFreeIPsForSubnets` | One or more of your VPC subnets don't have enough IP addresses to update your<br>domain. To calculate how many IP addresses you need, see [Reserving IP addresses in a VPC<br>subnet](vpc.md#reserving-ip-vpc-endpoints "vpc.md#reserving-ip-vpc-endpoints").                                                                                                                                                                                                                                                                                                                                                                                              |
+| Not enough IP addresses                                                | `InsufficientFreeIPsForSubnets` | One or more of your VPC subnets don't have enough IP addresses to update your<br>domain. To calculate how many IP addresses you need, see [Reserving IP addresses in a VPC subnet](vpc.md#reserving-ip-vpc-endpoints "vpc.md#reserving-ip-vpc-endpoints").                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Cognito user pool doesn't exist                                        | `CognitoUserPoolNotFound`       | OpenSearch Service can't find the Amazon Cognito user pool. Confirm that you created one and have<br>the correct ID. To find the ID, you can use the Amazon Cognito console or the following<br>AWS CLI command:<br>``<br>aws cognito-idp list-user-pools --max-results 60 --region `us-east-1`<br>``                                                                                                                                                                                                                                                                                                                                                      |
 | Cognito identity pool doesn't exist                                    | `CognitoIdentityPoolNotFound`   | OpenSearch Service can't find the Cognito identity pool. Confirm that you created one and have<br>the correct ID. To find the ID, you can use the Amazon Cognito console or the following<br>AWS CLI command:<br>``<br>aws cognito-identity list-identity-pools --max-results 60 --region `us-east-1`<br>``                                                                                                                                                                                                                                                                                                                                                |
 | Cognito domain not found for user pool                                 | `CognitoDomainNotFound`         | The user pool does not have a domain name. You can configure one using the<br>Amazon Cognito console or the following AWS CLI command:<br>``<br>aws cognito-idp create-user-pool-domain --domain `my-domain` --user-pool-id `id`<br>``                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Cognito role not configured                                            | `CognitoRoleNotConfigured`      | The IAM role that grants OpenSearch Service permission to configure the Amazon Cognito user and<br>identity pools, and use them for authentication, is not configured. Configure the<br>role with an appropriate permission set and trust relationship. You can use the<br>console, which creates the default [CognitoAccessForAmazonOpenSearch](cognito-auth.md#cognito-auth-role "cognito-auth.md#cognito-auth-role") role for you, or you can manually<br>configure a role using the AWS CLI or the AWS SDK.                                                                                                                                            |
-| Unable to describe user pool                                           | `UserPoolNotDescribable`        | The specified Amazon Cognito role doesn't have permission to describe the user pool<br>associated with your domain. Make sure the role permissions policy allows the<br>`cognito-identity:DescribeUserPool` action. See [About the CognitoAccessForAmazonOpenSearch<br>role](cognito-auth.md#cognito-auth-role "cognito-auth.md#cognito-auth-role") for the full permissions policy.                                                                                                                                                                                                                                                                       |
-| Unable to describe identity pool                                       | `IdentityPoolNotDescribable`    | The specified Amazon Cognito role doesn't have permission to describe the identity<br>pool associated with your domain. Make sure the role permissions policy allows the<br>`cognito-identity:DescribeIdentityPool` action. See [About the CognitoAccessForAmazonOpenSearch<br>role](cognito-auth.md#cognito-auth-role "cognito-auth.md#cognito-auth-role") for the full permissions policy.                                                                                                                                                                                                                                                               |
-| Unable to describe user and identity pool                              | `CognitoPoolsNotDescribable`    | The specified Amazon Cognito role doesn't have permission to describe the user and<br>identity pools associated with your domain. Make sure the role permissions policy<br>allows the `cognito-identity:DescribeIdentityPool` and<br>`cognito-identity:DescribeUserPool` actions. See [About the CognitoAccessForAmazonOpenSearch<br>role](cognito-auth.md#cognito-auth-role "cognito-auth.md#cognito-auth-role") for the full permissions policy.                                                                                                                                                                                                         |
+| Unable to describe user pool                                           | `UserPoolNotDescribable`        | The specified Amazon Cognito role doesn't have permission to describe the user pool<br>associated with your domain. Make sure the role permissions policy allows the<br>`cognito-identity:DescribeUserPool` action. See [About the CognitoAccessForAmazonOpenSearch role](cognito-auth.md#cognito-auth-role "cognito-auth.md#cognito-auth-role") for the full permissions policy.                                                                                                                                                                                                                                                                          |
+| Unable to describe identity pool                                       | `IdentityPoolNotDescribable`    | The specified Amazon Cognito role doesn't have permission to describe the identity<br>pool associated with your domain. Make sure the role permissions policy allows the<br>`cognito-identity:DescribeIdentityPool` action. See [About the CognitoAccessForAmazonOpenSearch role](cognito-auth.md#cognito-auth-role "cognito-auth.md#cognito-auth-role") for the full permissions policy.                                                                                                                                                                                                                                                                  |
+| Unable to describe user and identity pool                              | `CognitoPoolsNotDescribable`    | The specified Amazon Cognito role doesn't have permission to describe the user and<br>identity pools associated with your domain. Make sure the role permissions policy<br>allows the `cognito-identity:DescribeIdentityPool` and<br>`cognito-identity:DescribeUserPool` actions. See [About the CognitoAccessForAmazonOpenSearch role](cognito-auth.md#cognito-auth-role "cognito-auth.md#cognito-auth-role") for the full permissions policy.                                                                                                                                                                                                            |
 | KMS key not enabled                                                    | `KMSKeyNotEnabled`              | The AWS Key Management Service (AWS KMS) key used to encrypt your domain is disabled. [Re-enable the key](../../../kms/latest/developerguide/enabling-keys.md "../../../kms/latest/developerguide/enabling-keys.md") immediately.                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Custom certificate not in ISSUED state                                 | `InvalidCertificate`            | If your domain uses a custom endpoint, you secure it by either generating an SSL<br>certificate in AWS Certificate Manager (ACM) or importing one of your own. The certificate<br>status must be **Issued**. If you receive this error, [check the status of your<br>certificate](../../../acm/latest/userguide/gs-acm-describe.md "../../../acm/latest/userguide/gs-acm-describe.md") in the ACM console. If the status is Expired, Failed,<br>Inactive, or Pending validation, see the ACM [troubleshooting documentation](../../../acm/latest/userguide/troubleshooting.md "../../../acm/latest/userguide/troubleshooting.md") to<br>resolve the issue. |
 | Not enough capacity to launch chosen instance type                     | `InsufficientInstanceCapacity`  | The requested instance type capacity is not available. For example, you might<br>have requested five `i3.16xlarge.search` nodes, but OpenSearch Service doesn't have<br>enough `i3.16xlarge.search` hosts available, so the request can't be<br>fulfilled. Check the [supported instance<br>types](supported-instance-types.md "supported-instance-types.md") in OpenSearch Service and choose a different instance type.                                                                                                                                                                                                                                  |

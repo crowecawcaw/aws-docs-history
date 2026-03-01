@@ -34,9 +34,7 @@ AWS Regions:
 - Europe (Frankfurt)
 - Asia Pacific (Sydney)
 
-## To use the MCP server
-
-template
+## To use the MCP server template
 
 Follow these steps to deploy the MCP server template and connect it to your
 OpenSearch domain.
@@ -69,12 +67,9 @@ policy that allows your execution role to access your collection. 2. Get an OAut
 access the MCP server at the URL listed in your CloudFormation stack
 output.
 
-For more information, see [Policy actions for
-OpenSearch Serverless](security-iam-serverless.md#security-iam-serverless-id-based-policies-actions "security-iam-serverless.md#security-iam-serverless-id-based-policies-actions").
+For more information, see [Policy actions for OpenSearch Serverless](security-iam-serverless.md#security-iam-serverless-id-based-policies-actions "security-iam-serverless.md#security-iam-serverless-id-based-policies-actions").
 
-## Integration with AI
-
-agents
+## Integration with AI agents
 
 After deployment, you can integrate the MCP server with any MCP compatible
 agent. For more information, see [Invoke your deployed MCP server](../../../bedrock-agentcore/latest/devguide/runtime-mcp.md#runtime-mcp-invoke-server "../../../bedrock-agentcore/latest/devguide/runtime-mcp.md#runtime-mcp-invoke-server") in the _Amazon Bedrock Developer

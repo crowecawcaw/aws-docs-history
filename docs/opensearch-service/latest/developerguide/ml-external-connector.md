@@ -1,6 +1,4 @@
-# Amazon OpenSearch Service ML connectors for third-party
-
-platforms
+# Amazon OpenSearch Service ML connectors for third-party platforms
 
 In this tutorial, we cover how to create a connector from OpenSearch Service to Cohere. For more
 information about connectors, see [Supported connectors](https://opensearch.org/docs/latest/ml-commons-plugin/remote-models/connectors/#supported-connectors "https://opensearch.org/docs/latest/ml-commons-plugin/remote-models/connectors/#supported-connectors").
@@ -149,9 +147,7 @@ the format:
 Keep a record of this ARN, as you use it and your key when you create a
 connector in the next step.
 
-### Map the ML role in OpenSearch Dashboards
-
-(if using fine-grained access control)
+### Map the ML role in OpenSearch Dashboards (if using fine-grained access control)
 
 Fine-grained access control introduces an additional step when setting up a
 connector. Even if you use HTTP basic authentication for all other purposes, you

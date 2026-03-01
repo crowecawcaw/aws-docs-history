@@ -1,6 +1,4 @@
-# Tutorial: Getting started with security in Amazon OpenSearch Serverless
-
-(console)
+# Tutorial: Getting started with security in Amazon OpenSearch Serverless (console)
 
 This tutorial walks you through the basic steps to create and manage security policies
 using the Amazon OpenSearch Serverless console.
@@ -14,8 +12,7 @@ You will complete the following steps in this tutorial:
 5. [Create a collection](#gsgcreate-collection "#gsgcreate-collection")
 6. [Upload and search data](#gsgindex-collection "#gsgindex-collection")
    This tutorial walks you through setting up a collection using the AWS Management Console. For the
-   same steps using the AWS CLI, see [Tutorial: Getting started with security in
-   Amazon OpenSearch Serverless (CLI)](gsg-serverless-cli.md "gsg-serverless-cli.md").
+   same steps using the AWS CLI, see [Tutorial: Getting started with security in Amazon OpenSearch Serverless (CLI)](gsg-serverless-cli.md "gsg-serverless-cli.md").
 
 ## Step 1: Configure permissions
 
@@ -57,8 +54,7 @@ JSON
 
 ```
 
-For a full list of OpenSearch Serverless permissions, see [Identity and Access Management for
-Amazon OpenSearch Serverless](security-iam-serverless.md "security-iam-serverless.md").
+For a full list of OpenSearch Serverless permissions, see [Identity and Access Management for Amazon OpenSearch Serverless](security-iam-serverless.md "security-iam-serverless.md").
 
 ## Step 2: Create an encryption policy
 

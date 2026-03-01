@@ -17,9 +17,7 @@ Before proceeding, you must have the following resources.
 | Amazon S3 bucket          | For more information, see [Create your first S3<br>bucket](../../../AmazonS3/latest/userguide/CreatingABucket.md "../../../AmazonS3/latest/userguide/CreatingABucket.md") in the _Amazon Simple Storage Service User Guide_. The<br>bucket must reside in the same Region as your OpenSearch Service<br>domain. |
 | OpenSearch Service domain | The destination for data after your Lambda function processes it.<br>For more information, see [Creating OpenSearch Service domains](createupdatedomains.md#createdomains "createupdatedomains.md#createdomains").                                                                                              |
 
-## Create the Lambda
-
-deployment package
+## Create the Lambda deployment package
 
 Deployment packages are ZIP or JAR files that contain your code and its
 dependencies. This section includes Python sample code. For other programming
@@ -142,9 +140,7 @@ At this point, you have a complete set of resources: a bucket for log files, a
 function that runs whenever a log file is added to the bucket, code that performs
 the parsing and indexing, and an OpenSearch Service domain for searching and visualization.
 
-## Testing the Lambda
-
-Function
+## Testing the Lambda Function
 
 After you create the function, you can test it by uploading a file to the Amazon S3
 bucket. Create a file named `sample.log` using following sample log

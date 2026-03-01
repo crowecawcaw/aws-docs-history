@@ -1,6 +1,4 @@
-# Optimizing query performance for
-
-Amazon OpenSearch Service data sources
+# Optimizing query performance for Amazon OpenSearch Service data sources
 
 Query performance in Amazon OpenSearch Service might slow down when you’re accessing external data
 sources. This can be due to factors like network latency, data transformation, or large

@@ -1,6 +1,4 @@
-# Using the AWS SDKs to interact with
-
-Amazon OpenSearch Ingestion
+# Using the AWS SDKs to interact with Amazon OpenSearch Ingestion
 
 This section includes an example of how to use the AWS SDKs to interact with
 Amazon OpenSearch Ingestion. The code example demonstrates how to create a domain and a pipeline,

@@ -1,6 +1,4 @@
-# Granting Amazon OpenSearch Ingestion pipelines access
-
-to collections
+# Granting Amazon OpenSearch Ingestion pipelines access to collections
 
 An Amazon OpenSearch Ingestion pipeline can write to an OpenSearch Serverless public collection or VPC
 collection. To provide access to the collection, you configure an AWS Identity and Access Management (IAM) pipeline
@@ -29,14 +27,10 @@ must be granted access to the collection through a network access policy.
 
 ###### Topics
 
-- [Step 1: Create the pipeline
-  role](#pipeline-collection-access-configure "#pipeline-collection-access-configure")
-- [Step 2: Configure data and network access
-  for the collection](#pipeline-access-collection "#pipeline-access-collection")
+- [Step 1: Create the pipeline role](#pipeline-collection-access-configure "#pipeline-collection-access-configure")
+- [Step 2: Configure data and network access for the collection](#pipeline-access-collection "#pipeline-access-collection")
 
-## Step 1: Create the pipeline
-
-role
+## Step 1: Create the pipeline role
 
 The pipeline role must have an attached permissions policy that allows it to send data
 to the collection sink. It must also have a trust relationship that allows
@@ -89,9 +83,7 @@ JSON
 
 ```
 
-## Step 2: Configure data and network access
-
-for the collection
+## Step 2: Configure data and network access for the collection
 
 Create an OpenSearch Serverless collection with the following settings. For instructions to create a
 collection, see [Creating collections](serverless-create.md "serverless-create.md").
@@ -140,8 +132,7 @@ accessible over the internet from public networks, or whether it must be accesse
 privately. For more information about network policies, see [Network access for Amazon OpenSearch Serverless](serverless-network.md "serverless-network.md").
 
 Within a network access policy, you can only specify OpenSearch Serverless-managed VPC endpoints.
-For more information, see [Access Amazon OpenSearch Serverless using an interface endpoint
-(AWS PrivateLink)](serverless-vpc.md "serverless-vpc.md"). However, in order for
+For more information, see [Access Amazon OpenSearch Serverless using an interface endpoint (AWS PrivateLink)](serverless-vpc.md "serverless-vpc.md"). However, in order for
 the pipeline to write to the collection, the policy must also grant access to the
 VPC endpoint that OpenSearch Ingestion automatically creates between the pipeline and the
 collection. Therefore, if you choose an OpenSearch Serverless collection as the destination sink

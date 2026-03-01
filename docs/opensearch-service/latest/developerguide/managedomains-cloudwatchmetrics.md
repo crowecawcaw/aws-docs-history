@@ -1,6 +1,4 @@
-# Monitoring OpenSearch cluster metrics with
-
-Amazon CloudWatch
+# Monitoring OpenSearch cluster metrics with Amazon CloudWatch
 
 Amazon OpenSearch Service publishes data from your domains to Amazon CloudWatch. CloudWatch lets you retrieve statistics
 about those data points as an ordered set of time-series data, known as _metrics_. OpenSearch Service sends most metrics to CloudWatch in 60-second
@@ -19,34 +17,22 @@ pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/clou
 
 OpenSearch Service publishes the following metrics to CloudWatch:
 
-- [Cluster
-  metrics](#managedomains-cloudwatchmetrics-cluster-metrics "#managedomains-cloudwatchmetrics-cluster-metrics")
-- [Dedicated master
-  node metrics](#managedomains-cloudwatchmetrics-master-node-metrics "#managedomains-cloudwatchmetrics-master-node-metrics")
-- [EBS volume
-  metrics](#managedomains-cloudwatchmetrics-master-ebs-metrics "#managedomains-cloudwatchmetrics-master-ebs-metrics")
-- [Instance
-  metrics](#managedomains-cloudwatchmetrics-instance-metrics "#managedomains-cloudwatchmetrics-instance-metrics")
+- [Cluster metrics](#managedomains-cloudwatchmetrics-cluster-metrics "#managedomains-cloudwatchmetrics-cluster-metrics")
+- [Dedicated master node metrics](#managedomains-cloudwatchmetrics-master-node-metrics "#managedomains-cloudwatchmetrics-master-node-metrics")
+- [EBS volume metrics](#managedomains-cloudwatchmetrics-master-ebs-metrics "#managedomains-cloudwatchmetrics-master-ebs-metrics")
+- [Instance metrics](#managedomains-cloudwatchmetrics-instance-metrics "#managedomains-cloudwatchmetrics-instance-metrics")
 - [Warm metrics](#managedomains-cloudwatchmetrics-uw "#managedomains-cloudwatchmetrics-uw")
-- [Dedicated coordinator node
-  metrics](#managedomains-dedicated-coordinator-nodes "#managedomains-dedicated-coordinator-nodes")
-- [Cold storage
-  metrics](#managedomains-cloudwatchmetrics-coldstorage "#managedomains-cloudwatchmetrics-coldstorage")
+- [Dedicated coordinator node metrics](#managedomains-dedicated-coordinator-nodes "#managedomains-dedicated-coordinator-nodes")
+- [Cold storage metrics](#managedomains-cloudwatchmetrics-coldstorage "#managedomains-cloudwatchmetrics-coldstorage")
 - [Alerting metrics](#managedomains-cloudwatchmetrics-alerting "#managedomains-cloudwatchmetrics-alerting")
-- [Anomaly detection
-  metrics](#managedomains-cloudwatchmetrics-anomaly-detection "#managedomains-cloudwatchmetrics-anomaly-detection")
-- [Asynchronous
-  search metrics](#managedomains-cloudwatchmetrics-asynchronous-search "#managedomains-cloudwatchmetrics-asynchronous-search")
+- [Anomaly detection metrics](#managedomains-cloudwatchmetrics-anomaly-detection "#managedomains-cloudwatchmetrics-anomaly-detection")
+- [Asynchronous search metrics](#managedomains-cloudwatchmetrics-asynchronous-search "#managedomains-cloudwatchmetrics-asynchronous-search")
 - [SQL metrics](#managedomains-cloudwatchmetrics-sql "#managedomains-cloudwatchmetrics-sql")
 - [k-NN metrics](#managedomains-cloudwatchmetrics-knn "#managedomains-cloudwatchmetrics-knn")
-- [Cross-cluster
-  search metrics](#managedomains-cloudwatchmetrics-cross-cluster-search "#managedomains-cloudwatchmetrics-cross-cluster-search")
-- [Cross-cluster replication
-  metrics](#managedomains-cloudwatchmetrics-replication "#managedomains-cloudwatchmetrics-replication")
-- [Learning to Rank
-  metrics](#managedomains-cloudwatchmetrics-learning-to-rank "#managedomains-cloudwatchmetrics-learning-to-rank")
-- [Piped Processing Language
-  metrics](#managedomains-cloudwatchmetrics-ppl "#managedomains-cloudwatchmetrics-ppl")
+- [Cross-cluster search metrics](#managedomains-cloudwatchmetrics-cross-cluster-search "#managedomains-cloudwatchmetrics-cross-cluster-search")
+- [Cross-cluster replication metrics](#managedomains-cloudwatchmetrics-replication "#managedomains-cloudwatchmetrics-replication")
+- [Learning to Rank metrics](#managedomains-cloudwatchmetrics-learning-to-rank "#managedomains-cloudwatchmetrics-learning-to-rank")
+- [Piped Processing Language metrics](#managedomains-cloudwatchmetrics-ppl "#managedomains-cloudwatchmetrics-ppl")
 
 ## Viewing metrics in CloudWatch
 
@@ -74,9 +60,7 @@ Run the following command:
 aws cloudwatch list-metrics --namespace "AWS/ES"
 ```
 
-## Interpreting health charts
-
-in OpenSearch Service
+## Interpreting health charts in OpenSearch Service
 
 To view metrics in OpenSearch Service, use the **Cluster health** and
 **Instance health** tabs. The **Instance health**
@@ -96,12 +80,9 @@ node:
 If you make configuration changes to your domain, the list of individual instances in the
 **Cluster health** and **Instance health** tabs often
 double in size for a brief period before returning to the correct number. For an explanation
-of this behavior, see [Making configuration changes in
-Amazon OpenSearch Service](managedomains-configuration-changes.md "managedomains-configuration-changes.md").
+of this behavior, see [Making configuration changes in Amazon OpenSearch Service](managedomains-configuration-changes.md "managedomains-configuration-changes.md").
 
-## Cluster
-
-metrics
+## Cluster metrics
 
 Amazon OpenSearch Service provides the following metrics for clusters.
 
@@ -116,7 +97,7 @@ Amazon OpenSearch Service provides the following metrics for clusters.
 | `Shards.activePrimary`                                     | The number of active primary shards.<br>Relevant statistics: Maximum, Sum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `Shards.initializing`                                      | The number of shards that are under initialization.<br>Relevant statistics: Sum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `Shards.relocating`                                        | The number of shards that are under relocation.<br>Relevant statistics: Sum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `Nodes`                                                    | The number of nodes in the OpenSearch Service cluster, including dedicated<br>master nodes and Warm nodes. For more information, see [Making configuration changes in<br>Amazon OpenSearch Service](managedomains-configuration-changes.md "managedomains-configuration-changes.md").<br>Relevant statistics: Maximum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `Nodes`                                                    | The number of nodes in the OpenSearch Service cluster, including dedicated<br>master nodes and Warm nodes. For more information, see [Making configuration changes in Amazon OpenSearch Service](managedomains-configuration-changes.md "managedomains-configuration-changes.md").<br>Relevant statistics: Maximum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `SearchableDocuments`                                      | The total number of searchable documents across all data nodes in<br>the cluster.<br>Relevant statistics: Minimum, Maximum, Average                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `DeletedDocuments`                                         | The total number of documents marked for deletion across all data<br>nodes in the cluster. These documents no longer appear in search<br>results, but OpenSearch only removes deleted documents from disk<br>during segment merges. This metric increases after delete requests<br>and decreases after segment merges.<br>Relevant statistics: Minimum, Maximum, Average                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `CPUUtilization`                                           | The percentage of CPU usage for data nodes in the cluster. Maximum<br>shows the node with the highest CPU usage. Average represents all<br>nodes in the cluster. This metric is also available for individual<br>nodes.<br>Relevant statistics: Maximum, Average                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -141,9 +122,7 @@ Amazon OpenSearch Service provides the following metrics for clusters.
 | `IopsThrottle`                                             | Indicates whether or not the number of input/output operations per<br>second (IOPS) on the domain have been throttled. Throttling occurs<br>when IOPS of the data node breach the maximum allowed limit of the<br>EBS volume or the EC2 instance of the data node.<br>For information on instance IOPS, see [Amazon EBS–optimized<br>instances](../../../AWSEC2/latest/UserGuide/ebs-optimized.md "../../../AWSEC2/latest/UserGuide/ebs-optimized.md"). For information on volume IOPS, see [Amazon EBS volume<br>types](https://aws.amazon.com/ebs/volume-types/ "https://aws.amazon.com/ebs/volume-types/").<br>Relevant statistics: Minimum, Maximum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `HighSwapUsage`                                            | A value of 1 indicates that swapping due to page faults has<br>potentially caused spikes in underlying disk usage during a specific<br>time period.<br>Relevant statistics: Maximum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
-## Dedicated master
-
-node metrics
+## Dedicated master node metrics
 
 Amazon OpenSearch Service provides the following metrics for [dedicated master nodes](managedomains-dedicatedmasternodes.md "managedomains-dedicatedmasternodes.md").
 
@@ -157,9 +136,7 @@ Amazon OpenSearch Service provides the following metrics for [dedicated master n
 | `MasterReachableFromNode`       | A health check for `MasterNotDiscovered` exceptions. A<br>value of 1 indicates normal behavior. A value of 0 indicates that<br>`/_cluster/health/` is failing.<br>Failures mean that the master node is unreachable from the source<br>node. They're usually the result of a network connectivity issue or<br>an AWS dependency problem.<br>Relevant statistics: Maximum                                                                                                                        |
 | `MasterSysMemoryUtilization`    | The percentage of the master node's memory that is in<br>use.<br>Relevant statistics: Maximum                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-## Dedicated coordinator node
-
-metrics
+## Dedicated coordinator node metrics
 
 Amazon OpenSearch Service provides the following metrics for Dedicated coordinator
 nodes.
@@ -172,9 +149,7 @@ nodes.
 | `CoordinatorSysMemoryUtilization`    | The percentage of the coordinator node's memory that is in<br>use.<br>Relevant statistics: Maximum                                                                                                                        |
 | `CoordinatorFreeStorageSpace`        | This metric indicates that the service does not use coordinator<br>nodes as data nodes.                                                                                                                                   |
 
-## EBS volume
-
-metrics
+## EBS volume metrics
 
 Amazon OpenSearch Service provides the following metrics for EBS volumes.
 
@@ -194,9 +169,7 @@ Amazon OpenSearch Service provides the following metrics for EBS volumes.
 | `BurstBalance`                 | The percentage of input and output (I/O) credits remaining in the<br>burst bucket for an EBS volume. A value of 100 means that the volume<br>has accumulated the maximum number of credits. If this percentage<br>falls below 70%, see [Low EBS burst balance](handling-errors.md#handling-errors-low-ebs-burst "handling-errors.md#handling-errors-low-ebs-burst"). The burst balance stays at 0 for domains with gp3 volumes types,<br>and domains with gp2 volumes that have a volume size above 1000 GiB.<br>Relevant statistics: Minimum, Maximum, Average |
 | `VolumeStalledIOcheck`         | The status of your EBS volumes to determine when they are<br>impaired. The metrics is a binary value that returns a 0 (pass) or a<br>1 (fail) status based on whether the EBS volume can complete input<br>and output operations. `VolumeStalledIOcheck` is also<br>available for individual nodes.<br>Relevant statistics: Minimum, Maximum, Average                                                                                                                                                                                                           |
 
-## Instance
-
-metrics
+## Instance metrics
 
 Amazon OpenSearch Service provides the following metrics for each instance in a domain. OpenSearch Service also
 aggregates these instance metrics to provide insight into overall cluster health. You
@@ -320,9 +293,7 @@ Warm indexing related metrics are only applicable for Multi-tier storage archite
 | `WarmThreadpoolIndexSearcherRejected` | The number of rejected tasks in the Warm index searcher<br>thread pool.<br>Relevant node statistics: Maximum<br>Relevant cluster statistics: Sum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `WarmThreadpoolIndexSearcherThreads`  | The size of the Warm index searcher thread pool.<br>Relevant node statistics: Maximum<br>Relevant cluster statistics: Sum, Average                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
-## Cold storage
-
-metrics
+## Cold storage metrics
 
 Amazon OpenSearch Service provides the following metrics for [cold
 storage](cold-storage.md "cold-storage.md").
@@ -365,9 +336,7 @@ Amazon OpenSearch Service provides the following metrics for [alerting](alerting
 | `AlertingNodesOnSchedule`     | A value of 1 means that all alerting jobs are running on schedule<br>(or that no alerting jobs exist). A value of 0 means some jobs are<br>not running on schedule.<br>Relevant statistics: Maximum                                                                                                                           |
 | `AlertingScheduledJobEnabled` | A value of 1 means that the<br>`opensearch.scheduled_jobs.enabled` cluster setting<br>is true. A value of 0 means it is false, and scheduled jobs are<br>disabled.<br>Relevant statistics: Maximum                                                                                                                            |
 
-## Anomaly detection
-
-metrics
+## Anomaly detection metrics
 
 Amazon OpenSearch Service provides the following metrics for [anomaly
 detection](ad.md "ad.md").
@@ -386,9 +355,7 @@ detection](ad.md "ad.md").
 | `ADModelsCheckpointIndexStatusIndexExists` | A value of 1 means that the<br>`.opensearch-anomaly-checkpoints` index exists. A<br>value of 0 means it does not. Until you use anomaly detection for<br>the first time, this value remains 0.<br>Relevant statistics: Maximum                                                      |
 | `ADModelsCheckpointIndexStatus.red`        | A value of 1 means that the<br>`.opensearch-anomaly-checkpoints` index is red. A<br>value of 0 means it is not. Until you use anomaly detection for the<br>first time, this value remains 0.<br>Relevant statistics: Maximum                                                        |
 
-## Asynchronous
-
-search metrics
+## Asynchronous search metrics
 
 Amazon OpenSearch Service provides the following metrics for [asynchronous search](asynchronous-search.md "asynchronous-search.md").
 
@@ -416,9 +383,7 @@ node)**
 | `AsynchronousSearchStoreSize`           | The size of the system index across all shards in the last<br>minute.               |
 | `AsynchronousSearchStoredResponseCount` | The numbers of stored responses in the system index in the last<br>minute.          |
 
-## Auto-Tune
-
-metrics
+## Auto-Tune metrics
 
 Amazon OpenSearch Service provides the following metrics for [Auto-Tune](auto-tune.md "auto-tune.md").
 
@@ -430,9 +395,7 @@ Amazon OpenSearch Service provides the following metrics for [Auto-Tune](auto-tu
 | `AutoTuneSucceeded`                     | A boolean that indicates if the Auto-Tune change succeeded.                                               |
 | `AutoTuneValue`                         | The queue change history (count) and cache tunings change history (in<br>MiB) for non-disruptive changes. |
 
-## Multi-AZ with Standby
-
-metrics
+## Multi-AZ with Standby metrics
 
 Amazon OpenSearch Service provides the following metrics for [Multi-AZ with Standby](managedomains-multiaz.md#managedomains-za-no-standby "managedomains-multiaz.md#managedomains-za-no-standby").
 
@@ -529,9 +492,7 @@ Amazon OpenSearch Service includes the following metrics for the k-nearest neigh
 | `KNNTotalLoadTime`                | The time in nanoseconds that k-NN has taken to load graphs into<br>the cache. This metric is only relevant to approximate k-NN<br>search.<br>Relevant statistics: Sum                                                                                                                                                 |
 | `VectorIndexBuildAccelerationOCU` | The number of OpenSearch Compute Units (OCUs) used to accelerate vector indexing.<br>Relevant statistics: Sum                                                                                                                                                                                                         |
 
-## Cross-cluster
-
-search metrics
+## Cross-cluster search metrics
 
 Amazon OpenSearch Service provides the following metrics for [cross-cluster search](cross-cluster-search.md "cross-cluster-search.md").
 
@@ -552,9 +513,7 @@ Add a CloudWatch alarm in the event that you lose a connection unexpectedly. For
 to create an alarm, see [Create a CloudWatch
 Alarm Based on a Static Threshold](../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md "../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md").
 
-## Cross-cluster replication
-
-metrics
+## Cross-cluster replication metrics
 
 Amazon OpenSearch Service provides the following metrics for [cross-cluster
 replication](replication.md "replication.md").
@@ -574,9 +533,7 @@ replication](replication.md "replication.md").
 | `AutoFollowNumFailedStartReplication`     | The number of follower indexes that failed to be created by a<br>replication rule when there was a matching pattern. This problem<br>might arise due to a network issue on the remote cluster, or a<br>security issue (i.e. the associated role doesn't have permission to<br>start replication). |
 | `AutoFollowLeaderCallFailure`             | Whether there have been any failed queries from the follower index<br>to the leader index to pull new data. A value of `1`<br>means that there have been 1 or more failed calls in the last<br>minute.                                                                                            |
 
-## Learning to Rank
-
-metrics
+## Learning to Rank metrics
 
 Amazon OpenSearch Service provides the following metrics for [Learning
 to Rank](learning-to-rank.md "learning-to-rank.md").
@@ -591,9 +548,7 @@ to Rank](learning-to-rank.md "learning-to-rank.md").
 | `LTRFeaturesetMemoryUsageInBytes` | The amount of memory, in bytes, used by all Learning to Rank<br>feature sets. |
 | `LTRModelMemoryUsageInBytes`      | The amount of memory, in bytes, used by all Learning to Rank<br>models.       |
 
-## Piped Processing Language
-
-metrics
+## Piped Processing Language metrics
 
 Amazon OpenSearch Service provides the following metrics for [Piped
 Processing Language](observability.md "observability.md").

@@ -1,6 +1,4 @@
-# Configuring permissions for
-
-collections
+# Configuring permissions for collections
 
 OpenSearch Serverless uses the following AWS Identity and Access Management (IAM) permissions for creating and managing
 collections. You can specify IAM conditions to restrict users to specific
@@ -42,12 +40,10 @@ collections.
 
 `aoss:CreateAccessPolicy` and `aoss:CreateSecurityPolicy` are
 included because encryption, network, and data access policies are required in order for
-a collection to function properly. For more information, see [Identity and Access Management for
-Amazon OpenSearch Serverless](security-iam-serverless.md "security-iam-serverless.md").
+a collection to function properly. For more information, see [Identity and Access Management for Amazon OpenSearch Serverless](security-iam-serverless.md "security-iam-serverless.md").
 
 ###### Note
 
 If you're creating the first collection in your account, you also need the
 `iam:CreateServiceLinkedRole` permission. For more information, see
-[Using service-linked roles to create
-OpenSearch Serverless collections](serverless-service-linked-roles.md "serverless-service-linked-roles.md").
+[Using service-linked roles to create OpenSearch Serverless collections](serverless-service-linked-roles.md "serverless-service-linked-roles.md").

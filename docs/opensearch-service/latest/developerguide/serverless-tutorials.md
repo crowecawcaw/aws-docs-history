@@ -10,7 +10,5 @@ access policies.
 
 ###### Topics
 
-- [Tutorial: Getting started with security in Amazon OpenSearch Serverless
-  (console)](gsg-serverless.md "gsg-serverless.md")
-- [Tutorial: Getting started with security in
-  Amazon OpenSearch Serverless (CLI)](gsg-serverless-cli.md "gsg-serverless-cli.md")
+- [Tutorial: Getting started with security in Amazon OpenSearch Serverless (console)](gsg-serverless.md "gsg-serverless.md")
+- [Tutorial: Getting started with security in Amazon OpenSearch Serverless (CLI)](gsg-serverless-cli.md "gsg-serverless-cli.md")

@@ -17,10 +17,8 @@ find the optimal configuration, stability, and cost for your workload.
 - [Recommended CloudWatch alarms for Amazon OpenSearch Service](cloudwatch-alarms.md "cloudwatch-alarms.md")
 - [Sizing Amazon OpenSearch Service domains](sizing-domains.md "sizing-domains.md")
 - [Petabyte scale in Amazon OpenSearch Service](petabyte-scale.md "petabyte-scale.md")
-- [Dedicated coordinator nodes in
-  Amazon OpenSearch Service](Dedicated-coordinator-nodes.md "Dedicated-coordinator-nodes.md")
-- [Dedicated master nodes in
-  Amazon OpenSearch Service](managedomains-dedicatedmasternodes.md "managedomains-dedicatedmasternodes.md")
+- [Dedicated coordinator nodes in Amazon OpenSearch Service](Dedicated-coordinator-nodes.md "Dedicated-coordinator-nodes.md")
+- [Dedicated master nodes in Amazon OpenSearch Service](managedomains-dedicatedmasternodes.md "managedomains-dedicatedmasternodes.md")
 
 ## Monitoring and alerting
 
@@ -179,8 +177,7 @@ immediately following the domain upgrade.
 
 To prevent your snapshot from getting stuck in processing, the instance type for
 the dedicated master node should match the shard count. For more information, see
-[Choosing instance types for
-dedicated master nodes](managedomains-dedicatedmasternodes.md#dedicatedmasternodes-instance "managedomains-dedicatedmasternodes.md#dedicatedmasternodes-instance"). Additionally, each node should
+[Choosing instance types for dedicated master nodes](managedomains-dedicatedmasternodes.md#dedicatedmasternodes-instance "managedomains-dedicatedmasternodes.md#dedicatedmasternodes-instance"). Additionally, each node should
 have no more than the recommended 25 shards per GiB of Java heap memory. For more
 information, see [Choosing the number of shards](bp-sharding.md "bp-sharding.md").
 
@@ -195,8 +192,7 @@ changes](managedomains-configuration-changes.md "managedomains-configuration-cha
 
 Enable and use three dedicated master nodes for optimal domain stability across
 three Availability Zones. Deploying with [Multi-AZ with Standby](managedomains-multiaz.md#managedomains-za-standby "managedomains-multiaz.md#managedomains-za-standby") configures three dedicated master nodes for you.
-For instance type recommendations, see [Choosing instance types for
-dedicated master nodes](managedomains-dedicatedmasternodes.md#dedicatedmasternodes-instance "managedomains-dedicatedmasternodes.md#dedicatedmasternodes-instance").
+For instance type recommendations, see [Choosing instance types for dedicated master nodes](managedomains-dedicatedmasternodes.md#dedicatedmasternodes-instance "managedomains-dedicatedmasternodes.md#dedicatedmasternodes-instance").
 
 ### Deploy across multiple Availability Zones
 
@@ -300,9 +296,7 @@ The following example template contains each of these settings:
 Even if they rarely change, having settings and mappings defined centrally in
 OpenSearch is simpler to manage than updating multiple upstream clients.
 
-### Manage indexes with Index State
-
-Management
+### Manage indexes with Index State Management
 
 If you're managing logs or time-series data, we recommend using [Index State Management](ism.md "ism.md") (ISM). ISM lets you automate regular
 index lifecycle management tasks. With ISM, you can create policies that invoke
@@ -369,9 +363,7 @@ must set `http_compression.enabled` at the cluster level. This
 setting is true by default in Elasticsearch versions 7.x and all versions of
 OpenSearch.
 
-### Reduce the size of bulk request
-
-responses
+### Reduce the size of bulk request responses
 
 To reduce the size of OpenSearch responses, exclude unnecessary fields with the
 `filter_path` parameter. Make sure that you don't filter out any
@@ -491,9 +483,7 @@ _AWS Security Hub User Guide_.
 
 The following best practices apply to optimizing and saving on your OpenSearch Service costs.
 
-### Use the latest generation instance
-
-types
+### Use the latest generation instance types
 
 OpenSearch Service is always adopting new Amazon EC2 [instances types](supported-instance-types.md "supported-instance-types.md") that deliver better performance at a lower cost. We
 recommend always using the latest generation instances.
@@ -515,9 +505,7 @@ type also doubles the per-data-node volume size limits of the gp2 volume type. W
 these larger volumes, you can reduce the cost of passive data by increasing the
 amount of storage per data node.
 
-### Use UltraWarm and cold storage for
-
-time-series log data
+### Use UltraWarm and cold storage for time-series log data
 
 If you're using OpenSearch for log analytics, move your data to UltraWarm or cold
 storage to reduce costs. Use Index State Management (ISM) to migrate data between
@@ -542,9 +530,7 @@ UltraWarm becomes cost-effective when you have roughly 2.5 TiB of data to migrat
 from hot storage. Monitor your fill rate and plan to move indexes to UltraWarm
 before you reach that volume of data.
 
-### Review recommendations for Reserved
-
-Instances
+### Review recommendations for Reserved Instances
 
 Consider purchasing [Reserved Instances](ri.md "ri.md") (RIs) after you
 have a good baseline on your performance and compute consumption. Discounts start at

@@ -42,9 +42,7 @@ the following prerequisites before you attempt to take a snapshot:
 | IAM role     | Create an IAM role to delegate permissions to OpenSearch Service. For<br>instructions, see [Creating an IAM role (console)](../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console "../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console") in the _IAM User Guide_. The rest of this<br>chapter refers to this role as `TheSnapshotRole`.<br>**Attach an IAM policy**<br>Attach the following policy to `TheSnapshotRole` to<br>allow access to the S3 bucket:<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement": [{<br>"Action": [<br>"s3:ListBucket"<br>],<br>"Effect": "Allow",<br>"Resource": [<br>"arn:aws:s3:::`amzn-s3-demo-bucket`"<br>]<br>},<br>{<br>"Action": [<br>"s3:GetObject",<br>"s3:PutObject",<br>"s3:DeleteObject"<br>],<br>"Effect": "Allow",<br>"Resource": [<br>"arn:aws:s3:::`amzn-s3-demo-bucket`/*"<br>]<br>}<br>]<br>}`<br>``<br>For instructions to attach a policy to a role, see [Adding IAM identity permissions (console)](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console") in the<br>_IAM User Guide_.<br>**Edit the trust<br>relationship**<br>Edit the trust relationship of `TheSnapshotRole` to<br>specify OpenSearch Service in the `Principal` statement as shown in the<br>following example:<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement": [{<br>"Sid": "",<br>"Effect": "Allow",<br>"Principal": {<br>"Service": "es.amazonaws.com"<br>},<br>"Action": "sts:AssumeRole"<br>}]<br>}`<br>``<br>For instructions to edit the trust relationship, see [Update a role trust policy](../../../IAM/latest/UserGuide/id_roles_update-role-trust-policy.md "../../../IAM/latest/UserGuide/id_roles_update-role-trust-policy.md") in the _IAM User Guide_. |
 | Permissions  | In order to register the snapshot repository, you need to be able<br>to pass `TheSnapshotRole` to OpenSearch Service. You also need access<br>to the `es:ESHttpPut` action. To grant both of these<br>permissions, attach the following policy to the IAM role whose<br>credentials are being used to sign the request:<br>``<br>`{<br>"Version":"2012-10-17",<br>"Statement": [<br>{<br>"Effect": "Allow",<br>"Action": "iam:PassRole",<br>"Resource": "arn:aws:iam::`123456789012`:role/`TheSnapshotRole`"<br>},<br>{<br>"Effect": "Allow",<br>"Action": "es:ESHttpPut",<br>"Resource": "arn:aws:es:`us-east-1`:`123456789012`:domain/`domain-name`/*"<br>}<br>]<br>}`<br>``<br>If your user or role doesn't have `iam:PassRole`<br>permissions to pass `TheSnapshotRole`, you might<br>encounter the following common error when you try to register a<br>repository in the next step:<br>``<br>$ python register-repo.py<br>{"Message":"User: arn:aws:iam::`123456789012`:user/`MyUserAccount`<br>is not authorized to perform: iam:PassRole on resource:<br>arn:aws:iam::`123456789012`:role/`TheSnapshotRole`"}<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
-## Deleting manual
-
-snapshots
+## Deleting manual snapshots
 
 To delete a manual snapshot, run the following command:
 
@@ -52,14 +50,11 @@ To delete a manual snapshot, run the following command:
 DELETE _snapshot/`repository-name`/`snapshot-name`
 ```
 
-## Automating snapshots with Index State
-
-Management
+## Automating snapshots with Index State Management
 
 You can use the Index State Management (ISM) [snapshot](https://opendistro.github.io/for-elasticsearch-docs/docs/im/ism/policies/#snapshot "https://opendistro.github.io/for-elasticsearch-docs/docs/im/ism/policies/#snapshot") operation to automatically trigger snapshots of indexes based on
 changes in their age, size, or number of documents. ISM is best when you need one
-snapshot per index. If you need to snapshot of a group of indices, see [Automating snapshots with Snapshot
-Management](managedomains-snapshot-mgmt.md "managedomains-snapshot-mgmt.md").
+snapshot per index. If you need to snapshot of a group of indices, see [Automating snapshots with Snapshot Management](managedomains-snapshot-mgmt.md "managedomains-snapshot-mgmt.md").
 
 To use SM in OpenSearch Service, you need to register your own Amazon S3 repository. For an example ISM
 policy using the `snapshot` operation, see [Sample

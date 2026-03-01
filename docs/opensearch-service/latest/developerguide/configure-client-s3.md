@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion pipeline with
-
-Amazon S3
+# Using an OpenSearch Ingestion pipeline with Amazon S3
 
 With OpenSearch Ingestion, you can use Amazon S3 as a source or as a destination. When you use
 Amazon S3 as a source, you send data to an OpenSearch Ingestion pipeline. When you use Amazon S3 as a

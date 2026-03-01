@@ -66,11 +66,9 @@ it. For more information, see [Overview of Amazon OpenSearch Ingestion](ingestio
 An OpenSearch Ingestion pipeline needs permission to write to an OpenSearch Serverless collection that is
 configured as its sink. These permissions include the ability to describe the collection
 and send HTTP requests to it. For instructions to use OpenSearch Ingestion to add data to a
-collection, see [Granting Amazon OpenSearch Ingestion pipelines access
-to collections](pipeline-collection-access.md "pipeline-collection-access.md").
+collection, see [Granting Amazon OpenSearch Ingestion pipelines access to collections](pipeline-collection-access.md "pipeline-collection-access.md").
 
-To get started with OpenSearch Ingestion, see [Tutorial: Ingesting data into a collection
-using Amazon OpenSearch Ingestion](osis-serverless-get-started.md "osis-serverless-get-started.md").
+To get started with OpenSearch Ingestion, see [Tutorial: Ingesting data into a collection using Amazon OpenSearch Ingestion](osis-serverless-get-started.md "osis-serverless-get-started.md").
 
 ## Fluent Bit
 

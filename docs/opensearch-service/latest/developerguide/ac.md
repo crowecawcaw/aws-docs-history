@@ -338,8 +338,7 @@ _IAM User Guide_.
 
 The primary appeal of IP-based policies is that they allow unsigned requests to an
 OpenSearch Service domain, which lets you use clients like [curl](https://curl.haxx.se/ "https://curl.haxx.se/") and [OpenSearch Dashboards](dashboards.md "dashboards.md") or
-access the domain through a proxy server. To learn more, see [Using a proxy to access OpenSearch Service from
-Dashboards](dashboards.md#dashboards-proxy "dashboards.md#dashboards-proxy").
+access the domain through a proxy server. To learn more, see [Using a proxy to access OpenSearch Service from Dashboards](dashboards.md#dashboards-proxy "dashboards.md#dashboards-proxy").
 
 ###### Note
 
@@ -543,8 +542,7 @@ msearch, so it is unlikely to work properly after this change. For partial remed
 you can leave `rest.action.multi.allow_explicit_index` as true and deny
 certain users access to one or more of these APIs.
 
-For information about changing this setting, see [Advanced cluster
-settings](createupdatedomains.md#createdomain-configure-advanced-options "createupdatedomains.md#createdomain-configure-advanced-options").
+For information about changing this setting, see [Advanced cluster settings](createupdatedomains.md#createdomain-configure-advanced-options "createupdatedomains.md#createdomain-configure-advanced-options").
 
 Similarly, the following resource-based policy contains two subtle issues:
 
@@ -608,8 +606,7 @@ policies to confirm that they do not grant broad access:
 ## Configuring access policies
 
 - For instructions on creating or modifying resource- and IP-based policies in
-  OpenSearch Service, see [Configuring access
-  policies](createupdatedomains.md#createdomain-configure-access-policies "createupdatedomains.md#createdomain-configure-access-policies").
+  OpenSearch Service, see [Configuring access policies](createupdatedomains.md#createdomain-configure-access-policies "createupdatedomains.md#createdomain-configure-access-policies").
 - For instructions on creating or modifying identity-based policies in IAM,
   see [Define custom IAM
   permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the

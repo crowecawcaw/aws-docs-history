@@ -1,6 +1,4 @@
-# Amazon OpenSearch Service ML connectors for
-
-AWS services
+# Amazon OpenSearch Service ML connectors for AWS services
 
 When you use Amazon OpenSearch Service machine learning (ML) connectors with another AWS service,
 you need to set up an IAM role to securely connect OpenSearch Service to that service.
@@ -143,9 +141,7 @@ If your user or role doesn't have `iam:PassRole` permissions to
 pass your role, you might encounter an authorization error when you try to
 register a repository in the next step.
 
-### Map the ML role in OpenSearch Dashboards
-
-(if using fine-grained access control)
+### Map the ML role in OpenSearch Dashboards (if using fine-grained access control)
 
 Fine-grained access control introduces an additional step when setting up a
 connector. Even if you use HTTP basic authentication for all other purposes, you

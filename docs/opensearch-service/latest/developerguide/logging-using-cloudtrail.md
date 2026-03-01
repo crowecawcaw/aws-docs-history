@@ -144,9 +144,7 @@ In the following example:
 }
 ```
 
-## Understanding OpenSearch Serverless Management Events
-
-entries
+## Understanding OpenSearch Serverless Management Events entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries.

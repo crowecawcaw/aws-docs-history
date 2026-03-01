@@ -1,6 +1,4 @@
-# Using service-linked roles to create VPC domains and direct
-
-query data sources
+# Using service-linked roles to create VPC domains and direct query data sources
 
 Amazon OpenSearch Service uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role
 that is linked directly to OpenSearch Service. Service-linked roles are predefined by
@@ -96,17 +94,13 @@ role, we recommend that you delete that role. That way you don’t have an unuse
 entity that is not actively monitored or maintained. However, you must clean up your
 service-linked role before you can manually delete it.
 
-### Cleaning up the service-linked
-
-role
+### Cleaning up the service-linked role
 
 Before you can use IAM to delete a service-linked role, you must first
 confirm that the role has no active sessions and remove any resources used by
 the role.
 
-###### To check whether the service-linked role has an active session in the
-
-IAM console
+###### To check whether the service-linked role has an active session in the IAM console
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane of the IAM console, choose
@@ -127,9 +121,7 @@ session to end before you can delete the role, and/or delete the
 resources using the role. You cannot revoke the session for a
 service-linked role.
 
-### Manually deleting a service-linked
-
-role
+### Manually deleting a service-linked role
 
 Delete service-linked roles from the IAM console, API, or AWS CLI. For
 instructions, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.

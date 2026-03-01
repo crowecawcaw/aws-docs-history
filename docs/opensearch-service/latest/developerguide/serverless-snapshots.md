@@ -14,7 +14,9 @@ Before working with snapshots, understand these important considerations. Creati
 snapshot takes time to complete and isn't instantaneous. New documents or updates during
 snapshot creation will not be included in the snapshot. You can restore snapshots only to their
 original collection and not to a new one. When restored, indexes receive new UUIDs that differ
-from their original versions. You can run only one restore operation at a time, and you can't
+from their original versions. Restoring to an existing open index in OpenSearch Serverless will
+overwrite the data of that index provided a new index name or a prefix pattern is not provided.This differs
+from OpenSearch core behavior. You can run only one restore operation at a time, and you can't
 start multiple restore operations on the same collection simultaneously. Attempting to restore
 indexes during an active restore operation causes the operation to fail. During a restore
 operation, your requests to the indexes fail.
@@ -22,8 +24,7 @@ operation, your requests to the indexes fail.
 ## Required permissions
 
 To work with snapshots, configure the following permissions in your data access policy.
-For more information about data access policies, see [Data access policies versus IAM
-policies](serverless-data-access.md#serverless-data-access-vs-iam "serverless-data-access.md#serverless-data-access-vs-iam").
+For more information about data access policies, see [Data access policies versus IAM policies](serverless-data-access.md#serverless-data-access-vs-iam "serverless-data-access.md#serverless-data-access-vs-iam").
 
 | Data Access Policy           | APIs                                                                          |
 | ---------------------------- | ----------------------------------------------------------------------------- |
@@ -192,9 +193,10 @@ indexes included in the snapshot.
 
 Restoring from a snapshot recovers data from a previously taken backup. This process is
 crucial for disaster recovery and data management in OpenSearch Serverless. Before restoring, understand that
-restored indexes will have different UUIDs than their original versions, snapshots can only be
-restored to their original collection (cross-collection restoration is not supported), and
-restore operations will impact cluster performance so plan accordingly.
+restored indexes will have different UUIDs than their original versions, restoring to an existing
+open index in OpenSearch Serverless will overwrite the data of that index provided a new index name
+or a prefix pattern is not provided, snapshots can only be restored to their original collection
+(cross-collection restoration is not supported), and restore operations will impact cluster performance so plan accordingly.
 
 Use the following procedures to restore backed up indexes from a snapshot.
 

@@ -8,8 +8,7 @@ SDKs to create domains.
 
 - [Elasticsearch client compatibility](#client-compatibility "#client-compatibility")
 - [Compressing HTTP requests in Amazon OpenSearch Service](gzip.md "gzip.md")
-- [Using the AWS SDKs to interact with
-  Amazon OpenSearch Service](configuration-samples.md "configuration-samples.md")
+- [Using the AWS SDKs to interact with Amazon OpenSearch Service](configuration-samples.md "configuration-samples.md")
 
 ## Elasticsearch client compatibility
 

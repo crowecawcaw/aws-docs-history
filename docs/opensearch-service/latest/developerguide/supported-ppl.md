@@ -14,54 +14,51 @@ they do on OpenSearch indexes.
 
 - [Commands](#supported-ppl-commands "#supported-ppl-commands")
 - [Functions](#supported-ppl-functions "#supported-ppl-functions")
-- [Additional information for
-  CloudWatch Logs Insights users using OpenSearch PPL](#supported-ppl-for-cloudwatch-users "#supported-ppl-for-cloudwatch-users")
+- [Additional information for CloudWatch Logs Insights users using OpenSearch PPL](#supported-ppl-for-cloudwatch-users "#supported-ppl-for-cloudwatch-users")
 
 ## Commands
 
-| PPL command                                                                                    | Description                                                                                                                                                                                                                           | CloudWatch Logs                 | Amazon S3 | Security Lake | Example command                                                                                                                |
-| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- | ---------------------------------------------------- | -------------------- | ---------------------- |
-| [fields command](#supported-ppl-fields-command "#supported-ppl-fields-command")                | Displays a set of fields that needs projection.                                                                                                                                                                                       | Supported                       | Supported | Supported     | `<br>fields field1, field2<br>`                                                                                                |
-| [where command](#supported-ppl-where-command "#supported-ppl-where-command")                   | Filters the data based on the conditions that you<br>specify.                                                                                                                                                                         | Supported                       | Supported | Supported     | ```<br>where field1="success"<br>                                                                                              | where field2 != "i -023fe0a90929d8822"<br>                                          | fields field3, col4, col5, col6<br>                  | head 1000<br>```     |
-| [stats command](#supported-ppl-stats-command "#supported-ppl-stats-command")                   | Performs aggregations and calculations.                                                                                                                                                                                               | Supported                       | Supported | Supported     | ```<br>stats count(),<br>count(`field1`),<br>min(`field1`),<br>max(`field1`),<br>avg(`field1`)<br>by field2<br>                | head 1000<br>```                                                                    |
-| [parse command](#supported-ppl-parse-command "#supported-ppl-parse-command")                   | Extracts a regular expression (regex) pattern from a string<br>and displays the extracted pattern. The extracted pattern can be<br>further used to create new fields or filter data.                                                  | Supported                       | Supported | Supported     | ```<br>parse `field1` ".\*/(?<field2>[^/]+$)"<br>                                                                              | where field2 = "requestId"<br>                                                      | fields field2, `field2`<br>                          | head 1000<br>```     |
-| [patterns command](#supported-ppl-patterns-command "#supported-ppl-patterns-command")          | Extracts log patterns from a text field and appends the<br>results to the search result. Grouping logs by their patterns<br>makes it easier to aggregate stats from large volumes of log<br>data for analysis and troubleshooting.    | Not supported                   | Supported | Supported     | ```<br>patterns new_field='no_numbers' pattern='[0-9]' message<br>                                                             | fields message, no_numbers<br>```                                                   |
-| [sort command](#supported-ppl-sort-command "#supported-ppl-sort-command")                      | Sort the displayed results by a field name. Use **sort -\*FieldName**<br>• to sort in descending<br>order.                                                                                                                            | Supported                       | Supported | Supported     | ```<br>stats count(),<br>count(`field1`),<br>min(`field1`) as field1Alias,<br>max(`field1`),<br>avg(`field1`)<br>by field2<br> | sort -field1Alias<br>                                                               | head 1000<br>```                                     |
-| [eval command](#supported-ppl-eval-command "#supported-ppl-eval-command")                      | Modifies or processes the value of a field and stores it in a<br>different field. This is useful to mathematically modify a<br>column, apply string functions to a column, or apply date<br>functions to a column.                    | Supported                       | Supported | Supported     | ```<br>eval field2 = `field1`<br>• 2<br>                                                                                       | fields field1, field2<br>                                                           | head 20<br>```                                       |
-| [rename command](#supported-ppl-rename-command "#supported-ppl-rename-command")                | Renames one or more fields in the search result.                                                                                                                                                                                      | Supported                       | Supported | Supported     | ```<br>rename field2 as field1<br>                                                                                             | fields field1<br>```                                                                |
-| [head command](#supported-ppl-head-command "#supported-ppl-head-command")                      | Limits the displayed query results to the frst N rows.                                                                                                                                                                                | Supported                       | Supported | Supported     | ```<br>fields `@message`<br>                                                                                                   | head 20<br>```                                                                      |
-| [grok command](#supported-ppl-grok-command "#supported-ppl-grok-command")                      | Parses a text field with a grok pattern based on regular<br>expression, and appends the results to the search result.                                                                                                                 | Supported                       | Supported | Supported     | ```<br>grok email '.+@%{HOSTNAME:host}'<br>                                                                                    | fields email<br>```                                                                 |
-| [top command](#supported-ppl-top-command "#supported-ppl-top-command")                         | Finds the most frequent values for a field.                                                                                                                                                                                           | Supported                       | Supported | Supported     | `<br>top 2 Field1 by Field2<br>`                                                                                               |
-| [dedup command](#supported-ppl-dedup-command "#supported-ppl-dedup-command")                   | Removes duplicate entries based on the fields that you<br>specify.                                                                                                                                                                    | Supported                       | Supported | Supported     | ```<br>dedup field1<br>                                                                                                        | fields field1, field2, field3<br>```                                                |
-| [join command](#supported-ppl-join-commands "#supported-ppl-join-commands")                    | Joins two datasets together.                                                                                                                                                                                                          | Supported                       | Supported | Supported     | ```<br>source=customer<br>                                                                                                     | join ON c_custkey = o_custkey orders<br>                                            | head 10<br>```                                       |
-| [lookup command](#supported-ppl-lookup-commands "#supported-ppl-lookup-commands")              | Enriches your search data by adding or replacing data from a<br>lookup index (dimension table). You can extend fields of an<br>index with values from a dimension table, append or replace<br>values when lookup condition is matched | Not supported                   | Supported | Supported     | ```<br>where orderType = 'Cancelled'<br>                                                                                       | lookup account_list, mkt_id AS mkt_code<br>replace amount, account_name as name<br> | stats count(mkt_code), avg(amount)<br>by name<br>``` |
-| [subquery command](#supported-ppl-subquery-commands "#supported-ppl-subquery-commands")        | Performs complex, nested queries within your Piped Processing<br>Language (PPL) statements.                                                                                                                                           | Supported                       | Supported | Supported     | ```<br>where id in [<br>subquery source=users<br>                                                                              | where user in [<br>subquery source=actions<br>                                      | where action="login"<br>                             | fields user<br>]<br> | fields uid<br>]<br>``` |
-| [rare command](#supported-ppl-rare-command "#supported-ppl-rare-command")                      | Finds the least frequent values of all fields in the field<br>list.                                                                                                                                                                   | Supported                       | Supported | Supported     | `<br>rare Field1 by Field2<br>`                                                                                                |
-| [trendline command](#supported-ppl-trendline-commands "#supported-ppl-trendline-commands")     | Calculates the moving averages of fields.                                                                                                                                                                                             | Supported                       | Supported | Supported     | `<br>trendline sma(2, field1) as field1Alias<br>`                                                                              |
-| [eventstats<br>command](#supported-ppl-eventstats-command "#supported-ppl-eventstats-command") | Enriches your event data with calculated summary statistics. It<br>analyzes specified fields within your events, computes various<br>statistical measures, and then appends these results to each<br>original event as new fields.    | Supported (except `count()`)    | Supported | Supported     | `<br>eventstats sum(field1) by field2<br>`                                                                                     |
-| [flatten command](#supported-ppl-flatten-command "#supported-ppl-flatten-command")             | Flattens a field, The field must be of this type:<br>`struct<?,?> or<br>array<struct<?,?>>`                                                                                                                                           | Supported                       | Supported | Supported     | ```<br>source=table                                                                                                            | flatten field1<br>```                                                               |
-| [field summary](#supported-ppl-field-summary-command "#supported-ppl-field-summary-command")   | Calculates basic statistics for each field (count, distinct<br>count, min, max, avg, stddev, and mean).                                                                                                                               | Supported (one field per query) | Supported | Supported     | ```<br>where field1 != 200<br>                                                                                                 | fieldsummary includefields=field1 nulls=true<br>```                                 |
-| [fillnull command](#supported-ppl-fillnull-command "#supported-ppl-fillnull-command")          | Fills null fields with the value that you provide. It can be used<br>in one or more fields.                                                                                                                                           | Supported                       | Supported | Supported     | ```<br>fields field1<br>                                                                                                       | eval field2=field1<br>                                                              | fillnull value=0 field1<br>```                       |
-| [expand command](#supported-ppl-expand-command "#supported-ppl-expand-command")                | Breaks down a field containing multiple values into separate<br>rows, creating a new row for each value in the specified<br>field.                                                                                                    | Supported                       | Supported | Supported     | ```<br>expand employee<br>                                                                                                     | stats max(salary) as max<br>by state, company<br>```                                |
-| [describe command](#supported-ppl-describe-command "#supported-ppl-describe-command")          | Gets detailed information about the structure and metadata of<br>tables, schemas, and catalogs                                                                                                                                        | Not supported                   | Supported | Supported     | `<br>describe schema.table<br>`                                                                                                |
+| PPL command                                                                                  | Description                                                                                                                                                                                                                           | CloudWatch Logs                 | Amazon S3 | Security Lake | Example command                                                                                                                |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- | ---------------------------------------------------- | -------------------- | ---------------------- |
+| [fields command](#supported-ppl-fields-command "#supported-ppl-fields-command")              | Displays a set of fields that needs projection.                                                                                                                                                                                       | Supported                       | Supported | Supported     | `<br>fields field1, field2<br>`                                                                                                |
+| [where command](#supported-ppl-where-command "#supported-ppl-where-command")                 | Filters the data based on the conditions that you<br>specify.                                                                                                                                                                         | Supported                       | Supported | Supported     | ```<br>where field1="success"<br>                                                                                              | where field2 != "i -023fe0a90929d8822"<br>                                          | fields field3, col4, col5, col6<br>                  | head 1000<br>```     |
+| [stats command](#supported-ppl-stats-command "#supported-ppl-stats-command")                 | Performs aggregations and calculations.                                                                                                                                                                                               | Supported                       | Supported | Supported     | ```<br>stats count(),<br>count(`field1`),<br>min(`field1`),<br>max(`field1`),<br>avg(`field1`)<br>by field2<br>                | head 1000<br>```                                                                    |
+| [parse command](#supported-ppl-parse-command "#supported-ppl-parse-command")                 | Extracts a regular expression (regex) pattern from a string<br>and displays the extracted pattern. The extracted pattern can be<br>further used to create new fields or filter data.                                                  | Supported                       | Supported | Supported     | ```<br>parse `field1` ".\*/(?<field2>[^/]+$)"<br>                                                                              | where field2 = "requestId"<br>                                                      | fields field2, `field2`<br>                          | head 1000<br>```     |
+| [patterns command](#supported-ppl-patterns-command "#supported-ppl-patterns-command")        | Extracts log patterns from a text field and appends the<br>results to the search result. Grouping logs by their patterns<br>makes it easier to aggregate stats from large volumes of log<br>data for analysis and troubleshooting.    | Not supported                   | Supported | Supported     | ```<br>patterns new_field='no_numbers' pattern='[0-9]' message<br>                                                             | fields message, no_numbers<br>```                                                   |
+| [sort command](#supported-ppl-sort-command "#supported-ppl-sort-command")                    | Sort the displayed results by a field name. Use **sort -\*FieldName**<br>• to sort in descending<br>order.                                                                                                                            | Supported                       | Supported | Supported     | ```<br>stats count(),<br>count(`field1`),<br>min(`field1`) as field1Alias,<br>max(`field1`),<br>avg(`field1`)<br>by field2<br> | sort -field1Alias<br>                                                               | head 1000<br>```                                     |
+| [eval command](#supported-ppl-eval-command "#supported-ppl-eval-command")                    | Modifies or processes the value of a field and stores it in a<br>different field. This is useful to mathematically modify a<br>column, apply string functions to a column, or apply date<br>functions to a column.                    | Supported                       | Supported | Supported     | ```<br>eval field2 = `field1`<br>• 2<br>                                                                                       | fields field1, field2<br>                                                           | head 20<br>```                                       |
+| [rename command](#supported-ppl-rename-command "#supported-ppl-rename-command")              | Renames one or more fields in the search result.                                                                                                                                                                                      | Supported                       | Supported | Supported     | ```<br>rename field2 as field1<br>                                                                                             | fields field1<br>```                                                                |
+| [head command](#supported-ppl-head-command "#supported-ppl-head-command")                    | Limits the displayed query results to the frst N rows.                                                                                                                                                                                | Supported                       | Supported | Supported     | ```<br>fields `@message`<br>                                                                                                   | head 20<br>```                                                                      |
+| [grok command](#supported-ppl-grok-command "#supported-ppl-grok-command")                    | Parses a text field with a grok pattern based on regular<br>expression, and appends the results to the search result.                                                                                                                 | Supported                       | Supported | Supported     | ```<br>grok email '.+@%{HOSTNAME:host}'<br>                                                                                    | fields email<br>```                                                                 |
+| [top command](#supported-ppl-top-command "#supported-ppl-top-command")                       | Finds the most frequent values for a field.                                                                                                                                                                                           | Supported                       | Supported | Supported     | `<br>top 2 Field1 by Field2<br>`                                                                                               |
+| [dedup command](#supported-ppl-dedup-command "#supported-ppl-dedup-command")                 | Removes duplicate entries based on the fields that you<br>specify.                                                                                                                                                                    | Supported                       | Supported | Supported     | ```<br>dedup field1<br>                                                                                                        | fields field1, field2, field3<br>```                                                |
+| [join command](#supported-ppl-join-commands "#supported-ppl-join-commands")                  | Joins two datasets together.                                                                                                                                                                                                          | Supported                       | Supported | Supported     | ```<br>source=customer<br>                                                                                                     | join ON c_custkey = o_custkey orders<br>                                            | head 10<br>```                                       |
+| [lookup command](#supported-ppl-lookup-commands "#supported-ppl-lookup-commands")            | Enriches your search data by adding or replacing data from a<br>lookup index (dimension table). You can extend fields of an<br>index with values from a dimension table, append or replace<br>values when lookup condition is matched | Not supported                   | Supported | Supported     | ```<br>where orderType = 'Cancelled'<br>                                                                                       | lookup account_list, mkt_id AS mkt_code<br>replace amount, account_name as name<br> | stats count(mkt_code), avg(amount)<br>by name<br>``` |
+| [subquery command](#supported-ppl-subquery-commands "#supported-ppl-subquery-commands")      | Performs complex, nested queries within your Piped Processing<br>Language (PPL) statements.                                                                                                                                           | Supported                       | Supported | Supported     | ```<br>where id in [<br>subquery source=users<br>                                                                              | where user in [<br>subquery source=actions<br>                                      | where action="login"<br>                             | fields user<br>]<br> | fields uid<br>]<br>``` |
+| [rare command](#supported-ppl-rare-command "#supported-ppl-rare-command")                    | Finds the least frequent values of all fields in the field<br>list.                                                                                                                                                                   | Supported                       | Supported | Supported     | `<br>rare Field1 by Field2<br>`                                                                                                |
+| [trendline command](#supported-ppl-trendline-commands "#supported-ppl-trendline-commands")   | Calculates the moving averages of fields.                                                                                                                                                                                             | Supported                       | Supported | Supported     | `<br>trendline sma(2, field1) as field1Alias<br>`                                                                              |
+| [eventstats command](#supported-ppl-eventstats-command "#supported-ppl-eventstats-command")  | Enriches your event data with calculated summary statistics. It<br>analyzes specified fields within your events, computes various<br>statistical measures, and then appends these results to each<br>original event as new fields.    | Supported (except `count()`)    | Supported | Supported     | `<br>eventstats sum(field1) by field2<br>`                                                                                     |
+| [flatten command](#supported-ppl-flatten-command "#supported-ppl-flatten-command")           | Flattens a field, The field must be of this type:<br>`struct<?,?> or<br>array<struct<?,?>>`                                                                                                                                           | Supported                       | Supported | Supported     | ```<br>source=table                                                                                                            | flatten field1<br>```                                                               |
+| [field summary](#supported-ppl-field-summary-command "#supported-ppl-field-summary-command") | Calculates basic statistics for each field (count, distinct<br>count, min, max, avg, stddev, and mean).                                                                                                                               | Supported (one field per query) | Supported | Supported     | ```<br>where field1 != 200<br>                                                                                                 | fieldsummary includefields=field1 nulls=true<br>```                                 |
+| [fillnull command](#supported-ppl-fillnull-command "#supported-ppl-fillnull-command")        | Fills null fields with the value that you provide. It can be used<br>in one or more fields.                                                                                                                                           | Supported                       | Supported | Supported     | ```<br>fields field1<br>                                                                                                       | eval field2=field1<br>                                                              | fillnull value=0 field1<br>```                       |
+| [expand command](#supported-ppl-expand-command "#supported-ppl-expand-command")              | Breaks down a field containing multiple values into separate<br>rows, creating a new row for each value in the specified<br>field.                                                                                                    | Supported                       | Supported | Supported     | ```<br>expand employee<br>                                                                                                     | stats max(salary) as max<br>by state, company<br>```                                |
+| [describe command](#supported-ppl-describe-command "#supported-ppl-describe-command")        | Gets detailed information about the structure and metadata of<br>tables, schemas, and catalogs                                                                                                                                        | Not supported                   | Supported | Supported     | `<br>describe schema.table<br>`                                                                                                |
 
 ## Functions
 
-| PPL function                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Description                                                                                                                                                                                                                                                                                            | CloudWatch Logs | Amazon S3 | Security Lake | Example command                                                                       |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- | --------- | ------------- | ------------------------------------------------------------------------------------- | ---------------------------------- |
-| [PPL string<br>functions](#supported-ppl-string-functions "#supported-ppl-string-functions")<br>(`CONCAT`, `CONCAT_WS`,<br>`LENGTH`, `LOWER`, `LTRIM`,<br>`POSITION`, `REVERSE`,<br>`RIGHT`, `RTRIM`,<br>`SUBSTRING`, `TRIM`,<br>`UPPER`)                                                                                                                                                                                                                                                                                                                                                                                                                                           | Built-in functions in PPL that can manipulate and transform<br>string and text data within PPL queries. For example, converting<br>case, combining strings, extracting parts, and cleaning<br>text.                                                                                                    | Supported       | Supported | Supported     | ```<br>eval col1Len = LENGTH(col1)<br>                                                | fields col1Len<br>```              |
-| [PPL date and time<br>functions](#supported-ppl-date-time-functions "#supported-ppl-date-time-functions")<br>(`DAY`, `DAYOFMONTH`,<br>`DAY_OF_MONTH`,`DAYOFWEEK`,<br>`DAY_OF_WEEK`, `DAYOFYEAR`,<br>`DAY_OF_YEAR`, `DAYNAME`,<br>`FROM_UNIXTIME`, `HOUR`,<br>`HOUR_OF_DAY`, `LAST_DAY`,<br>`LOCALTIMESTAMP`, `LOCALTIME`,<br>`MAKE_DATE`, `MINUTE`,<br>`MINUTE_OF_HOUR`, `MONTH`,<br>`MONTHNAME`, `MONTH_OF_YEAR`,<br>`NOW`, `QUARTER`, `SECOND`,<br>`SECOND_OF_MINUTE`, `SUBDATE`,<br>`SYSDATE`, `TIMESTAMP`,<br>`UNIX_TIMESTAMP`, `WEEK`,<br>`WEEKDAY`, `WEEK_OF_YEAR`,<br>`DATE_ADD`, `DATE_SUB`,<br>`TIMESTAMPADD`, `TIMESTAMPDIFF`,<br>`UTC_TIMESTAMP`,<br>`CURRENT_TIMEZONE`) | Built-in functions for handling and transforming date and<br>timestamp data in PPL queries. For example, **date_add**, **date_format**, **datediff**, and **current_date**.                                                                                                                            | Supported       | Supported | Supported     | ```<br>eval newDate = ADDDATE(DATE('2020-08-26'), 1)<br>                              | fields newDate<br>```              |
-| [PPL condition<br>functions](#supported-ppl-condition-functions "#supported-ppl-condition-functions")<br>(`EXISTS`, `IF`, `IFNULL`,<br>`ISNOTNULL`, `ISNULL`,<br>`NULLIF`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Built-in functions that perform calculations on multiple rows<br>to produce a single summarized value. For example, **sum**, **count**, **avg**,<br>**max**, and **min**.                                                                                                                              | Supported       | Supported | Supported     | ```<br>eval field2 = isnull(col1)<br>                                                 | fields field2, col1, field3<br>``` |
-| [PPL mathematical<br>functions](#supported-ppl-math-functions "#supported-ppl-math-functions")<br>(`ABS`, `ACOS`, `ASIN`,<br>`ATAN`, `ATAN2`, `CEIL`,<br>`CEILING`, `CONV`, `COS`,<br>`COT`, `CRC32`, `DEGREES`,<br>`E`, `EXP`, `FLOOR`,<br>`LN`, `LOG`, `LOG2`,<br>`LOG10`, `MOD`, `PI`.<br>`POW`, `POWER`, `RADIANS`,<br>`RAND`, `ROUND`, `SIGN`,<br>`SIN`, `SQRT`,<br>`CBRT`)                                                                                                                                                                                                                                                                                                    | Built-in functions for performing mathematical calculations<br>and transformations in PPL queries. For example: **abs\*<br>• (absolute value), **round*<br>• (rounds numbers), \*\*sqrt*<br>• (square root), **pow\*<br>• (power calculation), and<br>**ceil\*<br>• (rounds up to nearest<br>integer). | Supported       | Supported | Supported     | ```<br>eval field2 = ACOS(col1)<br>                                                   | fields col1<br>```                 |
-| [PPL expressions](#supported-ppl-expressions "#supported-ppl-expressions")<br>(Arithmetic operators (`+`, `-`,<br>`*`), Predicate operators (`>. <`,<br>`IN)`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Built-in functions for expressions, particularly value<br>expressions, return a scalar value. Expressions have different<br>types and forms.                                                                                                                                                           | Supported       | Supported | Supported     | ```<br>where age > (25 + 5)<br>                                                       | fields age<br>```                  |
-| [PPL IP address<br>functions](#supported-ppl-ip-address-functions "#supported-ppl-ip-address-functions")<br>(`CIDRMATCH`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Built-in functions for handling IP addresses such as<br>CIDR.                                                                                                                                                                                                                                          | Supported       | Supported | Supported     | ```<br>where cidrmatch(ip, '****\*\*\*****/24')<br>                                   | fields ip<br>```                   |
-| [PPL JSON<br>functions](#supported-ppl-json-functions "#supported-ppl-json-functions")<br>(`ARRAY_LENGTH`, `ARRAY_LENGTH`,<br>`JSON`, `JSON_ARRAY`,<br>`JSON_EXTRACT`, `JSON_KEYS`,<br>`JSON_OBJECT`, `JSON_VALID`,<br>`TO_JSON_STRING`)                                                                                                                                                                                                                                                                                                                                                                                                                                            | Built-in functions for handling JSON including arrays,<br>extracting, and validation.                                                                                                                                                                                                                  | Supported       | Supported | Supported     | ``<br>eval `json_extract('{"a":"b"}', '$.a')` = json_extract('{"a":"b"}', '$a')<br>`` |
-| [PPL Lambda<br>functions](#supported-ppl-lambda-functions "#supported-ppl-lambda-functions")<br>(`EXISTS`, `FILTER`,<br>`REDUCE`, `TRANSFORM`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Built-in functions for handling JSON including arrays,<br>extracting, and validation.                                                                                                                                                                                                                  | Not supported   | Supported | Supported     | ```<br>eval array = json_array(1, -1, 2),<br>result = filter(array, x -> x > 0)<br>   | fields result<br>```               |
-| [PPL<br>cryptographic hash functions](#supported-ppl-cryptographic-functions "#supported-ppl-cryptographic-functions")<br>(`MD5`, `SHA1`,<br>`SHA2`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Built-in functions that allow you to generate unique<br>fingerprints of data, which can be used for verification,<br>comparison, or as part of more complex security<br>protocols.                                                                                                                     | Supported       | Supported | Supported     | ```<br>eval `MD5('hello')` = MD5('hello')<br>                                         | fields `MD5('hello')`<br>```       |
+| PPL function                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                            | CloudWatch Logs | Amazon S3 | Security Lake | Example command                                                                       |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- | --------- | ------------- | ------------------------------------------------------------------------------------- | ---------------------------------- |
+| [PPL string functions](#supported-ppl-string-functions "#supported-ppl-string-functions")<br>(`CONCAT`, `CONCAT_WS`,<br>`LENGTH`, `LOWER`, `LTRIM`,<br>`POSITION`, `REVERSE`,<br>`RIGHT`, `RTRIM`,<br>`SUBSTRING`, `TRIM`,<br>`UPPER`)                                                                                                                                                                                                                                                                                                                                                                                                                                           | Built-in functions in PPL that can manipulate and transform<br>string and text data within PPL queries. For example, converting<br>case, combining strings, extracting parts, and cleaning<br>text.                                                                                                    | Supported       | Supported | Supported     | ```<br>eval col1Len = LENGTH(col1)<br>                                                | fields col1Len<br>```              |
+| [PPL date and time functions](#supported-ppl-date-time-functions "#supported-ppl-date-time-functions")<br>(`DAY`, `DAYOFMONTH`,<br>`DAY_OF_MONTH`,`DAYOFWEEK`,<br>`DAY_OF_WEEK`, `DAYOFYEAR`,<br>`DAY_OF_YEAR`, `DAYNAME`,<br>`FROM_UNIXTIME`, `HOUR`,<br>`HOUR_OF_DAY`, `LAST_DAY`,<br>`LOCALTIMESTAMP`, `LOCALTIME`,<br>`MAKE_DATE`, `MINUTE`,<br>`MINUTE_OF_HOUR`, `MONTH`,<br>`MONTHNAME`, `MONTH_OF_YEAR`,<br>`NOW`, `QUARTER`, `SECOND`,<br>`SECOND_OF_MINUTE`, `SUBDATE`,<br>`SYSDATE`, `TIMESTAMP`,<br>`UNIX_TIMESTAMP`, `WEEK`,<br>`WEEKDAY`, `WEEK_OF_YEAR`,<br>`DATE_ADD`, `DATE_SUB`,<br>`TIMESTAMPADD`, `TIMESTAMPDIFF`,<br>`UTC_TIMESTAMP`,<br>`CURRENT_TIMEZONE`) | Built-in functions for handling and transforming date and<br>timestamp data in PPL queries. For example, **date_add**, **date_format**, **datediff**, and **current_date**.                                                                                                                            | Supported       | Supported | Supported     | ```<br>eval newDate = ADDDATE(DATE('2020-08-26'), 1)<br>                              | fields newDate<br>```              |
+| [PPL condition functions](#supported-ppl-condition-functions "#supported-ppl-condition-functions")<br>(`EXISTS`, `IF`, `IFNULL`,<br>`ISNOTNULL`, `ISNULL`,<br>`NULLIF`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Built-in functions that perform calculations on multiple rows<br>to produce a single summarized value. For example, **sum**, **count**, **avg**,<br>**max**, and **min**.                                                                                                                              | Supported       | Supported | Supported     | ```<br>eval field2 = isnull(col1)<br>                                                 | fields field2, col1, field3<br>``` |
+| [PPL mathematical functions](#supported-ppl-math-functions "#supported-ppl-math-functions")<br>(`ABS`, `ACOS`, `ASIN`,<br>`ATAN`, `ATAN2`, `CEIL`,<br>`CEILING`, `CONV`, `COS`,<br>`COT`, `CRC32`, `DEGREES`,<br>`E`, `EXP`, `FLOOR`,<br>`LN`, `LOG`, `LOG2`,<br>`LOG10`, `MOD`, `PI`.<br>`POW`, `POWER`, `RADIANS`,<br>`RAND`, `ROUND`, `SIGN`,<br>`SIN`, `SQRT`,<br>`CBRT`)                                                                                                                                                                                                                                                                                                    | Built-in functions for performing mathematical calculations<br>and transformations in PPL queries. For example: **abs\*<br>• (absolute value), **round*<br>• (rounds numbers), \*\*sqrt*<br>• (square root), **pow\*<br>• (power calculation), and<br>**ceil\*<br>• (rounds up to nearest<br>integer). | Supported       | Supported | Supported     | ```<br>eval field2 = ACOS(col1)<br>                                                   | fields col1<br>```                 |
+| [PPL expressions](#supported-ppl-expressions "#supported-ppl-expressions")<br>(Arithmetic operators (`+`, `-`,<br>`*`), Predicate operators (`>. <`,<br>`IN)`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Built-in functions for expressions, particularly value<br>expressions, return a scalar value. Expressions have different<br>types and forms.                                                                                                                                                           | Supported       | Supported | Supported     | ```<br>where age > (25 + 5)<br>                                                       | fields age<br>```                  |
+| [PPL IP address functions](#supported-ppl-ip-address-functions "#supported-ppl-ip-address-functions")<br>(`CIDRMATCH`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Built-in functions for handling IP addresses such as<br>CIDR.                                                                                                                                                                                                                                          | Supported       | Supported | Supported     | ```<br>where cidrmatch(ip, '****\*\*\*****/24')<br>                                   | fields ip<br>```                   |
+| [PPL JSON functions](#supported-ppl-json-functions "#supported-ppl-json-functions")<br>(`ARRAY_LENGTH`, `ARRAY_LENGTH`,<br>`JSON`, `JSON_ARRAY`,<br>`JSON_EXTRACT`, `JSON_KEYS`,<br>`JSON_OBJECT`, `JSON_VALID`,<br>`TO_JSON_STRING`)                                                                                                                                                                                                                                                                                                                                                                                                                                            | Built-in functions for handling JSON including arrays,<br>extracting, and validation.                                                                                                                                                                                                                  | Supported       | Supported | Supported     | ``<br>eval `json_extract('{"a":"b"}', '$.a')` = json_extract('{"a":"b"}', '$a')<br>`` |
+| [PPL Lambda functions](#supported-ppl-lambda-functions "#supported-ppl-lambda-functions")<br>(`EXISTS`, `FILTER`,<br>`REDUCE`, `TRANSFORM`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Built-in functions for handling JSON including arrays,<br>extracting, and validation.                                                                                                                                                                                                                  | Not supported   | Supported | Supported     | ```<br>eval array = json_array(1, -1, 2),<br>result = filter(array, x -> x > 0)<br>   | fields result<br>```               |
+| [PPL cryptographic hash functions](#supported-ppl-cryptographic-functions "#supported-ppl-cryptographic-functions")<br>(`MD5`, `SHA1`,<br>`SHA2`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Built-in functions that allow you to generate unique<br>fingerprints of data, which can be used for verification,<br>comparison, or as part of more complex security<br>protocols.                                                                                                                     | Supported       | Supported | Supported     | ```<br>eval `MD5('hello')` = MD5('hello')<br>                                         | fields `MD5('hello')`<br>```       |
 
-## Additional information for
-
-CloudWatch Logs Insights users using OpenSearch PPL
+## Additional information for CloudWatch Logs Insights users using OpenSearch PPL
 
 Although CloudWatch Logs Insights supports most OpenSearch PPL commands and functions, some
 commands and functions aren't currently supported. For example, it doesn't currently
@@ -87,13 +84,11 @@ use to query CloudWatch Logs (namely, OpenSearch PPL, SQL, and Logs Insights QL)
 ###### Topics
 
 - [comment](#supported-ppl-comment "#supported-ppl-comment")
-- [correlation
-  command](#supported-ppl-correlation-commands "#supported-ppl-correlation-commands")
+- [correlation command](#supported-ppl-correlation-commands "#supported-ppl-correlation-commands")
 - [dedup command](#supported-ppl-dedup-command "#supported-ppl-dedup-command")
 - [describe command](#supported-ppl-describe-command "#supported-ppl-describe-command")
 - [eval command](#supported-ppl-eval-command "#supported-ppl-eval-command")
-- [eventstats
-  command](#supported-ppl-eventstats-command "#supported-ppl-eventstats-command")
+- [eventstats command](#supported-ppl-eventstats-command "#supported-ppl-eventstats-command")
 - [expand command](#supported-ppl-expand-commands "#supported-ppl-expand-commands")
 - [explain command](#supported-ppl-explain-command "#supported-ppl-explain-command")
 - [fillnull command](#supported-ppl-fillnull-command "#supported-ppl-fillnull-command")
@@ -164,9 +159,7 @@ fetched rows / total rows = 3/3
 +------------------+----------+
 ```
 
-#### correlation
-
-command
+#### correlation command
 
 ###### Note
 
@@ -889,9 +882,7 @@ eval status_category =
 - `source = table | eval a = signum(a) | where a < 0`
 ```
 
-#### eventstats
-
-command
+#### eventstats command
 
 ###### Note
 
@@ -1160,9 +1151,7 @@ fetched rows / total rows = 4/4
 +----------------+----------+-----------+----------+-----+--------+-----------------------+-------------+--------------------------+--------+-------+--------------------------------+
 ```
 
-###### Example 1: Calculate the average, sum and count of a field by
-
-group
+###### Example 1: Calculate the average, sum and count of a field by group
 
 The example show calculate the average age, sum age and count of
 events of all the accounts group by gender.
@@ -1239,9 +1228,7 @@ age_span | head 2`
 - `source = table | eventstats avg(age) by span(age, 20) as
 age_span, country | sort - age_span | head 2`
 
-###### Aggregations with time window span (tumble windowing
-
-function)
+###### Aggregations with time window span (tumble windowing function)
 
 - `source = table | eventstats sum(productsAmount) by
 span(transactionDate, 1d) as age_date | sort
@@ -1586,9 +1573,7 @@ os> source=logs | fields request_path, timestamp | eval input_request_path=reque
 | NULL               | 2023-10-01 10:35:00   | ???          | 2023-10-01 10:35:00    |
 ```
 
-###### Example 3: Fillnull applied to multiple fields with various null
-
-replacement values.
+###### Example 3: Fillnull applied to multiple fields with various null replacement values.
 
 The example show fillnull with various values used to replace
 nulls.
@@ -3184,9 +3169,7 @@ fetched rows / total rows = 2/2
 +--------------------+----------+
 ```
 
-###### Example 4: Calculate the average, sum, and count of a field by
-
-group
+###### Example 4: Calculate the average, sum, and count of a field by group
 
 The example shows how to calculate the average age, sum age, and count
 of events for all the accounts, grouped by gender.
@@ -3216,9 +3199,7 @@ fetched rows / total rows = 1/1
 +------------+
 ```
 
-###### Example 6: Calculate the maximum and minimum of a field by
-
-group
+###### Example 6: Calculate the maximum and minimum of a field by group
 
 The example calculates the maximum and minimum age values for all
 accounts, grouped by gender.
@@ -3298,9 +3279,7 @@ fetched rows / total rows = 3/3
 +-------+------------+----------+
 ```
 
-###### Example 10: Calculate the count and get email list by a gender and
-
-span
+###### Example 10: Calculate the count and get email list by a gender and span
 
 The example gets the count of age by the interval of 10 years and
 group by gender, additionally for each row get a list of at most 5
@@ -3763,9 +3742,7 @@ fetched rows / total rows = 2/2
 +----------+
 ```
 
-###### Example 2: Find the most common values in a field (limited to
-
-1.
+###### Example 2: Find the most common values in a field (limited to 1)
 
 The example finds the single most common gender for all
 accounts.
@@ -3862,9 +3839,7 @@ t: The current time index
 SMA(t) = (1/n) * Σ(f[i]), where i = t-n+1 to t
 ```
 
-###### Example 1: Calculate simple moving average for a timeseries of
-
-temperatures
+###### Example 1: Calculate simple moving average for a timeseries of temperatures
 
 The example calculates the simple moving average over temperatures
 using two datapoints.
@@ -3885,9 +3860,7 @@ fetched rows / total rows = 5/5
 +-----------+---------+--------------------+----------+
 ```
 
-###### Example 2: Calculate simple moving averages for a timeseries of
-
-temperatures with sorting
+###### Example 2: Calculate simple moving averages for a timeseries of temperatures with sorting
 
 The example calculates two simple moving average over temperatures
 using two and three datapoints sorted descending by device-id.
@@ -4155,29 +4128,18 @@ The explode command offers the following functionality:
 
 ###### Topics
 
-- [PPL condition
-  functions](#supported-ppl-condition-functions "#supported-ppl-condition-functions")
-- [PPL
-  cryptographic hash functions](#supported-ppl-cryptographic-functions "#supported-ppl-cryptographic-functions")
-- [PPL date and time
-  functions](#supported-ppl-date-time-functions "#supported-ppl-date-time-functions")
+- [PPL condition functions](#supported-ppl-condition-functions "#supported-ppl-condition-functions")
+- [PPL cryptographic hash functions](#supported-ppl-cryptographic-functions "#supported-ppl-cryptographic-functions")
+- [PPL date and time functions](#supported-ppl-date-time-functions "#supported-ppl-date-time-functions")
 - [PPL expressions](#supported-ppl-expressions "#supported-ppl-expressions")
-- [PPL IP address
-  functions](#supported-ppl-ip-address-functions "#supported-ppl-ip-address-functions")
-- [PPL JSON
-  functions](#supported-ppl-json-functions "#supported-ppl-json-functions")
-- [PPL Lambda
-  functions](#supported-ppl-lambda-functions "#supported-ppl-lambda-functions")
-- [PPL mathematical
-  functions](#supported-ppl-math-functions "#supported-ppl-math-functions")
-- [PPL string
-  functions](#supported-ppl-string-functions "#supported-ppl-string-functions")
-- [PPL type
-  conversion functions](#supported-ppl-type-conversion-functions "#supported-ppl-type-conversion-functions")
+- [PPL IP address functions](#supported-ppl-ip-address-functions "#supported-ppl-ip-address-functions")
+- [PPL JSON functions](#supported-ppl-json-functions "#supported-ppl-json-functions")
+- [PPL Lambda functions](#supported-ppl-lambda-functions "#supported-ppl-lambda-functions")
+- [PPL mathematical functions](#supported-ppl-math-functions "#supported-ppl-math-functions")
+- [PPL string functions](#supported-ppl-string-functions "#supported-ppl-string-functions")
+- [PPL type conversion functions](#supported-ppl-type-conversion-functions "#supported-ppl-type-conversion-functions")
 
-##### PPL condition
-
-functions
+##### PPL condition functions
 
 ###### Note
 
@@ -4363,9 +4325,7 @@ fetched rows / total rows = 4/4
 +----------+-------------+------------+
 ```
 
-##### PPL
-
-cryptographic hash functions
+##### PPL cryptographic hash functions
 
 ###### Note
 
@@ -4467,9 +4427,7 @@ fetched rows / total rows = 1/1
 +------------------------------------------------------------------+
 ```
 
-##### PPL date and time
-
-functions
+##### PPL date and time functions
 
 ###### Note
 
@@ -5653,9 +5611,7 @@ fetched rows / total rows = 2/2
 +-------+
 ```
 
-##### PPL IP address
-
-functions
+##### PPL IP address functions
 
 ###### Note
 
@@ -5704,9 +5660,7 @@ fetched rows / total rows = 1/1
 - `ip` and `cidr` must both be
   valid and non-empty/non-null.
 
-##### PPL JSON
-
-functions
+##### PPL JSON functions
 
 ###### Note
 
@@ -5981,9 +5935,7 @@ fetched rows / total rows = 1/1
 +------------------+---------+
 ```
 
-##### PPL Lambda
-
-functions
+##### PPL Lambda functions
 
 ###### Note
 
@@ -6134,9 +6086,7 @@ fetched rows / total rows = 1/1
 +-----------+
 ```
 
-##### PPL mathematical
-
-functions
+##### PPL mathematical functions
 
 ###### Note
 
@@ -6837,9 +6787,7 @@ fetched rows / total rows = 1/1
 +-----------+--------------+
 ```
 
-##### PPL string
-
-functions
+##### PPL string functions
 
 ###### Note
 
@@ -7126,9 +7074,7 @@ fetched rows / total rows = 1/1
 +-----------------------+-----------------------+
 ```
 
-##### PPL type
-
-conversion functions
+##### PPL type conversion functions
 
 ###### Note
 

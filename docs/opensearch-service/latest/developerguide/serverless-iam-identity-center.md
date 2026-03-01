@@ -52,9 +52,7 @@ JSON
 
 The `Resource` element must be a wildcard.
 
-## Creating an IAM Identity Center provider
-
-(console)
+## Creating an IAM Identity Center provider (console)
 
 You can create an IAM Identity Center provider to enable authentication with OpenSearch
 Application. To enable IAM Identity Center authentication for OpenSearch Dashboards, perform the following
@@ -77,9 +75,7 @@ steps:
    **IAM Identity Center** instance.
 8. Select **Save**
 
-## Creating IAM Identity Center provider
-
-(AWS CLI)
+## Creating IAM Identity Center provider (AWS CLI)
 
 To create an IAM Identity Center provider using the AWS Command Line Interface (AWS CLI) use the following
 command:
@@ -131,9 +127,7 @@ aws opensearchserverless delete-security-config \
 --id <id_from_list_security_configs>
 ```
 
-## Granting IAM Identity Center access to
-
-collection data
+## Granting IAM Identity Center access to collection data
 
 After your IAM Identity Center provider is enabled, you can update the collection data access
 policy to include IAM Identity Center principals. IAM Identity Center principals need to be updated in the

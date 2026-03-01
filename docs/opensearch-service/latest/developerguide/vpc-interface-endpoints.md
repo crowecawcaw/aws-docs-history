@@ -1,6 +1,4 @@
-# Access Amazon OpenSearch Service using an OpenSearch Service-managed VPC
-
-endpoint (AWS PrivateLink)
+# Access Amazon OpenSearch Service using an OpenSearch Service-managed VPC endpoint (AWS PrivateLink)
 
 You can access an Amazon OpenSearch Service domain by setting up an OpenSearch Service-managed VPC endpoint (powered
 by AWS PrivateLink). These endpoints create a private connection between your VPC and
@@ -28,9 +26,7 @@ Elasticsearch. For more information, see [Access AWS services
 through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md") in the _AWS PrivateLink
 Guide_.
 
-## Considerations and limitations for
-
-OpenSearch Service
+## Considerations and limitations for OpenSearch Service
 
 Before you set up an interface VPC endpoint for OpenSearch Service, review [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the
 _AWS PrivateLink Guide_.
@@ -96,9 +92,7 @@ endpoint.
    domain.
 6. Choose **Authorize**.
 
-## Create an interface VPC endpoint for a VPC
-
-domain
+## Create an interface VPC endpoint for a VPC domain
 
 You can create an interface VPC endpoint for OpenSearch Service using either the OpenSearch Service console or
 the AWS Command Line Interface (AWS CLI).
@@ -127,9 +121,7 @@ the AWS Command Line Interface (AWS CLI).
 9. Choose **Create endpoint**. The endpoint should be active
    within 2-5 minutes.
 
-## Working with OpenSearch Service-managed VPC endpoints using the
-
-configuration API
+## Working with OpenSearch Service-managed VPC endpoints using the configuration API
 
 Use the following API operations to create and manage OpenSearch Service-managed VPC
 endpoints.

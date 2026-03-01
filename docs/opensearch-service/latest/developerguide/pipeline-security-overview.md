@@ -1,6 +1,4 @@
-# Setting up roles and users in
-
-Amazon OpenSearch Ingestion
+# Setting up roles and users in Amazon OpenSearch Ingestion
 
 Amazon OpenSearch Ingestion uses a variety of permissions models and IAM roles in order to allow
 source applications to write to pipelines, and to allow pipelines to write to sinks. Before
@@ -20,8 +18,7 @@ needs to assume the ingestion role in order to access the pipeline. For more inf
 see [Cross-account ingestion](#pipeline-security-different-account "#pipeline-security-different-account").
 
 ![Cross-account data ingestion pipeline showing client application, roles, and OpenSearch sink.](images/pipeline-security.png)
-For a simple setup guide, see [Tutorial: Ingesting data into a domain using
-Amazon OpenSearch Ingestion](osis-get-started.md "osis-get-started.md").
+For a simple setup guide, see [Tutorial: Ingesting data into a domain using Amazon OpenSearch Ingestion](osis-get-started.md "osis-get-started.md").
 
 **Topics**
 
@@ -100,30 +97,21 @@ following sections outline how to manually create a pipeline role.
 
 ###### Topics
 
-- [Permissions to read from a
-  source](#pipeline-security--source "#pipeline-security--source")
-- [Permissions to write to a
-  domain sink](#pipeline-security-domain-sink "#pipeline-security-domain-sink")
-- [Permissions to write to a
-  collection sink](#pipeline-security--collection-sink "#pipeline-security--collection-sink")
-- [Permissions to write to Amazon S3 or a
-  dead-letter queue](#pipeline-security-dlq "#pipeline-security-dlq")
+- [Permissions to read from a source](#pipeline-security--source "#pipeline-security--source")
+- [Permissions to write to a domain sink](#pipeline-security-domain-sink "#pipeline-security-domain-sink")
+- [Permissions to write to a collection sink](#pipeline-security--collection-sink "#pipeline-security--collection-sink")
+- [Permissions to write to Amazon S3 or a dead-letter queue](#pipeline-security-dlq "#pipeline-security-dlq")
 
-#### Permissions to read from a
-
-source
+#### Permissions to read from a source
 
 An OpenSearch Ingestion pipeline needs permission to read and receive data from the
 specified source. For example, for an Amazon DynamoDB source, it needs permissions
 such as `dynamodb:DescribeTable` and
 `dynamodb:DescribeStream`. For sample pipeline role access
 policies for common sources, such as Amazon S3, Fluent Bit, and the OpenTelemetry
-Collector, see [Integrating Amazon OpenSearch Ingestion pipelines with other
-services and applications](configure-client.md "configure-client.md").
+Collector, see [Integrating Amazon OpenSearch Ingestion pipelines with other services and applications](configure-client.md "configure-client.md").
 
-#### Permissions to write to a
-
-domain sink
+#### Permissions to write to a domain sink
 
 An OpenSearch Ingestion pipeline needs permission to write to an OpenSearch Service domain that
 is configured as its sink. These permissions include the ability to describe the
@@ -132,9 +120,7 @@ and VPC domains. For instructions to create a pipeline role and specify it in
 the domain access policy, see [Allowing
 pipelines to access domains](pipeline-domain-access.md "pipeline-domain-access.md").
 
-#### Permissions to write to a
-
-collection sink
+#### Permissions to write to a collection sink
 
 An OpenSearch Ingestion pipeline needs permission to write to an OpenSearch Serverless collection
 that is configured as its sink. These permissions include the ability to
@@ -147,9 +133,7 @@ documents within the collection. For instructions to complete each of these
 steps, see [Allowing pipelines to
 access collections](pipeline-collection-access.md "pipeline-collection-access.md").
 
-#### Permissions to write to Amazon S3 or a
-
-dead-letter queue
+#### Permissions to write to Amazon S3 or a dead-letter queue
 
 If you specify Amazon S3 as a sink destination for your pipeline, or if you enable
 a [dead-letter queue](https://opensearch.org/docs/latest/data-prepper/pipelines/dlq/ "https://opensearch.org/docs/latest/data-prepper/pipelines/dlq/") (DLQ), the pipeline role must allow it to access
@@ -227,8 +211,7 @@ source. In these scenarios, the _ingestion role_ is synonymous
 with the _pipeline role_.
 
 The role must include a trust relationship that allows OpenSearch Ingestion to assume
-it, and permissions specific to the data source. For more information, see [Permissions to read from a
-source](#pipeline-security--source "#pipeline-security--source").
+it, and permissions specific to the data source. For more information, see [Permissions to read from a source](#pipeline-security--source "#pipeline-security--source").
 
 ### Cross-account ingestion
 
@@ -257,5 +240,4 @@ Then, configure your application to assume the ingestion role. The application a
 must grant the application role [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") permissions for
 the ingestion role in the pipeline account.
 
-For detailed steps and example IAM policies, see [Providing cross-account ingestion
-access](configure-client.md#configure-client-cross-account "configure-client.md#configure-client-cross-account").
+For detailed steps and example IAM policies, see [Providing cross-account ingestion access](configure-client.md#configure-client-cross-account "configure-client.md#configure-client-cross-account").

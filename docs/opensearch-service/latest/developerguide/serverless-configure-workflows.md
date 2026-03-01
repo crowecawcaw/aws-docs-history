@@ -22,9 +22,7 @@ OpenSearch Serverless Collections support Workflows when it's used as a data sou
 OpenSearch UI application. For more information, see [Managing data source
 associations](application-data-sources-and-vpc.md "application-data-sources-and-vpc.md").
 
-## Configure
-
-permissions
+## Configure permissions
 
 Before you create and provision a template, verify that you have the required
 permissions. If you need assistance, contact your account administrator. OpenSearch Serverless

@@ -49,9 +49,7 @@ account as your OpenSearch Service domain. The certificate status should be ISSU
 [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md") and [Amazon OpenSearch Service API
 Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
-## Custom endpoints for existing
-
-domains
+## Custom endpoints for existing domains
 
 To add a custom endpoint to an existing OpenSearch Service domain, choose **Edit** and perform steps 2–4 above.
 

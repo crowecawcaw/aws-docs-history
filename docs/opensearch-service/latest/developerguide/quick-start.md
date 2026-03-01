@@ -1,6 +1,4 @@
-# Tutorial: Creating and searching for documents in
-
-Amazon OpenSearch Service
+# Tutorial: Creating and searching for documents in Amazon OpenSearch Service
 
 In this tutorial, you learn how to create and search for a document in Amazon OpenSearch Service. You add
 data to an index in the form of a JSON document. OpenSearch Service creates an index around the first

@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion
-
-pipeline with Fluent Bit
+# Using an OpenSearch Ingestion pipeline with Fluent Bit
 
 This sample [Fluent
 Bit configuration file](https://docs.fluentbit.io/manual/pipeline/outputs/http "https://docs.fluentbit.io/manual/pipeline/outputs/http") sends log data from Fluent Bit to an OpenSearch Ingestion

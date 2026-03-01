@@ -90,8 +90,7 @@ When you create an OpenSearch UI application in the console, you can specify a c
 2. In the left navigation pane, choose **OpenSearch UI (Dashboards)**.
 3. Choose **Create application**.
 4. For **Application name**, enter a name for the application.
-5. Configure authentication and administrator settings as needed. For more information, see [Getting started with the OpenSearch user
-   interface in Amazon OpenSearch Service](application-getting-started.md "application-getting-started.md").
+5. Configure authentication and administrator settings as needed. For more information, see [Getting started with the OpenSearch user interface in Amazon OpenSearch Service](application-getting-started.md "application-getting-started.md").
 6. In the **Encryption** section, for **Encryption at rest**, choose **Use customer managed key**.
 7. Select an existing customer managed key from the list, or choose **Create a key** to create a new key in AWS KMS.
 
@@ -141,7 +140,6 @@ Before you disable or delete a customer managed key, consider the following:
 
 After you configure CMK encryption for your application, you can:
 
-- Associate data sources with your application. For more information, see [Managing data source associations and
-  Virtual Private Cloud access permissions](application-data-sources-and-vpc.md "application-data-sources-and-vpc.md").
+- Associate data sources with your application. For more information, see [Managing data source associations and Virtual Private Cloud access permissions](application-data-sources-and-vpc.md "application-data-sources-and-vpc.md").
 - Create workspaces for your team. For more information, see [Using Amazon OpenSearch Service workspaces](application-workspaces.md "application-workspaces.md").
 - Set up AWS CloudTrail monitoring for key usage. For more information, see [Monitoring customer managed key usage](#application-encryption-cmk-monitoring "#application-encryption-cmk-monitoring").

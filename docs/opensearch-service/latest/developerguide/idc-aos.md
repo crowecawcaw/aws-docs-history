@@ -54,9 +54,7 @@ JSON
 
 ```
 
-## Configuring IAM Identity Center authentication and
-
-authorization (Console)
+## Configuring IAM Identity Center authentication and authorization (Console)
 
 You can enable IAM Identity Center authentication and authorization during the domain creation
 process or by updating an existing domain. The set-up steps vary slightly depending on
@@ -94,9 +92,7 @@ single user. If you try to use more than the number of allowed instances, you wi
 experience inconsistency with your fine-grained-access-control authorization
 processing and receive a 403error message.
 
-## Configuring IAM Identity Center authentication and authorization
-
-(CLI)
+## Configuring IAM Identity Center authentication and authorization (CLI)
 
 ```
 
@@ -106,9 +102,7 @@ processing and receive a 403error message.
 
 ```
 
-## Disabling IAM Identity Center authentication on the
-
-domain
+## Disabling IAM Identity Center authentication on the domain
 
 To disable IAM Identity Center on your OpenSearch domain:
 

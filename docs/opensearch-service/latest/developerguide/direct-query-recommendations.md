@@ -1,6 +1,4 @@
-# Recommendations for using direct queries
-
-in Amazon OpenSearch Service
+# Recommendations for using direct queries in Amazon OpenSearch Service
 
 This page provides recommendations for using Amazon OpenSearch Service direct queries to analyze data
 from CloudWatch Logs, Amazon S3, and Amazon Security Lake. These best practices help you optimize performance and
@@ -129,5 +127,4 @@ following:
     `time_dt`
 
 - Get comfortable with SQL syntax, which Security Lake supports for querying. For
-  more information, see [Supported OpenSearch SQL commands and
-  functions](supported-directquery-sql.md "supported-directquery-sql.md").
+  more information, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").

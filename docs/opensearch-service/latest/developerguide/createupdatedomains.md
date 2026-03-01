@@ -59,8 +59,7 @@ Use the following procedure to create an OpenSearch Service domain by using the 
    type, replica count, and software update settings.
 8. For **Version**, choose the version of OpenSearch or
    legacy Elasticsearch OSS to use. We recommend that you choose the latest
-   version of OpenSearch. For more information, see [Supported versions of Elasticsearch and
-   OpenSearch](what-is.md#choosing-version "what-is.md#choosing-version").
+   version of OpenSearch. For more information, see [Supported versions of Elasticsearch and OpenSearch](what-is.md#choosing-version "what-is.md#choosing-version").
 
 (Optional) If you chose an OpenSearch version for your domain, select
 **Enable compatibility mode** to make OpenSearch
@@ -176,8 +175,7 @@ choose **Enable SAML authentication** and configure SAML
 options for the domain. For instructions, see [SAML authentication for OpenSearch Dashboards](saml.md "saml.md"). 22. (Optional) If you want to use Amazon Cognito authentication for OpenSearch Dashboards,
 choose **Enable Amazon Cognito authentication**. Then choose the
 Amazon Cognito user pool and identity pool that you want to use for OpenSearch Dashboards
-authentication. For guidance on creating these resources, see [Configuring Amazon Cognito authentication for OpenSearch
-Dashboards](cognito-auth.md "cognito-auth.md"). 23. (Optional) If you want to use IAM Identity Center (IDC) authentication
+authentication. For guidance on creating these resources, see [Configuring Amazon Cognito authentication for OpenSearch Dashboards](cognito-auth.md "cognito-auth.md"). 23. (Optional) If you want to use IAM Identity Center (IDC) authentication
 to connect your existing identity source and give your AWS applications a
 common view of your users, choose **Enable API access authenticated
 with IAM Identity Center** . For more information, see [Trusted identity propagation overview](../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md") in the _IAM Identity Center User Guide._ 24. (Optional) In the **Advanced features** section, leave
@@ -185,8 +183,7 @@ with IAM Identity Center** . For more information, see [Trusted identity propaga
 features** selected, if you want to use these features.
 
     1. Choose **Enable S3 Vectors as an engine option**
-     for enhanced vector search options. For more information, see [Advanced search
-     capabilities with an Amazon S3 vector engine](s3-vector-opensearch-integration-engine.md "s3-vector-opensearch-integration-engine.md").
+     for enhanced vector search options. For more information, see [Advanced search capabilities with an Amazon S3 vector engine](s3-vector-opensearch-integration-engine.md "s3-vector-opensearch-integration-engine.md").
     2. Choose **Enable GPU acceleration for enhanced vector
      search options. For more information, see [GPU-acceleration for vector indexing](gpu-acceleration-vector-index.md "gpu-acceleration-vector-index.md").**
 
@@ -220,8 +217,7 @@ and stability. For more information, see [Auto-Tune for Amazon OpenSearch Servic
 recurring window during which Auto-Tune updates the domain. 30. (Optional) Select **Automatic software update** to enable
 automatic software updates. 31. (Optional) Add tags to describe your domain so you can categorize and
 filter on that information. For more information, see [Tagging Amazon OpenSearch Service domains](managedomains-awsresourcetagging.md "managedomains-awsresourcetagging.md"). 32. (Optional) Expand and configure **Advanced cluster
-settings**. For a summary of these options, see [Advanced cluster
-settings](#createdomain-configure-advanced-options "#createdomain-configure-advanced-options"). 33. Choose **Create**.
+settings**. For a summary of these options, see [Advanced cluster settings](#createdomain-configure-advanced-options "#createdomain-configure-advanced-options"). 33. Choose **Create**.
 
 ### Creating OpenSearch Service domains (AWS CLI)
 
@@ -306,14 +302,11 @@ details for the existing domain.
 The AWS SDKs (except the Android and iOS SDKs) support all the actions defined
 in the [Amazon OpenSearch Service API
 Reference](../APIReference/Welcome.md "../APIReference/Welcome.md"), including `CreateDomain`. For sample code, see
-[Using the AWS SDKs to interact with
-Amazon OpenSearch Service](configuration-samples.md "configuration-samples.md"). For more information about installing
+[Using the AWS SDKs to interact with Amazon OpenSearch Service](configuration-samples.md "configuration-samples.md"). For more information about installing
 and using the AWS SDKs, see [AWS Software
 Development Kits](http://aws.amazon.com/code "http://aws.amazon.com/code").
 
-### Creating OpenSearch Service domains
-
-(AWS CloudFormation)
+### Creating OpenSearch Service domains (AWS CloudFormation)
 
 OpenSearch Service is integrated with AWS CloudFormation, a service that helps you to
 model and set up your AWS resources so that you can spend less time creating and
@@ -323,9 +316,7 @@ domain for you. For more information, including examples of JSON and YAML templa
 for OpenSearch domains, see the [Amazon OpenSearch Service resource type reference](../../../AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.md") in the
 _AWS CloudFormation User Guide_.
 
-## Configuring access
-
-policies
+## Configuring access policies
 
 Amazon OpenSearch Service offers several ways to configure access to your OpenSearch Service domains. For more
 information, see [Identity and Access Management in Amazon OpenSearch Service](ac.md "ac.md") and [Fine-grained access control in Amazon OpenSearch Service](fgac.md "fgac.md").
@@ -424,9 +415,7 @@ provides guidance based on engineering best practices, but you should evaluate
 your specific requirements and test thoroughly before migrating production
 workloads.
 
-### Getting started with Migration
-
-Assistant
+### Getting started with Migration Assistant
 
 Migration Assistant for Amazon OpenSearch Service is available as an AWS Solution with
 comprehensive documentation, deployment templates, and source code. To get started
@@ -463,9 +452,7 @@ a comprehensive migration solution:
 
 For detailed architecture information, see [Migration Assistant architecture details](https://docs.opensearch.org/latest/migration-assistant/architecture/ "https://docs.opensearch.org/latest/migration-assistant/architecture/").
 
-## Advanced cluster
-
-settings
+## Advanced cluster settings
 
 Use advanced options to configure the following:
 

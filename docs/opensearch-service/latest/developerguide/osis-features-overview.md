@@ -13,8 +13,7 @@ Amazon OpenSearch Ingestion.
 This is not an exhaustive list of features that are available for pipelines. For
 comprehensive documentation of all available pipeline functionality, see the [Data
 Prepper documentation](https://opensearch.org/docs/latest/data-prepper/pipelines/pipelines/ "https://opensearch.org/docs/latest/data-prepper/pipelines/pipelines/"). Note that OpenSearch Ingestion places some constraints on
-the plugins and options that you can use. For more information, see [Supported plugins and options for
-Amazon OpenSearch Ingestion pipelines](pipeline-config-reference.md "pipeline-config-reference.md").
+the plugins and options that you can use. For more information, see [Supported plugins and options for Amazon OpenSearch Ingestion pipelines](pipeline-config-reference.md "pipeline-config-reference.md").
 
 ###### Topics
 
@@ -229,8 +228,7 @@ dlq-v${version}-${pipelineName}-${pluginId}-${timestampIso8601}-${uniqueId}
 ```
 
 For instructions to manually configure the pipeline role to allow access to the S3
-bucket that the DLQ writess to, see [Permissions to write to Amazon S3 or a
-dead-letter queue](pipeline-security-overview.md#pipeline-security-dlq "pipeline-security-overview.md#pipeline-security-dlq").
+bucket that the DLQ writess to, see [Permissions to write to Amazon S3 or a dead-letter queue](pipeline-security-overview.md#pipeline-security-dlq "pipeline-security-overview.md#pipeline-security-dlq").
 
 ### Example
 

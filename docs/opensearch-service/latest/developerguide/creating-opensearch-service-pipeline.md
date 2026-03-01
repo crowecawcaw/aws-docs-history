@@ -1,6 +1,4 @@
-# Migrating data between domains and
-
-collections using Amazon OpenSearch Ingestion
+# Migrating data between domains and collections using Amazon OpenSearch Ingestion
 
 You can use OpenSearch Ingestion pipelines to migrate data between Amazon OpenSearch Service domains or OpenSearch Serverless
 VPC collections. To do so, you set up a pipeline in which you configure one domain or
@@ -20,10 +18,8 @@ To migrate data, you must have the following resources:
   collection or domain. You include the Amazon Resource Name (ARN) of this role in
   your pipeline configuration. For more information, see the following
   resources:
-  - [Granting Amazon OpenSearch Ingestion pipelines access to
-    domains](pipeline-domain-access.md "pipeline-domain-access.md")
-  - [Granting Amazon OpenSearch Ingestion pipelines access
-    to collections](pipeline-collection-access.md "pipeline-collection-access.md")
+  - [Granting Amazon OpenSearch Ingestion pipelines access to domains](pipeline-domain-access.md "pipeline-domain-access.md")
+  - [Granting Amazon OpenSearch Ingestion pipelines access to collections](pipeline-collection-access.md "pipeline-collection-access.md")
 
 ###### Topics
 
@@ -64,9 +60,7 @@ following steps:
 1. Create a new permissions policy in IAM to attach to the pipeline role.
    Make sure you allow permissions to read from the source and write to the
    sink. For more information on setting IAM pipeline permissions for OpenSearch Service
-   domains, see [Granting Amazon OpenSearch Ingestion pipelines access to
-   domains](pipeline-domain-access.md "pipeline-domain-access.md") and [Granting Amazon OpenSearch Ingestion pipelines access
-   to collections](pipeline-collection-access.md "pipeline-collection-access.md").
+   domains, see [Granting Amazon OpenSearch Ingestion pipelines access to domains](pipeline-domain-access.md "pipeline-domain-access.md") and [Granting Amazon OpenSearch Ingestion pipelines access to collections](pipeline-collection-access.md "pipeline-collection-access.md").
 2. Specify the following permissions within the pipeline role to read from
    the source:
 
@@ -184,13 +178,11 @@ domains:
 You can use OpenSearch Ingestion to migrate data from a source OpenSearch Service domain or OpenSearch Serverless
 collection to a VPC collection sink. You must provide a network access policy within the
 pipeline configuration. For more information about data ingestion into OpenSearch Serverless VPC
-collections, see [Tutorial: Ingesting data into a collection
-using Amazon OpenSearch Ingestion](osis-serverless-get-started.md "osis-serverless-get-started.md").
+collections, see [Tutorial: Ingesting data into a collection using Amazon OpenSearch Ingestion](osis-serverless-get-started.md "osis-serverless-get-started.md").
 
 ###### To migrate data to a VPC collection
 
-1. Create an OpenSearch Serverless collection. For instructions, see [Tutorial: Ingesting data into a collection
-   using Amazon OpenSearch Ingestion](osis-serverless-get-started.md "osis-serverless-get-started.md").
+1. Create an OpenSearch Serverless collection. For instructions, see [Tutorial: Ingesting data into a collection using Amazon OpenSearch Ingestion](osis-serverless-get-started.md "osis-serverless-get-started.md").
 2. Create a network policy for the collection that specifies VPC access to both
    the collection endpoint and the Dashboards endpoint. For instructions, see [Network access for Amazon OpenSearch Serverless](serverless-network.md "serverless-network.md").
 3. Create the pipeline role if you don't already have one. For instructions, see

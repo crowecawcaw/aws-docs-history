@@ -35,8 +35,7 @@ following settings:
 ## Monitoring Auto-Tune changes
 
 You can monitor Auto-Tune statistics in Amazon CloudWatch. For a full list of
-metrics, see [Auto-Tune
-metrics](managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-autotune-metrics "managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-autotune-metrics").
+metrics, see [Auto-Tune metrics](managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-autotune-metrics "managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-autotune-metrics").
 
 OpenSearch Service sends Auto-Tune events to Amazon EventBridge. You can use EventBridge to configure rules that send
 an email or perform a specific action when an event is received. To see the format of

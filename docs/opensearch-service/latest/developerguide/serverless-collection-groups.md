@@ -29,7 +29,7 @@ manage costs while ensuring consistent performance.
 
 By default, there is a service quota (limit) for the number of collections in a collection
 group, the number of indexes in a collection, and the number of OCUs in a collection group.
-For more information, see [OpenSearch Serverless quotas](limits.md "limits.md").
+For more information, see [OpenSearch Serverless quotas](../../../general/latest/gr/opensearch-service.md#opensearch-limits-serverless "../../../general/latest/gr/opensearch-service.md#opensearch-limits-serverless").
 
 ## Key concepts
 

@@ -1,6 +1,4 @@
-# Natural language query generation in
-
-Amazon OpenSearch Service
+# Natural language query generation in Amazon OpenSearch Service
 
 The natural language query generation feature in Amazon OpenSearch Service allows you to query your
 operational and security log data through natural language. OpenSearch is an ideal option to

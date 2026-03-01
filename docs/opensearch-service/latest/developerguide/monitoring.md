@@ -38,11 +38,8 @@ CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awsc
 
 ###### Topics
 
-- [Monitoring OpenSearch cluster metrics with
-  Amazon CloudWatch](managedomains-cloudwatchmetrics.md "managedomains-cloudwatchmetrics.md")
-- [Monitoring OpenSearch logs with
-  Amazon CloudWatch Logs](createdomain-configure-slow-logs.md "createdomain-configure-slow-logs.md")
+- [Monitoring OpenSearch cluster metrics with Amazon CloudWatch](managedomains-cloudwatchmetrics.md "managedomains-cloudwatchmetrics.md")
+- [Monitoring OpenSearch logs with Amazon CloudWatch Logs](createdomain-configure-slow-logs.md "createdomain-configure-slow-logs.md")
 - [Monitoring audit logs in Amazon OpenSearch Service](audit-logs.md "audit-logs.md")
 - [Monitoring OpenSearch Service events with Amazon EventBridge](monitoring-events.md "monitoring-events.md")
-- [Monitoring Amazon OpenSearch Service API calls with
-  AWS CloudTrail](managedomains-cloudtrailauditing.md "managedomains-cloudtrailauditing.md")
+- [Monitoring Amazon OpenSearch Service API calls with AWS CloudTrail](managedomains-cloudtrailauditing.md "managedomains-cloudtrailauditing.md")

@@ -16,8 +16,7 @@ domain:
 
 - Manual snapshots: You currently can't use AWS KMS keys to encrypt manual snapshots. You
   can, however, use server-side encryption with S3-managed keys or KMS keys to encrypt the
-  bucket you use as a snapshot repository. For instructions, see [Registering a manual snapshot
-  repository](managedomains-snapshot-registerdirectory.md "managedomains-snapshot-registerdirectory.md").
+  bucket you use as a snapshot repository. For instructions, see [Registering a manual snapshot repository](managedomains-snapshot-registerdirectory.md "managedomains-snapshot-registerdirectory.md").
 - Slow logs and error logs: If you [publish logs](createdomain-configure-slow-logs.md "createdomain-configure-slow-logs.md") and want to encrypt them, you can encrypt their CloudWatch Logs log group
   using the same AWS KMS key as the OpenSearch Service domain. For more information, see [Encrypt log data in CloudWatch Logs using AWS Key Management Service](../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md "../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md") in the _Amazon CloudWatch Logs User Guide_.
 
@@ -130,8 +129,7 @@ your data, and delete the old domain.
 
 Domains that encrypt data at rest have two additional metrics: `KMSKeyError`
 and `KMSKeyInaccessible`. These metrics appear only if the domain encounters a
-problem with your encryption key. For full descriptions of these metrics, see [Cluster
-metrics](managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-cluster-metrics "managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-cluster-metrics"). You can view them using
+problem with your encryption key. For full descriptions of these metrics, see [Cluster metrics](managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-cluster-metrics "managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-cluster-metrics"). You can view them using
 either the OpenSearch Service console or the Amazon CloudWatch console.
 
 ###### Tip

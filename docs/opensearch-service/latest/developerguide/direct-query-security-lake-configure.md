@@ -1,6 +1,4 @@
-# Configuring and querying a
-
-Security Lake data source in OpenSearch Dashboards
+# Configuring and querying a Security Lake data source in OpenSearch Dashboards
 
 Now that you've created your data source, you can set it up in OpenSearch Dashboards.
 
@@ -11,9 +9,7 @@ navigate to your data source in OpenSearch Dashboards. In the left-hand menu, un
 select the name of the data source that you created earlier in the OpenSearch Service
 console.
 
-## Query Security Lake
-
-tables from Discover
+## Query Security Lake tables from Discover
 
 If you have created tables based on your Security Lake logs, you can now query those
 tables directly from OpenSearch Discover. This enables you to seamlessly access
@@ -36,9 +32,7 @@ for log sources supported in Security Lake. Search for the templates that match 
 case, copy the query to use in the search bar, and replace templated fields
 (such as Region and action) with your own information.
 
-## Accelerate data
-
-from Discover
+## Accelerate data from Discover
 
 To enhance performance and enable faster subsequent queries and analysis in
 OpenSearch, you can ingest the results of your query from Discover into an
@@ -68,9 +62,7 @@ Discover.
    your current query, potentially significantly speeding up your data
    retrieval and analysis.
 
-## Create a dashboard
-
-view for your data source
+## Create a dashboard view for your data source
 
 When you use OpenSearch Service, you can analyze popular AWS log types using pre-built
 dashboard templates. For Security Lake there are templates for VPC, CloudTrail, and WAF
@@ -114,5 +106,4 @@ templates, so you can start exploring and analyzing your data right away.
 ## Troubleshooting
 
 There might be instances when results don’t return as expected. If you
-experience any issues, make sure that you're following the [Recommendations for using direct queries
-in Amazon OpenSearch Service](direct-query-recommendations.md "direct-query-recommendations.md").
+experience any issues, make sure that you're following the [Recommendations for using direct queries in Amazon OpenSearch Service](direct-query-recommendations.md "direct-query-recommendations.md").

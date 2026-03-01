@@ -1,6 +1,4 @@
-# Using CloudFormation to set up remote inference for semantic
-
-search
+# Using CloudFormation to set up remote inference for semantic search
 
 Starting with OpenSearch version 2.9, you can use remote inference with [semantic
 search](https://opensearch.org/docs/latest/search-plugins/semantic-search/ "https://opensearch.org/docs/latest/search-plugins/semantic-search/") to host your own machine learning (ML) models. Remote inference uses
@@ -27,12 +25,10 @@ information, see [Sparse encoding models](https://opensearch.org/docs/latest/ml-
 - [Available CloudFormation templates](#cfn-template-list "#cfn-template-list")
 - [Prerequisites](#cfn-template-prereq "#cfn-template-prereq")
 - [Amazon Bedrock templates](cfn-template-bedrock.md "cfn-template-bedrock.md")
-- [Configuring Agentic Search with
-  Bedrock Claude](cfn-template-agentic-search.md "cfn-template-agentic-search.md")
+- [Configuring Agentic Search with Bedrock Claude](cfn-template-agentic-search.md "cfn-template-agentic-search.md")
 - [MCP server integration templates](cfn-template-mcp-server.md "cfn-template-mcp-server.md")
 - [Amazon SageMaker templates](cfn-template-sm.md "cfn-template-sm.md")
-- [Remote inference for semantic
-  highlighting templates](#cfn-template-semantic-highlighting "#cfn-template-semantic-highlighting")
+- [Remote inference for semantic highlighting templates](#cfn-template-semantic-highlighting "#cfn-template-semantic-highlighting")
 
 ## Available CloudFormation templates
 
@@ -124,9 +120,7 @@ arn:aws:iam::`account-id`:role/`role-name`
 After you've mapped the role, navigate to the security configuration of your
 domain and add the Lambda IAM role to your OpenSearch Service access policy.
 
-### Enable permissions on your
-
-AWS account
+### Enable permissions on your AWS account
 
 Your AWS account must have permission to access CloudFormation and Lambda, along
 with whichever AWS service you choose for your template – either
@@ -142,9 +136,7 @@ the CloudFormation IAM role to your S3 access policy. For more information, see
 and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the
 _IAM User Guide_.
 
-## Remote inference for semantic
-
-highlighting templates
+## Remote inference for semantic highlighting templates
 
 Semantic highlighting is an advanced search feature that enhances result relevance
 by analyzing the meaning and context of queries rather than relying solely on exact

@@ -189,9 +189,7 @@ JSON
 
 ```
 
-### Map the snapshot role in OpenSearch
-
-Dashboards (if using fine-grained access control)
+### Map the snapshot role in OpenSearch Dashboards (if using fine-grained access control)
 
 If you enabled [fine-grained access control](fgac.md#fgac-mapping "fgac.md#fgac-mapping"),
 even if you use HTTP basic authentication for all other purposes, you need to map

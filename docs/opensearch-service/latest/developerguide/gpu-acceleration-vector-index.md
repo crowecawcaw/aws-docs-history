@@ -71,9 +71,7 @@ Data is written with the following API operations:
 GPU-acceleration is activated with both automatic and [manual](https://docs.opensearch.org/latest/api-reference/index-apis/force-merge/ "https://docs.opensearch.org/latest/api-reference/index-apis/force-merge/")
 segment merges.
 
-## Supported index
-
-configurations
+## Supported index configurations
 
 The [Faiss](https://docs.opensearch.org/latest/field-types/supported-field-types/knn-methods-engines/#faiss-engine "https://docs.opensearch.org/latest/field-types/supported-field-types/knn-methods-engines/#faiss-engine") engine supports GPU-acceleration.
 

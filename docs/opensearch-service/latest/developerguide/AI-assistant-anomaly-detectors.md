@@ -1,6 +1,4 @@
-# View recommended anomaly
-
-detectors
+# View recommended anomaly detectors
 
 Anomaly detection in Amazon OpenSearch Service automatically detects anomalies in your OpenSearch data
 in near-real time by using the Random Cut Forest (RCF) algorithm. RCF is an unsupervised

@@ -46,8 +46,7 @@ Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../.
 
 ###### Note
 
-If you just want to _view_ metrics, see [Monitoring OpenSearch cluster metrics with
-Amazon CloudWatch](managedomains-cloudwatchmetrics.md "managedomains-cloudwatchmetrics.md").
+If you just want to _view_ metrics, see [Monitoring OpenSearch cluster metrics with Amazon CloudWatch](managedomains-cloudwatchmetrics.md "managedomains-cloudwatchmetrics.md").
 
 ## Other alarms you might consider
 

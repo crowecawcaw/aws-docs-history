@@ -1,6 +1,4 @@
-# Directly querying Amazon Security Lake data in
-
-OpenSearch Service
+# Directly querying Amazon Security Lake data in OpenSearch Service
 
 This section will walk you through the process of creating and configuring a data
 source integration in Amazon OpenSearch Service, enabling you to efficiently query and analyze your data
@@ -12,7 +10,5 @@ AWS Management Console.
 
 ###### Topics
 
-- [Creating an Amazon Security Lake data
-  source integration in OpenSearch Service](direct-query-security-lake-creating.md "direct-query-security-lake-creating.md")
-- [Configuring and querying a
-  Security Lake data source in OpenSearch Dashboards](direct-query-security-lake-configure.md "direct-query-security-lake-configure.md")
+- [Creating an Amazon Security Lake data source integration in OpenSearch Service](direct-query-security-lake-creating.md "direct-query-security-lake-creating.md")
+- [Configuring and querying a Security Lake data source in OpenSearch Dashboards](direct-query-security-lake-configure.md "direct-query-security-lake-configure.md")

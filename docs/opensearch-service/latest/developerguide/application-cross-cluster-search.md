@@ -1,6 +1,4 @@
-# Cross-Region and cross-account data
-
-access with cross-cluster search
+# Cross-Region and cross-account data access with cross-cluster search
 
 Using [Cross-cluster search](cross-cluster-search.md "cross-cluster-search.md") in Amazon OpenSearch Serverless,
 you can perform queries and aggregations across multiple connected domains.
@@ -72,18 +70,12 @@ that your domains meet the following requirements:
 
 ###### Topics
 
-- [Setting up access permissions for
-  cross-Region and cross-account data access with cross-cluster search](#cross-cluster-search-security "#cross-cluster-search-security")
-- [Creating a connection
-  between domains](#cross-cluster-search-create-connection "#cross-cluster-search-create-connection")
-- [Testing your security setup
-  for cross-Region and cross-account data access with cross-cluster search](#cross-cluster-search-security-testing "#cross-cluster-search-security-testing")
-- [Deleting a
-  connection](#cross-cluster-search-deleting-connection "#cross-cluster-search-deleting-connection")
+- [Setting up access permissions for cross-Region and cross-account data access with cross-cluster search](#cross-cluster-search-security "#cross-cluster-search-security")
+- [Creating a connection between domains](#cross-cluster-search-create-connection "#cross-cluster-search-create-connection")
+- [Testing your security setup for cross-Region and cross-account data access with cross-cluster search](#cross-cluster-search-security-testing "#cross-cluster-search-security-testing")
+- [Deleting a connection](#cross-cluster-search-deleting-connection "#cross-cluster-search-deleting-connection")
 
-## Setting up access permissions for
-
-cross-Region and cross-account data access with cross-cluster search
+## Setting up access permissions for cross-Region and cross-account data access with cross-cluster search
 
 When you send a cross-cluster search request to the source domain, the domain
 evaluates that request against its domain access policy. Cross-cluster search
@@ -215,9 +207,7 @@ In this case, the destination domain performs the search and returns the results
 to the source domain. The source domain combines its own results (if any) with the
 results from the destination domain and returns them to you.
 
-## Creating a connection
-
-between domains
+## Creating a connection between domains
 
 A cross-cluster search connection is unidirectional from the source domain to the
 destination domain. This means that the destination domains (in a different account
@@ -288,9 +278,7 @@ domain and the non-VPC domain is a public endpoint that can receive traffic from
 internet, the cross-cluster traffic between the domains is still encrypted and
 secure.
 
-## Testing your security setup
-
-for cross-Region and cross-account data access with cross-cluster search
+## Testing your security setup for cross-Region and cross-account data access with cross-cluster search
 
 After you've set up access permissions for cross-Region and cross-account data
 access with cross-cluster search, we recommend testing the setup using [Postman](https://www.postman.com/ "https://www.postman.com/"), a third-party
@@ -424,9 +412,7 @@ destination clusters that you search must be available for your search request t
 run successfully. Otherwise, the whole request fails—even if one of the domains is
 not available, no search results are returned.
 
-## Deleting a
-
-connection
+## Deleting a connection
 
 Deleting a connection stops any cross-cluster search operations on the destination
 domain.

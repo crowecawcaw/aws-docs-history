@@ -57,12 +57,9 @@ Agreement](https://aws.amazon.com/opensearch-service/sla/ "https://aws.amazon.co
 - [Plugin quotas](#plugin-limits "#plugin-limits")
 - [Prerequisites](#custom-plugin-prerequisites "#custom-plugin-prerequisites")
 - [Troubleshooting](#custom-plugin-troubleshooting "#custom-plugin-troubleshooting")
-- [Installing a custom plugin using the
-  console](#custom-plugin-install-console "#custom-plugin-install-console")
-- [Managing custom plugins using the
-  AWS CLI](#managing-custom-plugins-cli "#managing-custom-plugins-cli")
-- [Amazon OpenSearch Service custom package AWS KMS
-  integration](custom-package-kms-integration.md "custom-package-kms-integration.md")
+- [Installing a custom plugin using the console](#custom-plugin-install-console "#custom-plugin-install-console")
+- [Managing custom plugins using the AWS CLI](#managing-custom-plugins-cli "#managing-custom-plugins-cli")
+- [Amazon OpenSearch Service custom package AWS KMS integration](custom-package-kms-integration.md "custom-package-kms-integration.md")
 
 ## Plugin quotas
 
@@ -110,13 +107,10 @@ following requirements:
 ## Troubleshooting
 
 If the system returns the error `PluginValidationFailureReason : The provided
- plugin could not be loaded`, see [Custom plugin installation fails due to
-version compatibility](handling-errors.md#troubleshooting-custom-plugins "handling-errors.md#troubleshooting-custom-plugins")
+ plugin could not be loaded`, see [Custom plugin installation fails due to version compatibility](handling-errors.md#troubleshooting-custom-plugins "handling-errors.md#troubleshooting-custom-plugins")
 for troubleshooting information.
 
-## Installing a custom plugin using the
-
-console
+## Installing a custom plugin using the console
 
 To associate a third-party plugin to a domain, first import the plugin license and
 configuration as packages.
@@ -143,28 +137,19 @@ configuration as packages.
 After you import the plugin package, associate it with a domain. For instructions, see
 [Import and associate a package to a domain](custom-packages.md#associate-console "custom-packages.md#associate-console").
 
-## Managing custom plugins using the
-
-AWS CLI
+## Managing custom plugins using the AWS CLI
 
 You can use the AWS CLI to manage a number of custom plugin tasks.
 
 ###### Tasks
 
-- [Installing a custom plugin using the
-  AWS CLI](#custom-plugin-install-cli "#custom-plugin-install-cli")
-- [Updating a custom plugin using the
-  AWS CLI](#custom-plugin-update-cli "#custom-plugin-update-cli")
-- [Create or update a custom plugin with
-  an AWS KMS key security](#custom-plugin-kms-key-security-cli "#custom-plugin-kms-key-security-cli")
-- [Upgrading an OpenSearch Service domain with custom
-  plugins to a later version of OpenSearch using the AWS CLI](#custom-plugin-domain-upgrade-cli "#custom-plugin-domain-upgrade-cli")
-- [Uninstalling and viewing the dissociation
-  status of a custom plugin](#custom-plugin-uninstall-cli "#custom-plugin-uninstall-cli")
+- [Installing a custom plugin using the AWS CLI](#custom-plugin-install-cli "#custom-plugin-install-cli")
+- [Updating a custom plugin using the AWS CLI](#custom-plugin-update-cli "#custom-plugin-update-cli")
+- [Create or update a custom plugin with an AWS KMS key security](#custom-plugin-kms-key-security-cli "#custom-plugin-kms-key-security-cli")
+- [Upgrading an OpenSearch Service domain with custom plugins to a later version of OpenSearch using the AWS CLI](#custom-plugin-domain-upgrade-cli "#custom-plugin-domain-upgrade-cli")
+- [Uninstalling and viewing the dissociation status of a custom plugin](#custom-plugin-uninstall-cli "#custom-plugin-uninstall-cli")
 
-### Installing a custom plugin using the
-
-AWS CLI
+### Installing a custom plugin using the AWS CLI
 
 ###### Before you begin
 
@@ -181,8 +166,7 @@ The path format is
 ###### Note
 
 You can optionally secure a custom plugin when you create the plugin by specifying
-an AWS Key Management Service (AWS KMS) key. For information, see [Create or update a custom plugin with
-an AWS KMS key security](#custom-plugin-kms-key-security-cli "#custom-plugin-kms-key-security-cli").
+an AWS Key Management Service (AWS KMS) key. For information, see [Create or update a custom plugin with an AWS KMS key security](#custom-plugin-kms-key-security-cli "#custom-plugin-kms-key-security-cli").
 
 ###### To install a custom plugin using the AWS CLI
 
@@ -286,9 +270,7 @@ aws opensearch list-packages-for-domain \
     --domain-name `domain-name`
 ```
 
-### Updating a custom plugin using the
-
-AWS CLI
+### Updating a custom plugin using the AWS CLI
 
 Use the [update-package](../../../cli/latest/reference/opensearch/update-package.md "../../../cli/latest/reference/opensearch/update-package.md") command
 to make changes to a plugin.
@@ -296,8 +278,7 @@ to make changes to a plugin.
 ###### Note
 
 You can optionally secure a custom plugin when you update the plugin by specifying
-an AWS Key Management Service (AWS KMS) key. For information, see [Create or update a custom plugin with
-an AWS KMS key security](#custom-plugin-kms-key-security-cli "#custom-plugin-kms-key-security-cli").
+an AWS Key Management Service (AWS KMS) key. For information, see [Create or update a custom plugin with an AWS KMS key security](#custom-plugin-kms-key-security-cli "#custom-plugin-kms-key-security-cli").
 
 ###### To update a custom plugin using the AWS CLI
 
@@ -319,12 +300,9 @@ command to apply package updates to a domain.
 ###### Note
 
 You can audit, create, update, associate, and disassociate operations on the plugin
-using AWS CloudTrail. For more information, see [Monitoring Amazon OpenSearch Service API calls with
-AWS CloudTrail](managedomains-cloudtrailauditing.md "managedomains-cloudtrailauditing.md").
+using AWS CloudTrail. For more information, see [Monitoring Amazon OpenSearch Service API calls with AWS CloudTrail](managedomains-cloudtrailauditing.md "managedomains-cloudtrailauditing.md").
 
-### Create or update a custom plugin with
-
-an AWS KMS key security
+### Create or update a custom plugin with an AWS KMS key security
 
 You can secure a custom plugin when you create or update the plugin by specifying an
 AWS KMS key. To accomplish this, set `PackageEncryptionOptions` to
@@ -372,19 +350,14 @@ aws opensearch update-package \
 If the AWS KMS key you specify is disabled or deleted, it can leave the associated
 cluster inoperational.
 
-For more information about AWS KMS integration with custom packages, [Amazon OpenSearch Service custom package AWS KMS
-integration](custom-package-kms-integration.md "custom-package-kms-integration.md").
+For more information about AWS KMS integration with custom packages, [Amazon OpenSearch Service custom package AWS KMS integration](custom-package-kms-integration.md "custom-package-kms-integration.md").
 
-### Upgrading an OpenSearch Service domain with custom
-
-plugins to a later version of OpenSearch using the AWS CLI
+### Upgrading an OpenSearch Service domain with custom plugins to a later version of OpenSearch using the AWS CLI
 
 When you need to upgrade an OpenSearch Service domain that uses custom plugins to a later version of
 OpenSearch, complete the following processes.
 
-###### To upgrade an OpenSearch Service domain with custom plugins to a later version of OpenSearch
-
-using the AWS CLI
+###### To upgrade an OpenSearch Service domain with custom plugins to a later version of OpenSearch using the AWS CLI
 
 1. Use the create-package command to create a new package for your plugin specifying
    the new OpenSearch version.
@@ -396,9 +369,7 @@ blue/green deployment. 2. Upgrade your domain to the higher version by following
 During this process, Amazon OpenSearch Service disassociates the previous version of the plugin
 package and installs the new version using a blue/green deployment.
 
-### Uninstalling and viewing the dissociation
-
-status of a custom plugin
+### Uninstalling and viewing the dissociation status of a custom plugin
 
 To uninstall the plugin from any domain, you can use the [dissociate-package](../../../cli/latest/reference/es/dissociate-package.md "../../../cli/latest/reference/es/dissociate-package.md")
 command. Running this command also removes any related configuration or license packages.

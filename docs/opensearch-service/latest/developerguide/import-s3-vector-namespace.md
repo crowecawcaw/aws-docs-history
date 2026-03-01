@@ -1,6 +1,4 @@
-# Import Amazon S3 vector namespace to OpenSearch Service vector
-
-engine
+# Import Amazon S3 vector namespace to OpenSearch Service vector engine
 
 Analyzing your vector data with OpenSearch Service requires a one-time OpenSearch Service collection and
 IAM permission setup.

@@ -20,9 +20,6 @@ documentation for that service.
 
 ###### Topics
 
-- [Using service-linked roles to create VPC domains and direct
-  query data sources](slr-aos.md "slr-aos.md")
-- [Using service-linked roles to create
-  OpenSearch Serverless collections](serverless-service-linked-roles.md "serverless-service-linked-roles.md")
-- [Using service-linked roles to create OpenSearch Ingestion
-  pipelines](slr-osis.md "slr-osis.md")
+- [Using service-linked roles to create VPC domains and direct query data sources](slr-aos.md "slr-aos.md")
+- [Using service-linked roles to create OpenSearch Serverless collections](serverless-service-linked-roles.md "serverless-service-linked-roles.md")
+- [Using service-linked roles to create OpenSearch Ingestion pipelines](slr-osis.md "slr-osis.md")

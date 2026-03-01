@@ -23,8 +23,7 @@ connectivity.
 
 - [Network policies](#serverless-network-policies "#serverless-network-policies")
 - [Considerations](#serverless-network-considerations "#serverless-network-considerations")
-- [Permissions required to configure
-  network policies](#serverless-network-permissions "#serverless-network-permissions")
+- [Permissions required to configure network policies](#serverless-network-permissions "#serverless-network-permissions")
 - [Policy precedence](#serverless-network-precedence "#serverless-network-precedence")
 - [Creating network policies (console)](#serverless-network-console "#serverless-network-console")
 - [Creating network policies (AWS CLI)](#serverless-network-cli "#serverless-network-cli")
@@ -140,9 +139,7 @@ Consider the following when you configure network access for your collections:
 - Multiple network policies can apply to a single collection. For more
   information, see [Policy precedence](#serverless-network-precedence "#serverless-network-precedence").
 
-## Permissions required to configure
-
-network policies
+## Permissions required to configure network policies
 
 Network access for OpenSearch Serverless uses the following AWS Identity and Access Management (IAM) permissions. You can
 specify IAM conditions to restrict users to network policies associated with specific
@@ -198,8 +195,7 @@ JSON
 
 In addition, OpenSearch Serverless requires the `aoss:APIAccessAll` and
 `aoss:DashboardsAccessAll` permissions for collection resources. For
-more information, see [Using OpenSearch
-API operations](security-iam-serverless.md#security_iam_id-based-policy-examples-data-plane "security-iam-serverless.md#security_iam_id-based-policy-examples-data-plane").
+more information, see [Using OpenSearch API operations](security-iam-serverless.md#security_iam_id-based-policy-examples-data-plane "security-iam-serverless.md#security_iam_id-based-policy-examples-data-plane").
 
 ## Policy precedence
 

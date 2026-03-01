@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion
-
-pipeline with Amazon Security Lake as a sink
+# Using an OpenSearch Ingestion pipeline with Amazon Security Lake as a sink
 
 Use the Amazon S3 sink plugin in OpenSearch Ingestion to send data from any supported source
 to Amazon Security Lake. Security Lake collects and stores security data from AWS, on-premises
@@ -43,9 +41,7 @@ you want to ingest.
   pipeline role with the required permissions to write data to Security Lake. For
   more information, see [Pipeline role](pipeline-security-overview.md#pipeline-security-sink "pipeline-security-overview.md#pipeline-security-sink").
 
-### Create the
-
-pipeline
+### Create the pipeline
 
 Use the preconfigured Security Lake blueprint to create the pipeline. For more
 information, see [Using blueprints to create a pipeline](pipeline-blueprint.md "pipeline-blueprint.md").

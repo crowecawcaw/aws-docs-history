@@ -22,8 +22,7 @@ pipeline name that's distinct from all of its sub-pipelines.
 
 You can string multiple sub-pipelines together within a single YAML file,
 so that the source for one sub-pipeline is another sub-pipeline, and its
-sink is a third sub-pipeline. For an example, see [Using an OpenSearch Ingestion pipeline with
-OpenTelemetry Collector](configure-client-otel.md "configure-client-otel.md").
+sink is a third sub-pipeline. For an example, see [Using an OpenSearch Ingestion pipeline with OpenTelemetry Collector](configure-client-otel.md "configure-client-otel.md").
 
 **Source**
 

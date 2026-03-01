@@ -1,6 +1,4 @@
-# Tutorial: Visualizing customer support calls with OpenSearch Service and
-
-OpenSearch Dashboards
+# Tutorial: Visualizing customer support calls with OpenSearch Service and OpenSearch Dashboards
 
 This chapter is a full walkthrough of the following situation: a business receives some
 number of customer support calls and wants to analyze them. What is the subject of each
@@ -58,8 +56,7 @@ Pricing](https://aws.amazon.com/comprehend/pricing/ "https://aws.amazon.com/comp
 - [Step 2: Copy sample code](#walkthrough-script "#walkthrough-script")
 - [(Optional) Step 3: Index sample data](#walkthrough-sample-data "#walkthrough-sample-data")
 - [Step 4: Analyze and visualize your data](#walkthrough-analysis "#walkthrough-analysis")
-- [Step 5: Clean up resources and next
-  steps](#walkthrough-next-steps "#walkthrough-next-steps")
+- [Step 5: Clean up resources and next steps](#walkthrough-next-steps "#walkthrough-next-steps")
 
 ## Step 1: Configure prerequisites
 
@@ -391,9 +388,7 @@ add your visualizations.
 
 ![Sample Dashboards visualization.](images/dashboard-2.png)
 
-## Step 5: Clean up resources and next
-
-steps
+## Step 5: Clean up resources and next steps
 
 To avoid unnecessary charges, delete the S3 bucket and OpenSearch Service domain. To learn more, see
 [Delete a

@@ -1,6 +1,4 @@
-# Tutorial: Sending Amazon SNS alerts for available software
-
-updates
+# Tutorial: Sending Amazon SNS alerts for available software updates
 
 In this tutorial, you configure an Amazon EventBridge event rule that captures notifications for
 available service software updates in Amazon OpenSearch Service and sends you an email notification
@@ -12,9 +10,7 @@ This tutorial assumes that you have an existing OpenSearch Service domain. If yo
 created a domain, follow the steps in [Creating and managing Amazon OpenSearch Service domains](createupdatedomains.md "createupdatedomains.md") to
 create one.
 
-## Step 1: Create and subscribe to an Amazon SNS
-
-topic
+## Step 1: Create and subscribe to an Amazon SNS topic
 
 Configure an Amazon SNS topic to serve as an event target for your new event
 rule.

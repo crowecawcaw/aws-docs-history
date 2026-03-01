@@ -8,13 +8,10 @@ policies](serverless-data-access.md "serverless-data-access.md") in order to lim
 
 ###### Topics
 
-- [Supported OpenSearch API operations and
-  permissions](#serverless-operations "#serverless-operations")
+- [Supported OpenSearch API operations and permissions](#serverless-operations "#serverless-operations")
 - [Supported OpenSearch plugins](#serverless-plugins "#serverless-plugins")
 
-## Supported OpenSearch API operations and
-
-permissions
+## Supported OpenSearch API operations and permissions
 
 The following table lists the API operations that OpenSearch Serverless supports, along with their
 corresponding data access policy permissions:

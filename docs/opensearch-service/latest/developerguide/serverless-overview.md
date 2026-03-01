@@ -133,8 +133,7 @@ The collection types have the following notable **differences**:
 - For _time series_ and _vector
   search_ collections, you can't index by custom document ID or
   update by upsert requests. This operation is reserved for search use cases.
-  You can update by document ID instead. For more information, see [Supported OpenSearch API operations and
-  permissions](serverless-genref.md#serverless-operations "serverless-genref.md#serverless-operations").
+  You can update by document ID instead. For more information, see [Supported OpenSearch API operations and permissions](serverless-genref.md#serverless-operations "serverless-genref.md#serverless-operations").
 - For _search_ and _time series_
   collections, you can't use k-NN type indexes.
 
@@ -190,8 +189,7 @@ quotas](../../../general/latest/gr/opensearch-service.md "../../../general/lates
 
 OpenSearch Serverless has the following limitations:
 
-- Some OpenSearch API operations aren't supported. See [Supported OpenSearch API operations and
-  permissions](serverless-genref.md#serverless-operations "serverless-genref.md#serverless-operations").
+- Some OpenSearch API operations aren't supported. See [Supported OpenSearch API operations and permissions](serverless-genref.md#serverless-operations "serverless-genref.md#serverless-operations").
 - Some OpenSearch plugins aren't supported. See [Supported OpenSearch plugins](serverless-genref.md#serverless-plugins "serverless-genref.md#serverless-plugins").
 - There's currently no way to automatically migrate your data from a managed
   OpenSearch Service domain to a serverless collection. You must reindex your data from a

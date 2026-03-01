@@ -7,14 +7,10 @@ collection, see [Working with vector search collections](serverless-vector-searc
 
 ###### Topics
 
-- [Configure collection
-  settings](#serverless-create-console-step-2 "#serverless-create-console-step-2")
-- [Configure additional search
-  fields](#serverless-create-console-step-3 "#serverless-create-console-step-3")
+- [Configure collection settings](#serverless-create-console-step-2 "#serverless-create-console-step-2")
+- [Configure additional search fields](#serverless-create-console-step-3 "#serverless-create-console-step-3")
 
-## Configure collection
-
-settings
+## Configure collection settings
 
 Use the following procedure configure information about your collection.
 
@@ -47,8 +43,7 @@ Use the following procedure configure information about your collection.
         ###### Note
 
         Choose this option if you are enabling automatic semantic
-         search, as described in Configure collection
-         settings.
+         search, as described in Configure collection settings.
         * **Vector search** – Semantic search on
          vector embeddings that simplifies vector data management. Powers
          machine learning (ML) augmented search experiences and
@@ -86,8 +81,7 @@ Use the following procedure configure information about your collection.
 
         	+ **VPC endpoints for access** –
         	 Specify one or more VPC endpoints to allow access
-        	 through. To create a VPC endpoint, see [Access Amazon OpenSearch Serverless using an interface endpoint
-        	 (AWS PrivateLink)](serverless-vpc.md "serverless-vpc.md").
+        	 through. To create a VPC endpoint, see [Access Amazon OpenSearch Serverless using an interface endpoint (AWS PrivateLink)](serverless-vpc.md "serverless-vpc.md").
         	+ **AWS service private access**
         	 – Select one or more supported services to allow
         	 access to.
@@ -114,9 +108,7 @@ Use the following procedure configure information about your collection.
     information, see [Tagging Amazon OpenSearch Serverless collections](tag-collection.md "tag-collection.md").
 11. Choose **Next**.
 
-## Configure additional search
-
-fields
+## Configure additional search fields
 
 The options you see on page two of the create collection workflow depend on
 the type of collection you are creating. This section describes how to configure
@@ -128,8 +120,7 @@ apply to your collection type.
 
 - [Configure automatic semantic enrichment](#serverless-create-console-step-3-semantic-enrichment-fields "#serverless-create-console-step-3-semantic-enrichment-fields")
 - [Configure time series search fields](#serverless-create-console-step-3-time-series-fields "#serverless-create-console-step-3-time-series-fields")
-- [Configure
-  lexical search fields](#serverless-create-console-step-3-lexical-fields "#serverless-create-console-step-3-lexical-fields")
+- [Configure lexical search fields](#serverless-create-console-step-3-lexical-fields "#serverless-create-console-step-3-lexical-fields")
 - [Configure vector search fields](#serverless-create-console-step-3-vector-search-fields "#serverless-create-console-step-3-vector-search-fields")
 
 ### Configure automatic semantic enrichment
@@ -138,8 +129,7 @@ When you create or edit a collection, you can configure automatic semantic
 enrichment, which simplifies semantic search implementation and capabilities
 in Amazon OpenSearch Service. Semantic search returns query results that incorporate not just
 keyword matching, but the intent and contextual meaning of the user's
-search. For more information, see [Automatic semantic
-enrichment for Serverless](serverless-semantic-enrichment.md "serverless-semantic-enrichment.md").
+search. For more information, see [Automatic semantic enrichment for Serverless](serverless-semantic-enrichment.md "serverless-semantic-enrichment.md").
 
 ###### To configure automatic semantic enrichment
 
@@ -165,8 +155,7 @@ enrichment for Serverless](serverless-semantic-enrichment.md "serverless-semanti
 
 The options in the **Time series search fields** section
 pertain to time series data and data streams. For more information about
-these subjects, see [Managing time-series data in Amazon OpenSearch Service with data
-streams](data-streams.md "data-streams.md").
+these subjects, see [Managing time-series data in Amazon OpenSearch Service with data streams](data-streams.md "data-streams.md").
 
 ###### To configure time series search fields
 
@@ -180,9 +169,7 @@ streams](data-streams.md "data-streams.md").
    choose **Next**. Review your changes and choose
    **Submit** to create the collection.
 
-### Configure
-
-lexical search fields
+### Configure lexical search fields
 
 Lexical search seeks an exact match between a search query and indexed
 terms or keywords.

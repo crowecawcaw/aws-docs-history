@@ -1,6 +1,4 @@
-# Performing administrative actions on Amazon OpenSearch Service
-
-domains
+# Performing administrative actions on Amazon OpenSearch Service domains
 
 Amazon OpenSearch Service offers several administrative options that provide granular control if you need
 to troubleshoot issues with your domain. These options include the ability to restart the

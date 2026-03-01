@@ -1,6 +1,4 @@
-# Logging Amazon OpenSearch Ingestion API calls using
-
-AWS CloudTrail
+# Logging Amazon OpenSearch Ingestion API calls using AWS CloudTrail
 
 Amazon OpenSearch Ingestion is integrated with AWS CloudTrail, a service that provides a record of
 actions taken by a user, role, or an AWS service in OpenSearch Ingestion.
@@ -56,9 +54,7 @@ information helps you determine:
 
 For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding OpenSearch Ingestion log file
-
-entries
+## Understanding OpenSearch Ingestion log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries.

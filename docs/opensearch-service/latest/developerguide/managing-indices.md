@@ -16,5 +16,4 @@ OpenSearch index APIs, see the [OpenSearch documentation](https://docs.opensearc
 - [Transforming indexes in Amazon OpenSearch Service](transforms.md "transforms.md")
 - [Cross-cluster replication for Amazon OpenSearch Service](replication.md "replication.md")
 - [Migrating Amazon OpenSearch Service indexes using remote reindex](remote-reindex.md "remote-reindex.md")
-- [Managing time-series data in Amazon OpenSearch Service with data
-  streams](data-streams.md "data-streams.md")
+- [Managing time-series data in Amazon OpenSearch Service with data streams](data-streams.md "data-streams.md")

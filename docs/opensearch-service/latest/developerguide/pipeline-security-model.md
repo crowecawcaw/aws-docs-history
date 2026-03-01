@@ -25,11 +25,8 @@ _in_ the cloud:
 
 ###### Topics
 
-- [Configuring VPC access for Amazon OpenSearch Ingestion
-  pipelines](pipeline-security.md "pipeline-security.md")
-- [Configuring OpenSearch Ingestion pipelines for
-  cross-account ingestion](cross-account-pipelines.md "cross-account-pipelines.md")
-- [Identity and Access Management for
-  Amazon OpenSearch Ingestion](security-iam-ingestion.md "security-iam-ingestion.md")
-- [Logging Amazon OpenSearch Ingestion API calls using
-  AWS CloudTrail](osis-logging-using-cloudtrail.md "osis-logging-using-cloudtrail.md")
+- [Configuring VPC access for Amazon OpenSearch Ingestion pipelines](pipeline-security.md "pipeline-security.md")
+- [Configuring OpenSearch Ingestion pipelines for cross-account ingestion](cross-account-pipelines.md "cross-account-pipelines.md")
+- [Identity and Access Management for Amazon OpenSearch Ingestion](security-iam-ingestion.md "security-iam-ingestion.md")
+- [Logging Amazon OpenSearch Ingestion API calls using AWS CloudTrail](osis-logging-using-cloudtrail.md "osis-logging-using-cloudtrail.md")
+- [Amazon OpenSearch Ingestion and interface endpoints API (AWS PrivateLink)](osis-access-apis-using-privatelink.md "osis-access-apis-using-privatelink.md")

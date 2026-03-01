@@ -1,6 +1,4 @@
-# Configuring and querying an S3 data
-
-source in OpenSearch Dashboards
+# Configuring and querying an S3 data source in OpenSearch Dashboards
 
 Now that you've created your data source, you can configure security settings,
 define your Amazon S3 tables, or set up accelerated data indexing. This
@@ -13,9 +11,7 @@ in OpenSearch Dashboards. In the left-hand navigation, under
 **Manage data sources**, select the name of the data source
 that you created in the console.
 
-## Create Spark Tables using
-
-Query Workbench
+## Create Spark Tables using Query Workbench
 
 Direct queries from OpenSearch Service to Amazon S3 use Spark tables within the AWS Glue Data Catalog. You
 can create tables from within the Query Workbench without having to leave
@@ -50,9 +46,7 @@ compatible with direct queries:
 MSCK REPAIR TABLE  `*datasourcename.databasename.vpclogstable*`
 ```
 
-## Setup integrations for
-
-popular AWS log types
+## Setup integrations for popular AWS log types
 
 You can integrate AWS log types stored in Amazon S3 with OpenSearch Service. Use
 OpenSearch Dashboards to install integrations that create AWS Glue Data Catalog tables, saved
@@ -93,9 +87,7 @@ _all_ queries against that data source. A user with
 read access to the result index can read results for
 _all_ queries against that data source.
 
-## Querying S3 data in OpenSearch
-
-Discover
+## Querying S3 data in OpenSearch Discover
 
 After you set up your tables and configure your desired optional query
 acceleration, you can start analyzing your data. To query your data, select your
@@ -121,5 +113,4 @@ to query your data given that you’ve indexed it within.
 ## Troubleshooting
 
 There might be instances when results don’t return as expected. If you
-experience any issues, make sure that you're following the [Recommendations for using direct queries
-in Amazon OpenSearch Service](direct-query-recommendations.md "direct-query-recommendations.md").
+experience any issues, make sure that you're following the [Recommendations for using direct queries in Amazon OpenSearch Service](direct-query-recommendations.md "direct-query-recommendations.md").

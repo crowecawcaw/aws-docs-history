@@ -10,12 +10,9 @@ plugin with Amazon OpenSearch Service.
 
 ###### Topics
 
-- [Amazon OpenSearch Service ML connectors for
-  AWS services](ml-amazon-connector.md "ml-amazon-connector.md")
-- [Amazon OpenSearch Service ML connectors for third-party
-  platforms](ml-external-connector.md "ml-external-connector.md")
-- [Using CloudFormation to set up remote inference for semantic
-  search](cfn-template.md "cfn-template.md")
+- [Amazon OpenSearch Service ML connectors for AWS services](ml-amazon-connector.md "ml-amazon-connector.md")
+- [Amazon OpenSearch Service ML connectors for third-party platforms](ml-external-connector.md "ml-external-connector.md")
+- [Using CloudFormation to set up remote inference for semantic search](cfn-template.md "cfn-template.md")
 - [Unsupported ML Commons settings](#sm "#sm")
 - [OpenSearch Service flow framework templates](ml-workflow-framework.md "ml-workflow-framework.md")
 
@@ -32,8 +29,7 @@ On _production clusters_, do not disable the
 cluster setting `plugins.ml_commons.only_run_on_ml_node` (don't set it to
 `false`). The option to disable this safeguard is for facilitating
 development, but production clusters should be using the connectors. For more
-information, see [Amazon OpenSearch Service ML connectors for
-AWS services](ml-amazon-connector.md "ml-amazon-connector.md").
+information, see [Amazon OpenSearch Service ML connectors for AWS services](ml-amazon-connector.md "ml-amazon-connector.md").
 
 For more information on ML Commons settings, see [ML
 Commons cluster settings](https://opensearch.org/docs/latest/ml-commons-plugin/cluster-settings/ "https://opensearch.org/docs/latest/ml-commons-plugin/cluster-settings/").

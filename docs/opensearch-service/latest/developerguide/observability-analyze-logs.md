@@ -110,9 +110,7 @@ error OR exception
 
 For more information about DQL, see the [DQL reference manual](https://docs.opensearch.org/latest/dashboards/dql/ "https://docs.opensearch.org/latest/dashboards/dql/") on opensearch.org.
 
-## Dashboards and alerts for
-
-logs
+## Dashboards and alerts for logs
 
 In the new Discover experience with PPL, you can create visualizations from the visualizations
 tab within Discover. Choose from 12 visualization types and edit on the fly before adding them to a dashboard.

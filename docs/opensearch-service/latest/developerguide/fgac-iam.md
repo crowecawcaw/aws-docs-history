@@ -1,6 +1,4 @@
-# Tutorial: Configure a domain with an IAM master user and Amazon Cognito
-
-authentication
+# Tutorial: Configure a domain with an IAM master user and Amazon Cognito authentication
 
 This tutorial covers a popular Amazon OpenSearch Service use case for [fine-grained
 access control](fgac.md "fgac.md"): an IAM master user with Amazon Cognito authentication for OpenSearch Dashboards.
@@ -70,9 +68,7 @@ Replace `identity-pool-id` with the unique identifier of your Amazon Cognito
 identity pool. For example,
 `us-east-1:0c6cdba7-3c3c-443b-a958-fb9feb207aa6`.
 
-## Step 2: Create a domain with Cognito
-
-authentication
+## Step 2: Create a domain with Cognito authentication
 
 Navigate to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home/](https://console.aws.amazon.com/aos/home/ "https://console.aws.amazon.com/aos/home/") and [create a domain](createupdatedomains.md "createupdatedomains.md") with the following settings:
 
@@ -81,8 +77,7 @@ Navigate to the Amazon OpenSearch Service console at [https://console.aws.amazon
 - Fine-grained access control enabled with `MasterUserRole` as the master
   user (created in the previous step)
 - Amazon Cognito authentication enabled for OpenSearch Dashboards. For instructions to enable
-  Cognito authentication and select a user and identity pool, see [Configuring a domain to use Amazon Cognito
-  authentication](cognito-auth.md#cognito-auth-config "cognito-auth.md#cognito-auth-config").
+  Cognito authentication and select a user and identity pool, see [Configuring a domain to use Amazon Cognito authentication](cognito-auth.md#cognito-auth-config "cognito-auth.md#cognito-auth-config").
 - The following domain access policy:
 
 JSON

@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion pipeline with
-
-Amazon Aurora
+# Using an OpenSearch Ingestion pipeline with Amazon Aurora
 
 You can use an OpenSearch Ingestion pipeline with Amazon Aurora to export existing data and stream changes (such as create,
 update, and delete) to Amazon OpenSearch Service domains and collections. The OpenSearch Ingestion pipeline

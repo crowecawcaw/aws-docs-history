@@ -1,6 +1,4 @@
-# Tutorial: Ingesting data into a collection
-
-using Amazon OpenSearch Ingestion
+# Tutorial: Ingesting data into a collection using Amazon OpenSearch Ingestion
 
 This tutorial shows you how to use Amazon OpenSearch Ingestion to configure a simple pipeline and
 ingest data into an Amazon OpenSearch Serverless collection. A _pipeline_ is a resource
@@ -9,8 +7,7 @@ transform, normalize, and aggregate data for downstream analytics and visualizat
 OpenSearch Service.
 
 For a tutorial that demonstrates how to ingest data into a provisioned OpenSearch Service
-_domain_, see [Tutorial: Ingesting data into a domain using
-Amazon OpenSearch Ingestion](osis-get-started.md "osis-get-started.md").
+_domain_, see [Tutorial: Ingesting data into a domain using Amazon OpenSearch Ingestion](osis-get-started.md "osis-get-started.md").
 
 You'll complete the following steps in this tutorial:.
 
@@ -150,8 +147,7 @@ In the **Source** menu, choose **HTTP**. For
 the **Path**, enter **/logs**. 5. For simplicity in this tutorial, we'll configure public access for the
 pipeline. For **Source network options**, choose
 **Public access**. For information about configuring VPC
-access, see [Configuring VPC access for Amazon OpenSearch Ingestion
-pipelines](pipeline-security.md "pipeline-security.md"). 6. Choose **Next**. 7. For **Processor**, enter **Date** and choose
+access, see [Configuring VPC access for Amazon OpenSearch Ingestion pipelines](pipeline-security.md "pipeline-security.md"). 6. Choose **Next**. 7. For **Processor**, enter **Date** and choose
 **Add**. 8. Enable **From time received**. Leave all other settings as
 their defaults. 9. Choose **Next**. 10. Configure sink details. For **OpenSearch resource type**,
 choose **Collection (Serverless)**. Then choose the OpenSearch Service
@@ -165,16 +161,13 @@ the capacity settings as their defaults. 13. For **Pipeline role**, select **Cre
 service role**. The pipeline role provides the required permissions
 for a pipeline to write to the collection sink and read from pull-based sources.
 By selecting this option, you allow OpenSearch Ingestion to create the role for you,
-rather than manually creating it in IAM. For more information, see [Setting up roles and users in
-Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md"). 14. For **Service role name suffix**, enter
+rather than manually creating it in IAM. For more information, see [Setting up roles and users in Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md"). 14. For **Service role name suffix**, enter
 **PipelineRole**. In IAM, the role will have the format
 `arn:aws:iam::`your-account-id`:role/OpenSearchIngestion-**PipelineRole**`. 15. Choose **Next**. Review your pipeline configuration and
 choose **Create pipeline**. The pipeline takes 5–10
 minutes to become active.
 
-## Step 3: Ingest some sample
-
-data
+## Step 3: Ingest some sample data
 
 When the pipeline status is `Active`, you can start ingesting data into it.
 You must sign all HTTP requests to the pipeline using [Signature Version 4](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md"). Use an HTTP tool such as [Postman](https://www.getpostman.com/ "https://www.getpostman.com/") or [awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl") to send some data to the

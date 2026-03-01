@@ -11,7 +11,5 @@ AWS Glue Data Catalog roles and configuring access controls in OpenSearch Dashbo
 
 ###### Topics
 
-- [Creating an Amazon S3 data source integration
-  in OpenSearch Service](direct-query-s3-creating.md "direct-query-s3-creating.md")
-- [Configuring and querying an S3 data
-  source in OpenSearch Dashboards](direct-query-s3-configure.md "direct-query-s3-configure.md")
+- [Creating an Amazon S3 data source integration in OpenSearch Service](direct-query-s3-creating.md "direct-query-s3-creating.md")
+- [Configuring and querying an S3 data source in OpenSearch Dashboards](direct-query-s3-configure.md "direct-query-s3-configure.md")

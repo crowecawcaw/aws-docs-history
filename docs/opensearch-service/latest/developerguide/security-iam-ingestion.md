@@ -1,6 +1,4 @@
-# Identity and Access Management for
-
-Amazon OpenSearch Ingestion
+# Identity and Access Management for Amazon OpenSearch Ingestion
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
@@ -9,25 +7,16 @@ use with no additional charge.
 
 ###### Topics
 
-- [Identity-based policies for
-  OpenSearch Ingestion](#security-iam-ingestion-id-based-policies "#security-iam-ingestion-id-based-policies")
-- [Policy actions for
-  OpenSearch Ingestion](#security-iam-ingestion-id-based-policies-actions "#security-iam-ingestion-id-based-policies-actions")
-- [Policy resources
-  for OpenSearch Ingestion](#security-iam-ingestion-id-based-policies-resources "#security-iam-ingestion-id-based-policies-resources")
-- [Policy condition keys for
-  Amazon OpenSearch Ingestion](#security_iam_ingestion-conditionkeys "#security_iam_ingestion-conditionkeys")
+- [Identity-based policies for OpenSearch Ingestion](#security-iam-ingestion-id-based-policies "#security-iam-ingestion-id-based-policies")
+- [Policy actions for OpenSearch Ingestion](#security-iam-ingestion-id-based-policies-actions "#security-iam-ingestion-id-based-policies-actions")
+- [Policy resources for OpenSearch Ingestion](#security-iam-ingestion-id-based-policies-resources "#security-iam-ingestion-id-based-policies-resources")
+- [Policy condition keys for Amazon OpenSearch Ingestion](#security_iam_ingestion-conditionkeys "#security_iam_ingestion-conditionkeys")
 - [ABAC with OpenSearch Ingestion](#security_iam_ingestion-with-iam-tags "#security_iam_ingestion-with-iam-tags")
-- [Using temporary credentials with
-  OpenSearch Ingestion](#security_iam_ingestion-tempcreds "#security_iam_ingestion-tempcreds")
-- [Service-linked roles for
-  OpenSearch Ingestion](#security_iam_ingestion-slr "#security_iam_ingestion-slr")
-- [Identity-based policy
-  examples for OpenSearch Ingestion](#security_iam_ingestion_id-based-policy-examples "#security_iam_ingestion_id-based-policy-examples")
+- [Using temporary credentials with OpenSearch Ingestion](#security_iam_ingestion-tempcreds "#security_iam_ingestion-tempcreds")
+- [Service-linked roles for OpenSearch Ingestion](#security_iam_ingestion-slr "#security_iam_ingestion-slr")
+- [Identity-based policy examples for OpenSearch Ingestion](#security_iam_ingestion_id-based-policy-examples "#security_iam_ingestion_id-based-policy-examples")
 
-## Identity-based policies for
-
-OpenSearch Ingestion
+## Identity-based policies for OpenSearch Ingestion
 
 **Supports identity-based policies:**
 
@@ -44,16 +33,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-### Identity-based policy
+### Identity-based policy examples for OpenSearch Ingestion
 
-examples for OpenSearch Ingestion
+To view examples of OpenSearch Ingestion identity-based policies, see [Identity-based policy examples for OpenSearch Ingestion](#security_iam_ingestion_id-based-policy-examples "#security_iam_ingestion_id-based-policy-examples").
 
-To view examples of OpenSearch Ingestion identity-based policies, see [Identity-based policy
-examples for OpenSearch Ingestion](#security_iam_ingestion_id-based-policy-examples "#security_iam_ingestion_id-based-policy-examples").
-
-## Policy actions for
-
-OpenSearch Ingestion
+## Policy actions for OpenSearch Ingestion
 
 **Supports policy actions:**
 
@@ -92,12 +76,9 @@ action:
 "Action": "osis:List*"
 ```
 
-To view examples of OpenSearch Ingestion identity-based policies, see [Identity-based policy
-examples for OpenSearch Serverless](security-iam-serverless.md#security_iam_id-based-policy-examples "security-iam-serverless.md#security_iam_id-based-policy-examples").
+To view examples of OpenSearch Ingestion identity-based policies, see [Identity-based policy examples for OpenSearch Serverless](security-iam-serverless.md#security_iam_id-based-policy-examples "security-iam-serverless.md#security_iam_id-based-policy-examples").
 
-## Policy resources
-
-for OpenSearch Ingestion
+## Policy resources for OpenSearch Ingestion
 
 **Supports policy resources:**
 
@@ -112,9 +93,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-## Policy condition keys for
-
-Amazon OpenSearch Ingestion
+## Policy condition keys for Amazon OpenSearch Ingestion
 
 **Supports service-specific policy condition keys:**
 
@@ -152,9 +131,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 
 For more information about tagging OpenSearch Ingestion resources, see [Tagging Amazon OpenSearch Ingestion pipelines](tag-pipeline.md "tag-pipeline.md").
 
-## Using temporary credentials with
-
-OpenSearch Ingestion
+## Using temporary credentials with OpenSearch Ingestion
 
 **Supports temporary credentials:**
 
@@ -166,9 +143,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Service-linked roles for
-
-OpenSearch Ingestion
+## Service-linked roles for OpenSearch Ingestion
 
 **Supports service-linked roles:**
 
@@ -182,12 +157,9 @@ OpenSearch Ingestion uses a service-linked role called
 `AWSServiceRoleForAmazonOpenSearchIngestionService`. The service-linked
 role named `AWSServiceRoleForOpensearchIngestionSelfManagedVpce` is also
 available for pipelines with self-managed VPC endpoints. For details about creating and
-managing OpenSearch Ingestion service-linked roles, see [Using service-linked roles to create OpenSearch Ingestion
-pipelines](slr-osis.md "slr-osis.md").
+managing OpenSearch Ingestion service-linked roles, see [Using service-linked roles to create OpenSearch Ingestion pipelines](slr-osis.md "slr-osis.md").
 
-## Identity-based policy
-
-examples for OpenSearch Ingestion
+## Identity-based policy examples for OpenSearch Ingestion
 
 By default, users and roles don't have permission to create or modify OpenSearch Ingestion
 resources. To grant users permission to perform actions on the
@@ -201,18 +173,12 @@ For details about actions and resource types defined by Amazon OpenSearch Ingest
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_ingestion-policy-best-practices "#security_iam_ingestion-policy-best-practices")
-- [Using
-  OpenSearch Ingestion in the console](#security_iam_ingestion_id-based-policy-examples-console "#security_iam_ingestion_id-based-policy-examples-console")
-- [Administering
-  OpenSearch Ingestion pipelines](#security_iam_id-based-policy-examples-pipeline-admin "#security_iam_id-based-policy-examples-pipeline-admin")
-- [Ingesting data
-  into an OpenSearch Ingestion pipeline](#security_iam_id-based-policy-examples-ingest-data "#security_iam_id-based-policy-examples-ingest-data")
+- [Policy best practices](#security_iam_ingestion-policy-best-practices "#security_iam_ingestion-policy-best-practices")
+- [Using OpenSearch Ingestion in the console](#security_iam_ingestion_id-based-policy-examples-console "#security_iam_ingestion_id-based-policy-examples-console")
+- [Administering OpenSearch Ingestion pipelines](#security_iam_id-based-policy-examples-pipeline-admin "#security_iam_id-based-policy-examples-pipeline-admin")
+- [Ingesting data into an OpenSearch Ingestion pipeline](#security_iam_id-based-policy-examples-ingest-data "#security_iam_id-based-policy-examples-ingest-data")
 
-### Policy best
-
-practices
+### Policy best practices
 
 Identity-based policies are very powerful. They determine whether someone can
 create, access, or delete OpenSearch Ingestion resources in your account. These actions
@@ -250,9 +216,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-### Using
-
-OpenSearch Ingestion in the console
+### Using OpenSearch Ingestion in the console
 
 To access OpenSearch Ingestion within the OpenSearch Service console, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the
@@ -294,9 +258,7 @@ Alternately, you can use the [AmazonOpenSearchIngestionReadOnlyAccess](ac-manage
 which grants read-only access to all OpenSearch Ingestion resources for an
 AWS account.
 
-### Administering
-
-OpenSearch Ingestion pipelines
+### Administering OpenSearch Ingestion pipelines
 
 This policy is an example of a "pipeline admin" policy that allows a user to
 manage and administer Amazon OpenSearch Ingestion pipelines. The user can create, view, and
@@ -336,9 +298,7 @@ JSON
 
 ```
 
-### Ingesting data
-
-into an OpenSearch Ingestion pipeline
+### Ingesting data into an OpenSearch Ingestion pipeline
 
 This example policy allows a user or other entity to ingest data into an
 Amazon OpenSearch Ingestion pipeline in their account. The user can't modify the

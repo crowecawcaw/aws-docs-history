@@ -3,9 +3,7 @@
 This topic describes how to identify and solve common Amazon OpenSearch Service issues. Consult the
 information in this section before contacting [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Can't access
-
-OpenSearch Dashboards
+## Can't access OpenSearch Dashboards
 
 The OpenSearch Dashboards endpoint doesn't support signed requests. If the access control
 policy for your domain only grants access to certain IAM roles and you haven't
@@ -18,7 +16,7 @@ receive the following error when you attempt to access Dashboards:
 
 If your OpenSearch Service domain uses VPC access, you might not receive this error, but the request
 might time out. To learn more about correcting this issue and the various configuration
-options available to you, see [Controlling access to Dashboards](dashboards.md#dashboards-access "dashboards.md#dashboards-access") , [About access policies on VPC domains](vpc.md#vpc-security "vpc.md#vpc-security"), and [Identity and Access Management in Amazon OpenSearch Service](ac.md "ac.md").
+options available to you, see [Controlling access to Dashboards](dashboards.md#dashboards-access "dashboards.md#dashboards-access"), [About access policies on VPC domains](vpc.md#vpc-security "vpc.md#vpc-security"), and [Identity and Access Management in Amazon OpenSearch Service](ac.md "ac.md").
 
 ## Can't access VPC domain
 
@@ -142,9 +140,7 @@ Reconfiguring a domain with a red cluster status can compound the problem and le
 the domain being stuck in a configuration state of **Processing** until
 you resolve the status.
 
-### Automatic
-
-remediation of red clusters
+### Automatic remediation of red clusters
 
 If your cluster's status is continuously red for more than an hour, OpenSearch Service attempts
 to automatically fix it by rerouting unallocated shards or restoring from past
@@ -244,16 +240,12 @@ practices:
 - Optimize search and indexing requests by [choosing the correct number of shards](bp-sharding.md "bp-sharding.md").
 - Set up Index State Management (ISM) policies to regularly [remove unused indexes](bp.md#bp-stability-remove "bp.md#bp-stability-remove").
 
-## Error migrating to Multi-AZ with
-
-Standby
+## Error migrating to Multi-AZ with Standby
 
 The following issues might occur when you migrate an existing domain to Multi-AZ with
 standby.
 
-### Creating an index, index template, or ISM policy during
-
-migration from domains without standby to domains with standby
+### Creating an index, index template, or ISM policy during migration from domains without standby to domains with standby
 
 If you create an index while migrating a domain from Multi-AZ without Standby to
 with Standby, and the index template or ISM policy doesn't follow the recommended
@@ -300,8 +292,7 @@ when this issue occurs.
 The **Total nodes** metric is not accurate during changes to your
 cluster configuration and during routine maintenance for the service. This behavior
 is expected. The metric will report the correct number of cluster nodes soon. To
-learn more, see [Making configuration changes in
-Amazon OpenSearch Service](managedomains-configuration-changes.md "managedomains-configuration-changes.md").
+learn more, see [Making configuration changes in Amazon OpenSearch Service](managedomains-configuration-changes.md "managedomains-configuration-changes.md").
 
 To protect your clusters from unexpected node terminations and restarts, create at
 least one replica for each index in your OpenSearch Service domain.
@@ -349,9 +340,7 @@ size above 1000 GiB. For more information, see [General Purpose SSD
 volumes (gp2)](../../../AWSEC2/latest/UserGuide/ebs-volume-types.md#EBSVolumeTypes_gp2 "../../../AWSEC2/latest/UserGuide/ebs-volume-types.md#EBSVolumeTypes_gp2"). You can monitor EBS burst balance with the
 `BurstBalance` CloudWatch metric.
 
-## EBS metric increases during
-
-volume resizing
+## EBS metric increases during volume resizing
 
 When modifying Amazon Elastic Block Store volume sizes, you might observe temporary increases in
 various EBS metrics such as `Write Throughput`, `Write Throughput Micro
@@ -417,9 +406,7 @@ Reference](../APIReference/Welcome.md "../APIReference/Welcome.md") and [Support
 If you need more insight into the performance of the cluster, you can [publish error logs and slow logs to
 CloudWatch](createdomain-configure-slow-logs.md "createdomain-configure-slow-logs.md").
 
-## "Not Valid for the Object's Storage
-
-Class" snapshot error
+## "Not Valid for the Object's Storage Class" snapshot error
 
 OpenSearch Service snapshots do not support the Amazon Glacier storage class. You might encounter this error
 when you attempt to list snapshots if your S3 bucket includes a lifecycle rule that
@@ -457,9 +444,7 @@ Elasticsearch 6.7 or later, the following restriction apply:
 - If you change an existing domain from an M3 instance type to another instance
   type, you can't switch back.
 
-## Hot queries stop working after enabling
-
-UltraWarm
+## Hot queries stop working after enabling UltraWarm
 
 When you enable UltraWarm on a domain, if there are no preexisting overrides to the
 `search.max_buckets` setting, OpenSearch Service automatically sets the value to
@@ -481,9 +466,7 @@ restore the pre-upgrade snapshot on a new Elasticsearch 5.6 domain. If you took 
 snapshot of the original domain, you can [perform
 that step yourself](managedomains-snapshots.md "managedomains-snapshots.md").
 
-## Need summary of domains for all
-
-AWS Regions
+## Need summary of domains for all AWS Regions
 
 The following script uses the Amazon EC2 [describe-regions](../../../cli/latest/reference/ec2/describe-regions.md "../../../cli/latest/reference/ec2/describe-regions.md") AWS CLI
 command to create a list of all Regions in which OpenSearch Service could be
@@ -512,9 +495,7 @@ Listing domains in region:'us-west-2'...
 Regions in which OpenSearch Service is not available return "Could not connect to
 the endpoint URL."
 
-## Browser error when
-
-using OpenSearch Dashboards
+## Browser error when using OpenSearch Dashboards
 
 Your browser wraps service error messages in HTTP response objects when you use
 Dashboards to view data in your OpenSearch Service domain. You can use developer tools commonly
@@ -589,9 +570,7 @@ If you still see index storage or shard skew, you might need to force a shard
 reallocation, which occurs with every [blue/green deployment](managedomains-configuration-changes.md "managedomains-configuration-changes.md") of your
 OpenSearch Service domain.
 
-## Unauthorized operation after selecting VPC
-
-access
+## Unauthorized operation after selecting VPC access
 
 When you create a new domain using the OpenSearch Service console, you have the option to select VPC
 or public access. If you select **VPC access**, OpenSearch Service queries for VPC
@@ -679,9 +658,7 @@ If your domain is in a VPC, we recommend using other Linux distributions, such a
 Debian, Ubuntu, CentOS, Red Hat Enterprise Linux, or Amazon Linux 2, to connect to
 it.
 
-## Too many requests for Search
-
-Backpressure
+## Too many requests for Search Backpressure
 
 CPU-based admission control is a gatekeeping mechanism that proactively limits the
 number of requests to a node based on its current capacity, both for organic increases
@@ -740,9 +717,7 @@ Currently, OpenSearch Service domains in the us-east-1 Region use certificates
 from a different authority. We plan to update the Region to use
 these new certificate authorities in the near future.
 
-## Custom plugin installation fails due to
-
-version compatibility
+## Custom plugin installation fails due to version compatibility
 
 **Problem**: The plugin installation failed due to a
 version mismatch between the plugin and the running OpenSearch instance. The system

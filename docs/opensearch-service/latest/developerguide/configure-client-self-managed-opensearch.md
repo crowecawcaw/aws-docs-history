@@ -1,15 +1,11 @@
-# Migrating data from self-managed
-
-OpenSearch clusters using Amazon OpenSearch Ingestion
+# Migrating data from self-managed OpenSearch clusters using Amazon OpenSearch Ingestion
 
 You can use an Amazon OpenSearch Ingestion pipeline with self-managed OpenSearch or Elasticsearch
 to migrate data to Amazon OpenSearch Service domains and OpenSearch Serverless collections. OpenSearch Ingestion supports both
 public and private network configurations for the migration of data from self-managed
 OpenSearch and Elasticsearch.
 
-## Migrating from public OpenSearch
-
-clusters
+## Migrating from public OpenSearch clusters
 
 You can use OpenSearch Ingestion pipelines to migrate data from a self-managed OpenSearch or
 Elasticsearch cluster with a public configuration, which means that the domain DNS name
@@ -64,21 +60,16 @@ JSON
 ```
 
 To create an IAM role with the correct permissions to access write data
-to the collection or domain, see [Setting up roles and users in
-Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
+to the collection or domain, see [Setting up roles and users in Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
 
-### Step 1: Configure the
-
-pipeline role
+### Step 1: Configure the pipeline role
 
 After you have your OpenSearch pipeline prerequisites set up, [configure the pipeline role](pipeline-security-overview.md#pipeline-security-sink "pipeline-security-overview.md#pipeline-security-sink") that you
 want to use in your pipeline configuration, and add permission to write to an OpenSearch Service
 domain or OpenSearch Serverless collection, as well as permission to read secrets from
 Secrets Manager.
 
-### Step 2: Create the
-
-pipeline
+### Step 2: Create the pipeline
 
 You can then configure an OpenSearch Ingestion pipeline like the following, which
 specifies OpenSearch as the source.
@@ -139,9 +130,7 @@ extension:
 You can use a preconfigured blueprint to create this pipeline. For more
 information, see [Working with blueprints](pipeline-blueprint.md "pipeline-blueprint.md").
 
-## Migrating data from OpenSearch
-
-clusters in a VPC
+## Migrating data from OpenSearch clusters in a VPC
 
 You can also use OpenSearch Ingestion pipelines to migrate data from a self-managed
 OpenSearch or Elasticsearch cluster running in a VPC. To do so, set up an OpenSearch Ingestion
@@ -212,12 +201,9 @@ JSON
 ```
 
 To create an IAM role with the correct permissions to access write data
-to the collection or domain, see [Setting up roles and users in
-Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
+to the collection or domain, see [Setting up roles and users in Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
 
-### Step 1: Configure the
-
-pipeline role
+### Step 1: Configure the pipeline role
 
 After you have your pipeline prerequisites set up, [configure the pipeline role](pipeline-security-overview.md#pipeline-security-sink "pipeline-security-overview.md#pipeline-security-sink") that you
 want to use in your pipeline configuration, and add the following permissions in
@@ -289,9 +275,7 @@ create the OpenSearch Ingestion pipeline because the pipeline uses these permiss
 create and delete a network interface in your VPC. The pipeline can only access the
 OpenSearch cluster through this network interface.
 
-### Step 2: Create the
-
-pipeline
+### Step 2: Create the pipeline
 
 You can then configure an OpenSearch Ingestion pipeline like the following, which
 specifies OpenSearch as the source.

@@ -1,6 +1,4 @@
-# Tutorial: Ingesting data into a domain using
-
-Amazon OpenSearch Ingestion
+# Tutorial: Ingesting data into a domain using Amazon OpenSearch Ingestion
 
 This tutorial shows you how to use Amazon OpenSearch Ingestion to configure a simple pipeline and
 ingest data into an Amazon OpenSearch Service domain. A _pipeline_ is a resource that
@@ -106,8 +104,7 @@ If you want to write data to an _existing_ domain, replace
 For simplicity in this tutorial, we use a broad access policy. In
 production environments, however, we recommend that you apply a more
 restrictive access policy to your pipeline role. For an example policy that
-provides the minimum required permissions, see [Granting Amazon OpenSearch Ingestion pipelines access to
-domains](pipeline-domain-access.md "pipeline-domain-access.md"). 4. Choose **Next**, choose **Next**, and name
+provides the minimum required permissions, see [Granting Amazon OpenSearch Ingestion pipelines access to domains](pipeline-domain-access.md "pipeline-domain-access.md"). 4. Choose **Next**, choose **Next**, and name
 your policy **pipeline-policy**. 5. Choose **Create policy**. 6. Next, create a role and attach the policy to it. Choose
 **Roles**, and then choose **Create
 role**. 7. Choose **Custom trust policy** and paste the following policy
@@ -210,8 +207,7 @@ In the **Source** menu, choose **HTTP**. For
 the **Path**, enter **/logs**. 5. For simplicity in this tutorial, we'll configure public access for the
 pipeline. For **Source network options**, choose
 **Public access**. For information about configuring VPC
-access, see [Configuring VPC access for Amazon OpenSearch Ingestion
-pipelines](pipeline-security.md "pipeline-security.md"). 6. Choose **Next**. 7. For **Processor**, enter **Date** and choose
+access, see [Configuring VPC access for Amazon OpenSearch Ingestion pipelines](pipeline-security.md "pipeline-security.md"). 6. Choose **Next**. 7. For **Processor**, enter **Date** and choose
 **Add**. 8. Enable **From time received**. Leave all other settings as
 their defaults. 9. Choose **Next**. 10. Configure sink details. For **OpenSearch resource type**,
 choose **Managed cluster**. Then choose the OpenSearch Service domain that
@@ -224,8 +220,7 @@ settings as their defaults. 13. For **Pipeline role**, select **Create and use a
 service role**. The pipeline role provides the required permissions
 for a pipeline to write to the domain sink and read from pull-based sources. By
 selecting this option, you allow OpenSearch Ingestion to create the role for you,
-rather than manually creating it in IAM. For more information, see [Setting up roles and users in
-Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md"). 14. For **Service role name suffix**, enter
+rather than manually creating it in IAM. For more information, see [Setting up roles and users in Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md"). 14. For **Service role name suffix**, enter
 **PipelineRole**. In IAM, the role will have the format
 `arn:aws:iam::`your-account-id`:role/OpenSearchIngestion-**PipelineRole**`. 15. Choose **Next**. Review your pipeline configuration and
 choose **Create pipeline**. The pipeline takes 5–10
@@ -316,8 +311,7 @@ If you followed the steps in the tutorial and you still see authentication error
 you try to ingest data, it might be because the role that is writing to a pipeline is in
 a different AWS account than the pipeline itself. In this case, you need to create and
 [assume a role](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/UserGuide/id_roles_use.md") that specifically enables you to ingest data. For
-instructions, see [Providing cross-account ingestion
-access](configure-client.md#configure-client-cross-account "configure-client.md#configure-client-cross-account").
+instructions, see [Providing cross-account ingestion access](configure-client.md#configure-client-cross-account "configure-client.md#configure-client-cross-account").
 
 ## Related resources
 

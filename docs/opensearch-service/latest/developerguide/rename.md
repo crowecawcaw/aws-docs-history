@@ -147,8 +147,7 @@ The following metrics changed:
 | `ESReportingSuccessCount`              | `KibanaReportingSuccessCount`                  |
 | `ElasticsearchRequests`                | `OpenSearchRequests`                           |
 
-For a full list of metrics that OpenSearch Service sends to Amazon CloudWatch, see [Monitoring OpenSearch cluster metrics with
-Amazon CloudWatch](managedomains-cloudwatchmetrics.md "managedomains-cloudwatchmetrics.md").
+For a full list of metrics that OpenSearch Service sends to Amazon CloudWatch, see [Monitoring OpenSearch cluster metrics with Amazon CloudWatch](managedomains-cloudwatchmetrics.md "managedomains-cloudwatchmetrics.md").
 
 ## Billing and Cost Management console changes
 
@@ -187,9 +186,7 @@ same:
 - Domain ARNs
 - Domain endpoints
 
-## Get started: Upgrade your domains to OpenSearch
-
-1.x
+## Get started: Upgrade your domains to OpenSearch 1.x
 
 OpenSearch 1._x_ supports upgrades from Elasticsearch versions 6.8
 and 7._x_. For instructions to upgrade your domain, see

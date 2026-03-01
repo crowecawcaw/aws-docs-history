@@ -1,6 +1,4 @@
-# Use an OpenSearch Ingestion pipeline with
-
-Amazon Kinesis Data Streams
+# Use an OpenSearch Ingestion pipeline with Amazon Kinesis Data Streams
 
 Use an OpenSearch Ingestion pipeline with Amazon Kinesis Data Streams to ingest stream records data from multiple
 streams into Amazon OpenSearch Service domains and collections. The OpenSearch Ingestion pipeline incorporates the
@@ -10,8 +8,7 @@ ingest stream records from Kinesis.
 ###### Topics
 
 - [Amazon Kinesis Data Streams as a source](#confluent-cloud-kinesis "#confluent-cloud-kinesis")
-- [Amazon Kinesis Data Streams cross account as a
-  source](#kinesis-cross-account-source "#kinesis-cross-account-source")
+- [Amazon Kinesis Data Streams cross account as a source](#kinesis-cross-account-source "#kinesis-cross-account-source")
 
 ## Amazon Kinesis Data Streams as a source
 
@@ -224,8 +221,7 @@ documentation.
     * sub\_sequence\_number – Sub
      sequence number of the Kinesis Data Streams record which is being ingested
 
-4. ###### (Optional) Configure recommended compute units (OCUs) for the Kinesis Data Streams
-   pipeline
+4. ###### (Optional) Configure recommended compute units (OCUs) for the Kinesis Data Streams pipeline
 
 An OpenSearch Kinesis Data Streams source pipeline can also be configured to ingest stream
 records from more than one stream. For faster ingestion, we recommend you add an
@@ -243,9 +239,7 @@ duplicate processing of stream records.
 To create the index based on the stream name, define the index in the opensearch
 sink section as **"index\_${getMetadata(\"stream_name\")}"**.
 
-## Amazon Kinesis Data Streams cross account as a
-
-source
+## Amazon Kinesis Data Streams cross account as a source
 
 You can grant access across accounts with Amazon Kinesis Data Streams so that OpenSearch Ingestion pipelines
 can access Kinesis Data Streams in another account as source. Complete the following steps to enable

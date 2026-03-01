@@ -1,6 +1,4 @@
-# Granting Amazon OpenSearch Ingestion pipelines access to
-
-domains
+# Granting Amazon OpenSearch Ingestion pipelines access to domains
 
 An Amazon OpenSearch Ingestion pipeline needs permission to write to the OpenSearch Service domain that is
 configured as its sink. To provide access, you configure an AWS Identity and Access Management (IAM) role with a
@@ -25,8 +23,7 @@ step 2 for instructions.
 ###### Topics
 
 - [Step 1: Create the pipeline role](#pipeline-access-configure "#pipeline-access-configure")
-- [Step 2: Configure data access for the
-  domain](#pipeline-access-domain "#pipeline-access-domain")
+- [Step 2: Configure data access for the domain](#pipeline-access-domain "#pipeline-access-domain")
 
 ## Step 1: Create the pipeline role
 
@@ -83,9 +80,7 @@ JSON
 
 ```
 
-## Step 2: Configure data access for the
-
-domain
+## Step 2: Configure data access for the domain
 
 In order for a pipeline to write data to a domain, the domain must have a [domain-level access policy](ac.md#ac-types-resource "ac.md#ac-types-resource") that
 allows the pipeline role to access it.
@@ -116,9 +111,7 @@ JSON
 
 ```
 
-### Map the pipeline role (only for
-
-domains that use fine-grained access control)
+### Map the pipeline role (only for domains that use fine-grained access control)
 
 If your domain uses [fine-grained access control](fgac.md "fgac.md") for authentication, there are extra steps
 you need to take to provide your pipeline access to a domain. The steps differ

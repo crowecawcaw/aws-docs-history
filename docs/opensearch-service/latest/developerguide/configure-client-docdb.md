@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion pipeline with
-
-Amazon DocumentDB
+# Using an OpenSearch Ingestion pipeline with Amazon DocumentDB
 
 You can use the [DocumentDB](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/documentdb/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/documentdb/") plugin to stream document changes, such as creates, updates, and
 deletes, to Amazon OpenSearch Service. The pipeline supports change data capture (CDC), if available, or API
@@ -73,8 +71,7 @@ JSON
 ```
 
 To create an IAM role with the correct permissions to access write data to
-the collection or domain, see [Setting up roles and users in
-Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
+the collection or domain, see [Setting up roles and users in Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
 
 ## Step 1: Configure the pipeline role
 

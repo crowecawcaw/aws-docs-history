@@ -26,8 +26,7 @@ older Elasticsearch versions.
 - [Agentic search in Amazon OpenSearch Service](agentic-search.md "agentic-search.md")
 - [Semantic search in Amazon OpenSearch Service](semantic-search.md "semantic-search.md")
 - [Concurrent segment search in Amazon OpenSearch Service](concurrent-segment-search.md "concurrent-segment-search.md")
-- [Natural language query generation in
-  Amazon OpenSearch Service](natural-language-query.md "natural-language-query.md")
+- [Natural language query generation in Amazon OpenSearch Service](natural-language-query.md "natural-language-query.md")
 
 ## URI searches
 
@@ -321,9 +320,7 @@ against a dataset that's fixed in time. This is the preferred pagination method 
 OpenSearch, especially for deep pagination. You can use PIT with OpenSearch Service version 2.5 and
 later. For more information about PIT, see [Point in time search in Amazon OpenSearch Service](pit.md "pit.md").
 
-### The `from` and `size`
-
-parameters
+### The `from` and `size` parameters
 
 The simplest way to paginate is with the `from` and `size`
 parameters. The following request returns results 20–39 of the zero-indexed list of

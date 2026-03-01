@@ -1,6 +1,4 @@
-# Supported plugins and options for
-
-Amazon OpenSearch Ingestion pipelines
+# Supported plugins and options for Amazon OpenSearch Ingestion pipelines
 
 Amazon OpenSearch Ingestion supports a subset of sources, processors, and sinks within open source
 [OpenSearch Data
@@ -17,10 +15,8 @@ pipeline configuration.
 ###### Topics
 
 - [Supported plugins](#ingestion-plugins "#ingestion-plugins")
-- [Stateless versus stateful
-  processors](#processor-stateful-stateless "#processor-stateful-stateless")
-- [Configuration requirements and
-  constraints](#ingestion-parameters "#ingestion-parameters")
+- [Stateless versus stateful processors](#processor-stateful-stateless "#processor-stateful-stateless")
+- [Configuration requirements and constraints](#ingestion-parameters "#ingestion-parameters")
 
 ## Supported plugins
 
@@ -99,9 +95,7 @@ OpenSearch Ingestion supports the following Data Prepper plugins:
 - [JSON](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sinks/s3/#json-codec "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sinks/s3/#json-codec")
 - [Parquet](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sinks/s3/#parquet-codec "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sinks/s3/#parquet-codec")
 
-## Stateless versus stateful
-
-processors
+## Stateless versus stateful processors
 
 _Stateless_ processors perform operations like transformations and
 filtering, while _stateful_ processors perform operations like
@@ -117,9 +111,7 @@ it contains any stateful processors. For more information, see [Scaling pipeline
 End-to-end acknowledgment is only supported for stateless processors. For more
 information, see [End-to-end acknowledgement](osis-features-overview.md#osis-features-e2e "osis-features-overview.md#osis-features-e2e").
 
-## Configuration requirements and
-
-constraints
+## Configuration requirements and constraints
 
 Unless otherwise specified below, all options described in the Data Prepper
 configuration reference for the supported plugins listed above are allowed in
@@ -148,8 +140,7 @@ files when run in open source Data Prepper. These values aren't supported.
 - [Grok processor](#ingestion-params-grok "#ingestion-params-grok")
 - [HTTP source](#ingestion-params-http "#ingestion-params-http")
 - [OpenSearch sink](#ingestion-params-opensearch "#ingestion-params-opensearch")
-- [OTel metrics source, OTel trace
-  source, and OTel logs source](#ingestion-params-otel-source "#ingestion-params-otel-source")
+- [OTel metrics source, OTel trace source, and OTel logs source](#ingestion-params-otel-source "#ingestion-params-otel-source")
 - [OTel trace group processor](#ingestion-params-otel-trace "#ingestion-params-otel-trace")
 - [OTel trace processor](#ingestion-params-otel-raw "#ingestion-params-otel-raw")
 - [Service-map processor](#ingestion-params-servicemap "#ingestion-params-servicemap")
@@ -238,9 +229,7 @@ limitations.
   - `template_file`
   - `insecure`
 
-### OTel metrics source, OTel trace
-
-source, and OTel logs source
+### OTel metrics source, OTel trace source, and OTel logs source
 
 The [OTel metrics](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-metrics-source/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-metrics-source/") source, [OTel trace](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-trace/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-trace/") source, and [OTel logs](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-logs-source/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/otel-logs-source/") source plugins have the following requirements and
 limitations:

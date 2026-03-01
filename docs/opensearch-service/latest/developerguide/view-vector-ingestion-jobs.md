@@ -1,6 +1,4 @@
-# View vector ingestion jobs and import
-
-history
+# View vector ingestion jobs and import history
 
 Vector ingestion jobs create a pipeline for vectorizing data sets, automating vector index
 tuning and accelerating large-scale index builds.

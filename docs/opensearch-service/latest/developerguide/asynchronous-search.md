@@ -58,9 +58,7 @@ All request parameters that apply to a standard `_search` query are
 supported. If you're using Elasticsearch 7.10 instead of an OpenSearch version,
 replace `_plugins` with `_opendistro`.
 
-## Asynchronous search
-
-permissions
+## Asynchronous search permissions
 
 Asynchronous search supports [fine-grained access control](fgac.md "fgac.md").
 For details on mixing and matching permissions to fit your use case, see [Asynchronous search
@@ -188,5 +186,4 @@ see [UltraWarm storage for Amazon OpenSearch Service](ultrawarm.md "ultrawarm.md
 ###### Note
 
 You can monitor asynchronous search statistics in CloudWatch. For a full list of metrics,
-see [Asynchronous
-search metrics](managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-asynchronous-search "managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-asynchronous-search").
+see [Asynchronous search metrics](managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-asynchronous-search "managedomains-cloudwatchmetrics.md#managedomains-cloudwatchmetrics-asynchronous-search").

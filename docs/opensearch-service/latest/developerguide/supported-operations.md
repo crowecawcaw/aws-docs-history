@@ -174,9 +174,7 @@ To support large clusters, we have added support in
 `_cluster/stats/<metric>/<index_metric>/nodes/<node-filters>`.
 For more information on `_cluster/stats`, see [Cluster stats](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/ "https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/").
 
-### Limiting the response size for \_cat
-
-APIs
+### Limiting the response size for \_cat APIs
 
 To support large clusters with total instance count more than 200 across data
 and warm nodes, we have a 10,000 limit on the number of indexes returned by
@@ -190,9 +188,7 @@ Additionally, support for task cancellation has is now available for
 `cancel_after_time_interval` request parameter. For more
 information on this, see [CAT shards](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/ "https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/").
 
-### Choosing the instance types for dedicated
-
-master nodes
+### Choosing the instance types for dedicated master nodes
 
 The following table provides recommendations for choosing the appropriate
 instance types for dedicdated master nodes:

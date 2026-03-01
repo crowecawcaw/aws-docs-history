@@ -6,9 +6,7 @@ Analytics and Search. Workspace also supports collaborator management, so that y
 share your workspace with only your intended collaborators and manage the permissions
 for each one.
 
-## Creating OpenSearch UI application
-
-workspaces
+## Creating OpenSearch UI application workspaces
 
 After an OpenSearch UI application has been created and associated with data
 sources, and user permissions have been configured for the application, you can
@@ -26,9 +24,7 @@ all the existing workspaces in the homepage, categorized by use case.
 
 For more information about the supported types of workspaces, see [Workspace types](#application-workspaces-types "#application-workspaces-types").
 
-## Workspace privacy
-
-and collaborators
+## Workspace privacy and collaborators
 
 You can define a privacy setting for a workspace as the default permission level
 for all users. You can do this while creating a workspace or modify an existing

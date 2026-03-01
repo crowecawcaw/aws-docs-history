@@ -1,6 +1,4 @@
-# Tutorial: Creating a search application with
-
-Amazon OpenSearch Service
+# Tutorial: Creating a search application with Amazon OpenSearch Service
 
 A common way to create a search application with Amazon OpenSearch Service is to use web forms to send user
 queries to a server. Then you can authorize the server to call the OpenSearch APIs directly
@@ -51,9 +49,7 @@ You can also use the following curl command to achieve the same result:
 curl -XPOST -u '`master-user`:`master-user-password`' 'domain-endpoint/_bulk' --data-binary @bulk_movies.json -H 'Content-Type: application/json'
 ```
 
-## Step 2: Create and deploy the Lambda
-
-function
+## Step 2: Create and deploy the Lambda function
 
 Before you create your API in API Gateway, create the Lambda function that it passes requests
 to.
@@ -161,8 +157,7 @@ zip my-deployment-package.zip opensearch-lambda.py
 ```
 
 For more information about creating Lambda functions and deployment packages, see
-[Deploy Python Lambda functions with .zip file archives](../../../lambda/latest/dg/lambda-python-how-to-create-deployment-package.md "../../../lambda/latest/dg/lambda-python-how-to-create-deployment-package.md") in the _AWS Lambda Developer Guide_ and [Create the Lambda
-deployment package](integrations-s3-lambda.md#integrations-s3-lambda-deployment-package "integrations-s3-lambda.md#integrations-s3-lambda-deployment-package") in this guide.
+[Deploy Python Lambda functions with .zip file archives](../../../lambda/latest/dg/lambda-python-how-to-create-deployment-package.md "../../../lambda/latest/dg/lambda-python-how-to-create-deployment-package.md") in the _AWS Lambda Developer Guide_ and [Create the Lambda deployment package](integrations-s3-lambda.md#integrations-s3-lambda-deployment-package "integrations-s3-lambda.md#integrations-s3-lambda-deployment-package") in this guide.
 
 To create your function using the Lambda console
 
@@ -276,9 +271,7 @@ for. When called, the method passes the request to Lambda, which runs the
 Gateway](../../../apigateway/latest/developerguide/how-to-create-api.md "../../../apigateway/latest/developerguide/how-to-create-api.md") and [Deploying a
 REST API in Amazon API Gateway](../../../apigateway/latest/developerguide/how-to-deploy-api.md "../../../apigateway/latest/developerguide/how-to-deploy-api.md").
 
-## Step 4: (Optional) Modify the domain access
-
-policy
+## Step 4: (Optional) Modify the domain access policy
 
 Your OpenSearch Service domain must allow the Lambda function to make `GET` requests to
 the `movies` index. If your domain has an open access policy with
@@ -393,12 +386,9 @@ To attach these policies to your Lambda execution role:
 
 Without these IAM permissions, your Lambda function will receive "Access Denied" errors when attempting to query your OpenSearch Service domain, even if the domain access policy allows the requests.
 
-For more information about access policies, see [Configuring access
-policies](createupdatedomains.md#createdomain-configure-access-policies "createupdatedomains.md#createdomain-configure-access-policies").
+For more information about access policies, see [Configuring access policies](createupdatedomains.md#createdomain-configure-access-policies "createupdatedomains.md#createdomain-configure-access-policies").
 
-## Map the Lambda role (if using fine-grained access
-
-control)
+## Map the Lambda role (if using fine-grained access control)
 
 Fine-grained access control introduces an additional step before you can test the
 application. Even if you use HTTP basic authentication for all other purposes, you need

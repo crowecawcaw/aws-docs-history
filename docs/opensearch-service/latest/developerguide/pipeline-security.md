@@ -1,6 +1,4 @@
-# Configuring VPC access for Amazon OpenSearch Ingestion
-
-pipelines
+# Configuring VPC access for Amazon OpenSearch Ingestion pipelines
 
 You can access your Amazon OpenSearch Ingestion pipelines using an interface VPC endpoint. A
 VPC is a virtual network that's dedicated to your AWS account. It's logically isolated
@@ -167,8 +165,7 @@ create the pipeline endpoint, and place network interfaces in a subnet of your V
 
 If you choose a self-managed VPC endpoint, OpenSearch Ingestion requires a service-linked
 role called **AWSServiceRoleForOpensearchIngestionSelfManagedVpce**. For more
-information on these roles, their permissions, and how to delete them, see [Using service-linked roles to create OpenSearch Ingestion
-pipelines](slr-osis.md "slr-osis.md").
+information on these roles, their permissions, and how to delete them, see [Using service-linked roles to create OpenSearch Ingestion pipelines](slr-osis.md "slr-osis.md").
 
 OpenSearch Ingestion automatically creates the role when you create an ingestion pipeline.
 For this automatic creation to succeed, the user creating the first pipeline in an

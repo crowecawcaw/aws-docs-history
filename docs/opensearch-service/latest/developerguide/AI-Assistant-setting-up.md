@@ -1,6 +1,4 @@
-# Setting up AI Assistant for
-
-OpenSearch Service
+# Setting up AI Assistant for OpenSearch Service
 
 Complete the following steps to set up AI Assistant for OpenSearch Service.
 

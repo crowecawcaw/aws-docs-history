@@ -1,6 +1,4 @@
-# Automating snapshots with Snapshot
-
-Management
+# Automating snapshots with Snapshot Management
 
 You can set up a Snapshot Management (SM) policy in OpenSearch Dashboards to automate
 periodic snapshot creation and deletion. SM can snapshot of a group of indices, whereas

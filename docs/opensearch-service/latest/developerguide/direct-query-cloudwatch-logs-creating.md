@@ -1,6 +1,4 @@
-# Creating an Amazon CloudWatch Logs data
-
-source integration in OpenSearch Service
+# Creating an Amazon CloudWatch Logs data source integration in OpenSearch Service
 
 If you use Amazon OpenSearch Serverless for your observability needs, you can now analyze your
 Amazon CloudWatch Logs without copying or ingesting the data into OpenSearch Service. This capability leverages
@@ -23,8 +21,7 @@ the AWS Management Console.
 - [Prerequisites](#direct-query-cloudwatch-logs-prereq "#direct-query-cloudwatch-logs-prereq")
 - [Procedure](#direct-query-cloudwatch-logs-create "#direct-query-cloudwatch-logs-create")
 - [Next steps](#direct-query-cloudwatch-logs-next-steps "#direct-query-cloudwatch-logs-next-steps")
-- [Additional
-  resources](#direct-query-cloudwatch-logs-additional-resources "#direct-query-cloudwatch-logs-additional-resources")
+- [Additional resources](#direct-query-cloudwatch-logs-additional-resources "#direct-query-cloudwatch-logs-additional-resources")
 
 ## Prerequisites
 
@@ -54,9 +51,7 @@ your AWS account:
 
 You can set up a collection-level query data source with the AWS Management Console.
 
-### To
-
-set up a collection-level data source using the AWS Management Console
+### To set up a collection-level data source using the AWS Management Console
 
 1. Navigate to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/](https://console.aws.amazon.com/aos/ "https://console.aws.amazon.com/aos/").
 2. In the left navigation pane, go to **Central
@@ -125,21 +120,16 @@ OpenSearch.
 
 ## Next steps
 
-### Visit
-
-OpenSearch Dashboards
+### Visit OpenSearch Dashboards
 
 After you create a data source, OpenSearch Service provides you with an OpenSearch
 Dashboards URL. You use this to configure access control, define tables, set
 up log-type based dashboards for popular log types, and query your data
 using SQL or PPL.
 
-For more information, see [Configuring and querying a
-CloudWatch Logs data source in OpenSearch Dashboards](direct-query-cloudwatch-logs-configure.md "direct-query-cloudwatch-logs-configure.md").
+For more information, see [Configuring and querying a CloudWatch Logs data source in OpenSearch Dashboards](direct-query-cloudwatch-logs-configure.md "direct-query-cloudwatch-logs-configure.md").
 
-## Additional
-
-resources
+## Additional resources
 
 ### Required permissions for manually created IAM roles
 

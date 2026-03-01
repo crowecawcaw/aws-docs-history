@@ -1,6 +1,4 @@
-# Tutorial: Configure a domain with the internal user database
-
-and HTTP basic authentication
+# Tutorial: Configure a domain with the internal user database and HTTP basic authentication
 
 This tutorial covers another popular [fine-grained access
 control](fgac.md "fgac.md") use case: a master user in the internal user database and HTTP basic
@@ -53,9 +51,7 @@ JSON
 - Node-to-node encryption
 - Encryption of data at rest
 
-## Step 2: Create an internal user in
-
-OpenSearch Dashboards
+## Step 2: Create an internal user in OpenSearch Dashboards
 
 Now that you have a domain, you can sign in to OpenSearch Dashboards and create an internal
 user.
@@ -70,9 +66,7 @@ user.
 5. Name the user `new-user` and specify a password. Then choose
    **Create**.
 
-## Step 3: Map roles in
-
-OpenSearch Dashboards
+## Step 3: Map roles in OpenSearch Dashboards
 
 Now that your user is configured, you can map your user to a role.
 

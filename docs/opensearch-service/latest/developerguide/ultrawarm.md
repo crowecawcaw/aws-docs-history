@@ -17,8 +17,7 @@ same APIs or use them to create visualizations in OpenSearch Dashboards.
 ###### Topics
 
 - [Prerequisites](#ultrawarm-pp "#ultrawarm-pp")
-- [UltraWarm storage requirements and performance
-  considerations](#ultrawarm-calc "#ultrawarm-calc")
+- [UltraWarm storage requirements and performance considerations](#ultrawarm-calc "#ultrawarm-calc")
 - [UltraWarm pricing](#ultrawarm-pricing "#ultrawarm-pricing")
 - [Enabling UltraWarm](#ultrawarm-enable "#ultrawarm-enable")
 - [Migrating indexes to UltraWarm storage](#ultrawarm-migrating "#ultrawarm-migrating")
@@ -90,9 +89,7 @@ domains using fine-grained access control. To manually create the
 9. After you create the role, [map it](fgac.md#fgac-mapping "fgac.md#fgac-mapping") to
    any user or backend role that will manage UltraWarm indexes.
 
-## UltraWarm storage requirements and performance
-
-considerations
+## UltraWarm storage requirements and performance considerations
 
 As covered in [Calculating storage requirements](bp-storage.md "bp-storage.md"), data in hot storage incurs significant
 overhead: replicas, Linux reserved space, and OpenSearch Service reserved space. For example, a 20 GiB
@@ -182,9 +179,7 @@ aws opensearch create-domain \
 
 For detailed information, see the [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md").
 
-### Sample configuration API
-
-request
+### Sample configuration API request
 
 The following request to the configuration API creates a domain with three data
 nodes, three dedicated master nodes, and six warm nodes with fine-grained access

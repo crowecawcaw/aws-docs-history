@@ -33,8 +33,7 @@ allowed in the data access policy.
 - [Permissions required](#serverless-saml-permissions "#serverless-saml-permissions")
 - [Creating SAML providers (console)](#serverless-saml-creating "#serverless-saml-creating")
 - [Accessing OpenSearch Dashboards](#serverless-saml-dashboards "#serverless-saml-dashboards")
-- [Granting SAML identities access to collection
-  data](#serverless-saml-policies "#serverless-saml-policies")
+- [Granting SAML identities access to collection data](#serverless-saml-policies "#serverless-saml-policies")
 - [Creating SAML providers (AWS CLI)](#serverless-saml-creating-api "#serverless-saml-creating-api")
 - [Viewing SAML providers](#serverless-saml-viewing "#serverless-saml-viewing")
 - [Updating SAML providers](#serverless-saml-updating "#serverless-saml-updating")
@@ -221,9 +220,7 @@ Then sign in using your IdP credentials.
 If you don't have SAML enabled, selecting the link in the AWS Management Console directs you to log
 in as an IAM user or role, with no option for SAML.
 
-## Granting SAML identities access to collection
-
-data
+## Granting SAML identities access to collection data
 
 After you create a SAML provider, you still need to grant the underlying users and
 groups access to the data within your collections. You grant access through [data access policies](serverless-data-access.md "serverless-data-access.md"). Until you provide

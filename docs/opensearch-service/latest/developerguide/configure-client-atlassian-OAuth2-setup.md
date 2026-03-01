@@ -1,6 +1,4 @@
-# Connecting an
-
-Amazon OpenSearch Ingestion pipeline to Atlassian Jira or Confluence using OAuth 2.0
+# Connecting an Amazon OpenSearch Ingestion pipeline to Atlassian Jira or Confluence using OAuth 2.0
 
 Use the information in this topic to help you configure and connect an
 Amazon OpenSearch Ingestion pipeline to a Jira or Confluence account using OAuth 2.0
@@ -9,14 +7,10 @@ Atlassian Services but choose not to use API key credentials.
 
 ###### Topics
 
-- [Create an OAuth 2.0 integration
-  app](#create-OAuth2-integration-app "#create-OAuth2-integration-app")
-- [Generating and refreshing
-  an Atlassian Developer access token](#generate-and-refresh-jira-access-token "#generate-and-refresh-jira-access-token")
+- [Create an OAuth 2.0 integration app](#create-OAuth2-integration-app "#create-OAuth2-integration-app")
+- [Generating and refreshing an Atlassian Developer access token](#generate-and-refresh-jira-access-token "#generate-and-refresh-jira-access-token")
 
-## Create an OAuth 2.0 integration
-
-app
+## Create an OAuth 2.0 integration app
 
 Use the following procedure to help you create an OAuth 2.0 integration app on the
 Atlassian Developer website.
@@ -104,9 +98,7 @@ manage:confluence-configuration
 For related information, see [Implementing OAuth 2.0 (3LO)](https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/ "https://developer.atlassian.com/cloud/oauth/getting-started/implementing-oauth-3lo/") and [Determining the scopes required for an operation](https://developer.atlassian.com/cloud/oauth/getting-started/determining-scopes/ "https://developer.atlassian.com/cloud/oauth/getting-started/determining-scopes/") on the Atlassian
 Developer website.
 
-## Generating and refreshing
-
-an Atlassian Developer access token
+## Generating and refreshing an Atlassian Developer access token
 
 Use the following procedure to help you generate and refresh an Atlassian
 Developer access token on the Atlassian Developer website.
@@ -114,8 +106,7 @@ Developer access token on the Atlassian Developer website.
 ###### To generate and refresh a Jira access token
 
 1. Log in to your Atlassian Developer account at [https://developer.atlassian.com/console/myapps/](https://developer.atlassian.com/console/myapps/ "https://developer.atlassian.com/console/myapps/").
-2. Choose the app you created in [Create an OAuth 2.0 integration
-   app](#create-OAuth2-integration-app "#create-OAuth2-integration-app").
+2. Choose the app you created in [Create an OAuth 2.0 integration app](#create-OAuth2-integration-app "#create-OAuth2-integration-app").
 3. In the left navigation, choose **Authorization.**
 4. Copy the granular Atlassian API authorization URL value from the bottom of
    the page and paste it into the text editor of your choice.

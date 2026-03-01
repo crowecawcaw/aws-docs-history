@@ -15,5 +15,4 @@ OpenSearch Ingestion has the following limitations:
   endpoints enabled, but you must specify its standard endpoint.
 - You can't specify resources within [opt-in Regions](../../../controltower/latest/userguide/opt-in-region-considerations.md "../../../controltower/latest/userguide/opt-in-region-considerations.md") as sources or sinks.
 - There are some constraints on the parameters that you can include in a
-  pipeline configuration. For more information, see [Configuration requirements and
-  constraints](pipeline-config-reference.md#ingestion-parameters "pipeline-config-reference.md#ingestion-parameters").
+  pipeline configuration. For more information, see [Configuration requirements and constraints](pipeline-config-reference.md#ingestion-parameters "pipeline-config-reference.md#ingestion-parameters").

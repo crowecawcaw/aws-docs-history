@@ -42,15 +42,13 @@ solutions for controlling access to Dashboards:
 - For VPC access domains, use an open access policy that either uses or does not
   use a proxy server, and [security groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") to control access. To learn more, see [About access policies on VPC domains](vpc.md#vpc-security "vpc.md#vpc-security").
 
-### Using a proxy to access OpenSearch Service from
-
-Dashboards
+### Using a proxy to access OpenSearch Service from Dashboards
 
 ###### Note
 
 This process is only applicable if your domain uses public access and you
 don't want to use [Cognito authentication](cognito-auth.md "cognito-auth.md").
-See [Controlling access to Dashboards](#dashboards-access "#dashboards-access") .
+See [Controlling access to Dashboards](#dashboards-access "#dashboards-access").
 
 Because Dashboards is a JavaScript application, requests originate from the user's
 IP address. IP-based access control might be impractical due to the sheer number of
@@ -172,9 +170,7 @@ node resources such as CPU and memory is increased. This increased availability 
 data node resources can help to improve the overall resiliency of your
 domain.
 
-## Configuring Dashboards to use a WMS map
-
-server
+## Configuring Dashboards to use a WMS map server
 
 The default installation of Dashboards for OpenSearch Service includes a map service, except for
 domains in the India and China Regions. The map service supports up to

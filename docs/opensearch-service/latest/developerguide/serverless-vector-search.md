@@ -36,9 +36,7 @@ Note the following information:
   vector search significantly reduces the operational costs for vector workloads
   in low-memory environments. For more information, see [Disk-based vector search](https://docs.opensearch.org/2.19/vector-search/optimizing-storage/disk-based-vector-search/ "https://docs.opensearch.org/2.19/vector-search/optimizing-storage/disk-based-vector-search/").
 
-## Getting started with vector search
-
-collections
+## Getting started with vector search collections
 
 In this tutorial, you complete the following steps to store, search, and retrieve
 vector embeddings in real time:
@@ -49,9 +47,7 @@ vector embeddings in real time:
 3. [Upload and search data](#serverless-vector-index "#serverless-vector-index")
 4. [Delete the collection](#serverless-vector-delete "#serverless-vector-delete")
 
-### Step 1: Configure
-
-permissions
+### Step 1: Configure permissions
 
 To complete this tutorial (and to use OpenSearch Serverless in general), you must have the
 correct AWS Identity and Access Management (IAM) permissions. In this tutorial, you create a collection,
@@ -87,8 +83,7 @@ JSON
 
 ```
 
-For more information about OpenSearch Serverless IAM permissions, see [Identity and Access Management for
-Amazon OpenSearch Serverless](security-iam-serverless.md "security-iam-serverless.md").
+For more information about OpenSearch Serverless IAM permissions, see [Identity and Access Management for Amazon OpenSearch Serverless](security-iam-serverless.md "security-iam-serverless.md").
 
 ### Step 2: Create a collection
 

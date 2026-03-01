@@ -35,8 +35,7 @@ plugin types—optional, third-party, and custom plugins.
 - [Importing and associating packages](#custom-packages-assoc "#custom-packages-assoc")
 - [Using packages with OpenSearch](#custom-packages-using "#custom-packages-using")
 - [Updating packages](#custom-packages-updating "#custom-packages-updating")
-- [Manually updating indexes with a
-  new dictionary](#custom-packages-updating-index-analyzers "#custom-packages-updating-index-analyzers")
+- [Manually updating indexes with a new dictionary](#custom-packages-updating-index-analyzers "#custom-packages-updating-index-analyzers")
 - [Dissociating and removing packages](#custom-packages-dissoc "#custom-packages-dissoc")
 - [Managing custom plugins in Amazon OpenSearch Service](custom-plugins.md "custom-plugins.md")
 - [Installing third-party plugins in Amazon OpenSearch Service](plugins-third-party.md "plugins-third-party.md")
@@ -339,8 +338,7 @@ in Amazon S3 Control, update the package in OpenSearch Service, and then apply t
          uses search analyzers with the [updateable](#custom-packages-using "#custom-packages-using") field set to true, you don't need to take any further action.
          OpenSearch Service automatically updates your indexes using the [\_plugins/\_refresh\_search\_analyzers API](https://docs.opensearch.org/latest/im-plugin/refresh-analyzer/index/ "https://docs.opensearch.org/latest/im-plugin/refresh-analyzer/index/").
         * If your domain is running Elasticsearch 7.7 or earlier, uses index analyzers,
-         or doesn't use the `updateable` field, see [Manually updating indexes with a
-         new dictionary](#custom-packages-updating-index-analyzers "#custom-packages-updating-index-analyzers").
+         or doesn't use the `updateable` field, see [Manually updating indexes with a new dictionary](#custom-packages-updating-index-analyzers "#custom-packages-updating-index-analyzers").
 
     Although the console is the simplest method, you can also use the AWS CLI, SDKs, or
     configuration API to update OpenSearch Service packages. For more information, see the [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md")
@@ -451,9 +449,7 @@ explicitly add the Region to the client:
 client = boto3.client('opensearch', region_name='us-east-1')
 ```
 
-## Manually updating indexes with a
-
-new dictionary
+## Manually updating indexes with a new dictionary
 
 Manual index updates only apply to custom dictionaries, not pre-packaged plugins. To use
 an updated dictionary, you must manually update your indexes if you meet any of the following

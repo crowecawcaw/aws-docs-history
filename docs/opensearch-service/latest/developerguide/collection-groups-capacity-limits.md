@@ -1,6 +1,4 @@
-# Collection group capacity
-
-limits
+# Collection group capacity limits
 
 Collection groups provide granular control over resource allocation through minimum
 and maximum OCU limits. These limits apply to all collections within the group and
@@ -8,11 +6,9 @@ operate independently from account-level capacity settings.
 
 By default, there is a service quota (limit) for the number of collections in a collection
 group, the number of indexes in a collection, and the number of OCUs in a collection group.
-For more information, see [OpenSearch Serverless quotas](limits.md "limits.md").
+For more information, see [OpenSearch Serverless quotas](../../../general/latest/gr/opensearch-service.md#opensearch-limits-serverless "../../../general/latest/gr/opensearch-service.md#opensearch-limits-serverless").
 
-## Understanding collection group
-
-capacity limits
+## Understanding collection group capacity limits
 
 You can configure minimum and maximum OCU limits for both indexing and search
 operations at the collection group level. These limits control how OpenSearch Serverless scales
@@ -33,25 +29,58 @@ Account-level maximum OCU settings apply only to collections not associated with
 collection group, while collection group maximum OCU settings apply to collections
 within that specific group.
 
-## Valid capacity limit
-
-values
+## Valid capacity limit values
 
 When setting minimum and maximum OCU limits for a collection group, you can only
 use values from the following set: 1, 2, 4, 8, 16, and multiples of 16 (such as 32,
-48, 64, 80, 96).
+48, 64, 80, 96) up to a maximum of 1,696 OCUs.
 
 Both minimum and maximum OCU limits are optional when you create a collection
 group. If you don't specify a maximum OCU limit, OpenSearch Serverless uses a default value of 96
 OCUs.
 
-The minimum OCU limit must be less than or equal to the maximum OCU limit. The sum
-of all maximum OCU limits across your account-level settings and all collection
-groups cannot exceed 1,700 OCUs per account.
+The minimum OCU limit must be less than or equal to the maximum OCU limit.
 
-## Configuring capacity
+## Understanding the relationship between account-level and collection group OCU limits
 
-limits
+When planning your OpenSearch Serverless capacity, it's important to understand how account-level
+OCU limits and collection group OCU limits interact. The sum of the maximum OCU
+settings across all collection groups plus the maximum OCU setting at the account
+level must be less than or equal to the service quota limit per account. For current
+limit values, see [OpenSearch Serverless quotas](../../../general/latest/gr/opensearch-service.md#opensearch-limits-serverless "../../../general/latest/gr/opensearch-service.md#opensearch-limits-serverless").
+
+###### Note
+
+Account-level maximum OCU settings apply only to collections not associated
+with any collection group. Collections within collection groups are governed by
+their respective collection group limits, not the account-level limits.
+
+This constraint applies to both indexing and search OCUs independently. For
+example, if you configure account-level settings and collection groups, you must
+ensure the total doesn't exceed the service quota limit for indexing OCUs and
+separately doesn't exceed the service quota limit for search OCUs. Additionally, you
+can create a maximum of 300 collection groups per account.
+
+###### Example: Planning capacity with account-level and collection group limits
+
+If you set the account-level maximum search OCU to 500 and the service quota
+limit is 1,700:
+
+- And create 2 collection groups, the sum of the maximum OCU for the 2
+  collection groups must be no more than 1,200 (1,700 - 500)
+- You could leave each collection group at the default maximum OCU of 96
+  (96 + 96 + 500 = 692), leaving headroom for future growth
+- Or you could increase each collection group's maximum to 600
+  (600 + 600 + 500 = 1,700), using the full capacity allowed by the service
+  quota
+
+This relationship is critical for capacity planning. Before creating new
+collection groups or increasing maximum OCU limits, verify that your total
+allocation doesn't exceed the service quota limit. If you reach this limit, you must
+either reduce the maximum OCU settings on existing collection groups or decrease
+your account-level maximum OCU settings to make room for new allocations.
+
+## Configuring capacity limits
 
 You can set capacity limits when you create a collection group or update them
 later. To configure capacity limits using the AWS CLI, use the [CreateCollectionGroup](../ServerlessAPIReference/API_CreateCollectionGroup.md "../ServerlessAPIReference/API_CreateCollectionGroup.md") or [UpdateCollectionGroup](../ServerlessAPIReference/API_UpdateCollectionGroup.md "../ServerlessAPIReference/API_UpdateCollectionGroup.md") commands:
@@ -70,9 +99,7 @@ aws opensearchserverless update-collection-group \
     --capacity-limits maxIndexingCapacityInOCU=`48`,maxSearchCapacityInOCU=`48`,minIndexingCapacityInOCU=`8`,minSearchCapacityInOCU=`8`
 ```
 
-## Monitoring collection group
-
-capacity
+## Monitoring collection group capacity
 
 OpenSearch Serverless emits the following Amazon CloudWatch Logs metrics at one-minute intervals to help you
 monitor OCU utilization and capacity limits at the collection group level:
@@ -91,9 +118,7 @@ Configure alarms to notify you when your collection group approaches its capacit
 limits so you can adjust settings as needed. For more information about OpenSearch Serverless
 metrics, see [Monitoring Amazon OpenSearch Serverless](serverless-monitoring.md "serverless-monitoring.md").
 
-## How capacity limits are
-
-enforced
+## How capacity limits are enforced
 
 OpenSearch Serverless enforces collection group capacity limits during scaling operations. When
 your collections need additional resources, OpenSearch Serverless scales up to the maximum OCU

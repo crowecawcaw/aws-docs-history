@@ -29,8 +29,7 @@ _in_ the cloud:
 
 - [Data protection in Amazon OpenSearch Service](data-protection.md "data-protection.md")
 - [Identity and Access Management in Amazon OpenSearch Service](ac.md "ac.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Fine-grained access control in Amazon OpenSearch Service](fgac.md "fgac.md")
 - [Compliance validation for Amazon OpenSearch Service](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon OpenSearch Service](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
@@ -38,6 +37,5 @@ _in_ the cloud:
 - [Infrastructure Security in Amazon OpenSearch Service](infrastructure-security.md "infrastructure-security.md")
 - [SAML authentication for OpenSearch Dashboards](saml.md "saml.md")
 - [IAM Identity Center Trusted Identity Propagation Support for OpenSearch](idc-aos.md "idc-aos.md")
-- [Configuring Amazon Cognito authentication for OpenSearch
-  Dashboards](cognito-auth.md "cognito-auth.md")
+- [Configuring Amazon Cognito authentication for OpenSearch Dashboards](cognito-auth.md "cognito-auth.md")
 - [Using service-linked roles for Amazon OpenSearch Service](slr.md "slr.md")

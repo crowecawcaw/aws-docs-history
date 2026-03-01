@@ -29,9 +29,7 @@ event matches a rule that you specify.
 
 OpenSearch Serverless sends events to EventBridge when one of the following OCU-related events occur.
 
-### OCU usage approaching maximum
-
-limit
+### OCU usage approaching maximum limit
 
 OpenSearch Serverless sends this event when your search or index OCU usage reaches 75% of your
 capacity limit. Your OCU usage is calculated based on your configured capacity limit and
@@ -77,9 +75,7 @@ The following is an example event of this type (index OCU):
 
 ```
 
-### OCU usage reached maximum
-
-limit
+### OCU usage reached maximum limit
 
 OpenSearch Serverless sends this event when your search or index OCU usage reaches 100% of your
 capacity limit. Your OCU usage is calculated based on your configured capacity limit and

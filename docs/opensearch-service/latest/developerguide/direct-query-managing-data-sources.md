@@ -1,6 +1,4 @@
-# Managing a data source in
-
-Amazon OpenSearch Service
+# Managing a data source in Amazon OpenSearch Service
 
 Managing your data source is an important part of maintaining the reliability,
 availability, and performance of direct query data sources and your other AWS
@@ -9,16 +7,12 @@ wrong, and take automatic actions when appropriate.
 
 ###### Topics
 
-- [Monitoring with CloudWatch metrics data
-  sources](#monitoring-cloudwatch-metrics "#monitoring-cloudwatch-metrics")
-- [Enabling and disabling data
-  sources](#direct-query-s3-enabling-disabling-data "#direct-query-s3-enabling-disabling-data")
+- [Monitoring with CloudWatch metrics data sources](#monitoring-cloudwatch-metrics "#monitoring-cloudwatch-metrics")
+- [Enabling and disabling data sources](#direct-query-s3-enabling-disabling-data "#direct-query-s3-enabling-disabling-data")
 - [Monitoring with AWS Budget](#direct-query-s3-enabling-budget "#direct-query-s3-enabling-budget")
 - [Deleting a data source](#direct-query-s3-delete "#direct-query-s3-delete")
 
-## Monitoring with CloudWatch metrics data
-
-sources
+## Monitoring with CloudWatch metrics data sources
 
 You can monitor direct query using CloudWatch. CloudWatch collects raw data and processes it
 into readable, near real-time metrics. These statistics are kept for 15 months, so
@@ -50,9 +44,7 @@ CloudWatch Logs and Security Lake report the following metrics:
 | FailedDirectQueries    | The total number of query failures that are observed on the<br>data source queries.<br>**Relevant statistics**: Sum,<br>Maximum, Minimum, Average<br>**Dimensions**:<br>`DataSourceName`<br>**Frequency**: 60 seconds            |
 | DirectQueryConsumedOCU | The number of OCUs that are consumed for running the queries<br>on the data sources.<br>**Relevant statistics**: Average,<br>P90, P99, Sum, Minimum, Maximum<br>**Dimensions**:<br>`DataSourceName`<br>**Frequency**: 60 seconds |
 
-## Enabling and disabling data
-
-sources
+## Enabling and disabling data sources
 
 ###### Note
 

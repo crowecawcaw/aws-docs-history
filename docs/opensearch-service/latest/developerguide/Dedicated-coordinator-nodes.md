@@ -1,6 +1,4 @@
-# Dedicated coordinator nodes in
-
-Amazon OpenSearch Service
+# Dedicated coordinator nodes in Amazon OpenSearch Service
 
 Dedicated coordinator nodes in Amazon OpenSearch Service are specialized nodes that offload coordination
 tasks from data nodes. These tasks include managing search requests and hosting
@@ -13,9 +11,7 @@ required for VPC configurations, which leads to more efficient network managemen
 setup can result in up to 15% improvement in indexing throughput and 20% better query
 performance, depending on workload characteristics.
 
-## When to use dedicated coordinator
-
-nodes
+## When to use dedicated coordinator nodes
 
 Dedicated coordinator nodes are most beneficial in the following scenarios.
 
@@ -30,9 +26,7 @@ Dedicated coordinator nodes are most beneficial in the following scenarios.
   OpenSearch Dashboards can be resource-intensive. Offloading this responsibility to
   dedicated coordinator nodes reduces the strain on data nodes.
 
-## Architecture and
-
-behavior
+## Architecture and behavior
 
 In an OpenSearch cluster, dedicated coordinator nodes handle two key
 responsibilities.
@@ -50,24 +44,19 @@ In VPC domains, dedicated coordinator nodes are assigned Elastic Network Interfa
 addresses required for VPCs, which improves network efficiency. Typically, dedicated
 coordinator nodes make up around 10% of the total data nodes.
 
-## Requirements and
-
-limitations
+## Requirements and limitations
 
 Dedicated coordinator nodes have the following requirements and limitations.
 
 - Dedicated coordinator nodes are supported in all OpenSearch versions and
   Elasticsearch versions 6.8 to 7.10.
 - To enable dedicated coordinator nodes, your domain must have dedicated master
-  nodes enabled. For more information, see [Dedicated master nodes in
-  Amazon OpenSearch Service](managedomains-dedicatedmasternodes.md "managedomains-dedicatedmasternodes.md").
+  nodes enabled. For more information, see [Dedicated master nodes in Amazon OpenSearch Service](managedomains-dedicatedmasternodes.md "managedomains-dedicatedmasternodes.md").
 - Provisioning dedicated coordinator nodes can incur additional costs. However,
   the improved resource efficiency and enhanced performance justify the
   investment, particularly for large or complex clusters.
 
-## Provisioning dedicated
-
-coordinator nodes
+## Provisioning dedicated coordinator nodes
 
 Perform the following steps to provision dedicated coordinator nodes in an existing
 domain. Make sure your domain has dedicated _master_ nodes enabled
@@ -139,9 +128,7 @@ console when creating or modifying your domain.
   high memory (in GBs). For example, choose 12 4xl instances rather than 6 8xlarge
   general purpose instances.
 
-### Node recommendations by cluster
-
-size
+### Node recommendations by cluster size
 
 Use the following guidelines as a starting point for provisioning dedicated
 coordinator nodes based on your cluster size. Adjust the number and type of nodes

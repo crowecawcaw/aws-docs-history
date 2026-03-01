@@ -10,8 +10,7 @@ For more information, see [Pipelines](https://opensearch.org/docs/latest/clients
 
 ###### Topics
 
-- [Prerequisites and required IAM
-  role](#manage-pipeline-prerequisites "#manage-pipeline-prerequisites")
+- [Prerequisites and required IAM role](#manage-pipeline-prerequisites "#manage-pipeline-prerequisites")
 - [Required IAM permissions](#create-pipeline-permissions "#create-pipeline-permissions")
 - [Specifying the pipeline version](#pipeline-version "#pipeline-version")
 - [Specifying the ingestion path](#pipeline-path "#pipeline-path")
@@ -19,9 +18,7 @@ For more information, see [Pipelines](https://opensearch.org/docs/latest/clients
 - [Tracking the status of pipeline creation](#get-pipeline-progress "#get-pipeline-progress")
 - [Working with blueprints](pipeline-blueprint.md "pipeline-blueprint.md")
 
-## Prerequisites and required IAM
-
-role
+## Prerequisites and required IAM role
 
 To create an OpenSearch Ingestion pipeline, you must have the following resources:
 
@@ -36,16 +33,13 @@ To create an OpenSearch Ingestion pipeline, you must have the following resource
 
 For instructions to create these resources, see the following topics:
 
-- [Granting Amazon OpenSearch Ingestion pipelines access to
-  domains](pipeline-domain-access.md "pipeline-domain-access.md")
-- [Granting Amazon OpenSearch Ingestion pipelines access
-  to collections](pipeline-collection-access.md "pipeline-collection-access.md")
+- [Granting Amazon OpenSearch Ingestion pipelines access to domains](pipeline-domain-access.md "pipeline-domain-access.md")
+- [Granting Amazon OpenSearch Ingestion pipelines access to collections](pipeline-collection-access.md "pipeline-collection-access.md")
 
 ###### Note
 
 If you're writing to a domain that uses fine-grained access control, there are
-extra steps you need to complete. See [Map the pipeline role (only for
-domains that use fine-grained access control)](pipeline-domain-access.md#pipeline-access-domain-fgac "pipeline-domain-access.md#pipeline-access-domain-fgac").
+extra steps you need to complete. See [Map the pipeline role (only for domains that use fine-grained access control)](pipeline-domain-access.md#pipeline-access-domain-fgac "pipeline-domain-access.md#pipeline-access-domain-fgac").
 
 ## Required IAM permissions
 
@@ -185,14 +179,12 @@ Choose **Select blueprint**.
 
 1. If you're starting from a blank pipeline, select a source from the
    dropdown menu. Available sources might include other AWS services,
-   OpenTelemetry, or HTTP. For more information, see [Integrating Amazon OpenSearch Ingestion pipelines with other
-   services and applications](configure-client.md "configure-client.md").
+   OpenTelemetry, or HTTP. For more information, see [Integrating Amazon OpenSearch Ingestion pipelines with other services and applications](configure-client.md "configure-client.md").
 2. Depending on which source you choose, configure additional settings
    for the source. For example, to use Amazon S3 as a source, you must specify
    the URL of the Amazon SQS queue from the pipeline receives messagess. For a
    list of supported source plugins and links to their documentation, see
-   [Supported plugins and options for
-   Amazon OpenSearch Ingestion pipelines](pipeline-config-reference.md "pipeline-config-reference.md").
+   [Supported plugins and options for Amazon OpenSearch Ingestion pipelines](pipeline-config-reference.md "pipeline-config-reference.md").
 3. For some sources, you must specify **Source network
    options**. Choose either **VPC access** or
    **Public access**. If you choose **Public
@@ -208,16 +200,14 @@ Choose **Select blueprint**.
 | **Security groups**        | Choose one or more VPC security groups that allow<br>your required application to reach the<br>OpenSearch Ingestion pipeline on the ports (80 or 443)<br>and protocols (HTTP or HTTPs) exposed by the<br>pipeline.              |
 | **VPC attachment options** | If your source is a self-managed endpoint, attach<br>your pipeline to a VPC. Choose one of the default<br>CIDR options provided, or use a custom CIDR.                                                                          |
 
-For more information, see [Configuring VPC access for Amazon OpenSearch Ingestion
-pipelines](pipeline-security.md "pipeline-security.md"). 4. Choose **Next**.
+For more information, see [Configuring VPC access for Amazon OpenSearch Ingestion pipelines](pipeline-security.md "pipeline-security.md"). 4. Choose **Next**.
 
 #### Configure processor
 
 Add one or more processors to your pipeline. Processors are
 components within a sub-pipeline that let you filter, transform, and enrich
 events before publishing records to the domain or collection sink. For a
-list of supported processors and links to their documentation, see [Supported plugins and options for
-Amazon OpenSearch Ingestion pipelines](pipeline-config-reference.md "pipeline-config-reference.md").
+list of supported processors and links to their documentation, see [Supported plugins and options for Amazon OpenSearch Ingestion pipelines](pipeline-config-reference.md "pipeline-config-reference.md").
 
 You can choose **Actions** and add the
 following:
@@ -245,7 +235,7 @@ For OpenSearch sinks, configure the following fields:
 
 | Setting                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Network policy name**(Serverless<br>sinks only) | If you selected an OpenSearch Serverless collection, enter a<br>**Network policy name**.<br>OpenSearch Ingestion either creates the policy if it doesn't<br>exist, or updates it with a rule that grants access to<br>the VPC endpoint connecting the pipeline and the<br>collection. For more information, see [Granting Amazon OpenSearch Ingestion pipelines access<br>to collections](pipeline-collection-access.md "pipeline-collection-access.md").           |
+| **Network policy name**(Serverless<br>sinks only) | If you selected an OpenSearch Serverless collection, enter a<br>**Network policy name**.<br>OpenSearch Ingestion either creates the policy if it doesn't<br>exist, or updates it with a rule that grants access to<br>the VPC endpoint connecting the pipeline and the<br>collection. For more information, see [Granting Amazon OpenSearch Ingestion pipelines access to collections](pipeline-collection-access.md "pipeline-collection-access.md").              |
 | **Index name**                                    | The name of the index where the pipeline sends data.<br>OpenSearch Ingestion creates this index if it doesn't already<br>exist.                                                                                                                                                                                                                                                                                                                                     |
 | **Index mapping options**                         | Choose how the pipeline stores and indexes documents and<br>their fields into the OpenSearch sink. If you select<br>**Dynamic mapping**, OpenSearch adds<br>fields automatically when you index a document. If you<br>select **Customize mapping**, enter an<br>index mapping template. For more information, see [Index templates](https://opensearch.org/docs/latest/im-plugin/index-templates/ "https://opensearch.org/docs/latest/im-plugin/index-templates/"). |
 | **Enable DLQ**                                    | Configure an Amazon S3 dead-letter queue (DLQ) for the<br>pipeline. For more information, see [Dead-letter queues](osis-features-overview.md#osis-features-dlq "osis-features-overview.md#osis-features-dlq").                                                                                                                                                                                                                                                      |
@@ -260,14 +250,14 @@ Choose **Next**.
 
 Configure the following additional pipeline settings:
 
-| Setting                    | Description                                                                                                                                                                                                                                                                                                                                                                                                           |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Pipeline name**          | A unique name for the pipeline.                                                                                                                                                                                                                                                                                                                                                                                       |
-| **Persistent buffer**      | A persistent buffer stores your data in a disk-based<br>buffer across multiple Availability Zones. For more<br>information, see [Persistent buffering](osis-features-overview.md#persistent-buffering "osis-features-overview.md#persistent-buffering").<br>If you enable persistent buffering, select the<br>AWS Key Management Service key to encrypt the buffer data.                                              |
-| **Pipeline capacity**      | The minimum and maximum pipeline capacity, in Ingestion<br>OpenSearch Compute Units (OCUs). For more information,<br>see [Scaling pipelines in Amazon OpenSearch Ingestion](ingestion-scaling.md "ingestion-scaling.md").                                                                                                                                                                                             |
-| **Pipeline role**          | The IAM role that provides the required permissions for<br>the pipeline to write to the sink and read from<br>pull-based sources. You can create the role yourself, or<br>have OpenSearch Ingestion create it for you based on your<br>selected use case.<br>For more information, see [Setting up roles and users in<br>Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md"). |
-| **Tags**                   | Add one or more tags to your pipeline. For more<br>information, see [Tagging Amazon OpenSearch Ingestion pipelines](tag-pipeline.md "tag-pipeline.md").                                                                                                                                                                                                                                                               |
-| **Log publishing options** | Enable pipeline log publishing to Amazon CloudWatch Logs. We recommend<br>that you enable log publishing so that you can more easily<br>troubleshoot pipeline issues. For more information, see<br>[Monitoring pipeline logs](monitoring-pipeline-logs.md "monitoring-pipeline-logs.md").                                                                                                                             |
+| Setting                    | Description                                                                                                                                                                                                                                                                                                                                                                                                        |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Pipeline name**          | A unique name for the pipeline.                                                                                                                                                                                                                                                                                                                                                                                    |
+| **Persistent buffer**      | A persistent buffer stores your data in a disk-based<br>buffer across multiple Availability Zones. For more<br>information, see [Persistent buffering](osis-features-overview.md#persistent-buffering "osis-features-overview.md#persistent-buffering").<br>If you enable persistent buffering, select the<br>AWS Key Management Service key to encrypt the buffer data.                                           |
+| **Pipeline capacity**      | The minimum and maximum pipeline capacity, in Ingestion<br>OpenSearch Compute Units (OCUs). For more information,<br>see [Scaling pipelines in Amazon OpenSearch Ingestion](ingestion-scaling.md "ingestion-scaling.md").                                                                                                                                                                                          |
+| **Pipeline role**          | The IAM role that provides the required permissions for<br>the pipeline to write to the sink and read from<br>pull-based sources. You can create the role yourself, or<br>have OpenSearch Ingestion create it for you based on your<br>selected use case.<br>For more information, see [Setting up roles and users in Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md"). |
+| **Tags**                   | Add one or more tags to your pipeline. For more<br>information, see [Tagging Amazon OpenSearch Ingestion pipelines](tag-pipeline.md "tag-pipeline.md").                                                                                                                                                                                                                                                            |
+| **Log publishing options** | Enable pipeline log publishing to Amazon CloudWatch Logs. We recommend<br>that you enable log publishing so that you can more easily<br>troubleshoot pipeline issues. For more information, see<br>[Monitoring pipeline logs](monitoring-pipeline-logs.md "monitoring-pipeline-logs.md").                                                                                                                          |
 
 Choose **Next**., then review your pipeline
 configuration and choose **Create pipeline**.
@@ -307,8 +297,7 @@ To create an OpenSearch Ingestion pipeline using the OpenSearch Ingestion API, c
 [CreatePipeline](../APIReference/API_osis_CreatePipeline.md "../APIReference/API_osis_CreatePipeline.md") operation.
 
 After your pipeline is successfully created, you can configure your client and
-start ingesting data into your OpenSearch Service domain. For more information, see [Integrating Amazon OpenSearch Ingestion pipelines with other
-services and applications](configure-client.md "configure-client.md").
+start ingesting data into your OpenSearch Service domain. For more information, see [Integrating Amazon OpenSearch Ingestion pipelines with other services and applications](configure-client.md "configure-client.md").
 
 ## Tracking the status of pipeline creation
 

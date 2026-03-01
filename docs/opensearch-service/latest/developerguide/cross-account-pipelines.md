@@ -1,6 +1,4 @@
-# Configuring OpenSearch Ingestion pipelines for
-
-cross-account ingestion
+# Configuring OpenSearch Ingestion pipelines for cross-account ingestion
 
 For push-based sources such as HTTP and OTel, Amazon OpenSearch Ingestion enables you to share
 pipelines across AWS accounts from a virtual private cloud (VPC) to a pipeline endpoint in
@@ -17,10 +15,8 @@ This section uses the following terminology:
   To configure VPCs to share OpenSearch Ingestion pipelines across AWS accounts, complete the
   following tasks, as described here:
 
-- (Pipeline owner) [Grant connecting
-  accounts access to a pipeline](#cross-account-pipelines-setting-up-grant-access "#cross-account-pipelines-setting-up-grant-access")
-- (Connecting account) [Create a
-  pipeline endpoint connection for each connecting VPC](#cross-account-pipelines-setting-up-create-pipeline-endpoints "#cross-account-pipelines-setting-up-create-pipeline-endpoints")
+- (Pipeline owner) [Grant connecting accounts access to a pipeline](#cross-account-pipelines-setting-up-grant-access "#cross-account-pipelines-setting-up-grant-access")
+- (Connecting account) [Create a pipeline endpoint connection for each connecting VPC](#cross-account-pipelines-setting-up-create-pipeline-endpoints "#cross-account-pipelines-setting-up-create-pipeline-endpoints")
 
 ## Before you begin
 
@@ -32,9 +28,7 @@ complete the following tasks:
 | Create one or more OpenSearch Ingestion pipelines | Set the minimum OpenSearch Compute Units (OSUs) to 2 or higher. For<br>more information, see [Creating Amazon OpenSearch Ingestion pipelines](creating-pipeline.md "creating-pipeline.md"). For information about<br>updating a pipeline, see [Updating Amazon OpenSearch Ingestion pipelines](update-pipeline.md "update-pipeline.md").                                                                      |
 | Create one or more VPCs for OpenSearch Ingestion  | To enable cross-account pipeline sharing, any VPC involved for the<br>pipeline and the pipeline endpoints must be configured with the<br>following DNS values:<br>• `enableDnsSupport=true`<br>• `enableDnsHostnames=true`<br>For more information, see [DNS attributes for your<br>VPC](../../../vpc/latest/userguide/vpc-dns.md "../../../vpc/latest/userguide/vpc-dns.md") in the _Amazon VPC User Guide_. |
 
-## Grant connecting
-
-accounts access to a pipeline
+## Grant connecting accounts access to a pipeline
 
 The procedures in this section describe how to use the OpenSearch Service console and the AWS CLI to
 set up cross-account pipeline access by creating a resource policy. A _resource
@@ -50,14 +44,10 @@ mechanism for enabling cross-account pipeline access.
 
 ###### Topics
 
-- [Grant
-  connecting accounts access to a pipeline (console)](#cross-account-pipelines-setting-up-grant-access-console "#cross-account-pipelines-setting-up-grant-access-console")
-- [Grant
-  connecting accounts access to a pipeline (CLI)](#cross-account-pipelines-setting-up-grant-access-cli "#cross-account-pipelines-setting-up-grant-access-cli")
+- [Grant connecting accounts access to a pipeline (console)](#cross-account-pipelines-setting-up-grant-access-console "#cross-account-pipelines-setting-up-grant-access-console")
+- [Grant connecting accounts access to a pipeline (CLI)](#cross-account-pipelines-setting-up-grant-access-cli "#cross-account-pipelines-setting-up-grant-access-cli")
 
-### Grant
-
-connecting accounts access to a pipeline (console)
+### Grant connecting accounts access to a pipeline (console)
 
 Use the following procedure to grant connecting accounts access to a pipeline by
 using the Amazon OpenSearch Service console.
@@ -75,9 +65,7 @@ using the Amazon OpenSearch Service console.
 5. In the **AWS account ID** field, enter the 12-digit
    number account ID, and then select **Authorize**.
 
-### Grant
-
-connecting accounts access to a pipeline (CLI)
+### Grant connecting accounts access to a pipeline (CLI)
 
 Use the following procedure to grant connecting accounts access to a pipeline by
 using the AWS CLI.
@@ -134,9 +122,7 @@ JSON
 
 ```
 
-## Create a
-
-pipeline endpoint connection for each connecting VPC
+## Create a pipeline endpoint connection for each connecting VPC
 
 After the pipeline owner grants access to a pipeline in their VPC using the previous
 procedure, a user in the connecting account creates a pipeline endpoint in their VPC.
@@ -172,8 +158,7 @@ OpenSearch Service console.
    choose **Current account**, choose the pipeline from the
    list. If you choose **Cross-account**, specify the pipeline
    ARN in the field. The pipeline owner must have granted access to the
-   pipeline, as described in [Grant connecting
-   accounts access to a pipeline](#cross-account-pipelines-setting-up-grant-access "#cross-account-pipelines-setting-up-grant-access").
+   pipeline, as described in [Grant connecting accounts access to a pipeline](#cross-account-pipelines-setting-up-grant-access "#cross-account-pipelines-setting-up-grant-access").
 4. In the **VPC settings** section, for
    **VPC**, choose a VPC from the list.
 5. For **Subnets**, choose a subnet.
@@ -184,8 +169,7 @@ Wait for the status of the endpoint you created to transition to
 `ACTIVE`. Once the pipeline is `ACTIVE`, you will see a
 new field named `ingestEndpointUrl`. Use this endpoint to access the
 pipeline and ingest data using a client like FluentBit. For more information about
-using FluentBit to ingest data, see [Using an OpenSearch Ingestion
-pipeline with Fluent Bit](configure-client-fluentbit.md "configure-client-fluentbit.md").
+using FluentBit to ingest data, see [Using an OpenSearch Ingestion pipeline with Fluent Bit](configure-client-fluentbit.md "configure-client-fluentbit.md").
 
 ###### Note
 
@@ -229,8 +213,7 @@ Wait for the status of the endpoint you created to transition to
 `ACTIVE`. Once the pipeline is `ACTIVE`, you will see a
 new field named `ingestEndpointUrl`. Use this endpoint to access the
 pipeline and ingest data using a client like FluentBit. For more information about
-using FluentBit to ingest data, see [Using an OpenSearch Ingestion
-pipeline with Fluent Bit](configure-client-fluentbit.md "configure-client-fluentbit.md").
+using FluentBit to ingest data, see [Using an OpenSearch Ingestion pipeline with Fluent Bit](configure-client-fluentbit.md "configure-client-fluentbit.md").
 
 ###### Note
 

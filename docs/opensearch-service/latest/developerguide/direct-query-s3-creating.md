@@ -1,6 +1,4 @@
-# Creating an Amazon S3 data source integration
-
-in OpenSearch Service
+# Creating an Amazon S3 data source integration in OpenSearch Service
 
 You can create a new Amazon S3 direct-query data source for OpenSearch Service through
 the AWS Management Console or the API. Each new data source uses the AWS Glue Data Catalog to manage tables
@@ -11,10 +9,8 @@ that represent Amazon S3 buckets.
 - [Prerequisites](#direct-query-s3-prereq "#direct-query-s3-prereq")
 - [Procedure](#direct-query-s3-create "#direct-query-s3-create")
 - [Next steps](#direct-query-s3-next-steps "#direct-query-s3-next-steps")
-- [Map the
-  AWS Glue Data Catalog role](#direct-query-s3-permissions "#direct-query-s3-permissions")
-- [Additional
-  resources](#direct-query-s3-additional-resources "#direct-query-s3-additional-resources")
+- [Map the AWS Glue Data Catalog role](#direct-query-s3-permissions "#direct-query-s3-permissions")
+- [Additional resources](#direct-query-s3-additional-resources "#direct-query-s3-additional-resources")
 
 ## Prerequisites
 
@@ -120,20 +116,15 @@ POST https://es.`region`.amazonaws.com/2021-01-01/opensearch/domain/`domain-name
 
 ## Next steps
 
-### Visit OpenSearch
-
-Dashboards
+### Visit OpenSearch Dashboards
 
 After you create a data source, OpenSearch Service provides you with an OpenSearch
 Dashboards link. You can use this to configure access control, define
 tables, install out-of-the-box integrations, and query your data.
 
-For more information, see [Configuring and querying an S3 data
-source in OpenSearch Dashboards](direct-query-s3-configure.md "direct-query-s3-configure.md").
+For more information, see [Configuring and querying an S3 data source in OpenSearch Dashboards](direct-query-s3-configure.md "direct-query-s3-configure.md").
 
-## Map the
-
-AWS Glue Data Catalog role
+## Map the AWS Glue Data Catalog role
 
 If you have enabled [fine-grained access
 control](fgac.md "fgac.md") after creating a data source, you must map non-admin users
@@ -180,9 +171,7 @@ arn:aws:iam::`account-id`:role/`role-name`
 
 For more information on mapping roles, see [Mapping roles to users](fgac.md#fgac-mapping "fgac.md#fgac-mapping").
 
-## Additional
-
-resources
+## Additional resources
 
 ### Required permissions for manually created IAM roles
 

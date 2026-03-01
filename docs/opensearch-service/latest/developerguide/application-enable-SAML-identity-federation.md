@@ -1,6 +1,4 @@
-# Enabling SAML federation
-
-with AWS Identity and Access Management
+# Enabling SAML federation with AWS Identity and Access Management
 
 OpenSearch UI supports Security Assertion Markup Language 2.0 (SAML), an open
 standard that many identity providers use. This enables identity federation with
@@ -19,20 +17,13 @@ identity providers, such as Azure Active Directory and Ping, are similar.
 
 ###### Topics
 
-- [Step 1: Set up identity provider
-  application (Okta)](#SAML-identity-federation-step-1 "#SAML-identity-federation-step-1")
-- [Step 2: Set up AWS configuration
-  for Okta](#SAML-identity-federation-step-2 "#SAML-identity-federation-step-2")
-- [Step 3: Create the Amazon OpenSearch Service access
-  policy in IAM](#SAML-identity-federation-step-3 "#SAML-identity-federation-step-3")
-- [Step 4: Verify the identity
-  provider-initiated Single Sign-On experience with SAML](#SAML-identity-federation-step-4 "#SAML-identity-federation-step-4")
-- [Step 5: Configure SAML
-  attribute-based fine-grained access control](#SAML-identity-federation-step-5 "#SAML-identity-federation-step-5")
+- [Step 1: Set up identity provider application (Okta)](#SAML-identity-federation-step-1 "#SAML-identity-federation-step-1")
+- [Step 2: Set up AWS configuration for Okta](#SAML-identity-federation-step-2 "#SAML-identity-federation-step-2")
+- [Step 3: Create the Amazon OpenSearch Service access policy in IAM](#SAML-identity-federation-step-3 "#SAML-identity-federation-step-3")
+- [Step 4: Verify the identity provider-initiated Single Sign-On experience with SAML](#SAML-identity-federation-step-4 "#SAML-identity-federation-step-4")
+- [Step 5: Configure SAML attribute-based fine-grained access control](#SAML-identity-federation-step-5 "#SAML-identity-federation-step-5")
 
-## Step 1: Set up identity provider
-
-application (Okta)
+## Step 1: Set up identity provider application (Okta)
 
 To use SAML with OpenSearch UI, the first step is to set up your identity
 provider.
@@ -146,9 +137,7 @@ then provide that URL to its intended end-users.
 
 ![The "SAML 2.0" area reports the default relay state URL and metadata URL for an application.](images/ui-saml-2.0-area-okta.png)
 
-## Step 2: Set up AWS configuration
-
-for Okta
+## Step 2: Set up AWS configuration for Okta
 
 Complete the following tasks to set up your AWS configuration for Okta.
 
@@ -215,9 +204,7 @@ To create your AWS Identity and Access Management role, complete the following s
     **TagSession**.
 15. Choose **Update policy**.
 
-## Step 3: Create the Amazon OpenSearch Service access
-
-policy in IAM
+## Step 3: Create the Amazon OpenSearch Service access policy in IAM
 
 Learn how to configure your IAM roles for OpenSearch access control. With
 IAM roles, you can implement fine-grained access control for your Okta user groups
@@ -342,9 +329,7 @@ as demonstrated in the following example:
 }
 ```
 
-## Step 4: Verify the identity
-
-provider-initiated Single Sign-On experience with SAML
+## Step 4: Verify the identity provider-initiated Single Sign-On experience with SAML
 
 Open the URL for **Default Relay State** to open the Okta
 authentication page. Enter the credentials of an end-user. You are automatically
@@ -454,9 +439,7 @@ Result:
 }
 ```
 
-## Step 5: Configure SAML
-
-attribute-based fine-grained access control
+## Step 5: Configure SAML attribute-based fine-grained access control
 
 With Amazon OpenSearch Service, you can use fine-grained access control with SAML to map users and
 groups from your identity provider to OpenSearch fine-grained access control users
@@ -470,18 +453,12 @@ For more information about fine-grained access control, see [Fine-grained access
 
 ###### Topics
 
-- [SAML attributes for fine-grained
-  access control](#saml-fgac-key-attributes "#saml-fgac-key-attributes")
-- [Task 1: Configure Okta for fine-grained
-  access control](#configure-okta-fgac "#configure-okta-fgac")
-- [Task 2: Configure SAML in
-  OpenSearch domain](#configure-opensearch-domain-fgac "#configure-opensearch-domain-fgac")
-- [Task 3: Configure SAML in OpenSearch Serverless
-  collections](#saml-configure-collections "#saml-configure-collections")
+- [SAML attributes for fine-grained access control](#saml-fgac-key-attributes "#saml-fgac-key-attributes")
+- [Task 1: Configure Okta for fine-grained access control](#configure-okta-fgac "#configure-okta-fgac")
+- [Task 2: Configure SAML in OpenSearch domain](#configure-opensearch-domain-fgac "#configure-opensearch-domain-fgac")
+- [Task 3: Configure SAML in OpenSearch Serverless collections](#saml-configure-collections "#saml-configure-collections")
 
-### SAML attributes for fine-grained
-
-access control
+### SAML attributes for fine-grained access control
 
 **subjectKey**
 
@@ -493,9 +470,7 @@ identifies the user for authentication.
 Maps to group or role attributes in your IdP that determine the
 roles or permissions for authorization.
 
-### Task 1: Configure Okta for fine-grained
-
-access control
+### Task 1: Configure Okta for fine-grained access control
 
 ###### To configure Okta for fine-grained access control
 
@@ -519,9 +494,7 @@ access control
     groups to OpenSearch fine-grained access control roles for
     authorization.
 
-### Task 2: Configure SAML in
-
-OpenSearch domain
+### Task 2: Configure SAML in OpenSearch domain
 
 ###### To configure SAML in OpenSearch domain
 
@@ -566,9 +539,7 @@ aws opensearch update-domain-config \
 --region us-east-1
 ```
 
-### Task 3: Configure SAML in OpenSearch Serverless
-
-collections
+### Task 3: Configure SAML in OpenSearch Serverless collections
 
 ###### To configure SAML-based fine-grained access control in OpenSearch Serverless
 
@@ -583,8 +554,7 @@ You can control the SAML attribute-based fine-grained access control
 using this configuration. IAM Federation is disabled by default. 4. Select **Enable IAM Federation**. 5. Enter the `subjectKey` and `roleKey` values that
 you defined in Okta.
 
-For more information, see [SAML attributes for fine-grained
-access control](#saml-fgac-key-attributes "#saml-fgac-key-attributes") . 6. Select **Save**. 7. In the navigation pane under **Serverless**, choose
+For more information, see [SAML attributes for fine-grained access control](#saml-fgac-key-attributes "#saml-fgac-key-attributes"). 6. Select **Save**. 7. In the navigation pane under **Serverless**, choose
 **Data access policy**. 8. Either update an existing policy or create a new one. 9. Expand a rule, choose **Add principals**, and then
 select **IAM Federation users and groups**. 10. Add the required principals and choose
 **Save**. 11. Choose **Grant**. 12. Under this rule, do the following:

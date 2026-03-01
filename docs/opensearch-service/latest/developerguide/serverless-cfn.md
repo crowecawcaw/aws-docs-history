@@ -11,8 +11,7 @@ collection.
 ###### Important
 
 This example uses public network access, which isn't recommended for production workloads.
-We recommend using VPC access to protect your collections. For more information, see [AWS::OpenSearchServerless::VpcEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-vpcendpoint.md") and [Access Amazon OpenSearch Serverless using an interface endpoint
-(AWS PrivateLink)](serverless-vpc.md "serverless-vpc.md").
+We recommend using VPC access to protect your collections. For more information, see [AWS::OpenSearchServerless::VpcEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-vpcendpoint.md") and [Access Amazon OpenSearch Serverless using an interface endpoint (AWS PrivateLink)](serverless-vpc.md "serverless-vpc.md").
 
 ```
 AWSTemplateFormatVersion: 2010-09-09

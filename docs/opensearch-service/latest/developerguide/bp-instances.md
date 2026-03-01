@@ -34,9 +34,7 @@ three [dedicated master
 nodes](managedomains-dedicatedmasternodes.md "managedomains-dedicatedmasternodes.md"), we still recommend a minimum of two data nodes for
 replication.
 
-## Step 2: Calculate storage requirements per
-
-node
+## Step 2: Calculate storage requirements per node
 
 If you have a 184-GiB storage requirement and the recommended minimum number
 of three nodes, use the equation 184 / 3 = 61 GiB to find the amount of storage

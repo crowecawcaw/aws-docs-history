@@ -1,14 +1,10 @@
-# Configuring and querying a
-
-CloudWatch Logs data source in OpenSearch Dashboards
+# Configuring and querying a CloudWatch Logs data source in OpenSearch Dashboards
 
 Now that you've created your data source, you can get started with it OpenSearch
 Dashboards. This section walks you through various use cases with your data source
 in OpenSearch Dashboards.
 
-## Query log
-
-groups from the Discover page
+## Query log groups from the Discover page
 
 In the OpenSearch Discover page, you can use the new direct query data source
 you configured to query your CloudWatch Logs log groups. To do this, choose
@@ -17,9 +13,7 @@ query using SQL or PPL. You can filter, sort, and visualize the data returned
 from your log groups. To understand what statements, commands, and limitations
 are supported for the CloudWatch Logs integration, see [Supported SQL and PPL commands](direct-query-supported-commands.md "direct-query-supported-commands.md").
 
-## Create a
-
-dashboard view for your data source
+## Create a dashboard view for your data source
 
 When you use OpenSearch Service, you can quickly analyze popular AWS log types using
 pre-built dashboard templates. For CloudWatch Logs there are templates for VPC, CloudTrail,
@@ -60,9 +54,7 @@ templates, so you can start exploring and analyzing your data right away.
 
 11. Choose **Create dashboard**.
 
-## Querying CloudWatch Logs data in
-
-OpenSearch Discover
+## Querying CloudWatch Logs data in OpenSearch Discover
 
 To query your data, select your data source from the drop-down menu. If you're
 using CloudWatch Logs, navigate to Discover from your Essentials workspace and start
@@ -77,5 +69,4 @@ given that you’ve indexed it within.
 ### Troubleshooting
 
 There might be instances when results don’t return as expected. If you
-experience any issues, make sure that you're following the [Recommendations for using direct queries
-in Amazon OpenSearch Service](direct-query-recommendations.md "direct-query-recommendations.md").
+experience any issues, make sure that you're following the [Recommendations for using direct queries in Amazon OpenSearch Service](direct-query-recommendations.md "direct-query-recommendations.md").

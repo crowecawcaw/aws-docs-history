@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion pipeline with
-
-Amazon DynamoDB
+# Using an OpenSearch Ingestion pipeline with Amazon DynamoDB
 
 You can use the [DynamoDB](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/dynamo-db/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/dynamo-db/") plugin to stream table events, such as creates, updates, and deletes,
 to Amazon OpenSearch Service domains and Amazon OpenSearch Serverless collections. The pipeline uses change data capture (CDC)

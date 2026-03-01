@@ -14,8 +14,7 @@ Fine-grained access control offers the following benefits:
 
 ###### Topics
 
-- [The bigger picture: fine-grained access control and
-  OpenSearch Service security](#fgac-access-policies "#fgac-access-policies")
+- [The bigger picture: fine-grained access control and OpenSearch Service security](#fgac-access-policies "#fgac-access-policies")
 - [Key concepts](#fgac-concepts "#fgac-concepts")
 - [About the master user](#fgac-master-user "#fgac-master-user")
 - [Enabling fine-grained access control](#fgac-enabling "#fgac-enabling")
@@ -28,14 +27,10 @@ Fine-grained access control offers the following benefits:
 - [Manual snapshots](#fgac-snapshots "#fgac-snapshots")
 - [Integrations](#fgac-integrations "#fgac-integrations")
 - [REST API differences](#fgac-rest-api "#fgac-rest-api")
-- [Tutorial: Configure a domain with an IAM master user and Amazon Cognito
-  authentication](fgac-iam.md "fgac-iam.md")
-- [Tutorial: Configure a domain with the internal user database
-  and HTTP basic authentication](fgac-http-auth.md "fgac-http-auth.md")
+- [Tutorial: Configure a domain with an IAM master user and Amazon Cognito authentication](fgac-iam.md "fgac-iam.md")
+- [Tutorial: Configure a domain with the internal user database and HTTP basic authentication](fgac-http-auth.md "fgac-http-auth.md")
 
-## The bigger picture: fine-grained access control and
-
-OpenSearch Service security
+## The bigger picture: fine-grained access control and OpenSearch Service security
 
 Amazon OpenSearch Service security has three main layers:
 
@@ -263,9 +258,7 @@ how you configure the advanced features of fine-grained access control, addition
 of your requests may require compute and memory resources on individual data nodes. After you
 enable fine-grained access control, you can't disable it.
 
-### Enabling fine-grained access control on existing
-
-domains
+### Enabling fine-grained access control on existing domains
 
 You can enable fine-grained access control on existing domains running OpenSearch or
 Elasticsearch 6.7 or later.
@@ -354,14 +347,12 @@ tasks. You can use Dashboards to manage users, roles, mappings, action groups, a
 The OpenSearch Dashboards sign-in page and underlying authentication method differs, however,
 depending on how you manage users and configured your domain.
 
-- If you want to use IAM for user management, use [Configuring Amazon Cognito authentication for OpenSearch
-  Dashboards](cognito-auth.md "cognito-auth.md") to
+- If you want to use IAM for user management, use [Configuring Amazon Cognito authentication for OpenSearch Dashboards](cognito-auth.md "cognito-auth.md") to
   access Dashboards. Otherwise, Dashboards shows a nonfunctional sign-in page. See [Limitations](#fgac-limitations "#fgac-limitations").
 
 With Amazon Cognito authentication, one of the assumed roles from the identity pool must match
 the IAM role that you specified for the master user. For more information about this
-configuration, see [(Optional) Configuring granular access](cognito-auth.md#cognito-auth-granular "cognito-auth.md#cognito-auth-granular") and [Tutorial: Configure a domain with an IAM master user and Amazon Cognito
-authentication](fgac-iam.md "fgac-iam.md").
+configuration, see [(Optional) Configuring granular access](cognito-auth.md#cognito-auth-granular "cognito-auth.md#cognito-auth-granular") and [Tutorial: Configure a domain with an IAM master user and Amazon Cognito authentication](fgac-iam.md "fgac-iam.md").
 
 ![Cognito sign-in page](images/cognito-auth.png)
 
@@ -369,8 +360,7 @@ authentication](fgac-iam.md "fgac-iam.md").
   your master username and password. You must access Dashboards over HTTPS. Amazon Cognito and SAML
   authentication for Dashboards both replace this login screen.
 
-For more information about this configuration, see [Tutorial: Configure a domain with the internal user database
-and HTTP basic authentication](fgac-http-auth.md "fgac-http-auth.md").
+For more information about this configuration, see [Tutorial: Configure a domain with the internal user database and HTTP basic authentication](fgac-http-auth.md "fgac-http-auth.md").
 
 ![Basic authentication sign-in page](images/basic-auth-dashboards.png)
 
@@ -682,8 +672,7 @@ for all other purposes—you must map the `manage_snapshots` role to an IAM
 role that has `iam:PassRole` permissions to assume `TheSnapshotRole`, as
 defined in [Prerequisites](managedomains-snapshots.md#managedomains-snapshot-prerequisites "managedomains-snapshots.md#managedomains-snapshot-prerequisites").
 
-Then use that IAM role to send a signed request to the domain, as outlined in [Registering a manual snapshot
-repository](managedomains-snapshot-registerdirectory.md "managedomains-snapshot-registerdirectory.md").
+Then use that IAM role to send a signed request to the domain, as outlined in [Registering a manual snapshot repository](managedomains-snapshot-registerdirectory.md "managedomains-snapshot-registerdirectory.md").
 
 ## Integrations
 

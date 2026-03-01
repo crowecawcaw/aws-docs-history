@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion pipeline with
-
-OpenTelemetry Collector
+# Using an OpenSearch Ingestion pipeline with OpenTelemetry Collector
 
 You can use the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/ "https://opentelemetry.io/docs/collector/") to ingest logs, traces, and metrics into OpenSearch Ingestion pipelines.
 A single pipeline can be used to ingest all logs, traces, and metrics to different indices on a domain or collection.
@@ -140,8 +138,7 @@ You can use a preconfigured blueprint to create this pipeline. For more informat
 
 OpenSearch Ingestion pipelines with OpenTelemetry sources have cross-account ingestion capability.
 Amazon OpenSearch Ingestion enables you to share pipelines across AWS accounts from a virtual private cloud (VPC) to a pipeline endpoint in a separate VPC.
-For more information, see [Configuring OpenSearch Ingestion pipelines for
-cross-account ingestion](cross-account-pipelines.md "cross-account-pipelines.md").
+For more information, see [Configuring OpenSearch Ingestion pipelines for cross-account ingestion](cross-account-pipelines.md "cross-account-pipelines.md").
 
 ## Limitations
 

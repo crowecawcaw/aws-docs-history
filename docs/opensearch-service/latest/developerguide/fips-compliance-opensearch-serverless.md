@@ -1,6 +1,4 @@
-# FIPS compliance in
-
-Amazon OpenSearch Serverless
+# FIPS compliance in Amazon OpenSearch Serverless
 
 Amazon OpenSearch Serverless supports Federal Information Processing Standards (FIPS) 140-2, which is a U.S.
 and Canadian government standard that specifies security requirements for cryptographic
@@ -14,20 +12,14 @@ _AWS Verified access User Guide_.
 
 ###### Topics
 
-- [Using FIPS endpoints with
-  OpenSearch Serverless](#using-fips-endpoints-opensearch-serverless "#using-fips-endpoints-opensearch-serverless")
-- [Use FIPS endpoints with AWS
-  SDKs](#using-fips-endpoints-aws-sdks "#using-fips-endpoints-aws-sdks")
-- [Configure security groups
-  for VPC endpoints](#configuring-security-groups-vpc-endpoints "#configuring-security-groups-vpc-endpoints")
+- [Using FIPS endpoints with OpenSearch Serverless](#using-fips-endpoints-opensearch-serverless "#using-fips-endpoints-opensearch-serverless")
+- [Use FIPS endpoints with AWS SDKs](#using-fips-endpoints-aws-sdks "#using-fips-endpoints-aws-sdks")
+- [Configure security groups for VPC endpoints](#configuring-security-groups-vpc-endpoints "#configuring-security-groups-vpc-endpoints")
 - [Use the FIPS VPC endpoint](#using-fips-vpc-endpoint "#using-fips-vpc-endpoint")
 - [Verify FIPS compliance](#verifying-fips-compliance "#verifying-fips-compliance")
-- [Resolve FIPS endpoint connectivity issues
-  in private hosted zones](serverless-fips-endpoint-issues.md "serverless-fips-endpoint-issues.md")
+- [Resolve FIPS endpoint connectivity issues in private hosted zones](serverless-fips-endpoint-issues.md "serverless-fips-endpoint-issues.md")
 
-## Using FIPS endpoints with
-
-OpenSearch Serverless
+## Using FIPS endpoints with OpenSearch Serverless
 
 In AWS Regions where FIPS is supported, OpenSearch Serverless collections are accessible through
 both standard and FIPS-compliant endpoints. For more information, see [FIPS
@@ -58,9 +50,7 @@ FIPS-compliant cryptography. The FIPS-specific endpoints help you meet complianc
 requirements that specifically mandate the use of endpoints with
 **FIPS** in the name.
 
-## Use FIPS endpoints with AWS
-
-SDKs
+## Use FIPS endpoints with AWS SDKs
 
 When using AWS SDKs, you can specify the FIPS endpoint when creating the client. In
 the following example, replace `collection_id` and
@@ -86,9 +76,7 @@ client = OpenSearch(
 )
 ```
 
-## Configure security groups
-
-for VPC endpoints
+## Configure security groups for VPC endpoints
 
 To ensure proper communication with your FIPS-compliant Amazon VPC (VPC) endpoint, create
 or modify a security group to allow inbound HTTPS traffic (TCP port 443) from the
@@ -101,8 +89,7 @@ group](../../../vpc/latest/userguide/creating-security-groups.md "../../../vpc/l
 
 After creating the FIPS-compliant VPC endpoint, you can use it to access OpenSearch Serverless from
 resources within your VPC. To use the endpoint for API operations, configure your
-SDK to use the Regional FIPS endpoint as described in the [Using FIPS endpoints with
-OpenSearch Serverless](#using-fips-endpoints-opensearch-serverless "#using-fips-endpoints-opensearch-serverless") section. For
+SDK to use the Regional FIPS endpoint as described in the [Using FIPS endpoints with OpenSearch Serverless](#using-fips-endpoints-opensearch-serverless "#using-fips-endpoints-opensearch-serverless") section. For
 OpenSearch Dashboards access, use the collection-specific Dashboards URL, which will
 automatically route through the FIPS-compliant VPC endpoint when accessed from within
 your VPC. For more information, see [Using OpenSearch Dashboards with Amazon OpenSearch Service](dashboards.md "dashboards.md").

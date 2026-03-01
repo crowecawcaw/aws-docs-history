@@ -1,6 +1,4 @@
-# Using service-linked roles to create OpenSearch Ingestion
-
-pipelines
+# Using service-linked roles to create OpenSearch Ingestion pipelines
 
 Amazon OpenSearch Ingestion uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role
 that is linked directly to OpenSearch Ingestion. Service-linked roles are predefined by
@@ -57,9 +55,7 @@ role) to create, edit, or delete a service-linked role. For more information, se
 [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating the service-linked role for
-
-OpenSearch Ingestion
+## Creating the service-linked role for OpenSearch Ingestion
 
 You don't need to manually create a service-linked role. When you [create an OpenSearch Ingestion pipeline](creating-pipeline.md#create-pipeline "creating-pipeline.md#create-pipeline") in the
 AWS Management Console, the AWS CLI, or the AWS API, OpenSearch Ingestion creates the service-linked
@@ -70,9 +66,7 @@ use the same process to recreate the role in your account. When you create an
 OpenSearch Ingestion pipeline, OpenSearch Ingestion creates the service-linked role for you
 again.
 
-## Editing the service-linked role for
-
-OpenSearch Ingestion
+## Editing the service-linked role for OpenSearch Ingestion
 
 OpenSearch Ingestion does not allow you to edit the
 `AWSServiceRoleForAmazonOpenSearchIngestionService` service-linked
@@ -81,9 +75,7 @@ because various entities might reference the role. However, you can edit the
 description of the role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting the service-linked role for
-
-OpenSearch Ingestion
+## Deleting the service-linked role for OpenSearch Ingestion
 
 If you no longer need to use a feature or service that requires a service-linked
 role, we recommend that you delete that role. That way you don't have an unused
@@ -101,19 +93,13 @@ If OpenSearch Ingestion is using the role when you try to delete the resources,
 then the deletion might fail. If that happens, wait for a few minutes and
 try the operation again.
 
-###### To delete OpenSearch Ingestion resources used by the
-
-`AWSServiceRoleForAmazonOpenSearchIngestionService` or
-`AWSServiceRoleForOpensearchIngestionSelfManagedVpce`
-role
+###### To delete OpenSearch Ingestion resources used by the `AWSServiceRoleForAmazonOpenSearchIngestionService` or `AWSServiceRoleForOpensearchIngestionSelfManagedVpce` role
 
 1. Navigate to the Amazon OpenSearch Service console and choose
    **Ingestion**.
 2. Delete all pipelines. For instructions, see [Deleting Amazon OpenSearch Ingestion pipelines](delete-pipeline.md "delete-pipeline.md").
 
-### Delete the service-linked role for
-
-OpenSearch Ingestion
+### Delete the service-linked role for OpenSearch Ingestion
 
 You can use the OpenSearch Ingestion console to delete a service-linked
 role.

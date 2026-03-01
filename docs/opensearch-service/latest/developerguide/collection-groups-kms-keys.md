@@ -1,6 +1,4 @@
-# Encryption and KMS keys in collection
-
-groups
+# Encryption and KMS keys in collection groups
 
 Each OpenSearch Serverless collection you create is protected with encryption of data at rest using
 AWS KMS to store and manage your encryption keys. When working with collection groups, you
@@ -21,9 +19,7 @@ to create multiple collections with unique KMS keys. Instead of creating and man
 thousands of encryption policies, you can specify the KMS key directly during collection
 creation.
 
-## Sharing OCUs across different KMS
-
-keys
+## Sharing OCUs across different KMS keys
 
 Collection groups enable compute resource sharing across collections with
 different KMS keys. Collections in the same collection group share OCU memory space,

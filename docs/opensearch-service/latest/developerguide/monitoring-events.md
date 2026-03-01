@@ -26,16 +26,13 @@ actions that can be automatically triggered include the following:
 - [Degraded node retirement events](#monitoring-events-degraded-nr "#monitoring-events-degraded-nr")
 - [Domain error events](#monitoring-events-errors "#monitoring-events-errors")
 - [Tutorial: Listening for Amazon OpenSearch Service EventBridge events](listening-events.md "listening-events.md")
-- [Tutorial: Sending Amazon SNS alerts for available software
-  updates](sns-events.md "sns-events.md")
+- [Tutorial: Sending Amazon SNS alerts for available software updates](sns-events.md "sns-events.md")
 
 ## Service software update events
 
 OpenSearch Service sends events to EventBridge when one of the following [service software update](service-software.md "service-software.md") events occur.
 
-### Service software update
-
-available
+### Service software update available
 
 OpenSearch Service sends this event when a service software update is available.
 
@@ -64,9 +61,7 @@ The following is an example event of this type:
 }
 ```
 
-### Service software update
-
-scheduled
+### Service software update scheduled
 
 OpenSearch Service sends this event when a service software update has been scheduled. For
 _optional_ updates, you receive the notification on the
@@ -100,9 +95,7 @@ The following is an example event of this type:
 }
 ```
 
-### Service software update
-
-rescheduled
+### Service software update rescheduled
 
 OpenSearch Service sends this event when an optional service software update has been
 rescheduled. For more information, see [Optional versus required updates](service-software.md#service-software-optional-required "service-software.md#service-software-optional-required").
@@ -133,9 +126,7 @@ The following is an example event of this type:
 }
 ```
 
-### Service software update
-
-started
+### Service software update started
 
 OpenSearch Service sends this event when a service software update has started.
 
@@ -162,9 +153,7 @@ The following is an example event of this type:
 }
 ```
 
-### Service software update
-
-completed
+### Service software update completed
 
 OpenSearch Service sends this event when a service software update has completed.
 
@@ -191,9 +180,7 @@ The following is an example event of this type:
 }
 ```
 
-### Service software update
-
-cancelled
+### Service software update cancelled
 
 OpenSearch Service sends this event when a service software update has been cancelled.
 
@@ -221,9 +208,7 @@ The following is an example event of this type:
 }
 ```
 
-### Scheduled service
-
-software update cancelled
+### Scheduled service software update cancelled
 
 OpenSearch Service sends this event when a service software update that was previously scheduled
 for the domain has been cancelled.
@@ -251,9 +236,7 @@ The following is an example event of this type:
 }
 ```
 
-### Service software update
-
-unexecuted
+### Service software update unexecuted
 
 OpenSearch Service sends this event when it can't initiate a service software update.
 
@@ -280,9 +263,7 @@ The following is an example event of this type:
 }
 ```
 
-### Service software update
-
-failed
+### Service software update failed
 
 OpenSearch Service sends this event when a service software update fails.
 
@@ -309,9 +290,7 @@ The following is an example event of this type:
 }
 ```
 
-### Service software update
-
-required
+### Service software update required
 
 OpenSearch Service sends this event when a service software update is required. For more
 information, see [Optional versus required updates](service-software.md#service-software-optional-required "service-software.md#service-software-optional-required").
@@ -407,9 +386,7 @@ The following is an example event of this type:
 }
 ```
 
-### Auto-Tune requires a scheduled
-
-blue/green deployment
+### Auto-Tune requires a scheduled blue/green deployment
 
 OpenSearch Service sends this event when Auto-Tune has identified tuning recommendations that
 require a scheduled blue/green deployment.
@@ -497,9 +474,7 @@ The following is an example event of this type:
 }
 ```
 
-### Auto-Tune disabled and changes
-
-reverted
+### Auto-Tune disabled and changes reverted
 
 OpenSearch Service sends this event when Auto-Tune has been disabled and the applied changes
 were rolled back.
@@ -529,9 +504,7 @@ The following is an example event of this type:
 }
 ```
 
-### Auto-Tune disabled and changes
-
-retained
+### Auto-Tune disabled and changes retained
 
 OpenSearch Service sends this event when Auto-Tune has been disabled and the applied changes
 were retained.
@@ -597,9 +570,7 @@ The following is an example event of this type:
 }
 ```
 
-### Red cluster recovery partially
-
-completed
+### Red cluster recovery partially completed
 
 OpenSearch Service sends this event when it was only able to restore a subset of red indexes
 from a snapshot while attempting to fix a red cluster status.
@@ -702,8 +673,7 @@ The following is an example event of this type:
 
 OpenSearch Service sends this event after your cluster status has been continuously red for 21
 days. It proceeds to delete the unassigned shards (storage and compute) on all red
-indexes. For details, see [Automatic
-remediation of red clusters](handling-errors.md#handling-errors-red-cluster-status-auto-recovery "handling-errors.md#handling-errors-red-cluster-status-auto-recovery").
+indexes. For details, see [Automatic remediation of red clusters](handling-errors.md#handling-errors-red-cluster-status-auto-recovery "handling-errors.md#handling-errors-red-cluster-status-auto-recovery").
 
 **Example**
 
@@ -764,9 +734,7 @@ The following is an example event of this type:
 }
 ```
 
-### Shard count limit
-
-exceeded
+### Shard count limit exceeded
 
 OpenSearch Service sends this event when the average shard count across your hot data nodes has
 exceeded the recommended default limit of 1,000. Although later versions of
@@ -922,9 +890,7 @@ The following is an example event of this type:
 }
 ```
 
-### Disk throughput
-
-throttle
+### Disk throughput throttle
 
 OpenSearch Service sends this event when read and write requests to your domain are being
 throttled due to the throughput limitations of your EBS volumes or EC2 instance. If
@@ -1061,9 +1027,7 @@ The following is an example event of this type:
 }
 ```
 
-### Custom index routing
-
-warning
+### Custom index routing warning
 
 OpenSearch Service sends this event when your domain is in processing state and contains indices
 with custom index.routing.allocation settings which can cause blue-green deployments
@@ -1315,9 +1279,7 @@ The following is an example event of this type:
 OpenSearch Service sends these events when a node replacement is required due to degraded hardware
 on a node.
 
-### Degraded node retirement
-
-notification
+### Degraded node retirement notification
 
 OpenSearch Service sends this event when the automated action to retire and replace a degraded
 node has been scheduled for your domain.
@@ -1347,9 +1309,7 @@ The following is an example event of this type:
 }
 ```
 
-### Degraded node retirement
-
-complete
+### Degraded node retirement complete
 
 OpenSearch Service sends this event when a degraded node has been retired and replaced with a
 new node.
@@ -1379,9 +1339,7 @@ The following is an example event of this type:
 }
 ```
 
-### Degraded node retirement
-
-failed
+### Degraded node retirement failed
 
 OpenSearch Service sends this event if the degraded node retirement failed.
 
@@ -1414,9 +1372,7 @@ The following is an example event of this type:
 
 OpenSearch Service sends events to EventBridge when one of the following domain errors occur.
 
-### Domain update validation
-
-failure
+### Domain update validation failure
 
 OpenSearch Service sends this event if it encounters one or more validation failures when
 attempting to update or perform a configuration change on a domain. For steps to
@@ -1477,9 +1433,7 @@ The following is an example event of this type:
 }
 ```
 
-### Domain
-
-isolation
+### Domain isolation
 
 OpenSearch Service sends this event when your domain becomes isolated and can't received, read,
 or write requests because it is unreachable by the network.

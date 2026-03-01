@@ -1,6 +1,4 @@
-# Amazon OpenSearch Serverless
-
-collections
+# Amazon OpenSearch Serverless collections
 
 A _collection_ in Amazon OpenSearch Serverless is a logical grouping of one
 or more indexes that represent an analytics workload. OpenSearch Serverless automatically manages and tunes

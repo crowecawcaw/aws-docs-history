@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion pipeline with
-
-Amazon Managed Streaming for Apache Kafka
+# Using an OpenSearch Ingestion pipeline with Amazon Managed Streaming for Apache Kafka
 
 You can use the [Kafka plugin](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/kafka/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/kafka/") to ingest data from [Amazon Managed Streaming for Apache Kafka](../../../msk/latest/developerguide.md "../../../msk/latest/developerguide.md") (Amazon MSK) into your OpenSearch Ingestion pipeline. With Amazon MSK, you can
 build and run applications that use Apache Kafka to process streaming data.
@@ -15,8 +13,7 @@ the prerequisite steps you must take before you set up your pipeline.
 - [Step 1: Configure a pipeline role](#msk-pipeline-role "#msk-pipeline-role")
 - [Step 2: Create the pipeline](#msk-pipeline "#msk-pipeline")
 - [Step 3: (Optional) Use the AWS Glue Schema Registry](#msk-glue "#msk-glue")
-- [Step 4: (Optional) Configure recommended compute units
-  (OCUs) for the Amazon MSK pipeline](#msk-ocu "#msk-ocu")
+- [Step 4: (Optional) Configure recommended compute units (OCUs) for the Amazon MSK pipeline](#msk-ocu "#msk-ocu")
 
 ## Provisioned Amazon MSK prerequisites
 
@@ -308,9 +305,7 @@ role. You can use the AWS managed policy called [AWSGlueSchemaRegistryReadonlyAc
 be in the same AWS account and Region as your OpenSearch Ingestion
 pipeline.
 
-## Step 4: (Optional) Configure recommended compute units
-
-(OCUs) for the Amazon MSK pipeline
+## Step 4: (Optional) Configure recommended compute units (OCUs) for the Amazon MSK pipeline
 
 Each compute unit has one consumer per topic. Brokers balance partitions among
 these consumers for a given topic. However, when the number of partitions is greater

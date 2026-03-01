@@ -121,8 +121,7 @@ the SDKs.
          the off-peak window is enabled for the domain. Schedules the update to take place
          during the domain's configured off-peak window. There's no guarantee that the
          update will happen during the next immediate window. Depending on capacity, it
-         might happen in subsequent days. For more information, see [Scheduling software updates during off-peak
-         windows](#service-software-offpeak "#service-software-offpeak").
+         might happen in subsequent days. For more information, see [Scheduling software updates during off-peak windows](#service-software-offpeak "#service-software-offpeak").
         * **Schedule for specific date and time** – Schedules
          the update to take place at a specific date and time. If the time that you specify
          is unavailable for capacity reasons, you can select a different time slot.
@@ -235,9 +234,7 @@ def main():
     getUpdateStatus(client)
 ```
 
-## Scheduling software updates during off-peak
-
-windows
+## Scheduling software updates during off-peak windows
 
 Each OpenSearch Service domain created after February 16, 2023 has a daily 10-hour window between 10:00
 P.M. and 8:00 A.M. local time that we consider the [off-peak
@@ -287,14 +284,11 @@ notification severity is `Informational` if the update is optional and
 
 OpenSearch Service also sends service software events to Amazon EventBridge. You can use EventBridge to configure rules
 that send an email or perform a specific action when an event is received. For an example walk
-through, see [Tutorial: Sending Amazon SNS alerts for available software
-updates](sns-events.md "sns-events.md").
+through, see [Tutorial: Sending Amazon SNS alerts for available software updates](sns-events.md "sns-events.md").
 
 To see the format of each service software event sent to Amazon EventBridge, see [Service software update events](monitoring-events.md#monitoring-events-sso "monitoring-events.md#monitoring-events-sso").
 
-## When domains are ineligible for an
-
-update
+## When domains are ineligible for an update
 
 Your domain is ineligible for a service software update if it's in any of the following
 states:

@@ -1,6 +1,4 @@
-# Creating GPU-accelerated vector
-
-indexes
+# Creating GPU-accelerated vector indexes
 
 After enabling GPU-acceleration on your domain or collection, create vector indexes that can take
 advantage of GPU processing.

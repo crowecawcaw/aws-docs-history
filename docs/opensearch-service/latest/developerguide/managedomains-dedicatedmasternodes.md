@@ -1,6 +1,4 @@
-# Dedicated master nodes in
-
-Amazon OpenSearch Service
+# Dedicated master nodes in Amazon OpenSearch Service
 
 Amazon OpenSearch Service uses _dedicated master nodes_ to increase cluster
 stability. A dedicated master node performs cluster management tasks, but does not hold
@@ -29,9 +27,7 @@ Dedicated master nodes perform the following cluster management tasks:
 
 ![OpenSearch Service domain with data nodes and dedicated master nodes, illustrating cluster management.](images/DedicatedMasterNodes_no-caption.png)
 
-## Choosing the number of dedicated
-
-master nodes
+## Choosing the number of dedicated master nodes
 
 We recommend that you use Multi-AZ with Standby, which adds **three** dedicated master nodes to each production OpenSearch Service domain. If you
 deploy with Multi-AZ without Standby or single-AZ, we still recommend three
@@ -81,9 +77,7 @@ If your cluster doesn't have the necessary quorum to elect a new master node,
 write _and_ read requests to the cluster both
 fail. This behavior differs from the OpenSearch default.
 
-## Choosing instance types for
-
-dedicated master nodes
+## Choosing instance types for dedicated master nodes
 
 ### OpenSearch Service domain and instance quotas
 

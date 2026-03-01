@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion pipeline with
-
-Amazon Security Lake
+# Using an OpenSearch Ingestion pipeline with Amazon Security Lake
 
 You can use the [S3 source plugin](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/s3/") to ingest data from [Amazon Security Lake](../../../security-lake/latest/userguide/what-is-security-lake.md "../../../security-lake/latest/userguide/what-is-security-lake.md") into your OpenSearch Ingestion pipeline. Security Lake automatically centralizes
 security data from AWS environments, on-premises environments, and SaaS providers into
@@ -14,7 +12,5 @@ Framework (OCSF) parquet files from Security Lake. For more information, see [Wo
 
 ###### Topics
 
-- [Using an OpenSearch Ingestion
-  pipeline with Amazon Security Lake as a source](configure-client-source-security-lake.md "configure-client-source-security-lake.md")
-- [Using an OpenSearch Ingestion
-  pipeline with Amazon Security Lake as a sink](configure-client-sink-security-lake.md "configure-client-sink-security-lake.md")
+- [Using an OpenSearch Ingestion pipeline with Amazon Security Lake as a source](configure-client-source-security-lake.md "configure-client-source-security-lake.md")
+- [Using an OpenSearch Ingestion pipeline with Amazon Security Lake as a sink](configure-client-sink-security-lake.md "configure-client-sink-security-lake.md")

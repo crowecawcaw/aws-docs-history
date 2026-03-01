@@ -8,9 +8,7 @@ includes primary shards as they existed when OpenSearch initiated the snapshot. 
 on the size of your snapshot thread pool, different shards might be included in the
 snapshot at slightly different times. For snapshot best practices, see [Improve snapshot performance](bp.md#bp-stability-snapshots "bp.md#bp-stability-snapshots").
 
-## Snapshot storage and
-
-performance
+## Snapshot storage and performance
 
 OpenSearch snapshots are incremental, meaning they only store data that changed
 since the last successful snapshot. This incremental nature means the difference in

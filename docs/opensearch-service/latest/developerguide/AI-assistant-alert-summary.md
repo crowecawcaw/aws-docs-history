@@ -1,6 +1,4 @@
-# View alert summaries and
-
-insights
+# View alert summaries and insights
 
 You can configure OpenSearch Service to create an alert monitor when data from one or more indexes
 meets certain conditions. To help you quickly understand and troubleshoot an alert, you
@@ -28,14 +26,10 @@ data set in **Discover** with an active filter for the alert data.
 
 ###### Topics
 
-- [Before you
-  begin](#AI-assistant-alert-summary-insight-setup "#AI-assistant-alert-summary-insight-setup")
-- [Viewing alert summaries
-  and insights](#AI-assistant-viewing-alert-summaries "#AI-assistant-viewing-alert-summaries")
+- [Before you begin](#AI-assistant-alert-summary-insight-setup "#AI-assistant-alert-summary-insight-setup")
+- [Viewing alert summaries and insights](#AI-assistant-viewing-alert-summaries "#AI-assistant-viewing-alert-summaries")
 
-## Before you
-
-begin
+## Before you begin
 
 Complete the following steps to configure an Amazon Bedrock knowledge base so that AI Assistant
 can create insights for OpenSearch Service alerts.
@@ -54,9 +48,7 @@ permission policy. On the **Add permissions** page, choose
 **Next**. For more information about creating a new role,
 see [Creating a role for an AWS service (console)](../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console "../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console").
 
-### Step 2: Map the LambdaInvokeOpenSearchMLCommonsRole role to the OpenSearch Service
-
-ml_full_access role
+### Step 2: Map the LambdaInvokeOpenSearchMLCommonsRole role to the OpenSearch Service ml_full_access role
 
 Use the following procedure to map the
 `LambdaInvokeOpenSearchMLCommonsRole` role to the OpenSearch Service
@@ -87,7 +79,7 @@ AWS CloudFormation so that AI Assistant can generate insights.
 ###### To configure a knowledge base for insights
 
 1. Sign in to the Amazon OpenSearch Service console [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home") in a supported
-   AWS Region. For more information, see [Supported AWS Regions](Amazon-Q-developer-support.md#Amazon-Q-developer-supported-regions "Amazon-Q-developer-support.md#Amazon-Q-developer-supported-regions").
+   AWS Region. For more information, see [Supported AWS Regions](AI-assistant-support.md#AI-assistant-supported-regions "AI-assistant-support.md#AI-assistant-supported-regions").
 2. In the navigation pane, choose
    **Integrations**.
 3. In the **Integration templates** section, choose the
@@ -106,9 +98,7 @@ AWS CloudFormation so that AI Assistant can generate insights.
 
 When applicable, AI Assistant now creates insights for OpenSearch Service alerts.
 
-## Viewing alert summaries
-
-and insights
+## Viewing alert summaries and insights
 
 Use the following procedure to view alert summaries and insights in OpenSearch Service.
 

@@ -1,6 +1,4 @@
-# Tutorial: Getting started with
-
-Amazon OpenSearch Serverless
+# Tutorial: Getting started with Amazon OpenSearch Serverless
 
 This tutorial walks you through the basic steps to get an Amazon OpenSearch Serverless
 _search_ collection up and running quickly. A search collection
@@ -63,8 +61,7 @@ JSON
 
 ```
 
-For more information about OpenSearch Serverless IAM permissions, see [Identity and Access Management for
-Amazon OpenSearch Serverless](security-iam-serverless.md "security-iam-serverless.md").
+For more information about OpenSearch Serverless IAM permissions, see [Identity and Access Management for Amazon OpenSearch Serverless](security-iam-serverless.md "security-iam-serverless.md").
 
 ## Step 2: Create a collection
 

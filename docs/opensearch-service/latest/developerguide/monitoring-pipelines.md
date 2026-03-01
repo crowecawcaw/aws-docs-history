@@ -1,6 +1,4 @@
-# Logging and monitoring Amazon OpenSearch Ingestion with
-
-Amazon CloudWatch
+# Logging and monitoring Amazon OpenSearch Ingestion with Amazon CloudWatch
 
 Amazon OpenSearch Ingestion publishes metrics and logs to Amazon CloudWatch.
 

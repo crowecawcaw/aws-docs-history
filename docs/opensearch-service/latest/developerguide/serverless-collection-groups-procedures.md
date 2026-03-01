@@ -1,6 +1,4 @@
-# Create collection
-
-groups
+# Create collection groups
 
 This topic describes how to create, configure, and manage collection groups in
 Amazon OpenSearch Serverless. Use collection groups to organize collections and share compute resources to
@@ -67,9 +65,7 @@ aws opensearchserverless create-collection-group \
 The command returns details about the created collection
 group, including its unique ID and ARN.
 
-## Add a new collection to a collection
-
-group
+## Add a new collection to a collection group
 
 When creating a new collection, specify an existing collection group name to
 associate the collection with. Use the following procedures to add a new collection

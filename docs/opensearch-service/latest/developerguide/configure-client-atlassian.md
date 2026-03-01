@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion pipeline with
-
-Atlassian Services
+# Using an OpenSearch Ingestion pipeline with Atlassian Services
 
 You can use the Atlassian Jira and Confluence source plugins to ingest data from Atlassian
 services into your OpenSearch Ingestion pipeline. These integrations enable you to create a
@@ -51,13 +49,11 @@ information accessibility and utilization within the organization.
 - [Prerequisites](#atlassian-prerequisites "#atlassian-prerequisites")
 - [Configure a pipeline role](#atlassian-pipeline-role "#atlassian-pipeline-role")
 - [Jira connector pipeline configuration](#jira-connector-pipeline "#jira-connector-pipeline")
-- [Confluence connector pipeline
-  configuration](#confluence-connector-pipeline "#confluence-connector-pipeline")
+- [Confluence connector pipeline configuration](#confluence-connector-pipeline "#confluence-connector-pipeline")
 - [Data consistency](#data-consistency "#data-consistency")
 - [Limitations](#limitations "#limitations")
 - [Metrics in CloudWatch for Atlassian connectors](#metrics "#metrics")
-- [Connecting an
-  Amazon OpenSearch Ingestion pipeline to Atlassian Jira or Confluence using OAuth 2.0](configure-client-atlassian-OAuth2-setup.md "configure-client-atlassian-OAuth2-setup.md")
+- [Connecting an Amazon OpenSearch Ingestion pipeline to Atlassian Jira or Confluence using OAuth 2.0](configure-client-atlassian-OAuth2-setup.md "configure-client-atlassian-OAuth2-setup.md")
 
 ## Prerequisites
 
@@ -72,8 +68,7 @@ Before you create your OpenSearch Ingestion pipeline, complete the following ste
       - [Manage API tokens for your Atlassian account](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/ "https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/")
 
    2. **Option 2: OAuth2** – Log in to
-      your Atlassian account and use the information in [Connecting an
-      Amazon OpenSearch Ingestion pipeline to Atlassian Jira or Confluence using OAuth 2.0](configure-client-atlassian-OAuth2-setup.md "configure-client-atlassian-OAuth2-setup.md").
+      your Atlassian account and use the information in [Connecting an Amazon OpenSearch Ingestion pipeline to Atlassian Jira or Confluence using OAuth 2.0](configure-client-atlassian-OAuth2-setup.md "configure-client-atlassian-OAuth2-setup.md").
 
 2. [Create a secret in
    AWS Secrets Manager](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") to store the credentials created in the previous step.
@@ -286,9 +281,7 @@ Key to attributes in the Jira source:
       synced. If you specify `exclude`, then all tickets except
       those with the listed excluded statuses will be synced.
 
-## Confluence connector pipeline
-
-configuration
+## Confluence connector pipeline configuration
 
 You can use a preconfigured Atlassian Confluence blueprint to create this pipeline.
 For more information, see [Working with blueprints](pipeline-blueprint.md "pipeline-blueprint.md").

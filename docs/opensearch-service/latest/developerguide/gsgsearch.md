@@ -60,9 +60,7 @@ You should see a response similar to the following:
 }
 ```
 
-## Search documents using OpenSearch
-
-Dashboards
+## Search documents using OpenSearch Dashboards
 
 OpenSearch Dashboards is a popular open source visualization tool designed to work with
 OpenSearch. It provides a helpful user interface for you to search and monitor

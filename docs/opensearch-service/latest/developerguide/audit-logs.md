@@ -20,8 +20,7 @@ learn more, see [Modifying the master user](fgac.md#fgac-forget "fgac.md#fgac-fo
 - [Limitations](#audit-logs-limitations "#audit-logs-limitations")
 - [Enabling audit logs](#audit-log-enabling "#audit-log-enabling")
 - [Enable audit logging using the AWS CLI](#audit-log-enabling-cli "#audit-log-enabling-cli")
-- [Enable audit logging using the configuration
-  API](#audit-log-enabling-api "#audit-log-enabling-api")
+- [Enable audit logging using the configuration API](#audit-log-enabling-api "#audit-log-enabling-api")
 - [Audit log layers and categories](#audit-log-layers "#audit-log-layers")
 - [Audit log settings](#audit-log-settings "#audit-log-settings")
 - [Audit log example](#audit-log-example "#audit-log-example")
@@ -46,9 +45,7 @@ meet your needs.
 
 If you encounter an error while following these steps, see [Can't enable audit logs](handling-errors.md#troubleshooting-audit-logs-error "handling-errors.md#troubleshooting-audit-logs-error") for troubleshooting information.
 
-### Step 1: Enable audit logs and configure an access
-
-policy
+### Step 1: Enable audit logs and configure an access policy
 
 These steps describe how to enable audit logs using the console. You can also [enable them using the AWS CLI](#audit-log-enabling-cli "#audit-log-enabling-cli"), or the [OpenSearch Service API](#audit-log-enabling-api "#audit-log-enabling-api").
 
@@ -105,9 +102,7 @@ For example, you could add the following condition block to the policy:
 
 5. Choose **Enable**.
 
-### Step 2: Turn on audit logs in
-
-OpenSearch Dashboards
+### Step 2: Turn on audit logs in OpenSearch Dashboards
 
 After you enable audit logs in the OpenSearch Service console, you _must_ also
 enable them in OpenSearch Dashboards and configure them to match your needs.
@@ -133,9 +128,7 @@ aws opensearch update-domain-config --domain-name `my-domain` --log-publishing-o
 You can also enable audit logs when you create a domain. For detailed information, see the
 [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md").
 
-## Enable audit logging using the configuration
-
-API
+## Enable audit logging using the configuration API
 
 The following request to the configuration API enables audit logs on an existing
 domain:

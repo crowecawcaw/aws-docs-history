@@ -1,6 +1,4 @@
-# Integrating Amazon OpenSearch Ingestion pipelines with other
-
-services and applications
+# Integrating Amazon OpenSearch Ingestion pipelines with other services and applications
 
 To successfully ingest data into an Amazon OpenSearch Ingestion pipeline, you must configure your
 client application (the _source_) to send data to the pipeline endpoint.
@@ -61,9 +59,7 @@ JSON
 To use the role for _all_ pipelines, replace the ARN in the
 `Resource` element with a wildcard (\*).
 
-### Providing cross-account ingestion
-
-access
+### Providing cross-account ingestion access
 
 ###### Note
 

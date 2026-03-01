@@ -1,6 +1,4 @@
-# Getting started with the OpenSearch user
-
-interface in Amazon OpenSearch Service
+# Getting started with the OpenSearch user interface in Amazon OpenSearch Service
 
 In Amazon OpenSearch Service, an _application_ is an instance of the OpenSearch
 user interface (OpenSearch UI). Each application can be associated with multiple data
@@ -13,15 +11,11 @@ OpenSearch UI application using the AWS Management Console or the AWS CLI.
 
 ###### Topics
 
-- [Required permissions for
-  creating Amazon OpenSearch Service applications](#application-prerequisite-permissions "#application-prerequisite-permissions")
+- [Required permissions for creating Amazon OpenSearch Service applications](#application-prerequisite-permissions "#application-prerequisite-permissions")
 - [Creating an OpenSearch UI application](#create-application "#create-application")
-- [Managing application
-  administrators](#managing-application-administrators "#managing-application-administrators")
+- [Managing application administrators](#managing-application-administrators "#managing-application-administrators")
 
-## Required permissions for
-
-creating Amazon OpenSearch Service applications
+## Required permissions for creating Amazon OpenSearch Service applications
 
 Before you create an application, verify that you have been granted the necessary
 permissions for the task. Contact an account administrator for assistance if
@@ -47,8 +41,7 @@ following policy. The permissions serve the following purposes:
   Amazon OpenSearch Service for creating a service-linked role (SLR) in your account. This
   role is used and makes it possible for the OpenSearch UI application
   to publish Amazon CloudWatch metrics in your account. For more information, see
-  [Permissions](slr-aos.md#slr-permissions "slr-aos.md#slr-permissions") in the topic [Using service-linked roles to create VPC domains and direct
-  query data sources](slr-aos.md "slr-aos.md").
+  [Permissions](slr-aos.md#slr-permissions "slr-aos.md#slr-permissions") in the topic [Using service-linked roles to create VPC domains and direct query data sources](slr-aos.md "slr-aos.md").
 
 JSON
 
@@ -95,9 +88,7 @@ JSON
 
 ```
 
-### Permissions to create an
-
-application that uses IAM Identity Center authentication (optional)
+### Permissions to create an application that uses IAM Identity Center authentication (optional)
 
 By default, dashboard applications are authenticated using AWS Identity and Access Management (IAM)
 to manage permissions for AWS resource users. However, you can choose to
@@ -182,22 +173,13 @@ and administrators using one of the following procedures.
 
 ###### Topics
 
-- [Creating an
-  OpenSearch UI application that uses IAM authentication in the
-  console](#create-application-iam-authentication-console "#create-application-iam-authentication-console")
-- [Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication
-  in the console](#create-application-iam-identity-center-authentication-console "#create-application-iam-identity-center-authentication-console")
-- [Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication
-  using the AWS CLI](#create-application-iam-identity-center-authentication-cli "#create-application-iam-identity-center-authentication-cli")
+- [Creating an OpenSearch UI application that uses IAM authentication in the console](#create-application-iam-authentication-console "#create-application-iam-authentication-console")
+- [Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication in the console](#create-application-iam-identity-center-authentication-console "#create-application-iam-identity-center-authentication-console")
+- [Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication using the AWS CLI](#create-application-iam-identity-center-authentication-cli "#create-application-iam-identity-center-authentication-cli")
 
-### Creating an
+### Creating an OpenSearch UI application that uses IAM authentication in the console
 
-OpenSearch UI application that uses IAM authentication in the
-console
-
-###### To create an OpenSearch UI application that uses IAM authentication
-
-in the console
+###### To create an OpenSearch UI application that uses IAM authentication in the console
 
 1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
 2. In the left navigation pane, choose **OpenSearch UI
@@ -207,8 +189,7 @@ in the console
    application.
 5. Do not select the **Authentication with IAM Identity Center** check
    box. For information about creating an application with authentication
-   through AWS IAM Identity Center, see [Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication
-   in the console](#create-application-iam-identity-center-authentication-console "#create-application-iam-identity-center-authentication-console") later in this topic.
+   through AWS IAM Identity Center, see [Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication in the console](#create-application-iam-identity-center-authentication-console "#create-application-iam-identity-center-authentication-console") later in this topic.
 6. (Optional) You are automatically added as an administrator of the
    application you are creating. In the **OpenSearch application
    admins management** area, you can grant administrator
@@ -245,18 +226,13 @@ Tags are optional metadata that you assign to a resource. Tags allow
 you to categorize a resource in different ways, such as by purpose,
 owner, or environment. 9. Choose **Create**.
 
-### Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication
-
-in the console
+### Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication in the console
 
 In order create an OpenSearch UI application that uses AWS IAM Identity Center
 authentication, you must have the IAM permissions described earlier in this
-topic in [Permissions to create an
-application that uses IAM Identity Center authentication (optional)](#prerequisite-permissions-idc "#prerequisite-permissions-idc").
+topic in [Permissions to create an application that uses IAM Identity Center authentication (optional)](#prerequisite-permissions-idc "#prerequisite-permissions-idc").
 
-###### To create an OpenSearch UI application that uses AWS IAM Identity Center
-
-authentication in the console
+###### To create an OpenSearch UI application that uses AWS IAM Identity Center authentication in the console
 
 1.  Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
 2.  In the left navigation pane, choose **OpenSearch UI
@@ -420,8 +396,7 @@ authentication in the console
     Currently, OpenSearch UI applications can be created
     only in the same AWS Region as your IAM Identity Center organizational
     instance. For information about accessing data sources in
-    that Region after you create the application, see [Cross-Region and cross-account data
-    access with cross-cluster search](application-cross-cluster-search.md "application-cross-cluster-search.md").
+    that Region after you create the application, see [Cross-Region and cross-account data access with cross-cluster search](application-cross-cluster-search.md "application-cross-cluster-search.md").
 
         * [Organization instances of IAM Identity Center](../../../singlesignon/latest/userguide/organization-instances-identity-center.md "../../../singlesignon/latest/userguide/organization-instances-identity-center.md")
         * [Account instances of IAM Identity Center](../../../singlesignon/latest/userguide/account-instances-identity-center.md "../../../singlesignon/latest/userguide/account-instances-identity-center.md")
@@ -464,9 +439,7 @@ Tags are optional metadata that you assign to a resource. Tags allow
 you to categorize a resource in different ways, such as by purpose,
 owner, or environment. 8. Choose **Create**.
 
-### Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication
-
-using the AWS CLI
+### Creating an OpenSearch UI application that uses AWS IAM Identity Center authentication using the AWS CLI
 
 To create an OpenSearch UI application that uses AWS IAM Identity Center authentication
 using the AWS CLI, use the [create-application](../../../cli/latest/reference/opensearch/create-application.md "../../../cli/latest/reference/opensearch/create-application.md") command with the following options:
@@ -491,9 +464,7 @@ aws opensearch create-application \
     "
 ```
 
-## Managing application
-
-administrators
+## Managing application administrators
 
 An OpenSearch UI application administrator is a defined role with permission to
 edit and delete an OpenSearch UI application.
@@ -501,9 +472,7 @@ edit and delete an OpenSearch UI application.
 By default, as the creator of an OpenSearch UI application, you are the first
 administrator of the OpenSearch UI application.
 
-### Managing
-
-OpenSearch UI administrators using the console
+### Managing OpenSearch UI administrators using the console
 
 You can add additional administrators to an OpenSearch UI application in the
 AWS Management Console, either during the application creation workflow or in the
@@ -544,24 +513,17 @@ On an application detail page, you can search for the Amazon Resource Name
 You can remove additional administrators, but each OpenSearch UI application
 must retain at least one administrator.
 
-### Managing OpenSearch
-
-UI administrators using the AWS CLI
+### Managing OpenSearch UI administrators using the AWS CLI
 
 You can create and update OpenSearch UI application administrators using the
 AWS CLI.
 
-#### Creating
-
-OpenSearch UI administrators using the AWS CLI
+#### Creating OpenSearch UI administrators using the AWS CLI
 
 The following are examples of adding IAM principals and IAM Identity Center users as
 administrators when creating an OpenSearch UI application.
 
-##### Example 1: Create an
-
-OpenSearch UI application that adds an IAM user as an
-administrator
+##### Example 1: Create an OpenSearch UI application that adds an IAM user as an administrator
 
 Run the following command to create an OpenSearch UI application
 that adds an IAM user as an administrator. Replace the
@@ -579,11 +541,7 @@ aws opensearch create-application \
     "
 ```
 
-##### Example 2:
-
-Create an OpenSearch UI application that enables IAM Identity Center and adds an
-IAM Identity Center user ID as an OpenSearch UI application
-administrator
+##### Example 2: Create an OpenSearch UI application that enables IAM Identity Center and adds an IAM Identity Center user ID as an OpenSearch UI application administrator
 
 Run the following command to create an OpenSearch UI application
 that enables IAM Identity Center and adds an IAM Identity Center user ID as an OpenSearch UI
@@ -617,18 +575,13 @@ aws opensearch create-application \
     "
 ```
 
-#### Updating
-
-OpenSearch UI administrators using the AWS CLI
+#### Updating OpenSearch UI administrators using the AWS CLI
 
 The following are examples of updating the IAM principals and IAM Identity Center
 users assigned as administrators for an existing OpenSearch
 application.
 
-##### Example 1: Add an
-
-IAM user as an administrator for an existing OpenSearch
-application
+##### Example 1: Add an IAM user as an administrator for an existing OpenSearch application
 
 Run the following command to update an OpenSearch UI application to
 add an IAM user as an administrator. Replace the
@@ -646,10 +599,7 @@ aws opensearch update-application \
     "
 ```
 
-##### Example
-
-2: Update an OpenSearch UI application to add an IAM Identity Center user ID as
-an OpenSearch UI application administrator
+##### Example 2: Update an OpenSearch UI application to add an IAM Identity Center user ID as an OpenSearch UI application administrator
 
 Run the following command to update an OpenSearch UI application to
 add an IAM Identity Center user ID as an OpenSearch UI application administrator.

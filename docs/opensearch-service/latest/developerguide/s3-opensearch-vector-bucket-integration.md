@@ -1,6 +1,4 @@
-# Import from Amazon S3
-
-Vectors to OpenSearch Serverless
+# Import from Amazon S3 Vectors to OpenSearch Serverless
 
 Amazon S3 Vectors delivers the first cloud object store with native support to store
 and query vectors. S3 Vectors provides cost-effective, elastic, and durable vector
@@ -53,9 +51,7 @@ integration when you need:
   cases, while others leverage OpenSearch integration for performance-critical
   operations.
 
-## Integration
-
-architecture
+## Integration architecture
 
 The integration uses Amazon OpenSearch Ingestion (OSI) as the data pipeline between
 Amazon S3 vector indexes and Amazon OpenSearch Serverless vector collections. OpenSearch Ingestion
@@ -104,9 +100,7 @@ The integration prioritizes cost efficiency through:
 - OpenSearch Serverless collection scaling
 - Pay-per-use resource model
 
-## Required IAM
-
-permissions
+## Required IAM permissions
 
 The integration requires careful configuration of IAM permissions to enable
 secure communication between services. OpenSearch Ingestion needs permissions to read
@@ -247,9 +241,7 @@ JSON
 
 ```
 
-## Configuring Amazon S3 Vectors
-
-integration with OpenSearch
+## Configuring Amazon S3 Vectors integration with OpenSearch
 
 Use the following procedure to configure Amazon S3 Vectors integration with
 OpenSearch Serverless.
@@ -277,8 +269,7 @@ following procedure aren't applicable, as noted in the procedure.
    ARN** field.
 3. In the **Service access** section, choose an option.
    If you choose an existing role, verify it has all required permissions
-   for integration as described in [Required IAM
-   permissions](#vector-search-iam-permissions "#vector-search-iam-permissions").
+   for integration as described in [Required IAM permissions](#vector-search-iam-permissions "#vector-search-iam-permissions").
 4. (Optional) Expand **Additional settings**. For
    **Enable redundancy (active replicas)** we
    recommend leaving this option selected for production environments. When

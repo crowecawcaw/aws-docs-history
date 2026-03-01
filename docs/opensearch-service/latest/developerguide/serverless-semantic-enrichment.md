@@ -1,6 +1,4 @@
-# Automatic semantic
-
-enrichment for Serverless
+# Automatic semantic enrichment for Serverless
 
 ## Introduction
 
@@ -137,9 +135,7 @@ This process uses OpenSearch's built-in ML connectors and ingest pipelines, whic
 Search: The semantic enrichment data is already indexed, so queries run efficiently without invoking the ML model again.
 This means you get improved search relevance with no additional search latency overhead.
 
-## Configuring permissions
-
-for automatic semantic enrichment
+## Configuring permissions for automatic semantic enrichment
 
 Before creating an automated semantic enrichment index, you need to configure the
 required permissions. This section explains the permissions needed and how to set
@@ -183,20 +179,15 @@ JSON
   `"Resource": "*"` with the collection's
   ARN
 
-### Configure data
-
-access permissions
+### Configure data access permissions
 
 To set up an index for automatic semantic enrichment, you must have
 appropriate data access policies that grant permission to access index,
 pipeline, and model collection resources. For more information about data access
 policies, see [Data access control for Amazon OpenSearch Serverless](serverless-data-access.md "serverless-data-access.md"). For the procedure to configure a
-data access policy, see [Creating data access policies
-(console)](serverless-data-access.md#serverless-data-access-console "serverless-data-access.md#serverless-data-access-console").
+data access policy, see [Creating data access policies (console)](serverless-data-access.md#serverless-data-access-console "serverless-data-access.md#serverless-data-access-console").
 
-#### Data access
-
-permissions
+#### Data access permissions
 
 ```
 [
@@ -250,9 +241,7 @@ permissions
 ]
 ```
 
-#### Network
-
-access permissions
+#### Network access permissions
 
 To allow service APIs to access private collections, you must configure
 network policies that permit the required access between the service API and
@@ -278,9 +267,7 @@ the collection. For more information about network policies, see [Network access
 ]
 ```
 
-###### To configure network access permissions for a private
-
-collection
+###### To configure network access permissions for a private collection
 
 1. Sign in to the OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
 2. In the left navigation, choose _Network

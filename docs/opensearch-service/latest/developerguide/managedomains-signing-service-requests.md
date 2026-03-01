@@ -1,6 +1,4 @@
-# Making and signing OpenSearch Service
-
-requests
+# Making and signing OpenSearch Service requests
 
 Even if you configure a completely open resource-based access policy, _all_ requests to the OpenSearch Service configuration API must be signed.
 If your policies specify IAM roles or users, requests to the OpenSearch APIs also
@@ -44,8 +42,7 @@ response = client.update_domain_config(
 )
 ```
 
-For a Java code sample, see [Using the AWS SDKs to interact with
-Amazon OpenSearch Service](configuration-samples.md "configuration-samples.md").
+For a Java code sample, see [Using the AWS SDKs to interact with Amazon OpenSearch Service](configuration-samples.md "configuration-samples.md").
 
 - To make calls to the OpenSearch APIs, you must sign your own requests. The
   OpenSearch APIs use the following format:

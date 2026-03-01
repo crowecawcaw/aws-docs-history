@@ -82,9 +82,7 @@ self-managed OpenSearch is the correct choice for you.
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | • Your organization is willing to, and has people with the<br>correct skills to, manually monitor and maintain<br>self-provisioned clusters.<br>• You want full, compile-level control of your code.<br>• Your organization prefers, or uniquely uses, open source<br>software.<br>• You have a multi-cloud strategy, requiring technologies<br>that aren't vendor-specific.<br>• Your team is capable of addressing any critical production<br>issues.<br>• You want the flexibility to use, modify, and extend the<br>product however you want.<br>• You want immediate access to new features as soon as<br>they’re released. | • You don’t want to manually manage, monitor, and maintain<br>your infrastructure.<br>• You want simple ways to manage growing analytics costs by<br>layering your data across storage tiers, taking advantage of<br>the durability and low cost of Amazon S3.<br>• You want to take advantage of integrations with other<br>AWS services such as DynamoDB, Amazon DocumentDB (with MongoDB<br>compatibility), IAM, CloudWatch, and CloudFormation.<br>• You want easy access to assistance from Support for<br>preventative maintenance and during production<br>issues.<br>• You want to take advantage of features such as<br>self-healing, proactive maintenance, resiliency, and<br>backups. |
 
-## Supported versions of Elasticsearch and
-
-OpenSearch
+## Supported versions of Elasticsearch and OpenSearch
 
 OpenSearch Service supports the following versions of **OpenSearch**:
 
@@ -142,9 +140,7 @@ The end of support schedule for OpenSearch versions is as follows:
 | OpenSearch versions 2.3 to 2.9               | November 7, 2025        | November 7, 2026        |
 | OpenSearch versions 2.11 and higher versions | Not announced           | Not announced           |
 
-## Standard support and extended
-
-support of OpenSearch and Elasticsearch
+## Standard support and extended support of OpenSearch and Elasticsearch
 
 AWS provides regular bug fixes and security updates for versions covered under
 Standard Support. For versions under Extended Support, AWS provides critical security
@@ -213,8 +209,7 @@ OpenSearch Service commonly is used with the following services:
 [Amazon CloudWatch](../../../cloudwatch.md "../../../cloudwatch.md")
 
 OpenSearch Service domains automatically send metrics to CloudWatch so that you can monitor
-domain health and performance. For more information, see [Monitoring OpenSearch cluster metrics with
-Amazon CloudWatch](managedomains-cloudwatchmetrics.md "managedomains-cloudwatchmetrics.md").
+domain health and performance. For more information, see [Monitoring OpenSearch cluster metrics with Amazon CloudWatch](managedomains-cloudwatchmetrics.md "managedomains-cloudwatchmetrics.md").
 
 CloudWatch Logs can also go the other direction. You might configure CloudWatch Logs to stream
 data to OpenSearch Service for analysis. To learn more, see [Loading streaming data from Amazon CloudWatch](integrations-cloudwatch.md "integrations-cloudwatch.md").
@@ -222,8 +217,7 @@ data to OpenSearch Service for analysis. To learn more, see [Loading streaming d
 [AWS CloudTrail](../../../cloudtrail.md "../../../cloudtrail.md")
 
 Use AWS CloudTrail to get a history of the OpenSearch Service configuration API calls and
-related events for your account. For more information, see [Monitoring Amazon OpenSearch Service API calls with
-AWS CloudTrail](managedomains-cloudtrailauditing.md "managedomains-cloudtrailauditing.md").
+related events for your account. For more information, see [Monitoring Amazon OpenSearch Service API calls with AWS CloudTrail](managedomains-cloudtrailauditing.md "managedomains-cloudtrailauditing.md").
 
 [Amazon Kinesis](../../../kinesis.md "../../../kinesis.md")
 
@@ -252,11 +246,11 @@ Amazon DynamoDB is a fully managed NoSQL database service that provides fast and
 predictable performance with seamless scalability. To learn more about
 streaming data to OpenSearch Service, see [Loading streaming data from Amazon DynamoDB](integrations-dynamodb.md "integrations-dynamodb.md").
 
-[Amazon Quick Suite](../../../quicksight.md "../../../quicksight.md")
+[Amazon Quick](../../../quicksight.md "../../../quicksight.md")
 
-You can visualize data from OpenSearch Service using Quick Suite dashboards. For more
+You can visualize data from OpenSearch Service using Quick dashboards. For more
 information, see [Using Amazon OpenSearch Service with
-Quick Suite](../../../quicksight/latest/user/connecting-to-es.md "../../../quicksight/latest/user/connecting-to-es.md") in the _Quick Suite User
+Quick](../../../quicksight/latest/user/connecting-to-es.md "../../../quicksight/latest/user/connecting-to-es.md") in the _Quick User
 Guide_.
 
 ###### Note

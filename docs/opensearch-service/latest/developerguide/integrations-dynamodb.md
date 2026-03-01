@@ -16,8 +16,7 @@ Before proceeding, you must have the following resources.
 
 ## Create the Lambda function
 
-Follow the instructions in [Create the Lambda
-deployment package](integrations-s3-lambda.md#integrations-s3-lambda-deployment-package "integrations-s3-lambda.md#integrations-s3-lambda-deployment-package"), but create a directory
+Follow the instructions in [Create the Lambda deployment package](integrations-s3-lambda.md#integrations-s3-lambda-deployment-package "integrations-s3-lambda.md#integrations-s3-lambda-deployment-package"), but create a directory
 named `ddb-to-opensearch` and use the following code for
 `sample.py`:
 

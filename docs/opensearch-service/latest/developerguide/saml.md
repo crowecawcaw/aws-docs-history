@@ -141,9 +141,7 @@ If you have a master user or internal user configured with a robust password,
 keeping the policy open while using fine-grained access control might be acceptable
 from a security standpoint. For more information, see [Fine-grained access control in Amazon OpenSearch Service](fgac.md "fgac.md").
 
-## Configuring SP- or IdP-initiated
-
-authentication
+## Configuring SP- or IdP-initiated authentication
 
 These steps explain how to enable SAML authentication with SP-initiated
 _or_ IdP-initiated authentication for OpenSearch Dashboards. For the
@@ -161,9 +159,7 @@ Within the domain configuration, under **SAML authentication for
 OpenSearch Dashboards/Kibana**, select **Enable SAML
 authentication**.
 
-### Step 2: Configure your identity
-
-provider
+### Step 2: Configure your identity provider
 
 Perform the following steps depending on when you're configuring SAML
 authentication.
@@ -209,9 +205,7 @@ Entity ID)** fields, which enables you to generate the metadata.
 Then, after the domain is active, you can retrieve the correct values from OpenSearch Service
 and update them in Okta. For instructions, see [Step 6: Update your IdP URLs](#saml-update-urls "#saml-update-urls").
 
-#### If you're editing an existing
-
-domain
+#### If you're editing an existing domain
 
 If you're enabling SAML authentication on an existing domain, copy the service
 provider entity ID and one of the SSO URLs. For guidance on which URL to use,
@@ -341,9 +335,7 @@ assertions. Assertions look something like this:
 </saml2:Assertion>
 ```
 
-### Step 5: (Optional) Configure additional
-
-settings
+### Step 5: (Optional) Configure additional settings
 
 Under **Additional settings**, configure the following optional
 fields:
@@ -425,9 +417,7 @@ PATCH _plugins/_security/api/rolesmapping
 ]
 ```
 
-## Configuring both SP- and IdP-initiated
-
-authentication
+## Configuring both SP- and IdP-initiated authentication
 
 If you want to configure both SP- and IdP-initiated authentication, you must do so
 through your identity provider. For example, in Okta, you can perform the following
@@ -459,9 +449,7 @@ use `<KeyDescriptor use=\"signing\">\n` instead of `<KeyDescriptor
  use="signing">` and a line break. For detailed information about using the
 AWS CLI, see the [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md").
 
-## Configuring SAML authentication (configuration
-
-API)
+## Configuring SAML authentication (configuration API)
 
 The following request to the configuration API enables SAML authentication for
 OpenSearch Dashboards on an existing domain:

@@ -1,6 +1,4 @@
-# Unsupported Machine Learning APIs and
-
-features
+# Unsupported Machine Learning APIs and features
 
 ## Unsupported APIs
 

@@ -32,8 +32,7 @@ domains.
 - [Cross-cluster search pricing](#cross-cluster-search-pricing "#cross-cluster-search-pricing")
 - [Setting up a connection](#cross-cluster-search-set-up-connection "#cross-cluster-search-set-up-connection")
 - [Removing a connection](#cross-cluster-search-remove-connection "#cross-cluster-search-remove-connection")
-- [Setting up security and sample
-  walkthrough](#cross-cluster-search-walkthrough "#cross-cluster-search-walkthrough")
+- [Setting up security and sample walkthrough](#cross-cluster-search-walkthrough "#cross-cluster-search-walkthrough")
 - [OpenSearch Dashboards](#cross-cluster-search-dashboards "#cross-cluster-search-dashboards")
 
 ## Limitations
@@ -136,9 +135,7 @@ You can't delete a domain with active cross-cluster connections. To delete a dom
 remove all incoming and outgoing connections from that domain. This ensures you take into
 account the cross-cluster domain users before deleting the domain.
 
-## Setting up security and sample
-
-walkthrough
+## Setting up security and sample walkthrough
 
 1. You send a cross-cluster search request to the source domain.
 2. The source domain evaluates that request against its domain access policy. Because

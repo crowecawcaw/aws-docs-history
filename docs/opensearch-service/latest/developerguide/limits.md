@@ -51,9 +51,7 @@ and warm node count. storage that each type can use.
 | 2<br>• AZ        | 668                  | 500                   | 668                        |
 | 3<br>• AZ        | 1002                 | 750                   | 1002                       |
 
-## Total node limit by instance
-
-family
+## Total node limit by instance family
 
 The following table lists the total node limit by instance family.
 

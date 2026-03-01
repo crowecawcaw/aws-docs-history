@@ -1,6 +1,4 @@
-# Access Amazon OpenSearch Serverless using an interface endpoint
-
-(AWS PrivateLink)
+# Access Amazon OpenSearch Serverless using an interface endpoint (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your VPC and Amazon OpenSearch Serverless.
 You can access OpenSearch Serverless as if it were in your VPC, without the use of an internet gateway, NAT

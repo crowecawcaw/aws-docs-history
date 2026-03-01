@@ -1,15 +1,11 @@
-# Using an OpenSearch Ingestion pipeline with
-
-Confluent Cloud Kafka
+# Using an OpenSearch Ingestion pipeline with Confluent Cloud Kafka
 
 You can use an OpenSearch Ingestion pipeline to stream data from Confluent Cloud Kafka clusters
 to Amazon OpenSearch Service domains and OpenSearch Serverless collections. OpenSearch Ingestion supports both public and private
 network configurations for the streaming of data from Confluent Cloud Kafka clusters to
 domains or collections managed by OpenSearch Service or OpenSearch Serverless.
 
-## Connectivity to Confluent Cloud public
-
-Kafka clusters
+## Connectivity to Confluent Cloud public Kafka clusters
 
 You can use OpenSearch Ingestion pipelines to migrate data from a Confluent Cloud Kafka
 cluster with a public configuration, which means that the domain DNS name can be
@@ -63,12 +59,9 @@ JSON
 ```
 
 To create an IAM role with the correct permissions to access write data
-to the collection or domain, see [Setting up roles and users in
-Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
+to the collection or domain, see [Setting up roles and users in Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
 
-### Step 1: Configure the
-
-pipeline role
+### Step 1: Configure the pipeline role
 
 After you have your Confluent Cloud Kafka cluster pipeline prerequisites set up,
 [configure the pipeline role](pipeline-security-overview.md#pipeline-security-sink "pipeline-security-overview.md#pipeline-security-sink") that
@@ -162,9 +155,7 @@ The following permissions are needed to write to an Amazon OpenSearch Service do
 }
 ```
 
-### Step 2: Create the
-
-pipeline
+### Step 2: Create the pipeline
 
 You can then configure an OpenSearch Ingestion pipeline like the following, which
 specifies your Confluent Cloud Kafka as the source.
@@ -219,9 +210,7 @@ kafka-pipeline:
 You can use a preconfigured blueprint to create this pipeline. For more
 information, see [Working with blueprints](pipeline-blueprint.md "pipeline-blueprint.md").
 
-### Connectivity to Confluent Cloud Kafka
-
-clusters in a VPC
+### Connectivity to Confluent Cloud Kafka clusters in a VPC
 
 You can also use OpenSearch Ingestion pipelines to migrate data from a Confluent Cloud
 Kafka cluster running in a VPC. To do so, set up an OpenSearch Ingestion pipeline with a
@@ -326,12 +315,9 @@ JSON
 ```
 
 To create an IAM role with the correct permissions to access write data
-to the collection or domain, see [Setting up roles and users in
-Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
+to the collection or domain, see [Setting up roles and users in Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
 
-#### Step 1: Configure the
-
-pipeline role
+#### Step 1: Configure the pipeline role
 
 After you have your pipeline prerequisites set up, [configure the pipeline role](pipeline-security-overview.md#pipeline-security-sink "pipeline-security-overview.md#pipeline-security-sink") that you
 want to use in your pipeline configuration, and add the following permissions in
@@ -403,9 +389,7 @@ create the OpenSearch Ingestion pipeline because the pipeline uses these permiss
 create and delete a network interface in your VPC. The pipeline can only access the
 Kafka cluster through this network interface.
 
-#### Step 2: Create the
-
-pipeline
+#### Step 2: Create the pipeline
 
 You can then configure an OpenSearch Ingestion pipeline like the following, which
 specifies Kafka as the source.

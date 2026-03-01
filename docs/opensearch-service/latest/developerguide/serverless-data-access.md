@@ -13,27 +13,19 @@ OpenSearch Dashboards URL.
 
 ###### Topics
 
-- [Data access policies versus IAM
-  policies](#serverless-data-access-vs-iam "#serverless-data-access-vs-iam")
-- [IAM permissions required to
-  configure data access policies](#serverless-data-access-permissions "#serverless-data-access-permissions")
+- [Data access policies versus IAM policies](#serverless-data-access-vs-iam "#serverless-data-access-vs-iam")
+- [IAM permissions required to configure data access policies](#serverless-data-access-permissions "#serverless-data-access-permissions")
 - [Policy syntax](#serverless-data-access-syntax "#serverless-data-access-syntax")
-- [Supported policy
-  permissions](#serverless-data-supported-permissions "#serverless-data-supported-permissions")
-- [Sample datasets on
-  OpenSearch Dashboards](#serverless-data-sample-index "#serverless-data-sample-index")
-- [Creating data access policies
-  (console)](#serverless-data-access-console "#serverless-data-access-console")
-- [Creating data access policies
-  (AWS CLI)](#serverless-data-access-cli "#serverless-data-access-cli")
+- [Supported policy permissions](#serverless-data-supported-permissions "#serverless-data-supported-permissions")
+- [Sample datasets on OpenSearch Dashboards](#serverless-data-sample-index "#serverless-data-sample-index")
+- [Creating data access policies (console)](#serverless-data-access-console "#serverless-data-access-console")
+- [Creating data access policies (AWS CLI)](#serverless-data-access-cli "#serverless-data-access-cli")
 - [Viewing data access policies](#serverless-data-access-list "#serverless-data-access-list")
 - [Updating data access policies](#serverless-data-access-update "#serverless-data-access-update")
 - [Deleting data access policies](#serverless-data-access-delete "#serverless-data-access-delete")
 - [Cross-account data access](#serverless-data-access-cross "#serverless-data-access-cross")
 
-## Data access policies versus IAM
-
-policies
+## Data access policies versus IAM policies
 
 Data access policies are logically separate from AWS Identity and Access Management (IAM) policies. IAM
 permissions control access to the [serverless API
@@ -95,12 +87,9 @@ _also_ be granted access to the IAM permissions
 permissions grant full access to collection resources, while the Dashboards
 permission also provides access to OpenSearch Dashboards. If a principal doesn't have
 both of these IAM permissions, they will receive 403 errors when attempting to
-send requests to the collection. For more information, see [Using OpenSearch
-API operations](security-iam-serverless.md#security_iam_id-based-policy-examples-data-plane "security-iam-serverless.md#security_iam_id-based-policy-examples-data-plane").
+send requests to the collection. For more information, see [Using OpenSearch API operations](security-iam-serverless.md#security_iam_id-based-policy-examples-data-plane "security-iam-serverless.md#security_iam_id-based-policy-examples-data-plane").
 
-## IAM permissions required to
-
-configure data access policies
+## IAM permissions required to configure data access policies
 
 Data access control for OpenSearch Serverless uses the following IAM permissions. You can specify
 IAM conditions to restrict users to specific access policy names.
@@ -153,8 +142,7 @@ JSON
 
 In addition, OpenSearch Serverless requires the `aoss:APIAccessAll` and
 `aoss:DashboardsAccessAll` permissions for collection resources. For
-more information, see [Using OpenSearch
-API operations](security-iam-serverless.md#security_iam_id-based-policy-examples-data-plane "security-iam-serverless.md#security_iam_id-based-policy-examples-data-plane").
+more information, see [Using OpenSearch API operations](security-iam-serverless.md#security_iam_id-based-policy-examples-data-plane "security-iam-serverless.md#security_iam_id-based-policy-examples-data-plane").
 
 ## Policy syntax
 
@@ -164,7 +152,7 @@ A data access policy includes a set of rules, each with the following elements:
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------- | ------------ |
 | `ResourceType` | The type of resource (collection or index) that the permissions apply<br>to. Alias and template permissions are at the collection level, while<br>permissions for creating, modifying, and searching data are at the index<br>level. For more information, see [Supported policy<br>permissions](#serverless-data-supported-permissions "#serverless-data-supported-permissions").                                                                                                                       |
 | `Resource`     | A list of resource names and/or patterns. Patterns are prefixes<br>followed by a wildcard (\*), which allow the associated permissions to<br>apply to multiple resources.<br>• Collections take the format<br>`collection/`<name                                                                                                                                                                                                                                                                         | pattern>``.<br>• Indexes take the format<br>`index/`<collection-name | pattern>`/`<index-name | pattern/>``. |
-| `Permission`   | A list of permissions to grant for the specified resources. For a<br>complete list of permissions and the API operations they allow, see<br>[Supported OpenSearch API operations and<br>permissions](serverless-genref.md#serverless-operations "serverless-genref.md#serverless-operations").                                                                                                                                                                                                           |
+| `Permission`   | A list of permissions to grant for the specified resources. For a<br>complete list of permissions and the API operations they allow, see<br>[Supported OpenSearch API operations and permissions](serverless-genref.md#serverless-operations "serverless-genref.md#serverless-operations").                                                                                                                                                                                                              |
 | `Principal`    | A list of one or more principals to grant access to. Principals can<br>be IAM role ARNs or SAML identities. These principals must be within<br>the current AWS account. Data access policies don't directly support<br>cross-account access, but you can include a role in your policy that a<br>user from a different AWS account can assume in the collection-owning<br>account. For more information, see [Cross-account data access](#serverless-data-access-cross "#serverless-data-access-cross"). |
 
 The following example policy grants alias and template permissions to the collection
@@ -220,13 +208,10 @@ _both_ permissions. If a third policy grants the same user
 the associated index; more restrictive permissions don't override less restrictive
 ones.
 
-## Supported policy
-
-permissions
+## Supported policy permissions
 
 The following permissions are supported in data access policies. For the OpenSearch
-API operations that each permission allows, see [Supported OpenSearch API operations and
-permissions](serverless-genref.md#serverless-operations "serverless-genref.md#serverless-operations").
+API operations that each permission allows, see [Supported OpenSearch API operations and permissions](serverless-genref.md#serverless-operations "serverless-genref.md#serverless-operations").
 
 **Collection permissions**
 
@@ -246,9 +231,7 @@ permissions](serverless-genref.md#serverless-operations "serverless-genref.md#se
 - `aoss:DescribeIndex`
 - `aoss:*`
 
-## Sample datasets on
-
-OpenSearch Dashboards
+## Sample datasets on OpenSearch Dashboards
 
 OpenSearch Dashboards provides [sample datasets](https://opensearch.org/docs/latest/dashboards/quickstart-dashboards/#adding-sample-data "https://opensearch.org/docs/latest/dashboards/quickstart-dashboards/#adding-sample-data") that come with visualizations, dashboards, and other tools
 to help you explore Dashboards before you add your own data. To create indexes from this
@@ -279,9 +262,7 @@ permissions to all three sample datasets.
 ]
 ```
 
-## Creating data access policies
-
-(console)
+## Creating data access policies (console)
 
 You can create a data access policy using the visual editor, or in JSON format. Any
 new collections that match one of the patterns defined in the policy will be assigned
@@ -308,8 +289,7 @@ In order to select principals from the dropdown menus, you must have the
 (for IAM principals) and `aoss:ListSecurityConfigs` permission
 (for SAML identities). 7. Choose **Grant** and select the alias, template, and index
 permissions to grant the associated principals. For a full list of permissions
-and the access they allow, see [Supported OpenSearch API operations and
-permissions](serverless-genref.md#serverless-operations "serverless-genref.md#serverless-operations"). 8. (Optional) Configure additional rules for the policy. 9. Choose **Create**. There might be about a minute of lag time
+and the access they allow, see [Supported OpenSearch API operations and permissions](serverless-genref.md#serverless-operations "serverless-genref.md#serverless-operations"). 8. (Optional) Configure additional rules for the policy. 9. Choose **Create**. There might be about a minute of lag time
 between when you create the policy and when the permissions are enforced. If it
 takes more than 5 minutes, contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").
 
@@ -322,9 +302,7 @@ you might still see a message for matching collections stating `Collection
 principals can still perform their assigned index-related operations on the
 collection.
 
-## Creating data access policies
-
-(AWS CLI)
+## Creating data access policies (AWS CLI)
 
 To create a data access policy using the OpenSearch Serverless API, use the
 `CreateAccessPolicy` command. The command accepts both inline policies

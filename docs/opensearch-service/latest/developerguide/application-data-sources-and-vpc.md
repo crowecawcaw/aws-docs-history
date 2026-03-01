@@ -1,33 +1,23 @@
-# Managing data source associations and
-
-Virtual Private Cloud access permissions
+# Managing data source associations and Virtual Private Cloud access permissions
 
 Use the procedures in this section to manage data source associations and to configure
 any needed access permissions for a virtual private cloud (VPC).
 
 ###### Topics
 
-- [Associating a data source with
-  an OpenSearch UI application](#application-data-source-association "#application-data-source-association")
-- [Managing access to domains in a
-  VPC](#application-manage-vpc-access "#application-manage-vpc-access")
+- [Associating a data source with an OpenSearch UI application](#application-data-source-association "#application-data-source-association")
+- [Managing access to domains in a VPC](#application-manage-vpc-access "#application-manage-vpc-access")
 - [Configuring access to OpenSearch Serverless collections in a VPC](#application-configure-vpc-access-serverless-connections "#application-configure-vpc-access-serverless-connections")
 
-## Associating a data source with
-
-an OpenSearch UI application
+## Associating a data source with an OpenSearch UI application
 
 After creating an OpenSearch UI application, you can use the console or AWS CLI to
 associate it with one or more data sources. After this, end-users can retrieve data
 from these data sources for searching, working with dashboards, and so on.
 
-### Associate a data source
+### Associate a data source with an OpenSearch UI application (console)
 
-with an OpenSearch UI application (console)
-
-###### To associate a data source with an OpenSearch UI application using the
-
-console
+###### To associate a data source with an OpenSearch UI application using the console
 
 1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
 2. Choose **OpenSearch UI (Dashboards)**, and then
@@ -41,8 +31,7 @@ console
 
 If you are not finding the data sources you are looking for,
 contact your administrators to grant you the necessary permission.
-For more information, see [Permissions to create an
-application that uses IAM Identity Center authentication (optional)](application-getting-started.md#prerequisite-permissions-idc "application-getting-started.md#prerequisite-permissions-idc"). 5. Choose **Next**, and then choose
+For more information, see [Permissions to create an application that uses IAM Identity Center authentication (optional)](application-getting-started.md#prerequisite-permissions-idc "application-getting-started.md#prerequisite-permissions-idc"). 5. Choose **Next**, and then choose
 **Save**.
 
 After you have associated a data source with the application, the
@@ -53,17 +42,13 @@ manage workspaces.
 
 For information about working with workspaces, see [Using Amazon OpenSearch Service workspaces](application-workspaces.md "application-workspaces.md").
 
-## Managing access to domains in a
-
-VPC
+## Managing access to domains in a VPC
 
 If an OpenSearch domain in a VPC was associated with the application, a VPC
 administrator must authorize access between OpenSearch UI and VPC using the
 console or AWS CLI.
 
-### Managing access to
-
-domains in a VPC (console)
+### Managing access to domains in a VPC (console)
 
 ###### To configure the access to a VPC domain using the AWS Management Console:
 
@@ -80,9 +65,7 @@ details for the domain. 3. Choose the **VPC endpoints** tab, and then choose
 and then choose **OpenSearch applications
 (Dashboard)** from the list. 5. Choose **Authorize**.
 
-### Managing access to domains
-
-in a VPC (AWS CLI)
+### Managing access to domains in a VPC (AWS CLI)
 
 ###### To authorize a VPC domain using the AWS CLI
 
@@ -131,9 +114,7 @@ to the collection.
 
 ### Configuring access to OpenSearch Serverless collections in a VPC (console)
 
-###### To configure access to OpenSearch Serverless collections in a VPC using the
-
-console
+###### To configure access to OpenSearch Serverless collections in a VPC using the console
 
 1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
 2. In the left navigation, choose **Network policies**,
@@ -155,9 +136,7 @@ collections to associate with the network policy. 7. Choose **Create** for a new
 
 ### Configuring access to OpenSearch Serverless collections in a VPC (AWS CLI)
 
-###### To configure access to OpenSearch Serverless collections in a VPC using the
-
-AWS CLI
+###### To configure access to OpenSearch Serverless collections in a VPC using the AWS CLI
 
 1. Create a .json file similar to the following. Replace the
    `placeholder values` with your own

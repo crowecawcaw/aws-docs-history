@@ -1,6 +1,4 @@
-# Managing time-series data in Amazon OpenSearch Service with data
-
-streams
+# Managing time-series data in Amazon OpenSearch Service with data streams
 
 A typical workflow to manage time-series data involves multiple steps, such as creating a
 rollover index alias, defining a write index, and defining common mappings and settings for
@@ -75,9 +73,7 @@ POST logs-staging/_doc
 }
 ```
 
-### Step 3: Ingest data into the data
-
-stream
+### Step 3: Ingest data into the data stream
 
 To ingest data into a data stream, you can use the regular indexing APIs. Make
 sure every document that you index has a timestamp field. If you try to ingest a
@@ -132,9 +128,7 @@ The write index for a data stream can't be migrated to cold storage. If you
 wish to migrate data in your data stream to cold storage, you must rollover the
 data stream before migration.
 
-### Step 6: Manage data streams in
-
-OpenSearch Dashboards
+### Step 6: Manage data streams in OpenSearch Dashboards
 
 To manage data streams from OpenSearch Dashboards, open **OpenSearch
 Dashboards**, choose **Index Management**, select

@@ -37,26 +37,18 @@ The following are key features of OpenSearch UI:
   OpenSearch UI can utilize the cross-cluster search feature to connect with
   OpenSearch domains in different accounts and different Regions for aggregated
   analysis and visualizations.
-  To get started and create your first OpenSearch UI, follow the instructions in [Getting started with the OpenSearch user
-  interface in Amazon OpenSearch Service](application-getting-started.md "application-getting-started.md").
+  To get started and create your first OpenSearch UI, follow the instructions in [Getting started with the OpenSearch user interface in Amazon OpenSearch Service](application-getting-started.md "application-getting-started.md").
 
-For information about the latest features released for OpenSearch UI, see [Amazon OpenSearch Service user interface release
-history](application-release-history.md "application-release-history.md").
+For information about the latest features released for OpenSearch UI, see [Amazon OpenSearch Service user interface release history](application-release-history.md "application-release-history.md").
 
 ###### Topics
 
-- [Amazon OpenSearch Service user interface release
-  history](application-release-history.md "application-release-history.md")
-- [Getting started with the OpenSearch user
-  interface in Amazon OpenSearch Service](application-getting-started.md "application-getting-started.md")
+- [Amazon OpenSearch Service user interface release history](application-release-history.md "application-release-history.md")
+- [Getting started with the OpenSearch user interface in Amazon OpenSearch Service](application-getting-started.md "application-getting-started.md")
 - [Encrypting OpenSearch UI application metadata with customer managed keys](application-encryption-cmk.md "application-encryption-cmk.md")
-- [Enabling SAML federation
-  with AWS Identity and Access Management](application-enable-SAML-identity-federation.md "application-enable-SAML-identity-federation.md")
-- [Managing data source associations and
-  Virtual Private Cloud access permissions](application-data-sources-and-vpc.md "application-data-sources-and-vpc.md")
+- [Enabling SAML federation with AWS Identity and Access Management](application-enable-SAML-identity-federation.md "application-enable-SAML-identity-federation.md")
+- [Managing data source associations and Virtual Private Cloud access permissions](application-data-sources-and-vpc.md "application-data-sources-and-vpc.md")
 - [Using Amazon OpenSearch Service workspaces](application-workspaces.md "application-workspaces.md")
-- [Cross-Region and cross-account data
-  access with cross-cluster search](application-cross-cluster-search.md "application-cross-cluster-search.md")
-- [Managing access to the
-  OpenSearch UI from a VPC endpoint](application-access-ui-from-vpc-endpoint.md "application-access-ui-from-vpc-endpoint.md")
+- [Cross-Region and cross-account data access with cross-cluster search](application-cross-cluster-search.md "application-cross-cluster-search.md")
+- [Managing access to the OpenSearch UI from a VPC endpoint](application-access-ui-from-vpc-endpoint.md "application-access-ui-from-vpc-endpoint.md")
 - [OpenSearch UI endpoints and quotas](opensearch-ui-endpoints-quotas.md "opensearch-ui-endpoints-quotas.md")

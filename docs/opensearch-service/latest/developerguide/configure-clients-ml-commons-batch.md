@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion pipeline with
-
-machine learning offline batch inference
+# Using an OpenSearch Ingestion pipeline with machine learning offline batch inference
 
 Amazon OpenSearch Ingestion (OSI) pipelines support machine learning (ML) offline batch inference
 processing to efficiently enrich large volumes of data at low cost. Use offline batch inference
@@ -10,8 +8,7 @@ OpenSearch Ingestion with OpenSearch Service 2.17+ domains.
 
 ###### Note
 
-For real-time inference processing, use [Amazon OpenSearch Service ML connectors for third-party
-platforms](ml-external-connector.md "ml-external-connector.md").
+For real-time inference processing, use [Amazon OpenSearch Service ML connectors for third-party platforms](ml-external-connector.md "ml-external-connector.md").
 
 Offline batch inference processing leverages a feature of OpenSearch called ML Commons.
 _ML Commons_ provides ML algorithms through transport and REST API calls.
@@ -75,9 +72,7 @@ The pipeline components work as follows:
 
 \*The process described by Pipeline 1 is optional. If you prefer, you can skip that process and simply upload your prepared data in the S3 sink to create batch jobs.
 
-## About the
-
-ml_inference processor
+## About the ml_inference processor
 
 OpenSearch Ingestion uses a specialized integration between the S3 Scan source and ML inference
 processor for batch processing. The S3 Scan operates in metadata-only mode to efficiently
@@ -131,9 +126,7 @@ processor:
         ml_when: /bucket == "`amzn-s3-demo-bucket`"
 ```
 
-### Ingestion
-
-performance improvements using the ml_inference processor
+### Ingestion performance improvements using the ml_inference processor
 
 The OpenSearch Ingestion `ml_inference` processor significantly enhances data
 ingestion performance for ML-enabled search. The processor is ideally suited for use cases
@@ -152,9 +145,7 @@ billion source data requests, it creates 100 S3 files for ML batch inference inp
 billion requests in 14 hours—a task that would be virtually impossible to accomplish in
 real-time mode.
 
-## Configure the ml_inference
-
-processor to ingest data requests for a semantic search
+## Configure the ml_inference processor to ingest data requests for a semantic search
 
 The following procedures walk you through the process of setting up and configuring the
 OpenSearch Ingestion `ml_inference` processor to ingest one billion data requests for
@@ -162,24 +153,16 @@ semantic search using a text embedding model.
 
 ###### Topics
 
-- [Step 1: Create
-  connectors and register models in OpenSearch](#configure-clients-ml-commons-configuring-create-connectors "#configure-clients-ml-commons-configuring-create-connectors")
-- [Step 2: Create an
-  OpenSearch Ingestion pipeline for ML offline batch inference](#configure-clients-ml-commons-configuring-pipeline "#configure-clients-ml-commons-configuring-pipeline")
-- [Step 3: Prepare your data
-  for ingestion](#configure-clients-ml-commons-configuring-data "#configure-clients-ml-commons-configuring-data")
-- [Step 4: Monitor the batch
-  inference job](#configure-clients-ml-commons-configuring-monitor "#configure-clients-ml-commons-configuring-monitor")
-- [Step 5: Run
-  search](#configure-clients-ml-commons-configuring-semantic-search "#configure-clients-ml-commons-configuring-semantic-search")
+- [Step 1: Create connectors and register models in OpenSearch](#configure-clients-ml-commons-configuring-create-connectors "#configure-clients-ml-commons-configuring-create-connectors")
+- [Step 2: Create an OpenSearch Ingestion pipeline for ML offline batch inference](#configure-clients-ml-commons-configuring-pipeline "#configure-clients-ml-commons-configuring-pipeline")
+- [Step 3: Prepare your data for ingestion](#configure-clients-ml-commons-configuring-data "#configure-clients-ml-commons-configuring-data")
+- [Step 4: Monitor the batch inference job](#configure-clients-ml-commons-configuring-monitor "#configure-clients-ml-commons-configuring-monitor")
+- [Step 5: Run search](#configure-clients-ml-commons-configuring-semantic-search "#configure-clients-ml-commons-configuring-semantic-search")
 
-### Step 1: Create
-
-connectors and register models in OpenSearch
+### Step 1: Create connectors and register models in OpenSearch
 
 For the following procedure, use the ML Commons [batch_inference_sagemaker_connector_blueprint](https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/batch_inference_sagemaker_connector_blueprint.md "https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/batch_inference_sagemaker_connector_blueprint.md") to create a connector and model in
-Amazon SageMaker. If you prefer to use OpenSearch CloudFormation integration templates, see [(Alternative procedure) Step 1: Create connectors and models using an CloudFormation integration
-template](#configure-clients-ml-commons-configuring-create-connectors-alternative "#configure-clients-ml-commons-configuring-create-connectors-alternative")
+Amazon SageMaker. If you prefer to use OpenSearch CloudFormation integration templates, see [(Alternative procedure) Step 1: Create connectors and models using an CloudFormation integration template](#configure-clients-ml-commons-configuring-create-connectors-alternative "#configure-clients-ml-commons-configuring-create-connectors-alternative")
 later in this section.
 
 ###### To create connectors and register models in OpenSearch
@@ -379,18 +362,13 @@ The response contains the task status:
 }
 ```
 
-#### (Alternative procedure) Step 1: Create connectors and models using an CloudFormation integration
-
-template
+#### (Alternative procedure) Step 1: Create connectors and models using an CloudFormation integration template
 
 If you prefer, you can use AWS CloudFormation to automatically create all required Amazon SageMaker
 connectors and models for ML inference. This approach simplifies setup by using a
-preconfigured template available in the Amazon OpenSearch Service console. For more information, see [Using CloudFormation to set up remote inference for semantic
-search](cfn-template.md "cfn-template.md").
+preconfigured template available in the Amazon OpenSearch Service console. For more information, see [Using CloudFormation to set up remote inference for semantic search](cfn-template.md "cfn-template.md").
 
-###### To deploy an CloudFormation stack that creates all the required SageMaker connectors and
-
-models
+###### To deploy an CloudFormation stack that creates all the required SageMaker connectors and models
 
 1. Open the Amazon OpenSearch Service console.
 2. In the navigation pane, choose **Integrations**.
@@ -408,9 +386,7 @@ models
    **model_id**. You will need these values later when you configure the
    pipeline.
 
-### Step 2: Create an
-
-OpenSearch Ingestion pipeline for ML offline batch inference
+### Step 2: Create an OpenSearch Ingestion pipeline for ML offline batch inference
 
 Use the following sample to create an OpenSearch Ingestion pipeline for ML offline batch
 inference. For more information about creating a pipeline for OpenSearch Ingestion, see [Creating Amazon OpenSearch Ingestion pipelines](creating-pipeline.md "creating-pipeline.md").
@@ -513,9 +489,7 @@ sagemaker-batch-job-pipeline:
     - ml-ingest-route: /chapter != null and /title != null
 ```
 
-### Step 3: Prepare your data
-
-for ingestion
+### Step 3: Prepare your data for ingestion
 
 To prepare your data for ML offline batch inference processing, either prepare the data
 yourself using your own tools or processes or use the [OpenSearch Data
@@ -549,9 +523,7 @@ for batch inference input. The pipeline supports various [data sources](https://
 into S3 files. These files are then automatically processed by AI servers through scheduled
 offline batch jobs, ensuring continuous data processing and ingestion.
 
-### Step 4: Monitor the batch
-
-inference job
+### Step 4: Monitor the batch inference job
 
 You can monitor the batch inference jobs using the SageMaker console or the AWS CLI. You can
 also use the Get Task API to monitor batch jobs:
@@ -634,9 +606,7 @@ The API returns a list of active batch job tasks:
 }
 ```
 
-### Step 5: Run
-
-search
+### Step 5: Run search
 
 After monitoring the batch inference job and confirming it completed, you can run
 various types of AI searches, including semantic, hybrid, conversational (with RAG), neural

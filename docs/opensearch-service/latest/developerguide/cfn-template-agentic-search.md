@@ -1,6 +1,4 @@
-# Configuring Agentic Search with
-
-Bedrock Claude
+# Configuring Agentic Search with Bedrock Claude
 
 Agentic search leverages autonomous agents to execute complex searches on your
 behalf by understanding user intent, orchestrating the right tools, generating
@@ -12,17 +10,14 @@ Follow the steps below to open and run a CloudFormation template that automatica
 configures Bedrock Claude models for agentic search, and how to configure and create
 your agents in the AI Search Flows plugin on OpenSearch Dashboards.
 
-## Enabling Bedrock Claude
-
-Access
+## Enabling Bedrock Claude Access
 
 1. **Prerequisite:** If your domain
    uses fine-grained access control, map
    `arn:aws:iam::`your-account-id`:role/`LambdaInvokeOpenSearchMLCommonsRole``as a backend role to the`ml_full_access` role before
    running the template. This IAM role will be created automatically by
    CloudFormation if it doesn't already exist. For more information on
-   how to configure the mapping, see [Map the ML role in OpenSearch Dashboards
-   (if using fine-grained access control)](ml-external-connector.md#connector-external-fgac "ml-external-connector.md#connector-external-fgac").
+   how to configure the mapping, see [Map the ML role in OpenSearch Dashboards (if using fine-grained access control)](ml-external-connector.md#connector-external-fgac "ml-external-connector.md#connector-external-fgac").
 2. Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
 3. In the left navigation, choose
    **Integrations**.
@@ -38,9 +33,7 @@ Access
    select your domain. Click the **OpenSearch Dashboards
    URL** to access OpenSearch Dashboards.
 
-## Building agents and running
-
-Agentic Search
+## Building agents and running Agentic Search
 
 1. From OpenSearch Dashboards, open the menu on the left-hand side. Select
    **OpenSearch Plugins** > **AI Search

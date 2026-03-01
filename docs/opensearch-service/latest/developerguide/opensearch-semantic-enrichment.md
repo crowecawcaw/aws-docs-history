@@ -1,6 +1,4 @@
-# Automatic semantic enrichment for
-
-Amazon OpenSearch Service
+# Automatic semantic enrichment for Amazon OpenSearch Service
 
 ## Introduction
 
@@ -134,18 +132,14 @@ This process uses OpenSearch's built-in ML connectors and ingest pipelines, whic
 Search: The semantic enrichment data is already indexed, so queries run efficiently without invoking the ML model again.
 This means you get improved search relevance with no additional search latency overhead.
 
-## Configuring permissions for
-
-automatic semantic enrichment
+## Configuring permissions for automatic semantic enrichment
 
 Before creating an index with automatic semantic enrichment, you need to configure the
 required permissions. This section explains the permissions needed for different index
 operations and how to set them up for both AWS Identity and Access Management (IAM) and fine-grained access
 control scenarios.
 
-### IAM
-
-permissions
+### IAM permissions
 
 The following IAM permissions are required for automatic semantic enrichment
 operations. These permissions vary depending on the specific index operation you
@@ -179,9 +173,7 @@ following IAM permissions:
 - `es:ESHttpPost` – Perform POST requests for index
   operations.
 
-#### GetIndex
-
-API permissions
+#### GetIndex API permissions
 
 To retrieve information about an index with automatic semantic enrichment, you
 need the following IAM permissions:
@@ -201,9 +193,7 @@ IAM permissions:
 - `es:ESHttpDelete` – Perform DELETE requests for
   index removal.
 
-### Sample IAM
-
-policy
+### Sample IAM policy
 
 The following sample identity-based access policy provides the permissions
 necessary for a user to manage indexes with automatic semantic enrichment:
@@ -237,9 +227,7 @@ Replace `aws-region`, `111122223333`, and
 further restrict access by specifying particular index patterns in the resource
 ARN.
 
-### Fine-grained
-
-access control permissions
+### Fine-grained access control permissions
 
 If your Amazon OpenSearch Service domain has fine-grained access control enabled, you need
 additional permissions beyond the IAM permissions. The following permissions are
@@ -289,9 +277,7 @@ enrichment:
 - `cluster:admin/search/pipeline/get` – Retrieve
   search pipeline information.
 
-#### GetIndex
-
-API permissions
+#### GetIndex API permissions
 
 When fine-grained access control is enabled, the following additional
 permissions are required for retrieving information about an index with

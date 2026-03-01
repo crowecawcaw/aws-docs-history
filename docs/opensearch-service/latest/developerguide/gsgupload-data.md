@@ -35,9 +35,7 @@ OpenSearch Service, see [Indexing data in Amazon OpenSearch Service](indexing.md
 
 ## Option 2: Upload multiple documents
 
-###### To upload a JSON file that contains multiple documents to an OpenSearch Service
-
-domain
+###### To upload a JSON file that contains multiple documents to an OpenSearch Service domain
 
 1. Create a local file called `bulk_movies.json`. Paste the
    following content into the file and add a trailing newline:

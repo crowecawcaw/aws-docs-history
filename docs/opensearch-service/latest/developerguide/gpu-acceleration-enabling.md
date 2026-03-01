@@ -4,8 +4,7 @@ You can enable GPU-acceleration when creating or updating an OpenSearch domain o
 with the AWS Management Console, AWS CLI, or AWS SDK.
 
 Once you enable GPU-acceleration on your domain or collection, this feature is enabled by default on
-all indexes. If you need to disable this feature at the index level, see [Creating GPU-accelerated vector
-indexes](gpu-acceleration-creating-indexes.md "gpu-acceleration-creating-indexes.md").
+all indexes. If you need to disable this feature at the index level, see [Creating GPU-accelerated vector indexes](gpu-acceleration-creating-indexes.md "gpu-acceleration-creating-indexes.md").
 
 ## Console
 
@@ -31,15 +30,13 @@ Edit existing domain
 6. Choose **Save changes**.
 
 Create new collection
-To create an OpenSearch Serverless collection with GPU-acceleration enabled, see [Tutorial: Getting started with
-Amazon OpenSearch Serverless](serverless-getting-started.md "serverless-getting-started.md"). During collection creation, ensure you select the **Vector search** collection type and enable GPU-acceleration in the vector search configuration.
+To create an OpenSearch Serverless collection with GPU-acceleration enabled, see [Tutorial: Getting started with Amazon OpenSearch Serverless](serverless-getting-started.md "serverless-getting-started.md"). During collection creation, ensure you select the **Vector search** collection type and enable GPU-acceleration in the vector search configuration.
 
 Edit existing collection
 
 ###### Note
 
-Updating the GPU-acceleration status on an OpenSearch Serverless collection is not currently supported through the console. However, you can specify the index setting to enable GPU-acceleration for a specific index even if the collection-level status cannot be updated. See [Creating GPU-accelerated vector
-indexes](gpu-acceleration-creating-indexes.md "gpu-acceleration-creating-indexes.md") for index-level configuration. If enabling GPU-acceleration for an index fails, contact AWS Support.
+Updating the GPU-acceleration status on an OpenSearch Serverless collection is not currently supported through the console. However, you can specify the index setting to enable GPU-acceleration for a specific index even if the collection-level status cannot be updated. See [Creating GPU-accelerated vector indexes](gpu-acceleration-creating-indexes.md "gpu-acceleration-creating-indexes.md") for index-level configuration. If enabling GPU-acceleration for an index fails, contact AWS Support.
 
 ### AWS CLI
 
@@ -112,8 +109,7 @@ Edit existing collection
 
 ###### Note
 
-Updating the GPU-acceleration status on an OpenSearch Serverless collection is not currently supported through the console. However, you can specify the index setting to enable GPU-acceleration for a specific index even if the collection-level status cannot be updated. See [Creating GPU-accelerated vector
-indexes](gpu-acceleration-creating-indexes.md "gpu-acceleration-creating-indexes.md") for index-level configuration. If enabling GPU-acceleration for an index fails, contact AWS Support.
+Updating the GPU-acceleration status on an OpenSearch Serverless collection is not currently supported through the console. However, you can specify the index setting to enable GPU-acceleration for a specific index even if the collection-level status cannot be updated. See [Creating GPU-accelerated vector indexes](gpu-acceleration-creating-indexes.md "gpu-acceleration-creating-indexes.md") for index-level configuration. If enabling GPU-acceleration for an index fails, contact AWS Support.
 
 The following AWS CLI example enables GPU-acceleration for an existing OpenSearch Serverless
 collection. Replace the `text` with that of

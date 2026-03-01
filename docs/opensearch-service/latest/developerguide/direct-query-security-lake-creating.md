@@ -1,6 +1,4 @@
-# Creating an Amazon Security Lake data
-
-source integration in OpenSearch Service
+# Creating an Amazon Security Lake data source integration in OpenSearch Service
 
 You can use Amazon OpenSearch Serverless to directly query security data in
 Amazon Security Lake. To do this, you create a data source that enables you to use OpenSearch
@@ -14,8 +12,7 @@ using on-demand indexing.
 - [Prerequisites](#direct-query-s3security-lake-prereq "#direct-query-s3security-lake-prereq")
 - [Procedure](#direct-query-security-lake-create "#direct-query-security-lake-create")
 - [Next steps](#direct-query-security-lake-next-steps "#direct-query-security-lake-next-steps")
-- [Additional
-  resources](#direct-query-security-lake-additional-resources "#direct-query-security-lake-additional-resources")
+- [Additional resources](#direct-query-security-lake-additional-resources "#direct-query-security-lake-additional-resources")
 
 ## Prerequisites
 
@@ -60,9 +57,7 @@ AWS account:
 You can set up a data source to connect with a Security Lake database from within the
 AWS Management Console.
 
-### To set
-
-up a data source using the AWS Management Console
+### To set up a data source using the AWS Management Console
 
 1. Navigate to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/](https://console.aws.amazon.com/aos/ "https://console.aws.amazon.com/aos/").
 2. In the left navigation pane, go to **Central
@@ -125,21 +120,16 @@ OpenSearch.
 
 ## Next steps
 
-### Visit
-
-OpenSearch Dashboards and create a dashboard
+### Visit OpenSearch Dashboards and create a dashboard
 
 After you create a data source, OpenSearch Service provides you with an OpenSearch
 Dashboards URL. You use this to query your data using SQL or PPL. The Security Lake
 integration comes with pre-packaged query templates for SQL and PPL to get
 you get started analyzing your logs.
 
-For more information, see [Configuring and querying a
-Security Lake data source in OpenSearch Dashboards](direct-query-security-lake-configure.md "direct-query-security-lake-configure.md").
+For more information, see [Configuring and querying a Security Lake data source in OpenSearch Dashboards](direct-query-security-lake-configure.md "direct-query-security-lake-configure.md").
 
-## Additional
-
-resources
+## Additional resources
 
 ### Required permissions for manually created IAM roles
 
@@ -248,9 +238,7 @@ source, it is recommended you not adjust the access of this role. **If you delet
 deleted**. This will remove access for any other users if they
 are mapped to the role.
 
-### Querying Security Lake data that's
-
-encrypted with a customer managed key
+### Querying Security Lake data that's encrypted with a customer managed key
 
 If the Security Lake bucket associated with the data connection is
 encrypted using server-side encryption with a customer managed

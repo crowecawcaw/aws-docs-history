@@ -171,9 +171,7 @@ optionally replace `ism-snapshot`,
 which will be the name of snapshot when it's created. 7. Choose **Create**. The policy is now visible
 on the **State management policies** page.
 
-## Step 2: Attach the policy to one or more
-
-indexes
+## Step 2: Attach the policy to one or more indexes
 
 Now that you created your policy, attach it to one or more indexes in your
 cluster.

@@ -20,19 +20,15 @@ a matching data access policy that grants permission to its resources.
 - [Encryption policies](#serverless-security-encryption "#serverless-security-encryption")
 - [Network policies](#serverless-security-network "#serverless-security-network")
 - [Data access policies](#serverless-security-data-access "#serverless-security-data-access")
-- [IAM and SAML
-  authentication](#serverless-security-authentication "#serverless-security-authentication")
+- [IAM and SAML authentication](#serverless-security-authentication "#serverless-security-authentication")
 - [Infrastructure security](#serverless-infrastructure-security "#serverless-infrastructure-security")
 - [Getting started with security in Amazon OpenSearch Serverless](serverless-tutorials.md "serverless-tutorials.md")
-- [Identity and Access Management for
-  Amazon OpenSearch Serverless](security-iam-serverless.md "security-iam-serverless.md")
+- [Identity and Access Management for Amazon OpenSearch Serverless](security-iam-serverless.md "security-iam-serverless.md")
 - [Encryption in Amazon OpenSearch Serverless](serverless-encryption.md "serverless-encryption.md")
 - [Network access for Amazon OpenSearch Serverless](serverless-network.md "serverless-network.md")
-- [FIPS compliance in
-  Amazon OpenSearch Serverless](fips-compliance-opensearch-serverless.md "fips-compliance-opensearch-serverless.md")
+- [FIPS compliance in Amazon OpenSearch Serverless](fips-compliance-opensearch-serverless.md "fips-compliance-opensearch-serverless.md")
 - [Data access control for Amazon OpenSearch Serverless](serverless-data-access.md "serverless-data-access.md")
-- [Access Amazon OpenSearch Serverless using an interface endpoint
-  (AWS PrivateLink)](serverless-vpc.md "serverless-vpc.md")
+- [Access Amazon OpenSearch Serverless using an interface endpoint (AWS PrivateLink)](serverless-vpc.md "serverless-vpc.md")
 - [SAML authentication for Amazon OpenSearch Serverless](serverless-saml.md "serverless-saml.md")
 - [Compliance validation for Amazon OpenSearch Serverless](serverless-compliance-validation.md "serverless-compliance-validation.md")
 
@@ -111,9 +107,7 @@ section.
 Switching from Public to Private Access for your collection, will remove the
 Indexes Tab in the OpenSearch Serverless Collection Console.
 
-## IAM and SAML
-
-authentication
+## IAM and SAML authentication
 
 IAM principals and SAML identities are one of the building blocks of a data access
 policy. Within the `principal` statement of an access policy, you can include

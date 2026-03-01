@@ -3,8 +3,7 @@
 You can use OpenSearch Ingestion to directly load [streaming data](http://aws.amazon.com/streaming-data/ "http://aws.amazon.com/streaming-data/") into your Amazon OpenSearch Service
 domain, without needing to use third-party solutions. To send data to OpenSearch Ingestion, you
 configure your data producers and the service automatically delivers the data to the domain
-or collection that you specify. To get started with OpenSearch Ingestion, see [Tutorial: Ingesting data into a collection
-using Amazon OpenSearch Ingestion](osis-serverless-get-started.md "osis-serverless-get-started.md").
+or collection that you specify. To get started with OpenSearch Ingestion, see [Tutorial: Ingesting data into a collection using Amazon OpenSearch Ingestion](osis-serverless-get-started.md "osis-serverless-get-started.md").
 
 You can still use other sources to load streaming data, such as Amazon Data Firehose and Amazon CloudWatch Logs,
 which have built-in support for OpenSearch Service. Others, like Amazon S3, Amazon Kinesis Data Streams, and Amazon DynamoDB, use

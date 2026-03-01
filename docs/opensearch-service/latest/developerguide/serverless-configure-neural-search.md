@@ -1,6 +1,4 @@
-# Configure Neural Search and Hybrid
-
-Search on OpenSearch Serverless
+# Configure Neural Search and Hybrid Search on OpenSearch Serverless
 
 ## Neural Search
 
@@ -45,9 +43,7 @@ Documentation_ website.
 
 - Hybrid query
 
-## Neural and hybrid
-
-queries
+## Neural and hybrid queries
 
 By default, OpenSearch calculates document scores using the keyword-based Okapi BM25
 algorithm, which works well for search queries that contain keywords. Neural Search
@@ -97,13 +93,10 @@ website. Keep in mind these important differences:
 - Expect up to 15 seconds of latency when you search against your vector index
   or search for recently created search and ingest pipelines.
 
-## Configure
-
-permissions
+## Configure permissions
 
 Neural Search in OpenSearch Serverless requires the following permissions. For more information, see
-[Supported policy
-permissions](serverless-data-access.md#serverless-data-supported-permissions "serverless-data-access.md#serverless-data-supported-permissions").
+[Supported policy permissions](serverless-data-access.md#serverless-data-supported-permissions "serverless-data-access.md#serverless-data-supported-permissions").
 
 ###### Example: Neural search policy
 

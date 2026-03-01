@@ -48,7 +48,7 @@ Operating an OpenSearch Service domain within a VPC has the following limitation
 - To access the default installation of OpenSearch Dashboards for a domain that
   resides within a VPC, users must have access to the VPC. This process varies by
   network configuration, but likely involves connecting to a VPN or managed
-  network or using a proxy server or transit gateway. To learn more, see [About access policies on VPC domains](#vpc-security "#vpc-security"), the [Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md"), and [Controlling access to Dashboards](dashboards.md#dashboards-access "dashboards.md#dashboards-access") .
+  network or using a proxy server or transit gateway. To learn more, see [About access policies on VPC domains](#vpc-security "#vpc-security"), the [Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md"), and [Controlling access to Dashboards](dashboards.md#dashboards-access "dashboards.md#dashboards-access").
 
 ## Architecture
 
@@ -87,9 +87,7 @@ periodically so that you can always access the correct data nodes. We recommend 
 set the DNS resolution interval to one minute. If you’re using a client, you should also
 ensure that the DNS cache in the client is cleared.
 
-### Migrating from public access to VPC
-
-access
+### Migrating from public access to VPC access
 
 When you create a domain, you specify whether it should have a public endpoint or
 reside within a VPC. Once created, you cannot switch from one to the other. Instead,
@@ -146,9 +144,7 @@ Because security groups already enforce IP-based access policies, you can't
 apply IP-based access policies to OpenSearch Service domains that reside within a VPC. If you
 use public access, IP-based policies are still available.
 
-### Before you begin: prerequisites for
-
-VPC access
+### Before you begin: prerequisites for VPC access
 
 Before you can enable a connection between a VPC and your new OpenSearch Service domain, you
 must do the following:
@@ -225,9 +221,7 @@ programming language.
 If you encounter curl errors due to a certificate mismatch, try the
 `--insecure` flag.
 
-### Reserving IP addresses in a VPC
-
-subnet
+### Reserving IP addresses in a VPC subnet
 
 OpenSearch Service connects a domain to a VPC by placing network interfaces in a subnet of the
 VPC (or multiple subnets of the VPC if you enable [multiple Availability Zones](managedomains-multiaz.md "managedomains-multiaz.md")). Each

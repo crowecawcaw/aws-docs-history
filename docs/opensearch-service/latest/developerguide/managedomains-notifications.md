@@ -9,9 +9,7 @@ You can view notifications in the **Notifications** panel of the OpenSearch Serv
 console. All notifications for OpenSearch Service are also surfaced in [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md"). For a full list of notifications
 and sample events, see [Monitoring OpenSearch Service events with Amazon EventBridge](monitoring-events.md "monitoring-events.md").
 
-## Getting started with
-
-notifications
+## Getting started with notifications
 
 Notifications are enabled automatically when you create a domain. Go to the
 **Notifications** panel of the OpenSearch Service console to monitor and

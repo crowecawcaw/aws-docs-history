@@ -1,6 +1,4 @@
-# Managing access to the
-
-OpenSearch UI from a VPC endpoint
+# Managing access to the OpenSearch UI from a VPC endpoint
 
 You can create a private connection between your VPC and OpenSearch UI using
 AWS PrivateLink. Using this connection, you can access OpenSearch UI applications as if
@@ -14,20 +12,14 @@ that you specify for the interface endpoint. These are requester-managed network
 interfaces that serve as the entry point for traffic destined for OpenSearch UI
 applications.
 
-## Creating a private connection
-
-between a VPC and OpenSearch UI
+## Creating a private connection between a VPC and OpenSearch UI
 
 You can create a private connection for accessing OpenSearch UI from a VPC using
 the AWS Management Console or AWS CLI.
 
-### Creating a private
+### Creating a private connection between a VPC and OpenSearch UI (console)
 
-connection between a VPC and OpenSearch UI (console)
-
-###### To create a private connection between a VPC and OpenSearch UI using
-
-the console
+###### To create a private connection between a VPC and OpenSearch UI using the console
 
 1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
 2. In the left navigation, under **Serverless**, choose
@@ -61,13 +53,9 @@ use the VPC endpoint to communicate with OpenSearch UI
 applications to also communicate with the endpoint network
 interface. 8. 8. Choose **Create endpoint**.
 
-### Creating a private
+### Creating a private connection between a VPC and OpenSearch UI (AWS CLI)
 
-connection between a VPC and OpenSearch UI (AWS CLI)
-
-###### To create a private connection between a VPC and OpenSearch UI using
-
-the AWS CLI
+###### To create a private connection between a VPC and OpenSearch UI using the AWS CLI
 
 Run the following command. Replace the `placeholder
  values` with your own information.
@@ -81,9 +69,7 @@ aws opensearchserverless create-vpc-endpoint \
     --subnet-ids `subnet_ids`
 ```
 
-## Updating the VPC endpoint policy
-
-to allow access to the OpenSearch UI application
+## Updating the VPC endpoint policy to allow access to the OpenSearch UI application
 
 After you create the private connection, update the VPC endpoint policy to allow
 access to the OpenSearch UI application in the VPC endpoint policy by specifying
@@ -111,9 +97,7 @@ Ensure that the VPC endpoint policy includes the following statement. Replace th
 }
 ```
 
-## Revoking access to OpenSearch
-
-UI in a VPC endpoint policy
+## Revoking access to OpenSearch UI in a VPC endpoint policy
 
 OpenSearch UI requires explicit permission in the VPC endpoint policy to allow
 users to access the application from the VPC. If you no longer want users to access

@@ -25,8 +25,7 @@ For details, see the [AWS CLI command
 reference](../../../cli/latest/reference/opensearch/update-domain-config.md "../../../cli/latest/reference/opensearch/update-domain-config.md").
 
 Depending on your domain configuration, you might also need to sign requests to the
-OpenSearch APIs. For more information, see [Making and signing OpenSearch Service
-requests](managedomains-signing-service-requests.md "managedomains-signing-service-requests.md").
+OpenSearch APIs. For more information, see [Making and signing OpenSearch Service requests](managedomains-signing-service-requests.md "managedomains-signing-service-requests.md").
 
 OpenSearch Service supports public access domains, which can receive requests from any internet-connected
 device, and [VPC access domains](vpc.md "vpc.md"), which are isolated from the public

@@ -1,6 +1,4 @@
-# Identity and Access Management for
-
-Amazon OpenSearch Serverless
+# Identity and Access Management for Amazon OpenSearch Serverless
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be _authenticated_ (signed in) and _authorized_
@@ -9,26 +7,18 @@ use with no additional charge.
 
 ###### Topics
 
-- [Identity-based policies for
-  OpenSearch Serverless](#security-iam-serverless-id-based-policies "#security-iam-serverless-id-based-policies")
-- [Policy actions for
-  OpenSearch Serverless](#security-iam-serverless-id-based-policies-actions "#security-iam-serverless-id-based-policies-actions")
-- [Policy resources
-  for OpenSearch Serverless](#security-iam-serverless-id-based-policies-resources "#security-iam-serverless-id-based-policies-resources")
-- [Policy condition keys for
-  Amazon OpenSearch Serverless](#security_iam_serverless-conditionkeys "#security_iam_serverless-conditionkeys")
+- [Identity-based policies for OpenSearch Serverless](#security-iam-serverless-id-based-policies "#security-iam-serverless-id-based-policies")
+- [Policy actions for OpenSearch Serverless](#security-iam-serverless-id-based-policies-actions "#security-iam-serverless-id-based-policies-actions")
+- [Policy resources for OpenSearch Serverless](#security-iam-serverless-id-based-policies-resources "#security-iam-serverless-id-based-policies-resources")
+- [Policy condition keys for Amazon OpenSearch Serverless](#security_iam_serverless-conditionkeys "#security_iam_serverless-conditionkeys")
 - [ABAC with OpenSearch Serverless](#security_iam_serverless-with-iam-tags "#security_iam_serverless-with-iam-tags")
-- [Using temporary credentials with
-  OpenSearch Serverless](#security_iam_serverless-tempcreds "#security_iam_serverless-tempcreds")
+- [Using temporary credentials with OpenSearch Serverless](#security_iam_serverless-tempcreds "#security_iam_serverless-tempcreds")
 - [Service-linked roles for OpenSearch Serverless](#security_iam_serverless-slr "#security_iam_serverless-slr")
 - [Other policy types](#security_iam_access-manage-other-policies "#security_iam_access-manage-other-policies")
-- [Identity-based policy
-  examples for OpenSearch Serverless](#security_iam_serverless_id-based-policy-examples "#security_iam_serverless_id-based-policy-examples")
+- [Identity-based policy examples for OpenSearch Serverless](#security_iam_serverless_id-based-policy-examples "#security_iam_serverless_id-based-policy-examples")
 - [IAM Identity Center support for Amazon OpenSearch Serverless](serverless-iam-identity-center.md "serverless-iam-identity-center.md")
 
-## Identity-based policies for
-
-OpenSearch Serverless
+## Identity-based policies for OpenSearch Serverless
 
 **Supports identity-based policies:**
 
@@ -45,16 +35,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-### Identity-based policy
+### Identity-based policy examples for OpenSearch Serverless
 
-examples for OpenSearch Serverless
+To view examples of OpenSearch Serverless identity-based policies, see [Identity-based policy examples for OpenSearch Serverless](#security_iam_serverless_id-based-policy-examples "#security_iam_serverless_id-based-policy-examples").
 
-To view examples of OpenSearch Serverless identity-based policies, see [Identity-based policy
-examples for OpenSearch Serverless](#security_iam_serverless_id-based-policy-examples "#security_iam_serverless_id-based-policy-examples").
-
-## Policy actions for
-
-OpenSearch Serverless
+## Policy actions for OpenSearch Serverless
 
 **Supports policy actions:**
 
@@ -93,12 +78,9 @@ following action:
 "Action": "aoss:List*"
 ```
 
-To view examples of OpenSearch Serverless identity-based policies, see [Identity-based policy
-examples for OpenSearch Serverless](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
+To view examples of OpenSearch Serverless identity-based policies, see [Identity-based policy examples for OpenSearch Serverless](#security_iam_id-based-policy-examples "#security_iam_id-based-policy-examples").
 
-## Policy resources
-
-for OpenSearch Serverless
+## Policy resources for OpenSearch Serverless
 
 **Supports policy resources:**
 
@@ -113,9 +95,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-## Policy condition keys for
-
-Amazon OpenSearch Serverless
+## Policy condition keys for Amazon OpenSearch Serverless
 
 **Supports service-specific policy condition keys:**
 
@@ -199,9 +179,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 
 For more information about tagging OpenSearch Serverless resources, see [Tagging Amazon OpenSearch Serverless collections](tag-collection.md "tag-collection.md").
 
-## Using temporary credentials with
-
-OpenSearch Serverless
+## Using temporary credentials with OpenSearch Serverless
 
 **Supports temporary credentials:**
 
@@ -223,8 +201,7 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For details about creating and managing OpenSearch Serverless service-linked roles, see [Using service-linked roles to create
-OpenSearch Serverless collections](serverless-service-linked-roles.md "serverless-service-linked-roles.md").
+For details about creating and managing OpenSearch Serverless service-linked roles, see [Using service-linked roles to create OpenSearch Serverless collections](serverless-service-linked-roles.md "serverless-service-linked-roles.md").
 
 ## Other policy types
 
@@ -251,9 +228,7 @@ maximum permissions granted to you by the more common policy types.
   control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the
   _AWS Organizations User Guide_.
 
-## Identity-based policy
-
-examples for OpenSearch Serverless
+## Identity-based policy examples for OpenSearch Serverless
 
 By default, users and roles don't have permission to create or modify OpenSearch Serverless
 resources. To grant users permission to perform actions on the
@@ -267,21 +242,14 @@ For details about actions and resource types defined by Amazon OpenSearch Server
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_serverless-policy-best-practices "#security_iam_serverless-policy-best-practices")
-- [Using
-  OpenSearch Serverless in the console](#security_iam_serverless_id-based-policy-examples-console "#security_iam_serverless_id-based-policy-examples-console")
+- [Policy best practices](#security_iam_serverless-policy-best-practices "#security_iam_serverless-policy-best-practices")
+- [Using OpenSearch Serverless in the console](#security_iam_serverless_id-based-policy-examples-console "#security_iam_serverless_id-based-policy-examples-console")
 - [Administering OpenSearch Serverless collections](#security_iam_id-based-policy-examples-collection-admin "#security_iam_id-based-policy-examples-collection-admin")
-- [Viewing
-  OpenSearch Serverless collections](#security_iam_id-based-policy-examples-view-collections "#security_iam_id-based-policy-examples-view-collections")
-- [Using OpenSearch
-  API operations](#security_iam_id-based-policy-examples-data-plane "#security_iam_id-based-policy-examples-data-plane")
-- [ABAC for
-  OpenSearch API operations](#security_iam_id-based-policy-examples-data-plane-abac "#security_iam_id-based-policy-examples-data-plane-abac")
+- [Viewing OpenSearch Serverless collections](#security_iam_id-based-policy-examples-view-collections "#security_iam_id-based-policy-examples-view-collections")
+- [Using OpenSearch API operations](#security_iam_id-based-policy-examples-data-plane "#security_iam_id-based-policy-examples-data-plane")
+- [ABAC for OpenSearch API operations](#security_iam_id-based-policy-examples-data-plane-abac "#security_iam_id-based-policy-examples-data-plane-abac")
 
-### Policy best
-
-practices
+### Policy best practices
 
 Identity-based policies are very powerful. They determine whether someone can
 create, access, or delete OpenSearch Serverless resources in your account. These actions
@@ -319,9 +287,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-### Using
-
-OpenSearch Serverless in the console
+### Using OpenSearch Serverless in the console
 
 To access OpenSearch Serverless within the OpenSearch Service console, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the
@@ -401,9 +367,7 @@ JSON
 
 ```
 
-### Viewing
-
-OpenSearch Serverless collections
+### Viewing OpenSearch Serverless collections
 
 This example policy allows a user to view details for all Amazon OpenSearch Serverless collections
 in their account. The user can't modify the collections or any associated security
@@ -431,9 +395,7 @@ JSON
 
 ```
 
-### Using OpenSearch
-
-API operations
+### Using OpenSearch API operations
 
 Data plane API operations consist of the functions you use in OpenSearch Serverless to derive
 realtime value from the service. Control plane API operations consist of the
@@ -548,9 +510,7 @@ block in your principal's IAM policy for data plane calls:
 }
 ```
 
-### ABAC for
-
-OpenSearch API operations
+### ABAC for OpenSearch API operations
 
 Identity-based policies let you use tags to control access to Amazon OpenSearch Serverless data
 plane APIs. The following policy is an example to allow attached principals to

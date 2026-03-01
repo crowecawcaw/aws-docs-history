@@ -1,6 +1,4 @@
-# Advanced search
-
-capabilities with an Amazon S3 vector engine
+# Advanced search capabilities with an Amazon S3 vector engine
 
 Amazon OpenSearch Service offers the ability to use Amazon S3 as a vector engine for vector indexes.
 This feature allows you to offload vector data to Amazon S3 while maintaining sub-second
@@ -22,9 +20,7 @@ architecture offers the following benefits:
 - OpenSearch Optimized instances
 - Latest patch version for your OpenSearch release
 
-## Enabling S3
-
-Vectors
+## Enabling S3 Vectors
 
 When [creating a new domain](createupdatedomains.md "createupdatedomains.md") or updating an existing domain, you can
 choose the **Enable S3 Vectors as an engine option** in the
@@ -288,9 +284,7 @@ Nested `knn_vector` field types are unsupported using
 
 For information about metering and billing for this feature, see [Amazon OpenSearch Service pricing](https://aws.amazon.com/opensearch-service/pricing/ "https://aws.amazon.com/opensearch-service/pricing/").
 
-## Disabling the
-
-s3vector engine
+## Disabling the s3vector engine
 
 Before you disable the `s3vector` engine, delete
 _all_ indexes that are currently using it. If you don't,

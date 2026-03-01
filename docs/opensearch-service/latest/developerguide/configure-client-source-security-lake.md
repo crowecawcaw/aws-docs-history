@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion
-
-pipeline with Amazon Security Lake as a source
+# Using an OpenSearch Ingestion pipeline with Amazon Security Lake as a source
 
 You can use the Amazon S3 source plugin within your OpenSearch Ingestion pipeline to ingest
 data from Amazon Security Lake. Security Lake automatically centralizes security data from AWS

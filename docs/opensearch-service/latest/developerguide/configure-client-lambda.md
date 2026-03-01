@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion pipeline with
-
-AWS Lambda
+# Using an OpenSearch Ingestion pipeline with AWS Lambda
 
 Use the [AWS Lambda processor](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/processors/aws-lambda/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/processors/aws-lambda/") to enrich data from any source or destination supported
 by OpenSearch Ingestion using custom code. With the Lambda processor, you can apply your own
@@ -54,9 +52,7 @@ JSON
 
 ```
 
-## Create a
-
-pipeline
+## Create a pipeline
 
 To use AWS Lambda as a processor, configure an OpenSearch Ingestion pipeline and specify
 `aws_lambda` as a processor. You can also use the **AWS Lambda
@@ -131,9 +127,7 @@ When you create a pipeline, make sure the `key_name` option in the
 Lambda processor configuration matches the event key in the Lambda
 handler.
 
-## Conditional
-
-filtering
+## Conditional filtering
 
 Conditional filtering allows you to control when your AWS Lambda processor invokes
 the Lambda function based on specific conditions in event data. This is particularly

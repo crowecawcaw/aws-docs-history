@@ -1,6 +1,4 @@
-# Supported OpenSearch SQL commands and
-
-functions
+# Supported OpenSearch SQL commands and functions
 
 The following reference tables show which SQL commands are supported in OpenSearch
 Discover for querying data in Amazon S3, Security Lake, or CloudWatch Logs, and which SQL commands are supported
@@ -19,8 +17,7 @@ query and is referred to as [OpenSearch SQL on indexes](https://opensearch.org/d
 - [Commands](#supported-sql-data-retrieval "#supported-sql-data-retrieval")
 - [Functions](#supported-sql-functions "#supported-sql-functions")
 - [General SQL restrictions](#general-sql-restrictions "#general-sql-restrictions")
-- [Additional information for
-  CloudWatch Logs Insights users using OpenSearch SQL](#supported-sql-for-multi-log-queries "#supported-sql-for-multi-log-queries")
+- [Additional information for CloudWatch Logs Insights users using OpenSearch SQL](#supported-sql-for-multi-log-queries "#supported-sql-for-multi-log-queries")
 
 ## Commands
 
@@ -36,26 +33,26 @@ needed depending on which data source you're querying.
 - If you're querying CloudWatch Logs, use: `SELECT Body , Operation FROM
 **`LogGroupA`**`
 
-| Command                                                                                         | Description                                                                                                      | CloudWatch Logs                                                                                                                                                                                          | Amazon S3                                                   | Security Lake                                                                                                                          | Example command                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [SELECT clause](#supported-sql-select "#supported-sql-select")                                  | Displays projected values.                                                                                       | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status<br>FROM<br>`<tableName/logGroup>`<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| [WHERE clause](#supported-sql-where "#supported-sql-where")                                     | Filters log events based on the provided field<br>criteria.                                                      | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>*<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>status = 100<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| [GROUP BY clause](#supported-sql-group-by "#supported-sql-group-by")                            | Groups log events based on category and finds the average<br>based on stats.                                     | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>COUNT(*) AS request_count,<br>SUM(bytes) AS total_bytes<br>FROM<br>`<tableName/logGroup>`<br>GROUP BY<br>method,<br>status<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| [HAVING clause](#supported-sql-having "#supported-sql-having")                                  | Filters the results based on grouping conditions.                                                                | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>COUNT(*) AS request_count,<br>SUM(bytes) AS total_bytes<br>FROM<br>`<tableName/logGroup>`<br>GROUP BY<br>method,<br>status<br>HAVING<br>COUNT(*) > 5<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| [ORDER BY clause](#supported-sql-order-by "#supported-sql-order-by")                            | Orders the results based on fields in the order clause. You<br>can sort in either descending or ascending order. | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>*<br>FROM<br>`<tableName/logGroup>`<br>ORDER BY<br>status DESC<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| [JOIN clause](#supported-sql-join "#supported-sql-join")<br>( `INNER`                           | `CROSS`                                                                                                          | `LEFT`<br>`OUTER` )                                                                                                                                                                                      | Joins the results for two tables based on common<br>fields. | Supported (must use `Inner` and<br>`Left Outer` keywords for join; Only only one<br>JOIN operation is supported in a SELECT statement) | Supported (must use Inner, Left Outer, and Cross<br>keywords for join)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Supported (must use Inner, Left Outer, and Cross<br>keywords for join) | ``<br>SELECT<br>A.Body,<br>B.Timestamp<br>FROM<br>`<tableNameA/logGroupA>` AS A<br>INNER JOIN<br>`<tableNameB/logGroupB>` AS B<br>ON A.`requestId` = B.`requestId`<br>`` |
-| [LIMIT clause](#supported-sql-limit "#supported-sql-limit")                                     | Restricts the results to first N rows.                                                                           | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>*<br>FROM<br>`<tableName/logGroup>`<br>LIMIT<br>10<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| [CASE clause](#supported-sql-case "#supported-sql-case")                                        | Evaluates conditions and returns a value when the first condition<br>is met.                                     | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>CASE<br>WHEN status BETWEEN 100 AND 199 THEN 'Informational'<br>WHEN status BETWEEN 200 AND 299 THEN 'Success'<br>WHEN status BETWEEN 300 AND 399 THEN 'Redirection'<br>WHEN status BETWEEN 400 AND 499 THEN 'Client Error'<br>WHEN status BETWEEN 500 AND 599 THEN 'Server Error'<br>ELSE 'Unknown Status'<br>END AS status_category,<br>CASE method<br>WHEN 'GET' THEN 'Read Operation'<br>WHEN 'POST' THEN 'Create Operation'<br>WHEN 'PUT' THEN 'Update Operation'<br>WHEN 'PATCH' THEN 'Partial Update Operation'<br>WHEN 'DELETE' THEN 'Delete Operation'<br>ELSE 'Other Operation'<br>END AS operation_type,<br>bytes,<br>datetime<br>FROM `<tableName/logGroup>`<br>`` |
-| [Common table expression](#supported-sql-cte "#supported-sql-cte")                              | Creates a named temporary result set within a SELECT, INSERT,<br>UPDATE, DELETE, or MERGE statement.             | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>WITH RequestStats AS (<br>SELECT<br>method,<br>status,<br>bytes,<br>COUNT(*) AS request_count<br>FROM<br>tableName<br>GROUP BY<br>method,<br>status,<br>bytes<br>)<br>SELECT<br>method,<br>status,<br>bytes,<br>request_count<br>FROM<br>RequestStats<br>WHERE<br>bytes > 1000<br>`                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| [EXPLAIN](#supported-sql-explain "#supported-sql-explain")                                      | Displays the execution plan of a SQL statement without actually<br>executing it.                                 | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>EXPLAIN<br>SELECT<br>k,<br>SUM(v)<br>FROM<br>VALUES<br>(1, 2),<br>(1, 3) AS t(k, v)<br>GROUP BY<br>k<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| [LATERAL SUBQUERY<br>clause](#supported-sql-lateral-subquery "#supported-sql-lateral-subquery") | Allows a subquery in the FROM clause to reference columns from<br>preceding items in the same FROM clause.       | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>SELECT<br>*<br>FROM<br>tableName<br>LATERAL (<br>SELECT<br>*<br>FROM<br>t2<br>WHERE<br>t1.c1 = t2.c1<br>)<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| [LATERAL VIEW clause](#supported-sql-lateral-view "#supported-sql-lateral-view")                | Generates a virtual table by applying a table-generating function<br>to each row of a base table.                | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>SELECT<br>*<br>FROM<br>tableName<br>LATERAL VIEW<br>EXPLODE(ARRAY(30, 60)) tableName AS c_age<br>LATERAL VIEW<br>EXPLODE(ARRAY(40, 80)) AS d_age<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| [LIKE predicate](#supported-sql-like-predicate "#supported-sql-like-predicate")                 | Matches a string against a pattern using wildcard<br>characters.                                                 | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>request,<br>host<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>method LIKE 'D%'<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| [OFFSET](#supported-sql-offset "#supported-sql-offset")                                         | Specifies the number of rows to skip before starting to return<br>rows from the query.                           | Supported when used in conjunction with a<br>`LIMIT` clause in a query. For example:<br>• Supported: `SELECT * FROM Table LIMIT 100 OFFSET<br>10`<br>• Not supported: `SELECT * FROM Table OFFSET<br>10` | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>bytes,<br>datetime<br>FROM<br>`<tableName/logGroup>`<br>ORDER BY<br>datetime<br>OFFSET<br>10<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| [PIVOT clause](#supported-sql-pivot "#supported-sql-pivot")                                     | Transforms rows into columns, rotating data from a row-based<br>format to a column-based format.                 | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>*<br>FROM<br>(<br>SELECT<br>method,<br>status,<br>bytes<br>FROM<br>`<tableName/logGroup>`<br>) AS SourceTable<br>PIVOT<br>(<br>SUM(bytes)<br>FOR method IN ('GET', 'POST', 'PATCH', 'PUT', 'DELETE')<br>) AS PivotTable<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| [Set operators](#supported-sql-set "#supported-sql-set")                                        | Combines the results of two or more SELECT statements (e.g.,<br>UNION, INTERSECT, EXCEPT).                       | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>bytes<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>status = '416'<br>UNION<br>SELECT<br>method,<br>status,<br>bytes<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>bytes > 20000<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| [SORT BY clause](#supported-sql-sort-by "#supported-sql-sort-by")                               | Specifies the order in which to return the query results.                                                        | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>bytes<br>FROM<br>`<tableName/logGroup>`<br>SORT BY<br>bytes DESC<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| [UNPIVOT](#supported-sql-unpivot "#supported-sql-unpivot")                                      | Transforms columns into rows, rotating data from a column-based<br>format to a row-based format.                 | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>SELECT<br>status,<br>REPLACE(method, '_bytes', '') AS request_method,<br>bytes,<br>datetime<br>FROM<br>PivotedData<br>UNPIVOT<br>(<br>bytes<br>FOR method IN<br>(<br>GET_bytes,<br>POST_bytes,<br>PATCH_bytes,<br>PUT_bytes,<br>DELETE_bytes<br>)<br>) AS UnpivotedData<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Command                                                                                      | Description                                                                                                      | CloudWatch Logs                                                                                                                                                                                          | Amazon S3                                                   | Security Lake                                                                                                                          | Example command                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [SELECT clause](#supported-sql-select "#supported-sql-select")                               | Displays projected values.                                                                                       | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status<br>FROM<br>`<tableName/logGroup>`<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| [WHERE clause](#supported-sql-where "#supported-sql-where")                                  | Filters log events based on the provided field<br>criteria.                                                      | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>*<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>status = 100<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| [GROUP BY clause](#supported-sql-group-by "#supported-sql-group-by")                         | Groups log events based on category and finds the average<br>based on stats.                                     | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>COUNT(*) AS request_count,<br>SUM(bytes) AS total_bytes<br>FROM<br>`<tableName/logGroup>`<br>GROUP BY<br>method,<br>status<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| [HAVING clause](#supported-sql-having "#supported-sql-having")                               | Filters the results based on grouping conditions.                                                                | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>COUNT(*) AS request_count,<br>SUM(bytes) AS total_bytes<br>FROM<br>`<tableName/logGroup>`<br>GROUP BY<br>method,<br>status<br>HAVING<br>COUNT(*) > 5<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| [ORDER BY clause](#supported-sql-order-by "#supported-sql-order-by")                         | Orders the results based on fields in the order clause. You<br>can sort in either descending or ascending order. | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>*<br>FROM<br>`<tableName/logGroup>`<br>ORDER BY<br>status DESC<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| [JOIN clause](#supported-sql-join "#supported-sql-join")<br>( `INNER`                        | `CROSS`                                                                                                          | `LEFT`<br>`OUTER` )                                                                                                                                                                                      | Joins the results for two tables based on common<br>fields. | Supported (must use `Inner` and<br>`Left Outer` keywords for join; Only only one<br>JOIN operation is supported in a SELECT statement) | Supported (must use Inner, Left Outer, and Cross<br>keywords for join)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Supported (must use Inner, Left Outer, and Cross<br>keywords for join) | ``<br>SELECT<br>A.Body,<br>B.Timestamp<br>FROM<br>`<tableNameA/logGroupA>` AS A<br>INNER JOIN<br>`<tableNameB/logGroupB>` AS B<br>ON A.`requestId` = B.`requestId`<br>`` |
+| [LIMIT clause](#supported-sql-limit "#supported-sql-limit")                                  | Restricts the results to first N rows.                                                                           | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>*<br>FROM<br>`<tableName/logGroup>`<br>LIMIT<br>10<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| [CASE clause](#supported-sql-case "#supported-sql-case")                                     | Evaluates conditions and returns a value when the first condition<br>is met.                                     | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>CASE<br>WHEN status BETWEEN 100 AND 199 THEN 'Informational'<br>WHEN status BETWEEN 200 AND 299 THEN 'Success'<br>WHEN status BETWEEN 300 AND 399 THEN 'Redirection'<br>WHEN status BETWEEN 400 AND 499 THEN 'Client Error'<br>WHEN status BETWEEN 500 AND 599 THEN 'Server Error'<br>ELSE 'Unknown Status'<br>END AS status_category,<br>CASE method<br>WHEN 'GET' THEN 'Read Operation'<br>WHEN 'POST' THEN 'Create Operation'<br>WHEN 'PUT' THEN 'Update Operation'<br>WHEN 'PATCH' THEN 'Partial Update Operation'<br>WHEN 'DELETE' THEN 'Delete Operation'<br>ELSE 'Other Operation'<br>END AS operation_type,<br>bytes,<br>datetime<br>FROM `<tableName/logGroup>`<br>`` |
+| [Common table expression](#supported-sql-cte "#supported-sql-cte")                           | Creates a named temporary result set within a SELECT, INSERT,<br>UPDATE, DELETE, or MERGE statement.             | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>WITH RequestStats AS (<br>SELECT<br>method,<br>status,<br>bytes,<br>COUNT(*) AS request_count<br>FROM<br>tableName<br>GROUP BY<br>method,<br>status,<br>bytes<br>)<br>SELECT<br>method,<br>status,<br>bytes,<br>request_count<br>FROM<br>RequestStats<br>WHERE<br>bytes > 1000<br>`                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| [EXPLAIN](#supported-sql-explain "#supported-sql-explain")                                   | Displays the execution plan of a SQL statement without actually<br>executing it.                                 | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>EXPLAIN<br>SELECT<br>k,<br>SUM(v)<br>FROM<br>VALUES<br>(1, 2),<br>(1, 3) AS t(k, v)<br>GROUP BY<br>k<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| [LATERAL SUBQUERY clause](#supported-sql-lateral-subquery "#supported-sql-lateral-subquery") | Allows a subquery in the FROM clause to reference columns from<br>preceding items in the same FROM clause.       | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>SELECT<br>*<br>FROM<br>tableName<br>LATERAL (<br>SELECT<br>*<br>FROM<br>t2<br>WHERE<br>t1.c1 = t2.c1<br>)<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| [LATERAL VIEW clause](#supported-sql-lateral-view "#supported-sql-lateral-view")             | Generates a virtual table by applying a table-generating function<br>to each row of a base table.                | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>SELECT<br>*<br>FROM<br>tableName<br>LATERAL VIEW<br>EXPLODE(ARRAY(30, 60)) tableName AS c_age<br>LATERAL VIEW<br>EXPLODE(ARRAY(40, 80)) AS d_age<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| [LIKE predicate](#supported-sql-like-predicate "#supported-sql-like-predicate")              | Matches a string against a pattern using wildcard<br>characters.                                                 | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>request,<br>host<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>method LIKE 'D%'<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| [OFFSET](#supported-sql-offset "#supported-sql-offset")                                      | Specifies the number of rows to skip before starting to return<br>rows from the query.                           | Supported when used in conjunction with a<br>`LIMIT` clause in a query. For example:<br>• Supported: `SELECT * FROM Table LIMIT 100 OFFSET<br>10`<br>• Not supported: `SELECT * FROM Table OFFSET<br>10` | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>bytes,<br>datetime<br>FROM<br>`<tableName/logGroup>`<br>ORDER BY<br>datetime<br>OFFSET<br>10<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| [PIVOT clause](#supported-sql-pivot "#supported-sql-pivot")                                  | Transforms rows into columns, rotating data from a row-based<br>format to a column-based format.                 | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>*<br>FROM<br>(<br>SELECT<br>method,<br>status,<br>bytes<br>FROM<br>`<tableName/logGroup>`<br>) AS SourceTable<br>PIVOT<br>(<br>SUM(bytes)<br>FOR method IN ('GET', 'POST', 'PATCH', 'PUT', 'DELETE')<br>) AS PivotTable<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| [Set operators](#supported-sql-set "#supported-sql-set")                                     | Combines the results of two or more SELECT statements (e.g.,<br>UNION, INTERSECT, EXCEPT).                       | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>bytes<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>status = '416'<br>UNION<br>SELECT<br>method,<br>status,<br>bytes<br>FROM<br>`<tableName/logGroup>`<br>WHERE<br>bytes > 20000<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| [SORT BY clause](#supported-sql-sort-by "#supported-sql-sort-by")                            | Specifies the order in which to return the query results.                                                        | Supported                                                                                                                                                                                                | Supported                                                   | Supported                                                                                                                              | ``<br>SELECT<br>method,<br>status,<br>bytes<br>FROM<br>`<tableName/logGroup>`<br>SORT BY<br>bytes DESC<br>``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| [UNPIVOT](#supported-sql-unpivot "#supported-sql-unpivot")                                   | Transforms columns into rows, rotating data from a column-based<br>format to a row-based format.                 | Not supported                                                                                                                                                                                            | Supported                                                   | Supported                                                                                                                              | `<br>SELECT<br>status,<br>REPLACE(method, '_bytes', '') AS request_method,<br>bytes,<br>datetime<br>FROM<br>PivotedData<br>UNPIVOT<br>(<br>bytes<br>FOR method IN<br>(<br>GET_bytes,<br>POST_bytes,<br>PATCH_bytes,<br>PUT_bytes,<br>DELETE_bytes<br>)<br>) AS UnpivotedData<br>`                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 ## Functions
 
@@ -127,9 +124,7 @@ This query is supported:
 SELECT cos(field1) FROM LogGroup
 ```
 
-## Additional information for
-
-CloudWatch Logs Insights users using OpenSearch SQL
+## Additional information for CloudWatch Logs Insights users using OpenSearch SQL
 
 CloudWatch Logs supports OpenSearch SQL queries in the Logs Insights console, API, and CLI.
 It supports most commands, including SELECT, FROM, WHERE, GROUP BY, HAVING, JOINS,
@@ -245,8 +240,7 @@ use for querying CloudWatch Logs (namely, OpenSearch PPL, SQL, and Logs Insights
 - [CASE clause](#supported-sql-case "#supported-sql-case")
 - [Common table expression](#supported-sql-cte "#supported-sql-cte")
 - [EXPLAIN](#supported-sql-explain "#supported-sql-explain")
-- [LATERAL SUBQUERY
-  clause](#supported-sql-lateral-subquery "#supported-sql-lateral-subquery")
+- [LATERAL SUBQUERY clause](#supported-sql-lateral-subquery "#supported-sql-lateral-subquery")
 - [LATERAL VIEW clause](#supported-sql-lateral-view "#supported-sql-lateral-view")
 - [LIKE predicate](#supported-sql-like-predicate "#supported-sql-like-predicate")
 - [OFFSET](#supported-sql-offset "#supported-sql-offset")
@@ -260,8 +254,7 @@ use for querying CloudWatch Logs (namely, OpenSearch PPL, SQL, and Logs Insights
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 | Function                                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
@@ -1406,8 +1399,7 @@ SELECT upper('Feathers');
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 | Function                                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2306,8 +2298,7 @@ SELECT year('2016-07-30');
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 Aggregate functions operate on values across rows to perform mathematical
 calculations such as sum, average, counting, minimum/maximum values,
@@ -2420,8 +2411,7 @@ ORDER BY department;
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 | Function                                                                     | Description                                                                                                     |
 | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -2512,8 +2502,7 @@ SELECT CASE WHEN 1 < 0 THEN 1 WHEN 2 < 0 THEN 2.0 END;
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 | Function                              | Description                                                                                                                                        |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2681,8 +2670,7 @@ SELECT to_json(array(map('a', 1)));
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 | Function                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -2997,8 +2985,7 @@ SELECT sort_array(array('b', 'd', null, 'c', 'a'), true);
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 Window functions operate on a group of rows, referred to as a window, and
 calculate a return value for each row based on the group of rows. Window
@@ -3199,8 +3186,7 @@ ORDER BY id;
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 | Function           | Description                                                    |
 | ------------------ | -------------------------------------------------------------- |
@@ -3235,8 +3221,7 @@ SELECT cast(field as int);
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 | Function                          | Description                                                                                                                                    |
 | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -3624,8 +3609,7 @@ SELECT false or NULL;
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 | Function                                       | Description                                                                                                                                                                                                                                              |
 | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -3754,8 +3738,7 @@ SELECT try_element_at(map(1, 'a', 2, 'b'), 2);
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 | Function                                                 | Description                                                                                                                                                                                             |
 | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -4636,8 +4619,7 @@ SELECT width_bucket(INTERVAL '1' DAY, INTERVAL '0' DAY, INTERVAL '10' DAY, 10);
 ###### Note
 
 To see which AWS data source integrations support these SQL
-functions, see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+functions, see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 | Function                    | Description                                                                                                                                                                                                                                                                                                              |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -4770,8 +4752,7 @@ SELECT stack(2, 1, 2, 3);
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 OpenSearch SQL supports a `SELECT` statement used for
 retrieving result sets from one or more tables. The following section
@@ -4945,8 +4926,7 @@ definitions in the query.
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 The `WHERE` clause is used to limit the results of the
 `FROM` clause of a query or a subquery based on the specified
@@ -5046,8 +5026,7 @@ WHERE exists (SELECT id FROM person where id = 200);
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 The `GROUP BY` clause is used to group the rows based on a set
 of specified grouping expressions and compute aggregations on the group of
@@ -5385,8 +5364,7 @@ SELECT FIRST(age IGNORE NULLS), LAST(id), SUM(id) FROM person;
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 The `HAVING` clause is used to filter the results produced by
 `GROUP BY` based on the specified condition. It is often used
@@ -5487,8 +5465,7 @@ SELECT sum(quantity) AS sum FROM dealer HAVING sum(quantity) > 10;
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 The `ORDER BY` clause is used to return the result rows in a
 sorted manner in the user specified order. Unlike the SORT BY clause, this
@@ -5616,8 +5593,7 @@ SELECT * FROM person ORDER BY name ASC, age DESC;
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 A SQL join is used to combine rows from two relations based on join
 criteria. The following section describes the overall join syntax and the
@@ -5758,8 +5734,7 @@ SELECT id, name, employee.deptno, deptname FROM employee CROSS JOIN department;
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 The `LIMIT` clause is used to constrain the number of rows
 returned by the `SELECT` statement. In general, this clause is
@@ -5835,8 +5810,7 @@ SELECT name, age FROM person ORDER BY name LIMIT length('OPENSEARCH');
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 The `CASE` clause uses a rule to return a
 specific result based on the specified condition, similar to if/else
@@ -5908,8 +5882,7 @@ SELECT id, CASE id WHEN 100 then 'bigger' WHEN  id > 300 THEN '300' ELSE 'small'
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 A common table expression (CTE) defines a temporary result set that a user
 can reference possibly multiple times within the scope of a SQL statement. A
@@ -6000,8 +5973,7 @@ SELECT * FROM v;
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 The `EXPLAIN` statement is used to provide logical/physical
 plans for an input statement. By default, this clause provides information
@@ -6118,15 +6090,12 @@ EXPLAIN FORMATTED select k, sum(v) from values (1, 2), (1, 3) t(k, v) group by k
 +----------------------------------------------------+
 ```
 
-#### LATERAL SUBQUERY
-
-clause
+#### LATERAL SUBQUERY clause
 
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 `LATERAL SUBQUERY` is a subquery that is preceded by the
 keyword `LATERAL`. It provides a way to reference columns in the
@@ -6189,8 +6158,7 @@ LATERAL (SELECT a * b AS c);
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 The `LATERAL VIEW` clause is used in conjunction with generator
 functions such as `EXPLODE`, which will generate a virtual table
@@ -6292,8 +6260,7 @@ LATERAL VIEW OUTER EXPLODE(ARRAY()) tableName AS c_age;
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 A `LIKE` predicate is used to search for a specific pattern.
 This predicate also supports multiple patterns with quantifiers include
@@ -6448,8 +6415,7 @@ SELECT * FROM person WHERE name NOT LIKE SOME ('%an%', '%an');
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 The `OFFSET` clause is used to specify the number of rows to
 skip before beginning to return rows returned by the `SELECT`
@@ -6515,8 +6481,7 @@ SELECT name, age FROM person ORDER BY name OFFSET length('WAGON');
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 The `PIVOT` clause is used for data perspective. We can get the
 aggregated values based on specific column values, which will be turned to
@@ -6594,8 +6559,7 @@ FOR (name, age) IN (('John', 30) AS c1, ('Mike', 40) AS c2)
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 Set operators are used to combine two input relations into a single one.
 OpenSearch SQL supports three types of set operators:
@@ -6775,8 +6739,7 @@ SELECT c FROM table1 UNION ALL (SELECT c FROM table2);
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 The `SORT BY` clause is used to return the result rows sorted
 within each partition in the user specified order. When there is more than
@@ -6931,8 +6894,7 @@ SORT BY name ASC, age DESC;
 ###### Note
 
 To see which AWS data source integrations support this SQL command,
-see [Supported OpenSearch SQL commands and
-functions](supported-directquery-sql.md "supported-directquery-sql.md").
+see [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md").
 
 The `UNPIVOT` clause transforms multiple columns into multiple
 rows used in `SELECT` clause. The `UNPIVOT` clause can

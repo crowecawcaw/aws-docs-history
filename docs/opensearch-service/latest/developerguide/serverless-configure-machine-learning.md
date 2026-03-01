@@ -1,6 +1,4 @@
-# Configure Machine Learning on
-
-Amazon OpenSearch Serverless
+# Configure Machine Learning on Amazon OpenSearch Serverless
 
 ## Machine Learning
 
@@ -48,17 +46,13 @@ _OpenSearch Documentation_ website.
 ###### Note
 
 Not all model features are supported on OpenSearch Serverless, such as local models. For more
-information, see [Unsupported Machine Learning APIs and
-features](serverless-machine-learning-unsupported-features.md "serverless-machine-learning-unsupported-features.md").
+information, see [Unsupported Machine Learning APIs and features](serverless-machine-learning-unsupported-features.md "serverless-machine-learning-unsupported-features.md").
 
-## Configure
-
-permissions for Machine Learning
+## Configure permissions for Machine Learning
 
 The following section describes the collection data access policies required for
 Machine Learning (ML). Replace the `placeholder values` with
-your specific information. For more information, see [Supported policy
-permissions](serverless-data-access.md#serverless-data-supported-permissions "serverless-data-access.md#serverless-data-supported-permissions").
+your specific information. For more information, see [Supported policy permissions](serverless-data-access.md#serverless-data-supported-permissions "serverless-data-access.md#serverless-data-supported-permissions").
 
 ```
 

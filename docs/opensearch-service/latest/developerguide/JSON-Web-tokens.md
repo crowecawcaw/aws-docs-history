@@ -102,9 +102,7 @@ OpenSearch provided that the domain exists:
 aws opensearch update-domain-config --domain-name <your_domain_name> --advanced-security-options '{"JWTOptions":{"Enabled":true, "PublicKey": "<your_public_key>", "SubjectKey": "<your_subject_key>", "RolesKey": "<your_roles_key>"}}'
 ```
 
-#### Configuring JWT authentication and authorization
-
-(configuration via API)
+#### Configuring JWT authentication and authorization (configuration via API)
 
 The following request to the configuration API enables JWT authentication
 and authorization for OpenSearch on an existing domain:

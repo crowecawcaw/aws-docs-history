@@ -4,15 +4,11 @@ Use the procedures in this section to create an OpenSearch Serverless collection
 
 ###### Topics
 
-- [Before you
-  begin](#serverless-create-cli-before-you-begin "#serverless-create-cli-before-you-begin")
+- [Before you begin](#serverless-create-cli-before-you-begin "#serverless-create-cli-before-you-begin")
 - [Creating a collection](#serverless-create-cli-creating "#serverless-create-cli-creating")
-- [Creating a
-  collection with an automatic semantic enrichment index](#serverless-create-cli-automatic-semantic-enrichment "#serverless-create-cli-automatic-semantic-enrichment")
+- [Creating a collection with an automatic semantic enrichment index](#serverless-create-cli-automatic-semantic-enrichment "#serverless-create-cli-automatic-semantic-enrichment")
 
-## Before you
-
-begin
+## Before you begin
 
 Before you create a collection using the AWS CLI, use the following procedure to
 create required policies for the collection.
@@ -88,8 +84,7 @@ matches a data access policy. For more information, see [Data access control for
 
 ###### To create a collection
 
-1. Verify that you created required policies described in [Before you
-   begin](#serverless-create-cli-before-you-begin "#serverless-create-cli-before-you-begin").
+1. Verify that you created required policies described in [Before you begin](#serverless-create-cli-before-you-begin "#serverless-create-cli-before-you-begin").
 2. Run the following command. For `type` specify either
    `SEARCH` or `TIMESERIES`.
 
@@ -97,9 +92,7 @@ matches a data access policy. For more information, see [Data access control for
 &aws opensearchserverless create-collection --name "`collection name`" --type `collection type` --description "`description`"
 ```
 
-## Creating a
-
-collection with an automatic semantic enrichment index
+## Creating a collection with an automatic semantic enrichment index
 
 Use the following procedure to create a new OpenSearch Serverless collection with an index
 that is configured for [automatic semantic enrichment](serverless-semantic-enrichment.md "serverless-semantic-enrichment.md"). The procedure uses the OpenSearch Serverless [CreateIndex](../ServerlessAPIReference/API_CreateIndex.md "../ServerlessAPIReference/API_CreateIndex.md") API action.

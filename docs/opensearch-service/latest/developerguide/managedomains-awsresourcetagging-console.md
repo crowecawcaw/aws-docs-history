@@ -1,6 +1,4 @@
-# Tagging domains
-
-(console)
+# Tagging domains (console)
 
 The console is the simplest way to tag a domain.
 

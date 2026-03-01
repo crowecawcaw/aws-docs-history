@@ -1,6 +1,4 @@
-# Using an OpenSearch Ingestion pipeline with
-
-Kafka
+# Using an OpenSearch Ingestion pipeline with Kafka
 
 You can use the [Kafka](https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/kafka/ "https://opensearch.org/docs/latest/data-prepper/pipelines/configuration/sources/kafka/") plugin to stream data from self-managed Kafka clusters to Amazon OpenSearch Service
 domains and OpenSearch Serverless collections. OpenSearch Ingestion supports connections from Kafka clusters
@@ -61,21 +59,16 @@ JSON
 ```
 
 To create an IAM role with the correct permissions to access write data
-to the collection or domain, see [Setting up roles and users in
-Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
+to the collection or domain, see [Setting up roles and users in Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
 
-### Step 1: Configure the
-
-pipeline role
+### Step 1: Configure the pipeline role
 
 After you have your Kafka pipeline prerequisites set up, [configure the pipeline role](pipeline-security-overview.md#pipeline-security-sink "pipeline-security-overview.md#pipeline-security-sink") that you
 want to use in your pipeline configuration, and add permission to write to an OpenSearch Service
 domain or OpenSearch Serverless collection, as well as permission to read secrets from
 Secrets Manager.
 
-### Step 2: Create the
-
-pipeline
+### Step 2: Create the pipeline
 
 You can then configure an OpenSearch Ingestion pipeline like the following, which
 specifies Kafka as the source.
@@ -133,9 +126,7 @@ extension:
 You can use a preconfigured blueprint to create this pipeline. For more
 information, see [Working with blueprints](pipeline-blueprint.md "pipeline-blueprint.md").
 
-### Migrating data from Kafka clusters in a
-
-VPC
+### Migrating data from Kafka clusters in a VPC
 
 You can also use OpenSearch Ingestion pipelines to migrate data from a self-managed Kafka
 cluster running in a VPC. To do so, set up an OpenSearch Ingestion pipeline with self-managed
@@ -206,12 +197,9 @@ JSON
 ```
 
 To create an IAM role with the correct permissions to access write data
-to the collection or domain, see [Setting up roles and users in
-Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
+to the collection or domain, see [Setting up roles and users in Amazon OpenSearch Ingestion](pipeline-security-overview.md "pipeline-security-overview.md").
 
-#### Step 1: Configure the
-
-pipeline role
+#### Step 1: Configure the pipeline role
 
 After you have your pipeline prerequisites set up, [configure the pipeline role](pipeline-security-overview.md#pipeline-security-sink "pipeline-security-overview.md#pipeline-security-sink") that you
 want to use in your pipeline configuration, and add the following permissions in the
@@ -283,9 +271,7 @@ create the OpenSearch Ingestion pipeline because the pipeline uses these permiss
 create and delete a network interface in your VPC. The pipeline can only access the
 Kafka cluster through this network interface.
 
-#### Step 2: Create the
-
-pipeline
+#### Step 2: Create the pipeline
 
 You can then configure an OpenSearch Ingestion pipeline like the following, which
 specifies Kafka as the source.

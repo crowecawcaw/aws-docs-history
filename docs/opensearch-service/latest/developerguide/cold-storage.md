@@ -15,21 +15,17 @@ State Management policies.
 ###### Topics
 
 - [Prerequisites](#coldstorage-pp "#coldstorage-pp")
-- [Cold storage requirements and performance
-  considerations](#coldstorage-calc "#coldstorage-calc")
+- [Cold storage requirements and performance considerations](#coldstorage-calc "#coldstorage-calc")
 - [Cold storage pricing](#coldstorage-pricing "#coldstorage-pricing")
 - [Enabling cold storage](#coldstorage-enable "#coldstorage-enable")
-- [Managing cold indexes in
-  OpenSearch Dashboards](#coldstorage-dashboards "#coldstorage-dashboards")
+- [Managing cold indexes in OpenSearch Dashboards](#coldstorage-dashboards "#coldstorage-dashboards")
 - [Migrating indexes to cold storage](#coldstorage-migrating "#coldstorage-migrating")
 - [Automating migrations to cold storage](#coldstorage-ism "#coldstorage-ism")
 - [Canceling migrations to cold storage](#coldstorage-cancel "#coldstorage-cancel")
 - [Listing cold indexes](#coldstorage-list "#coldstorage-list")
-- [Migrating cold indexes to warm
-  storage](#coldstorage-migrating-back "#coldstorage-migrating-back")
+- [Migrating cold indexes to warm storage](#coldstorage-migrating-back "#coldstorage-migrating-back")
 - [Restoring cold indexes from snapshots](#cold-snapshot "#cold-snapshot")
-- [Canceling migrations from cold to warm
-  storage](#coldtowarm-cancel "#coldtowarm-cancel")
+- [Canceling migrations from cold to warm storage](#coldtowarm-cancel "#coldtowarm-cancel")
 - [Updating cold index metadata](#cold-update-metadata "#cold-update-metadata")
 - [Deleting cold indexes](#cold-delete "#cold-delete")
 - [Disabling cold storage](#coldstorage-disable "#coldstorage-disable")
@@ -89,9 +85,7 @@ be mapped to this role in order to manage cold indexes. To manually create the
 9. After you create the role, [map it](fgac.md#fgac-mapping "fgac.md#fgac-mapping") to
    any user or backend role that manages cold indexes.
 
-## Cold storage requirements and performance
-
-considerations
+## Cold storage requirements and performance considerations
 
 Because cold storage uses Amazon S3, it incurs none of the overhead of hot storage, such as
 replicas, Linux reserved space, and OpenSearch Service reserved space. Cold storage doesn't have
@@ -148,9 +142,7 @@ aws opensearch create-domain \
 
 For detailed information, see the [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md").
 
-### Sample configuration API
-
-request
+### Sample configuration API request
 
 The following request to the configuration API creates a domain with three data
 nodes, three dedicated master nodes, cold storage enabled, and fine-grained access
@@ -207,9 +199,7 @@ POST https://es.us-east-2.amazonaws.com/2021-01-01/opensearch/domain
 For detailed information, see the [Amazon OpenSearch Service API
 Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
-## Managing cold indexes in
-
-OpenSearch Dashboards
+## Managing cold indexes in OpenSearch Dashboards
 
 You can manage hot, warm and cold indexes with the existing Dashboards interface in
 your OpenSearch Service domain. Dashboards enables you to migrate indexes between warm and cold
@@ -483,9 +473,7 @@ GET _cold/indices/_search?page_size=100
 }
 ```
 
-## Migrating cold indexes to warm
-
-storage
+## Migrating cold indexes to warm storage
 
 After you narrow down your list of cold indexes with the filtering criteria in the
 previous section, migrate them back to UltraWarm where you can query the data and use it
@@ -572,9 +560,7 @@ the index back to cold tier again. You can't restore a deleted cold index direct
 to the cold tier. OpenSearch Service retains cold indexes for 14 days after they've been
 deleted.
 
-## Canceling migrations from cold to warm
-
-storage
+## Canceling migrations from cold to warm storage
 
 If an index migration from cold to warm storage is queued or in a failed state, you
 can cancel it with the following request:

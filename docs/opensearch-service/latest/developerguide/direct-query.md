@@ -35,8 +35,7 @@ queries.
 ###### Note
 
 If you're looking to perform direct queries using CloudWatch Logs Insights, make sure
-that you refer to [Additional information for
-CloudWatch Logs Insights users using OpenSearch SQL](supported-directquery-sql.md#supported-sql-for-multi-log-queries "supported-directquery-sql.md#supported-sql-for-multi-log-queries").
+that you refer to [Additional information for CloudWatch Logs Insights users using OpenSearch SQL](supported-directquery-sql.md#supported-sql-for-multi-log-queries "supported-directquery-sql.md#supported-sql-for-multi-log-queries").
 
 | Description                                           | Value   | Soft limit? | Notes                                                                                                                                                                                                                                         |
 | ----------------------------------------------------- | ------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -65,9 +64,7 @@ CloudWatch Logs Insights users using OpenSearch SQL](supported-directquery-sql.m
 The following AWS Regions are supported for OpenSearch Service direct queries in Amazon S3, CloudWatch Logs, and
 Security Lake:
 
-### Available AWS Regions for Amazon
-
-S3
+### Available AWS Regions for Amazon S3
 
 - Asia Pacific (Hong Kong)
 - Asia Pacific (Mumbai)
@@ -83,9 +80,7 @@ S3
 - US East (Ohio)
 - US West (Oregon)
 
-### Available AWS Regions
-
-for CloudWatch Logs
+### Available AWS Regions for CloudWatch Logs
 
 - Asia Pacific (Mumbai)
 - Asia Pacific (Hong Kong)
@@ -108,9 +103,7 @@ for CloudWatch Logs
 - Europe (London)
 - South America (Sao Paulo)
 
-### Available AWS Regions
-
-for Security Lake
+### Available AWS Regions for Security Lake
 
 - Asia Pacific (Mumbai)
 - Asia Pacific (Singapore)

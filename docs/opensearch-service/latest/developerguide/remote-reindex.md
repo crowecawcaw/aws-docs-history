@@ -25,10 +25,8 @@ supported options, see [Reindex document](https://docs.opensearch.org/latest/ope
 ###### Topics
 
 - [Prerequisites](#remote-reindex-prereq "#remote-reindex-prereq")
-- [Reindex data between OpenSearch Service internet
-  domains](#remote-reindex-domain "#remote-reindex-domain")
-- [Reindex data between OpenSearch Service domains when the remote
-  is in a VPC](#remote-reindex-vpc "#remote-reindex-vpc")
+- [Reindex data between OpenSearch Service internet domains](#remote-reindex-domain "#remote-reindex-domain")
+- [Reindex data between OpenSearch Service domains when the remote is in a VPC](#remote-reindex-vpc "#remote-reindex-vpc")
 - [Reindex data between non-OpenSearch Service domains](#remote-reindex-non-aos "#remote-reindex-non-aos")
 - [Reindex large datasets](#remote-reindex-largedatasets "#remote-reindex-largedatasets")
 - [Remote reindex settings](#remote-reindex-settings "#remote-reindex-settings")
@@ -50,9 +48,7 @@ Remote reindex has the following requirements:
 - If your domain uses a T2 or T3 instance type for your data nodes, you can't
   use remote reindex.
 
-## Reindex data between OpenSearch Service internet
-
-domains
+## Reindex data between OpenSearch Service internet domains
 
 The most basic scenario is that the remote index is in the same AWS Region as your
 local domain with a publicly accessible endpoint and you have signed IAM
@@ -129,9 +125,7 @@ POST _reindex
 }
 ```
 
-## Reindex data between OpenSearch Service domains when the remote
-
-is in a VPC
+## Reindex data between OpenSearch Service domains when the remote is in a VPC
 
 Every OpenSearch Service domain is made up of its own internal virtual private cloud (VPC)
 infrastructure. When you create a new domain in an existing OpenSearch Service VPC, an elastic network

@@ -1,6 +1,4 @@
-# Restarting the OpenSearch process on a node in
-
-Amazon OpenSearch Service
+# Restarting the OpenSearch process on a node in Amazon OpenSearch Service
 
 ###### To restart the OpenSearch process on a node
 

@@ -14,12 +14,9 @@ the encryption.
 - [Considerations](#serverless-encryption-considerations "#serverless-encryption-considerations")
 - [Permissions required](#serverless-encryption-permissions "#serverless-encryption-permissions")
 - [Key policy for a customer managed key](#serverless-customer-cmk-policy "#serverless-customer-cmk-policy")
-- [How OpenSearch Serverless uses grants in
-  AWS KMS](#serverless-encryption-grants "#serverless-encryption-grants")
-- [Creating encryption policies
-  (console)](#serverless-encryption-console "#serverless-encryption-console")
-- [Creating encryption policies
-  (AWS CLI)](#serverless-encryption-cli "#serverless-encryption-cli")
+- [How OpenSearch Serverless uses grants in AWS KMS](#serverless-encryption-grants "#serverless-encryption-grants")
+- [Creating encryption policies (console)](#serverless-encryption-console "#serverless-encryption-console")
+- [Creating encryption policies (AWS CLI)](#serverless-encryption-cli "#serverless-encryption-cli")
 - [Viewing encryption policies](#serverless-encryption-list "#serverless-encryption-list")
 - [Updating encryption policies](#serverless-encryption-update "#serverless-encryption-update")
 - [Deleting encryption policies](#serverless-encryption-delete "#serverless-encryption-delete")
@@ -257,9 +254,7 @@ OpenSearch Serverless create a grant with the [kms:GenerateDataKey](../../../kms
 For more information, see [Using key
 policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the _AWS Key Management Service Developer Guide_.
 
-### How OpenSearch Serverless uses grants in
-
-AWS KMS
+### How OpenSearch Serverless uses grants in AWS KMS
 
 OpenSearch Serverless requires a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in order to use a
 customer managed key.
@@ -290,9 +285,7 @@ asynchronous workflows.
 OpenSearch Serverless retires grants in an asynchronous workflow when a given customer managed key isn't
 associated with any security policies or collections.
 
-### Creating encryption policies
-
-(console)
+### Creating encryption policies (console)
 
 In an encryption policy, you specify an KMS key and a series of collection
 patterns that the policy will apply to. Any new collections that match one of the
@@ -320,9 +313,7 @@ the policy to any new collections with names beginning with
 `Logs`. By using wildcards, you can manage encryption
 settings for multiple collections at scale. 6. Under **Encryption**, choose an KMS key to use. 7. Choose **Create**.
 
-#### Next step: Create
-
-collections
+#### Next step: Create collections
 
 After you configure one or more encryption policies, you can start creating
 collections that match the rules defined in those policies. For instructions,
@@ -334,9 +325,7 @@ encryption policy, and automatically assigns the corresponding KMS key to the
 collection. If the resource pattern contains a wildcard (\*), you can choose to
 override the match and select your own key.
 
-### Creating encryption policies
-
-(AWS CLI)
+### Creating encryption policies (AWS CLI)
 
 To create an encryption policy using the OpenSearch Serverless API operations, you specify
 resource patterns and an encryption key in JSON format. The [CreateSecurityPolicy](../ServerlessAPIReference/API_CreateSecurityPolicy.md "../ServerlessAPIReference/API_CreateSecurityPolicy.md") request accepts both inline policies and .json

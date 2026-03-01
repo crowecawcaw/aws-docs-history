@@ -1,6 +1,4 @@
-# Indexing vector data and
-
-force-merging
+# Indexing vector data and force-merging
 
 Once you've created a GPU-accelerated vector index on your domain or collection, you can add
 vector data and optimize your index using standard OpenSearch operations. GPU-acceleration automatically

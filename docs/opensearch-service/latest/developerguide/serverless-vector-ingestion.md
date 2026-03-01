@@ -21,9 +21,7 @@ Vector ingestion uses OpenSearch Ingestion (OSI) as the data pipeline between Am
 and OpenSearch. The service processes vectors in parallel to optimize ingestion speed
 while respecting the scaling limits of both OSI and OpenSearch.
 
-## OpenSearch Vector ingestion
-
-pricing
+## OpenSearch Vector ingestion pricing
 
 At any specific time, you only pay for the number of vector ingestion OCUs that are
 allocated to a pipeline, regardless of whether there's data flowing through the

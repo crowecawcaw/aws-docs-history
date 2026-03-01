@@ -16,9 +16,7 @@ Before you can create a connector in OpenSearch Service, you must do the followi
   For more information on how to setup ML connectors for AWS services, see [Amazon OpenSearch Service ML connectors for AWS services](ml-amazon-connector.md#connector-sagemaker-prereq "ml-amazon-connector.md#connector-sagemaker-prereq"). To learn more about using
   OpenSearch Service ML connectors with third-party platforms, see [Amazon OpenSearch Service ML connectors for third-party platforms](ml-amazon-connector.md#connector-sagemaker-prereq "ml-amazon-connector.md#connector-sagemaker-prereq").
 
-## Creating a connector through a flow-framework
-
-service
+## Creating a connector through a flow-framework service
 
 To create a flow-framework template with connector, you will need to send a
 `POST` request to your OpenSearch Service domain endpoint. You can use cURL, a
