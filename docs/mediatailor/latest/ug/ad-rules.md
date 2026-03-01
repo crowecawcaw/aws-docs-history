@@ -51,9 +51,7 @@ mode**, **avail suppression value**, and
 
 For information about configuration with parameters, see [Configuring ad suppression parameters – playback session request](#configuring-ad-suppression-parameters-playback-session-request "#configuring-ad-suppression-parameters-playback-session-request").
 
-#### Ad suppression
-
-configuration parameters
+#### Ad suppression configuration parameters
 
 You can choose to turn on or turn off ad suppression. If you turn on ad
 suppression, you specify whether that suppression happens after the live
@@ -95,9 +93,7 @@ The following are the ad suppression configuration parameters:
     `PARTIAL_AVAIL` ad break fills when a session
     starts mid-break.
 
-#### Ad suppression settings
-
-examples
+#### Ad suppression settings examples
 
 The way in which the [ad suppression configuration parameters](#ad-suppression-configuration-parameters "#ad-suppression-configuration-parameters") interact with one another
 lets you specify several different ways to handle ad suppression and avail
@@ -126,9 +122,7 @@ break in progress at the live edge.
 
 ![MediaTailor ad break personalization with avail suppression mode set to OFF.](images/no_ad_suppression.png)
 
-###### Example 2: `BEHIND_LIVE_EDGE` ad suppression with value in sync with
-
-live edge
+###### Example 2: `BEHIND_LIVE_EDGE` ad suppression with value in sync with live edge
 
 When **avail suppression mode** is set to
 `BEHIND_LIVE_EDGE` and the **avail suppression
@@ -152,9 +146,7 @@ _after_ the live edge.
 
 ![MediaTailor ad break personalization with avail suppression mode set to BEHIND_LIVE_EDGE and avail suppression value set to 00:00:00.](images/ad_supp_value_sync_live_edge.png)
 
-###### Example 3: `BEHIND_LIVE_EDGE` ad suppression with value behind live
-
-edge
+###### Example 3: `BEHIND_LIVE_EDGE` ad suppression with value behind live edge
 
 When the **avail suppression mode** is set to
 `BEHIND_LIVE_EDGE`, MediaTailor doesn't personalize any ad
@@ -180,9 +172,7 @@ the beginning of the avail suppression period.
 
 ![MediaTailor ad break personalization with avail suppression mode set to BEHIND_LIVE_EDGE and avail suppression value set to 00:45:00.](images/ad_supp_value_offset_live_edge.png)
 
-###### Example 4: `AFTER_LIVE_EDGE` ad suppression with no ad breaks
-
-occurring during the avail suppression period
+###### Example 4: `AFTER_LIVE_EDGE` ad suppression with no ad breaks occurring during the avail suppression period
 
 When the **avail suppression mode** is set to
 `AFTER_LIVE_EDGE` and the **avail
@@ -210,10 +200,7 @@ period.
 
 ![MediaTailor ad break personalization with avail suppression mode set to AFTER_LIVE_EDGE, avail suppression value set to 00:30:00, and session initialization occurring before the live edge.](images/ad_supp_after_no_ad_break.png)
 
-###### Example 5: `AFTER_LIVE_EDGE` ad suppression with
-
-`PARTIAL_AVAIL` fill policy and an ad break in progress at
-the end of the avail suppression period
+###### Example 5: `AFTER_LIVE_EDGE` ad suppression with `PARTIAL_AVAIL` fill policy and an ad break in progress at the end of the avail suppression period
 
 When the **avail suppression mode** is set to
 `AFTER_LIVE_EDGE` and the **avail suppression
@@ -247,11 +234,7 @@ period.
 
 ![MediaTailor ad break personalization with avail suppression mode set to AFTER_LIVE_EDGE, avail suppression value set to 00:30:00, avail suppression fill policy set to PARTIAL_AVAIL, session initialization occurring before the live edge, and an ad break in progress at the end of the avail suppression period.](images/ad_supp_after_ending_ad_break.png)
 
-###### Example 6: `AFTER_LIVE_EDGE` ad suppression with
-
-`PARTIAL_AVAIL` fill policy and an ad break in progress from
-before session initialization to after the end of the avail suppression
-period
+###### Example 6: `AFTER_LIVE_EDGE` ad suppression with `PARTIAL_AVAIL` fill policy and an ad break in progress from before session initialization to after the end of the avail suppression period
 
 When the **avail suppression mode** is set to
 `AFTER_LIVE_EDGE` and the **avail suppression
@@ -284,9 +267,7 @@ but doesn't personalize the portion of that ad break which occurs _before_ or _d
 
 ![MediaTailor ad break personalization with avail suppression mode set to AFTER_LIVE_EDGE; avail suppression value set to 00:30:00; avail suppression fill policy set to PARTIAL_AVAIL; session initialization occurring before the live edge; and an ad break in progress before, during, and after the avail suppression period.](images/ad_supp_after_ad_break_throughout.png)
 
-###### Example 7: `AFTER_LIVE_EDGE` ad suppression with an ad break in
-
-progress at the beginning of the avail suppression period
+###### Example 7: `AFTER_LIVE_EDGE` ad suppression with an ad break in progress at the beginning of the avail suppression period
 
 When the **avail suppression mode** is set to
 `AFTER_LIVE_EDGE` and the **avail suppression
@@ -335,17 +316,14 @@ MediaTailor supports the following ad suppression parameters.
 | `availSuppressionValue`      | A time relative to the live edge in a live stream.                                                                                                                                                                                                                                                                                                                                                                                                                    | A UTF-8 URL-encoded time code in `HH:MM:SS`. For<br>example, 1 hour and 30 minutes would be<br>`01%3A30%3A00`.                                                            |
 | `availSuppressionFillPolicy` | Defines the policy to apply to the avail suppression mode.<br>`BEHIND_LIVE_EDGE` always uses the full avail<br>suppression policy. `AFTER_LIVE_EDGE` can be used to<br>invoke partial ad break fills when a session starts<br>mid-break.                                                                                                                                                                                                                              | • `PARTIAL_AVAIL` - not available for the<br>`BEFORE_LIVE_EDGE` suppression mode<br>• `FULL_AVAIL_ONLY` - the default value for<br>the `AFTER_LIVE_EDGE` suppression mode |
 
-##### Server-side
-
-configuration
+##### Server-side configuration
 
 The base query parameter is `aws.availSuppression`, which is
 followed by optional parameter name and value pairs. To construct the query,
 append `aws.availSuppression=` to the end of the playback session
 request to MediaTailor, followed by parameter names and values. For more
 information about how to construct a server-side playback session request,
-see [MediaTailor server-side ad tracking and
-reporting](ad-reporting-server-side.md "ad-reporting-server-side.md").
+see [MediaTailor server-side ad tracking and reporting](ad-reporting-server-side.md "ad-reporting-server-side.md").
 
 **Example**: HLS
 
@@ -362,9 +340,7 @@ Server-side query syntax is listed in the following table.
 | `=`                    | Associates the parameter name with a value. For example,<br>`aws.availSuppressionMode=`BEHIND_LIVE_EDGE``.                                                                                                                                                                                                                                           |
 | `&`                    | Concatenates query parameters. For example,<br>`aws.availSuppressionMode=`BEHIND_LIVE_EDGE``&`aws.availSuppressionValue=`00:30:00`&aws.availSuppressionFillPolicy=`FULL_AVAIL_ONLY`>`.                                                                                                                                                               |
 
-##### Client-side
-
-configuration
+##### Client-side configuration
 
 Include `availSuppression` parameters in your client's POST
 request to MediaTailor. For more information about how to construct a

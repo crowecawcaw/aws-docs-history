@@ -71,8 +71,7 @@ Caching best practices
 - Optimize cache keys to balance personalization and
   efficiency
 - Set appropriate TTLs based on content type and update frequency.
-  For detailed TTL recommendations, see [Caching optimization for CDN and MediaTailor
-  integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+  For detailed TTL recommendations, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 
 Ad delivery best practices
 

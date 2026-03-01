@@ -1,6 +1,4 @@
-# Client-side ad-tracking
-
-schema and properties
+# Client-side ad-tracking schema and properties
 
 With the MediaTailor client-side ad-tracking feature, you can integrate detailed client-side ad tracking data into your player environment. The following sections cover the overall ad-tracking schema, as well as the specific properties and values that make up the schema.
 

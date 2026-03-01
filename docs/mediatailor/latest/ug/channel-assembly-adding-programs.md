@@ -75,11 +75,9 @@ _AWS Elemental MediaTailor API Reference_.
 
 For more information on using MediaTailor to create alternate media, see [Creating alternate media](working-with-program-rules.md#program-rules-creating-alternate-media "working-with-program-rules.md#program-rules-creating-alternate-media").
 
-For more advanced information on using MediaTailor to personalize your ad breaks, see [Insert personalized ads and ad
-breaks in a channel stream](channel-assembly-integrating-mediatailor-ssai.md "channel-assembly-integrating-mediatailor-ssai.md"). 10. Select **Next** to go to **Review and create**. 11. Select **Add program**.
+For more advanced information on using MediaTailor to personalize your ad breaks, see [Insert personalized ads and ad breaks in a channel stream](channel-assembly-integrating-mediatailor-ssai.md "channel-assembly-integrating-mediatailor-ssai.md"). 10. Select **Next** to go to **Review and create**. 11. Select **Add program**.
 
-For more advanced information on using MediaTailor to personalize your ad breaks, see [Insert personalized ads and ad
-breaks in a channel stream](channel-assembly-integrating-mediatailor-ssai.md "channel-assembly-integrating-mediatailor-ssai.md"). 12. ###### Important
+For more advanced information on using MediaTailor to personalize your ad breaks, see [Insert personalized ads and ad breaks in a channel stream](channel-assembly-integrating-mediatailor-ssai.md "channel-assembly-integrating-mediatailor-ssai.md"). 12. ###### Important
 
 For looping channels, if you modify the program list for a program that is scheduled
 within the next 10 minutes, the edit won't become apparent until the next loop.
@@ -279,8 +277,7 @@ Under **Program details**, enter details about your program:
 
 15. Choose **Add program**.
 
-For more advanced information using MediaTailor to personalize your ad breaks, see [Insert personalized ads and ad
-breaks in a channel stream](channel-assembly-integrating-mediatailor-ssai.md "channel-assembly-integrating-mediatailor-ssai.md").
+For more advanced information using MediaTailor to personalize your ad breaks, see [Insert personalized ads and ad breaks in a channel stream](channel-assembly-integrating-mediatailor-ssai.md "channel-assembly-integrating-mediatailor-ssai.md").
 
 ###### Note
 

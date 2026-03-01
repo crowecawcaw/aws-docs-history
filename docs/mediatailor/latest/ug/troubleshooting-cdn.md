@@ -53,9 +53,7 @@ segment requests.
 Solution: Implement request collapsing and origin shield capabilities to
 reduce origin load during traffic spikes.
 
-## Addressing MediaTailor CDN performance
-
-problems
+## Addressing MediaTailor CDN performance problems
 
 If viewers experience buffering or slow loading, check these performance-related
 issues:

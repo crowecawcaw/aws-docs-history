@@ -46,8 +46,7 @@ and routing:
 
 - [Estimate traffic requirements for CDN and MediaTailor integrations](estimate-traffic.md "estimate-traffic.md"): Calculate
   your expected viewer concurrency and the bandwidth requirements.
-- [Configure optimization
-  strategies for CDN and MediaTailor integrations](optimize-cdn-config.md "optimize-cdn-config.md"):
+- [Configure optimization strategies for CDN and MediaTailor integrations](optimize-cdn-config.md "optimize-cdn-config.md"):
   Configure your CDN for optimal content delivery and ad personalization.
 - [Customize planning for CDN and MediaTailor integrations](plan-for-workflow.md "plan-for-workflow.md"): Adjust your
   CDN strategy based on your specific MediaTailor workflow.

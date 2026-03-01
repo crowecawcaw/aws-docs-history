@@ -1,6 +1,4 @@
-# Using package
-
-configurations
+# Using package configurations
 
 A package configuration is a representation of the source that contains the various
 packaging characteristics required for playback on different devices. For example, you

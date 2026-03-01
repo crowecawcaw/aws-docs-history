@@ -1,6 +1,4 @@
-# Set up basic MediaTailor SSAI with a CDN for optimal ad
-
-delivery
+# Set up basic MediaTailor SSAI with a CDN for optimal ad delivery
 
 This section provides step-by-step instructions for configuring AWS Elemental MediaTailor dynamic ad
 insertion with a content delivery network (CDN) to optimize your video monetization
@@ -26,9 +24,7 @@ For information about ad markers, see [Understanding ad insertion behavior](ad-b
 - Basic knowledge of manifest manipulation and dynamic ad insertion
   concepts
 
-## Step 1: Configure CDN caching for optimal ad
-
-delivery
+## Step 1: Configure CDN caching for optimal ad delivery
 
 Proper CDN caching configuration is critical for optimal performance of your video
 monetization workflow. The caching requirements differ between server-side ad insertion
@@ -43,8 +39,7 @@ ensure personalized manifests are not cached while segments are cached
 efficiently.
 
 For detailed SSAI caching settings including TTL values, path patterns, and cache
-key configurations, see [Server-side ad insertion (SSAI)
-caching](cdn-optimize-caching.md#ssai-caching-optimization "cdn-optimize-caching.md#ssai-caching-optimization") in the CDN optimization
+key configurations, see [Server-side ad insertion (SSAI) caching](cdn-optimize-caching.md#ssai-caching-optimization "cdn-optimize-caching.md#ssai-caching-optimization") in the CDN optimization
 guide.
 
 Key caching principles for SSAI:
@@ -79,9 +74,7 @@ For Amazon CloudFront, you can implement these settings using cache behaviors wi
 TTL values and cache key policies. For other CDNs, refer to their specific documentation
 for implementing similar caching rules.
 
-## Step 2: Implement hybrid approaches (if
-
-needed)
+## Step 2: Implement hybrid approaches (if needed)
 
 If your architecture requires a hybrid approach with a separate CDN or caching layer
 between the content origin and MediaTailor:
@@ -134,7 +127,6 @@ functioning correctly:
 5. Confirm that ad targeting parameters are being properly passed through the
    workflow
 
-For comprehensive testing and validation procedures, see [Testing and validation
-for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md"). For
+For comprehensive testing and validation procedures, see [Testing and validation for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md"). For
 detailed information on monitoring your SSAI implementation, see [Monitor operations for CDN and MediaTailor integrations](ssai-cdn-monitor.md "ssai-cdn-monitor.md"). To optimize
 performance, see [Optimize performance for CDN and MediaTailor integrations](ssai-cdn-performance.md "ssai-cdn-performance.md").

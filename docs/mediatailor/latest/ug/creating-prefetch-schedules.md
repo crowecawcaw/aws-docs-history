@@ -46,8 +46,7 @@ variables are mapped in the ADS template URL.
           + For *server-side tracking*, include the
            `?aws.streamId` query parameter and value in your client's `GET
            HTTP` request to your MediaTailor endpoint. For general information about server-side
-           tracking see [MediaTailor server-side ad tracking and
-           reporting](ad-reporting-server-side.md "ad-reporting-server-side.md"). A manifest request to an HLS endpoint that
+           tracking see [MediaTailor server-side ad tracking and reporting](ad-reporting-server-side.md "ad-reporting-server-side.md"). A manifest request to an HLS endpoint that
            includes a stream ID looks like the following, where
            ``myStreamId`` is the name of your stream ID:
 
@@ -150,9 +149,7 @@ variables are mapped in the ADS template URL.
     deletes them. Alternatively, you can manually delete a prefetch schedule at any time. For
     information about how to manually delete a prefetch schedule, see the following [Deleting prefetch schedules](deleting-prefetch-schedules.md "deleting-prefetch-schedules.md") section.
 
-### Determining how often your client should call the
-
-CreatePrefetchSchedule API
+### Determining how often your client should call the CreatePrefetchSchedule API
 
 Your client can programmatically call the [CreatePrefetchSchedule](../apireference/API_CreatePrefetchSchedule.md "../apireference/API_CreatePrefetchSchedule.md") API once per day to set up retrieval and consumption if you
 have knowledge of exactly when ad breaks will occur. Or, your client can call the API many

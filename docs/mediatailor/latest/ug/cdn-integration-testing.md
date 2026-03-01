@@ -1,6 +1,4 @@
-# Testing and validation
-
-for CDN and MediaTailor integrations
+# Testing and validation for CDN and MediaTailor integrations
 
 AWS Elemental MediaTailor content delivery network (CDN) integration requires thorough testing to ensure reliable ad delivery and
 optimal performance. Systematic testing helps identify integration issues before they impact
@@ -11,8 +9,7 @@ different scenarios, configurations, and load conditions.
 
 - For operational setup including monitoring and logging, see [CDN monitoring](cdn-monitoring.md "cdn-monitoring.md")
 - For troubleshooting when issues occur, see [Troubleshoot CDN integration](cdn-troubleshooting.md "cdn-troubleshooting.md")
-- For performance optimization guidance, see [Performance optimization guide for CDN and MediaTailor
-  integrations](cdn-optimization.md "cdn-optimization.md")
+- For performance optimization guidance, see [Performance optimization guide for CDN and MediaTailor integrations](cdn-optimization.md "cdn-optimization.md")
 
 ###### Topics
 

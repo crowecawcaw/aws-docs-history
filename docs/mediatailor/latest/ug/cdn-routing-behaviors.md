@@ -29,8 +29,7 @@ Content segment routing directs requests for your actual content segments to you
 origin server. Like ad segment routing, content segment routing also requires proper
 CORS configuration to ensure smooth playback in web-based players.
 
-For detailed configuration guidance, see the CloudFront example at [Precedence 4: Content origin path
-behavior](cf-comprehensive-configuration.md#cf-default-behavior "cf-comprehensive-configuration.md#cf-default-behavior"). This
+For detailed configuration guidance, see the CloudFront example at [Precedence 4: Content origin path behavior](cf-comprehensive-configuration.md#cf-default-behavior "cf-comprehensive-configuration.md#cf-default-behavior"). This
 example provides specific settings that you should follow for CloudFront or adapt
 for other CDNs.
 
@@ -54,8 +53,7 @@ viewers. When configuring ad segment routing, you must implement proper CORS
 (Cross-Origin Resource Sharing) handling to prevent issues that can cause playback
 failures in web-based players.
 
-For detailed configuration guidance, see the CloudFront example at [Precedence 0: Ad segments path
-behavior](cf-comprehensive-configuration.md#cf-transcode-manage-behavior "cf-comprehensive-configuration.md#cf-transcode-manage-behavior"). This example provides specific
+For detailed configuration guidance, see the CloudFront example at [Precedence 0: Ad segments path behavior](cf-comprehensive-configuration.md#cf-transcode-manage-behavior "cf-comprehensive-configuration.md#cf-transcode-manage-behavior"). This example provides specific
 settings that you should follow for CloudFront or adapt for other CDNs.
 
 Key configuration requirements for ad segment routing include:
@@ -88,11 +86,9 @@ following general settings. For CloudFront configuration, see [Configuring manif
    manifests, your CDN shouldn't cache them. If a different playback device
    than the one intended receives a cached playlist or MPD, it could result in
    issues with playback or tracking. For comprehensive caching guidance
-   including TTL recommendations for all content types, see [Caching optimization for CDN and MediaTailor
-   integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+   including TTL recommendations for all content types, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 5. Configure header forwarding for all headers. For minimum requirements, see
-   [Required headers for MediaTailor CDN
-   integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers").
+   [Required headers for MediaTailor CDN integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers").
 6. Enable query string forwarding to pass ad targeting parameters.
 
 HLS multivariant playlist

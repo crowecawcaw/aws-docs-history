@@ -1,6 +1,4 @@
-# MediaTailor session variable ad
-
-skipping troubleshooting
+# MediaTailor session variable ad skipping troubleshooting
 
 Session variables play a critical role in ad targeting and selection in AWS Elemental MediaTailor.
 Incorrect session variable configuration is a common cause of ad skipping issues. This
@@ -27,9 +25,7 @@ Common session variable issues include the following:
   with segmentation UPID processing can cause session variable resolution
   failures.
 
-## Verifying session variable
-
-resolution
+## Verifying session variable resolution
 
 To verify that your session variables are being properly resolved:
 
@@ -41,9 +37,7 @@ To verify that your session variables are being properly resolved:
 4. Look for any variables that were replaced with empty strings, which may
    indicate resolution failures
 
-## SCTE-35 UPID parsing
-
-troubleshooting
+## SCTE-35 UPID parsing troubleshooting
 
 Problems with SCTE-35 segmentation UPID processing can cause session variable
 issues:

@@ -11,8 +11,7 @@ content begins. These are _pre-roll_ ads.
 To insert pre-roll ads, complete the **Live pre-roll ad decision
 server** and **Live pre-roll maximum allowed duration**
 fields in the **Additional** settings on your configuration, as
-described in [Optional configuration
-settings](configurations-create.md#configurations-create-addl "configurations-create.md#configurations-create-addl").
+described in [Optional configuration settings](configurations-create.md#configurations-create-addl "configurations-create.md#configurations-create-addl").
 
 1. When MediaTailor receives a playback request, it sends a request to the ADS
    for pre-roll ads based on the following fields in the MediaTailor playback

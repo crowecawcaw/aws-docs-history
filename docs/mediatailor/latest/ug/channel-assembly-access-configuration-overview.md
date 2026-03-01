@@ -1,6 +1,4 @@
-# How MediaTailor Secrets Manager
-
-access token authentication works
+# How MediaTailor Secrets Manager access token authentication works
 
 After you create or update a source location to use access token
 authentication, MediaTailor includes the access token in an HTTP header when

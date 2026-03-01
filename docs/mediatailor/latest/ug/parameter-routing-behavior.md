@@ -1,6 +1,4 @@
-# MediaTailor parameter routing for ADS and
-
-origins
+# MediaTailor parameter routing for ADS and origins
 
 AWS Elemental MediaTailor routes query parameters to different destinations based on their prefix and
 purpose. Understanding parameter routing is essential for implementing origin-specific

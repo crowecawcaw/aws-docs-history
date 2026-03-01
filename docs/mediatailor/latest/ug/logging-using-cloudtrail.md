@@ -13,9 +13,7 @@ when it was made, and additional details.
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
 
-## AWS Elemental MediaTailor information in
-
-CloudTrail
+## AWS Elemental MediaTailor information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity
 occurs in AWS Elemental MediaTailor, that activity is recorded in a CloudTrail event along with
@@ -54,9 +52,7 @@ identity information helps you determine the following:
 
 For more information, see [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding AWS Elemental MediaTailor
-
-log file entries
+## Understanding AWS Elemental MediaTailor log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

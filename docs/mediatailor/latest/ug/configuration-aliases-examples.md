@@ -1,6 +1,4 @@
-# Configuration alias with MediaTailor use
-
-example
+# Configuration alias with MediaTailor use example
 
 The following examples show how a complete MediaTailor configuration with configuration aliases, a session initialization request with aliases, and the processing flow for aliases.
 

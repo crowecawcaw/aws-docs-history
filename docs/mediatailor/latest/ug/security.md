@@ -27,6 +27,5 @@ _of_ the cloud and security _in_ the cloud:
 - [Compliance validation for AWS Elemental MediaTailor](servicename-compliance.md "servicename-compliance.md")
 - [Resilience in AWS Elemental MediaTailor](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in MediaTailor](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Logging and monitoring in MediaTailor](security-log-monitor.md "security-log-monitor.md")

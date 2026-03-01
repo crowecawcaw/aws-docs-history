@@ -1,6 +1,4 @@
-# Configuring
-
-authentication for your source location
+# Configuring authentication for your source location
 
 Use **access configuration** to configure authentication for your
 source location. When access configuration is on, MediaTailor only retrieves source manifests
@@ -20,7 +18,5 @@ For more information, select the applicable topic.
 ###### Topics
 
 - [Authenticating requests to Amazon S3 with SigV4](channel-assembly-access-configuration-sigv4.md "channel-assembly-access-configuration-sigv4.md")
-- [Working with
-  SigV4 for MediaPackage Version 2](channel-assembly-access-configuration-sigv4-empv2.md "channel-assembly-access-configuration-sigv4-empv2.md")
-- [Working with
-  AWS Secrets Manager access token authentication](channel-assembly-access-configuration-access-token.md "channel-assembly-access-configuration-access-token.md")
+- [Working with SigV4 for MediaPackage Version 2](channel-assembly-access-configuration-sigv4-empv2.md "channel-assembly-access-configuration-sigv4-empv2.md")
+- [Working with AWS Secrets Manager access token authentication](channel-assembly-access-configuration-access-token.md "channel-assembly-access-configuration-access-token.md")

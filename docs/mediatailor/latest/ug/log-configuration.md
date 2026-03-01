@@ -10,8 +10,7 @@ mode](debug-log-mode.md "debug-log-mode.md").
 
 When you set a logging percentage, MediaTailor automatically creates a service-linked role
 that grants MediaTailor the permissions it requires to write CloudWatch Logs to your account. For
-information about how MediaTailor uses service-linked roles, see [Using service-linked roles for
-MediaTailor](using-service-linked-roles.md "using-service-linked-roles.md").
+information about how MediaTailor uses service-linked roles, see [Using service-linked roles for MediaTailor](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ## Creating a log configuration
 
@@ -33,8 +32,7 @@ Console
 
 ###### To create a log configuration for a _new_ playback configuration
 
-- Follow the procedure in [Log
-  configuration](configurations-create.md#configurations-log-configurations "configurations-create.md#configurations-log-configurations").
+- Follow the procedure in [Log configuration](configurations-create.md#configurations-log-configurations "configurations-create.md#configurations-log-configurations").
 
 AWS Command Line Interface (AWS CLI)
 **To create a log configuration for an _existing_ playback
@@ -85,9 +83,7 @@ following.
 - Use the `configure-logs-for-playback-configuration`
   option for the [put-playback-configuration](../../../cli/latest/reference/mediatailor/put-playback-configuration.md "../../../cli/latest/reference/mediatailor/put-playback-configuration.md") command.
 
-## Deactivating a log
-
-configuration
+## Deactivating a log configuration
 
 After you create a log configuration, you can't delete it—you can only
 _deactivate_ it. To deactivate the log
@@ -98,14 +94,11 @@ logging for that playback configuration.
 If you want to delete the service-linked role that MediaTailor uses for the log
 configuration(s) in your account, you must first deactivate all of your log
 configurations. For information about how to delete the service-linked role, see
-[Using service-linked roles for
-MediaTailor](using-service-linked-roles.md "using-service-linked-roles.md").
+[Using service-linked roles for MediaTailor](using-service-linked-roles.md "using-service-linked-roles.md").
 
 Console
 
-###### To deactivate log configuration on a playback
-
-configuration
+###### To deactivate log configuration on a playback configuration
 
 1. Sign in to the AWS Management Console and open the MediaTailor console at [https://console.aws.amazon.com/mediatailor/](https://console.aws.amazon.com/mediatailor/ "https://console.aws.amazon.com/mediatailor/").
 2. On the **Playback configuration** pane,

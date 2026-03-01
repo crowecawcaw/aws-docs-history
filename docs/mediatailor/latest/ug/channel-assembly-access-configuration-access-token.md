@@ -1,6 +1,4 @@
-# Working with
-
-AWS Secrets Manager access token authentication
+# Working with AWS Secrets Manager access token authentication
 
 MediaTailor supports _Secrets Manager access token
 authentication_. With AWS Secrets Manager access token authentication, MediaTailor
@@ -17,5 +15,4 @@ AWS Management Console or programmatically with AWS APIs.
 
 - [Configuring AWS Secrets Manager access token authentication](channel-assembly-access-configuration-access-configuring.md "channel-assembly-access-configuration-access-configuring.md")
 - [Integrating with MediaPackage endpoints that use CDN authorization](channel-assembly-access-configuration-access-token-integrating-emp-cdn-auth.md "channel-assembly-access-configuration-access-token-integrating-emp-cdn-auth.md")
-- [How MediaTailor Secrets Manager
-  access token authentication works](channel-assembly-access-configuration-overview.md "channel-assembly-access-configuration-overview.md")
+- [How MediaTailor Secrets Manager access token authentication works](channel-assembly-access-configuration-overview.md "channel-assembly-access-configuration-overview.md")

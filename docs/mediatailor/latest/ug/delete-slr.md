@@ -17,8 +17,7 @@ again.
   configuration, you must first _deactivate_ all of the log
   configurations in your account. To deactivate a log configuration, set the
   **percent enabled** value to **0**. This turns off all
-  session logging the corresponding playback configuration. For more information, see [Deactivating a log
-  configuration](log-configuration.md#deactivating-logging-configuration "log-configuration.md#deactivating-logging-configuration").
+  session logging the corresponding playback configuration. For more information, see [Deactivating a log configuration](log-configuration.md#deactivating-logging-configuration "log-configuration.md#deactivating-logging-configuration").
   **To manually delete the service-linked role using
   IAM**
 

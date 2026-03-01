@@ -1,6 +1,4 @@
-# Creating and using configuration
-
-aliases with MediaTailor
+# Creating and using configuration aliases with MediaTailor
 
 Before you start to use domain variables, you create configuration aliases for your
 configuration. You use the configuration aliases as domain replacement variables at
@@ -39,9 +37,7 @@ following fallback behavior:
   that all required aliases are present during configuration creation and update
   operations.
 
-## Step 1: Create
-
-configuration aliases
+## Step 1: Create configuration aliases
 
 To create configuration aliases to use for domain replacement using the MediaTailor
 console, perform the following procedure.
@@ -81,9 +77,7 @@ When you create or update a MediaTailor configuration, use the `ConfigurationAli
                 }
 ```
 
-## Step 2: Use
-
-configuration aliases in session initialization
+## Step 2: Use configuration aliases in session initialization
 
 After you set up the configuration aliases, you can use them as replacement
 variables for domains in your session initialization request. This enables you to

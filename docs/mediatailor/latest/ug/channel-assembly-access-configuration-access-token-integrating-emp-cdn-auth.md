@@ -23,5 +23,4 @@ following procedure.
 "112233445566778899"}`.
 
 4. Complete the steps in [Attaching a resource-based secret policy](channel-assembly-access-configuration-access-configuring.md#channel-assembly-access-configuration-access-token-secret-policy "channel-assembly-access-configuration-access-configuring.md#channel-assembly-access-configuration-access-token-secret-policy").
-5. Complete the steps in [Step 3: Configure a MediaTailor source location with access token
-   authentication](channel-assembly-access-configuration-access-configuring.md#channel-assembly-access-configuration-access-token-how-to-enable-access-token-auth "channel-assembly-access-configuration-access-configuring.md#channel-assembly-access-configuration-access-token-how-to-enable-access-token-auth").
+5. Complete the steps in [Step 3: Configure a MediaTailor source location with access token authentication](channel-assembly-access-configuration-access-configuring.md#channel-assembly-access-configuration-access-token-how-to-enable-access-token-auth "channel-assembly-access-configuration-access-configuring.md#channel-assembly-access-configuration-access-token-how-to-enable-access-token-auth").

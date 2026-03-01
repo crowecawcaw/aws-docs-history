@@ -12,5 +12,4 @@ you add the slate at an offset in milliseconds into the program.
 
 - [Creating a program within a channel schedule using the MediaTailor console](channel-assembly-adding-programs.md "channel-assembly-adding-programs.md")
 - [Defining audience cohorts and alternate content with Program Rules](working-with-program-rules.md "working-with-program-rules.md")
-- [Generating audience-specific
-  manifests](generating-audience-specific-manifests.md "generating-audience-specific-manifests.md")
+- [Generating audience-specific manifests](generating-audience-specific-manifests.md "generating-audience-specific-manifests.md")

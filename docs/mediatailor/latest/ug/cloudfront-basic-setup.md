@@ -7,8 +7,7 @@ You'll also learn how to configure proper caching for different content types.
 
 For information about passing query parameters through CloudFront for authorization and routing,
 see [MediaTailor manifest query parameters](manifest-query-parameters.md "manifest-query-parameters.md").
-For advanced routing using dynamic variables, see [MediaTailor domain variables for multiple content
-sources](variables-domains.md "variables-domains.md").
+For advanced routing using dynamic variables, see [MediaTailor domain variables for multiple content sources](variables-domains.md "variables-domains.md").
 
 ## Prerequisites
 
@@ -75,8 +74,7 @@ handle different types of content appropriately. This section covers basic cache
 behavior setup for CloudFront.
 
 For comprehensive caching optimization including advanced TTL settings, cache key
-configurations, and performance tuning, see [Caching optimization for CDN and MediaTailor
-integrations](cdn-optimize-caching.md "cdn-optimize-caching.md") in the CDN optimization guide.
+configurations, and performance tuning, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md") in the CDN optimization guide.
 
 ### Configuring manifest cache behavior
 
@@ -109,9 +107,7 @@ goes directly to MediaTailor.
 Configure separate cache behaviors for ad segments and content segments to
 optimize performance and ensure proper CORS handling.
 
-#### Configuring ad segment cache
-
-behavior
+#### Configuring ad segment cache behavior
 
 Ad segments served through the `/tm/*` path pattern require
 specific configuration to handle CORS properly. Follow these steps:
@@ -135,9 +131,7 @@ specific configuration to handle CORS properly. Follow these steps:
    to ensure proper CORS headers are included in responses.
 9. Choose **Create**.
 
-#### Configuring content segment cache
-
-behavior
+#### Configuring content segment cache behavior
 
 Content segments can use standard caching policies for optimal performance.
 Configure separate behaviors for different segment formats:
@@ -262,9 +256,6 @@ This example shows:
 After setting up your basic CloudFront integration with MediaTailor, consider these next
 steps:
 
-- Optimize performance with additional CloudFront features (see [Optimizing MediaTailor performance with CloudFront
-  features](cloudfront-performance-optimization.md "cloudfront-performance-optimization.md"))
-- Implement multi-Region resilience with MQAR (see [Implement multi-Region resilience for MediaTailor with
-  MQAR](media-quality-resiliency.md "media-quality-resiliency.md"))
-- Set up monitoring and troubleshooting (see [Monitor and troubleshoot your CloudFront and
-  MediaTailor integration](monitoring-and-troubleshooting.md "monitoring-and-troubleshooting.md"))
+- Optimize performance with additional CloudFront features (see [Optimizing MediaTailor performance with CloudFront features](cloudfront-performance-optimization.md "cloudfront-performance-optimization.md"))
+- Implement multi-Region resilience with MQAR (see [Implement multi-Region resilience for MediaTailor with MQAR](media-quality-resiliency.md "media-quality-resiliency.md"))
+- Set up monitoring and troubleshooting (see [Monitor and troubleshoot your CloudFront and MediaTailor integration](monitoring-and-troubleshooting.md "monitoring-and-troubleshooting.md"))

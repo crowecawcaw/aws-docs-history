@@ -1,6 +1,4 @@
-# Implement MediaTailor ad insertion with channel
-
-assembly
+# Implement MediaTailor ad insertion with channel assembly
 
 Channel assembly in AWS Elemental MediaTailor integrates seamlessly with server-side ad insertion
 (SSAI) and content delivery networks (CDNs) to create monetized linear channels with
@@ -42,8 +40,7 @@ For optimal performance when combining channel assembly and SSAI:
 
 - Configure cache behaviors that distinguish between channel assembly and SSAI
   requests
-- Set appropriate TTL values for manifests and segments as recommended in [Caching optimization for CDN and MediaTailor
-  integrations](cdn-optimize-caching.md "cdn-optimize-caching.md")
+- Set appropriate TTL values for manifests and segments as recommended in [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md")
 - Ensure proper routing between channel assembly, ad insertion, and your CDN
   origins
 - Monitor the performance metrics for both channel assembly and ad insertion
@@ -52,9 +49,7 @@ For optimal performance when combining channel assembly and SSAI:
 
 - [Understand ad insertion architecture for CDN and MediaTailor integrations](ssai-cdn-architecture-overview.md "ssai-cdn-architecture-overview.md") - Learn about SSAI
   architecture and concepts
-- [Set up basic MediaTailor SSAI with a CDN for optimal ad
-  delivery](configuring-ssai-cdn.md "configuring-ssai-cdn.md") -
+- [Set up basic MediaTailor SSAI with a CDN for optimal ad delivery](configuring-ssai-cdn.md "configuring-ssai-cdn.md") -
   Step-by-step SSAI configuration instructions
-- [Troubleshoot MediaTailor SSAI with CDNs for
-  uninterrupted ad delivery](troubleshooting-ssai-cdn.md "troubleshooting-ssai-cdn.md") - Troubleshoot common SSAI
+- [Troubleshoot MediaTailor SSAI with CDNs for uninterrupted ad delivery](troubleshooting-ssai-cdn.md "troubleshooting-ssai-cdn.md") - Troubleshoot common SSAI
   integration issues

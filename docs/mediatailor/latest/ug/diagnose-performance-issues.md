@@ -1,14 +1,10 @@
-# Optimize CDN performance and resolve
-
-latency issues for MediaTailor
+# Optimize CDN performance and resolve latency issues for MediaTailor
 
 AWS Elemental MediaTailor content delivery network (CDN) integration performance directly impacts
 viewer experience and ad delivery quality. If you experience slow response times or
 performance degradation:
 
-## Performance measurement
-
-techniques
+## Performance measurement techniques
 
 Before troubleshooting performance issues, establish baseline measurements and
 ongoing monitoring:
@@ -44,14 +40,10 @@ ongoing monitoring:
 **Performance measurement resources:**
 
 - For comprehensive performance monitoring setup, see [Monitor MediaTailor CDN operations and performance](cdn-monitoring.md "cdn-monitoring.md")
-- For performance testing procedures, see [Testing and validation
-  for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md")
-- For CloudWatch metrics and monitoring, see [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch
-  metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md")
+- For performance testing procedures, see [Testing and validation for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md")
+- For CloudWatch metrics and monitoring, see [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md")
 
-## CDN cache performance
-
-issues
+## CDN cache performance issues
 
 Cache performance problems are among the most common CDN integration issues. These
 problems affect all MediaTailor implementations and can significantly impact viewer
@@ -91,8 +83,7 @@ increased latency, higher bandwidth costs, poor viewer experience
         * Static assets: Set TTL to 24 hours or longer
 
     For comprehensive TTL recommendations and caching optimization
-    strategies, see [Caching optimization for CDN and MediaTailor
-    integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+    strategies, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 
 2.  Optimize cache key configuration:
     - Remove unnecessary query parameters from cache
@@ -276,14 +267,11 @@ malformed request errors, parameter validation failures
 - ADS response times should not cause manifest generation delays
   **Additional troubleshooting resources:**
 
-- For comprehensive performance optimization strategies, see [Performance optimization guide for CDN and MediaTailor
-  integrations](cdn-optimization.md "cdn-optimization.md")
+- For comprehensive performance optimization strategies, see [Performance optimization guide for CDN and MediaTailor integrations](cdn-optimization.md "cdn-optimization.md")
 - For origin shield implementation details, see [Origin Shield implementation](cdn-advanced-optimization.md#origin-shield-optimization "cdn-advanced-optimization.md#origin-shield-optimization")
-- For CDN caching optimization, see [Caching optimization for CDN and MediaTailor
-  integrations](cdn-optimize-caching.md "cdn-optimize-caching.md")
+- For CDN caching optimization, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md")
 - For performance monitoring and metrics, see [Monitor MediaTailor CDN operations and performance](cdn-monitoring.md "cdn-monitoring.md")
-- For performance testing procedures, see [Testing and validation
-  for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md")
+- For performance testing procedures, see [Testing and validation for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md")
   **Success criteria:** When resolved, response times
   should meet target benchmarks (manifests less than 200ms, segments less than 100ms),
   cache hit ratios should exceed 90% for most content types, and origin request volume

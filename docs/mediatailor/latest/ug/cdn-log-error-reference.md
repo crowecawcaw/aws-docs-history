@@ -1,6 +1,4 @@
-# CDN integration log analysis and error code
-
-reference for MediaTailor
+# CDN integration log analysis and error code reference for MediaTailor
 
 AWS Elemental MediaTailor content delivery network (CDN) integration logs provide valuable insights into
 performance and errors. This guide covers both CDN logs (from your content delivery network)
@@ -14,8 +12,7 @@ entries and error messages to identify the root cause of issues.
 - For step-by-step troubleshooting procedures, see [Troubleshoot CDN integration](cdn-troubleshooting.md "cdn-troubleshooting.md")
 - For proactive monitoring and prevention strategies, see [Monitor MediaTailor CDN operations and performance](cdn-monitoring.md "cdn-monitoring.md")
 - For escalation and getting additional help, see [Get CDN integration support](cdn-get-help.md "cdn-get-help.md")
-- For comprehensive MediaTailor logging configuration and resources, see [MediaTailor logging configuration
-  resources](#mediatailor-logging-resources "#mediatailor-logging-resources")
+- For comprehensive MediaTailor logging configuration and resources, see [MediaTailor logging configuration resources](#mediatailor-logging-resources "#mediatailor-logging-resources")
 - For CloudFront log format reference, see [CloudFront access log format](../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md#LogFileFormat "../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md#LogFileFormat")
 - For HTTP status code reference, see [HTTP response
   status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status")
@@ -25,12 +22,9 @@ entries and error messages to identify the root cause of issues.
 - [Error codes
   reference](emt-error-codes-reference.md "emt-error-codes-reference.md")
 - [Log analysis tools](log-analysis-techniques.md "log-analysis-techniques.md")
-- [MediaTailor logging configuration
-  resources](#mediatailor-logging-resources "#mediatailor-logging-resources")
+- [MediaTailor logging configuration resources](#mediatailor-logging-resources "#mediatailor-logging-resources")
 
-## MediaTailor logging configuration
-
-resources
+## MediaTailor logging configuration resources
 
 In addition to CDN logs, MediaTailor provides comprehensive logging capabilities for
 monitoring ad insertion, manifest generation, and service interactions. Use these

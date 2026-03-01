@@ -1,6 +1,4 @@
-# Troubleshooting MediaTailor event flow
-
-issues
+# Troubleshooting MediaTailor event flow issues
 
 Understanding AWS Elemental MediaTailor event flow provides a powerful foundation for troubleshooting
 ad insertion issues. By analyzing the sequence, timing, and patterns of events, you can
@@ -9,18 +7,14 @@ quickly identify where problems occur and implement targeted solutions.
 This section provides practical guidance for using event flow analysis to diagnose
 issues. For understanding the basic event flow concepts, see [Ad insertion event flow](mediatailor-event-flow.md "mediatailor-event-flow.md").
 
-## Identifying incomplete event
-
-flows
+## Identifying incomplete event flows
 
 Incomplete event flows occur when the expected sequence of events stops before
 reaching successful manifest personalization (the process of MediaTailor inserting
 personalized ad information into the manifest). Identifying where the flow breaks
 helps pinpoint the root cause of ad insertion failures.
 
-### Common incomplete flow
-
-patterns
+### Common incomplete flow patterns
 
 Different failure points in the event flow indicate specific types of
 problems, such as the following.
@@ -39,9 +33,7 @@ problems, such as the following.
   indicate tracking configuration issues, server-side reporting problems,
   or client-side implementation gaps.
 
-### CloudWatch queries for
-
-incomplete flow analysis
+### CloudWatch queries for incomplete flow analysis
 
 Use these Amazon CloudWatch Logs Insights queries to identify incomplete event flows. Run
 these queries against the appropriate log groups based on the type of analysis
@@ -57,9 +49,7 @@ needed.
   problems, creative processing failures, or other non-ADS related
   issues.
 
-###### Example identify ad opportunities without successful manifest
-
-personalization
+###### Example identify ad opportunities without successful manifest personalization
 
 **Log group:**
 MediaTailor/AdDecisionServerInteractions
@@ -131,9 +121,7 @@ fields @timestamp, eventType, sessionId, requestId
 | sort transcode_issues desc
 ```
 
-## Analyzing event timing
-
-issues
+## Analyzing event timing issues
 
 Event timing analysis helps identify performance bottlenecks and optimize ad
 insertion workflows. Unusual timing patterns often indicate underlying issues that
@@ -207,16 +195,12 @@ fields @timestamp, eventType, avail.availId
 | where personalization_seconds > 1
 ```
 
-## Common event flow problems and
-
-solutions
+## Common event flow problems and solutions
 
 This section provides solutions for frequently encountered event flow issues,
 organized by problem type and symptoms.
 
-### Ad decision server request
-
-failures
+### Ad decision server request failures
 
 **Symptoms:** Event flow stops after ad
 opportunity detection. No ADS request events logged.
@@ -250,9 +234,7 @@ fields @timestamp, eventType, sessionId
 | sort @timestamp asc
 ```
 
-### Ad decision server response
-
-failures
+### Ad decision server response failures
 
 **Symptoms:** ADS requests succeed but MediaTailor
 doesn't receive a response, or parsing errors occur.
@@ -279,9 +261,7 @@ fields @timestamp, eventType, sessionId
 | sort @timestamp asc
 ```
 
-### Manifest personalization
-
-failures
+### Manifest personalization failures
 
 **Symptoms:** VAST responses received but
 manifest personalization fails or ads are skipped.
@@ -374,9 +354,7 @@ fields @timestamp, eventType, sessionId
 | sort @timestamp asc
 ```
 
-## Event flow monitoring best
-
-practices
+## Event flow monitoring best practices
 
 Implement these monitoring practices to proactively identify and resolve event
 flow issues:
@@ -423,9 +401,7 @@ fields @timestamp, eventType
 | sort hour desc
 ```
 
-### Performance optimization
-
-guidance
+### Performance optimization guidance
 
 Use event flow analysis to optimize ad insertion performance.
 
@@ -438,15 +414,12 @@ Use event flow analysis to optimize ad insertion performance.
   settings, personalization thresholds, and other configuration parameters
   based on event flow analysis.
 
-## Additional troubleshooting
-
-resources
+## Additional troubleshooting resources
 
 For additional troubleshooting guidance beyond event flow analysis:
 
 - For detailed log format information and technical specifications, see
   [Viewing logs](monitoring-through-logs.md "monitoring-through-logs.md").
 - For comprehensive troubleshooting of common ad insertion issues, see [Troubleshooting common issues](monitoring-and-troubleshooting.md#troubleshooting-common-issues "monitoring-and-troubleshooting.md#troubleshooting-common-issues").
-- For monitoring and alerting setup guidance, see [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch
-  metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md").
+- For monitoring and alerting setup guidance, see [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md").
 - For debug logging procedures, see [Generating debug logs](debug-log-mode.md "debug-log-mode.md").

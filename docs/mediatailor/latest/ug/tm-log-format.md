@@ -1,6 +1,4 @@
-# AWS Elemental MediaTailor transcode logs description and event
-
-types
+# AWS Elemental MediaTailor transcode logs description and event types
 
 The following sections describe the logs that MediaTailor emits to describe events with the
 transcode service when preparing creatives for ad stitching. These are

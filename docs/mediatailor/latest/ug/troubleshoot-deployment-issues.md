@@ -1,6 +1,4 @@
-# Troubleshoot common CloudFormation deployment
-
-issues for CDN and MediaTailor integrations
+# Troubleshoot common CloudFormation deployment issues for CDN and MediaTailor integrations
 
 AWS Elemental MediaTailor deployment issues can occur even with automation during deployment or playback. As a broadcast
 professional, understanding how to troubleshoot these issues will help you maintain a

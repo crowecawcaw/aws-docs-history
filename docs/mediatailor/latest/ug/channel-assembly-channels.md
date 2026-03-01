@@ -10,6 +10,5 @@ or a live source.
 ###### Topics
 
 - [Create a channel using the MediaTailor console](channel-assembly-creating-channels.md "channel-assembly-creating-channels.md")
-- [Using source groups with your channel's
-  outputs](channel-assembly-source-groups.md "channel-assembly-source-groups.md")
+- [Using source groups with your channel's outputs](channel-assembly-source-groups.md "channel-assembly-source-groups.md")
 - [Delete a channel using the MediaTailor console](channel-assembly-starting-stopping-channels.md "channel-assembly-starting-stopping-channels.md")

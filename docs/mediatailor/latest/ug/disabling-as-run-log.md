@@ -32,9 +32,7 @@ channel.
    types**, clear **Enable as run**
    to disable the As Run log.
 
-###### To disable the As Run log from the **Logging**
-
-tab
+###### To disable the As Run log from the **Logging** tab
 
 ###### Note
 

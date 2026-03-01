@@ -17,8 +17,7 @@ there's a non-linear overlay ad available to play. This signaling allows the pla
 and correlate the non-linear ads to play from the client-side tracking endpoint. The player
 then handles the display, reporting, and other tasks related to those ads. For example, the
 player's developer can use a device SDK from a vendor that supports overlay-ad formats. For
-more information about client-side tracking integrations, see [Client-side ad-tracking
-integrations](ad-reporting-client-side-ad-tracking-integrations.md "ad-reporting-client-side-ad-tracking-integrations.md").
+more information about client-side tracking integrations, see [Client-side ad-tracking integrations](ad-reporting-client-side-ad-tracking-integrations.md "ad-reporting-client-side-ad-tracking-integrations.md").
 
 ![The image depicts a timeline of various ad types displayed alongside a content video. Linear ads play before and after the content video. The ad before the content video is called a pre-roll ad. The ad after the content video is called a post-roll ad. A non-linear ad overlaps a portion of the content video itself. The non-linear ad is called an overlay ad.](images/client-side-overlays.png)
 

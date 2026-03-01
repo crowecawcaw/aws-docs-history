@@ -3,10 +3,8 @@
 AWS Elemental MediaTailor supports setting up dynamic variables in MediaTailor requests to the ADS using the
 following steps.
 
-- For information about supported formatting for query parameters, see [MediaTailor parameter reference and
-  limitations](parameter-comprehensive-reference.md "parameter-comprehensive-reference.md").
-- For configuration aliases and domain variables, see [MediaTailor configuration aliases
-  overview](configuration-aliases-overview.md "configuration-aliases-overview.md").
+- For information about supported formatting for query parameters, see [MediaTailor parameter reference and limitations](parameter-comprehensive-reference.md "parameter-comprehensive-reference.md").
+- For configuration aliases and domain variables, see [MediaTailor configuration aliases overview](configuration-aliases-overview.md "configuration-aliases-overview.md").
 - For additional customizations to the ADS request, see [Advanced usage](#variables-advanced-usage "#variables-advanced-usage").
 
 ###### Session initialization methods
@@ -57,7 +55,7 @@ https://my.ads.server.com/path?correlation=[session.id]&deviceType=[player_param
 
 The type of call that the player makes to initialize the session determines
 whether the player (client) or MediaTailor (server) provides ad-tracking
-reporting for the session. For information about these two options, see [Reporting ad tracking data](ad-reporting.md "ad-reporting.md") .
+reporting for the session. For information about these two options, see [Reporting ad tracking data](ad-reporting.md "ad-reporting.md").
 
 Make one of the following types of calls, depending on whether you want
 server- or client-side ad-tracking reporting. In both of the example calls,

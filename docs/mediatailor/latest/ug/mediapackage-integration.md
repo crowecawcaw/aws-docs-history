@@ -59,9 +59,7 @@ Before you begin, ensure you have the following components configured:
 4. **Ad decision server**: A configured ad decision
    server that returns VAST or VMAP responses for ad insertion.
 
-## Step 1: Configure essential CDN
-
-settings
+## Step 1: Configure essential CDN settings
 
 Proper CDN configuration is critical for successful MediaPackage integration. Incorrect
 settings can cause playback failures, poor cache performance, and increased costs.
@@ -87,12 +85,9 @@ To configure basic caching that works with MediaPackage:
 This basic configuration allows MediaPackage to set appropriate cache durations for
 different content types automatically. To implement advanced cache optimization with
 specific TTL values and performance tuning, complete this basic setup first, then
-continue to [Optimize CDN caching for MediaTailor and MediaPackage content
-delivery](cdn-emp-caching.md "cdn-emp-caching.md").
+continue to [Optimize CDN caching for MediaTailor and MediaPackage content delivery](cdn-emp-caching.md "cdn-emp-caching.md").
 
-### Configure essential query
-
-parameters
+### Configure essential query parameters
 
 Query parameter configuration is crucial for MediaPackage functionality. Your CDN must
 forward specific query parameters to enable features like time-shifted viewing and
@@ -131,17 +126,13 @@ To ensure your CDN forwards the required query parameters to MediaPackage:
 
 These parameters enable basic MediaPackage functionality with your CDN. If you need to
 implement content filtering for different subscription tiers or device types,
-complete this basic query parameter setup first, then proceed to [Set up manifest filtering with MediaTailor, MediaPackage,
-and CDN](cdn-emp-manifest-filtering.md "cdn-emp-manifest-filtering.md").
+complete this basic query parameter setup first, then proceed to [Set up manifest filtering with MediaTailor, MediaPackage, and CDN](cdn-emp-manifest-filtering.md "cdn-emp-manifest-filtering.md").
 
 For information about how MediaTailor passes query parameters like `start`
-and `end` through to MediaPackage for time-shifted viewing, see [MediaTailor query parameter handling for
-origins](origin-query-parameters.md "origin-query-parameters.md") in
+and `end` through to MediaPackage for time-shifted viewing, see [MediaTailor query parameter handling for origins](origin-query-parameters.md "origin-query-parameters.md") in
 [MediaTailor manifest query parameters](manifest-query-parameters.md "manifest-query-parameters.md").
 
-### Configure response timeout for
-
-LL-HLS
+### Configure response timeout for LL-HLS
 
 Timeout configuration is critical for low-latency HLS because LL-HLS uses a
 "blocking requests" mechanism where the CDN waits for new content segments. If your
@@ -189,14 +180,10 @@ CDN:
 4. Confirm that ad segment URLs also point to your CDN domain.
 
 If the manifest loads correctly and contains the expected URLs, your basic
-integration is working. For comprehensive testing methodologies and advanced validation procedures, see [Testing and validation
-for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md"). To set up comprehensive monitoring of your integration's
-performance and health, see [Monitor performance for MediaPackage, CDN, and MediaTailor
-integrations](cdn-emp-monitoring.md "cdn-emp-monitoring.md").
+integration is working. For comprehensive testing methodologies and advanced validation procedures, see [Testing and validation for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md"). To set up comprehensive monitoring of your integration's
+performance and health, see [Monitor performance for MediaPackage, CDN, and MediaTailor integrations](cdn-emp-monitoring.md "cdn-emp-monitoring.md").
 
-### Step 2.2: Test video
-
-playback
+### Step 2.2: Test video playback
 
 Video playback testing ensures that your complete integration works end-to-end,
 including ad insertion and content delivery through your CDN. This test verifies
@@ -214,10 +201,8 @@ Test that video playback works correctly with ads inserted:
 4. Check that both content and ad segments load from your CDN (not directly
    from origins).
 
-If playback works smoothly with ads, your integration is functioning correctly. For comprehensive testing methodologies and advanced validation procedures, see [Testing and validation
-for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md"). If
-you experience any playback issues, buffering, or ad insertion problems, see [Troubleshoot MediaPackage, CDN, and MediaTailor
-integrations](cdn-emp-troubleshooting.md "cdn-emp-troubleshooting.md").
+If playback works smoothly with ads, your integration is functioning correctly. For comprehensive testing methodologies and advanced validation procedures, see [Testing and validation for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md"). If
+you experience any playback issues, buffering, or ad insertion problems, see [Troubleshoot MediaPackage, CDN, and MediaTailor integrations](cdn-emp-troubleshooting.md "cdn-emp-troubleshooting.md").
 
 ## Next steps
 
@@ -225,20 +210,16 @@ After completing the basic integration, you can implement advanced features and 
 
 **Advanced CDN optimization**
 
-For detailed cache optimization, TTL configuration, and performance tuning, see [Optimize CDN caching for MediaTailor and MediaPackage content
-delivery](cdn-emp-caching.md "cdn-emp-caching.md").
+For detailed cache optimization, TTL configuration, and performance tuning, see [Optimize CDN caching for MediaTailor and MediaPackage content delivery](cdn-emp-caching.md "cdn-emp-caching.md").
 
 **Manifest filtering**
 
-To implement content filtering for tiered services, device optimization, or access control, see [Set up manifest filtering with MediaTailor, MediaPackage,
-and CDN](cdn-emp-manifest-filtering.md "cdn-emp-manifest-filtering.md").
+To implement content filtering for tiered services, device optimization, or access control, see [Set up manifest filtering with MediaTailor, MediaPackage, and CDN](cdn-emp-manifest-filtering.md "cdn-emp-manifest-filtering.md").
 
 **Troubleshooting**
 
-If you encounter issues with your integration, see [Troubleshoot MediaPackage, CDN, and MediaTailor
-integrations](cdn-emp-troubleshooting.md "cdn-emp-troubleshooting.md").
+If you encounter issues with your integration, see [Troubleshoot MediaPackage, CDN, and MediaTailor integrations](cdn-emp-troubleshooting.md "cdn-emp-troubleshooting.md").
 
 **Performance monitoring**
 
-To set up comprehensive monitoring and understand key performance metrics, see [Monitor performance for MediaPackage, CDN, and MediaTailor
-integrations](cdn-emp-monitoring.md "cdn-emp-monitoring.md").
+To set up comprehensive monitoring and understand key performance metrics, see [Monitor performance for MediaPackage, CDN, and MediaTailor integrations](cdn-emp-monitoring.md "cdn-emp-monitoring.md").

@@ -1,6 +1,4 @@
-# Implement multi-Region resilience for MediaTailor with
-
-MQAR
+# Implement multi-Region resilience for MediaTailor with MQAR
 
 AWS Elemental MediaTailor multi-Region resilience is enhanced through Media Quality-Aware Resiliency (MQAR), an advanced Amazon CloudFront feature that helps MediaTailor
 deliver the best possible streaming experience. It automatically selects the origin with the
@@ -133,6 +131,5 @@ After setting up MQAR, test your configuration to ensure it works as expected:
 
 After implementing MQAR, consider these next steps:
 
-- Set up monitoring and troubleshooting for your MQAR configuration (see [Monitor and troubleshoot your CloudFront and
-  MediaTailor integration](monitoring-and-troubleshooting.md "monitoring-and-troubleshooting.md"))
+- Set up monitoring and troubleshooting for your MQAR configuration (see [Monitor and troubleshoot your CloudFront and MediaTailor integration](monitoring-and-troubleshooting.md "monitoring-and-troubleshooting.md"))
 - Implement automated deployment using AWS CloudFormation (see [Automate MediaTailor and CDN with CloudFormation](automating-cdn-integration.md "automating-cdn-integration.md"))

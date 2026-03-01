@@ -1,6 +1,4 @@
-# MediaTailor server-side ad tracking and
-
-reporting
+# MediaTailor server-side ad tracking and reporting
 
 AWS Elemental MediaTailor defaults to server-side reporting for comprehensive ad tracking and measurement.
 With server-side reporting, when the player requests an ad URL from the manifest, the

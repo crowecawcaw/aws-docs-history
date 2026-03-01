@@ -1,6 +1,4 @@
-# Creating an MediaTailor playback
-
-configuration
+# Creating an MediaTailor playback configuration
 
 This topic shows how to create a configuration to start receiving content streams
 with AWS Elemental MediaTailor. It also shows how to provide an access point for downstream playback
@@ -26,8 +24,7 @@ Amazon CloudWatch Events.
 3. Complete the configuration and additional configuration fields as
    described in the following topics:
    - [Required settings](#configurations-create-main "#configurations-create-main")
-   - [Optional configuration
-     settings](#configurations-create-addl "#configurations-create-addl")
+   - [Optional configuration settings](#configurations-create-addl "#configurations-create-addl")
 
 4. Choose **Create configuration**.
 
@@ -35,8 +32,7 @@ AWS Elemental MediaTailor displays the new configuration in the table on the
 **Configurations** page. 5. (Recommended) Set up a CDN with AWS Elemental MediaTailor for manifest and
 reporting requests. You can use the configuration playback URLs for the CDN
 setup. For information about setting up a CDN for manifest and reporting
-requests, see [Using a CDN to optimize MediaTailor ad personalization and
-content delivery](integrating-cdn.md "integrating-cdn.md").
+requests, see [Using a CDN to optimize MediaTailor ad personalization and content delivery](integrating-cdn.md "integrating-cdn.md").
 
 ## Required settings
 
@@ -74,8 +70,7 @@ can't serve manifests in response to player requests.
 **Ad decision server**
 
 Enter the URL for your ad decision server (ADS). This is either
-the URL with variables as described in [Step 3: Configure ADS request
-URL and query parameters](getting-started-ad-insertion.md#getting-started-configure-request "getting-started-ad-insertion.md#getting-started-configure-request") , or the
+the URL with variables as described in [Step 3: Configure ADS request URL and query parameters](getting-started-ad-insertion.md#getting-started-configure-request "getting-started-ad-insertion.md#getting-started-configure-request") , or the
 static VAST URL that you are using for testing purposes. The maximum
 length is 25,000 characters.
 
@@ -88,18 +83,14 @@ by the ADS. If you use a self-signed certificate, then
 AWS Elemental MediaTailor can't retrieve and stitch ads into the
 manifests from the content origin.
 
-## Optional configuration
-
-settings
+## Optional configuration settings
 
 You can optionally configure **configuration aliases**,
 **personalization details**, and **advanced
 settings** in the MediaTailor console, MediaTailor API, or the
 AWS Command Line Interface (AWS CLI).
 
-### Configuration
-
-aliases
+### Configuration aliases
 
 The following are optional configuration aliases that you can
 configure in the MediaTailor console, or with the MediaTailor
@@ -112,12 +103,9 @@ initialization, add one or more player parameter
 variables.
 
 For more information about using player parameter variables to
-dynamically configure domains, see [MediaTailor domain variables for multiple content
-sources](variables-domains.md "variables-domains.md").
+dynamically configure domains, see [MediaTailor domain variables for multiple content sources](variables-domains.md "variables-domains.md").
 
-### Log
-
-configuration
+### Log configuration
 
 The following are log configuration settings.
 
@@ -133,8 +121,7 @@ CloudWatch Logs.
 When you enable this option, MediaTailor automatically creates a
 service-linked role that allows MediaTailor to write and manage
 session logs in your CloudWatch Logs account. For more information, see
-[Using service-linked roles for
-MediaTailor](using-service-linked-roles.md "using-service-linked-roles.md").
+[Using service-linked roles for MediaTailor](using-service-linked-roles.md "using-service-linked-roles.md").
 
 **Logging strategies**
 
@@ -193,9 +180,7 @@ to stitch.
   `streaming` delivery media files to fill the avail, MediaTailor transcodes and uses those
   with `progressive` delivery.
 
-### Personalization
-
-details
+### Personalization details
 
 The following are personalization details that you can configure in
 the MediaTailor console or with the MediaTailor API.
@@ -229,16 +214,14 @@ the maximum duration of underfilled ad time (in seconds) allowed
 in an ad break before MediaTailor abandons personalization and shows
 underlying content. This feature applies to ad replacement in
 live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For detailed behavior scenarios and
-comprehensive information, see [How personalization threshold
-works](slate-management.md#personalization-threshold-scenarios "slate-management.md#personalization-threshold-scenarios").
+comprehensive information, see [How personalization threshold works](slate-management.md#personalization-threshold-scenarios "slate-management.md#personalization-threshold-scenarios").
 
 **Live pre-roll ad decision server**
 
 To insert ads at the start of a live stream before the main
 content starts playback, enter the URL for the ad pre-roll from
 the ad decision server (ADS). This is either the URL with
-variables as described in [Step 3: Configure ADS request
-URL and query parameters](getting-started-ad-insertion.md#getting-started-configure-request "getting-started-ad-insertion.md#getting-started-configure-request"), or the
+variables as described in [Step 3: Configure ADS request URL and query parameters](getting-started-ad-insertion.md#getting-started-configure-request "getting-started-ad-insertion.md#getting-started-configure-request"), or the
 static VAST URL that you are using for testing purposes. The
 maximum length is 25,000 characters.
 
@@ -307,8 +290,7 @@ For **CDN content segment prefix**, enter the
 CDN prefix path.
 
 For more information about integrating MediaTailor with a
-CDN, see [Using a CDN to optimize MediaTailor ad personalization and
-content delivery](integrating-cdn.md "integrating-cdn.md").
+CDN, see [Using a CDN to optimize MediaTailor ad personalization and content delivery](integrating-cdn.md "integrating-cdn.md").
 
 **CDN ad segment prefix**
 
@@ -328,8 +310,7 @@ For **CDN ad segment prefix**, enter the name
 of your CDN prefix in the configuration.
 
 For more information about integrating MediaTailor with a
-CDN, see [Using a CDN to optimize MediaTailor ad personalization and
-content delivery](integrating-cdn.md "integrating-cdn.md").
+CDN, see [Using a CDN to optimize MediaTailor ad personalization and content delivery](integrating-cdn.md "integrating-cdn.md").
 
 **DASH origin manifest type**
 

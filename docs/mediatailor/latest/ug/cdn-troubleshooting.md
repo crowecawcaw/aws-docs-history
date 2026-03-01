@@ -1,6 +1,4 @@
-# Troubleshoot issues with MediaTailor and CDN
-
-integration
+# Troubleshoot issues with MediaTailor and CDN integration
 
 This comprehensive troubleshooting guide covers common content delivery network (CDN)
 integration issues across all AWS Elemental MediaTailor implementations including server-side ad insertion
@@ -78,9 +76,7 @@ issues.
    - Add timing information for performance analysis
    - Include cache control headers for manifest requests
 
-### Establish baseline performance
-
-metrics
+### Establish baseline performance metrics
 
 Document normal performance ranges to quickly identify anomalies during
 troubleshooting:
@@ -102,9 +98,7 @@ troubleshooting:
    monitoring dashboards that show current metrics compared to baseline
    values.
 
-### Prepare troubleshooting
-
-tools
+### Prepare troubleshooting tools
 
 Set up tools and access permissions needed for effective troubleshooting:
 
@@ -128,9 +122,7 @@ Set up tools and access permissions needed for effective troubleshooting:
    - Contact information for escalation procedures
    - Troubleshooting runbooks for common scenarios
 
-## Workflow-specific troubleshooting
-
-guides
+## Workflow-specific troubleshooting guides
 
 This universal troubleshooting guide covers common issues across all MediaTailor CDN
 integrations. For issues specific to particular workflows or services, consult these

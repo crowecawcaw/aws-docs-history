@@ -9,8 +9,7 @@ To deploy the CloudFormation template and set up your automated ad insertion wor
 ###### To deploy the MediaTailor CloudFormation template
 
 1. Download the CloudFormation template from the AWS Elemental MediaTailor GitHub repository or copy it
-   from the [AWS CloudFormation template reference for
-   AWS Elemental MediaTailor and Amazon CloudFront integration](cloudformation-template-reference.md "cloudformation-template-reference.md").
+   from the [AWS CloudFormation template reference for AWS Elemental MediaTailor and Amazon CloudFront integration](cloudformation-template-reference.md "cloudformation-template-reference.md").
 2. Open the [CloudFormation
    console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home").
 3. Choose **Create stack** > **With new resources

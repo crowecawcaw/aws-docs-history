@@ -139,8 +139,7 @@ To use VPAID, follow these guidelines:
   provides the ad metadata through client-side reporting as usual. It also
   logs an error in CloudWatch about the missing slate. For more information, see
   [MediaTailor slate ad insertion](slate-management.md "slate-management.md") and
-  [Creating an MediaTailor playback
-  configuration](configurations-create.md "configurations-create.md").
+  [Creating an MediaTailor playback configuration](configurations-create.md "configurations-create.md").
 - Use client-side reporting. AWS Elemental MediaTailor supports VPAID through our
   client-side reporting API. For more information, see [Client-side ad tracking](ad-reporting-client-side.md "ad-reporting-client-side.md").
 

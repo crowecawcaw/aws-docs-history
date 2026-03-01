@@ -9,8 +9,7 @@ in your account.
 
 When you enable the As Run log, MediaTailor automatically creates a service-linked role that
 allows MediaTailor to write and manage the As Run log in your CloudWatch Logs account. For more
-information about service-linked roles, see [Using service-linked roles for
-MediaTailor](using-service-linked-roles.md "using-service-linked-roles.md").
+information about service-linked roles, see [Using service-linked roles for MediaTailor](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ###### Note
 

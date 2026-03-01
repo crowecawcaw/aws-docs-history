@@ -1,6 +1,4 @@
-# MediaTailor domain variables for multiple content
-
-sources
+# MediaTailor domain variables for multiple content sources
 
 AWS Elemental MediaTailor dynamic domain variables allow you to use multiple domains, such as the
 **my-ads-server.com** part of the URL
@@ -18,7 +16,5 @@ You can use domain variables with any parameter that contains a URI:
   Domain variables are used alongside _configuration aliases_ to
   perform dynamic variable replacement. Configuration aliases map a set of aliases and
   values to the player parameters that are used for dynamic domain configuration. For
-  setup procedures, see [Creating and using configuration
-  aliases with MediaTailor](creating-configuration-aliases.md "creating-configuration-aliases.md"). For detailed reference
-  information, see [MediaTailor configuration aliases
-  overview](configuration-aliases-overview.md "configuration-aliases-overview.md").
+  setup procedures, see [Creating and using configuration aliases with MediaTailor](creating-configuration-aliases.md "creating-configuration-aliases.md"). For detailed reference
+  information, see [MediaTailor configuration aliases overview](configuration-aliases-overview.md "configuration-aliases-overview.md").

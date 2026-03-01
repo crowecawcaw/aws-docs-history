@@ -6,9 +6,6 @@ associated alarms, metrics, and logs.
 
 ###### Topics
 
-- [Workflow monitor
-  overview](monitor-with-workflow-monitor-operate-overview.md "monitor-with-workflow-monitor-operate-overview.md")
-- [Overview logs
-  and metrics for workflow monitor](monitor-with-workflow-monitor-operate-logs-metrics.md "monitor-with-workflow-monitor-operate-logs-metrics.md")
-- [Using workflow monitor
-  signal maps](monitor-with-workflow-monitor-operate-signal-maps.md "monitor-with-workflow-monitor-operate-signal-maps.md")
+- [Workflow monitor overview](monitor-with-workflow-monitor-operate-overview.md "monitor-with-workflow-monitor-operate-overview.md")
+- [Overview logs and metrics for workflow monitor](monitor-with-workflow-monitor-operate-logs-metrics.md "monitor-with-workflow-monitor-operate-logs-metrics.md")
+- [Using workflow monitor signal maps](monitor-with-workflow-monitor-operate-signal-maps.md "monitor-with-workflow-monitor-operate-signal-maps.md")

@@ -5,8 +5,7 @@ Understanding these examples can help you configure and troubleshoot your MediaT
 workflows.
 
 For information about how query parameters are applied to DASH manifests and segments, see
-[MediaTailor
-DASH implicit session initialization](manifest-query-parameters-dash-implicit-session-initialization.md "manifest-query-parameters-dash-implicit-session-initialization.md").
+[MediaTailor DASH implicit session initialization](manifest-query-parameters-dash-implicit-session-initialization.md "manifest-query-parameters-dash-implicit-session-initialization.md").
 
 ## Understanding DASH MPD structure
 
@@ -70,9 +69,7 @@ This section provides examples of live DASH MPDs. Each example lists an MPD as
 received from the origin server and after MediaTailor has personalized the MPD with
 ads.
 
-### DASH MPD splice insert
-
-example
+### DASH MPD splice insert example
 
 ###### DASH origin MPD example for splice insert
 
@@ -195,9 +192,7 @@ In this personalized MPD example:
 - The `<Representation>` elements provide different quality
   levels for the ad content
 
-### DASH MPD time signal
-
-example
+### DASH MPD time signal example
 
 ###### DASH origin MPD example for time signal
 
@@ -284,9 +279,7 @@ Periods for different content segments.
 
 For examples of VOD DASH MPDs, see the MediaTailor documentation on [DASH ad markers](dash-ad-markers.md "dash-ad-markers.md").
 
-## Key differences in personalized
-
-MPDs
+## Key differences in personalized MPDs
 
 When MediaTailor personalizes DASH MPDs, it makes several important changes:
 
@@ -315,8 +308,7 @@ For more information about DASH MPDs and MediaTailor, see the following topics:
 
 - [DASH manifest types](dash-manifest-types.md "dash-manifest-types.md") -
   Detailed explanation of DASH manifest types
-- [Using a CDN to optimize MediaTailor ad personalization and
-  content delivery](integrating-cdn.md "integrating-cdn.md") -
+- [Using a CDN to optimize MediaTailor ad personalization and content delivery](integrating-cdn.md "integrating-cdn.md") -
   Information about using a CDN with MediaTailor
 - [How MediaTailor ad insertion works](what-is-flow.md "what-is-flow.md") - Overview of how
   MediaTailor ad insertion works

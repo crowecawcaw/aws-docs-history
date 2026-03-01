@@ -1,6 +1,4 @@
-# Configure optimization
-
-strategies for CDN and MediaTailor integrations
+# Configure optimization strategies for CDN and MediaTailor integrations
 
 When you complete your traffic estimation, configure your content delivery network (CDN) to optimize content
 delivery and ad personalization with AWS Elemental MediaTailor. These optimizations help ensure smooth playback while
@@ -39,8 +37,7 @@ Implement these specific CDN optimizations that follow:
         * Ad segments: 24 or more hours (ad content is typically reused across
          viewers and you can cache it for extended periods)
 
-    For comprehensive TTL recommendations and caching optimization strategies across all MediaTailor workflows, see [Caching optimization for CDN and MediaTailor
-    integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+    For comprehensive TTL recommendations and caching optimization strategies across all MediaTailor workflows, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 
 For detailed instructions on configuring cache behaviors in CloudFront, see
 [Cache Behavior Settings](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.md#DownloadDistValuesCacheBehavior "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.md#DownloadDistValuesCacheBehavior") in the CloudFront Developer Guide. 3. Deploy CDN edge nodes close to your viewer populations. Work with your CDN

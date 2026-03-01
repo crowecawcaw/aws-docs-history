@@ -42,8 +42,7 @@ CacheBehaviors:
 
 For broadcast workflows with specific caching requirements (like quality selection
 parameters or viewer authentication), you can create custom cache policies instead
-of using the managed ones. For detailed guidance on TTL values and caching strategies, see [Caching optimization for CDN and MediaTailor
-integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+of using the managed ones. For detailed guidance on TTL values and caching strategies, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 
 ```
 # Define a custom cache policy
@@ -74,9 +73,7 @@ CacheBehaviors:
     CachePolicyId: !Ref CustomCachePolicy
 ```
 
-## Enhance MediaTailor
-
-configuration
+## Enhance MediaTailor configuration
 
 For broadcast workflows that need advanced ad insertion features, you can enhance
 the MediaTailor configuration with options like ad prefetching (to reduce latency),

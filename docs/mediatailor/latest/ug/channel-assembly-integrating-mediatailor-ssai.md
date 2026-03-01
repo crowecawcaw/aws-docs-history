@@ -1,6 +1,4 @@
-# Insert personalized ads and ad
-
-breaks in a channel stream
+# Insert personalized ads and ad breaks in a channel stream
 
 With MediaTailor, you can monetize channel assembly linear streams by inserting ad breaks in your
 programs without conditioning the content with SCTE-35 markers. You can use channel assembly

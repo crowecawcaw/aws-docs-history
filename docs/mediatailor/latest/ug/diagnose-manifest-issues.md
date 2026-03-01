@@ -1,6 +1,4 @@
-# Diagnose CDN manifest delivery issues and
-
-errors for MediaTailor
+# Diagnose CDN manifest delivery issues and errors for MediaTailor
 
 AWS Elemental MediaTailor content delivery network (CDN) manifest delivery problems can prevent proper
 ad insertion and playback. If viewers receive incorrect or inconsistent ads in
@@ -26,8 +24,7 @@ multivariant playlists, media playlists, or MPDs:
       issues
 
 3.  Check header forwarding configuration:
-    - Verify required headers are being forwarded (see [Required headers for MediaTailor CDN
-      integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers"))
+    - Verify required headers are being forwarded (see [Required headers for MediaTailor CDN integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers"))
     - Confirm User-Agent header is forwarded for device-specific ad
       targeting
     - Check that X-Forwarded-For header is forwarded for
@@ -57,15 +54,11 @@ multivariant playlists, media playlists, or MPDs:
 
     **Additional troubleshooting resources:**
 
-- For detailed CDN caching configuration, see [Caching optimization for CDN and MediaTailor
-  integrations](cdn-optimize-caching.md "cdn-optimize-caching.md")
+- For detailed CDN caching configuration, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md")
 - For comprehensive CDN routing setup, see [Set up CDN routing behaviors for MediaTailor](cdn-routing-behaviors.md "cdn-routing-behaviors.md")
-- For header forwarding requirements, see [Required headers for MediaTailor CDN
-  integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers")
-- For log analysis and error codes, see [CDN integration log analysis and error code
-  reference for MediaTailor](cdn-log-error-reference.md "cdn-log-error-reference.md")
-- For testing procedures and validation, see [Testing and validation
-  for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md")
+- For header forwarding requirements, see [Required headers for MediaTailor CDN integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers")
+- For log analysis and error codes, see [CDN integration log analysis and error code reference for MediaTailor](cdn-log-error-reference.md "cdn-log-error-reference.md")
+- For testing procedures and validation, see [Testing and validation for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md")
   **Success criteria:** When resolved, players should start
   playback normally and ads should appear as expected. Manifest requests should return
   HTTP 200 status codes in CDN logs, and manifests should contain properly personalized ad

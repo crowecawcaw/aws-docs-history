@@ -1,6 +1,4 @@
-# MediaTailor query parameter handling for
-
-origins
+# MediaTailor query parameter handling for origins
 
 AWS Elemental MediaTailor handles query parameters differently depending on their purpose. Manifest
 query parameters (prefixed with `manifest.`) are used for CDN routing and
@@ -39,5 +37,4 @@ or other origin-specific features:
 
 The specific handling of query parameters depends on your origin configuration and
 the parameters your content origin supports. For MediaPackage integration, ensure your CDN
-is configured to forward the necessary query parameters as described in [Configure essential query
-parameters](mediapackage-integration.md#mediapackage-query-strings "mediapackage-integration.md#mediapackage-query-strings").
+is configured to forward the necessary query parameters as described in [Configure essential query parameters](mediapackage-integration.md#mediapackage-query-strings "mediapackage-integration.md#mediapackage-query-strings").

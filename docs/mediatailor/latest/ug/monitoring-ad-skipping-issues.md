@@ -1,6 +1,4 @@
-# MediaTailor ad skipping monitoring and
-
-alerts
+# MediaTailor ad skipping monitoring and alerts
 
 Proactive monitoring helps you detect and resolve ad skipping issues before they
 significantly impact your revenue. AWS Elemental MediaTailor provides comprehensive metrics and logging
@@ -17,15 +15,11 @@ Set up CloudWatch alarms for these key MediaTailor metrics:
 - `Avail.SlateOnly` - Count of ad breaks filled with slate
   only
 
-## Advanced CloudWatch Logs Insights
-
-queries
+## Advanced CloudWatch Logs Insights queries
 
 Use these specialized queries for detailed troubleshooting:
 
-### Comprehensive session
-
-analysis
+### Comprehensive session analysis
 
 For detailed analysis of ad insertion behavior for a specific session:
 

@@ -1,13 +1,9 @@
-# MediaTailor configuration aliases
-
-troubleshooting guide
+# MediaTailor configuration aliases troubleshooting guide
 
 AWS Elemental MediaTailor provides systematic troubleshooting guidance for common configuration
 aliases issues and error scenarios.
 
-## Configuration alias
-
-validation errors
+## Configuration alias validation errors
 
 When configuration aliases are missing or invalid, MediaTailor returns specific error
 responses to help identify the issue.
@@ -41,9 +37,7 @@ Use the following checklist to validate your configuration aliases setup:
 5. **Value consistency:** Ensure alias values
    are valid for their intended use (URLs, profile names, etc.)
 
-## Debugging configuration alias
-
-resolution
+## Debugging configuration alias resolution
 
 Follow this systematic approach to debug configuration alias resolution issues.
 
@@ -89,9 +83,7 @@ Use the following steps to identify and resolve configuration alias issues:
 6. **Verify resolved URLs:** Confirm that the
    final resolved URLs are valid and accessible
 
-## Configuration aliases best
-
-practices
+## Configuration aliases best practices
 
 Follow these best practices to ensure reliable configuration alias implementation.
 

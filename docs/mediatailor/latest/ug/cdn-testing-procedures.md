@@ -159,5 +159,4 @@ Use CDN-specific testing tools when available
 
 Set up temporary alerts for testing validation
 
-For additional comprehensive testing methodologies and systematic validation approaches, see [Testing and validation
-for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md").
+For additional comprehensive testing methodologies and systematic validation approaches, see [Testing and validation for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md").

@@ -1,6 +1,4 @@
-# CDN log interpretation and analysis techniques
-
-for MediaTailor
+# CDN log interpretation and analysis techniques for MediaTailor
 
 AWS Elemental MediaTailor content delivery network (CDN) integration generates detailed logs that help
 you understand request patterns and identify issues. When analyzing content delivery

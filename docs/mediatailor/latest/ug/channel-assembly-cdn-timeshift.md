@@ -1,15 +1,11 @@
-# Configure time-shifted viewing for
-
-MediaTailor channel assembly
+# Configure time-shifted viewing for MediaTailor channel assembly
 
 AWS Elemental MediaTailor channel assembly supports time-shifted viewing capabilities that enable
 DVR-like functionality such as pause, rewind, and start-over for your linear channels.
 Enable these features by configuring your content delivery network (CDN) to support
 time-shifted viewing, which allows viewers to control their viewing experience.
 
-## Understanding time-shifted
-
-viewing
+## Understanding time-shifted viewing
 
 Time-shifted viewing enables DVR-like functionality for linear channels,
 including:
@@ -52,9 +48,7 @@ To support time-shifted viewing with a CDN:
 This ensures that each viewer receives the correct manifest for their requested
 time position.
 
-## CDN requirements for
-
-time-shifting
+## CDN requirements for time-shifting
 
 Your CDN must meet these requirements to support time-shifted viewing with channel
 assembly:

@@ -1,6 +1,4 @@
-# Advanced optimization techniques for CDN and
-
-MediaTailor integrations
+# Advanced optimization techniques for CDN and MediaTailor integrations
 
 After implementing basic caching and routing optimizations, consider these advanced
 techniques to further enhance performance:

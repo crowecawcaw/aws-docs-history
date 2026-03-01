@@ -1,6 +1,4 @@
-# Diagnostic checklist for MediaTailor and CDN
-
-integrations
+# Diagnostic checklist for MediaTailor and CDN integrations
 
 AWS Elemental MediaTailor content delivery network (CDN) integration problems can manifest in various
 ways. Use this checklist to quickly identify the type of issue you're
@@ -51,8 +49,7 @@ experiencing:
 
 CDN configuration issues
 
-For detailed CDN routing and caching troubleshooting, see [Troubleshoot issues with MediaTailor and CDN
-integration](cdn-troubleshooting.md "cdn-troubleshooting.md").
+For detailed CDN routing and caching troubleshooting, see [Troubleshoot issues with MediaTailor and CDN integration](cdn-troubleshooting.md "cdn-troubleshooting.md").
 
 Manifest and playback issues
 
@@ -69,15 +66,12 @@ For performance analysis and monitoring setup, see [Monitor MediaTailor CDN oper
 
 Log analysis and error codes
 
-For detailed log analysis and error code reference, see [CDN integration log analysis and error code
-reference for MediaTailor](cdn-log-error-reference.md "cdn-log-error-reference.md").
+For detailed log analysis and error code reference, see [CDN integration log analysis and error code reference for MediaTailor](cdn-log-error-reference.md "cdn-log-error-reference.md").
 
 Testing and validation
 
-For comprehensive testing procedures, see [Testing and validation
-for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md").
+For comprehensive testing procedures, see [Testing and validation for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md").
 
 If you need immediate assistance or cannot resolve the issue using the linked
-resources, see [Get support and troubleshooting
-help for CDN and MediaTailor integrations](cdn-get-help.md "cdn-get-help.md") for
+resources, see [Get support and troubleshooting help for CDN and MediaTailor integrations](cdn-get-help.md "cdn-get-help.md") for
 escalation procedures.

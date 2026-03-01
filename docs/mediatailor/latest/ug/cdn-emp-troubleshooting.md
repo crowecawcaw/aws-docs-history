@@ -1,6 +1,4 @@
-# Troubleshoot MediaPackage, CDN, and MediaTailor
-
-integrations
+# Troubleshoot MediaPackage, CDN, and MediaTailor integrations
 
 AWS Elemental MediaTailor integration with AWS Elemental MediaPackage and content delivery network (CDN) can encounter
 common issues that affect playback, caching, or other integration functionality. Use this
@@ -13,7 +11,7 @@ all MediaTailor implementations, see [Troubleshoot CDN integration](cdn-troubles
 MediaPackage specific troubleshooting requirements.
 
 Before troubleshooting, ensure you've completed the basic integration setup correctly. If
-you haven't set up your integration yet or need to review the setup steps, see [Integrate MediaTailor with MediaPackage and CDN](mediapackage-integration.md "mediapackage-integration.md") . For
+you haven't set up your integration yet or need to review the setup steps, see [Integrate MediaTailor with MediaPackage and CDN](mediapackage-integration.md "mediapackage-integration.md"). For
 guidance on optimizing cache performance after resolving issues, see [CDN caching](cdn-emp-caching.md "cdn-emp-caching.md").
 
 ## Manifest filtering errors
@@ -94,8 +92,7 @@ Follow these evidence-based diagnostic steps to identify issues:
 
 Cache performance analysis is crucial for EMP integrations because poor cache efficiency leads to increased origin load, higher costs, and potential playback issues.
 
-For comprehensive cache performance troubleshooting including cache hit ratio analysis, cache key optimization, and systematic diagnostic steps, see [CDN cache performance
-issues](diagnose-performance-issues.md#cache-performance-troubleshooting "diagnose-performance-issues.md#cache-performance-troubleshooting") in the main CDN troubleshooting guide.
+For comprehensive cache performance troubleshooting including cache hit ratio analysis, cache key optimization, and systematic diagnostic steps, see [CDN cache performance issues](diagnose-performance-issues.md#cache-performance-troubleshooting "diagnose-performance-issues.md#cache-performance-troubleshooting") in the main CDN troubleshooting guide.
 
 EMP-specific cache considerations:
 
@@ -103,12 +100,9 @@ EMP-specific cache considerations:
 - **EMP query parameters**: Ensure only necessary EMP query parameters are included in cache keys
 - **EMP TTL behavior**: Confirm different EMP content types have appropriate cache durations
 
-For detailed guidance on optimizing EMP cache policies and TTL settings, see [Optimize CDN caching for MediaTailor and MediaPackage content
-delivery](cdn-emp-caching.md "cdn-emp-caching.md").
+For detailed guidance on optimizing EMP cache policies and TTL settings, see [Optimize CDN caching for MediaTailor and MediaPackage content delivery](cdn-emp-caching.md "cdn-emp-caching.md").
 
-### Validate manifest filtering
-
-configuration
+### Validate manifest filtering configuration
 
 Manifest filtering validation is essential because filtering issues can result in
 viewers receiving incorrect content, unsupported formats, or content they shouldn't
@@ -127,12 +121,9 @@ Test manifest filtering functionality systematically:
    conditions.
 
 If you need to implement or modify manifest filtering after resolving issues, see
-[Set up manifest filtering with MediaTailor, MediaPackage,
-and CDN](cdn-emp-manifest-filtering.md "cdn-emp-manifest-filtering.md") for complete setup guidance.
+[Set up manifest filtering with MediaTailor, MediaPackage, and CDN](cdn-emp-manifest-filtering.md "cdn-emp-manifest-filtering.md") for complete setup guidance.
 
-### Validate query parameter
-
-configuration
+### Validate query parameter configuration
 
 Ensure your CDN forwards only the required query parameters:
 

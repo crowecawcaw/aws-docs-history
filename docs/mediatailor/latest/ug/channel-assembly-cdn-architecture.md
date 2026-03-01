@@ -1,6 +1,4 @@
-# Understand MediaTailor channel assembly
-
-CDN architecture
+# Understand MediaTailor channel assembly CDN architecture
 
 AWS Elemental MediaTailor channel assembly integrates with content delivery networks (CDNs) to deliver
 linear streaming channels with improved performance and global reach. The recommended
@@ -45,8 +43,7 @@ duration and origin routing.
 
 **TTL (Time To Live)**: The duration for
 which content remains valid in a CDN cache before it needs to be
-refreshed from the origin. For detailed TTL recommendations, see [Caching optimization for CDN and MediaTailor
-integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+refreshed from the origin. For detailed TTL recommendations, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 
 **Cache key**: The unique identifier used
 by a CDN to store and retrieve cached content, often including URL path,

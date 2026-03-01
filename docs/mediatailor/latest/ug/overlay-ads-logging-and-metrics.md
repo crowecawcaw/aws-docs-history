@@ -6,8 +6,7 @@ about setting up logging, see [Monitoring and tagging AWS Elemental MediaTailor 
 ###### Topics
 
 - [CloudWatch logs](#overlay-ads-logging-and-metrics-cloudwatch "#overlay-ads-logging-and-metrics-cloudwatch")
-- [CloudWatch
-  metrics](#overlay-ads-logging-and-metrics-cloudwatch-metrics "#overlay-ads-logging-and-metrics-cloudwatch-metrics")
+- [CloudWatch metrics](#overlay-ads-logging-and-metrics-cloudwatch-metrics "#overlay-ads-logging-and-metrics-cloudwatch-metrics")
 
 ## CloudWatch logs
 
@@ -25,9 +24,7 @@ response from the ADS. Using this event is especially helpful in a staging and
 testing environment. To enable this event on a configuration or account, submit a
 ticket to AWS Support.
 
-## CloudWatch
-
-metrics
+## CloudWatch metrics
 
 MediaTailor collects overlay ad metrics separately from other ADS metrics. MediaTailor
 collects these metrics after successfully fetching the ads from the ADS. You don't have

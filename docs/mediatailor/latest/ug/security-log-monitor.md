@@ -14,8 +14,7 @@ Using CloudWatch alarms, you watch a single metric over a time period that you s
 If the metric exceeds a given threshold, a notification is sent to an Amazon SNS topic or AWS
 Auto Scaling policy. CloudWatch alarms don't invoke actions because they are in a particular
 state. Rather, the state must have changed and been maintained for a specified number of
-periods. For more information, see [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch
-metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md").
+periods. For more information, see [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md").
 
 ## AWS CloudTrail logs
 

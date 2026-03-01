@@ -29,15 +29,11 @@ AWS Elemental MediaTailor returns two classes of errors:
 
 ###### Topics
 
-- [Client playback errors returned by
-  AWS Elemental MediaTailor](#playback-errors-client "#playback-errors-client")
-- [Server playback errors returned by
-  AWS Elemental MediaTailor](#playback-errors-server "#playback-errors-server")
+- [Client playback errors returned by AWS Elemental MediaTailor](#playback-errors-client "#playback-errors-client")
+- [Server playback errors returned by AWS Elemental MediaTailor](#playback-errors-server "#playback-errors-server")
 - [Playback error examples](#playback-errors-examples "#playback-errors-examples")
 
-## Client playback errors returned by
-
-AWS Elemental MediaTailor
+## Client playback errors returned by AWS Elemental MediaTailor
 
 General guidance:
 
@@ -58,9 +54,7 @@ take to resolve them.
 
 If you need further assistance, contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Server playback errors returned by
-
-AWS Elemental MediaTailor
+## Server playback errors returned by AWS Elemental MediaTailor
 
 General guidance:
 

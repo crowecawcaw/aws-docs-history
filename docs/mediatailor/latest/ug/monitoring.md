@@ -19,17 +19,13 @@ automatic actions when appropriate:
   Amazon CloudWatch. MediaTailor also provides information about skipped ads and the reasons they were skipped. For more information, see [Ad skipping
   troubleshooting](troubleshooting-ad-skipping-overview.md "troubleshooting-ad-skipping-overview.md"). You can also archive your log data in highly durable storage. For general
   information, see the [Amazon CloudWatch Logs User Guide](../../../AmazonCloudWatch/latest/logs.md "../../../AmazonCloudWatch/latest/logs.md"). For information on the ADS logs and how to
-  access them for analysis through Amazon CloudWatch Logs Insights, see [AWS Elemental MediaTailor ADS log analysis in Amazon CloudWatch Logs
-  Insights](monitor-cloudwatch-ads-logs.md "monitor-cloudwatch-ads-logs.md").
+  access them for analysis through Amazon CloudWatch Logs Insights, see [AWS Elemental MediaTailor ADS log analysis in Amazon CloudWatch Logs Insights](monitor-cloudwatch-ads-logs.md "monitor-cloudwatch-ads-logs.md").
 
 ###### Topics
 
 - [Viewing AWS Elemental MediaTailor logs](monitoring-through-logs.md "monitoring-through-logs.md")
-- [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch
-  metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md")
+- [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md")
 - [Recording AWS Elemental MediaTailor API calls](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
-- [Receiving AWS Elemental MediaTailor channel assembly
-  alerts](channel-assembly-alerts.md "channel-assembly-alerts.md")
+- [Receiving AWS Elemental MediaTailor channel assembly alerts](channel-assembly-alerts.md "channel-assembly-alerts.md")
 - [Tagging AWS Elemental MediaTailor resources](tagging.md "tagging.md")
-- [Monitoring AWS media services with
-  workflow monitor](monitor-with-workflow-monitor.md "monitor-with-workflow-monitor.md")
+- [Monitoring AWS media services with workflow monitor](monitor-with-workflow-monitor.md "monitor-with-workflow-monitor.md")

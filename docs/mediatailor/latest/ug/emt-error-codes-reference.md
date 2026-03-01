@@ -1,6 +1,4 @@
-# MediaTailor error codes and CDN integration
-
-troubleshooting
+# MediaTailor error codes and CDN integration troubleshooting
 
 AWS Elemental MediaTailor error codes provide specific information about integration issues when
 passed through your content delivery network (CDN). When MediaTailor returns errors through

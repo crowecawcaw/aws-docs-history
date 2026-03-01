@@ -9,7 +9,5 @@ URL.
 
 ###### Topics
 
-- [Getting started with MediaTailor ad
-  insertion](getting-started-ad-insertion.md "getting-started-ad-insertion.md")
-- [Getting started with MediaTailor channel
-  assembly](channel-assembly-getting-started.md "channel-assembly-getting-started.md")
+- [Getting started with MediaTailor ad insertion](getting-started-ad-insertion.md "getting-started-ad-insertion.md")
+- [Getting started with MediaTailor channel assembly](channel-assembly-getting-started.md "channel-assembly-getting-started.md")

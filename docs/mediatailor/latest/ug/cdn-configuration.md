@@ -36,9 +36,7 @@ For additional information, see the following links:
 - Optimized costs by reducing origin traffic
 - Better protection against DDoS attacks
 
-## CDN integration components and
-
-requirements
+## CDN integration components and requirements
 
 A successful CDN integration with MediaTailor involves configuring the following key
 components:
@@ -93,9 +91,7 @@ The process of integrating MediaTailor with a CDN follows these high-level steps
 4. **Test your integration** - Verify that your CDN
    integration is working correctly.
 
-## Required headers for MediaTailor CDN
-
-integration
+## Required headers for MediaTailor CDN integration
 
 For MediaTailor to function correctly with your CDN, you must configure your CDN to forward
 specific HTTP headers. These headers are essential for proper functionality including
@@ -169,5 +165,4 @@ integration.
 
 - [Set up CDN routing behaviors for MediaTailor](cdn-routing-behaviors.md "cdn-routing-behaviors.md")
 - [Set up CDN mapping in MediaTailor](cdn-mapping-mediatailor.md "cdn-mapping-mediatailor.md")
-- [CDN integration security best practices for
-  MediaTailor](cdn-security-best-practices.md "cdn-security-best-practices.md")
+- [CDN integration security best practices for MediaTailor](cdn-security-best-practices.md "cdn-security-best-practices.md")

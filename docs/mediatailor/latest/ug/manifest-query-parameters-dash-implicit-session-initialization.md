@@ -1,6 +1,4 @@
-# MediaTailor
-
-DASH implicit session initialization
+# MediaTailor DASH implicit session initialization
 
 AWS Elemental MediaTailor creates a session for the client and redirects it with query parameters when
 the client makes a manifest request without a session. The following example shows this

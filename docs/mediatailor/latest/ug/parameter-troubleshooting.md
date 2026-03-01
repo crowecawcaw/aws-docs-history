@@ -1,14 +1,10 @@
-# MediaTailor parameter troubleshooting
-
-guide
+# MediaTailor parameter troubleshooting guide
 
 AWS Elemental MediaTailor provides guidance for troubleshooting common parameter-related issues in
 MediaTailor, including character restrictions, URL encoding problems, and configuration alias
 errors.
 
-## Character restriction
-
-errors
+## Character restriction errors
 
 Parameter values that contain unsupported characters may cause errors or
 unexpected behavior.
@@ -29,8 +25,7 @@ To resolve character restriction errors:
 1. Review parameter values for unsupported characters: `:`,
    `?`, `&`, `=`, `%`,
    `/`
-2. Apply proper URL-encoding for special characters (see [MediaTailor parameter reference and
-   limitations](parameter-comprehensive-reference.md "parameter-comprehensive-reference.md"))
+2. Apply proper URL-encoding for special characters (see [MediaTailor parameter reference and limitations](parameter-comprehensive-reference.md "parameter-comprehensive-reference.md"))
 3. Avoid double characters such as `%%%` or `==`
 4. Consider alternative parameter formats if full URLs cannot be used
 
@@ -48,16 +43,13 @@ Use URL-encoded format:
 manifest.redirect_url=https%3A%2F%2Fexample.com%2Fpath%3Fparam%3Dvalue
 ```
 
-## Length limitation
-
-errors
+## Length limitation errors
 
 Parameters that exceed length limits may be truncated or cause errors.
 
 ###### Length limits
 
-The following length limits apply (see [MediaTailor parameter reference and
-limitations](parameter-comprehensive-reference.md "parameter-comprehensive-reference.md") for complete
+The following length limits apply (see [MediaTailor parameter reference and limitations](parameter-comprehensive-reference.md "parameter-comprehensive-reference.md") for complete
 details):
 
 - Manifest query parameters (total): 2000 characters
@@ -71,14 +63,11 @@ To handle length limitations:
 
 1. Use shorter parameter names and values where possible
 2. Split large parameter values into multiple smaller parameters
-3. Use configuration aliases to map short aliases to longer values (see [MediaTailor configuration aliases
-   overview](configuration-aliases-overview.md "configuration-aliases-overview.md"))
+3. Use configuration aliases to map short aliases to longer values (see [MediaTailor configuration aliases overview](configuration-aliases-overview.md "configuration-aliases-overview.md"))
 4. Consider using external storage for large data with parameter
    references
 
-## Configuration alias
-
-errors
+## Configuration alias errors
 
 Configuration alias issues can result in HTTP 400 errors or unexpected parameter
 values.
@@ -107,8 +96,7 @@ To resolve configuration alias errors:
    values
 5. Validate JSON structure of ConfigurationAliases parameter
 
-For detailed troubleshooting guidance, see [MediaTailor configuration aliases
-troubleshooting guide](configuration-aliases-troubleshooting.md "configuration-aliases-troubleshooting.md").
+For detailed troubleshooting guidance, see [MediaTailor configuration aliases troubleshooting guide](configuration-aliases-troubleshooting.md "configuration-aliases-troubleshooting.md").
 
 ###### Example Configuration alias validation
 
@@ -124,9 +112,7 @@ Ensure your configuration includes all required aliases:
 }
 ```
 
-## Parameter processing flow
-
-issues
+## Parameter processing flow issues
 
 Understanding the parameter processing flow helps troubleshoot issues with
 parameter forwarding and transformation.
@@ -170,9 +156,7 @@ After alias resolution and processing:
 - Manifest URL:
   `/v1/master/.../index.m3u8?aws.sessionId=session&test=123`
 
-## Security
-
-considerations and best practices
+## Security considerations and best practices
 
 MediaTailor implements security measures for parameter handling to prevent common
 security issues.

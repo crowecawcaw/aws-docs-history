@@ -1,6 +1,4 @@
-# MediaTailor parameter reference and
-
-limitations
+# MediaTailor parameter reference and limitations
 
 Before configuring dynamic ad variables, understand the parameter formatting
 requirements and limitations that apply to all MediaTailor configurations.
@@ -9,9 +7,7 @@ AWS Elemental MediaTailor provides comprehensive information about parameter cha
 length limitations, and supported formats for both manifest query parameters and ADS
 parameters.
 
-## Manifest query parameter
-
-character restrictions
+## Manifest query parameter character restrictions
 
 Manifest query parameters support specific characters and have defined length
 limitations.

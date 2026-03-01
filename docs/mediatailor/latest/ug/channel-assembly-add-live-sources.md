@@ -1,6 +1,4 @@
-# Adding live sources to your
-
-source location
+# Adding live sources to your source location
 
 The following procedure explains how to use the MediaTailor console to add live sources
 to your source location and set up package configurations. For information about how
@@ -11,9 +9,7 @@ to add live sources using the MediaTailor API, see [CreateLiveSource](../apirefe
 Before you add your live sources, make sure that within a package
 configuration, each source has the same number of child streams.
 
-###### To add live sources to your source
-
-locations
+###### To add live sources to your source locations
 
 1. Open the MediaTailor console at [https://console.aws.amazon.com/mediatailor/](https://console.aws.amazon.com/mediatailor/ "https://console.aws.amazon.com/mediatailor/").
 2. In the navigation pane, choose **Channel assembly** >
@@ -40,8 +36,7 @@ you configure your source streams the same way.
     * **Source group**: Enter a source group name that
      describes this package configuration, such as HLS-4k. Make a note of
      this name; you'll reference it when you create your channel's
-     output. For more information, see [Using source groups with your channel's
-     outputs](channel-assembly-source-groups.md "channel-assembly-source-groups.md").
+     output. For more information, see [Using source groups with your channel's outputs](channel-assembly-source-groups.md "channel-assembly-source-groups.md").
     * **Type**: Select the packaged format for this
      configuration. MediaTailor supports HLS and DASH.
     * **Relative path**: The relative path from the
@@ -57,8 +52,7 @@ you configure your source streams the same way.
      to create separate package configurations for each of your
      sources renditions (DASH) or variant streams (HLS).
 
-For more information about package configurations, see [Using package
-configurations](channel-assembly-package-configurations.md "channel-assembly-package-configurations.md"). 7. Choose **Add live source**.
+For more information about package configurations, see [Using package configurations](channel-assembly-package-configurations.md "channel-assembly-package-configurations.md"). 7. Choose **Add live source**.
 
 If you want to add more live sources, repeat steps 4-6 in the
 procedure.

@@ -1,6 +1,4 @@
-# Pre-deployment testing
-
-checklist for CDN and MediaTailor integrations
+# Pre-deployment testing checklist for CDN and MediaTailor integrations
 
 AWS Elemental MediaTailor content delivery network (CDN) integration must pass comprehensive testing before production
 deployment. Use this checklist before deploying configuration changes to

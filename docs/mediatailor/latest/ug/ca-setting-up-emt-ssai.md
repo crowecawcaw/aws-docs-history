@@ -42,9 +42,7 @@ personalized ads into your channel's stream.
 
 4. You can optionally configure the **Configuration aliases**,
    **Personalization details**, and **Advanced
-   settings**. For information about those settings, see [Optional configuration
-   settings](configurations-create.md#configurations-create-addl "configurations-create.md#configurations-create-addl").
+   settings**. For information about those settings, see [Optional configuration settings](configurations-create.md#configurations-create-addl "configurations-create.md#configurations-create-addl").
 5. On the navigation bar, choose **Create configuration**.
    Now that you've set up MediaTailor for ad insertion, you can also set up ad breaks. For detailed
-   instructions, see [Getting started with MediaTailor ad
-   insertion](getting-started-ad-insertion.md "getting-started-ad-insertion.md").
+   instructions, see [Getting started with MediaTailor ad insertion](getting-started-ad-insertion.md "getting-started-ad-insertion.md").

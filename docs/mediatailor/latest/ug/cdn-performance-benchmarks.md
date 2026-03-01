@@ -1,6 +1,4 @@
-# Performance benchmarks for CDN and MediaTailor
-
-integrations
+# Performance benchmarks for CDN and MediaTailor integrations
 
 When optimizing your AWS Elemental MediaTailor CDN integration, aim for these performance benchmarks.
 These targets apply to all MediaTailor implementations including SSAI, channel assembly, and

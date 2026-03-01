@@ -18,8 +18,7 @@ following steps:
 
 - [Step 1: Create an AWS KMS symmetric customer managed key](#channel-assembly-access-configuration-access-token-how-to-create-kms "#channel-assembly-access-configuration-access-token-how-to-create-kms")
 - [Step 2: Create an AWS Secrets Manager secret](#channel-assembly-access-configuration-access-token-how-to-create-secret "#channel-assembly-access-configuration-access-token-how-to-create-secret")
-- [Step 3: Configure a MediaTailor source location with access token
-  authentication](#channel-assembly-access-configuration-access-token-how-to-enable-access-token-auth "#channel-assembly-access-configuration-access-token-how-to-enable-access-token-auth")
+- [Step 3: Configure a MediaTailor source location with access token authentication](#channel-assembly-access-configuration-access-token-how-to-enable-access-token-auth "#channel-assembly-access-configuration-access-token-how-to-enable-access-token-auth")
 
 ## Step 1: Create an AWS KMS symmetric customer managed key
 
@@ -196,9 +195,7 @@ JSON
 
 ```
 
-## Step 3: Configure a MediaTailor source location with access token
-
-authentication
+## Step 3: Configure a MediaTailor source location with access token authentication
 
 You can configure Secrets Manager access token authentication using the AWS Management Console or
 programmatically with the MediaTailor APIs.

@@ -1,6 +1,4 @@
-# MediaTailor ad skipping prevention
-
-best practices
+# MediaTailor ad skipping prevention best practices
 
 Implementing these best practices helps prevent ad skipping issues before they occur,
 ensuring better ad insertion performance and revenue protection with AWS Elemental MediaTailor. These

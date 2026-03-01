@@ -1,6 +1,4 @@
-# Troubleshoot CDN segment delivery and loading
-
-issues for MediaTailor
+# Troubleshoot CDN segment delivery and loading issues for MediaTailor
 
 AWS Elemental MediaTailor content delivery network (CDN) segment delivery problems can cause buffering
 and playback interruptions. If players can't load segments or experience
@@ -69,15 +67,11 @@ buffering:
     **Additional troubleshooting resources:**
 
 - For CDN routing and behavior configuration, see [Set up CDN routing behaviors for MediaTailor](cdn-routing-behaviors.md "cdn-routing-behaviors.md")
-- For CDN caching optimization, see [Caching optimization for CDN and MediaTailor
-  integrations](cdn-optimize-caching.md "cdn-optimize-caching.md")
-- For CORS configuration guidance, see [CDN integration security best practices for
-  MediaTailor](cdn-security-best-practices.md "cdn-security-best-practices.md")
+- For CDN caching optimization, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md")
+- For CORS configuration guidance, see [CDN integration security best practices for MediaTailor](cdn-security-best-practices.md "cdn-security-best-practices.md")
 - For performance monitoring and analysis, see [Monitor MediaTailor CDN operations and performance](cdn-monitoring.md "cdn-monitoring.md")
-- For comprehensive testing procedures, see [Testing and validation
-  for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md")
-- For log analysis and error diagnosis, see [CDN integration log analysis and error code
-  reference for MediaTailor](cdn-log-error-reference.md "cdn-log-error-reference.md")
+- For comprehensive testing procedures, see [Testing and validation for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md")
+- For log analysis and error diagnosis, see [CDN integration log analysis and error code reference for MediaTailor](cdn-log-error-reference.md "cdn-log-error-reference.md")
   **Success criteria:** When resolved, players should load
   segments smoothly without buffering interruptions. Segment requests should return HTTP
   200 status codes with appropriate response times, and both content and ad segments

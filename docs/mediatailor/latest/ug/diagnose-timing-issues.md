@@ -1,6 +1,4 @@
-# Resolve CDN ad break timing and synchronization
-
-issues for MediaTailor
+# Resolve CDN ad break timing and synchronization issues for MediaTailor
 
 AWS Elemental MediaTailor content delivery network (CDN) ad break timing must be precisely
 synchronized with content markers. If ads appear at incorrect times or ad break timing
@@ -62,10 +60,8 @@ is inconsistent:
 
 - For SCTE-35 marker format and implementation, see [Integrating a content source for MediaTailor ad insertion](integrating-origin.md "integrating-origin.md")
 - For debug logging setup and timing analysis, see [Generating AWS Elemental MediaTailor debug logs](debug-log-mode.md "debug-log-mode.md")
-- For CDN caching configuration and timing impact, see [Caching optimization for CDN and MediaTailor
-  integrations](cdn-optimize-caching.md "cdn-optimize-caching.md")
-- For comprehensive testing procedures including timing validation, see [Testing and validation
-  for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md")
+- For CDN caching configuration and timing impact, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md")
+- For comprehensive testing procedures including timing validation, see [Testing and validation for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md")
 - For monitoring ad insertion timing and performance, see [Monitor MediaTailor CDN operations and performance](cdn-monitoring.md "cdn-monitoring.md")
   **Success criteria:** When resolved, ad breaks should
   appear at precisely the times specified by SCTE-35 markers, with consistent timing

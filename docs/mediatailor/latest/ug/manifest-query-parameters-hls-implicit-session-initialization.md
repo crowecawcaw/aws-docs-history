@@ -1,6 +1,4 @@
-# MediaTailor
-
-HLS implicit session initialization
+# MediaTailor HLS implicit session initialization
 
 AWS Elemental MediaTailor includes query parameters in links to MediaTailor resources when your request
 includes query parameters with the key

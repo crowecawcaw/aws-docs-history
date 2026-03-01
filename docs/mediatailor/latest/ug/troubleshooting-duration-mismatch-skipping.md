@@ -1,6 +1,4 @@
-# MediaTailor duration mismatch ad
-
-skipping troubleshooting
+# MediaTailor duration mismatch ad skipping troubleshooting
 
 When ads are skipped with `AVAIL_DURATION_EXCEEDED`,
 `LEFTOVER_AVAIL_EXCEEDED_THRESHOLD`, or format-related reasons, you have

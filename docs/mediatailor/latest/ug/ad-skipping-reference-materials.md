@@ -1,15 +1,11 @@
-# MediaTailor ad skipping reference
-
-guide
+# MediaTailor ad skipping reference guide
 
 This section provides comprehensive reference information about ad skip reasons and
 links to related documentation for AWS Elemental MediaTailor. Use this reference guide to understand the
 specific meanings of different skip reasons and find additional troubleshooting
 resources.
 
-## Complete ad skip reasons
-
-reference
+## Complete ad skip reasons reference
 
 MediaTailor logs specific reasons why ads are skipped in the `FILLED_AVAIL`
 event log message from the `MediaTailor/AdDecisionServerInteractions` log
@@ -45,11 +41,9 @@ topics:
   in MediaTailor
 - [Prefetching ads](prefetching-ads.md "prefetching-ads.md") - How to implement ad prefetching to
   prevent transcoding-related skipping
-- [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch
-  metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md") - Monitoring MediaTailor with
+- [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md") - Monitoring MediaTailor with
   CloudWatch metrics
 - [Viewing AWS Elemental MediaTailor logs](monitoring-through-logs.md "monitoring-through-logs.md") - How to view and analyze MediaTailor
   logs
-- [Troubleshooting MediaTailor event flow
-  issues](troubleshooting-event-flow.md "troubleshooting-event-flow.md") - Understanding the ad
+- [Troubleshooting MediaTailor event flow issues](troubleshooting-event-flow.md "troubleshooting-event-flow.md") - Understanding the ad
   insertion event flow

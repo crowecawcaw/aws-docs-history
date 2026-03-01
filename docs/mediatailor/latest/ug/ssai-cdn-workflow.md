@@ -1,6 +1,4 @@
-# Set up SSAI with a CDN for personalized video
-
-advertising
+# Set up SSAI with a CDN for personalized video advertising
 
 This section provides comprehensive guidance for integrating AWS Elemental MediaTailor server-side ad
 insertion (SSAI) with a content delivery network (CDN). Follow these steps to set up,
@@ -52,8 +50,7 @@ Complete these setup tasks before implementing MediaTailor ad insertion with a C
 1. Configure network connectivity between your CDN, MediaTailor, and origin servers
 2. Set up HTTPS for secure content delivery
 3. Configure DNS settings for your CDN domain
-4. For basic MediaTailor setup, complete the steps in [Setting up](setting-up.md "setting-up.md") and [Getting started with MediaTailor ad
-   insertion](getting-started-ad-insertion.md "getting-started-ad-insertion.md").
+4. For basic MediaTailor setup, complete the steps in [Setting up](setting-up.md "setting-up.md") and [Getting started with MediaTailor ad insertion](getting-started-ad-insertion.md "getting-started-ad-insertion.md").
 
 ### Knowledge prerequisites
 

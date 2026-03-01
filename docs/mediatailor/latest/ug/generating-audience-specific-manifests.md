@@ -1,6 +1,4 @@
-# Generating audience-specific
-
-manifests
+# Generating audience-specific manifests
 
 To retrieve a manifest for a particular audience, use the
 `aws.mediatailor.channel.audienceId` query parameter. This query parameter may

@@ -1,6 +1,4 @@
-# MediaTailor server-side tracking features and
-
-capabilities
+# MediaTailor server-side tracking features and capabilities
 
 AWS Elemental MediaTailor automatically applies these integrated server-side tracking features to
 optimize ad measurement accuracy and reliability. The system prevents duplicate beacons,
@@ -13,9 +11,7 @@ These features are available for new customers starting September 30, 2025. Exis
 customers will have access throughout 2025 as part of ongoing service improvements. If
 you want immediate access to these features, contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
-## Beacon
-
-deduplication
+## Beacon deduplication
 
 MediaTailor prevents duplicate beacon firing for identical ad events. The server-side
 tracking system sends each impression, quartile, and completion beacon only once per ad
@@ -35,9 +31,7 @@ counts:
 
 The system ensures impression beacons fire only once, even when players switch between different quality levels.
 
-## Adaptive throttling and
-
-beacon retries
+## Adaptive throttling and beacon retries
 
 MediaTailor automatically manages beacon traffic rates based on
 server response indicators. The system monitors HTTP response patterns,
@@ -58,9 +52,7 @@ The system monitors server health using these indicators:
 Retry behavior automatically attempts delivery for up to 1 hour with minimum 30-second
 delays between attempts. This retry behavior cannot be configured.
 
-## Beacon traffic per second
-
-management
+## Beacon traffic per second management
 
 You can set TPS limits to control beacon delivery rates. This is the only configurable setting for server-side tracking features. Account-level limits cap the total number
 of ad tracking requests sent across all measurement partners. MediaTailor enforces a minimum

@@ -1,6 +1,4 @@
-# Fix CDN session management and tracking issues
-
-for MediaTailor
+# Fix CDN session management and tracking issues for MediaTailor
 
 AWS Elemental MediaTailor content delivery network (CDN) session management is critical for proper ad
 personalization and tracking. If you encounter session-related errors or inconsistent

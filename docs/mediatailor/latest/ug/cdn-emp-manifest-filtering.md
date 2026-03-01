@@ -1,12 +1,10 @@
-# Set up manifest filtering with MediaTailor, MediaPackage,
-
-and CDN
+# Set up manifest filtering with MediaTailor, MediaPackage, and CDN
 
 AWS Elemental MediaTailor uses manifest filtering with AWS Elemental MediaPackage to customize which audio and video streams are included in manifests delivered to different viewers through a content delivery network (CDN). This is particularly useful for implementing tiered service offerings, device-specific optimizations, or content access controls.
 
 This topic focuses specifically on implementing manifest filtering features. Before
 implementing manifest filtering, you must complete the basic content delivery network integration setup. If you
-haven't set up your basic MediaPackage and content delivery network integration yet, start with [Integrate MediaTailor with MediaPackage and CDN](mediapackage-integration.md "mediapackage-integration.md") .
+haven't set up your basic MediaPackage and content delivery network integration yet, start with [Integrate MediaTailor with MediaPackage and CDN](mediapackage-integration.md "mediapackage-integration.md").
 
 ## Manifest filtering capabilities
 
@@ -59,9 +57,7 @@ Example: Automatically filter for local language audio tracks
 
 For more information about manifest filtering concepts, see [Manifest filtering](../../../mediapackage/latest/ug/manifest-filtering.md "../../../mediapackage/latest/ug/manifest-filtering.md") in the AWS Elemental MediaPackage user guide.
 
-## Configure your CDN for manifest
-
-filtering
+## Configure your CDN for manifest filtering
 
 CDN configuration for manifest filtering is essential because your CDN must forward
 the `aws.manifestfilter` query parameter to MediaPackage for filtering to work.
@@ -89,9 +85,7 @@ forwarding:
 
 For more information about creating distributions, see [Create a distribution](../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.md "../../../AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.md") in the Amazon CloudFront developer guide.
 
-## Implement client-side
-
-filtering
+## Implement client-side filtering
 
 Client-side implementation is where you define how your video players and applications
 request filtered content. This configuration determines what content each viewer
@@ -236,6 +230,5 @@ For troubleshooting filtering issues, see _Troubleshoot MediaPackage CDN integra
 issues_.
 
 If you encounter HTTP 400 errors, empty manifests, or filtering parameters that don't
-work as expected, see [Troubleshoot MediaPackage, CDN, and MediaTailor
-integrations](cdn-emp-troubleshooting.md "cdn-emp-troubleshooting.md") for specific manifest filtering
+work as expected, see [Troubleshoot MediaPackage, CDN, and MediaTailor integrations](cdn-emp-troubleshooting.md "cdn-emp-troubleshooting.md") for specific manifest filtering
 troubleshooting guidance.

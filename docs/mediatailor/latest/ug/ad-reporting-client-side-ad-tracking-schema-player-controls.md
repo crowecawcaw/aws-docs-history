@@ -1,6 +1,4 @@
-# Player controls
-
-and functionality for client-side ad tracking
+# Player controls and functionality for client-side ad tracking
 
 MediaTailor client-side tracking metadata supports various player controls and functionality. The
 following list describes popular player controls.
@@ -8,15 +6,13 @@ following list describes popular player controls.
 ###### Topics
 
 - [Scrubbing](#ad-reporting-client-side-ad-tracking-schema-player-controls-scrubbing "#ad-reporting-client-side-ad-tracking-schema-player-controls-scrubbing")
-- [Ad
-  countdown timer](#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-countdown-timer "#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-countdown-timer")
+- [Ad countdown timer](#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-countdown-timer "#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-countdown-timer")
 - [Skippable ads](#ad-reporting-client-side-ad-tracking-schema-player-controls-skippable-ads "#ad-reporting-client-side-ad-tracking-schema-player-controls-skippable-ads")
 - [Ad click-through](#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-clickthrough "#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-clickthrough")
 - [Companion ads](#ad-reporting-client-side-ad-tracking-schema-player-controls-companion-ads "#ad-reporting-client-side-ad-tracking-schema-player-controls-companion-ads")
 - [Interactive ads (SIMID)](#ad-reporting-client-side-ad-tracking-schema-player-controls-simid-ads "#ad-reporting-client-side-ad-tracking-schema-player-controls-simid-ads")
 - [Interactive ads (VPAID)](#ad-reporting-client-side-ad-tracking-schema-player-controls-vpaid-ads "#ad-reporting-client-side-ad-tracking-schema-player-controls-vpaid-ads")
-- [Icons
-  for Google Why This Ad (WTA)](#ad-reporting-client-side-ad-tracking-schema-player-controls-google-wta "#ad-reporting-client-side-ad-tracking-schema-player-controls-google-wta")
+- [Icons for Google Why This Ad (WTA)](#ad-reporting-client-side-ad-tracking-schema-player-controls-google-wta "#ad-reporting-client-side-ad-tracking-schema-player-controls-google-wta")
 
 ## Scrubbing
 
@@ -58,9 +54,7 @@ location of the ad break on the player timeline, at 28 seconds.
 }
 ```
 
-## Ad
-
-countdown timer
+## Ad countdown timer
 
 With MediaTailor you can use an ad countdown timer to help keep your audience engaged during
 ad-break viewing. The audience can use the timer to understand when the ad break ends and
@@ -949,9 +943,7 @@ The following example shows the tracking information.
 }
 ```
 
-## Icons
-
-for Google Why This Ad (WTA)
+## Icons for Google Why This Ad (WTA)
 
 _AdChoices_ is an industry standard that provides viewers with
 information about the ads they see, including how those ads were targeted to them.

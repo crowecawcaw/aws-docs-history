@@ -1,6 +1,4 @@
-# Integrating AWS Elemental MediaTailor with
-
-Amazon CloudFront
+# Integrating AWS Elemental MediaTailor with Amazon CloudFront
 
 AWS Elemental MediaTailor integrates with Amazon CloudFront to improve content delivery performance and reliability. CloudFront is a content delivery network (CDN) that distributes your content through a
 worldwide network of data centers called edge locations. When viewers request your content

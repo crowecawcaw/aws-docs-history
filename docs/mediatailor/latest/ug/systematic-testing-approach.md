@@ -1,6 +1,4 @@
-# Systematic testing methodology for CDN and
-
-MediaTailor integrations
+# Systematic testing methodology for CDN and MediaTailor integrations
 
 AWS Elemental MediaTailor content delivery network (CDN) integration testing should follow a
 systematic, phased approach to ensure comprehensive coverage. Follow this structured
@@ -10,9 +8,7 @@ Each phase builds on the previous one to isolate potential issues.
 For additional guidance on systematic testing approaches, see [Testing for
 reliability](../../../wellarchitected/latest/reliability-pillar/test-reliability.md "../../../wellarchitected/latest/reliability-pillar/test-reliability.md") in the AWS Well-Architected Framework.
 
-## Phase 1: Test direct MediaTailor
-
-connectivity
+## Phase 1: Test direct MediaTailor connectivity
 
 Start by testing MediaTailor functionality without CDN involvement to establish a
 baseline.
@@ -40,9 +36,7 @@ baseline.
 return HTTP 200 responses with properly formatted manifests containing expected ad
 content.
 
-## Phase 2: Test basic CDN
-
-integration
+## Phase 2: Test basic CDN integration
 
 Add CDN to the request path and test basic functionality.
 
@@ -65,9 +59,7 @@ Add CDN to the request path and test basic functionality.
 **Success criteria:** CDN should successfully proxy
 requests to MediaTailor and origin servers with minimal performance impact.
 
-## Phase 3: Test query parameter
-
-forwarding
+## Phase 3: Test query parameter forwarding
 
 Add query parameter forwarding and test ad personalization.
 
@@ -95,8 +87,7 @@ query parameters, and sessions are managed correctly.
 Add header forwarding in the CDN and test device-specific targeting.
 
 1. Configure header forwarding for all headers. For minimum requirements, see
-   [Required headers for MediaTailor CDN
-   integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers").
+   [Required headers for MediaTailor CDN integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers").
 2. Test device targeting:
    - Test with different User-Agent strings (mobile, desktop,
      TV)
@@ -111,9 +102,7 @@ Add header forwarding in the CDN and test device-specific targeting.
 **Success criteria:** Device and geographic targeting
 should work correctly, and web players should not encounter CORS errors.
 
-## Phase 5: Comprehensive scenario
-
-testing
+## Phase 5: Comprehensive scenario testing
 
 Test across multiple scenarios to ensure robust operation.
 
@@ -144,9 +133,7 @@ Test across multiple scenarios to ensure robust operation.
 **Success criteria:** All player and device
 combinations should work correctly with appropriate ad targeting.
 
-## Phase 6: Load and performance
-
-testing
+## Phase 6: Load and performance testing
 
 Validate performance under realistic load conditions.
 

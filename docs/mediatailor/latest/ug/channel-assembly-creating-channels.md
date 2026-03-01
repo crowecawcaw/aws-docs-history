@@ -54,8 +54,7 @@ The following procedure describes how to create a channel using the MediaTailor 
     - **Output type**: Select the streaming format for the channel.
       DASH and HLS are supported.
     - **Source group**: Enter the name of the source group that you
-      created in your package configuration, as described in [Adding VOD sources to your source
-      location](channel-assembly-add-vod-source.md "channel-assembly-add-vod-source.md").
+      created in your package configuration, as described in [Adding VOD sources to your source location](channel-assembly-add-vod-source.md "channel-assembly-add-vod-source.md").
 
 9.  Select **Next**.
 10. Under **Manifest settings**, enter additional information about your

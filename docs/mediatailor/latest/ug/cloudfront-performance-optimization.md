@@ -1,6 +1,4 @@
-# Optimizing MediaTailor performance with CloudFront
-
-features
+# Optimizing MediaTailor performance with CloudFront features
 
 AWS Elemental MediaTailor performance with Amazon CloudFront can be enhanced through additional features beyond
 basic configuration. After setting up your basic CloudFront configuration with MediaTailor, you can
@@ -11,9 +9,7 @@ costs and origin load.
 For performance optimization using dynamic routing and parameter handling, see [MediaTailor dynamic ad variables for ADS requests](variables.md "variables.md"). For query parameter optimization
 strategies, see [MediaTailor manifest query parameters](manifest-query-parameters.md "manifest-query-parameters.md").
 
-## Reducing origin load with Origin
-
-Shield
+## Reducing origin load with Origin Shield
 
 Origin Shield adds a caching layer between CloudFront edge locations and your origin server.
 This feature is valuable for live streaming and popular VOD content. It helps when many
@@ -35,9 +31,7 @@ on MediaTailor and your content origins.
 For high-traffic events, Origin Shield significantly reduces request load on your
 origin and improves reliability. For detailed instructions, see [Enabling Origin Shield](../../../AmazonCloudFront/latest/DeveloperGuide/origin-shield.md#enable-origin-shield "../../../AmazonCloudFront/latest/DeveloperGuide/origin-shield.md#enable-origin-shield") in the CloudFront developer guide.
 
-## Customizing content delivery with
-
-CloudFront Functions
+## Customizing content delivery with CloudFront Functions
 
 CloudFront Functions let you run lightweight JavaScript code at the edge to modify viewer
 requests and responses. You can use these functions for simple customizations like URL
@@ -85,9 +79,7 @@ function handler(event) {
 For more information and code examples, see [Customize at
 the edge by using CloudFront Functions](../../../AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.md "../../../AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.md") in the CloudFront developer guide.
 
-## Implementing advanced customizations with
-
-Lambda@Edge
+## Implementing advanced customizations with Lambda@Edge
 
 When you need more complex processing capabilities than CloudFront Functions can provide,
 use Lambda@Edge. This service lets you run Node.js or Python functions at CloudFront edge
@@ -126,9 +118,7 @@ request and origin response) if you plan to use Media Quality-Aware Resiliency
 For more information and code examples, see [Customize at
 the edge by using Lambda@Edge](../../../AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.md "../../../AmazonCloudFront/latest/DeveloperGuide/lambda-at-the-edge.md") in the CloudFront developer guide.
 
-## Additional performance optimization
-
-tips
+## Additional performance optimization tips
 
 Consider these additional optimizations to further improve performance:
 
@@ -164,7 +154,5 @@ Balance performance with cost efficiency:
 
 After optimizing performance with CloudFront features, consider these next steps:
 
-- Implement multi-Region resilience with MQAR (see [Implement multi-Region resilience for MediaTailor with
-  MQAR](media-quality-resiliency.md "media-quality-resiliency.md"))
-- Set up monitoring and troubleshooting (see [Monitor and troubleshoot your CloudFront and
-  MediaTailor integration](monitoring-and-troubleshooting.md "monitoring-and-troubleshooting.md"))
+- Implement multi-Region resilience with MQAR (see [Implement multi-Region resilience for MediaTailor with MQAR](media-quality-resiliency.md "media-quality-resiliency.md"))
+- Set up monitoring and troubleshooting (see [Monitor and troubleshoot your CloudFront and MediaTailor integration](monitoring-and-troubleshooting.md "monitoring-and-troubleshooting.md"))

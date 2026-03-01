@@ -11,5 +11,4 @@ pricing. For information about vended logs, see [Using vended logs](vended-logs.
 
 - [Permissions for Amazon CloudWatch Logs](monitoring-permissions.md "monitoring-permissions.md")
 - ["As Run" log for AWS Elemental MediaTailor Channel Assembly](as-run-log.md "as-run-log.md")
-- [AWS Elemental MediaTailor ADS log analysis in Amazon CloudWatch Logs
-  Insights](monitor-cloudwatch-ads-logs.md "monitor-cloudwatch-ads-logs.md")
+- [AWS Elemental MediaTailor ADS log analysis in Amazon CloudWatch Logs Insights](monitor-cloudwatch-ads-logs.md "monitor-cloudwatch-ads-logs.md")

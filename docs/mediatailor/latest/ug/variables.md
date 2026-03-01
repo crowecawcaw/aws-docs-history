@@ -52,6 +52,4 @@ Use dynamic ad variables to:
   troubleshooting](parameter-troubleshooting.md "parameter-troubleshooting.md")
 - [Alias
   troubleshooting](configuration-aliases-troubleshooting.md "configuration-aliases-troubleshooting.md")
-  For parameter formatting requirements and troubleshooting, see [MediaTailor parameter reference and
-  limitations](parameter-comprehensive-reference.md "parameter-comprehensive-reference.md") and [MediaTailor parameter troubleshooting
-  guide](parameter-troubleshooting.md "parameter-troubleshooting.md").
+  For parameter formatting requirements and troubleshooting, see [MediaTailor parameter reference and limitations](parameter-comprehensive-reference.md "parameter-comprehensive-reference.md") and [MediaTailor parameter troubleshooting guide](parameter-troubleshooting.md "parameter-troubleshooting.md").

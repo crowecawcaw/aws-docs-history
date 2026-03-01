@@ -1,6 +1,4 @@
-# Receiving AWS Elemental MediaTailor channel assembly
-
-alerts
+# Receiving AWS Elemental MediaTailor channel assembly alerts
 
 MediaTailor creates alerts for issues or potential issues that occur with your channel assembly
 resources. The alert describes the issue, when the issue occurred, and the affected
@@ -38,9 +36,7 @@ Alerts are only available for channel assembly resources created on or after Jul
 | `TOO_MANY_ALERTS`                         | MediaTailor has found too many alerts and will not provide any more alerts for<br>`programName`. Clear existing alerts to<br>continue receiving alerts for<br>`programName`.                                                                                         |                                                                                                                                                                            |
 | Channel                                   | `PROGRAM_ALERT`                                                                                                                                                                                                                                                      | The program `programName` contained in this<br>channel has the following alert:<br>`programAlertCode`:<br>`programAlertMessage`                                            |               |
 
-## Troubleshooting
-
-manifest-related alerts
+## Troubleshooting manifest-related alerts
 
 When you encounter manifest-related alerts such as `UNPARSABLE_MANIFEST`,
 `VARIANT_DURATION_MISMATCH`, or `TARGET_DURATION_MISMATCH`,

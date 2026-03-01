@@ -1,6 +1,4 @@
-# Getting started with MediaTailor ad
-
-insertion
+# Getting started with MediaTailor ad insertion
 
 To use AWS Elemental MediaTailor, you need an AWS account and permissions to access, view,
 and edit MediaTailor configurations. For information on how to do this, see [Setting up AWS Elemental MediaTailor](setting-up.md "setting-up.md").
@@ -24,14 +22,11 @@ personalized ad content in your stream.
 - [Prerequisites](#prerequisites "#prerequisites")
 - [Step 1: Access AWS Elemental MediaTailor](#access-emt "#access-emt")
 - [Step 2: Prepare a stream](#getting-started-prep-stream "#getting-started-prep-stream")
-- [Step 3: Configure ADS request
-  URL and query parameters](#getting-started-configure-request "#getting-started-configure-request")
+- [Step 3: Configure ADS request URL and query parameters](#getting-started-configure-request "#getting-started-configure-request")
 - [Step 4: Create a configuration](#getting-started-add-mapping "#getting-started-add-mapping")
 - [Step 5: Test the configuration](#getting-started-test-config "#getting-started-test-config")
-- [Step 6: Send the playback request to
-  AWS Elemental MediaTailor](#send-request-to-mediatailor "#send-request-to-mediatailor")
-- [Step 7 (optional): Monitor AWS Elemental MediaTailor
-  activity](#monitor-step "#monitor-step")
+- [Step 6: Send the playback request to AWS Elemental MediaTailor](#send-request-to-mediatailor "#send-request-to-mediatailor")
+- [Step 7 (optional): Monitor AWS Elemental MediaTailor activity](#monitor-step "#monitor-step")
 - [Step 8: Clean up](#clean-up "#clean-up")
 
 ## Prerequisites
@@ -148,9 +143,7 @@ After you configure the stream, note the content origin URL prefix for the
 DASH manifest. You need it to create the configuration in AWS Elemental MediaTailor,
 later in this tutorial.
 
-## Step 3: Configure ADS request
-
-URL and query parameters
+## Step 3: Configure ADS request URL and query parameters
 
 To determine the query parameters that the ADS requires, generate an ad tag URL
 from the ADS. This URL acts as a template for requests to the ADS, and consists of
@@ -223,8 +216,7 @@ well-known certificate authority. (It can't be a self-signed
 certificate.) Otherwise, AWS Elemental MediaTailor fails to connect to the
 content origin and can't serve manifests in response to player
 requests. 5. For **Ad decision server**, enter the URL for your
-ADS. This is either the URL with variables as described in [Step 3: Configure ADS request
-URL and query parameters](#getting-started-configure-request "#getting-started-configure-request"), or the static VAST
+ADS. This is either the URL with variables as described in [Step 3: Configure ADS request URL and query parameters](#getting-started-configure-request "#getting-started-configure-request"), or the static VAST
 URL that you are using for testing purposes. The maximum length is 25,000
 characters.
 
@@ -319,14 +311,11 @@ You can test the stream using one of the following methods.
 
 - Test the stream in your own player environment.
 
-## Step 6: Send the playback request to
-
-AWS Elemental MediaTailor
+## Step 6: Send the playback request to AWS Elemental MediaTailor
 
 Configure the downstream player or CDN to send playback requests to the
 configuration's playback endpoint provided from AWS Elemental MediaTailor. Any
-player-defined dynamic variables that you used in the ADS request URL in [Step 3: Configure ADS request
-URL and query parameters](#getting-started-configure-request "#getting-started-configure-request") must be defined in the
+player-defined dynamic variables that you used in the ADS request URL in [Step 3: Configure ADS request URL and query parameters](#getting-started-configure-request "#getting-started-configure-request") must be defined in the
 manifest request from the player.
 
 ###### Example
@@ -364,9 +353,7 @@ https://my.ads.com/ad?output=vast&content_id=12345678&playerSession=<filled_in_s
 For more information about configuring key-value pairs to pass to the ADS, see
 [MediaTailor dynamic ad variables for ADS requests](variables.md "variables.md").
 
-## Step 7 (optional): Monitor AWS Elemental MediaTailor
-
-activity
+## Step 7 (optional): Monitor AWS Elemental MediaTailor activity
 
 Use Amazon CloudWatch and Amazon CloudWatch Logs to track AWS Elemental MediaTailor activity, such as the counts
 of requests, errors, and ad avails filled.

@@ -12,6 +12,5 @@ You can edit a configuration to update the origin server and ad decision server
 3. On the configuration details page, choose **Edit**, and
    then revise the configuration settings as needed. You can't edit the
    configuration name. For information about configuration attributes, see
-   [Creating an MediaTailor playback
-   configuration](configurations-create.md "configurations-create.md").
+   [Creating an MediaTailor playback configuration](configurations-create.md "configurations-create.md").
 4. Choose **Save**.

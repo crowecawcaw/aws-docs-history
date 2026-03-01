@@ -1,6 +1,4 @@
-# Using AWS Elemental MediaTailor to create linear assembled
-
-streams
+# Using AWS Elemental MediaTailor to create linear assembled streams
 
 AWS Elemental MediaTailor channel assembly is a manifest-only service that allows you to create linear
 streaming channels using your existing video on demand (VOD) content mixed with live
@@ -15,17 +13,14 @@ You can easily monetize channel assembly linear streams by inserting ad breaks i
 programs without having to condition the content with SCTE-35 markers. You can use channel
 assembly with the MediaTailor ad insertion service, or any server-side ad insertion service.
 
-To get started with channel assembly, see [Getting started with MediaTailor channel
-assembly](channel-assembly-getting-started.md "channel-assembly-getting-started.md").
+To get started with channel assembly, see [Getting started with MediaTailor channel assembly](channel-assembly-getting-started.md "channel-assembly-getting-started.md").
 
-For information about integrating Channel Assembly with a content delivery network (CDN), see [Build MediaTailor linear channels with channel assembly and
-CDN](ca-cdn-wflw.md "ca-cdn-wflw.md").
+For information about integrating Channel Assembly with a content delivery network (CDN), see [Build MediaTailor linear channels with channel assembly and CDN](ca-cdn-wflw.md "ca-cdn-wflw.md").
 
 ###### Topics
 
 - [Working with source locations](channel-assembly-source-locations.md "channel-assembly-source-locations.md")
 - [Working with channels](channel-assembly-channels.md "channel-assembly-channels.md")
 - [Adding a program to a channel's schedule](channel-assembly-programs.md "channel-assembly-programs.md")
-- [Insert personalized ads and ad
-  breaks in a channel stream](channel-assembly-integrating-mediatailor-ssai.md "channel-assembly-integrating-mediatailor-ssai.md")
+- [Insert personalized ads and ad breaks in a channel stream](channel-assembly-integrating-mediatailor-ssai.md "channel-assembly-integrating-mediatailor-ssai.md")
 - [Time-shifting a channel's playback](channel-assembly-time-shift.md "channel-assembly-time-shift.md")

@@ -1,6 +1,4 @@
-# Client-side ad-tracking
-
-integrations
+# Client-side ad-tracking integrations
 
 This section describes integrations between MediaTailor and various client-side ad-tracking
 servers.
@@ -8,10 +6,8 @@ servers.
 ###### Topics
 
 - [Open Measurement SDK](#ad-reporting-client-side-ad-tracking-integrations-open-measurement-sdk "#ad-reporting-client-side-ad-tracking-integrations-open-measurement-sdk")
-- [Datazoom free
-  player SDKs](#ad-reporting-client-side-ad-tracking-integrations-dz "#ad-reporting-client-side-ad-tracking-integrations-dz")
-- [Roku Advertising
-  Framework (RAF)](#ad-reporting-client-side-ad-tracking-integrations-raf "#ad-reporting-client-side-ad-tracking-integrations-raf")
+- [Datazoom free player SDKs](#ad-reporting-client-side-ad-tracking-integrations-dz "#ad-reporting-client-side-ad-tracking-integrations-dz")
+- [Roku Advertising Framework (RAF)](#ad-reporting-client-side-ad-tracking-integrations-raf "#ad-reporting-client-side-ad-tracking-integrations-raf")
 - [TheoPlayer](#ad-reporting-client-side-ad-tracking-integrations-theoplayer "#ad-reporting-client-side-ad-tracking-integrations-theoplayer")
 - [MediaTailor SDK](#ad-reporting-client-side-ad-tracking-integrations-mediatailor-sdk "#ad-reporting-client-side-ad-tracking-integrations-mediatailor-sdk")
 
@@ -28,8 +24,7 @@ extension node is an `AdVerifications` node with the same schema as the VAST
 
 To facilitate easier adoption of the OM SDK, MediaTailor has partnered with Datazoom to
 provide free player SDKs that are configured and verified for Open Measurement. For more
-information, see [Datazoom free
-player SDKs](#ad-reporting-client-side-ad-tracking-integrations-dz "#ad-reporting-client-side-ad-tracking-integrations-dz").
+information, see [Datazoom free player SDKs](#ad-reporting-client-side-ad-tracking-integrations-dz "#ad-reporting-client-side-ad-tracking-integrations-dz").
 
 ###### Note
 
@@ -158,13 +153,10 @@ ensure compliance.
 
 For more information about the OM SDK, see [Open Measurement SDK](https://iabtechlab.com/standards/open-measurement-sdk/ "https://iabtechlab.com/standards/open-measurement-sdk/") on the IAB Tech Lab website.
 
-## Datazoom free
-
-player SDKs
+## Datazoom free player SDKs
 
 To facilitate easier adoption of the player SDKs, MediaTailor has partnered with Datazoom to
-provide free player SDKs that are configured and tested with the [Client-side AWS Elemental MediaTailor integration with Google Ad
-Manager](gam-integration-pal.md "gam-integration-pal.md") and the
+provide free player SDKs that are configured and tested with the [Client-side AWS Elemental MediaTailor integration with Google Ad Manager](gam-integration-pal.md "gam-integration-pal.md") and the
 IAB Tech [Open Measurement SDK](#ad-reporting-client-side-ad-tracking-integrations-open-measurement-sdk "#ad-reporting-client-side-ad-tracking-integrations-open-measurement-sdk").
 
 The Datazoom player SDK supports these features:
@@ -188,9 +180,7 @@ support. Customers can opt into and control player SDK telemetry from the Datazo
 management console. To access the Datazoom player SDKs and to learn more about the
 value-added telemetry and analytics service, use the contact information on the [Datazoom site](https://www.datazoom.io/partner-aws "https://www.datazoom.io/partner-aws").
 
-## Roku Advertising
-
-Framework (RAF)
+## Roku Advertising Framework (RAF)
 
 The Roku Ad Framework (RAF) maintains a consistent ad experience across the Roku
 platform. All channels, including video advertisements, must meet Roku's certification

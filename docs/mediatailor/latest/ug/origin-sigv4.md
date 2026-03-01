@@ -34,9 +34,7 @@ requirements must be met for MediaTailor to access the manifest:
 
   For information about setting a policy on the channel, see [Create a channel using the MediaTailor console](channel-assembly-creating-channels.md "channel-assembly-creating-channels.md").
 
-###### Example origin access policy for Channel Assembly, scoped to the MediaTailor configuration
-
-account
+###### Example origin access policy for Channel Assembly, scoped to the MediaTailor configuration account
 
 ```
 {
@@ -50,9 +48,7 @@ account
 }
 ```
 
-###### Example origin access policy for Channel Assembly, scoped to the MediaTailor playback
-
-configuration
+###### Example origin access policy for Channel Assembly, scoped to the MediaTailor playback configuration
 
 ```
 {

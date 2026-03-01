@@ -97,11 +97,9 @@ correctly:
    domain.
 4. Check that ad segment URLs in the manifest point to your CDN domain.
 
-For comprehensive testing and validation procedures, see [Testing and validation
-for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md").
+For comprehensive testing and validation procedures, see [Testing and validation for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md").
 
 ## Next steps
 
 After configuring CDN mapping in MediaTailor, the next step is to implement security best
-practices for your CDN integration. See [CDN integration security best practices for
-MediaTailor](cdn-security-best-practices.md "cdn-security-best-practices.md") for instructions.
+practices for your CDN integration. See [CDN integration security best practices for MediaTailor](cdn-security-best-practices.md "cdn-security-best-practices.md") for instructions.

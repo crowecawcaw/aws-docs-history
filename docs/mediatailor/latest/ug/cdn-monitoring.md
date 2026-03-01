@@ -11,13 +11,10 @@ Monitoring your CDN integration enables you to:
 - Track key performance indicators and maintain service quality
 - Maintain optimal cache performance and reduce origin load
 - Ensure ad insertion success rates meet business requirements
-  For troubleshooting parameter-related issues that may appear in monitoring data, see [MediaTailor parameter troubleshooting
-  guide](parameter-troubleshooting.md "parameter-troubleshooting.md"). For
+  For troubleshooting parameter-related issues that may appear in monitoring data, see [MediaTailor parameter troubleshooting guide](parameter-troubleshooting.md "parameter-troubleshooting.md"). For
   information about monitoring query parameter usage, see [MediaTailor manifest query parameters](manifest-query-parameters.md "manifest-query-parameters.md").
 
-## Essential CDN performance
-
-metrics
+## Essential CDN performance metrics
 
 Track these core metrics to evaluate your CDN's effectiveness with MediaTailor
 implementations:
@@ -141,8 +138,7 @@ responses, and errors. Key metrics include:
 - `4xxErrorCount` and `5xxErrorCount`:
   Error tracking
 
-For a complete list of MediaTailor metrics, see [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch
-metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md").
+For a complete list of MediaTailor metrics, see [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md").
 
 CDN metrics
 
@@ -231,5 +227,4 @@ For additional guidance on specific monitoring scenarios:
   procedures using monitoring data, see your workflow-specific troubleshooting
   documentation.
 - **Log analysis**: For comprehensive log analysis
-  and monitoring, see [CDN integration log analysis and error code
-  reference for MediaTailor](cdn-log-error-reference.md "cdn-log-error-reference.md").
+  and monitoring, see [CDN integration log analysis and error code reference for MediaTailor](cdn-log-error-reference.md "cdn-log-error-reference.md").

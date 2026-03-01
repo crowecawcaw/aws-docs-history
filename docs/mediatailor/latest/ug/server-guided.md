@@ -1,6 +1,4 @@
-# MediaTailor server-guided ad insertion overview and
-
-implementation
+# MediaTailor server-guided ad insertion overview and implementation
 
 AWS Elemental MediaTailor server-guided ad insertion (SGAI) provides an alternative to server-side ad
 insertion by referencing ads as separate playlists rather than stitching them directly into
@@ -22,9 +20,7 @@ insertion at session-initialization time.
 When creating playback sessions, choose guided mode. The way to do this depends on
 whether your players use implicit or explicit sessions.
 
-### Implicitly created server-guided
-
-sessions
+### Implicitly created server-guided sessions
 
 Append `aws.insertionMode=GUIDED` to the HLS multivariant playlist
 request. Example:
@@ -75,9 +71,7 @@ following.
 https://777788889999.mediatailor.us-east-1.amazonaws.com/v1/master/777788889999/myOrigin/index.m3u8?aws.insertionMode=GUIDED
 ```
 
-### Explicitly created server-guided
-
-sessions
+### Explicitly created server-guided sessions
 
 Add `insertionMode=GUIDED` to JSON metadata the player sends in the
 HTTP `POST` to the MediaTailor configuration's session-initialization prefix

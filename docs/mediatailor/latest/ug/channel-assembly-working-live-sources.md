@@ -1,6 +1,4 @@
-# Working with live
-
-sources
+# Working with live sources
 
 A _live source_ represents a single live stream, such
 as a live football game or news broadcast, that you add to your source location. After
@@ -36,9 +34,7 @@ output provides an endpoint that's used for playback requests. In this example, 
 channel provides an endpoint for HLS playback requests and an endpoint for DASH playback
 requests.
 
-## General requirements
-
-for using live sources
+## General requirements for using live sources
 
 When you use live sources, your content must align with the following general
 requirements:

@@ -14,8 +14,7 @@ manifest using the following logic:
   `SpliceInsert` or `TimeSignal` cue-out markers.
   By default, AWS Elemental MediaTailor manages DASH manifests as multi-period manifests. You can
   change your configuration to handle single-period DASH manifests from your origin server.
-  For information, see [Creating an MediaTailor playback
-  configuration](configurations-create.md "configurations-create.md").
+  For information, see [Creating an MediaTailor playback configuration](configurations-create.md "configurations-create.md").
 
 The following sections provide additional detail about DASH ad marker handling and
 provides decorated manifests from the origin.

@@ -1,6 +1,4 @@
-# Monitoring AWS Elemental MediaTailor with Amazon CloudWatch
-
-metrics
+# Monitoring AWS Elemental MediaTailor with Amazon CloudWatch metrics
 
 You can monitor AWS Elemental MediaTailor metrics using CloudWatch. CloudWatch collects raw data about the
 performance of the service and processes that data into readable, near real-time metrics.
@@ -50,9 +48,7 @@ output.
 | `RequestCount`  | The total number of requests. The transaction count depends<br>largely on how often players request updated manifests, and the<br>number of players. Each player request counts as a<br>transaction. |
 | `TotalTime`     | The amount of time that the application server took to process<br>the request, including the time used to receive bytes from and<br>write bytes to the client and network.                           |
 
-#### Server-side Ad-insertion
-
-(SSAI) metrics
+#### Server-side Ad-insertion (SSAI) metrics
 
 The following table lists server-side ad-insertion metrics.
 

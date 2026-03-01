@@ -7,28 +7,23 @@ tracking events, such as impression and quartile ad beaconing, to the Ad Decisio
 status and the individual ad avails within each break. For more information about impression
 and quartile (ADS) and other ad-verification entities. For more information about impression
 and quartile ad beaconing, see [Client-side beaconing](ad-reporting-client-side-beaconing.md "ad-reporting-client-side-beaconing.md"). For more information about ADS and
-other ad-verification entities, see [Client-side ad-tracking
-integrations](ad-reporting-client-side-ad-tracking-integrations.md "ad-reporting-client-side-ad-tracking-integrations.md").
+other ad-verification entities, see [Client-side ad-tracking integrations](ad-reporting-client-side-ad-tracking-integrations.md "ad-reporting-client-side-ad-tracking-integrations.md").
 
 For information about passing player parameters and session data to the ADS for
 client-side tracking, see [MediaTailor player variables for ADS requests](variables-player.md "variables-player.md") and [MediaTailor session variables for ADS requests](variables-session.md "variables-session.md").
 
 Client-side tracking enables functionality like the following:
 
-- Ad-break countdown timers - For more information, see [Ad
-  countdown timer](ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-countdown-timer "ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-countdown-timer").
+- Ad-break countdown timers - For more information, see [Ad countdown timer](ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-countdown-timer "ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-countdown-timer").
 - Ad click-through - For more information, see [Ad click-through](ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-clickthrough "ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-ad-clickthrough").
 - Display of companion ads - For more information, see [Companion ads](ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-companion-ads "ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-companion-ads").
 - Skippable ads - For more information, see [Skippable ads](ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-skippable-ads "ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-skippable-ads").
-- Display of VAST icons for privacy compliance - For more information, see [Icons
-  for Google Why This Ad (WTA)](ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-google-wta "ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-google-wta").
+- Display of VAST icons for privacy compliance - For more information, see [Icons for Google Why This Ad (WTA)](ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-google-wta "ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-google-wta").
 - Control of player scrubbing during ads - For more information, see [Scrubbing](ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-scrubbing "ad-reporting-client-side-ad-tracking-schema-player-controls.md#ad-reporting-client-side-ad-tracking-schema-player-controls-scrubbing").
   Using the MediaTailor client-side tracking API, you can send metadata to the playback device
   that enables functionality in addition to client-side tracking:
 
-## Client-side reporting
-
-workflow
+## Client-side reporting workflow
 
 The following diagram shows the complete client-side reporting workflow from session
 initialization through ad playback and beaconing:
@@ -67,30 +62,20 @@ compliance.
 
 ###### Topics
 
-- [Enabling client-side
-  tracking](#ad-reporting-client-side-enabling "#ad-reporting-client-side-enabling")
-- [Ad server
-  parameters](#ad-reporting-client-side-ad-server-parameters "#ad-reporting-client-side-ad-server-parameters")
-- [Origin
-  interaction query parameters](#ad-reporting-client-side-origin-interaction-query-parameters "#ad-reporting-client-side-origin-interaction-query-parameters")
+- [Enabling client-side tracking](#ad-reporting-client-side-enabling "#ad-reporting-client-side-enabling")
+- [Ad server parameters](#ad-reporting-client-side-ad-server-parameters "#ad-reporting-client-side-ad-server-parameters")
+- [Origin interaction query parameters](#ad-reporting-client-side-origin-interaction-query-parameters "#ad-reporting-client-side-origin-interaction-query-parameters")
 - [Session-configured features](#ad-reporting-client-side-session-configured-features "#ad-reporting-client-side-session-configured-features")
-- [Best practices for client-side
-  tracking](#ad-reporting-client-side-best-practices "#ad-reporting-client-side-best-practices")
-- [Client-side ad-tracking
-  schema and properties](ad-reporting-client-side-ad-tracking-schema.md "ad-reporting-client-side-ad-tracking-schema.md")
-- [Ad-tracking
-  activity timing](ad-reporting-client-side-ad-tracking-schema-activity-timing.md "ad-reporting-client-side-ad-tracking-schema-activity-timing.md")
-- [Player controls
-  and functionality for client-side ad tracking](ad-reporting-client-side-ad-tracking-schema-player-controls.md "ad-reporting-client-side-ad-tracking-schema-player-controls.md")
+- [Best practices for client-side tracking](#ad-reporting-client-side-best-practices "#ad-reporting-client-side-best-practices")
+- [Client-side ad-tracking schema and properties](ad-reporting-client-side-ad-tracking-schema.md "ad-reporting-client-side-ad-tracking-schema.md")
+- [Ad-tracking activity timing](ad-reporting-client-side-ad-tracking-schema-activity-timing.md "ad-reporting-client-side-ad-tracking-schema-activity-timing.md")
+- [Player controls and functionality for client-side ad tracking](ad-reporting-client-side-ad-tracking-schema-player-controls.md "ad-reporting-client-side-ad-tracking-schema-player-controls.md")
 - [Client-side beaconing](ad-reporting-client-side-beaconing.md "ad-reporting-client-side-beaconing.md")
 - [Hybrid mode with server-side ad beacons](ad-reporting-hybrid-mode.md "ad-reporting-hybrid-mode.md")
-- [Client-side ad-tracking
-  integrations](ad-reporting-client-side-ad-tracking-integrations.md "ad-reporting-client-side-ad-tracking-integrations.md")
+- [Client-side ad-tracking integrations](ad-reporting-client-side-ad-tracking-integrations.md "ad-reporting-client-side-ad-tracking-integrations.md")
 - [Paging through ad beacons with GetTracking](#gettracking "#gettracking")
 
-## Enabling client-side
-
-tracking
+## Enabling client-side tracking
 
 You enable client-side tracking for each session. The player makes an HTTP
 `POST` to the MediaTailor configuration's session-initialization prefix
@@ -120,9 +105,7 @@ player parameters for `param2`.
 https://my.ads.com/path?`param1=[player_params.param1]`&`param2=[player_params.param2]`
 ```
 
-## Ad server
-
-parameters
+## Ad server parameters
 
 At the topmost level of the JSON structure is an `adsParams` JSON object.
 Inside this object are key/value pairs that MediaTailor can read and send to the ad server in
@@ -133,9 +116,7 @@ all session requests. MediaTailor supports the following ad servers:
 - FreeWheel
 - Publica
 
-## Origin
-
-interaction query parameters
+## Origin interaction query parameters
 
 Any reserved key/value pairs within the topmost level of the JSON structure, such as
 `adsParams`, `availSuppression`, and
@@ -184,9 +165,7 @@ POST `mediatailorURL`/v1/session/`hashed-account-id`/`origin-id`/`asset-id`.mpd
         }
 ```
 
-### Reporting mode
-
-parameter
+### Reporting mode parameter
 
 You can specify the reporting mode when initializing a session by including the
 `reportingMode` parameter in the request body. This parameter
@@ -246,19 +225,14 @@ tracking purposes.
 }
 ```
 
-For more information on the client-side tracking schema, see [Client-side ad-tracking
-schema and properties](ad-reporting-client-side-ad-tracking-schema.md "ad-reporting-client-side-ad-tracking-schema.md").
+For more information on the client-side tracking schema, see [Client-side ad-tracking schema and properties](ad-reporting-client-side-ad-tracking-schema.md "ad-reporting-client-side-ad-tracking-schema.md").
 
-## Best practices for client-side
-
-tracking
+## Best practices for client-side tracking
 
 This section outlines the best practices for client-side tracking in MediaTailor for
 both live and VOD workflows.
 
-### Live
-
-workflows
+### Live workflows
 
 Poll the tracking endpoint at an interval matching every target duration for HLS,
 or minimum update period for DASH, in order to always have the most current
@@ -281,9 +255,7 @@ manifest containing media, you only need to call the tracking endpoint once.
 
 ![Call flow for VOD workflows. Call the client-side tracking endpoint after the session initializes and MediaTailor receives the first manifest that contains media.](images/vod-workflow-best-practice.png)
 
-### Server-guided ad
-
-insertion
+### Server-guided ad insertion
 
 Server-guided ad insertion (SGAI) sessions do not use the `GetTracking`
 API. Instead, tracking information is provided in the `TRACKING` section
@@ -323,9 +295,7 @@ the `NextToken` values to find the desired value of an ad beacon's
   `NextToken` value is greater than 24 hours old, the next call to
   `GetTracking` returns a null-value `NextToken`.
 
-### Generalized calling sequence of GetTracking from
-
-player
+### Generalized calling sequence of GetTracking from player
 
 From the client player, a `GetTracking` request is a POST with a request body
 that contains the `NextToken` and ads and beacons related to the token.

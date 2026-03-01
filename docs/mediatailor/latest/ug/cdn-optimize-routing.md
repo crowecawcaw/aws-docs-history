@@ -1,6 +1,4 @@
-# Request routing optimization for CDN and MediaTailor
-
-integrations
+# Request routing optimization for CDN and MediaTailor integrations
 
 Implement these routing optimizations for all AWS Elemental MediaTailor CDN integrations:
 

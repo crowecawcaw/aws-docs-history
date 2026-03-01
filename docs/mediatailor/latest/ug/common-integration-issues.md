@@ -1,6 +1,4 @@
-# Troubleshoot CDN manifest 404 errors for
-
-MediaTailor
+# Troubleshoot CDN manifest 404 errors for MediaTailor
 
 AWS Elemental MediaTailor content delivery network (CDN) manifest 404 errors are a common integration
 issue that prevents playback from starting. This section provides step-by-step

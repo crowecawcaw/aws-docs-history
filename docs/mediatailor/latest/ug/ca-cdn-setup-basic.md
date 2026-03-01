@@ -1,6 +1,4 @@
-# Set up basic MediaTailor channel assembly with a
-
-CDN
+# Set up basic MediaTailor channel assembly with a CDN
 
 AWS Elemental MediaTailor channel assembly enables you to configure a basic integration with your
 content delivery network (CDN) for efficient delivery of linear streaming channels to

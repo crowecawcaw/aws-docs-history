@@ -1,6 +1,4 @@
-# MediaTailor NEW_CREATIVE ad skipping
-
-troubleshooting
+# MediaTailor NEW_CREATIVE ad skipping troubleshooting
 
 When ads are skipped with the `NEW_CREATIVE` reason, AWS Elemental MediaTailor encountered
 an ad that requires transcoding before insertion. This troubleshooting guide explains
@@ -25,9 +23,7 @@ situations:
 - Content stream bitrates are inconsistent across playback
   sessions
 
-#### Harvest job bandwidth
-
-variance
+#### Harvest job bandwidth variance
 
 For harvest jobs, MediaTailor uses a 15% bandwidth variance threshold when
 matching ads to content streams. If there is a difference of 15% or more

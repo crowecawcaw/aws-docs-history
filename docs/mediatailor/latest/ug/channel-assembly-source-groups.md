@@ -1,6 +1,4 @@
-# Using source groups with your channel's
-
-outputs
+# Using source groups with your channel's outputs
 
 A source group associates a package configuration with an output on a channel. When you
 create the package configuration on the source, you identify the source group's name. Then,

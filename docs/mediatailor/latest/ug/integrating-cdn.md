@@ -1,6 +1,4 @@
-# Using a CDN to optimize MediaTailor ad personalization and
-
-content delivery
+# Using a CDN to optimize MediaTailor ad personalization and content delivery
 
 AWS Elemental MediaTailor works effectively as a standalone service, but integrating it with a content
 delivery network (CDN), such as Amazon CloudFront or other third-party CDNs, can significantly
@@ -21,8 +19,7 @@ Resource Sharing) handling to prevent issues that which can cause playback failu
 web-based players. Proper CORS configuration is essential for both ad segments and content
 segments. While ad segments are more susceptible to CORS issues, applying consistent CORS
 handling across all segment types ensures the most reliable playback experience. For
-detailed guidance on configuring CDN routing behaviors with proper CORS handling, see [Production-ready CloudFront configuration for
-MediaTailor](cf-comprehensive-configuration.md "cf-comprehensive-configuration.md").
+detailed guidance on configuring CDN routing behaviors with proper CORS handling, see [Production-ready CloudFront configuration for MediaTailor](cf-comprehensive-configuration.md "cf-comprehensive-configuration.md").
 
 CDN integration also enables advanced parameter passing and dynamic routing capabilities.
 For information about passing query parameters through CDNs for authorization and routing,

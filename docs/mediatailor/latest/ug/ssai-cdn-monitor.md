@@ -108,9 +108,7 @@ sources:
 - Set up cross-service correlation to identify relationships between
   metrics
 
-## Implementing a monitoring
-
-strategy
+## Implementing a monitoring strategy
 
 Follow these steps to implement a comprehensive monitoring strategy for your SSAI with
 CDN implementation:
@@ -187,8 +185,7 @@ CDN cache optimization
 Analyze cache hit ratios to identify opportunities for improvement:
 
 - Adjust TTL settings based on content type and update frequency.
-  For detailed TTL recommendations, see [Step 1: Configure CDN caching for optimal ad
-  delivery](configuring-ssai-cdn.md#configure-cdn-caching "configuring-ssai-cdn.md#configure-cdn-caching").
+  For detailed TTL recommendations, see [Step 1: Configure CDN caching for optimal ad delivery](configuring-ssai-cdn.md#configure-cdn-caching "configuring-ssai-cdn.md#configure-cdn-caching").
 - Optimize cache key settings to improve cache efficiency
 - Consider implementing origin shield for multi-layered
   caching
@@ -246,8 +243,7 @@ For more information about monitoring and analytics for SSAI with CDNs, see:
 
 - [Optimize performance for CDN and MediaTailor integrations](ssai-cdn-performance.md "ssai-cdn-performance.md")
   for performance optimization techniques
-- [Troubleshoot MediaTailor SSAI with CDNs for
-  uninterrupted ad delivery](troubleshooting-ssai-cdn.md "troubleshooting-ssai-cdn.md") for troubleshooting common
+- [Troubleshoot MediaTailor SSAI with CDNs for uninterrupted ad delivery](troubleshooting-ssai-cdn.md "troubleshooting-ssai-cdn.md") for troubleshooting common
   issues
 - [Monitoring MediaTailor with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md") for detailed information about MediaTailor
   metrics

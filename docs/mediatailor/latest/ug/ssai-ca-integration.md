@@ -1,6 +1,4 @@
-# Integrate MediaTailor SSAI with channel assembly for
-
-monetized linear channels
+# Integrate MediaTailor SSAI with channel assembly for monetized linear channels
 
 This topic explains how to combine AWS Elemental MediaTailor server-side ad insertion with channel
 assembly and content delivery network (CDN) integration. This integration enables you
@@ -10,9 +8,7 @@ to:
 - Deliver targeted ads to different viewers watching the same content
 - Maintain broadcast-quality viewing experiences
 
-## Benefits of combining SSAI with channel
-
-assembly
+## Benefits of combining SSAI with channel assembly
 
 Integrating SSAI with channel assembly provides several key benefits:
 
@@ -96,9 +92,7 @@ To set up SSAI with channel assembly:
 9. Configure your CDN architecture to handle both content and ad segment requests
    efficiently.
 
-## Defining ad breaks in channel
-
-assembly
+## Defining ad breaks in channel assembly
 
 When creating programs in channel assembly, you can define ad breaks in several
 ways:
@@ -127,8 +121,7 @@ For optimal performance when combining channel assembly and SSAI with a CDN:
 
 - Configure cache behaviors that distinguish between channel assembly and SSAI
   requests
-- Set appropriate TTL values for manifests and segments as recommended in [Step 1: Configure CDN caching for optimal ad
-  delivery](configuring-ssai-cdn.md#configure-cdn-caching "configuring-ssai-cdn.md#configure-cdn-caching")
+- Set appropriate TTL values for manifests and segments as recommended in [Step 1: Configure CDN caching for optimal ad delivery](configuring-ssai-cdn.md#configure-cdn-caching "configuring-ssai-cdn.md#configure-cdn-caching")
 - Ensure proper routing between channel assembly, ad insertion, and your CDN
   origins
 - Monitor the performance metrics for both channel assembly and ad insertion
@@ -141,9 +134,7 @@ For optimal performance when combining channel assembly and SSAI with a CDN:
 | Content segments                                         | 24+ hours    | URL path only                   |
 | Ad segments                                              | 24+ hours    | URL path only                   |
 
-## Monitoring the integrated
-
-solution
+## Monitoring the integrated solution
 
 To ensure your integrated solution is performing optimally, monitor these key
 metrics:
@@ -170,9 +161,7 @@ during ad transitions.
 
 For detailed information on monitoring, see [Monitor operations for CDN and MediaTailor integrations](ssai-cdn-monitor.md "ssai-cdn-monitor.md") and [Monitor MediaTailor channel assembly CDN operations](ca-cdn-monitor.md "ca-cdn-monitor.md").
 
-## Troubleshooting common
-
-issues
+## Troubleshooting common issues
 
 When troubleshooting issues with the integrated solution, consider these common
 problems:
@@ -202,8 +191,7 @@ If viewers are experiencing buffering or high latency, check the CDN cache
 hit rates and origin request volumes to identify potential bottlenecks in
 the delivery pipeline.
 
-For more troubleshooting guidance, see [Troubleshoot MediaTailor SSAI with CDNs for
-uninterrupted ad delivery](troubleshooting-ssai-cdn.md "troubleshooting-ssai-cdn.md").
+For more troubleshooting guidance, see [Troubleshoot MediaTailor SSAI with CDNs for uninterrupted ad delivery](troubleshooting-ssai-cdn.md "troubleshooting-ssai-cdn.md").
 
 ## Best practices
 
@@ -233,8 +221,7 @@ For more information about integrating SSAI with channel assembly, see:
 
 Channel assembly documentation
 
-[Using AWS Elemental MediaTailor to create linear assembled
-streams](channel-assembly.md "channel-assembly.md") -
+[Using AWS Elemental MediaTailor to create linear assembled streams](channel-assembly.md "channel-assembly.md") -
 Learn about channel assembly concepts
 
 [Channel assembly with CDN](ca-cdn-wflw.md "ca-cdn-wflw.md") -

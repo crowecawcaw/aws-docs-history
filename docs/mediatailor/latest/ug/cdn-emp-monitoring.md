@@ -1,6 +1,4 @@
-# Monitor performance for MediaPackage, CDN, and MediaTailor
-
-integrations
+# Monitor performance for MediaPackage, CDN, and MediaTailor integrations
 
 AWS Elemental MediaTailor requires effective monitoring to maintain optimal performance of your AWS Elemental MediaPackage
 and content delivery network (CDN) integration. This topic provides guidance on key metrics
@@ -8,7 +6,7 @@ to track, monitoring tools to use, and how to set up alerts for proactive issue
 detection.
 
 Before setting up monitoring, ensure your basic integration is working correctly. If you
-haven't completed your basic content delivery network integration setup, start with [Integrate MediaTailor with MediaPackage and CDN](mediapackage-integration.md "mediapackage-integration.md") . If you
+haven't completed your basic content delivery network integration setup, start with [Integrate MediaTailor with MediaPackage and CDN](mediapackage-integration.md "mediapackage-integration.md"). If you
 need to troubleshoot issues identified through monitoring, see [CDN integration
 troubleshooting](cdn-emp-troubleshooting.md "cdn-emp-troubleshooting.md")..
 
@@ -20,8 +18,7 @@ integration:
 ### CDN performance metrics
 
 For comprehensive CDN performance metrics including cache hit ratio targets,
-origin request volume monitoring, and response time benchmarks, see [Performance benchmarks for CDN and MediaTailor
-integrations](cdn-performance-benchmarks.md "cdn-performance-benchmarks.md") in the CDN optimization guide.
+origin request volume monitoring, and response time benchmarks, see [Performance benchmarks for CDN and MediaTailor integrations](cdn-performance-benchmarks.md "cdn-performance-benchmarks.md") in the CDN optimization guide.
 
 Key EMP-specific considerations for CDN metrics:
 
@@ -34,8 +31,7 @@ honors EMP's cache-control headers for optimal TTL behavior
 types should have different cache durations based on EMP's
 headers
 
-For detailed guidance on EMP cache optimization, see [Optimize CDN caching for MediaTailor and MediaPackage content
-delivery](cdn-emp-caching.md "cdn-emp-caching.md").
+For detailed guidance on EMP cache optimization, see [Optimize CDN caching for MediaTailor and MediaPackage content delivery](cdn-emp-caching.md "cdn-emp-caching.md").
 
 **Query parameter impact**
 
@@ -210,8 +206,7 @@ Based on monitoring data, consider these optimization actions:
 
 - **Cache policy adjustments**: Modify TTL
   values based on actual content update patterns. For detailed TTL
-  optimization guidance, see [Caching optimization for CDN and MediaTailor
-  integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+  optimization guidance, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 - **Geographic optimization**: Add CDN edge
   locations in regions with high traffic
 - **Query parameter optimization**: Remove

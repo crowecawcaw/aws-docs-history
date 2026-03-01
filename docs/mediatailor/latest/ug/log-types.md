@@ -4,13 +4,10 @@ The following sections describe the logs that MediaTailor emits to describe even
 
 ###### Topics
 
-- [ManifestService
-  events](#log-types-origininteraction "#log-types-origininteraction")
+- [ManifestService events](#log-types-origininteraction "#log-types-origininteraction")
 - [Manifest logs properties](#manifest-logs-main "#manifest-logs-main")
 
-## ManifestService
-
-events
+## ManifestService events
 
 The following events are emitted during MediaTailor interactions with the origin.
 

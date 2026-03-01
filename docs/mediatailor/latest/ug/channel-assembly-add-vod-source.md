@@ -1,6 +1,4 @@
-# Adding VOD sources to your source
-
-location
+# Adding VOD sources to your source location
 
 The following procedure explains how to add VOD sources to your source location
 and set up package configurations using the MediaTailor console. For information about how
@@ -21,9 +19,7 @@ Before you add your VOD sources, make sure that they meet these requirements:
 We recommend that you use an encoding template that includes a minimum segment
 length to ensure that your encoded sources meet these requirements.
 
-###### To add VOD sources to your source
-
-locations
+###### To add VOD sources to your source locations
 
 1. Open the MediaTailor console at [https://console.aws.amazon.com/mediatailor/](https://console.aws.amazon.com/mediatailor/ "https://console.aws.amazon.com/mediatailor/").
 2. In the navigation pane, choose **Channel assembly** >
@@ -54,8 +50,7 @@ methods violate these requirements.
     * **Source group**: Enter a source group name that
      describes this package configuration, such as HLS-4k. Make a note of
      this name; you'll reference it when you create your channel's
-     output. For more information, see [Using source groups with your channel's
-     outputs](channel-assembly-source-groups.md "channel-assembly-source-groups.md").
+     output. For more information, see [Using source groups with your channel's outputs](channel-assembly-source-groups.md "channel-assembly-source-groups.md").
     * **Type**: Select the packaged format for this
      configuration. MediaTailor supports HLS and DASH.
     * **Relative path**: The relative path from the
@@ -71,8 +66,7 @@ methods violate these requirements.
      to create separate package configurations for each of your
      sources renditions (DASH) or variant streams (HLS).
 
-For more information about package configurations, see [Using package
-configurations](channel-assembly-package-configurations.md "channel-assembly-package-configurations.md"). 7. Choose **Add VOD source**.
+For more information about package configurations, see [Using package configurations](channel-assembly-package-configurations.md "channel-assembly-package-configurations.md"). 7. Choose **Add VOD source**.
 
 If you want to add more VOD sources, repeat steps 4-7 in the
 procedure.

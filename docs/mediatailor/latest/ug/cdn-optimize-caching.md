@@ -1,15 +1,11 @@
-# Caching optimization for CDN and MediaTailor
-
-integrations
+# Caching optimization for CDN and MediaTailor integrations
 
 AWS Elemental MediaTailor caching requirements vary by workflow type and content format. Proper
 caching configuration is critical for optimal performance, cost efficiency, and viewer
 experience. The following sections provide detailed caching guidance for different MediaTailor
 implementations.
 
-## Server-side ad insertion (SSAI)
-
-caching
+## Server-side ad insertion (SSAI) caching
 
 For server-side ad insertion workflows, personalized manifests cannot be cached,
 but content and ad segments should be cached aggressively:
@@ -31,9 +27,7 @@ but content and ad segments should be cached aggressively:
 - Implement request collapsing at the CDN level to efficiently handle
   concurrent requests
 
-### Recommended TTL configuration
-
-settings
+### Recommended TTL configuration settings
 
 For optimal SSAI performance, configure your CDN cache policies with these
 specific TTL settings:
@@ -58,17 +52,13 @@ These settings ensure:
   optimal caching for segments that don't have explicit cache-control
   headers
 
-## Server-guided ad insertion (SGAI)
-
-caching
+## Server-guided ad insertion (SGAI) caching
 
 Server-guided ad insertion (SGAI) enables efficient CDN caching through cacheable
 media manifests that use predictable URL patterns. This section focuses on CDN-specific
 configuration requirements for optimal SGAI performance.
 
-### CDN caching configuration for
-
-SGAI
+### CDN caching configuration for SGAI
 
 Configure your CDN with these SGAI-specific caching behaviors:
 
@@ -95,9 +85,7 @@ Set up dedicated cache behaviors for SGAI content:
 - **Origin request headers** - Forward
   necessary headers for ad targeting while maintaining cacheability
 
-## Channel assembly
-
-caching
+## Channel assembly caching
 
 For channel assembly workflows, manifests can be cached for short periods, while
 segments should be cached aggressively:
@@ -119,12 +107,9 @@ segments should be cached aggressively:
 - Include query parameters in the cache key to properly handle time-shifted
   viewing requests
 
-For detailed TTL configuration settings and best practices, see [Caching optimization for CDN and MediaTailor
-integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+For detailed TTL configuration settings and best practices, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 
-## Combined SSAI and channel assembly
-
-caching
+## Combined SSAI and channel assembly caching
 
 When implementing both channel assembly and SSAI, ensure your caching strategy is
 consistent for both services to avoid conflicts and optimize performance:

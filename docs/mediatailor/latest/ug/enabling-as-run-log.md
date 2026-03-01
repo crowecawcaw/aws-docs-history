@@ -49,9 +49,7 @@ channel.
    types**, select **Enable as run**
    to enable the As Run log.
 
-###### To enable the As Run log from the **Logging**
-
-tab
+###### To enable the As Run log from the **Logging** tab
 
 ###### Note
 

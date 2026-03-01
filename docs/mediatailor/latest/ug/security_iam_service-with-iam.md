@@ -1,6 +1,4 @@
-# How AWS Elemental MediaTailor works with
-
-IAM
+# How AWS Elemental MediaTailor works with IAM
 
 Before you use IAM to manage access to MediaTailor, learn what IAM features are
 available to use with MediaTailor.
@@ -23,9 +21,7 @@ To get a high-level view of how MediaTailor and other AWS services work with mos
 IAM features, see [AWS services that
 work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Identity-based
-
-policies for MediaTailor
+## Identity-based policies for MediaTailor
 
 **Supports identity-based policies:**
 
@@ -42,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for MediaTailor
 
-Identity-based policy examples for MediaTailor
+To view examples of MediaTailor identity-based policies, see [Identity-based policy examples for AWS Elemental MediaTailor](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of MediaTailor identity-based policies, see [Identity-based policy examples for
-AWS Elemental MediaTailor](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within MediaTailor
+## Resource-based policies within MediaTailor
 
 **Supports resource-based policies:**
 
@@ -75,12 +66,9 @@ To learn how to attach a resource-based policy to a channel, see **[Create a cha
 
 ### Resource-based policy examples within MediaTailor
 
-To view examples of MediaTailor resource-based policies, see [Resource-based policy
-examples for AWS Elemental MediaTailor](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+To view examples of MediaTailor resource-based policies, see [Resource-based policy examples for AWS Elemental MediaTailor](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
-## Policy actions
-
-for MediaTailor
+## Policy actions for MediaTailor
 
 **Supports policy actions:**
 
@@ -110,12 +98,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of MediaTailor identity-based policies, see [Identity-based policy examples for
-AWS Elemental MediaTailor](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of MediaTailor identity-based policies, see [Identity-based policy examples for AWS Elemental MediaTailor](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for MediaTailor
+## Policy resources for MediaTailor
 
 **Supports policy resources:**
 
@@ -123,9 +108,7 @@ No
 
 AWS Elemental MediaTailor doesn't support specifying resource ARNs in a policy.
 
-## Policy
-
-condition keys for MediaTailor
+## Policy condition keys for MediaTailor
 
 **Supports service-specific policy condition keys:**
 
@@ -178,9 +161,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 
 For MediaTailor, use the value **Partial**.
 
-## Using temporary
-
-credentials with MediaTailor
+## Using temporary credentials with MediaTailor
 
 **Supports temporary credentials:**
 
@@ -192,9 +173,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for MediaTailor
+## Cross-service principal permissions for MediaTailor
 
 **Supports forward access sessions (FAS):**
 
@@ -203,9 +182,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-MediaTailor
+## Service roles for MediaTailor
 
 **Supports service roles:**
 
@@ -213,9 +190,7 @@ No
 
 AWS Elemental MediaTailor doesn't support service roles.
 
-## Service-linked
-
-roles for MediaTailor
+## Service-linked roles for MediaTailor
 
 **Supports service-linked roles:**
 
@@ -225,5 +200,4 @@ A service-linked role is a type of service role that is linked to an AWS service
 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
 but not edit the permissions for service-linked roles.
 
-For details about creating or managing MediaTailor service-linked roles, see [Using service-linked roles for
-MediaTailor](using-service-linked-roles.md "using-service-linked-roles.md").
+For details about creating or managing MediaTailor service-linked roles, see [Using service-linked roles for MediaTailor](using-service-linked-roles.md "using-service-linked-roles.md").

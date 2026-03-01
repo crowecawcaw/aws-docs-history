@@ -1,6 +1,4 @@
-# Creating a source
-
-location
+# Creating a source location
 
 The following procedure explains how to create a source location using the MediaTailor
 console. For information about how to create source locations using the MediaTailor API, see
@@ -25,8 +23,7 @@ console. For information about how to create source locations using the MediaTai
    Optionally select **Use SigV4 for Amazon S3
    authentication** if your source location is an Amazon S3
    bucket, and if you'd like to use AWS Signature Version 4 for Amazon S3 access
-   authentication. For advanced information, see [Configuring
-   authentication for your source location](channel-assembly-source-locations-access-configuration.md "channel-assembly-source-locations-access-configuration.md").
+   authentication. For advanced information, see [Configuring authentication for your source location](channel-assembly-source-locations-access-configuration.md "channel-assembly-source-locations-access-configuration.md").
 
 5. Under **Access configuration**, optionally configure
    authentication for your source location:
@@ -40,8 +37,7 @@ console. For information about how to create source locations using the MediaTai
        you to facilitate access token authentication between MediaTailor and
        your origin. For information about how to configure
        **Secrets Manager access token authentication**, see
-       [Working with
-       AWS Secrets Manager access token authentication](channel-assembly-access-configuration-access-token.md "channel-assembly-access-configuration-access-token.md").
+       [Working with AWS Secrets Manager access token authentication](channel-assembly-access-configuration-access-token.md "channel-assembly-access-configuration-access-token.md").
        - **Header name** - Specify a HTTP
          header name. MediaTailor uses the HTTP header to send the
          access token to your origin in content manifest

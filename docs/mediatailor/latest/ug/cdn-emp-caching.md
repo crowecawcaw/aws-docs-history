@@ -1,6 +1,4 @@
-# Optimize CDN caching for MediaTailor and MediaPackage content
-
-delivery
+# Optimize CDN caching for MediaTailor and MediaPackage content delivery
 
 AWS Elemental MediaTailor requires proper content delivery network (CDN) caching configuration for optimal
 performance when using AWS Elemental MediaPackage as your content origin. MediaPackage provides
@@ -11,7 +9,7 @@ delivery.
 This topic focuses specifically on optimizing caching behavior to maximize performance and
 minimize costs. Before implementing advanced caching optimization, ensure you have completed
 the basic content delivery network integration setup. If you haven't set up your basic integration yet, start
-with [Integrate MediaTailor with MediaPackage and CDN](mediapackage-integration.md "mediapackage-integration.md") .
+with [Integrate MediaTailor with MediaPackage and CDN](mediapackage-integration.md "mediapackage-integration.md").
 
 ## MediaPackage cache-control headers
 
@@ -47,8 +45,7 @@ TTL: 1209600 seconds (14 days)
 
 Reason: Like TS segments, these are immutable once created
 
-For comprehensive TTL recommendations across all MediaTailor workflows and additional caching optimization strategies, see [Caching optimization for CDN and MediaTailor
-integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+For comprehensive TTL recommendations across all MediaTailor workflows and additional caching optimization strategies, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 
 ## Configure CDN cache policies
 
@@ -83,8 +80,7 @@ For manifest requests (\*.m3u8, \*.mpd):
 - **Query strings**: Forward specific
   parameters (see [Optimize query string forwarding](#cdn-query-string-optimization "#cdn-query-string-optimization"))
 - **Headers**: Forward all headers (for minimum
-  requirements, see [Required headers for MediaTailor CDN
-  integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers"))
+  requirements, see [Required headers for MediaTailor CDN integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers"))
 
 ### Media segment cache behavior
 
@@ -159,8 +155,7 @@ Enable compression for text-based responses:
 - Enable compression for manifest files (\*.m3u8, \*.mpd)
 - Do not compress media segments (already compressed)
 - Ensure all headers are forwarded to MediaPackage (for minimum requirements, see
-  [Required headers for MediaTailor CDN
-  integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers"))
+  [Required headers for MediaTailor CDN integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers"))
 
 ## Monitor cache performance
 
@@ -188,7 +183,5 @@ Too many variations reduce cache efficiency
 
 After implementing these cache optimizations, set up monitoring to track their
 effectiveness. For guidance on monitoring cache hit ratios, origin request patterns, and
-other key performance metrics, see [Monitor performance for MediaPackage, CDN, and MediaTailor
-integrations](cdn-emp-monitoring.md "cdn-emp-monitoring.md"). If you observe poor cache performance or
-unexpected origin requests, see [Troubleshoot MediaPackage, CDN, and MediaTailor
-integrations](cdn-emp-troubleshooting.md "cdn-emp-troubleshooting.md") for troubleshooting steps.
+other key performance metrics, see [Monitor performance for MediaPackage, CDN, and MediaTailor integrations](cdn-emp-monitoring.md "cdn-emp-monitoring.md"). If you observe poor cache performance or
+unexpected origin requests, see [Troubleshoot MediaPackage, CDN, and MediaTailor integrations](cdn-emp-troubleshooting.md "cdn-emp-troubleshooting.md") for troubleshooting steps.

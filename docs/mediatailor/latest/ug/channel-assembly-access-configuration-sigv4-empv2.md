@@ -1,6 +1,4 @@
-# Working with
-
-SigV4 for MediaPackage Version 2
+# Working with SigV4 for MediaPackage Version 2
 
 Signature Version 4 (SigV4) for MediaPackage v2 is a signing protocol used to
 authenticate requests to MediaPackage v2 over HTTP. When you use SigV4 for MediaPackage v2, MediaTailor

@@ -1,6 +1,4 @@
-# MediaTailor ADS timeout ad skipping
-
-troubleshooting
+# MediaTailor ADS timeout ad skipping troubleshooting
 
 When ads are skipped with `ADS_TIMEOUT` or related reasons, you have
 connectivity or performance issues with your ad decision server. AWS Elemental MediaTailor requires

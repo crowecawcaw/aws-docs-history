@@ -1,6 +1,4 @@
-# Build MediaTailor linear channels with channel assembly and
-
-CDN
+# Build MediaTailor linear channels with channel assembly and CDN
 
 This section provides comprehensive guidance for integrating AWS Elemental MediaTailor channel assembly
 with a content delivery network (CDN). Follow these steps to set up, configure, and optimize
@@ -15,8 +13,7 @@ experience. For information about SSAI with CDNs, see [Ad insertion with CDN](ss
 In this topic, we use the term _manifests_ to refer collectively to
 multivariant playlists, media playlists, and MPDs.
 
-For more information about MediaTailor channel assembly, see [Using AWS Elemental MediaTailor to create linear assembled
-streams](channel-assembly.md "channel-assembly.md").
+For more information about MediaTailor channel assembly, see [Using AWS Elemental MediaTailor to create linear assembled streams](channel-assembly.md "channel-assembly.md").
 
 ## What you'll need
 
@@ -79,8 +76,7 @@ To successfully implement this solution, you should have:
 - Basic knowledge of CDN configuration principles
 - Familiarity with MediaTailor channel assembly concepts
 
-For basic MediaTailor setup, refer to [Setting up](setting-up.md "setting-up.md") and [Getting started with MediaTailor channel
-assembly](channel-assembly-getting-started.md "channel-assembly-getting-started.md"). For information about working
+For basic MediaTailor setup, refer to [Setting up](setting-up.md "setting-up.md") and [Getting started with MediaTailor channel assembly](channel-assembly-getting-started.md "channel-assembly-getting-started.md"). For information about working
 with source locations and VOD sources, see [Working with source locations](channel-assembly-source-locations.md "channel-assembly-source-locations.md"). For information about
 configuring slate, see [MediaTailor slate ad insertion](slate-management.md "slate-management.md").
 

@@ -1,6 +1,4 @@
-# Monitoring AWS media services with
-
-workflow monitor
+# Monitoring AWS media services with workflow monitor
 
 Workflow monitor is a tool for the discovery, visualization, and monitoring of AWS media
 workflows. Workflow monitor is available in the AWS console and API. You can use workflow monitor to
@@ -54,17 +52,14 @@ Workflow monitor has four major components:
   CloudWatch. You can create your own alarm templates, or import predefined
   templates created by AWS. For more information, see: [CloudWatch alarm groups and templates for monitoring your AWS media workflow](monitor-with-workflow-monitor-configure-alarms.md "monitor-with-workflow-monitor-configure-alarms.md")
 - EventBridge rule templates - Define how EventBridge sends notifications when an alarm is
-  triggered. For more information, see: [EventBridge rule
-  groups and templates for monitoring your AWS media workflow](monitor-with-workflow-monitor-configure-notifications.md "monitor-with-workflow-monitor-configure-notifications.md")
+  triggered. For more information, see: [EventBridge rule groups and templates for monitoring your AWS media workflow](monitor-with-workflow-monitor-configure-notifications.md "monitor-with-workflow-monitor-configure-notifications.md")
 - Signal maps - Use an automated process to create AWS Elemental workflow maps using
   existing AWS resources. The signal maps can be used to discover resources in
   your workflow and deploy monitoring to those resources. For more information,
-  see: [Workflow monitor
-  signal maps](monitor-with-workflow-monitor-configure-signal-maps.md "monitor-with-workflow-monitor-configure-signal-maps.md")
+  see: [Workflow monitor signal maps](monitor-with-workflow-monitor-configure-signal-maps.md "monitor-with-workflow-monitor-configure-signal-maps.md")
 - Overview - The overview page allows you to directly monitor the status of
   multiple signal maps from one location. Review metrics, logs, and alarms for
-  your workflows. For more information, see: [Workflow monitor
-  overview](monitor-with-workflow-monitor-operate-overview.md "monitor-with-workflow-monitor-operate-overview.md")
+  your workflows. For more information, see: [Workflow monitor overview](monitor-with-workflow-monitor-operate-overview.md "monitor-with-workflow-monitor-operate-overview.md")
 
 ## Supported services
 

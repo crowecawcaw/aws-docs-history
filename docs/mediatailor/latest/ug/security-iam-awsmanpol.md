@@ -22,9 +22,7 @@ a new feature, AWS adds read-only permissions for new operations and resources. 
 and descriptions of job function policies, see [AWS managed policies for
 job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
-## AWS managed
-
-policy: AWSElementalMediaTailorFullAccess
+## AWS managed policy: AWSElementalMediaTailorFullAccess
 
 You can attach the `AWSElementalMediaTailorFullAccess` policy to your IAM
 identities. It's useful for users who need to create and manage playback configurations and
@@ -34,9 +32,7 @@ MediaTailor resources.
 
 To view the permissions for this policy, see [AWSElementalMediaTailorFullAccess](../../../aws-managed-policy/latest/reference/AWSElementalMediaTailorFullAccess.md "../../../aws-managed-policy/latest/reference/AWSElementalMediaTailorFullAccess.md") in the _AWS Managed Policy Reference_.
 
-## AWS managed
-
-policy: AWSElementalMediaTailorReadOnly
+## AWS managed policy: AWSElementalMediaTailorReadOnly
 
 You can attach the `AWSElementalMediaTailorReadOnly` policy to your IAM
 identities. It's useful for users who need to view playback configurations and channel
@@ -46,9 +42,7 @@ MediaTailor resources.
 
 To view the permissions for this policy, see [AWSElementalMediaTailorReadOnly](../../../aws-managed-policy/latest/reference/AWSElementalMediaTailorReadOnly.md "../../../aws-managed-policy/latest/reference/AWSElementalMediaTailorReadOnly.md") in the _AWS Managed Policy Reference_.
 
-## MediaTailor updates to AWS managed
-
-policies
+## MediaTailor updates to AWS managed policies
 
 View details about updates to AWS managed policies for MediaTailor since this
 service began tracking these changes. For automatic alerts about changes to this page,

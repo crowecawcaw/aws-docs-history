@@ -1,6 +1,4 @@
-# Set up third-party CDNs for MediaTailor ad
-
-delivery
+# Set up third-party CDNs for MediaTailor ad delivery
 
 Third-party CDNs like Akamai and Fastly can significantly improve the performance and
 scalability of your AWS Elemental MediaTailor ad delivery while reducing bandwidth costs. However, CDN
@@ -59,8 +57,7 @@ To understand CDN configuration requirements, you need to know these manifest ty
 
 For general CDN configuration principles that apply to all providers, see [Set up CDN integration with MediaTailor](cdn-configuration.md "cdn-configuration.md").
 
-For CDN optimization guidance, see [Performance optimization guide for CDN and MediaTailor
-integrations](cdn-optimization.md "cdn-optimization.md").
+For CDN optimization guidance, see [Performance optimization guide for CDN and MediaTailor integrations](cdn-optimization.md "cdn-optimization.md").
 
 ## Configure CDN caching rules
 
@@ -109,8 +106,7 @@ Follow these steps for manifest requests (files ending in .m3u8, .mpd, or
 4. Enable **Forward Host Header** for proper origin
    routing
 5. Configure header forwarding for all headers. For minimum
-   requirements, see [Required headers for MediaTailor CDN
-   integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers").
+   requirements, see [Required headers for MediaTailor CDN integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers").
 
 ###### Configure segment delivery
 
@@ -216,8 +212,7 @@ correctly:
    1. Play content through your CDN from different locations
    2. Verify smooth playback with no buffering issues
 
-For comprehensive testing methodologies and advanced validation procedures, see [Testing and validation
-for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md").
+For comprehensive testing methodologies and advanced validation procedures, see [Testing and validation for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md").
 
 ## Optimize CDN performance
 
@@ -278,8 +273,7 @@ hours) to maximize cache efficiency
 minutes to 2 hours) for frequently updated ad content
 
 For comprehensive TTL recommendations and caching strategies across
-all MediaTailor workflows, see [Caching optimization for CDN and MediaTailor
-integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+all MediaTailor workflows, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 
 Geographic optimization
 
@@ -365,5 +359,4 @@ If these solutions don't resolve your issue, check your CDN provider's
 documentation. You can also contact their support team for additional
 troubleshooting steps.
 
-For general CDN troubleshooting guidance, see [Troubleshoot issues with MediaTailor and CDN
-integration](cdn-troubleshooting.md "cdn-troubleshooting.md").
+For general CDN troubleshooting guidance, see [Troubleshoot issues with MediaTailor and CDN integration](cdn-troubleshooting.md "cdn-troubleshooting.md").

@@ -5,8 +5,7 @@ manifests. Understanding these examples can help you configure and troubleshoot 
 workflows.
 
 For information about how query parameters are applied to HLS manifests and segments, see
-[MediaTailor
-HLS implicit session initialization](manifest-query-parameters-hls-implicit-session-initialization.md "manifest-query-parameters-hls-implicit-session-initialization.md").
+[MediaTailor HLS implicit session initialization](manifest-query-parameters-hls-implicit-session-initialization.md "manifest-query-parameters-hls-implicit-session-initialization.md").
 
 ## Understanding HLS playlist types
 
@@ -118,9 +117,7 @@ In this media playlist example:
   ongoing ad break
 - The `#EXT-X-CUE-IN` tag marks the end of the ad break
 
-## HLS personalized manifest
-
-examples
+## HLS personalized manifest examples
 
 The following example shows an HLS multivariant playlist that AWS Elemental MediaTailor
 personalized.
@@ -191,9 +188,7 @@ In this personalized media playlist example:
   example)
 - Ad segments are served from MediaTailor's ad segment storage
 
-## Key differences in personalized
-
-manifests
+## Key differences in personalized manifests
 
 When MediaTailor personalizes HLS manifests, it makes several important changes:
 
@@ -223,8 +218,7 @@ For more information about HLS manifests and MediaTailor, see the following topi
 
 - [HLS playlist types](hls-playlist-types.md "hls-playlist-types.md") -
   Detailed explanation of HLS playlist types
-- [Using a CDN to optimize MediaTailor ad personalization and
-  content delivery](integrating-cdn.md "integrating-cdn.md") -
+- [Using a CDN to optimize MediaTailor ad personalization and content delivery](integrating-cdn.md "integrating-cdn.md") -
   Information about using a CDN with MediaTailor
 - [How MediaTailor ad insertion works](what-is-flow.md "what-is-flow.md") - Overview of how
   MediaTailor ad insertion works

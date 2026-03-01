@@ -13,6 +13,5 @@ session initialization parameters, see [MediaTailor manifest query parameters](m
 
 ###### Topics
 
-- [MediaTailor server-side ad tracking and
-  reporting](ad-reporting-server-side.md "ad-reporting-server-side.md")
+- [MediaTailor server-side ad tracking and reporting](ad-reporting-server-side.md "ad-reporting-server-side.md")
 - [Client-side ad tracking](ad-reporting-client-side.md "ad-reporting-client-side.md")

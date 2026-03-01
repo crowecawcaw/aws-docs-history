@@ -1,6 +1,4 @@
-# Troubleshoot MediaTailor SSAI with CDNs for
-
-uninterrupted ad delivery
+# Troubleshoot MediaTailor SSAI with CDNs for uninterrupted ad delivery
 
 This section provides solutions for common issues when using AWS Elemental MediaTailor dynamic ad
 insertion with a content delivery network (CDN). These solutions will help you troubleshoot
@@ -36,8 +34,7 @@ Stale manifests
 
 For live content, verify that your CDN cache TTL settings are appropriate. For
 personalized manifests, use TTL of 0 seconds. Consider implementing cache
-invalidation for rapidly changing manifests. For comprehensive TTL guidance, see [Caching optimization for CDN and MediaTailor
-integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+invalidation for rapidly changing manifests. For comprehensive TTL guidance, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 
 High latency
 
@@ -70,8 +67,7 @@ To optimize the performance of your dynamic ad insertion and video monetization
 workflow:
 
 - Fine-tune TTL settings based on content type and viewer patterns. For detailed
-  TTL recommendations, see [Caching optimization for CDN and MediaTailor
-  integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
+  TTL recommendations, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 - Implement geographic routing to minimize latency for global audiences
 - Consider using multiple CDNs for redundancy and optimal performance
 - Monitor cache hit ratios and adjust configurations accordingly
@@ -129,8 +125,7 @@ Ability to handle greater than 1000 requests per second per
 channel
 
 Use Amazon CloudWatch metrics to track these performance indicators. For detailed
-monitoring instructions, see [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch
-metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md").
+monitoring instructions, see [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md").
 
 ## Related information
 
@@ -138,8 +133,7 @@ For more information about ad insertion with CDNs, see:
 
 Ad insertion documentation
 
-[Getting started with MediaTailor ad
-insertion](getting-started-ad-insertion.md "getting-started-ad-insertion.md") - Learn about ad
+[Getting started with MediaTailor ad insertion](getting-started-ad-insertion.md "getting-started-ad-insertion.md") - Learn about ad
 insertion concepts
 
 [Setting up](setting-up.md "setting-up.md") - Get
@@ -168,6 +162,5 @@ Comprehensive monitoring and analytics
 
 [Optimize performance for CDN and MediaTailor integrations](ssai-cdn-performance.md "ssai-cdn-performance.md") - Performance optimization guide
 
-[Monitoring AWS Elemental MediaTailor with Amazon CloudWatch
-metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md") - CloudWatch metrics for
+[Monitoring AWS Elemental MediaTailor with Amazon CloudWatch metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md") - CloudWatch metrics for
 MediaTailor

@@ -26,5 +26,4 @@ working correctly:
 - Ads appear at the expected break points (pre-roll, mid-roll, post-roll)
 - Ad quality matches the content quality
 - No buffering or playback errors during ad transitions
-  For more detailed testing procedures, see [Understanding AWS Elemental MediaTailor ad insertion behavior](ad-behavior.md "ad-behavior.md"). For comprehensive CDN integration testing and validation, see [Testing and validation
-  for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md").
+  For more detailed testing procedures, see [Understanding AWS Elemental MediaTailor ad insertion behavior](ad-behavior.md "ad-behavior.md"). For comprehensive CDN integration testing and validation, see [Testing and validation for CDN and MediaTailor integrations](cdn-integration-testing.md "cdn-integration-testing.md").

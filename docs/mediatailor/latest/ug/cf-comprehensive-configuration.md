@@ -1,6 +1,4 @@
-# Production-ready CloudFront configuration for
-
-MediaTailor
+# Production-ready CloudFront configuration for MediaTailor
 
 This CloudFront distribution configuration provides everything you need to deliver MediaTailor content
 with server-side ad insertion at scale. Copy this configuration and customize it with your
@@ -89,9 +87,7 @@ content:
 
 ![Origins table showing ContentOrigin, MediaTailorSegments, and MediaTailorManifests with their respective details.](images/origins-cdn.png)
 
-## Cache behavior precedence and
-
-configuration
+## Cache behavior precedence and configuration
 
 MediaTailor requires specific cache behavior configurations to handle different types of
 requests properly. The precedence of cache behaviors is critical because CDNs process
@@ -110,9 +106,7 @@ in unintended ways.
 
 ![Table showing behaviors with path patterns, origins, and policies for different URL paths.](images/bhv.png)
 
-### Precedence 0: Ad segments path
-
-behavior
+### Precedence 0: Ad segments path behavior
 
 This behavior handles the redirected requests from the segment path behavior,
 serving the actual ad segments. CloudFront applies the following behaviors to all requests
@@ -151,9 +145,7 @@ For details about what's included in the response headers policy, see
 [CORS-with-preflight-and-SecurityHeadersPolicy](../../../AmazonCloudFront/latest/DeveloperGuide/using-managed-response-headers-policies.md#managed-response-headers-policies-cors-preflight-security "../../../AmazonCloudFront/latest/DeveloperGuide/using-managed-response-headers-policies.md#managed-response-headers-policies-cors-preflight-security") in the CloudFront user
 guide.
 
-#### Adapting these settings to other
-
-CDNs
+#### Adapting these settings to other CDNs
 
 If you're using a CDN other than CloudFront, look for equivalent settings that
 accomplish the following.
@@ -182,12 +174,9 @@ responses
 The specific terminology and configuration options will vary by CDN provider,
 but the underlying principles remain the same.
 
-### Precedence 1: Server-guided ad insertion
+### Precedence 1: Server-guided ad insertion behavior
 
-behavior
-
-This behavior handles [MediaTailor server-guided ad insertion overview and
-implementation](server-guided.md "server-guided.md") (SGAI) requests when customers configure guided mode, which provides cacheable
+This behavior handles [MediaTailor server-guided ad insertion overview and implementation](server-guided.md "server-guided.md") (SGAI) requests when customers configure guided mode, which provides cacheable
 manifests. CloudFront applies the following behaviors to all requests with a
 `/v1/i-media/*` path pattern. SGAI allows for better caching performance
 because the manifests are not viewer-specific.
@@ -224,9 +213,7 @@ For details about what's included in the response headers policy, see
 [CORS-with-preflight-and-SecurityHeadersPolicy](../../../AmazonCloudFront/latest/DeveloperGuide/using-managed-response-headers-policies.md#managed-response-headers-policies-cors-preflight-security "../../../AmazonCloudFront/latest/DeveloperGuide/using-managed-response-headers-policies.md#managed-response-headers-policies-cors-preflight-security") in the CloudFront user
 guide.
 
-### Precedence 2: Personalized
-
-manifest behavior
+### Precedence 2: Personalized manifest behavior
 
 This behavior handles personalized manifest requests. CloudFront applies the following
 behaviors to all requests with a `/v1/*` path pattern. CloudFront applies the
@@ -288,9 +275,7 @@ The following is how MediaTailor handles the `Accept-Encoding` header.
   and other modern clients send the Accept-Encoding header, allowing MediaTailor to
   compress manifests before delivery
 
-### Precedence 3: Server-side beacon path
-
-behavior
+### Precedence 3: Server-side beacon path behavior
 
 This behavior handles requests to MediaTailor that result in redirects for [Server-side tracking](ad-reporting-server-side.md "ad-reporting-server-side.md"). These requests are essential
 for tracking beacons, so every request must be processed by MediaTailor. CloudFront applies the
@@ -336,9 +321,7 @@ path that points to the actual segment location. For example, a request to
 `/segment/ad123.ts` might redirect to
 `/tm/encoded-ad-segment.ts` on the segments origin.
 
-### Precedence 4: Content origin path
-
-behavior
+### Precedence 4: Content origin path behavior
 
 If the request path doesn't match any of the other patterns, CloudFront applies the
 default behavior. This behavior sends requests directly to the content origin, with

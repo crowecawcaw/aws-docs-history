@@ -191,9 +191,7 @@ You can define the limit of unfilled ad time allowed in an break with
 the personalization threshold configuration setting. For more
 information, see the [PlaybackConfiguration reference](../apireference/API_PutPlaybackConfiguration.md#mediatailor-PutPlaybackConfiguration-request-PersonalizationThresholdSeconds "../apireference/API_PutPlaybackConfiguration.md#mediatailor-PutPlaybackConfiguration-request-PersonalizationThresholdSeconds").
 
-### Live preroll for server-guided ad
-
-insertion
+### Live preroll for server-guided ad insertion
 
 Live preroll works differently for server-guided ad insertion methods compared to
 server-side ad insertion:

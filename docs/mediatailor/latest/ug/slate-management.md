@@ -28,8 +28,7 @@ in the [MediaTailor console](https://console.aws.amazon.com/console/home?nc2=h_c
 that you specify, and transcodes it to the same renditions as your content. You can
 control the maximum amount of time that a slate will be shown through the optional
 **personalization threshold** configuration in the MediaTailor
-console. For more information, see [How personalization threshold
-works](#personalization-threshold-scenarios "#personalization-threshold-scenarios").
+console. For more information, see [How personalization threshold works](#personalization-threshold-scenarios "#personalization-threshold-scenarios").
 
 The slate must be a high-quality MP4 asset that contains both audio and video.
 Configuring the slate is optional for non-VPAID configurations but mandatory for
@@ -42,9 +41,7 @@ well-known certificate authority. It can't be a self-signed certificate. If you
 use a self-signed certificate, then AWS Elemental MediaTailor can't retrieve and stitch
 the slate into the manifests from the content origin.
 
-## How personalization threshold
-
-works
+## How personalization threshold works
 
 The personalization threshold defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. This feature applies specifically to ad replacement in Live and VOD streams, rather than ad insertion, because it relies on an underlying content stream.
 

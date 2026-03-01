@@ -78,9 +78,7 @@ Use one of the following for help creating a bucket.
 For help creating a stream, see [Create a Firehose stream from console](../../../firehose/latest/dev/basic-create.md "../../../firehose/latest/dev/basic-create.md") in the
 _Amazon Data Firehose Developer Guide_.
 
-## Step 3: Enable vended logs for the MediaTailor playback
-
-configuration
+## Step 3: Enable vended logs for the MediaTailor playback configuration
 
 Create or update the playback configuration that will be sending logs to the delivery
 destination that you created in the previous step. Record the name of the configuration

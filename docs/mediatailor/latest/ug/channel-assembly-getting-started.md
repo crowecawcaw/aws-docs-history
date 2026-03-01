@@ -1,6 +1,4 @@
-# Getting started with MediaTailor channel
-
-assembly
+# Getting started with MediaTailor channel assembly
 
 This Getting Started tutorial shows you how to perform the following tasks:
 
@@ -12,8 +10,7 @@ This Getting Started tutorial shows you how to perform the following tasks:
   channel, and view your channel's stream containing personalized ads.
 
 This tutorial walks you through the basic steps to get started with MediaTailor channel
-assembly. For more advanced information, see [Using AWS Elemental MediaTailor to create linear assembled
-streams](channel-assembly.md "channel-assembly.md").
+assembly. For more advanced information, see [Using AWS Elemental MediaTailor to create linear assembled streams](channel-assembly.md "channel-assembly.md").
 
 **Estimated cost**
 
@@ -23,14 +20,11 @@ streams](channel-assembly.md "channel-assembly.md").
 ###### Topics
 
 - [Prerequisites](#ca-getting-started-prerequisites "#ca-getting-started-prerequisites")
-- [Step 1: Create a source
-  location](#ca-getting-started-create-source-location "#ca-getting-started-create-source-location")
+- [Step 1: Create a source location](#ca-getting-started-create-source-location "#ca-getting-started-create-source-location")
 - [Step 2: Add VOD sources to your source location](#ca-getting-started-add-sources "#ca-getting-started-add-sources")
 - [Step 3: Create a channel](#ca-getting-started-create-channel "#ca-getting-started-create-channel")
-- [Step 4: Add programs to your channel's
-  schedule](#ca-getting-started-create-programs "#ca-getting-started-create-programs")
-- [Step 5 (optional): Use
-  MediaTailor to insert personalized ads into your stream](#ca-getting-started-integrate-mediatailor-ssai "#ca-getting-started-integrate-mediatailor-ssai")
+- [Step 4: Add programs to your channel's schedule](#ca-getting-started-create-programs "#ca-getting-started-create-programs")
+- [Step 5 (optional): Use MediaTailor to insert personalized ads into your stream](#ca-getting-started-integrate-mediatailor-ssai "#ca-getting-started-integrate-mediatailor-ssai")
 - [Step 6: Start your channel](#ca-getting-started-start-channel "#ca-getting-started-start-channel")
 - [Step 7: Test your channel](#ca-getting-started-test-channel "#ca-getting-started-test-channel")
 - [Step 8: Clean up](#ca-getting-started-clean-up "#ca-getting-started-clean-up")
@@ -49,9 +43,7 @@ If you are using automated adaptive bitrate (ABR) or per title encoding, you mus
 encode your assets so that all variants are the same length and have the same number of
 child tracks. We recommend that you use an encoding template with a minimum segment length of one second.
 
-## Step 1: Create a source
-
-location
+## Step 1: Create a source location
 
 A source location represents the origin server where your content is stored. It can be
 Amazon S3, a standard web server, a content delivery network (CDN), or a packaging
@@ -61,9 +53,7 @@ MediaTailor fetches the content manifests from your source location, and uses th
 
 To create a source location, perform the following procedure.
 
-###### To create a source
-
-location
+###### To create a source location
 
 1. Open the MediaTailor console at [https://console.aws.amazon.com/mediatailor/](https://console.aws.amazon.com/mediatailor/ "https://console.aws.amazon.com/mediatailor/").
 2. In the navigation pane, choose **Channel assembly** >
@@ -95,16 +85,13 @@ example, if your VOD source is packaged as both HLS and DASH, you can create two
 configurations for each format. You can then use the package configuration's source groups to create two
 channel outputs: one for HLS, one for DASH.
 
-###### To add VOD sources and create package
-
-configurations
+###### To add VOD sources and create package configurations
 
 1. Open the MediaTailor console at [https://console.aws.amazon.com/mediatailor/](https://console.aws.amazon.com/mediatailor/ "https://console.aws.amazon.com/mediatailor/").
 2. In the navigation pane, choose **Channel assembly** >
    **Source locations**.
 3. In the **Source locations** pane, choose the source location that you
-   created in the [To create a source
-   location](#ca-getting-started-create-source-location-procedure "#ca-getting-started-create-source-location-procedure") procedure.
+   created in the [To create a source location](#ca-getting-started-create-source-location-procedure "#ca-getting-started-create-source-location-procedure") procedure.
 4. Choose **Add VOD source**.
 5. Under **VOD source details**, enter a **Name** for your VOD
    source, such as **my-example-video**.
@@ -121,8 +108,7 @@ adaptive bitrate streaming (ABR) because these encoding methods violate these
 requirements.
 
     * **Source group**: Enter a source group name that describes this package configuration, such as HLS-4k. Make a note of this name; you'll reference it when you create your channel's output. For more
-     information, see [Using source groups with your channel's
-     outputs](channel-assembly-source-groups.md "channel-assembly-source-groups.md").
+     information, see [Using source groups with your channel's outputs](channel-assembly-source-groups.md "channel-assembly-source-groups.md").
     * **Type**: Select the packaged format for this configuration. MediaTailor
      supports HLS and DASH.
     * **Relative path**: The relative path from the source location's
@@ -161,11 +147,9 @@ First you create a channel, then you add your VOD sources to the channel's sched
    You must enter a unique manifest name per channel output.
    - **Format type**: Select the streaming format for the channel.
      DASH and HLS are supported. Choose the format that corresponds to the package
-     configuration that you created in [Step 1: Create a source
-     location](#ca-getting-started-create-source-location "#ca-getting-started-create-source-location").
+     configuration that you created in [Step 1: Create a source location](#ca-getting-started-create-source-location "#ca-getting-started-create-source-location").
    - **Source group**: Enter the name of the source group that you
-     created in [Step 1: Create a source
-     location](#ca-getting-started-create-source-location "#ca-getting-started-create-source-location").
+     created in [Step 1: Create a source location](#ca-getting-started-create-source-location "#ca-getting-started-create-source-location").
 
 7. Under **Manifest settings**, enter additional information about your
    manifest settings:
@@ -185,9 +169,7 @@ First you create a channel, then you add your VOD sources to the channel's sched
 Channels are created in a stopped state. Your channel won't be active until you
 start it.
 
-## Step 4: Add programs to your channel's
-
-schedule
+## Step 4: Add programs to your channel's schedule
 
 Now that you have a channel, you'll add _programs_ to the channel's schedule. Each program
 contains a VOD source from a source location in your account. The channel schedule determines the order that your programs will play in the channel's stream.
@@ -197,9 +179,7 @@ VOD source to use as an ad slate. The duration of the ad break is determined by 
 of the slate. You can optionally use a server-side ad insertion server, such as MediaTailor ad
 insertion, to personalize your ad breaks.
 
-###### To add programs to your channel's
-
-schedule
+###### To add programs to your channel's schedule
 
 1. Open the MediaTailor console at [https://console.aws.amazon.com/mediatailor/](https://console.aws.amazon.com/mediatailor/ "https://console.aws.amazon.com/mediatailor/").
 2. In the navigation pane, choose **Channel assembly** >
@@ -210,8 +190,7 @@ schedule
    - **Name**: This is the name of the program to add to your
      channel's schedule.
    - **Source location name**: Choose **Select an existing source location**, and select the
-     source location that you created in the [Step 1: Create a source
-     location](#ca-getting-started-create-source-location "#ca-getting-started-create-source-location") from the **Select a
+     source location that you created in the [Step 1: Create a source location](#ca-getting-started-create-source-location "#ca-getting-started-create-source-location") from the **Select a
      source location** drop-down menu.
    - **VOD source name**: Choose **Select an existing VOD source** and select the
      VOD source that you created earlier in this tutorial.
@@ -225,8 +204,7 @@ schedule
      the program. You can select **Before program** or **After
      program**.
    - **Relative program**: If this is the first program in your schedule, you can skip this setting. If it's not the first program in your channel's schedule, the choose **Use existing program**, select the program name that you
-     created in [To add programs to your channel's
-     schedule](#ca-getting-started-add-programs "#ca-getting-started-add-programs").
+     created in [To add programs to your channel's schedule](#ca-getting-started-add-programs "#ca-getting-started-add-programs").
 
 6. Select **Add ad break**. Under **Ad breaks**, configure the settings for the ad break:
    - **Slate source location name**: Choose **Select an existing source location** and choose the source location where your slate is stored that you created earlier in this tutorial.
@@ -243,12 +221,9 @@ schedule
 
 For more information about programs, see [Configuring ad breaks for your program](channel-assembly-adding-programs.md#channel-assembly-programs-ad-breaks "channel-assembly-adding-programs.md#channel-assembly-programs-ad-breaks").
 
-For more advanced information about using ads with your linear stream, see [Optional configuration
-settings](configurations-create.md#configurations-create-addl "configurations-create.md#configurations-create-addl").
+For more advanced information about using ads with your linear stream, see [Optional configuration settings](configurations-create.md#configurations-create-addl "configurations-create.md#configurations-create-addl").
 
-## Step 5 (_optional_): Use
-
-MediaTailor to insert personalized ads into your stream
+## Step 5 (_optional_): Use MediaTailor to insert personalized ads into your stream
 
 You now have a channel with programs. If you want, you can use MediaTailor to insert
 personalized ads into the ad breaks in your programs in the channel's stream.
@@ -261,9 +236,7 @@ Before you proceed, you must meet the following requirements:
 - You must have configured **Ad break** settings in the [Adding a program to a channel's schedule](channel-assembly-programs.md "channel-assembly-programs.md")
   procedure.
 
-###### To add personalized ads to your channel's
-
-stream using MediaTailor
+###### To add personalized ads to your channel's stream using MediaTailor
 
 1. Open the MediaTailor console at [https://console.aws.amazon.com/mediatailor/](https://console.aws.amazon.com/mediatailor/ "https://console.aws.amazon.com/mediatailor/").
 2. In the navigation pane, choose **Configurations**.
@@ -277,8 +250,7 @@ stream using MediaTailor
 
 4. You can optionally configure the **Configuration aliases**,
    **Personalization details**, and **Advanced
-   settings**. For information about those settings, see [Optional configuration
-   settings](configurations-create.md#configurations-create-addl "configurations-create.md#configurations-create-addl").
+   settings**. For information about those settings, see [Optional configuration settings](configurations-create.md#configurations-create-addl "configurations-create.md#configurations-create-addl").
 5. On the navigation bar, choose **Create configuration**.
 
 For more advanced information about using MediaTailor ad insertion, see [Using AWS Elemental MediaTailor to insert ads](configurations.md "configurations.md").

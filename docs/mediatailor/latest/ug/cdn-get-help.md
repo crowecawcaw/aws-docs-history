@@ -1,6 +1,4 @@
-# Get support and troubleshooting
-
-help for CDN and MediaTailor integrations
+# Get support and troubleshooting help for CDN and MediaTailor integrations
 
 AWS Elemental MediaTailor CDN integration issues can be complex to diagnose and resolve. Use this guide
 when you need additional help with CDN and MediaTailor integration issues that you can't resolve
@@ -27,9 +25,7 @@ through self-service troubleshooting.
 - [Support case best
   practices](#support-case-best-practices "#support-case-best-practices")
 
-## When to escalate MediaTailor CDN issues to AWS
-
-Support
+## When to escalate MediaTailor CDN issues to AWS Support
 
 AWS Elemental MediaTailor CDN integration issues should be escalated to AWS Support when
 self-service troubleshooting doesn't resolve the problem. Consider escalating to AWS
@@ -44,9 +40,7 @@ plan. For support plan details and response times, see [AWS Support plans](https
 - You need assistance with complex configuration scenarios
 - Performance issues persist despite optimization efforts
 
-## Gather MediaTailor CDN information before contacting
-
-support
+## Gather MediaTailor CDN information before contacting support
 
 AWS Elemental MediaTailor CDN integration support cases require specific configuration and diagnostic
 information for effective troubleshooting. Before contacting AWS Support, gather this
@@ -79,9 +73,7 @@ understand your specific configuration.
   - Frequency and pattern of the issue (intermittent, consistent,
     time-based)
 
-## MediaTailor CDN integration support resources and
-
-channels
+## MediaTailor CDN integration support resources and channels
 
 AWS Elemental MediaTailor CDN integration support is available through multiple channels to help you
 resolve issues and optimize your implementation:
@@ -127,9 +119,7 @@ Advisor](https://console.aws.amazon.com/trustedadvisor/home "https://console.aws
 Access: [AWS Personal Health
 Dashboard](https://console.aws.amazon.com/phd/home "https://console.aws.amazon.com/phd/home")
 
-## MediaTailor CDN integration support case best
-
-practices
+## MediaTailor CDN integration support case best practices
 
 AWS Elemental MediaTailor CDN integration support cases are resolved more efficiently when you follow
 these best practices. To get the fastest resolution:

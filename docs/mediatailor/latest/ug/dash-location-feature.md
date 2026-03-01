@@ -40,8 +40,7 @@ location feature for your configuration and how to handle it:
 - Otherwise, use the following rules:
   - If you either don't use server-side reporting or your players all support sticky
     HTTP redirects, disable the location feature. For information about how to do this
-    on the console, see [Creating an MediaTailor playback
-    configuration](configurations-create.md "configurations-create.md").
+    on the console, see [Creating an MediaTailor playback configuration](configurations-create.md "configurations-create.md").
   - Otherwise, contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/").
 
 ###### Do I need to use the location feature?

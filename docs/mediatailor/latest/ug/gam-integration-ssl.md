@@ -1,6 +1,4 @@
-# Server-side AWS Elemental MediaTailor integration with Google Ad
-
-Manager
+# Server-side AWS Elemental MediaTailor integration with Google Ad Manager
 
 Server-side ad requests to Google Ad Manager (Ad Manager) must include the SSL
 certificate that Ad Manager has issued to MediaTailor to authorize programmatic transactions.
@@ -21,8 +19,7 @@ certificate that Ad Manager has issued to MediaTailor to authorize programmatic 
 
 2.  After SSL certificates are enabled, update the URL and parameters for your ADS
     and preroll ADS in the playback configuration. To update or create a playback
-    configuration, see [MediaTailor playback configuration
-    management](working-with-configurations.md "working-with-configurations.md").
+    configuration, see [MediaTailor playback configuration management](working-with-configurations.md "working-with-configurations.md").
 
 For official guidance on VAST ad request URL parameters for Ad Manager, see
 the Ad Manager [Server-side implementation guide.](https://support.google.com/admanager/answer/10668760 "https://support.google.com/admanager/answer/10668760") Updating includes the following

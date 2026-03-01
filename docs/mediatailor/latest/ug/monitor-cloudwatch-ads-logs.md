@@ -1,6 +1,4 @@
-# AWS Elemental MediaTailor ADS log analysis in Amazon CloudWatch Logs
-
-Insights
+# AWS Elemental MediaTailor ADS log analysis in Amazon CloudWatch Logs Insights
 
 You can view and query AWS Elemental MediaTailor ad decision server (ADS) logs using Amazon CloudWatch Logs
 Insights. MediaTailor sends event logs to CloudWatch for normal processing and error

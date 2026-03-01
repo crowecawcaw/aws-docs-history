@@ -1,6 +1,4 @@
-# MediaTailor VAST parsing ad skipping
-
-troubleshooting
+# MediaTailor VAST parsing ad skipping troubleshooting
 
 When ads are skipped with `VAST_PARSING_ERROR` or
 `MEDIA_FILE_UNAVAILABLE`, you have issues with your VAST responses or ad
