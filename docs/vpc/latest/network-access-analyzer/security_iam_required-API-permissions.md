@@ -1,6 +1,4 @@
-# Required API permissions for
-
-Network Access Analyzer
+# Required API permissions for Network Access Analyzer
 
 Network Access Analyzer relies on data from other AWS services. It uses permissions from the following
 services:

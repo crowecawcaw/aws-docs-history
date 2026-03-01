@@ -5,8 +5,7 @@ The following error messages are returned by Network Access Analyzer:
 **The request failed due to insufficient permissions**
 
 Verify that you have the required permissions. For more information, see
-[Required API permissions for
-Network Access Analyzer](security_iam_required-API-permissions.md "security_iam_required-API-permissions.md").
+[Required API permissions for Network Access Analyzer](security_iam_required-API-permissions.md "security_iam_required-API-permissions.md").
 
 **The network configuration is not supported**
 

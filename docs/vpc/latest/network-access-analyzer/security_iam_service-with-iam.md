@@ -21,9 +21,7 @@ To get a high-level view of how Network Access Analyzer and other AWS services w
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based policies
-
-for Network Access Analyzer
+## Identity-based policies for Network Access Analyzer
 
 **Supports identity-based policies:**
 
@@ -40,9 +38,7 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-## Resource-based
-
-policies within Network Access Analyzer
+## Resource-based policies within Network Access Analyzer
 
 **Supports resource-based policies:**
 
@@ -58,9 +54,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Network Access Analyzer
+## Policy actions for Network Access Analyzer
 
 **Supports policy actions:**
 
@@ -110,9 +104,7 @@ The following actions are supported by Network Access Analyzer:
 For more information, see [Actions Defined by Amazon EC2](../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonec2.md#amazonec2-actions-as-permissions") in the
 _Service Authorization Reference_.
 
-## Policy resources
-
-for Network Access Analyzer
+## Policy resources for Network Access Analyzer
 
 **Supports policy resources:**
 
@@ -132,9 +124,7 @@ The following Network Access Analyzer API actions do not support resource-level 
 - `DescribeNetworkInsightsAccessScopeAnalyses`
 - `DescribeNetworkInsightsAccessScopes`
 
-## Policy
-
-condition keys for Network Access Analyzer
+## Policy condition keys for Network Access Analyzer
 
 **Supports service-specific policy condition keys:**
 
@@ -175,9 +165,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary credentials
-
-with Network Access Analyzer
+## Using temporary credentials with Network Access Analyzer
 
 **Supports temporary credentials:**
 
@@ -189,9 +177,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Network Access Analyzer
+## Cross-service principal permissions for Network Access Analyzer
 
 **Supports forward access sessions (FAS):**
 
@@ -200,9 +186,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Network Access Analyzer
+## Service roles for Network Access Analyzer
 
 **Supports service roles:**
 
@@ -212,9 +196,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-## Service-linked roles
-
-for Network Access Analyzer
+## Service-linked roles for Network Access Analyzer
 
 **Supports service-linked roles:**
 

@@ -35,9 +35,7 @@ Network Access Analyzer does not support resources from Direct Connect (service 
 `globalaccelerator`). If you use this policy as a model for your own policies,
 you can omit these actions.
 
-## Network Access Analyzer updates to AWS managed
-
-policies
+## Network Access Analyzer updates to AWS managed policies
 
 View details about updates to AWS managed policies for Network Access Analyzer since this service began
 tracking these changes.
