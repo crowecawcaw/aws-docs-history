@@ -23,7 +23,7 @@ This architecture shows how to build a modern, cloud-native, secure data integra
    engineering (SRE) teams manage the OpenShift clusters, allowing customers to focus on
    other critical business aspects.
 6. Marketing and finance users access the data from data marts and build visualization and dashboards
-   using tools like IBM Cognos Analytics and **Amazon Quick Suite**.
+   using tools like IBM Cognos Analytics and **Amazon Quick**.
 7. Users can create self-service data access and business and compliance reports.
    Data from data marts helps users self-serve analytics with scale and performance.
 
