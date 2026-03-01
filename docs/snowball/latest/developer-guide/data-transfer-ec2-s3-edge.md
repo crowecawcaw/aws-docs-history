@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Transferring data from EC2-compatible compute instances
-
-to S3 buckets on the same Snowball Edge
+# Transferring data from EC2-compatible compute instances to S3 buckets on the same Snowball Edge
 
 You can transfer data between compute instances and Amazon S3 buckets on the same
 Snowball Edge device. You do this by using the supported AWS CLI commands and the
@@ -11,9 +9,7 @@ appropriate endpoints. For example, assume that you want to move data from a dir
 in my `sbe1.xlarge` instance into the Amazon S3 bucket, `amzn-s3-demo-bucket` on
 the same device. Assume that you're using the Amazon S3 compatible storage on Snowball Edge endpoint `https://S3-object-API-endpoint:443`. You use the following procedure.
 
-###### To transfer data between a compute instance and a bucket on the same Snowball
-
-Edge
+###### To transfer data between a compute instance and a bucket on the same Snowball Edge
 
 1. Use SSH to connect to your compute instance.
 2. Download and install the AWS CLI. If your instance doesn't already have the

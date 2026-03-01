@@ -7,8 +7,7 @@ You can use the AWS CLI and the VM Import/Export service to import a virtual mac
 Snowball Edge device as an Amazon Machine Image (AMI). After importing a VM image, register the image as an AMI
 and launch it as an Amazon EC2-compatible instance.
 
-You can add AMIs from Amazon EC2 to the device when creating a job to order a Snowball Edge device. Use this procedure after you have received the Snowball Edge device. For more information, see [Choosing your compute and storage
-options](create-job-common.md#compute-storage "create-job-common.md#compute-storage").
+You can add AMIs from Amazon EC2 to the device when creating a job to order a Snowball Edge device. Use this procedure after you have received the Snowball Edge device. For more information, see [Choosing your compute and storage options](create-job-common.md#compute-storage "create-job-common.md#compute-storage").
 
 You can also use AWS OpsHub to upload the VM image file. For more information, see [Importing an image into your device as an Amazon EC2-compatible AMI](manage-ec2.md#ec2-ami-import "manage-ec2.md#ec2-ami-import") in this guide.
 

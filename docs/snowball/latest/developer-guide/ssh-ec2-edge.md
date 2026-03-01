@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Using SSH to connect to compute instances on a
-
-Snowball Edge
+# Using SSH to connect to compute instances on a Snowball Edge
 
 To use Secure Shell (SSH) to connect to compute instances on a Snowball Edge, you have the following options for providing or creating an SSH key.
 
@@ -14,8 +12,7 @@ To use Secure Shell (SSH) to connect to compute instances on a Snowball Edge, yo
 ###### To connect to an instance through SSH
 
 1. Make sure that your device is powered on, connected to the network, and
-   unlocked. For more information, see [Connecting a Snowball Edge to your local
-   network](getting-started.md#getting-started-connect "getting-started.md#getting-started-connect").
+   unlocked. For more information, see [Connecting a Snowball Edge to your local network](getting-started.md#getting-started-connect "getting-started.md#getting-started-connect").
 2. Make sure that you have your network settings configured for your compute
    instances. For more information, see [Network configurations for compute instances on Snowball Edge](network-config-ec2.md "network-config-ec2.md").
 3. Check your notes to find the PEM or PPK key pair that you used for this

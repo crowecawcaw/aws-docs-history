@@ -11,9 +11,7 @@ that you follow these best practices.
 The following are recommendations and best practices for maintaining security while
 working with an AWS Snowball Edge device.
 
-###### General
-
-Security
+###### General Security
 
 - If you notice anything that looks suspicious about the AWS Snowball Edge device, don't
   connect it to your internal network. Instead, contact [AWS Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/"), and a new
@@ -36,12 +34,9 @@ for the local resources associated with your job.
 
 - If you feel your credentials are lost or have been compromised, request a new manifest file and unlock code by following the process to update the device's SSL certificate. See [Updating the SSL certificate on Snowball Edge devices](update-ssl-cert.md "update-ssl-cert.md").
 
-For information about how to use AWS Identity and Access Management (IAM) policies to control access, see [AWS-Managed (Predefined)
-Policies for AWS Snowball Edge](authentication-and-access-control.md#access-policy-examples-aws-managed "authentication-and-access-control.md#access-policy-examples-aws-managed").
+For information about how to use AWS Identity and Access Management (IAM) policies to control access, see [AWS-Managed (Predefined) Policies for AWS Snowball Edge](authentication-and-access-control.md#access-policy-examples-aws-managed "authentication-and-access-control.md#access-policy-examples-aws-managed").
 
-###### Network
-
-Security
+###### Network Security
 
 - We recommend that you only use one method at a time for reading and writing data
   to a local bucket on an AWS Snowball Edge device.

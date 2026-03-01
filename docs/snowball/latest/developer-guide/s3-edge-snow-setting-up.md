@@ -24,9 +24,7 @@ Amazon S3 compatible storage on Snowball Edge. AWS recommends using the followin
 - **AWS Tools for Windows PowerShell** – Version 4.1.476 or
   newer. For more information, see [AWS Tools for PowerShell User Guide](../../../powershell/latest/userguide.md "../../../powershell/latest/userguide.md").
 
-## Setting up your local
-
-environment
+## Setting up your local environment
 
 This section describes how to set up and configure the Snowball Edge Client and
 your local environment for use with Amazon S3 compatible storage on Snowball Edge.
@@ -45,9 +43,7 @@ your local environment for use with Amazon S3 compatible storage on Snowball Edg
 
 ### Setting up your Snowball Edge device
 
-#### Setting up IAM on the
-
-Snowball Edge
+#### Setting up IAM on the Snowball Edge
 
 AWS Identity and Access Management (IAM) helps you to enable granular access to AWS resources that
 run on your Snowball Edge devices. You use IAM to control who is
@@ -79,9 +75,7 @@ JSON
 
 For more IAM policy examples, see the [AWS Snowball Edge Developer Guide](using-local-iam.md#policy-examples "using-local-iam.md#policy-examples").
 
-## Starting the Amazon S3 compatible storage on Snowball Edge
-
-service
+## Starting the Amazon S3 compatible storage on Snowball Edge service
 
 Use the following instructions to start the Amazon S3 compatible storage on Snowball Edge service on a
 Snowball Edge device or cluster.

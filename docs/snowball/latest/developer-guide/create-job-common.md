@@ -13,11 +13,9 @@ see the [AWS Snowball Edge API Reference](../api-reference/api-reference.md "../
 ###### Topics
 
 - [Choosing a job type](#plan-job "#plan-job")
-- [Choosing your compute and storage
-  options](#compute-storage "#compute-storage")
+- [Choosing your compute and storage options](#compute-storage "#compute-storage")
 - [Choosing your features and options](#import-job-details "#import-job-details")
-- [Choosing security, shipping, and
-  notification preferences](#security-shipping-notification "#security-shipping-notification")
+- [Choosing security, shipping, and notification preferences](#security-shipping-notification "#security-shipping-notification")
 - [Reviewing the job summary and create your job](#review-job "#review-job")
 
 ## Choosing a job type
@@ -57,9 +55,7 @@ start planning it using the AWS Snow Family Management Console.
 
 ![Choose job type panel showing Import into Amazon S3 job type selected.](images/choose-job-type-console.png) 5. Choose **Next** to continue.
 
-## Choosing your compute and storage
-
-options
+## Choosing your compute and storage options
 
 Choose the hardware specifications for your Snowball Edge device, which of your
 Amazon EC2-compatible instances to include on it, how data will be stored, and pricing.
@@ -149,8 +145,7 @@ including Amazon EKS Anywhere for Snow, an AWS IoT Greengrass instance, and remo
 
 We recommend that you create your Kubernetes cluster with the latest available Kubernetes version supported by Amazon EKS Anywhere. For more information, see [Amazon EKS-Anywhere Versioning](https://anywhere.eks.amazonaws.com/docs/concepts/support-versions/ "https://anywhere.eks.amazonaws.com/docs/concepts/support-versions/"). If your application requires a specific version of Kubernetes, use any version of Kubernetes offered in standard or extended support by Amazon EKS. Consider the release and support dates of Kubernetes versions when planning the lifecycle of your deployment. This will help you avoid the potential loss of support for the version of Kubernetes you intend to use. For more information, see [Amazon EKS Kubernetes release calendar](../../../eks/latest/userguide/kubernetes-versions.md#kubernetes-release-calendar "../../../eks/latest/userguide/kubernetes-versions.md#kubernetes-release-calendar").
 
-    1. In the **Build your own AMI** section, choose the AMIs you have built for Amazon EKS Anywhere. See [Actions to complete before ordering a Snowball Edge
-     device for Amazon EKS Anywhere on AWS Snow](eksa-gettingstarted.md "eksa-gettingstarted.md").
+    1. In the **Build your own AMI** section, choose the AMIs you have built for Amazon EKS Anywhere. See [Actions to complete before ordering a Snowball Edge device for Amazon EKS Anywhere on AWS Snow](eksa-gettingstarted.md "eksa-gettingstarted.md").
     2. In the **High availability** section, to operate Amazon EKS Anywhere clusters across multiple Snowball Edge devices, choose the number of devices to include in your order.
 
 2. In the **AWS IoT Greengrass on Snow** section, to include a validated
@@ -161,9 +156,7 @@ We recommend that you create your Kubernetes cluster with the latest available K
    AWS OpsHub or Snowball Edge Client**.
 4. Select the **Next** button.
 
-## Choosing security, shipping, and
-
-notification preferences
+## Choosing security, shipping, and notification preferences
 
 ###### Topics
 

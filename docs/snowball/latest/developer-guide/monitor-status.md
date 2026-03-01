@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Monitoring the import status from the
-
-Snowball Edge
+# Monitoring the import status from the Snowball Edge
 
 To monitor the status of your import job in the console, sign in to the
 [AWS Snow Family Management Console](https://console.aws.amazon.com/snowfamily/home "https://console.aws.amazon.com/snowfamily/home") in the AWS Region where the job was created. Choose the job you want
@@ -32,9 +30,7 @@ Now your first data import job into Amazon S3 using AWS Snowball Edge is complet
 report about the data transfer from the console. To access this report from the console,
 select the job from the table, and expand it to reveal the job's detailed information.
 Choose **Get report** to download your job completion report as a PDF
-file. For more information, see [Getting your data transfer job completion report and
-logs](report.md "report.md").
+file. For more information, see [Getting your data transfer job completion report and logs](report.md "report.md").
 
 **Next:**
-[Getting your data transfer job completion report and
-logs](report.md "report.md")
+[Getting your data transfer job completion report and logs](report.md "report.md")

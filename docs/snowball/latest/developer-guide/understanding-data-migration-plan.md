@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Using the large data migration
-
-plan with Snowball Edge
+# Using the large data migration plan with Snowball Edge
 
 After you create your large data migration plan, you can use the resulting schedule
 and dashboard to guide you through the rest of the migration process.

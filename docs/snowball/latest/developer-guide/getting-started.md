@@ -23,11 +23,9 @@ administrator user in AWS Identity and Access Management (IAM). For information,
 
 - [Creating a job to order a Snowball Edge device](create-job-common.md "create-job-common.md")
 - [Cancelling a job to order a Snowball Edge](cancel-job-order.md "cancel-job-order.md")
-- [Cloning a job to order a Snowball Edge in the
-  AWS Snow Family Management Console](clonejob.md "clonejob.md")
+- [Cloning a job to order a Snowball Edge in the AWS Snow Family Management Console](clonejob.md "clonejob.md")
 - [Receiving the Snowball Edge](receive-device.md "receive-device.md")
-- [Connecting a Snowball Edge to your local
-  network](#getting-started-connect "#getting-started-connect")
+- [Connecting a Snowball Edge to your local network](#getting-started-connect "#getting-started-connect")
 - [Getting credentials to access a Snowball Edge](#get-credentials "#get-credentials")
 - [Unlocking the Snowball Edge](unlockdevice.md "unlockdevice.md")
 - [Setting up local users on a Snowball Edge](#setup-local-iam "#setup-local-iam")
@@ -35,14 +33,10 @@ administrator user in AWS Identity and Access Management (IAM). For information,
 - [Powering off the Snowball Edge](turnitoff.md "turnitoff.md")
 - [Returning the Snowball Edge device](return-device.md "return-device.md")
 - [Return shipping for Snowball Edge](mailing-storage.md "mailing-storage.md")
-- [Monitoring the import status from the
-  Snowball Edge](monitor-status.md "monitor-status.md")
-- [Getting your data transfer job completion report and
-  logs](report.md "report.md")
+- [Monitoring the import status from the Snowball Edge](monitor-status.md "monitor-status.md")
+- [Getting your data transfer job completion report and logs](report.md "report.md")
 
-## Connecting a Snowball Edge to your local
-
-network
+## Connecting a Snowball Edge to your local network
 
 Using the following procedure, you connect the AWS Snowball Edge device to your local network.
 The device doesn't need to be connected to the internet. The device has three doors: a
@@ -128,8 +122,7 @@ Now that you have your credentials, the next step is to download the
 Snowball Edge client, which is used to unlock the AWS Snowball Edge device.
 
 **Next:**
-[Downloading and installing the Snowball Edge
-Client](using-client-commands.md#download-the-client "using-client-commands.md#download-the-client")
+[Downloading and installing the Snowball Edge Client](using-client-commands.md#download-the-client "using-client-commands.md#download-the-client")
 
 ## Setting up local users on a Snowball Edge
 

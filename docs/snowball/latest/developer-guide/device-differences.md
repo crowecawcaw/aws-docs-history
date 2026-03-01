@@ -59,8 +59,7 @@ hardware.
 ###### Topics
 
 - [Snowball Edge Storage Optimized 210 TB specifications](#specs-storage-optimized-v35s "#specs-storage-optimized-v35s")
-- [Snowball Edge Compute Optimized device
-  specifications](#sbe-compute-specifications "#sbe-compute-specifications")
+- [Snowball Edge Compute Optimized device specifications](#sbe-compute-specifications "#sbe-compute-specifications")
 
 ### Snowball Edge Storage Optimized 210 TB specifications
 
@@ -95,9 +94,7 @@ The following table contains hardware specifications for Snowball Edge Storage O
 | Altitude                                    | Operational use equivalent to 0–3,000 meters (0–10,000<br>feet)<br>Non-operational use equivalent to 0–12,000 meters                                                                                                                     |
 | Temperature range                           | 0–30°C (operational)                                                                                                                                                                                                                     |
 
-### Snowball Edge Compute Optimized device
-
-specifications
+### Snowball Edge Compute Optimized device specifications
 
 | Item                                        | Snowball Edge Compute Optimized specifications                                                                                                                                                                                           |
 | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

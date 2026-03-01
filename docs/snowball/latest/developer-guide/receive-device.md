@@ -24,7 +24,6 @@ If you're ready to connect the device to your internal network, see the next
 section.
 
 **Next:**
-[Connecting a Snowball Edge to your local
-network](getting-started.md#getting-started-connect "getting-started.md#getting-started-connect")
+[Connecting a Snowball Edge to your local network](getting-started.md#getting-started-connect "getting-started.md#getting-started-connect")
 
 ###### Topics

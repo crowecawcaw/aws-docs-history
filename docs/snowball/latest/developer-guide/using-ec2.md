@@ -41,21 +41,16 @@ Technology (NIST) 800-88 standards.
 ###### Topics
 
 - [Difference between Amazon EC2 and Amazon EC2-compatible instances on Snowball Edge](#ec2-compatible-sbe "#ec2-compatible-sbe")
-- [Pricing for Compute Instances on Snowball
-  Edge](#pricing-for-ec2-edge "#pricing-for-ec2-edge")
+- [Pricing for Compute Instances on Snowball Edge](#pricing-for-ec2-edge "#pricing-for-ec2-edge")
 - [Using an Amazon EC2-compatible AMI on Snowball Edge](using-ami.md "using-ami.md")
 - [Importing a virtual machine image to a Snowball Edge device](ec2-ami-import-cli.md "ec2-ami-import-cli.md")
-- [Using the AWS CLI and API operations on
-  Snowball Edge device](using-ec2-cli-specify-region.md "using-ec2-cli-specify-region.md")
+- [Using the AWS CLI and API operations on Snowball Edge device](using-ec2-cli-specify-region.md "using-ec2-cli-specify-region.md")
 - [Network configurations for compute instances on Snowball Edge](network-config-ec2.md "network-config-ec2.md")
-- [Using SSH to connect to compute instances on a
-  Snowball Edge](ssh-ec2-edge.md "ssh-ec2-edge.md")
-- [Transferring data from EC2-compatible compute instances
-  to S3 buckets on the same Snowball Edge](data-transfer-ec2-s3-edge.md "data-transfer-ec2-s3-edge.md")
+- [Using SSH to connect to compute instances on a Snowball Edge](ssh-ec2-edge.md "ssh-ec2-edge.md")
+- [Transferring data from EC2-compatible compute instances to S3 buckets on the same Snowball Edge](data-transfer-ec2-s3-edge.md "data-transfer-ec2-s3-edge.md")
 - [Starting EC2-compatible instances automatically](using-ec2-edge-client.md "using-ec2-edge-client.md")
 - [Using the Amazon EC2-compatible endpoint on a Snowball Edge](using-ec2-endpoint.md "using-ec2-endpoint.md")
-- [Autostarting EC2-compatible instances with launch
-  templates on a Snowball Edge](ec2-autostart.md "ec2-autostart.md")
+- [Autostarting EC2-compatible instances with launch templates on a Snowball Edge](ec2-autostart.md "ec2-autostart.md")
 - [Using Instance Metadata Service for Snow with Amazon EC2-compatible instances on a Snowball Edge](imds.md "imds.md")
 - [Using block storage with Amazon EC2-compatible instances on Snowball Edge](edge-ebs.md "edge-ebs.md")
 - [Controlling network traffic with security groups on Snowball Edge](edge-security-groups.md "edge-security-groups.md")
@@ -66,9 +61,7 @@ Technology (NIST) 800-88 standards.
 
 AWS Snowball Edge EC2-compatible instances allow customers to use and manage Amazon EC2-compatible instances using a subset of EC2 APIs and a subset of AMIs.
 
-## Pricing for Compute Instances on Snowball
-
-Edge
+## Pricing for Compute Instances on Snowball Edge
 
 There are additional costs associated with using compute instances. For more
 information, see [AWS Snowball Edge Pricing](http://aws.amazon.com/snowball-edge/pricing "http://aws.amazon.com/snowball-edge/pricing").

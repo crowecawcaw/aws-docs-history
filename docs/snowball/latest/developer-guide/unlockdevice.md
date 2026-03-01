@@ -7,14 +7,11 @@ This section describes unlocking the Snowball Edge device using the Snowball Edg
 
 Before using a Snowball Edge device to transfer data or perform edge compute tasks, you need to unlock the device. When unlocking the device, you authenticate your ability to access it by providing two forms of credentials: a 29-digit unlock code and a manifest file. After you unlock the device, you can further configure the device, move data to or from it, set up and use Amazon EC2-compatible instances, and more.
 
-Before unlocking a device, the device must be plugged in to power and network, turned on, and an IP address assigned. See [Connecting a Snowball Edge to your local
-network](getting-started.md#getting-started-connect "getting-started.md#getting-started-connect"). You will need the following information about the Snowball Edge device:
+Before unlocking a device, the device must be plugged in to power and network, turned on, and an IP address assigned. See [Connecting a Snowball Edge to your local network](getting-started.md#getting-started-connect "getting-started.md#getting-started-connect"). You will need the following information about the Snowball Edge device:
 
-- Download and install the Snowball Edge client. For more information, see [Downloading and installing the Snowball Edge
-  Client](using-client-commands.md#download-the-client "using-client-commands.md#download-the-client").
+- Download and install the Snowball Edge client. For more information, see [Downloading and installing the Snowball Edge Client](using-client-commands.md#download-the-client "using-client-commands.md#download-the-client").
 - Get the credentials from the AWS Snow Family Management Console. For one or more standalone devices, the unlock codes and manifest file for each Snowball Edge. For a cluster of Snowball Edge devices, the one unlock code and one manifest file for the cluster. For more information on downloading credentials, see [Getting credentials to access a Snowball Edge](getting-started.md#get-credentials "getting-started.md#get-credentials").
-- Power on each device and connect it to your network. For more information, see [Connecting a Snowball Edge to your local
-  network](getting-started.md#getting-started-connect "getting-started.md#getting-started-connect").
+- Power on each device and connect it to your network. For more information, see [Connecting a Snowball Edge to your local network](getting-started.md#getting-started-connect "getting-started.md#getting-started-connect").
 
 ###### To unlock a standalone device with the Snowball Edge Client
 

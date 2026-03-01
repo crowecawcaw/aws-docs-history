@@ -13,9 +13,7 @@ If the `unlock-device` command returns `connection refused`, you may have mistyp
 2. Ensure the computer you are using is on the same network and subnet as the Snow device.
 3. Ensure the computer you are using and the network are configured to allow access to the Snow device. Use the `ping` command for your operating system to determine if the computer can reach the Snow device over the network. Check the configurations of antivirus software, firewall configuration, virtual private network (VPN), or other configurations of your computer and network.
 
-## Troubleshooting manifest file
-
-problems with Snowball Edge
+## Troubleshooting manifest file problems with Snowball Edge
 
 Each job has a specific manifest file associated with it. If you create
 multiple jobs, track which manifest is for which job.

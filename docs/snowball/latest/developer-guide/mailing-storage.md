@@ -40,23 +40,18 @@ These carriers are supported for AWS Snowball Edge devices:
 
 ###### Topics
 
-- [Snowball Edge UPS pickups in the EU, US, UK,
-  South Africa, and Canada](#standard-pickup "#standard-pickup")
+- [Snowball Edge UPS pickups in the EU, US, UK, South Africa, and Canada](#standard-pickup "#standard-pickup")
 - [Snowball Edge pickups in UK](#uk "#uk")
 - [Snowball Edge pickups in Brazil](#Brazil-pickup "#Brazil-pickup")
 - [Snowball Edge pickups in Australia](#Australia-pickup "#Australia-pickup")
 - [Snowball Edge pickups in India](#India-pickup "#India-pickup")
 - [Snowball Edge pickups in Korea](#Korea-pickup "#Korea-pickup")
 - [Snowball Edge pickups in Hong Kong](#hkg-pickup "#hkg-pickup")
-- [Snowball Edge pickups in Singapore, Japan,
-  and Indonesia](#Indonesia-pickup "#Indonesia-pickup")
-- [Snowball Edge receiving and returning in Dubai,
-  United Arab Emirates](#dbx-pickup "#dbx-pickup")
+- [Snowball Edge pickups in Singapore, Japan, and Indonesia](#Indonesia-pickup "#Indonesia-pickup")
+- [Snowball Edge receiving and returning in Dubai, United Arab Emirates](#dbx-pickup "#dbx-pickup")
 - [Shipping speeds for Snowball Edge](#shippingspeeds "#shippingspeeds")
 
-### Snowball Edge UPS pickups in the EU, US, UK,
-
-South Africa, and Canada
+### Snowball Edge UPS pickups in the EU, US, UK, South Africa, and Canada
 
 UPS can often pick up your device in the EU, US, UK, South Africa, and Canada.
 Here are some helpful guidelines:
@@ -269,9 +264,7 @@ The device will be delivered to AWS by S.F. Express. The S.F.
 Express tracking number for the return shipment tells you when it was
 delivered.
 
-### Snowball Edge pickups in Singapore, Japan,
-
-and Indonesia
+### Snowball Edge pickups in Singapore, Japan, and Indonesia
 
 In Singapore, Japan, and Indonesia, when you are ready to return your device,
 scan the QR code displayed on the return E Ink label with your mobile phone.
@@ -290,9 +283,7 @@ carrier can be informed.
 
 In Japan, the shipping company charges a shipping fee of $120.00. The description of the fee indicates Snowball Edge, but the fee applies to shipping all Snowball Edge.
 
-### Snowball Edge receiving and returning in Dubai,
-
-United Arab Emirates
+### Snowball Edge receiving and returning in Dubai, United Arab Emirates
 
 Here are some guidelines that you must follow when receiving or returning an
 AWS Snowball Edge device in Dubai.

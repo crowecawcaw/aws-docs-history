@@ -35,10 +35,7 @@ Keep the following general guidelines in mind when troubleshooting.
 - [Troubleshooting boot‐up problems with Snowball Edge](boot-troubleshoot.md "boot-troubleshoot.md")
 - [Troubleshooting connection problems with Snowball Edge](connection-troubleshooting.md "connection-troubleshooting.md")
 - [Troubleshooting unlock-device command problems with Snowball Edge](unlock-command-troubleshooting.md "unlock-command-troubleshooting.md")
-- [Troubleshooting credentials
-  problems with Snowball Edge](credentials-troubleshooting.md "credentials-troubleshooting.md")
-- [Troubleshooting data transfer
-  problems with Snowball Edge](transfer-troubleshooting.md "transfer-troubleshooting.md")
+- [Troubleshooting credentials problems with Snowball Edge](credentials-troubleshooting.md "credentials-troubleshooting.md")
+- [Troubleshooting data transfer problems with Snowball Edge](transfer-troubleshooting.md "transfer-troubleshooting.md")
 - [Troubleshooting AWS CLI problems with Snowball Edge](cli-troubleshooting.md "cli-troubleshooting.md")
-- [Troubleshooting compute instances on
-  Snowball Edge](troubleshooting-ec2-edge.md "troubleshooting-ec2-edge.md")
+- [Troubleshooting compute instances on Snowball Edge](troubleshooting-ec2-edge.md "troubleshooting-ec2-edge.md")

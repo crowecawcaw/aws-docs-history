@@ -6,9 +6,7 @@ secure physical transfers, or AWS Partner solutions. For edge computing, explore
 Use the following topics to help you resolve problems when working with an
 AWS Snowball Edge device and the AWS CLI.
 
-## Troubleshooting AWS CLI error message: "Profile Cannot
-
-Be Null" with Snowball Edge
+## Troubleshooting AWS CLI error message: "Profile Cannot Be Null" with Snowball Edge
 
 When working with the AWS CLI, you might encounter an error message that says
 **`Profile cannot be null`**. You can encounter this error if
@@ -22,9 +20,7 @@ For more information, see
 [Install or update to the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") in the
 _AWS Command Line Interface User Guide._
 
-## Troubleshooting null pointer error when transferring
-
-data with the AWS CLI with Snowball Edge
+## Troubleshooting null pointer error when transferring data with the AWS CLI with Snowball Edge
 
 When using the AWS CLI to transfer data, you might encounter a null pointer error.
 This error can occur in the following conditions:

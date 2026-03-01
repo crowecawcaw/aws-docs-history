@@ -14,8 +14,7 @@ the services. For details, see [Port requirements for AWS services on a Snowball
 ###### Topics
 
 - [Using the AWS CLI and API operations on a Snowball Edge](#local-sts-specify-region "#local-sts-specify-region")
-- [Supported AWS STSAWS CLI commands on a
-  Snowball Edge](#local-sts-cli-commands "#local-sts-cli-commands")
+- [Supported AWS STS AWS CLI commands on a Snowball Edge](#local-sts-cli-commands "#local-sts-cli-commands")
 - [Supported AWS STS API operations on a Snowball Edge](#sts-local-supported-apis "#sts-local-supported-apis")
 
 ## Using the AWS CLI and API operations on a Snowball Edge
@@ -44,9 +43,7 @@ aws iam list-users --endpoint http://192.0.2.0:6078 --region snow --profile snow
 The access key ID and access secret key that are use locally on AWS Snowball Edge can't be
 interchanged with the keys in the AWS Cloud.
 
-## Supported AWS STSAWS CLI commands on a
-
-Snowball Edge
+## Supported AWS STS AWS CLI commands on a Snowball Edge
 
 Only the [assume-role](../../../cli/latest/reference/sts/assume-role.md "../../../cli/latest/reference/sts/assume-role.md") command is supported locally.
 

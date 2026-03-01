@@ -18,5 +18,4 @@ For information about using IAM locally on your device, see [Using IAM locally o
 
 ###### Topics
 
-- [Access Control for Snowball Edge Console
-  and Creating Jobs](authentication-and-access-control.md "authentication-and-access-control.md")
+- [Access Control for Snowball Edge Console and Creating Jobs](authentication-and-access-control.md "authentication-and-access-control.md")

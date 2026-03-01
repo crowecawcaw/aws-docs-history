@@ -7,10 +7,8 @@ The Snowball Edge Client is a command-line interface (CLI) tool from AWS that yo
 
 ###### Topics
 
-- [Downloading and installing the Snowball Edge
-  Client](#download-the-client "#download-the-client")
-- [Configuring a profile for the Snowball Edge
-  Client](#client-configuration "#client-configuration")
+- [Downloading and installing the Snowball Edge Client](#download-the-client "#download-the-client")
+- [Configuring a profile for the Snowball Edge Client](#client-configuration "#client-configuration")
 - [Finding Snowball Edge client version](#cli-version "#cli-version")
 - [Getting credentials for a Snowball Edge](#client-credentials "#client-credentials")
 - [Starting a service on a Snowball Edge](#edge-start-service "#edge-start-service")
@@ -23,9 +21,7 @@ The Snowball Edge Client is a command-line interface (CLI) tool from AWS that yo
 - [Getting a QR code to validate Snowball Edge NFC tags](#client-qr-code "#client-qr-code")
 - [Updating MTU size](#update-mtu-size "#update-mtu-size")
 
-## Downloading and installing the Snowball Edge
-
-Client
+## Downloading and installing the Snowball Edge Client
 
 You can download the Snowball Edge Client from
 [AWS Snowball Edge Resources](http://aws.amazon.com/snowball/resources/ "http://aws.amazon.com/snowball/resources/"). On that page, you can find the installation
@@ -80,9 +76,7 @@ Windows
 The client is packaged as Microsoft Software Installer (MSI) file. Open the file and follow the prompts in the installation wizard. When the client has
 been installed, you can run it from any directory without any additional preparation.
 
-## Configuring a profile for the Snowball Edge
-
-Client
+## Configuring a profile for the Snowball Edge Client
 
 Every time you run a command for the Snowball Edge Client, you provide your
 manifest file, unlock code, and the IP address of the Snowball Edge. Instead of providing these each time you run a command, you can use the `configure` command to
@@ -320,9 +314,7 @@ snowballEdge stop-service --service-id `service_id` --profile `profile-name`
 Stopping the AWS service on your Snowball Edge. You can determine the status of the AWS service using the describe-service command.
 ```
 
-##
-
-Viewing and downloading logs from Snowball Edge
+## Viewing and downloading logs from Snowball Edge
 
 When you transfer data between your on-premises data center and a Snowball Edge,
 logs are automatically generated. If you encounter unexpected errors during data

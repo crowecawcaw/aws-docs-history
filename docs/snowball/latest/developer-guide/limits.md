@@ -80,9 +80,7 @@ environment.
 The maximum connection limit is 1000 for Snowball Edge on Amazon S3. Any connections
 beyond 1000 are dropped.
 
-## Limitations on transferring on-premises data with a
-
-Snowball Edge Edge device
+## Limitations on transferring on-premises data with a Snowball Edge Edge device
 
 The following limitations exist for transferring data to or from an AWS Snowball Edge device
 on-premises:
@@ -111,9 +109,7 @@ The following limitations exist for shipping an AWS Snowball Edge device:
 
 For more information about shipping, see [Shipping considerations for Snowball Edge](shipping.md "shipping.md").
 
-## Limitations on processing a returned Snowball Edge Edge
-
-for import
+## Limitations on processing a returned Snowball Edge Edge for import
 
 To import your data into AWS, the device must meet the following
 requirements:

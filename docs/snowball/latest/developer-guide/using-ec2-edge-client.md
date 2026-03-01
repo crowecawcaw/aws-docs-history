@@ -114,9 +114,7 @@ snowballEdge create-virtual-network-interface --ip-address-assignment dhcp --phy
 }
 ```
 
-## Describing Your Virtual Network
-
-Interfaces
+## Describing Your Virtual Network Interfaces
 
 To describe the VNICs that you previously created on your device, use the
 `snowballEdge describe-virtual-network-interfaces` command. You can

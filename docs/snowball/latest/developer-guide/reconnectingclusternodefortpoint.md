@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Reconnecting an unavailable
-
-cluster node
+# Reconnecting an unavailable cluster node
 
 A _node_, or device within a cluster, can become
 temporarily unavailable due to an issue like power or network loss without
@@ -33,9 +31,7 @@ become unavailable.
    `snowballEdge associate-device` command. For an example,
    see [Unlocking Snowball Edge devices](using-client-commands.md#setting-up-client "using-client-commands.md#setting-up-client").
 
-###### To reconnect an unavailable node that lost network connectivity, but
-
-didn't lose power
+###### To reconnect an unavailable node that lost network connectivity, but didn't lose power
 
 1. Ensure that the node is connected to the same internal network that
    the rest of the cluster is on.

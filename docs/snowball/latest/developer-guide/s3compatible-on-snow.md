@@ -26,32 +26,29 @@ device using Amazon S3 compatible storage on Snowball Edge. For fault tolerance 
 
 Snowball Edge Compute Optimized with NVMe storage
 
-Storage capacity of Amazon S3 compatible storage on Snowball Edge and block storage of Snowball Edge
-Compute Optimized (Compute Optimized with AMD EPYC Gen2 and NVMe)
-devices| Amazon S3 compatible storage on Snowball Edge storage capacity (in TB) | Block storage capacity (in TB) |
-| --- | --- |
-| 3 | 17.5 |
-| 5.5 | 14.5 |
-| 10.5 | 8.5 |
-| 12 | 6.5 |
-| 13 | 5.5 |
-| 16.5 | 1.5 |
+| Storage capacity of Amazon S3 compatible storage on Snowball Edge and block storage of Snowball Edge Compute Optimized (Compute Optimized with AMD EPYC Gen2 and NVMe) devices | Amazon S3 compatible storage on Snowball Edge storage capacity (in TB) | Block storage capacity (in TB) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- | ------------------------------ |
+| 3                                                                                                                                                                              | 17.5                                                                   |
+| 5.5                                                                                                                                                                            | 14.5                                                                   |
+| 10.5                                                                                                                                                                           | 8.5                                                                    |
+| 12                                                                                                                                                                             | 6.5                                                                    |
+| 13                                                                                                                                                                             | 5.5                                                                    |
+| 16.5                                                                                                                                                                           | 1.5                                                                    |
 
 Snowball Edge storage optimized 210 TB
 
-Storage capacity of Amazon S3 compatible storage on Snowball Edge and block storage of Snowball Edge
-storage optimized 210 TB devices| Amazon S3 compatible storage on Snowball Edge storage capacity (in TB) | Block storage capacity (in TB) |
-| --- | --- |
-| 20 | 206 |
-| 40 | 182 |
-| 60 | 158 |
-| 80 | 134 |
-| 100 | 110 |
-| 120 | 86 |
-| 140 | 62 |
-| 160 | 38 |
-| 180 | 14 |
-| 190 | 2 |
+| Storage capacity of Amazon S3 compatible storage on Snowball Edge and block storage of Snowball Edge storage optimized 210 TB devices | Amazon S3 compatible storage on Snowball Edge storage capacity (in TB) | Block storage capacity (in TB) |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------ |
+| 20                                                                                                                                    | 206                                                                    |
+| 40                                                                                                                                    | 182                                                                    |
+| 60                                                                                                                                    | 158                                                                    |
+| 80                                                                                                                                    | 134                                                                    |
+| 100                                                                                                                                   | 110                                                                    |
+| 120                                                                                                                                   | 86                                                                     |
+| 140                                                                                                                                   | 62                                                                     |
+| 160                                                                                                                                   | 38                                                                     |
+| 180                                                                                                                                   | 14                                                                     |
+| 190                                                                                                                                   | 2                                                                      |
 
 Amazon S3 compatible storage on Snowball Edge specifications:
 
@@ -73,21 +70,17 @@ Amazon S3 compatible storage on Snowball Edge specifications:
 - [Order Amazon S3 compatible storage on Snowball Edge](s3-edge-snow-order-device.md "s3-edge-snow-order-device.md")
 - [Setting up and starting Amazon S3 compatible storage on Snowball Edge](s3-edge-snow-setting-up.md "s3-edge-snow-setting-up.md")
 - [Working with S3 buckets with Amazon S3 compatible storage on Snowball Edge](working-s3-snow-buckets.md "working-s3-snow-buckets.md")
-- [Determining whether you can access an Amazon S3 compatible storage on Snowball Edge
-  bucket on a Snowball Edge](working-s3-snow-buckets-determine-bucket-access-s3-snow.md "working-s3-snow-buckets-determine-bucket-access-s3-snow.md")
+- [Determining whether you can access an Amazon S3 compatible storage on Snowball Edge bucket on a Snowball Edge](working-s3-snow-buckets-determine-bucket-access-s3-snow.md "working-s3-snow-buckets-determine-bucket-access-s3-snow.md")
 - [Retrieving a list of buckets or regional buckets in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](working-s3-snow-buckets-list-buckets-s3-snow.md "working-s3-snow-buckets-list-buckets-s3-snow.md")
 - [Getting a bucket with Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](working-s3-snow-buckets-get-bucket-s3-snow.md "working-s3-snow-buckets-get-bucket-s3-snow.md")
 - [Creating an S3 bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](working-s3-snow-buckets-creating-s3-snow-bucket.md "working-s3-snow-buckets-creating-s3-snow-bucket.md")
 - [Deleting a bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](working-s3-snow-buckets-delete-bucket-s3-snow.md "working-s3-snow-buckets-delete-bucket-s3-snow.md")
-- [Creating and managing an object lifecycle
-  configuration using the AWS CLI](working-s3-snow-buckets-lifecycle-s3-snow.md "working-s3-snow-buckets-lifecycle-s3-snow.md")
+- [Creating and managing an object lifecycle configuration using the AWS CLI](working-s3-snow-buckets-lifecycle-s3-snow.md "working-s3-snow-buckets-lifecycle-s3-snow.md")
 - [Copying an object to an Amazon S3 compatible storage on Snowball Edge bucket on a Snowball Edge](objects-copy-s3-snow.md "objects-copy-s3-snow.md")
 - [Listing objects in a bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](objects-list-s3-snow.md "objects-list-s3-snow.md")
 - [Getting an object from a bucket in Amazon S3 compatible storage on Snowball Edge on a Snowball Edge](objects-get-s3-snow.md "objects-get-s3-snow.md")
 - [Deleting objects in buckets in Amazon S3 compatible storage on Snowball Edge](objects-delete-s3-snow.md "objects-delete-s3-snow.md")
 - [Supported REST API actions for Amazon S3 compatible storage on Snowball Edge](s3-snow-api.md "s3-snow-api.md")
 - [Using Amazon S3 compatible storage on Snowball Edge with a cluster of Snow devices](ClusterOverview.md "ClusterOverview.md")
-- [Configuring Amazon S3 compatible storage on Snowball Edge event
-  notifications](s3-snow-event-notifications.md "s3-snow-event-notifications.md")
-- [Configuring local SMTP
-  notifications on Snowball Edge](s3-snow-smtp-notifications.md "s3-snow-smtp-notifications.md")
+- [Configuring Amazon S3 compatible storage on Snowball Edge event notifications](s3-snow-event-notifications.md "s3-snow-event-notifications.md")
+- [Configuring local SMTP notifications on Snowball Edge](s3-snow-smtp-notifications.md "s3-snow-smtp-notifications.md")

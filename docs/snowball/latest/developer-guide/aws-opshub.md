@@ -34,8 +34,7 @@ This video provides an overview of AWS OpsHub functionality.
 
 - [Downloading AWS OpsHub for Snowball Edge](download-OpsHub-for-snow-family.md "download-OpsHub-for-snow-family.md")
 - [Unlocking a Snowball Edge device with AWS OpsHub](connect-unlock-device.md "connect-unlock-device.md")
-- [Verifying the PGP signature of AWS OpsHub
-  (optional)](verify-signature.md "verify-signature.md")
+- [Verifying the PGP signature of AWS OpsHub (optional)](verify-signature.md "verify-signature.md")
 - [Managing AWS services on the Snowball Edge with AWS OpsHub](manage-services.md "manage-services.md")
 - [Rebooting the device with AWS OpsHub](reboot-device.md "reboot-device.md")
 - [Managing profiles with AWS OpsHub](#manage-profile "#manage-profile")

@@ -32,16 +32,12 @@ the ports for the services. For details, see [Port requirements for AWS services
 
 ###### Topics
 
-- [Using the AWS CLI and API Operations on a
-  Snowball Edge](#local-iam-specify-region "#local-iam-specify-region")
-- [List of Supported IAM AWS CLI Commands on a
-  Snowball Edge](#local-iam-cli-commands "#local-iam-cli-commands")
+- [Using the AWS CLI and API Operations on a Snowball Edge](#local-iam-specify-region "#local-iam-specify-region")
+- [List of Supported IAM AWS CLI Commands on a Snowball Edge](#local-iam-cli-commands "#local-iam-cli-commands")
 - [IAM policy examples on Snowball Edge](#policy-examples "#policy-examples")
 - [TrustPolicy example on a Snowball Edge](#role-policy-example-trust "#role-policy-example-trust")
 
-## Using the AWS CLI and API Operations on a
-
-Snowball Edge
+## Using the AWS CLI and API Operations on a Snowball Edge
 
 When using the AWS CLI or API operations to issue IAM, AWS STS, Amazon S3, and Amazon EC2 commands
 on Snowball Edge, you must specify the `region` as "`snow`." You
@@ -71,9 +67,7 @@ aws iam list-users --endpoint http://192.0.2.0:6078 --region snow --profile snow
 The access key ID and access secret key that are used locally on AWS Snowball Edge
 can't be interchanged with the keys in the AWS Cloud.
 
-## List of Supported IAM AWS CLI Commands on a
-
-Snowball Edge
+## List of Supported IAM AWS CLI Commands on a Snowball Edge
 
 Following is a description of the subset of AWS CLI commands and options for IAM that
 are supported on Snowball Edge devices. If a command or option isn't listed following,
@@ -262,9 +256,7 @@ manage Snowball Edge.
 The following are examples of policies that grant permissions to a Snowball Edge
 device.
 
-### Allowing the GetUser call for a
-
-sample user on a Snowball Edge through the IAM API
+### Allowing the GetUser call for a sample user on a Snowball Edge through the IAM API
 
 Use the following policy to allow the GetUser call for a sample user through the
 IAM API.
@@ -286,9 +278,7 @@ JSON
 
 ```
 
-### Allowing full access to the
-
-Amazon S3 API on a Snowball Edge
+### Allowing full access to the Amazon S3 API on a Snowball Edge
 
 Use the following policy to allow full access to the Amazon S3 API.
 
@@ -310,9 +300,7 @@ JSON
 
 ```
 
-### Allowing read and write
-
-access to an Amazon S3 bucket on a Snowball Edge
+### Allowing read and write access to an Amazon S3 bucket on a Snowball Edge
 
 Use the following policy to allow read and write access to a specific
 bucket.
@@ -340,9 +328,7 @@ JSON
 
 ```
 
-### Allowing list, get, and put
-
-access to an Amazon S3 bucket on a Snowball Edge
+### Allowing list, get, and put access to an Amazon S3 bucket on a Snowball Edge
 
 Use the following policy to allow List, Get, and Put Access to a specific S3
 bucket.
@@ -367,9 +353,7 @@ JSON
 
 ```
 
-### Allowing full access to the Amazon EC2
-
-API on a Snowball Edge
+### Allowing full access to the Amazon EC2 API on a Snowball Edge
 
 Use the following policy to allow full access to Amazon EC2.
 
@@ -389,9 +373,7 @@ JSON
 
 ```
 
-### Allowing access to
-
-start and stop Amazon EC2-compatible instances on a Snowball Edge
+### Allowing access to start and stop Amazon EC2-compatible instances on a Snowball Edge
 
 Use the following policy to allow access to start and stop Amazon EC2
 instances.
@@ -415,9 +397,7 @@ JSON
 
 ```
 
-### Denying calls to
-
-DescribeLaunchTemplates but allowing all calls to DescribeImages on a Snowball Edge
+### Denying calls to DescribeLaunchTemplates but allowing all calls to DescribeImages on a Snowball Edge
 
 Use the following policy to deny calls to `DescribeLaunchTemplates`
 but allow all calls to `DescribeImages`.

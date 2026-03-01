@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Actions to complete before ordering a Snowball Edge
-
-device for Amazon EKS Anywhere on AWS Snow
+# Actions to complete before ordering a Snowball Edge device for Amazon EKS Anywhere on AWS Snow
 
 At this time, Amazon EKS Anywhere is compatible with Snowball Edge compute-optimized devices. Before you order a Snowball Edge device, there are a few things you should do to
 prepare.

@@ -18,8 +18,7 @@ you return the device to AWS.
 Snowball Edge devices can only be used to import or export data
 within the AWS Region where the devices are ordered.
 
-For more information on choosing shipping speed and entering your shipping address when creating a job to order a Snowball Edge device, see [Choosing security, shipping, and
-notification preferences](create-job-common.md#security-shipping-notification "create-job-common.md#security-shipping-notification"). For more information about returning a Snowball Edge device to AWS, see [Returning the Snowball Edge device](return-device.md "return-device.md").
+For more information on choosing shipping speed and entering your shipping address when creating a job to order a Snowball Edge device, see [Choosing security, shipping, and notification preferences](create-job-common.md#security-shipping-notification "create-job-common.md#security-shipping-notification"). For more information about returning a Snowball Edge device to AWS, see [Returning the Snowball Edge device](return-device.md "return-device.md").
 
 For information about shipping charges, see [AWS Snowball Edge Pricing](http://aws.amazon.com/snowball-edge/pricing "http://aws.amazon.com/snowball-edge/pricing").
 

@@ -7,9 +7,7 @@ Following, you can find an overview of the Amazon EC2-compatible endpoint. Using
 endpoint, you can manage your Amazon Machine Images (AMIs) and compute instances
 programmatically using Amazon EC2-compatible API operations.
 
-## Specifying the EC2-compatible endpoint as
-
-the AWS CLI endpoint on a Snowball Edge
+## Specifying the EC2-compatible endpoint as the AWS CLI endpoint on a Snowball Edge
 
 When you use the AWS CLI to issue a command to the AWS Snowball Edge device, you can specify
 that the endpoint is the Amazon EC2-compatible endpoint. You have the choice of using the HTTPS
@@ -59,9 +57,7 @@ You can manage your compute instances on a Snowball Edge device through an Amazo
 AWS CLI, including specifying which AWS Regions you want to make AWS CLI calls against, see
 the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
 
-### List of supported EC2-compatible AWS CLI
-
-commands on a Snowball Edge
+### List of supported EC2-compatible AWS CLI commands on a Snowball Edge
 
 Following, you can find a description of the subset of AWS CLI commands and
 options for Amazon EC2 that are supported on Snowball Edge devices. If a command or
@@ -160,8 +156,7 @@ unsupported options along with a command. However, these are ignored.
     description for the first version of the launch template.
   - --endpoint `snowballEndpoint` – A value that
     enables you to manage your compute instances programmatically
-    using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as
-    the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
+    using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
 
 - [create-launch-template-version](../../../cli/latest/reference/ec2/create-launch-template-version.md "../../../cli/latest/reference/ec2/create-launch-template-version.md") – Creates a new
   version for a launch template. You can specify an existing version of a
@@ -213,8 +208,7 @@ request.
      description for the first version of the launch template.
     + --endpoint `snowballEndpoint` – A value that
      enables you to manage your compute instances programmatically
-     using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as
-     the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
+     using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
 
 - [create-tags](../../../cli/latest/reference/ec2/create-tags.md "../../../cli/latest/reference/ec2/create-tags.md")
   – Adds or overwrites one or more tags for the specified resource.
@@ -265,8 +259,7 @@ request.
      the launch template.
     + --endpoint `snowballEndpoint` – A value that
      enables you to manage your compute instances programmatically
-     using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as
-     the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
+     using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
 
 - [delete-launch-template-version](../../../cli/latest/reference/ec2/delete-launch-template-version.md "../../../cli/latest/reference/ec2/delete-launch-template-version.md") – Deletes one or more
   versions of a launch template. You can't delete the default version
@@ -287,8 +280,7 @@ request.
      delete.
     + --endpoint `snowballEndpoint` – A value that
      enables you to manage your compute instances programmatically
-     using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as
-     the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
+     using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
 
 - [delete-security-group](../../../cli/latest/reference/ec2/delete-security-group.md "../../../cli/latest/reference/ec2/delete-security-group.md") – Deletes a security
   group.
@@ -442,8 +434,7 @@ request.
      a previously truncated response.
     + --endpoint `snowballEndpoint` – A value that
      enables you to manage your compute instances programmatically
-     using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as
-     the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
+     using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
 
 - [describe-launch-template-versions](../../../cli/latest/reference/ec2/describe-launch-template-versions.md "../../../cli/latest/reference/ec2/describe-launch-template-versions.md") – Describes one or
   more versions of a specified launch template. You can describe all
@@ -484,8 +475,7 @@ request.
      a previously truncated response.
     + --endpoint `snowballEndpoint` – A value that
      enables you to manage your compute instances programmatically
-     using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as
-     the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
+     using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
 
 - [describe-security-groups](../../../cli/latest/reference/ec2/describe-security-groups.md "../../../cli/latest/reference/ec2/describe-security-groups.md") – Describes one or more of
   your security groups.
@@ -567,8 +557,7 @@ dataset of results.
     instance.
   - --endpoint `snowballEndpoint` – A value that
     enables you to manage your compute instances programmatically
-    using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as
-    the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
+    using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
 
 - [modify-launch-template](../../../cli/latest/reference/ec2/modify-launch-template.md "../../../cli/latest/reference/ec2/modify-launch-template.md") – Modifies a launch template.
   You can specify which version of the launch template to set as the
@@ -588,8 +577,7 @@ request.
      version.
     + --endpoint `snowballEndpoint` – A value that
      enables you to manage your compute instances programmatically
-     using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as
-     the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
+     using Amazon EC2-compatible API operations. For more information, see [Specifying the EC2-compatible endpoint as the AWS CLI endpoint on a Snowball Edge](#using-ec2-adapter-cli-endpoint "#using-ec2-adapter-cli-endpoint").
 
 - [modify-instance-attribute](../../../cli/latest/reference/ec2/modify-instance-attribute.md "../../../cli/latest/reference/ec2/modify-instance-attribute.md") – Modifies an attribute of
   the specified instance. The following attributes are supported:
@@ -842,9 +830,7 @@ Default: Describes all your key pairs.
   - [--key-pair-id] (string) – The ID of the key
     pair.
 
-## Supported Amazon EC2-compatible API
-
-operations on a Snowball Edge
+## Supported Amazon EC2-compatible API operations on a Snowball Edge
 
 Following, you can find Amazon EC2-compatible API operations that you can use with a Snowball Edge, with links to their descriptions in the _Amazon EC2 API Reference._ Amazon EC2-compatible API calls require Signature Version 4 (SigV4)
 signing. If you're using the AWS CLI or an AWS SDK to make these API calls, the

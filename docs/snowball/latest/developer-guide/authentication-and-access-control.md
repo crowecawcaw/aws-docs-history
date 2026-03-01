@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Access Control for Snowball Edge Console
-
-and Creating Jobs
+# Access Control for Snowball Edge Console and Creating Jobs
 
 As with all AWS services, access to AWS Snowball Edge requires credentials that AWS can use to
 authenticate your requests. Those credentials must have permissions to access AWS resources,
@@ -17,9 +15,7 @@ such an Amazon S3 bucket or an AWS Lambda function. AWS Snowball Edge differs in
    resources by controlling who can access them in the AWS Cloud, and also local access control
    recommendations.
 
-## Overview of Managing Access Permissions to
-
-Your Resources in the AWS Cloud
+## Overview of Managing Access Permissions to Your Resources in the AWS Cloud
 
 Every AWS resource is owned by an AWS account, and permissions to create or access a
 resource are governed by permissions policies. An account administrator can attach
@@ -36,10 +32,8 @@ _IAM User Guide_.
 
 - [Resources and Operations](#access-control-resources "#access-control-resources")
 - [Understanding Resource Ownership](#access-control-owner "#access-control-owner")
-- [Managing Access to Resources in
-  the AWS Cloud](#access-control-manage-access-intro "#access-control-manage-access-intro")
-- [Specifying Policy Elements:
-  Actions, Effects, and Principals](#access-control-specify-actions "#access-control-specify-actions")
+- [Managing Access to Resources in the AWS Cloud](#access-control-manage-access-intro "#access-control-manage-access-intro")
+- [Specifying Policy Elements: Actions, Effects, and Principals](#access-control-specify-actions "#access-control-specify-actions")
 - [Specifying Conditions in a Policy](#specifying-conditions "#specifying-conditions")
 
 ### Resources and Operations
@@ -79,9 +73,7 @@ this works:
   a job, anyone who can assume the role can create a job to order a Snowball Edge device. Your AWS account, to
   which the role belongs, owns the job resource.
 
-### Managing Access to Resources in
-
-the AWS Cloud
+### Managing Access to Resources in the AWS Cloud
 
 A _permissions policy_ describes who has access to what. The
 following section explains the available options for creating permissions
@@ -112,9 +104,7 @@ policies. For example, you can attach a policy to an S3 bucket to manage access
 permissions to that bucket. AWS Snowball Edge doesn't support resource-based
 policies. 
 
-### Specifying Policy Elements:
-
-Actions, Effects, and Principals
+### Specifying Policy Elements: Actions, Effects, and Principals
 
 For each job (see [Resources and Operations](#access-control-resources "#access-control-resources")), the service defines a set of API
 operations (see [AWS Snowball Edge API Reference](../api-reference/api-reference.md "../api-reference/api-reference.md")) to create and
@@ -171,8 +161,7 @@ This is supported for Amazon EC2, Amazon S3, and IAM.
 To learn more about IAM policy syntax and descriptions, see [AWS IAM Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in
 the _IAM User Guide_.
 
-For a table showing all of the AWS Snowball Edge API actions, see [AWS Snowball Edge API Permissions: Actions,
-Resources, and Conditions Reference](access-policy-examples-for-sdk-cli.md#snowball-api-permissions-ref "access-policy-examples-for-sdk-cli.md#snowball-api-permissions-ref").
+For a table showing all of the AWS Snowball Edge API actions, see [AWS Snowball Edge API Permissions: Actions, Resources, and Conditions Reference](access-policy-examples-for-sdk-cli.md#snowball-api-permissions-ref "access-policy-examples-for-sdk-cli.md#snowball-api-permissions-ref").
 
 ### Specifying Conditions in a Policy
 
@@ -187,9 +176,7 @@ keys specific to AWS Snowball Edge. However, there are AWS-wide condition keys t
 can use as appropriate. For a complete list of AWS-wide keys, see [Available
 Keys for Conditions](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
 
-## AWS-Managed (Predefined)
-
-Policies for AWS Snowball Edge
+## AWS-Managed (Predefined) Policies for AWS Snowball Edge
 
 AWS addresses many common use cases by providing standalone IAM policies that
 are created and administered by AWS. Managed policies grant necessary permissions
@@ -198,9 +185,7 @@ needed. For more information, see [AWS Managed Policies](../../../IAM/latest/Use
 
 You can use the following AWS-managed policies with AWS Snowball Edge.
 
-### Creating an IAM Role Policy for Snowball Edge
-
-Edge
+### Creating an IAM Role Policy for Snowball Edge Edge
 
 An IAM role policy must be created with read and write permissions for your
 Amazon S3 buckets. The IAM role must also have a trust relationship with Snowball Edge.

@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Creating and managing an object lifecycle
-
-configuration using the AWS CLI
+# Creating and managing an object lifecycle configuration using the AWS CLI
 
 You can use Amazon S3 Lifecycle to optimize storage capacity for
 Amazon S3 compatible storage on Snowball Edge. You can create lifecycle rules to expire objects as they age or are
@@ -19,9 +17,7 @@ create, enable, disable, or delete a lifecycle rule.
 To create and manage a lifecycle configuration for an Amazon S3 compatible storage on Snowball Edge bucket using the
 AWS Command Line Interface (AWS CLI), see the following examples.
 
-## PUT a lifecycle configuration on a
-
-Snowball Edge bucket
+## PUT a lifecycle configuration on a Snowball Edge bucket
 
 The following AWS CLI example puts a lifecycle configuration policy on a
 Snowball Edge bucket. This policy specifies that all objects that have the

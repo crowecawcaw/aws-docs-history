@@ -1,15 +1,11 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Troubleshooting credentials
-
-problems with Snowball Edge
+# Troubleshooting credentials problems with Snowball Edge
 
 Use the following topics to help you resolve credentials issues with the Snowball Edge device.
 
-## Unable to locate AWS CLI
-
-credentials for Snowball Edge
+## Unable to locate AWS CLI credentials for Snowball Edge
 
 If you're communicating with the AWS Snowball Edge device through the Amazon S3
 interface using the AWS CLI, you might encounter an error message that says
@@ -22,9 +18,7 @@ Configure the AWS credentials that the AWS CLI uses to run commands for you. For
 more information, see [Configuring the AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md") in the
 _AWS Command Line Interface User Guide_.
 
-## Troubleshooting Snowball Edge error message: Check Your Secret
-
-Access Key and Signing
+## Troubleshooting Snowball Edge error message: Check Your Secret Access Key and Signing
 
 When using the Amazon S3 interface to transfer data to a Snowball Edge,
 you might encounter the following error message.

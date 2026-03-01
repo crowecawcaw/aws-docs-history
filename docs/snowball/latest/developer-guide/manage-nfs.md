@@ -42,17 +42,14 @@ Keep the following details in mind when using the NFS interface.
 
 ###### Topics
 
-- [Starting the NFS service on a Windows
-  operating system](#mount-nfs-on-window-client "#mount-nfs-on-window-client")
+- [Starting the NFS service on a Windows operating system](#mount-nfs-on-window-client "#mount-nfs-on-window-client")
 - [Configuring the NFS interface automatically with AWS OpsHub](#auto-configure-nfs "#auto-configure-nfs")
 - [Configuring the NFS interface manually with AWS OpsHub](#configure-with-snowcone "#configure-with-snowcone")
 - [Managing NFS endpoints on the Snowball Edge with AWS OpsHub](#managing-nfs-endpoint "#managing-nfs-endpoint")
 - [Mounting NFS endpoints on client computers](#mounting-nfs-endpoint "#mounting-nfs-endpoint")
 - [Stopping the NFS interface with AWS OpsHub](#stop-nfs "#stop-nfs")
 
-## Starting the NFS service on a Windows
-
-operating system
+## Starting the NFS service on a Windows operating system
 
 If your client computer is using the Windows 10 Enterprise or Windows 7
 Enterprise operating system, start the NFS service on the client computer before configuring NFS

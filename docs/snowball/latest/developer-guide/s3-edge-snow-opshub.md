@@ -10,10 +10,8 @@ to the `s3control` and `s3api` endpoints.
 ###### Topics
 
 - [Amazon S3 compatible storage on Snowball Edge prerequisites for AWS OpsHub](#s3-edge-snow-opshub-prereqs "#s3-edge-snow-opshub-prereqs")
-- [Using the Amazon S3 compatible storage on Snowball Edge simple setup
-  option in AWS OpsHub](#s3-edge-snow-opshub-simple-setup "#s3-edge-snow-opshub-simple-setup")
-- [Using the Amazon S3 compatible storage on Snowball Edge advanced setup
-  option using AWS OpsHub](#s3-edge-snow-opshub-advanced-setup "#s3-edge-snow-opshub-advanced-setup")
+- [Using the Amazon S3 compatible storage on Snowball Edge simple setup option in AWS OpsHub](#s3-edge-snow-opshub-simple-setup "#s3-edge-snow-opshub-simple-setup")
+- [Using the Amazon S3 compatible storage on Snowball Edge advanced setup option using AWS OpsHub](#s3-edge-snow-opshub-advanced-setup "#s3-edge-snow-opshub-advanced-setup")
 - [Configuring Amazon S3 compatible storage on Snowball Edge to autostart using AWS OpsHub](#autostart-s3compatible "#autostart-s3compatible")
 - [Creating a bucket in Amazon S3 compatible storage on Snowball Edge using AWS OpsHub](#s3compatible-create-bucket "#s3compatible-create-bucket")
 - [Upload files and folders to Amazon S3 compatible storage on Snowball Edge buckets using AWS OpsHub](#s3compatible-upload-files "#s3compatible-upload-files")
@@ -29,9 +27,7 @@ following:
 - On your local machine, download and install the latest version of [AWS OpsHub](download-opshub.md "download-opshub.md"). Connect to the device or cluster to unlock it with a
   manifest file. For more information, see [unlocking a device](connect-unlock-device.md "connect-unlock-device.md").
 
-## Using the Amazon S3 compatible storage on Snowball Edge simple setup
-
-option in AWS OpsHub
+## Using the Amazon S3 compatible storage on Snowball Edge simple setup option in AWS OpsHub
 
 Use the simple setup option if your network uses DHCP. With this option, the VNICs
 are created automatically on each device when you start the service.
@@ -52,9 +48,7 @@ endpoints.
 
 ![The Amazon S3 compatible storage on Snowball Edge resources screen, showing a service state of Active and its active endpoints.](images/s3-snow/s3-snow-active-service.png)
 
-## Using the Amazon S3 compatible storage on Snowball Edge advanced setup
-
-option using AWS OpsHub
+## Using the Amazon S3 compatible storage on Snowball Edge advanced setup option using AWS OpsHub
 
 Use the advanced setup option if your network uses static IP addresses or if you
 want to reuse existing VNIs. With this option, you create VNICs for each device

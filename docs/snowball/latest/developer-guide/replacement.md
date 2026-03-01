@@ -203,9 +203,7 @@ snowballEdge describe-cluster --manifest-file `path/to/manifest/file.bin` --unlo
 
 ```
 
-###### Example of `describe-cluster` command showing node is
-
-disassociated
+###### Example of `describe-cluster` command showing node is disassociated
 
 ```
 
@@ -370,8 +368,7 @@ snowballEdge describe-cluster --manifest-file `path/to/manifest/file.bin` --unlo
 ```
 
 6. On the new node, create two virtual network interfaces (VNIs). For
-   more information, see [Starting the Amazon S3 compatible storage on Snowball Edge
-   service](s3-edge-snow-setting-up.md#setting-up-s3-on-snow-cluster "s3-edge-snow-setting-up.md#setting-up-s3-on-snow-cluster")
+   more information, see [Starting the Amazon S3 compatible storage on Snowball Edge service](s3-edge-snow-setting-up.md#setting-up-s3-on-snow-cluster "s3-edge-snow-setting-up.md#setting-up-s3-on-snow-cluster")
 7. Use the `stop-service` command to stop the s3-snow
    service.
 

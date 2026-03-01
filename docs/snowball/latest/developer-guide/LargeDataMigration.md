@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Large
-
-data migration with Snowball Edge
+# Large data migration with Snowball Edge
 
 Large data migration from on-premises locations requires careful planning, orchestration, and execution to ensure that your data is successfully migrated to AWS.
 
@@ -20,10 +18,8 @@ describe a manual data migration process. You can streamline the manual steps us
 
 - [Planning your large transfer with Snowball Edge](#copy-general-planning "#copy-general-planning")
 - [Calibrating a large transfer with Snowball Edge](calibrating-large-transfer.md "calibrating-large-transfer.md")
-- [Creating a large data migration
-  plan with Snowball Edge](create-data-migration-plan.md "create-data-migration-plan.md")
-- [Using the large data migration
-  plan with Snowball Edge](understanding-data-migration-plan.md "understanding-data-migration-plan.md")
+- [Creating a large data migration plan with Snowball Edge](create-data-migration-plan.md "create-data-migration-plan.md")
+- [Using the large data migration plan with Snowball Edge](understanding-data-migration-plan.md "understanding-data-migration-plan.md")
 
 ## Planning your large transfer with Snowball Edge
 
@@ -33,16 +29,13 @@ in the following sections.
 
 ###### Topics
 
-- [Step 1: Understand what you're moving to
-  the cloud](#understand-the-transfer "#understand-the-transfer")
+- [Step 1: Understand what you're moving to the cloud](#understand-the-transfer "#understand-the-transfer")
 - [Step 2: Calculate your target transfer rate](#calculate-rate "#calculate-rate")
 - [Step 3: Determine how many Snowball Edge you need](#number-of-snowballs "#number-of-snowballs")
 - [Step 4: Create your jobs](#make-jobs "#make-jobs")
 - [Step 5: Separate your data into transfer segments](#prepare-segments "#prepare-segments")
 
-### Step 1: Understand what you're moving to
-
-the cloud
+### Step 1: Understand what you're moving to the cloud
 
 Before you create your first job using the AWS Snow Family Management Console, ensure that you assess the volume of data you need to transfer, where it is currently stored, and the
 destination that you want to transfer it to. For data transfers that are a petabyte
@@ -77,8 +70,7 @@ Using the total amount of data that you plan to move into the cloud, the estimat
 
 ###### Note
 
-The Snowball Edge LDMM provides a wizard to estimate the number of Snowball Edge that can be supported concurrently. For more information, see [Creating a large data migration
-plan with Snowball Edge](create-data-migration-plan.md "create-data-migration-plan.md").
+The Snowball Edge LDMM provides a wizard to estimate the number of Snowball Edge that can be supported concurrently. For more information, see [Creating a large data migration plan with Snowball Edge](create-data-migration-plan.md "create-data-migration-plan.md").
 
 ### Step 4: Create your jobs
 

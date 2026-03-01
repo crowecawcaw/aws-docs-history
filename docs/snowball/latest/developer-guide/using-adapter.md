@@ -31,8 +31,7 @@ for the services. For details, see [Port requirements for AWS services on a Snow
 
 ###### Topics
 
-- [Downloading and installing the AWS CLI version
-  1.16.14 for use with the Amazon S3 adapter](#aws-cli-version "#aws-cli-version")
+- [Downloading and installing the AWS CLI version 1.16.14 for use with the Amazon S3 adapter](#aws-cli-version "#aws-cli-version")
 - [Using the AWS CLI and API operations on Snowball Edge devices](#using-adapter-cli-specify-region "#using-adapter-cli-specify-region")
 - [Getting and using local Amazon S3 credentials on Snowball Edge](#adapter-credentials "#adapter-credentials")
 - [Unsupported Amazon S3 features for the Amazon S3 adapter on Snowball Edge](#snowball-edge-s3-unsupported-features "#snowball-edge-s3-unsupported-features")
@@ -40,9 +39,7 @@ for the services. For details, see [Port requirements for AWS services on a Snow
 - [Supported AWS CLI commands for data transfer to or from Snowball Edge](using-adapter-cli.md "using-adapter-cli.md")
 - [Supported Amazon S3 REST API actions on Snowball Edge for data transfer](using-adapter-supported-api.md "using-adapter-supported-api.md")
 
-## Downloading and installing the AWS CLI version
-
-1.16.14 for use with the Amazon S3 adapter
+## Downloading and installing the AWS CLI version 1.16.14 for use with the Amazon S3 adapter
 
 Currently, Snowball Edge devices support only version 1.16.14 and earlier of the
 AWS CLI for use with the Amazon S3 adapter. Newer versions of the AWS CLI are not compatible with the Amazon S3 adapter because they do not support all of the functionality of the S3 adapter.
@@ -92,9 +89,7 @@ Or
 aws s3 ls  --endpoint http://192.0.2.0:8080 --region snow --profile snowballEdge
 ```
 
-### Authorization with the Amazon S3 API interface for
-
-AWS Snowball Edge
+### Authorization with the Amazon S3 API interface for AWS Snowball Edge
 
 When you use the Amazon S3 adapter, every interaction is signed with the AWS Signature Version 4
 algorithm by default. This authorization is used only to verify the data traveling from its

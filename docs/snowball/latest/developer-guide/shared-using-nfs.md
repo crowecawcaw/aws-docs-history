@@ -40,17 +40,13 @@ Keep the following details in mind when using the NFS interface.
   maximum file size of 5 TB for Snowball Edge devices with the enhanced NFS interface or the S3 interface.
   You can also configure and manage the NFS interface with AWS OpsHub, a GUI tool. For more information, see [Managing the NFS interface](manage-nfs.md "manage-nfs.md").
 
-## NFS configuration for
-
-Snowball Edge
+## NFS configuration for Snowball Edge
 
 The NFS interface is not running on the Snowball Edge device by default, so you need
 to start it to enable data transfer to the device. You can configure the NFS interface by providing the IP address of a Virtual Network Interface (VNI) running on the Snowball Edge and restricting
 access to your file share, if required. Before configuring the NFS interface, set up a virtual network interface (VNI) on your Snowball Edge. For more information, see [Network Configuration for Compute Instances](network-config-ec2.md "network-config-ec2.md").
 
-### Configure
-
-Snowball Edge for the NFS interface
+### Configure Snowball Edge for the NFS interface
 
 - Use the `describe-service` command to determine if the NFS interface is active.
 

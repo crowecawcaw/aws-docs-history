@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Using Identity-Based Policies
-
-(IAM Policies) for AWS Snowball Edge
+# Using Identity-Based Policies (IAM Policies) for AWS Snowball Edge
 
 This topic provides examples of identity-based policies that demonstrate how an
 account administrator can attach permissions policies to IAM identities (that is,
@@ -14,17 +12,13 @@ operations on AWS Snowball Edge resources in the AWS Cloud.
 
 We recommend that you first review the introductory topics that explain the basic
 concepts and options available for you to manage access to your AWS Snowball Edge
-resources. For more information, see [Overview of Managing Access Permissions to
-Your Resources in the AWS Cloud](authentication-and-access-control.md#access-control-overview "authentication-and-access-control.md#access-control-overview").
+resources. For more information, see [Overview of Managing Access Permissions to Your Resources in the AWS Cloud](authentication-and-access-control.md#access-control-overview "authentication-and-access-control.md#access-control-overview").
 
 The sections in this topic cover the following:
 
-- [Permissions Required to
-  Use the AWS Snowball Edge Console](#additional-console-required-permissions "#additional-console-required-permissions")
-- [AWS-Managed (Predefined)
-  Policies for AWS Snowball Edge](authentication-and-access-control.md#access-policy-examples-aws-managed "authentication-and-access-control.md#access-policy-examples-aws-managed")
-- [Customer Managed Policy
-  Examples](access-policy-examples-for-sdk-cli.md "access-policy-examples-for-sdk-cli.md")
+- [Permissions Required to Use the AWS Snowball Edge Console](#additional-console-required-permissions "#additional-console-required-permissions")
+- [AWS-Managed (Predefined) Policies for AWS Snowball Edge](authentication-and-access-control.md#access-policy-examples-aws-managed "authentication-and-access-control.md#access-policy-examples-aws-managed")
+- [Customer Managed Policy Examples](access-policy-examples-for-sdk-cli.md "access-policy-examples-for-sdk-cli.md")
   The following shows an example of a permissions policy.
 
 JSON
@@ -74,17 +68,13 @@ The policy has two statements:
   gets the permissions.
 
 For a table showing all of the AWS Snowball Edge job management API actions and the
-resources that they apply to, see [AWS Snowball Edge API Permissions: Actions,
-Resources, and Conditions Reference](access-policy-examples-for-sdk-cli.md#snowball-api-permissions-ref "access-policy-examples-for-sdk-cli.md#snowball-api-permissions-ref").
+resources that they apply to, see [AWS Snowball Edge API Permissions: Actions, Resources, and Conditions Reference](access-policy-examples-for-sdk-cli.md#snowball-api-permissions-ref "access-policy-examples-for-sdk-cli.md#snowball-api-permissions-ref").
 
-## Permissions Required to
-
-Use the AWS Snowball Edge Console
+## Permissions Required to Use the AWS Snowball Edge Console
 
 The permissions reference table lists the AWS Snowball Edge job management API
 operations and shows the required permissions for each operation. For more
-information about job management API operations, see [AWS Snowball Edge API Permissions: Actions,
-Resources, and Conditions Reference](access-policy-examples-for-sdk-cli.md#snowball-api-permissions-ref "access-policy-examples-for-sdk-cli.md#snowball-api-permissions-ref").
+information about job management API operations, see [AWS Snowball Edge API Permissions: Actions, Resources, and Conditions Reference](access-policy-examples-for-sdk-cli.md#snowball-api-permissions-ref "access-policy-examples-for-sdk-cli.md#snowball-api-permissions-ref").
 
 To use the AWS Snow Family Management Console, you need to grant permissions for additional actions as
 shown in the following permissions policy:

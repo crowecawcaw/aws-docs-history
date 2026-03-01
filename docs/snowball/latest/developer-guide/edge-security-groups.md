@@ -25,7 +25,5 @@ and EC2 VPC security groups:
   rule allows the traffic.
 - Only the parameters listed for AWS CLI actions and API calls are supported.
   These typically are a subset of those supported in EC2 VPC instances.
-  For more information about supported AWS CLI actions, see [List of supported EC2-compatible AWS CLI
-  commands on a Snowball Edge](using-ec2-endpoint.md#list-cli-commands-ec2-edge "using-ec2-endpoint.md#list-cli-commands-ec2-edge").
-  For more information on supported API operations, see [Supported Amazon EC2-compatible API
-  operations on a Snowball Edge](using-ec2-endpoint.md#using-ec2-adapter-supported-api "using-ec2-endpoint.md#using-ec2-adapter-supported-api").
+  For more information about supported AWS CLI actions, see [List of supported EC2-compatible AWS CLI commands on a Snowball Edge](using-ec2-endpoint.md#list-cli-commands-ec2-edge "using-ec2-endpoint.md#list-cli-commands-ec2-edge").
+  For more information on supported API operations, see [Supported Amazon EC2-compatible API operations on a Snowball Edge](using-ec2-endpoint.md#using-ec2-adapter-supported-api "using-ec2-endpoint.md#using-ec2-adapter-supported-api").

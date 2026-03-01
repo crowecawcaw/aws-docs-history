@@ -20,9 +20,7 @@ AWS CLI when using the Amazon S3 adapter. See [Finding Snowball Edge client vers
 Be sure to install version 2.6.5+ or 3.4+ of Python before you install version
 1.16.14 of the AWS CLI.
 
-## Supported AWS CLI commands for data transfer with
-
-Amazon S3 and Snowball Edge
+## Supported AWS CLI commands for data transfer with Amazon S3 and Snowball Edge
 
 Following is a description of the subset of AWS CLI commands and options for Amazon S3
 that the AWS Snowball Edge device supports. If a command or option isn't listed, it's not

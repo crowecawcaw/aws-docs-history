@@ -28,8 +28,7 @@ Up for AISPL](../../../awsaccountbilling/latest/aboutv2/manage-account-payment-a
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
 - [About your environment](#sbe-before-questions "#sbe-before-questions")
-- [Working with filenames that contain
-  special characters](#sbe-before-data-format "#sbe-before-data-format")
+- [Working with filenames that contain special characters](#sbe-before-data-format "#sbe-before-data-format")
 - [Amazon S3 encryption with AWS KMS](#s3-kms-encryption "#s3-kms-encryption")
 - [Amazon S3 encryption with server-side encryption](#s3-sse-encryption "#s3-sse-encryption")
 - [Prerequisites for using Amazon S3 adapter on Snowball Edge for import and export jobs](#s3-prereqs "#s3-prereqs")
@@ -130,9 +129,7 @@ gigabit switch. Depending on the brand of switch, it might say
 Snowball Edge devices do not support a megabit switch, or 10/100
 switch.
 
-## Working with filenames that contain
-
-special characters
+## Working with filenames that contain special characters
 
 It's important to note that if the names of your objects contain special characters, you might
 encounter errors. Although Amazon S3 allows special characters, we highly recommend that you
@@ -175,9 +172,7 @@ The only object metadata that is transferred is the object name and size.
 You can use the default AWS managed or customer managed encryption keys to protect
 your data when importing or exporting data.
 
-### Using Amazon S3 default bucket encryption with AWS KMS managed
-
-keys
+### Using Amazon S3 default bucket encryption with AWS KMS managed keys
 
 ###### To enable AWS managed encryption with AWS KMS
 
@@ -237,9 +232,7 @@ IAM role.
 }
 ```
 
-### Using S3 default bucket encryption with AWS KMS customer
-
-keys
+### Using S3 default bucket encryption with AWS KMS customer keys
 
 You can use the default Amazon S3 bucket encryption with your own KMS keys to protect data you
 are importing and exporting.
@@ -296,8 +289,7 @@ to update the IAM role associated with the Snowball job. By default, the role is
 }
 ```
 
-For more information, see [Using Identity-Based Policies
-(IAM Policies) for AWS Snowball Edge](access-control-managing-permissions.md "access-control-managing-permissions.md").
+For more information, see [Using Identity-Based Policies (IAM Policies) for AWS Snowball Edge](access-control-managing-permissions.md "access-control-managing-permissions.md").
 
 The KMS key that is being used looks like the following:
 
@@ -444,8 +436,7 @@ Ubuntu 16.04 LTS - Xenial (HVM) images are no longer supported in the AWS Market
 
 You can get these images from [AWS Marketplace](https://aws.amazon.com/marketplace "https://aws.amazon.com/marketplace").
 
-If you're using SSH to connect to the instances running on a Snowball Edge, you can use your own key pair or you can create one on the Snowball Edge. To use AWS OpsHub to create a key pair on the device, see [Working with key pairs for EC2-compatible instances in AWS OpsHub](working-with-key-pair.md "working-with-key-pair.md"). To use the AWS CLI to create a key pair on the device, see `create-key-pair` in [List of supported EC2-compatible AWS CLI
-commands on a Snowball Edge](using-ec2-endpoint.md#list-cli-commands-ec2-edge "using-ec2-endpoint.md#list-cli-commands-ec2-edge").
+If you're using SSH to connect to the instances running on a Snowball Edge, you can use your own key pair or you can create one on the Snowball Edge. To use AWS OpsHub to create a key pair on the device, see [Working with key pairs for EC2-compatible instances in AWS OpsHub](working-with-key-pair.md "working-with-key-pair.md"). To use the AWS CLI to create a key pair on the device, see `create-key-pair` in [List of supported EC2-compatible AWS CLI commands on a Snowball Edge](using-ec2-endpoint.md#list-cli-commands-ec2-edge "using-ec2-endpoint.md#list-cli-commands-ec2-edge").
 For more information on key pairs and Amazon Linux 2, see [Amazon EC2 key pairs and Linux instances](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md") in the Amazon EC2 User Guide.
 
 For information specific to using compute instances on a device, see [Using Amazon EC2-compatible compute instances on Snowball Edge](using-ec2.md "using-ec2.md").

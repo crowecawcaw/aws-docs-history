@@ -97,9 +97,7 @@ You can use the [AWS Snow Family Management Console](https://console.aws.amazon.
 jobs. For more information about using the [AWS Snow Family Management Console](https://console.aws.amazon.com/snowfamily/home "https://console.aws.amazon.com/snowfamily/home"), see [Getting started with Snowball Edge](getting-started.md "getting-started.md"). For information about the job management API, see [Job
 Management API Reference for Snowball Edge](../api-reference/api-reference.md "../api-reference/api-reference.md").
 
-### Accessing an AWS Snowball Edge
-
-device
+### Accessing an AWS Snowball Edge device
 
 After your Snowball Edge device is onsite, you can configure it with an IP address using the LCD screen then you can unlock the device using the Snowball Edge client or AWS OpsHub. Then, you run can perform data transfer or edge compute tasks. For more information, see [Receiving the Snowball Edge](receive-device.md "receive-device.md").
 

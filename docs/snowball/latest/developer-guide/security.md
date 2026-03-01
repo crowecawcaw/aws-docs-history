@@ -30,8 +30,7 @@ cloud:
 
 - [Data Protection in AWS Snowball Edge Edge](data-protection.md "data-protection.md")
 - [Identity and Access Management in AWS Snowball Edge](snowball-edge-iam.md "snowball-edge-iam.md")
-- [Logging and Monitoring in
-  AWS Snowball Edge](snowball-edge-security-logging-and-monitoring.md "snowball-edge-security-logging-and-monitoring.md")
+- [Logging and Monitoring in AWS Snowball Edge](snowball-edge-security-logging-and-monitoring.md "snowball-edge-security-logging-and-monitoring.md")
 - [Compliance Validation for AWS Snowball Edge](snowball-edge-compliance.md "snowball-edge-compliance.md")
 - [Resilience](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in AWS Snowball Edge](infrastructure-security.md "infrastructure-security.md")

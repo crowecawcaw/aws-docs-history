@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Configuring local SMTP
-
-notifications on Snowball Edge
+# Configuring local SMTP notifications on Snowball Edge
 
 You can set up local notifications for your Snowball Edge devices with Simple Mail
 Transfer Protocol (SMTP). The local notifications send emails to configured servers when

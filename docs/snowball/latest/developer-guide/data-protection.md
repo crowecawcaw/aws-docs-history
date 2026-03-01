@@ -97,9 +97,7 @@ aws s3 cp s3://amzn-s3-demo-bucket s3://amzn-s3-demo-bucket --sse-c --sse-c-key 
   either has no server-side encryption, or has SSE-KMS or SSE-S3 specified in that
   bucket's bucket policy.
 
-##### Enabling SSE-S3 for Data Imported into Amazon S3 from a
-
-Snowball Edge
+##### Enabling SSE-S3 for Data Imported into Amazon S3 from a Snowball Edge
 
 Use the following procedure in the Amazon S3 Management Console to enable SSE-S3 for
 data being imported into Amazon S3. No configuration is necessary in the AWS Snow Family Management Console or
@@ -182,9 +180,7 @@ Specifying the ARN for an AWS KMS key tells AWS Snowball Edge which AWS KMS keys
 use to encrypt the unique keys on the AWS Snowball Edge device. For more information on
 AWS Snowball Edge supported Amazon S3 server-side-encryption options , see [Server-Side Encryption in AWS Snowball Edge](#sse "#sse").
 
-#### Using the Managed Customer AWS KMS keys for
-
-Snowball Edge Edge
+#### Using the Managed Customer AWS KMS keys for Snowball Edge Edge
 
 If you'd like to use the managed customer AWS KMS keys for Snowball Edge Edge created
 for your account, follow these steps.
@@ -209,9 +205,7 @@ customer managed keys. 6. Choose **Next** to finish selecting your AWS KMS key. 
     1. In the IAM console ([https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")), go to **Encryption Keys** and open the KMS key you chose to use to encrypt the data on the device.
     2. Under **Key Users**, select **Add**, search for the Snow device IAM user and select **Attach**.
 
-#### Creating a Custom KMS Envelope Encryption
-
-Key
+#### Creating a Custom KMS Envelope Encryption Key
 
 You have the option of using your own custom AWS KMS envelope encryption key with
 AWS Snowball Edge. If you choose to create your own key, that key must be created in the
@@ -283,11 +277,9 @@ of the getting started exercise:
 
 1. Create your Snowball Edge job. For more information, see [Creating a job to order a Snowball Edge device](create-job-common.md "create-job-common.md")
 2. Receive the device. For more information, see [Receiving the Snowball Edge](receive-device.md "receive-device.md").
-3. Connect to your local network. For more information, see [Connecting a Snowball Edge to your local
-   network](getting-started.md#getting-started-connect "getting-started.md#getting-started-connect").
+3. Connect to your local network. For more information, see [Connecting a Snowball Edge to your local network](getting-started.md#getting-started-connect "getting-started.md#getting-started-connect").
 4. Get your credentials and tools. For more information, see [Getting credentials to access a Snowball Edge](getting-started.md#get-credentials "getting-started.md#get-credentials").
-5. Download and install the Snowball Edge client. For more information, see [Downloading and installing the Snowball Edge
-   Client](using-client-commands.md#download-the-client "using-client-commands.md#download-the-client").
+5. Download and install the Snowball Edge client. For more information, see [Downloading and installing the Snowball Edge Client](using-client-commands.md#download-the-client "using-client-commands.md#download-the-client").
 
 ###### To validate the NFC tags
 

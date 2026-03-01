@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Logging and Monitoring in
-
-AWS Snowball Edge
+# Logging and Monitoring in AWS Snowball Edge
 
 Monitoring is an important part of maintaining the reliability, availability, and
 performance of AWS Snowball Edge and your AWS solutions. You should collect monitoring data so

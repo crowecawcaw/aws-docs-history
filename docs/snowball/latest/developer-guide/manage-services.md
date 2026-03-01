@@ -22,10 +22,8 @@ Currently, AWS OpsHub supports the following resources:
 - [Stopping an Amazon EC2-compatible instance on a Snowball Edge with AWS OpsHub](stop-instance.md "stop-instance.md")
 - [Starting an Amazon EC2-compatible instance on an Snowball Edge with AWS OpsHub](start-instance.md "start-instance.md")
 - [Working with key pairs for EC2-compatible instances in AWS OpsHub](working-with-key-pair.md "working-with-key-pair.md")
-- [Terminating an Amazon EC2-compatible
-  instance with AWS OpsHub](terminate-instance.md "terminate-instance.md")
-- [Using storage volumes
-  locally on Snowball Edge with AWS OpsHub](manage-ebs-volumes.md "manage-ebs-volumes.md")
+- [Terminating an Amazon EC2-compatible instance with AWS OpsHub](terminate-instance.md "terminate-instance.md")
+- [Using storage volumes locally on Snowball Edge with AWS OpsHub](manage-ebs-volumes.md "manage-ebs-volumes.md")
 - [Importing an image as an Amazon EC2-compatible AMI with AWS OpsHub](ec2-ami-import.md "ec2-ami-import.md")
 - [Deleting a snapshot from a Snowball Edge with AWS OpsHub](delete-snapshot.md "delete-snapshot.md")
 - [Deregistering an AMI on a Snowball Edge with AWS OpsHub](deregister-ami.md "deregister-ami.md")

@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Creating a large data migration
-
-plan with Snowball Edge
+# Creating a large data migration plan with Snowball Edge
 
 The Snowball Edge large data migration plan feature enables you to plan, track,
 monitor, and manage large data migrations from 500 TB to multiple petabytes using
@@ -56,9 +54,7 @@ which you can simultaneously copy data at your location. If you're not
 sure, skip to the next section for information about using the concurrent
 devices estimator wizard to determine this. 7. Choose **Next**.
 
-### Using the concurrent devices estimator
-
-wizard
+### Using the concurrent devices estimator wizard
 
 The concurrent devices estimator wizard helps you to determine the number of
 concurrent devices that you can use during large data migrations.

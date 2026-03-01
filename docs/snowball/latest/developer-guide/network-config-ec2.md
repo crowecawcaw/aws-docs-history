@@ -33,10 +33,8 @@ Snowball Edge storage optimized (with EC2 compute functionality) devices don't s
 ###### Topics
 
 - [Prerequisites for DNIs or VNIs on Snowball Edge](#snowcone-configuration-prerequisites "#snowcone-configuration-prerequisites")
-- [Setting up a Virtual Network Interface
-  (VNI) on a Snowball Edge](#setup-vni "#setup-vni")
-- [Setting Up a Direct Network Interface
-  (DNI) on a Snowball Edge](#snowcone-setup-dni "#snowcone-setup-dni")
+- [Setting up a Virtual Network Interface (VNI) on a Snowball Edge](#setup-vni "#setup-vni")
+- [Setting Up a Direct Network Interface (DNI) on a Snowball Edge](#snowcone-setup-dni "#snowcone-setup-dni")
 
 ## Prerequisites for DNIs or VNIs on Snowball Edge
 
@@ -50,8 +48,7 @@ prerequisites.
    address.
 2. Get the IP address associated with the physical network interface that
    you're using on the Snowball Edge.
-3. Configure the Snowball Edge client. For more information, see [Configuring a profile for the Snowball Edge
-   Client](using-client-commands.md#client-configuration "using-client-commands.md#client-configuration").
+3. Configure the Snowball Edge client. For more information, see [Configuring a profile for the Snowball Edge Client](using-client-commands.md#client-configuration "using-client-commands.md#client-configuration").
 4. Configure the AWS CLI. For more information, see [Getting started with the AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md") in the AWS Command Line Interface User Guide.
 5. Unlock the device.
    - Use AWS OpsHub to unlock the device. For more information, see [Unlocking a Snowball Edge with AWS OpsHub](connect-unlock-device.md "connect-unlock-device.md").
@@ -64,9 +61,7 @@ prerequisites.
 8. Identify the ID for the physical network interface that you want to use,
    and make a note of it.
 
-## Setting up a Virtual Network Interface
-
-(VNI) on a Snowball Edge
+## Setting up a Virtual Network Interface (VNI) on a Snowball Edge
 
 After you have identified the ID of the physical network interface, you can set
 up a virtual network interface (VNI) with that physical interface. Use the following procedure set up a VNI. Make
@@ -107,9 +102,7 @@ it. 2. Use the AWS CLI to associate the IP address with the EC2-compatible insta
 aws ec2 associate-address --public-ip `192.0.2.0` --instance-id `s.i-01234567890123456` --endpoint http://`Snowball Edge physical IP address`:8008
 ```
 
-## Setting Up a Direct Network Interface
-
-(DNI) on a Snowball Edge
+## Setting Up a Direct Network Interface (DNI) on a Snowball Edge
 
 ###### Note
 
@@ -125,8 +118,7 @@ in the prerequisites section.
 1. Perform the prerequisite tasks before setting up the DNI. For
    instructions, see [Prerequisites for DNIs or VNIs on Snowball Edge](#snowcone-configuration-prerequisites "#snowcone-configuration-prerequisites").
 2. Additionally, you must launch an instance on your device, create a
-   VNI, and associate it with the instance. For instructions, see [Setting up a Virtual Network Interface
-   (VNI) on a Snowball Edge](#setup-vni "#setup-vni").
+   VNI, and associate it with the instance. For instructions, see [Setting up a Virtual Network Interface (VNI) on a Snowball Edge](#setup-vni "#setup-vni").
 
 ###### Note
 

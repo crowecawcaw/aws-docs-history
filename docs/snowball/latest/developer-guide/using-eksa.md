@@ -28,8 +28,7 @@ For more information about Amazon EKS Anywhere on AWS Snow, see the [Amazon EKS 
 
 ###### Topics
 
-- [Actions to complete before ordering a Snowball Edge
-  device for Amazon EKS Anywhere on AWS Snow](eksa-gettingstarted.md "eksa-gettingstarted.md")
+- [Actions to complete before ordering a Snowball Edge device for Amazon EKS Anywhere on AWS Snow](eksa-gettingstarted.md "eksa-gettingstarted.md")
 - [Ordering a Snowball Edge device for use with Amazon EKS Anywhere on AWS Snow](order-sbe.md "order-sbe.md")
 - [Configuring and running Amazon EKS Anywhere on Snowball Edge devices](eksa-configuration.md "eksa-configuration.md")
 - [Configuring Amazon EKS Anywhere on AWS Snow for disconnected operation](configure-disconnected.md "configure-disconnected.md")

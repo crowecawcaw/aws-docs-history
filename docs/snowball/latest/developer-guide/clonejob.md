@@ -1,9 +1,7 @@
 AWS Snowball Edge is no longer available to new customers. New customers should explore [AWS DataSync](https://aws.amazon.com/datasync/ "https://aws.amazon.com/datasync/") for online transfers, [AWS Data Transfer Terminal](https://aws.amazon.com/data-transfer-terminal/ "https://aws.amazon.com/data-transfer-terminal/") for
 secure physical transfers, or AWS Partner solutions. For edge computing, explore [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
 
-# Cloning a job to order a Snowball Edge in the
-
-AWS Snow Family Management Console
+# Cloning a job to order a Snowball Edge in the AWS Snow Family Management Console
 
 When you first create an import job or a local compute and storage job, you might
 discover that you need more than one AWS Snowball Edge device. Because import jobs and local

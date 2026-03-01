@@ -34,9 +34,7 @@ A Snowball Edge compute-optimized device can run up to 20 AMIs and 10 volumes pe
 | `sbe-c.16xlarge` | 64         | 256          | compute optimized       |
 | `sbe-c.24xlarge` | 96         | 384          | compute optimized       |
 
-## Shared compute resource
-
-limitations on Snowball Edge
+## Shared compute resource limitations on Snowball Edge
 
 All services on a Snowball Edge device use some of the finite resources on the
 device. A Snowball Edge device with its available compute resources maximized

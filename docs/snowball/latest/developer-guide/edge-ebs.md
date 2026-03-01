@@ -11,8 +11,7 @@ can manage block storage using the familiar Amazon EBS API.
 Certain Amazon EBS commands are supported by using the EC2-compatible endpoint. Supported commands
 include `attach-volume`, `create-volume`,
 `delete-volume`, `detach-volume`, and
-`describe-volumes`. For more information about these commands, see [List of supported EC2-compatible AWS CLI
-commands on a Snowball Edge](using-ec2-endpoint.md#list-cli-commands-ec2-edge "using-ec2-endpoint.md#list-cli-commands-ec2-edge").
+`describe-volumes`. For more information about these commands, see [List of supported EC2-compatible AWS CLI commands on a Snowball Edge](using-ec2-endpoint.md#list-cli-commands-ec2-edge "using-ec2-endpoint.md#list-cli-commands-ec2-edge").
 
 ###### Important
 

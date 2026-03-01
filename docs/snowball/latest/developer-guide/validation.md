@@ -61,8 +61,7 @@ in Amazon S3, as described following.
 
 Whenever data is imported into or exported out of Amazon S3, you get a downloadable PDF job
 report. For import jobs, this report becomes available at the end of the import process. For
-more information, see [Getting your data transfer job completion report and
-logs](report.md "report.md").
+more information, see [Getting your data transfer job completion report and logs](report.md "report.md").
 
 ###### S3 inventory
 

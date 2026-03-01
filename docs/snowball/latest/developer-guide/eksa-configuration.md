@@ -22,10 +22,8 @@ device.
 
 ###### Perform initial setup
 
-1. Download and install the Snowball Edge client. For more information, see [Downloading and installing the Snowball Edge
-   Client](using-client-commands.md#download-the-client "using-client-commands.md#download-the-client").
-2. Connect the device to your local network. For more information, see [Connecting a Snowball Edge to your local
-   network](getting-started.md#getting-started-connect "getting-started.md#getting-started-connect").
+1. Download and install the Snowball Edge client. For more information, see [Downloading and installing the Snowball Edge Client](using-client-commands.md#download-the-client "using-client-commands.md#download-the-client").
+2. Connect the device to your local network. For more information, see [Connecting a Snowball Edge to your local network](getting-started.md#getting-started-connect "getting-started.md#getting-started-connect").
 3. Get credentials to unlock your device. For more information, see [Getting credentials to access a Snowball Edge](getting-started.md#get-credentials "getting-started.md#get-credentials").
 4. Unlock the device. For more information, see [Unlocking the Snowball Edge](unlockdevice.md "unlockdevice.md"). You can also use a script tool instead of unlocking devices manually. See [Unlock devices](https://github.com/aws-samples/aws-snow-tools-for-eks-anywhere/tree/main/setup-tools#Unlock-devices "https://github.com/aws-samples/aws-snow-tools-for-eks-anywhere/tree/main/setup-tools#Unlock-devices").
 
@@ -114,9 +112,7 @@ aws iam attach-user-policy --policy-arn `policy-arn` --user-name `user-name` --e
 
 ```
 
-#### Create an access key and a credential
-
-file on the Snowball Edge
+#### Create an access key and a credential file on the Snowball Edge
 
 Create an access key for the Amazon EKS Anywhere IAM local user. Then, create a credential file and include in it the values of `AccessKeyId` and `SecretAccessKey` generated for the local user. The credential file will be used by the Amazon EKS Anywhere admin instance later.
 
@@ -155,9 +151,7 @@ If you're working with multiple Snowball Edge devices, the order of the credenti
 file doesn’t matter, but the credentials for all devices do need to be in one
 file.
 
-#### Create a certificates file for the
-
-admin instance on the Snowball Edge
+#### Create a certificates file for the admin instance on the Snowball Edge
 
 The Amazon EKS Anywhere admin instance needs the certificates of the Snowball Edge devices in order to run on them. Create a certificates file holding the certificate to access Snowball Edge devices for use later by the Amazon EKS Anywhere admin instance.
 
@@ -323,16 +317,12 @@ ssh -i `path-to-key` ec2-user@`VNI-IP`
 
 ```
 
-#### Transfer certificate and credential files to the
-
-admin instance on the Snowball Edge
+#### Transfer certificate and credential files to the admin instance on the Snowball Edge
 
 After the Amazon EKS Anywhere admin instance is running, transfer the credentials and
 certificates of your Snowball Edge devices to the admin instance. Run the following
 command from the same directory where you saved the credentials and certificates files in
-[Create an access key and a credential
-file on the Snowball Edge](#create-eksa-iam-user-access-key "#create-eksa-iam-user-access-key") and [Create a certificates file for the
-admin instance on the Snowball Edge](#create-credentials-for-admin-instance "#create-credentials-for-admin-instance").
+[Create an access key and a credential file on the Snowball Edge](#create-eksa-iam-user-access-key "#create-eksa-iam-user-access-key") and [Create a certificates file for the admin instance on the Snowball Edge](#create-credentials-for-admin-instance "#create-credentials-for-admin-instance").
 
 ```
 
