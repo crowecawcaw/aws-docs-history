@@ -1,6 +1,4 @@
-# Setting a device PIN when running tests in
-
-Device Farm
+# Setting a device PIN when running tests in Device Farm
 
 Some applications require that you set a PIN on the device. Device Farm does not support setting a PIN on devices
 natively. However, this is possible with the following caveats:

@@ -22,7 +22,7 @@ pending icon, then switch to the running
 icon when the test begins. As each test
 finishes, a test result icon is displayed next to the device name. When all tests have been
 completed, the pending icon next to the run changes to a test result icon. For more information, see
-[Device Farm test result statuses](how-to-use-reports-displaying-results.md "how-to-use-reports-displaying-results.md") .
+[Device Farm test result statuses](how-to-use-reports-displaying-results.md "how-to-use-reports-displaying-results.md").
 
 ## View reports
 
@@ -35,8 +35,7 @@ You can view the results of your test in the Device Farm console.
 - [View device reports](#how-to-use-reports-console-by-device "#how-to-use-reports-console-by-device")
 - [View test suite reports](#how-to-use-reports-console-by-suite "#how-to-use-reports-console-by-suite")
 - [View test reports](#how-to-use-reports-console-by-test "#how-to-use-reports-console-by-test")
-- [View log information for a problem, device, suite, or
-  test in a report](#how-to-use-reports-console-log "#how-to-use-reports-console-log")
+- [View log information for a problem, device, suite, or test in a report](#how-to-use-reports-console-log "#how-to-use-reports-console-log")
 
 ### View the test run summary page
 
@@ -82,12 +81,10 @@ The **Video** section displays a downloadable video recording of the
 test.
 
 The **Result** section displays the result of the test. The status is
-represented as a result icon. For more information, see [Statuses of an individual
-test](how-to-use-reports-displaying-results.md#how-to-use-reports-displaying-results-individual "how-to-use-reports-displaying-results.md#how-to-use-reports-displaying-results-individual").
+represented as a result icon. For more information, see [Statuses of an individual test](how-to-use-reports-displaying-results.md#how-to-use-reports-displaying-results-individual "how-to-use-reports-displaying-results.md#how-to-use-reports-displaying-results-individual").
 
 The **Logs** section displays any information that Device Farm logged during the
-test. To view this information, follow the instructions in [View log information for a problem, device, suite, or
-test in a report](#how-to-use-reports-console-log "#how-to-use-reports-console-log").
+test. To view this information, follow the instructions in [View log information for a problem, device, suite, or test in a report](#how-to-use-reports-console-log "#how-to-use-reports-console-log").
 
 The **Files** tab displays a list of any of the test's associated files (such
 as log files) that you can download. To download a file, choose the file's link in the
@@ -113,8 +110,7 @@ component. For more information, see [Statuses for multiple tests](how-to-use-re
 To view the full results by suite, follow the instructions in [View test suite reports](#how-to-use-reports-console-by-suite "#how-to-use-reports-console-by-suite").
 
 The **Logs** section displays any information that Device Farm logged for the
-device during the run. To view this information, follow the instructions in [View log information for a problem, device, suite, or
-test in a report](#how-to-use-reports-console-log "#how-to-use-reports-console-log").
+device during the run. To view this information, follow the instructions in [View log information for a problem, device, suite, or test in a report](#how-to-use-reports-console-log "#how-to-use-reports-console-log").
 
 The **Files** section displays a list of suites for the device and any
 associated files (such as log files) that you can download. To download a file, choose the
@@ -140,8 +136,7 @@ has a graphical component. For more information, see [Statuses for multiple test
 To view the full results by test, follow the instructions in [View test reports](#how-to-use-reports-console-by-test "#how-to-use-reports-console-by-test").
 
 The **Logs** section displays any information that Device Farm logged during the
-run for the suite. To view this information, follow the instructions in [View log information for a problem, device, suite, or
-test in a report](#how-to-use-reports-console-log "#how-to-use-reports-console-log").
+run for the suite. To view this information, follow the instructions in [View log information for a problem, device, suite, or test in a report](#how-to-use-reports-console-log "#how-to-use-reports-console-log").
 
 The **Files** section displays a list of tests for the suite and any
 associated files (such as log files) that you can download. To download a file, choose the
@@ -160,12 +155,10 @@ captured during the run for the suite, grouped by test.
 
 The
 **Result** section displays the result of the test. The
-status is represented as a result icon. For more information, see [Statuses of an individual
-test](how-to-use-reports-displaying-results.md#how-to-use-reports-displaying-results-individual "how-to-use-reports-displaying-results.md#how-to-use-reports-displaying-results-individual").
+status is represented as a result icon. For more information, see [Statuses of an individual test](how-to-use-reports-displaying-results.md#how-to-use-reports-displaying-results-individual "how-to-use-reports-displaying-results.md#how-to-use-reports-displaying-results-individual").
 
 The **Logs** section displays any information that Device Farm logged during the
-test. To view this information, follow the instructions in [View log information for a problem, device, suite, or
-test in a report](#how-to-use-reports-console-log "#how-to-use-reports-console-log").
+test. To view this information, follow the instructions in [View log information for a problem, device, suite, or test in a report](#how-to-use-reports-console-log "#how-to-use-reports-console-log").
 
 The **Files** tab displays a list of any of the test's associated files (such
 as log files) that you can download. To download a file, choose the file's link in the
@@ -174,9 +167,7 @@ list.
 The **Screenshots** tab displays a list of any screenshots that Device Farm
 captured during the test.
 
-### View log information for a problem, device, suite, or
-
-test in a report
+### View log information for a problem, device, suite, or test in a report
 
 The **Logs** section displays the following information:
 

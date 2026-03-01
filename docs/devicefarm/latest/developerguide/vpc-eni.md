@@ -39,5 +39,4 @@ _Amazon VPC User Guide_.
 - [Prerequisites](vpc-eni-prerequisites.md "vpc-eni-prerequisites.md")
 - [Connecting to Amazon VPC](connecting-to-amazon-vpc.md "connecting-to-amazon-vpc.md")
 - [Limits](vpc-eni-limits.md "vpc-eni-limits.md")
-- [Using Amazon VPC endpoint services with Device Farm - Legacy
-  (not recommended)](amazon-vpc-endpoints.md "amazon-vpc-endpoints.md")
+- [Using Amazon VPC endpoint services with Device Farm - Legacy (not recommended)](amazon-vpc-endpoints.md "amazon-vpc-endpoints.md")

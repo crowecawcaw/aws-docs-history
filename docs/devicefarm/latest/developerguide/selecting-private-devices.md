@@ -1,6 +1,4 @@
-# Selecting private
-
-devices in a device pool in AWS Device Farm
+# Selecting private devices in a device pool in AWS Device Farm
 
 To use private devices in your test run, you can create a device pool that selects your private devices.
 Device pools enable you to select private devices primarily through three types of device pool rules:
@@ -17,12 +15,9 @@ Device pools enable you to select private devices primarily through three types 
 - [Device ARN](#device-arn-rules "#device-arn-rules")
 - [Device instance labels](#device-instance-labels-rules "#device-instance-labels-rules")
 - [Instance ARN](#instance-arn-rules "#instance-arn-rules")
-- [Creating a private device pool with private devices
-  (console)](#create-new-device-pool "#create-new-device-pool")
-- [Creating a private device pool with private
-  devices (AWS CLI)](#how-to-create-device-pool-cli-private-devices "#how-to-create-device-pool-cli-private-devices")
-- [Creating a private device pool with private
-  devices (API)](#how-to-create-device-pool-api-private-devices "#how-to-create-device-pool-api-private-devices")
+- [Creating a private device pool with private devices (console)](#create-new-device-pool "#create-new-device-pool")
+- [Creating a private device pool with private devices (AWS CLI)](#how-to-create-device-pool-cli-private-devices "#how-to-create-device-pool-cli-private-devices")
+- [Creating a private device pool with private devices (API)](#how-to-create-device-pool-api-private-devices "#how-to-create-device-pool-api-private-devices")
 
 ## Device ARN
 
@@ -104,9 +99,7 @@ When you use a device instance ARN rule for private devices in your device pool 
 with that pool, Device Farm will automatically assign that test to that device instance. If that device instance
 isn’t available, Device Farm will queue the test on the device once it’s available.
 
-## Creating a private device pool with private devices
-
-(console)
+## Creating a private device pool with private devices (console)
 
 When you create a test run, you can create a device pool for the test run and ensure that the pool
 includes only your private devices.
@@ -151,17 +144,13 @@ ARNs and device instance ARNs), then you need to create the pool through the CLI
 
 6. Choose **Create**.
 
-## Creating a private device pool with private
-
-devices (AWS CLI)
+## Creating a private device pool with private devices (AWS CLI)
 
 - Run the [**create-device-pool**](../../../cli/latest/reference/devicefarm/create-device-pool.md "../../../cli/latest/reference/devicefarm/create-device-pool.md") command.
 
 For information about using Device Farm with the AWS CLI, see [AWS CLI reference](cli-ref.md "cli-ref.md").
 
-## Creating a private device pool with private
-
-devices (API)
+## Creating a private device pool with private devices (API)
 
 - Call the [`CreateDevicePool`](../APIReference/API_CreateDevicePool.md "../APIReference/API_CreateDevicePool.md") API.
 

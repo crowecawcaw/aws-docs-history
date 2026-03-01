@@ -1,6 +1,4 @@
-# Environment variables for custom test
-
-environments
+# Environment variables for custom test environments
 
 Device Farm dynamically configures several environment variables for use as part of your custom
 test environment run.
@@ -9,10 +7,8 @@ test environment run.
 
 - [Custom environment variables](#custom-test-environment-variables-custom "#custom-test-environment-variables-custom")
 - [Common environment variables](#custom-test-environment-variables-common "#custom-test-environment-variables-common")
-- [Environment variables for Appium
-  tests](#custom-test-environment-variables-appium "#custom-test-environment-variables-appium")
-- [Environment variables for
-  XCUITest tests](#custom-test-environment-variables-xcuitest "#custom-test-environment-variables-xcuitest")
+- [Environment variables for Appium tests](#custom-test-environment-variables-appium "#custom-test-environment-variables-appium")
+- [Environment variables for XCUITest tests](#custom-test-environment-variables-xcuitest "#custom-test-environment-variables-xcuitest")
 
 ## Custom environment variables
 
@@ -93,9 +89,7 @@ _(Android only)_
 
 The path to the Android SDK installation directory.
 
-## Environment variables for Appium
-
-tests
+## Environment variables for Appium tests
 
 This section describes environment variables used by any Appium test in a custom test
 environment in Device Farm.
@@ -130,9 +124,7 @@ The derived data path of a version of WebDriverAgent built to run on Device Farm
 Refer to `$DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH_V<N>` for the
 replacement naming scheme.
 
-## Environment variables for
-
-XCUITest tests
+## Environment variables for XCUITest tests
 
 This section describes environment variables used by the XCUITest test in a custom test
 environment in Device Farm.

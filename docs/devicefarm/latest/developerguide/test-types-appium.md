@@ -36,8 +36,7 @@ phases:
       - devicefarm-cli use appium $APPIUM_VERSION
 ```
 
-To view a list of supported software, see the topic on [Supported software within custom test
-environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md").
+To view a list of supported software, see the topic on [Supported software within custom test environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md").
 
 To select a custom version of Appium, use the `npm` command to install it.
 The following example shows how to install the latest version of Appium 2.

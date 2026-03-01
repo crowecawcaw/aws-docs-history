@@ -1,6 +1,4 @@
-# Troubleshooting Android application tests in
-
-AWS Device Farm
+# Troubleshooting Android application tests in AWS Device Farm
 
 The following topic lists error messages that occur during the upload of Android application tests and
 recommends workarounds to resolve each error.
@@ -244,9 +242,7 @@ If the Android application is valid, the output should not contain the following
 
 For more information, see [Android tests in AWS Device Farm](test-types-android-tests.md "test-types-android-tests.md").
 
-## Certain windows in my Android application show a blank or black
-
-screen
+## Certain windows in my Android application show a blank or black screen
 
 If you are testing an Android application and notice that certain windows in the application appear with a
 black screen in Device Farm's video recording of your test, your application may be using Android's

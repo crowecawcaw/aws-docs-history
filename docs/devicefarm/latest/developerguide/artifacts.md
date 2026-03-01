@@ -31,8 +31,7 @@ Screen images recorded for each test in the test run.
    **Screenshots**.
 
 For more information about downloading artifacts in a custom test environment, see
-[Downloading artifacts in a custom test
-environment](using-artifacts-custom.md "using-artifacts-custom.md").
+[Downloading artifacts in a custom test environment](using-artifacts-custom.md "using-artifacts-custom.md").
 
 ## Download artifacts (AWS CLI)
 
@@ -40,14 +39,11 @@ You can use the AWS CLI to list your test run artifacts.
 
 ###### Topics
 
-- [Step 1: Get your Amazon Resource Names
-  (ARN)](#artifacts-cli-step1 "#artifacts-cli-step1")
+- [Step 1: Get your Amazon Resource Names (ARN)](#artifacts-cli-step1 "#artifacts-cli-step1")
 - [Step 2: List your artifacts](#artifacts-cli-step2 "#artifacts-cli-step2")
 - [Step 3: Download your artifacts](#artifacts-cli-step3 "#artifacts-cli-step3")
 
-### Step 1: Get your Amazon Resource Names
-
-(ARN)
+### Step 1: Get your Amazon Resource Names (ARN)
 
 You can list your artifacts by run, job, test suite, or test. You need the
 corresponding ARN. This table shows the input ARN for each of the AWS CLI list

@@ -1,6 +1,4 @@
-# Supported software within custom test
-
-environments
+# Supported software within custom test environments
 
 Device Farm uses host machines that are pre-installed with many of the necessary software libraries to
 run test frameworks supported on our service, providing a ready testing environment on launch.
@@ -11,9 +9,7 @@ For any other required software, you can modify the test spec file to install fr
 package, download from the internet, or access private sources within your VPC (see [VPC
 ENI](vpc-eni.md "vpc-eni.md") for more information). For more information, see [Test spec examples](custom-test-environment-test-spec.md#custom-test-environment-test-spec-example "custom-test-environment-test-spec.md#custom-test-environment-test-spec-example").
 
-##
-
-Pre-configured software
+## Pre-configured software
 
 In order to facilitate device testing on each platform, the following tooling is provided on
 the test host:
@@ -24,9 +20,7 @@ the test host:
 | Android SDK Platform-Tools<br>(includes `adb`) | Android            |
 | Xcode                                          | iOS                |
 
-##
-
-Selectable software
+## Selectable software
 
 In addition to the pre-configured software on the host, Device Farm offers a way to
 select certain versions of supported software via the `devicefarm-cli` tooling.

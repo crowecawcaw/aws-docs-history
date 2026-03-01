@@ -1,6 +1,4 @@
-# Using Webhooks and other APIs after your tests run
-
-in Device Farm
+# Using Webhooks and other APIs after your tests run in Device Farm
 
 You can have Device Farm call a webhook after every test suite finishes using **curl**. The process
 to do this varies with the destination and formatting. For your specific webhook, see the documentation for that

@@ -13,12 +13,9 @@ Policies on the JSON Tab](../../../IAM/latest/UserGuide/access_policies_create.m
 ###### Topics
 
 - [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Allow users to view their
-  own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Accessing one Device Farm desktop
-  browser testing project](#security_iam_id-based-policy-examples-access-one-project "#security_iam_id-based-policy-examples-access-one-project")
-- [Viewing Device Farm desktop browser
-  testing projects based on tags](#security_iam_id-based-policy-examples-view-project-tags "#security_iam_id-based-policy-examples-view-project-tags")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Accessing one Device Farm desktop browser testing project](#security_iam_id-based-policy-examples-access-one-project "#security_iam_id-based-policy-examples-access-one-project")
+- [Viewing Device Farm desktop browser testing projects based on tags](#security_iam_id-based-policy-examples-view-project-tags "#security_iam_id-based-policy-examples-view-project-tags")
 
 ## Policy best practices
 
@@ -53,9 +50,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Allow users to view their
-
-own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -95,9 +90,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Accessing one Device Farm desktop
-
-browser testing project
+## Accessing one Device Farm desktop browser testing project
 
 In this example, you want to grant an IAM user in your AWS account access to one of your Device Farm
 destktop browser testing projects,
@@ -115,9 +108,7 @@ CI system is unlikely to need more permissions than `devicefarm:ScheduleRun` or
 CI runner to start a test of a new Device Farm native app test by creating an upload and using it to schedule
 a test run:
 
-## Viewing Device Farm desktop browser
-
-testing projects based on tags
+## Viewing Device Farm desktop browser testing projects based on tags
 
 You can use conditions in your identity-based policy to control access to Device Farm resources based on
 tags. This example shows how you might create a policy that allows the viewing of projects and sessions.

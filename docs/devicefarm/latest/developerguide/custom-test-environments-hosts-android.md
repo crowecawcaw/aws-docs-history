@@ -21,5 +21,4 @@ The Amazon Linux 2 host provides several advantages:
 
 ###### Topics
 
-- [Supported IP ranges for the Amazon Linux 2 test environment in
-  Device Farm](amazon-linux-2-ip-ranges.md "amazon-linux-2-ip-ranges.md")
+- [Supported IP ranges for the Amazon Linux 2 test environment in Device Farm](amazon-linux-2-ip-ranges.md "amazon-linux-2-ip-ranges.md")

@@ -8,11 +8,7 @@ For more information about custom test environments in Device Farm, see [Custom 
 
 ###### Topics
 
-- [Setting a device PIN when running tests in
-  Device Farm](custom-test-environments-extending-set-pin.md "custom-test-environments-extending-set-pin.md")
-- [Speeding up Appium-based tests in Device Farm through desired
-  capabilities](custom-test-environments-extending-speed.md "custom-test-environments-extending-speed.md")
-- [Using Webhooks and other APIs after your tests run
-  in Device Farm](custom-test-environments-extending-webhooks.md "custom-test-environments-extending-webhooks.md")
-- [Adding extra files to your test package in
-  Device Farm](custom-test-environments-extending-files.md "custom-test-environments-extending-files.md")
+- [Setting a device PIN when running tests in Device Farm](custom-test-environments-extending-set-pin.md "custom-test-environments-extending-set-pin.md")
+- [Speeding up Appium-based tests in Device Farm through desired capabilities](custom-test-environments-extending-speed.md "custom-test-environments-extending-speed.md")
+- [Using Webhooks and other APIs after your tests run in Device Farm](custom-test-environments-extending-webhooks.md "custom-test-environments-extending-webhooks.md")
+- [Adding extra files to your test package in Device Farm](custom-test-environments-extending-files.md "custom-test-environments-extending-files.md")

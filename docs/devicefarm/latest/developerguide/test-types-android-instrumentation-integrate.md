@@ -1,15 +1,11 @@
-# Integrating Android Instrumentation with
-
-Device Farm
+# Integrating Android Instrumentation with Device Farm
 
 ###### Note
 
 Use the following instructions to integrate Android instrumentation tests with AWS Device Farm. For more
 information about using instrumentation tests in Device Farm, see [Instrumentation for Android and AWS Device Farm](test-types-android-instrumentation.md "test-types-android-instrumentation.md").
 
-## Upload your Android instrumentation
-
-tests
+## Upload your Android instrumentation tests
 
 Use the Device Farm console to upload your tests.
 
@@ -27,9 +23,7 @@ select **Upload own app**. 6. Browse to and choose your Android app file. The fi
 section, choose **Instrumentation**, and then select **Choose
 File**. 8. Browse to and choose the .apk file that contains your tests. 9. Complete the remaining instructions to select devices and start the run.
 
-## (Optional) Take screenshots in Android
-
-instrumentation tests
+## (Optional) Take screenshots in Android instrumentation tests
 
 You can take screenshots as part of your Android Instrumentation tests.
 

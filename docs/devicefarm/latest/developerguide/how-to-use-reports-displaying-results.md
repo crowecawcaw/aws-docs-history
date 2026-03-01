@@ -7,13 +7,10 @@ you quickly assess the state of your completed test run. For more information ab
 
 ###### Topics
 
-- [Statuses of an individual
-  test](#how-to-use-reports-displaying-results-individual "#how-to-use-reports-displaying-results-individual")
+- [Statuses of an individual test](#how-to-use-reports-displaying-results-individual "#how-to-use-reports-displaying-results-individual")
 - [Statuses for multiple tests](#how-to-use-reports-displaying-results-summary "#how-to-use-reports-displaying-results-summary")
 
-## Statuses of an individual
-
-test
+## Statuses of an individual test
 
 For reports that describe an individual test, Device Farm displays an icon representing the test result
 status:

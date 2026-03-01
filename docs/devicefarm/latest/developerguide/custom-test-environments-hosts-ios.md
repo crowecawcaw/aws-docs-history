@@ -1,6 +1,4 @@
-#
-
-Test environment for iOS devices
+# Test environment for iOS devices
 
 Device Farm utilizes Amazon-managed macOS instances (hosts) that dynamically connect to the iOS device
 during the test run. Each host is pre-configured with software that enables device testing on
@@ -22,8 +20,7 @@ macOS version and tooling (such as Xcode) to be available across each iOS device
   We now have the `devicefarm-cli` software selection system on both iOS and Android
   test hosts, enabling you to select your preferred version of our supported dependencies. For
   supported dependencies (such as Java, Python, Node.js, Ruby, and Appium), versions will be
-  selectable via the test spec. For an idea of how this feature works, please see the topic on [Supported software within custom test
-  environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md").
+  selectable via the test spec. For an idea of how this feature works, please see the topic on [Supported software within custom test environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md").
 
 ###### Important
 
@@ -42,14 +39,10 @@ with by the iOS device version.
 | macOS Ventura (version 13)  | arm64           | iOS 17              |
 | macOS Monterey (version 12) | x86_64          | iOS 16 and below    |
 
-In order to select the newer test hosts, see the topic regarding [Migrating your custom test environments to the new iOS test
-hosts](ios-host-migration.md "ios-host-migration.md").
+In order to select the newer test hosts, see the topic regarding [Migrating your custom test environments to the new iOS test hosts](ios-host-migration.md "ios-host-migration.md").
 
-##
-
-Supported software for iOS devices
+## Supported software for iOS devices
 
 In order to support iOS device testing, Device Farm test hosts for iOS devices come
 pre-configured with Xcode and its associated command line tooling. For other available
-software, please review the topic regarding [Supported software within custom test
-environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md").
+software, please review the topic regarding [Supported software within custom test environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md").

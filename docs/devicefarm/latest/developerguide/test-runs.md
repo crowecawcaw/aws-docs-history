@@ -46,8 +46,7 @@ You can set a value for how long a test run should execute before you stop each 
 from running a test. For example, if your tests take 20 minutes per device to complete, you
 should choose a timeout of 30 minutes per device.
 
-For more information, see [Setting the execution timeout for test runs in
-AWS Device Farm](how-to-set-default-timeout-for-test-runs.md "how-to-set-default-timeout-for-test-runs.md").
+For more information, see [Setting the execution timeout for test runs in AWS Device Farm](how-to-set-default-timeout-for-test-runs.md "how-to-set-default-timeout-for-test-runs.md").
 
 ## Ads in runs
 

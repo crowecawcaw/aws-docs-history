@@ -1,6 +1,4 @@
-# Migrating your custom test environments to the new iOS test
-
-hosts
+# Migrating your custom test environments to the new iOS test hosts
 
 To migrate existing tests from the legacy host to the new macOS test host, you will need to
 develop new test spec files based on your pre-existing ones.
@@ -12,21 +10,15 @@ snippets your existing code.
 
 ###### Topics
 
-- [Tutorial: Migrating iOS test spec files
-  with the console](#ios-host-migration-console-tutorial "#ios-host-migration-console-tutorial")
-- [Differences between the new and legacy test
-  hosts](#ios-host-migration-differences "#ios-host-migration-differences")
+- [Tutorial: Migrating iOS test spec files with the console](#ios-host-migration-console-tutorial "#ios-host-migration-console-tutorial")
+- [Differences between the new and legacy test hosts](#ios-host-migration-differences "#ios-host-migration-differences")
 
-## Tutorial: Migrating iOS test spec files
-
-with the console
+## Tutorial: Migrating iOS test spec files with the console
 
 In this example, the Device Farm console will be used to onboard an existing iOS device test spec to
 use the new test host.
 
-###
-
-Step 1: Creating a new test spec files with the console
+### Step 1: Creating a new test spec files with the console
 
 1. Sign in to the [AWS Device Farm console](https://console.aws.amazon.com/devicefarm "https://console.aws.amazon.com/devicefarm").
 2. Navigate to the Device Farm project containing your automation tests.
@@ -61,9 +53,7 @@ Step 1: Creating a new test spec files with the console
 For an example of a test spec file you can use as a reference, see the example provided
 in [Test spec examples](custom-test-environment-test-spec.md#custom-test-environment-test-spec-example "custom-test-environment-test-spec.md#custom-test-environment-test-spec-example").
 
-### Step 2: Selecting software
-
-pre-installed software
+### Step 2: Selecting software pre-installed software
 
 In the new test host, pre-installed software versions are selected using a new
 standardized version management tool called `devicefarm-cli`. This tooling is now
@@ -76,12 +66,9 @@ environment:
 - devicefarm-cli use java 17
 ```
 
-For more information on the software supported available, please review: [Supported software within custom test
-environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md").
+For more information on the software supported available, please review: [Supported software within custom test environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md").
 
-###
-
-Step 3: Using Appium and its dependencies via the software selection tooling
+### Step 3: Using Appium and its dependencies via the software selection tooling
 
 The new test host only supports Appium 2.x and above. Please explicitly select the
 Appium version using the `devicefarm-cli`, while removing legacy tooling such as `avm`. For example:
@@ -101,12 +88,9 @@ compatible version of the XCUITest driver for iOS.
 Additionally, you will need to update your test spec to use `DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH_V9` instead of `DEVICEFARM_WDA_DERIVED_DATA_PATH`. The new environment variable points to a pre-built
 version of WebDriverAgent 9.x, which is the latest supported version for Appium 2 tests.
 
-For more information, review [Selecting a WebDriverAgent version for iOS tests](test-types-appium.md#test-types-appium-select-wda "test-types-appium.md#test-types-appium-select-wda") and [Environment variables for Appium
-tests](custom-test-environment-variables.md#custom-test-environment-variables-appium "custom-test-environment-variables.md#custom-test-environment-variables-appium").
+For more information, review [Selecting a WebDriverAgent version for iOS tests](test-types-appium.md#test-types-appium-select-wda "test-types-appium.md#test-types-appium-select-wda") and [Environment variables for Appium tests](custom-test-environment-variables.md#custom-test-environment-variables-appium "custom-test-environment-variables.md#custom-test-environment-variables-appium").
 
-## Differences between the new and legacy test
-
-hosts
+## Differences between the new and legacy test hosts
 
 When you're editing your test spec file to use the new iOS test host and transitioning your
 tests from the legacy test host, be aware of these key environment differences:
@@ -145,8 +129,7 @@ Moreover, software selection tools like `nvm`, `pyenv`, `avm`, and `rvm` have be
   spec file as absolute paths will most likely not work as expected in the new test host,
   and they're generally not recommended for test spec file use. We recommend that you use
   relative paths and environment variables for all test spec file code. For more
-  information, review the topic on [Best practices for custom test
-  environment execution](custom-test-environments-best-practices.md "custom-test-environments-best-practices.md").
+  information, review the topic on [Best practices for custom test environment execution](custom-test-environments-best-practices.md "custom-test-environments-best-practices.md").
 - Operating system version and architecture:
   The legacy
   test hosts were using a variety of macOS versions and CPU architectures based on the
@@ -155,8 +138,7 @@ Moreover, software selection tools like `nvm`, `pyenv`, `avm`, and `rvm` have be
   version, review [Legacy iOS test host](custom-test-environments-hosts-ios.md#legacy-ios-host "custom-test-environments-hosts-ios.md#legacy-ios-host").
 - For Appium users, the way to select the WebDriverAgent has
   changed to a use environment variable prefix `DEVICEFARM_APPIUM_WDA_DERIVED_DATA_PATH_V` instead of the old `DEVICEFARM_WDA_DERIVED_DATA_PATH_V` prefix. For more information on the updated
-  variable, review [Environment variables for Appium
-  tests](custom-test-environment-variables.md#custom-test-environment-variables-appium "custom-test-environment-variables.md#custom-test-environment-variables-appium").
+  variable, review [Environment variables for Appium tests](custom-test-environment-variables.md#custom-test-environment-variables-appium "custom-test-environment-variables.md#custom-test-environment-variables-appium").
 - For Appium Java users, the new test host does not contain
   any pre-installed JAR files in its class path, whereas the previous host contained one for
   the TestNG framework (via an environment variable `$DEVICEFARM_TESTNG_JAR`). We

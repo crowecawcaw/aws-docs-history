@@ -16,8 +16,7 @@ This section contains a series of procedures to set up and use the Device Farm G
 
 - [Dependencies](#aws-device-farm-gradle-plugin-dependencies "#aws-device-farm-gradle-plugin-dependencies")
 - [Step 1: Building the AWS Device Farm Gradle plugin](#aws-device-farm-gradle-plugin-building "#aws-device-farm-gradle-plugin-building")
-- [Step 2: Setting up the AWS Device Farm Gradle
-  plugin](#aws-device-farm-gradle-plugin-setting-up "#aws-device-farm-gradle-plugin-setting-up")
+- [Step 2: Setting up the AWS Device Farm Gradle plugin](#aws-device-farm-gradle-plugin-setting-up "#aws-device-farm-gradle-plugin-setting-up")
 - [Step 3: Generating an IAM user in the Device Farm Gradle plugin](#aws-device-farm-gradle-plugin-generating-iam-user "#aws-device-farm-gradle-plugin-generating-iam-user")
 - [Step 4: Configuring test types](#aws-device-farm-gradle-plugin-configuring-test-types "#aws-device-farm-gradle-plugin-configuring-test-types")
 
@@ -45,8 +44,7 @@ information, see [Gradle](https://gradle.org "https://gradle.org").
 
 Building the plugin is optional. The plugin is published through Maven
 Central. If you wish to allow Gradle to download the plugin directly, skip this step
-and jump to [Step 2: Setting up the AWS Device Farm Gradle
-plugin](#aws-device-farm-gradle-plugin-setting-up "#aws-device-farm-gradle-plugin-setting-up").
+and jump to [Step 2: Setting up the AWS Device Farm Gradle plugin](#aws-device-farm-gradle-plugin-setting-up "#aws-device-farm-gradle-plugin-setting-up").
 
 ###### To build the plugin
 
@@ -56,12 +54,9 @@ plugin](#aws-device-farm-gradle-plugin-setting-up "#aws-device-farm-gradle-plugi
 
 The plugin is installed to your local maven repository.
 
-Next step: [Step 2: Setting up the AWS Device Farm Gradle
-plugin](#aws-device-farm-gradle-plugin-setting-up "#aws-device-farm-gradle-plugin-setting-up")
+Next step: [Step 2: Setting up the AWS Device Farm Gradle plugin](#aws-device-farm-gradle-plugin-setting-up "#aws-device-farm-gradle-plugin-setting-up")
 
-## Step 2: Setting up the AWS Device Farm Gradle
-
-plugin
+## Step 2: Setting up the AWS Device Farm Gradle plugin
 
 If you haven't done so already, clone the repository and install the plugin using the procedure here: [Building the Device Farm Gradle plugin](#aws-device-farm-gradle-plugin-building "#aws-device-farm-gradle-plugin-building").
 

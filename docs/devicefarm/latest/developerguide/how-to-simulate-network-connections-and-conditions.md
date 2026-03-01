@@ -1,6 +1,4 @@
-# Simulating network connections and conditions
-
-for your AWS Device Farm runs
+# Simulating network connections and conditions for your AWS Device Farm runs
 
 You can use network shaping to simulate network connections and conditions while testing
 your Android, iOS and web apps in Device Farm. For example, you can simulate lossy or intermittent
@@ -14,14 +12,11 @@ outbound traffic.
 
 ###### Topics
 
-- [Set up network
-  shaping when scheduling a test run](#network-shaping-how-to-choose-a-curated-profile-when-scheduling-a-test-run "#network-shaping-how-to-choose-a-curated-profile-when-scheduling-a-test-run")
+- [Set up network shaping when scheduling a test run](#network-shaping-how-to-choose-a-curated-profile-when-scheduling-a-test-run "#network-shaping-how-to-choose-a-curated-profile-when-scheduling-a-test-run")
 - [Create a network profile](#network-shaping-how-to-create-a-network-profile "#network-shaping-how-to-create-a-network-profile")
 - [Change network conditions during your test](#change-network-conditions-during-test "#change-network-conditions-during-test")
 
-## Set up network
-
-shaping when scheduling a test run
+## Set up network shaping when scheduling a test run
 
 When you schedule a run, you can choose from any of the Device Farm-curated profiles, or you can
 create and manage your own.

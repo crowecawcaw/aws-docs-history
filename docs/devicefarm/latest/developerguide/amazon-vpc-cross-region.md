@@ -2,8 +2,7 @@
 
 Device Farm services are located only in the US West (Oregon) (`us-west-2`) Region. You can use
 Amazon Virtual Private Cloud (Amazon VPC) to reach a service in your Amazon Virtual Private Cloud in another AWS Region using Device Farm. If Device Farm and your
-service are in the same Region, see [Using Amazon VPC endpoint services with Device Farm - Legacy
-(not recommended)](amazon-vpc-endpoints.md "amazon-vpc-endpoints.md").
+service are in the same Region, see [Using Amazon VPC endpoint services with Device Farm - Legacy (not recommended)](amazon-vpc-endpoints.md "amazon-vpc-endpoints.md").
 
 There are two ways to access your private services located in a different Region. If you
 have services located in one other Region that's not `us-west-2`, you can use VPC
@@ -14,9 +13,7 @@ will allow you to access those services with a simpler network configuration.
 For more information, see [VPC peering scenarios](../../../vpc/latest/peering/peering-scenarios.md "../../../vpc/latest/peering/peering-scenarios.md") in the
 _Amazon VPC Peering Guide_.
 
-## VPC peering overview for VPCs in
-
-different Regions in AWS Device Farm
+## VPC peering overview for VPCs in different Regions in AWS Device Farm
 
 You can peer any two VPCs in different Regions as long as they have distinct, non-overlapping CIDR blocks.
 This ensures that all of the private IP addresses are unique, and it allows all of the resources in the VPCs
@@ -49,26 +46,17 @@ these components.
 
 ###### Topics
 
-- [Prerequisites for using
-  Amazon VPC in AWS Device Farm](#device-farm-vpce-configuration-cross-region-prerequisites "#device-farm-vpce-configuration-cross-region-prerequisites")
-- [Step 1: Setting up a peering connection
-  between VPC-1 and VPC-2](#device-farm-vpce-configuration-cross-region-step1 "#device-farm-vpce-configuration-cross-region-step1")
-- [Step 2: Updating the route tables in
-  VPC-1 and VPC-2](#device-farm-vpce-configuration-cross-region-step2 "#device-farm-vpce-configuration-cross-region-step2")
+- [Prerequisites for using Amazon VPC in AWS Device Farm](#device-farm-vpce-configuration-cross-region-prerequisites "#device-farm-vpce-configuration-cross-region-prerequisites")
+- [Step 1: Setting up a peering connection between VPC-1 and VPC-2](#device-farm-vpce-configuration-cross-region-step1 "#device-farm-vpce-configuration-cross-region-step1")
+- [Step 2: Updating the route tables in VPC-1 and VPC-2](#device-farm-vpce-configuration-cross-region-step2 "#device-farm-vpce-configuration-cross-region-step2")
 - [Step 3: Creating a target group](#device-farm-vpce-configuration-cross-region-step3 "#device-farm-vpce-configuration-cross-region-step3")
 - [Step 4: Creating a Network Load Balancer](#device-farm-vpce-configuration-cross-region-step4 "#device-farm-vpce-configuration-cross-region-step4")
-- [Step 5: Creating a VPC endpoint service
-  to connect your VPC to Device Farm](#device-farm-vpce-configuration-cross-region-step5 "#device-farm-vpce-configuration-cross-region-step5")
-- [Step 6: Create a VPC endpoint
-  configuration between your VPC and Device Farm](#device-farm-vpce-configuration-cross-region-step6 "#device-farm-vpce-configuration-cross-region-step6")
-- [Step 7: Creating a test run to use the
-  VPC endpoint configuration](#device-farm-vpce-configuration-cross-region-step7 "#device-farm-vpce-configuration-cross-region-step7")
-- [Creating a scalable network
-  with Transit Gateway](#device-farm-vpce-configuration-cross-region-transit-gateways "#device-farm-vpce-configuration-cross-region-transit-gateways")
+- [Step 5: Creating a VPC endpoint service to connect your VPC to Device Farm](#device-farm-vpce-configuration-cross-region-step5 "#device-farm-vpce-configuration-cross-region-step5")
+- [Step 6: Create a VPC endpoint configuration between your VPC and Device Farm](#device-farm-vpce-configuration-cross-region-step6 "#device-farm-vpce-configuration-cross-region-step6")
+- [Step 7: Creating a test run to use the VPC endpoint configuration](#device-farm-vpce-configuration-cross-region-step7 "#device-farm-vpce-configuration-cross-region-step7")
+- [Creating a scalable network with Transit Gateway](#device-farm-vpce-configuration-cross-region-transit-gateways "#device-farm-vpce-configuration-cross-region-transit-gateways")
 
-## Prerequisites for using
-
-Amazon VPC in AWS Device Farm
+## Prerequisites for using Amazon VPC in AWS Device Farm
 
 This example requires the following:
 
@@ -81,9 +69,7 @@ This example requires the following:
 For more information on creating VPCs and configuring subnets, see [Working with
 VPCs and subnets](../../../vpc/latest/userguide/working-with-vpcs.md "../../../vpc/latest/userguide/working-with-vpcs.md") in the _Amazon VPC Peering Guide_.
 
-## Step 1: Setting up a peering connection
-
-between VPC-1 and VPC-2
+## Step 1: Setting up a peering connection between VPC-1 and VPC-2
 
 Establish a peering connection between the two VPCs containing non-overlapping CIDR blocks. To do this,
 see [Create
@@ -117,9 +103,7 @@ Ensure that you consult your VPC peering connection quotas when establishing any
 new peering connections. For more information, please see [Amazon VPC
 quotas](../../../vpc/latest/userguide/amazon-vpc-limits.md#vpc-limits-peering "../../../vpc/latest/userguide/amazon-vpc-limits.md#vpc-limits-peering") in the _Amazon VPC Peering Guide_.
 
-## Step 2: Updating the route tables in
-
-VPC-1 and VPC-2
+## Step 2: Updating the route tables in VPC-1 and VPC-2
 
 After setting up a peering connection, you must establish a destination route between the two VPCs to
 transfer data between them. To establish this route, you can manually update the route table of
@@ -274,9 +258,7 @@ configuration:
 
 `my-target-group`
 
-## Step 5: Creating a VPC endpoint service
-
-to connect your VPC to Device Farm
+## Step 5: Creating a VPC endpoint service to connect your VPC to Device Farm
 
 You can use the Network Load Balancer to create a VPC endpoint service. Through this VPC endpoint
 service, Device Farm can connect to your service in _VPC-2_ without any
@@ -286,9 +268,7 @@ connection.
 To do this, see [Creating an Amazon VPC endpoint
 service](amazon-vpc-endpoints.md#device-farm-vpce-configuration-vpc-endpoint "amazon-vpc-endpoints.md#device-farm-vpce-configuration-vpc-endpoint").
 
-## Step 6: Create a VPC endpoint
-
-configuration between your VPC and Device Farm
+## Step 6: Create a VPC endpoint configuration between your VPC and Device Farm
 
 Now you can establish a private connection between your VPC and Device Farm. You can use Device Farm to test private
 services without exposing them through the public internet. To do this, see [Creating a VPC endpoint configuration in
@@ -309,16 +289,12 @@ configuration:
 
 `devicefarm.com`
 
-## Step 7: Creating a test run to use the
-
-VPC endpoint configuration
+## Step 7: Creating a test run to use the VPC endpoint configuration
 
 You can create test runs that use the VPC endpoint configuration described in [step 6](#device-farm-vpce-configuration-cross-region-step6 "#device-farm-vpce-configuration-cross-region-step6"). For more
 information, see [Creating a test run in Device Farm](how-to-create-test-run.md "how-to-create-test-run.md") or [Creating a session](how-to-create-session.md "how-to-create-session.md").
 
-## Creating a scalable network
-
-with Transit Gateway
+## Creating a scalable network with Transit Gateway
 
 To create a scalable network using more than two VPCs, you can use Transit Gateway to act as a
 network transit hub to interconnect your VPCs and on-premises networks. To configure a

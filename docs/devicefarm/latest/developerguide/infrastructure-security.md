@@ -16,9 +16,7 @@ following:
   Additionally, requests must be signed by using an access key ID and a secret access key that is associated with
   an IAM principal. Or you can use the [AWS Security Token Service](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md") (AWS STS) to generate temporary security credentials to sign requests.
 
-## Infrastructure security for physical device
-
-testing
+## Infrastructure security for physical device testing
 
 Devices are physically separated during physical device testing. Network isolation prevents cross-device
 communication over wireless networks.
@@ -35,9 +33,7 @@ isolates these devices from other devices and keeps them on a separate network.
 On privately managed devices, tests can be configured to use an Amazon VPC endpoint to secure connections in and
 out of your AWS account.
 
-## Infrastructure security for desktop browser
-
-testing
+## Infrastructure security for desktop browser testing
 
 When you use the desktop browser testing feature, all test sessions are separated from one another. Selenium
 instances cannot cross-communicate without an intermediate third party, external to AWS.

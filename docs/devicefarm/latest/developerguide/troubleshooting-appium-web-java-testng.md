@@ -1,6 +1,4 @@
-# Troubleshooting Appium Java TestNG web applications in
-
-AWS Device Farm
+# Troubleshooting Appium Java TestNG web applications in AWS Device Farm
 
 The following topic lists error messages that occur during the upload of Appium Java TestNG Web application
 tests and recommends workarounds to resolve each error.

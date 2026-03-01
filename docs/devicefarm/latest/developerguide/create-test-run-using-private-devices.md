@@ -1,6 +1,4 @@
-# Creating a test run or starting a remote access
-
-session in AWS Device Farm
+# Creating a test run or starting a remote access session in AWS Device Farm
 
 In AWS Device Farm, after you set up a private device fleet, you can create test runs or start remote access
 sessions with one or more private devices in your fleet. For more information about private devices, see
@@ -20,8 +18,7 @@ sessions with one or more private devices in your fleet. For more information ab
      **Create a new run**. The wizard guides you through the steps to create
      the run. For the **Select devices** step, you can edit an existing device
      pool or create a new device pool that includes only those private devices that the Device Farm
-     team set up and associated with your AWS account. For more information, see [Creating a private device pool with private devices
-     (console)](selecting-private-devices.md#create-new-device-pool "selecting-private-devices.md#create-new-device-pool").
+     team set up and associated with your AWS account. For more information, see [Creating a private device pool with private devices (console)](selecting-private-devices.md#create-new-device-pool "selecting-private-devices.md#create-new-device-pool").
    - To start a remote access session, choose **Remote access**, and then
      choose **Start a new session**. On the **Choose a device**
      page, select **Private device instances only** to limit the list to only

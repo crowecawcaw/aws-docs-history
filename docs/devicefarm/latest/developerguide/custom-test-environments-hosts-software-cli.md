@@ -1,6 +1,4 @@
-#
-
-Using the devicefarm-cli tool in custom test environments
+# Using the devicefarm-cli tool in custom test environments
 
 The test host uses a standardized version management tool called `devicefarm-cli` to select software versions. This tool is separate from the AWS CLI and
 only available on the Device Farm test host. With `devicefarm-cli`, you can switch to any
@@ -56,5 +54,4 @@ Note that when you select a software version, `devicefarm-cli` also switches
 the supporting tools for those languages, such as `pip` for Python and `npm`
 for NodeJS.
 
-For more information about the preinstalled software on the test host, see [Supported software within custom test
-environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md").
+For more information about the preinstalled software on the test host, see [Supported software within custom test environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md").

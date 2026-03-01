@@ -1,6 +1,4 @@
-# Setting the execution timeout for test runs in
-
-AWS Device Farm
+# Setting the execution timeout for test runs in AWS Device Farm
 
 You can set a value for how long a test run should execute before you stop each device from running a test. The
 default execution timeout is 150 minutes per device, but you can set a value as low as 5 minutes. You can use the

@@ -3,9 +3,7 @@
 Use the following information to help you diagnose and fix common issues that you might encounter when
 working with Device Farm and IAM.
 
-## I am not authorized to perform an action in
-
-Device Farm
+## I am not authorized to perform an action in Device Farm
 
 If you receive an error in the AWS Management Console that says you're not authorized to perform an action, you
 must contact your administrator for assistance. Your administrator is the person who provided you with
@@ -62,9 +60,7 @@ is available only at the time you create it. If you lose your secret access key,
 maximum of two access keys. If you already have two, you must delete one key pair before creating a new one. To view instructions, see [Managing access keys](../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey "../../../IAM/latest/UserGuide/id_credentials_access-keys.md#Using_CreateAccessKey") in the
 _IAM User Guide_.
 
-## I'm an administrator and want to allow others
-
-to access Device Farm
+## I'm an administrator and want to allow others to access Device Farm
 
 To allow others to access Device Farm, you must grant permission to the people or applications that need access. If you are using AWS IAM Identity Center
 to manage people and applications, you assign permission sets to users or groups to define their level of access. Permission sets automatically create
@@ -75,9 +71,7 @@ a policy to the entity that grants them the correct permissions in Device Farm. 
 or application developer. They will use those credentials to access AWS. To learn more about creating IAM users, groups, policies, and permissions,
 see [IAM Identities](../../../IAM/latest/UserGuide/id.md "../../../IAM/latest/UserGuide/id.md") and [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_.
 
-## I want to allow people outside of my
-
-AWS account to access my Device Farm resources
+## I want to allow people outside of my AWS account to access my Device Farm resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

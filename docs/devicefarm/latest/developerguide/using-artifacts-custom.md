@@ -1,6 +1,4 @@
-# Downloading artifacts in a custom test
-
-environment
+# Downloading artifacts in a custom test environment
 
 In a custom test environment, Device Farm gathers artifacts such as custom reports, log
 files, and images. These artifacts are available for each device in the test

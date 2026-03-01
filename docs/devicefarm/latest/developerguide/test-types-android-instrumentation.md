@@ -12,11 +12,9 @@ For more information about testing in Device Farm, see [Test frameworks and buil
 ###### Topics
 
 - [What is instrumentation?](#test-types-android-instrumentation-what-is "#test-types-android-instrumentation-what-is")
-- [Considerations for Android instrumentation
-  tests](#test-types-android-instrumentation-settings "#test-types-android-instrumentation-settings")
+- [Considerations for Android instrumentation tests](#test-types-android-instrumentation-settings "#test-types-android-instrumentation-settings")
 - [Standard mode test parsing](#test-types-android-standard-mode-test-parse "#test-types-android-standard-mode-test-parse")
-- [Integrating Android Instrumentation with
-  Device Farm](test-types-android-instrumentation-integrate.md "test-types-android-instrumentation-integrate.md")
+- [Integrating Android Instrumentation with Device Farm](test-types-android-instrumentation-integrate.md "test-types-android-instrumentation-integrate.md")
 
 ## What is instrumentation?
 
@@ -25,9 +23,7 @@ run through the lifecycle of a component step by step, as if you were debugging 
 information, see [Instrumented tests](https://developer.android.com/studio/test/test-in-android-studio#test_types_and_locations "https://developer.android.com/studio/test/test-in-android-studio#test_types_and_locations") in the _Test types and locations_ section
 of the _Android Developer Tools_ documentation.
 
-## Considerations for Android instrumentation
-
-tests
+## Considerations for Android instrumentation tests
 
 When using Android instrumentation, consider the following recommendations and notes.
 

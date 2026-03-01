@@ -1,6 +1,4 @@
-# Using Amazon VPC endpoint services with Device Farm - Legacy
-
-(not recommended)
+# Using Amazon VPC endpoint services with Device Farm - Legacy (not recommended)
 
 ###### Warning
 
@@ -47,9 +45,7 @@ After you create a VPC endpoint service in Amazon VPC, you can use the Device Fa
 a VPC endpoint configuration in Device Farm. This topic shows you how to create the Amazon VPC
 connection and the VPC endpoint configuration in Device Farm.
 
-## Before you
-
-begin
+## Before you begin
 
 The following information is for Amazon VPC users in the US West (Oregon)
 (`us-west-2`) Region, with a subnet in each of the following Availability
@@ -195,9 +191,7 @@ you enable cross-zone load balancing. Otherwise, the load
 balancer might not work as expected. 11. Review your load balancer configuration, then choose
 **Create**.
 
-## Step 2: Creating an Amazon VPC
-
-endpoint service
+## Step 2: Creating an Amazon VPC endpoint service
 
 After creating the Network Load Balancer, use the Amazon VPC console to create an endpoint service in your
 VPC.
@@ -238,9 +232,7 @@ VPC.
 
 Your VPC endpoint service is now ready to use with Device Farm.
 
-## Step 3: Creating a
-
-VPC endpoint configuration in Device Farm
+## Step 3: Creating a VPC endpoint configuration in Device Farm
 
 After you create an endpoint service in Amazon VPC, you can create an Amazon VPC endpoint
 configuration in Device Farm.
@@ -267,9 +259,7 @@ Amazon Route 53 and is available exclusively for you in your Device Farm sessio
 
 ![The Create a New VPC Configuration page with sample data](images/aws-device-farm-create-vpce-configuration.png)
 
-## Step 4:
-
-Creating a test run
+## Step 4: Creating a test run
 
 After you save the VPC endpoint configuration, you can use the configuration to create
 test runs or remotely access sessions. For more information, see [Creating a test run in Device Farm](how-to-create-test-run.md "how-to-create-test-run.md") or [Creating a session](how-to-create-session.md "how-to-create-session.md").

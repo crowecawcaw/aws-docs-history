@@ -121,8 +121,7 @@ You can use the AWS CLI to create a test run.
 - [Step 2: Choose a device pool](#how-to-create-test-run-cli-step2 "#how-to-create-test-run-cli-step2")
 - [Step 3: Upload your application file](#how-to-create-test-run-cli-step3 "#how-to-create-test-run-cli-step3")
 - [Step 4: Upload your test scripts package](#how-to-create-test-run-cli-step4 "#how-to-create-test-run-cli-step4")
-- [Step 5: (Optional) Upload your custom test
-  spec](#how-to-create-test-run-cli-step5 "#how-to-create-test-run-cli-step5")
+- [Step 5: (Optional) Upload your custom test spec](#how-to-create-test-run-cli-step5 "#how-to-create-test-run-cli-step5")
 - [Step 6: Schedule a test run](#how-to-create-test-run-cli-step6 "#how-to-create-test-run-cli-step6")
 
 ### Step 1: Choose a project
@@ -339,9 +338,7 @@ the next, optional step.
 }`
 ```
 
-### Step 5: (Optional) Upload your custom test
-
-spec
+### Step 5: (Optional) Upload your custom test spec
 
 If you're running your tests in a standard test environment, skip this
 step.
@@ -564,8 +561,7 @@ You need this information to call the [`ScheduleRun`](../APIReference/API_Schedu
 ###### Note
 
 If you're running tests in a custom test environment, you also need your test spec upload ARN. For
-more information, see [Step 5: (Optional) Upload your custom test
-spec](#how-to-create-test-run-cli-step5 "#how-to-create-test-run-cli-step5") and [`CreateUpload`](../APIReference/API_CreateUpload.md "../APIReference/API_CreateUpload.md").
+more information, see [Step 5: (Optional) Upload your custom test spec](#how-to-create-test-run-cli-step5 "#how-to-create-test-run-cli-step5") and [`CreateUpload`](../APIReference/API_CreateUpload.md "../APIReference/API_CreateUpload.md").
 
 For information about using the Device Farm API, see [Automating Device Farm](api-ref.md "api-ref.md").
 

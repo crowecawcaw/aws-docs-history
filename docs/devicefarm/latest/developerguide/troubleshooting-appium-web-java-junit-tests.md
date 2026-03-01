@@ -1,6 +1,4 @@
-# Troubleshooting Appium Java JUnit web application
-
-tests in AWS Device Farm
+# Troubleshooting Appium Java JUnit web application tests in AWS Device Farm
 
 The following topic lists error messages that occur during the upload of Appium Java JUnit Web application tests
 and recommends workarounds to resolve each error. For more information on using Appium with Device Farm, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").

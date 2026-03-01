@@ -40,9 +40,7 @@ devices, there is a **Home** button that functions like the home button on an iO
 device. You can also switch between applications running on the device by choosing **Recent
 Apps**.
 
-### Switching between portrait
-
-and landscape mode
+### Switching between portrait and landscape mode
 
 You can also switch between portrait (vertical) and landscape (horizontal) mode for the devices that
 you're using.

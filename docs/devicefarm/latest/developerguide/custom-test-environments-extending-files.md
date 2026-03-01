@@ -1,6 +1,4 @@
-# Adding extra files to your test package in
-
-Device Farm
+# Adding extra files to your test package in Device Farm
 
 You may want to use additional files as a part of your tests either as extra configuration files or additional
 test data. You can add these additional files to your test package before uploading it to

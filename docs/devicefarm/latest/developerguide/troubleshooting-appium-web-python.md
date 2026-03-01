@@ -1,6 +1,4 @@
-# Troubleshooting Appium Python web application tests in
-
-AWS Device Farm
+# Troubleshooting Appium Python web application tests in AWS Device Farm
 
 The following topic lists error messages that occur during the upload of Appium Python Web application tests and
 recommends workarounds to resolve each error.

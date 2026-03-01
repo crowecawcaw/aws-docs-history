@@ -64,8 +64,7 @@ Reflects the Device Farm supported test spec version. The current version number
 _(Optional, string)_
 
 The test host that will be selected for test runs performed on Android devices.
-This field is required for test runs on Android devices. For more information, see [Available test hosts for custom
-test environments](custom-test-environments-hosts.md#custom-test-environments-hosts-available "custom-test-environments-hosts.md#custom-test-environments-hosts-available").
+This field is required for test runs on Android devices. For more information, see [Available test hosts for custom test environments](custom-test-environments-hosts.md#custom-test-environments-hosts-available "custom-test-environments-hosts.md#custom-test-environments-hosts-available").
 
 **`ios_test_host`**
 
@@ -73,8 +72,7 @@ _(Optional, string)_
 
 The test host that will be selected for test runs performed on iOS devices. This
 field is required for test runs on iOS devices with a major version greater than 26. For
-more information, see [Available test hosts for custom
-test environments](custom-test-environments-hosts.md#custom-test-environments-hosts-available "custom-test-environments-hosts.md#custom-test-environments-hosts-available").
+more information, see [Available test hosts for custom test environments](custom-test-environments-hosts.md#custom-test-environments-hosts-available "custom-test-environments-hosts.md#custom-test-environments-hosts-available").
 
 **`phases`**
 
@@ -109,8 +107,7 @@ specified here. Wildcard characters are not supported as part of an artifact loc
 so you must specify a valid path for each location.
 
 These test artifacts are available for each device in your test run. For information
-about retrieving your test artifacts, see [Downloading artifacts in a custom test
-environment](using-artifacts-custom.md "using-artifacts-custom.md").
+about retrieving your test artifacts, see [Downloading artifacts in a custom test environment](using-artifacts-custom.md "using-artifacts-custom.md").
 
 ###### Important
 

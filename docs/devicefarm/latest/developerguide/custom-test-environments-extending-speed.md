@@ -1,6 +1,4 @@
-# Speeding up Appium-based tests in Device Farm through desired
-
-capabilities
+# Speeding up Appium-based tests in Device Farm through desired capabilities
 
 When using Appium, you might find that the standard mode test suite is very slow. This is because Device Farm
 applies the default settings and doesn't make any assumptions about how you want to use the Appium environment.

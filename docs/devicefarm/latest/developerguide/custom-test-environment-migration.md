@@ -1,6 +1,4 @@
-# Migrating tests from a standard to custom
-
-test environment
+# Migrating tests from a standard to custom test environment
 
 You can switch from a standard test execution mode to a custom execution mode in AWS Device Farm. Migration
 primarily involves two different forms of execution:

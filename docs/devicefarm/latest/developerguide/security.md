@@ -25,8 +25,7 @@ _of_ the cloud and security _in_ the cloud:
 - [Data protection in AWS Device Farm](data-protection.md "data-protection.md")
 - [Resilience in AWS Device Farm](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS Device Farm](infrastructure-security.md "infrastructure-security.md")
-- [Configuration vulnerability analysis and management in
-  Device Farm](security-vulnerability-analysis-and-management.md "security-vulnerability-analysis-and-management.md")
+- [Configuration vulnerability analysis and management in Device Farm](security-vulnerability-analysis-and-management.md "security-vulnerability-analysis-and-management.md")
 - [Incident response in Device Farm](security-incident-response.md "security-incident-response.md")
 - [Logging and monitoring in Device Farm](security-logging-monitoring.md "security-logging-monitoring.md")
 - [Security best practices for Device Farm](security-best-practices.md "security-best-practices.md")

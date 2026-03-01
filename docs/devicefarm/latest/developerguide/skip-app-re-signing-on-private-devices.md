@@ -1,6 +1,4 @@
-# Skipping app re-signing on private devices in
-
-AWS Device Farm
+# Skipping app re-signing on private devices in AWS Device Farm
 
 App signing is a process that involves digitally signing an app package (e.g., [APK](https://developer.android.com/studio/publish/app-signing "https://developer.android.com/studio/publish/app-signing"), [IPA](https://support.apple.com/guide/security/app-code-signing-process-sec7c917bf14/web "https://support.apple.com/guide/security/app-code-signing-process-sec7c917bf14/web")) with a private key before it can be installed on a device or published to
 an app store like the Google Play Store or the Apple App Store. To streamline testing by
@@ -56,8 +54,7 @@ Apple requires you to sign an app for testing before you load it onto a device. 
 two options for signing your app.
 
 - If you're using an in-house (Enterprise) developer profile, you can skip to the next section,
-  [Creating a remote access session to trust your iOS
-  app](#create-remote-session-trust-your-app "#create-remote-session-trust-your-app").
+  [Creating a remote access session to trust your iOS app](#create-remote-session-trust-your-app "#create-remote-session-trust-your-app").
 - If you're using an ad hoc iOS app development profile, you must first register the device with
   your Apple developer account, and then update your provisioning profile to include the private
   device. You must then re-sign your app with the provisioning profile that you updated. You can then
@@ -79,9 +76,7 @@ two options for signing your app.
 No other configuration is required. You can now create a remote access session or a test run and select
 **Skip app re-signing**.
 
-## Creating a remote access session to trust your iOS
-
-app
+## Creating a remote access session to trust your iOS app
 
 If you're using an in-house (Enterprise) developer provisioning profile, you must perform a one-time
 procedure to trust the in-house app developer certificate on each of your private devices.

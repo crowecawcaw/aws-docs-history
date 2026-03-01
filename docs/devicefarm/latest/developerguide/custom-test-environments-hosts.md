@@ -8,17 +8,13 @@ concludes.
 
 ###### Topics
 
-- [Available test hosts for custom
-  test environments](#custom-test-environments-hosts-available "#custom-test-environments-hosts-available")
+- [Available test hosts for custom test environments](#custom-test-environments-hosts-available "#custom-test-environments-hosts-available")
 - [Selecting a test host for custom test environments](#test-host-selection "#test-host-selection")
-- [Supported software within custom test
-  environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md")
+- [Supported software within custom test environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md")
 - [Test environment for Android devices](custom-test-environments-hosts-android.md "custom-test-environments-hosts-android.md")
 - [Test environment for iOS devices](custom-test-environments-hosts-ios.md "custom-test-environments-hosts-ios.md")
 
-## Available test hosts for custom
-
-test environments
+## Available test hosts for custom test environments
 
 The test hosts are fully managed by Device Farm. The following table lists the currently available
 and supported Device Farm test hosts for custom test environments.
@@ -60,9 +56,7 @@ phases:
         fi
 ```
 
-##
-
-Selecting a test host for custom test environments
+## Selecting a test host for custom test environments
 
 You can specify the Android and iOS test host in the appropriate `android_test_host`
 and `ios_test_host` variables of your [test spec file](custom-test-environment-test-spec.md#custom-test-environment-test-spec-syntax "custom-test-environment-test-spec.md#custom-test-environment-test-spec-syntax").

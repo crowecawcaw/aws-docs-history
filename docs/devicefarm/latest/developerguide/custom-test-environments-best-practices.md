@@ -1,6 +1,4 @@
-# Best practices for custom test
-
-environment execution
+# Best practices for custom test environment execution
 
 The following topics cover recommended best practices for using custom test execution with
 Device Farm.
@@ -28,9 +26,7 @@ by shifting the responsibility of maintenance to Device Farm itself.
 
 As part of the custom test execution, Device Farm sets up various environment variables and
 the `$PATH` variable to ensure tests to have a consistent experience within our
-dynamic environments. See [Environment variables for custom test
-environments](custom-test-environment-variables.md "custom-test-environment-variables.md") and [Supported software within custom test
-environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md") for more information.
+dynamic environments. See [Environment variables for custom test environments](custom-test-environment-variables.md "custom-test-environment-variables.md") and [Supported software within custom test environments](custom-test-environments-hosts-software.md "custom-test-environments-hosts-software.md") for more information.
 
 - Save generated or copied files within the temp directory during
   the test run. Today, we make sure that the temp directory (`/tmp`)

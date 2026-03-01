@@ -7,17 +7,13 @@ with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-ia
 
 ###### Topics
 
-- [Device Farm identity-based
-  policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Device Farm resource-based
-  policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Device Farm identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Device Farm resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
 - [Access control lists](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")
 - [Authorization based on Device Farm tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
 - [Device Farm IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Device Farm identity-based
-
-policies
+## Device Farm identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and resources and the
 conditions under which actions are allowed or denied. Device Farm supports specific actions, resources, and
@@ -111,9 +107,7 @@ Authorization Reference_. To learn with which actions you can specify the ARN of
 resource, see [Actions defined by AWS Device Farm](../../../service-authorization/latest/reference/list_awsdevicefarm.md#awsdevicefarm-actions-as-permissions "../../../service-authorization/latest/reference/list_awsdevicefarm.md#awsdevicefarm-actions-as-permissions") in the _IAM Service
 Authorization Reference_.
 
-### Condition
-
-keys
+### Condition keys
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -137,9 +131,7 @@ Authorization Reference_.
 
 To view examples of Device Farm identity-based policies, see [AWS Device Farm identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Device Farm resource-based
-
-policies
+## Device Farm resource-based policies
 
 Device Farm does not support resource-based policies.
 
@@ -156,17 +148,14 @@ using the `aws:ResourceTag/`key-name``,
 condition keys. For more information about tagging Device Farm resources, see [Tagging AWS Device Farm resources](tagging.md "tagging.md").
 
 To view an example identity-based policy for limiting access to a resource based on the tags on that
-resource, see [Viewing Device Farm desktop browser
-testing projects based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-project-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-project-tags").
+resource, see [Viewing Device Farm desktop browser testing projects based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-project-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-project-tags").
 
 ## Device Farm IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity in your AWS account that
 has specific permissions.
 
-### Using temporary credentials with
-
-Device Farm
+### Using temporary credentials with Device Farm
 
 Device Farm supports the use of temporary credentials.
 

@@ -1,6 +1,4 @@
-# Supported IP ranges for the Amazon Linux 2 test environment in
-
-Device Farm
+# Supported IP ranges for the Amazon Linux 2 test environment in Device Farm
 
 Customers often need to know the IP range from which Device Farm's traffic originates, particularly for
 configuring their firewalls and security settings. For Amazon EC2 test hosts, the IP range encompasses the entire
