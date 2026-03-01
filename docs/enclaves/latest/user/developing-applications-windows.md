@@ -1,21 +1,16 @@
-# Nitro Enclaves Application development
-
-on Windows instances
+# Nitro Enclaves Application development on Windows instances
 
 This section provides information for Nitro Enclaves application development on
 Windows instances.
 
 ###### Topics
 
-- [Considerations for using Nitro Enclaves on
-  a Windows parent instance](#windows-considerations "#windows-considerations")
+- [Considerations for using Nitro Enclaves on a Windows parent instance](#windows-considerations "#windows-considerations")
 - [Nitro Enclaves for Windows release notes](#release-notes "#release-notes")
 - [Subscribe to notifications of new versions](#sns-topic "#sns-topic")
 - [Working with the vsock socket in Windows](vsock-win.md "vsock-win.md")
 
-## Considerations for using Nitro Enclaves on
-
-a Windows parent instance
+## Considerations for using Nitro Enclaves on a Windows parent instance
 
 The EC2 parent instance and the enclaves operate as separate virtual machines.
 This means that each of them (the parent instance and all of its enclaves) must
@@ -49,8 +44,7 @@ Keep the following in mind when using a Windows parent instance.
   instances.
 - To use the AWS Nitro Enclaves CLI software on your parent instance,
   you must install the **AWSNitroEnclavesWindows** package using AWS Systems Manager
-  Distributor. For more information, see [Install the Nitro Enclaves CLI on
-  Windows](nitro-enclave-cli-install-win.md "nitro-enclave-cli-install-win.md").
+  Distributor. For more information, see [Install the Nitro Enclaves CLI on Windows](nitro-enclave-cli-install-win.md "nitro-enclave-cli-install-win.md").
 - The `nitro-cli build-enclave` command is not supported on
   Windows parent instances. For more information, see [nitro-cli build-enclave](cmd-nitro-build-enclave.md "cmd-nitro-build-enclave.md").
 

@@ -67,8 +67,7 @@ aws ec2 run-instances \
 
 After you launch the parent instance, you must install the AWS Nitro Enclaves CLI and the development tools. If
 you're using a Linux parent instance, see [Install the Nitro Enclaves CLI on Linux](nitro-enclave-cli-install.md "nitro-enclave-cli-install.md"). If you're using a Windows parent instance, see
-[Install the Nitro Enclaves CLI on
-Windows](nitro-enclave-cli-install-win.md "nitro-enclave-cli-install-win.md").
+[Install the Nitro Enclaves CLI on Windows](nitro-enclave-cli-install-win.md "nitro-enclave-cli-install-win.md").
 
 ## Create the enclave
 

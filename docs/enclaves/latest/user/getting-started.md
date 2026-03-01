@@ -55,8 +55,7 @@ The following example command launches an `m5.xlarge` instance using the Amazon 
    - If you are using a Linux parent instance, you must preallocate the memory and vCPUs. For
      the purposes of this tutorial, you must preallocate at least 2 vCPUs and 512 MiB of memory.
      For more information, see [Install the Nitro Enclaves CLI on Linux](nitro-enclave-cli-install.md "nitro-enclave-cli-install.md").
-   - If you are using a Windows parent instance, see [Install the Nitro Enclaves CLI on
-     Windows](nitro-enclave-cli-install-win.md "nitro-enclave-cli-install-win.md").
+   - If you are using a Windows parent instance, see [Install the Nitro Enclaves CLI on Windows](nitro-enclave-cli-install-win.md "nitro-enclave-cli-install-win.md").
 
 ## Step 2: Build the enclave image file
 

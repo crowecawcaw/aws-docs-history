@@ -1,6 +1,4 @@
-# Nitro Enclaves Command Line Interface
-
-reference
+# Nitro Enclaves Command Line Interface reference
 
 The following commands are available in the Nitro CLI. All of the Nitro CLI commands
 start with `nitro-cli`, followed by one of the following subcommands. To view

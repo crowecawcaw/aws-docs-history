@@ -44,8 +44,7 @@ GitHub repo](https://github.com/aws/aws-nitro-enclaves-with-k8s "https://github.
 - [Prerequisites](#prereqs "#prereqs")
 - [Step 1: Create a launch template](#create-lt "#create-lt")
 - [Step 2: Create Kubernetes cluster and node](#create-cluster "#create-cluster")
-- [Step 3: Install the Nitro Enclaves Kubernetes device
-  plugin](#enable-plugin "#enable-plugin")
+- [Step 3: Install the Nitro Enclaves Kubernetes device plugin](#enable-plugin "#enable-plugin")
 - [Step 4: Prepare the image](#prepare-image "#prepare-image")
 - [Step 5: Deploy the application to the cluster](#deploy-image "#deploy-image")
 
@@ -252,9 +251,7 @@ using other tooling, you might need to manually configure **kubectl** so that it
 information, see [Organizing Cluster Access Using kubeconfig Files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/ "https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/") in the
 _Kubernetes documentation_.
 
-## Step 3: Install the Nitro Enclaves Kubernetes device
-
-plugin
+## Step 3: Install the Nitro Enclaves Kubernetes device plugin
 
 Deploy the Nitro Enclaves Kubernetes device plugin to the cluster and then enable it on
 each worker node in the cluster using **kubectl**. The

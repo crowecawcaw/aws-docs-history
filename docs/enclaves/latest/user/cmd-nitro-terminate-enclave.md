@@ -47,9 +47,7 @@ Required: No
 
 ## Example
 
-### Example: Terminate
-
-specific enclave
+### Example: Terminate specific enclave
 
 The following example terminates an enclave with an ID of
 `i-abc12345def67890a-enc9876abcd543210ef12`.
@@ -71,9 +69,7 @@ Successfully terminated enclave i-abc12345def67890a-enc9876abcd543210ef12.
 
 ```
 
-### Example: Terminate
-
-all running enclaves
+### Example: Terminate all running enclaves
 
 The following example terminates all of the enclaves owned by the current
 user.

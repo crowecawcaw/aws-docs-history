@@ -7,8 +7,7 @@ socket on Windows instances.
 
 - [Terminology](#terminology "#terminology")
 - [AWS vsock socket implementation](#implementation "#implementation")
-- [Using the Winsock2 functions with vsock
-  sockets](#apis "#apis")
+- [Using the Winsock2 functions with vsock sockets](#apis "#apis")
 - [Unsupported Winsock2 functions](#unsupported-apis "#unsupported-apis")
 - [Known issues](#known-issues "#known-issues")
 
@@ -86,9 +85,7 @@ Loopback is not supported with vsock sockets. Attempts to
 `connect()` to a CID that belongs to the same host could
 result in an error.
 
-## Using the Winsock2 functions with vsock
-
-sockets
+## Using the Winsock2 functions with vsock sockets
 
 This section highlights differences between the Winsock2 functions and the
 AWS implementation for the vsock SPI.

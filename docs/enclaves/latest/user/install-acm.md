@@ -5,16 +5,12 @@ Use the following procedure to install and configure ACM for Nitro Enclaves.
 ###### Steps
 
 - [Step 1: Create the ACM certificate](#create-cert "#create-cert")
-- [Step 2: Prepare the enclaves-enabled parent
-  instance](#prepare-instance "#prepare-instance")
+- [Step 2: Prepare the enclaves-enabled parent instance](#prepare-instance "#prepare-instance")
 - [Step 3: Prepare the IAM role](#create-role "#create-role")
-- [Step 4: Associate the role with the ACM
-  certificate](#role-cert "#role-cert")
-- [Step 5: Grant the role permission to access the
-  certificate and encryption key](#add-policy "#add-policy")
+- [Step 4: Associate the role with the ACM certificate](#role-cert "#role-cert")
+- [Step 5: Grant the role permission to access the certificate and encryption key](#add-policy "#add-policy")
 - [Step 6: Attach the role to the instance](#instance-role "#instance-role")
-- [Step 7: Configure the web server to use ACM
-  for Nitro Enclaves](#config-web-server "#config-web-server")
+- [Step 7: Configure the web server to use ACM for Nitro Enclaves](#config-web-server "#config-web-server")
 - [Using multiple certificates](#multi-certs "#multi-certs")
 
 ###### Prerequisites
@@ -64,9 +60,7 @@ When you use DNS validation to request an ACM certificate, ACM provides a
 CNAME record that you must then add to your DNS configuration. ACM uses the CNAME
 record to validate ownership of domains.
 
-## Step 2: Prepare the enclaves-enabled parent
-
-instance
+## Step 2: Prepare the enclaves-enabled parent instance
 
 [Launch the enclave enabled instance](create-enclave.md#launch-parent "create-enclave.md#launch-parent") that you
 will use as the parent instance. You can use either the ACM for Nitro Enclaves AMI
@@ -80,9 +74,7 @@ it later.
 
 Option 1: Using ACM for Nitro Enclaves AMI
 
-###### To launch an instance using the ACM for Nitro Enclaves AMI from
-
-AWS Marketplace
+###### To launch an instance using the ACM for Nitro Enclaves AMI from AWS Marketplace
 
 1. Open the [ACM for
    Nitro Enclaves](https://aws.amazon.com//marketplace/pp/B08S7NZFNF "https://aws.amazon.com//marketplace/pp/B08S7NZFNF") page in the AWS Marketplace.
@@ -97,9 +89,7 @@ AWS Marketplace
 
 Option 2: Using RPM packages
 
-###### To install ACM for Nitro Enclaves from the Amazon Linux Extras
-
-repository
+###### To install ACM for Nitro Enclaves from the Amazon Linux Extras repository
 
 1. Connect to the instance.
 2. Enable the `aws-nitro-enclaves-cli` topic in the
@@ -179,9 +169,7 @@ policy file.
 After you have created the role, make a note of the role ARN, as you'll need it in
 the next step.
 
-## Step 4: Associate the role with the ACM
-
-certificate
+## Step 4: Associate the role with the ACM certificate
 
 Attach the IAM role that you created in the previous step to the ACM
 certificate. To do this, use the [associate-enclave-certificate-iam-role](../../../cli/latest/reference/ec2/associate-enclave-certificate-iam-role.md "../../../cli/latest/reference/ec2/associate-enclave-certificate-iam-role.md") command, and specify the ARN of
@@ -211,9 +199,7 @@ Example output
 After running the command, make a note of `CertificateS3BucketName` and
 `EncryptionKmsKeyId`, as you'll need them for the next step.
 
-## Step 5: Grant the role permission to access the
-
-certificate and encryption key
+## Step 5: Grant the role permission to access the certificate and encryption key
 
 You must now grant the IAM role (`acm-role`) permission to do
 the following:
@@ -330,9 +316,7 @@ Example output
 }
 ```
 
-## Step 7: Configure the web server to use ACM
-
-for Nitro Enclaves
+## Step 7: Configure the web server to use ACM for Nitro Enclaves
 
 Configure the NGINX or Apache HTTP web server to use the ACM certificate. Choose
 the correct procedure depending on the web server you're using.
@@ -658,8 +642,7 @@ Apache HTTP service log for more details.
 ## Using multiple certificates
 
 You can also add multiple ACM certificates; one for each PKCS#11 token. For each
-additional certificate that you need to add, repeat [Step 4: Associate the role with the ACM
-certificate](#role-cert "#role-cert") in order to associate your IAM role with the
+additional certificate that you need to add, repeat [Step 4: Associate the role with the ACM certificate](#role-cert "#role-cert") in order to associate your IAM role with the
 additional ACM certificates.
 
 Then to add more PKCS#11 tokens, open `/etc/nitro_enclaves/acm.yaml`

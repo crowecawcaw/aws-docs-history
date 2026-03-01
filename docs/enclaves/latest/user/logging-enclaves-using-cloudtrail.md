@@ -1,6 +1,4 @@
-# Logging API calls for the Nitro Enclaves with
-
-AWS CloudTrail
+# Logging API calls for the Nitro Enclaves with AWS CloudTrail
 
 AWS Nitro Enclaves is integrated with AWS CloudTrail, a service that provides a record of actions
 taken by a user or role in Nitro Enclaves. CloudTrail captures AWS KMS API calls made
@@ -61,9 +59,7 @@ Example
  }
 ```
 
-## Understanding Nitro Enclaves log file
-
-entries
+## Understanding Nitro Enclaves log file entries
 
 CloudTrail log files contain one or more log entries. An event represents a single request from any source and
 includes information about the requested action, the date and time of the action, request parameters, and

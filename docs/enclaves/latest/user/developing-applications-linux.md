@@ -1,6 +1,4 @@
-# Nitro Enclaves application development
-
-on Linux instances
+# Nitro Enclaves application development on Linux instances
 
 This section provides information for Nitro Enclaves application development on Linux
 instances.

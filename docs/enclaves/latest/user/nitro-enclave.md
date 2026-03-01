@@ -81,9 +81,9 @@ Nitro Enclaves has the following requirements:
   | M8a             | All instance types, **except**: `m8a.medium`   | `m8a.metal-24xl`   | `m8a.metal-48xl`   |
   | M8azn           | All instance types, **except**: `m8azn.medium` | `m8azn.metal-12xl` | `m8azn.metal-24xl` |
   | M8g             | All instance types, **except**: `m8g.medium`   | `m8g.metal-24xl`   | `m8g.metal-48xl`   |
-  | M8gb            | All instance types, **except**: `m8gb.medium`  |
+  | M8gb            | All instance types, **except**: `m8gb.medium`  | `m8gb.metal-24xl`  | `m8gb.metal-48xl`  |
   | M8gd            | All instance types, **except**: `m8gd.medium`  | `m8gd.metal-24xl`  | `m8gd.metal-48xl`  |
-  | M8gn            | All instance types, **except**: `m8gn.medium`  |
+  | M8gn            | All instance types, **except**: `m8gn.medium`  | `m8gn.metal-24xl`  | `m8gn.metal-48xl`  |
   | M8i             | All instance types, **except**: `m8i.large`    | `m8i.metal-48xl`   | `m8i.metal-96xl`   |
   | M8id            | All instance types, **except**: `m8id.large`   | `m8id.metal-48xl`  | `m8id.metal-96xl`  |
 
@@ -165,7 +165,7 @@ Nitro Enclaves has the following requirements:
   | I4i             | All instance types, **except**: `i4i.large`       | `i4i.metal`       |
   | I7i             | All instance types, **except**: `i7i.large`       | `i7i.metal-24xl`  | `i7i.metal-48xl`  |
   | I7ie            | All instance types, **except**: `i7ie.large`      | `i7ie.metal-24xl` | `i7ie.metal-48xl` |
-  | I8g             | All instance types, **except**: `i8g.metal-24xl`  |
+  | I8g             | All instance types, **except**: `i8g.metal-24xl`  | `i8g.metal-48xl`  |
   | I8ge            | All instance types, **except**: `i8ge.metal-24xl` | `i8ge.metal-48xl` |
 
   Accelerated computing
