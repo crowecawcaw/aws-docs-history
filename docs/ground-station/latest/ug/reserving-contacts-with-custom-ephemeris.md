@@ -448,8 +448,7 @@ You can create EventBridge rules to automatically respond to contact state chang
 - Log contact completions for auditing purposes
 
 For detailed information on setting up EventBridge rules for AWS Ground Station events, see
-[Automate AWS Ground Station with
-Events](monitoring.md "monitoring.md").
+[Automate AWS Ground Station with Events](monitoring.md "monitoring.md").
 
 ## Best practices and considerations
 

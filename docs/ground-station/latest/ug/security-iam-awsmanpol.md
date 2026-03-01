@@ -33,9 +33,7 @@ To view the latest version of the JSON policy document,
 see [AWSGroundStationAgentInstancePolicy](../../../aws-managed-policy/latest/reference/AWSGroundStationAgentInstancePolicy.md "../../../aws-managed-policy/latest/reference/AWSGroundStationAgentInstancePolicy.md")
 in the AWS Managed Policy Reference Guide.
 
-## AWS
-
-managed policy: AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy
+## AWS managed policy: AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy
 
 You can not attach AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy to your IAM entities. This policy is attached to a
 service-linked role that allows AWS Ground Station to perform actions on your behalf. For more
@@ -56,9 +54,7 @@ To view the latest version of the JSON policy document,
 see [AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy](../../../aws-managed-policy/latest/reference/AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy.md "../../../aws-managed-policy/latest/reference/AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy.md")
 in the AWS Managed Policy Reference Guide.
 
-## AWS Ground Station updates to AWS managed
-
-policies
+## AWS Ground Station updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Ground Station since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

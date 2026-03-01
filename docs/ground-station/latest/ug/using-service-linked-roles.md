@@ -1,6 +1,4 @@
-# Use service-linked roles for
-
-Ground Station
+# Use service-linked roles for Ground Station
 
 AWS Ground Station uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to Ground Station. Service-linked roles are predefined by Ground Station and
@@ -18,9 +16,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-linked roles** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Service-linked role permissions for
-
-Ground Station
+## Service-linked role permissions for Ground Station
 
 Ground Station uses the service-linked role named **AWSServiceRoleForGroundStationDataflowEndpointGroup** –
 AWS GroundStation uses this service-linked role to invoke EC2 to find public IPv4 addresses.
@@ -46,9 +42,7 @@ Action allows Ground Station to get information on the network interfaces associ
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Ground Station
+## Creating a service-linked role for Ground Station
 
 You don't need to manually create a service-linked role. When you
 create a DataflowEndpointGroup in the AWS CLI or the AWS API, Ground Station
@@ -65,9 +59,7 @@ information, see [Creating a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in the _IAM User Guide_. If you delete this
 service-linked role, you can use this same process to create the role again.
 
-## Editing a service-linked role for
-
-Ground Station
+## Editing a service-linked role for Ground Station
 
 Ground Station does not allow you to edit the AWSServiceRoleForGroundStationDataflowEndpointGroup service-linked role. After you
 create a service-linked role, you cannot change the name of the role because various entities
@@ -75,9 +67,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Ground Station
+## Deleting a service-linked role for Ground Station
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -104,9 +94,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleFor
 service-linked role. For more information, see [Deleting a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported regions for
-
-Ground Station service-linked roles
+## Supported regions for Ground Station service-linked roles
 
 Ground Station supports using service-linked roles in all of the regions where the service is available. For more information, see [Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").
 

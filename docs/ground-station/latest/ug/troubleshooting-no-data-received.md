@@ -1,20 +1,15 @@
-#
-
-Troubleshoot contacts that received no data
+# Troubleshoot contacts that received no data
 
 It is possible for a contact to appear successful, but still did not receive any data. This may
 mean that you receive PCAP files that are empty, or no PCAP files at all if you are using S3
 data delivery. This can happen for a number of reasons. The following discusses some of the
 causes, and how to address them.
 
-##
-
-Incorrect downlink config
+## Incorrect downlink config
 
 Each contact that receives data from a satellite will have an associated
 [Antenna Downlink Config](how-it-works.md#how-it-works.config-antenna-downlink "how-it-works.md#how-it-works.config-antenna-downlink")
-or [Antenna Downlink Demod
-Decode Config](how-it-works.md#how-it-works.config-antenna-downlink-demod-decode "how-it-works.md#how-it-works.config-antenna-downlink-demod-decode") . If the configuration
+or [Antenna Downlink Demod Decode Config](how-it-works.md#how-it-works.config-antenna-downlink-demod-decode "how-it-works.md#how-it-works.config-antenna-downlink-demod-decode"). If the configuration
 specified does not agree with the signal being transmitted by a satellite, AWS Ground Station will not be
 able to receive the transmitted signal. This will result in no data being received by AWS Ground Station.
 
@@ -22,9 +17,7 @@ To fix this, please verify that the configs you are using agree with the signal 
 transmitted by your satellite. For example, verify that you've set the correct center
 frequency, bandwidth, polarization, and if needed, demodulation and decoding parameters.
 
-##
-
-Satellite maneuver
+## Satellite maneuver
 
 There are times that a satellite may perform a maneuver which temporarily disables some of its
 communication systems. The maneuver may also significantly change the location of the

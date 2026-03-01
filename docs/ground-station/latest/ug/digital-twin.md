@@ -17,6 +17,5 @@ including, but not limited to, site mask and actual GPS coordinates. At this tim
 delivery as described in [Work with dataflows](dataflows.md "dataflows.md").
 
 Once onboarded, the digital twin feature emits the same Amazon EventBridge events and API responses as the production service as
-described in [Automate AWS Ground Station with
-Events](monitoring.md "monitoring.md").
+described in [Automate AWS Ground Station with Events](monitoring.md "monitoring.md").
 These events will allow you to fine tune your configurations and dataflow endpoint groups.
