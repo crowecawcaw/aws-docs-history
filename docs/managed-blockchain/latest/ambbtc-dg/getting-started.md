@@ -7,18 +7,13 @@ have completed those prerequisites. For more information, see [Setting up Amazon
 
 ###### Topics
 
-- [Create an IAM policy to access Bitcoin
-  JSON-RPCs](#getting-started-next-steps "#getting-started-next-steps")
-- [Make Bitcoin remote procedure call (RPC) requests on the AMB
-  Access RPC editor using the AWS Management Console](#gs-console-bitcoin "#gs-console-bitcoin")
-- [Make AMB Access Bitcoin JSON-RPC requests in awscurl by
-  using the AWS CLI](#awscurl-bitcoin-rpc-requests "#awscurl-bitcoin-rpc-requests")
+- [Create an IAM policy to access Bitcoin JSON-RPCs](#getting-started-next-steps "#getting-started-next-steps")
+- [Make Bitcoin remote procedure call (RPC) requests on the AMB Access RPC editor using the AWS Management Console](#gs-console-bitcoin "#gs-console-bitcoin")
+- [Make AMB Access Bitcoin JSON-RPC requests in awscurl by using the AWS CLI](#awscurl-bitcoin-rpc-requests "#awscurl-bitcoin-rpc-requests")
 - [Make Bitcoin JSON-RPC requests in Node.js](#nodejs-bitcoin-rpc-requests "#nodejs-bitcoin-rpc-requests")
 - [Use AMB Access Bitcoin over AWS PrivateLink](#bitcoin-rpc-requests-privatelink "#bitcoin-rpc-requests-privatelink")
 
-## Create an IAM policy to access Bitcoin
-
-JSON-RPCs
+## Create an IAM policy to access Bitcoin JSON-RPCs
 
 In order to access the public endpoints for the Bitcoin Mainnet and Testnet to make JSON-RPC
 calls, you must have user credentials (AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY) that have
@@ -59,9 +54,7 @@ effect. In the AWS Management Console, navigate to the IAM service, and attach t
 more information, see [Creating a Role and assigning to an
 IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md").
 
-## Make Bitcoin remote procedure call (RPC) requests on the AMB
-
-Access RPC editor using the AWS Management Console
+## Make Bitcoin remote procedure call (RPC) requests on the AMB Access RPC editor using the AWS Management Console
 
 You can edit and submit remote procedure calls (RPCs) on the AWS Management Console using AMB Access.
 With these RPCs, you can read data, write, and submit transactions on the Bitcoin
@@ -90,9 +83,7 @@ enter the relevant inputs required.
 
 For more information, see the [RPCs supported by AMB Access Bitcoin](bitcoin-api.md "bitcoin-api.md")
 
-## Make AMB Access Bitcoin JSON-RPC requests in awscurl by
-
-using the AWS CLI
+## Make AMB Access Bitcoin JSON-RPC requests in awscurl by using the AWS CLI
 
 ###### Example
 
@@ -296,8 +287,7 @@ The result that is generated will resemble the following:
 ###### Note
 
 The sample request in the previous script makes the `getblock` call with the same
-input parameter block hash as the [Make AMB Access Bitcoin JSON-RPC requests in awscurl by
-using the AWS CLI](#awscurl-bitcoin-rpc-requests "#awscurl-bitcoin-rpc-requests") example. To make other calls, modify the
+input parameter block hash as the [Make AMB Access Bitcoin JSON-RPC requests in awscurl by using the AWS CLI](#awscurl-bitcoin-rpc-requests "#awscurl-bitcoin-rpc-requests") example. To make other calls, modify the
 `rpc` object in the script with a different Bitcoin JSON-RPC. You can change
 the host property option to the Bitcoin `testnet` to make calls on that
 endpoint.

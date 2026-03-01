@@ -4,17 +4,12 @@ This topic provides a list AMB Access Bitcoin use cases
 
 ###### Topics
 
-- [Build a Bitcoin (BTC) wallet to send and
-  receive BTC](#bitcoin-wallet "#bitcoin-wallet")
-- [Analyze activity on the Bitcoin
-  blockchain](#bitcoin-activity "#bitcoin-activity")
-- [Verify messages signed using a
-  Bitcoin key pair](#bitcoin-signed-messages "#bitcoin-signed-messages")
+- [Build a Bitcoin (BTC) wallet to send and receive BTC](#bitcoin-wallet "#bitcoin-wallet")
+- [Analyze activity on the Bitcoin blockchain](#bitcoin-activity "#bitcoin-activity")
+- [Verify messages signed using a Bitcoin key pair](#bitcoin-signed-messages "#bitcoin-signed-messages")
 - [Inspect the Bitcoin mempool](#bitcoin-mempool "#bitcoin-mempool")
 
-## Build a Bitcoin (BTC) wallet to send and
-
-receive BTC
+## Build a Bitcoin (BTC) wallet to send and receive BTC
 
 BTC, the native cryptocurrency on the Bitcoin network, serves as an
 essential component of the network's security model. It also acts as a
@@ -35,9 +30,7 @@ Amazon Managed Blockchain (AMB) Access Bitcoin supports for BTC wallet transacti
 
 For more information, see [Supported JSON-RPCs](bitcoin-api.md#supported-json-rpc "bitcoin-api.md#supported-json-rpc").
 
-## Analyze activity on the Bitcoin
-
-blockchain
+## Analyze activity on the Bitcoin blockchain
 
 You can analyze the volume of transaction activity on the Bitcoin
 blockchain by using the `getchaintxstats` JSON-RPC method. This
@@ -49,9 +42,7 @@ if desired.
 
 For more information, see [Supported JSON-RPCs](bitcoin-api.md#supported-json-rpc "bitcoin-api.md#supported-json-rpc").
 
-## Verify messages signed using a
-
-Bitcoin key pair
+## Verify messages signed using a Bitcoin key pair
 
 Bitcoin wallets have a private key and a public key that make up a
 key pair. These keys are used to sign transactions and serve as the user's

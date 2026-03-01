@@ -25,9 +25,7 @@ You are responsible for creating, maintaining, using, and managing your Bitcoin 
 are also responsible for the contents of your Bitcoin addresses. AWS is not responsible for any
 transactions deployed or called using Bitcoin nodes on Amazon Managed Blockchain.
 
-## Considerations and limitations for
-
-using Amazon Managed Blockchain (AMB) Access Bitcoin
+## Considerations and limitations for using Amazon Managed Blockchain (AMB) Access Bitcoin
 
 - **Supported Bitcoin networks**
 
@@ -94,5 +92,4 @@ Bitcoin blockchain state.
 - **AWS CloudTrail logging support**
 
 You can configure CloudTrail to log your Bitcoin JSON-RPCs. For more information,
-see [Logging Amazon Managed Blockchain (AMB) Access Bitcoin events by using
-AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+see [Logging Amazon Managed Blockchain (AMB) Access Bitcoin events by using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")

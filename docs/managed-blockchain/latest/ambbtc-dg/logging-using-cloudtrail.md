@@ -1,6 +1,4 @@
-# Logging Amazon Managed Blockchain (AMB) Access Bitcoin events by using
-
-AWS CloudTrail
+# Logging Amazon Managed Blockchain (AMB) Access Bitcoin events by using AWS CloudTrail
 
 ###### Note
 
@@ -55,9 +53,7 @@ the request. The identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding
-
-AMB Access Bitcoin log file entries
+## Understanding AMB Access Bitcoin log file entries
 
 For data plane events, a trail is a configuration that enables delivery of events as log
 files to a specified S3 bucket. Each CloudTrail log file contains one or more log entries that
