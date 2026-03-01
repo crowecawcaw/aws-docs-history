@@ -12,8 +12,6 @@ separate multiple hosts.
 
 - [Using the Setup Wizard](using-setup-wizard.md "using-setup-wizard.md")
 - [Setting up on a single host](set-up-one-host.md "set-up-one-host.md")
-- [Setting up on multiple
-  hosts](setting-up-multiple-hosts.md "setting-up-multiple-hosts.md")
+- [Setting up on multiple hosts](setting-up-multiple-hosts.md "setting-up-multiple-hosts.md")
 - [Verifying the setup](verify-setup.md "verify-setup.md")
-- [Generating a self-signed
-  certificate](generate-certs.md "generate-certs.md")
+- [Generating a self-signed certificate](generate-certs.md "generate-certs.md")

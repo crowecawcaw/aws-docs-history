@@ -1,14 +1,10 @@
-# Step 1: Prepare your
-
-environment
+# Step 1: Prepare your environment
 
 The Amazon DCV Access Console has three components Handler, Web Client, and
 Authentication Server. These components can be installed on multiple hosts. See
 Amazon DCV Access Console [Requirements](requirements.md "requirements.md") to ensure your setup meets the requirements.
 
-## Preparing the
-
-components and the Setup Wizard
+## Preparing the components and the Setup Wizard
 
 1. Connect to the host on which you intend to install the Amazon DCV Access
    Console components.
@@ -121,9 +117,7 @@ components and the Setup Wizard
 `$` python3 wizard.py --help
 ```
 
-## Preparing the
-
-hosts
+## Preparing the hosts
 
 For users to visit the Amazon DCV Access Console, the hosts that the
 components are installed on needs to be accessible via port 443. Make sure that
@@ -134,9 +128,7 @@ details.
 Since we will be using SSL, each host will require a DNS entry pointing to it,
 and a certificate for that DNS entry.
 
-### Preparing the
-
-Handler host
+### Preparing the Handler host
 
 This is the host that will communicate with the Session Manager Broker,
 and will keep track of the state of the Amazon DCV Access Console.
@@ -152,12 +144,9 @@ and will keep track of the state of the Amazon DCV Access Console.
    file**, and **keystore** file.
 
 If you do not already have a certificate, you can create one. For more
-information, see [Generating a self-signed
-certificate](generate-certs.md "generate-certs.md").
+information, see [Generating a self-signed certificate](generate-certs.md "generate-certs.md").
 
-### Preparing the
-
-Authentication Server host
+### Preparing the Authentication Server host
 
 This is the host that will provide the Access Console login page, and
 create the authorization token the Web Client and Handler use to validate
@@ -172,12 +161,9 @@ requests.
    file**, and **keystore** file.
 
 If you do not already have a certificate, you can create one. For
-more information, see [Generating a self-signed
-certificate](generate-certs.md "generate-certs.md").
+more information, see [Generating a self-signed certificate](generate-certs.md "generate-certs.md").
 
-### Preparing the
-
-Web Client host
+### Preparing the Web Client host
 
 This is the host that will serve as web application that admins and users
 will use to connect to the Amazon DCV Access Console.
@@ -196,5 +182,4 @@ running on separate hosts, the Handler and Authentication Server run on port
    file**, and **keystore** file.
 
 If you do not already have a certificate, you can create one. For
-more information, see [Generating a self-signed
-certificate](generate-certs.md "generate-certs.md").
+more information, see [Generating a self-signed certificate](generate-certs.md "generate-certs.md").

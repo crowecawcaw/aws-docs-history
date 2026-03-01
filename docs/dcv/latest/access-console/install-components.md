@@ -1,13 +1,9 @@
-# Step 3: Install the
-
-components
+# Step 3: Install the components
 
 After preparing the Handler, Web Client, and Authentication Server components, you
 must install them on the hosts you prepared.
 
-## Installing the
-
-Handler
+## Installing the Handler
 
 ###### RHEL, CentOS, Amazon Linux
 
@@ -188,9 +184,7 @@ DATABASE_NAME=`replace with database name`
 `$` sudo systemctl enable dcv-access-console-handler
 ```
 
-## Installing the
-
-Authentication Server
+## Installing the Authentication Server
 
 ###### RHEL, CentOS, Amazon Linux
 
@@ -264,9 +258,7 @@ Authentication Server
 `$` sudo systemctl enable dcv-access-console-auth-server
 ```
 
-## Installing the Web
-
-Client
+## Installing the Web Client
 
 ###### RHEL, CentOS, Amazon Linux
 

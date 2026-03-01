@@ -1,6 +1,4 @@
-# Duplicating a session
-
-template
+# Duplicating a session template
 
 Instead of creating a new session template, you can choose to duplicate an
 existing session template and change its parameters to your specifications.

@@ -1,6 +1,4 @@
-# Assigning a session
-
-template to users or groups
+# Assigning a session template to users or groups
 
 In order for users to create sessions, they must first have a session template
 assigned to them.

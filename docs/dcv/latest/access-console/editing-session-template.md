@@ -1,6 +1,4 @@
-# Editing a session
-
-template
+# Editing a session template
 
 If you need to adjust any sessions details, you can edit the parameters of an
 existing session template.

@@ -15,9 +15,7 @@ and then select the caret (^) icon at the bottom-right corner of the page.
 
 ![Session templates interface showing three templates with Linux and Windows options.](images/session-template.png)
 
-## Session template
-
-details
+## Session template details
 
 For more information see [Creating a session](creating-session.md "creating-session.md").
 
@@ -53,13 +51,8 @@ Guide_.
 
 ###### Topics
 
-- [Creating a session
-  template](creating-session-template.md "creating-session-template.md")
-- [Assigning a session
-  template to users or groups](assigning-session-template.md "assigning-session-template.md")
-- [Duplicating a session
-  template](duplicating-session-template.md "duplicating-session-template.md")
-- [Editing a session
-  template](editing-session-template.md "editing-session-template.md")
-- [Deleting a session
-  template](deleting-session-template.md "deleting-session-template.md")
+- [Creating a session template](creating-session-template.md "creating-session-template.md")
+- [Assigning a session template to users or groups](assigning-session-template.md "assigning-session-template.md")
+- [Duplicating a session template](duplicating-session-template.md "duplicating-session-template.md")
+- [Editing a session template](editing-session-template.md "editing-session-template.md")
+- [Deleting a session template](deleting-session-template.md "deleting-session-template.md")

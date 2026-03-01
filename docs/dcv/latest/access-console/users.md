@@ -46,9 +46,7 @@ listed below.
 | Level of access | Whether the user is set to Administrator or User. |
 | Status          | The current status of the user.                   |
 
-### Session
-
-template
+### Session template
 
 These are the session templates that are available for the user. Its
 parameters are listed below.

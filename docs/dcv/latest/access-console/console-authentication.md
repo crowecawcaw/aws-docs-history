@@ -48,9 +48,7 @@ the userid. 7. Restart the authentication server.
 sudo systemctl restart dcv-access-console-auth-server
 ```
 
-## HTTP Header
-
-authentication
+## HTTP Header authentication
 
 The Amazon DCV Access Console can be setup to use the HTTP header in the request to the
 Authentication Server to authenticate a user. The Authentication Server checks for

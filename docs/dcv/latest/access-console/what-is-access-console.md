@@ -26,8 +26,7 @@ The Access Console provides administrators with the following:
 - [Authentication methods](console-authentication.md "console-authentication.md")
 - [Datastore](datastore.md "datastore.md")
 - [Certificates](certificates.md "certificates.md")
-- [Networking and
-  connectivity](networking-connectivity.md "networking-connectivity.md")
+- [Networking and connectivity](networking-connectivity.md "networking-connectivity.md")
 - [Open source code](open-source.md "open-source.md")
 
 ## How Amazon DCV Access Console works

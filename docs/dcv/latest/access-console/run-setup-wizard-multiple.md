@@ -1,15 +1,11 @@
-# Step 2: Run the Setup
-
-Wizard
+# Step 2: Run the Setup Wizard
 
 The Setup Wizard will install the components and dependencies for the Access
 Console, and configure a single host to run all of the Access Console components.
 For more information on how to use the Setup Wizard see [Using the Setup
 Wizard](using-setup-wizard.md "using-setup-wizard.md").
 
-## Running the
-
-Setup Wizard in interactive mode
+## Running the Setup Wizard in interactive mode
 
 Interactive mode is the default setup mode for the Amazon DCV Access Console. It
 will prompt you for information about the setup, including the DNS entries for
@@ -34,9 +30,7 @@ then print the resolvable DNS of the host you provided. The Amazon DCV Access Co
 will be accessible at that address and any user present on that host will be
 able to login.
 
-## Running
-
-the Setup Wizard in non-interactive mode
+## Running the Setup Wizard in non-interactive mode
 
 Noninteractive mode is the manual setup mode for the Amazon DCV Access Console.
 This setup allows more configuration in your setup process. You will need to

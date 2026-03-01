@@ -1,6 +1,4 @@
-# Networking and
-
-connectivity
+# Networking and connectivity
 
 The Amazon DCV Access Console components can all be installed on a single host or on
 different hosts.

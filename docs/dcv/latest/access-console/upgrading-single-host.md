@@ -1,6 +1,4 @@
-# Upgrading Amazon DCV Access Console on a single
-
-host
+# Upgrading Amazon DCV Access Console on a single host
 
 The Wizard will update the components for the Access Console, reload and restart all of the Access Console components. The components
 can be downloaded using steps in [Preparing the components and the Setup Wizard](prepare-environment.md "prepare-environment.md").

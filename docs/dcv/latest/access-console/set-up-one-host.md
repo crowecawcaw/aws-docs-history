@@ -8,7 +8,5 @@ To set up the Amazon DCV Access Console on a single host, do the following:
 
 ###### Steps
 
-- [Step 1: Prepare the
-  environment](prepare-environment.md "prepare-environment.md")
-- [Step 2: Run the Setup
-  Wizard](run-setup-wizard-single.md "run-setup-wizard-single.md")
+- [Step 1: Prepare the environment](prepare-environment.md "prepare-environment.md")
+- [Step 2: Run the Setup Wizard](run-setup-wizard-single.md "run-setup-wizard-single.md")
