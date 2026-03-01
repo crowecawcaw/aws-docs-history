@@ -3,8 +3,7 @@
 ###### Topics
 
 - [Create a qualification type](CreatingaQualificationType.md "CreatingaQualificationType.md")
-- [View existing qualification
-  types](ViewingExistingQualificationTypes.md "ViewingExistingQualificationTypes.md")
+- [View existing qualification types](ViewingExistingQualificationTypes.md "ViewingExistingQualificationTypes.md")
 - [Delete qualification types](DeleteQualification.md "DeleteQualification.md")
   You can create your own qualification types, or use the ones supplied by
   Mechanical Turk.

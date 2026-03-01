@@ -1,6 +1,4 @@
-# View existing qualification
-
-types
+# View existing qualification types
 
 The following procedure shows you how to view the qualification types you
 create.
