@@ -21,8 +21,7 @@ JSON- or YAML-formatted data against multiple rule files at the same time.
 - [Using built-in functions](#built-in-functions "#built-in-functions")
 - [Defining Guard queries and filtering](query-and-filtering.md "query-and-filtering.md")
 - [Assigning and referencing variables in Guard rules](variables.md "variables.md")
-- [Composing named-rule blocks in
-  AWS CloudFormation Guard](named-rule-block-composition.md "named-rule-block-composition.md")
+- [Composing named-rule blocks in AWS CloudFormation Guard](named-rule-block-composition.md "named-rule-block-composition.md")
 - [Writing clauses to perform context-aware evaluations](context-aware-evaluations.md "context-aware-evaluations.md")
 
 ## Clauses

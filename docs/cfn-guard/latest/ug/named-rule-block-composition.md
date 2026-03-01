@@ -1,6 +1,4 @@
-# Composing named-rule blocks in
-
-AWS CloudFormation Guard
+# Composing named-rule blocks in AWS CloudFormation Guard
 
 When writing named-rule blocks using AWS CloudFormation Guard, you can use the following two
 styles of composition:
@@ -13,19 +11,15 @@ styles of composition:
 ###### Topics
 
 - [Prerequisites](#named-rules-prerequisites "#named-rules-prerequisites")
-- [Conditional dependency
-  composition](#named-rules-conditional-dependency "#named-rules-conditional-dependency")
-- [Correlational dependency
-  composition](#named-rules-correlational-dependency "#named-rules-correlational-dependency")
+- [Conditional dependency composition](#named-rules-conditional-dependency "#named-rules-conditional-dependency")
+- [Correlational dependency composition](#named-rules-correlational-dependency "#named-rules-correlational-dependency")
 
 ## Prerequisites
 
 Learn about named-rule blocks in [Writing
 rules](writing-rules.md#named-rule-blocks "writing-rules.md#named-rule-blocks").
 
-## Conditional dependency
-
-composition
+## Conditional dependency composition
 
 In this style of composition, the evaluation of a `when` block or a
 named-rule block has a conditional dependency on the evaluation result of one or more
@@ -196,9 +190,7 @@ supplementaryConfiguration: {}
 resourceTransitionStatus: None
 ```
 
-## Correlational dependency
-
-composition
+## Correlational dependency composition
 
 In this style of composition, the evaluation of a `when` block or a
 named-rule block has a correlational dependency on the evaluation result of one or more

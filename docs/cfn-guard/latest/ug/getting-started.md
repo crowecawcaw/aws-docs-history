@@ -11,8 +11,7 @@ cases.
 - [Overview of using Guard rules](#getting-started-overview "#getting-started-overview")
 - [Writing AWS CloudFormation Guard rules](writing-rules.md "writing-rules.md")
 - [Testing AWS CloudFormation Guard rules](testing-rules.md "testing-rules.md")
-- [Using input parameters with AWS CloudFormation Guard
-  rules](using-input-parameters.md "using-input-parameters.md")
+- [Using input parameters with AWS CloudFormation Guard rules](using-input-parameters.md "using-input-parameters.md")
 - [Validating input data against AWS CloudFormation Guard rules](validating-rules.md "validating-rules.md")
 
 ## Prerequisites

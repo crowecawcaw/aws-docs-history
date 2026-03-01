@@ -140,9 +140,7 @@ let iam_policies_allowing_log_creates = Resources.*[
 ]
 ```
 
-## Directly looping through values from a
-
-variable assigned to a query
+## Directly looping through values from a variable assigned to a query
 
 Guard supports directly running against the results from a query. In the
 following example, the `when` block tests against the `Encrypted`,
@@ -163,9 +161,7 @@ when %ec2_volumes !empty {
 }
 ```
 
-## Direct clause-level
-
-comparisons
+## Direct clause-level comparisons
 
 Guard also supports queries as a part of direct comparisons. For example, see
 the following.
@@ -181,9 +177,7 @@ In the preceding example, the two clauses (starting with the `some`
 keyword) expressed in the form shown are considered independent clauses and are
 evaluated separately.
 
-### Single clause and block clause
-
-form
+### Single clause and block clause form
 
 Taken together, the two example clauses shown in the preceding section aren't
 equivalent to the following block.
@@ -392,9 +386,7 @@ Resources.*[
 ]
 ```
 
-### Building out more complex filtering
-
-needs
+### Building out more complex filtering needs
 
 Consider the following example of an AWS Config configuration item for ingress and
 egress security groups information.
@@ -576,9 +568,7 @@ rule any_ip_ingress_checks
 }
 ```
 
-### Separating collections based on their
-
-contained types
+### Separating collections based on their contained types
 
 When using infrastructure as code (IaC) configuration templates, you might
 encounter a collection that contains references to other entities within the

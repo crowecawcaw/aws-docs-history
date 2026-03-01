@@ -43,9 +43,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
 ```
 
-## Install Guard as a Lambda function (Linux,
-
-macOS, or Unix)
+## Install Guard as a Lambda function (Linux, macOS, or Unix)
 
 To install Guard as a Lambda function, complete the following steps.
 
@@ -134,9 +132,7 @@ aws lambda invoke --function-name `cfnGuard` \
   output.json
 ```
 
-## To call the Lambda function request
-
-structure
+## To call the Lambda function request structure
 
 Requests to `cfn-guard-lambda` require the following fields:
 

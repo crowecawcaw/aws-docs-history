@@ -1,6 +1,4 @@
-# Using input parameters with AWS CloudFormation Guard
-
-rules
+# Using input parameters with AWS CloudFormation Guard rules
 
 AWS CloudFormation Guard allows you to use input parameters for dynamic data lookups during
 validation. This feature is particularly useful when you need to reference external data in your

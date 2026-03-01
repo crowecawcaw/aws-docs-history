@@ -3,9 +3,7 @@
 You can install AWS CloudFormation Guard for Linux and macOS by using the pre-built release binary,
 Cargo, or through Homebrew.
 
-## Install Guard from a pre-built release
-
-binary
+## Install Guard from a pre-built release binary
 
 Use the following procedure to install Guard from a pre-built binary.
 

@@ -10,8 +10,7 @@ variables when rules are run.
 - [Assigning variables](#assigning-variables "#assigning-variables")
 - [Referencing variables](#referencing-variables "#referencing-variables")
 - [Variable scope](#variable-scope "#variable-scope")
-- [Examples of variables in Guard rules
-  files](#variables-examples "#variables-examples")
+- [Examples of variables in Guard rules files](#variables-examples "#variables-examples")
 
 ## Assigning variables
 
@@ -137,9 +136,7 @@ rule check_ecs_task_definition_execution_role_arn
 }
 ```
 
-## Examples of variables in Guard rules
-
-files
+## Examples of variables in Guard rules files
 
 The following sections provide examples of both static and dynamic assignment of
 variables.

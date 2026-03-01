@@ -189,9 +189,7 @@ single-value form.
 
 Always use the array form when expressing access for a rule clause when an attribute accepts an array. Guard evaluates correctly even in the case that a single value is used.
 
-## Using the form `spec.containers[*]` instead of
-
-`spec.containers`
+## Using the form `spec.containers[*]` instead of `spec.containers`
 
 Guard queries return a collection of resolved values. When you use the form
 `spec.containers`, the resolved values for the query contain the array
@@ -200,9 +198,7 @@ form `spec.containers[*]`, you refer to each individual element contained.
 Remember to use the `[*]` form whenever you intend to evaluate each element
 contained in the array.
 
-## Using `this` to reference the current context
-
-value
+## Using `this` to reference the current context value
 
 When you author a Guard rule, you can reference the context value by using
 `this`. Often, `this` is implicit because it's bound to the
@@ -263,9 +259,7 @@ InputParameters.TcpBlockedPorts[*] {
 In the previous example, `this` is used to refer to each port
 number.
 
-## Potential errors with the usage of implicit
-
-`this`
+## Potential errors with the usage of implicit `this`
 
 When authoring rules and clauses, there are some common mistakes when referencing elements
 from the implicit `this` context value. For example, consider the following
@@ -410,9 +404,7 @@ example.
 refers to `fromPort` and `toPort`. They both belong to the outer
 block scope.
 
-### Resolving errors with the implicit use of
-
-`this`
+### Resolving errors with the implicit use of `this`
 
 Use variables to explicitly assign and reference values. First,
 `InputParameter.TcpBlockedPorts` is part of the input (root) context.

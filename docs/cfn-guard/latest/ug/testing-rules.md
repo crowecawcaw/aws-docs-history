@@ -13,8 +13,7 @@ Your unit test file must have one of the following extensions: `.json`,
 
 - [Prerequisites](#testing-rules-prerequisites "#testing-rules-prerequisites")
 - [Overview of Guard unit testing files](#testing-rules-overview "#testing-rules-overview")
-- [Walkthrough of writing a Guard rules unit
-  testing file](#testing-rules-example "#testing-rules-example")
+- [Walkthrough of writing a Guard rules unit testing file](#testing-rules-example "#testing-rules-example")
 
 ## Prerequisites
 
@@ -87,9 +86,7 @@ expectations:
 
 _Required_: Yes
 
-## Walkthrough of writing a Guard rules unit
-
-testing file
+## Walkthrough of writing a Guard rules unit testing file
 
 The following is a rules file named `api_gateway_private.guard`. The intent for
 this rule is to check whether all Amazon API Gateway resource types defined in a CloudFormation template
