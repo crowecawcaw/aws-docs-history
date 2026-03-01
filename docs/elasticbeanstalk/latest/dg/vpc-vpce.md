@@ -46,8 +46,7 @@ to deploy and function properly. This section explains the required S3 buckets a
 - [S3 Buckets that store assets to manage environment platforms](#AWSHowTo.S3.VPCendpoints.required-permissions.assets "#AWSHowTo.S3.VPCendpoints.required-permissions.assets")
 - [S3 Buckets owned by CloudFormation](#AWSHowTo.S3.VPCendpoints.required-permissions.cloudformation "#AWSHowTo.S3.VPCendpoints.required-permissions.cloudformation")
 - [S3 Buckets owned by customer accounts to store source code and other items](#AWSHowTo.S3.VPCendpoints.required-permissions.items "#AWSHowTo.S3.VPCendpoints.required-permissions.items")
-- [S3 Buckets owned by customer accounts to support Docker registry
-  authentication](#AWSHowTo.S3.VPCendpoints.required-permissions.docker-auth "#AWSHowTo.S3.VPCendpoints.required-permissions.docker-auth")
+- [S3 Buckets owned by customer accounts to support Docker registry authentication](#AWSHowTo.S3.VPCendpoints.required-permissions.docker-auth "#AWSHowTo.S3.VPCendpoints.required-permissions.docker-auth")
 - [Updating your VPC endpoint policy](#AWSHowTo.S3.VPCendpoints.required-permissions.assets.permissions "#AWSHowTo.S3.VPCendpoints.required-permissions.assets.permissions")
 
 ### S3 Buckets that store assets to manage environment platforms
@@ -236,9 +235,7 @@ JSON
 
 ```
 
-### S3 Buckets owned by customer accounts to support Docker registry
-
-authentication
+### S3 Buckets owned by customer accounts to support Docker registry authentication
 
 This bucket only applies to environments based on the Docker platform. The bucket stores a file used to authenticate to a private Docker registry that
 resides on an S3 bucket provisioned by the customer. For more information, see [Using the

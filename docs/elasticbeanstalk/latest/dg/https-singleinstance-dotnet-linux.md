@@ -67,7 +67,7 @@ source bundle (for example, `.platform/nginx/conf.d/https.conf`). Replace `app_p
 that your application listens on. This example configures the nginx server to listen on port 443 using SSL. For more information about these configuration
 files on the .NET Core on Linux platform, see [Configuring the proxy server](dotnet-linux-platform-nginx.md "dotnet-linux-platform-nginx.md").
 
-###### Example .platform/nginx/conf.d/https.conf
+###### Example.platform/nginx/conf.d/https.conf
 
 ```
 # HTTPS server

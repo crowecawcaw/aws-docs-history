@@ -1,6 +1,4 @@
-# Bundling multiple WAR files for Tomcat
-
-environments
+# Bundling multiple WAR files for Tomcat environments
 
 If your web app comprises multiple web application components, you can simplify deployments
 and reduce operating costs by running components in a single environment, instead of running a

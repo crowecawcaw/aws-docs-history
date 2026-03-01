@@ -1,6 +1,4 @@
-# Managing multiple Elastic Beanstalk environments as a group with the EB
-
-CLI
+# Managing multiple Elastic Beanstalk environments as a group with the EB CLI
 
 You can use the EB CLI to create groups of AWS Elastic Beanstalk environments, each running a separate component of a service-oriented architecture application. The EB CLI
 manages such groups by using the [ComposeEnvironments](../api/API_ComposeEnvironments.md "../api/API_ComposeEnvironments.md") API.

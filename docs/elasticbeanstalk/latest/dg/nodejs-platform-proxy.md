@@ -33,8 +33,7 @@ If your Elastic Beanstalk Node.js environment uses an Amazon Linux AMI platform 
   on port 8081. Elastic Beanstalk provides a default proxy configuration that you can either extend or completely override with your own configuration.
 
 To extend the default configuration, add `.conf` files to `/etc/nginx/conf.d` with a configuration file.
-For a specific example, see [Terminating HTTPS on EC2 instances running
-Node.js](https-singleinstance-nodejs.md "https-singleinstance-nodejs.md").
+For a specific example, see [Terminating HTTPS on EC2 instances running Node.js](https-singleinstance-nodejs.md "https-singleinstance-nodejs.md").
 
 The Node.js platform sets the PORT environment variable to the port that the proxy server passes traffic to.
 Read this variable in your code to configure the port for your application.

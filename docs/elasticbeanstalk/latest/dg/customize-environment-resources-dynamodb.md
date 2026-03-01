@@ -1,6 +1,4 @@
-# Example: DynamoDB, CloudWatch, and
-
-SNS
+# Example: DynamoDB, CloudWatch, and SNS
 
 This configuration file sets up the DynamoDB table as a session handler for a PHP-based
 application using the AWS SDK for PHP 2. To use this example, you must have an IAM instance

@@ -7,9 +7,7 @@ with the EB CLI.
 To get started with Node.js applications on AWS Elastic Beanstalk, all you need is an application [source bundle](applications-sourcebundle.md "applications-sourcebundle.md") to upload as your first application
 version and to deploy to an environment.
 
-## Launching an environment with a sample Node.js
-
-application
+## Launching an environment with a sample Node.js application
 
 Elastic Beanstalk provides single page sample applications for each platform as well as more complex
 examples that show the use of additional AWS resources such as Amazon RDS and language or

@@ -1,6 +1,4 @@
-# Running multiple applications and ASP.NET core applications with
-
-a deployment manifest
+# Running multiple applications and ASP.NET core applications with a deployment manifest
 
 You can use a deployment manifest to tell Elastic Beanstalk how to deploy your application. By using this method, you don't need to use `MSDeploy` to
 generate a source bundle for a single ASP.NET application that runs at the root path of your website. Rather, you can use a manifest file to run multiple

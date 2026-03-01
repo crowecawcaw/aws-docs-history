@@ -1,6 +1,4 @@
-# Implementing CI/CD integration with your Elastic Beanstalk
-
-environment
+# Implementing CI/CD integration with your Elastic Beanstalk environment
 
 Elastic Beanstalk integrates with many CI/CD tools to automate your application development
 workflow. CI/CD practices enable you to automatically build, test, and deploy your applications
@@ -8,6 +6,12 @@ with minimal manual intervention. Continuous delivery/deployment (CD) extends co
 integration (CI) by automating the deployment process. You can create streamlined deployment
 pipelines using AWS services like CodePipeline or third-party tools such as Jenkins and GitLab to
 ensure consistent, reliable deployments to your Elastic Beanstalk environments.
+
+###### Topics
+
+- [AWS sources to get started](#deployments.cicd.aws-sites "#deployments.cicd.aws-sites")
+- [Additional resources](#deployments.cicd.aws-services.third-party "#deployments.cicd.aws-services.third-party")
+- [Using GitHub Actions to deploy to Elastic Beanstalk](deploying-github-actions.md "deploying-github-actions.md")
 
 ## AWS sources to get started
 
@@ -17,9 +21,9 @@ deployment pipelines to Elastic Beanstalk environments:
 - AWS CodePipeline – This [AWS Getting Started
   Resource Center](https://aws.amazon.com/getting-started/hands-on/continuous-deployment-pipeline/ "https://aws.amazon.com/getting-started/hands-on/continuous-deployment-pipeline/") tutorial shows you how to set up a continuous deployment
   pipeline to Elastic Beanstalk from GitHub , S3, or AWS CodeCommit.
-- GitHub Actions – This [.NET on AWS
-  Blog](https://aws.amazon.com/blogs/dotnet/deploy-to-elastic-beanstalk-environment-with-github-actions/ "https://aws.amazon.com/blogs/dotnet/deploy-to-elastic-beanstalk-environment-with-github-actions/") post walks you through configuring YAML-based workflows to setup a
-  continuous deployment pipeline to Elastic Beanstalk directly from GitHub.
+- GitHub Actions – See [Using GitHub Actions to deploy to Elastic Beanstalk](deploying-github-actions.md "deploying-github-actions.md") to learn
+  how to configure YAML-based workflows to set up a continuous deployment pipeline to Elastic Beanstalk
+  directly from GitHub.
 - GitLab – This [AWS
   DevOps Developer Productivity Blog](https://aws.amazon.com/blogs/devops/deploy-a-docker-application-on-aws-elastic-beanstalk-with-gitlab/ "https://aws.amazon.com/blogs/devops/deploy-a-docker-application-on-aws-elastic-beanstalk-with-gitlab/") post demonstrates how to configure GitLab
   continuous pipelines to deploy Node.js applications to Elastic Beanstalk Docker environments.

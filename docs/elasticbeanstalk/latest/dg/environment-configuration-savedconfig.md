@@ -14,8 +14,7 @@ These include the Elastic Beanstalk console, the EB CLI, and the AWS CLI.
 
 See the following topics for examples of alternate methods for creating and applying saved configurations:
 
-- [Setting configuration options before
-  environment creation](environment-configuration-methods-before.md "environment-configuration-methods-before.md")
+- [Setting configuration options before environment creation](environment-configuration-methods-before.md "environment-configuration-methods-before.md")
 - [Setting configuration options during environment creation](environment-configuration-methods-during.md "environment-configuration-methods-during.md")
 - [Setting configuration options after environment creation](environment-configuration-methods-after.md "environment-configuration-methods-after.md")
   Create a saved configuration from the current state of your environment in the Elastic Beanstalk management console.
@@ -157,7 +156,6 @@ These include the Elastic Beanstalk console, the EB CLI, and the AWS CLI.
 
 See the following topics for examples of alternate methods for creating and applying saved configurations:
 
-- [Setting configuration options before
-  environment creation](environment-configuration-methods-before.md "environment-configuration-methods-before.md")
+- [Setting configuration options before environment creation](environment-configuration-methods-before.md "environment-configuration-methods-before.md")
 - [Setting configuration options during environment creation](environment-configuration-methods-during.md "environment-configuration-methods-during.md")
 - [Setting configuration options after environment creation](environment-configuration-methods-after.md "environment-configuration-methods-after.md")

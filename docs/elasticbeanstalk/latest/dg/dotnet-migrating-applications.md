@@ -44,13 +44,11 @@ Elastic Beanstalk:
   map to Elastic Beanstalk resources
 - [Understanding IIS to Elastic Beanstalk migration mapping](dotnet-migrating-applications-mapping.md "dotnet-migrating-applications-mapping.md") - Understand how IIS components
   map to Elastic Beanstalk resources
-- [Performing basic IIS
-  migrations](dotnet-migrating-applications-basic-migration.md "dotnet-migrating-applications-basic-migration.md") - Learn how to perform
+- [Performing basic IIS migrations](dotnet-migrating-applications-basic-migration.md "dotnet-migrating-applications-basic-migration.md") - Learn how to perform
   basic migrations
 - [Advanced migration scenarios](dotnet-migrating-applications-advanced-scenarios.md "dotnet-migrating-applications-advanced-scenarios.md") - Handle complex
   migration scenarios
-- [Security configurations and IAM
-  roles](dotnet-migrating-applications-security.md "dotnet-migrating-applications-security.md") - Configure security settings
+- [Security configurations and IAM roles](dotnet-migrating-applications-security.md "dotnet-migrating-applications-security.md") - Configure security settings
   during migration
 - [Network configuration and port settings](dotnet-migrating-applications-network.md "dotnet-migrating-applications-network.md") - Manage network and port
   configurations

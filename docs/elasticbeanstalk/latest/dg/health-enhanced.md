@@ -53,11 +53,9 @@ health reporting works, or see [Enabling Elastic Beanstalk enhanced health repor
 - [Instance metrics](health-enhanced-metrics.md "health-enhanced-metrics.md")
 - [Configuring enhanced health rules for an environment](health-enhanced-rules.md "health-enhanced-rules.md")
 - [Publishing Amazon CloudWatch custom metrics for an environment](health-enhanced-cloudwatch.md "health-enhanced-cloudwatch.md")
-- [Using enhanced health reporting with the Elastic Beanstalk
-  API](health-enhanced-api.md "health-enhanced-api.md")
+- [Using enhanced health reporting with the Elastic Beanstalk API](health-enhanced-api.md "health-enhanced-api.md")
 - [Enhanced health log format](health-enhanced-serverlogs.md "health-enhanced-serverlogs.md")
-- [Notifications and
-  troubleshooting](environments-health-enhanced-notifications.md "environments-health-enhanced-notifications.md")
+- [Notifications and troubleshooting](environments-health-enhanced-notifications.md "environments-health-enhanced-notifications.md")
 
 ## The Elastic Beanstalk health agent
 
@@ -189,8 +187,7 @@ When you create an Elastic Beanstalk environment using the Elastic Beanstalk con
 policies to a default instance profile for your environment.
 
 If you use the API, an SDK, or the AWS CLI to create environments, you must create these roles in advance, and specify them during environment creation
-to use enhanced health. For instructions on creating appropriate roles for your environments, see [Elastic Beanstalk Service roles, instance profiles, and user
-policies](concepts-roles.md "concepts-roles.md").
+to use enhanced health. For instructions on creating appropriate roles for your environments, see [Elastic Beanstalk Service roles, instance profiles, and user policies](concepts-roles.md "concepts-roles.md").
 
 We recommend that you use _managed policies_ for your instance profile and service role. Managed policies are AWS Identity and Access Management (IAM)
 policies that Elastic Beanstalk maintains. Using managed policies guarantees that your environment has all permissions it needs to function properly.

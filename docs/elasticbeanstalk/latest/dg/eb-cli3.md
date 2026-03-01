@@ -191,9 +191,7 @@ If you need to uninstall the EB CLI, use `pip uninstall`.
 $ `pip uninstall awsebcli`
 ```
 
-## Install the EB CLI in a virtual
-
-environment
+## Install the EB CLI in a virtual environment
 
 You can avoid version requirement conflicts with other `pip` packages by
 installing the EB CLI in a virtual environment.

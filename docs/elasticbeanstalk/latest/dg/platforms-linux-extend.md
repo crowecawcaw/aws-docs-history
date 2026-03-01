@@ -1,70 +1,174 @@
-# Platform hooks
+# Reverse proxy configuration
 
-Platform hooks are specifically designed to extend your environment's platform. These are custom scripts and other executable files that you deploy as
-part of your application's source code, and Elastic Beanstalk runs during various instance provisioning stages.
+All Amazon Linux 2 and Amazon Linux 2023 platform versions use nginx as their default reverse proxy server. The Tomcat, Node.js, PHP, and Python platform also
+support Apache HTTPD as an alternative. To select Apache on these platforms, set the `ProxyServer` option in the
+`aws:elasticbeanstalk:environment:proxy` namespace to `apache`. All platforms enable proxy server configuration in a uniform way,
+as described in this section.
 
 ###### Note
 
-Platform hooks aren't supported on Amazon Linux AMI platform versions (preceding Amazon Linux 2).
+On Amazon Linux AMI platform versions (preceding Amazon Linux 2) you might have to configure proxy servers differently. You can find these legacy details under the
+[respective platform topics](concepts-all-platforms.md "concepts-all-platforms.md") in this guide.
 
-## Application deployment platform hooks
+Elastic Beanstalk configures the proxy server on your environment's instances to forward web traffic to the main web application on the root URL of the
+environment; for example, `http://my-env.elasticbeanstalk.com`.
 
-An _application deployment_ occurs when you provide a new source bundle for deployment, or when you make a configuration change
-that requires termination and recreation of all environment instances.
+By default, Elastic Beanstalk configures the proxy to forward requests coming in on port 80 to your main web application on port 5000. You can configure this port
+number by setting the `PORT` environment property using the [aws:elasticbeanstalk:application:environment](command-options-general.md#command-options-general-elasticbeanstalkapplicationenvironment "command-options-general.md#command-options-general-elasticbeanstalkapplicationenvironment") namespace in a configuration file, as shown in the following example.
 
-To provide platform hooks that run during an application deployment, place the files under the `.platform/hooks` directory in
-your source bundle, in one of the following subdirectories.
+```
+option_settings:
+  - namespace:  aws:elasticbeanstalk:application:environment
+    option_name:  PORT
+    value:  `<main_port_number>`
+```
 
-- `prebuild` – Files here run after the Elastic Beanstalk platform engine downloads and extracts the application source bundle, and
-  before it sets up and configures the application and web server.
+For more information about setting environment variables for your application, see [Option settings](ebextensions-optionsettings.md "ebextensions-optionsettings.md").
 
-The `prebuild` files run after running commands found in the [commands](customize-containers-ec2.md#linux-commands "customize-containers-ec2.md#linux-commands") section of any
-configuration file and before running `Buildfile` commands.
+Your application should listen on the port that is configured for it in the proxy. If you change the default port using the `PORT`
+environment property, your code can access it by reading the value of the `PORT` environment variable. For example, call
+`os.Getenv("PORT")` in Go, or `System.getenv("PORT")` in Java. If you configure your proxy to send traffic to multiple application
+processes, you can configure several environment properties, and use their values in both proxy configuration and your application code. Another option is
+to pass the port value to the process as a command argument in the `Procfile`. For more information see [Buildfile and Procfile](platforms-linux-extend.md "platforms-linux-extend.md").
 
-- `predeploy` – Files here run after the Elastic Beanstalk platform engine sets up and configures the application and web server, and
-  before it deploys them to their final runtime location.
+## Configuring nginx
 
-The `predeploy` files run after running commands found in the [container_commands](customize-containers-ec2.md#linux-container-commands "customize-containers-ec2.md#linux-container-commands") section of any configuration file and before running `Procfile` commands.
+Elastic Beanstalk uses nginx as the default reverse proxy to map your application to your Elastic Load Balancing load balancer. Elastic Beanstalk provides a default nginx configuration
+that you can extend or override completely with your own configuration.
 
-- `postdeploy` – Files here run after the Elastic Beanstalk platform engine deploys the application and proxy server.
+###### Note
 
-This is the last deployment workflow step.
+When you add or edit an nginx `.conf` configuration file, be sure to encode it as UTF-8.
 
-## Configuration deployment platform hooks
+To extend the Elastic Beanstalk default nginx configuration, add `.conf` configuration files to a folder named
+`.platform/nginx/conf.d/` in your application source bundle. The Elastic Beanstalk nginx configuration includes `.conf`
+files in this folder automatically.
 
-A _configuration deployment_ occurs when you make configuration changes that only update environment instances without recreating
-them. The following option updates cause a configuration update.
+```
+~/workspace/my-app/
+|-- .platform
+|   `-- nginx
+|       `-- conf.d
+|           `-- myconf.conf
+`-- `other source files`
+```
 
-- [Environment properties and platform-specific settings](environments-cfg-softwaresettings.md "environments-cfg-softwaresettings.md")
-- [Static files](environment-cfg-staticfiles.md "environment-cfg-staticfiles.md")
-- [AWS X-Ray daemon](environment-configuration-debugging.md "environment-configuration-debugging.md")
-- [Log storage and streaming](environments-cfg-logging.md "environments-cfg-logging.md")
-- Application port (for details see [Reverse proxy configuration](platforms-linux-extend.md "platforms-linux-extend.md"))
+Configuration files in `.platform/nginx/conf.d/` are included in the `http` block of the nginx configuration. Use this
+location for configurations that apply globally.
 
-To provide hooks that run during a configuration deployment, place them under the `.platform/confighooks` directory in your
-source bundle. The same three subdirectories as for application deployment hooks apply.
+To extend the default nginx `server` block configuration, add `.conf` configuration files to a folder named
+`.platform/nginx/conf.d/elasticbeanstalk/` in your application source bundle. The Elastic Beanstalk nginx configuration includes
+`.conf` files in this folder within the `server` block.
 
-## More about platform hooks
+```
+~/workspace/my-app/
+|-- .platform
+|   `-- nginx
+|       `-- conf.d
+|           `-- elasticbeanstalk
+|               `-- server.conf
+`-- `other source files`
+```
 
-Hook files can be binary files, or script files starting with a `#!` line containing their interpreter path, such as
-`#!/bin/bash`. All files must have execute permission. Use `chmod +x` to set execute permission on your hook files. For all
-Amazon Linux 2023 and Amazon Linux 2 based platforms versions that were released on or after April 29, 2022, Elastic Beanstalk automatically grants execute permissions to all of
-the platform hook scripts. In this case you don't have to manually grant execute permissions. For a list of these platform versions, refer to the [April 29, 2022](../relnotes/release-2022-04-29-linux.md#release-2022-04-29-linux.platforms "../relnotes/release-2022-04-29-linux.md#release-2022-04-29-linux.platforms")
-Linux release notes in the _AWS Elastic Beanstalk Release Notes Guide_.
+Use this location to add server-specific configurations, such as additional location blocks, custom error pages, or server-level directives. The
+following example adds a custom location block.
 
-Elastic Beanstalk runs files in each one of these directories in lexicographical order of file names. All files run as the `root` user. The current
-working directory (cwd) for platform hooks is the application's root directory. For `prebuild` and `predeploy`
-files it's the application staging directory, and for `postdeploy` files it's the current application directory. If one of the files
-fails (exits with a non-zero exit code), the deployment aborts and fails.
+###### Example.platform/nginx/conf.d/elasticbeanstalk/server.conf
 
-A platform hooks text script may fail if it contains Windows _Carriage Return / Line Feed_ (CRLF) line break characters. If a
-file was saved in a Windows host, then transferred to a Linux server, it may contain Windows CRLF line breaks. For platforms released on or after [December 29, 2022](../relnotes/release-2022-12-29-linux.md "../relnotes/release-2022-12-29-linux.md"), Elastic Beanstalk automatically converts
-Windows CRLF characters to Linux _Line Feed_ (LF) line break characters in platform hooks text files. If you application runs on any
-Amazon Linux 2 platforms that were release prior to this date, you'll need to convert the Windows CRLF characters to Linux LF characters. One way to accomplish
-this is to create and save the script file on a Linux host. Tools that convert these characters are also available on the internet.
+```
+location /test {
+    return 200 "Hello World!";
+    add_header Content-Type text/plain;
+}
+```
 
-Hook files have access to all environment properties that you've defined in application options, and to the system environment variables
-`HOME`, `PATH`, and `PORT`.
+To override the Elastic Beanstalk default nginx configuration completely, include a configuration in your source bundle at
+`.platform/nginx/nginx.conf`:
 
-To get values of environment variables and other configuration options into your platform hook scripts, you can use the
-`get-config` utility that Elastic Beanstalk provides on environment instances. For details, see [Platform script tools for your Elastic Beanstalk environments](custom-platforms-scripts.md "custom-platforms-scripts.md").
+```
+~/workspace/my-app/
+|-- .platform
+|   `-- nginx
+|       `-- nginx.conf
+`-- `other source files`
+```
+
+If you override the Elastic Beanstalk nginx configuration, add the following line to your `nginx.conf` to pull in the Elastic Beanstalk configurations
+for [Enhanced health reporting and monitoring in Elastic Beanstalk](health-enhanced.md "health-enhanced.md"), automatic application mappings, and static files.
+
+```
+ include conf.d/elasticbeanstalk/*.conf;
+```
+
+## Configuring Apache HTTPD
+
+The Tomcat, Node.js, PHP, and Python platforms allow you to choose the Apache HTTPD proxy server as an alternative to nginx. This isn't the default.
+The following example configures Elastic Beanstalk to use Apache HTTPD.
+
+###### Example.ebextensions/httpd-proxy.config
+
+```
+option_settings:
+  aws:elasticbeanstalk:environment:proxy:
+    ProxyServer: apache
+```
+
+You can extend the Elastic Beanstalk default Apache configuration with your additional configuration files. Alternatively, you can override the Elastic Beanstalk default
+Apache configuration completely.
+
+To extend the Elastic Beanstalk default Apache configuration, add `.conf` configuration files to a folder named
+`.platform/httpd/conf.d` in your application source bundle. The Elastic Beanstalk Apache configuration includes `.conf`
+files in this folder automatically.
+
+```
+~/workspace/my-app/
+|-- .ebextensions
+|   -- httpd-proxy.config
+|-- .platform
+|   -- httpd
+|      -- conf.d
+|         -- port5000.conf
+|         -- ssl.conf
+-- index.jsp
+```
+
+For example, the following Apache 2.4 configuration adds a listener on port 5000.
+
+###### Example.platform/httpd/conf.d/port5000.conf
+
+```
+listen 5000
+<VirtualHost *:5000>
+  <Proxy *>
+    Require all granted
+  </Proxy>
+  ProxyPass / http://localhost:8080/ retry=0
+  ProxyPassReverse / http://localhost:8080/
+  ProxyPreserveHost on
+
+  ErrorLog /var/log/httpd/elasticbeanstalk-error_log
+</VirtualHost>
+```
+
+To override the Elastic Beanstalk default Apache configuration completely, include a configuration in your source bundle at
+`.platform/httpd/conf/httpd.conf`.
+
+```
+~/workspace/my-app/
+|-- .ebextensions
+|   -- httpd-proxy.config
+|-- .platform
+|   `-- httpd
+|       `-- conf
+|           `-- httpd.conf
+`-- index.jsp
+```
+
+###### Note
+
+If you override the Elastic Beanstalk Apache configuration, add the following lines to your `httpd.conf` to pull in the Elastic Beanstalk
+configurations for [Enhanced health reporting and monitoring in Elastic Beanstalk](health-enhanced.md "health-enhanced.md"), automatic application mappings, and static files.
+
+```
+IncludeOptional conf.d/elasticbeanstalk/*.conf
+```

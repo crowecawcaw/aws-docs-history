@@ -1,6 +1,4 @@
-# Canceling environment configuration updates
-
-and application deployments
+# Canceling environment configuration updates and application deployments
 
 You can cancel in-progress updates that are triggered by environment configuration changes.
 You can also cancel the deployment of a new application version in progress. For example, you

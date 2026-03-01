@@ -1,14 +1,10 @@
-# Security configurations and IAM
-
-roles
+# Security configurations and IAM roles
 
 The **eb migrate** command manages AWS security configurations through IAM roles,
 instance profiles, and service roles. Understanding these components ensures proper access
 control and security compliance during migration.
 
-## Instance profile
-
-configuration
+## Instance profile configuration
 
 An instance profile serves as a container for an IAM role that Elastic Beanstalk attaches to EC2
 instances in your environment. When executing **eb migrate**, you can specify a
@@ -44,9 +40,7 @@ JSON
 
 ```
 
-## Service role
-
-management
+## Service role management
 
 A service role allows Elastic Beanstalk to manage AWS resources on your behalf. Specify a custom
 service role during migration with the following command:
@@ -75,9 +69,7 @@ With these policies, the service role has permissions to:
 
 For more information about service roles, see [Elastic Beanstalk service role](concepts-roles-service.md "concepts-roles-service.md") in the Elastic Beanstalk Developer Guide.
 
-## Security group
-
-configuration
+## Security group configuration
 
 The **eb migrate** command automatically configures security groups based on your IIS
 site bindings. For example, if your source environment has sites using ports 80, 443, and
@@ -128,9 +120,7 @@ For example, the following `vpc-config.json` configuration creates a private loa
 
 For more information about VPC configuration options, see [VPC configuration](dotnet-migrating-applications-network.md#dotnet-migrating-applications-network-vpc "dotnet-migrating-applications-network.md#dotnet-migrating-applications-network-vpc").
 
-## SSL certificate
-
-integration
+## SSL certificate integration
 
 When migrating sites with HTTPS bindings, integrate SSL certificates through AWS Certificate Manager (ACM):
 
@@ -145,9 +135,7 @@ This configuration completes the following actions:
 - Preserves internal HTTP communication between the load balancer and EC2
   instances
 
-## Windows
-
-authentication
+## Windows authentication
 
 For applications using Windows Authentication, **eb migrate** preserves the
 authentication settings in the application's `web.config` as follows:
@@ -186,9 +174,7 @@ If your application relies on custom Windows user accounts or Active Directory
 integration, you will need to configure these aspects separately after the migration is
 complete.
 
-## Best practices and
-
-troubleshooting
+## Best practices and troubleshooting
 
 ### Role management
 
@@ -219,9 +205,7 @@ Establish a quarterly review cycle to do the following tasks:
 - Remove outdated permissions
 - Update roles based on least-privilege principles
 
-### Certificate
-
-management
+### Certificate management
 
 Implement these practices for SSL/TLS certificates in your Elastic Beanstalk environments:
 
@@ -237,9 +221,7 @@ Security standards
 - Follow [AWS security policies](../../../elasticloadbalancing/latest/application/create-https-listener.md#describe-ssl-policies "../../../elasticloadbalancing/latest/application/create-https-listener.md#describe-ssl-policies") for HTTPS listeners
 - Implement HTTP Strict Transport Security (HSTS) if required
 
-### Security group
-
-management
+### Security group management
 
 Implement these security group best practices:
 
@@ -259,9 +241,7 @@ Establish monthly reviews to do the following tasks:
 - Validate source/destination requirements
 - Check for overlapping rules
 
-### Logging and
-
-monitoring
+### Logging and monitoring
 
 For effective security monitoring, configure the following logs:
 

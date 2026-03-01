@@ -14,5 +14,4 @@ The following is a list of example configuration files that you can use to custo
 
 - [Example: ElastiCache](customize-environment-resources-elasticache.md "customize-environment-resources-elasticache.md")
 - [Example: SQS, CloudWatch, and SNS](customize-environment-resources-sqs.md "customize-environment-resources-sqs.md")
-- [Example: DynamoDB, CloudWatch, and
-  SNS](customize-environment-resources-dynamodb.md "customize-environment-resources-dynamodb.md")
+- [Example: DynamoDB, CloudWatch, and SNS](customize-environment-resources-dynamodb.md "customize-environment-resources-dynamodb.md")

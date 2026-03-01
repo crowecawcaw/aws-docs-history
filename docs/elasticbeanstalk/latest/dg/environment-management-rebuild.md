@@ -10,9 +10,7 @@ You can also rebuild terminated environments within six weeks (42 days) of their
 termination. When you rebuild, Elastic Beanstalk attempts to create a new environment with the same name,
 ID, and configuration.
 
-## Rebuilding a running
-
-environment
+## Rebuilding a running environment
 
 You can rebuild an environment through the Elastic Beanstalk console or by using the
 `RebuildEnvironment` API.
@@ -41,9 +39,7 @@ action with the AWS CLI or the AWS SDK.
 $ `aws elasticbeanstalk rebuild-environment --environment-id e-`vdnftxubwq``
 ```
 
-## Rebuilding a terminated
-
-environment
+## Rebuilding a terminated environment
 
 You can rebuild and restore a terminated environment by using the Elastic Beanstalk console, the EB
 CLI, or the `RebuildEnvironment` API.

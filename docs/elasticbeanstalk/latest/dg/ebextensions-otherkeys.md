@@ -76,9 +76,7 @@ You can use a mapping to store key-value pairs organized by namespace. A mapping
 change a parameter value depending on another value. For example, the following configuration sets the value of an account ID parameter based on the
 current region.
 
-###### Example [Loadbalancer-accesslogs-newbucket.config](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/resource-configuration/loadbalancer-accesslogs-newbucket.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/resource-configuration/loadbalancer-accesslogs-newbucket.config")
-
-– Mappings
+###### Example [Loadbalancer-accesslogs-newbucket.config](https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/resource-configuration/loadbalancer-accesslogs-newbucket.config "https://github.com/awsdocs/elastic-beanstalk-samples/tree/main/configuration-files/aws-provided/resource-configuration/loadbalancer-accesslogs-newbucket.config") – Mappings
 
 ```
 Mappings:

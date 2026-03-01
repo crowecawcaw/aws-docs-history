@@ -1,6 +1,4 @@
-# QuickStart: Deploy a PHP application to
-
-Elastic Beanstalk
+# QuickStart: Deploy a PHP application to Elastic Beanstalk
 
 In the following tutorial, you'll learn how to create and deploy a sample PHP application to an AWS Elastic Beanstalk environment using the EB CLI.
 
@@ -12,8 +10,7 @@ Examples are intended for demonstration only. Do not use example applications in
 
 - [Your AWS account](#php-quickstart-aws-account "#php-quickstart-aws-account")
 - [Prerequisites](#php-quickstart-prereq "#php-quickstart-prereq")
-- [Step 1: Create a PHP
-  application](#php-quickstart-create-app "#php-quickstart-create-app")
+- [Step 1: Create a PHP application](#php-quickstart-create-app "#php-quickstart-create-app")
 - [Step 2: Run your application locally](#php-quickstart-run-local "#php-quickstart-run-local")
 - [Step 3: Initialize and deploy your PHP application](#php-quickstart-deploy "#php-quickstart-deploy")
 - [Step 4: Browse your cloud application](#php-quickstart-run-eb-ap "#php-quickstart-run-eb-ap")
@@ -89,9 +86,7 @@ For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgro
 - PHP - Install PHP on your local machine by following [Installation and Configuration](https://www.php.net/manual/en/install.php "https://www.php.net/manual/en/install.php") instructions on
   the PHP website.
 
-## Step 1: Create a PHP
-
-application
+## Step 1: Create a PHP application
 
 For this quick start, you will create a _Hello World_ PHP
 application.

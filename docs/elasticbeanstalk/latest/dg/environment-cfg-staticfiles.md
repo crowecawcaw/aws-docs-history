@@ -14,9 +14,7 @@ On the Python and Ruby platforms, Elastic Beanstalk configures some static file 
 For details, see the static file configuration sections for [Python](create-deploy-python-container.md#python-platform-staticfiles "create-deploy-python-container.md#python-platform-staticfiles") and [Ruby](create_deploy_Ruby.md#create_deploy_Ruby.container.console.staticfiles "create_deploy_Ruby.md#create_deploy_Ruby.container.console.staticfiles"). You can configure
 additional folders as explained on this page.
 
-## Configure static files using the
-
-console
+## Configure static files using the console
 
 ###### To configure the proxy server to serve static files
 
@@ -39,14 +37,11 @@ console
 
    If you aren't seeing the **Static files** section, you have to
    add at least one mapping by using a [configuration
-   file](ebextensions.md "ebextensions.md"). For details, see [Configure static files using
-   configuration options](#environment-cfg-staticfiles.namespace "#environment-cfg-staticfiles.namespace") on this page. 2. To remove a mapping, select **Remove**.
+   file](ebextensions.md "ebextensions.md"). For details, see [Configure static files using configuration options](#environment-cfg-staticfiles.namespace "#environment-cfg-staticfiles.namespace") on this page. 2. To remove a mapping, select **Remove**.
 
 6. To save the changes choose **Apply** at the bottom of the page.
 
-## Configure static files using
-
-configuration options
+## Configure static files using configuration options
 
 You can use a [configuration file](ebextensions.md "ebextensions.md") to configure static
 file paths and directory locations using configuration options. You can add a configuration

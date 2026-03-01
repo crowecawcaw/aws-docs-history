@@ -1,13 +1,9 @@
-# Performing basic IIS
-
-migrations
+# Performing basic IIS migrations
 
 This section guides you through the process of migrating your IIS applications to Elastic Beanstalk
 using the **eb migrate** command.
 
-## Exploring your IIS
-
-environment
+## Exploring your IIS environment
 
 Before making any changes, you'll want to understand what resources exist on your server.
 Start by exploring your IIS sites by running **eb migrate explore**, as shown
@@ -92,9 +88,7 @@ Physical path mappings indicate where your content resides on the file system.
 Authentication settings show special access requirements that need to be maintained
 after migration.
 
-## Preparing for
-
-migration
+## Preparing for migration
 
 With an understanding of your environment, ensure that your server meets the prerequisites.
 First, verify your IIS version with the following PowerShell command:
@@ -113,9 +107,7 @@ applications. Verify its installation with the following command:
 If Web Deploy isn't installed on your server, you can download it from the [Microsoft Web Platform
 Installer](https://www.iis.net/downloads/microsoft/web-deploy "https://www.iis.net/downloads/microsoft/web-deploy") download page.
 
-## Your first
-
-migration
+## Your first migration
 
 Let's start with a basic migration of the Default Web Site. The following example shows the simplest command, **eb migrate**.
 
@@ -154,9 +146,7 @@ artifacts. The following listing shows the directory structure:
  └── >other helper scripts<`
 ```
 
-## Controlling the
-
-migration
+## Controlling the migration
 
 For more control over the migration process, you can specify exactly which sites to
 migrate with the following command:
@@ -176,9 +166,7 @@ You can also customize the environment name and application name, as shown in th
 
 For a complete list of options, see [eb migrate](eb3-migrate.md "eb3-migrate.md").
 
-## Monitoring
-
-progress
+## Monitoring progress
 
 During migration, **eb migrate** provides real-time status updates. Refer to the following output example:
 
@@ -205,9 +193,7 @@ Creating environment... This may take a few minutes
 2025-03-18 18:24:00 INFO Successfully launched environment: EBMigratedEnv-arrreal3`
 ```
 
-## Verifying the
-
-migration
+## Verifying the migration
 
 Once the environment is ready, Elastic Beanstalk provides several ways to verify your
 deployment.
@@ -251,9 +237,7 @@ You can view the environment's health, logs, and configuration properties throug
 the [environment management console](environments-console.md "environments-console.md") for that
 environment.
 
-## Managing migration
-
-artifacts
+## Managing migration artifacts
 
 The **eb migrate** command creates local artifacts during the migration process. These
 artifacts contain sensitive information and can consume significant disk space over time. Use the

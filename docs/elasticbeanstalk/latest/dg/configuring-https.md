@@ -1,50 +1,34 @@
-# Configuring HTTPS for your Elastic Beanstalk environment
+# Server certificates
 
-This topics in this section explain how to configure HTTPS for your Elastic Beanstalk environment. HTTPS is a must for any application that transmits user data or
-login information.
+This topic describes the different types of certificates you can use to configure HTTPS and when to apply each. The subtopics
+in this section provide instructions to create your own certificate and how to upload it.
 
-If you've purchased and configured a [custom domain name](customdomains.md "customdomains.md") for your Elastic Beanstalk environment, you can use HTTPS to allow
-users to connect to your web site securely.
+###### AWS Certificate Manager (ACM)
 
-If you don't own a domain name, you can still use HTTPS with a self-signed certificate for development and
-testing purposes. For more information, see [Server certificates](configuring-https.md "configuring-https.md").
+ACM is the preferred tool to provision, manage, and deploy your server certificates. You can do so programmatically or using the AWS CLI. With ACM
+you can create a trusted certificate for your domain names for free.
 
-###### Configuring HTTPS Termination at the load balancer
-
-A load balancer distributes requests to the EC2 instances running your application. A load balancer also eliminates the need to expose your instances
-directly to the internet. The simplest way to use HTTPS with an Elastic Beanstalk multi-instance environment is to configure a secure listener for the load balancer.
-The connection between the client and the load balancer remains secure, so you can configure the load balancer to terminate HTTPS. The back end
-connections between the load balancer and EC2 instances use HTTP, so no additional configuration of the instances is required. For detailed instructions
-to configure a secure listenter, see [Configuring HTTPS Termination at the load balancer](configuring-https-elb.md "configuring-https-elb.md").
-
-###### Configuring HTTPS Termination at the EC2 instance
-
-If you run your application in a single instance environment, or need to secure the connection all the way to the EC2 instances behind the load
-balancer, you can configure the proxy server that runs on the instance to terminate HTTPS. Configuring your instances to terminate HTTPS connections
-requires the use of [configuration files](ebextensions.md "ebextensions.md") to modify the software running on the instances, and to modify security groups
-to allow secure connections. For more information, see [Configuring HTTPS Termination at the instance](https-singleinstance.md "https-singleinstance.md").
-
-###### Configuring HTTPS end-to-end
-
-For end-to-end HTTPS in a load-balanced environment, you can combine instance and load balancer termination to encrypt both connections. By default,
-if you configure the load balancer to forward traffic using HTTPS, it will trust any certificate presented to it by the backend instances. For maximum
-security, you can attach policies to the load balancer that prevent it from connecting to instances that don't present a public certificate that it
-trusts. For more information, see [Configuring end-to-end encryption in a load-balanced Elastic Beanstalk environment](configuring-https-endtoend.md "configuring-https-endtoend.md").
-
-###### Configuring HTTPS with TCP Passthrough
-
-You can also configure the load balancer to relay HTTPS traffic without decrypting it. For more information, see [Configuring your environment's load balancer for TCP Passthrough](https-tcp-passthrough.md "https-tcp-passthrough.md").
+ACM certificates can only be used with AWS load balancers and Amazon CloudFront distributions, and ACM is available only in certain AWS Regions. To
+use an ACM certificate with Elastic Beanstalk, see [Configuring HTTPS Termination at the load balancer](configuring-https-elb.md "configuring-https-elb.md"). For more information about ACM
+see the [_AWS Certificate Manager User Guide_](../../../acm/latest/userguide/acm-overview.md "../../../acm/latest/userguide/acm-overview.md").
 
 ###### Note
 
-The [Does it have Snakes?](https://github.com/awslabs/eb-tomcat-snakes "https://github.com/awslabs/eb-tomcat-snakes") sample application on GitHub includes configuration files
-and instructions for each method of configuring HTTPS with a Tomcat web application. See the [readme file](https://github.com/awslabs/eb-tomcat-snakes/blob/master/README.md "https://github.com/awslabs/eb-tomcat-snakes/blob/master/README.md") and [HTTPS instructions](https://github.com/awslabs/eb-tomcat-snakes/blob/master/src/.ebextensions/inactive/HTTPS.md "https://github.com/awslabs/eb-tomcat-snakes/blob/master/src/.ebextensions/inactive/HTTPS.md") for details.
+For a list of regions where ACM is available, see [ACM endpoints and quotas](../../../general/latest/gr/acm.md "../../../general/latest/gr/acm.md")
+in the _Amazon Web Services General Reference_.
 
-###### Topics
+If ACM is not available in your AWS Region, you can upload a third-party or self-signed certificate and private key to AWS Identity and Access Management (IAM). You can
+use the AWS CLI to upload the certificate. Certificates stored in IAM can be used with load balancers and CloudFront distributions. For more information, see
+[Upload a certificate to IAM](configuring-https-ssl-upload.md "configuring-https-ssl-upload.md").
 
-- [Server certificates](configuring-https.md "configuring-https.md")
-- [Configuring HTTPS Termination at the load balancer](configuring-https-elb.md "configuring-https-elb.md")
-- [Configuring HTTPS Termination at the instance](https-singleinstance.md "https-singleinstance.md")
-- [Configuring end-to-end encryption in a load-balanced Elastic Beanstalk environment](configuring-https-endtoend.md "configuring-https-endtoend.md")
-- [Configuring your environment's load balancer for TCP Passthrough](https-tcp-passthrough.md "https-tcp-passthrough.md")
-- [Configuring HTTP to HTTPS redirection](configuring-https-httpredirect.md "configuring-https-httpredirect.md")
+###### Third party certificate
+
+If ACM is not available in your region, you can purchase a trusted certificate from a third party. A third-party certificate can be used to
+decrypt HTTPS traffic at your load balancer, on the backend instances, or both.
+
+###### Self-signed certificate
+
+For development and testing, you can [create and sign a certificate](configuring-https-ssl.md "configuring-https-ssl.md") yourself with open source tools.
+Self-signed certificates are free and easy to create, but cannot be used for front-end decryption on public sites. If you attempt to use a self-signed
+certificate for an HTTPS connection to a client, the user's browser displays an error message indicating that your web site is unsafe. You can, however,
+use a self-signed certificate to secure backend connections without issue.

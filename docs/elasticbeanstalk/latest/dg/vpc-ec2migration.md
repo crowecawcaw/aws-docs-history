@@ -111,8 +111,7 @@ configuration, so you can apply it when you create or update other environments.
      Provide the parameters of your original environment and the VPC identifier. One of the [examples](eb3-create.md#eb3-createexample1 "eb3-create.md#eb3-createexample1") in
      the **eb create** command description shows how to create an environment in a custom VPC.
     * Use the AWS Command Line Interface (AWS CLI), and re-create your environment using the **elasticbeanstalk create-environment** command.
-     Provide the parameters of your original environment with the VPC identifier. For instructions, see [Creating Elastic Beanstalk environments with the AWS
-     CLI](environments-create-awscli.md "environments-create-awscli.md").
+     Provide the parameters of your original environment with the VPC identifier. For instructions, see [Creating Elastic Beanstalk environments with the AWS CLI](environments-create-awscli.md "environments-create-awscli.md").
 
 2. Swap the CNAMEs of the existing environment with the new environment. This way, the new environment that you created can be referenced with
    the familiar address. You can use the EB CLI or the AWS CLI.

@@ -1,6 +1,4 @@
-# Notifications and
-
-troubleshooting
+# Notifications and troubleshooting
 
 ###### Try Amazon Q Developer CLI for AI-assisted troubleshooting
 

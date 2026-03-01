@@ -18,9 +18,7 @@ the `DisableDefaultEC2SecurityGroup` option in the [aws:autoscaling:launchconfig
 configuration files to apply this option to your environment and to attach custom security
 groups to the EC2 instances.
 
-## Managing EC2
-
-security groups in multi-instance environments
+## Managing EC2 security groups in multi-instance environments
 
 If you create a custom EC2 security group in a multi-instance environment you must also
 consider how the load balancers and incoming traffic rules keep your instances secure and

@@ -1,6 +1,4 @@
-# Setting configuration options before
-
-environment creation
+# Setting configuration options before environment creation
 
 AWS Elastic Beanstalk supports a large number of [configuration
 options](command-options.md "command-options.md") that let you modify the settings that are applied to resources in your
@@ -30,15 +28,12 @@ For a full list of available options, see [Configuration options](command-option
 
 ###### Methods
 
-- [Configuration files
-  (.ebextensions)](#configuration-options-before-ebextensions "#configuration-options-before-ebextensions")
+- [Configuration files (.ebextensions)](#configuration-options-before-ebextensions "#configuration-options-before-ebextensions")
 - [Saved configurations](#configuration-options-before-savedconfig "#configuration-options-before-savedconfig")
 - [JSON document](#configuration-options-before-json "#configuration-options-before-json")
 - [EB CLI configuration](#configuration-options-before-configyml "#configuration-options-before-configyml")
 
-## Configuration files
-
-(`.ebextensions`)
+## Configuration files (`.ebextensions`)
 
 Use `.ebextensions` to configure options that are required to make your
 application work, and provide default values for other options that can be overridden at a

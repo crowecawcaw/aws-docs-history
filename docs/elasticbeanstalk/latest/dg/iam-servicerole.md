@@ -147,8 +147,7 @@ option_settings:
 ## Managing service roles using the Elastic Beanstalk API
 
 When you use the `CreateEnvironment` action of the Elastic Beanstalk API to create an environment, specify a service role using the
-`ServiceRole` configuration option in the `aws:elasticbeanstalk:environment` namespace. For more information about using enhanced health monitoring with the Elastic Beanstalk API, see [Using enhanced health reporting with the Elastic Beanstalk
-API](health-enhanced-api.md "health-enhanced-api.md").
+`ServiceRole` configuration option in the `aws:elasticbeanstalk:environment` namespace. For more information about using enhanced health monitoring with the Elastic Beanstalk API, see [Using enhanced health reporting with the Elastic Beanstalk API](health-enhanced-api.md "health-enhanced-api.md").
 
 In addition, if you enable [managed platform updates](environment-platform-update-managed.md "environment-platform-update-managed.md") for your environment, you can specify a
 managed-updates service role using the `ServiceRoleForManagedUpdates` option of the `aws:elasticbeanstalk:managedactions` namespace.

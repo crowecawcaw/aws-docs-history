@@ -1,123 +1,43 @@
-# Adding an Amazon RDS DB instance to your .NET application
+# Deploying .NET Windows applications with Elastic Beanstalk
 
-environment
+###### Check out the .NET on AWS Developer Center
 
-This topic provides instructions to create an Amazon RDS using the Elastic Beanstalk console.
-You can use an Amazon Relational Database Service (Amazon RDS) DB instance to store data gathered and modified by your
-application. The database can be coupled to your environment and managed by Elastic Beanstalk, or it can be created as decoupled
-and managed externally by another service.
-In these instructions the database is coupled to your environment and managed by Elastic Beanstalk. For more information about integrating an Amazon RDS with
-Elastic Beanstalk, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+Have you stopped by our _.Net Developer Center_? It's our one stop shop for all things .NET on AWS.
 
-###### Sections
+For more information see the [.NET on AWS Developer Center](https://aws.amazon.com/developer/language/net "https://aws.amazon.com/developer/language/net").
 
-- [Adding a DB instance to your environment](#dotnet-rds-create "#dotnet-rds-create")
-- [Downloading a driver](#dotnet-rds-drivers "#dotnet-rds-drivers")
-- [Connecting to a database](#dotnet-rds-connect "#dotnet-rds-connect")
+This chapter provides instructions for configuring and deploying your ASP.NET and .NET Core Windows web applications to AWS Elastic Beanstalk. Elastic Beanstalk makes it easy to deploy,
+manage, and scale your .NET (Windows) web applications using Amazon Web Services.
 
-## Adding a DB instance to your environment
+You can deploy your application in just a few minutes using the Elastic Beanstalk Command Line Interface (EB CLI) or by using the Elastic Beanstalk console. After you deploy
+your Elastic Beanstalk application, you can continue to use the EB CLI to manage your application and environment, or you can use the Elastic Beanstalk console, AWS CLI, or the
+APIs.
 
-###### To add a DB instance to your environment
+This chapter provides the following tutorials:
 
-1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
-   and in the **Regions** list, select your AWS Region.
-2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
-3. In the navigation pane, choose **Configuration**.
-4. In the **Database** configuration category, choose **Edit**.
-5. Choose a DB engine, and enter a user name and password.
-6. To save the changes choose **Apply** at the bottom of the page.
+- [QuickStart for .NET Core on Windows](dotnet-quickstart.md "dotnet-quickstart.md") — Step-by-step instructions
+  to create and deploy a _Hello World_ .NET Core Windows application using the EB CLI.
+- [QuickStart for ASP.NET](aspnet-quickstart.md "aspnet-quickstart.md") — Step-by-step instructions to create and deploy a _Hello
+  World_ ASP.NET application using the AWS Toolkit for Visual Studio.
+  If you need help with Windows .NET Core application development, there are several places you can go:
 
-Adding a DB instance takes about 10 minutes. When the environment update is complete, the
-DB instance's hostname and other connection information are available to your application
-through the following environment properties:
+- [.NET Development Forum](https://forums.aws.amazon.com/forum.jspa?forumID=61 "https://forums.aws.amazon.com/forum.jspa?forumID=61") — Post your questions and get feedback.
+- [.NET Developer Center](https://aws.amazon.com/net/ "https://aws.amazon.com/net/") — One-stop shop for sample code, documentation, tools, and additional
+  resources.
+- [AWS SDK for .NET Documentation](https://aws.amazon.com/documentation/sdk-for-net/ "https://aws.amazon.com/documentation/sdk-for-net/") — Read about setting up the SDK and running
+  code samples, features of the SDK, and detailed information about the API operations for the SDK.
 
-| Property name  | Description                                                                                    | Property value                                                                         |
-| -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Endpoint\*\*. |
-| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Port\*\*.     |
-| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration\*<br>• tab on the Amazon RDS console: **DB Name\*\*.            |
-| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration\*<br>• tab on the Amazon RDS console: **Master username\*\*.    |
-| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
+###### Note
 
-For more information about configuring a database instance coupled with an Elastic Beanstalk environment,
-see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+This platform does not support worker environments. For details, see [Elastic Beanstalk worker environments](using-features-managing-env-tiers.md "using-features-managing-env-tiers.md").
 
-## Downloading a driver
+###### Topics
 
-Download and install the `EntityFramework` package and a database driver for
-your development environment with `NuGet`.
-
-###### Common entity framework database providers for .NET
-
-- **SQL Server** –
-  `Microsoft.EntityFrameworkCore.SqlServer`
-- **MySQL** –
-  `Pomelo.EntityFrameworkCore.MySql`
-- **PostgreSQL** –
-  `Npgsql.EntityFrameworkCore.PostgreSQL`
-
-## Connecting to a database
-
-Elastic Beanstalk provides connection information for attached DB instances in environment properties.
-Use `ConfigurationManager.AppSettings` to read the properties and configure a
-database connection.
-
-###### Example Helpers.cs - connection string method
-
-```
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-
-namespace MVC5App.Models
-{
-  public class Helpers
-  {
-    public static string GetRDSConnectionString()
-    {
-      var appConfig = ConfigurationManager.AppSettings;
-
-      string dbname = appConfig["RDS_DB_NAME"];
-
-      if (string.IsNullOrEmpty(dbname)) return null;
-
-      string username = appConfig["RDS_USERNAME"];
-      string password = appConfig["RDS_PASSWORD"];
-      string hostname = appConfig["RDS_HOSTNAME"];
-      string port = appConfig["RDS_PORT"];
-
-      return "Data Source=" + hostname + ";Initial Catalog=" + dbname + ";User ID=" + username + ";Password=" + password + ";";
-    }
-  }
-}
-```
-
-Use the connection string to initialize your database context.
-
-###### Example DBContext.cs
-
-```
-using System.Data.Entity;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-
-namespace MVC5App.Models
-{
-  public class RDSContext : DbContext
-  {
-    public RDSContext()
-      : base(`GetRDSConnectionString()`)
-    {
-    }
-
-    public static RDSContext Create()
-    {
-      return new RDSContext();
-    }
-  }
-}
-```
+- [QuickStart: Deploy a .NET Core on Windows application to Elastic Beanstalk](dotnet-quickstart.md "dotnet-quickstart.md")
+- [QuickStart: Deploy an ASP.NET application to Elastic Beanstalk](aspnet-quickstart.md "aspnet-quickstart.md")
+- [Setting up your .NET development environment](dotnet-devenv.md "dotnet-devenv.md")
+- [Using the Elastic Beanstalk .NET Windows platform](create_deploy_NET.container.md "create_deploy_NET.container.md")
+- [Adding an Amazon RDS DB instance to your .NET application environment](create_deploy_NET.md "create_deploy_NET.md")
+- [The AWS Toolkit for Visual Studio](dotnet-toolkit.md "dotnet-toolkit.md")
+- [Migrating your on-premises .NET application to Elastic Beanstalk](dotnet-onpremmigration.md "dotnet-onpremmigration.md")
+- [Recommendations for Windows Server retired components on Elastic Beanstalk](dotnet-deprecation-recommendations.md "dotnet-deprecation-recommendations.md")

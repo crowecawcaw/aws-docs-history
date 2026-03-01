@@ -1,6 +1,4 @@
-# Spot Instance
-
-allocation strategy
+# Spot Instance allocation strategy
 
 You can select any one of the allocation strategies listed in this topic for your Elastic Beanstalk
 environment. Use the [Elastic Beanstalk

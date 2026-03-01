@@ -38,9 +38,7 @@ that have been retired, see [Retired platform branch history](platforms-schedule
 See [Elastic Beanstalk supported platforms](../platforms/platforms-supported.md "../platforms/platforms-supported.md") in
 _AWS Elastic Beanstalk Platforms_.
 
-## 5. Will Elastic Beanstalk remove or terminate any components of my environment after
-
-retirement?
+## 5. Will Elastic Beanstalk remove or terminate any components of my environment after retirement?
 
 Our policy for retired platform branches does not remove access to environments nor delete resources. However, an environment based on a retired
 platform branch can end up in an unpredictable situation, because Elastic Beanstalk isn't able to provide security updates, technical support, or hotfixes for retired
@@ -60,9 +58,7 @@ No. After the retirement date existing environments will continue to function. H
 updates. Therefore, it’s critical to migrate to AL2 or AL2023 if you are still running applications on an AL1-based platform. For more information
 about risks and workarounds, see [FAQ #5](#using-features.migration-al.FAQ.remove-components "#using-features.migration-al.FAQ.remove-components").
 
-## 7. What are the workarounds if I can't complete my AL2 or AL2023 migration in
-
-time?
+## 7. What are the workarounds if I can't complete my AL2 or AL2023 migration in time?
 
 Customers may continue to run the environment, although we strongly encourage you to plan to migrate all of your Elastic Beanstalk environments to a
 supported platform version. Doing so will minimize risk and provide continued benefit from important security, performance, and functionality enhancements
@@ -73,9 +69,7 @@ offered in more recent releases. For more information about risks and workaround
 For comprehensive AL1 to AL2023/AL2 migration instructions, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.md "using-features.md").
 This topic explains that Elastic Beanstalk requires a blue/green deployment to perform the upgrade.
 
-## 9. If I have an environment running on a retired platform, what would be the
-
-impact?
+## 9. If I have an environment running on a retired platform, what would be the impact?
 
 An environment based on a retired platform branch can end up in an unpredictable situation, because Elastic Beanstalk isn't able to provide security updates,
 technical support, or hotfixes for retired platform branches due to the supplier marking their component as End of Life (EOL). For example, a detrimental
@@ -101,10 +95,7 @@ Also, existing customers can use the [Clone environment](using-features.managing
 can end up in an unpredictable situation. For more information, see [FAQ
 #5](#using-features.migration-al.FAQ.remove-components "#using-features.migration-al.FAQ.remove-components").
 
-## 12. If I have an existing environment running on a retired platform branch,
-
-until when can I create a new environment based on the retired
-platform branch? Can I do so using the console, CLI or API?
+## 12. If I have an existing environment running on a retired platform branch, until when can I create a new environment based on the retired platform branch? Can I do so using the console, CLI or API?
 
 You can create the environment after the retirement date. However, keep in mind that a retired platform branch can end up in an unpredictable
 situation. The further out in time such an environment an environment is created or active, the higher the risk for the environment to encounter
@@ -119,18 +110,13 @@ However, we strongly encourage you to plan to migrate all your Elastic Beanstalk
 risk and provide continued benefit from important security, performance, and functionality enhancements offered in more recent releases. For more
 information about risks and workarounds, see [FAQ #5](#using-features.migration-al.FAQ.remove-components "#using-features.migration-al.FAQ.remove-components").
 
-## 14. After the retirement date, what would happen to the AWS resources of my Elastic Beanstalk
-
-environment that is based on a retired platform branch? For example, if the running EC2 instance gets terminated, would Elastic Beanstalk be able to launch a new
-AL1 based EC2 instance to maintain capacity?
+## 14. After the retirement date, what would happen to the AWS resources of my Elastic Beanstalk environment that is based on a retired platform branch? For example, if the running EC2 instance gets terminated, would Elastic Beanstalk be able to launch a new AL1 based EC2 instance to maintain capacity?
 
 The environment’s resources would remain active and continue to function. And, yes, Elastic Beanstalk will auto scale for AL1 EC2 instances in the environment.
 However, Elastic Beanstalk will stop providing new platform maintenance updates to the environment, which can lead to the environment ending up in an unpredictable
 situation over time. For more information, see [FAQ #5](#using-features.migration-al.FAQ.remove-components "#using-features.migration-al.FAQ.remove-components").
 
-## 15. What are key differences between the AL2023/AL2 and Amazon Linux AMI (AL1) operating systems? How are the Elastic Beanstalk
-
-AL2023/AL2 platform branches affected?
+## 15. What are key differences between the AL2023/AL2 and Amazon Linux AMI (AL1) operating systems? How are the Elastic Beanstalk AL2023/AL2 platform branches affected?
 
 Although Amazon Linux AMI and AL2023/AL2 share the same Linux kernel, they differ in their initialization system, `libc` versions, the compiler
 tool chain, and various packages. For more information, see [Amazon Linux 2 FAQs](https://aws.amazon.com//amazon-linux-2/faqs/ "https://aws.amazon.com//amazon-linux-2/faqs/").

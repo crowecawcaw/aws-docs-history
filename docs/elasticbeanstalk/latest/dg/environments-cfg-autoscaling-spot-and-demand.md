@@ -1,6 +1,4 @@
-# Managing On-Demand instances
-
-and Spot instances
+# Managing On-Demand instances and Spot instances
 
 You can launch and automatically scale a fleet of On-Demand Instances and Spot Instances
 within a single Auto Scaling group. The following options can be used in tandem to configure how the
@@ -34,12 +32,9 @@ option setting can cause Elastic Beanstalk to migrate an existing environment wi
 templates. Doing so requires the necessary permissions to manage launch templates. These permissions are included in our managed policy. If you use custom
 policies instead of our managed policies, environment creation or updates might fail when you update your environment
 configuration. For more information
-and other considerations, see [Migrating your Elastic Beanstalk
-environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md") .
+and other considerations, see [Migrating your Elastic Beanstalk environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md").
 
-## Applying both sets
-
-of namespace options
+## Applying both sets of namespace options
 
 The following points describe how the combination of these option settings affects the
 scaling for your environment.
@@ -71,17 +66,13 @@ single instance environment for development or testing. When you do, be sure to 
 `SpotFleetOnDemandAboveBasePercentage` to zero. Any other settings result
 in an On-Demand Instance.
 
-## Examples of
-
-scaling options settings
+## Examples of scaling options settings
 
 The following examples demonstrate different scenarios of setting the various scaling
 options. All examples assume a load-balanced environment with Spot Instance requests
 enabled.
 
-###### Example 1: On-Demand and Spot as part
-
-of initial capacity
+###### Example 1: On-Demand and Spot as part of initial capacity
 
 | Option settings                        | **Option**            | **Namespace** | **Value** |
 | -------------------------------------- | --------------------- | ------------- | --------- |
@@ -97,9 +88,7 @@ of the fleet above the four base On-Demand instances is kept at 50%, up to a max
 instances overall, of which 14 are On-Demand (four base, and 50% of the 20 above base) and
 ten are Spot.
 
-###### Example 2: All On-Demand initial
-
-capacity
+###### Example 2: All On-Demand initial capacity
 
 | Option settings                        | **Option**            | **Namespace** | **Value** |
 | -------------------------------------- | --------------------- | ------------- | --------- |
@@ -114,9 +103,7 @@ of On-Demand in the part of the fleet above the four base On-Demand instances is
 50%, up to a maximum of 24 instances overall, of which 14 are On-Demand (four base, and
 50% of the 20 above base) and ten are Spot.
 
-###### Example 3: Additional On-Demand base
-
-beyond initial capacity
+###### Example 3: Additional On-Demand base beyond initial capacity
 
 | Option settings                        | **Option**            | **Namespace** | **Value** |
 | -------------------------------------- | --------------------- | ------------- | --------- |

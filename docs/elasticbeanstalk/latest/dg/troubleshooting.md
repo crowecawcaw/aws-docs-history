@@ -204,11 +204,33 @@ Try [running more instances](using-features.managing.md "using-features.managing
 
 **Event:**
 _Elastic Load Balancer awseb-`myapp` Has Zero Healthy
-Instances_
+Instances_, _ELB processes are not healthy on `X`
+out of `Y` instances._, _ELB processes are not
+healthy on all instances._
 
-If your application appears to be working, make sure that your application’s health check
-URL is configured correctly. If not, check the Health screen and environment logs for more
-information.
+These messages indicate that your load balancer health checks are failing on one or more
+instances. If your application appears to be working, make sure that your application's health
+check URL is configured correctly. If not, try the following:
+
+- Check your application logs (e.g., `/var/log/web.stdout.log`) and
+  `/var/log/eb-engine.log` for errors, startup failures, or deployment
+  issues.
+- Check proxy logs for connection errors in `/var/log/nginx/` (nginx)
+  or `/var/log/httpd/` (Apache).
+- Verify your application responds with HTTP 200 to the configured health check
+  path and is listening on the expected port.
+- Verify security groups allow inbound traffic from the load balancer to instances
+  on the health check port. In the EC2 console, check the inbound rules on the instance's
+  security group to confirm the health check port is open to the load balancer's security
+  group.
+- Check CPU and memory utilization in CloudWatch metrics
+  (`CPUUtilization`, `EnvironmentHealth`). Resource exhaustion can cause
+  health check timeouts.
+
+For more details, [retrieve full bundle logs](using-features.md "using-features.md")
+or [enable CloudWatch log streaming](AWSHowTo.md "AWSHowTo.md"). You can also
+run the [`AWSSupport-TroubleshootElasticBeanstalk`](../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-elastic-beanstalk.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-elastic-beanstalk.md")
+automation runbook to help diagnose the issue.
 
 **Event:**
 _Elastic Load Balancer awseb-`myapp` Cannot Be
@@ -225,6 +247,29 @@ Availability for your environment's instance type may be low, or you may have re
 instance quota for your account. Check the [service
 health dashboard](http://status.aws.amazon.com/ "http://status.aws.amazon.com/") to ensure that the Elastic Compute Cloud (Amazon EC2) service is
 green, or [request a quota increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-ec2-instances "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-ec2-instances").
+
+**Event:**
+_None of the instances are sending data._
+
+Elastic Beanstalk is not receiving health data from any of your instances. This can be caused
+by network connectivity issues, health agent problems, or system-level failures.
+
+- Verify network connectivity. Check that security groups allow outbound HTTPS
+  (port 443). For instances in private subnets, verify a NAT gateway or VPC endpoints are
+  configured. Check route tables for correct outbound routes and ensure DNS resolution works
+  properly in your VPC.
+- Check the health monitoring agent. Look at
+  `/var/log/healthd/daemon.log` for health agent errors and
+  `/var/log/messages` for system-level errors. Verify the healthd service is running by connecting to the
+  instance via SSH and running `systemctl status healthd`.
+- Check for system-level issues such as resource exhaustion (memory, CPU, disk
+  space), NTP/system clock synchronization, and instance metadata service
+  connectivity.
+
+For more details, [retrieve full bundle logs](using-features.md "using-features.md")
+or [enable CloudWatch log streaming](AWSHowTo.md "AWSHowTo.md"). You can also
+run the [`AWSSupport-TroubleshootElasticBeanstalk`](../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-elastic-beanstalk.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awssupport-troubleshoot-elastic-beanstalk.md")
+automation runbook to help diagnose the issue.
 
 ## Environments with dual-stack configured load balancers
 

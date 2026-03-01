@@ -1,6 +1,4 @@
-# Enabling Spot Instances for your
-
-environment
+# Enabling Spot Instances for your environment
 
 To take advantage of Amazon EC2 Spot Instances, set the `EnableSpot`
 option for your environment. Your environment's Auto Scaling group then combines Amazon EC2 purchase
@@ -35,5 +33,4 @@ option setting can cause Elastic Beanstalk to migrate an existing environment wi
 templates. Doing so requires the necessary permissions to manage launch templates. These permissions are included in our managed policy. If you use custom
 policies instead of our managed policies, environment creation or updates might fail when you update your environment
 configuration. For more information
-and other considerations, see [Migrating your Elastic Beanstalk
-environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md") .
+and other considerations, see [Migrating your Elastic Beanstalk environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md").

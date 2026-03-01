@@ -221,8 +221,7 @@ information about setting the update type and other options, see [Configuration 
 
 Use the **Configure service access** page to configure service and instance security settings.
 
-For a description of Elastic Beanstalk security concepts, see [Elastic Beanstalk Service roles, instance profiles, and user
-policies](concepts-roles.md "concepts-roles.md").
+For a description of Elastic Beanstalk security concepts, see [Elastic Beanstalk Service roles, instance profiles, and user policies](concepts-roles.md "concepts-roles.md").
 
 The first time you create an environment in the Elastic Beanstalk console, you must create an EC2 instance profile with a default set of permissions. If the
 **EC2 instance profile** dropdown list doesn't show any values to choose from, expand the procedure that follows. It provides steps

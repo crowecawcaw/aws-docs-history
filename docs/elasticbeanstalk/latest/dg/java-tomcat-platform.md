@@ -59,8 +59,7 @@ For details about the various ways you can extend an Elastic Beanstalk Linux-bas
 
 - [Configuring your Tomcat environment](#java-tomcat-options "#java-tomcat-options")
 - [Tomcat configuration namespaces](#java-tomcat-namespaces "#java-tomcat-namespaces")
-- [Bundling multiple WAR files for Tomcat
-  environments](java-tomcat-multiple-war-files.md "java-tomcat-multiple-war-files.md")
+- [Bundling multiple WAR files for Tomcat environments](java-tomcat-multiple-war-files.md "java-tomcat-multiple-war-files.md")
 - [Structuring your project folder](java-tomcat-platform-directorystructure.md "java-tomcat-platform-directorystructure.md")
 - [Configuring the proxy server](java-tomcat-proxy.md "java-tomcat-proxy.md")
 
@@ -284,5 +283,4 @@ command:
 zip -ur `your_application.war` .ebextensions
 ```
 
-For an application requiring multiple WAR files, see [Bundling multiple WAR files for Tomcat
-environments](java-tomcat-multiple-war-files.md "java-tomcat-multiple-war-files.md") for further instructions.
+For an application requiring multiple WAR files, see [Bundling multiple WAR files for Tomcat environments](java-tomcat-multiple-war-files.md "java-tomcat-multiple-war-files.md") for further instructions.

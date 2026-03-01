@@ -33,16 +33,11 @@ management console.
 
 ###### Methods
 
-- [Using configuration files
-  (.ebextensions)](#configuration-options-after-console-ebextensions "#configuration-options-after-console-ebextensions")
-- [Using a saved
-  configuration](#configuration-options-after-console-savedconfig "#configuration-options-after-console-savedconfig")
-- [Using the
-  Elastic Beanstalk console](#configuration-options-after-console-configpage "#configuration-options-after-console-configpage")
+- [Using configuration files (.ebextensions)](#configuration-options-after-console-ebextensions "#configuration-options-after-console-ebextensions")
+- [Using a saved configuration](#configuration-options-after-console-savedconfig "#configuration-options-after-console-savedconfig")
+- [Using the Elastic Beanstalk console](#configuration-options-after-console-configpage "#configuration-options-after-console-configpage")
 
-### Using configuration files
-
-(`.ebextensions`)
+### Using configuration files (`.ebextensions`)
 
 Update configuration files in your source directory, create a new source bundle, and
 deploy the new version to your Elastic Beanstalk environment to apply the changes.
@@ -62,9 +57,7 @@ For details about configuration files, see [.Ebextensions](ebextensions.md "ebex
 Changes made to configuration files will not override option settings in saved
 configurations or settings applied directly to the environment at the API level. See [Precedence](command-options.md#configuration-options-precedence "command-options.md#configuration-options-precedence") for details.
 
-### Using a saved
-
-configuration
+### Using a saved configuration
 
 Apply a saved configuration to a running environment to apply option settings that it
 defines.
@@ -84,9 +77,7 @@ are overridden by settings configured using the environment management console.
 See [Saved configurations](environment-configuration-methods-before.md#configuration-options-before-savedconfig "environment-configuration-methods-before.md#configuration-options-before-savedconfig") for details on creating saved
 configurations.
 
-### Using the
-
-Elastic Beanstalk console
+### Using the Elastic Beanstalk console
 
 The Elastic Beanstalk console presents many configuration options on the
 **Configuration** page for each environment.
@@ -124,17 +115,12 @@ environment configuration directly with the **eb config** command.
 
 ###### Methods
 
-- [Using configuration files
-  (.ebextensions)](#configuration-options-after-ebcli-ebextensions "#configuration-options-after-ebcli-ebextensions")
-- [Using a saved
-  configuration](#configuration-options-after-ebcli-savedconfig "#configuration-options-after-ebcli-savedconfig")
+- [Using configuration files (.ebextensions)](#configuration-options-after-ebcli-ebextensions "#configuration-options-after-ebcli-ebextensions")
+- [Using a saved configuration](#configuration-options-after-ebcli-savedconfig "#configuration-options-after-ebcli-savedconfig")
 - [Using eb config](#configuration-options-after-ebcli-ebconfig "#configuration-options-after-ebcli-ebconfig")
-- [Using eb
-  setenv](#configuration-options-after-ebcli-ebsetenv "#configuration-options-after-ebcli-ebsetenv")
+- [Using eb setenv](#configuration-options-after-ebcli-ebsetenv "#configuration-options-after-ebcli-ebsetenv")
 
-### Using configuration files
-
-(`.ebextensions`)
+### Using configuration files (`.ebextensions`)
 
 Include `.config` files in your project folder under
 `.ebextensions` to deploy them with your application code.
@@ -158,9 +144,7 @@ Deploy your source code with **eb deploy**.
 ~/workspace/my-app$ `eb deploy`
 ```
 
-### Using a saved
-
-configuration
+### Using a saved configuration
 
 You can use the **eb config** command to apply a saved configuration to a running environment. Use the `--cfg` option with the
 name of the saved configuration to apply its settings to your environment.
@@ -263,9 +247,7 @@ aws:autoscaling:launchconfiguration:
 Removing options from your environment with **eb config** allows settings for the same options to surface from configuration files in your
 application source bundle. See [Precedence](command-options.md#configuration-options-precedence "command-options.md#configuration-options-precedence") for details.
 
-### Using \*\*eb
-
-setenv\*\*
+### Using **eb setenv**
 
 To set environment properties with the EB CLI, use **eb setenv**.
 
@@ -298,16 +280,11 @@ modifying the environment directly with the `aws elasticbeanstalk
 
 ###### Methods
 
-- [Using configuration files
-  (.ebextensions)](#configuration-options-after-awscli-ebextensions "#configuration-options-after-awscli-ebextensions")
-- [Using a saved
-  configuration](#configuration-options-after-awscli-savedconfig "#configuration-options-after-awscli-savedconfig")
-- [Using command line
-  options](#configuration-options-after-awscli-commandline "#configuration-options-after-awscli-commandline")
+- [Using configuration files (.ebextensions)](#configuration-options-after-awscli-ebextensions "#configuration-options-after-awscli-ebextensions")
+- [Using a saved configuration](#configuration-options-after-awscli-savedconfig "#configuration-options-after-awscli-savedconfig")
+- [Using command line options](#configuration-options-after-awscli-commandline "#configuration-options-after-awscli-commandline")
 
-### Using configuration files
-
-(`.ebextensions`)
+### Using configuration files (`.ebextensions`)
 
 To apply configuration files to a running environment with the AWS CLI, include them in
 the application source bundle that you upload to Amazon S3.
@@ -353,9 +330,7 @@ $ `aws elasticbeanstalk create-application-version --application-name `my-app` -
 $ `aws elasticbeanstalk update-environment --environment-name `my-env` --version-label v2`
 ```
 
-### Using a saved
-
-configuration
+### Using a saved configuration
 
 You can apply a saved configuration to a running environment with the
 `--template-name` option on the `aws elasticbeanstalk
@@ -377,9 +352,7 @@ Elastic Beanstalk places saved configurations in this location when you create t
  elasticbeanstalk create-configuration-template`. You can also modify saved
 configurations locally and place them in this location yourself.
 
-### Using command line
-
-options
+### Using command line options
 
 ###### To change configuration options with a JSON document (AWS CLI)
 

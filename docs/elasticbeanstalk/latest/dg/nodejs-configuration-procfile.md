@@ -1,4 +1,4 @@
-# Configuring custom start commands with a Procfile on Elastic Beanstalk
+# Configuring custom start commands with a Procfileon Elastic Beanstalk
 
 You can include a file that's called `Procfile` at the root of your source bundle to specify the command that starts your
 application.

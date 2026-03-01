@@ -1,6 +1,4 @@
-# Configuring dual-stack Elastic Beanstalk load
-
-balancers
+# Configuring dual-stack Elastic Beanstalk load balancers
 
 You can enable your Elastic Beanstalk environments to serve both IPv4 and IPv6 protocols with dual-stack
 configured load balancers. When you create a load balanced environment, the infrastructure
@@ -40,9 +38,7 @@ propagate before configuring dual-stack for your load balancer. If you encounter
 subnet configuration errors during dual-stack setup, wait a few minutes for the VPC
 configuration to propagate and try the dual-stack configuration again.
 
-### Complete VPC
-
-prerequisites using the console
+### Complete VPC prerequisites using the console
 
 The _Amazon VPC User Guide_ provides detailed steps to complete these
 prerequisite tasks.
@@ -62,9 +58,7 @@ This step provides two procedures that you must complete:
    this configuration see [Step 2:
    Update your route tables](../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md#vpc-migrate-ipv6-routes "../../../vpc/latest/userguide/vpc-migrate-ipv6-add.md#vpc-migrate-ipv6-routes") in the _Amazon VPC User Guide_.
 
-### Complete VPC
-
-prerequisites using the AWS CLI
+### Complete VPC prerequisites using the AWS CLI
 
 You can use the AWS CLI to complete and verify the prerequisite configurations.
 
@@ -149,9 +143,7 @@ aws ec2 describe-route-tables \
     --query `'RouteTables[0].Routes'`
 ```
 
-## Configuring dual-stack for your
-
-Elastic Beanstalk load balancer
+## Configuring dual-stack for your Elastic Beanstalk load balancer
 
 After your VPC prerequisite configuration is set up for your environment, you can
 configure the load balancer with the dual-stack option, so it can serve both the IPv4 and IPv6
@@ -159,9 +151,7 @@ protocols. You can use the Elastic Beanstalk console, the AWS CLI, configuration
 `.ebextensions`, and the AWS SDK to configure the load balancer to
 serve dual-stack traffic.
 
-### Using the
-
-console
+### Using the console
 
 You can use the Elastic Beanstalk console to configure dual-stack for your environment's load
 balancer.
@@ -185,9 +175,7 @@ minutes to complete. During this time, you might experience issues when testing
 communication from a client to your application if you're initiating requests using the
 IPv6 protocol.
 
-###### Creating new environment: To configure your load balancer for dual-stack
-
-support
+###### Creating new environment: To configure your load balancer for dual-stack support
 
 1. Launch the Elastic Beanstalk console and begin the steps to create a new environment. After you
    set the required fields **Service role** and **EC2 instance
@@ -203,8 +191,7 @@ section, then you've already set up the required VPC and subnets. In this case, 
 this step along with its sub-steps to move on to select the VPC.
 
     1. To configure the VPC and subnets you can select **Create VPC**
-     to navigate to the VPC console. Follow the steps in [Complete VPC
-     prerequisites using the console](#environments-cfg-elbv2-ipv6-dualstack.prereqs.console "#environments-cfg-elbv2-ipv6-dualstack.prereqs.console").
+     to navigate to the VPC console. Follow the steps in [Complete VPC prerequisites using the console](#environments-cfg-elbv2-ipv6-dualstack.prereqs.console "#environments-cfg-elbv2-ipv6-dualstack.prereqs.console").
     2. Allow several minutes for the VPC updates to propagate, then return to the
      Elastic Beanstalk console and select refresh to continue with the next step.
 
@@ -239,8 +226,7 @@ environment. For more information, see [Creating an Elastic Beanstalk environmen
    section, then you've already set up the required VPC and subnets. In this case, skip
    this step along with its sub-steps to move on to select the VPC.
    1. To configure the VPC and subnets you can select **Create VPC**
-      to navigate to the VPC console. Follow the steps in [Complete VPC
-      prerequisites using the console](#environments-cfg-elbv2-ipv6-dualstack.prereqs.console "#environments-cfg-elbv2-ipv6-dualstack.prereqs.console").
+      to navigate to the VPC console. Follow the steps in [Complete VPC prerequisites using the console](#environments-cfg-elbv2-ipv6-dualstack.prereqs.console "#environments-cfg-elbv2-ipv6-dualstack.prereqs.console").
    2. Allow several minutes for the VPC updates to propagate, then return to the
       Elastic Beanstalk console and select refresh to continue with the next step.
 
@@ -299,9 +285,7 @@ As an alternative, use an `options.json` file to specify the
 namespace options instead of including them inline. The following example command
 demonstrates the [update-environment](../../../cli/latest/reference/elasticbeanstalk/update-environment.md "../../../cli/latest/reference/elasticbeanstalk/update-environment.md") command.
 
-###### Example of update-environment with dualstack configuration (namespace options in
-
-`options.json` file)
+###### Example of update-environment with dualstack configuration (namespace options in `options.json` file)
 
 ```
 aws elasticbeanstalk update-environment \
@@ -345,9 +329,7 @@ aws elasticbeanstalk update-environment \
 Namespace=`aws:elbv2:loadbalancer`,OptionName=`IpAddressType`,Value=``ipv4``
 ```
 
-### Using .ebextensions
-
-configuration files
+### Using .ebextensions configuration files
 
 You can use Elastic Beanstalk [configuration files](ebextensions.md "ebextensions.md") to enable your
 environment's load balancers to serve both IPv6 and IPv4 network traffic. Set the
@@ -390,9 +372,7 @@ option_settings:
     value: ``dualstack``
 ```
 
-### Using the AWS
-
-SDK
+### Using the AWS SDK
 
 You can configure dual-stack using the [AWS SDKs](../../../code-library.md "../../../code-library.md"). Similar to the `update-environment` and
 `create-environment` AWS CLI commands mentioned in the previous section, you can

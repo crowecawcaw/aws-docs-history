@@ -3,9 +3,7 @@
 This glossary provides definitions for key terms and concepts related to IIS, Elastic Beanstalk, and the
 migration of IIS applications to Elastic Beanstalk.
 
-## Windows, IIS, and .NET
-
-terms
+## Windows, IIS, and .NET terms
 
 \***\*IIS\*\***
 

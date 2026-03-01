@@ -1,6 +1,4 @@
-# Modifying the resources that Elastic Beanstalk
-
-creates for your environment
+# Modifying the resources that Elastic Beanstalk creates for your environment
 
 The resources that Elastic Beanstalk creates for your environment have names. You can use these names to
 get information about the resources with a [function](ebextensions-functions.md "ebextensions-functions.md"), or modify properties on the resources to customize their behavior. This

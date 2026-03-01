@@ -10,8 +10,7 @@ Configuration option settings can be composed in text format and saved prior to 
 supported client, and added, modified or removed after environment creation. For a detailed breakdown of all of the available methods for working with
 configuration options at each of these three stages, read the following topics:
 
-- [Setting configuration options before
-  environment creation](environment-configuration-methods-before.md "environment-configuration-methods-before.md")
+- [Setting configuration options before environment creation](environment-configuration-methods-before.md "environment-configuration-methods-before.md")
 - [Setting configuration options during environment creation](environment-configuration-methods-during.md "environment-configuration-methods-during.md")
 - [Setting configuration options after environment creation](environment-configuration-methods-after.md "environment-configuration-methods-after.md")
   For a complete list of namespaces and options, including default and supported values for each, see [General options for all environments](command-options-general.md "command-options-general.md") and [Platform specific options](command-options-specific.md "command-options-specific.md").

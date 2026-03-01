@@ -1,6 +1,4 @@
-# Terminating HTTPS on EC2 instances running
-
-Ruby
+# Terminating HTTPS on EC2 instances running Ruby
 
 For Ruby container types, the way you enable HTTPS depends on the type of application server
 used.

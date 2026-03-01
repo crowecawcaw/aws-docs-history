@@ -71,22 +71,14 @@ update successful. See [Enabling Elastic Beanstalk enhanced health reporting](he
 
 ###### Sections
 
-- [Permissions required to perform
-  managed platform updates](#environment-platform-update-managed-perms "#environment-platform-update-managed-perms")
-- [Managed update maintenance
-  window](#environment-platform-update-managed-window "#environment-platform-update-managed-window")
-- [Minor and patch version
-  updates](#environment-platform-update-managed-versioning "#environment-platform-update-managed-versioning")
-- [Immutable environment
-  updates](#environment-platform-update-managed-immutable "#environment-platform-update-managed-immutable")
-- [Managing managed
-  updates](#environment-platform-update-managed-managing "#environment-platform-update-managed-managing")
-- [Managed action option
-  namespaces](#environment-platform-update-managed-namespace "#environment-platform-update-managed-namespace")
+- [Permissions required to perform managed platform updates](#environment-platform-update-managed-perms "#environment-platform-update-managed-perms")
+- [Managed update maintenance window](#environment-platform-update-managed-window "#environment-platform-update-managed-window")
+- [Minor and patch version updates](#environment-platform-update-managed-versioning "#environment-platform-update-managed-versioning")
+- [Immutable environment updates](#environment-platform-update-managed-immutable "#environment-platform-update-managed-immutable")
+- [Managing managed updates](#environment-platform-update-managed-managing "#environment-platform-update-managed-managing")
+- [Managed action option namespaces](#environment-platform-update-managed-namespace "#environment-platform-update-managed-namespace")
 
-## Permissions required to perform
-
-managed platform updates
+## Permissions required to perform managed platform updates
 
 Elastic Beanstalk needs permission to initiate a platform update on your behalf. To gain these
 permissions, Elastic Beanstalk assumes the _managed-updates service role_. When you use
@@ -106,9 +98,7 @@ reference these resources by name in other sections or files.
 
 If an update fails, you can find the reason for the failure on the [Managed updates](#environment-platform-update-managed-managing "#environment-platform-update-managed-managing") page.
 
-## Managed update maintenance
-
-window
+## Managed update maintenance window
 
 When AWS releases a new version of your environment's platform, Elastic Beanstalk schedules a
 managed platform update during the next weekly maintenance window. Maintenance windows are two
@@ -122,12 +112,9 @@ maintenance window. The system considers various aspects of update safety and se
 availability when scheduling managed updates. In rare cases, an update might not be
 scheduled for the first coming maintenance window. If this happens, the system tries again
 during the next maintenance window. To manually apply the managed update, choose
-**Apply now** as explained in [Managing managed
-updates](#environment-platform-update-managed-managing "#environment-platform-update-managed-managing") on this page.
+**Apply now** as explained in [Managing managed updates](#environment-platform-update-managed-managing "#environment-platform-update-managed-managing") on this page.
 
-## Minor and patch version
-
-updates
+## Minor and patch version updates
 
 You can enable managed platform updates to apply patch version updates only, or for both
 minor and patch version updates. Patch version updates provide bug fixes and performance
@@ -140,9 +127,7 @@ In a platform version number, the second number is the minor update version, and
 number is the patch version. For example, a version 2.0.7 platform version has a minor version
 of 0 and a patch version of 7.
 
-## Immutable environment
-
-updates
+## Immutable environment updates
 
 Managed platform updates perform [immutable environment updates](environmentmgmt-updates-immutable.md "environmentmgmt-updates-immutable.md") to upgrade your environment to a new platform version.
 Immutable updates update your environment without taking any instances out of service or
@@ -167,9 +152,7 @@ Some policies replace all instances during the deployment or update. This causes
 - Immutable updates
 - Deployments with immutable updates or traffic splitting enabled
 
-## Managing managed
-
-updates
+## Managing managed updates
 
 The Elastic Beanstalk console shows detailed information about managed updates on the
 **Managed updates overview** page.
@@ -215,9 +198,7 @@ the latest version. Other reasons for not having an update scheduled include:
 When your maintenance window starts or when you choose **Apply now**,
 scheduled updates go into pending status before execution.
 
-## Managed action option
-
-namespaces
+## Managed action option namespaces
 
 You can use [configuration options](command-options.md "command-options.md") in the
 `aws:elasticbeanstalk:managedactions` and `aws:elasticbeanstalk:managedactions:platformupdate` namespaces to enable and

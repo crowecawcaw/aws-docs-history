@@ -48,8 +48,7 @@ option setting can cause Elastic Beanstalk to migrate an existing environment wi
 templates. Doing so requires the necessary permissions to manage launch templates. These permissions are included in our managed policy. If you use custom
 policies instead of our managed policies, environment creation or updates might fail when you update your environment
 configuration. For more information
-and other considerations, see [Migrating your Elastic Beanstalk
-environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md") .
+and other considerations, see [Migrating your Elastic Beanstalk environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md").
 
 ###### To configure IMDS on your Amazon EC2 instances in the Elastic Beanstalk console
 
@@ -73,8 +72,7 @@ option setting can cause Elastic Beanstalk to migrate an existing environment wi
 templates. Doing so requires the necessary permissions to manage launch templates. These permissions are included in our managed policy. If you use custom
 policies instead of our managed policies, environment creation or updates might fail when you update your environment
 configuration. For more information
-and other considerations, see [Migrating your Elastic Beanstalk
-environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md") .
+and other considerations, see [Migrating your Elastic Beanstalk environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md").
 
 The following [configuration file](ebextensions.md "ebextensions.md") example disables IMDSv1 using the `DisableIMDSv1` option.
 

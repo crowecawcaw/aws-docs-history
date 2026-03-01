@@ -1,6 +1,4 @@
-# Using enhanced health reporting with the Elastic Beanstalk
-
-API
+# Using enhanced health reporting with the Elastic Beanstalk API
 
 Because AWS Elastic Beanstalk enhanced health reporting has role and solution stack requirements, you
 must update scripts and code that you used prior to the release of enhanced health reporting

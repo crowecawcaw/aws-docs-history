@@ -1,6 +1,4 @@
-# Capacity
-
-configuration for your Elastic Beanstalk environment
+# Capacity configuration for your Elastic Beanstalk environment
 
 This topic describes the different approaches to configure Auto Scaling capacity for your Elastic Beanstalk
 environment. You can use the Elastic Beanstalk console, the EB CLI, the AWS CLI, or namespace
@@ -13,12 +11,9 @@ option setting can cause Elastic Beanstalk to migrate an existing environment wi
 templates. Doing so requires the necessary permissions to manage launch templates. These permissions are included in our managed policy. If you use custom
 policies instead of our managed policies, environment creation or updates might fail when you update your environment
 configuration. For more information
-and other considerations, see [Migrating your Elastic Beanstalk
-environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md") .
+and other considerations, see [Migrating your Elastic Beanstalk environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md").
 
-## Configuration using the
-
-console
+## Configuration using the console
 
 You can configure the capacity management of an Auto Scaling group by editing
 **Capacity** on the environment's **Configuration**
@@ -60,8 +55,7 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
     templates. Doing so requires the necessary permissions to manage launch templates. These permissions are included in our managed policy. If you use custom
     policies instead of our managed policies, environment creation or updates might fail when you update your environment
     configuration. For more information
-    and other considerations, see [Migrating your Elastic Beanstalk
-    environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md") .
+    and other considerations, see [Migrating your Elastic Beanstalk environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md").
 
     The following options are enabled if you select to enable _Spot
     Instance_ requests:
@@ -72,8 +66,7 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
          from *Capacity optimized* (default), *Price
          capacity optimized*, *Capacity optimized
          prioritized*, or *Lowest price*. For a
-         description of each allocation strategy and more information, see [Spot Instance
-         allocation strategy](environments-cfg-autoscaling-spot-allocation-strategy.md "environments-cfg-autoscaling-spot-allocation-strategy.md").
+         description of each allocation strategy and more information, see [Spot Instance allocation strategy](environments-cfg-autoscaling-spot-allocation-strategy.md "environments-cfg-autoscaling-spot-allocation-strategy.md").
         + **Maximum spot price** –
          For recommendations about maximum price options for Spot Instances, see [Spot Instance pricing history](../../../AWSEC2/latest/UserGuide/using-spot-instances-history.md "../../../AWSEC2/latest/UserGuide/using-spot-instances-history.md") in the
          *Amazon EC2 User Guide*.
@@ -91,8 +84,7 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
          above base** correlate to the **Min** and
          **Max**
         *Instances* options listed earlier. For more information
-         about these options and examples, see [Spot Instance support for your Elastic Beanstalk
-         environment](environments-cfg-autoscaling-spot.md "environments-cfg-autoscaling-spot.md").
+         about these options and examples, see [Spot Instance support for your Elastic Beanstalk environment](environments-cfg-autoscaling-spot.md "environments-cfg-autoscaling-spot.md").
         + **Capacity Rebalancing** – This option is only
          relevant when there is at least one Spot Instance in your Auto Scaling group. When
          this feature is enabled, EC2 automatically attempts to replace Spot Instances
@@ -127,16 +119,12 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
 
 6.  To save the changes choose **Apply** at the bottom of the page.
 
-## Configuration using namespace
-
-options
+## Configuration using namespace options
 
 Elastic Beanstalk provides [configuration options](command-options.md "command-options.md") for Auto Scaling
 settings in two namespaces: [aws:autoscaling:asg](command-options-general.md#command-options-general-autoscalingasg "command-options-general.md#command-options-general-autoscalingasg") and [aws:ec2:instances](command-options-general.md#command-options-general-ec2instances "command-options-general.md#command-options-general-ec2instances").
 
-### The aws:autoscaling:asg
-
-namespace
+### The aws:autoscaling:asg namespace
 
 The [aws:autoscaling:asg](command-options-general.md#command-options-general-autoscalingasg "command-options-general.md#command-options-general-autoscalingasg") namespace provides options for overall
 scale and availability.
@@ -159,9 +147,7 @@ option_settings:
     EnableCapacityRebalancing: true
 ```
 
-### The aws:ec2:instances
-
-namespace
+### The aws:ec2:instances namespace
 
 ###### Note
 
@@ -205,12 +191,9 @@ option setting can cause Elastic Beanstalk to migrate an existing environment wi
 templates. Doing so requires the necessary permissions to manage launch templates. These permissions are included in our managed policy. If you use custom
 policies instead of our managed policies, environment creation or updates might fail when you update your environment
 configuration. For more information
-and other considerations, see [Migrating your Elastic Beanstalk
-environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md") .
+and other considerations, see [Migrating your Elastic Beanstalk environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md").
 
-## Configuration using the
-
-AWS CLI
+## Configuration using the AWS CLI
 
 This section provides examples of how you can use the AWS CLI [create-environment](../../../cli/latest/reference/elasticbeanstalk/create-environment.md "../../../cli/latest/reference/elasticbeanstalk/create-environment.md") command to configure your environment with the Auto Scaling and
 Capacity options described in these sections. You'll notice the namespace settings for
@@ -268,15 +251,12 @@ option setting can cause Elastic Beanstalk to migrate an existing environment wi
 templates. Doing so requires the necessary permissions to manage launch templates. These permissions are included in our managed policy. If you use custom
 policies instead of our managed policies, environment creation or updates might fail when you update your environment
 configuration. For more information
-and other considerations, see [Migrating your Elastic Beanstalk
-environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md") .
+and other considerations, see [Migrating your Elastic Beanstalk environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md").
 
 As an alternative, use an `options.json` file to specify the
 namespace options instead of including them inline.
 
-###### Example—create-environment with Auto Scaling options (namespace options in
-
-`options.json` file)
+###### Example—create-environment with Auto Scaling options (namespace options in `options.json` file)
 
 ```
 aws elasticbeanstalk create-environment \
@@ -355,9 +335,7 @@ aws elasticbeanstalk create-environment \
 ]
 ```
 
-## Configuration using the EB
-
-CLI
+## Configuration using the EB CLI
 
 When creating an environment using the [eb
 create](eb3-create.md "eb3-create.md") command, you can specify a few options that are related to
@@ -381,8 +359,7 @@ option setting can cause Elastic Beanstalk to migrate an existing environment wi
 templates. Doing so requires the necessary permissions to manage launch templates. These permissions are included in our managed policy. If you use custom
 policies instead of our managed policies, environment creation or updates might fail when you update your environment
 configuration. For more information
-and other considerations, see [Migrating your Elastic Beanstalk
-environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md") .
+and other considerations, see [Migrating your Elastic Beanstalk environment to launch templates](environments-cfg-autoscaling-launch-templates.md "environments-cfg-autoscaling-launch-templates.md").
 
 The following options for the [eb
 create](eb3-create.md "eb3-create.md") command can only be used with

@@ -1,6 +1,4 @@
-# Migrating your Elastic Beanstalk
-
-environment to launch templates
+# Migrating your Elastic Beanstalk environment to launch templates
 
 As of October 1, 2024, Amazon EC2 Auto Scaling no longer supports launch configurations for new accounts.
 Accounts created prior to that date might have launch configurations.
@@ -13,9 +11,7 @@ We recommend migrating to **launch templates** for the following benefits:
   For more information, see [Auto Scaling
   launch configurations](../../../autoscaling/ec2/userguide/launch-configurations.md "../../../autoscaling/ec2/userguide/launch-configurations.md") in the _Amazon EC2 Auto Scaling User Guide_.
 
-## Option settings for
-
-launch templates
+## Option settings for launch templates
 
 To migrate your environment from launch configurations to launch templates, set one of
 the following configuration options:
@@ -33,9 +29,7 @@ After an environment begins using launch templates, Elastic Beanstalk does not r
 configurations, even if you remove the configuration options that originally triggered the
 use of launch templates.
 
-## Confirm whether
-
-your environment has launch configurations or launch templates
+## Confirm whether your environment has launch configurations or launch templates
 
 You can confirm if your environment already uses launch templates, or if it's using
 launch configurations, by inspecting the CloudFormation stack template.
@@ -59,9 +53,7 @@ _launchconfiguration_.
 For more information, see [View
 stack information](../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.md") in the _AWS CloudFormation User Guide_.
 
-## Required
-
-permissions for launch templates
+## Required permissions for launch templates
 
 The default Elastic Beanstalk managed service role policy [AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy](../../../aws-managed-policy/latest/reference/AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy.md") provides the required
 permissions to create and manage launch templates. Elastic Beanstalk must manage launch templates to
@@ -107,9 +99,7 @@ The following example IAM policy includes these permissions.
 
 For more information, see [Managing Elastic Beanstalk service roles](iam-servicerole.md "iam-servicerole.md") and [Managing Elastic Beanstalk user policies](AWSHowTo.iam.md "AWSHowTo.iam.md").
 
-## More about launch
-
-templates
+## More about launch templates
 
 To learn more about launch templates, see [Auto Scaling launch templates](../../../autoscaling/ec2/userguide/launch-templates.md "../../../autoscaling/ec2/userguide/launch-templates.md") in
 the _Amazon EC2 Auto Scaling User Guide_.
@@ -122,5 +112,4 @@ Configurations](https://aws.amazon.com/blogs/compute/amazon-ec2-auto-scaling-wil
 
 You don't need to follow the procedure referenced in this blog article to transition
 an older environment to launch templates. To migrate an existing Elastic Beanstalk environment to
-launch templates, set one of the options listed in [Option settings for
-launch templates](#environments-cfg-autoscaling-launch-templates-options "#environments-cfg-autoscaling-launch-templates-options").
+launch templates, set one of the options listed in [Option settings for launch templates](#environments-cfg-autoscaling-launch-templates-options "#environments-cfg-autoscaling-launch-templates-options").

@@ -16,8 +16,7 @@ source bundle that specifies the parameters used to create its environment.
 `Compose Environments` requires the `EnvironmentName` and `SolutionStack` to be specified in the environment manifest
 for each component application.
 
-You can use the `Compose Environments` API with the Elastic Beanstalk command line interface (EB CLI), the AWS CLI, or an SDK. See [Managing multiple Elastic Beanstalk environments as a group with the EB
-CLI](ebcli-compose.md "ebcli-compose.md") for EB CLI instructions.
+You can use the `Compose Environments` API with the Elastic Beanstalk command line interface (EB CLI), the AWS CLI, or an SDK. See [Managing multiple Elastic Beanstalk environments as a group with the EB CLI](ebcli-compose.md "ebcli-compose.md") for EB CLI instructions.
 
 ## Using the `Compose Environments` API
 

@@ -40,8 +40,7 @@ The [.NET on Windows Server platform](create_deploy_NET.md "create_deploy_NET.md
 - [Dead-letter queues](#worker-deadletter "#worker-deadletter")
 - [Periodic tasks](#worker-periodictasks "#worker-periodictasks")
 - [Use Amazon CloudWatch for automatic scaling in worker environment tiers](#worker-scaling "#worker-scaling")
-- [Configuring worker
-  environments](#using-features-managing-env-tiers-worker-settings "#using-features-managing-env-tiers-worker-settings")
+- [Configuring worker environments](#using-features-managing-env-tiers-worker-settings "#using-features-managing-env-tiers-worker-settings")
 
 ## The worker environment SQS daemon
 
@@ -94,8 +93,7 @@ You cannot disable dead-letter queues. Messages that cannot be delivered are alw
 effectively disable this feature by setting the `MaxRetries` option to the maximum valid value of 100.
 
 If a dead-letter queue isn't configured for your worker environment's Amazon SQS queue, Amazon SQS keeps messages on the queue until the retention period
-expires. For details about configuring the retention period, see [Configuring worker
-environments](#using-features-managing-env-tiers-worker-settings "#using-features-managing-env-tiers-worker-settings").
+expires. For details about configuring the retention period, see [Configuring worker environments](#using-features-managing-env-tiers-worker-settings "#using-features-managing-env-tiers-worker-settings").
 
 ###### Note
 
@@ -170,9 +168,7 @@ running.
 
 You can also set other CloudWatch alarms, as needed, by using the Elastic Beanstalk console, CLI, or the options file. For more information, see [Using Elastic Beanstalk with Amazon CloudWatch](AWSHowTo.md "AWSHowTo.md") and [Create an Auto Scaling group with Step Scaling Policies](../../../autoscaling/ec2/userguide/as-scaling-simple-step.md#policy-creating-asg-console "../../../autoscaling/ec2/userguide/as-scaling-simple-step.md#policy-creating-asg-console").
 
-## Configuring worker
-
-environments
+## Configuring worker environments
 
 You can manage a worker environment's configuration by editing the **Worker** category on the **Configuration**
 page in the [environment management console](environments-console.md "environments-console.md").

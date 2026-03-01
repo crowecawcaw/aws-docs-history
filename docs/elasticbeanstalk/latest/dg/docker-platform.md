@@ -2,16 +2,14 @@
 
 The Elastic Beanstalk Docker platform supports the following platform branches:
 
-###### _Docker running Amazon Linux 2_ and _Docker running AL2023_
+###### *Docker running Amazon Linux 2*and _Docker running AL2023_
 
 Elastic Beanstalk deploys Docker container(s) and source code to EC2 instances and manages them.
 These platform branches offer multi-container support. You can use the Docker Compose tool
 to simplify your application configuration, testing, and deployment. For more information
 about this platform branch, see [Using the Elastic Beanstalk Docker platform branch](docker.md "docker.md").
 
-###### _ECS running on Amazon Linux 2_ and \*ECS
-
-running on AL2023\*
+###### _ECS running on Amazon Linux 2_ and _ECS running on AL2023_
 
 We provide this branch for customers who need a migration path to
 AL2023/AL2 from the retired platform branch _Multi-container Docker

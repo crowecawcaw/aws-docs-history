@@ -7,8 +7,7 @@ upgraded through the AWS console or the command line.
 
 To get started, we recommend deploying a pre-built sample application directly from the
 console. Then, you can learn how to develop locally and deploy from the command line in the
-[QuickStart: Deploy a PHP application to
-Elastic Beanstalk](php-quickstart.md "php-quickstart.md").
+[QuickStart: Deploy a PHP application to Elastic Beanstalk](php-quickstart.md "php-quickstart.md").
 
 There is no cost for using Elastic Beanstalk, but standard fees do apply to AWS resources that you
 create during the course of this tutorial until you delete them at the end. The total charges
@@ -156,9 +155,7 @@ configuration for updates, monitoring, and logging._ 3. On the **Review** page w
 You have created an application and configured an environment! Now you need to wait for
 the resources to deploy.
 
-## Step 2 - Deploy your
-
-application
+## Step 2 - Deploy your application
 
 When you create an application, Elastic Beanstalk sets up the environments for you. You just need to
 sit back and wait.
@@ -489,7 +486,6 @@ resources!
 ## Next steps
 
 To learn how to use the `eb` command line tool to automate deploying
-your code to Elastic Beanstalk, We suggest continuing with the [QuickStart: Deploy a PHP application to
-Elastic Beanstalk](php-quickstart.md "php-quickstart.md").
+your code to Elastic Beanstalk, We suggest continuing with the [QuickStart: Deploy a PHP application to Elastic Beanstalk](php-quickstart.md "php-quickstart.md").
 
 Next, you might want to review how to set up HTTPS connection, see [Configuring HTTPS for your Elastic Beanstalk environment](configuring-https.md "configuring-https.md").

@@ -77,8 +77,7 @@ Think of these policies as an effective way to distribute Elastic Beanstalk resp
 ###### Important
 
 If you have custom policies assigned to an Elastic Beanstalk service role, it's important that you assign it the proper permissions for launch templates.
-Otherwise you may not have the required permissions to update an environment or launch a new one. For more information, see [Required
-permissions for launch templates](environments-cfg-autoscaling-launch-templates.md#environments-cfg-autoscaling-launch-templates-permissions "environments-cfg-autoscaling-launch-templates.md#environments-cfg-autoscaling-launch-templates-permissions").
+Otherwise you may not have the required permissions to update an environment or launch a new one. For more information, see [Required permissions for launch templates](environments-cfg-autoscaling-launch-templates.md#environments-cfg-autoscaling-launch-templates-permissions "environments-cfg-autoscaling-launch-templates.md#environments-cfg-autoscaling-launch-templates-permissions").
 
 An IAM policy contains policy statements that describe the permissions that you want to grant. When you create a policy statement for Elastic Beanstalk, you
 need to understand how to use the following four parts of a policy statement:

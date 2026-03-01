@@ -1,6 +1,4 @@
-# Spot Instance support for your Elastic Beanstalk
-
-environment
+# Spot Instance support for your Elastic Beanstalk environment
 
 This topic describes the configuration options that are available for you to manage the
 capacity and load balancing of Spot Instances in your Elastic Beanstalk environment. It also provides
@@ -43,11 +41,7 @@ Advisor](https://aws.amazon.com/ec2/spot/instance-advisor/ "https://aws.amazon.c
 
 ###### Topics
 
-- [Enabling Spot Instances for your
-  environment](environments-cfg-autoscaling-enable-spot.md "environments-cfg-autoscaling-enable-spot.md")
-- [Spot Instance
-  allocation strategy](environments-cfg-autoscaling-spot-allocation-strategy.md "environments-cfg-autoscaling-spot-allocation-strategy.md")
-- [Managing On-Demand instances
-  and Spot instances](environments-cfg-autoscaling-spot-and-demand.md "environments-cfg-autoscaling-spot-and-demand.md")
-- [Capacity
-  configuration for your Elastic Beanstalk environment](environments-cfg-autoscaling-configuration-approaches.md "environments-cfg-autoscaling-configuration-approaches.md")
+- [Enabling Spot Instances for your environment](environments-cfg-autoscaling-enable-spot.md "environments-cfg-autoscaling-enable-spot.md")
+- [Spot Instance allocation strategy](environments-cfg-autoscaling-spot-allocation-strategy.md "environments-cfg-autoscaling-spot-allocation-strategy.md")
+- [Managing On-Demand instances and Spot instances](environments-cfg-autoscaling-spot-and-demand.md "environments-cfg-autoscaling-spot-and-demand.md")
+- [Capacity configuration for your Elastic Beanstalk environment](environments-cfg-autoscaling-configuration-approaches.md "environments-cfg-autoscaling-configuration-approaches.md")

@@ -1,6 +1,4 @@
-# Terminating HTTPS on EC2 instances running
-
-Python
+# Terminating HTTPS on EC2 instances running Python
 
 For Python container types using Apache HTTP Server with the Web Server Gateway Interface
 (WSGI), you use a [configuration file](ebextensions.md "ebextensions.md") to enable the Apache

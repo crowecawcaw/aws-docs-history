@@ -35,9 +35,7 @@ The detected configuration includes:
 - Security group associations
 - Load balancer subnet assignments
 
-### On-premises or non-AWS
-
-cloud hosts
+### On-premises or non-AWS cloud hosts
 
 When **eb migrate** runs from an on-premises server or a non-AWS cloud
 host, the Elastic Beanstalk service will use the default VPC in your AWS account. The

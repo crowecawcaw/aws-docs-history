@@ -5,16 +5,11 @@ default and custom [Amazon Virtual Private Cloud](../../../vpc/latest/userguide.
 determine which ones EC2 supports for your region and your AWS account, see [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html](../../../AWSEC2/latest/UserGuide/ec2-supported-platforms.md "../../../AWSEC2/latest/UserGuide/ec2-supported-platforms.md"). Then refer to the section in this topic
 that applies to your platform.
 
-- [EC2-classic
-  platforms](#customize-environment-resources-elasticache-classic "#customize-environment-resources-elasticache-classic")
-- [EC2-VPC
-  (default)](#customize-environment-resources-elasticache-defaultvpc "#customize-environment-resources-elasticache-defaultvpc")
-- [EC2-VPC
-  (custom)](#customize-environment-resources-elasticache-targetedvpc "#customize-environment-resources-elasticache-targetedvpc")
+- [EC2-classic platforms](#customize-environment-resources-elasticache-classic "#customize-environment-resources-elasticache-classic")
+- [EC2-VPC (default)](#customize-environment-resources-elasticache-defaultvpc "#customize-environment-resources-elasticache-defaultvpc")
+- [EC2-VPC (custom)](#customize-environment-resources-elasticache-targetedvpc "#customize-environment-resources-elasticache-targetedvpc")
 
-## EC2-classic
-
-platforms
+## EC2-classic platforms
 
 This sample adds an Amazon ElastiCache cluster to an environment with instances launched
 into the EC2-Classic platform. All of the properties that are listed in this example are the
@@ -116,9 +111,7 @@ that contains a name-value pair that contains the actual value to use. In the ex
 this means cache.m1.small, 1, and memcached would be used for the values. For more information
 about `Fn::GetOptionSetting`, see [Functions](ebextensions-functions.md "ebextensions-functions.md").
 
-## EC2-VPC
-
-(default)
+## EC2-VPC (default)
 
 This sample adds an Amazon ElastiCache cluster to an environment with instances launched
 into the EC2-VPC platform. Specifically, the information in this section applies to a scenario
@@ -240,9 +233,7 @@ In the preceding example, `cache.t2.micro`, `1`, `redis`, and
 `6379` would be used for the values. For more information about
 `Fn::GetOptionSetting`, see [Functions](ebextensions-functions.md "ebextensions-functions.md").
 
-## EC2-VPC
-
-(custom)
+## EC2-VPC (custom)
 
 If you create a custom VPC on the EC2-VPC platform and specify it as the VPC into which
 EC2 launches instances, the process of adding an Amazon ElastiCache cluster to your

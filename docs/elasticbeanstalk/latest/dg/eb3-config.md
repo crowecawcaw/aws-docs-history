@@ -190,7 +190,7 @@ The following example updates the options settings for your current environment 
 $ `eb config --update "file://example.txt"`
 ```
 
-###### Example - filename: `example.txt` - YAML format
+###### Example- filename: `example.txt` - YAML format
 
 ```
 OptionSettings:
@@ -204,7 +204,7 @@ OptionsToRemove:
     IdleTimeout
 ```
 
-###### Example - filename: `example.txt` - JSON format
+###### Example- filename: `example.txt` - JSON format
 
 ```
 {

@@ -1,6 +1,4 @@
-# Terminating HTTPS on EC2 instances running Java
-
-SE
+# Terminating HTTPS on EC2 instances running Java SE
 
 For Java SE container types, you enable HTTPS with an .ebextensions [configuration file](ebextensions.md "ebextensions.md"), and an nginx configuration file that
 configures the nginx server to use HTTPS.
