@@ -1,6 +1,4 @@
-# Configure Domain Name System (DNS)
-
-Network Time Protocol (NTP) Servers
+# Configure Domain Name System (DNS) Network Time Protocol (NTP) Servers
 
 You can add Domain Name System (DNS) name servers and Network Time Protocol (NTP) servers
 for the AWS Elemental Live node to use.

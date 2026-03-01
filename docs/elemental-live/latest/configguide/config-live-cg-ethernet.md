@@ -32,10 +32,8 @@ bond together.
 ###### Topics
 
 - [Step A: Create bond configuration file](#config-live-bond-create-a "#config-live-bond-create-a")
-- [Step B: Edit Ethernet interface configuration
-  files](#config-live-bond-create-b "#config-live-bond-create-b")
-- [Step C: Restart the AWS Elemental service configuration
-  files](#config-live-bond-create-c "#config-live-bond-create-c")
+- [Step B: Edit Ethernet interface configuration files](#config-live-bond-create-b "#config-live-bond-create-b")
+- [Step C: Restart the AWS Elemental service configuration files](#config-live-bond-create-c "#config-live-bond-create-c")
 - [Step D: Verify the bond](#config-live-bond-create-d "#config-live-bond-create-d")
 
 ### Step A: Create bond configuration file
@@ -106,9 +104,7 @@ GATEWAY=192.168.1.1
 BONDING_OPTS="mode=5 miimon=100"
 ```
 
-### Step B: Edit Ethernet interface configuration
-
-files
+### Step B: Edit Ethernet interface configuration files
 
 Access the configuration files for each of the interfaces that are participating in the
 bond. Add the following lines.
@@ -120,9 +116,7 @@ SLAVE=yes
 
 For help with creating and updating bonding files through the CLI, see [Using the CLI](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface") in the Red Hat _Networking Guide_.
 
-### Step C: Restart the AWS Elemental service configuration
-
-files
+### Step C: Restart the AWS Elemental service configuration files
 
 Restart the AWS Elemental service using the following command.
 

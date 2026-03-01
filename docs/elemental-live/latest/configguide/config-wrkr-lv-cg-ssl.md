@@ -1,6 +1,4 @@
-# Enable
-
-HTTPS
+# Enable HTTPS
 
 .
 Read this section only if

@@ -2,8 +2,7 @@
 
 When you enable local authentication on the AWS Elemental Live node, users must enter valid credentials to
 access the node. This section describes how to create users. For information about user
-authentication, see [User authentication
-reference](config-wrkr-lv-cg-auth-ref.md "config-wrkr-lv-cg-auth-ref.md").
+authentication, see [User authentication reference](config-wrkr-lv-cg-auth-ref.md "config-wrkr-lv-cg-auth-ref.md").
 
 ###### Note
 

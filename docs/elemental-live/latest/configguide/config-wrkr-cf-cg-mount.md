@@ -1,7 +1,4 @@
-# Add mount points
-
-to
-Elemental Live Nodes
+# Add mount points to Elemental Live Nodes
 
 To make remote assets, such as scripts, image files, or video source files, available to
 your AWS Elemental Live nodes, create mount points as described in this section. When you mount a

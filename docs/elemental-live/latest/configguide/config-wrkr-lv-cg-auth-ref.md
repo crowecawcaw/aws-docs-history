@@ -1,6 +1,4 @@
-# User authentication
-
-reference
+# User authentication reference
 
 Enabling user authentication provides you more control over your
 AWS Elemental systems. Authentication helps secure your nodes while also allowing you to do the following:

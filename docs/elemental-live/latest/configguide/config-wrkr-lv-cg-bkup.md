@@ -1,6 +1,4 @@
-# Configure database backups for
-
-Elemental Live
+# Configure database backups for Elemental Live
 
 During a database backup, AWS Elemental Live copies the data that's
 related to your framework
@@ -33,8 +31,6 @@ For steps to restore a database backup, see [Database backups for Elemental Live
      Elemental Live stores backups.
 
    The folder to receive backups must be the local disk or on a remote server that is mounted to the node. For more information,
-   see [Add mount points
-   to
-   Elemental Live Nodes](config-wrkr-cf-cg-mount.md "config-wrkr-cf-cg-mount.md").
+   see [Add mount points to Elemental Live Nodes](config-wrkr-cf-cg-mount.md "config-wrkr-cf-cg-mount.md").
 
 3. Change any of these values as you need and choose **Save**.

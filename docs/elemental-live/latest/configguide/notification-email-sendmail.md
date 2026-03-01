@@ -2,9 +2,7 @@
 
 Use this procedure to set up a Sendmail relay server if your network doesn't accept open relay messages.
 
-## Step A: Gather the mail server
-
-information
+## Step A: Gather the mail server information
 
 To configure AWS Elemental Live to relay
 the notification emails through a mail server, you need the following information:
@@ -12,9 +10,7 @@ the notification emails through a mail server, you need the following informatio
 - The hostname of the mail server
 - If your network doesn't have DNS configured, the IP address of the mail server
 
-## Step B: Install the Sendmail configuration
-
-tool
+## Step B: Install the Sendmail configuration tool
 
 Install the configuration tool to help configure Sendmail.
 
@@ -39,9 +35,7 @@ Install the configuration tool to help configure Sendmail.
 `Complete!`
 ```
 
-## Step C: Edit the
-
-`sendmail.lic` file
+## Step C: Edit the `sendmail.lic` file
 
 Edit the `sendmail.lic` file to add the hostname of the mail server
 that is performing the relay.
@@ -73,9 +67,7 @@ that is performing the relay.
 5. Save and exit the file. For Nano, press **Ctrl**+**O** to save and
    **Ctrl**+**X** to exit.
 
-## Step D: Check the `hosts`
-
-file
+## Step D: Check the `hosts` file
 
 If your network isn't configured with DNS, add a static entry to the `hosts` file on Elemental Live.
 

@@ -1,6 +1,4 @@
-# Disable
-
-HTTPS
+# Disable HTTPS
 
 .
 Read this section only if
@@ -15,8 +13,7 @@ HTTPS.)
 For
 information about how to enable HTTPS,
 see
-[Enable
-HTTPS](config-wrkr-lv-cg-ssl.md "config-wrkr-lv-cg-ssl.md").
+[Enable HTTPS](config-wrkr-lv-cg-ssl.md "config-wrkr-lv-cg-ssl.md").
 
 ###### Note
 

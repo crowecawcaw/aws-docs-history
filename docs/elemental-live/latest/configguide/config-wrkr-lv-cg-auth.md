@@ -45,8 +45,7 @@ Complete `--https` as follows:
    `N`. If you're using PAM authentication, type
    `Y`.
 
-For information about the different authentication options, see [User authentication
-reference](config-wrkr-lv-cg-auth-ref.md "config-wrkr-lv-cg-auth-ref.md"). 8. At the prompts, create an admin API user name, email address, and password.
+For information about the different authentication options, see [User authentication reference](config-wrkr-lv-cg-auth-ref.md "config-wrkr-lv-cg-auth-ref.md"). 8. At the prompts, create an admin API user name, email address, and password.
 
 Note that the only time you log in with this information is upon initial access to each
 node's web interface after authentication is enabled. For more information about the

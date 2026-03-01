@@ -14,18 +14,12 @@ gives access to features of the product:
 
 ###### Topics
 
-- [Licensing a new
-  appliance](#config-live-lic-app "#config-live-lic-app")
-- [Licensing qualified hardware or
-  a VM](#config-live-lic-vm "#config-live-lic-vm")
-- [Upgrading and licensing an
-  add-on package](#config-live-lic-upgrade "#config-live-lic-upgrade")
-- [Licensing an add-on package without
-  upgrading](#config-live-lic-existing "#config-live-lic-existing")
+- [Licensing a new appliance](#config-live-lic-app "#config-live-lic-app")
+- [Licensing qualified hardware or a VM](#config-live-lic-vm "#config-live-lic-vm")
+- [Upgrading and licensing an add-on package](#config-live-lic-upgrade "#config-live-lic-upgrade")
+- [Licensing an add-on package without upgrading](#config-live-lic-existing "#config-live-lic-existing")
 
-## Licensing a new
-
-appliance
+## Licensing a new appliance
 
 You might be deploying a newly purchased AWS Elemental Live appliance.
 
@@ -34,9 +28,7 @@ installed, along with the license (which covers the core features
 and all add-on packages that your purchased). There are no licensing
 steps to follow.
 
-## Licensing qualified hardware or
-
-a VM
+## Licensing qualified hardware or a VM
 
 You might be performing the initial deployment of AWS Elemental Live on
 qualified hardware or a VM.
@@ -46,9 +38,7 @@ each node. You must generate and activate a license (which covers
 the core features and all add-on packages) as part of the procedure
 to install the software. See [Set up licenses](../installguide/install-lv-ig-licensing.md "../installguide/install-lv-ig-licensing.md") (for qualified hardware) or [Set up licenses](../installguide/install-vm-lv-ig-licensing.md "../installguide/install-vm-lv-ig-licensing.md") (for a VM) in AWS Elemental Live Install Guide.
 
-## Upgrading and licensing an
-
-add-on package
+## Upgrading and licensing an add-on package
 
 You might want to upgrade the software in an existing deployment,
 and enable an add-on package as part of the upgrade. AWS Elemental sends
@@ -58,9 +48,7 @@ procedure to upgrade the software.
 
 See [Upgrade the license](../upgradeguide/upgrades-lv-upg-lic.md "../upgradeguide/upgrades-lv-upg-lic.md") in the AWS Elemental Live Upgrade Guide.
 
-## Licensing an add-on package without
-
-upgrading
+## Licensing an add-on package without upgrading
 
 You might want to enable an add-on package in an existing
 deployment, without needing to upgrade the AWS Elemental Live software.
