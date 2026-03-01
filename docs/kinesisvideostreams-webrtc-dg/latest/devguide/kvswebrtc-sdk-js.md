@@ -74,15 +74,11 @@ The code for the sample application is in the `examples` directory.
 
 ###### Topics
 
-- [Stream peer-to-peer from the sample application to the
-  AWS Management Console](#sdk-js-stream-console "#sdk-js-stream-console")
-- [Stream peer-to-peer from the sample application to the
-  sample application](#sdk-js-stream-test "#sdk-js-stream-test")
+- [Stream peer-to-peer from the sample application to the AWS Management Console](#sdk-js-stream-console "#sdk-js-stream-console")
+- [Stream peer-to-peer from the sample application to the sample application](#sdk-js-stream-test "#sdk-js-stream-test")
 - [Stream peer-to-peer with WebRTC Ingestion from the sample page to the sample page](#sdk-js-stream-ingestion "#sdk-js-stream-ingestion")
 
-### Stream peer-to-peer from the sample application to the
-
-AWS Management Console
+### Stream peer-to-peer from the sample application to the AWS Management Console
 
 1. Open the [Kinesis Video Streams with WebRTC sample application](https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html "https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html") and complete the following:
    - AWS Region. For example, `us-west-2`.
@@ -127,9 +123,7 @@ as a `viewer`.
 
 The media that is being sent on the demo page should display in the AWS Management Console.
 
-### Stream peer-to-peer from the sample application to the
-
-sample application
+### Stream peer-to-peer from the sample application to the sample application
 
 1. Open the [Kinesis Video Streams with WebRTC sample application](https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html "https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html") and complete the following information:
    - AWS Region. For example, `us-west-2`.

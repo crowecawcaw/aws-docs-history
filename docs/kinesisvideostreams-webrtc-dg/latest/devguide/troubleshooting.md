@@ -23,8 +23,7 @@ establishing a session.
 
 - [Session Description Protocol (SDP) offers and answers](#sdp "#sdp")
 - [Evaluate ICE candidate generation](#ice-candidate "#ice-candidate")
-- [Determine which candidates were used to
-  establish the connection](#determine-candidate "#determine-candidate")
+- [Determine which candidates were used to establish the connection](#determine-candidate "#determine-candidate")
 - [ICE-related timeouts](#troubleshooting-ice-timeouts "#troubleshooting-ice-timeouts")
 
 ### Session Description Protocol (SDP) offers and answers
@@ -184,9 +183,7 @@ value in the response determines the duration, in seconds,
 that these credentials are valid for. Use these values in the [Trickle ICE WebRTC sample](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/ "https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/") or in [IceTest.Info](https://icetest.info/ "https://icetest.info/") to generate ICE candidates using the Kinesis Video Streams managed
 service endpoints.
 
-### Determine which candidates were used to
-
-establish the connection
+### Determine which candidates were used to establish the connection
 
 It can be helpful to understand which candidates were used to successfully
 establish the session. If you have a browser-based client running an established

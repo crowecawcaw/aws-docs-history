@@ -1,6 +1,4 @@
-# Resilience in Amazon Kinesis Video Streams
-
-with WebRTC
+# Resilience in Amazon Kinesis Video Streams with WebRTC
 
 The AWS global infrastructure is built around AWS Regions and Availability Zones. AWS Regions provide
 multiple physically separated and isolated Availability Zones, which are connected with low-latency,

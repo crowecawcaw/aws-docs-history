@@ -24,12 +24,9 @@ the cloud:
 
 ###### Topics
 
-- [Control access to Amazon Kinesis Video Streams with WebRTC
-  resources with AWS Identity and Access Management](kvswebrtc-how-iam.md "kvswebrtc-how-iam.md")
+- [Control access to Amazon Kinesis Video Streams with WebRTC resources with AWS Identity and Access Management](kvswebrtc-how-iam.md "kvswebrtc-how-iam.md")
 - [Compliance validation for Amazon Kinesis Video Streams with WebRTC](SERVICE-compliance.md "SERVICE-compliance.md")
-- [Resilience in Amazon Kinesis Video Streams
-  with WebRTC](kvswebrtc-disaster-recovery-resiliency.md "kvswebrtc-disaster-recovery-resiliency.md")
+- [Resilience in Amazon Kinesis Video Streams with WebRTC](kvswebrtc-disaster-recovery-resiliency.md "kvswebrtc-disaster-recovery-resiliency.md")
 - [Infrastructure security in Kinesis Video Streams with WebRTC](kvswebrtc-infrastructure-security.md "kvswebrtc-infrastructure-security.md")
-- [Security best practices for Amazon Kinesis Video Streams with
-  WebRTC](kvswebrtc-security-best-practices.md "kvswebrtc-security-best-practices.md")
+- [Security best practices for Amazon Kinesis Video Streams with WebRTC](kvswebrtc-security-best-practices.md "kvswebrtc-security-best-practices.md")
 - [WebRTC encryption](kvswebrtc-encryption.md "kvswebrtc-encryption.md")

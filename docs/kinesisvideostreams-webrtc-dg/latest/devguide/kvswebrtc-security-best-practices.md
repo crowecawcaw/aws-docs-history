@@ -1,6 +1,4 @@
-# Security best practices for Amazon Kinesis Video Streams with
-
-WebRTC
+# Security best practices for Amazon Kinesis Video Streams with WebRTC
 
 Amazon Kinesis Video Streams (including its WebRTC capability) provides a number of security features to
 consider as you develop and implement your own security policies. The following best practices are

@@ -1,6 +1,4 @@
-# Control access to Amazon Kinesis Video Streams with WebRTC
-
-resources with AWS Identity and Access Management
+# Control access to Amazon Kinesis Video Streams with WebRTC resources with AWS Identity and Access Management
 
 By using AWS Identity and Access Management (IAM) with Amazon Kinesis Video Streams with WebRTC, you can control whether users in
 your organization can perform a task using specific Kinesis Video Streams with WebRTC API operations and
