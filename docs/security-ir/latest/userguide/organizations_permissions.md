@@ -1,6 +1,4 @@
-# Permissions required to designate a
-
-delegated Security Incident Response administrator account
+# Permissions required to designate a delegated Security Incident Response administrator account
 
 You can chose to set up your AWS Security Incident Response membership using delegated administrator for AWS Organizations.
 For information about how these permissions are granted, see [Using AWS Organizations
@@ -45,8 +43,7 @@ policy for your account:
 ```
 
 If you want to designate your AWS Organizations management account as the delegated Security Incident Response administrator account, your account
-will also need the IAM action: `CreateServiceLinkedRole`. Review [Considerations and recommendations for using
-AWS Security Incident Response with AWS Organizations](considerations_important.md "considerations_important.md")
+will also need the IAM action: `CreateServiceLinkedRole`. Review [Considerations and recommendations for using AWS Security Incident Response with AWS Organizations](considerations_important.md "considerations_important.md")
 before you proceed to add the permissions.
 
 To continue with designating your AWS Organizations management account as the delegated Security Incident Response administrator account,

@@ -1,8 +1,8 @@
 # Update the Incident Response Team
 
-1. Ensure you are subscribed and have completed the above steps
-2. Select Incident Response Team from the left navigation
-3. Select the teammates you wish to add to your team
+1. Make sure that you're subscribed and have completed the onboarding steps described in this _Onboarding guide_.
+2. Select Incident Response Team from the left navigation.
+3. Select the teammates you want to add to your team.
 
 ![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](images/Teamates.png)
 

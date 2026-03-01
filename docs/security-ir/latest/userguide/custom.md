@@ -16,4 +16,4 @@ available, such as those listed in our APN Security Competency program. You migh
 write your own queries to search your logs. With the extensive number of managed services that
 AWS offers, this has never been easier. There are many additional AWS services that can assist
 you with investigation that are outside the scope of this paper, such as Amazon Athena, Amazon OpenSearch Service,
-Amazon Quick Suite, Amazon Machine Learning, and Amazon EMR.
+Amazon Quick, Amazon Machine Learning, and Amazon EMR.

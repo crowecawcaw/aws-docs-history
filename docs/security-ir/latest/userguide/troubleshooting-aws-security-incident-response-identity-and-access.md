@@ -1,6 +1,4 @@
-# Troubleshooting AWS Security Incident Response identity and
-
-access
+# Troubleshooting AWS Security Incident Response identity and access
 
 Use the following information to help you diagnose and fix
 common issues that you might encounter when working with AWS

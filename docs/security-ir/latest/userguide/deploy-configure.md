@@ -1,4 +1,4 @@
-# Deploy and Configure Security Incident Response
+# Deploy and configure Security Incident Response
 
 1. Access Security Incident Response from the Management Account console
 2. Choose **Sign up**

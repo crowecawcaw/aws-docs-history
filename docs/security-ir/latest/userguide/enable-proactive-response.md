@@ -1,6 +1,6 @@
 # Enable Proactive Response
 
-Proactive response enables Security Incident Response to monitor and investigate alerts generated from Amazon GuardDuty and AWS Security Hub integrations across your organization. When enabled, Security Incident Response triages low-priority alerts with service automation so your team can focus on the most critical issues.
+Proactive response enables Security Incident Response to monitor and investigate alerts generated from Amazon GuardDuty and AWS Security Hub CSPM integrations across your organization. When enabled, Security Incident Response triages low-priority alerts with service automation so your team can focus on the most critical issues.
 
 To enable proactive response during onboarding:
 
@@ -12,6 +12,6 @@ To enable proactive response during onboarding:
 
 ![Sign up confirmation screen for enabling proactive response monitoring.](images/Review_and_Sign_Up.png)
 
-This feature automatically creates a service-linked role in all covered member accounts within your AWS Organization. However, you must manually create the service-linked role in the management account by working with AWS CloudFormation stack sets.
+This feature automatically creates a service-linked role in all covered member accounts within your AWS Organizations. However, you must manually create the service-linked role in the management account by working with AWS CloudFormation stack sets.
 
-**Next steps:** For more information about how Security Incident Response works with Amazon GuardDuty and AWS Security Hub, see _Detect and Analyze_ in the _AWS Security Incident Response User Guide_.
+**Next steps:** For more information about how Security Incident Response works with Amazon GuardDuty and AWS Security Hub CSPM, see _Detect and Analyze_ in the _AWS Security Incident Response User Guide_.

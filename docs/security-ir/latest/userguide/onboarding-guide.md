@@ -1,19 +1,18 @@
-# Onboarding Guide
+# Onboarding guide
 
-The AWS onboarding guide will walk you through prerequisites, security incident response onboarding and security incident response containment actions to perform threat containment actions during onboarding.
+The AWS onboarding guide walks you through prerequisites and AWS Security Incident Response onboarding and containment actions.
 
 ###### Important
 
 Prerequisites
 
 1. The only deployment prerequisite is enabling [AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md")
-2. While not required, we recommend enabling [Amazon
-   GuardDuty](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md") and [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-are-securityhub-services.md "../../../securityhub/latest/userguide/what-are-securityhub-services.md") across all accounts and active regions to maximize
+2. While not required, we recommend enabling [Amazon GuardDuty](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md") and [AWS Security Hub CSPM](../../../securityhub/latest/userguide/what-are-securityhub-services.md "../../../securityhub/latest/userguide/what-are-securityhub-services.md")across all accounts and active regions to maximize
    Security Incident Response benefits.
 3. Review GuardDuty and Security Incident Response
 4. Review [GuardDuty
    best practices guide](../../../guardduty/latest/ug/what-is-guardduty.md "../../../guardduty/latest/ug/what-is-guardduty.md")
-   Security Hub CSPM will ingest findings from 3rd party endpoint detection and
+   AWS Security Hub CSPM ingests findings from 3rd party endpoint detection and
    response (EDR) vendors (CrowdStrike, FortinetCNAPP (Lacework) and Trend Micro, among
    others. If these findings are ingested into Security Hub CSPM, they will be auto-triaged
    by Security Incident Response for proactive case creation as well. To setup 3rd party
@@ -23,7 +22,7 @@ To setup 3rd party EDR with Security Hub CSPM:
 
 1. Navigate to the Security Hub CSPM Integrations page to validate the 3rd party integration
    exists
-2. From the console, navigate to the Security Hub CSMP service page.
+2. From the console, navigate to the Security Hub CSPM service page.
 3. Choose **Integrations** (using Wiz.IO as an
    example):
 
@@ -33,6 +32,5 @@ To setup 3rd party EDR with Security Hub CSPM:
 
 ###### Note
 
-You’ll be asked for account or
-subscription information, then you’re complete and Security Incident Response is
-ingesting 3rd party findings. Pricing for the ingestion of 3rd party findings can be found on the Integrations page of Security Hub CSPM.
+When prompted, provide your account or subscription information. After you provide this information, Security Incident Response
+ingests 3rd party findings. To review pricing for the 3rd party findings ingestion, see the **Integrations** page in Security Hub CSPM.

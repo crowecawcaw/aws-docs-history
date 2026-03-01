@@ -26,7 +26,5 @@ you can use with no additional charge.
 ###### Contents
 
 - [Identity-based policies for AWS Security Incident Response](identity-based-policies.md "identity-based-policies.md")
-- [Policy condition keys for AWS
-  Security Incident Response](policy-condition-keys-for-aws-security-incident-response.md "policy-condition-keys-for-aws-security-incident-response.md")
-- [Access control lists (ACLs) in
-  AWS Security Incident Response](access-control-lists-acls-in-aws-security-incident-response.md "access-control-lists-acls-in-aws-security-incident-response.md")
+- [Policy condition keys for AWS Security Incident Response](policy-condition-keys-for-aws-security-incident-response.md "policy-condition-keys-for-aws-security-incident-response.md")
+- [Access control lists (ACLs) in AWS Security Incident Response](access-control-lists-acls-in-aws-security-incident-response.md "access-control-lists-acls-in-aws-security-incident-response.md")

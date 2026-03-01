@@ -26,9 +26,7 @@ a rule. Each rule contains an event pattern, which EventBridge matches against e
 For comprehensive instructions on creating event bus rules, see [Creating rules that
 react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _Amazon EventBridge User Guide_.
 
-### Creating event pattern
-
-that match Security Incident Response events
+### Creating event pattern that match Security Incident Response events
 
 Each event pattern is a JSON object that contains:
 

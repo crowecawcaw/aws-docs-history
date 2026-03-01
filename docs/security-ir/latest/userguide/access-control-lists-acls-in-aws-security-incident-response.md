@@ -1,6 +1,4 @@
-# Access control lists (ACLs) in
-
-AWS Security Incident Response
+# Access control lists (ACLs) in AWS Security Incident Response
 
 **Supports ACLs:** No
 

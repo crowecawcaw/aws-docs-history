@@ -3,7 +3,7 @@
 Proactive response and alert triaging workflow is an optional feature to enable within your organization for
 monitoring enabled security services. Select the toggle next to the feature to enable.
 
-If you experience any onboarding issues, then please
+If you experience onboarding issues, then
 [create an AWS Support case](../../../awssupport/latest/user/case-management.md#creating-a-support-case "../../../awssupport/latest/user/case-management.md#creating-a-support-case") for additional assistance. Make sure to include details including the AWS account ID and
 any errors you may have seen during the setup process.
 
@@ -16,7 +16,7 @@ Amazon GuardDuty and AWS Security Hub CSPM, please review the [Detect and Analyz
 ###### Note
 
 If you have questions about Amazon GuardDuty suppression rules, alert triaging configurations, or proactive
-response workflows, you can create an AWS-supported case with the case type
+response workflows, you can create an AWS supported case with the case type
 **Investigations and Inquiries** to consult with the AWS Security
 Incident Response team. For more information, see
 [Create an AWS supported case](create-an-aws-supported-case.md "create-an-aws-supported-case.md").
@@ -30,7 +30,7 @@ _The service cannot create the service-linked role in the management account. Yo
 in the management account by [working with AWS CloudFormation stack sets](working-with-stacksets.md "working-with-stacksets.md")._
 
 **Containment:** In the event of a security incident, AWS Security Incident Response can execute containment actions
-to quickly mitigate the impact, such as isolating compromised hosts or rotating credentials. Security Incident Response does not enable
+to quickly mitigate the impact, such as isolating compromised hosts or rotating credentials. Security Incident Response doesn't enable
 containment capabilities by default. To execute these containment actions, you must first grant the necessary permissions to the service.
 This can be done by deploying an [AWS CloudFormation
 StackSet](working-with-stacksets.md "working-with-stacksets.md"), which creates the required roles.

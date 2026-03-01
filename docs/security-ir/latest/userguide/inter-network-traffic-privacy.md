@@ -1,8 +1,6 @@
 # Inter-network traffic privacy
 
-## Traffic between service and
-
-on-premises clients and applications
+## Traffic between service and on-premises clients and applications
 
 You have two connectivity options between your private network and AWS:
 
@@ -23,9 +21,7 @@ IAM principal, or you can use the
 [AWS Security Token Service (STS)](../../../STS/latest/APIReference/Welcome.md "../../../STS/latest/APIReference/Welcome.md") to generate temporary
 security credentials to sign requests.
 
-## Traffic between AWS
-
-resources in the same Region
+## Traffic between AWS resources in the same Region
 
 An Amazon Virtual Private Cloud (Amazon VPC) endpoint for AWS Security Incident Response is a logical entity within a VPC that allows
 connectivity only to AWS Security Incident Response. The Amazon VPC routes requests to AWS Security Incident Response and routes responses back

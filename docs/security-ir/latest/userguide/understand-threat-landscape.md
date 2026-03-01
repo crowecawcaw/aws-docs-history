@@ -11,9 +11,7 @@ Understanding what you’re defending against will be crucial in order to respon
 timely manner. You can also use an AWS Partner for threat modeling. To search for an AWS
 partner, use the [AWS Partner Network](https://partners.amazonaws.com/ "https://partners.amazonaws.com/").
 
-## Integrate and use cyber
-
-threat intelligence
+## Integrate and use cyber threat intelligence
 
 Cyber threat intelligence is the data and analysis of a threat actor’s intent,
 opportunity, and capability. Obtaining and using threat intelligence is helpful to detect

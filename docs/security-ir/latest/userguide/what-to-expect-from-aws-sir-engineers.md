@@ -7,4 +7,4 @@ When you open an AWS supported case, a Security Incident Response engineer is as
 - Identify the scope and impact of the security incident
 - Develop an investigation and response plan tailored to your situation
 
-**Response timeline**: AWS Security Incident Response engineers acknowledge new cases within [X hours/minutes] and provide an initial assessment within [Y hours]. Response times may vary based on case severity and complexity.
+**Response timeline**: The service level objective (SLO) for acknowledgment of new cases by AWS Security Incident Response engineers is within 15 minutes. The initial assessment timeline might vary based on case severity and complexity. If AWS Security Incident Response engineers don't receive a response or critical information from you within 5 business days, the case is closed.

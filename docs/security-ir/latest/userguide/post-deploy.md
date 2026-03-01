@@ -1,4 +1,4 @@
-# Post Deployment of Security Incident Response
+# Post deployment of Security Incident Response
 
 AWS integrates with your existing incident response framework instead of replacing it.
 

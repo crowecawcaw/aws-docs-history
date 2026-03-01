@@ -13,9 +13,6 @@ Following are template stacksets to create the _AWSSecurityIncidentResponseConta
 _AWSSecurityIncidentResponseContainmentExecution_ roles.
 
 ```
-
-
-
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'Deploy containment roles as managed StackSet to all organization accounts'
 

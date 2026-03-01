@@ -2,11 +2,10 @@
 
 A membership account is the AWS account used to configure account details, add and remove
 details for your incident response team, and where all active and historical security events
-can be created and managed. It is recommended that you align your AWS Security Incident Response membership account
+can be created and managed. It's recommended that you align your AWS Security Incident Response membership account
 to the same account that you have enabled for services such as Amazon GuardDuty and AWS Security Hub CSPM.
 
-You have two options for selecting your AWS Security Incident
-Response membership account using AWS Organizations. You can either create a
+You have two options for selecting your AWS Security Incident Response membership account using AWS Organizations. You can either create a
 membership in the Organizations management account or in an Organizations delegated administrator account.
 
 **Use the delegated administrator
@@ -19,7 +18,7 @@ and then log in to that account to proceed.
 
 ###### Important
 
-When you use a delegated administrator account as part of setup, AWS Security Incident Response cannot automatically create the required
+When you use a delegated administrator account as part of setup, AWS Security Incident Response can't automatically create the required
 triage service linked role in your AWS Organizations management account.
 
 You can use the IAM to create this role in your AWS Organizations management account
@@ -27,7 +26,7 @@ You can use the IAM to create this role in your AWS Organizations management acc
 ###### To create a service-linked role (console)
 
 1. Login to your AWS Organizations management account.
-2. Access the [AWS CloudShell](https://console.aws.amazon.com/cloudshell/home "https://console.aws.amazon.com/cloudshell/home") window or access the account via CLI in your preferred method.
+2. Access the [AWS CloudShell](https://console.aws.amazon.com/cloudshell/home "https://console.aws.amazon.com/cloudshell/home") window or access the account through CLI in your preferred method.
 3. Use the CLI command `aws iam create-service-linked-role --aws-service-name "triage.security-ir.amazonaws.com" --no-cli-pager`
 4. (Optional) To verify the command worked you can execute the command `aws iam get-role --role-name AWSServiceRoleForSecurityIncidentResponse_Triage`
 
@@ -63,4 +62,4 @@ To verify IAM permissions, you can follow these steps:
 
 ###### Note
 
-The specific steps may vary depending on the AWS service and the actions you're trying to perform.
+The specific steps might vary depending on the AWS service and the actions you're trying to perform.

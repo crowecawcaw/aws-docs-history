@@ -1,8 +1,6 @@
 # Enrich security logs and findings
 
-## Enrichment with threat intelligence
-
-and organizational context
+## Enrichment with threat intelligence and organizational context
 
 During the course of analysis, observables of interest require enrichment for
 enhanced contextualization of the alert. As stated in the Preparation section, integrating

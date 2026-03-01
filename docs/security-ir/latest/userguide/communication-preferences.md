@@ -1,4 +1,4 @@
-# Communication Preferences
+# Communication preferences
 
 Configure your communication preferences to control how you receive notifications and interact with the incident response system during security incidents.
 

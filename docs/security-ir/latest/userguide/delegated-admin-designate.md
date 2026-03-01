@@ -6,8 +6,7 @@ organization.
 As a manager of the AWS organization, make sure that you read through the
 [Considerations and
 recommendations](considerations_important.md "considerations_important.md") on how a delegated Security Incident Response administrator account operates. Before
-proceeding, ensure that you have [Permissions required to designate a
-delegated Security Incident Response administrator account](organizations_permissions.md "organizations_permissions.md").
+proceeding, ensure that you have [Permissions required to designate a delegated Security Incident Response administrator account](organizations_permissions.md "organizations_permissions.md").
 
 Choose a preferred access method to designate a delegated Security Incident Response administrator account for your organization. Only a
 management can perform this step.

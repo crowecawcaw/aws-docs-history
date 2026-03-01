@@ -1,6 +1,6 @@
 # Changing the case status
 
-A case will be in one of the following states:
+A case is in one of the following states:
 
 - Submitted: This is the initial status of a case. Cases in this status have been submitted by a requested, but are
   not yet being worked on.

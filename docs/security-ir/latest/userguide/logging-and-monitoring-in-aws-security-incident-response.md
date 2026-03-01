@@ -1,6 +1,4 @@
-# Logging and monitoring in AWS Security Incident
-
-Response
+# Logging and monitoring in AWS Security Incident Response
 
 Monitoring is an important part of maintaining the reliability,
 availability, and performance of AWS Security Incident Response

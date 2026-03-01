@@ -6,10 +6,10 @@
 
 You can't change the default AWS Region after initial membership registration.
 
-- Select whether you’d like to provide full membership coverage over your entire AWS Organization or part of your
-  AWS Organization through organizational units (OUs).
-- You may optionally select a name for this membership.
-- A Primary and Secondary contact must be supplied as part of the create membership workflow.
+- Select whether you’d like to provide full membership coverage over your entire AWS Organizations or part of your
+  AWS Organizations through organizational units (OUs).
+- You can optionally select a name for this membership.
+- A primary and secondary contact must be supplied as part of the create membership workflow.
   These contacts are automatically included as part of your incident response team.
   At least two contacts must exist for a single membership which also ensures
   a minimum of two contacts are included in the incident response team.
