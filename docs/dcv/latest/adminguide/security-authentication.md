@@ -21,8 +21,7 @@ Amazon DCV supports the following authentication methods:
 - [Configuring authentication on Windows](#set-authentication-windows "#set-authentication-windows")
 - [Configuring authentication on Linux](#set-authentication-linux "#set-authentication-linux")
 - [Configuring authentication on macOS](#set-authentication-macos "#set-authentication-macos")
-- [Configuring authentication with external
-  authenticators](#set-authentication-external "#set-authentication-external")
+- [Configuring authentication with external authenticators](#set-authentication-external "#set-authentication-external")
 - [Use External Authentication](external-authentication.md "external-authentication.md")
 
 ## Configuring authentication on Windows
@@ -177,9 +176,7 @@ pam-service=`service_name`
 
 The PAM service name must match the name of the file you created in `/etc/pam.d`. 5. Save and close the file.
 
-## Configuring authentication with external
-
-authenticators
+## Configuring authentication with external authenticators
 
 DCV can be configured to use an external authenticator. For more information on this process
 and its requirements, see [Use External Authentication](external-authentication.md "external-authentication.md").

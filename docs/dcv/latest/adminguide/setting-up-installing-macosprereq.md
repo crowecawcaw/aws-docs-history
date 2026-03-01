@@ -1,18 +1,13 @@
-# Prerequisites for macOS Amazon DCV server on
-
-an Amazon EC2 instances
+# Prerequisites for macOS Amazon DCV server on an Amazon EC2 instances
 
 This topic describes how to prepare your Amazon EC2 Mac instance before you install
 the Amazon DCV server.
 
 ###### Topics
 
-- [Prerequisites for all supported
-  instances](#setting-up-installing-all "#setting-up-installing-all")
+- [Prerequisites for all supported instances](#setting-up-installing-all "#setting-up-installing-all")
 
-## Prerequisites for all supported
-
-instances
+## Prerequisites for all supported instances
 
 Amazon EC2 Mac Apple silicon instances are supported on Amazon DCV version 2025.0 and later.
 See [Amazon EC2 Mac documentation](../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md "../../../AWSEC2/latest/UserGuide/ec2-mac-instances.md") for a complete list of Apple silicon instances.

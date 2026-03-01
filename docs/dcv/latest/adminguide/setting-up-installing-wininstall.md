@@ -8,8 +8,7 @@ installation. This uses default settings to automate the installation procedure.
 ###### Contents
 
 - [Using the wizard](setting-up-installing-wininstall.md#setting-up-installing-windows-wizard "setting-up-installing-wininstall.md#setting-up-installing-windows-wizard")
-- [Using an unattended
-  installation](setting-up-installing-wininstall.md#setting-up-installing-windows-unattended "setting-up-installing-wininstall.md#setting-up-installing-windows-unattended")
+- [Using an unattended installation](setting-up-installing-wininstall.md#setting-up-installing-windows-unattended "setting-up-installing-wininstall.md#setting-up-installing-windows-unattended")
 
 ## Using the wizard
 
@@ -55,9 +54,7 @@ feature will be unavailable**. 7. On the DCV Service Configuration screen:
 Complete this step only if you previously chose to allow the server to start
 automatically. 10. Choose **Install**.
 
-## Using an unattended
-
-installation
+## Using an unattended installation
 
 Amazon DCV can install and activate the server software automatically. This is called
 an "unattended installation". By default, an unattended installation does the following:

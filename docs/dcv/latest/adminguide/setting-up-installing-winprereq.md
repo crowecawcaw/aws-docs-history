@@ -1,6 +1,4 @@
-# Prerequisites for Windows Amazon DCV server on
-
-Amazon EC2 instances
+# Prerequisites for Windows Amazon DCV server on Amazon EC2 instances
 
 This topic describes how to configure your Windows Amazon EC2 instance before you install
 the Amazon DCV server. If you're not installing the Amazon DCV server on an Amazon EC2 Windows instance, skip
@@ -8,16 +6,11 @@ these prerequisites.
 
 ###### Topics
 
-- [Prerequisites for all
-  instances](#setting-up-installing-all "#setting-up-installing-all")
-- [Prerequisites for accelerated computing
-  instances](#setting-up-installing-graphics "#setting-up-installing-graphics")
-- [Prerequisites for other instance
-  families](#setting-up-installing-general "#setting-up-installing-general")
+- [Prerequisites for all instances](#setting-up-installing-all "#setting-up-installing-all")
+- [Prerequisites for accelerated computing instances](#setting-up-installing-graphics "#setting-up-installing-graphics")
+- [Prerequisites for other instance families](#setting-up-installing-general "#setting-up-installing-general")
 
-## Prerequisites for all
-
-instances
+## Prerequisites for all instances
 
 From version 2024.0 the Windows version of Amazon DCV has as a requirement Microsoft Visual C++
 Redistributable for Visual Studio 2022 instead of Microsoft Visual C++ Redistributable for Visual
@@ -32,13 +25,9 @@ updating their automations to install Microsoft Visual C++ Redistributable for V
 Amazon DCV server. Also please note that Microsoft Visual C++ Redistributable may reboot the host as
 part of the installation.
 
-## Prerequisites for accelerated computing
+## Prerequisites for accelerated computing instances
 
-instances
-
-### Prerequisites for GPU graphics
-
-instances
+### Prerequisites for GPU graphics instances
 
 If you're using a GPU graphics instance (for example, a G2, G3, G4dn, G4ad, or G5
 instance), we recommend that you install and configure the appropriate NVIDIA or AMD
@@ -62,9 +51,7 @@ Guide_.
 For more information about Amazon EC2 G4ad instances, see the [Deep dive on the
 new Amazon EC2 G4ad instances](https://aws.amazon.com/blogs/compute/deep-dive-on-the-new-amazon-ec2-g4ad-instances/ "https://aws.amazon.com/blogs/compute/deep-dive-on-the-new-amazon-ec2-g4ad-instances/") blog post.
 
-### Prerequisites for other
-
-accelerated computing instances
+### Prerequisites for other accelerated computing instances
 
 If you're using an accelerated computing instance that isn't a GPU graphics
 instance (for example a P2, P3, or P3dn instance), we recommend that you install and
@@ -81,9 +68,7 @@ resolution support, you can install the NVIDIA GRID drivers. For more informatio
 see [NVIDIA vGPU
 Software](https://www.nvidia.com/object/vGPU-software-driver.html "https://www.nvidia.com/object/vGPU-software-driver.html") on the NVIDIA website.
 
-## Prerequisites for other instance
-
-families
+## Prerequisites for other instance families
 
 For instances other than accelerated computing instances, we recommend that you install the Amazon DCV
 Virtual Display driver if you are on Windows 2016 or are running a Amazon DCV server version before 2023.1.

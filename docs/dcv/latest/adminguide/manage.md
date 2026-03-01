@@ -28,5 +28,4 @@ Accessing this management requires your administrator credentials. You must be s
 - [Configuring authentication](security-authentication.md "security-authentication.md")
 - [Configuring authorization](security-authorization.md "security-authorization.md")
 - [Enable Remote X connections to the X Server for virtual sessions](setup-xforwarding.md "setup-xforwarding.md")
-- [Embed the Amazon DCV web browser client inside an
-  iFrame](embed-in-iframe.md "embed-in-iframe.md")
+- [Embed the Amazon DCV web browser client inside an iFrame](embed-in-iframe.md "embed-in-iframe.md")

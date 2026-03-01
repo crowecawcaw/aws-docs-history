@@ -58,9 +58,7 @@ For information about the Amazon DCV distributors and resellers, see the [NICE w
 
 ## EOSL FAQs
 
-###### 1. I’m using a version of Amazon DCV that has reached its EOSL on-premises or with a third-party cloud service provider,
-
-but I have an existing support contract. Will I be impacted by the EOSL?
+###### 1. I’m using a version of Amazon DCV that has reached its EOSL on-premises or with a third-party cloud service provider, but I have an existing support contract. Will I be impacted by the EOSL?
 
 If you have an active support contract, the terms of the Amazon DCV support contract enable you to upgrade your Amazon DCV
 licenses to the latest version at no additional charge. In this situation, there is minimal impact. If your support
@@ -72,9 +70,7 @@ contract is expired, you can use one of the following methods to continue receiv
 3. Reinstate an old support contract by paying a reinstatement fee, which is equal to 70% of the current
    charge for support services for the period of time since your support contract expired.
 
-###### 2. I’m using a version of Amazon DCV that has reached its EOSL on Amazon EC2, what should I do to upgrade to a supported
-
-version?
+###### 2. I’m using a version of Amazon DCV that has reached its EOSL on Amazon EC2, what should I do to upgrade to a supported version?
 
 Upgrading to fully supported versions of Amazon DCV for use on Amazon EC2 is available to customers at all times for
 no additional charge.

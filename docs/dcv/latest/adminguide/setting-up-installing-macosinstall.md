@@ -14,14 +14,11 @@ Amazon DCV server for macOS is only supported on Amazon EC2 Apple silicon instan
 
 ###### Contents
 
-- [Using an unattended
-  installation](setting-up-installing-macosinstall.md#setting-up-installing-windows-unattended "setting-up-installing-macosinstall.md#setting-up-installing-windows-unattended")
+- [Using an unattended installation](setting-up-installing-macosinstall.md#setting-up-installing-windows-unattended "setting-up-installing-macosinstall.md#setting-up-installing-windows-unattended")
 - [Using the wizard](setting-up-installing-macosinstall.md#setting-up-installing-windows-wizard-mac "setting-up-installing-macosinstall.md#setting-up-installing-windows-wizard-mac")
 - [Configuring Privacy and Security settings](setting-up-installing-macosinstall.md#setting-up-macos-privacy-settings "setting-up-installing-macosinstall.md#setting-up-macos-privacy-settings")
 
-## Using an unattended
-
-installation
+## Using an unattended installation
 
 Amazon DCV can install and activate the server software automatically. This is called
 an "unattended installation". By default, an unattended installation enables Amazon DCV server auto-start.

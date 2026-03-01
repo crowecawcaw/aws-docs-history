@@ -1,6 +1,4 @@
-# Prerequisites for Linux Amazon DCV
-
-servers
+# Prerequisites for Linux Amazon DCV servers
 
 Amazon DCV enables clients to access a remote graphical X session on a Linux server. This
 provides access to the corresponding Linux desktop. Amazon DCV supports two types of Linux
@@ -12,8 +10,7 @@ server.
 
 ###### Contents
 
-- [Install a desktop environment and desktop
-  manager](#linux-prereq-gui "#linux-prereq-gui")
+- [Install a desktop environment and desktop manager](#linux-prereq-gui "#linux-prereq-gui")
 - [Disable the Wayland protocol (GDM3 only)](#linux-prereq-wayland "#linux-prereq-wayland")
 - [Configure the X Server](#linux-prereq-xserver "#linux-prereq-xserver")
 - [Install the glxinfo utility](#linux-prereq-tools "#linux-prereq-tools")
@@ -21,9 +18,7 @@ server.
 - [Install GPU drivers for graphics instances](#linux-prereq-gpu "#linux-prereq-gpu")
 - [Install XDummy driver for non-GPU instances](#linux-prereq-nongpu "#linux-prereq-nongpu")
 
-## Install a desktop environment and desktop
-
-manager
+## Install a desktop environment and desktop manager
 
 Install a desktop environment and desktop manager to improve your experience with
 Amazon DCV on a Linux server.

@@ -7,10 +7,8 @@ license (perpetual license or subscription).
 
 - [Step 1: Install the RLM server](#install-rlm "#install-rlm")
 - [Step 2: Get the host ID for the RLM server](#hostid-rlm "#hostid-rlm")
-- [Step 3: Purchase the perpetual license or
-  subscription](#license-purchase "#license-purchase")
-- [Step 4: Modify the license
-  file](#setting-up-production-license-file "#setting-up-production-license-file")
+- [Step 3: Purchase the perpetual license or subscription](#license-purchase "#license-purchase")
+- [Step 4: Modify the license file](#setting-up-production-license-file "#setting-up-production-license-file")
 - [Step 5: Configure the RLM Server](#setting-up-rlm-server "#setting-up-rlm-server")
 - [Step 6: Configure the Amazon DCV Server](#setting-up-dcv-server "#setting-up-dcv-server")
 
@@ -165,9 +163,7 @@ Hostid of this machine: 0a1b2c3d4e5f
 
 This ID is then recorded and will be used to purchase the license for DCV.
 
-## Step 3: Purchase the perpetual license or
-
-subscription
+## Step 3: Purchase the perpetual license or subscription
 
 For information about how to purchase a Amazon DCV perpetual license or a subscription, see
 [How to Buy](https://www.nice-software.com/index.html#buy "https://www.nice-software.com/index.html#buy") on the
@@ -176,9 +172,7 @@ Amazon DCV website and find a Amazon DCV distributor or reseller in your region.
 You must provide the host ID for your RLM server. The host ID is embedded in the
 license file that Amazon DCV provides.
 
-## Step 4: Modify the license
-
-file
+## Step 4: Modify the license file
 
 When you purchase a Amazon DCV perpetual license or subscription, you receive a
 `license.lic` file that defines the license. The `license.lic`

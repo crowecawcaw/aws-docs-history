@@ -11,8 +11,7 @@ Amazon DCV.
 - [Fixing cursor issues on Windows](fixing-windows-cursor-issues.md "fixing-windows-cursor-issues.md")
 - [Fixing Copy and Paste to IntelliJ IDEA](fixing-copy-paste-intellij.md "fixing-copy-paste-intellij.md")
 - [Redirection clarifications with self-signed certificates](redirection-clarifications-with-self-signed-certs.md "redirection-clarifications-with-self-signed-certs.md")
-- [Multimonitor/full screen failure
-  with NVIDIA GPUs on Windows](multimonitor-failure-nvidia.md "multimonitor-failure-nvidia.md")
+- [Multimonitor/full screen failure with NVIDIA GPUs on Windows](multimonitor-failure-nvidia.md "multimonitor-failure-nvidia.md")
 - [Monitoring Amazon DCV Performance and Statistics](monitoring-dcv-performance.md "monitoring-dcv-performance.md")
   For additional support, use any of the following resources.
 
