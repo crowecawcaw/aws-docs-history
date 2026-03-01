@@ -1,6 +1,4 @@
-# LSPERF12-BP03 Optimize data transfer with intelligent traffic
-
-management and compression
+# LSPERF12-BP03 Optimize data transfer with intelligent traffic management and compression
 
 Implement quality of service (QoS) mechanisms to prioritize critical
 data transfers while avoiding bandwidth saturation. Deploy WAN

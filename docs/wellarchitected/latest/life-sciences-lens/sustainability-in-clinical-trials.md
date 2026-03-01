@@ -11,5 +11,4 @@ safety, and regulatory adherence while reducing environmental impact.
 
 ###### Best practices
 
-- [LSSUS05-BP01 Design sustainable clinical trial
-  architecture](lssus05-bp01.md "lssus05-bp01.md")
+- [LSSUS05-BP01 Design sustainable clinical trial architecture](lssus05-bp01.md "lssus05-bp01.md")

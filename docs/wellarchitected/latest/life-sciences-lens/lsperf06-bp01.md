@@ -1,6 +1,4 @@
-# LSPERF06-BP01 Run comprehensive, benchmark-driven
-
-assessments
+# LSPERF06-BP01 Run comprehensive, benchmark-driven assessments
 
 Execute standardized application-specific benchmarks using
 representative datasets across multiple hardware solutions (GPUs,

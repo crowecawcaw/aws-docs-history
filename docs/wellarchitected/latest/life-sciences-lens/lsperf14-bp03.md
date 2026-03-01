@@ -1,6 +1,4 @@
-# LSPERF14-BP03 Assess edge computing integration for localized
-
-processing of research workloads
+# LSPERF14-BP03 Assess edge computing integration for localized processing of research workloads
 
 Assess edge computing solutions that enable research processing near
 data sources and users. Review edge systems' compatibility with

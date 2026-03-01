@@ -1,7 +1,4 @@
-# LSPERF01-BP02 Specialized hardware selection and optimization
-
-for genomic and molecular
-workloads
+# LSPERF01-BP02 Specialized hardware selection and optimization for genomic and molecular workloads
 
 Strategically select and optimize specialized computing resources
 based on specific computational requirements. Use high memory-to-CPU

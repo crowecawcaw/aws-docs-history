@@ -1,6 +1,4 @@
-# LSPERF03-BP02 Environment isolation by workload
-
-type
+# LSPERF03-BP02 Environment isolation by workload type
 
 Implement clear separation between research and clinical
 environments based on their fundamentally different requirements.

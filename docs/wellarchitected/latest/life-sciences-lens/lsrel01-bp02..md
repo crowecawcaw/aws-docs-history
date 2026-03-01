@@ -1,6 +1,4 @@
-# LSREL01-BP02 Decouple anonymization logic from core workflows
-
-using orchestration and versioning.
+# LSREL01-BP02 Decouple anonymization logic from core workflows using orchestration and versioning.
 
 Implement data anonymization as a modular, orchestrated workflow
 with support for AI-based or rule-based anonymization. Store

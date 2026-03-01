@@ -1,7 +1,4 @@
-# LSPERF15-BP01 Implement application-aware network path
-
-optimization and traffic prioritization
-methods
+# LSPERF15-BP01 Implement application-aware network path optimization and traffic prioritization methods
 
 Analyze network paths to find optimal routes for clinical data and
 implement dynamic routing for time-sensitive medical information.

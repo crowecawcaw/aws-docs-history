@@ -1,6 +1,4 @@
-# LSREL11-BP03 Plan redundancy for critical laboratory
-
-equipment
+# LSREL11-BP03 Plan redundancy for critical laboratory equipment
 
 Design redundancy strategies for critical laboratory equipment by
 maintaining hot spares, parallelized runs, or vendor service

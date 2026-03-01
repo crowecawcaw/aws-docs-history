@@ -1,6 +1,4 @@
-# LSOPS03-BP03 Establish clear definitions of responsibilities
-
-between you, vendors, and users
+# LSOPS03-BP03 Establish clear definitions of responsibilities between you, vendors, and users
 
 A shared responsibility model to clearly delineate responsibilities
 between involved parties makes it straightforward to work together.

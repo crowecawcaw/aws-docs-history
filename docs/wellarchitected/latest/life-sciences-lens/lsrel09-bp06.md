@@ -1,6 +1,4 @@
-# LSREL09-BP06 Automate validation testing for
-
-changes
+# LSREL09-BP06 Automate validation testing for changes
 
 Develop automated functional and regulatory validation test suites
 that run after system changes to verify critical functionality, data

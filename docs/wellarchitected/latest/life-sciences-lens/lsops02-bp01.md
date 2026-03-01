@@ -1,6 +1,4 @@
-# LSOPS02-BP01 Establish a central control
-
-framework
+# LSOPS02-BP01 Establish a central control framework
 
 Establishing a central control framework and mapping to applicable
 frameworks can simplify processes, avoid duplicate effort, and

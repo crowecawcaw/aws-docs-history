@@ -1,6 +1,4 @@
-# LSPERF03-BP01 Workload-specific performance
-
-analysis
+# LSPERF03-BP01 Workload-specific performance analysis
 
 Conduct systematic analysis of workload characteristics to identify
 distinct performance requirements and optimization opportunities.

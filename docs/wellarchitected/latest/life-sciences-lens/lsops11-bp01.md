@@ -1,6 +1,4 @@
-# LSOPS11-BP01 Identify clear dataset owners and access
-
-history
+# LSOPS11-BP01 Identify clear dataset owners and access history
 
 If you are receiving a dataset, identify who is responsible for data
 accuracy and governance and who manages the data lineage during
@@ -48,7 +46,7 @@ organization's requirements.
 - [Enable
   data collaboration among public health agencies with AWS Clean Rooms – Part 1](https://aws.amazon.com/blogs/big-data/part-1-enable-data-collaboration-among-public-health-agencies-with-aws-clean-rooms/ "https://aws.amazon.com/blogs/big-data/part-1-enable-data-collaboration-among-public-health-agencies-with-aws-clean-rooms/")
 - [Automate
-  AWS Clean Rooms querying and dashboard publishing using AWS Step Functions and Quick Suite – Part 2](https://aws.amazon.com/blogs/big-data/automate-aws-clean-rooms-querying-and-dashboard-publishing-using-aws-step-functions-and-amazon-quicksight-part-2/ "https://aws.amazon.com/blogs/big-data/automate-aws-clean-rooms-querying-and-dashboard-publishing-using-aws-step-functions-and-amazon-quicksight-part-2/")
+  AWS Clean Rooms querying and dashboard publishing using AWS Step Functions and Quick – Part 2](https://aws.amazon.com/blogs/big-data/automate-aws-clean-rooms-querying-and-dashboard-publishing-using-aws-step-functions-and-amazon-quicksight-part-2/ "https://aws.amazon.com/blogs/big-data/automate-aws-clean-rooms-querying-and-dashboard-publishing-using-aws-step-functions-and-amazon-quicksight-part-2/")
 
 **Related tools:**
 

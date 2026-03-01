@@ -20,9 +20,6 @@ integrity of the data and avoids the risk of allegations of tampering.
 
 ###### Best practices
 
-- [LSSEC01-BP01 Implement the principle of separation of
-  duties](lssec01-bp01.md "lssec01-bp01.md")
-- [LSSEC01-BP02 Maintain a history of IAM configurations and
-  changes over time](lssec01-bp02.md "lssec01-bp02.md")
-- [LSSEC01-BP03 Set up alerts for IAM configuration changes and
-  perform audits](lssec01-bp03.md "lssec01-bp03.md")
+- [LSSEC01-BP01 Implement the principle of separation of duties](lssec01-bp01.md "lssec01-bp01.md")
+- [LSSEC01-BP02 Maintain a history of IAM configurations and changes over time](lssec01-bp02.md "lssec01-bp02.md")
+- [LSSEC01-BP03 Set up alerts for IAM configuration changes and perform audits](lssec01-bp03.md "lssec01-bp03.md")

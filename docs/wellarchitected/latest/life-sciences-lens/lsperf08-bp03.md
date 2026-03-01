@@ -1,7 +1,4 @@
-# LSPERF08-BP03 Implement clinical system monitoring with
-
-workflow validation and impact
-analysis
+# LSPERF08-BP03 Implement clinical system monitoring with workflow validation and impact analysis
 
 Implement synthetic transactions simulating clinical workflows while
 monitoring data integrity throughout your infrastructure. Regularly

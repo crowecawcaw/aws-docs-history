@@ -1,6 +1,4 @@
-# LSOPS09-BP01 Track data ownership and lineage over the life of
-
-the project
+# LSOPS09-BP01 Track data ownership and lineage over the life of the project
 
 Data lineage in life sciences projects involves tracking the origin,
 movement, and transformation of data throughout its lifecycle. This

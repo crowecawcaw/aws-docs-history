@@ -1,6 +1,4 @@
-# LSPERF18-BP01 Perform cross-functional performance reviews
-
-between IT and scientists
+# LSPERF18-BP01 Perform cross-functional performance reviews between IT and scientists
 
 IT professionals and scientists conduct joint performance reviews to
 evaluate system effectiveness. These teams set specific goals that

@@ -1,6 +1,4 @@
-# LSREL04-BP02 Implement risk-based reliability testing for
-
-regulated systems
+# LSREL04-BP02 Implement risk-based reliability testing for regulated systems
 
 Develop a risk-based approach to reliability testing that
 prioritizes critical system components based on patient safety, data

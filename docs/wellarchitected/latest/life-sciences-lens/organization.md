@@ -37,21 +37,12 @@ while maintaining a separation of responsibilities from pharmaceutical quality 
 
 ###### Best practices
 
-- [LSOPS01-BP01 Regularly identify and classify applicable
-  regulatory frameworks](lsops01-bp01.md "lsops01-bp01.md")
-- [LSOPS02-BP01 Establish a central control
-  framework](lsops02-bp01.md "lsops02-bp01.md")
-- [LSOPS02-BP02 Implement regulatory
-  reviews](lsops02-bp02.md "lsops02-bp02.md")
-- [LSOPS03-BP01 Perform supplier and vendor assessment of each
-  vendor](lsops03-bp01.md "lsops03-bp01.md")
-- [LSOPS03-BP02 Limit available services to improve regulatory
-  adherence](lsops03-bp02.md "lsops03-bp02.md")
-- [LSOPS03-BP03 Establish clear definitions of responsibilities
-  between you, vendors, and users](lsops03-bp03.md "lsops03-bp03.md")
-- [LSOPS04-BP01 Establish IT quality
-  oversight](lsops04-bp01.md "lsops04-bp01.md")
-- [LSOPS04-BP02 Enforce controls in IT tooling and
-  automation](lsops04-bp02.md "lsops04-bp02.md")
-- [LSOPS04-BP03 Incorporate formal risk management into your IT
-  processes](lsops04-bp03.md "lsops04-bp03.md")
+- [LSOPS01-BP01 Regularly identify and classify applicable regulatory frameworks](lsops01-bp01.md "lsops01-bp01.md")
+- [LSOPS02-BP01 Establish a central control framework](lsops02-bp01.md "lsops02-bp01.md")
+- [LSOPS02-BP02 Implement regulatory reviews](lsops02-bp02.md "lsops02-bp02.md")
+- [LSOPS03-BP01 Perform supplier and vendor assessment of each vendor](lsops03-bp01.md "lsops03-bp01.md")
+- [LSOPS03-BP02 Limit available services to improve regulatory adherence](lsops03-bp02.md "lsops03-bp02.md")
+- [LSOPS03-BP03 Establish clear definitions of responsibilities between you, vendors, and users](lsops03-bp03.md "lsops03-bp03.md")
+- [LSOPS04-BP01 Establish IT quality oversight](lsops04-bp01.md "lsops04-bp01.md")
+- [LSOPS04-BP02 Enforce controls in IT tooling and automation](lsops04-bp02.md "lsops04-bp02.md")
+- [LSOPS04-BP03 Incorporate formal risk management into your IT processes](lsops04-bp03.md "lsops04-bp03.md")

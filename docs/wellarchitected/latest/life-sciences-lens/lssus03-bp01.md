@@ -1,6 +1,4 @@
-# LSSUS03-BP01 Optimize data management for sustainability in
-
-life sciences
+# LSSUS03-BP01 Optimize data management for sustainability in life sciences
 
 Implement data management practices that reduce redundant storage,
 optimize processing efficiency, and minimize data movement while

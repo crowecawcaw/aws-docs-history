@@ -38,28 +38,15 @@ patient care, diagnostic accuracy, and treatment delivery.
 
 ###### Best practices
 
-- [LSPERF05-BP01 Specialized hardware
-  matching](lsperf05-bp01.md "lsperf05-bp01.md")
-- [LSPERF05-BP02 Establish a tiered infrastructure
-  strategy](lsperf05-bp02.md "lsperf05-bp02.md")
-- [LSPERF05-BP03 Implement a comprehensive system optimization
-  strategy](lsperf05-bp03.md "lsperf05-bp03.md")
-- [LSPERF06-BP01 Run comprehensive, benchmark-driven
-  assessments](lsperf06-bp01.md "lsperf06-bp01.md")
-- [LSPERF06-BP02 Perform a total cost of ownership
-  analysis](lsperf06-bp02.md "lsperf06-bp02.md")
-- [LSPERF06-BP03 Perform an environment compatibility
-  validation](lsperf06-bp03.md "lsperf06-bp03.md")
-- [LSPERF07-BP01 Use a risk-based validation
-  framework](lsperf07-bp01.md "lsperf07-bp01.md")
-- [LSPERF07-BP02 Design a compliant-by-design
-  infrastructure](lsperf07-bp02.md "lsperf07-bp02.md")
-- [LSPERF07-BP03 Develop an agile change management
-  process](lsperf07-bp03.md "lsperf07-bp03.md")
-- [LSPERF08-BP01 Implement holistic system performance monitoring
-  beyond traditional latency metrics](lsperf08-bp01.md "lsperf08-bp01.md")
-- [LSPERF08-BP02 Track resource utilization with clinical
-  context](lsperf08-bp02.md "lsperf08-bp02.md")
-- [LSPERF08-BP03 Implement clinical system monitoring with
-  workflow validation and impact
-  analysis](lsperf08-bp03.md "lsperf08-bp03.md")
+- [LSPERF05-BP01 Specialized hardware matching](lsperf05-bp01.md "lsperf05-bp01.md")
+- [LSPERF05-BP02 Establish a tiered infrastructure strategy](lsperf05-bp02.md "lsperf05-bp02.md")
+- [LSPERF05-BP03 Implement a comprehensive system optimization strategy](lsperf05-bp03.md "lsperf05-bp03.md")
+- [LSPERF06-BP01 Run comprehensive, benchmark-driven assessments](lsperf06-bp01.md "lsperf06-bp01.md")
+- [LSPERF06-BP02 Perform a total cost of ownership analysis](lsperf06-bp02.md "lsperf06-bp02.md")
+- [LSPERF06-BP03 Perform an environment compatibility validation](lsperf06-bp03.md "lsperf06-bp03.md")
+- [LSPERF07-BP01 Use a risk-based validation framework](lsperf07-bp01.md "lsperf07-bp01.md")
+- [LSPERF07-BP02 Design a compliant-by-design infrastructure](lsperf07-bp02.md "lsperf07-bp02.md")
+- [LSPERF07-BP03 Develop an agile change management process](lsperf07-bp03.md "lsperf07-bp03.md")
+- [LSPERF08-BP01 Implement holistic system performance monitoring beyond traditional latency metrics](lsperf08-bp01.md "lsperf08-bp01.md")
+- [LSPERF08-BP02 Track resource utilization with clinical context](lsperf08-bp02.md "lsperf08-bp02.md")
+- [LSPERF08-BP03 Implement clinical system monitoring with workflow validation and impact analysis](lsperf08-bp03.md "lsperf08-bp03.md")

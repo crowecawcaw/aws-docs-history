@@ -1,7 +1,4 @@
-# LSCOST04-BP01 Implement tiered storage strategies aligned with
-
-data access patterns and retention
-requirements
+# LSCOST04-BP01 Implement tiered storage strategies aligned with data access patterns and retention requirements
 
 Design and implement a tiered storage architecture that matches
 storage costs to data value and access patterns while verifying

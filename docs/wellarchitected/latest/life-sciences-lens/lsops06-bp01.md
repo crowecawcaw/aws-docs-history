@@ -1,6 +1,4 @@
-# LSOPS06-BP01 Validate data quality during
-
-ingestion
+# LSOPS06-BP01 Validate data quality during ingestion
 
 Define data quality measurements and implement checks during
 ingestion.

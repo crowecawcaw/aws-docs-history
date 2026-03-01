@@ -1,6 +1,4 @@
-# LSPERF19-BP02 Establish comprehensive performance metrics and
-
-evidence collection
+# LSPERF19-BP02 Establish comprehensive performance metrics and evidence collection
 
 Establish measurable performance metrics specific to scientific
 workflows before load testing. Capture traditional indicators
@@ -58,5 +56,5 @@ accessible to both technical and scientific stakeholders.
    collection.
 4. Use Amazon S3 and Amazon Athena to centralize and query
    performance test results.
-5. Create Quick Suite dashboards for trend analysis
+5. Create Quick dashboards for trend analysis
    across test cycles.

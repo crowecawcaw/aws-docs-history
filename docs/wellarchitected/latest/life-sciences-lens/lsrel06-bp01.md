@@ -1,6 +1,4 @@
-# LSREL06-BP01 Orchestrate workflows with checkpointing and
-
-failure isolation
+# LSREL06-BP01 Orchestrate workflows with checkpointing and failure isolation
 
 Implement workflow orchestration with built-in checkpoints, retries,
 and error isolation. By persisting intermediate results and enabling

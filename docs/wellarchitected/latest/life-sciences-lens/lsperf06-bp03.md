@@ -1,6 +1,4 @@
-# LSPERF06-BP03 Perform an environment compatibility
-
-validation
+# LSPERF06-BP03 Perform an environment compatibility validation
 
 Evaluate hardware accelerators within your existing computational
 infrastructure, verifying integration with workload managers,

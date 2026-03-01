@@ -1,6 +1,4 @@
-# LSOPS07-BP01 Maintain a controlled multi-account
-
-environment
+# LSOPS07-BP01 Maintain a controlled multi-account environment
 
 Implement standardized account management using templated
 environments and automated account provisioning. Establish

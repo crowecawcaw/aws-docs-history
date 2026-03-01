@@ -1,7 +1,4 @@
-# LSPERF17-BP02 Implement data classification-based transfer
-
-assessment with region-specific regulatory
-validation
+# LSPERF17-BP02 Implement data classification-based transfer assessment with region-specific regulatory validation
 
 Design test frameworks simulating real clinical and research data
 transfers while following data sovereignty routing rules. Test
@@ -61,7 +58,7 @@ and improve prediction accuracy.
    requirement validation, AWS CloudTrail for detailed transfer
    audit logging, and AWS Security Hub CSPM for centralized status
    monitoring.
-4. Create advanced analysis capabilities with Quick Suite
+4. Create advanced analysis capabilities with Quick
    dashboards for transfer performance visualization, Amazon EventBridge for automated event responses, and AWS Systems Manager for coordinated cross-region operations management.
 5. Document data classification standards with handling
    requirements for each sensitivity level and approved

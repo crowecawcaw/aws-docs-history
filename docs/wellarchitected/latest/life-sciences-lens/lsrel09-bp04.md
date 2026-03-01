@@ -1,6 +1,4 @@
-# LSREL09-BP04 Maintain auditable rollback and recovery
-
-records
+# LSREL09-BP04 Maintain auditable rollback and recovery records
 
 Capture and retain immutable, timestamped records of every rollback
 and recovery action, including approvals, deviations, timing, and

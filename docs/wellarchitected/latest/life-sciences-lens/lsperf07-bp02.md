@@ -1,6 +1,4 @@
-# LSPERF07-BP02 Design a compliant-by-design
-
-infrastructure
+# LSPERF07-BP02 Design a compliant-by-design infrastructure
 
 Design a computing architecture that addresses both performance and
 regulatory requirements through technical controls built directly

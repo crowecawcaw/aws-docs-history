@@ -1,6 +1,4 @@
-# LS-S03 Manufacturing and supply
-
-chain
+# LS-S03 Manufacturing and supply chain
 
 Life sciences manufacturing and supply chain is the critical bridge between scientific
 discovery and the delivery of life-saving therapies and diagnostics. As companies work to

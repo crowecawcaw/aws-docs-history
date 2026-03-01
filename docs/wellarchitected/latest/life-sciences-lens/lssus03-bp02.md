@@ -1,6 +1,4 @@
-# LSSUS03-BP02 Process data closer to
-
-source
+# LSSUS03-BP02 Process data closer to source
 
 Optimize data processing locations to minimize network usage and
 reduce energy consumption associated with data movement. Implement

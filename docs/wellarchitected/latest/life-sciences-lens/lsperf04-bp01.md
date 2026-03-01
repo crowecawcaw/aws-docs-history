@@ -1,6 +1,4 @@
-# LSPERF04-BP01 Performance consistency through clinical trial
-
-lifetime
+# LSPERF04-BP01 Performance consistency through clinical trial lifetime
 
 Design architectures with long-term performance stability as a
 foundational principle, improving the consistency of system behavior

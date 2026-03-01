@@ -1,6 +1,4 @@
-# LSPERF12-BP02 Deploy accelerated encryption technologies with
-
-hardware offloading
+# LSPERF12-BP02 Deploy accelerated encryption technologies with hardware offloading
 
 Implement high-performance encryption solutions that don't
 compromise throughput when securing large datasets in transit. Use

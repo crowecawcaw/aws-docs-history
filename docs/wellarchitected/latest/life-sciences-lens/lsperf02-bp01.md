@@ -1,6 +1,4 @@
-# LSPERF02-BP01 Data-aware storage
-
-tiering
+# LSPERF02-BP01 Data-aware storage tiering
 
 Implement intelligent storage tiering strategies that align storage
 performance characteristics with data access patterns. Place

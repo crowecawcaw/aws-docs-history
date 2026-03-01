@@ -1,6 +1,4 @@
-# LSREL09-BP05 Implement risk-based change control for validated
-
-systems
+# LSREL09-BP05 Implement risk-based change control for validated systems
 
 Establish a structured, risk-based change control process that
 categorizes changes according to their potential impact on product

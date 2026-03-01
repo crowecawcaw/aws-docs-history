@@ -1,7 +1,4 @@
-# LSPERF15-BP02 Deploy synthetic transaction monitoring and real
-
-user monitoring with automated performance
-optimization
+# LSPERF15-BP02 Deploy synthetic transaction monitoring and real user monitoring with automated performance optimization
 
 Implement synthetic monitoring methods that continuously simulate
 critical clinical workflows such as record retrieval, patient

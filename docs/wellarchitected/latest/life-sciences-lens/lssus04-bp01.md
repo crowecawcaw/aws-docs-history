@@ -1,6 +1,4 @@
-# LSSUS04-BP01 Continuously improve the monitoring of resource
-
-consumption
+# LSSUS04-BP01 Continuously improve the monitoring of resource consumption
 
 Implement comprehensive monitoring systems that track resource
 consumption across manufacturing and laboratory equipment to enable
@@ -84,7 +82,7 @@ to operational conditions and baseline activity levels.
      manufacturing data.
    - Store time-series data in Amazon Timestream for
      efficient querying and analysis.
-   - Create real-time dashboards using Quick Suite for
+   - Create real-time dashboards using Quick for
      operational visibility.
 
 3. Implement adaptive sampling and data efficiency strategies:

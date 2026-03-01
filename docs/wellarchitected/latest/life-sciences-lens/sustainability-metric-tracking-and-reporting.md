@@ -1,6 +1,4 @@
-# Sustainability metric tracking
-
-and reporting
+# Sustainability metric tracking and reporting
 
 | LSSUS02: How do you monitor and report the sustainability metrics for your<br>research workloads? |
 | ------------------------------------------------------------------------------------------------- |
@@ -14,5 +12,4 @@ requirements.
 
 ###### Best practices
 
-- [LSSUS02-BP01 Implement sustainability proxy metrics pipeline
-  for research workloads](lssus02-bp01.md "lssus02-bp01.md")
+- [LSSUS02-BP01 Implement sustainability proxy metrics pipeline for research workloads](lssus02-bp01.md "lssus02-bp01.md")

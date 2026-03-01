@@ -1,7 +1,4 @@
-# LSPERF10-BP01 Implement tiered caching architecture with
-
-clinical data classification and lifecycle
-management
+# LSPERF10-BP01 Implement tiered caching architecture with clinical data classification and lifecycle management
 
 Deploy multi-tier caching that categorizes clinical reference data
 by access frequency and criticality (memory-based caching for

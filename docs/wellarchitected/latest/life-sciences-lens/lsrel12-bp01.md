@@ -1,6 +1,4 @@
-# LSREL12-BP01 Implement recovery processes with data integrity
-
-verification
+# LSREL12-BP01 Implement recovery processes with data integrity verification
 
 Design recovery procedures with explicit steps to verify data
 integrity once recovery operations complete. For regulated life

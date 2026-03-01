@@ -38,10 +38,7 @@ such as:
 
 - [Design principles](design-principles-sus.md "design-principles-sus.md")
 - [Research computing optimization](research-computing-optimization.md "research-computing-optimization.md")
-- [Sustainability metric tracking
-  and reporting](sustainability-metric-tracking-and-reporting.md "sustainability-metric-tracking-and-reporting.md")
-- [Data
-  management efficiency in data analytics and data lifecycle](data-management-efficiency-in-data-analytics-and-data-lifecycle.md "data-management-efficiency-in-data-analytics-and-data-lifecycle.md")
-- [Sustainability in manufacturing
-  environments](sustainability-in-manufacturing-environments.md "sustainability-in-manufacturing-environments.md")
+- [Sustainability metric tracking and reporting](sustainability-metric-tracking-and-reporting.md "sustainability-metric-tracking-and-reporting.md")
+- [Data management efficiency in data analytics and data lifecycle](data-management-efficiency-in-data-analytics-and-data-lifecycle.md "data-management-efficiency-in-data-analytics-and-data-lifecycle.md")
+- [Sustainability in manufacturing environments](sustainability-in-manufacturing-environments.md "sustainability-in-manufacturing-environments.md")
 - [Sustainability in clinical trials](sustainability-in-clinical-trials.md "sustainability-in-clinical-trials.md")

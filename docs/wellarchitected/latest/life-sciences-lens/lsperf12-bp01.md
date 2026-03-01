@@ -1,6 +1,4 @@
-# LSPERF12-BP01 Implement network segmentation with
-
-defense-in-depth controls
+# LSPERF12-BP01 Implement network segmentation with defense-in-depth controls
 
 Design the network with clearly defined security zones separated by
 firewalls, with sensitive data repositories isolated from general

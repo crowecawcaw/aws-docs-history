@@ -1,6 +1,4 @@
-# LSREL08-BP03 Align architecture priorities with scientific and
-
-regulatory context
+# LSREL08-BP03 Align architecture priorities with scientific and regulatory context
 
 Early in the design cycle, evaluate the scientific and regulatory
 priorities of each workload. In patient-facing clinical workloads,

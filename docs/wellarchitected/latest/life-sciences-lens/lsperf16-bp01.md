@@ -1,7 +1,4 @@
-# LSPERF16-BP01 Deploy intelligent traffic shaping with
-
-security-aware bandwidth allocation for different data
-types
+# LSPERF16-BP01 Deploy intelligent traffic shaping with security-aware bandwidth allocation for different data types
 
 Develop traffic classification systems to identify life sciences
 data transfers and apply security and throughput policies based on

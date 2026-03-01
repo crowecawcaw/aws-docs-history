@@ -40,23 +40,13 @@ obligations.
 
 ###### Best practices
 
-- [LSREL11-BP01 Implement monitoring of equipment telemetry to
-  detect anomalies](lsrel11-bp01.md "lsrel11-bp01.md")
-- [LSREL11-BP02 Apply predictive maintenance using AI
-  models](lsrel11-bp02.md "lsrel11-bp02.md")
-- [LSREL11-BP03 Plan redundancy for critical laboratory
-  equipment](lsrel11-bp03.md "lsrel11-bp03.md")
-- [LSREL12-BP01 Implement recovery processes with data integrity
-  verification](lsrel12-bp01.md "lsrel12-bp01.md")
-- [LSREL12-BP02 Define recovery time objectives based on
-  scientific and business impact](lsrel12-bp02.md "lsrel12-bp02.md")
-- [LSREL12-BP03 Maintain data consistency in distributed research
-  systems](lsrel12-bp03.md "lsrel12-bp03.md")
-- [LSREL12-BP04 Implement cyber resilience for GxP-regulated
-  backup data](lsrel12-bp04.md "lsrel12-bp04.md")
-- [LSREL13-BP01 Implement comprehensive monitoring for regulated
-  systems](lsrel13-bp01.md "lsrel13-bp01.md")
-- [LSREL13-BP02 Monitor data integrity across scientific
-  processing pipelines](lsrel13-bp02.md "lsrel13-bp02.md")
-- [LSREL13-BP03 Track reliability metrics aligned to regulatory
-  needs](lsrel13-bp03.md "lsrel13-bp03.md")
+- [LSREL11-BP01 Implement monitoring of equipment telemetry to detect anomalies](lsrel11-bp01.md "lsrel11-bp01.md")
+- [LSREL11-BP02 Apply predictive maintenance using AI models](lsrel11-bp02.md "lsrel11-bp02.md")
+- [LSREL11-BP03 Plan redundancy for critical laboratory equipment](lsrel11-bp03.md "lsrel11-bp03.md")
+- [LSREL12-BP01 Implement recovery processes with data integrity verification](lsrel12-bp01.md "lsrel12-bp01.md")
+- [LSREL12-BP02 Define recovery time objectives based on scientific and business impact](lsrel12-bp02.md "lsrel12-bp02.md")
+- [LSREL12-BP03 Maintain data consistency in distributed research systems](lsrel12-bp03.md "lsrel12-bp03.md")
+- [LSREL12-BP04 Implement cyber resilience for GxP-regulated backup data](lsrel12-bp04.md "lsrel12-bp04.md")
+- [LSREL13-BP01 Implement comprehensive monitoring for regulated systems](lsrel13-bp01.md "lsrel13-bp01.md")
+- [LSREL13-BP02 Monitor data integrity across scientific processing pipelines](lsrel13-bp02.md "lsrel13-bp02.md")
+- [LSREL13-BP03 Track reliability metrics aligned to regulatory needs](lsrel13-bp03.md "lsrel13-bp03.md")

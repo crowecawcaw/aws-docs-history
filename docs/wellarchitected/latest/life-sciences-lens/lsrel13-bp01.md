@@ -1,6 +1,4 @@
-# LSREL13-BP01 Implement comprehensive monitoring for regulated
-
-systems
+# LSREL13-BP01 Implement comprehensive monitoring for regulated systems
 
 Establish monitoring that spans infrastructure, applications, data
 integrity, and audit controls. For GxP systems, verify that your

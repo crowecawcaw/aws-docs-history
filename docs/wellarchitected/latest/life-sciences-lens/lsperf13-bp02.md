@@ -1,6 +1,4 @@
-# LSPERF13-BP02 Implement secure data exchange architecture with
-
-regulatory controls
+# LSPERF13-BP02 Implement secure data exchange architecture with regulatory controls
 
 Design a secure network architecture with data integrity and
 cross-border regulatory adherence as priorities. Encrypt patient

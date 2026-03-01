@@ -1,7 +1,4 @@
-# LSPERF11-BP02 Monitor data usage patterns and automatically
-
-adjust storage tiers for cost
-optimization
+# LSPERF11-BP02 Monitor data usage patterns and automatically adjust storage tiers for cost optimization
 
 Track how often different datasets are accessed to make smart
 decisions about where to store them. Set up automatic monitoring

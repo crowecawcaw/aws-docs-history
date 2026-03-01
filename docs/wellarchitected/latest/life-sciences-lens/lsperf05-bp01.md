@@ -1,6 +1,4 @@
-# LSPERF05-BP01 Specialized hardware
-
-matching
+# LSPERF05-BP01 Specialized hardware matching
 
 Deploy purpose-built compute configurations optimized for specific
 workload types. Use GPUs for molecular dynamics and AI drug

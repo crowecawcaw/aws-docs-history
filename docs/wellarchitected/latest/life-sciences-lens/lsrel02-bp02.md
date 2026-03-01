@@ -1,6 +1,4 @@
-# LSREL02-BP02 Maintain continuous data availability and
-
-integrity
+# LSREL02-BP02 Maintain continuous data availability and integrity
 
 Implement real-time or near-real-time data replication strategies
 across Availability Zones or AWS Regions to protect against system

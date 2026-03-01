@@ -1,6 +1,4 @@
-# LSOPS07-BP02 Isolate GxP data from non-GxP
-
-data
+# LSOPS07-BP02 Isolate GxP data from non-GxP data
 
 Take steps to isolate and segment GxP data from non-GxP data. In
 conjunction with the recommendations around data discovery and

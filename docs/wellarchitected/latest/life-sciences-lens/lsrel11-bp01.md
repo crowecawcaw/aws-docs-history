@@ -1,6 +1,4 @@
-# LSREL11-BP01 Implement monitoring of equipment telemetry to
-
-detect anomalies
+# LSREL11-BP01 Implement monitoring of equipment telemetry to detect anomalies
 
 Capture equipment telemetry such as temperature, vibration, cycle
 counts, and error codes in real time to identify anomalies early. A
@@ -54,7 +52,7 @@ long-term performance analysis.
    Amazon S3 for long-term archival.
 4. Configure anomaly detection with Amazon CloudWatch Alarms
    and notify research operations teams through Amazon SNS.
-5. Provide researchers with performance dashboards using Quick Suite for visualization.
+5. Provide researchers with performance dashboards using Quick for visualization.
 
 ## Resources
 

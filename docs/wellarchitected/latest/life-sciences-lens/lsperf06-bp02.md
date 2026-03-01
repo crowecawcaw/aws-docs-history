@@ -1,6 +1,4 @@
-# LSPERF06-BP02 Perform a total cost of ownership
-
-analysis
+# LSPERF06-BP02 Perform a total cost of ownership analysis
 
 Calculate complete TCO incorporating hardware acquisition costs,
 software licensing, power consumption, cooling requirements,

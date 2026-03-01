@@ -1,6 +1,4 @@
-# LSOPS02-BP02 Implement regulatory
-
-reviews
+# LSOPS02-BP02 Implement regulatory reviews
 
 Incorporate and electronically document formal reviews throughout
 the project lifecycle to improve regulatory adherence. This includes

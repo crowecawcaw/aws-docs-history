@@ -1,6 +1,4 @@
-# LSPERF05-BP03 Implement a comprehensive system optimization
-
-strategy
+# LSPERF05-BP03 Implement a comprehensive system optimization strategy
 
 Establish comprehensive workload profiling, benchmarking, and
 monitoring practices covering each computational aspect (compute,

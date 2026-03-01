@@ -1,7 +1,4 @@
-# LSPERF01-BP01 Design and benchmark computing architecture for
-
-genomic workloads to optimize cost-performance
-ratio
+# LSPERF01-BP01 Design and benchmark computing architecture for genomic workloads to optimize cost-performance ratio
 
 Focus on designing architectures that can dynamically scale to
 accommodate the highly variable workload patterns inherent in

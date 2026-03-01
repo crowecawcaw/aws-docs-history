@@ -16,5 +16,4 @@ clinical, and commercial stages.
 
 ###### Best practices
 
-- [LSCOST03-BP01 Align infrastructure capacity with R&D
-  development stages](lscost03-bp01.md "lscost03-bp01.md")
+- [LSCOST03-BP01 Align infrastructure capacity with R&D development stages](lscost03-bp01.md "lscost03-bp01.md")

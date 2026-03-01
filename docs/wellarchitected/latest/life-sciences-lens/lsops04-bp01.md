@@ -1,6 +1,4 @@
-# LSOPS04-BP01 Establish IT quality
-
-oversight
+# LSOPS04-BP01 Establish IT quality oversight
 
 It is important to distinguish between IT and product quality. A
 dedicated IT quality management team (separate from pharma quality)

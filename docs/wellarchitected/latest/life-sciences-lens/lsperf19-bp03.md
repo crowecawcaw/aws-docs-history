@@ -1,7 +1,4 @@
-# LSPERF19-BP03 Schedule regular performance tests with
-
-production-representative data
-loads
+# LSPERF19-BP03 Schedule regular performance tests with production-representative data loads
 
 Institute a cadence of regular performance tests using simulated
 research and clinical data that accurately represents production
@@ -64,5 +61,5 @@ meeting their demanding computational requirements.
    workflows with varying loads.
 4. Configure Amazon EventBridge to trigger on-demand tests when
    detecting significant system changes.
-5. Use Quick Suite dashboards to visualize performance
+5. Use Quick dashboards to visualize performance
    trends across testing cycles.

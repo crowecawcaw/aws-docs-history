@@ -1,6 +1,4 @@
-# LSREL11-BP02 Apply predictive maintenance using AI
-
-models
+# LSREL11-BP02 Apply predictive maintenance using AI models
 
 Use AI/ML models to analyze telemetry, usage logs, and maintenance
 records for predicting potential equipment failures. Integrating

@@ -1,6 +1,4 @@
-# LSREL07-BP01 Implement system-wide data checksums and transfer
-
-validation
+# LSREL07-BP01 Implement system-wide data checksums and transfer validation
 
 Incorporate integrity verification at every transfer and
 transformation stage. Use cryptographic checksums (like SHA-256 or

@@ -1,6 +1,4 @@
-# LSPERF02-BP03 Elastic data processing
-
-pipelines
+# LSPERF02-BP03 Elastic data processing pipelines
 
 Design data processing architectures that automatically scale to
 accommodate both predictable and unexpected processing demands.

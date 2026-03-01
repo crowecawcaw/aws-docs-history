@@ -18,9 +18,6 @@ results in quality output and conclusions.
 
 ###### Best practices
 
-- [LSOPS05-BP01 Enable a configuration management
-  framework](lsops05-bp01.md "lsops05-bp01.md")
-- [LSOPS06-BP01 Validate data quality during
-  ingestion](lsops06-bp01.md "lsops06-bp01.md")
-- [LSOPS06-BP02 Implement data pipeline
-  testing](lsops06-bp02.md "lsops06-bp02.md")
+- [LSOPS05-BP01 Enable a configuration management framework](lsops05-bp01.md "lsops05-bp01.md")
+- [LSOPS06-BP01 Validate data quality during ingestion](lsops06-bp01.md "lsops06-bp01.md")
+- [LSOPS06-BP02 Implement data pipeline testing](lsops06-bp02.md "lsops06-bp02.md")

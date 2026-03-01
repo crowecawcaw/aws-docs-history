@@ -11,7 +11,5 @@ providing maximum scientific output while minimizing environmental impact.
 
 ###### Best practices
 
-- [LSSUS01-BP01 Design high-performance computing workloads to
-  minimize energy usage](lssus01-bp01.md "lssus01-bp01.md")
-- [LSSUS01-BP02 Use energy efficient hardware and
-  services](lssus01-bp02.md "lssus01-bp02.md")
+- [LSSUS01-BP01 Design high-performance computing workloads to minimize energy usage](lssus01-bp01.md "lssus01-bp01.md")
+- [LSSUS01-BP02 Use energy efficient hardware and services](lssus01-bp02.md "lssus01-bp02.md")

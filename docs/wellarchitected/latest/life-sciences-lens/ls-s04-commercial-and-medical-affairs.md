@@ -1,6 +1,4 @@
-# LS-S04 Commercial and medical
-
-affairs
+# LS-S04 Commercial and medical affairs
 
 Medical affairs and commercial teams serve distinct yet complementary roles in life
 sciences companies. The commercial team drives success through sales, marketing, and business

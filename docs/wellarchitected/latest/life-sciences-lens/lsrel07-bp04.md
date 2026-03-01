@@ -1,6 +1,4 @@
-# LSREL07-BP04 Track data lineage with lifecycle
-
-metadata
+# LSREL07-BP04 Track data lineage with lifecycle metadata
 
 Assign metadata tags (for example, raw,
 filtered, processed, and

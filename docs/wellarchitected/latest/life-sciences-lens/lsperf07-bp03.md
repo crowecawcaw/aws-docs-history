@@ -1,6 +1,4 @@
-# LSPERF07-BP03 Develop an agile change management
-
-process
+# LSPERF07-BP03 Develop an agile change management process
 
 Develop a specialized change management process that enables rapid
 iteration for scientific computing while maintaining GxP adherence

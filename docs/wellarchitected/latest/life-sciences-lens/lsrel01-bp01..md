@@ -1,6 +1,4 @@
-# LSREL01-BP01 Identify and protect sensitive data elements with
-
-auditable classification.
+# LSREL01-BP01 Identify and protect sensitive data elements with auditable classification.
 
 Conduct a systematic analysis to identify sensitive data elements
 (like PHI, identifiers, and lab results), establish classification

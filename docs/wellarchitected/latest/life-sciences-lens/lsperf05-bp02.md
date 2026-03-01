@@ -1,6 +1,4 @@
-# LSPERF05-BP02 Establish a tiered infrastructure
-
-strategy
+# LSPERF05-BP02 Establish a tiered infrastructure strategy
 
 Implement a layered approach organizing systems by criticality,
 optimizing resources, enhancing resilience, and aligning technology

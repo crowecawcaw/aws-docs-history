@@ -39,25 +39,13 @@ environments that can be efficiently recreated years later for regulatory adhere
 
 ###### Best practices
 
-- [LSPERF01-BP01 Design and benchmark computing architecture for
-  genomic workloads to optimize cost-performance
-  ratio](lsperf01-bp01.md "lsperf01-bp01.md")
-- [LSPERF01-BP02 Specialized hardware selection and optimization
-  for genomic and molecular
-  workloads](lsperf01-bp02.md "lsperf01-bp02.md")
-- [LSPERF01-BP03 Performance optimizations should validate data
-  integrity](lsperf01-bp03.md "lsperf01-bp03.md")
-- [LSPERF02-BP01 Data-aware storage
-  tiering](lsperf02-bp01.md "lsperf02-bp01.md")
-- [LSPERF02-BP02 Secure data separation by
-  classification](lsperf02-bp02.md "lsperf02-bp02.md")
-- [LSPERF02-BP03 Elastic data processing
-  pipelines](lsperf02-bp03.md "lsperf02-bp03.md")
-- [LSPERF03-BP01 Workload-specific performance
-  analysis](lsperf03-bp01.md "lsperf03-bp01.md")
-- [LSPERF03-BP02 Environment isolation by workload
-  type](lsperf03-bp02.md "lsperf03-bp02.md")
-- [LSPERF03-BP03 Tailored service configuration by use
-  case](lsperf03-bp03.md "lsperf03-bp03.md")
-- [LSPERF04-BP01 Performance consistency through clinical trial
-  lifetime](lsperf04-bp01.md "lsperf04-bp01.md")
+- [LSPERF01-BP01 Design and benchmark computing architecture for genomic workloads to optimize cost-performance ratio](lsperf01-bp01.md "lsperf01-bp01.md")
+- [LSPERF01-BP02 Specialized hardware selection and optimization for genomic and molecular workloads](lsperf01-bp02.md "lsperf01-bp02.md")
+- [LSPERF01-BP03 Performance optimizations should validate data integrity](lsperf01-bp03.md "lsperf01-bp03.md")
+- [LSPERF02-BP01 Data-aware storage tiering](lsperf02-bp01.md "lsperf02-bp01.md")
+- [LSPERF02-BP02 Secure data separation by classification](lsperf02-bp02.md "lsperf02-bp02.md")
+- [LSPERF02-BP03 Elastic data processing pipelines](lsperf02-bp03.md "lsperf02-bp03.md")
+- [LSPERF03-BP01 Workload-specific performance analysis](lsperf03-bp01.md "lsperf03-bp01.md")
+- [LSPERF03-BP02 Environment isolation by workload type](lsperf03-bp02.md "lsperf03-bp02.md")
+- [LSPERF03-BP03 Tailored service configuration by use case](lsperf03-bp03.md "lsperf03-bp03.md")
+- [LSPERF04-BP01 Performance consistency through clinical trial lifetime](lsperf04-bp01.md "lsperf04-bp01.md")

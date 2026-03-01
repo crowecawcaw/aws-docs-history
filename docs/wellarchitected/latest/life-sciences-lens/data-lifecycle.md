@@ -31,9 +31,7 @@ code so that you can create exact test and development replicas as well as take 
 entire environment and archive the solution. Immediately rebuild archived solutions on demand
 if required. For example, you can build AWS systems using AWS CloudFormation Stacks.
 
-## Data gathering,
-
-analysis, publication, and manufacturing phases
+## Data gathering, analysis, publication, and manufacturing phases
 
 During the active phase of the project, data will be generated from multiple sources,
 including electronic data capture, electronic health records, Internet of Things (IoT) device

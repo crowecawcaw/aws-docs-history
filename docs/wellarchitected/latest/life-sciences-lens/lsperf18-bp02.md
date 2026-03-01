@@ -1,6 +1,4 @@
-# LSPERF18-BP02 Document performance standards aligned with
-
-validation requirements
+# LSPERF18-BP02 Document performance standards aligned with validation requirements
 
 Metrics establish clear standards to assess regulatory adherence.
 Our approach balances system performance with validation

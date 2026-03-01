@@ -1,6 +1,4 @@
-# LSPERF09-BP02 Optimize query performance and meet diverse data
-
-access requirements in your environment
+# LSPERF09-BP02 Optimize query performance and meet diverse data access requirements in your environment
 
 Analyze your organization's specific query patterns. Select
 OLTP-optimized stores for transactional clinical applications

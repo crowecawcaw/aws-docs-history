@@ -1,6 +1,4 @@
-# LSREL04-BP03 Establish reliability qualification
-
-procedures
+# LSREL04-BP03 Establish reliability qualification procedures
 
 Create formal verification procedures for reliability aspects of
 your system that align with regulatory expectations. Include

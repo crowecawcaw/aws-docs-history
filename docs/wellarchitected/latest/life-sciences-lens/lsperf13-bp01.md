@@ -1,6 +1,4 @@
-# LSPERF13-BP01 Conduct comprehensive site technology assessment
-
-and gap analysis
+# LSPERF13-BP01 Conduct comprehensive site technology assessment and gap analysis
 
 Begin with a thorough evaluation of the existing technological
 infrastructure at each participating clinical site. Document

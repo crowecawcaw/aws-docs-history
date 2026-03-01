@@ -10,5 +10,4 @@ technological adaptability essential for long-term success in the field.
 
 ###### Best practices
 
-- [LSOPS13-BP01 Store data in an AI/ML-ready
-  formats](lsops13-bp01.md "lsops13-bp01.md")
+- [LSOPS13-BP01 Store data in an AI/ML-ready formats](lsops13-bp01.md "lsops13-bp01.md")

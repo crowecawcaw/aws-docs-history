@@ -9,6 +9,4 @@ protected health information (PHI) is governed by [HIPAA](https://www.hhs.gov/
 
 ###### Best practices
 
-- [LSSEC02-BP01 Determine applicable regulatory frameworks and
-  enforce data privacy requirements by implementing
-  controls](lssec02-bp01.md "lssec02-bp01.md")
+- [LSSEC02-BP01 Determine applicable regulatory frameworks and enforce data privacy requirements by implementing controls](lssec02-bp01.md "lssec02-bp01.md")

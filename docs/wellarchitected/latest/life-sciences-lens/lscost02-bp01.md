@@ -1,6 +1,4 @@
-# LSCOST02-BP01 Implement a strategic approach to AWS credit
-
-program utilization
+# LSCOST02-BP01 Implement a strategic approach to AWS credit program utilization
 
 Maximize financial benefits by systematically tracking, allocating,
 and using available AWS credits. Credits assist to support

@@ -1,6 +1,4 @@
-# LSOPS05-BP01 Enable a configuration management
-
-framework
+# LSOPS05-BP01 Enable a configuration management framework
 
 Use a management framework to record resource configurations,
 track changes, identify gaps (like defects and issues) and track

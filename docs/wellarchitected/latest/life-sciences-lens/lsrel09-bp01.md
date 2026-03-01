@@ -1,6 +1,4 @@
-# LSREL09-BP01 Create and verify rollback
-
-plans
+# LSREL09-BP01 Create and verify rollback plans
 
 For every release or approved change, maintain a documented rollback
 plan that is versioned with the release artifacts. Validate rollback

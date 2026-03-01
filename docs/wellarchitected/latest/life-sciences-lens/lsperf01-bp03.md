@@ -1,6 +1,4 @@
-# LSPERF01-BP03 Performance optimizations should validate data
-
-integrity
+# LSPERF01-BP03 Performance optimizations should validate data integrity
 
 Maintain rigorous data integrity controls while pursuing performance
 optimizations. Implement checksums, audit trails, and validation

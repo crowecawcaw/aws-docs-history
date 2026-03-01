@@ -56,21 +56,12 @@ regulatory adherence.
 
 ###### Best practices
 
-- [LSREL01-BP01 Identify and protect sensitive data elements with
-  auditable classification.](lsrel01-bp01..md "lsrel01-bp01..md")
-- [LSREL01-BP02 Decouple anonymization logic from core workflows
-  using orchestration and versioning.](lsrel01-bp02..md "lsrel01-bp02..md")
-- [LSREL02-BP01 Build resilient and highly available research
-  solutions](lsrel02-bp01.md "lsrel02-bp01.md")
-- [LSREL02-BP02 Maintain continuous data availability and
-  integrity](lsrel02-bp02.md "lsrel02-bp02.md")
-- [LSREL03-BP01 Digitize and modernize archival of research
-  data](lsrel03-bp01.md "lsrel03-bp01.md")
-- [LSREL03-BP02 Implement tiered storage and recovery
-  strategies](lsrel03-bp02.md "lsrel03-bp02.md")
-- [LSREL04-BP01 Map regulatory requirements to reliability
-  controls](lsrel04-bp01.md "lsrel04-bp01.md")
-- [LSREL04-BP02 Implement risk-based reliability testing for
-  regulated systems](lsrel04-bp02.md "lsrel04-bp02.md")
-- [LSREL04-BP03 Establish reliability qualification
-  procedures](lsrel04-bp03.md "lsrel04-bp03.md")
+- [LSREL01-BP01 Identify and protect sensitive data elements with auditable classification.](lsrel01-bp01..md "lsrel01-bp01..md")
+- [LSREL01-BP02 Decouple anonymization logic from core workflows using orchestration and versioning.](lsrel01-bp02..md "lsrel01-bp02..md")
+- [LSREL02-BP01 Build resilient and highly available research solutions](lsrel02-bp01.md "lsrel02-bp01.md")
+- [LSREL02-BP02 Maintain continuous data availability and integrity](lsrel02-bp02.md "lsrel02-bp02.md")
+- [LSREL03-BP01 Digitize and modernize archival of research data](lsrel03-bp01.md "lsrel03-bp01.md")
+- [LSREL03-BP02 Implement tiered storage and recovery strategies](lsrel03-bp02.md "lsrel03-bp02.md")
+- [LSREL04-BP01 Map regulatory requirements to reliability controls](lsrel04-bp01.md "lsrel04-bp01.md")
+- [LSREL04-BP02 Implement risk-based reliability testing for regulated systems](lsrel04-bp02.md "lsrel04-bp02.md")
+- [LSREL04-BP03 Establish reliability qualification procedures](lsrel04-bp03.md "lsrel04-bp03.md")

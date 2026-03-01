@@ -1,6 +1,4 @@
-# LSCOST01-BP02 Analyze and optimize vendor cost structures and
-
-economic relationships
+# LSCOST01-BP02 Analyze and optimize vendor cost structures and economic relationships
 
 Vendor economics focuses on optimizing the costs associated with
 various cloud vendors, software providers, and third-party services

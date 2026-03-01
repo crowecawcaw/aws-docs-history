@@ -1,6 +1,4 @@
-# LSREL12-BP03 Maintain data consistency in distributed research
-
-systems
+# LSREL12-BP03 Maintain data consistency in distributed research systems
 
 Distributed life sciences workloads (for example, spanning multiple
 sites, cloud Regions, or CRO integrations) require mechanisms to

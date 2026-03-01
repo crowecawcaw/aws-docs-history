@@ -1,6 +1,4 @@
-# LSOPS03-BP02 Limit available services to improve regulatory
-
-adherence
+# LSOPS03-BP02 Limit available services to improve regulatory adherence
 
 Use infrastructure tooling to allow only services that fit into
 required regulatory frameworks.

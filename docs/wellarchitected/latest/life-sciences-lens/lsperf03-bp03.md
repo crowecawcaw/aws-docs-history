@@ -1,6 +1,4 @@
-# LSPERF03-BP03 Tailored service configuration by use
-
-case
+# LSPERF03-BP03 Tailored service configuration by use case
 
 Customize infrastructure and service configurations to align with
 the specific requirements of each workload category. Fine-tune

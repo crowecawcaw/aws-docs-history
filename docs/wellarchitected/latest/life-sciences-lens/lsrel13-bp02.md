@@ -1,6 +1,4 @@
-# LSREL13-BP02 Monitor data integrity across scientific
-
-processing pipelines
+# LSREL13-BP02 Monitor data integrity across scientific processing pipelines
 
 Implement monitoring specifically for data integrity across research
 pipelines. Track errors such as checksum mismatches, validation

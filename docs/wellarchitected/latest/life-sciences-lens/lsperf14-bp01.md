@@ -1,6 +1,4 @@
-# LSPERF14-BP01 Conduct performance benchmarking across
-
-geographic research hubs
+# LSPERF14-BP01 Conduct performance benchmarking across geographic research hubs
 
 Develop comprehensive performance testing across research hubs to
 establish baselines and find regional bottlenecks. Monitor key

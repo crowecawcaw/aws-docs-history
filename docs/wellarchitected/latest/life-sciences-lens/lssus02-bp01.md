@@ -1,6 +1,4 @@
-# LSSUS02-BP01 Implement sustainability proxy metrics pipeline
-
-for research workloads
+# LSSUS02-BP01 Implement sustainability proxy metrics pipeline for research workloads
 
 Establish comprehensive tagging strategies and normalized metrics to
 track and measure sustainability performance across research
@@ -109,7 +107,7 @@ by correlating proxy metrics with actual carbon footprint data.
      performance.
    - Create dashboards that combine resource efficiency with
      environmental impact.
-   - Use Quick Suite for sustainability reporting and
+   - Use Quick for sustainability reporting and
      visualization.
 
 5. Establish continuous monitoring and optimization processes:

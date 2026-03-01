@@ -1,6 +1,4 @@
-# LSPERF18-BP03 Create integrated dashboards showing both
-
-performance and metrics
+# LSPERF18-BP03 Create integrated dashboards showing both performance and metrics
 
 The integrated dashboards combine performance and metrics into clear
 visualizations. Teams gain complete system visibility through
@@ -53,7 +51,7 @@ improvement.
 2. Integrate AWS Audit Manager metrics for visualization.
 3. Implement Amazon EventBridge for real-time alerts on
    threshold violations.
-4. Use Quick Suite for interactive data exploration and
+4. Use Quick for interactive data exploration and
    analysis.
 5. Configure AWS Systems Manager for automated remediation
    workflows.

@@ -14,9 +14,5 @@ throughout the research lifecycle.
 
 ###### Best practices
 
-- [LSCOST04-BP01 Implement tiered storage strategies aligned with
-  data access patterns and retention
-  requirements](lscost04-bp01.md "lscost04-bp01.md")
-- [LSCOST04-BP02 Implement data retention and deletion policies
-  aligned with regulatory
-  requirements](lscost04-bp02.md "lscost04-bp02.md")
+- [LSCOST04-BP01 Implement tiered storage strategies aligned with data access patterns and retention requirements](lscost04-bp01.md "lscost04-bp01.md")
+- [LSCOST04-BP02 Implement data retention and deletion policies aligned with regulatory requirements](lscost04-bp02.md "lscost04-bp02.md")

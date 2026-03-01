@@ -1,6 +1,4 @@
-# LSOPS04-BP02 Enforce controls in IT tooling and
-
-automation
+# LSOPS04-BP02 Enforce controls in IT tooling and automation
 
 Implement quality controls and automation in the standard IT
 tooling used by the development teams whenever possible to enable

@@ -1,6 +1,4 @@
-# LSREL03-BP02 Implement tiered storage and recovery
-
-strategies
+# LSREL03-BP02 Implement tiered storage and recovery strategies
 
 Adopt a tiered approach to storage and retrieval, balancing cost,
 durability, and recovery speed. Critical research datasets should be

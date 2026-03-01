@@ -1,7 +1,4 @@
-# LSREL05-BP01 Design edge buffering and queuing for laboratory
-
-instruments during network
-disruptions
+# LSREL05-BP01 Design edge buffering and queuing for laboratory instruments during network disruptions
 
 Implement local data buffering, intelligent queuing, and automatic
 retry mechanisms at the edge to verify that data from laboratory

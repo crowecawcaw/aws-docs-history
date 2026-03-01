@@ -1,6 +1,4 @@
-# LSOPS06-BP02 Implement data pipeline
-
-testing
+# LSOPS06-BP02 Implement data pipeline testing
 
 Create data handling tests including user authentication and
 authorization, data collection, and ingestion into later warehouses.

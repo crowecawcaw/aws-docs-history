@@ -1,6 +1,4 @@
-# LSPERF07-BP01 Use a risk-based validation
-
-framework
+# LSPERF07-BP01 Use a risk-based validation framework
 
 Use risk-based validation with full validation (Installation,
 Operation, and Performance Qualification) for high-risk systems

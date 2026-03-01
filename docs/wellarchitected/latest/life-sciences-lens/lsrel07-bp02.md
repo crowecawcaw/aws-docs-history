@@ -1,6 +1,4 @@
-# LSREL07-BP02 Build idempotent and reproducible processing
-
-pipelines
+# LSREL07-BP02 Build idempotent and reproducible processing pipelines
 
 Design processing systems that produce consistent results regardless
 of retries or partial failures. Incorporate unique identifiers,

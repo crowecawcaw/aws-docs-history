@@ -1,6 +1,4 @@
-# LSPERF08-BP02 Track resource utilization with clinical
-
-context
+# LSPERF08-BP02 Track resource utilization with clinical context
 
 Track compute metrics tied to clinical workflows and patient volumes
 for predictive capacity planning. Monitor specialized clinical

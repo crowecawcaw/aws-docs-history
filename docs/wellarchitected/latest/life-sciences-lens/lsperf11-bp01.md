@@ -1,6 +1,4 @@
-# LSPERF11-BP01 Optimize large dataset storage based on project
-
-phases and collaboration needs
+# LSPERF11-BP01 Optimize large dataset storage based on project phases and collaboration needs
 
 Design tiering strategies for large data files that consider
 different project stages and team access requirements. Store active

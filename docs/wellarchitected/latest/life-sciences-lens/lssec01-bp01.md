@@ -1,6 +1,4 @@
-# LSSEC01-BP01 Implement the principle of separation of
-
-duties
+# LSSEC01-BP01 Implement the principle of separation of duties
 
 For users with increased privileges, it is important to distribute
 system administration activities, so no one administrator can hide

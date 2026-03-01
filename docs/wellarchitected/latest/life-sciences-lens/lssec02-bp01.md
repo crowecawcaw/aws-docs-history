@@ -1,7 +1,4 @@
-# LSSEC02-BP01 Determine applicable regulatory frameworks and
-
-enforce data privacy requirements by implementing
-controls
+# LSSEC02-BP01 Determine applicable regulatory frameworks and enforce data privacy requirements by implementing controls
 
 Many life sciences organizations fall under data privacy
 requirements or regulations which influences data security and

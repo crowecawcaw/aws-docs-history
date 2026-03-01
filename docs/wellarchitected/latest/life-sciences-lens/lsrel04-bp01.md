@@ -1,6 +1,4 @@
-# LSREL04-BP01 Map regulatory requirements to reliability
-
-controls
+# LSREL04-BP01 Map regulatory requirements to reliability controls
 
 Create a comprehensive mapping between applicable regulatory
 requirements (like GxP, 21 CFR Part 11, and GDPR) and your

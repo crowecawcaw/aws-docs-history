@@ -1,6 +1,4 @@
-# LSSUS01-BP01 Design high-performance computing workloads to
-
-minimize energy usage
+# LSSUS01-BP01 Design high-performance computing workloads to minimize energy usage
 
 Design research computing workloads to optimize resource utilization
 and minimize energy consumption through strategic workload

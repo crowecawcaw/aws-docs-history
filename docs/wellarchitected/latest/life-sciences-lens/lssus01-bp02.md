@@ -1,6 +1,4 @@
-# LSSUS01-BP02 Use energy efficient hardware and
-
-services
+# LSSUS01-BP02 Use energy efficient hardware and services
 
 Select energy-efficient hardware architectures and managed services
 that optimize power consumption while maintaining research computing

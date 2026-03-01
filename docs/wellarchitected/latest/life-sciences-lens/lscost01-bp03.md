@@ -1,6 +1,4 @@
-# LSCOST01-BP03 Build the right skills and fostering a cost-aware
-
-culture
+# LSCOST01-BP03 Build the right skills and fostering a cost-aware culture
 
 Building the right skills and fostering a cost-aware culture is
 crucial for effective cloud financial management in the life

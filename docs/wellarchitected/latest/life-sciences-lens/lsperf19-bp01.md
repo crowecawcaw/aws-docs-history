@@ -1,6 +1,4 @@
-# LSPERF19-BP01 Implement infrastructure as code for consistent
-
-test environments
+# LSPERF19-BP01 Implement infrastructure as code for consistent test environments
 
 Use infrastructure as code (IaC) to deploy consistent, repeatable
 test environments that accurately mirror production. By codifying

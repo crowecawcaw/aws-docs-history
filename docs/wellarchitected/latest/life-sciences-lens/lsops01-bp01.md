@@ -1,6 +1,4 @@
-# LSOPS01-BP01 Regularly identify and classify applicable
-
-regulatory frameworks
+# LSOPS01-BP01 Regularly identify and classify applicable regulatory frameworks
 
 Conduct a systematic assessment to identify applicable regulatory
 frameworks based on product type assessment, geographic analysis,

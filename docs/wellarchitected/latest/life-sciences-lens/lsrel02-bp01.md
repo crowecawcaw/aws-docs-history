@@ -1,6 +1,4 @@
-# LSREL02-BP01 Build resilient and highly available research
-
-solutions
+# LSREL02-BP01 Build resilient and highly available research solutions
 
 Design research systems using fault-isolated, redundant deployment
 patterns that allow continuous access during maintenance or

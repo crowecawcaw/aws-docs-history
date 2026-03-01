@@ -1,6 +1,4 @@
-# LSREL03-BP01 Digitize and modernize archival of research
-
-data
+# LSREL03-BP01 Digitize and modernize archival of research data
 
 Replace legacy storage formats such as tapes, optical disks, or
 local hard drives with digital storage strategies that provide

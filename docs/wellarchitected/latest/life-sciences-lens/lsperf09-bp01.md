@@ -1,7 +1,4 @@
-# LSPERF09-BP01 Evaluate data stores based on regulatory
-
-requirements and data governance
-capabilities
+# LSPERF09-BP01 Evaluate data stores based on regulatory requirements and data governance capabilities
 
 Select data stores that provide features for healthcare regulations
 (HIPAA, FDA 21 CFR Part 11, GxP) including audit trails, data

@@ -1,6 +1,4 @@
-# LSSUS04-BP02 Use digital twins to optimize resource usage
-
-through in silico experimentation
+# LSSUS04-BP02 Use digital twins to optimize resource usage through in silico experimentation
 
 Implement digital twin technologies to create virtual
 representations of manufacturing processes that enable in silico
@@ -103,7 +101,7 @@ throughout the manufacturing lifecycle.
 
 4. Integrate digital twin insights into manufacturing
    operations:
-   - Create dashboards using Quick Suite for
+   - Create dashboards using Quick for
      visualizing simulation results.
    - Implement automated recommendations based on digital
      twin optimization results.

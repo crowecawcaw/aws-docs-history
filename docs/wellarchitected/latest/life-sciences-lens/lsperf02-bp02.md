@@ -1,6 +1,4 @@
-# LSPERF02-BP02 Secure data separation by
-
-classification
+# LSPERF02-BP02 Secure data separation by classification
 
 Establish clear boundaries between different data types based on
 sensitivity and regulatory requirements. Maintain sensitive patient

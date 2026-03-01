@@ -38,9 +38,6 @@ strategies.
 
 ###### Best practices
 
-- [LSCOST01-BP01 Establish and implement a comprehensive financial
-  governance framework](lscost01-bp01.md "lscost01-bp01.md")
-- [LSCOST01-BP02 Analyze and optimize vendor cost structures and
-  economic relationships](lscost01-bp02.md "lscost01-bp02.md")
-- [LSCOST01-BP03 Build the right skills and fostering a cost-aware
-  culture](lscost01-bp03.md "lscost01-bp03.md")
+- [LSCOST01-BP01 Establish and implement a comprehensive financial governance framework](lscost01-bp01.md "lscost01-bp01.md")
+- [LSCOST01-BP02 Analyze and optimize vendor cost structures and economic relationships](lscost01-bp02.md "lscost01-bp02.md")
+- [LSCOST01-BP03 Build the right skills and fostering a cost-aware culture](lscost01-bp03.md "lscost01-bp03.md")

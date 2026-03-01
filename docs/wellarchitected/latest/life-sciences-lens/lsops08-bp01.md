@@ -1,6 +1,4 @@
-# LSOPS08-BP01 Continuously generate and maintain
-
-evidence
+# LSOPS08-BP01 Continuously generate and maintain evidence
 
 Use appropriate IT tooling to generate evidence used for regulatory
 requirements. Maintain audit trails of the changes, approvals, and
@@ -57,7 +55,7 @@ audit readiness practices around those requirements.
 1. Generate reports for audits and inspections:
 
 - Use AWS Audit Manager for automated report generation.
-- Consider Quick Suite for audit visualization and
+- Consider Quick for audit visualization and
   reporting.
 
 1. Implement appropriate retention policies for documentation:
@@ -94,7 +92,7 @@ audit readiness practices around those requirements.
 - [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/")
 - [AWS Backup](https://aws.amazon.com/backup/ "https://aws.amazon.com/backup/")
 - [AWS Glue](https://aws.amazon.com/glue/ "https://aws.amazon.com/glue/")
-- [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
+- [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
 - [AWS Systems Manager](https://aws.amazon.com/systems-manager/ "https://aws.amazon.com/systems-manager/")
 - [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/")
 - [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/")

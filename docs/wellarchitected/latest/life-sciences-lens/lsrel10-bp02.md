@@ -1,6 +1,4 @@
-# LSREL10-BP02 Validate end-to-end reliability of regulated
-
-workloads
+# LSREL10-BP02 Validate end-to-end reliability of regulated workloads
 
 Conduct end-to-end reliability validation exercises that test not
 just recovery but the overall system's ability to maintain adherence

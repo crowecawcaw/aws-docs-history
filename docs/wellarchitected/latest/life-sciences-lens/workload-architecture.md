@@ -53,22 +53,12 @@ scientific integrity are preserved even under failure conditions.
 
 ###### Best practices
 
-- [LSREL05-BP01 Design edge buffering and queuing for laboratory
-  instruments during network
-  disruptions](lsrel05-bp01.md "lsrel05-bp01.md")
-- [LSREL06-BP01 Orchestrate workflows with checkpointing and
-  failure isolation](lsrel06-bp01.md "lsrel06-bp01.md")
-- [LSREL07-BP01 Implement system-wide data checksums and transfer
-  validation](lsrel07-bp01.md "lsrel07-bp01.md")
-- [LSREL07-BP02 Build idempotent and reproducible processing
-  pipelines](lsrel07-bp02.md "lsrel07-bp02.md")
-- [LSREL07-BP03 Use staged validation and data quarantine
-  mechanisms](lsrel07-bp03.md "lsrel07-bp03.md")
-- [LSREL07-BP04 Track data lineage with lifecycle
-  metadata](lsrel07-bp04.md "lsrel07-bp04.md")
-- [LSREL08-BP01 Incorporate validated redundancy into architecture
-  design](lsrel08-bp01.md "lsrel08-bp01.md")
-- [LSREL08-BP02 Design compliance-aware failover
-  workflows](lsrel08-bp02.md "lsrel08-bp02.md")
-- [LSREL08-BP03 Align architecture priorities with scientific and
-  regulatory context](lsrel08-bp03.md "lsrel08-bp03.md")
+- [LSREL05-BP01 Design edge buffering and queuing for laboratory instruments during network disruptions](lsrel05-bp01.md "lsrel05-bp01.md")
+- [LSREL06-BP01 Orchestrate workflows with checkpointing and failure isolation](lsrel06-bp01.md "lsrel06-bp01.md")
+- [LSREL07-BP01 Implement system-wide data checksums and transfer validation](lsrel07-bp01.md "lsrel07-bp01.md")
+- [LSREL07-BP02 Build idempotent and reproducible processing pipelines](lsrel07-bp02.md "lsrel07-bp02.md")
+- [LSREL07-BP03 Use staged validation and data quarantine mechanisms](lsrel07-bp03.md "lsrel07-bp03.md")
+- [LSREL07-BP04 Track data lineage with lifecycle metadata](lsrel07-bp04.md "lsrel07-bp04.md")
+- [LSREL08-BP01 Incorporate validated redundancy into architecture design](lsrel08-bp01.md "lsrel08-bp01.md")
+- [LSREL08-BP02 Design compliance-aware failover workflows](lsrel08-bp02.md "lsrel08-bp02.md")
+- [LSREL08-BP03 Align architecture priorities with scientific and regulatory context](lsrel08-bp03.md "lsrel08-bp03.md")

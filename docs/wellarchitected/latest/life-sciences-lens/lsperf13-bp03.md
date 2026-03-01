@@ -1,6 +1,4 @@
-# LSPERF13-BP03 Deploy resilient connectivity with bandwidth
-
-optimization for remote locations
+# LSPERF13-BP03 Deploy resilient connectivity with bandwidth optimization for remote locations
 
 Set up multiple connectivity options based on each location's
 geographic limitations and infrastructure. Use smart traffic

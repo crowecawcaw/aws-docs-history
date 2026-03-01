@@ -1,6 +1,4 @@
-# LSPERF08-BP01 Implement holistic system performance monitoring
-
-beyond traditional latency metrics
+# LSPERF08-BP01 Implement holistic system performance monitoring beyond traditional latency metrics
 
 Implement a multi-layered latency monitoring system tracking the
 entire clinical workflow times, not just system metrics. Capture

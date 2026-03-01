@@ -1,6 +1,4 @@
-# LSREL09-BP02 Implement safe deployment strategies (like
-
-blue/green or canary)
+# LSREL09-BP02 Implement safe deployment strategies (like blue/green or canary)
 
 Adopt deployment patterns that minimize blast radius and allow rapid
 diversion to the last known good state. Phased rollouts provide

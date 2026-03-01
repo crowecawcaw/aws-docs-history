@@ -1,6 +1,4 @@
-# Life Sciences Lens - AWS Well-Architected
-
-Framework
+# Life Sciences Lens - AWS Well-Architected Framework
 
 Publication date: **December 30, 2025** ([Document revisions](document-revisions.md "document-revisions.md"))
 

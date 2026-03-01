@@ -1,6 +1,4 @@
-# LSREL12-BP02 Define recovery time objectives based on
-
-scientific and business impact
+# LSREL12-BP02 Define recovery time objectives based on scientific and business impact
 
 Recovery time objectives (RTOs) should be established through
 analysis of the scientific and business impact of downtime. For

@@ -1,6 +1,4 @@
-# LSREL08-BP01 Incorporate validated redundancy into architecture
-
-design
+# LSREL08-BP01 Incorporate validated redundancy into architecture design
 
 During the design phase, plan for redundancy across fault-isolated
 zones and validate that each component meets regulatory

@@ -1,6 +1,4 @@
-# LSSUS05-BP01 Design sustainable clinical trial
-
-architecture
+# LSSUS05-BP01 Design sustainable clinical trial architecture
 
 Implement decentralized clinical trial architectures that minimize
 data movement and reduce environmental impact through regional data

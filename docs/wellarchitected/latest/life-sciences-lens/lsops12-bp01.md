@@ -1,6 +1,4 @@
-# LSOPS12-BP01 Create a controlled semantic
-
-layer
+# LSOPS12-BP01 Create a controlled semantic layer
 
 A semantic layer translates complex life sciences data into
 understandable business terms, acting as a bridge between raw data

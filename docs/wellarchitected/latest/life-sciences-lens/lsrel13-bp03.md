@@ -1,6 +1,4 @@
-# LSREL13-BP03 Track reliability metrics aligned to regulatory
-
-needs
+# LSREL13-BP03 Track reliability metrics aligned to regulatory needs
 
 Define and monitor reliability metrics that align with both
 operational resilience and regulatory requirements. For
@@ -53,5 +51,5 @@ periods. Review metrics periodically to drive improvement.
 3. Track recovery validation evidence in AWS Audit Manager.
 4. Store metric histories in Amazon S3 with Object Lock for
    immutability.
-5. Build dashboards using Quick Suite for regulators and
+5. Build dashboards using Quick for regulators and
    QA stakeholders.

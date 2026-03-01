@@ -1,6 +1,4 @@
-# LSREL07-BP03 Use staged validation and data quarantine
-
-mechanisms
+# LSREL07-BP03 Use staged validation and data quarantine mechanisms
 
 Introduce controlled validation stages where data is quarantined
 before being processed further. Apply automated rules for schema

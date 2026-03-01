@@ -1,6 +1,4 @@
-# LSCOST03-BP01 Align infrastructure capacity with R&D
-
-development stages
+# LSCOST03-BP01 Align infrastructure capacity with R&D development stages
 
 Design infrastructure that can adapt to changing requirements across
 different R&D phases while maintaining regulatory adherence and

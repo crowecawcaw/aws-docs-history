@@ -66,7 +66,7 @@ trials.
    - Build a DataZone domain to assign the correct permissions allowing engineers,
      data scientists, product managers, analysts, and business users to access data so
      that they can discover, use, and collaborate to derive data-driven insights.
-   - Data scientists, engineers and managers can access data using Quick Suite, Amazon
+   - Data scientists, engineers and managers can access data using Quick, Amazon
      Sagemaker, Aazon Athena, or other business intelligence (BI) tools for internal
      analysis, exploration, and visualization creation.
 

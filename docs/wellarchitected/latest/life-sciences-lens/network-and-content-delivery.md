@@ -45,36 +45,17 @@ adherence to data sovereignty regulations.
 
 ###### Best practices
 
-- [LSPERF12-BP01 Implement network segmentation with
-  defense-in-depth controls](lsperf12-bp01.md "lsperf12-bp01.md")
-- [LSPERF12-BP02 Deploy accelerated encryption technologies with
-  hardware offloading](lsperf12-bp02.md "lsperf12-bp02.md")
-- [LSPERF12-BP03 Optimize data transfer with intelligent traffic
-  management and compression](lsperf12-bp03.md "lsperf12-bp03.md")
-- [LSPERF13-BP01 Conduct comprehensive site technology assessment
-  and gap analysis](lsperf13-bp01.md "lsperf13-bp01.md")
-- [LSPERF13-BP02 Implement secure data exchange architecture with
-  regulatory controls](lsperf13-bp02.md "lsperf13-bp02.md")
-- [LSPERF13-BP03 Deploy resilient connectivity with bandwidth
-  optimization for remote locations](lsperf13-bp03.md "lsperf13-bp03.md")
-- [LSPERF14-BP01 Conduct performance benchmarking across
-  geographic research hubs](lsperf14-bp01.md "lsperf14-bp01.md")
-- [LSPERF14-BP02 Evaluate multi-CDN architectures with intelligent
-  traffic routing capabilities](lsperf14-bp02.md "lsperf14-bp02.md")
-- [LSPERF14-BP03 Assess edge computing integration for localized
-  processing of research workloads](lsperf14-bp03.md "lsperf14-bp03.md")
-- [LSPERF15-BP01 Implement application-aware network path
-  optimization and traffic prioritization
-  methods](lsperf15-bp01.md "lsperf15-bp01.md")
-- [LSPERF15-BP02 Deploy synthetic transaction monitoring and real
-  user monitoring with automated performance
-  optimization](lsperf15-bp02.md "lsperf15-bp02.md")
-- [LSPERF16-BP01 Deploy intelligent traffic shaping with
-  security-aware bandwidth allocation for different data
-  types](lsperf16-bp01.md "lsperf16-bp01.md")
-- [LSPERF17-BP01 Measure baseline data transfer performance and
-  evaluate how data sovereignty requirements affect
-  latency](lsperf17-bp01.md "lsperf17-bp01.md")
-- [LSPERF17-BP02 Implement data classification-based transfer
-  assessment with region-specific regulatory
-  validation](lsperf17-bp02.md "lsperf17-bp02.md")
+- [LSPERF12-BP01 Implement network segmentation with defense-in-depth controls](lsperf12-bp01.md "lsperf12-bp01.md")
+- [LSPERF12-BP02 Deploy accelerated encryption technologies with hardware offloading](lsperf12-bp02.md "lsperf12-bp02.md")
+- [LSPERF12-BP03 Optimize data transfer with intelligent traffic management and compression](lsperf12-bp03.md "lsperf12-bp03.md")
+- [LSPERF13-BP01 Conduct comprehensive site technology assessment and gap analysis](lsperf13-bp01.md "lsperf13-bp01.md")
+- [LSPERF13-BP02 Implement secure data exchange architecture with regulatory controls](lsperf13-bp02.md "lsperf13-bp02.md")
+- [LSPERF13-BP03 Deploy resilient connectivity with bandwidth optimization for remote locations](lsperf13-bp03.md "lsperf13-bp03.md")
+- [LSPERF14-BP01 Conduct performance benchmarking across geographic research hubs](lsperf14-bp01.md "lsperf14-bp01.md")
+- [LSPERF14-BP02 Evaluate multi-CDN architectures with intelligent traffic routing capabilities](lsperf14-bp02.md "lsperf14-bp02.md")
+- [LSPERF14-BP03 Assess edge computing integration for localized processing of research workloads](lsperf14-bp03.md "lsperf14-bp03.md")
+- [LSPERF15-BP01 Implement application-aware network path optimization and traffic prioritization methods](lsperf15-bp01.md "lsperf15-bp01.md")
+- [LSPERF15-BP02 Deploy synthetic transaction monitoring and real user monitoring with automated performance optimization](lsperf15-bp02.md "lsperf15-bp02.md")
+- [LSPERF16-BP01 Deploy intelligent traffic shaping with security-aware bandwidth allocation for different data types](lsperf16-bp01.md "lsperf16-bp01.md")
+- [LSPERF17-BP01 Measure baseline data transfer performance and evaluate how data sovereignty requirements affect latency](lsperf17-bp01.md "lsperf17-bp01.md")
+- [LSPERF17-BP02 Implement data classification-based transfer assessment with region-specific regulatory validation](lsperf17-bp02.md "lsperf17-bp02.md")

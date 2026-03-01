@@ -1,6 +1,4 @@
-# LSREL09-BP03 Verify data integrity and point-in-time
-
-recovery
+# LSREL09-BP03 Verify data integrity and point-in-time recovery
 
 Protect application and data state so that you can restore to a
 precise point-in-time prior to a failed change. Backups must be

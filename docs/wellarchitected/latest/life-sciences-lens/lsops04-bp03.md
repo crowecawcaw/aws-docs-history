@@ -1,6 +1,4 @@
-# LSOPS04-BP03 Incorporate formal risk management into your IT
-
-processes
+# LSOPS04-BP03 Incorporate formal risk management into your IT processes
 
 Risk assessments should be conducted to identify potential
 vulnerabilities in electronic systems and data management processes.

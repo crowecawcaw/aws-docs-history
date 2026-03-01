@@ -1,6 +1,4 @@
-# LSPERF14-BP02 Evaluate multi-CDN architectures with intelligent
-
-traffic routing capabilities
+# LSPERF14-BP02 Evaluate multi-CDN architectures with intelligent traffic routing capabilities
 
 Evaluate content delivery network (CDN) providers focusing on their
 performance in academic and research regions. Create a dynamic

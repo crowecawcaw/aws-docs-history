@@ -1,7 +1,4 @@
-# LSCOST04-BP02 Implement data retention and deletion policies
-
-aligned with regulatory
-requirements
+# LSCOST04-BP02 Implement data retention and deletion policies aligned with regulatory requirements
 
 Develop and enforce comprehensive data retention and deletion
 policies that comply with industry regulations while minimizing

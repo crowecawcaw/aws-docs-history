@@ -1,6 +1,4 @@
-# LSREL12-BP04 Implement cyber resilience for GxP-regulated
-
-backup data
+# LSREL12-BP04 Implement cyber resilience for GxP-regulated backup data
 
 Implement cyber resilience strategies for your backup data to
 protect against ransomware and other cyber threats, with specific

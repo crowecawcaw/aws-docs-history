@@ -54,19 +54,11 @@ different types of research data.
 
 ###### Best practices
 
-- [LSOPS07-BP01 Maintain a controlled multi-account
-  environment](lsops07-bp01.md "lsops07-bp01.md")
-- [LSOPS07-BP02 Isolate GxP data from non-GxP
-  data](lsops07-bp02.md "lsops07-bp02.md")
-- [LSOPS08-BP01 Continuously generate and maintain
-  evidence](lsops08-bp01.md "lsops08-bp01.md")
-- [LSOPS09-BP01 Track data ownership and lineage over the life of
-  the project](lsops09-bp01.md "lsops09-bp01.md")
+- [LSOPS07-BP01 Maintain a controlled multi-account environment](lsops07-bp01.md "lsops07-bp01.md")
+- [LSOPS07-BP02 Isolate GxP data from non-GxP data](lsops07-bp02.md "lsops07-bp02.md")
+- [LSOPS08-BP01 Continuously generate and maintain evidence](lsops08-bp01.md "lsops08-bp01.md")
+- [LSOPS09-BP01 Track data ownership and lineage over the life of the project](lsops09-bp01.md "lsops09-bp01.md")
 - [LSOPS10-BP01 Reproducibility](lsops10-bp01.md "lsops10-bp01.md")
-- [LSOPS10-BP02 Store data in a format that works both for
-  archiving and for active use by retaining related
-  metadata](lsops10-bp02.md "lsops10-bp02.md")
-- [LSOPS11-BP01 Identify clear dataset owners and access
-  history](lsops11-bp01.md "lsops11-bp01.md")
-- [LSOPS12-BP01 Create a controlled semantic
-  layer](lsops12-bp01.md "lsops12-bp01.md")
+- [LSOPS10-BP02 Store data in a format that works both for archiving and for active use by retaining related metadata](lsops10-bp02.md "lsops10-bp02.md")
+- [LSOPS11-BP01 Identify clear dataset owners and access history](lsops11-bp01.md "lsops11-bp01.md")
+- [LSOPS12-BP01 Create a controlled semantic layer](lsops12-bp01.md "lsops12-bp01.md")

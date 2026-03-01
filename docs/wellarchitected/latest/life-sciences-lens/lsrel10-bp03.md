@@ -1,6 +1,4 @@
-# LSREL10-BP03 Test data integrity under failure
-
-conditions
+# LSREL10-BP03 Test data integrity under failure conditions
 
 Design and execute specific tests to validate that data integrity is
 preserved during system failures, network outages, or recovery

@@ -1,7 +1,4 @@
-# LSOPS10-BP02 Store data in a format that works both for
-
-archiving and for active use by retaining related
-metadata
+# LSOPS10-BP02 Store data in a format that works both for archiving and for active use by retaining related metadata
 
 Select a data format which is queried while the project is ongoing
 but archives natively. Iceberg's data format is ideal for life

@@ -1,6 +1,4 @@
-# Data
-
-management efficiency in data analytics and data lifecycle
+# Data management efficiency in data analytics and data lifecycle
 
 | LSSUS03: How do you maximize efficiency in processing large-scale life sciences<br>data? |
 | ---------------------------------------------------------------------------------------- |
@@ -13,7 +11,5 @@ requirements and long-term storage needs.
 
 ###### Best practices
 
-- [LSSUS03-BP01 Optimize data management for sustainability in
-  life sciences](lssus03-bp01.md "lssus03-bp01.md")
-- [LSSUS03-BP02 Process data closer to
-  source](lssus03-bp02.md "lssus03-bp02.md")
+- [LSSUS03-BP01 Optimize data management for sustainability in life sciences](lssus03-bp01.md "lssus03-bp01.md")
+- [LSSUS03-BP02 Process data closer to source](lssus03-bp02.md "lssus03-bp02.md")

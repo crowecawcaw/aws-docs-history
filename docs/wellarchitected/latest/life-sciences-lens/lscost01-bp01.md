@@ -1,6 +1,4 @@
-# LSCOST01-BP01 Establish and implement a comprehensive financial
-
-governance framework
+# LSCOST01-BP01 Establish and implement a comprehensive financial governance framework
 
 A financial governance framework in life sciences cloud management
 establishes the structure, policies, and processes for making
