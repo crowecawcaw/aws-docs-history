@@ -15,7 +15,6 @@ be shared across accounts.
 
 ###### Topics
 
-- [Creating a TLS inspection configuration
-  in Network Firewall](creating-tls-configuration.md "creating-tls-configuration.md")
+- [Creating a TLS inspection configuration in Network Firewall](creating-tls-configuration.md "creating-tls-configuration.md")
 - [Updating a TLS inspection configuration in Network Firewall](updating-tls-configuration.md "updating-tls-configuration.md")
 - [Deleting a TLS inspection configuration in Network Firewall](deleting-tls-configuration.md "deleting-tls-configuration.md")

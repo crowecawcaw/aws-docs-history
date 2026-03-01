@@ -62,8 +62,7 @@ during TLS inspection. This log type requires the firewall to be configured
 with TLS inspection for outbound traffic, and for the TLS inspection
 to be configured to check the certificate revocation status.
 For information about configuring certificate revocation checking, see
-[Using
-SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md")
+[Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md")
 and
 [Checking certificate revocation status](tls-inspection-certificate-requirements.md#tls-inspection-check-certificate-revocation-status "tls-inspection-certificate-requirements.md#tls-inspection-check-certificate-revocation-status").
 

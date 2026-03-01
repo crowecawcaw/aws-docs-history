@@ -27,9 +27,7 @@ When you successfully enable logging to an Amazon Data Firehose data stream,
 Network Firewall creates a service linked role with the necessary permissions to
 write logs to it. For more information, see [Using service-linked roles](using-service-linked-roles.md "using-service-linked-roles.md").
 
-## Permissions to publish logs
-
-to Amazon Data Firehose
+## Permissions to publish logs to Amazon Data Firehose
 
 You must have the following permissions to configure your firewall to send
 logs to an Amazon Data Firehose delivery stream.

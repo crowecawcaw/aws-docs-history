@@ -21,9 +21,7 @@ To get a high-level view of how Network Firewall and other AWS services work wit
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Network Firewall
+## Identity-based policies for Network Firewall
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Network Firewall
 
-Identity-based policy examples for Network Firewall
+To view examples of Network Firewall identity-based policies, see [Identity-based policy examples for AWS Network Firewall](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of Network Firewall identity-based policies, see [Identity-based policy
-examples for AWS Network Firewall](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within Network Firewall
+## Resource-based policies within Network Firewall
 
 **Supports resource-based policies:**
 
@@ -73,12 +66,9 @@ shared firewall policy or rule group, see [Sharing AWS Network Firewall resource
 
 ### Resource-based policy examples within Network Firewall
 
-To view examples of Network Firewall resource-based policies, see [Resource-based
-policy examples for AWS Network Firewall](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+To view examples of Network Firewall resource-based policies, see [Resource-based policy examples for AWS Network Firewall](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
-## Policy actions
-
-for Network Firewall
+## Policy actions for Network Firewall
 
 **Supports policy actions:**
 
@@ -116,12 +106,9 @@ action:
 "Action": "network-firewall:Describe*"
 ```
 
-To view examples of Network Firewall identity-based policies, see [Identity-based policy
-examples for AWS Network Firewall](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Network Firewall identity-based policies, see [Identity-based policy examples for AWS Network Firewall](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Network Firewall
+## Policy resources for Network Firewall
 
 **Supports policy resources:**
 
@@ -152,12 +139,9 @@ resources in a single statement, separate the ARNs with commas.
       "*EXAMPLE-RESOURCE-2*"
 ```
 
-To view examples of Network Firewall identity-based policies, see [Identity-based policy
-examples for AWS Network Firewall](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Network Firewall identity-based policies, see [Identity-based policy examples for AWS Network Firewall](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Network Firewall
+## Policy condition keys for Network Firewall
 
 **Supports service-specific policy condition keys:**
 
@@ -176,8 +160,7 @@ To see a list of Network Firewall condition keys, see [Condition keys for AWS Ne
 _Service Authorization Reference_. To learn with which actions and resources you
 can use a condition key, see [Actions defined by AWS Network Firewall](../../../service-authorization/latest/reference/list_awsnetworkfirewall.md#awsnetworkfirewall-actions-as-permissions "../../../service-authorization/latest/reference/list_awsnetworkfirewall.md#awsnetworkfirewall-actions-as-permissions").
 
-To view examples of Network Firewall identity-based policies, see [Identity-based policy
-examples for AWS Network Firewall](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Network Firewall identity-based policies, see [Identity-based policy examples for AWS Network Firewall](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## ACLs in Network Firewall
 
@@ -205,9 +188,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Network Firewall
+## Using temporary credentials with Network Firewall
 
 **Supports temporary credentials:**
 
@@ -228,9 +209,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Network Firewall
+## Service roles for Network Firewall
 
 **Supports service roles:**
 
@@ -245,9 +224,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Network Firewall functionality.
 Edit service roles only when Network Firewall provides guidance to do so.
 
-## Service-linked
-
-roles for Network Firewall
+## Service-linked roles for Network Firewall
 
 **Supports service-linked roles:**
 

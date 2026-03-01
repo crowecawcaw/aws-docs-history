@@ -1,6 +1,4 @@
-# Best practices for writing
-
-Suricata compatible rules for AWS Network Firewall
+# Best practices for writing Suricata compatible rules for AWS Network Firewall
 
 A stateful rule group is a rule group that uses Suricata compatible intrusion
 prevention system (IPS) specifications. Suricata is an open source network

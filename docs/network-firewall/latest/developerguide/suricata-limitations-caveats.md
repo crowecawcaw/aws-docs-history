@@ -1,6 +1,4 @@
-# Limitations and caveats
-
-for stateful rules in AWS Network Firewall
+# Limitations and caveats for stateful rules in AWS Network Firewall
 
 AWS Network Firewall stateful rules are Suricata compatible. Most Suricata
 rules work out of the box with Network Firewall. Your use of Suricata

@@ -17,8 +17,7 @@ properly protected.
 Network Firewall filters network traffic that is routed through firewall endpoints. However, DNS queries made to
 Amazon Route 53 Resolver are not inspected because they are routed to a static address in the VPC. Any DNS inspection rules
 in AWS managed rule groups, including active threat defense managed rule groups, cannot inspect traffic to Amazon Route 53 Resolver. For more information about
-Network Firewall limitations, see [Limitations and caveats
-for stateful rules in AWS Network Firewall](suricata-limitations-caveats.md "suricata-limitations-caveats.md").
+Network Firewall limitations, see [Limitations and caveats for stateful rules in AWS Network Firewall](suricata-limitations-caveats.md "suricata-limitations-caveats.md").
 
 ###### Automatic updates
 

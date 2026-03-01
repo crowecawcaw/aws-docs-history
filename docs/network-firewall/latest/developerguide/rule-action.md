@@ -45,8 +45,7 @@ that you provide in Suricata compatible strings and the
 rules that you specify using the standard stateless rules interface
 in Network Firewall. These options are a subset of the action
 options that are defined by Suricata. For more information,
-see [Working with stateful rule groups in
-AWS Network Firewall](stateful-rule-groups-ips.md "stateful-rule-groups-ips.md").
+see [Working with stateful rule groups in AWS Network Firewall](stateful-rule-groups-ips.md "stateful-rule-groups-ips.md").
 
 - **Pass** – Discontinue inspection of
   the matching packet and permit it to go to its intended destination. Rules with pass

@@ -16,8 +16,7 @@ rules in the order that they are prioritized in the rule group, starting from
 the lowest setting. When you create a stateless rule group, you set the priority
 of the rules in the rule group. When you create a firewall policy, you set the
 priority of the stateless rule groups in the policy. For more information, see
-[Working with stateless rule groups in
-AWS Network Firewall](stateless-rule-groups-standard.md "stateless-rule-groups-standard.md") and [Firewall policies in AWS Network Firewall](firewall-policies.md "firewall-policies.md").
+[Working with stateless rule groups in AWS Network Firewall](stateless-rule-groups-standard.md "stateless-rule-groups-standard.md") and [Firewall policies in AWS Network Firewall](firewall-policies.md "firewall-policies.md").
 
 When Network Firewall finds a match, it handles the packet according to the matching rule's
 configuration. You configure a stateless rule to pass the packet through, drop it,

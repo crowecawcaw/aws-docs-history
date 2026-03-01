@@ -1,6 +1,4 @@
-# Stateful
-
-domain list rule groups in AWS Network Firewall
+# Stateful domain list rule groups in AWS Network Firewall
 
 AWS Network Firewall supports domain name stateful network
 traffic inspection. You can create allow lists and deny
@@ -39,8 +37,7 @@ For more information about actions, see [Defining rule actions in AWS Network Fi
 
 - **(Optional) `HOME_NET` rule group variable**
   – Used to expand the local network definition beyond the CIDR range of the VPC
-  where you deploy Network Firewall. For additional information about this setting, see [Domain list inspection for traffic from outside
-  the deployment VPC](#stateful-rule-groups-domain-names-home-net "#stateful-rule-groups-domain-names-home-net").
+  where you deploy Network Firewall. For additional information about this setting, see [Domain list inspection for traffic from outside the deployment VPC](#stateful-rule-groups-domain-names-home-net "#stateful-rule-groups-domain-names-home-net").
 
 See the caveats for the `HOME_NET` and `EXTERNAL_NET`
 settings at [Suricata features that Network Firewall supports with caveats](suricata-limitations-caveats.md#suricata-supported-with-caveats "suricata-limitations-caveats.md#suricata-supported-with-caveats").
@@ -98,9 +95,7 @@ For examples of domain list specifications and the
 Suricata compatible rules that Network Firewall generates
 from them, see [Stateful rules examples: domain list rules](suricata-examples.md#suricata-example-domain-filtering "suricata-examples.md#suricata-example-domain-filtering").
 
-## Domain list inspection for traffic from outside
-
-the deployment VPC
+## Domain list inspection for traffic from outside the deployment VPC
 
 To use domain name filtering for traffic from outside
 the VPC where you've deployed Network Firewall, you

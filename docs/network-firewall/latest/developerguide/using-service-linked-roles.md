@@ -20,9 +20,7 @@ work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role permissions for
-
-Network Firewall
+## Service-linked role permissions for Network Firewall
 
 Network Firewall uses the service-linked role named **`AWSServiceRoleForNetworkFirewall`** –
 An access policy that allows AWS Network Firewall to manage Network Firewall related resources on behalf of your AWS account. Network Firewall uses its service-linked-role to create, describe, and delete VPC endpoints in support of your firewall management activities. Network Firewall is the only service that uses this service-linked role,
@@ -139,9 +137,7 @@ which might create a service-linked role in your account named
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Network Firewall
+## Creating a service-linked role for Network Firewall
 
 You don't need to manually create a service-linked role for AWS Network Firewall. When you
 create a AWS Network Firewall firewall in the AWS Management Console, the AWS CLI, or the AWS API, if your account
@@ -152,9 +148,7 @@ to, you can create the role through the IAM console. If you delete the service-l
 role, the next time you create an Network Firewall resource, Network Firewall creates one for
 you again.
 
-## Editing a service-linked role for
-
-Network Firewall
+## Editing a service-linked role for Network Firewall
 
 Network Firewall doesn't allow you to edit the `AWSServiceRoleForNetworkFirewall` service-linked role. After you create
 a service-linked role, you can't change the name of the role because various entities
@@ -162,9 +156,7 @@ might reference it. However, you can edit the description of the role using IAM.
 more information, see [Editing a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Network Firewall
+## Deleting a service-linked role for Network Firewall
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is
@@ -199,9 +191,7 @@ Use the IAM console, the IAM CLI, or the IAM API to delete the `AWSServiceRoleFo
 service-linked role. For more information, see [Deleting a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported Regions for
-
-Network Firewall service-linked roles
+## Supported Regions for Network Firewall service-linked roles
 
 Network Firewall supports using service-linked roles in all of the Regions where the service is
 available. For a Region list, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

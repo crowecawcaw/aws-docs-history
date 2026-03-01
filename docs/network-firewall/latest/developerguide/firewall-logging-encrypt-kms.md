@@ -1,6 +1,4 @@
-# Logging in AWS Network Firewall with server-side encryption
-
-and customer-provided keys
+# Logging in AWS Network Firewall with server-side encryption and customer-provided keys
 
 If your logging destination uses server-side encryption with keys that are stored
 in AWS Key Management Service (SSE-KMS) and you use a customer managed key (KMS key), you

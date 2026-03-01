@@ -1,6 +1,4 @@
-# Examples of stateful rules for
-
-Network Firewall
+# Examples of stateful rules for Network Firewall
 
 This section lists examples of Suricata compatible rules that could be used with AWS Network Firewall.
 
@@ -321,7 +319,7 @@ the United Kingdom:
 
 Before using any example rule, test and adapt it to your needs.
 
-For information about URL and Domain Category filtering in Network Firewall, see [URL and Domain Category Filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-url-filtering.md "rule-groups-url-filtering.md") .
+For information about URL and Domain Category filtering in Network Firewall, see [URL and Domain Category Filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-url-filtering.md "rule-groups-url-filtering.md").
 
 aws_url_category evaluates complete URLs (with TLS inspection) and domains, while aws_domain_category evaluates only domain information from TLS SNI or HTTP host headers.
 
@@ -495,9 +493,7 @@ pass tcp $HOME_NET any <> $EXTERNAL_NET 80 (flow:not_established; sid:892191; re
 
 Before using any example rule, test and adapt it to your needs.
 
-###### Deny list example JSON, rule group creation, and
-
-generated Suricata rules
+###### Deny list example JSON, rule group creation, and generated Suricata rules
 
 The following JSON shows an example rule definition
 for a Network Firewall domain list rule group that
@@ -537,9 +533,7 @@ drop tls $HOME_NET any -> $EXTERNAL_NET any (ssl_state:client_hello; tls.sni; co
 drop http $HOME_NET any -> $EXTERNAL_NET any (http.host; content:"evil.com"; startswith; endswith; msg:"matching HTTP denylisted FQDNs"; priority:1; flow:to_server, established; sid:2; rev:1;)
 ```
 
-###### HTTP allow list example JSON and generated Suricata
-
-rules
+###### HTTP allow list example JSON and generated Suricata rules
 
 The following JSON shows an example rule definition
 for a Network Firewall domain list rule group that
@@ -573,9 +567,7 @@ pass http $HOME_NET any -> $EXTERNAL_NET any (http.host; content:"example.com"; 
 drop http $HOME_NET any -> $EXTERNAL_NET any (http.header_names; content:"|0d 0a|"; startswith; msg:"not matching any HTTP allowlisted FQDNs"; priority:1; flow:to_server, established; sid:3; rev:1;)
 ```
 
-###### TLS allow list example JSON and generated Suricata
-
-rules
+###### TLS allow list example JSON and generated Suricata rules
 
 The following JSON shows an example rule definition
 for a Network Firewall domain list rule group that

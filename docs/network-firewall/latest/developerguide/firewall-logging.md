@@ -36,6 +36,5 @@ You can record the following types of logs from your Network Firewall stateful e
 - [Permissions to configure AWS Network Firewall logging](firewall-logging-permissions.md "firewall-logging-permissions.md")
 - [Pricing for AWS Network Firewall logging](firewall-logging-pricing.md "firewall-logging-pricing.md")
 - [AWS Network Firewall logging destinations](firewall-logging-destinations.md "firewall-logging-destinations.md")
-- [Logging in AWS Network Firewall with server-side encryption
-  and customer-provided keys](firewall-logging-encrypt-kms.md "firewall-logging-encrypt-kms.md")
+- [Logging in AWS Network Firewall with server-side encryption and customer-provided keys](firewall-logging-encrypt-kms.md "firewall-logging-encrypt-kms.md")
 - [Updating a AWS Network Firewall logging configuration](firewall-update-logging-configuration.md "firewall-update-logging-configuration.md")

@@ -1,6 +1,4 @@
-# Working with stateful rule groups in
-
-AWS Network Firewall
+# Working with stateful rule groups in AWS Network Firewall
 
 A stateful rule group is a rule group that uses Suricata compatible intrusion
 prevention system (IPS) specifications. Suricata is an open source network
@@ -50,9 +48,6 @@ The following are examples of the changes in that upgrade:
 - [Updating a stateful rule group](rule-group-stateful-updating.md "rule-group-stateful-updating.md")
 - [Deleting a stateful rule group](rule-group-stateful-deleting.md "rule-group-stateful-deleting.md")
 - [Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md "suricata-rule-evaluation-order.md")
-- [Limitations and caveats
-  for stateful rules in AWS Network Firewall](suricata-limitations-caveats.md "suricata-limitations-caveats.md")
-- [Best practices for writing
-  Suricata compatible rules for AWS Network Firewall](suricata-best-practices.md "suricata-best-practices.md")
-- [Examples of stateful rules for
-  Network Firewall](suricata-examples.md "suricata-examples.md")
+- [Limitations and caveats for stateful rules in AWS Network Firewall](suricata-limitations-caveats.md "suricata-limitations-caveats.md")
+- [Best practices for writing Suricata compatible rules for AWS Network Firewall](suricata-best-practices.md "suricata-best-practices.md")
+- [Examples of stateful rules for Network Firewall](suricata-examples.md "suricata-examples.md")

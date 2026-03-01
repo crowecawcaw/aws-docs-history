@@ -4,9 +4,7 @@ This topic provides a high-level view of a simple two zone VPC configuration usi
 internet gateway and AWS Network Firewall. It describes the basic route table
 modifications that are required to use the Network Firewall firewall.
 
-###### Two zone architecture with internet gateway and the Network Firewall
-
-firewall
+###### Two zone architecture with internet gateway and the Network Firewall firewall
 
 The following figure depicts a Network Firewall configuration for a VPC that
 spans multiple Availability Zones. In this case, each Availability Zone that the

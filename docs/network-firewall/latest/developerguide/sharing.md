@@ -98,9 +98,7 @@ _AWS RAM User Guide_.
 
 Use the [create-resource-share](../../../cli/latest/reference/ram/create-resource-share.md "../../../cli/latest/reference/ram/create-resource-share.md") command.
 
-###### To share a firewall, firewall policy, or rule group that you own using the Network Firewall
-
-API
+###### To share a firewall, firewall policy, or rule group that you own using the Network Firewall API
 
 Use the `PutResourcePolicy` action. For information about how to use
 this, see [PutResourcePolicy](../APIReference/API_PutResourcePolicy.md "../APIReference/API_PutResourcePolicy.md") in the _AWS Network Firewall API

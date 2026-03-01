@@ -1,6 +1,4 @@
-# Resource-based
-
-policy examples for AWS Network Firewall
+# Resource-based policy examples for AWS Network Firewall
 
 The Network Firewall service supports only one type of resource-based policy called a _resource policy_, which is attached
 to a shared firewall policy or rule group. This policy defines which principals can share firewall policies and rule groups between accounts.

@@ -8,8 +8,7 @@ Direct Connect.
 
 Network Firewall uses the open source intrusion prevention system (IPS), Suricata,
 for stateful inspection, and supports Suricata compatible rules.
-For more information, see [Working with stateful rule groups in
-AWS Network Firewall](stateful-rule-groups-ips.md "stateful-rule-groups-ips.md").
+For more information, see [Working with stateful rule groups in AWS Network Firewall](stateful-rule-groups-ips.md "stateful-rule-groups-ips.md").
 
 ###### Note
 
@@ -42,8 +41,7 @@ Guide_.
 - [AWS Network Firewall​ AWS resources](#aws-resources "#aws-resources")
 - [AWS Network Firewall concepts](#concepts "#concepts")
 - [Accessing AWS Network Firewall](#accessing "#accessing")
-- [Regions and endpoints for
-  AWS Network Firewall](#regions-and-endpoints "#regions-and-endpoints")
+- [Regions and endpoints for AWS Network Firewall](#regions-and-endpoints "#regions-and-endpoints")
 - [Pricing for AWS Network Firewall](#pricing "#pricing")
 - [AWS Network Firewall quotas](#what-it-is-quotas "#what-it-is-quotas")
 - [AWS Network Firewall additional resources](#info-resources "#info-resources")
@@ -179,9 +177,7 @@ https://network-firewall.`<region>`.amazonaws.com
   PowerShell scripting environment. For more information, see the
   [AWS Tools for PowerShell User Guide](../../../powershell/latest/userguide.md "../../../powershell/latest/userguide.md").
 
-## Regions and endpoints for
-
-AWS Network Firewall
+## Regions and endpoints for AWS Network Firewall
 
 To view the complete list of AWS Regions where Network Firewall is available, see
 [Service

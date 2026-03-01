@@ -1,6 +1,4 @@
-# Logging calls to the AWS Network Firewall API with
-
-AWS CloudTrail
+# Logging calls to the AWS Network Firewall API with AWS CloudTrail
 
 AWS Network Firewall is integrated with AWS CloudTrail, a service that provides a record of API
 calls to Network Firewall by a user, role, or an AWS service. CloudTrail captures all API calls

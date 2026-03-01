@@ -1,6 +1,4 @@
-# Suricata compatible rule strings in
-
-AWS Network Firewall
+# Suricata compatible rule strings in AWS Network Firewall
 
 When you use this rule group type, you provide match and action
 settings in a string, in a Suricata compatible

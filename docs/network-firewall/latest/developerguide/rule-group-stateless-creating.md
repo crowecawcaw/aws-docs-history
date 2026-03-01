@@ -1,6 +1,4 @@
-# Creating a stateless rule
-
-group
+# Creating a stateless rule group
 
 Follow the guidance in this section to create a stateless rule group through the Network Firewall console.
 

@@ -22,8 +22,7 @@ For more information about stateful default actions for rule groups, see
 [Action order](suricata-rule-evaluation-order.md#suricata-default-rule-evaluation-order "suricata-rule-evaluation-order.md#suricata-default-rule-evaluation-order").
 
 For more information about stateful rule groups, see
-[Working with stateful rule groups in
-AWS Network Firewall](stateful-rule-groups-ips.md "stateful-rule-groups-ips.md"). 5. Choose **Next**. 6. Enter a **Name** to identify this rule group.
+[Working with stateful rule groups in AWS Network Firewall](stateful-rule-groups-ips.md "stateful-rule-groups-ips.md"). 5. Choose **Next**. 6. Enter a **Name** to identify this rule group.
 
 ###### Note
 
@@ -134,8 +133,7 @@ _AWS CloudFormation User Guide_.
     	+ Choose the **categories** from the dropdown list
     	+ For more information, see [URL and Domain Category Filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-url-filtering.md "rule-groups-url-filtering.md")
     For information about these rules, see
-     [Standard
-     stateful rule groups in AWS Network Firewall](stateful-rule-groups-basic.md "stateful-rule-groups-basic.md").
+     [Standard stateful rule groups in AWS Network Firewall](stateful-rule-groups-basic.md "stateful-rule-groups-basic.md").
 
 
     * (Option) **Domain list** – Specify the
@@ -175,8 +173,7 @@ _AWS CloudFormation User Guide_.
     	 you are creating, either **Allow** or
     	 **Deny**. For information on these
     	 options, see [Actions for stateful rules](rule-action.md#rule-action-stateful "rule-action.md#rule-action-stateful").
-    For information about stateful domain name rules, see [Stateful
-     domain list rule groups in AWS Network Firewall](stateful-rule-groups-domain-names.md "stateful-rule-groups-domain-names.md").
+    For information about stateful domain name rules, see [Stateful domain list rule groups in AWS Network Firewall](stateful-rule-groups-domain-names.md "stateful-rule-groups-domain-names.md").
     * (Option) **Suricata compatible rule string**
 
 

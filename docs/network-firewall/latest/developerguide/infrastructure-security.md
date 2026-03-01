@@ -1,6 +1,4 @@
-# Infrastructure security in
-
-AWS Network Firewall
+# Infrastructure security in AWS Network Firewall
 
 As a managed service, AWS Network Firewall is protected by AWS global network security. For
 information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS

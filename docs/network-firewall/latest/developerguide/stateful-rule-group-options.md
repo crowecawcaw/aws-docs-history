@@ -22,12 +22,9 @@ provide the rules to the rule group creation operation in one of the following w
 
 ###### Topics
 
-- [Standard
-  stateful rule groups in AWS Network Firewall](stateful-rule-groups-basic.md "stateful-rule-groups-basic.md")
-- [Suricata compatible rule strings in
-  AWS Network Firewall](stateful-rule-groups-suricata.md "stateful-rule-groups-suricata.md")
-- [Stateful
-  domain list rule groups in AWS Network Firewall](stateful-rule-groups-domain-names.md "stateful-rule-groups-domain-names.md")
+- [Standard stateful rule groups in AWS Network Firewall](stateful-rule-groups-basic.md "stateful-rule-groups-basic.md")
+- [Suricata compatible rule strings in AWS Network Firewall](stateful-rule-groups-suricata.md "stateful-rule-groups-suricata.md")
+- [Stateful domain list rule groups in AWS Network Firewall](stateful-rule-groups-domain-names.md "stateful-rule-groups-domain-names.md")
 - [IP set references in Suricata compatible AWS Network Firewall rule groups](rule-groups-ip-set-references.md "rule-groups-ip-set-references.md")
 - [Geographic IP filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-geo-ip-filtering.md "rule-groups-geo-ip-filtering.md")
 - [URL and Domain Category Filtering in Suricata compatible AWS Network Firewall rule groups](rule-groups-url-filtering.md "rule-groups-url-filtering.md")

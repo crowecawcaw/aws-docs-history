@@ -24,15 +24,13 @@ Stateful rule groups are available in the following categories:
 
 - **Standard stateful rules** – Defines standard network connection attributes for examining a packet within the context of a traffic flow.
   For more information,
-  see [Standard
-  stateful rule groups in AWS Network Firewall](stateful-rule-groups-basic.md "stateful-rule-groups-basic.md")
+  see [Standard stateful rule groups in AWS Network Firewall](stateful-rule-groups-basic.md "stateful-rule-groups-basic.md")
 - **Domain list** – Defines a list of domain names and specifies the protocol type to inspect.
   You can create these rules from an traffic analysis report.
   For more information, see [Creating stateful rule groups from reports](reporting.md#creating-stateful-rule-groups-from-reports "reporting.md#creating-stateful-rule-groups-from-reports").
 - **Suricata compatible rule strings** – Provides match and action settings, in Suricata compatible format.
   You can provide all of your stateful rules through this method if you want to. For more information,
-  see [Suricata compatible rule strings in
-  AWS Network Firewall](stateful-rule-groups-suricata.md "stateful-rule-groups-suricata.md").
+  see [Suricata compatible rule strings in AWS Network Firewall](stateful-rule-groups-suricata.md "stateful-rule-groups-suricata.md").
 
 Depending on the type of rule group, you might also define rules inside the rule group.
 Rules provide detailed criteria for packet inspection and specify what to do when a packet
@@ -50,9 +48,7 @@ For more Suricata-specific information, see the [Suricata documentation](https:/
 
 - [Common rule group settings in AWS Network Firewall](rule-group-settings.md "rule-group-settings.md")
 - [Options for stateful rules in Network Firewall](stateful-rule-group-options.md "stateful-rule-group-options.md")
-- [Working with stateful rule groups in
-  AWS Network Firewall](stateful-rule-groups-ips.md "stateful-rule-groups-ips.md")
-- [Working with stateless rule groups in
-  AWS Network Firewall](stateless-rule-groups-standard.md "stateless-rule-groups-standard.md")
+- [Working with stateful rule groups in AWS Network Firewall](stateful-rule-groups-ips.md "stateful-rule-groups-ips.md")
+- [Working with stateless rule groups in AWS Network Firewall](stateless-rule-groups-standard.md "stateless-rule-groups-standard.md")
 - [Defining rule actions in AWS Network Firewall](rule-action.md "rule-action.md")
 - [Setting rule group capacity in AWS Network Firewall](nwfw-rule-group-capacity.md "nwfw-rule-group-capacity.md")

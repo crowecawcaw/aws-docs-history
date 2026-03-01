@@ -6,9 +6,7 @@ firewall monitors incoming and outgoing traffic and allows it to pass or drops i
 according to your specifications. The firewall only allows packets to pass that pass
 inspection.
 
-###### Network Firewall monitors and controls traffic to and from your protected
-
-subnets
+###### Network Firewall monitors and controls traffic to and from your protected subnets
 
 The following figure shows the basic interaction of your firewall with traffic
 coming into your customer subnet and with traffic going out from your customer

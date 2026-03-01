@@ -12,9 +12,7 @@ and outgoing traffic routes through the internet gateway to the subnet.
 
 ![An AWS Region is shown with a single Availability Zone. The Region also has an internet gateway, which has arrows out to and in from an internet cloud. Inside the Region, spanning part of the Availability Zone, is a VPC. Inside the VPC is a customer subnet. One arrow shows traffic going between the customer subnet and the internet gateway.](images/no-network-firewall-igw-simple.png)
 
-###### Single zone architecture with internet gateway and the Network Firewall
-
-firewall
+###### Single zone architecture with internet gateway and the Network Firewall firewall
 
 The following figure depicts a simple VPC configuration with the firewall and
 the subnet association in place. The VPC has an internet gateway for internet
@@ -53,9 +51,7 @@ In the preceding figure, the route tables enforce the following traffic flows:
   destined for anywhere else (`0.0.0.0/0`) to the internet gateway
   (`igw-1232`).
 
-###### Example route tables in the single zone architecture with the
-
-firewall
+###### Example route tables in the single zone architecture with the firewall
 
 The following figure depicts the same installation with the Network Firewall
 firewall added and the route tables changed to include the firewall. The route

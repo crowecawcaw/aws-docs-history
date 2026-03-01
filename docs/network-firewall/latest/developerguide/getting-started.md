@@ -11,13 +11,10 @@ more information about working with Network Firewall API operations, see the
 
 - [Before you begin](#getting-started-prerequisites "#getting-started-prerequisites")
 - [Step 1: Create rule groups](#getting-started-add-rule-groups "#getting-started-add-rule-groups")
-- [Step 2: Create a firewall
-  policy](#getting-started-configure-firewall-policy "#getting-started-configure-firewall-policy")
+- [Step 2: Create a firewall policy](#getting-started-configure-firewall-policy "#getting-started-configure-firewall-policy")
 - [Step 3: Create a firewall](#getting-started-create-firewall "#getting-started-create-firewall")
-- [Step 4: Update your Amazon VPC route
-  tables](#getting-started-update-route-tables "#getting-started-update-route-tables")
-- [Step 5: Remove the firewall and clean up your
-  resources](#getting-started-clean-up "#getting-started-clean-up")
+- [Step 4: Update your Amazon VPC route tables](#getting-started-update-route-tables "#getting-started-update-route-tables")
+- [Step 5: Remove the firewall and clean up your resources](#getting-started-clean-up "#getting-started-clean-up")
 
 ## Before you begin
 
@@ -110,9 +107,7 @@ Your stateless rule group and your stateful rule group are listed in the
 **Rule groups** page. You can now use these rule groups in your
 firewall policies.
 
-## Step 2: Create a firewall
-
-policy
+## Step 2: Create a firewall policy
 
 Firewall policies use rule groups and other settings to define the traffic filtering
 behavior for a firewall. In this procedure, you'll create a policy using the rule groups
@@ -191,9 +186,7 @@ each subnet.
 The next step is to route the VPC's network traffic through the firewall endpoint. You'll insert it into the
 traffic flow between the internet gateway and your customer subnet.
 
-## Step 4: Update your Amazon VPC route
-
-tables
+## Step 4: Update your Amazon VPC route tables
 
 After you create your firewall, you insert its firewall endpoint into your Amazon Virtual Private Cloud
 network traffic flow, in between your internet gateway and your customer subnet. You
@@ -208,9 +201,7 @@ For information about managing route tables for your VPC, see
 tables](../../../vpc/latest/userguide/VPC_Route_Tables.md "../../../vpc/latest/userguide/VPC_Route_Tables.md") in the _Amazon Virtual Private Cloud User
 Guide_.
 
-###### To modify your route tables to insert a firewall endpoint between your internet
-
-gateway and your subnet
+###### To modify your route tables to insert a firewall endpoint between your internet gateway and your subnet
 
 1. Review your routing for the internet gateway and for your customer subnet, to
    determine the components used to route traffic between the two.
@@ -247,9 +238,7 @@ The firewall endpoint is now
 filtering
 all traffic between your internet gateway and customer subnet.
 
-## Step 5: Remove the firewall and clean up your
-
-resources
+## Step 5: Remove the firewall and clean up your resources
 
 You've now successfully completed the tutorial. To remove the firewall endpoint from your
 VPC and prevent your account from accruing AWS Network Firewall charges for the tutorial

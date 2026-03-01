@@ -14,8 +14,7 @@ The topics in this chapter can help you troubleshoot problems with configuring a
 - [Troubleshooting logging in AWS Network Firewall](troubleshooting-logging.md "troubleshooting-logging.md")
   - [My firewall isn't logging all traffic that matches pass action rules](troubleshooting-logging.md#troubleshoot-logging-partial-traffic "troubleshooting-logging.md#troubleshoot-logging-partial-traffic")
   - [I don't see Alert logs that match drop action rules in my rule group](troubleshooting-logging.md#troubleshoot-logging-alert-logs-matching-rules "troubleshooting-logging.md#troubleshoot-logging-alert-logs-matching-rules")
-  - [I don’t see any TLS logs even though I have
-    TLS logging enabled](troubleshooting-logging.md#troubleshoot-logging-no-tls-logs "troubleshooting-logging.md#troubleshoot-logging-no-tls-logs")
+  - [I don’t see any TLS logs even though I have TLS logging enabled](troubleshooting-logging.md#troubleshoot-logging-no-tls-logs "troubleshooting-logging.md#troubleshoot-logging-no-tls-logs")
 
 - [Troubleshooting rules in AWS Network Firewall](troubleshooting-rules.md "troubleshooting-rules.md")
   - [Rules with the HOME_NET variable are not working as expected with managed rule groups](troubleshooting-rules.md#troubleshoot-rules-home-net "troubleshooting-rules.md#troubleshoot-rules-home-net")

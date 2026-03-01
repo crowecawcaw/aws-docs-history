@@ -1,6 +1,4 @@
-# Using
-
-SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall
+# Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall
 
 Network Firewall integrates with AWS Certificate Manager (ACM) to make it easy to manage the certificates that
 you're using to decrypt and re-encrypt your firewall's SSL/TLS traffic. To get started

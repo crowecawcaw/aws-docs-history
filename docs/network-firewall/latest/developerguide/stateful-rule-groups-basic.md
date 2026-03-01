@@ -1,6 +1,4 @@
-# Standard
-
-stateful rule groups in AWS Network Firewall
+# Standard stateful rule groups in AWS Network Firewall
 
 AWS Network Firewall supports easy entry for standard stateful
 rules for network traffic inspection. The match criteria for

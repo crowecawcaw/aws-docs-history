@@ -37,8 +37,7 @@ access control lists (ACLs).
 The stateful engine takes rules that are compatible with Suricata, an open
 source intrusion prevention system (IPS). Suricata provides a standard
 rule-based language for stateful network traffic inspection. For more
-information about Suricata, see [Working with stateful rule groups in
-AWS Network Firewall](stateful-rule-groups-ips.md "stateful-rule-groups-ips.md") and the [Suricata website](https://suricata.io/ "https://suricata.io/").
+information about Suricata, see [Working with stateful rule groups in AWS Network Firewall](stateful-rule-groups-ips.md "stateful-rule-groups-ips.md") and the [Suricata website](https://suricata.io/ "https://suricata.io/").
 
 Network Firewall stateful rules are similar in behavior and use to Amazon VPC security groups. By
 default, the stateful rules engine allows traffic to pass, while the

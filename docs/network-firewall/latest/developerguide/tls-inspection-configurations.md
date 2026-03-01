@@ -16,11 +16,9 @@ calculator](https://calculator.aws/#/addService/networkfirewall "https://calcula
 
 ###### Topics
 
-- [Considerations when
-  working with TLS inspection configurations in AWS Network Firewall](tls-inspection-considerations.md "tls-inspection-considerations.md")
+- [Considerations when working with TLS inspection configurations in AWS Network Firewall](tls-inspection-considerations.md "tls-inspection-considerations.md")
 - [Logging for TLS inspection in AWS Network Firewall](tls-inspection-logging.md "tls-inspection-logging.md")
-- [Using
-  SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md")
+- [Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md")
 - [TLS inspection configuration settings in AWS Network Firewall](tls-inspection-settings.md "tls-inspection-settings.md")
 - [Using session holding with TLS inspection in AWS Network Firewall](session-holding-tls.md "session-holding-tls.md")
 - [Managing your TLS inspection configuration in Network Firewall](managing-tls-configuration.md "managing-tls-configuration.md")

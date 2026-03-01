@@ -30,9 +30,7 @@ to log an alert message only on packets that are in established connections.
 Flows dropped by the **Drop established** or **Drop all** stateful default actions won't generate alert logs
 if you don't configure a stateful default alert action.
 
-## I don’t see any TLS logs even though I have
-
-TLS logging enabled
+## I don’t see any TLS logs even though I have TLS logging enabled
 
 TLS logging reports only TLS errors and outbound traffic that fails certificate revocation checks.
 

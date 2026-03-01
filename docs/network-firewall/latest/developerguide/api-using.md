@@ -1,6 +1,4 @@
-# Using
-
-the AWS Network Firewall REST API
+# Using the AWS Network Firewall REST API
 
 AWS Network Firewall is a stateful, managed, network firewall and intrusion detection and
 prevention service for your virtual private cloud (VPC) that you create in Amazon Virtual Private Cloud

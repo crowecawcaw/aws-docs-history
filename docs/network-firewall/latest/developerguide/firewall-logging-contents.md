@@ -67,8 +67,7 @@ The Network Firewall logs contain the following information:
       	 The logs include the revocation check status, the action taken, and the
       	 SNI that the revocation check was for.
       	 For information about configuring certificate revocation checking, see
-      	 [Using
-      	 SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md").
+      	 [Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md").
 
   For detailed information about these Suricata events, see [EVE JSON Output](https://docs.suricata.io/en/suricata-7.0.8/output/eve/eve-json-output.html?highlight=EVE "https://docs.suricata.io/en/suricata-7.0.8/output/eve/eve-json-output.html?highlight=EVE") in the [Suricata User Guide](https://docs.suricata.io/en/suricata-7.0.8/index.html "https://docs.suricata.io/en/suricata-7.0.8/index.html").
 

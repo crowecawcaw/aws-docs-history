@@ -9,8 +9,7 @@ Before you create or use a transit gateway-attached firewall, consider the follo
   - The Transit Gateway owner has limited visibility into firewall details.
   - The Transit Gateway owner cannot delete the shared transit gateway until they remove all transit gateways attachments, including related transit gateway-attached firewalls.
 
-- When you use stateful domain list rule groups or other stateful rule group types that reference `HOME_NET` or `EXTERNAL_NET`, you must configure these rule groups to use values for `HOME_NET` and `EXTERNAL_NET` that are different from the default values used in the firewall policy. For more information, see [Limitations and caveats
-  for stateful rules in AWS Network Firewall](suricata-limitations-caveats.md "suricata-limitations-caveats.md").
+- When you use stateful domain list rule groups or other stateful rule group types that reference `HOME_NET` or `EXTERNAL_NET`, you must configure these rule groups to use values for `HOME_NET` and `EXTERNAL_NET` that are different from the default values used in the firewall policy. For more information, see [Limitations and caveats for stateful rules in AWS Network Firewall](suricata-limitations-caveats.md "suricata-limitations-caveats.md").
 - A transit gateway-attached firewall must be configured in the same Availability Zone where the shared transit gateway is already enabled.
 - Traffic for transit gateway-attached firewalls must be routed through transit gateway route tables, not VPC route tables.
 - Appliance mode is always enabled on transit gateway-attached firewalls.

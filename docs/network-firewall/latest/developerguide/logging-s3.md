@@ -90,9 +90,7 @@ name `s3://amzn-s3-demo-bucket`, and bucket prefix
 s3://amzn-s3-demo-bucket/flow-logs/AWSLogs/11111111111/network-firewall/flow/us-east-1/test-firewall/2020/10/01/19/11111111111_network-firewall_flow_us-east-1_test-firewall_202010011920_44442222.log.gz
 ```
 
-## Permissions to publish logs to
-
-Amazon S3
+## Permissions to publish logs to Amazon S3
 
 You must have the following permissions settings to configure your
 firewall to send logs to Amazon S3.

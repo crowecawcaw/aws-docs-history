@@ -24,11 +24,7 @@ Alternatively, you can choose **Copy** to copy the rules to your clipboard. You 
 
 CLI
 
-###### To copy a managed threat
-
-signature
-rule group's rules using the
-AWS CLI
+###### To copy a managed threat signature rule group's rules using the AWS CLI
 
 1. Run `aws network-firewall
 list-rule-groups --scope MANAGED --managed-type

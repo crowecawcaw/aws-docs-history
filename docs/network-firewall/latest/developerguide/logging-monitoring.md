@@ -54,8 +54,8 @@ Review the topics in this guide to learn more about the different logging, monit
 
 ###### Topics
 
+- [Managing AWS Network Firewall events using Amazon EventBridge](eventbridge-events.md "eventbridge-events.md")
 - [Logging network traffic from AWS Network Firewall](firewall-logging.md "firewall-logging.md")
-- [Logging calls to the AWS Network Firewall API with
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Logging calls to the AWS Network Firewall API with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [AWS Network Firewall metrics in Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
 - [Monitoring and reporting in Network Firewall](nwfw-monitoring-reporting.md "nwfw-monitoring-reporting.md")

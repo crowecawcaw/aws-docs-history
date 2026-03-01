@@ -1,6 +1,4 @@
-# Considerations when
-
-working with TLS inspection configurations in AWS Network Firewall
+# Considerations when working with TLS inspection configurations in AWS Network Firewall
 
 Before you implement TLS inspection configuration in Network Firewall, understand the following considerations and limitations.
 
@@ -108,15 +106,13 @@ The expected idle timeout for the TLS engine for established connections is abou
 The following limitations apply to TLS inspection configurations:
 
 - Cross-signed root certificates aren't supported. For more information,
-  see [Using
-  SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md").
+  see [Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md").
 - Decryption of TLS protocols that rely upon StartTLS aren't supported.
 - Network Firewall publishes separate CloudWatch metrics for traffic that's associated with
   TLS inspection configurations. Existing stateful traffic metrics don't reflect data for traffic
   that's decrypted and re-encrypted by your firewall policy's TLS inspection configuration.
 - Self-signed certificates aren't supported for inbound inspection. For more
-  information about the certificates that Network Firewall supports, see [Using
-  SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md").
+  information about the certificates that Network Firewall supports, see [Using SSL/TLS certificates with TLS inspection configurations in AWS Network Firewall](tls-inspection-certificate-requirements.md "tls-inspection-certificate-requirements.md").
 - TLS inspection of UDP-based transport protocols such as
   Quick UDP Internet Connections
   (QUIC) isn't supported. You can configure your applications so

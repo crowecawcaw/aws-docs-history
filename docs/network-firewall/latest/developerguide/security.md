@@ -35,6 +35,5 @@ the security of communication into and out of your Amazon Virtual Private Cloud 
 - [AWS logging and monitoring tools](incident-response.md "incident-response.md")
 - [Compliance validation and security best practices for Network Firewall](compliance.md "compliance.md")
 - [Resilience in Network Firewall](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  AWS Network Firewall](infrastructure-security.md "infrastructure-security.md")
+- [Infrastructure security in AWS Network Firewall](infrastructure-security.md "infrastructure-security.md")
 - [Access AWS Network Firewall using an interface endpoint](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
