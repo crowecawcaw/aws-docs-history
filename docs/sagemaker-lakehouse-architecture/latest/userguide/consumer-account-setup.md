@@ -84,9 +84,7 @@ After creating the catalog link container, create a database under your catalog:
 5. Choose **Catalogs** in the navigation pane to verify that database is
    created under your catalog.
 
-## Create a table resource link for the shared federated
-
-catalog table
+## Create a table resource link for the shared federated catalog table
 
 A resource link to a shared federated catalog table can reside only inside the database of
 a catalog link container. A resource link for such tables will not work if created inside
@@ -111,9 +109,7 @@ To create a table resource link:
       resource link is created under your database, inside the catalog you
       choose.
 
-## Create a database resource link for the shared federated
-
-catalog table
+## Create a database resource link for the shared federated catalog table
 
 Create a database resource link in the default catalog to query the S3 based Iceberg table
 shared from account A. For details on database resource links, refer [Creating a resource link to a shared Data Catalog database](../../../lake-formation/latest/dg/create-resource-link-database.md "../../../lake-formation/latest/dg/create-resource-link-database.md").
@@ -163,9 +159,7 @@ ON orders_tb.order_id = `returns_tb`.`order_id`
 GROUP BY `returns_tb`.market;
 ```
 
-## Grant permissions to the
-
-`Glue-execution-role`
+## Grant permissions to the `Glue-execution-role`
 
 Set up Lake Formation permissions on the catalog link container, databases, tables, and resource
 links for the AWS Glue job execution role

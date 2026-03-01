@@ -30,7 +30,7 @@ Amazon S3 data lakes integrate seamlessly with AWS analytics and ML services, al
 - **AWS Glue** - Discover, catalog, and transform data with serverless ETL capabilities
 - **Amazon EMR** - Process large datasets using Apache Spark, Hadoop, and other big data frameworks
 - **SageMaker AI** - Access data for machine learning model training and inference
-- **Quick Suite** - Create interactive dashboards and visualizations
+- **Quick** - Create interactive dashboards and visualizations
 
 ## Security and governance
 

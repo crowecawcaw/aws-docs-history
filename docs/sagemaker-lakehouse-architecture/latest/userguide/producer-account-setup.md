@@ -42,9 +42,7 @@ catalog:
 As the **Admin** role, you can also query the table in [Amazon Athena](http://aws.amazon.com/athena "http://aws.amazon.com/athena") and confirm that the data
 is available.
 
-## Grant permissions on the tables from account A to
-
-account B
+## Grant permissions on the tables from account A to account B
 
 Share the data warehouse federated catalog database and table, as well as the object
 storage-based Iceberg table and its database from the default catalog to account B.

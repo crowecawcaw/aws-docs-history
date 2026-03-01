@@ -1,6 +1,4 @@
-# Tutorial: configure cross-account access for
-
-Redshift federated catalog table
+# Tutorial: configure cross-account access for Redshift federated catalog table
 
 This tutorial provides step-by-step instructions on how to configure cross account sharing
 of Redshift federated catalog tables using Lake Formation permissions. For more information, see [Sharing a data lake using Lake Formation fine-grained access control](../../../lake-formation/latest/dg/share-dl-fgac-tutorial.md "../../../lake-formation/latest/dg/share-dl-fgac-tutorial.md").
@@ -27,9 +25,7 @@ Before proceeding, ensure you have the following prerequisites:
 - An IAM role, `Glue-execution-role`, in account B with appropriate
   policies.
 
-### Required IAM policies for
-
-`Glue-execution-role`
+### Required IAM policies for `Glue-execution-role`
 
 The `Glue-execution-role` in account B requires the following AWS managed
 policies:

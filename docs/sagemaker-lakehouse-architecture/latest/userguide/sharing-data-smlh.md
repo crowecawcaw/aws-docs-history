@@ -4,5 +4,4 @@ Cross-account data sharing allows you to securely share data across accounts wit
 
 ###### Topics
 
-- [Tutorial: configure cross-account access for
-  Redshift federated catalog table](configure-cross-account-access.md "configure-cross-account-access.md")
+- [Tutorial: configure cross-account access for Redshift federated catalog table](configure-cross-account-access.md "configure-cross-account-access.md")

@@ -1,6 +1,4 @@
-# Adding existing databases and catalogs using
-
-AWS Lake Formation permissions
+# Adding existing databases and catalogs using AWS Lake Formation permissions
 
 You can add existing databases and catalogs to the lakehouse architecture.
 

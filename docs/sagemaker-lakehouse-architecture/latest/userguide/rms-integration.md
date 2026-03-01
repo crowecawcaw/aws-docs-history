@@ -89,9 +89,9 @@ the catalog type as `Managed` and `Catalog source` as **Redshift.** This step do
     	 Choose one or more users or roles from the IAM users and roles
     	 list.
     	+ **SAML users and groups** –
-    	 For SAML and Amazon Quick Suite users and groups, enter
+    	 For SAML and Amazon Quick users and groups, enter
     	 one or more Amazon Resource Names (ARNs) for users or groups
-    	 federated through SAML, or ARNs for Amazon Quick Suite users or groups.
+    	 federated through SAML, or ARNs for Amazon Quick users or groups.
     	 Press **Enter** after each ARN.
     	+ **External accounts**  – Select this option if you want to share the catalog with external accounts, organizations or IAM roles.
 

@@ -20,9 +20,7 @@ between different interfaces or manage complex connection details manually.
    overview page. In this data explorer, you can see a tree-like structure representing
    your data sources.
 
-## Create a new connection to add data
-
-sources
+## Create a new connection to add data sources
 
 ###### To add a new data source
 
@@ -53,9 +51,7 @@ To see your DynamoDB tables displayed in lakehouse architecture after you add th
 administrator must grant you access through resource policies in the Amazon DynamoDB
 console.
 
-###### To grant access to a DynamoDB table, your administrator can complete the following
-
-steps.
+###### To grant access to a DynamoDB table, your administrator can complete the following steps.
 
 1. Sign in to the AWS Management Console and open the Amazon DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
 2. On the left navigation of the DynamoDB console, choose
@@ -116,9 +112,7 @@ explorer.
    **Sample data** view, you can see the rows of data from the table
    and use built-in sorting and filtering options to explore the data.
 
-## Authentication and tagging for creating
-
-connections
+## Authentication and tagging for creating connections
 
 You administrator must create credentials and configure the secret tags for you before
 you create a connection.

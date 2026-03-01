@@ -62,7 +62,7 @@ from real-time feature engineering to historical model training datasets.
 - **Scalable storage** – Store structured, semi-structured, and unstructured data at any scale while maintaining high availability, security, and query performance.
 - **Multi-zone architecture** – Raw data zone for original format retention, processed data zone for cleaned data, and curated data zone for business-ready datasets.
 - **Cost optimization** – Use columnar formats like Parquet or ORC and implement Amazon S3 lifecycle policies for cost-effective storage.
-- **Native AWS integration** – Seamless integration with Amazon Athena, AWS Glue, Amazon EMR, SageMaker AI, and Quick Suite.
+- **Native AWS integration** – Seamless integration with Amazon Athena, AWS Glue, Amazon EMR, SageMaker AI, and Quick.
 
 ### Federated catalogs benefits
 
