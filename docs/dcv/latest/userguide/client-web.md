@@ -11,8 +11,7 @@ operating systems (including Windows, macOS, and Linux):
 | Microsoft Edge  | Latest three major versions |
 | Apple Safari    | Latest three major versions |
 
-For instructions on how to connect to a Amazon DCV session using the web browser client, see [Connecting to a Amazon DCV session using the web
-browser client](using-connecting-browser-connect.md "using-connecting-browser-connect.md").
+For instructions on how to connect to a Amazon DCV session using the web browser client, see [Connecting to a Amazon DCV session using the web browser client](using-connecting-browser-connect.md "using-connecting-browser-connect.md").
 
 ###### WebCodecs
 

@@ -3,8 +3,7 @@
 The Amazon DCV Windows client is supported on Windows computers only. The Windows client is a
 standalone application that runs on the Windows operating system.
 
-For instructions on how to connect to a Amazon DCV session using the Windows client, see [Connecting to a Amazon DCV session using the Windows
-client](using-connecting-win.md "using-connecting-win.md").
+For instructions on how to connect to a Amazon DCV session using the Windows client, see [Connecting to a Amazon DCV session using the Windows client](using-connecting-win.md "using-connecting-win.md").
 
 The Windows client is available in two versions: an installable version and a portable
 version. Both versions have the same minimum system requirements and have the same

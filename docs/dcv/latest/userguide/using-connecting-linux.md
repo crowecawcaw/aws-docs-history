@@ -1,6 +1,4 @@
-# Connecting to a Amazon DCV session using the Linux
-
-client
+# Connecting to a Amazon DCV session using the Linux client
 
 The steps for connecting to a Amazon DCV session are the same across all Linux clients.
 

@@ -7,8 +7,7 @@ You install the Linux client on a Linux client computer using a software package
 software package installs all required packages and their dependencies, and performs the
 required client configuration.
 
-For instructions on how to connect to a Amazon DCV session using the Linux client, see [Connecting to a Amazon DCV session using the Linux
-client](using-connecting-linux.md "using-connecting-linux.md").
+For instructions on how to connect to a Amazon DCV session using the Linux client, see [Connecting to a Amazon DCV session using the Linux client](using-connecting-linux.md "using-connecting-linux.md").
 
 ###### To install the Linux client
 

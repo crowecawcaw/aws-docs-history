@@ -1,6 +1,4 @@
-# Connecting to a Amazon DCV session using the Windows
-
-client
+# Connecting to a Amazon DCV session using the Windows client
 
 The steps for connecting to a Amazon DCV session are the same for both the installable and portable
 versions of the Windows client.

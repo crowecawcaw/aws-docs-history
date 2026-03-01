@@ -1,6 +1,4 @@
-# Step 1: Get the Amazon DCV session
-
-information
+# Step 1: Get the Amazon DCV session information
 
 After the Amazon DCV session is running on the Amazon DCV server, you must have specific information to
 connect to it. Contact your Amazon DCV administrator if you don't have the following

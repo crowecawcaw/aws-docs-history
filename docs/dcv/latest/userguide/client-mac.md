@@ -5,8 +5,7 @@ standalone application that runs on the macOS operating system.
 
 The macOS client is installed using a `.dmg` software package.
 
-For instructions on how to connect to a Amazon DCV session using the macOS client, see [Connecting to a Amazon DCV session using the macOS
-client](using-connecting-mac.md "using-connecting-mac.md").
+For instructions on how to connect to a Amazon DCV session using the macOS client, see [Connecting to a Amazon DCV session using the macOS client](using-connecting-mac.md "using-connecting-mac.md").
 
 ###### To install the macOS client
 

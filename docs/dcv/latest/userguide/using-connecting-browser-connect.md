@@ -1,6 +1,4 @@
-# Connecting to a Amazon DCV session using the web
-
-browser client
+# Connecting to a Amazon DCV session using the web browser client
 
 The steps for connecting to a Amazon DCV session are the same across all supported web browsers.
 The client connects to the Amazon DCV server using your web browser's proxy settings. To connect

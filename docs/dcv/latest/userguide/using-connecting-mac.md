@@ -1,6 +1,4 @@
-# Connecting to a Amazon DCV session using the macOS
-
-client
+# Connecting to a Amazon DCV session using the macOS client
 
 ###### To connect to a session using the macOS client
 
