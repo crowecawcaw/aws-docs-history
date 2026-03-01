@@ -12,12 +12,9 @@ a connection to Amazon Managed Service for Prometheus from Amazon Managed Grafan
 Amazon Managed Grafana User Guide](../../../grafana/latest/userguide/prometheus-data-source.md "../../../grafana/latest/userguide/prometheus-data-source.md").
 
 You may also view your Amazon Managed Service for Prometheus alerts in Amazon Managed Grafana. For instructions to set up
-integration with alerts, see [Integrate alerts with Amazon Managed Grafana or open source
-Grafana](integrating-grafana.md "integrating-grafana.md").
+integration with alerts, see [Integrate alerts with Amazon Managed Grafana or open source Grafana](integrating-grafana.md "integrating-grafana.md").
 
-## Connecting to Amazon Managed Grafana in a private
-
-VPC
+## Connecting to Amazon Managed Grafana in a private VPC
 
 Amazon Managed Service for Prometheus provides a service endpoint for Amazon Managed Grafana to connect to when querying
 metrics and alerts.

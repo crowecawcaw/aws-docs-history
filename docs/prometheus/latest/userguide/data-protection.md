@@ -31,7 +31,5 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
 
 ###### Topics
 
-- [Data collected by
-  Amazon Managed Service for Prometheus](data-protection-Amazon-Service-Prometheus.md "data-protection-Amazon-Service-Prometheus.md")
-- [Encryption at
-  rest](encryption-at-rest-Amazon-Service-Prometheus.md "encryption-at-rest-Amazon-Service-Prometheus.md")
+- [Data collected by Amazon Managed Service for Prometheus](data-protection-Amazon-Service-Prometheus.md "data-protection-Amazon-Service-Prometheus.md")
+- [Encryption at rest](encryption-at-rest-Amazon-Service-Prometheus.md "encryption-at-rest-Amazon-Service-Prometheus.md")

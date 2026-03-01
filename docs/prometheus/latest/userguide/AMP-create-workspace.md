@@ -22,8 +22,7 @@ you can include the `kmsKeyArn` parameter with the AWS KMS key to use.
 While Amazon Managed Service for Prometheus does not charge you for using customer managed keys, there may
 be costs associated with keys from AWS Key Management Service. For more information about
 Amazon Managed Service for Prometheus encryption of data in the workspace, or how to create, manage, and
-use your own customer managed key, see [Encryption at
-rest](encryption-at-rest-Amazon-Service-Prometheus.md "encryption-at-rest-Amazon-Service-Prometheus.md").
+use your own customer managed key, see [Encryption at rest](encryption-at-rest-Amazon-Service-Prometheus.md "encryption-at-rest-Amazon-Service-Prometheus.md").
 
 Parameters in brackets (`[]`) are optional, do not
 include the brackets in your command.
@@ -88,8 +87,7 @@ keys, there may be costs associated with keys from AWS Key Management Service.
 
 For more information about
 Amazon Managed Service for Prometheus encryption of data in the workspace, or how to create, manage, and use
-your own, customer managed key, see [Encryption at
-rest](encryption-at-rest-Amazon-Service-Prometheus.md "encryption-at-rest-Amazon-Service-Prometheus.md").
+your own, customer managed key, see [Encryption at rest](encryption-at-rest-Amazon-Service-Prometheus.md "encryption-at-rest-Amazon-Service-Prometheus.md").
 
 ###### Note
 
@@ -116,5 +114,4 @@ Make note of the URLs that are displayed for **Endpoint - remote write
 URL** and **Endpoint - query URL**. You'll need
 them when you configure your Prometheus server to remote write metrics to this
 workspace and when you query those metrics.
-For information about how to ingest metrics into the workspace, see [Ingest Prometheus metrics to the
-workspace](AMP-onboard-ingest-metrics.md "AMP-onboard-ingest-metrics.md").
+For information about how to ingest metrics into the workspace, see [Ingest Prometheus metrics to the workspace](AMP-onboard-ingest-metrics.md "AMP-onboard-ingest-metrics.md").

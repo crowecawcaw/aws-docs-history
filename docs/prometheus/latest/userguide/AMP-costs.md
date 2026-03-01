@@ -12,9 +12,7 @@ small driver of overall costs. For more information about the prices for each of
 see [Pricing](https://aws.amazon.com/prometheus/pricing#Pricing "https://aws.amazon.com/prometheus/pricing#Pricing") in the
 _Amazon Managed Service for Prometheus product page_.
 
-## What is the best way to lower my costs? How do
-
-I lower ingestion costs?
+## What is the best way to lower my costs? How do I lower ingestion costs?
 
 Ingestion rates (not storage of the metrics) is the majority of costs for most
 customers. You can reduce ingestion rates by reducing the collection frequency
@@ -32,9 +30,7 @@ You can also filter the metrics sent to Amazon Managed Service for Prometheus by
 Prometheus agent configuration, see [https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config")
 in the Prometheus documentation.
 
-## What is the best way to lower my query
-
-costs?
+## What is the best way to lower my query costs?
 
 Query costs are based on the number of samples processed. You can reduce the frequency
 of queries to reduce your query costs.
@@ -42,18 +38,14 @@ of queries to reduce your query costs.
 To get more visibility into the queries that are contributing the most to your query
 costs, see [Managing the query cost in Amazon Managed Service for Prometheus](query-insights-control.md "query-insights-control.md").
 
-## If I decrease the retention period of my
-
-metrics, will that help reduce my total bill?
+## If I decrease the retention period of my metrics, will that help reduce my total bill?
 
 You can reduce your retention period, however, this is unlikely to substantially
 reduce your costs.
 
 For information about how to configure the retention period of a workspace, see [Configure your workspace](AMP-workspace-configuration.md "AMP-workspace-configuration.md").
 
-## How can I keep my alert query costs
-
-low?
+## How can I keep my alert query costs low?
 
 Alerting creates queries against your data, which add to your query costs. Here are
 some strategies that you can use to optimize your alert queries, and keep your costs
@@ -102,12 +94,9 @@ them.
 These suggestions can help you to reduce costs. Ultimately, you must balance the costs
 with creating the right set of alerts for understanding the state of your system.
 
-For more information about alerting in Amazon Managed Service for Prometheus, see [Managing and forwarding alerts in Amazon Managed Service for Prometheus with alert
-manager](AMP-alert-manager.md "AMP-alert-manager.md").
+For more information about alerting in Amazon Managed Service for Prometheus, see [Managing and forwarding alerts in Amazon Managed Service for Prometheus with alert manager](AMP-alert-manager.md "AMP-alert-manager.md").
 
-## What metrics can I use to monitor my
-
-costs?
+## What metrics can I use to monitor my costs?
 
 Monitor `IngestionRate` in Amazon CloudWatch to track your ingestion costs.
 
@@ -116,8 +105,7 @@ Monitor `IngestionRate` in Amazon CloudWatch to track your ingestion costs.
 `IngestionRate` provides an estimated value and might not exactly match
 your final billing charges.
 
-For more information about monitoring Amazon Managed Service for Prometheus metrics in CloudWatch, see [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus
-resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
+For more information about monitoring Amazon Managed Service for Prometheus metrics in CloudWatch, see [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
 
 ## Can I check my bill at any time?
 
@@ -126,9 +114,7 @@ your account within a billing period. For more information, see [What are AWS Co
 and Usage Reports?](../../../cur/latest/userguide/what-is-cur.md "../../../cur/latest/userguide/what-is-cur.md") in the _AWS Cost and Usage Reports User
 Guide_
 
-## Why is my bill higher at the beginning of the
-
-month than at the end of the month?
+## Why is my bill higher at the beginning of the month than at the end of the month?
 
 Amazon Managed Service for Prometheus has a tiered pricing model for ingestion, which results in costs in your
 initial usage being higher. As your usage reaches higher ingest tiers, with lower costs,
@@ -147,9 +133,7 @@ _Amazon Managed Service for Prometheus product page_.
   region) for _all accounts in an organization_ reaches the
   next tier, all accounts are charged the lower rate.
 
-## I deleted all my Amazon Managed Service for Prometheus workspaces, but I
-
-still seem to be getting charged. What might be happening?
+## I deleted all my Amazon Managed Service for Prometheus workspaces, but I still seem to be getting charged. What might be happening?
 
 One possibility in this case is that you still have AWS managed scrapers that are
 setup to send metrics to your deleted workspaces. Follow the instructions to [Find and delete scrapers](AMP-collector-how-to.md#AMP-collector-list-delete "AMP-collector-how-to.md#AMP-collector-list-delete").

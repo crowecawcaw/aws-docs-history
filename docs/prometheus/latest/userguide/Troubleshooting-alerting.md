@@ -6,26 +6,18 @@ troubleshooting topics.
 
 ###### Topics
 
-- [Active alerts
-  warning](#Troubleshooting-alerting-active-alerts "#Troubleshooting-alerting-active-alerts")
-- [Alert aggregation
-  group size warning](#Troubleshooting-alerting-aggregation-group-size "#Troubleshooting-alerting-aggregation-group-size")
-- [Alerts size too big
-  warning](#Troubleshooting-alerting-size-too-big "#Troubleshooting-alerting-size-too-big")
+- [Active alerts warning](#Troubleshooting-alerting-active-alerts "#Troubleshooting-alerting-active-alerts")
+- [Alert aggregation group size warning](#Troubleshooting-alerting-aggregation-group-size "#Troubleshooting-alerting-aggregation-group-size")
+- [Alerts size too big warning](#Troubleshooting-alerting-size-too-big "#Troubleshooting-alerting-size-too-big")
 - [Empty content warning](#Troubleshooting-alerting-empty "#Troubleshooting-alerting-empty")
-- [Invalid
-  key/value warning](#Troubleshooting-alerting-invalid-keyvalue "#Troubleshooting-alerting-invalid-keyvalue")
+- [Invalid key/value warning](#Troubleshooting-alerting-invalid-keyvalue "#Troubleshooting-alerting-invalid-keyvalue")
 - [Message limit warning](#Troubleshooting-alerting-msg-limit "#Troubleshooting-alerting-msg-limit")
-- [No resource based policy
-  error](#Troubleshooting-alerting-no-policy "#Troubleshooting-alerting-no-policy")
+- [No resource based policy error](#Troubleshooting-alerting-no-policy "#Troubleshooting-alerting-no-policy")
 - [Non ASCII warning](#Troubleshooting-alerting-non-ASCII "#Troubleshooting-alerting-non-ASCII")
-- [Not authorized to call
-  KMS](#Troubleshooting-alerting-no-access-kms "#Troubleshooting-alerting-no-access-kms")
+- [Not authorized to call KMS](#Troubleshooting-alerting-no-access-kms "#Troubleshooting-alerting-no-access-kms")
 - [Template error](#Troubleshooting-template-error "#Troubleshooting-template-error")
 
-## Active alerts
-
-warning
+## Active alerts warning
 
 **When the log contains the following
 warning**
@@ -49,9 +41,7 @@ exceeded.
 Request a quota increase. Sign in to the AWS Management Console and open the Service Quotas console
 at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
 
-## Alert aggregation
-
-group size warning
+## Alert aggregation group size warning
 
 **When the log contains the following
 warning**
@@ -79,9 +69,7 @@ settings in the](https://prometheus.io/docs/alerting/latest/configuration/ "http
 You can also request a quota increase. Sign in to the AWS Management Console and open the
 Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
 
-## Alerts size too big
-
-warning
+## Alerts size too big warning
 
 **When the log contains the following
 warning**
@@ -128,9 +116,7 @@ message.
 Validate your Alert manager template and ensure that you have a valid template for
 all receiver pathways.
 
-## Invalid
-
-`key/value` warning
+## Invalid `key/value` warning
 
 **When the log contains the following
 warning**
@@ -178,9 +164,7 @@ This means that some of the message size is too big.
 Look at the Alert receiver message template and re-work it to fit within the size
 limit.
 
-## No resource based policy
-
-error
+## No resource based policy error
 
 **When the log contains the following error**
 
@@ -231,9 +215,7 @@ This means that the subject has non-ASCII characters.
 Remove references in subject field of your template to the labels that might
 contain non-ASCII characters.
 
-## Not authorized to call
-
-KMS
+## Not authorized to call KMS
 
 **When the log contains the following AWS KMS
 error**

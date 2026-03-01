@@ -111,8 +111,7 @@ Amazon Managed Service for Prometheus throttles ingestion for each workspace, ba
 maintain the performance of the workspace. If you exceed the limit, you will see
 `DiscardedSamples` in CloudWatch metrics (with the `rate_limited`
 reason). You can use CloudWatch to monitor your ingestion, and to create an alarm to warn you
-when you are close to reaching the throttling limits. For more information, see [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus
-resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
+when you are close to reaching the throttling limits. For more information, see [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
 
 Amazon Managed Service for Prometheus uses the [token bucket
 algorithm](https://en.wikipedia.org/wiki/Token_bucket "https://en.wikipedia.org/wiki/Token_bucket") to implement ingestion throttling. With this algorithm, your

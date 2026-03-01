@@ -1,6 +1,4 @@
-# Set up metrics
-
-ingestion from Amazon ECS using AWS Distro for Open Telemetry
+# Set up metrics ingestion from Amazon ECS using AWS Distro for Open Telemetry
 
 This section explains how to collect metrics from Amazon Elastic Container Service (Amazon ECS) and ingest
 them into Amazon Managed Service for Prometheus using AWS Distro for Open Telemetry (ADOT). It also describes
@@ -25,9 +23,7 @@ For more information, see the following links:
 - For information about how to create an Amazon Managed Grafana workspace, see [Creating a workspace](../../../grafana/latest/userguide/AMG-create-workspace.md "../../../grafana/latest/userguide/AMG-create-workspace.md") in the _Amazon Managed Grafana User
   Guide_.
 
-## Step 1:
-
-Define a custom ADOT collector container image
+## Step 1: Define a custom ADOT collector container image
 
 Use the following config file as a template to define your own ADOT collector
 container image. Replace `my-remote-URL` and
@@ -96,9 +92,7 @@ service:
       exporters: [logging, prometheusremotewrite]
 ```
 
-## Step 2: Push
-
-your ADOT collector container image to an Amazon ECR repository
+## Step 2: Push your ADOT collector container image to an Amazon ECR repository
 
 Use a Dockerfile to create and push your container image to an Amazon Elastic Container Registry (ECR)
 repository.
@@ -149,9 +143,7 @@ aws ecr get-login-password --region `my-region` | \
 docker push $COLLECTOR_REPOSITORY:ecs
 ```
 
-## Step 3:
-
-Create an Amazon ECS task definition to scrape Amazon Managed Service for Prometheus
+## Step 3: Create an Amazon ECS task definition to scrape Amazon Managed Service for Prometheus
 
 Create an Amazon ECS task definition to scrape Amazon Managed Service for Prometheus. Your task definition
 should include a container named `adot-collector` and a container
@@ -213,9 +205,7 @@ URL and image tag (`$COLLECTOR_REPOSITORY:ecs`). Replace the
 }
 ```
 
-## Step 4:
-
-Give your task permissions to access Amazon Managed Service for Prometheus
+## Step 4: Give your task permissions to access Amazon Managed Service for Prometheus
 
 To send the scraped metrics to Amazon Managed Service for Prometheus, your Amazon ECS task must have the
 correct permissions to call the AWS API operations for you. You must create an
@@ -227,9 +217,7 @@ After you attach `AmazonPrometheusRemoteWriteAccess` to your IAM
 role, and use that role for your tasks, Amazon ECS can send your scraped metrics to
 Amazon Managed Service for Prometheus.
 
-## Step 5:
-
-Visualize your metrics in Amazon Managed Grafana
+## Step 5: Visualize your metrics in Amazon Managed Grafana
 
 ###### Important
 

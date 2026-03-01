@@ -1,6 +1,4 @@
-# Set up Grafana open source or
-
-Grafana Enterprise for use with Amazon Managed Service for Prometheus
+# Set up Grafana open source or Grafana Enterprise for use with Amazon Managed Service for Prometheus
 
 You can use an instance of Grafana to query your metrics in Amazon Managed Service for Prometheus. This topic
 takes you through how to query metrics from Amazon Managed Service for Prometheus using a standalone instance of
@@ -40,9 +38,7 @@ information, see [IAM permissions and policies](AMP-and-IAM.md "AMP-and-IAM.md")
 The next section describes setting up authentication from Grafana in more
 detail.
 
-## Step 1: Set up AWS
-
-SigV4
+## Step 1: Set up AWS SigV4
 
 Amazon Managed Service for Prometheus works with AWS Identity and Access Management (IAM) to secure all calls to Prometheus APIs with
 IAM credentials. By default, the Prometheus data source in Grafana assumes that
@@ -103,9 +99,7 @@ cd `grafana_install_directory`
 .\bin\grafana-server.exe
 ```
 
-## Step 2: Add the
-
-Prometheus data source in Grafana
+## Step 2: Add the Prometheus data source in Grafana
 
 The following steps explain how to set up the Prometheus data source in Grafana to
 query your Amazon Managed Service for Prometheus metrics.
@@ -202,9 +196,7 @@ For more information about setting up your default provider chain, see
    prometheus_tsdb_head_series
    ```
 
-## Step 3: (optional)
-
-Troubleshooting if Save & Test doesn't work
+## Step 3: (optional) Troubleshooting if Save & Test doesn't work
 
 In the previous procedure, if you see an error when you choose **Save
 & Test**, check the following.

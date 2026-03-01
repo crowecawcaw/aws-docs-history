@@ -1,6 +1,4 @@
-# Prometheus-compatible
-
-APIs
+# Prometheus-compatible APIs
 
 Amazon Managed Service for Prometheus supports the following Prometheus-compatible APIs.
 

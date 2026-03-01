@@ -1,6 +1,4 @@
-# Edit tags for a rule
-
-groups namespace
+# Edit tags for a rule groups namespace
 
 You can change the value for a tag associated with a rule groups namespace. You
 can also change the name of the key, which is equivalent to removing the current tag
@@ -13,9 +11,7 @@ edit the name (key) or value of a tag for a resource, make sure to review any
 IAM policies that might use the key or value for a tag to control access to
 resources.
 
-## Edit a tag for
-
-an Amazon Managed Service for Prometheus rule groups namespace (console)
+## Edit a tag for an Amazon Managed Service for Prometheus rule groups namespace (console)
 
 You can use the console to edit the tags associated with a Amazon Managed Service for Prometheus rule
 groups namespace.
@@ -36,9 +32,7 @@ groups namespace.
 10. When you have finished adding and editing tags, choose **Save
     changes**.
 
-## Edit tags for an
-
-Amazon Managed Service for Prometheus rule groups namespace (AWS CLI)
+## Edit tags for an Amazon Managed Service for Prometheus rule groups namespace (AWS CLI)
 
 Follow these steps to use the AWS CLI to update a tag for a rule groups
 namespace. You can change the value for an existing key, or add another key.

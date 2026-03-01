@@ -1,6 +1,4 @@
-# Configure AWS Secrets Manager and
-
-permissions
+# Configure AWS Secrets Manager and permissions
 
 Before you can send alerts to PagerDuty, you must securely store your
 PagerDuty integration key and configure the necessary permissions. This process
@@ -99,5 +97,4 @@ key:
         4. Choose **Save**.
 
     **Next steps** – Continue to the next
-    topic, [Configure
-    alert manager to send alerts to PagerDuty](AMP-alertmanager-pagerduty-configure-alertmanager.md "AMP-alertmanager-pagerduty-configure-alertmanager.md").
+    topic, [Configure alert manager to send alerts to PagerDuty](AMP-alertmanager-pagerduty-configure-alertmanager.md "AMP-alertmanager-pagerduty-configure-alertmanager.md").

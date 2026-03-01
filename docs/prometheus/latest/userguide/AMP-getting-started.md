@@ -19,6 +19,5 @@ you through three key areas of using Amazon Managed Service for Prometheus:
 
 - [Set up AWS](AMP-setting-up.md "AMP-setting-up.md")
 - [Create an Amazon Managed Service for Prometheus workspace](AMP-onboard-create-workspace.md "AMP-onboard-create-workspace.md")
-- [Ingest Prometheus metrics to the
-  workspace](AMP-onboard-ingest-metrics.md "AMP-onboard-ingest-metrics.md")
+- [Ingest Prometheus metrics to the workspace](AMP-onboard-ingest-metrics.md "AMP-onboard-ingest-metrics.md")
 - [Query your Prometheus metrics](AMP-onboard-query.md "AMP-onboard-query.md")

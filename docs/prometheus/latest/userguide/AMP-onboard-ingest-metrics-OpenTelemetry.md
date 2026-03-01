@@ -1,6 +1,4 @@
-# Set up metrics ingestion
-
-using AWS Distro for OpenTelemetry on an Amazon Elastic Kubernetes Service cluster
+# Set up metrics ingestion using AWS Distro for OpenTelemetry on an Amazon Elastic Kubernetes Service cluster
 
 You can use the AWS Distro for OpenTelemetry (ADOT) collector to scrape metrics
 from a Prometheus-instrumented application, and send the metrics to
@@ -11,8 +9,7 @@ Amazon Managed Service for Prometheus.
 For more information about the ADOT collector, see [AWS Distro for
 OpenTelemetry](https://aws.amazon.com/otel/ "https://aws.amazon.com/otel/").
 
-For more information about Prometheus-instrumented applications, see [What are Prometheus-compatible
-metrics?](prom-compatible-metrics.md "prom-compatible-metrics.md").
+For more information about Prometheus-instrumented applications, see [What are Prometheus-compatible metrics?](prom-compatible-metrics.md "prom-compatible-metrics.md").
 
 Collecting Prometheus metrics with ADOT involves three OpenTelemetry components:
 the Prometheus Receiver, the Prometheus Remote Write Exporter, and the Sigv4
@@ -49,8 +46,7 @@ IAM role for the service account and trust policy.
 ###### To set up the IAM role for service account and trust policy
 
 1. Create the IAM role for the service account by following the steps
-   in [Set up service roles for the ingestion of metrics
-   from Amazon EKS clusters](set-up-irsa.md#set-up-irsa-ingest "set-up-irsa.md#set-up-irsa-ingest").
+   in [Set up service roles for the ingestion of metrics from Amazon EKS clusters](set-up-irsa.md#set-up-irsa-ingest "set-up-irsa.md#set-up-irsa-ingest").
 
 The ADOT Collector will use this role when it scrapes and exports
 metrics. 2. Next, edit the trust policy. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/home "https://console.aws.amazon.com/iam/home"). 3. In the left navigation pane, choose **Roles** and
@@ -109,9 +105,7 @@ JSON
 
 ```
 
-## Enabling
-
-Prometheus metric collection
+## Enabling Prometheus metric collection
 
 ###### Note
 

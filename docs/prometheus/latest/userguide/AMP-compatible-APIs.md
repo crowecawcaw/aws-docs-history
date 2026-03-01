@@ -1,6 +1,4 @@
-# Use awscurl to query with
-
-Prometheus-compatible APIs
+# Use awscurl to query with Prometheus-compatible APIs
 
 API requests for Amazon Managed Service for Prometheus must be signed with [SigV4](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md"). You can use [awscurl](https://github.com/okigan/awscurl "https://github.com/okigan/awscurl") to simplify the querying process.
 
@@ -97,9 +95,7 @@ For example:
 
 - Use the instance profile associated with the EC2 instance.
 
-## Executing query requests using awscurl
-
-container
+## Executing query requests using awscurl container
 
 When installing a different version of **Python** and the
 associated dependencies is not feasible, a container can be used to package the

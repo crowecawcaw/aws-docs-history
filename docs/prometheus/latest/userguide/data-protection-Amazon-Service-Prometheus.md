@@ -1,6 +1,4 @@
-# Data collected by
-
-Amazon Managed Service for Prometheus
+# Data collected by Amazon Managed Service for Prometheus
 
 Amazon Managed Service for Prometheus collects and stores operational metrics that you configure to be sent from
 Prometheus servers running in your account to Amazon Managed Service for Prometheus. This data includes the
@@ -20,8 +18,7 @@ manages these keys.
 
 Amazon Managed Service for Prometheus supports the creation of customer managed keys for encrypting your
 data. For more information about the keys that Amazon Managed Service for Prometheus uses by default, and how
-to use your own customer managed keys, see [Encryption at
-rest](encryption-at-rest-Amazon-Service-Prometheus.md "encryption-at-rest-Amazon-Service-Prometheus.md").
+to use your own customer managed keys, see [Encryption at rest](encryption-at-rest-Amazon-Service-Prometheus.md "encryption-at-rest-Amazon-Service-Prometheus.md").
 
 Data in transit is encrypted with HTTPS automatically. Amazon Managed Service for Prometheus secures connections
 between Availability Zones within an AWS Region using HTTPS internally.

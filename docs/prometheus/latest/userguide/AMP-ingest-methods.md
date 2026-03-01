@@ -1,6 +1,4 @@
-# Ingest metrics to your Amazon Managed Service for Prometheus
-
-workspace
+# Ingest metrics to your Amazon Managed Service for Prometheus workspace
 
 Metrics must be ingested into your Amazon Managed Service for Prometheus workspace before you can query or alert on
 those metrics. This section explains how to set up the ingestion of metrics into your

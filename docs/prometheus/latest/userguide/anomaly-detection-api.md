@@ -32,9 +32,7 @@ using `query_range` to query for a range of time.
 seconds. Use only if you are using `query_range` to query for a
 range of time, and required for such queries.
 
-## Query parameter
-
-formatting
+## Query parameter formatting
 
 Wrap your original PromQL expression with the RandomCutForest (RCF) pseudo
 function in the query parameter. For more information, see [RandomCutForestConfiguration](../APIReference/API_RandomCutForestConfiguration.md "../APIReference/API_RandomCutForestConfiguration.md") in the _Amazon Managed Service for Prometheus API
@@ -73,9 +71,7 @@ RCF(<query>,,,,,1.0,1.0)
 This example sets only the ratio parameters that ignore anomaly detection spikes
 and drops based on the ratio between expected and observed values.
 
-## API request and
-
-response
+## API request and response
 
 Successful calls return the same format as the [QueryMetrics API](AMP-APIReference-QueryMetrics.md "AMP-APIReference-QueryMetrics.md"). In addition to
 the original time series, the API returns these new time series when sufficient

@@ -1,6 +1,4 @@
-# Deduplicating high availability metrics sent to
-
-Amazon Managed Service for Prometheus
+# Deduplicating high availability metrics sent to Amazon Managed Service for Prometheus
 
 You can send data from multiple Prometheus _agents_ (Prometheus
 instances running in Agent mode) to your Amazon Managed Service for Prometheus workspace. If some of these

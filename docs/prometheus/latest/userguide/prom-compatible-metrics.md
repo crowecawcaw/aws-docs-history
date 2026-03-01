@@ -1,6 +1,4 @@
-# What are Prometheus-compatible
-
-metrics?
+# What are Prometheus-compatible metrics?
 
 To scrape Prometheus metrics from your applications and infrastructure for use in
 Amazon Managed Service for Prometheus, they must instrument and expose _Prometheus-compatible

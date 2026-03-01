@@ -6,22 +6,14 @@ problems with your alerting and recording rules.
 
 ###### Topics
 
-- [Validate alert firing
-  status](#troubleshoot-rule-validate-firing-status "#troubleshoot-rule-validate-firing-status")
-- [Resolve missing
-  alert notifications](#troubleshoot-rule-missing-alert-notifications "#troubleshoot-rule-missing-alert-notifications")
-- [Check rule health
-  status](#troubleshoot-rule-check-health-status "#troubleshoot-rule-check-health-status")
-- [Use offset in queries to handle
-  ingestion delays](#troubleshoot-rule-offset-queries "#troubleshoot-rule-offset-queries")
-- [Common issues and
-  solutions](#troubleshoot-rule-common-issues "#troubleshoot-rule-common-issues")
-- [Best practices for rule
-  evaluations](#troubleshoot-rule-best-practices "#troubleshoot-rule-best-practices")
+- [Validate alert firing status](#troubleshoot-rule-validate-firing-status "#troubleshoot-rule-validate-firing-status")
+- [Resolve missing alert notifications](#troubleshoot-rule-missing-alert-notifications "#troubleshoot-rule-missing-alert-notifications")
+- [Check rule health status](#troubleshoot-rule-check-health-status "#troubleshoot-rule-check-health-status")
+- [Use offset in queries to handle ingestion delays](#troubleshoot-rule-offset-queries "#troubleshoot-rule-offset-queries")
+- [Common issues and solutions](#troubleshoot-rule-common-issues "#troubleshoot-rule-common-issues")
+- [Best practices for rule evaluations](#troubleshoot-rule-best-practices "#troubleshoot-rule-best-practices")
 
-## Validate alert firing
-
-status
+## Validate alert firing status
 
 When troubleshooting rule evaluation issues, first verify if your alert has fired
 by querying the synthetic time series `ALERTS`. The `ALERTS`
@@ -44,9 +36,7 @@ While an alert is **firing** or **pending**,
 the sample value is **1**. When your alert is idle, no samples
 are produced.
 
-## Resolve missing
-
-alert notifications
+## Resolve missing alert notifications
 
 If alerts are firing but notifications are not arriving, verify the following
 Alertmanager settings:
@@ -60,22 +50,17 @@ Alertmanager settings:
    the specified intervals.
 2. Check alert receiver permissions –
    When using an Amazon SNS topic, verify AMP has the required permissions to
-   publish notifications. For more information, see [Giving Amazon Managed Service for Prometheus
-   permission to send alert messages to your Amazon SNS topic](AMP-alertmanager-receiver-AMPpermission.md "AMP-alertmanager-receiver-AMPpermission.md").
+   publish notifications. For more information, see [Giving Amazon Managed Service for Prometheus permission to send alert messages to your Amazon SNS topic](AMP-alertmanager-receiver-AMPpermission.md "AMP-alertmanager-receiver-AMPpermission.md").
 3. Validate receiver payload compatibility
    – Confirm your alert receiver accepts Alertmanager's payload format.
-   For Amazon SNS requirements, see [Understanding
-   Amazon SNS message validation rules](AMP-alertmanager-receiver-validation-truncation.md "AMP-alertmanager-receiver-validation-truncation.md").
+   For Amazon SNS requirements, see [Understanding Amazon SNS message validation rules](AMP-alertmanager-receiver-validation-truncation.md "AMP-alertmanager-receiver-validation-truncation.md").
 4. Review Alertmanager logs – AMP
    provides vended logs from Alertmanager to help debug notification issues.
    For more information, see [Monitor Amazon Managed Service for Prometheus events with CloudWatch Logs](CW-logs.md "CW-logs.md").
 
-For more information about Alertmanager, see [Managing and forwarding alerts in Amazon Managed Service for Prometheus with alert
-manager](AMP-alert-manager.md "AMP-alert-manager.md").
+For more information about Alertmanager, see [Managing and forwarding alerts in Amazon Managed Service for Prometheus with alert manager](AMP-alert-manager.md "AMP-alert-manager.md").
 
-## Check rule health
-
-status
+## Check rule health status
 
 Malformed rules can cause evaluation failures. Use the following methods to
 identify why a rule failed to evaluate:
@@ -150,12 +135,9 @@ workspace to access:
 
 ```
 
-For more examples of logs from Ruler or Alertmanager, see [Troubleshooting Ruler](Troubleshooting-rule-fail-error.md "Troubleshooting-rule-fail-error.md") and [Managing and forwarding alerts in Amazon Managed Service for Prometheus with alert
-manager](AMP-alert-manager.md "AMP-alert-manager.md").
+For more examples of logs from Ruler or Alertmanager, see [Troubleshooting Ruler](Troubleshooting-rule-fail-error.md "Troubleshooting-rule-fail-error.md") and [Managing and forwarding alerts in Amazon Managed Service for Prometheus with alert manager](AMP-alert-manager.md "AMP-alert-manager.md").
 
-## Use offset in queries to handle
-
-ingestion delays
+## Use offset in queries to handle ingestion delays
 
 By default, expressions are evaluated with no offset (instant query), using values
 at the evaluation time. If metrics ingestion is delayed, recording rules might not
@@ -181,9 +163,7 @@ If the rule evaluates between the ingestion times of server A and server
 B, you'll get unexpected results. Using an offset can help align the
 evaluation times.
 
-## Common issues and
-
-solutions
+## Common issues and solutions
 
 **Gaps in recording rule data**
 
@@ -213,9 +193,7 @@ within a group execute sequentially, while rule groups can execute in parallel. 
 related rules that depend on each other in the same group. Generally, smaller rule
 groups ensure more consistent evaluations and fewer gaps.
 
-## Best practices for rule
-
-evaluations
+## Best practices for rule evaluations
 
 1. Optimize rule group size – Keep rule
    groups small to ensure consistent evaluations. Group related rules together,

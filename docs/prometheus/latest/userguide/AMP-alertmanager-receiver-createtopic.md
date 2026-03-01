@@ -1,6 +1,4 @@
-# Use Amazon SNS as an alert
-
-receiver
+# Use Amazon SNS as an alert receiver
 
 You can use an existing Amazon SNS topic as an alert receiver for Amazon Managed Service for Prometheus, or you can
 create a new one. We recommend that you use a topic of the
@@ -21,13 +19,8 @@ Name (ARN) of your Amazon SNS topic to complete the following tasks.
 
 ###### Topics
 
-- [Giving Amazon Managed Service for Prometheus
-  permission to send alert messages to your Amazon SNS topic](AMP-alertmanager-receiver-AMPpermission.md "AMP-alertmanager-receiver-AMPpermission.md")
-- [Configure alert manager to
-  send messages to your Amazon SNS topic](AMP-alertmanager-receiver-config.md "AMP-alertmanager-receiver-config.md")
-- [Configure alert manager to send
-  messages to Amazon SNS as JSON](AMP-alertmanager-receiver-JSON.md "AMP-alertmanager-receiver-JSON.md")
-- [Configure Amazon SNS to send
-  messages for alerts to other destinations](AMP-alertmanager-SNS-otherdestinations.md "AMP-alertmanager-SNS-otherdestinations.md")
-- [Understanding
-  Amazon SNS message validation rules](AMP-alertmanager-receiver-validation-truncation.md "AMP-alertmanager-receiver-validation-truncation.md")
+- [Giving Amazon Managed Service for Prometheus permission to send alert messages to your Amazon SNS topic](AMP-alertmanager-receiver-AMPpermission.md "AMP-alertmanager-receiver-AMPpermission.md")
+- [Configure alert manager to send messages to your Amazon SNS topic](AMP-alertmanager-receiver-config.md "AMP-alertmanager-receiver-config.md")
+- [Configure alert manager to send messages to Amazon SNS as JSON](AMP-alertmanager-receiver-JSON.md "AMP-alertmanager-receiver-JSON.md")
+- [Configure Amazon SNS to send messages for alerts to other destinations](AMP-alertmanager-SNS-otherdestinations.md "AMP-alertmanager-SNS-otherdestinations.md")
+- [Understanding Amazon SNS message validation rules](AMP-alertmanager-receiver-validation-truncation.md "AMP-alertmanager-receiver-validation-truncation.md")

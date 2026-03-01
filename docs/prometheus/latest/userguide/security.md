@@ -33,9 +33,7 @@ cloud and security _in_ the cloud:
 - [Compliance Validation for Amazon Managed Service for Prometheus](AMP-compliance.md "AMP-compliance.md")
 - [Resilience in Amazon Managed Service for Prometheus](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security in Amazon Managed Service for Prometheus](infrastructure-security.md "infrastructure-security.md")
-- [Using service-linked roles for
-  Amazon Managed Service for Prometheus](using-service-linked-roles.md "using-service-linked-roles.md")
-- [Logging Amazon Managed Service for Prometheus API calls using
-  AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+- [Using service-linked roles for Amazon Managed Service for Prometheus](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Logging Amazon Managed Service for Prometheus API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
 - [Set up IAM roles for service accounts](set-up-irsa.md "set-up-irsa.md")
 - [Using Amazon Managed Service for Prometheus with interface VPC endpoints](AMP-and-interface-VPC.md "AMP-and-interface-VPC.md")

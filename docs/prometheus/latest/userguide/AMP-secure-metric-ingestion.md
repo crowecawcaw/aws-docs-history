@@ -1,6 +1,4 @@
-# Secure the ingestion of your
-
-metrics
+# Secure the ingestion of your metrics
 
 Amazon Managed Service for Prometheus provides ways of helping you secure the ingestion of your metrics.
 

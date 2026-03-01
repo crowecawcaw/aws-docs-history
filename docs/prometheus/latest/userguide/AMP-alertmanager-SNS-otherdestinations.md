@@ -1,6 +1,4 @@
-# Configure Amazon SNS to send
-
-messages for alerts to other destinations
+# Configure Amazon SNS to send messages for alerts to other destinations
 
 Amazon Managed Service for Prometheus can only send alert messages to Amazon Simple Notification Service (Amazon SNS). To send those
 messages to other destinations, such as email, webhook, Slack, or OpsGenie, you

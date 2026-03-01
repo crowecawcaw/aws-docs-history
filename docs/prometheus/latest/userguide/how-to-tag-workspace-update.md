@@ -11,9 +11,7 @@ Before you edit the name (key) or value of a tag for a workspace, make sure to
 review any IAM policies that might use the key or value for a tag to control
 access to resources such as repositories.
 
-## Edit a tag for an
-
-Amazon Managed Service for Prometheus workspace (console)
+## Edit a tag for an Amazon Managed Service for Prometheus workspace (console)
 
 You can use the console to edit the tags associated with a Amazon Managed Service for Prometheus
 workspace.
@@ -34,9 +32,7 @@ workspace.
 9. When you have finished adding tags, choose **Save
    changes**.
 
-## Edit tags for an Amazon Managed Service for Prometheus
-
-workspace (AWS CLI)
+## Edit tags for an Amazon Managed Service for Prometheus workspace (AWS CLI)
 
 Follow these steps to use the AWS CLI to update a tag for a workspace. You can
 change the value for an existing key, or add another key.

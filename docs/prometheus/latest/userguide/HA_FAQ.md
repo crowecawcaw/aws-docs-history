@@ -1,11 +1,6 @@
-# Answers to common questions about high availability
+# Answers to common questions about high availability configuration in Amazon Managed Service for Prometheus
 
-configuration in Amazon Managed Service for Prometheus
-
-## Should I include the value
-
-_\_\_replica\_\__ into another label to track the sample
-points?
+## Should I include the value _\_\_replica\_\__ into another label to track the sample points?
 
 In a high availability setting, Amazon Managed Service for Prometheus ensures data samples are not
 duplicated by electing a leader in the cluster of Prometheus instances. If the
@@ -21,10 +16,7 @@ answer is no, it is not recommended.  Doing so may cause issues like:
   a period of electing a new leader and it reaches the `active
 series limits`. See [AMP Quotas](AMP_quotas.md "AMP_quotas.md") for more info.
 
-## Kubernetes seems to have it's own
-
-_cluster_ label, and is not deduplicating my metrics.
-How can I fix this?
+## Kubernetes seems to have it's own _cluster_ label, and is not deduplicating my metrics. How can I fix this?
 
 A new metric, `apiserver_storage_size_bytes` was introduced in
 Kubernetes 1.28, with a `cluster` label. This can cause issues with

@@ -235,17 +235,14 @@ kubectl delete `ResourceType` `ResourceName` -n $ACK_SYSTEM_NAMESPACE
 That completes deploying the new workspace. The next section describes configuring
 your cluster to send metrics to that workspace.
 
-## Configuring your Amazon EKS cluster to write to
-
-the Amazon Managed Service for Prometheus workspace
+## Configuring your Amazon EKS cluster to write to the Amazon Managed Service for Prometheus workspace
 
 This section describes how to use Helm to configure the Prometheus running in your
 Amazon EKS cluster to remote write metrics to the Amazon Managed Service for Prometheus workspace that you created in
 the previous section.
 
 For this procedure, you will need the name of the IAM role you have created to use
-for ingesting metrics. If you have not done this already, see [Set up service roles for the ingestion of metrics
-from Amazon EKS clusters](set-up-irsa.md#set-up-irsa-ingest "set-up-irsa.md#set-up-irsa-ingest") for more
+for ingesting metrics. If you have not done this already, see [Set up service roles for the ingestion of metrics from Amazon EKS clusters](set-up-irsa.md#set-up-irsa-ingest "set-up-irsa.md#set-up-irsa-ingest") for more
 information and instructions. If you follow those instructions, the IAM role will
 be called `amp-iamproxy-ingest-role`.
 

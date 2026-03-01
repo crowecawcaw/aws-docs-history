@@ -7,10 +7,8 @@ Use the following sections to help troubleshoot issues with Amazon Managed Servi
 - [429 or limit exceeded errors](#AMP-troubleshoot-429 "#AMP-troubleshoot-429")
 - [I see duplicate samples](#AMP-troubleshoot-duplicate "#AMP-troubleshoot-duplicate")
 - [I see errors about sample timestamps](#AMP-troubleshoot-duplicate-ordering "#AMP-troubleshoot-duplicate-ordering")
-- [I see an error message related to a
-  limit](#AMP-troubleshoot-limiterror "#AMP-troubleshoot-limiterror")
-- [Your local Prometheus server output exceeds the
-  limit.](#AMP-understand-output "#AMP-understand-output")
+- [I see an error message related to a limit](#AMP-troubleshoot-limiterror "#AMP-troubleshoot-limiterror")
+- [Your local Prometheus server output exceeds the limit.](#AMP-understand-output "#AMP-understand-output")
 - [Some of my data isn't appearing](#AMP-troubleshoot-discarded-data "#AMP-troubleshoot-discarded-data")
 
 ## 429 or limit exceeded errors
@@ -67,8 +65,7 @@ increases, see [Amazon Managed Service for Prometheus service quotas](AMP_quotas
 ## I see duplicate samples
 
 If you are using a high-availability Prometheus group, you need to use external labels
-on your Prometheus instances to set up deduplication. For more information, see [Deduplicating high availability metrics sent to
-Amazon Managed Service for Prometheus](AMP-ingest-dedupe.md "AMP-ingest-dedupe.md").
+on your Prometheus instances to set up deduplication. For more information, see [Deduplicating high availability metrics sent to Amazon Managed Service for Prometheus](AMP-ingest-dedupe.md "AMP-ingest-dedupe.md").
 
 Other issues around duplicated data are discussed in the next section.
 
@@ -88,9 +85,7 @@ directly, check that they are not out of order.
 For more details about how this works, or ways to check your setup, see the blog post [Understanding Duplicate Samples and Out-of-order Timestamp Errors in Prometheus](https://promlabs.com/blog/2022/12/15/understanding-duplicate-samples-and-out-of-order-timestamp-errors-in-prometheus/ "https://promlabs.com/blog/2022/12/15/understanding-duplicate-samples-and-out-of-order-timestamp-errors-in-prometheus/")
 from _Prom Labs_.
 
-## I see an error message related to a
-
-limit
+## I see an error message related to a limit
 
 ###### Note
 
@@ -113,9 +108,7 @@ yyy)`**
 from ingesters`**
 - **`Limit exceeded. Maximum workspaces per account.`**
 
-## Your local Prometheus server output exceeds the
-
-limit.
+## Your local Prometheus server output exceeds the limit.
 
 Amazon Managed Service for Prometheus has service quotas for the amount of data that a workspace can receive from
 Prometheus servers. To find the amount of data that your Prometheus server is sending to
@@ -123,13 +116,12 @@ Amazon Managed Service for Prometheus, you can run the following queries on your
 your Prometheus output is exceeding a Amazon Managed Service for Prometheus limit, you can request an increase of
 the corresponding service quota. For more information, see [Amazon Managed Service for Prometheus service quotas](AMP_quotas.md "AMP_quotas.md").
 
-Queries against your local self-run Prometheus server to find the output
-limits.| Type of data | Query to use |
-| --- | --- |
-| Current active series | `prometheus_tsdb_head_series` |
-| Current ingestion rate | `rate(prometheus_tsdb_head_samples_appended_total[5m])` |
-| Most-to-least list of active series per metric name | `sort_desc(count by(__name__) ({__name__!=""}))` |
-| Number of labels per metric series | `group by(mylabelname) ({__name__!=""})` |
+| Queries against your local self-run Prometheus server to find the output limits. | Type of data                                            | Query to use |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------ |
+| Current active series                                                            | `prometheus_tsdb_head_series`                           |
+| Current ingestion rate                                                           | `rate(prometheus_tsdb_head_samples_appended_total[5m])` |
+| Most-to-least list of active series per metric name                              | `sort_desc(count by(__name__) ({__name__!=""}))`        |
+| Number of labels per metric series                                               | `group by(mylabelname) ({__name__!=""})`                |
 
 ## Some of my data isn't appearing
 
@@ -137,8 +129,7 @@ Data that is sent to Amazon Managed Service for Prometheus can be discarded for 
 table shows reasons that data might be discarded rather than being ingested.
 
 You can track the amount and reasons that data is discarded using Amazon CloudWatch. For more
-information, see [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus
-resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
+information, see [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
 
 | Reason                      | Meaning                                                                                                 |
 | --------------------------- | ------------------------------------------------------------------------------------------------------- |

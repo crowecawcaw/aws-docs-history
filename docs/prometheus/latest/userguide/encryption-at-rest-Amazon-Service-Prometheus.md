@@ -1,6 +1,4 @@
-# Encryption at
-
-rest
+# Encryption at rest
 
 By default, Amazon Managed Service for Prometheus automatically provides you with encryption at rest and does this
 using AWS owned encryption keys.
@@ -183,17 +181,13 @@ The following are policy statement examples you can add for Amazon Managed Servi
 - For more information about [specifying permissions in a policy](../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements "../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements"), see the _AWS Key Management Service Developer Guide_.
 - For more information about [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), see the _AWS Key Management Service Developer Guide_.
 
-## Step 2: Specifying a customer managed key for
-
-Amazon Managed Service for Prometheus
+## Step 2: Specifying a customer managed key for Amazon Managed Service for Prometheus
 
 When you create a workspace, you can specify the customer managed key by entering
 a **KMS Key ARN**, which Amazon Managed Service for Prometheus uses to encrypt the data
 stored by the workspace.
 
-## Step 3: Accessing data from other services, such as
-
-Amazon Managed Grafana
+## Step 3: Accessing data from other services, such as Amazon Managed Grafana
 
 _This step is optional — it is only required if you need to access
 your Amazon Managed Service for Prometheus data from another service._
@@ -304,9 +298,7 @@ specifies the encryption context.
 }
 ```
 
-## Monitoring your encryption keys for
-
-Amazon Managed Service for Prometheus
+## Monitoring your encryption keys for Amazon Managed Service for Prometheus
 
 When you use an AWS KMS customer managed key with your Amazon Managed Service for Prometheus workspaces, you can
 use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md")

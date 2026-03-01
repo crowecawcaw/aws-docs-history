@@ -1,6 +1,4 @@
-# Configure
-
-alert manager to send alerts to PagerDuty
+# Configure alert manager to send alerts to PagerDuty
 
 To configure alert manager to send alerts to PagerDuty, you need to update
 your alert manager definition. You can do this using the AWS Management Console, AWS CLI, or
@@ -51,9 +49,7 @@ aws amp put-alert-manager-definition \
 
 ```
 
-## Troubleshooting
-
-PagerDuty integration
+## Troubleshooting PagerDuty integration
 
 If alerts are not being sent to PagerDuty, check the following
 items:
@@ -71,8 +67,7 @@ items:
   your PagerDuty account.
 
 Amazon Managed Service for Prometheus supports Amazon CloudWatch Logs, and the following CloudWatch metrics, to help with
-troubleshooting. For more information, see [Monitor Amazon Managed Service for Prometheus events with CloudWatch Logs](CW-logs.md "CW-logs.md") and [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus
-resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
+troubleshooting. For more information, see [Monitor Amazon Managed Service for Prometheus events with CloudWatch Logs](CW-logs.md "CW-logs.md") and [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
 
 - `SecretFetchFailure`
 - `AlertManagerNotificationsThrottledByIntegration`

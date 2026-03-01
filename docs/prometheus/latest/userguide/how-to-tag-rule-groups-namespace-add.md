@@ -1,6 +1,4 @@
-# Add a tag to a rule groups
-
-namespace
+# Add a tag to a rule groups namespace
 
 Adding tags to an Amazon Managed Service for Prometheus rule groups namespaces can help you identify and
 organize your AWS resources and manage access to them. First, you add one or more
@@ -19,14 +17,10 @@ it, see [Create a rules file](AMP-ruler-rulesfile.md "AMP-ruler-rulesfile.md").
 
 ###### Topics
 
-- [Add a tag to a
-  rule groups namespace (console)](#how-to-tag-rule-groups-namespace-add-console "#how-to-tag-rule-groups-namespace-add-console")
-- [Add a tag to a rule
-  groups namespace (AWS CLI)](#how-to-tag-rule-groups-namespace-add-cli "#how-to-tag-rule-groups-namespace-add-cli")
+- [Add a tag to a rule groups namespace (console)](#how-to-tag-rule-groups-namespace-add-console "#how-to-tag-rule-groups-namespace-add-console")
+- [Add a tag to a rule groups namespace (AWS CLI)](#how-to-tag-rule-groups-namespace-add-cli "#how-to-tag-rule-groups-namespace-add-cli")
 
-## Add a tag to a
-
-rule groups namespace (console)
+## Add a tag to a rule groups namespace (console)
 
 You can use the console to add one or more tags to a Amazon Managed Service for Prometheus rule groups
 namespace.
@@ -48,13 +42,10 @@ namespace.
 10. When you have finished adding tags, choose **Save
     changes**.
 
-## Add a tag to a rule
-
-groups namespace (AWS CLI)
+## Add a tag to a rule groups namespace (AWS CLI)
 
 Follow these steps to use the AWS CLI to add a tag to an Amazon Managed Service for Prometheus rule groups
-namespace. To add a tag to a rule groups namespace when you create it, see [Upload a rules configuration file to
-Amazon Managed Service for Prometheus](AMP-rules-upload.md "AMP-rules-upload.md").
+namespace. To add a tag to a rule groups namespace when you create it, see [Upload a rules configuration file to Amazon Managed Service for Prometheus](AMP-rules-upload.md "AMP-rules-upload.md").
 
 In these steps, we assume that you have already installed a recent version of
 the AWS CLI or updated to the current version. For more information, see [Installing

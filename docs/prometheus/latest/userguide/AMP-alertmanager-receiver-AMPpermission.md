@@ -1,6 +1,4 @@
-# Giving Amazon Managed Service for Prometheus
-
-permission to send alert messages to your Amazon SNS topic
+# Giving Amazon Managed Service for Prometheus permission to send alert messages to your Amazon SNS topic
 
 You must give Amazon Managed Service for Prometheus permission to send messages to your Amazon SNS topic. The
 following policy statement will give that permission. It includes a
@@ -8,8 +6,7 @@ following policy statement will give that permission. It includes a
 the _confused deputy_ problem. The `Condition`
 statement restricts access to the Amazon SNS topic to allow only operations coming
 from this specific account and Amazon Managed Service for Prometheus workspace. For more information about
-the confused deputy problem, see [Cross-service
-confused deputy prevention](#cross-service-confused-deputy-prevention "#cross-service-confused-deputy-prevention").
+the confused deputy problem, see [Cross-service confused deputy prevention](#cross-service-confused-deputy-prevention "#cross-service-confused-deputy-prevention").
 
 ###### To give Amazon Managed Service for Prometheus permission to send messages to your Amazon SNS topic
 
@@ -82,9 +79,7 @@ there is a policy block that is more restrictive than the documented Amazon SNS
 policy block, the permission for the topic policy is not granted. To
 evaluate your policy and find out what's been granted, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md").
 
-## SNS topic
-
-configuration for opt-in regions
+## SNS topic configuration for opt-in regions
 
 You can use `aps.amazonaws.com` to configure an Amazon SNS topic in
 the same AWS Region as your Amazon Managed Service for Prometheus workspace. To use an SNS topic from
@@ -115,9 +110,7 @@ When configuring your Amazon SNS topic for these opt-in Regions, ensure you use
 the correct Regional service principal to enable cross-region delivery of
 alerts.
 
-## Cross-service
-
-confused deputy prevention
+## Cross-service confused deputy prevention
 
 The confused deputy problem is a security issue where an entity that
 doesn't have permission to perform an action can coerce a more-privileged
@@ -148,8 +141,7 @@ global context condition key with wildcards (`*`) for the unknown
 portions of the ARN. For example,
 `arn:aws:`servicename`::`123456789012`:*`.
 
-The policy shown in [Giving Amazon Managed Service for Prometheus
-permission to send alert messages to your Amazon SNS topic](AMP-alertmanager-receiver-AMPpermission.md "AMP-alertmanager-receiver-AMPpermission.md") shows how you
+The policy shown in [Giving Amazon Managed Service for Prometheus permission to send alert messages to your Amazon SNS topic](AMP-alertmanager-receiver-AMPpermission.md "AMP-alertmanager-receiver-AMPpermission.md") shows how you
 can use the `aws:SourceArn` and `aws:SourceAccount`
 global condition context keys in Amazon Managed Service for Prometheus to prevent the confused deputy
 problem.

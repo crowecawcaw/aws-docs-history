@@ -1,6 +1,4 @@
-# Set up metrics
-
-ingestion from an Amazon EC2 instance using remote write
+# Set up metrics ingestion from an Amazon EC2 instance using remote write
 
 This section explains how to run a Prometheus server with remote write in an
 Amazon Elastic Compute Cloud (Amazon EC2) instance. It explains how to collect metrics from a demo
@@ -20,9 +18,7 @@ by reading the following sections:
 - [What is Amazon Elastic Compute Cloud?](../../../AWSEC2/latest/UserGuide/concepts.md "../../../AWSEC2/latest/UserGuide/concepts.md")
 - [What is Amazon Managed Service for Prometheus?](what-is-Amazon-Managed-Service-Prometheus.md "what-is-Amazon-Managed-Service-Prometheus.md")
 
-## Create an
-
-IAM role for Amazon EC2
+## Create an IAM role for Amazon EC2
 
 To stream metrics, you must first create an IAM role with the AWS managed
 policy **AmazonPrometheusRemoteWriteAccess**. Then, you can
@@ -47,16 +43,12 @@ workspace.
 6. Enter a name for your role. Choose **Create
    policy**.
 
-## Launch an
-
-Amazon EC2 instance
+## Launch an Amazon EC2 instance
 
 To launch an Amazon EC2 instance, follow the instructions at [Launch an instance](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md#launch-instance-with-role "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md#launch-instance-with-role") in the _Amazon Elastic Compute Cloud
 User Guide for Linux Instances_.
 
-## Run the demo
-
-application
+## Run the demo application
 
 After creating your IAM role, and launching an EC2 instance with the role, you
 can run a demo application to see it work.
@@ -114,15 +106,11 @@ promhttp_metric_handler_requests_total{code="500"} 0
 promhttp_metric_handler_requests_total{code="503"} 0
 ```
 
-## Create
-
-an Amazon Managed Service for Prometheus workspace
+## Create an Amazon Managed Service for Prometheus workspace
 
 To create an Amazon Managed Service for Prometheus workspace, follow the instructions at [Create a workspace](AMP-create-workspace.md "AMP-create-workspace.md").
 
-## Run a
-
-Prometheus server
+## Run a Prometheus server
 
 1. Use the following example YAML file as a template to create a new file
    named `prometheus.yaml`. For `url`,

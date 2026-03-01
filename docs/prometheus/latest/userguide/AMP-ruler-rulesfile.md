@@ -53,5 +53,4 @@ In this case, the metric is calculated as an average over the last 5 minutes. So
 You can create a rules definition file locally and then upload it to Amazon Managed Service for Prometheus, or
 you can create, edit and upload the definition directly within the Amazon Managed Service for Prometheus
 console. Either way, the same formatting rules apply. To learn more about uploading
-and editing your file, see [Upload a rules configuration file to
-Amazon Managed Service for Prometheus](AMP-rules-upload.md "AMP-rules-upload.md").
+and editing your file, see [Upload a rules configuration file to Amazon Managed Service for Prometheus](AMP-rules-upload.md "AMP-rules-upload.md").

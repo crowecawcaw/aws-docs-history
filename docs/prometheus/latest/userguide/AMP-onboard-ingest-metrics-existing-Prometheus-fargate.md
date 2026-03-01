@@ -1,6 +1,4 @@
-# Set up
-
-ingestion from an existing Prometheus server in Kubernetes on Fargate
+# Set up ingestion from an existing Prometheus server in Kubernetes on Fargate
 
 Amazon Managed Service for Prometheus supports ingesting metrics from Prometheus servers in self-managed
 Kubernetes clusters running on Fargate. To ingest metrics from Prometheus servers

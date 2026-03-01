@@ -1,6 +1,4 @@
-# Set up managed Prometheus collectors for
-
-Amazon MSK
+# Set up managed Prometheus collectors for Amazon MSK
 
 To use an Amazon Managed Service for Prometheus collector, you create a scraper that discovers and pulls metrics
 in your Amazon Managed Streaming for Apache Kafka cluster. You can also create a scraper that integrates with Amazon Elastic Kubernetes Service.
@@ -326,9 +324,7 @@ aws amp list-scrapers
 
 ```
 
-## Changing between RoleConfiguration and
-
-service-linked role
+## Changing between RoleConfiguration and service-linked role
 
 When you want to switch back to a service-linked role instead of the
 `RoleConfiguration` to write to an Amazon Managed Service for Prometheus workspace, you must

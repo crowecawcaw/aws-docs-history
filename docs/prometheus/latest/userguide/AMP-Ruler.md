@@ -1,6 +1,4 @@
-# Using rules to modify or monitor metrics as they are
-
-received
+# Using rules to modify or monitor metrics as they are received
 
 You can set up rules to act upon metrics as they are received by Amazon Managed Service for Prometheus. These rules
 can monitor the metrics or even create new, computed, metrics based on the metrics
@@ -39,11 +37,9 @@ different rules file.
 
 ###### Topics
 
-- [Understanding IAM permissions needed for
-  using rules](AMP-ruler-IAM-permissions.md "AMP-ruler-IAM-permissions.md")
+- [Understanding IAM permissions needed for using rules](AMP-ruler-IAM-permissions.md "AMP-ruler-IAM-permissions.md")
 - [Create a rules file](AMP-ruler-rulesfile.md "AMP-ruler-rulesfile.md")
-- [Upload a rules configuration file to
-  Amazon Managed Service for Prometheus](AMP-rules-upload.md "AMP-rules-upload.md")
+- [Upload a rules configuration file to Amazon Managed Service for Prometheus](AMP-rules-upload.md "AMP-rules-upload.md")
 - [Edit or replace a rules configuration file](AMP-rules-edit.md "AMP-rules-edit.md")
 - [Troubleshoot rule evaluations](troubleshoot-rule-evaluations.md "troubleshoot-rule-evaluations.md")
 - [Troubleshooting Ruler](Troubleshooting-rule-fail-error.md "Troubleshooting-rule-fail-error.md")

@@ -3,8 +3,7 @@
 Although using a tool such as [Amazon Managed Grafana](AMP-amg.md "AMP-amg.md") is the easiest
 way to view and query your metrics, Amazon Managed Service for Prometheus also supports several
 Prometheus-compatible APIs that you can use to query your metrics. For more information
-about all the available Prometheus-compatible APIs, see [Prometheus-compatible
-APIs](AMP-APIReference-Prometheus-Compatible-Apis.md "AMP-APIReference-Prometheus-Compatible-Apis.md").
+about all the available Prometheus-compatible APIs, see [Prometheus-compatible APIs](AMP-APIReference-Prometheus-Compatible-Apis.md "AMP-APIReference-Prometheus-Compatible-Apis.md").
 
 The Prometheus-compatible APIs use the Prometheus query language, PromQL, to specify
 the data that you want to return. For details about PromQL and its syntax, see [Querying
@@ -21,5 +20,4 @@ following topic [Using awscurl to query Prometheus-compatible APIs](AMP-compatib
 
 ###### Topics
 
-- [Use awscurl to query with
-  Prometheus-compatible APIs](AMP-compatible-APIs.md "AMP-compatible-APIs.md")
+- [Use awscurl to query with Prometheus-compatible APIs](AMP-compatible-APIs.md "AMP-compatible-APIs.md")

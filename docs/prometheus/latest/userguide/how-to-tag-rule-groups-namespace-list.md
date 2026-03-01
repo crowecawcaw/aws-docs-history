@@ -1,13 +1,9 @@
-# View tags for a rule groups
-
-namespace
+# View tags for a rule groups namespace
 
 Tags can help you identify and organize your AWS resources and manage access to
 them. For more information about tagging strategies, see [Tagging AWS Resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md").
 
-## View tags for an
-
-Amazon Managed Service for Prometheus rule groups namespace (console)
+## View tags for an Amazon Managed Service for Prometheus rule groups namespace (console)
 
 You can use the console to view the tags associated with a Amazon Managed Service for Prometheus rule
 groups namespace.
@@ -20,9 +16,7 @@ groups namespace.
 5. Choose the **Rules management** tab.
 6. Choose the namespace name.
 
-## View tags for an
-
-Amazon Managed Service for Prometheus workspace (AWS CLI)
+## View tags for an Amazon Managed Service for Prometheus workspace (AWS CLI)
 
 Follow these steps to use the AWS CLI to view the AWS tags for a rule groups
 namespace. If no tags have been added, the returned list is empty.

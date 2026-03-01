@@ -12,8 +12,7 @@ Amazon MSK](prom-msk-integration.md "prom-msk-integration.md").
 - You can create your own scraper, programmatically with the AWS API or by
   using the AWS CLI.
   An Amazon Managed Service for Prometheus collector scrapes metrics that are Prometheus-compatible. For more
-  information about Prometheus compatible metrics, see [What are Prometheus-compatible
-  metrics?](prom-compatible-metrics.md "prom-compatible-metrics.md"). Amazon EKS
+  information about Prometheus compatible metrics, see [What are Prometheus-compatible metrics?](prom-compatible-metrics.md "prom-compatible-metrics.md"). Amazon EKS
   clusters expose metrics for the API server. Amazon EKS clusters that are Kubernetes version
   `1.28` or above also expose metrics for the `kube-scheduler`
   and `kube-controller-manager`. For more information, see [Fetch
@@ -36,8 +35,7 @@ The following topics describe how to create, manage, and configure scrapers.
 - [Configuring your Amazon EKS cluster](#AMP-collector-eks-setup "#AMP-collector-eks-setup")
 - [Find and delete scrapers](#AMP-collector-list-delete "#AMP-collector-list-delete")
 - [Scraper configuration](#AMP-collector-configuration "#AMP-collector-configuration")
-- [Troubleshooting scraper
-  configuration](#AMP-collector-troubleshoot "#AMP-collector-troubleshoot")
+- [Troubleshooting scraper configuration](#AMP-collector-troubleshoot "#AMP-collector-troubleshoot")
 - [Scraper limitations](#AMP-collector-limits "#AMP-collector-limits")
 
 ## Create a scraper
@@ -290,9 +288,7 @@ aws amp list-scrapers
 
 ```
 
-### Changing between RoleConfiguration and
-
-service-linked role
+### Changing between RoleConfiguration and service-linked role
 
 When you want to switch back to a service-linked role instead of the
 `RoleConfiguration` to write to an Amazon Managed Service for Prometheus workspace, you must
@@ -305,9 +301,7 @@ When you are changing workspaces in the same account as the scraper and you
 want to continue using the `RoleConfiguration`, you must again
 provide the `RoleConfiguration` on `UpdateScraper`.
 
-### Creating scraper for workspaces
-
-enabled with customer managed keys
+### Creating scraper for workspaces enabled with customer managed keys
 
 To create a scraper for ingesting metrics into a Amazon Managed Service for Prometheus workspace with
 [customer managed
@@ -323,9 +317,7 @@ aws amp create-scraper \
 
 ```
 
-### Common errors when creating
-
-scrapers
+### Common errors when creating scrapers
 
 The following are the most common issues when attempting to create a new
 scraper.
@@ -348,9 +340,7 @@ There are two options for this configuration:
 
 The following topics describe each of these in more detail.
 
-### Configure Amazon EKS for
-
-scraper access with access entries
+### Configure Amazon EKS for scraper access with access entries
 
 Using access entries for Amazon EKS is the easiest way to give Amazon Managed Service for Prometheus access to
 scrape metrics from your cluster.
@@ -452,9 +442,7 @@ Kubernetes](../../../eks/latest/userguide/access-entries.md "../../../eks/latest
 }
 ```
 
-### Manually configuring Amazon EKS for
-
-scraper access
+### Manually configuring Amazon EKS for scraper access
 
 If you prefer to use the `aws-auth ConfigMap` to control access to
 your kubernetes cluster, you can still give Amazon Managed Service for Prometheus scrapers access to your
@@ -471,9 +459,7 @@ This procedure uses `kubectl` and the AWS CLI. For information
 about installing `kubectl`, see [Installing kubectl](../../../eks/latest/userguide/install-kubectl.md "../../../eks/latest/userguide/install-kubectl.md")
 in the _Amazon EKS User Guide_.
 
-###### To manually configure your Amazon EKS cluster for managed metric
-
-scraping
+###### To manually configure your Amazon EKS cluster for managed metric scraping
 
 1. Create a file, called `clusterrole-binding.yml`, with the
    following text:
@@ -795,9 +781,7 @@ The following are limitations specific to AWS managed collectors:
 
 `type: Bearer` is the default, so can be omitted.
 
-## Troubleshooting scraper
-
-configuration
+## Troubleshooting scraper configuration
 
 Amazon Managed Service for Prometheus collectors automatically discover and scrape metrics. But how can you
 troubleshoot when you don't see a metric you expect to see in your Amazon Managed Service for Prometheus

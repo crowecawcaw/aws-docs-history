@@ -1,6 +1,4 @@
-# Find your Amazon Managed Service for Prometheus workspace details,
-
-including ARN
+# Find your Amazon Managed Service for Prometheus workspace details, including ARN
 
 You can find the details of your Amazon Managed Service for Prometheus workspace by using either the AWS
 console or the AWS CLI.

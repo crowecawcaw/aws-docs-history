@@ -1,6 +1,4 @@
-# Understanding
-
-Amazon SNS message validation rules
+# Understanding Amazon SNS message validation rules
 
 Amazon Simple Notification Service (Amazon SNS) requires messages to meet certain standards. Messages that
 don't meed these standards will be modified when they are received. The alert

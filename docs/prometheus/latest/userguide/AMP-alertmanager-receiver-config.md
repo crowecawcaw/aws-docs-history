@@ -1,6 +1,4 @@
-# Configure alert manager to
-
-send messages to your Amazon SNS topic
+# Configure alert manager to send messages to your Amazon SNS topic
 
 After you have a (new or existing) **Standard** type Amazon SNS
 topic, you can add it to your alert manager configuration as an alert receiver.
@@ -53,9 +51,7 @@ file:
 If a `subject`is not specified, by default, a subject would be
 generated with the default template with the label name and values, which may
 result in a value that is too long for SNS. To change the template that is
-applied to the subject, refer to [Configure alert manager to send
-messages to Amazon SNS as JSON](AMP-alertmanager-receiver-JSON.md "AMP-alertmanager-receiver-JSON.md") in this guide.
+applied to the subject, refer to [Configure alert manager to send messages to Amazon SNS as JSON](AMP-alertmanager-receiver-JSON.md "AMP-alertmanager-receiver-JSON.md") in this guide.
 
 Now you must upload your alert manager configuration file to Amazon Managed Service for Prometheus. For
-more information, see [Upload your alert manager configuration file
-to Amazon Managed Service for Prometheus](AMP-alertmanager-upload.md "AMP-alertmanager-upload.md").
+more information, see [Upload your alert manager configuration file to Amazon Managed Service for Prometheus](AMP-alertmanager-upload.md "AMP-alertmanager-upload.md").

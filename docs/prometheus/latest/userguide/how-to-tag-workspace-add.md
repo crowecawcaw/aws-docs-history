@@ -17,14 +17,10 @@ it, see [Create a Amazon Managed Service for Prometheus workspace](AMP-create-wo
 
 ###### Topics
 
-- [Add a tag to a workspace
-  (console)](#how-to-tag-workspace-add-console "#how-to-tag-workspace-add-console")
-- [Add a tag to a workspace
-  (AWS CLI)](#how-to-tag-workspace-add-cli "#how-to-tag-workspace-add-cli")
+- [Add a tag to a workspace (console)](#how-to-tag-workspace-add-console "#how-to-tag-workspace-add-console")
+- [Add a tag to a workspace (AWS CLI)](#how-to-tag-workspace-add-cli "#how-to-tag-workspace-add-cli")
 
-## Add a tag to a workspace
-
-(console)
+## Add a tag to a workspace (console)
 
 You can use the console to add one or more tags to a Amazon Managed Service for Prometheus workspace.
 
@@ -44,9 +40,7 @@ You can use the console to add one or more tags to a Amazon Managed Service for 
 9. When you have finished adding tags, choose **Save
    changes**.
 
-## Add a tag to a workspace
-
-(AWS CLI)
+## Add a tag to a workspace (AWS CLI)
 
 Follow these steps to use the AWS CLI to add a tag to an Amazon Managed Service for Prometheus workspace. To
 add a tag to a workspace when you create it, see [Create a Amazon Managed Service for Prometheus workspace](AMP-create-workspace.md "AMP-create-workspace.md").

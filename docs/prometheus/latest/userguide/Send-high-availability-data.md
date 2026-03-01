@@ -1,6 +1,4 @@
-# Send high availability data to
-
-Amazon Managed Service for Prometheus with Prometheus
+# Send high availability data to Amazon Managed Service for Prometheus with Prometheus
 
 To set up a high availability configuration with Prometheus, you must apply
 external labels on all instances of a high availability group, so Amazon Managed Service for Prometheus can

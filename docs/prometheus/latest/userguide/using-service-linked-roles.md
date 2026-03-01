@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Amazon Managed Service for Prometheus
+# Using service-linked roles for Amazon Managed Service for Prometheus
 
 Amazon Managed Service for Prometheus uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role
 that is linked directly to Amazon Managed Service for Prometheus. Service-linked roles are predefined by
@@ -25,9 +23,7 @@ services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-service
 roles** column. Choose a **Yes** with a link
 to view the service-linked role documentation for that service.
 
-### Service-linked role
-
-permissions for Amazon Managed Service for Prometheus
+### Service-linked role permissions for Amazon Managed Service for Prometheus
 
 Amazon Managed Service for Prometheus uses a service-linked role named with the prefix
 **AWSServiceRoleForAmazonPrometheusScraper** to allow Amazon Managed Service for Prometheus to automatically scrape metrics in your Amazon EKS clusters.
@@ -49,9 +45,7 @@ You must configure permissions to allow your users, groups, or roles to create
 a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-### Creating a service-linked
-
-role for Amazon Managed Service for Prometheus
+### Creating a service-linked role for Amazon Managed Service for Prometheus
 
 You don't need to manually create a service-linked role. When you
 create an managed collector instance using Amazon EKS or Amazon Managed Service for Prometheus in the AWS Management Console, the AWS CLI, or the AWS API,
@@ -68,9 +62,7 @@ use the same process to recreate the role in your account. When you
 create an managed collector instance using Amazon EKS or Amazon Managed Service for Prometheus, Amazon Managed Service for Prometheus creates the service-linked role for you
 again.
 
-### Editing a service-linked
-
-role for Amazon Managed Service for Prometheus
+### Editing a service-linked role for Amazon Managed Service for Prometheus
 
 Amazon Managed Service for Prometheus does not allow you to edit the AWSServiceRoleForAmazonPrometheusScraper service-linked role.
 After you create a service-linked role, you cannot change the name of the role
@@ -78,17 +70,13 @@ because various entities might reference the role. However, you can edit the
 description of the role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-### Deleting a service-linked
-
-role for Amazon Managed Service for Prometheus
+### Deleting a service-linked role for Amazon Managed Service for Prometheus
 
 You don't need to manually delete the AWSServiceRoleForAmazonPrometheusScraper role. When you
 delete all managed collector instances associated with the role in the AWS Management Console, the AWS CLI, or the AWS API, Amazon Managed Service for Prometheus
 cleans up the resources and deletes the service-linked role for you.
 
-### Supported Regions for Amazon Managed Service for Prometheus
-
-service-linked roles
+### Supported Regions for Amazon Managed Service for Prometheus service-linked roles
 
 Amazon Managed Service for Prometheus supports using service-linked roles in all of the Regions where the
 service is available. For more information, see [Supported Regions](what-is-Amazon-Managed-Service-Prometheus.md#AMP-supported-Regions "what-is-Amazon-Managed-Service-Prometheus.md#AMP-supported-Regions").

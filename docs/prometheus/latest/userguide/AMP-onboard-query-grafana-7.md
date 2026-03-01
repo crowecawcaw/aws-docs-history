@@ -1,6 +1,4 @@
-# Query using Grafana running in an Amazon EKS
-
-cluster
+# Query using Grafana running in an Amazon EKS cluster
 
 Amazon Managed Service for Prometheus supports the use of Grafana version 7.3.5 and later to query metrics in a
 Amazon Managed Service for Prometheus workspace. Versions 7.3.5 and later include support for AWS Signature
@@ -38,17 +36,13 @@ grafana.ini:
 ```
 
 In that YAML file content, `amp-iamproxy-query-role` is the
-name of the role that you will create in the next section, [Set up IAM roles for service
-accounts](#AMP-onboard-query-grafana-7.3-IRSA "#AMP-onboard-query-grafana-7.3-IRSA"). You can replace
+name of the role that you will create in the next section, [Set up IAM roles for service accounts](#AMP-onboard-query-grafana-7.3-IRSA "#AMP-onboard-query-grafana-7.3-IRSA"). You can replace
 this role with your own role name if you already have a role created for
 querying your workspace.
 
-You will use this file later, in [Upgrade the Grafana server using
-Helm](#AMP-onboard-query-upgrade-grafana "#AMP-onboard-query-upgrade-grafana").
+You will use this file later, in [Upgrade the Grafana server using Helm](#AMP-onboard-query-upgrade-grafana "#AMP-onboard-query-upgrade-grafana").
 
-## Set up IAM roles for service
-
-accounts
+## Set up IAM roles for service accounts
 
 If you are using a Grafana server in an Amazon EKS cluster, we recommend that you use
 IAM roles for service accounts, also known as service roles, for your access
@@ -58,15 +52,12 @@ any pod that uses that service account. For more information, see [IAM roles for
 service accounts](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md").
 
 If you have not already set up these service roles for querying, follow the
-instructions at [Set up IAM roles for service accounts for the
-querying of metrics](set-up-irsa.md#set-up-irsa-query "set-up-irsa.md#set-up-irsa-query") to set up the roles.
+instructions at [Set up IAM roles for service accounts for the querying of metrics](set-up-irsa.md#set-up-irsa-query "set-up-irsa.md#set-up-irsa-query") to set up the roles.
 
 You then need to add the Grafana service account in the conditions of the trust
 relationship.
 
-###### To add the Grafana service account in the conditions of the trust
-
-relationship
+###### To add the Grafana service account in the conditions of the trust relationship
 
 1. From a terminal window, determine the namespace and the service account
    name for your Grafana server. For example, you could use the following
@@ -112,9 +103,7 @@ JSON
 
 5. Choose **Update trust policy**.
 
-## Upgrade the Grafana server using
-
-Helm
+## Upgrade the Grafana server using Helm
 
 This step upgrades the Grafana server to use the entries that you added to the
 `amp_query_override_values.yaml` file in the previous
@@ -132,9 +121,7 @@ helm repo add grafana https://grafana.github.io/helm-charts
 helm upgrade --install grafana grafana/grafana -n `grafana_namespace` -f ./amp_query_override_values.yaml
 ```
 
-## Add the Prometheus data
-
-source in Grafana
+## Add the Prometheus data source in Grafana
 
 The following steps explain how to set up the Prometheus data source in Grafana to
 query your Amazon Managed Service for Prometheus metrics.

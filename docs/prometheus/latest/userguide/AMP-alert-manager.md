@@ -1,6 +1,4 @@
-# Managing and forwarding alerts in Amazon Managed Service for Prometheus with alert
-
-manager
+# Managing and forwarding alerts in Amazon Managed Service for Prometheus with alert manager
 
 When the [alerting rules](AMP-ruler-rulesfile.md "AMP-ruler-rulesfile.md") that Amazon Managed Service for Prometheus runs are
 firing, alert manager handles the alerts that are sent. It de-duplicates, groups, and routes
@@ -46,14 +44,9 @@ In Amazon Managed Service for Prometheus, you put your templating in the same al
 
 ###### Topics
 
-- [Understanding IAM permissions
-  needed for working with alert manager](AMP-alertmanager-IAM-permissions.md "AMP-alertmanager-IAM-permissions.md")
-- [Create an alert manager configuration in
-  Amazon Managed Service for Prometheus to manage and route alerts](AMP-alertmanager-config.md "AMP-alertmanager-config.md")
-- [Forward alerts to an alert receiver with
-  alert manager in Amazon Managed Service for Prometheus](AMP-alertmanager-receiver.md "AMP-alertmanager-receiver.md")
-- [Upload your alert manager configuration file
-  to Amazon Managed Service for Prometheus](AMP-alertmanager-upload.md "AMP-alertmanager-upload.md")
-- [Integrate alerts with Amazon Managed Grafana or open source
-  Grafana](integrating-grafana.md "integrating-grafana.md")
+- [Understanding IAM permissions needed for working with alert manager](AMP-alertmanager-IAM-permissions.md "AMP-alertmanager-IAM-permissions.md")
+- [Create an alert manager configuration in Amazon Managed Service for Prometheus to manage and route alerts](AMP-alertmanager-config.md "AMP-alertmanager-config.md")
+- [Forward alerts to an alert receiver with alert manager in Amazon Managed Service for Prometheus](AMP-alertmanager-receiver.md "AMP-alertmanager-receiver.md")
+- [Upload your alert manager configuration file to Amazon Managed Service for Prometheus](AMP-alertmanager-upload.md "AMP-alertmanager-upload.md")
+- [Integrate alerts with Amazon Managed Grafana or open source Grafana](integrating-grafana.md "integrating-grafana.md")
 - [Troubleshoot alert manager with CloudWatch Logs](Troubleshooting-alerting.md "Troubleshooting-alerting.md")

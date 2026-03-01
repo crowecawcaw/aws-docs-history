@@ -15,9 +15,7 @@ authenticate between Amazon Managed Service for Prometheus, Prometheus servers, 
 The procedures on this page require that you have the AWS CLI and EKSCTL command line
 interface installed.
 
-## Set up service roles for the ingestion of metrics
-
-from Amazon EKS clusters
+## Set up service roles for the ingestion of metrics from Amazon EKS clusters
 
 To set up the service roles to enable Amazon Managed Service for Prometheus to ingest metrics from Prometheus
 servers in Amazon EKS clusters, you must be logged on to an account with the following
@@ -148,9 +146,7 @@ chmod +x createIRSA-AMPIngest.sh
 
 3. Run the script.
 
-## Set up IAM roles for service accounts for the
-
-querying of metrics
+## Set up IAM roles for service accounts for the querying of metrics
 
 To set up the IAM role for service account (service role) to enable the querying of
 metrics from Amazon Managed Service for Prometheus workspaces, you must be logged on to an account with the

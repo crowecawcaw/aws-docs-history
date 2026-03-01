@@ -11,9 +11,7 @@ Before you remove a tag from a workspace, make sure to review any IAM policies
 that might use the key or value for a tag to control access to resources such as
 repositories.
 
-## Remove a tag from an
-
-Amazon Managed Service for Prometheus workspace (console)
+## Remove a tag from an Amazon Managed Service for Prometheus workspace (console)
 
 You can use the console to remove the association between a tag and a
 workspace.
@@ -28,9 +26,7 @@ workspace.
 7. Find the tag that you want to delete, and choose
    **Remove**.
 
-## Remove a tag from an Amazon Managed Service for Prometheus
-
-workspace (AWS CLI)
+## Remove a tag from an Amazon Managed Service for Prometheus workspace (AWS CLI)
 
 Follow these steps to use the AWS CLI to remove a tag from an workspace.
 Removing a tag does not delete it, but simply removes the association between

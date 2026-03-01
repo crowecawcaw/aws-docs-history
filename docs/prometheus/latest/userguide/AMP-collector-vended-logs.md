@@ -7,16 +7,12 @@ logs for three main components of the metrics collection pipeline:
 
 ###### Topics
 
-- [Service discovery
-  logs](#amp-collector-service-discovery-vended-logs "#amp-collector-service-discovery-vended-logs")
+- [Service discovery logs](#amp-collector-service-discovery-vended-logs "#amp-collector-service-discovery-vended-logs")
 - [Collector logs](#amp-collector-vended-logs "#amp-collector-vended-logs")
 - [Exporter logs](#amp-exporter-vended-logs "#amp-exporter-vended-logs")
-- [Understanding and using collector vended
-  logs](#amp-collector-log-details "#amp-collector-log-details")
+- [Understanding and using collector vended logs](#amp-collector-log-details "#amp-collector-log-details")
 
-## Service discovery
-
-logs
+## Service discovery logs
 
 Service discovery logs provide information about the target discovery process,
 including:
@@ -156,9 +152,7 @@ this error:
 }
 ```
 
-## Understanding and using collector vended
-
-logs
+## Understanding and using collector vended logs
 
 ### Log structure
 
@@ -231,9 +225,7 @@ fields @timestamp, message.message
 | sort @timestamp desc
 ```
 
-### Best practices for monitoring
-
-collectors
+### Best practices for monitoring collectors
 
 To effectively monitor your Amazon Managed Service for Prometheus collectors:
 

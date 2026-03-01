@@ -23,8 +23,7 @@ this feature when needed for query analysis.
 ###### Topics
 
 - [Configuring query logging](#query-logging "#query-logging")
-- [Configuring query throttling
-  thresholds](#query-throttling-thresholds "#query-throttling-thresholds")
+- [Configuring query throttling thresholds](#query-throttling-thresholds "#query-throttling-thresholds")
 - [Log content](#log-content "#log-content")
 - [Limitations](#limitations "#limitations")
 
@@ -97,9 +96,7 @@ aws amp create-query-logging-configuration \
 For information on how to update, delete, and describe operations, see [Amazon Managed Service for Prometheus
 API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
-## Configuring query throttling
-
-thresholds
+## Configuring query throttling thresholds
 
 To configure QSP thresholds, you must provide the query parameters in the [QueryMetrics API](AMP-APIReference-QueryMetrics.md "AMP-APIReference-QueryMetrics.md").
 

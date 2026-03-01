@@ -1,6 +1,4 @@
-# Upload a rules configuration file to
-
-Amazon Managed Service for Prometheus
+# Upload a rules configuration file to Amazon Managed Service for Prometheus
 
 Once you know what rules you want in your rules configuration file, you can either
 create and edit it within the console, or you can upload a file with the console or
@@ -12,9 +10,7 @@ If you are running an Amazon EKS cluster, you can also upload a rule configurati
 using [AWS Controllers for
 Kubernetes](integrating-ack.md "integrating-ack.md").
 
-###### To use the Amazon Managed Service for Prometheus console to edit or replace your rules configuration and
-
-create the namespace
+###### To use the Amazon Managed Service for Prometheus console to edit or replace your rules configuration and create the namespace
 
 1. Open the Amazon Managed Service for Prometheus console at [https://console.aws.amazon.com/prometheus/](https://console.aws.amazon.com/prometheus/home "https://console.aws.amazon.com/prometheus/home").
 2. In the upper left corner of the page, choose the menu icon, and then choose
@@ -37,9 +33,7 @@ optional value for the tag in **Value**.
 To add another tag, choose **Add new tag**. 7. Choose **Continue**. Amazon Managed Service for Prometheus creates a new namespace with
 the same name as the rules file that you selected.
 
-###### To use the AWS CLI to upload an alert manager configuration to a workspace in a new
-
-namespace
+###### To use the AWS CLI to upload an alert manager configuration to a workspace in a new namespace
 
 1. Base64 encode the contents of your alert manager file. On Linux, you can use
    the following command:

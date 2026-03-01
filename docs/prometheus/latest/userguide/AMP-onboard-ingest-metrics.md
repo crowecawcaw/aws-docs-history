@@ -1,6 +1,4 @@
-# Ingest Prometheus metrics to the
-
-workspace
+# Ingest Prometheus metrics to the workspace
 
 One way to ingest metrics is to use a standalone Prometheus _agent_
 (a Prometheus instance running in agent mode) to scrape metrics from your cluster and
@@ -12,8 +10,7 @@ To generate metrics in Amazon EKS, such as Kubernetes or node-level metrics, you
 the Amazon EKS community add-ons. For more information, see [Available community add-ons](../../../eks/latest/userguide/community-addons.md#_available_community_add_ons "../../../eks/latest/userguide/community-addons.md#_available_community_add_ons") in the _Amazon EKS User Guide_.
 
 For information about other ways to ingest data into Amazon Managed Service for Prometheus, including how to
-secure metrics and create high-availability metrics, see [Ingest metrics to your Amazon Managed Service for Prometheus
-workspace](AMP-ingest-methods.md "AMP-ingest-methods.md").
+secure metrics and create high-availability metrics, see [Ingest metrics to your Amazon Managed Service for Prometheus workspace](AMP-ingest-methods.md "AMP-ingest-methods.md").
 
 ###### Note
 
@@ -37,9 +34,7 @@ metrics to Amazon Managed Service for Prometheus. This method has the following 
 - You must use a Linux or MacOS computer to perform the steps in the following
   sections.
 
-## Step 1: Add new Helm chart
-
-repositories
+## Step 1: Add new Helm chart repositories
 
 To add new Helm chart repositories, enter the following commands. For more
 information about these commands, see [Helm Repo](https://helm.sh/docs/helm/helm_repo/ "https://helm.sh/docs/helm/helm_repo/").
@@ -50,9 +45,7 @@ helm repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics
 helm repo update
 ```
 
-## Step 2: Create a Prometheus
-
-namespace
+## Step 2: Create a Prometheus namespace
 
 Enter the following command to create a Prometheus namespace for the Prometheus
 server and other monitoring components. Replace
@@ -63,9 +56,7 @@ want for this namespace.
 kubectl create namespace `prometheus-agent-namespace`
 ```
 
-## Step 3: Set up IAM roles for
-
-service accounts
+## Step 3: Set up IAM roles for service accounts
 
 For this method of ingestion, you need to use IAM roles for service accounts in
 the Amazon EKS cluster where the Prometheus agent is running.
@@ -76,8 +67,7 @@ to the containers in any pod that uses that service account. For more informatio
 see [IAM roles for
 service accounts](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md").
 
-If you have not already set up these roles, follow the instructions at [Set up service roles for the ingestion of metrics
-from Amazon EKS clusters](set-up-irsa.md#set-up-irsa-ingest "set-up-irsa.md#set-up-irsa-ingest") to set up the
+If you have not already set up these roles, follow the instructions at [Set up service roles for the ingestion of metrics from Amazon EKS clusters](set-up-irsa.md#set-up-irsa-ingest "set-up-irsa.md#set-up-irsa-ingest") to set up the
 roles. The instructions in that section require the use of `eksctl`. For
 more information, see [Getting started with
 Amazon Elastic Kubernetes Service – `eksctl`](../../../eks/latest/userguide/getting-started-eksctl.md "../../../eks/latest/userguide/getting-started-eksctl.md").
@@ -88,24 +78,19 @@ When you are not on EKS or AWS and using just access key and secret key to
 access Amazon Managed Service for Prometheus, you cannot use the `EKS-IAM-ROLE` based
 SigV4.
 
-## Step 4: Set up the
-
-new server and start ingesting metrics
+## Step 4: Set up the new server and start ingesting metrics
 
 To install the new Prometheus agent and send metrics to your Amazon Managed Service for Prometheus workspace,
 follow these steps.
 
-###### To install a new Prometheus agent and send metrics to your Amazon Managed Service for Prometheus
-
-workspace
+###### To install a new Prometheus agent and send metrics to your Amazon Managed Service for Prometheus workspace
 
 1. Use a text editor to create a file named
    `my_prometheus_values_yaml` with the following
    content.
    - Replace `IAM_PROXY_PROMETHEUS_ROLE_ARN`
      with the ARN of the **amp-iamproxy-ingest-role**
-     that you created in [Set up service roles for the ingestion of metrics
-     from Amazon EKS clusters](set-up-irsa.md#set-up-irsa-ingest "set-up-irsa.md#set-up-irsa-ingest").
+     that you created in [Set up service roles for the ingestion of metrics from Amazon EKS clusters](set-up-irsa.md#set-up-irsa-ingest "set-up-irsa.md#set-up-irsa-ingest").
    - Replace `WORKSPACE_ID` with the ID of
      your Amazon Managed Service for Prometheus workspace.
    - Replace `REGION` with the Region of your

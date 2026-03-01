@@ -1,6 +1,4 @@
-# Send high availability data
-
-to Amazon Managed Service for Prometheus with the Prometheus community Helm chart
+# Send high availability data to Amazon Managed Service for Prometheus with the Prometheus community Helm chart
 
 To set up a high availability configuration with the Prometheus community Helm
 chart, you must apply external labels on all instances of a high availability group,

@@ -13,11 +13,7 @@ namespaces.
 
 ###### Topics
 
-- [Add a tag to a rule groups
-  namespace](how-to-tag-rule-groups-namespace-add.md "how-to-tag-rule-groups-namespace-add.md")
-- [View tags for a rule groups
-  namespace](how-to-tag-rule-groups-namespace-list.md "how-to-tag-rule-groups-namespace-list.md")
-- [Edit tags for a rule
-  groups namespace](how-to-tag-rule-groups-namespace-update.md "how-to-tag-rule-groups-namespace-update.md")
-- [Remove a tag from a rule
-  groups namespace](how-to-tag-rule-groups-namespace-delete.md "how-to-tag-rule-groups-namespace-delete.md")
+- [Add a tag to a rule groups namespace](how-to-tag-rule-groups-namespace-add.md "how-to-tag-rule-groups-namespace-add.md")
+- [View tags for a rule groups namespace](how-to-tag-rule-groups-namespace-list.md "how-to-tag-rule-groups-namespace-list.md")
+- [Edit tags for a rule groups namespace](how-to-tag-rule-groups-namespace-update.md "how-to-tag-rule-groups-namespace-update.md")
+- [Remove a tag from a rule groups namespace](how-to-tag-rule-groups-namespace-delete.md "how-to-tag-rule-groups-namespace-delete.md")

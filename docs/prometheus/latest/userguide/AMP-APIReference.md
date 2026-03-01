@@ -21,5 +21,4 @@ service quotas](AMP_quotas.md "AMP_quotas.md") in the _Amazon Managed Service fo
 ###### Topics
 
 - [Amazon Managed Service for Prometheus APIs](AMP-APIReference-AMPApis.md "AMP-APIReference-AMPApis.md")
-- [Prometheus-compatible
-  APIs](AMP-APIReference-Prometheus-Compatible-Apis.md "AMP-APIReference-Prometheus-Compatible-Apis.md")
+- [Prometheus-compatible APIs](AMP-APIReference-Prometheus-Compatible-Apis.md "AMP-APIReference-Prometheus-Compatible-Apis.md")

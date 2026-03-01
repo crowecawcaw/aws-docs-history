@@ -1,6 +1,4 @@
-# Remove a tag from a rule
-
-groups namespace
+# Remove a tag from a rule groups namespace
 
 You can remove one or more tags associated with a rule groups namespace. Removing
 a tag does not delete the tag from other AWS resources that are associated with
@@ -13,9 +11,7 @@ remove a tag from a resource, make sure to review any IAM policies that might
 use the key or value for a tag to control access to resources such as
 repositories.
 
-## Remove a tag
-
-from an Amazon Managed Service for Prometheus rule groups namespace (console)
+## Remove a tag from an Amazon Managed Service for Prometheus rule groups namespace (console)
 
 You can use the console to remove the association between a tag and a rule
 groups namespace.
@@ -33,9 +29,7 @@ groups namespace.
 9. When you have finished, choose **Save
    changes**.
 
-## Remove a tag from an
-
-Amazon Managed Service for Prometheus rule groups namespace (AWS CLI)
+## Remove a tag from an Amazon Managed Service for Prometheus rule groups namespace (AWS CLI)
 
 Follow these steps to use the AWS CLI to remove a tag from an rule groups
 namespace. Removing a tag does not delete it, but simply removes the association

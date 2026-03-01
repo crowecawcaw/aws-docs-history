@@ -1,6 +1,4 @@
-# Set up ingestion
-
-from an existing Prometheus server in Kubernetes on EC2
+# Set up ingestion from an existing Prometheus server in Kubernetes on EC2
 
 Amazon Managed Service for Prometheus supports ingesting metrics from Prometheus servers in clusters running
 Amazon EKS and in self-managed Kubernetes clusters running on Amazon EC2. The detailed
@@ -14,14 +12,10 @@ manager.
 
 ###### Topics
 
-- [Step 1: Set up IAM
-  roles for service accounts](#AMP-onboard-existing-Prometheus-IRSA "#AMP-onboard-existing-Prometheus-IRSA")
-- [Step 2:
-  Upgrade your existing Prometheus server using Helm](#AMP-onboard-ingest-metrics-existing-remotewrite "#AMP-onboard-ingest-metrics-existing-remotewrite")
+- [Step 1: Set up IAM roles for service accounts](#AMP-onboard-existing-Prometheus-IRSA "#AMP-onboard-existing-Prometheus-IRSA")
+- [Step 2: Upgrade your existing Prometheus server using Helm](#AMP-onboard-ingest-metrics-existing-remotewrite "#AMP-onboard-ingest-metrics-existing-remotewrite")
 
-## Step 1: Set up IAM
-
-roles for service accounts
+## Step 1: Set up IAM roles for service accounts
 
 For the method of onboarding that we are documenting, you need to use IAM
 roles for service accounts in the Amazon EKS cluster where the Prometheus server is
@@ -33,35 +27,27 @@ containers in any pod that uses that service account. For more information, see
 [IAM roles
 for service accounts](../../../eks/latest/userguide/iam-roles-for-service-accounts.md "../../../eks/latest/userguide/iam-roles-for-service-accounts.md").
 
-If you have not already set up these roles, follow the instructions at [Set up service roles for the ingestion of metrics
-from Amazon EKS clusters](set-up-irsa.md#set-up-irsa-ingest "set-up-irsa.md#set-up-irsa-ingest") to set up
+If you have not already set up these roles, follow the instructions at [Set up service roles for the ingestion of metrics from Amazon EKS clusters](set-up-irsa.md#set-up-irsa-ingest "set-up-irsa.md#set-up-irsa-ingest") to set up
 the roles.
 
-## Step 2:
-
-Upgrade your existing Prometheus server using Helm
+## Step 2: Upgrade your existing Prometheus server using Helm
 
 The instructions in this section include setting up remote write and sigv4 to
 authenticate and authorize the Prometheus server to remote write to your
 Amazon Managed Service for Prometheus workspace.
 
-### Using Prometheus version
-
-2.26.0 or later
+### Using Prometheus version 2.26.0 or later
 
 Follow these steps if you are using a Helm chart with Prometheus Server
 image of version 2.26.0 or later.
 
-###### To set up remote write from a Prometheus server using Helm
-
-chart
+###### To set up remote write from a Prometheus server using Helm chart
 
 1. Create a new remote write section in your Helm configuration
    file:
    - Replace `${IAM_PROXY_PROMETHEUS_ROLE_ARN}` with
      the ARN of the **amp-iamproxy-ingest-role**
-     that you created in [Step 1: Set up IAM
-     roles for service accounts](#AMP-onboard-existing-Prometheus-IRSA "#AMP-onboard-existing-Prometheus-IRSA").
+     that you created in [Step 1: Set up IAM roles for service accounts](#AMP-onboard-existing-Prometheus-IRSA "#AMP-onboard-existing-Prometheus-IRSA").
      The role ARN should have the format of
      `arn:aws:iam::`your account
      ID`:role/amp-iamproxy-ingest-role`.
@@ -111,9 +97,7 @@ helm upgrade `prometheus-chart-name` prometheus-community/prometheus \
        --version `current_helm_chart_version`
 ```
 
-### Using earlier versions of
-
-Prometheus
+### Using earlier versions of Prometheus
 
 Follow these steps if you are using a version of Prometheus earlier than
 2.26.0. These steps use a sidecar approach, because earlier versions of
@@ -164,8 +148,7 @@ workspace.
 
 Replace `${SERVICE_ACCOUNT_IAM_INGEST_ROLE_ARN}` with
 the ARN of the **amp-iamproxy-ingest-role** that
-you created in [Step 1: Set up IAM
-roles for service accounts](#AMP-onboard-existing-Prometheus-IRSA "#AMP-onboard-existing-Prometheus-IRSA"). The role
+you created in [Step 1: Set up IAM roles for service accounts](#AMP-onboard-existing-Prometheus-IRSA "#AMP-onboard-existing-Prometheus-IRSA"). The role
 ARN should have the format of `arn:aws:iam::`your
 account
 ID`:role/amp-iamproxy-ingest-role`.
@@ -191,9 +174,7 @@ the name of the Prometheus helm chart returned in the previous
 command. Replace `prometheus-namespace`
 with the name of your namespace.
 
-#### Downloading Helm
-
-charts
+#### Downloading Helm charts
 
 If you don't already have Helm charts downloaded locally, you can use
 the following command to download them.

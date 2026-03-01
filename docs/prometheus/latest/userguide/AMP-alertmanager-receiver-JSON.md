@@ -1,6 +1,4 @@
-# Configure alert manager to send
-
-messages to Amazon SNS as JSON
+# Configure alert manager to send messages to Amazon SNS as JSON
 
 By default, Amazon Managed Service for Prometheus alert manager outputs messages in a plain text list
 format. This can be more difficult for other services to parse. You can
@@ -45,7 +43,5 @@ will take precedence over the template.
 
 For more information about:
 
-- The alert manager configuration file, see [Create an alert manager configuration in
-  Amazon Managed Service for Prometheus to manage and route alerts](AMP-alertmanager-config.md "AMP-alertmanager-config.md").
-- Uploading your configuration file, see [Upload your alert manager configuration file
-  to Amazon Managed Service for Prometheus](AMP-alertmanager-upload.md "AMP-alertmanager-upload.md").
+- The alert manager configuration file, see [Create an alert manager configuration in Amazon Managed Service for Prometheus to manage and route alerts](AMP-alertmanager-config.md "AMP-alertmanager-config.md").
+- Uploading your configuration file, see [Upload your alert manager configuration file to Amazon Managed Service for Prometheus](AMP-alertmanager-upload.md "AMP-alertmanager-upload.md").

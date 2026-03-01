@@ -1,6 +1,4 @@
-# Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus
-
-resources
+# Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus resources
 
 Amazon Managed Service for Prometheus vends usage metrics to CloudWatch. These metrics provide visibility about your
 workspace utilization. The vended metrics can be found in the `AWS/Usage`
@@ -101,15 +99,11 @@ dimension of the following structure:
 
 `RuleGroupNamespace`;`RuleGroup`
 
-## Setting a CloudWatch alarm on Prometheus vended
-
-metrics
+## Setting a CloudWatch alarm on Prometheus vended metrics
 
 You can monitor usage of Prometheus resources using CloudWatch alarms.
 
-###### To set an alarm on the number of **ActiveSeries** in
-
-Prometheus
+###### To set an alarm on the number of **ActiveSeries** in Prometheus
 
 1. Choose the **Graphed metrics** tab and scroll down to the
    **ActiveSeries** label.

@@ -1,6 +1,4 @@
-# Understanding IAM permissions needed for
-
-using rules
+# Understanding IAM permissions needed for using rules
 
 You must give users permissions to use rules in Amazon Managed Service for Prometheus. Create an AWS Identity and Access Management (IAM)
 policy with the following permissions, and assign the policy to your users, groups, or

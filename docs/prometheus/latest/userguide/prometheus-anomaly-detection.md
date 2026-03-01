@@ -41,9 +41,7 @@ algorithm produces four key outputs:
   the data point is
 - _value_ - The actual observed metric value
 
-## Getting started with anomaly
-
-detection
+## Getting started with anomaly detection
 
 To begin using anomaly detection with your Prometheus metrics, you need sufficient
 historical data for the algorithm to learn normal patterns. We recommend having at least
