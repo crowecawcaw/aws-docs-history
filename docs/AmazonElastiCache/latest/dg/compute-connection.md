@@ -47,9 +47,7 @@ described in the following table.
 | There are one or more security groups associated with the ElastiCache cache with a name that matches the pattern<br>`elasticache-ec2-${cacheId}:${ec2InstanceId}`. A security group that matches the pattern hasn't<br>been modified. This security group has only one inbound rule with the VPC security group of the EC2<br>instance as the source.                                                                                                                                                                                                                                                                                                                                                                                                                                                   | A valid EC2 security group for the connection exists, but it is not associated<br>with the EC2 instance. This security group has a name that matches the pattern<br>`ec2-elasticache-${ec2InstanceId}:${cacheId}`. It hasn't been modified. It has only one outbound rule with the VPC security group of theElastiCache cache as the source.                                                                                                                                                                                                                                                                                                                                                             | [ELC action: associate EC2 security group](#elc-action-associate-ec2-security-group "#elc-action-associate-ec2-security-group")                                                                                                                                    |
 | Either of the following conditions apply:<br>• There is no security group associated with the ElastiCache cache with a name that matches the pattern `elasticache-ec2-${cacheId}:${ec2InstanceId}`.<br>• There are one or more security groups associated with the ElastiCache cache with a name that matches the pattern<br>`elasticache-ec2-${cacheId}:${ec2InstanceId}`. However,<br>ElastiCache can't use any of these security groups for the<br>connection with the EC2 instance.<br>ElastiCache can't use a security group that<br>doesn't have one inbound rule with the VPC security group of the EC2 instance as the source.<br>ElastiCache also can't use security group that has been modified.                                                                                             | There are one or more security groups associated with the EC2 instance with a name that matches the pattern `ec2-elasticache-${ec2InstanceId}:${cacheId}`. A security group that matches the pattern hasn't been modified. This security group has only one outbound rule with the VPC security group of the ElastiCache cache as the source.                                                                                                                                                                                                                                                                                                                                                            | [ELC action: create new security groups](#elc-action-create-new-security-groups "#elc-action-create-new-security-groups")                                                                                                                                          |
 
-###### ElastiCache
-
-action: create new security groups
+###### ElastiCache action: create new security groups
 
 ElastiCache takes the following actions:
 
@@ -60,9 +58,7 @@ ElastiCache takes the following actions:
   security group is associated with the EC2 instance and allows the EC2 instance to send
   traffic to the ElastiCache cache.
 
-######
-
-ElastiCache action: associate EC2 security group
+###### ElastiCache action: associate EC2 security group
 
 ElastiCache
 associates the valid, existing EC2 security group with the EC2 instance. This security group allows the EC2

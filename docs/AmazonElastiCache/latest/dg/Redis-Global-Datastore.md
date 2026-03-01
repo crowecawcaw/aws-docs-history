@@ -1,6 +1,4 @@
-# Replication across AWS Regions using global
-
-datastores
+# Replication across AWS Regions using global datastores
 
 ###### Note
 
@@ -17,8 +15,7 @@ datastores.
 ###### Topics
 
 - [Overview](#Redis-Global-Data-Stores-Overview "#Redis-Global-Data-Stores-Overview")
-- [Prerequisites and
-  limitations](Redis-Global-Datastores-Getting-Started.md "Redis-Global-Datastores-Getting-Started.md")
+- [Prerequisites and limitations](Redis-Global-Datastores-Getting-Started.md "Redis-Global-Datastores-Getting-Started.md")
 - [Using global datastores (console)](Redis-Global-Datastores-Console.md "Redis-Global-Datastores-Console.md")
 - [Using global datastores (CLI)](Redis-Global-Datastores-CLI.md "Redis-Global-Datastores-CLI.md")
 

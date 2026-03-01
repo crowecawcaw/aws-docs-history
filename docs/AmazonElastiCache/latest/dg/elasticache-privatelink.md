@@ -1,6 +1,4 @@
-# ElastiCache API and interface VPC endpoints
-
-(AWS PrivateLink)
+# ElastiCache API and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and Amazon ElastiCache API endpoints by
 creating an _interface VPC endpoint_. Interface endpoints
@@ -83,9 +81,7 @@ that endpoint.
 | PDX                           | US West (Oregon)          | US-WEST-2      |
 | PDT                           | AWS GovCloud (US-West)    | US-WEST-1      |
 
-## Considerations for VPC
-
-endpoints
+## Considerations for VPC endpoints
 
 Before you set up an interface VPC endpoint for Amazon ElastiCache API endpoints, ensure that
 you review [Interface endpoint
@@ -98,9 +94,7 @@ to ElastiCache API operations is allowed through the endpoint. For more informat
 [Controlling access to services with VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon
 VPC User Guide_.
 
-## Creating an interface VPC
-
-endpoint for the ElastiCache API
+## Creating an interface VPC endpoint for the ElastiCache API
 
 You can create a VPC endpoint for the Amazon ElastiCache API using either the Amazon VPC console or
 the AWS CLI. For more information, see [Creating an interface
@@ -114,9 +108,7 @@ For the China (Beijing) and China (Ningxia) AWS Regions, you can make API reques
 information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the _Amazon
 VPC User Guide_.
 
-## Creating a VPC endpoint policy for the
-
-Amazon ElastiCache API
+## Creating a VPC endpoint policy for the Amazon ElastiCache API
 
 You can attach an endpoint policy to your VPC endpoint that controls access to the
 ElastiCache API. The policy specifies the following:

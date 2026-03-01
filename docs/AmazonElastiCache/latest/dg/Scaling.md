@@ -728,5 +728,4 @@ If the cluster is Multi-AZ with automatic failover enabled, you cannot delete
 the last read replica without first disabling Multi-AZ.
 For more information, see [Modifying a replication group](Replication.md "Replication.md").
 
-For more information, see [Deleting a read replica for
-Valkey or Redis OSS (Cluster Mode Disabled)](Replication.md "Replication.md").
+For more information, see [Deleting a read replica for Valkey or Redis OSS (Cluster Mode Disabled)](Replication.md "Replication.md").

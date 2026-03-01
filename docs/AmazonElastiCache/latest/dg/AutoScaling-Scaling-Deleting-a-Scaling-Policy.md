@@ -1,13 +1,9 @@
-# Deleting a scaling
-
-policy
+# Deleting a scaling policy
 
 You can delete a scaling policy using the AWS Management Console, the AWS CLI, or the Application
 Auto Scaling API.
 
-## Deleting a
-
-scaling policy using the AWS Management Console
+## Deleting a scaling policy using the AWS Management Console
 
 ###### To delete an Auto Scaling policy for an ElastiCache for Redis OSS cluster
 
@@ -19,9 +15,7 @@ scaling policy using the AWS Management Console
 5. Under **Scaling policies**, choose the Auto Scaling
    policy, and then choose **Delete**.
 
-## Deleting a
-
-scaling policy using the AWS CLI
+## Deleting a scaling policy using the AWS CLI
 
 To delete a scaling policy to your ElastiCache for Valkey and Redis OSS cluster, use the [delete-scaling-policy](../../../cli/latest/reference/autoscaling/delete-scaling-policy.md "../../../cli/latest/reference/autoscaling/delete-scaling-policy.md") AWS CLI command with the following parameters:
 
@@ -61,9 +55,7 @@ aws application-autoscaling delete-scaling-policy ^
     --scalable-dimension elasticache:replication-group:NodeGroups
 ```
 
-## Deleting a
-
-scaling policy using the API
+## Deleting a scaling policy using the API
 
 To delete a scaling policy to your ElastiCache for Valkey and Redis OSS cluster, use the [DeleteScalingPolicy](../../../cli/latest/reference/autoscaling/delete-scaling-policy.md "../../../cli/latest/reference/autoscaling/delete-scaling-policy.md") AWS CLI command with the following parameters:
 

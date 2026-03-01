@@ -1,6 +1,4 @@
-# Disabling access control on an ElastiCache
-
-Valkey or Redis OSS cache
+# Disabling access control on an ElastiCache Valkey or Redis OSS cache
 
 Follow the instructions below to disable access control on a Valkey or Redis OSS TLS-enabled
 cache. Your cache will have one of two different types of configurations:

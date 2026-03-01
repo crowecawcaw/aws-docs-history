@@ -67,9 +67,7 @@ policy on the IAM console and
 [AmazonElastiCacheReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonElastiCacheReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonElastiCacheReadOnlyAccess.md")
 in the _AWS Managed Policy Reference Guide_.
 
-## ElastiCache updates to AWS managed
-
-policies
+## ElastiCache updates to AWS managed policies
 
 View details about updates to AWS managed policies for ElastiCache since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

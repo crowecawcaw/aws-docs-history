@@ -6,7 +6,9 @@ Slow Log is supported for Valkey 7.x and above, and Redis OSS clusters and repli
 
 Engine Log is supported for Valkey 7.x and above, and Redis OSS clusters and replication groups using engine version 6.2 onward.
 
-Log delivery lets you stream [SLOWLOG](https://valkey.io/commands/slowlog "https://valkey.io/commands/slowlog") or **Engine Log** to one of two destinations:
+Command Log is supported for Valkey 8.1 and above.
+
+Log delivery lets you stream [SLOWLOG](https://valkey.io/commands/slowlog "https://valkey.io/commands/slowlog"), [COMMANDLOG](https://valkey.io/commands/commandlog/ "https://valkey.io/commands/commandlog/") (Valkey 8.1+), or **Engine Log** to one of two destinations:
 
 - Amazon Data Firehose
 - Amazon CloudWatch Logs

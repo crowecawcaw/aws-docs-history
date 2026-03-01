@@ -23,8 +23,7 @@ You need to provide a parameter group with cluster-enabled configuration, that i
 If you are using a default parameter group, ElastiCache for Redis OSS will automatically pick the corresponding default parameter group with a cluster-enabled configuration.
 The cluster-enabled parameter value is set to `no` for a CMD cluster. As the cluster moves to the compatible mode, the cluster-enabled parameter value is updated to `yes` as part of the modification action.
 
-For more information, see [Configuring engine parameters using ElastiCache parameter
-groups](ParameterGroups.md "ParameterGroups.md")
+For more information, see [Configuring engine parameters using ElastiCache parameter groups](ParameterGroups.md "ParameterGroups.md")
 
 1. **Prepare** – Create a test CME cluster and make sure your stack is ready to work with it. ElastiCache for Redis OSS has no way to verify your readiness.
    For more information, see [Creating a cluster for Valkey or Redis OSS](Clusters.md "Clusters.md").

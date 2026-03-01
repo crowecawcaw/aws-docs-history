@@ -1,6 +1,4 @@
-# Major engine version behavior and
-
-compatibility differences with Valkey
+# Major engine version behavior and compatibility differences with Valkey
 
 Valkey 7.2.6 has similar compatibility differences with previous versions of Redis OSS 7.2.4. For the most recent supported version of Valkey, see [Supported engines and versions](VersionManagement.md#supported-engine-versions "VersionManagement.md#supported-engine-versions").
 

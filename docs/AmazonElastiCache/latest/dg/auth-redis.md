@@ -7,5 +7,4 @@ ElastiCache supports authenticating users using IAM and the Valkey and Redis OSS
 
 - [Role-Based Access Control (RBAC)](Clusters.md "Clusters.md")
 - [Authenticating with the Valkey and Redis OSS AUTH command](auth.md "auth.md")
-- [Disabling access control on an ElastiCache
-  Valkey or Redis OSS cache](in-transit-encryption-disable.md "in-transit-encryption-disable.md")
+- [Disabling access control on an ElastiCache Valkey or Redis OSS cache](in-transit-encryption-disable.md "in-transit-encryption-disable.md")

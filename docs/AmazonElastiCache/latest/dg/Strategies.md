@@ -117,9 +117,7 @@ customer_record = get_customer(12345)
 The write-through strategy adds data or updates data in the cache whenever data is written
 to the database.
 
-### Advantages and disadvantages of
-
-write-through
+### Advantages and disadvantages of write-through
 
 The advantages of write-through are as follows:
 

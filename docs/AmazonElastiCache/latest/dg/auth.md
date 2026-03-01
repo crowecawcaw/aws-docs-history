@@ -95,7 +95,7 @@ aws elasticache create-replication-group ^
 To make it easier to update your authentication, you can modify the
 **AUTH** token used on a cluster. You can make this
 modification if the engine version is Valkey 7.2 or higher or Redis 5.0.6 or higher. ElastiCache must also have encryption in
-transit enabled.
+transit enabled. For more information, see [ElastiCache in-transit encryption (TLS)](in-transit-encryption.md "in-transit-encryption.md").
 
 Modifying the auth token supports two strategies: ROTATE and SET. The ROTATE strategy
 adds an additional AUTH token to the server while retaining the
@@ -278,5 +278,4 @@ For more information, see [Authenticating with the Valkey and Redis OSS AUTH com
 
 ###### Note
 
-If you need to disable access control on an ElastiCache Cluster, see [Disabling access control on an ElastiCache
-Valkey or Redis OSS cache](in-transit-encryption-disable.md "in-transit-encryption-disable.md").
+If you need to disable access control on an ElastiCache Cluster, see [Disabling access control on an ElastiCache Valkey or Redis OSS cache](in-transit-encryption-disable.md "in-transit-encryption-disable.md").

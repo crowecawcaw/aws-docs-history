@@ -1,85 +1,68 @@
-# Adding a read replica for Valkey or Redis OSS (Cluster Mode Disabled)
+# Deleting a replication group
 
-Information in the following topic applies to Valkey or Redis OSS (cluster mode disabled) replication groups
-only.
+If you no longer need one of your clusters with replicas (called _replication groups_ in the API/CLI), you can delete it.
+When you delete a replication group, ElastiCache deletes all of the nodes in that group.
 
-As your read traffic increases, you might want to spread those reads across more
-nodes and reduce the read pressure on any one node. In this topic, you can find how to
-add a read replica to a Valkey or Redis OSS (cluster mode disabled) cluster.
+After you have begun this operation, it cannot be interrupted or canceled.
 
-A Valkey or Redis OSS (cluster mode disabled) replication group can have a maximum of five read replicas. If you
-attempt to add a read replica to a replication group that already has five read
-replicas, the operation fails.
+###### Warning
 
-For information about adding replicas to a Valkey or Redis OSS (cluster mode enabled) replication group, see the
-following:
+- When you delete an ElastiCache for Redis OSS cluster, your manual snapshots are retained.
+  You will also have an option to create a final snapshot before the cluster is deleted.
+  Automatic cache snapshots are not retained.
+- `CreateSnapshot` permission is required to create a final snapshot.
+  Without this permission, the API call will fail with an `Access Denied` exception.
 
-- [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md")
-- [Increasing the number of replicas in a shard](increase-replica-count.md "increase-replica-count.md")
-  You can add a read replica to a Valkey or Redis OSS (cluster mode disabled) cluster using the ElastiCache Console,
-  the AWS CLI, or the ElastiCache API.
+## Deleting a Replication Group (Console)
 
-###### Related topics
+To delete a cluster that has replicas,
+see [Deleting a cluster in ElastiCache](Clusters.md "Clusters.md").
 
-- [Adding nodes to an ElastiCache cluster](Clusters.md "Clusters.md")
-- [Adding a read replica to a replication group (AWS CLI)](#Replication.AddReadReplica.CLI "#Replication.AddReadReplica.CLI")
-- [Adding a read replica to a
-  replication group using the API](#Replication.AddReadReplica.API "#Replication.AddReadReplica.API")
+## Deleting a Replication Group (AWS CLI)
 
-## Adding a read replica to a replication group (AWS CLI)
-
-To add a read replica to a Valkey or Redis OSS (cluster mode disabled) replication group,
-use the AWS CLI `create-cache-cluster` command,
-with the parameter `--replication-group-id` to specify
-which replication group to add the cluster (node) to.
-
-The following example creates the cluster `my-read replica` and adds it
-to the replication group `my-replication-group`. The node types, parameter
-groups, security groups, maintenance window, and other settings for the read replica
-are the same as for the other nodes in `my-replication-group`.
-
-For Linux, macOS, or Unix:
+Use the command delete-replication-group to
+delete a replication group.
 
 ```
-aws elasticache create-cache-cluster \
-      --cache-cluster-id `my-read-replica` \
-      --replication-group-id `my-replication-group`
+aws elasticache delete-replication-group --replication-group-id `my-repgroup`
 ```
 
-For Windows:
+A prompt asks you to confirm your decision. Enter
+_y_ (yes) to start the operation immediately.
+After the process starts, it is irreversible.
 
 ```
-aws elasticache create-cache-cluster ^
-      --cache-cluster-id `my-read-replica` ^
-      --replication-group-id `my-replication-group`
+
+   After you begin deleting this replication group, all of its nodes will be deleted as well.
+   Are you sure you want to delete this replication group? [Ny]`y`
+
+REPLICATIONGROUP  my-repgroup  My replication group  deleting
 ```
 
-For more information on adding a read replica using the CLI, see create-cache-cluster in the _Amazon ElastiCache Command Line Reference._
+## Deleting a replication group (ElastiCache API)
 
-## Adding a read replica to a
+Call DeleteReplicationGroup with the
+`ReplicationGroup` parameter.
 
-replication group using the API
-
-To add a read replica to a Valkey or Redis OSS (cluster mode disabled) replication group,
-use the ElastiCache `CreateCacheCluster` operation,
-with the parameter `ReplicationGroupId` to specify
-which replication group to add the cluster (node) to.
-
-The following example creates the cluster `myReadReplica` and adds it
-to the replication group `myReplicationGroup`. The node types, parameter
-groups, security groups, maintenance window, and other settings for the read replica
-are the same as for the other nodes `myReplicationGroup`.
+###### Example
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
-      ?Action=CreateCacheCluster
-      &CacheClusterId=myReadReplica
-      &ReplicationGroupId=myReplicationGroup
-      &Version=2015-02-02
-      &SignatureVersion=4
-      &SignatureMethod=HmacSHA256
-      &Timestamp=20150202T192317Z
-      &X-Amz-Credential=<credential>
+   ?Action=DeleteReplicationGroup
+   &ReplicationGroupId=my-repgroup
+   &Version=2014-12-01
+   &SignatureVersion=4
+   &SignatureMethod=HmacSHA256
+   &Timestamp=20141201T220302Z
+   &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
+   &X-Amz-Date=20141201T220302Z
+   &X-Amz-SignedHeaders=Host
+   &X-Amz-Expires=20141201T220302Z
+   &X-Amz-Credential=<credential>
+   &X-Amz-Signature=<signature>
 ```
 
-For more information on adding a read replica using the API, see CreateCacheCluster in the _Amazon ElastiCache API Reference._
+###### Note
+
+If you set the `RetainPrimaryCluster` parameter to `true`,
+all of the read replicas will be deleted, but the primary cluster will be retained.

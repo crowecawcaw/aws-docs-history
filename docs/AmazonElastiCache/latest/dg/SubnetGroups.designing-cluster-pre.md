@@ -436,7 +436,7 @@ The clusters screen will appear with a list that will include any existing Valke
 Valkey (cluster mode disabled) and Valkey (cluster mode enabled) clusters. Choose the cluster you created in the
 [Creating a Valkey (cluster mode disabled) cluster (Console)](#Clusters.Create.CON.valkey-gs "#Clusters.Create.CON.valkey-gs") section. 3. To find the cluster's Primary and/or Reader endpoints, choose the cluster's name (not the radio button).
 
-![Image: Primary endpoint for a Valkey (cluster mode disabled) cluster](images/Reader-Endpoint.png)
+![Image: Primary endpoint for a Valkey (cluster mode disabled) cluster](/images/AmazonElastiCache/latest/dg/images/Reader-Endpoint.png)
 
 _Primary and Reader endpoints for a Valkey (cluster mode disabled) cluster_
 
@@ -633,9 +633,7 @@ In the following example, you use the _valkey-cli_ utility to connect to
 a cluster that is not encryption enabled and running Valkey or Redis OSS. For more information
 about Valkey or Redis OSS and available commands, see [Valkey and Redis OSS commands](http://valkey.io/commands "http://valkey.io/commands") on the Valkey website.
 
-###### To connect to a Valkey or Redis OSS cluster that is not encryption-enabled using
-
-_valkey-cli_
+###### To connect to a Valkey or Redis OSS cluster that is not encryption-enabled using _valkey-cli_
 
 1. Connect to your Amazon EC2 instance using the connection utility of your choice. For instructions on
    how to connect to an Amazon EC2 instance, see the [Amazon EC2 Getting Started Guide](../../../AWSEC2/latest/GettingStartedGuide.md "../../../AWSEC2/latest/GettingStartedGuide.md").

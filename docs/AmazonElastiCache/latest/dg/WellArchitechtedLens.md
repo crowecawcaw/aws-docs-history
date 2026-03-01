@@ -33,12 +33,8 @@ This guide has not been updated to include information on ElastiCache serverless
 
 ###### Topics
 
-- [Amazon ElastiCache Well-Architected Lens
-  Operational Excellence Pillar](OperationalExcellencePillar.md "OperationalExcellencePillar.md")
+- [Amazon ElastiCache Well-Architected Lens Operational Excellence Pillar](OperationalExcellencePillar.md "OperationalExcellencePillar.md")
 - [Amazon ElastiCache Well-Architected Lens Security Pillar](SecurityPillar.md "SecurityPillar.md")
-- [Amazon ElastiCache Well-Architected Lens Reliability
-  Pillar](ReliabilityPillar.md "ReliabilityPillar.md")
-- [Amazon ElastiCache Well-Architected Lens
-  Performance Efficiency Pillar](PerformanceEfficiencyPillar.md "PerformanceEfficiencyPillar.md")
-- [Amazon ElastiCache Well-Architected Lens Cost
-  Optimization Pillar](CostOptimizationPillar.md "CostOptimizationPillar.md")
+- [Amazon ElastiCache Well-Architected Lens Reliability Pillar](ReliabilityPillar.md "ReliabilityPillar.md")
+- [Amazon ElastiCache Well-Architected Lens Performance Efficiency Pillar](PerformanceEfficiencyPillar.md "PerformanceEfficiencyPillar.md")
+- [Amazon ElastiCache Well-Architected Lens Cost Optimization Pillar](CostOptimizationPillar.md "CostOptimizationPillar.md")

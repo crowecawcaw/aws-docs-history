@@ -20,26 +20,18 @@ operation.
 ###### Topics
 
 - [In-transit encryption overview](#in-transit-encryption-overview "#in-transit-encryption-overview")
-- [In-transit encryption
-  conditions (Valkey and Redis OSS)](#in-transit-encryption-constraints "#in-transit-encryption-constraints")
-- [In-transit encryption
-  conditions (Memcached)](#in-transit-encryption-constraints "#in-transit-encryption-constraints")
-- [In-transit encryption best
-  practices](#in-transit-encryption-best-practices "#in-transit-encryption-best-practices")
+- [In-transit encryption conditions (Valkey and Redis OSS)](#in-transit-encryption-constraints "#in-transit-encryption-constraints")
+- [In-transit encryption conditions (Memcached)](#in-transit-encryption-constraints "#in-transit-encryption-constraints")
+- [In-transit encryption best practices](#in-transit-encryption-best-practices "#in-transit-encryption-best-practices")
 - [Further Valkey and Redis OSS options](#in-transit-encryption-see-also "#in-transit-encryption-see-also")
-- [Enabling in-transit
-  encryption for Memcached](#in-transit-encryption-enable-existing-mc "#in-transit-encryption-enable-existing-mc")
+- [Enabling in-transit encryption for Memcached](#in-transit-encryption-enable-existing-mc "#in-transit-encryption-enable-existing-mc")
 - [Enabling in-transit encryption](in-transit-encryption-enable.md "in-transit-encryption-enable.md")
-- [Connecting to ElastiCache (Valkey) or Amazon ElastiCache for Redis OSS with in-transit encryption using
-  valkey-cli](connect-tls.md "connect-tls.md")
-- [Enabling in-transit encryption on
-  a node-based Redis OSS cluster using Python](in-transit-encryption-enable-python.md "in-transit-encryption-enable-python.md")
+- [Connecting to ElastiCache (Valkey) or Amazon ElastiCache for Redis OSS with in-transit encryption using valkey-cli](connect-tls.md "connect-tls.md")
+- [Enabling in-transit encryption on a node-based Redis OSS cluster using Python](in-transit-encryption-enable-python.md "in-transit-encryption-enable-python.md")
 - [Best practices when enabling in-transit encryption](enable-python-best-practices.md "enable-python-best-practices.md")
-- [Connecting to nodes enabled with
-  in-transit encryption using Openssl (Memcached)](#in-transit-encryption-connect-mc "#in-transit-encryption-connect-mc")
+- [Connecting to nodes enabled with in-transit encryption using Openssl (Memcached)](#in-transit-encryption-connect-mc "#in-transit-encryption-connect-mc")
 - [Creating a TLS Memcached client using Java](#in-transit-encryption-connect-java "#in-transit-encryption-connect-java")
-- [Creating a TLS Memcached client
-  using PHP](#in-transit-encryption-connect-php-mc "#in-transit-encryption-connect-php-mc")
+- [Creating a TLS Memcached client using PHP](#in-transit-encryption-connect-php-mc "#in-transit-encryption-connect-php-mc")
 
 ## In-transit encryption overview
 
@@ -60,9 +52,11 @@ ElastiCache in-transit encryption implements the following features:
   authenticate that they are connecting to the right server.
 - Client authentication—using the Valkey and Redis OSS AUTH feature, the server can authenticate the clients.
 
-## In-transit encryption
+###### Note
 
-conditions (Valkey and Redis OSS)
+ElastiCache does not support mTLS (mutual TLS).
+
+## In-transit encryption conditions (Valkey and Redis OSS)
 
 The following constraints on Amazon ElastiCache in-transit encryption should be kept in mind
 when you plan your node-based cluster implementation:
@@ -81,9 +75,7 @@ For more information, see [Supported node types](CacheNodes.md "CacheNodes.md").
   enabled it in client configuration.
 - Starting January 26, 2026, AWS will update the minimum supported TLS version to 1.2 on ElastiCache for Valkey version 7.2 and above, and ElastiCache for Redis OSS version 6 and above. Customers must update their client software before that date. This update helps you meet security, compliance, and regulatory needs.
 
-## In-transit encryption
-
-conditions (Memcached)
+## In-transit encryption conditions (Memcached)
 
 The following constraints on Amazon ElastiCache in-transit encryption should be kept in mind
 when you plan your node-based cluster implementation:
@@ -106,9 +98,7 @@ For more information, see [Supported node types](CacheNodes.md "CacheNodes.md").
 - Ensure that your caching client supports TLS connectivity and that you have
   enabled it in client configuration.
 
-## In-transit encryption best
-
-practices
+## In-transit encryption best practices
 
 - Because of the processing required to encrypt and decrypt the data at the
   endpoints, implementing in-transit encryption can reduce performance. Benchmark
@@ -128,9 +118,7 @@ For further information on options available for Valkey and Redis OSS, see the f
 - [Amazon VPCs and ElastiCache security](VPCs.md "VPCs.md")
 - [Identity and Access Management for Amazon ElastiCache](IAM.md "IAM.md")
 
-## Enabling in-transit
-
-encryption for Memcached
+## Enabling in-transit encryption for Memcached
 
 To enable in-transit encryption when creating a Memcached cluster using the AWS
 Management Console, make the following selections:
@@ -142,9 +130,7 @@ Management Console, make the following selections:
 
 For the step-by-step process, see [Creating a cluster for Valkey or Redis OSS](Clusters.md "Clusters.md").
 
-## Connecting to nodes enabled with
-
-in-transit encryption using Openssl (Memcached)
+## Connecting to nodes enabled with in-transit encryption using Openssl (Memcached)
 
 To access data from ElastiCache for Memcached nodes enabled with in-transit encryption, you need to use
 clients that work with Secure Socket Layer (SSL). You can also use Openssl s_client on
@@ -187,9 +173,7 @@ public class TLSDemo {
 }
 ```
 
-## Creating a TLS Memcached client
-
-using PHP
+## Creating a TLS Memcached client using PHP
 
 To create a client in TLS mode, do the following to initialize the client with the
 appropriate SSLContext:

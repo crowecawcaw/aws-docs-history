@@ -6,6 +6,8 @@ This section describes the metrics and events that you can monitor when working 
 
 - [Metrics for ElastiCache Serverless for Memcached](#serverless-metrics-memcached "#serverless-metrics-memcached")
 - [Events for ElastiCache Serverless for Memcached](#serverless-events.memcached "#serverless-events.memcached")
+- [Metrics for node-based Memcached clusters](#node-based-metrics-memcached "#node-based-metrics-memcached")
+- [Events for node-based Memcached clusters](#node-based-events-memcached "#node-based-events-memcached")
 
 ## Metrics for ElastiCache Serverless for Memcached
 
@@ -144,3 +146,70 @@ This section documents the different types of events that you may receive for yo
 | Snapshot export failed   | Snapshot arn                     | failure  | serverless-cache-snapshot | Failed to export snapshot for cache <cache-name>.<br>Could not export snapshot to bucket '%s'.                                                                                                                                                                                                               |
 | Snapshot copy failed     | Snapshot arn-1<br>Snapshot arn-2 | failure  | serverless-cache-snapshot | Failed to copy snapshot <snapshot-name>.<br>Could not copy snapshot '%s' to snapshot '%s' with source snapshot Customer Managed Key <key-id> <reason-name>.                                                                                                                                                  |
 | Snapshot copy failed     | Snapshot arn-1<br>Snapshot arn-2 | failure  | serverless-cache-snapshot | Failed to copy snapshot <snapshot-name>. Could not copy<br>snapshot '%s' to snapshot '%s' with target snapshot Customer<br>Managed Key '%s' '%s'.                                                                                                                                                            |
+
+## Metrics for node-based Memcached clusters
+
+This section describes the CloudWatch metrics that you can monitor when working with node-based Memcached clusters. These metrics are measured per cache node in 60-second intervals.
+
+**Host-level metrics**
+
+| Metric              | Description                                                                                                                                                                                                                                                | Unit    |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `CPUUtilization`    | Percentage of CPU utilization for the entire host. Because Memcached is multi-threaded, this metric can be as high as 90%. If you exceed this threshold, scale your cluster up by using a larger cache node type, or scale out by adding more cache nodes. | Percent |
+| `FreeableMemory`    | Amount of free memory available on the host, derived from RAM, buffers, and cache that the OS reports as freeable.                                                                                                                                         | Bytes   |
+| `NetworkBytesIn`    | Number of bytes the host has read from the network.                                                                                                                                                                                                        | Bytes   |
+| `NetworkBytesOut`   | Number of bytes sent out on all network interfaces by the instance.                                                                                                                                                                                        | Bytes   |
+| `NetworkPacketsIn`  | Number of packets received on all network interfaces by the instance.                                                                                                                                                                                      | Count   |
+| `NetworkPacketsOut` | Number of packets sent out on all network interfaces by the instance.                                                                                                                                                                                      | Count   |
+| `SwapUsage`         | Amount of swap used on the host.                                                                                                                                                                                                                           | Bytes   |
+
+**Memcached metrics**
+
+| Metric                         | Description                                                               | Unit  |
+| ------------------------------ | ------------------------------------------------------------------------- | ----- |
+| `BytesReadIntoMemcached`       | Number of bytes read from the network by the cache node.                  | Bytes |
+| `BytesUsedForCacheItems`       | Number of bytes used to store cache items.                                | Bytes |
+| `BytesWrittenOutFromMemcached` | Number of bytes written to the network by the cache node.                 | Bytes |
+| `CasBadval`                    | Number of CAS requests where the Cas value did not match.                 | Count |
+| `CasHits`                      | Number of Cas requests where the key was found and the Cas value matched. | Count |
+| `CasMisses`                    | Number of Cas requests where the key was not found.                       | Count |
+| `CmdFlush`                     | Number of flush commands received.                                        | Count |
+| `CmdGet`                       | Number of get commands received.                                          | Count |
+| `CmdSet`                       | Number of set commands received.                                          | Count |
+| `CurrConnections`              | Number of connections connected to the cache at an instant in time.       | Count |
+| `CurrItems`                    | Number of items currently stored in the cache.                            | Count |
+| `DecrHits`                     | Number of decrement requests where the key was found.                     | Count |
+| `DecrMisses`                   | Number of decrement requests where the key was not found.                 | Count |
+| `DeleteHits`                   | Number of delete requests where the key was found.                        | Count |
+| `DeleteMisses`                 | Number of delete requests where the key was not found.                    | Count |
+| `Evictions`                    | Number of non-expired items evicted to allow space for new writes.        | Count |
+| `GetHits`                      | Number of get requests where the key was found.                           | Count |
+| `GetMisses`                    | Number of get requests where the key was not found.                       | Count |
+| `IncrHits`                     | Number of increment requests where the key was found.                     | Count |
+| `IncrMisses`                   | Number of increment requests where the key was not found.                 | Count |
+| `NewConnections`               | Number of new connections the cache has received.                         | Count |
+| `NewItems`                     | Number of new items the cache has stored.                                 | Count |
+| `Reclaimed`                    | Number of expired items evicted to allow space for new writes.            | Count |
+| `UnusedMemory`                 | Amount of memory not used by data.                                        | Bytes |
+
+## Events for node-based Memcached clusters
+
+ElastiCache sends notifications for significant cluster events using Amazon Simple Notification Service. You can monitor events using the ElastiCache console, the AWS CLI `describe-events` command, or the ElastiCache API `DescribeEvents` action.
+
+To view events using the AWS CLI, use the `--source-type cache-cluster` parameter.
+
+The following examples show how to use the AWS CLI to list cache cluster events:
+
+List up to 40 cache cluster events:
+
+```
+aws elasticache describe-events --source-type cache-cluster --max-items 40
+```
+
+List cache cluster events for the past 24 hours:
+
+```
+aws elasticache describe-events --source-type cache-cluster --duration 1440
+```
+
+For more information about managing Amazon SNS notifications for events, see the Amazon SNS event monitoring topic.

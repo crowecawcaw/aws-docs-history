@@ -58,9 +58,7 @@ export and store your ElastiCache backup.
 
 For more information about creating an Amazon S3 bucket, see [Creating a bucket](../../../AmazonS3/latest/userguide/CreatingaBucket.md "../../../AmazonS3/latest/userguide/CreatingaBucket.md") in the _Amazon Simple Storage Service User Guide_.
 
-## Grant ElastiCache access to your
-
-Amazon S3 bucket
+## Grant ElastiCache access to your Amazon S3 bucket
 
 For ElastiCache to be able to copy a snapshot to an Amazon S3 bucket, you must update your IAM bucket policy to grant ElastiCache access to the
 bucket.
@@ -183,14 +181,12 @@ The Amazon S3 bucket must be in the same AWS Region as the ElastiCache backup.
         * Object access – **Read** and **Write**.
         * Permissions access – **Read**.
 
-    For more information, see [Grant ElastiCache access to your
-    Amazon S3 bucket](#backups-exporting-grant-access "#backups-exporting-grant-access"). 3. Choose **Copy**.
+    For more information, see [Grant ElastiCache access to your Amazon S3 bucket](#backups-exporting-grant-access "#backups-exporting-grant-access"). 3. Choose **Copy**.
 
 ###### Note
 
 If your S3 bucket does not have the permissions needed for ElastiCache to export a backup to it, you
-receive one of the following error messages. Return to [Grant ElastiCache access to your
-Amazon S3 bucket](#backups-exporting-grant-access "#backups-exporting-grant-access") to add the permissions
+receive one of the following error messages. Return to [Grant ElastiCache access to your Amazon S3 bucket](#backups-exporting-grant-access "#backups-exporting-grant-access") to add the permissions
 specified and retry exporting your backup.
 
 - ElastiCache has not been granted READ permissions %s on the S3 Bucket.
@@ -275,8 +271,7 @@ in the backup's AWS Region with the following permissions for the export process
     + Object access – **Read** and **Write**.
     + Permissions access – **Read**.
 
-For more information, see [Grant ElastiCache access to your
-Amazon S3 bucket](#backups-exporting-grant-access "#backups-exporting-grant-access").
+For more information, see [Grant ElastiCache access to your Amazon S3 bucket](#backups-exporting-grant-access "#backups-exporting-grant-access").
 The following operation copies a backup to my-s3-bucket.
 
 For Linux, macOS, or Unix:

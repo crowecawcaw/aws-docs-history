@@ -1,15 +1,11 @@
-# Applying a
-
-scaling policy
+# Applying a scaling policy
 
 After registering your cluster with ElastiCache for Valkey and Redis OSS auto scaling and defining a scaling
 policy, you apply the scaling policy to the registered cluster. To apply a
 scaling policy to an ElastiCache for Redis OSS cluster, you can use the AWS CLI or the Application
 Auto Scaling API.
 
-## Applying
-
-a scaling policy using the AWS CLI
+## Applying a scaling policy using the AWS CLI
 
 To apply a scaling policy to your ElastiCache for Valkey and Redis OSS cluster, use the [put-scaling-policy](../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md "../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md") command with the following parameters:
 

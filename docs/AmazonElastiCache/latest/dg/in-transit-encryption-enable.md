@@ -3,9 +3,7 @@
 All serverless caches have in-transit encryption enabled. On a node-based cluster, you can enable in-transit encryption using the AWS Management Console, the AWS CLI, or the ElastiCache
 API.
 
-## Enabling in-transit
-
-encryption using the AWS Management Console
+## Enabling in-transit encryption using the AWS Management Console
 
 When designing your own cluster, 'Dev/Test' and 'Production' configurations
 with the 'Easy create' method have in-transit encryption enabled. When choosing
@@ -23,9 +21,7 @@ Enabling encryption in transit, is a two-step process, you must first set the tr
 unencrypted connections. After you migrate all your Valkey or Redis OSS clients to use encrypted connections, you can then modify your cluster configuration to set the transit encryption mode to `required`.
 Setting the transit encryption mode to `required` will drop all unencrypted connections and will allow encrypted connections only.
 
-###### Set your **Transit encryption mode** to
-
-**Preferred**
+###### Set your **Transit encryption mode** to **Preferred**
 
 1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
 2. Choose **Valkey caches** or **Redis OSS caches** from the ElastiCache
@@ -45,9 +41,7 @@ Setting the transit encryption mode to `required` will drop all unencrypted conn
    After you migrate all your Valkey or Redis OSS clients to use encrypted
    connections:
 
-###### Set your **Transit encryption mode** to
-
-**Required**
+###### Set your **Transit encryption mode** to **Required**
 
 1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
 2. Choose **Valkey caches** or **Redis OSS caches** from the ElastiCache
@@ -63,9 +57,7 @@ Setting the transit encryption mode to `required` will drop all unencrypted conn
 6. Choose **Preview changes** and save your
    changes.
 
-## Enabling in-transit
-
-encryption using the AWS CLI
+## Enabling in-transit encryption using the AWS CLI
 
 To enable in-transit encryption when creating a Valkey or Redis OSS replication group using the
 AWS CLI, use the parameter `transit-encryption-enabled`.

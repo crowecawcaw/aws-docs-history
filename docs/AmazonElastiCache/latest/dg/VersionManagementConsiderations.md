@@ -1,6 +1,4 @@
-# Major engine version behavior and
-
-compatibility differences with Redis OSS
+# Major engine version behavior and compatibility differences with Redis OSS
 
 ###### Important
 
@@ -42,9 +40,7 @@ When doing an upgrade that spans major or minor versions, please consider the
 following list which includes behavior and backwards incompatible changes released with
 Redis OSS over time.
 
-## Redis OSS 7.0 behavior and
-
-backwards incompatible changes
+## Redis OSS 7.0 behavior and backwards incompatible changes
 
 For a full list of changes, see [Redis OSS 7.0 release notes](https://raw.githubusercontent.com/redis/redis/7.0/00-RELEASENOTES "https://raw.githubusercontent.com/redis/redis/7.0/00-RELEASENOTES").
 
@@ -71,9 +67,7 @@ For a full list of changes, see [Redis OSS 7.0 release notes](https://raw.github
   to the entire keyspace in order to use the `GET` and
   `BY` arguments.
 
-## Redis OSS 6.2 behavior and
-
-backwards incompatible changes
+## Redis OSS 6.2 behavior and backwards incompatible changes
 
 For a full list of changes, see [Redis OSS 6.2 release notes](https://raw.githubusercontent.com/redis/redis/6.2/00-RELEASENOTES "https://raw.githubusercontent.com/redis/redis/6.2/00-RELEASENOTES").
 
@@ -91,9 +85,7 @@ None of these commands modify or give access to data.
   `redis.setresp()` or return a map (new in Redis OSS 6.0),
   consider the implications that the script may break on upgrades.
 
-## Redis OSS 6.0 behavior and
-
-backwards incompatible changes
+## Redis OSS 6.0 behavior and backwards incompatible changes
 
 For a full list of changes, see [Redis OSS 6.0 release notes](https://raw.githubusercontent.com/redis/redis/6.0/00-RELEASENOTES "https://raw.githubusercontent.com/redis/redis/6.0/00-RELEASENOTES").
 
@@ -106,9 +98,7 @@ For a full list of changes, see [Redis OSS 6.0 release notes](https://raw.github
   handled through standard customer-notification channels via a self-service
   update campaign. For more information, see [Self-service updates in ElastiCache](Self-Service-Updates.md "Self-Service-Updates.md").
 
-## Redis OSS 5.0 behavior and
-
-backwards incompatible changes
+## Redis OSS 5.0 behavior and backwards incompatible changes
 
 For a full list of changes, see [Redis OSS 5.0 release notes](https://raw.githubusercontent.com/redis/redis/5.0/00-RELEASENOTES "https://raw.githubusercontent.com/redis/redis/5.0/00-RELEASENOTES").
 
@@ -122,15 +112,13 @@ For a full list of changes, see [Redis OSS 5.0 release notes](https://raw.github
   Redis OSS 4.0, Redis OSS would order some responses lexographically in order to make
   the responses deterministic, this ordering is not applied when scripts are
   replicated by effects.
-- Inn Redis OSS 5.0.3 and above, ElastiCache for Redis OSS will offload some IO work to background
+- In Redis OSS 5.0.3 and above, ElastiCache for Redis OSS will offload some IO work to background
   cores on instance types with more than 4 VCPUs. This may change the
   performance characteristics Redis OSS and change the values of some metrics. For
   more information, see [Which Metrics Should I Monitor?](CacheMetrics.md "CacheMetrics.md") to understand if you
   need to change which metrics you watch.
 
-## Redis OSS 4.0 behavior and
-
-backwards incompatible changes
+## Redis OSS 4.0 behavior and backwards incompatible changes
 
 For a full list of changes, see [Redis OSS 4.0 release notes](https://raw.githubusercontent.com/redis/redis/4.0/00-RELEASENOTES "https://raw.githubusercontent.com/redis/redis/4.0/00-RELEASENOTES").
 
@@ -142,13 +130,9 @@ For a full list of changes, see [Redis OSS 4.0 release notes](https://raw.github
   use this command for learning about the nodes present in a cluster, and
   instead they should use `CLUSTER SLOTS`.
 
-## Past
+## Past EOL
 
-EOL
-
-### Redis OSS 3.2 behavior and
-
-backwards incompatible changes
+### Redis OSS 3.2 behavior and backwards incompatible changes
 
 For a full list of changes, see [Redis OSS 3.2 release notes](https://raw.githubusercontent.com/redis/redis/3.2/00-RELEASENOTES "https://raw.githubusercontent.com/redis/redis/3.2/00-RELEASENOTES").
 
@@ -157,9 +141,7 @@ For a full list of changes, see [Redis OSS 3.2 release notes](https://raw.github
 
 For more information, see [ElastiCache versions for Redis OSS end of life schedule](engine-versions.md#deprecated-engine-versions "engine-versions.md#deprecated-engine-versions").
 
-### Redis OSS 2.8 behavior and
-
-backwards incompatible changes
+### Redis OSS 2.8 behavior and backwards incompatible changes
 
 For a full list of changes, see [Redis OSS 2.8 release notes](https://raw.githubusercontent.com/redis/redis/2.8/00-RELEASENOTES "https://raw.githubusercontent.com/redis/redis/2.8/00-RELEASENOTES").
 

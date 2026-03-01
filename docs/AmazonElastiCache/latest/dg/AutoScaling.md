@@ -12,9 +12,7 @@ ElastiCache Auto Scaling is limited to the following:
 - Auto Scaling in ElastiCache is not supported for clusters running in Global
   datastores, Outposts or Local Zones.
 
-## Managing Capacity Automatically with ElastiCache Auto
-
-Scaling with Valkey or Redis OSS
+## Managing Capacity Automatically with ElastiCache Auto Scaling with Valkey or Redis OSS
 
 ElastiCache auto scaling with Valkey or Redis OSS is the ability to increase or decrease the desired shards or
 replicas in your ElastiCache service automatically. ElastiCache leverages the Application Auto
@@ -42,8 +40,7 @@ ElastiCache for Valkey and Redis OSS supports scaling for the following dimensio
 
 ElastiCache for Valkey and Redis OSS supports the following types of automatic scaling policies:
 
-- [Target tracking scaling
-  policies](AutoScaling-Scaling-Policies-Target.md "AutoScaling-Scaling-Policies-Target.md") – Increase or
+- [Target tracking scaling policies](AutoScaling-Scaling-Policies-Target.md "AutoScaling-Scaling-Policies-Target.md") – Increase or
   decrease the number of shards/replicas that your service runs based on a target
   value for a specific metric. This is similar to the way that your thermostat
   maintains the temperature of your home. You select a temperature and the
@@ -89,9 +86,7 @@ actual workload stays elevated (or depressed) for a sustained period of several
 minutes. The auto scaling target-tracking algorithm seeks to keep the target
 utilization at or near your chosen value over the long term.
 
-## IAM Permissions Required for Auto
-
-Scaling
+## IAM Permissions Required for Auto Scaling
 
 ElastiCache for Valkey and Redis OSS Auto Scaling is made possible by a combination of the ElastiCache, CloudWatch, and
 Application Auto Scaling APIs. Clusters are created and updated with ElastiCache, alarms are

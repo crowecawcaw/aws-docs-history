@@ -1,6 +1,4 @@
-# Performing online data migration using the
-
-Console
+# Performing online data migration using the Console
 
 You can use the AWS Management Console to migrate your data from your cluster to your Valkey or Redis OSS cluster.
 

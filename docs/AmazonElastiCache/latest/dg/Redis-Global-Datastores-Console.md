@@ -10,26 +10,16 @@ To create a global datastore using the console, follow this two-step process:
 
 ###### Topics
 
-- [Creating a global
-  datastore using an existing cluster](#Redis-Global-Datastores-Console-Create-Primary "#Redis-Global-Datastores-Console-Create-Primary")
-- [Creating a new global
-  datastore using a new primary cluster](#Redis-Global-Datastores-Create-From-Scratch "#Redis-Global-Datastores-Create-From-Scratch")
-- [Viewing global datastore
-  details](#Redis-Global-Datastores-Console-Details "#Redis-Global-Datastores-Console-Details")
-- [Adding a Region to a
-  global datastore](#Redis-Global-Datastores-Console-Create-Secondary "#Redis-Global-Datastores-Console-Create-Secondary")
-- [Modifying a
-  global datastore](#Redis-Global-Datastores-Console-Modify-Regional-Clusters "#Redis-Global-Datastores-Console-Modify-Regional-Clusters")
-- [Promoting the
-  secondary cluster to primary](#Redis-Global-Datastores-Console-Promote-Secondary "#Redis-Global-Datastores-Console-Promote-Secondary")
-- [Removing a Region from a
-  global datastore](#Redis-Global-Datastore-Console-Remove-Region "#Redis-Global-Datastore-Console-Remove-Region")
-- [Deleting a global
-  datastore](#Redis-Global-Datastores-Console-Delete-GlobalDatastore "#Redis-Global-Datastores-Console-Delete-GlobalDatastore")
+- [Creating a global datastore using an existing cluster](#Redis-Global-Datastores-Console-Create-Primary "#Redis-Global-Datastores-Console-Create-Primary")
+- [Creating a new global datastore using a new primary cluster](#Redis-Global-Datastores-Create-From-Scratch "#Redis-Global-Datastores-Create-From-Scratch")
+- [Viewing global datastore details](#Redis-Global-Datastores-Console-Details "#Redis-Global-Datastores-Console-Details")
+- [Adding a Region to a global datastore](#Redis-Global-Datastores-Console-Create-Secondary "#Redis-Global-Datastores-Console-Create-Secondary")
+- [Modifying a global datastore](#Redis-Global-Datastores-Console-Modify-Regional-Clusters "#Redis-Global-Datastores-Console-Modify-Regional-Clusters")
+- [Promoting the secondary cluster to primary](#Redis-Global-Datastores-Console-Promote-Secondary "#Redis-Global-Datastores-Console-Promote-Secondary")
+- [Removing a Region from a global datastore](#Redis-Global-Datastore-Console-Remove-Region "#Redis-Global-Datastore-Console-Remove-Region")
+- [Deleting a global datastore](#Redis-Global-Datastores-Console-Delete-GlobalDatastore "#Redis-Global-Datastores-Console-Delete-GlobalDatastore")
 
-## Creating a global
-
-datastore using an existing cluster
+## Creating a global datastore using an existing cluster
 
 In this scenario, you use an existing cluster to serve as the primary of the new
 global datastore. You then create a secondary, read-only cluster in a separate AWS
@@ -124,12 +114,9 @@ datastore, including:
      cluster, either primary or secondary.
 
 You can add up to one additional secondary cluster in a different AWS Region. For
-more information, see [Adding a Region to a
-global datastore](#Redis-Global-Datastores-Console-Create-Secondary "#Redis-Global-Datastores-Console-Create-Secondary").
+more information, see [Adding a Region to a global datastore](#Redis-Global-Datastores-Console-Create-Secondary "#Redis-Global-Datastores-Console-Create-Secondary").
 
-## Creating a new global
-
-datastore using a new primary cluster
+## Creating a new global datastore using a new primary cluster
 
 If you choose to create a global datastore with a new cluster, use the following
 procedure.
@@ -428,12 +415,9 @@ global datastore, including the following:
      of the cluster, either primary or secondary.
 
 You can add up to one additional secondary cluster in a different AWS Region. For
-more information, see [Adding a Region to a
-global datastore](#Redis-Global-Datastores-Console-Create-Secondary "#Redis-Global-Datastores-Console-Create-Secondary").
+more information, see [Adding a Region to a global datastore](#Redis-Global-Datastores-Console-Create-Secondary "#Redis-Global-Datastores-Console-Create-Secondary").
 
-## Viewing global datastore
-
-details
+## Viewing global datastore details
 
 You can view the details of existing global datastores and also modify them on the
 **Global Datastores** page.
@@ -474,14 +458,10 @@ You can then examine the following global datastore properties:
 
 You can make the following changes to the global datastore:
 
-- [Adding a Region to a
-  global datastore](#Redis-Global-Datastores-Console-Create-Secondary "#Redis-Global-Datastores-Console-Create-Secondary")
-- [Removing a Region from a
-  global datastore](#Redis-Global-Datastore-Console-Remove-Region "#Redis-Global-Datastore-Console-Remove-Region")
-- [Promoting the
-  secondary cluster to primary](#Redis-Global-Datastores-Console-Promote-Secondary "#Redis-Global-Datastores-Console-Promote-Secondary")
-- [Modifying a
-  global datastore](#Redis-Global-Datastores-Console-Modify-Regional-Clusters "#Redis-Global-Datastores-Console-Modify-Regional-Clusters")
+- [Adding a Region to a global datastore](#Redis-Global-Datastores-Console-Create-Secondary "#Redis-Global-Datastores-Console-Create-Secondary")
+- [Removing a Region from a global datastore](#Redis-Global-Datastore-Console-Remove-Region "#Redis-Global-Datastore-Console-Remove-Region")
+- [Promoting the secondary cluster to primary](#Redis-Global-Datastores-Console-Promote-Secondary "#Redis-Global-Datastores-Console-Promote-Secondary")
+- [Modifying a global datastore](#Redis-Global-Datastores-Console-Modify-Regional-Clusters "#Redis-Global-Datastores-Console-Modify-Regional-Clusters")
 
 The Global Datastore page also lists the individual clusters that make up the global
 datastore and the following properties for each:
@@ -509,9 +489,7 @@ datastore and the following properties for each:
   For cluster mode enabled Valkey or Redis OSS, the lag indicates the maximum delay in seconds
   among the shards.
 
-## Adding a Region to a
-
-global datastore
+## Adding a Region to a global datastore
 
 You can add up to one additional AWS Region to an existing global datastore. In
 this scenario, you are creating a read-only cluster in a separate AWS Region that
@@ -571,14 +549,11 @@ receives automatic and asynchronous updates from the primary cluster.
 
 7. Choose **Add**.
 
-## Modifying a
-
-global datastore
+## Modifying a global datastore
 
 You can modify properties of regional clusters. Only one modify operation can be in
 progress on a global datastore, with the exception of promoting a secondary cluster to
-primary. For more information, see [Promoting the
-secondary cluster to primary](#Redis-Global-Datastores-Console-Promote-Secondary "#Redis-Global-Datastores-Console-Promote-Secondary").
+primary. For more information, see [Promoting the secondary cluster to primary](#Redis-Global-Datastores-Console-Promote-Secondary "#Redis-Global-Datastores-Console-Promote-Secondary").
 
 ###### To modify a global datastore
 
@@ -620,9 +595,7 @@ applied to all the clusters within that global datastore.
 
 To reset an entire parameter group or specific parameters, use the [ResetCacheParameterGroup](../APIReference/API_ResetCacheParameterGroup.md "../APIReference/API_ResetCacheParameterGroup.md") API operation.
 
-## Promoting the
-
-secondary cluster to primary
+## Promoting the secondary cluster to primary
 
 If the primary cluster or AWS Region becomes unavailable or is experiencing
 performance issues, you can promote a secondary cluster to primary. Promotion is allowed
@@ -653,9 +626,7 @@ You're then prompted to confirm your decision with the following warning:
 
 If you choose to confirm, your global datastore moves to a **Modifying** state and is unavailable until the promotion is complete.
 
-## Removing a Region from a
-
-global datastore
+## Removing a Region from a global datastore
 
 You can remove an AWS Region from a global datastore by using the following
 procedure.
@@ -683,13 +654,10 @@ warning: `Removing the region will remove your only available cross region
 If you choose confirm, the AWS Region is removed and the secondary cluster no
 longer receives replication updates.
 
-## Deleting a global
-
-datastore
+## Deleting a global datastore
 
 To delete a global datastore, first remove all secondary clusters. For more
-information, see [Removing a Region from a
-global datastore](#Redis-Global-Datastore-Console-Remove-Region "#Redis-Global-Datastore-Console-Remove-Region"). Doing this leaves the
+information, see [Removing a Region from a global datastore](#Redis-Global-Datastore-Console-Remove-Region "#Redis-Global-Datastore-Console-Remove-Region"). Doing this leaves the
 global datastore in **primary-only** status.
 
 ###### To delete a global datastore

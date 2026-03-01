@@ -14,5 +14,3 @@ In addition, ElastiCache generates events when significant changes happen on you
 - [Amazon SNS monitoring of ElastiCache events](ECEvents.md "ECEvents.md")
 - [Log delivery](Log_Delivery.md "Log_Delivery.md")
 - [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md")
-
-- [Logging Amazon ElastiCache API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")

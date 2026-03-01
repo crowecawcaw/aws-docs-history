@@ -1,6 +1,4 @@
-# Enabling in-transit encryption on
-
-a node-based Redis OSS cluster using Python
+# Enabling in-transit encryption on a node-based Redis OSS cluster using Python
 
 The following guide will demonstrate how to enable in-transit encryption on a Redis OSS 7.0 cluster that was originally created with in-transit encryption disabled. TCP and TLS
 clients will continue communicating with the cluster during this process without
@@ -23,25 +21,17 @@ in the same VPC that will be used to create the ElastiCache Redis OSS Cluster in
 - ElastiCache supports online TLS migration only for clusters with Valkey version 7.2 and above or Redis OSS
   version 7.0 or above. So if you have a cluster running a Redis OSS version earlier
   than 7.0, you’ll need to upgrade the Redis OSS version of your cluster. For more
-  information on version differences, see [Major engine version behavior and
-  compatibility differences with Redis OSS](VersionManagementConsiderations.md "VersionManagementConsiderations.md").
+  information on version differences, see [Major engine version behavior and compatibility differences with Redis OSS](VersionManagementConsiderations.md "VersionManagementConsiderations.md").
 
 ###### Topics
 
-- [Define the string constants that
-  will launch the ElastiCache Valkey or Redis OSS Cluster](#enable-python-define-constants "#enable-python-define-constants")
-- [Define the classes for the cluster
-  configuration](#enable-python-define-classes "#enable-python-define-classes")
-- [Define a class that will
-  represent the cluster itself](#enable-python-define-classes-cluster "#enable-python-define-classes-cluster")
-- [(Optional) Create a wrapper class to
-  demo client connection to Valkey or Redis OSS cluster](#enable-python-create-wrapper "#enable-python-create-wrapper")
-- [Create the main function that demos
-  the process of changing in-transit encryption configuration](#enable-python-main-function "#enable-python-main-function")
+- [Define the string constants that will launch the ElastiCache Valkey or Redis OSS Cluster](#enable-python-define-constants "#enable-python-define-constants")
+- [Define the classes for the cluster configuration](#enable-python-define-classes "#enable-python-define-classes")
+- [Define a class that will represent the cluster itself](#enable-python-define-classes-cluster "#enable-python-define-classes-cluster")
+- [(Optional) Create a wrapper class to demo client connection to Valkey or Redis OSS cluster](#enable-python-create-wrapper "#enable-python-create-wrapper")
+- [Create the main function that demos the process of changing in-transit encryption configuration](#enable-python-main-function "#enable-python-main-function")
 
-## Define the string constants that
-
-will launch the ElastiCache Valkey or Redis OSS Cluster
+## Define the string constants that will launch the ElastiCache Valkey or Redis OSS Cluster
 
 First, let’s define some simple Python string constants that will hold the names
 of the AWS entities required to create the ElastiCache cluster such as
@@ -58,9 +48,7 @@ EC_SUBNET_GROUP = "client-testing"
 DEFAULT_PARAMETER_GROUP_REDIS_7_CLUSTER_MODE_ENABLED = "default.redis7.cluster.on"
 ```
 
-## Define the classes for the cluster
-
-configuration
+## Define the classes for the cluster configuration
 
 Now, let’s define some simple Python classes that will represent a configuration
 of a cluster, which will hold metadata about the cluster such as the Valkey or Redis OSS version,
@@ -121,9 +109,7 @@ class ConfigCME(Config):
         return launch_request
 ```
 
-## Define a class that will
-
-represent the cluster itself
+## Define a class that will represent the cluster itself
 
 Now, let’s define some simple Python classes that will represent the ElastiCache Valkey or Redis OSS Cluster itself. This class will have a client field which will hold a boto3 client
 for ElastiCache management operations such as creating the cluster and querying the ElastiCache
@@ -225,9 +211,7 @@ class ElastiCacheCMEManager:
         self.cluster.delete_cluster()
 ```
 
-## (Optional) Create a wrapper class to
-
-demo client connection to Valkey or Redis OSS cluster
+## (Optional) Create a wrapper class to demo client connection to Valkey or Redis OSS cluster
 
 Now, let’s create a wrapper class for the `redis-py-cluster` client.
 This wrapper class will support pre-filling the cluster with some keys and then
@@ -327,9 +311,7 @@ class DowntimeTestClient:
         self.repeat_get()
 ```
 
-## Create the main function that demos
-
-the process of changing in-transit encryption configuration
+## Create the main function that demos the process of changing in-transit encryption configuration
 
 Now, let’s define the main function, which will do the following:
 

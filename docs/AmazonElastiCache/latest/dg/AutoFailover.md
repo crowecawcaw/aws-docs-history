@@ -215,16 +215,11 @@ of failure.
 
 ###### Topics
 
-- [Failure scenarios when only the
-  primary node fails](#AutoFailover.Scenarios.PrimaryOnly "#AutoFailover.Scenarios.PrimaryOnly")
-- [Failure scenarios when
-  the primary node and some read replicas fail](#AutoFailover.Scenarios.PrimaryAndReplicas "#AutoFailover.Scenarios.PrimaryAndReplicas")
-- [Failure scenarios when the entire
-  cluster fails](#AutoFailover.Scenarios.AllFail "#AutoFailover.Scenarios.AllFail")
+- [Failure scenarios when only the primary node fails](#AutoFailover.Scenarios.PrimaryOnly "#AutoFailover.Scenarios.PrimaryOnly")
+- [Failure scenarios when the primary node and some read replicas fail](#AutoFailover.Scenarios.PrimaryAndReplicas "#AutoFailover.Scenarios.PrimaryAndReplicas")
+- [Failure scenarios when the entire cluster fails](#AutoFailover.Scenarios.AllFail "#AutoFailover.Scenarios.AllFail")
 
-### Failure scenarios when only the
-
-primary node fails
+### Failure scenarios when only the primary node fails
 
 If only the primary node fails, the read replica with the least replication lag is
 promoted to primary. A replacement read replica is then created and provisioned in
@@ -258,9 +253,7 @@ For information about finding the endpoints of a cluster, see the following topi
 
  
 
-### Failure scenarios when
-
-the primary node and some read replicas fail
+### Failure scenarios when the primary node and some read replicas fail
 
 If the primary and at least one read replica fails, the available replica with the
 least replication lag is promoted to primary cluster. New read replicas are also
@@ -298,9 +291,7 @@ For information about finding the endpoints of a replication group, see the foll
 
  
 
-### Failure scenarios when the entire
-
-cluster fails
+### Failure scenarios when the entire cluster fails
 
 If everything fails, all the nodes are recreated and provisioned in the same
 Availability Zones as the original nodes.

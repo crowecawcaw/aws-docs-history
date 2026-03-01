@@ -58,9 +58,7 @@ distributed across multiple Availability Zones, ElastiCache can create new nodes
 the various Availability Zones. You can then delete some or all of the original
 cache nodes. We recommend this approach.
 
-###### To migrate Memcached nodes from a single Availability Zone to multiple availability
-
-zones
+###### To migrate Memcached nodes from a single Availability Zone to multiple availability zones
 
 1. Modify your cluster by creating new cache nodes in the Availability Zones where you want them.
    In your request, do the following:
@@ -166,11 +164,9 @@ For more information on Regions and Availability Zones, see
 | For information on using the AWS GovCloud (US) with ElastiCache, see<br>[Services in the AWS GovCloud (US) region: ElastiCache](../../../govcloud-us/latest/UserGuide/govcloud-elc.md "../../../govcloud-us/latest/UserGuide/govcloud-elc.md"). |
 
 Some Regions support a subset of node types. For a table of supported node types by AWS Region,
-see [Supported node types by AWS
-Region](CacheNodes.md#CacheNodes.SupportedTypesByRegion "CacheNodes.md#CacheNodes.SupportedTypesByRegion").
+see [Supported node types by AWS Region](CacheNodes.md#CacheNodes.SupportedTypesByRegion "CacheNodes.md#CacheNodes.SupportedTypesByRegion").
 
-Most Regions support establishing a private connection between your VPC and ElastiCache API endpoints, by creating an interface VPC endpoint through AWS PrivateLink. For more information, see [ElastiCache API and interface VPC endpoints
-(AWS PrivateLink)](elasticache-privatelink.md "elasticache-privatelink.md").
+Most Regions support establishing a private connection between your VPC and ElastiCache API endpoints, by creating an interface VPC endpoint through AWS PrivateLink. For more information, see [ElastiCache API and interface VPC endpoints (AWS PrivateLink)](elasticache-privatelink.md "elasticache-privatelink.md").
 
 For a table of AWS products and services by region,
 see [Products and Services by Region](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").

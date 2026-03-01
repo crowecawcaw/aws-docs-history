@@ -1,8 +1,6 @@
 # Best practices when enabling in-transit encryption
 
-## Before enabling in-transit
-
-encryption: make sure you have proper DNS records handling
+## Before enabling in-transit encryption: make sure you have proper DNS records handling
 
 ###### Note
 
@@ -16,10 +14,7 @@ in a different format. TLS-enabled clusters use a different format of DNS record
 clusters. ElastiCache will keep both DNS records when a cluster is configured in `encryption mode: Preferred` so that Applications and other Valkey or Redis OSS clients can switch between them. The following changes in
 the DNS records take place during the TLS-migration process:
 
-### Description of
-
-the changes in the DNS records that take place when enabling in-transit
-encryption
+### Description of the changes in the DNS records that take place when enabling in-transit encryption
 
 **For CME clusters**
 
@@ -66,9 +61,7 @@ required’:
   Console or from the `describe-replication-group`
   API.
 
-### The suggested
-
-usage of the DNS records
+### The suggested usage of the DNS records
 
 **For CME clusters**
 
@@ -124,9 +117,7 @@ usage of the DNS records
   application is a bad practice since it can be changed during the TLS
   migration process.
 
-## During the in-transit
-
-encryption: pay attention to when the migration process finishes
+## During the in-transit encryption: pay attention to when the migration process finishes
 
 Change of transit encryption mode is not immediate and can take some time.
 This is especially true for large clusters. Only when the cluster finishes the
@@ -156,10 +147,7 @@ finishes the migration:
   set to True by querying the `describe-replication-group`
   API.
 
-### After enabling
-
-in-transit encryption: make sure the clients you use are configured
-properly
+### After enabling in-transit encryption: make sure the clients you use are configured properly
 
 While the cluster is in TLS-preferred mode, your application should open
 TLS connections to the cluster and only use those connections. This way your

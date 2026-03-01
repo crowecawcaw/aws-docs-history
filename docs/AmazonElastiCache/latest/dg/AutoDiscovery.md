@@ -1,23 +1,80 @@
-# Benefits of Auto Discovery with Memcached
+# How Auto Discovery Works
 
-When using Memcached, Auto Discovery offers the following benefits:
+###### Topics
 
-- When you increase the number of nodes in a cluster, the new nodes register themselves with the
-  configuration endpoint and with all of the other nodes. When you remove nodes from the cache
-  cluster, the departing nodes deregister themselves. In both cases, all of the other
-  nodes in the cluster are updated with the latest cache node metadata.
-- Cache node failures are automatically detected; failed nodes are automatically
-  replaced.
+- [Connecting to Cache Nodes](#AutoDiscovery.HowAutoDiscoveryWorks.Connecting "#AutoDiscovery.HowAutoDiscoveryWorks.Connecting")
+- [Normal Cluster Operations](#AutoDiscovery.HowAutoDiscoveryWorks.NormalOps "#AutoDiscovery.HowAutoDiscoveryWorks.NormalOps")
+- [Other Operations](#AutoDiscovery.HowAutoDiscoveryWorks.OtherOps "#AutoDiscovery.HowAutoDiscoveryWorks.OtherOps")
+  This section describes how client applications use the ElastiCache Cluster Client to manage
+  cache node connections, and interact with data items in the cache.
+
+## Connecting to Cache Nodes
+
+From the application's point of view, connecting to the cluster configuration endpoint is
+no different from connecting directly to an individual cache node. The following
+sequence diagram shows the process of connecting to cache nodes.
+
+![Connecting to Cache Nodes](images/autodiscovery_cluster_membership_refresh-diagram.png)
+
+Process of Connecting to Cache Nodes| 1 | The application resolves the configuration endpoint's DNS name. Because<br>the configuration endpoint maintains CNAME entries for all of the cache<br>nodes, the DNS name resolves to one of the nodes; the client can<br>then connect to that node. |
+| 2 | The client requests the configuration information for all of the<br>other nodes. Since each node maintains configuration information for<br>all of the nodes in the cluster, any node can pass configuration<br>information to the client upon request. |
+| 3 | The client receives the current list of cache node<br>hostnames and IP addresses. It can then connect to all of the<br>other nodes in the cluster. |
 
 ###### Note
 
-Until node replacement completes, the node will continue to fail.
+The client program refreshes its list of cache node hostnames and IP addresses
+once per minute. This polling interval can be adjusted if necessary.
 
-- A client program only needs to connect to the configuration endpoint. After that, the
-  Auto Discovery library connects to all of the other nodes in the cluster.
-- Client programs poll the cluster once per minute (this interval can be adjusted
-  if necessary). If there are any changes to the cluster configuration, such as new or
-  deleted nodes, the client receives an updated list of metadata. Then the client
-  connects to, or disconnects from, these nodes as needed.
-  Auto Discovery is enabled on all ElastiCache Memcached clusters. You do not need to reboot
-  any of your cache nodes to use this feature.
+## Normal Cluster Operations
+
+When the application has connected to all of the cache nodes, ElastiCache Cluster Client
+determines which nodes should store individual data items, and which nodes should be
+queried for those data items later. The following sequence diagram shows the process
+of normal cluster operations.
+
+![Normal Cluster Operations](images/autodiscovery_normal_cache_usage-diagram.png)
+
+Process of Normal Cluster Operations| 1 | The application issues a \*get<br>• request for a<br>particular data item, identified by its key. |
+| 2 | The client uses a hashing algorithm against the key to<br>determine which cache node contains the data item. |
+| 3 | The data item is requested from the appropriate node. |
+| 4 | The data item is returned to the application. |
+
+## Other Operations
+
+In some situations, you might make a change to a cluster's nodes. For example, you might
+add an additional node to accommodate additional demand, or delete a node to save
+money during periods of reduced demand. Or you might replace a node due to a node
+failure of one sort or another.
+
+When there is a change in the cluster that requires a metadata update to the cluster's endpoints,
+that change is made to all nodes at the same time. Thus the metadata in any given node is consistent
+with the metadata in all of the other nodes in the cluster.
+
+In each of these cases, the metadata is consistent among all the nodes at all times
+since the metadata is updated at the same time for all nodes in the cluster.
+You should always use the configuration endpoint to obtain the endpoints of the various nodes in the cluster.
+By using the configuration endpoint,
+you ensure that you will not be obtaining endpoint data from a node that “disappears” on you.
+
+### Adding a Node
+
+During the time that the node is being spun up, its endpoint is not included in the metadata.
+As soon as the node is available, it is added to the metadata of each of the cluster’s nodes.
+In this scenario, the metadata is consistent among all the nodes and
+you will be able to interact with the new node only after it is available. Before the node being available, you will not know about it and will interact with the nodes in your cluster the same as though the new node does not exist.
+
+### Deleting a Node
+
+When a node is removed, its endpoint is first removed from the metadata and then the node is removed from the cluster.
+In this scenario the metadata in all the nodes is consistent and there is no time in which it will contain
+the endpoint for the node to be removed while the node is not available.
+During the node removal time it is not reported in the metadata and so your application will only be interacting with the n-1 remaining nodes,
+as though the node does not exist.
+
+### Replacing a Node
+
+If a node fails, ElastiCache takes down that node and spins up a replacement.
+The replacement process takes a few minutes.
+During this time the metadata in all the nodes still shows the endpoint for the failed node,
+but any attempt to interact with the node will fail.
+Therefore, your logic should always include retry logic.

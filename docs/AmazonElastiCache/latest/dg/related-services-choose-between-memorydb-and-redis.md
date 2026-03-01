@@ -11,10 +11,4 @@ When deciding whether to use ElastiCache or MemoryDB consider the following comp
   (microsecond read and single-digit millisecond write latency). MemoryDB may also be a good fit for your use case if you want to build an application using Valkey or Redis OSS data structures and APIs with a primary, durable database. Finally, you should consider using MemoryDB to simplify your application architecture and lower costs by replacing usage of a database with a cache for durability and performance.
   [Amazon Relational Database Service](https://aws.amazon.com/rds/ "https://aws.amazon.com/rds/")
 
-ElastiCache can help you save database costs by storing frequently accessed data in a cache. If your application has high read throughput requirements, you can achieve high scale, fast performance, and lowered data storage costs by using ElastiCache, instead of scaling your underlying database.
-
 For further background information on the related Amazon Relational Database Service service, see [Amazon RDS](../../../rds.md "../../../rds.md")
-
-ElastiCache can help you save database costs by storing frequently accessed data in a cache.
-If your application has high read throughput requirements, you can achieve high scale, fast performance,
-and lowered data storage costs by using ElastiCache, instead of scaling your underlying database.

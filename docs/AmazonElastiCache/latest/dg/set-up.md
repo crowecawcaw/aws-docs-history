@@ -88,9 +88,7 @@ To grant users programmatic access, choose one of the following options.
 - [What is IAM](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") in the _IAM User Guide_.
 - [AWS Security Credentials](../../../general/latest/gr/aws-security-credentials.md "../../../general/latest/gr/aws-security-credentials.md") in _AWS General Reference_.
 
-## Set up your permissions (new ElastiCache users
-
-only)
+## Set up your permissions (new ElastiCache users only)
 
 To provide access, add permissions to your users, groups, or roles:
 
@@ -121,9 +119,8 @@ service-linked role.
 For more information, see the following:
 
 - [Creating a New Policy](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") (IAM)
-- [AWS managed policies for Amazon ElastiCache](IAM.IdentityBasedPolicies.md "IAM.IdentityBasedPolicies.md")
-- [Using Service-Linked Roles for
-  Amazon ElastiCache](using-service-linked-roles.md "using-service-linked-roles.md")
+- [AWS managed policies for Amazon ElastiCache](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
+- [Using Service-Linked Roles for Amazon ElastiCache](using-service-linked-roles.md "using-service-linked-roles.md")
 
 ## Set up EC2
 

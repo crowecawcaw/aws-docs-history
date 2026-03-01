@@ -1,6 +1,4 @@
-# Registering a Scalable
-
-Target
+# Registering a Scalable Target
 
 Before you can use Auto Scaling with an ElastiCache for Valkey and Redis OSS cluster, you register your cluster
 with ElastiCache auto scaling. You do so to define the scaling dimension and limits to be

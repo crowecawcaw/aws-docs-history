@@ -13,9 +13,7 @@ These topics do not apply to ElastiCache Serverless.
 
 - [Auto Scaling Valkey and Redis OSS clusters](AutoScaling.md "AutoScaling.md")
 - [Modifying cluster mode](modify-cluster-mode.md "modify-cluster-mode.md")
-- [Replication across AWS Regions using global
-  datastores](Redis-Global-Datastore.md "Redis-Global-Datastore.md")
+- [Replication across AWS Regions using global datastores](Redis-Global-Datastore.md "Redis-Global-Datastore.md")
 - [High availability using replication groups](Replication.md "Replication.md")
 - [Managing ElastiCache cluster maintenance](maintenance-window.md "maintenance-window.md")
-- [Configuring engine parameters using ElastiCache parameter
-  groups](ParameterGroups.md "ParameterGroups.md")
+- [Configuring engine parameters using ElastiCache parameter groups](ParameterGroups.md "ParameterGroups.md")

@@ -1,13 +1,9 @@
-# Editing a scaling
-
-policy
+# Editing a scaling policy
 
 You can edit a scaling policy using the AWS Management Console, the AWS CLI, or the Application
 Auto Scaling API.
 
-## Editing a
-
-scaling policy using the AWS Management Console
+## Editing a scaling policy using the AWS Management Console
 
 ###### To edit an Auto Scaling policy for an ElastiCache for Valkey and Redis OSS cluster
 
@@ -22,9 +18,7 @@ scaling policy using the AWS Management Console
 6. Make the requisite changes to the policy.
 7. Choose **Modify**.
 
-## Editing a
-
-scaling policy using the AWS CLI and API
+## Editing a scaling policy using the AWS CLI and API
 
 You can use the AWS CLI or the Application Auto Scaling API to edit a scaling
 policy in the same way that you apply a scaling policy:
@@ -36,5 +30,4 @@ policy in the same way that you apply a scaling policy:
   policy you want to edit in the `PolicyName` parameter.
   Specify new values for the parameters you want to change.
 
-For more information, see [Applying a
-scaling policy](AutoScaling-Scaling-Applying-a-Scaling-Policy.md "AutoScaling-Scaling-Applying-a-Scaling-Policy.md").
+For more information, see [Applying a scaling policy](AutoScaling-Scaling-Applying-a-Scaling-Policy.md "AutoScaling-Scaling-Applying-a-Scaling-Policy.md").

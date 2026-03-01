@@ -1,6 +1,4 @@
-# Adding a scaling
-
-policy
+# Adding a scaling policy
 
 You can add a scaling policy using the AWS Management Console.
 

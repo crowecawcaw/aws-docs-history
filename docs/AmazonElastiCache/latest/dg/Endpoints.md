@@ -3,14 +3,13 @@
 Your application connects to your ElastiCache cluster using endpoints.
 An endpoint is a node or cluster's unique address.
 
-You can also establish a private connection between your VPC and ElastiCache API endpoints by creating an interface VPC endpoint through AWS PrivateLink. For more information, see [ElastiCache API and interface VPC endpoints
-(AWS PrivateLink)](elasticache-privatelink.md "elasticache-privatelink.md").
+You can also establish a private connection between your VPC and ElastiCache API endpoints by creating an interface VPC endpoint through AWS PrivateLink. For more information, see [ElastiCache API and interface VPC endpoints (AWS PrivateLink)](elasticache-privatelink.md "elasticache-privatelink.md").
 
 **Which endpoints to use with Valkey or Redis OSS.**
 
 - For a **standalone node**,
   use the node's endpoint for both read and write operations.
-- For **Valkey or Valkey or Redis OSS (cluster mode disabled) clusters**,
+- For **Valkey or Redis OSS (cluster mode disabled) clusters**,
   use the _Primary Endpoint_ for all write operations. Use the _Reader Endpoint_ to evenly split incoming connections to the endpoint between all read replicas.
   Use the individual _Node Endpoints_ for read operations (In the
   API/CLI these are referred to as Read Endpoints).
@@ -81,9 +80,9 @@ This means you must use a client that supports Automatic Discovery.
 If you don't use Automatic Discovery, you must configure your client to use the individual node endpoints for
 reads and writes. You must also keep track of them as you add and remove nodes.
 
-If a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster has only one node, the node's endpoint is used for both reads and writes.
+If a Valkey or Redis OSS (cluster mode disabled) cluster has only one node, the node's endpoint is used for both reads and writes.
 
-If a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster has multiple nodes, there are three types of endpoints; the _primary endpoint_, the _reader endpoint_ and
+If a Valkey or Redis OSS (cluster mode disabled) cluster has multiple nodes, there are three types of endpoints; the _primary endpoint_, the _reader endpoint_ and
 the _node endpoints_.
 
 The primary endpoint is a DNS name that always resolves to the primary node in the cluster.
@@ -104,34 +103,34 @@ Unlike the primary endpoint, node endpoints resolve to specific endpoints.
 If you make a change in your cluster, such as adding or deleting a replica,
 you must update the node endpoints in your application.
 
-###### To find a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster's endpoints
+###### To find a Valkey or Redis OSS (cluster mode disabled) cluster's endpoints
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at
    [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
 2. From the navigation pane, choose **Valkey clusters** or **Redis OSS clusters**.
 
-The clusters screen will appear with a list of Valkey or Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled) clusters. 3. To find the cluster's Primary and/or Reader endpoints, choose the cluster's name (not the button to its left).
+The clusters screen will appear with a list of Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled) clusters. 3. To find the cluster's Primary and/or Reader endpoints, choose the cluster's name (not the button to its left).
 
-![Image: Primary endpoint for a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster](images/Reader-Endpoint.png)
+![Image: Primary endpoint for a Valkey or Redis OSS (cluster mode disabled) cluster](images/Reader-Endpoint.png)
 
-_Primary and Reader endpoints for a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster_
+_Primary and Reader endpoints for a Valkey or Redis OSS (cluster mode disabled) cluster_
 
-If there is only one node in the cluster, there is no primary endpoint and you can continue at the next step. 4. If the Valkey or Valkey or Redis OSS (cluster mode disabled) cluster has replica nodes,
+If there is only one node in the cluster, there is no primary endpoint and you can continue at the next step. 4. If the Valkey or Redis OSS (cluster mode disabled) cluster has replica nodes,
 you can find the cluster's replica node endpoints by choosing the cluster's
 name and then choosing the **Nodes** tab.
 
 The nodes screen appears with each node in the cluster, primary and replicas,
 listed with its endpoint.
 
-![Image: Node endpoints for a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster](images/ElastiCache-Endpoints-Redis-Node.png)
+![Image: Node endpoints for a Valkey or Redis OSS (cluster mode disabled) cluster](images/ElastiCache-Endpoints-Redis-Node.png)
 
-_Node endpoints for a Valkey or Valkey or Redis OSS (cluster mode disabled) cluster_ 5. To copy an endpoint to your clipboard:
+_Node endpoints for a Valkey or Redis OSS (cluster mode disabled) cluster_ 5. To copy an endpoint to your clipboard:
 
     1. One endpoint at a time, find the endpoint you want to copy.
     2. Choose the copy icon directly in front of the endpoint.The endpoint is now copied to your clipboard. For information on using the endpoint to connect to a node, see
 
 [Connecting to Memcached nodes](nodes-connecting.md#nodes-connecting.mem "nodes-connecting.md#nodes-connecting.mem").
-A Valkey or Valkey or Redis OSS (cluster mode disabled) primary endpoint looks something like the following. There is a difference depending upon whether
+A Valkey or Redis OSS (cluster mode disabled) primary endpoint looks something like the following. There is a difference depending upon whether
 or not In-Transit encryption is enabled.
 
 **In-transit encryption not enabled**

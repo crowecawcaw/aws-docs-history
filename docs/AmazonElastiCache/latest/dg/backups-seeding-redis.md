@@ -36,8 +36,7 @@ If the backup is too large, the resulting cluster has a status of
 cluster and start over.
 
 For a complete listing of node types and specifications,
-see [Redis OSS node-type specific
-parameters](ParameterGroups.md#ParameterGroups.Redis.NodeSpecific "ParameterGroups.md#ParameterGroups.Redis.NodeSpecific")
+see [Redis OSS node-type specific parameters](ParameterGroups.md#ParameterGroups.Redis.NodeSpecific "ParameterGroups.md#ParameterGroups.Redis.NodeSpecific")
 and [Amazon ElastiCache product features and details](https://aws.amazon.com/elasticache/details/ "https://aws.amazon.com/elasticache/details/").
 
 - You can encrypt a Valkey or Redis OSS .rdb file with Amazon S3 server-side encryption (SSE-S3) only. For more information, see
@@ -185,9 +184,7 @@ You must enable, or opt in, to these Regions before you can use them, as describ
 in [Managing AWS
 regions](../../../general/latest/gr/rande-manage.md "../../../general/latest/gr/rande-manage.md") in _AWS General Reference_.
 
-###### To grant ElastiCache read access to the backup file in an AWS Region enabled by
-
-default
+###### To grant ElastiCache read access to the backup file in an AWS Region enabled by default
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").

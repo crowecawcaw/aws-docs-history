@@ -67,14 +67,10 @@ ElastiCache Serverless caches and node-based clusters support all Redis OSS vers
 - [ElastiCache version 6.2 for Redis OSS (enhanced)](#redis-version-6.2 "#redis-version-6.2")
 - [ElastiCache version 6.0 for Redis OSS (enhanced)](#redis-version-6.0 "#redis-version-6.0")
 - [ElastiCache version 5.0.6 for Redis OSS (enhanced)](#redis-version-5-0.6 "#redis-version-5-0.6")
-- [ElastiCache version 5.0.5 for Redis OSS (deprecated, use version
-  5.0.6)](#redis-version-5-0.5 "#redis-version-5-0.5")
-- [ElastiCache version 5.0.4 for Redis OSS (deprecated, use version
-  5.0.6)](#redis-version-5-0.4 "#redis-version-5-0.4")
-- [ElastiCache version 5.0.3 for Redis OSS (deprecated, use version
-  5.0.6)](#redis-version-5-0.3 "#redis-version-5-0.3")
-- [ElastiCache version 5.0.0 for Redis OSS (deprecated, use version
-  5.0.6)](#redis-version-5-0 "#redis-version-5-0")
+- [ElastiCache version 5.0.5 for Redis OSS (deprecated, use version 5.0.6)](#redis-version-5-0.5 "#redis-version-5-0.5")
+- [ElastiCache version 5.0.4 for Redis OSS (deprecated, use version 5.0.6)](#redis-version-5-0.4 "#redis-version-5-0.4")
+- [ElastiCache version 5.0.3 for Redis OSS (deprecated, use version 5.0.6)](#redis-version-5-0.3 "#redis-version-5-0.3")
+- [ElastiCache version 5.0.0 for Redis OSS (deprecated, use version 5.0.6)](#redis-version-5-0 "#redis-version-5-0")
 - [ElastiCache version 4.0.10 for Redis OSS (enhanced)](#redis-version-4-0-10 "#redis-version-4-0-10")
 - [Past End of Life (EOL) versions (3.x)](#redis-version-3-2-10-scheduled-eol "#redis-version-3-2-10-scheduled-eol")
 - [Past End of Life (EOL) versions (2.x)](#redis-version-2-x-eol "#redis-version-2-x-eol")
@@ -313,9 +309,7 @@ ElastiCache has back-ported two critical bug fixes from [Redis OSS open source v
 
 For more information, see [Redis OSS 5.0.6 Release Notes](https://github.com/redis/redis/blob/5.0/00-RELEASENOTES "https://github.com/redis/redis/blob/5.0/00-RELEASENOTES") at Redis OSS on GitHub.
 
-### ElastiCache version 5.0.5 for Redis OSS (deprecated, use version
-
-5.0.6)
+### ElastiCache version 5.0.5 for Redis OSS (deprecated, use version 5.0.6)
 
 Amazon ElastiCache introduces the next version of ElastiCache for the Redis OSS engine;. It includes online
 configuration changes for ElastiCache of auto-failover clusters during all planned
@@ -325,9 +319,7 @@ serving incoming requests. It also includes bug fixes.
 
 For more information, see [Redis OSS 5.0.5 Release Notes](https://github.com/redis/redis/blob/5.0/00-RELEASENOTES "https://github.com/redis/redis/blob/5.0/00-RELEASENOTES") at Redis OSS on GitHub.
 
-### ElastiCache version 5.0.4 for Redis OSS (deprecated, use version
-
-5.0.6)
+### ElastiCache version 5.0.4 for Redis OSS (deprecated, use version 5.0.6)
 
 Amazon ElastiCache introduces the next version of the Redis OSS engine supported by ElastiCache.
 It includes the following enhancements:
@@ -342,16 +334,12 @@ It includes the following enhancements:
 
 For more information, see [Redis OSS 5.0.4 Release Notes](https://github.com/redis/redis/blob/5.0/00-RELEASENOTES "https://github.com/redis/redis/blob/5.0/00-RELEASENOTES") at Redis OSS on GitHub.
 
-### ElastiCache version 5.0.3 for Redis OSS (deprecated, use version
-
-5.0.6)
+### ElastiCache version 5.0.3 for Redis OSS (deprecated, use version 5.0.6)
 
 Amazon ElastiCache introduces the next version of ElastiCache for the Redis OSS engine,
 which includes bug fixes.
 
-### ElastiCache version 5.0.0 for Redis OSS (deprecated, use version
-
-5.0.6)
+### ElastiCache version 5.0.0 for Redis OSS (deprecated, use version 5.0.6)
 
 Amazon ElastiCache introduces the next major version of ElastiCache for the Redis OSS engine. ElastiCache version 5.0.0 for Redis OSS
 brings support for the following improvements:
@@ -380,8 +368,7 @@ ElastiCache version 4.0.10 for Redis OSS brings support for the following improv
   - [Online resharding for Valkey or Redis OSS (cluster mode enabled)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online")
   - [Data security in Amazon ElastiCache](encryption.md "encryption.md")
 
-- A number of new parameters. For more information, see [Redis OSS 4.0.10 parameter
-  changes](ParameterGroups.md#ParameterGroups.Redis.4-0-10 "ParameterGroups.md#ParameterGroups.Redis.4-0-10").
+- A number of new parameters. For more information, see [Redis OSS 4.0.10 parameter changes](ParameterGroups.md#ParameterGroups.Redis.4-0-10 "ParameterGroups.md#ParameterGroups.Redis.4-0-10").
 - Support for family of memory commands, such as `MEMORY`. For
   more information, see [Commands](https://valkey.io/commands "https://valkey.io/commands") (search on MEMO).
 - Support for memory defragmentation while online thus allowing more
@@ -406,9 +393,7 @@ their clusters via online upgrade.
 | \<br>• Adding, removing, and rebalancing<br>shards.                                                                                                                                                           |
 | \*\<br>• Required for FedRAMP, HIPAA, and PCI DSS<br>compliant applications. For more information, see [Compliance validation for Amazon ElastiCache](elasticache-compliance.md "elasticache-compliance.md"). |
 
-### Past End of Life (EOL)
-
-versions (3.x)
+### Past End of Life (EOL) versions (3.x)
 
 #### ElastiCache version 3.2.10 for Redis OSS (enhanced)
 
@@ -509,8 +494,7 @@ information, see [Redis OSS 2.8 release notes](https://github.com/redis/redis/bl
 new parameter `close-on-slave-write` which, if enabled, disconnects
 clients who attempt to write to a read-only replica.
 
-For more information on Redis OSS 2.8.23 parameters, see [Redis OSS 2.8.23 (enhanced) added
-parameters](ParameterGroups.md#ParameterGroups.Redis.2-8-23 "ParameterGroups.md#ParameterGroups.Redis.2-8-23") in the ElastiCache User
+For more information on Redis OSS 2.8.23 parameters, see [Redis OSS 2.8.23 (enhanced) added parameters](ParameterGroups.md#ParameterGroups.Redis.2-8-23 "ParameterGroups.md#ParameterGroups.Redis.2-8-23") in the ElastiCache User
 Guide.
 
 #### ElastiCache version 2.8.22 for Redis OSS (enhanced)
@@ -693,8 +677,7 @@ features:
 - `--enable-seccomp`: A compile-time option.
 
 It also introduces the `no_modern` and `inline_ascii_resp`
-parameters. For more information, see [Memcached 1.5.10 parameter
-changes](ParameterGroups.md#ParameterGroups.Memcached.1-5-10 "ParameterGroups.md#ParameterGroups.Memcached.1-5-10").
+parameters. For more information, see [Memcached 1.5.10 parameter changes](ParameterGroups.md#ParameterGroups.Memcached.1-5-10 "ParameterGroups.md#ParameterGroups.Memcached.1-5-10").
 
 Memcached improvements added since ElastiCache version 1.4.34 for Memcached
 include the following:
@@ -738,8 +721,7 @@ Memcached without having to restart the cluster. For more information, see
 - Freed memory can be reclaimed back into a global pool and reassigned to
   new slab classes. For more information, see [Memcached 1.4.25 Release Notes](https://github.com/memcached/memcached/wiki/ReleaseNotes1425 "https://github.com/memcached/memcached/wiki/ReleaseNotes1425").
 - Several bug fixes.
-- Some new commands and parameters. For a list, see [Memcached 1.4.33 added
-  parameters](ParameterGroups.md#ParameterGroups.Memcached.1-4-33 "ParameterGroups.md#ParameterGroups.Memcached.1-4-33").
+- Some new commands and parameters. For a list, see [Memcached 1.4.33 added parameters](ParameterGroups.md#ParameterGroups.Memcached.1-4-33 "ParameterGroups.md#ParameterGroups.Memcached.1-4-33").
 
 ### ElastiCache version 1.4.24 for Memcached
 
@@ -748,8 +730,7 @@ Improvements added since version 1.4.14 include the following:
 - Least recently used (LRU) management using a background process.
 - Added the option of using _jenkins_ or
   _murmur3_ as your hash algorithm.
-- Some new commands and parameters. For a list, see [Memcached 1.4.24 added
-  parameters](ParameterGroups.md#ParameterGroups.Memcached.1-4-24 "ParameterGroups.md#ParameterGroups.Memcached.1-4-24").
+- Some new commands and parameters. For a list, see [Memcached 1.4.24 added parameters](ParameterGroups.md#ParameterGroups.Memcached.1-4-24 "ParameterGroups.md#ParameterGroups.Memcached.1-4-24").
 - Several bug fixes.
 
 ### ElastiCache version 1.4.14 for Memcached

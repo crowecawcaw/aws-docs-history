@@ -47,8 +47,7 @@ Data tiering has the following limitations:
 - You cannot restore a backup of an r6gd cluster into another cluster unless it also uses r6gd.
 - You cannot export a backup to Amazon S3 for data-tiering clusters.
 - Online migration is not supported for clusters running on the r6gd node type.
-- Scaling is not supported from a data tiering cluster (for example, a cluster using an r6gd node type) to a cluster that does not
-  use data tiering (for example, a cluster using an r6g node type). For more information, see [Scaling ElastiCache](Scaling.md "Scaling.md").
+- Scaling between clusters with data tiering enabled and data tiering disabled is not supported. To migrate data from an ElastiCache cluster with data tiering disabled to a cluster with data tiering enabled, you can restore a backup to a new cluster with data tiering enabled. For more information, see [Scaling ElastiCache](Scaling.md "Scaling.md").
 - Auto scaling is supported on clusters using data tiering for Valkey version 7.2 and later, and Redis OSS version 7.0.7 and later. For more information, see [Auto Scaling Valkey and Redis OSS clusters](AutoScaling.md "AutoScaling.md")
 - Data tiering only supports `volatile-lru`, `allkeys-lru`, `volatile-lfu`, `allkeys-lfu` and `noeviction` maxmemory policies.
 - Forkless save is supported for Valkey version 7.2 and later, and Redis OSS version 7.0.7 and later. For more information, see [How synchronization and backup are implemented](Replication.Redis.md "Replication.Redis.md").

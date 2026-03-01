@@ -7,20 +7,15 @@ security events.
 
 ###### Topics
 
-- [SEC 1: What steps are you taking in controlling authorized access to
-  ElastiCache data?](#SecurityPillarSEC1 "#SecurityPillarSEC1")
-- [SEC 2: Do your applications require additional authorization to ElastiCache
-  over and above networking-based controls?](#SecurityPillarSEC2 "#SecurityPillarSEC2")
-- [SEC 3: Is there a risk that commands can be executed inadvertently, causing
-  data loss or failure?](#SecurityPillarSEC3 "#SecurityPillarSEC3")
+- [SEC 1: What steps are you taking in controlling authorized access to ElastiCache data?](#SecurityPillarSEC1 "#SecurityPillarSEC1")
+- [SEC 2: Do your applications require additional authorization to ElastiCache over and above networking-based controls?](#SecurityPillarSEC2 "#SecurityPillarSEC2")
+- [SEC 3: Is there a risk that commands can be executed inadvertently, causing data loss or failure?](#SecurityPillarSEC3 "#SecurityPillarSEC3")
 - [SEC 4: How do you ensure data encryption at rest with ElastiCache](#SecurityPillarSEC4 "#SecurityPillarSEC4")
 - [SEC 5: How do you encrypt in-transit data with ElastiCache?](#SecurityPillarSEC5 "#SecurityPillarSEC5")
 - [SEC 6: How do you restrict access to control plane resources?](#SecurityPillarSEC6 "#SecurityPillarSEC6")
 - [SEC 7: How do you detect and respond to security events?](#SecurityPillarSEC7 "#SecurityPillarSEC7")
 
-## SEC 1: What steps are you taking in controlling authorized access to
-
-ElastiCache data?
+## SEC 1: What steps are you taking in controlling authorized access to ElastiCache data?
 
 **Question-level introduction:** All ElastiCache
 clusters are designed to be accessed from Amazon Elastic Compute Cloud instances in a VPC, serverless
@@ -72,9 +67,7 @@ to access Amazon ElastiCache in an Amazon VPC: [Tutorial:
 Configuring a Lambda function to access Amazon ElastiCache in an Amazon
 VPC](../../../lambda/latest/dg/services-elasticache-tutorial.md "../../../lambda/latest/dg/services-elasticache-tutorial.md")
 
-## SEC 2: Do your applications require additional authorization to ElastiCache
-
-over and above networking-based controls?
+## SEC 2: Do your applications require additional authorization to ElastiCache over and above networking-based controls?
 
 **Question-level introduction:** In scenarios where
 it is necessary to restrict or control access to clusters at
@@ -114,9 +107,7 @@ performing authorized commands.
 **[Resources]:** [Modifying the AUTH token on an existing ElastiCache
 cluster](auth.md#auth-modifyng-token "auth.md#auth-modifyng-token")
 
-## SEC 3: Is there a risk that commands can be executed inadvertently, causing
-
-data loss or failure?
+## SEC 3: Is there a risk that commands can be executed inadvertently, causing data loss or failure?
 
 **Question-level introduction:** There are a number
 of Valkey or Redis OSS commands that can have adverse impacts on operations if executed by mistake

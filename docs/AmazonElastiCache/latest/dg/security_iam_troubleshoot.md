@@ -5,15 +5,11 @@ encounter when working with ElastiCache and IAM.
 
 ###### Topics
 
-- [I am not authorized to perform an action in
-  ElastiCache](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform an action in ElastiCache](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
 - [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow people outside of my AWS account
-  to access my ElastiCache resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I want to allow people outside of my AWS account to access my ElastiCache resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
 
-## I am not authorized to perform an action in
-
-ElastiCache
+## I am not authorized to perform an action in ElastiCache
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you must contact your
 administrator for assistance. Your administrator is the person that provided you with your user name and
@@ -50,9 +46,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow people outside of my AWS account
-
-to access my ElastiCache resources
+## I want to allow people outside of my AWS account to access my ElastiCache resources
 
 You can create a role that users in other accounts or people outside of your organization can use to access your resources. You can specify who
 is trusted to assume the role. For services that support resource-based policies or access control lists (ACLs), you can use those policies to grant

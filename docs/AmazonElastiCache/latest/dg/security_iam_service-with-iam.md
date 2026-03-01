@@ -37,15 +37,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-### Identity-based policy examples for
-
-ElastiCache
+### Identity-based policy examples for ElastiCache
 
 To view examples of ElastiCache identity-based policies, see [Identity-based policy examples for Amazon ElastiCache](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based policies within
-
-ElastiCache
+## Resource-based policies within ElastiCache
 
 **Supports resource-based policies:**
 
@@ -121,9 +117,7 @@ _Service Authorization Reference_. To learn with which actions you can specify t
 
 To view examples of ElastiCache identity-based policies, see [Identity-based policy examples for Amazon ElastiCache](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy condition keys for
-
-ElastiCache
+## Policy condition keys for ElastiCache
 
 **Supports service-specific policy condition keys:**
 
@@ -182,9 +176,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service principal permissions for
-
-ElastiCache
+## Cross-service principal permissions for ElastiCache
 
 **Supports forward access sessions (FAS):**
 

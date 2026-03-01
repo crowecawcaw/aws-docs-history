@@ -4,9 +4,7 @@ You can use the AWS Command Line Interface (AWS CLI) to control multiple AWS ser
 line and automate them through scripts. You can use the AWS CLI for ad hoc (one-time)
 operations.
 
-## Downloading and configuring
-
-the AWS CLI
+## Downloading and configuring the AWS CLI
 
 The AWS CLI runs on Windows, macOS, or Linux. Use the following procedure to download
 and configure it.
@@ -18,9 +16,7 @@ and configure it.
 2. Follow the instructions for Installing the AWS CLI and Configuring the AWS
    CLI in the _AWS Command Line Interface User Guide_.
 
-## Using the AWS CLI with global
-
-datastores
+## Using the AWS CLI with global datastores
 
 Use the following CLI operations to work with global datastores:
 

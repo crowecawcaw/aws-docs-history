@@ -22,5 +22,4 @@ the end of Extended Support dates, see [ElastiCache versions for Redis OSS end o
 
 - [ElastiCache Extended Support charges](extended-support-charges.md "extended-support-charges.md")
 - [Versions with ElastiCache Extended Support](extended-support-versions.md "extended-support-versions.md")
-- [ElastiCache and customer
-  responsibilities with ElastiCache Extended Support](extended-support-responsibilities.md "extended-support-responsibilities.md")
+- [ElastiCache and customer responsibilities with ElastiCache Extended Support](extended-support-responsibilities.md "extended-support-responsibilities.md")

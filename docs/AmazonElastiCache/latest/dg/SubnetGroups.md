@@ -1,42 +1,19 @@
-# Deleting a subnet group
+# Assigning a subnet group to a cache
 
-If you decide that you no longer need your subnet group, you can delete it.
-You cannot delete a subnet group if it is currently in use by a cache.
+After you have created a subnet group, you can launch a cache in an Amazon VPC.
+For more information, see the following.
 
-The following procedures show you how to delete a subnet group.
+- **Memcached cluster** –
+  To launch a Memcached cluster, see [Creating a Memcached cluster (console)](Clusters.md#Clusters.Create.CON.Memcached "Clusters.md#Clusters.Create.CON.Memcached").
+  In step 7.a (**Advanced Memcached Settings**), choose a VPC subnet group.
+- **Standalone Valkey or Redis OSS cluster** –
+  To launch a single-node Valkey or Redis OSS cluster, see [Creating a Valkey (cluster mode disabled) cluster (Console)](SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs "SubnetGroups.designing-cluster-pre.md#Clusters.Create.CON.valkey-gs").
+  In step 7.a (**Advanced Redis OSS Settings**), choose a VPC subnet group.
+- **Valkey or Redis OSS (cluster mode disabled) replication group** –
+  To launch a Valkey or Redis OSS (cluster mode disabled) replication group in a VPC, see [Creating a Valkey or Redis OSS (Cluster Mode Disabled) replication group from scratch](Replication.CreatingReplGroup.NoExistingCluster.md "Replication.CreatingReplGroup.NoExistingCluster.md").
 
-## Deleting a subnet group (Console)
+In step 7.b (**Advanced Redis OSS Settings**), choose a VPC subnet group.
 
-###### To delete a subnet group
-
-1. Sign in to the AWS Management Console and open the ElastiCache console at
-   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. In the navigation pane, choose **Subnet groups**.
-3. In the list of subnet groups,
-   choose the one you want to delete and then choose **Delete**.
-4. When you are asked to confirm this operation, type the name of the subnet group in the text input field and choose **Delete**.
-
-## Deleting a subnet group (AWS CLI)
-
-Using the AWS CLI, call the command **delete-cache-subnet-group** with the following
-parameter:
-
-- `--cache-subnet-group-name` `mysubnetgroup`
-
-For Linux, macOS, or Unix:
-
-```
-aws elasticache delete-cache-subnet-group \
-    --cache-subnet-group-name `mysubnetgroup`
-```
-
-For Windows:
-
-```
-aws elasticache delete-cache-subnet-group ^
-    --cache-subnet-group-name `mysubnetgroup`
-```
-
-This command produces no output.
-
-For more information, see the AWS CLI topic delete-cache-subnet-group.
+- **Valkey or Redis OSS (cluster mode enabled) replication group** –
+  [Creating a Valkey or Redis OSS (Cluster Mode Enabled) cluster (Console)](Replication.CreatingReplGroup.NoExistingCluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON "Replication.CreatingReplGroup.NoExistingCluster.md#Replication.CreatingReplGroup.NoExistingCluster.Cluster.CON").
+  In step 6.i (**Advanced Redis OSS Settings**), choose a VPC subnet group.

@@ -13,9 +13,9 @@ By default, access to a cluster is restricted to the account that launched the c
 
 ###### Topics
 
-- [Grant access to your cluster or replication group](#grant-access "#grant-access")
+- [Grant access to your clusteror replication group](#grant-access "#grant-access")
 
-## Grant access to your cluster or replication group
+## Grant access to your clusteror replication group
 
 ### You launched your cluster into EC2-VPC
 

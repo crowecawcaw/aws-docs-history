@@ -108,8 +108,7 @@ aws elasticache create-cache-parameter-group \
 ```
 
 2. Calculate how many bytes of memory to reserve for Valkey or Redis OSS overhead. You can find the value
-   of `maxmemory` for your node type at [Redis OSS node-type specific
-   parameters](ParameterGroups.md#ParameterGroups.Redis.NodeSpecific "ParameterGroups.md#ParameterGroups.Redis.NodeSpecific").
+   of `maxmemory` for your node type at [Redis OSS node-type specific parameters](ParameterGroups.md#ParameterGroups.Redis.NodeSpecific "ParameterGroups.md#ParameterGroups.Redis.NodeSpecific").
 3. Modify the custom parameter group so that the parameter
    `reserved-memory` is the number of bytes you calculated
    in the previous step. The following AWS CLI example assumes you’re running a version

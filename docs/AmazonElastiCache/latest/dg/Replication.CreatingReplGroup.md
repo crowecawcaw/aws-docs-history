@@ -154,9 +154,7 @@ For additional information, see the AWS CLI topics:
 - [create-replication-group](../../../cli/latest/reference/elasticache/create-replication-group.md "../../../cli/latest/reference/elasticache/create-replication-group.md")
 - [modify-replication-group](../../../cli/latest/reference/elasticache/modify-replication-group.md "../../../cli/latest/reference/elasticache/modify-replication-group.md")
 
-## Adding replicas
-
-to a standalone Valkey or Redis OSS (Cluster Mode Disabled) cluster (ElastiCache API)
+## Adding replicas to a standalone Valkey or Redis OSS (Cluster Mode Disabled) cluster (ElastiCache API)
 
 When using the ElastiCache API, you create a replication group specifying the available
 standalone node as the cluster's primary node, `PrimaryClusterId` and the

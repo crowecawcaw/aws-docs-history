@@ -29,5 +29,4 @@ in the same way that you apply a scaling policy:
 - When using the Application Auto Scaling API, specify the name of the
   policy you want to edit in the `PolicyName` parameter. Specify
   new values for the parameters you want to change.
-  For more information, see [Applying a scaling
-  policy to an ElastiCache for Valkey and Redis OSS cluster](AutoScaling-Defining-Policy.md#AutoScaling-Applying-Policy "AutoScaling-Defining-Policy.md#AutoScaling-Applying-Policy").
+  For more information, see [Applying a scaling policy to an ElastiCache for Valkey and Redis OSS cluster](AutoScaling-Defining-Policy.md#AutoScaling-Applying-Policy "AutoScaling-Defining-Policy.md#AutoScaling-Applying-Policy").

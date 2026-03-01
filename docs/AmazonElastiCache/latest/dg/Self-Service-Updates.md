@@ -2,11 +2,11 @@
 
 ElastiCache automatically monitors your fleet of caches, clusters, and nodes to apply service
 updates as they become available. Service updates for serverless caches are automatically
-and transparently applied. For node-based clusters, you set up a predefined maintenance window so
-that ElastiCache can apply these updates. However, in some cases you might find this approach too
-rigid and likely to constrain your business flows.
+and transparently applied. For node-based clusters, you set up a predefined maintenance window.
+Critical security updates will automatically be applied in these maintenance windows. All other
+updates will be available via a self-service update.
 
-With service updates, you control when and which updates are applied to your node-based clusters. You can also
+With self-service updates, you control when and which updates are applied to your node-based clusters. You can also
 monitor the progress of these updates to your selected ElastiCache cluster in real time.
 
 ###### Topics
@@ -23,8 +23,11 @@ using this dashboard, you can view all the service updates and their status for 
 ElastiCache fleet. Service updates for serverless caches are transparently applied and cannot be managed via
 **Service Updates**.
 
-You control when to apply an update before an auto-update starts. We strongly recommend that you apply any updates of type **security-update**
-as soon as possible to ensure that your ElastiCache clusters are always up-to-date with current security patches.
+You control when to apply an update before an auto-update starts. There are three types of service updates:
+
+- **security-update**: Includes the latest security patches. We strongly recommend that you apply security updates as soon as possible to ensure that your ElastiCache clusters are always up-to-date with the latest security patches.
+- **engine-update**: Includes patches or minor engine version updates related to performance or stability optimizations for your current engine version.
+- **engine-major-version-update**: Includes a major version or engine type change, typically due to your current engine version reaching its end of life. We recommend that you carefully review the version compatibility notes from the [Engine versions and upgrading in ElastiCache](engine-versions.md "engine-versions.md") before applying such updates.
 
 The following sections explore these options in detail.
 
@@ -44,16 +47,13 @@ You can apply only those service updates that have an
 **available** or **scheduled** status.
 
 For more information about reviewing and applying any
-service-specific updates to applicable ElastiCache clusters, see [Applying the
-service updates using the console](#applying-updates-console-APIReferenceconsole "#applying-updates-console-APIReferenceconsole").
+service-specific updates to applicable ElastiCache clusters, see [Applying the service updates using the console](#applying-updates-console-APIReferenceconsole "#applying-updates-console-APIReferenceconsole").
 
 When a new service update is available for one or more of your ElastiCache clusters, you
 can use the ElastiCache console, API, or AWS CLI to apply the update. The following sections
 explain the options that you can use to apply updates.
 
-#### Applying the
-
-service updates using the console
+#### Applying the service updates using the console
 
 To view the list of available service updates, along with other information, go to the **Service Updates** page in the console.
 
@@ -112,9 +112,7 @@ has not been applied or has just been applied recently. For each cluster, you ca
     	+ *complete*: The update has been successfully applied. Cluster with a complete status will be displayed for 7 days after its completion.
     If you chose any or all of the clusters with the **available** or **scheduled** status, and then chose **Apply now**, the update will start being applied on those clusters.
 
-#### Applying the service updates using the
-
-AWS CLI
+#### Applying the service updates using the AWS CLI
 
 After you receive notification that service updates are available, you can
 inspect and apply them using the AWS CLI:
@@ -150,9 +148,7 @@ already has the latest service update applied.
 
 ![Service updates console screenshot 2.](images/service-updates-2.png)
 
-### Stopping the service
-
-updates
+### Stopping the service updates
 
 You can stop updates to clusters if needed. For example, you might want to
 stop updates if you have an unexpected surge to your clusters that are

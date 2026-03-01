@@ -1,6 +1,4 @@
-# Amazon ElastiCache Well-Architected Lens
-
-Operational Excellence Pillar
+# Amazon ElastiCache Well-Architected Lens Operational Excellence Pillar
 
 The operational excellence pillar focuses on running and monitoring systems to deliver
 business value, and continually improving processes and procedures. Key topics include
@@ -9,19 +7,15 @@ operations.
 
 ###### Topics
 
-- [OE 1: How do you understand and respond to alerts and events triggered by
-  your ElastiCache cluster?](#OperationalExcellencePillarOE1 "#OperationalExcellencePillarOE1")
+- [OE 1: How do you understand and respond to alerts and events triggered by your ElastiCache cluster?](#OperationalExcellencePillarOE1 "#OperationalExcellencePillarOE1")
 - [OE 2: When and how do you scale your existing ElastiCache clusters?](#OperationalExcellencePillarOE2 "#OperationalExcellencePillarOE2")
-- [OE 3: How do you manage your ElastiCache cluster resources and maintain your
-  cluster up-to-date?](#OperationalExcellencePillarOE3 "#OperationalExcellencePillarOE3")
+- [OE 3: How do you manage your ElastiCache cluster resources and maintain your cluster up-to-date?](#OperationalExcellencePillarOE3 "#OperationalExcellencePillarOE3")
 - [OE 4: How do you manage clients’ connections to your ElastiCache clusters?](#OperationalExcellencePillarOE4 "#OperationalExcellencePillarOE4")
 - [OE 5: How do you deploy ElastiCache Components for a Workload?](#OperationalExcellencePillarOE5 "#OperationalExcellencePillarOE5")
 - [OE 6: How do you plan for and mitigate failures?](#OperationalExcellencePillarOE6 "#OperationalExcellencePillarOE6")
 - [OE 7: How do you troubleshoot Valkey or Redis OSS engine events?](#OperationalExcellencePillarOE7 "#OperationalExcellencePillarOE7")
 
-## OE 1: How do you understand and respond to alerts and events triggered by
-
-your ElastiCache cluster?
+## OE 1: How do you understand and respond to alerts and events triggered by your ElastiCache cluster?
 
 **Question-level introduction:** When you operate
 ElastiCache clusters you can optionally receive notifications and alerts when specific
@@ -161,9 +155,7 @@ horizontally by adding and removing nodes.
     + [ElastiCache
      API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md")
 
-## OE 3: How do you manage your ElastiCache cluster resources and maintain your
-
-cluster up-to-date?
+## OE 3: How do you manage your ElastiCache cluster resources and maintain your cluster up-to-date?
 
 **Question-level introduction:** When operating at
 scale, it is essential that you are able to pinpoint and identify all your ElastiCache

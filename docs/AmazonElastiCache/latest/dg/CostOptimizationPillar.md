@@ -1,6 +1,4 @@
-# Amazon ElastiCache Well-Architected Lens Cost
-
-Optimization Pillar
+# Amazon ElastiCache Well-Architected Lens Cost Optimization Pillar
 
 The cost optimization pillar focuses on avoiding unnecessary costs. Key topics include
 understanding and controlling where money is being spent, selecting the most appropriate
@@ -10,19 +8,11 @@ scaling to meet business needs without overspending.
 
 ###### Topics
 
-- [COST 1: How do you identify and track costs associated with your ElastiCache
-  resources? How do you develop mechanisms to enable users to create, manage, and
-  dispose of created resources?](#CostOptimizationPillarCOST1 "#CostOptimizationPillarCOST1")
-- [COST 2: How do you use continuous monitoring tools to help you optimize the
-  costs associated with your ElastiCache resources?](#CostOptimizationPillarCOST2 "#CostOptimizationPillarCOST2")
-- [COST 3: Should you use an instance type that support data tiering? What are
-  the advantages of a data tiering? When not to use data tiering
-  instances?](#CostOptimizationPillarCOST3 "#CostOptimizationPillarCOST3")
+- [COST 1: How do you identify and track costs associated with your ElastiCache resources? How do you develop mechanisms to enable users to create, manage, and dispose of created resources?](#CostOptimizationPillarCOST1 "#CostOptimizationPillarCOST1")
+- [COST 2: How do you use continuous monitoring tools to help you optimize the costs associated with your ElastiCache resources?](#CostOptimizationPillarCOST2 "#CostOptimizationPillarCOST2")
+- [COST 3: Should you use an instance type that support data tiering? What are the advantages of a data tiering? When not to use data tiering instances?](#CostOptimizationPillarCOST3 "#CostOptimizationPillarCOST3")
 
-## COST 1: How do you identify and track costs associated with your ElastiCache
-
-resources? How do you develop mechanisms to enable users to create, manage, and
-dispose of created resources?
+## COST 1: How do you identify and track costs associated with your ElastiCache resources? How do you develop mechanisms to enable users to create, manage, and dispose of created resources?
 
 **Question-level introduction:** Understanding cost
 metrics requires the participation of and collaboration across multiple teams:
@@ -145,9 +135,7 @@ your budget.
       and resources is crucial to you having an effective cost management
       strategy for your ElastiCache.
 
-## COST 2: How do you use continuous monitoring tools to help you optimize the
-
-costs associated with your ElastiCache resources?
+## COST 2: How do you use continuous monitoring tools to help you optimize the costs associated with your ElastiCache resources?
 
 **Question-level introduction:** You need to aim for
 a proper balance between your ElastiCache cost and application performance metrics. Amazon
@@ -218,10 +206,7 @@ long periods of time.
       perspective, to migrate your instance fleet to new cache node
       types
 
-## COST 3: Should you use an instance type that support data tiering? What are
-
-the advantages of a data tiering? When not to use data tiering
-instances?
+## COST 3: Should you use an instance type that support data tiering? What are the advantages of a data tiering? When not to use data tiering instances?
 
 **Question-level introduction:** Selecting the
 appropriate instance type can not only have performance and service level impact but

@@ -77,9 +77,7 @@ Use the following application-autoscaling APIs:
 - [describe-scheduled-actions](../../../cli/latest/reference/autoscaling/describe-scheduled-actions.md "../../../cli/latest/reference/autoscaling/describe-scheduled-actions.md")
 - [delete-scheduled-action](../../../cli/latest/reference/autoscaling/delete-scheduled-action.md "../../../cli/latest/reference/autoscaling/delete-scheduled-action.md")
 
-## Use
-
-CloudFormation to create a scheduled action
+## Use CloudFormation to create a scheduled action
 
 This snippet shows how to create a target tracking policy and apply it to an
 [AWS::ElastiCache::ReplicationGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.md") resource using the [AWS::ApplicationAutoScaling::ScalableTarget](../../../AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.md") resource. It uses the

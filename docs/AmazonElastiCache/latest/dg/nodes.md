@@ -6,17 +6,17 @@ after a reboot.
 
 ###### Topics
 
-- [Rebooting Redis OSS nodes (cluster mode disabled only)](#nodes.rebooting.redis "#nodes.rebooting.redis")
+- [Rebooting Valkey or Redis OSS nodes (cluster mode disabled only)](#nodes.rebooting.redis "#nodes.rebooting.redis")
 - [Rebooting a cluster for Memcached](#Clusters.Rebooting "#Clusters.Rebooting")
 
-## Rebooting Redis OSS nodes (cluster mode disabled only)
+## Rebooting Valkey or Redis OSS nodes (cluster mode disabled only)
 
 For Valkey or Redis OSS (cluster mode disabled) clusters, the parameters in parameter groups that are applied only after rebooting are:
 
 - activerehashing
 - databases
 
-Redis nodes can only be updated through the ElastiCache console. You can only reboot a
+Valkey and Redis OSS nodes can only be updated through the ElastiCache console. You can only reboot a
 single node at a time. To reboot multiple nodes, you must repeat the process for each
 node.
 
@@ -42,9 +42,9 @@ You can reboot a node using the ElastiCache console.
    [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
 2. From the list in the upper-right corner, choose the AWS Region that
    applies.
-3. In the left navigation pane, choose **Redis OSS**.
+3. In the left navigation pane, choose **Valkey or Redis OSS**.
 
-A list of clusters running Redis OSS appears. 4. Choose the cluster under **Cluster Name**. 5. Under **Node name**, choose the radio button next to
+A list of clusters running Valkey or Redis OSS appears. 4. Choose the cluster under **Cluster Name**. 5. Under **Node name**, choose the radio button next to
 the node you want to reboot. 6. Choose **Actions**, and then choose **Reboot
 node**.
 To reboot multiple nodes, repeat steps 2 through 5 for each node that you want

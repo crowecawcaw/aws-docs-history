@@ -1,6 +1,4 @@
-# Prerequisites and
-
-limitations
+# Prerequisites and limitations
 
 Before getting started with global datastores, be aware of the following:
 
@@ -29,7 +27,9 @@ Before getting started with global datastores, be aware of the following:
 Replication must be enabled if you plan to use an existing single-node
 cluster.
 
-- Global datastores are supported on instances of size large and above.
+- Global datastores are supported on the following instance families in size
+  large and above: M5, M6g, M7g, R5, R6g, R6gd, R7g, and C7gn. Previous generation
+  instance types (such as M4 and R4) are not supported.
 - You can set up replication for a primary cluster from one AWS Region to a
   secondary cluster in up to two other AWS Regions.
 
@@ -47,8 +47,7 @@ where replication can only occur between the two regions.
 At this time, you can't use global datastores in [Using local zones with ElastiCache](Local_zones.md "Local_zones.md").
 
 - ElastiCache doesn't support autofailover from one AWS Region to another. When
-  needed, you can promote a secondary cluster manually. For an example, see [Promoting the
-  secondary cluster to primary](Redis-Global-Datastores-Console.md#Redis-Global-Datastores-Console-Promote-Secondary "Redis-Global-Datastores-Console.md#Redis-Global-Datastores-Console-Promote-Secondary").
+  needed, you can promote a secondary cluster manually. For an example, see [Promoting the secondary cluster to primary](Redis-Global-Datastores-Console.md#Redis-Global-Datastores-Console-Promote-Secondary "Redis-Global-Datastores-Console.md#Redis-Global-Datastores-Console-Promote-Secondary").
 - To bootstrap from existing data, use an existing cluster as primary to create a
   global datastore. We don't support adding an existing cluster as secondary. The
   process of adding the cluster as secondary wipes data, which may result in data loss.

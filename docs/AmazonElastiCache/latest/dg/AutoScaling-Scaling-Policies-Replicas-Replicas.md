@@ -1,6 +1,4 @@
-# Target tracking scaling
-
-policies
+# Target tracking scaling policies
 
 With target tracking scaling policies, you select a metric and set a target value.
 ElastiCache for Valkey and Redis OSS AutoScaling creates and manages the CloudWatch alarms that trigger the scaling
@@ -11,9 +9,7 @@ to keeping the metric close to the target value, a target tracking scaling polic
 also adjusts to the fluctuations in the metric due to a fluctuating load pattern and
 minimizes rapid fluctuations in the capacity of the fleet.
 
-## Auto Scaling criteria
-
-for replicas
+## Auto Scaling criteria for replicas
 
 Your Auto Scaling policy defines the following predefined metric for your
 cluster:
@@ -41,9 +37,7 @@ For a scale-in example, if you have selected Target value of 60 percent,
 ElastiCache for Valkey and Redis OSS won't auto scale-in until the metric is less than or equal to 45
 percent (25 percent below the Target 60 percent).
 
-### Auto Scaling
-
-considerations
+### Auto Scaling considerations
 
 Keep the following considerations in mind:
 

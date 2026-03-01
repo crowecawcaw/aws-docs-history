@@ -12,17 +12,13 @@ configuration:
 
 ###### Topics
 
-- [Using a predefined
-  metric](#AutoScaling-Predefined-Metric "#AutoScaling-Predefined-Metric")
+- [Using a predefined metric](#AutoScaling-Predefined-Metric "#AutoScaling-Predefined-Metric")
 - [Editing a scaling policy](AutoScaling-Editing-Policy.md "AutoScaling-Editing-Policy.md")
 - [Deleting a scaling policy](AutoScaling-Deleting-Policy.md "AutoScaling-Deleting-Policy.md")
-- [Use CloudFormation for Auto Scaling
-  policies](AutoScaling-with-Cloudformation.md "AutoScaling-with-Cloudformation.md")
+- [Use CloudFormation for Auto Scaling policies](AutoScaling-with-Cloudformation.md "AutoScaling-with-Cloudformation.md")
 - [Scheduled scaling](AutoScaling-with-Scheduled-Scaling-Replicas.md "AutoScaling-with-Scheduled-Scaling-Replicas.md")
 
-## Using a predefined
-
-metric
+## Using a predefined metric
 
 A target-tracking scaling policy configuration is represented by a JSON block that the metrics and target values are defined in.
 You can save a scaling policy configuration as a JSON block in a text file. You use that text file when invoking the AWS CLI or the Application Auto Scaling API.
@@ -36,10 +32,8 @@ The following options are available for defining a target-tracking scaling polic
 - [Using a predefined metric](#AutoScaling-Predefined-Metric "#AutoScaling-Predefined-Metric")
 - [Using a custom metric](#AutoScaling-Custom-Metric "#AutoScaling-Custom-Metric")
 - [Using cooldown periods](#AutoScaling-Using-Cooldowns "#AutoScaling-Using-Cooldowns")
-- [Disabling scale-in
-  activity](#AutoScaling-Disabling-Scalein "#AutoScaling-Disabling-Scalein")
-- [Applying a scaling
-  policy to an ElastiCache for Valkey and Redis OSS cluster](#AutoScaling-Applying-Policy "#AutoScaling-Applying-Policy")
+- [Disabling scale-in activity](#AutoScaling-Disabling-Scalein "#AutoScaling-Disabling-Scalein")
+- [Applying a scaling policy to an ElastiCache for Valkey and Redis OSS cluster](#AutoScaling-Applying-Policy "#AutoScaling-Applying-Policy")
 
 ### Using a predefined metric
 
@@ -105,9 +99,7 @@ minutes.
 
 ```
 
-### Disabling scale-in
-
-activity
+### Disabling scale-in activity
 
 You can prevent the target-tracking scaling policy configuration from scaling
 in your ElastiCache for Valkey and Redis OSS cluster by disabling scale-in activity. Disabling scale-in
@@ -138,9 +130,7 @@ activity for the scaling policy.
 
 ```
 
-### Applying a scaling
-
-policy to an ElastiCache for Valkey and Redis OSS cluster
+### Applying a scaling policy to an ElastiCache for Valkey and Redis OSS cluster
 
 After registering your cluster with ElastiCache for Valkey and Redis OSS auto scaling and defining a scaling
 policy, you apply the scaling policy to the registered cluster. To apply a

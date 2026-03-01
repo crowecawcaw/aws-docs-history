@@ -30,7 +30,7 @@ When using IAM authentication, the following limitations apply:
 - For IAM-enabled ElastiCache users the username and user id properties must be identical.
 - The IAM authentication token is valid for 15 minutes. For long-lived connections, we recommend using a Valkey or Redis OSS client that supports a credentials provider interface.
 - An IAM authenticated connection to ElastiCache for Valkey or Redis OSS will automatically be disconnected after 12 hours. The connection can be prolonged for 12 hours by sending an `AUTH` or `HELLO` command with a new IAM authentication token.
-- IAM authentication is not supported in `MULTI EXEC` commands.
+- IAM authentication is not supported inside `MULTI`/`EXEC` blocks.
 - Currently, IAM authentication supports the following global condition context keys:
 
       + When using IAM authentication with serverless caches, `aws:VpcSourceIp`, `aws:SourceVpc`, `aws:SourceVpce`,
@@ -40,6 +40,10 @@ When using IAM authentication, the following limitations apply:
 
   For more information about global condition context keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md")
   in the IAM User Guide.
+
+###### Note
+
+Cache names are converted to lowercase at cache creation time. Ensure authenticating code supplies the cache name in lowercase to avoid authentication errors.
 
 ## Setup
 

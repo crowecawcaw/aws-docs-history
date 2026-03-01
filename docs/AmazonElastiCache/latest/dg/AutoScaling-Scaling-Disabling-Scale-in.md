@@ -1,6 +1,4 @@
-# Disabling scale-in
-
-activity
+# Disabling scale-in activity
 
 You can prevent the target-tracking scaling policy configuration from scaling
 in your cluster by disabling scale-in activity. Disabling scale-in

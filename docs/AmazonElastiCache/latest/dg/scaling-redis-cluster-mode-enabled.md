@@ -66,15 +66,11 @@ For more information, see [Choosing your node size](CacheNodes.md "CacheNodes.md
 
 - [Offline resharding for Valkey or Redis OSS (cluster mode enabled)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-offline "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-offline")
 - [Online resharding for Valkey or Redis OSS (cluster mode enabled)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online")
-  - [Adding shards with online
-    resharding](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-add "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-add")
-  - [Removing shards with online
-    resharding](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove")
-    - [Removing shards
-      (Console)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-console "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-console")
+  - [Adding shards with online resharding](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-add "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-add")
+  - [Removing shards with online resharding](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove")
+    - [Removing shards (Console)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-console "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-console")
     - [Removing shards (AWS CLI)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-cli "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-cli")
-    - [Removing shards (ElastiCache
-      API)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-api "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-api")
+    - [Removing shards (ElastiCache API)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-api "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-api")
 
   - [Online shard rebalancing](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-rebalance "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-rebalance")
     - [Online Shard Rebalancing (Console)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-rebalance-console "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-rebalance-console")
@@ -183,9 +179,7 @@ For more information, see [Online cluster resizing](best-practices-online-reshar
 You can horizontally scale or rebalance your Valkey or Redis OSS (cluster mode enabled) clusters using the AWS Management Console, the
 AWS CLI, and the ElastiCache API.
 
-### Adding shards with online
-
-resharding
+### Adding shards with online resharding
 
 You can add shards to your Valkey or Redis OSS (cluster mode enabled) cluster using the AWS Management Console, AWS CLI, or ElastiCache
 API. When you add shards to a Valkey or Redis OSS (cluster mode enabled) cluster, any tags on the existing
@@ -344,24 +338,18 @@ https://elasticache.us-east-2.amazonaws.com/
 
 For more information, see [ModifyReplicationGroupShardConfiguration](../APIReference/API_ModifyReplicationGroupShardConfiguration.md "../APIReference/API_ModifyReplicationGroupShardConfiguration.md") in the ElastiCache API Reference.
 
-### Removing shards with online
-
-resharding
+### Removing shards with online resharding
 
 You can remove shards from your Valkey or Redis OSS (cluster mode enabled) cluster using the AWS Management Console, AWS CLI, or
 ElastiCache API.
 
 ###### Topics
 
-- [Removing shards
-  (Console)](#redis-cluster-resharding-online-remove-console "#redis-cluster-resharding-online-remove-console")
+- [Removing shards (Console)](#redis-cluster-resharding-online-remove-console "#redis-cluster-resharding-online-remove-console")
 - [Removing shards (AWS CLI)](#redis-cluster-resharding-online-remove-cli "#redis-cluster-resharding-online-remove-cli")
-- [Removing shards (ElastiCache
-  API)](#redis-cluster-resharding-online-remove-api "#redis-cluster-resharding-online-remove-api")
+- [Removing shards (ElastiCache API)](#redis-cluster-resharding-online-remove-api "#redis-cluster-resharding-online-remove-api")
 
-#### Removing shards
-
-(Console)
+#### Removing shards (Console)
 
 The following process describes how to reconfigure the shards in your Valkey or Redis OSS (cluster mode enabled)
 cluster by removing shards using the AWS Management Console.
@@ -456,9 +444,7 @@ aws elasticache modify-replication-group-shard-configuration ^
     --apply-immediately
 ```
 
-#### Removing shards (ElastiCache
-
-API)
+#### Removing shards (ElastiCache API)
 
 You can use the ElastiCache API to reconfigure the shards in your Valkey or Redis OSS (cluster mode enabled) cluster
 online by using the `ModifyReplicationGroupShardConfiguration` operation.

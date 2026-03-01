@@ -1,197 +1,68 @@
-# Listing an ElastiCache parameter group's
+# Parameter management in ElastiCache
 
-values
+ElastiCache parameters are grouped together into named parameter groups for easier parameter
+management. A parameter group represents a combination of specific values for the
+parameters that are passed to the engine software during startup. These values determine
+how the engine processes on each node behave at runtime. The parameter values on a
+specific parameter group apply to all nodes that are associated with the group,
+regardless of which cluster they belong to.
 
-You can list the parameters and their values for a parameter group using the ElastiCache
-console, the AWS CLI, or the ElastiCache API.
+To fine-tune your cluster's performance, you can modify some parameter values or
+change the cluster's parameter group.
 
-## Listing an ElastiCache parameter group's
+- You cannot modify or delete the default parameter groups. If you need custom
+  parameter values, you must create a custom parameter group.
+- For Memcached, the parameter group family and the cluster you're
+  assigning it to must be compatible. For example, if your cluster is running
+  Memcached version 1.4.8, you can only use parameter groups, default or custom,
+  from the Memcached 1.4 family.
 
-values (Console)
+For Redis OSS, the parameter group family and the cluster you're
+assigning it to must be compatible. For example, if your cluster is running
+Redis OSS version 3.2.10, you can only use parameter groups, default or custom, from
+the Redis OSS 3.2 family.
 
-The following procedure shows how to list the parameters and their values for a
-parameter group using the ElastiCache console.
+- If you change a cluster's parameter group, the values for any
+  conditionally modifiable parameter must be the same in both the current and new
+  parameter groups.
+- For Memcached, when you change a cluster's parameters the change is applied to the
+  cluster immediately. This is true whether you change the cluster's
+  parameter group itself or a parameter value within the cluster's parameter
+  group. To determine when a particular parameter change is applied, see the
+  **Changes Take Effect** column in the tables
+  for [Memcached specific parameters](ParameterGroups.md#ParameterGroups.Memcached "ParameterGroups.md#ParameterGroups.Memcached"). For information on rebooting a
+  cluster's nodes, see [Rebooting clusters](Clusters.md#Rebooting "Clusters.md#Rebooting").
+- For Redis OSS, when you change a cluster's parameters, the change is applied to the
+  cluster either immediately or, with the exceptions noted following, after the
+  cluster nodes are rebooted. This is true whether you change the cluster's
+  parameter group itself or a parameter value within the cluster's parameter
+  group. To determine when a particular parameter change is applied, see the
+  **Changes Take Effect** column in the tables
+  for [Valkey and Redis OSS parameters](ParameterGroups.md#ParameterGroups.Redis "ParameterGroups.md#ParameterGroups.Redis").
 
-###### To list a parameter group's parameters and their values using the ElastiCache
+For more information on rebooting Valkey or Redis OSS nodes, see [Rebooting nodes](nodes.md "nodes.md").
 
-console
+###### Valkey or Redis OSS (Cluster Mode Enabled) parameter changes
 
-1. Sign in to the AWS Management Console and open the ElastiCache console at
-   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. To see a list of all available parameter groups, in the left hand
-   navigation pane choose **Parameter Groups**.
-3. Choose the parameter group for which you want to list the parameters and
-   values by choosing the box to the left of the parameter group's
-   name.
+If you make changes to the following parameters on a Valkey or Redis OSS (cluster mode enabled)
+cluster, follow the ensuing steps.
 
-The parameters and their values will be listed at the bottom of the
-screen. Due to the number of parameters, you may have to scroll up and down
-to find the parameter you're interested in.
+    + activerehashing
+    + databases
+    1. Create a manual backup of your cluster. See [Taking manual backups](backups-manual.md "backups-manual.md").
+    2. Delete the cluster. See [Deleting clusters](Clusters.md#Delete "Clusters.md#Delete").
+    3. store the cluster using the altered parameter group and backup
+     to seed the new cluster. See [Restoring from a backup into a new cache](backups-restoring.md "backups-restoring.md").Changes to other parameters do not require this.
 
-## Listing a parameter group's
+- You can associate parameter groups with Valkey and Redis OSS global datastores. _Global datastores_ are a collection of one or more
+  clusters that span AWS Regions. In this case, the parameter group is shared by
+  all clusters that make up the global datastore. Any modifications to the
+  parameter group of the primary cluster are replicated to all remaining clusters
+  in the global datastore. For more information, see [Replication across AWS Regions using global datastores](Redis-Global-Datastore.md "Redis-Global-Datastore.md").
 
-values (AWS CLI)
+You can check if a parameter group is part of a global datastore by looking in
+these locations:
 
-To list a parameter group's parameters and their values using the AWS CLI, use
-the command `describe-cache-parameters`.
-
-###### Example
-
-The following sample code list all the Memcached parameters and their values for the
-parameter group _myMem14_.
-
-For Linux, macOS, or Unix:
-
-```
-aws elasticache describe-cache-parameters \
-    --cache-parameter-group-name `myMem14`
-```
-
-For Windows:
-
-```
-aws elasticache describe-cache-parameters ^
-    --cache-parameter-group-name `myMem14`
-```
-
-###### Example
-
-The following sample code list all the parameters and their values for the
-parameter group _myRedis28_.
-
-For Linux, macOS, or Unix:
-
-```
-aws elasticache describe-cache-parameters \
-    --cache-parameter-group-name `myRedis28`
-```
-
-For Windows:
-
-```
-aws elasticache describe-cache-parameters ^
-    --cache-parameter-group-name `myRed28`
-```
-
-For more information, see [`describe-cache-parameters`](../../../cli/latest/reference/elasticache/describe-cache-parameters.md "../../../cli/latest/reference/elasticache/describe-cache-parameters.md").
-
-## Listing a parameter group's
-
-values (ElastiCache API)
-
-To list a parameter group's parameters and their values using the ElastiCache API,
-use the `DescribeCacheParameters` action.
-
-###### Example
-
-The following sample code list all the Memcached parameters for the parameter group
-_myMem14_.
-
-```
-https://elasticache.us-west-2.amazonaws.com/
-   ?Action=DescribeCacheParameters
-   &CacheParameterGroupName=`myMem14`
-   &SignatureVersion=4
-   &SignatureMethod=HmacSHA256
-   &Timestamp=20150202T192317Z
-   &Version=2015-02-02
-   &X-Amz-Credential=<credential>
-```
-
-The response from this action will look something like this. This response has
-been truncated.
-
-```
-<DescribeCacheParametersResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
-  <DescribeCacheParametersResult>
-    <CacheClusterClassSpecificParameters>
-      <CacheNodeTypeSpecificParameter>
-        <DataType>integer</DataType>
-        <Source>system</Source>
-        <IsModifiable>false</IsModifiable>
-        <Description>The maximum configurable amount of memory to use to store items, in megabytes.</Description>
-        <CacheNodeTypeSpecificValues>
-          <CacheNodeTypeSpecificValue>
-            <Value>1000</Value>
-            <CacheClusterClass>cache.c1.medium</CacheClusterClass>
-          </CacheNodeTypeSpecificValue>
-          <CacheNodeTypeSpecificValue>
-            <Value>6000</Value>
-            <CacheClusterClass>cache.c1.xlarge</CacheClusterClass>
-          </CacheNodeTypeSpecificValue>
-          <CacheNodeTypeSpecificValue>
-            <Value>7100</Value>
-            <CacheClusterClass>cache.m1.large</CacheClusterClass>
-          </CacheNodeTypeSpecificValue>
-          <CacheNodeTypeSpecificValue>
-            <Value>1300</Value>
-            <CacheClusterClass>cache.m1.small</CacheClusterClass>
-          </CacheNodeTypeSpecificValue>
-
-...output omitted...
-
-    </CacheClusterClassSpecificParameters>
-  </DescribeCacheParametersResult>
-  <ResponseMetadata>
-    <RequestId>6d355589-af49-11e0-97f9-279771c4477e</RequestId>
-  </ResponseMetadata>
-</DescribeCacheParametersResponse>
-```
-
-###### Example
-
-The following sample code list all the parameters for the parameter group
-_myRed28_.
-
-```
-https://elasticache.us-west-2.amazonaws.com/
-   ?Action=DescribeCacheParameters
-   &CacheParameterGroupName=`myRed28`
-   &SignatureVersion=4
-   &SignatureMethod=HmacSHA256
-   &Timestamp=20150202T192317Z
-   &Version=2015-02-02
-   &X-Amz-Credential=<credential>
-```
-
-The response from this action will look something like this. This response has
-been truncated.
-
-```
-<DescribeCacheParametersResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
-  <DescribeCacheParametersResult>
-    <CacheClusterClassSpecificParameters>
-      <CacheNodeTypeSpecificParameter>
-        <DataType>integer</DataType>
-        <Source>system</Source>
-        <IsModifiable>false</IsModifiable>
-        <Description>The maximum configurable amount of memory to use to store items, in megabytes.</Description>
-        <CacheNodeTypeSpecificValues>
-          <CacheNodeTypeSpecificValue>
-            <Value>1000</Value>
-            <CacheClusterClass>cache.c1.medium</CacheClusterClass>
-          </CacheNodeTypeSpecificValue>
-          <CacheNodeTypeSpecificValue>
-            <Value>6000</Value>
-            <CacheClusterClass>cache.c1.xlarge</CacheClusterClass>
-          </CacheNodeTypeSpecificValue>
-          <CacheNodeTypeSpecificValue>
-            <Value>7100</Value>
-            <CacheClusterClass>cache.m1.large</CacheClusterClass>
-          </CacheNodeTypeSpecificValue>
-          <CacheNodeTypeSpecificValue>
-            <Value>1300</Value>
-            <CacheClusterClass>cache.m1.small</CacheClusterClass>
-          </CacheNodeTypeSpecificValue>
-
-...output omitted...
-
-    </CacheClusterClassSpecificParameters>
-  </DescribeCacheParametersResult>
-  <ResponseMetadata>
-    <RequestId>6d355589-af49-11e0-97f9-279771c4477e</RequestId>
-  </ResponseMetadata>
-</DescribeCacheParametersResponse>
-```
-
-For more information, see [`DescribeCacheParameters`](../APIReference/API_DescribeCacheParameters.md "../APIReference/API_DescribeCacheParameters.md").
+    + On the ElastiCache console on the **Parameter Groups**
+     page, the yes/no **Global** attribute
+    + The yes/no `IsGlobal` property of the [CacheParameterGroup](../APIReference/API_CacheParameterGroup.md "../APIReference/API_CacheParameterGroup.md") API operation

@@ -60,8 +60,7 @@ Memcached to Memcached version 1.4.33 or newer. `CreateCacheCluster` and
 
 The value `(max_cache_memory - memcached_connections_overhead)` is the node's
 memory useable for data.
-For more information, see [Memcached connection
-overhead](ParameterGroups.md#ParameterGroups.Memcached.Overhead "ParameterGroups.md#ParameterGroups.Memcached.Overhead").
+For more information, see [Memcached connection overhead](ParameterGroups.md#ParameterGroups.Memcached.Overhead "ParameterGroups.md#ParameterGroups.Memcached.Overhead").
 
 ## Supported engines and versions
 

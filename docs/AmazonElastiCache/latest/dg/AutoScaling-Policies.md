@@ -29,8 +29,7 @@ configured, we scaleOut to the MinCapacity.
 - [Target metric for Auto Scaling](#AutoScaling-TargetMetric "#AutoScaling-TargetMetric")
 - [Minimum and maximum capacity](#AutoScaling-MinMax "#AutoScaling-MinMax")
 - [Cool down period](#AutoScaling-Cooldown "#AutoScaling-Cooldown")
-- [Enable or disable scale-in
-  activities](#AutoScaling-enable-disable-scale-in "#AutoScaling-enable-disable-scale-in")
+- [Enable or disable scale-in activities](#AutoScaling-enable-disable-scale-in "#AutoScaling-enable-disable-scale-in")
 
 ## Target metric for Auto Scaling
 
@@ -109,9 +108,7 @@ cooldown periods:
 When a scale-in or a scale-out cooldown period is not specified, the default for
 scale-out is 600 seconds and for scale-in 900 seconds.
 
-## Enable or disable scale-in
-
-activities
+## Enable or disable scale-in activities
 
 You can enable or disable scale-in activities for a policy. Enabling scale-in
 activities allows the scaling policy to delete shards/replicas. When scale-in

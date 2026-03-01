@@ -1,6 +1,4 @@
-# Use CloudFormation for Auto Scaling
-
-policies
+# Use CloudFormation for Auto Scaling policies
 
 This snippet shows how to create a scheduled action and apply it to an [AWS::ElastiCache::ReplicationGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.md") resource using the [AWS::ApplicationAutoScaling::ScalableTarget](../../../AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.md") resource. It uses the
 [Fn::Join](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-join.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-join.md") and [Ref](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md") intrinsic functions to construct the `ResourceId`

@@ -1,6 +1,4 @@
-# Defining a scaling
-
-policy
+# Defining a scaling policy
 
 A target-tracking scaling policy configuration is represented by a JSON block that
 the metrics and target values are defined in. You can save a scaling policy
@@ -14,16 +12,11 @@ configuration:
 
 ###### Topics
 
-- [Using a predefined
-  metric](#AutoScaling-Scaling-Predefined-Metric "#AutoScaling-Scaling-Predefined-Metric")
-- [Using a custom
-  metric](#AutoScaling-Scaling-Custom-Metric "#AutoScaling-Scaling-Custom-Metric")
-- [Using cooldown
-  periods](#AutoScaling-Scaling-Cooldown-periods "#AutoScaling-Scaling-Cooldown-periods")
+- [Using a predefined metric](#AutoScaling-Scaling-Predefined-Metric "#AutoScaling-Scaling-Predefined-Metric")
+- [Using a custom metric](#AutoScaling-Scaling-Custom-Metric "#AutoScaling-Scaling-Custom-Metric")
+- [Using cooldown periods](#AutoScaling-Scaling-Cooldown-periods "#AutoScaling-Scaling-Cooldown-periods")
 
-## Using a predefined
-
-metric
+## Using a predefined metric
 
 By using predefined metrics, you can quickly define a target-tracking scaling
 policy for an ElastiCache for Valkey and Redis OSS cluster that works with target tracking in ElastiCache Auto
@@ -70,9 +63,7 @@ percent across all primary nodes in the cluster.
 }
 ```
 
-## Using a custom
-
-metric
+## Using a custom metric
 
 By using custom metrics, you can define a target-tracking scaling policy that
 meets your custom requirements. You can define a custom metric based on any
@@ -111,9 +102,7 @@ in an cluster named `my-db-cluster`.
 }
 ```
 
-## Using cooldown
-
-periods
+## Using cooldown periods
 
 You can specify a value, in seconds, for `ScaleOutCooldown` to add
 a cooldown period for scaling out your cluster. Similarly, you can add a value,

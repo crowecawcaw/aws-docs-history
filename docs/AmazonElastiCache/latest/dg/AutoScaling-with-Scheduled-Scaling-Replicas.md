@@ -16,11 +16,11 @@ deletion, see [Commonly used commands for scheduled action creation, management,
 
 **To create a one-time scheduled action:**
 
-Similar to Shard dimension. See [Scheduled scaling](AutoScaling-with-Scheduled-Scaling-Shards.md "AutoScaling-with-Scheduled-Scaling-Shards.md") .
+Similar to Shard dimension. See [Scheduled scaling](AutoScaling-with-Scheduled-Scaling-Shards.md "AutoScaling-with-Scheduled-Scaling-Shards.md").
 
 **To delete a scheduled action**
 
-Similar to Shard dimension. See [Scheduled scaling](AutoScaling-with-Scheduled-Scaling-Shards.md "AutoScaling-with-Scheduled-Scaling-Shards.md") .
+Similar to Shard dimension. See [Scheduled scaling](AutoScaling-with-Scheduled-Scaling-Shards.md "AutoScaling-with-Scheduled-Scaling-Shards.md").
 
 **To manage scheduled scaling using the AWS CLI**
 
@@ -30,9 +30,7 @@ Use the following application-autoscaling APIs:
 - [describe-scheduled-actions](../../../cli/latest/reference/application-autoscaling/describe-scheduled-actions.md "../../../cli/latest/reference/application-autoscaling/describe-scheduled-actions.md")
 - [delete-scheduled-action](../../../cli/latest/reference/application-autoscaling/delete-scheduled-action.md "../../../cli/latest/reference/application-autoscaling/delete-scheduled-action.md")
 
-## Use CloudFormation to
-
-create Auto Scaling policies
+## Use CloudFormation to create Auto Scaling policies
 
 This snippet shows how to create a scheduled action and apply it to an [AWS::ElastiCache::ReplicationGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.md") resource using the [AWS::ApplicationAutoScaling::ScalableTarget](../../../AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.md") resource. It uses the
 [Fn::Join](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-join.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-join.md") and [Ref](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md") intrinsic functions to construct the `ResourceId`

@@ -1,6 +1,4 @@
-# Amazon ElastiCache Well-Architected Lens
-
-Performance Efficiency Pillar
+# Amazon ElastiCache Well-Architected Lens Performance Efficiency Pillar
 
 The performance efficiency pillar focuses on using IT and computing resources
 efficiently. Key topics include selecting the right resource types and sizes based on
@@ -10,17 +8,13 @@ efficiency as business needs evolve.
 ###### Topics
 
 - [PE 1: How do you monitor the performance of your Amazon ElastiCache cluster?](#PerformanceEfficiencyPillarPE1 "#PerformanceEfficiencyPillarPE1")
-- [PE 2: How are you distributing work across your ElastiCache Cluster
-  nodes?](#PerformanceEfficiencyPillarPE2 "#PerformanceEfficiencyPillarPE2")
-- [PE 3: For caching workloads, how do you track and report the effectiveness
-  and performance of your cache?](#PerformanceEfficiencyPillarPE3 "#PerformanceEfficiencyPillarPE3")
-- [PE 4: How does your workload optimize the use of networking resources and
-  connections?](#PerformanceEfficiencyPillarPE4 "#PerformanceEfficiencyPillarPE4")
+- [PE 2: How are you distributing work across your ElastiCache Cluster nodes?](#PerformanceEfficiencyPillarPE2 "#PerformanceEfficiencyPillarPE2")
+- [PE 3: For caching workloads, how do you track and report the effectiveness and performance of your cache?](#PerformanceEfficiencyPillarPE3 "#PerformanceEfficiencyPillarPE3")
+- [PE 4: How does your workload optimize the use of networking resources and connections?](#PerformanceEfficiencyPillarPE4 "#PerformanceEfficiencyPillarPE4")
 - [PE 5: How do you manage key deletion and/or eviction?](#PerformanceEfficiencyPillarPE5 "#PerformanceEfficiencyPillarPE5")
 - [PE 6: How do you model and interact with data in ElastiCache?](#PerformanceEfficiencyPillarPE6 "#PerformanceEfficiencyPillarPE6")
 - [PE 7: How do you log slow running commands in your Amazon ElastiCache cluster?](#PerformanceEfficiencyPillarPE7 "#PerformanceEfficiencyPillarPE7")
-- [PE8: How does Auto Scaling help in increasing the performance of the
-  ElastiCache cluster?](#PerformanceEfficiencyPillarPE8 "#PerformanceEfficiencyPillarPE8")
+- [PE8: How does Auto Scaling help in increasing the performance of the ElastiCache cluster?](#PerformanceEfficiencyPillarPE8 "#PerformanceEfficiencyPillarPE8")
 
 ## PE 1: How do you monitor the performance of your Amazon ElastiCache cluster?
 
@@ -82,9 +76,7 @@ reduced latency and increased throughput.
   - [SLOWLOG](https://valkey.io/commands/slowlog/ "https://valkey.io/commands/slowlog/")
   - [benchmark](https://valkey.io/topics/benchmark/ "https://valkey.io/topics/benchmark/")
 
-## PE 2: How are you distributing work across your ElastiCache Cluster
-
-nodes?
+## PE 2: How are you distributing work across your ElastiCache Cluster nodes?
 
 **Question-level introduction:** The way your
 application connects to Amazon ElastiCache nodes can impact the performance and scalability
@@ -155,9 +147,7 @@ well.
   - [Online resharding for Valkey or Redis OSS (cluster mode enabled)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online")
   - [Client-side caching in Valkey and Redis OSS](https://valkey.io/topics/client-side-caching/ "https://valkey.io/topics/client-side-caching/")
 
-## PE 3: For caching workloads, how do you track and report the effectiveness
-
-and performance of your cache?
+## PE 3: For caching workloads, how do you track and report the effectiveness and performance of your cache?
 
 **Question-level introduction:** Caching is a
 commonly encountered workload on ElastiCache and it is important that you understand
@@ -216,9 +206,7 @@ workload.
     + [Caching Best Practices](https://aws.amazon.com/caching/best-practices/ "https://aws.amazon.com/caching/best-practices/")
     + [Performance at Scale with Amazon ElastiCache Whitepaper](https://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf "https://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf")
 
-## PE 4: How does your workload optimize the use of networking resources and
-
-connections?
+## PE 4: How does your workload optimize the use of networking resources and connections?
 
 **Question-level introduction:** ElastiCache for Valkey, Memcached, and Redis OSS are supported by many application clients, and implementations
 may vary. You need to understand the networking and connection management in place
@@ -305,8 +293,7 @@ of cluster behavior when instance memory limits are exceeded.
     using `lazyfree-lazy-user-del` parameter.
 
 - **[Resources]:**
-  - [Configuring engine parameters using ElastiCache parameter
-    groups](ParameterGroups.md "ParameterGroups.md")
+  - [Configuring engine parameters using ElastiCache parameter groups](ParameterGroups.md "ParameterGroups.md")
   - [UNLINK](https://valkey.io/commands/unlink/ "https://valkey.io/commands/unlink/")
   - [Cloud Financial Management with AWS](https://aws.amazon.com/aws-cost-management/ "https://aws.amazon.com/aws-cost-management/")
 
@@ -434,9 +421,7 @@ detailed performance analysis and can be used to trigger automated events.
   - [Amazon
     Kinesis Data Firehose](https://aws.amazon.com/kinesis/data-firehose/ "https://aws.amazon.com/kinesis/data-firehose/")
 
-## PE8: How does Auto Scaling help in increasing the performance of the
-
-ElastiCache cluster?
+## PE8: How does Auto Scaling help in increasing the performance of the ElastiCache cluster?
 
 **Question-level introduction:** By implementing the
 feature of Valkey or Redis OSS auto scaling, your ElastiCache components can adjust over time to

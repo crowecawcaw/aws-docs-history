@@ -1,22 +1,16 @@
-# Amazon ElastiCache Well-Architected Lens Reliability
-
-Pillar
+# Amazon ElastiCache Well-Architected Lens Reliability Pillar
 
 The reliability pillar focuses on workloads performing their intended functions and how to recover quickly from failure to meet demands. Key topics include distributed system design, recovery planning, and adapting to changing requirements.
 
 ###### Topics
 
-- [REL 1: How are you supporting high availability (HA) architecture
-  deployments?](#ReliabilityPillarREL1 "#ReliabilityPillarREL1")
-- [REL 2: How are you meeting your Recovery Point Objectives (RPOs) with
-  ElastiCache?](#ReliabilityPillarREL2 "#ReliabilityPillarREL2")
+- [REL 1: How are you supporting high availability (HA) architecture deployments?](#ReliabilityPillarREL1 "#ReliabilityPillarREL1")
+- [REL 2: How are you meeting your Recovery Point Objectives (RPOs) with ElastiCache?](#ReliabilityPillarREL2 "#ReliabilityPillarREL2")
 - [REL 3: How do you support disaster recovery (DR) requirements?](#ReliabilityPillarREL3 "#ReliabilityPillarREL3")
 - [REL 4: How do you effectively plan for failovers?](#ReliabilityPillarREL4 "#ReliabilityPillarREL4")
 - [REL 5: Are your ElastiCache components designed to scale?](#ReliabilityPillarREL5 "#ReliabilityPillarREL5")
 
-## REL 1: How are you supporting high availability (HA) architecture
-
-deployments?
+## REL 1: How are you supporting high availability (HA) architecture deployments?
 
 **Question-level introduction:** Understanding the
 high availability architecture of Amazon ElastiCache will enable you to operate in a
@@ -85,9 +79,7 @@ Caching engine: ElastiCache for Memcached vs ElastiCache for Valkey and Redis OS
       + [High
        availability using replication groups](Replication.md "Replication.md")
 
-## REL 2: How are you meeting your Recovery Point Objectives (RPOs) with
-
-ElastiCache?
+## REL 2: How are you meeting your Recovery Point Objectives (RPOs) with ElastiCache?
 
 **Question-level introduction:** Understand workload
 RPO to inform decisions on ElastiCache backup and recovery strategies.
