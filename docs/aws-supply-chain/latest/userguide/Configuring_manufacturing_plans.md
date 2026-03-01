@@ -2,9 +2,7 @@
 
 Configure Manufacturing Plans to generate material, transfer, and production requirements for components and finished good items.
 
-## Using Supply Planning
-
-for the first time
+## Using Supply Planning for the first time
 
 You can define how and when you want to plan your supply chain.
 

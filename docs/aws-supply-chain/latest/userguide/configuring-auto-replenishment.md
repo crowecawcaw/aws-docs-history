@@ -5,16 +5,13 @@ to order more inventory by automating inventory management.
 
 ###### Topics
 
-- [Using Supply Planning for the first
-  time](#supply-planning-firsttime "#supply-planning-firsttime")
+- [Using Supply Planning for the first time](#supply-planning-firsttime "#supply-planning-firsttime")
 - [Overview](#sp_overview "#sp_overview")
 - [Purchase order requests](#purchase_order_requests "#purchase_order_requests")
 - [Plan exceptions](#exceptions "#exceptions")
 - [Supply planning settings](#supply-planning-settings "#supply-planning-settings")
 
-## Using Supply Planning for the first
-
-time
+## Using Supply Planning for the first time
 
 You can define how and when you want to plan your supply chain.
 
@@ -236,8 +233,7 @@ orders.
    **Enterprise and Configuration**, and then choose **Supply
    Planning**.
 
-The **Plan Settings** page appears. 2. Follow the steps in [Using Supply Planning for the first
-time](#supply-planning-firsttime "#supply-planning-firsttime") to edit the Supply Planning configuration settings. 3. Under **Reset Plan**, choose **Reset Plan** to delete the existing plan and start a new supply plan.
+The **Plan Settings** page appears. 2. Follow the steps in [Using Supply Planning for the first time](#supply-planning-firsttime "#supply-planning-firsttime") to edit the Supply Planning configuration settings. 3. Under **Reset Plan**, choose **Reset Plan** to delete the existing plan and start a new supply plan.
 
 ###### Note
 

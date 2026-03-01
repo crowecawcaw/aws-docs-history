@@ -27,9 +27,7 @@ The **N-Tier Visibility** page is displayed with the partner details. 11. Choose
 If you choose to decline the invite, you must provide a reason on the **Decline
 connection invite** page.
 
-## Reviewing and accepting purchase
-
-orders
+## Reviewing and accepting purchase orders
 
 As a **Partner**, you should have received an email to
 review the purchase orders. Select the link on the email to review and accept the
@@ -51,9 +49,7 @@ reason for the purchase order and details, and choose
 **Confirm**. 6. You can choose **Collaboration history** to read the purchase order updates
 and reason for the purchase order.
 
-## Reviewing and accepting forecast
-
-commits
+## Reviewing and accepting forecast commits
 
 As a **Partner**, you should have received an email to
 review the forecast commits. Select the link on the email to respond to the

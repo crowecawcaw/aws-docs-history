@@ -14,7 +14,5 @@ You can use N-Tier Visibility for the following:
   If you are an AWS Supply Chain partner, you can do the following:
 
 1. [Reviewing and accepting partner invites](partner_response.md#partner_invites_ntier "partner_response.md#partner_invites_ntier")
-2. [Reviewing and accepting purchase
-   orders](partner_response.md#reviewing_purchase_orders "partner_response.md#reviewing_purchase_orders")
-3. [Reviewing and accepting forecast
-   commits](partner_response.md#reviewing_forecast_commits "partner_response.md#reviewing_forecast_commits")
+2. [Reviewing and accepting purchase orders](partner_response.md#reviewing_purchase_orders "partner_response.md#reviewing_purchase_orders")
+3. [Reviewing and accepting forecast commits](partner_response.md#reviewing_forecast_commits "partner_response.md#reviewing_forecast_commits")

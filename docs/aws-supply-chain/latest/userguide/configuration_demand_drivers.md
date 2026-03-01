@@ -9,9 +9,7 @@ entity.
 If you don't configure the demand drivers, you can still generate a forecast.
 However, Demand Planning won't use the demand drivers.
 
-## Demand drivers data filling
-
-method
+## Demand drivers data filling method
 
 A _filling method_ represents (or "fills") missing
 values in a time series. Demand Planning supports the following filling methods. The

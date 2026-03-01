@@ -38,8 +38,7 @@ connection.
 
 - Select a minimum of 1 and a maximum of 13 demand drivers. Make sure that the
   aggregation and filling methods are configured. For more information on filling methods,
-  see [Demand drivers data filling
-  method](configuration_demand_drivers.md#filling_method_demand_drivers "configuration_demand_drivers.md#filling_method_demand_drivers"). You can modify the settings at any
+  see [Demand drivers data filling method](configuration_demand_drivers.md#filling_method_demand_drivers "configuration_demand_drivers.md#filling_method_demand_drivers"). You can modify the settings at any
   time. Demand Planning will apply the changes in the next forecast cycle.
 
 The following example illustrates how a Demand Plan is generated when the required

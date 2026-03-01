@@ -11,6 +11,6 @@ The **Set up AWS Supply Chain Analytics** page appears.
 
 If you have not ingested data into Data Lake, you need to ingest data before using AWS Supply Chain Analytics. To ingest data, see [Data lake](data-connections.md "data-connections.md"). 2. Choose **Set up Analytics**.
 
-The Quick Suite dashboard page appears. 3. Choose **Analyses**.
+The Quick dashboard page appears. 3. Choose **Analyses**.
 
 You can view all the existing analysis.

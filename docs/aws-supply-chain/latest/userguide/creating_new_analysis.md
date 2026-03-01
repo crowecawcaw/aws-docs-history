@@ -6,7 +6,7 @@ To create a new analysis, follow the below procedure.
 
 Granular access based on Location and Product is not supported in AWS Supply Chain Analytics.
 
-1. On the Quick Suite dashboard page, choose **New analysis**.
+1. On the Quick dashboard page, choose **New analysis**.
 2. Choose **New dataset**
 
 The **Create a Dataset** page appears. You will see the AWS Supply Chain data lake as an existing dataset for you to pick. For example, ask-datalake-_your instance id_.
@@ -15,7 +15,7 @@ The **Create a Dataset** page appears. You will see the AWS Supply Chain data la
 
 ###### Note
 
-Select the blue Quick Suite logo to navigate to the Quick Suite menu to view the datasets or analyses. 4. Choose **Create dataset**. 5. Under **Schema:contain set of tables** drop-down, select one of the following data source names:
+Select the blue Quick logo to navigate to the Quick menu to view the datasets or analyses. 4. Choose **Create dataset**. 5. Under **Schema:contain set of tables** drop-down, select one of the following data source names:
 
     * asc\_data\_<your instance id>: Contains datasets processed and transformed by AWS Supply Chain for use within the application.
      These can be used for creating dashboards and custom analyses. Examples include asc\_insights\_order\_insights and asc\_adp\_forecast. For more

@@ -11,7 +11,7 @@ AWS Supply Chain Analytics supports the following prebuilt dashboards.
 
 The **AWS Supply Chain Analytics** page appears.
 
-![Prebuilt dashboards](images/Prebuilt_dashboard.png) 2. Choose the **Prebuilt Dashboards** tab. 3. Under **Add Dashboards**, select the dashboard you want to add and choose **Add**. 4. Choose the **Quick Suite** tab. 5. Choose **Dashboards**.
+![Prebuilt dashboards](images/Prebuilt_dashboard.png) 2. Choose the **Prebuilt Dashboards** tab. 3. Under **Add Dashboards**, select the dashboard you want to add and choose **Add**. 4. Choose the **Quick** tab. 5. Choose **Dashboards**.
 
 You should see the prebuilt dashboard you added from **Prebuilt Dashboards**. 6. Choose the dashboard you want to view.
 

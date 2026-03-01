@@ -1,6 +1,6 @@
 # Setting AWS Supply Chain Analytics
 
-You must enable AWS Supply Chain Analytics before you can start using Quick Suite dashboards.
+You must enable AWS Supply Chain Analytics before you can start using Quick dashboards.
 
 1. In the left navigation pane on the AWS Supply Chain dashboard, choose the
    **Settings** icon.
