@@ -147,9 +147,7 @@ access to services with VPC endpoints](../../../vpc/latest/userguide/vpc-endpoin
 The `vpc-appliance.yml` template shows how to create VPC endpoints and private hosted zones for
 services used by the AWS Panorama Appliance.
 
-###### Example [vpc-appliance.yml](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/cloudformation-templates/vpc-appliance.yml "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/cloudformation-templates/vpc-appliance.yml") – Amazon S3 access point
-
-endpoint with private hosted zone
+###### Example [vpc-appliance.yml](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/cloudformation-templates/vpc-appliance.yml "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/cloudformation-templates/vpc-appliance.yml") – Amazon S3 access point endpoint with private hosted zone
 
 ```
   s3Endpoint:

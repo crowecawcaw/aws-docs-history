@@ -16,8 +16,7 @@ tab](../../../IAM/latest/UserGuide/access_policies_create.md#access_policies_cre
 
 - [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
 - [Using the AWS Panorama console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users to view their own
-  permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 
 ## Policy best practices
 
@@ -61,9 +60,7 @@ for entities (IAM users or roles) with that policy.
 
 For more information, see [Identity-based IAM policies for AWS Panorama](permissions-user.md "permissions-user.md")
 
-## Allow users to view their own
-
-permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

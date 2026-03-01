@@ -112,9 +112,7 @@ and saves the users choice to a local file for subsequent deployments.
 The application role is created by another script ([1-create-role.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/1-create-role.sh "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/1-create-role.sh")). The deploy script gets the ARN of this role from AWS CloudFormation. If the application is
 already deployed to the device, the script gets the ID of that application instance from a local file.
 
-###### Example [5-deploy.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/5-deploy.sh "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/5-deploy.sh") – role ARN and replacement
-
-arguments
+###### Example [5-deploy.sh](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/5-deploy.sh "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/5-deploy.sh") – role ARN and replacement arguments
 
 ```
 # application role

@@ -53,9 +53,7 @@ The device logs contain information about application status, software upgrades,
 
 An application instance's log group contains a log stream for each node, named after the node.
 
-###### Application logs –
-
-`/aws/panorama/devices/`device-id`/applications/`instance-id``
+###### Application logs – `/aws/panorama/devices/`device-id`/applications/`instance-id``
 
 - **Code** – Output from your application code and the AWS Panorama Application SDK.
   Aggregates application logs from `/opt/aws/panorama/logs`.

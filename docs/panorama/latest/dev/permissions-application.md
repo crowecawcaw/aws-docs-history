@@ -13,9 +13,7 @@ The [sample application](gettingstarted-sample.md "gettingstarted-sample.md") in
 create an application role. It is a [service role](permissions-services.md "permissions-services.md") that AWS Panorama can assume.
 This role grants permission for the application to call CloudWatch to upload metrics.
 
-###### Example [aws-panorama-sample.yml](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/aws-panorama-sample.yml "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/aws-panorama-sample.yml") – Application
-
-role
+###### Example [aws-panorama-sample.yml](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/aws-panorama-sample.yml "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/aws-panorama-sample.yml") – Application role
 
 ```
 Resources:
