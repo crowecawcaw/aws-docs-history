@@ -10,9 +10,7 @@ may look different from real findings for your environment, but you can use them
 various configurations for GuardDuty, such as your EventBridge events or filters. For a list of
 available values for finding types, see [GuardDuty finding types](guardduty_finding-types-active.md "guardduty_finding-types-active.md") table.
 
-## Generating sample findings through the GuardDuty console or
-
-API
+## Generating sample findings through the GuardDuty console or API
 
 Choose your preferred access method to generate sample findings.
 
@@ -66,5 +64,4 @@ associated with the generated findings, see [Severity levels of GuardDuty findin
 [Finding details](guardduty_findings-summary.md "guardduty_findings-summary.md").
 
 To generate some common findings based on a simulated activity in a
-dedicated and isolated AWS account within your environment, see [Test GuardDuty findings in dedicated
-accounts](guardduty_findings-scripts.md "guardduty_findings-scripts.md").
+dedicated and isolated AWS account within your environment, see [Test GuardDuty findings in dedicated accounts](guardduty_findings-scripts.md "guardduty_findings-scripts.md").

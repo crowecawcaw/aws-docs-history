@@ -1,6 +1,4 @@
-# Feature names for protection plans in GuardDuty
-
-API
+# Feature names for protection plans in GuardDuty API
 
 When you enable Amazon GuardDuty for the first time, it starts processing [Foundational data sources](guardduty_data-sources.md "guardduty_data-sources.md") within your AWS
 environment. GuardDuty uses these data sources to process an independent stream of events such as VPC
@@ -27,5 +25,4 @@ If you manage GuardDuty configuration and protection plans through the console, 
 directly impacted by this change and don't need to take any action. This change affects the
 behavior of the APIs that are invoked to enable GuardDuty or protection plans within GuardDuty. If you
 use APIs or AWS CLI to enable or edit the configuration of a protection plan, you must use the
-associated feature name. For more information, see [Mapping
-dataSources to features](guardduty-feature-object-api-changes-march2023.md#guardduty-feature-enablement-datasource-relation "guardduty-feature-object-api-changes-march2023.md#guardduty-feature-enablement-datasource-relation").
+associated feature name. For more information, see [Mapping dataSources to features](guardduty-feature-object-api-changes-march2023.md#guardduty-feature-enablement-datasource-relation "guardduty-feature-object-api-changes-march2023.md#guardduty-feature-enablement-datasource-relation").

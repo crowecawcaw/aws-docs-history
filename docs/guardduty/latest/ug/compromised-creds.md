@@ -1,6 +1,4 @@
-# Remediating potentially compromised AWS
-
-credentials
+# Remediating potentially compromised AWS credentials
 
 When GuardDuty generates [IAM finding types](guardduty_finding-types-iam.md "guardduty_finding-types-iam.md"), it indicates that your AWS credentials
 have been compromised. The potentially compromised **Resource** type is

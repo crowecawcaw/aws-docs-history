@@ -9,10 +9,8 @@ most out of your findings.
 
 - [Before you begin](#setup-before "#setup-before")
 - [Step 1: Enable Amazon GuardDuty](#guardduty_enable-gd "#guardduty_enable-gd")
-- [Step 2: Generate sample findings and explore basic
-  operations](#startup-samples "#startup-samples")
-- [Step 3: Configure exporting GuardDuty findings to an Amazon S3
-  bucket](#setup-export "#setup-export")
+- [Step 2: Generate sample findings and explore basic operations](#startup-samples "#startup-samples")
+- [Step 3: Configure exporting GuardDuty findings to an Amazon S3 bucket](#setup-export "#setup-export")
 - [Step 4: Set up GuardDuty finding alerts through SNS](#setup-sns "#setup-sns")
 - [Next steps](#setup_beyond "#setup_beyond")
 
@@ -64,8 +62,7 @@ services is reduced. For a full list of Regions where GuardDuty is available, se
   however, following the security best practice of least privilege, it is
   recommended that you create an IAM role, user, or group to manage GuardDuty
   specifically. For information about the permissions required to enable GuardDuty see
-  [Permissions required to enable
-  GuardDuty](security_iam_id-based-policy-examples.md#guardduty_enable-permissions "security_iam_id-based-policy-examples.md#guardduty_enable-permissions").
+  [Permissions required to enable GuardDuty](security_iam_id-based-policy-examples.md#guardduty_enable-permissions "security_iam_id-based-policy-examples.md#guardduty_enable-permissions").
 - When you enable GuardDuty for the first time in any AWS Region, by default, it
   also enables all the available protection types that are supported in that
   Region, including Malware Protection for EC2. GuardDuty creates a service–linked role for your
@@ -117,8 +114,7 @@ As prerequisites for this process, you must be in the same
 organization as all the accounts you want to manage, and have access to
 the AWS Organizations management account in order to delegate an administrator for
 GuardDuty within your organization. Additional permissions may be required
-to delegate an administrator, for more info see [Permissions required to designate a
-delegated GuardDuty administrator account](organizations_permissions.md "organizations_permissions.md").
+to delegate an administrator, for more info see [Permissions required to designate a delegated GuardDuty administrator account](organizations_permissions.md "organizations_permissions.md").
 
 **To designate a delegated GuardDuty administrator account**
 
@@ -173,9 +169,7 @@ the **Auto-enable** feature; however, this only
 applies to accounts that join your organization after the
 feature has been enabled.
 
-## Step 2: Generate sample findings and explore basic
-
-operations
+## Step 2: Generate sample findings and explore basic operations
 
 When GuardDuty discovers a security issue, it generates a finding. A GuardDuty finding is a
 dataset containing details relating to that unique security issue. The finding's details
@@ -234,9 +228,7 @@ account, see [Sample findings](sample_findings.md "sample_findings.md").
    and then **Archived** to switch the findings
    view.
 
-## Step 3: Configure exporting GuardDuty findings to an Amazon S3
-
-bucket
+## Step 3: Configure exporting GuardDuty findings to an Amazon S3 bucket
 
 GuardDuty recommends configuring settings to export findings because it allows you to
 export your findings to an S3 bucket for indefinite storage beyond the GuardDuty 90-day

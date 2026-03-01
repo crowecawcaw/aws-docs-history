@@ -1,6 +1,4 @@
-# Setting up CPU and memory
-
-monitoring
+# Setting up CPU and memory monitoring
 
 After you enable Runtime Monitoring and assess that the coverage status of your cluster is **Healthy**, you can set up and view the insight metrics.
 

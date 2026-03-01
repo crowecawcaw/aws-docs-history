@@ -12,15 +12,11 @@ With the availability of Runtime Monitoring, GuardDuty has consolidated the cons
 EKS Runtime Monitoring into Runtime Monitoring. GuardDuty will not migrate your EKS Runtime Monitoring settings on your behalf
 automatically. This requires an action at your end. If you want to continue using only
 EKS Runtime Monitoring, you can use the APIs or AWS CLI to check and update the existing configuration
-status for EKS Runtime Monitoring. However, GuardDuty recommends [Migrating from EKS Runtime Monitoring to
-Runtime Monitoring](migrating-from-eksrunmon-to-runtime-monitoring.md "migrating-from-eksrunmon-to-runtime-monitoring.md") and using Runtime Monitoring to
+status for EKS Runtime Monitoring. However, GuardDuty recommends [Migrating from EKS Runtime Monitoring to Runtime Monitoring](migrating-from-eksrunmon-to-runtime-monitoring.md "migrating-from-eksrunmon-to-runtime-monitoring.md") and using Runtime Monitoring to
 monitor your Amazon EKS clusters.
 
 ###### Topics
 
-- [Configuring
-  EKS Runtime Monitoring for multiple-account environments (API)](eks-runtime-monitoring-configuration-multiple-accounts.md "eks-runtime-monitoring-configuration-multiple-accounts.md")
-- [Configuring
-  EKS Runtime Monitoring for a standalone account (API)](eks-runtime-monitoring-configuration-standalone-acc.md "eks-runtime-monitoring-configuration-standalone-acc.md")
-- [Migrating from EKS Runtime Monitoring to
-  Runtime Monitoring](migrating-from-eksrunmon-to-runtime-monitoring.md "migrating-from-eksrunmon-to-runtime-monitoring.md")
+- [Configuring EKS Runtime Monitoring for multiple-account environments (API)](eks-runtime-monitoring-configuration-multiple-accounts.md "eks-runtime-monitoring-configuration-multiple-accounts.md")
+- [Configuring EKS Runtime Monitoring for a standalone account (API)](eks-runtime-monitoring-configuration-standalone-acc.md "eks-runtime-monitoring-configuration-standalone-acc.md")
+- [Migrating from EKS Runtime Monitoring to Runtime Monitoring](migrating-from-eksrunmon-to-runtime-monitoring.md "migrating-from-eksrunmon-to-runtime-monitoring.md")

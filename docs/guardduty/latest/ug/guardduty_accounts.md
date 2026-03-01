@@ -21,9 +21,7 @@ AWS services, including Macie, AWS Security Hub CSPM, and Amazon GuardDuty. For 
 
 ###### Contents
 
-- [Understanding the relationship
-  between GuardDuty administrator account and member accounts](administrator_member_relationships.md "administrator_member_relationships.md")
+- [Understanding the relationship between GuardDuty administrator account and member accounts](administrator_member_relationships.md "administrator_member_relationships.md")
 - [Managing GuardDuty accounts with AWS Organizations](guardduty_organizations.md "guardduty_organizations.md")
 - [Managing GuardDuty accounts by invitation](guardduty_invitations.md "guardduty_invitations.md")
-- [GuardDuty considerations for
-  exporting member account details in CSV format](exporting-guardduty-accounts-data-to-csv.md "exporting-guardduty-accounts-data-to-csv.md")
+- [GuardDuty considerations for exporting member account details in CSV format](exporting-guardduty-accounts-data-to-csv.md "exporting-guardduty-accounts-data-to-csv.md")

@@ -1,6 +1,4 @@
-# Reviewing runtime coverage statistics and
-
-troubleshooting issues
+# Reviewing runtime coverage statistics and troubleshooting issues
 
 After you enable Runtime Monitoring and the GuardDuty security agent gets deployed to your resource, GuardDuty
 provides coverage statistics for the corresponding resource type and individual coverage status
@@ -19,9 +17,6 @@ and troubleshoot the coverage issues for a specific resource type.
 
 ###### Contents
 
-- [Runtime coverage and troubleshooting for Amazon EC2
-  instance](gdu-assess-coverage-ec2.md "gdu-assess-coverage-ec2.md")
-- [Runtime coverage and troubleshooting for Amazon ECS
-  clusters](gdu-assess-coverage-ecs.md "gdu-assess-coverage-ecs.md")
-- [Runtime coverage and troubleshooting for Amazon EKS
-  clusters](eks-runtime-monitoring-coverage.md "eks-runtime-monitoring-coverage.md")
+- [Runtime coverage and troubleshooting for Amazon EC2 instance](gdu-assess-coverage-ec2.md "gdu-assess-coverage-ec2.md")
+- [Runtime coverage and troubleshooting for Amazon ECS clusters](gdu-assess-coverage-ecs.md "gdu-assess-coverage-ecs.md")
+- [Runtime coverage and troubleshooting for Amazon EKS clusters](eks-runtime-monitoring-coverage.md "eks-runtime-monitoring-coverage.md")

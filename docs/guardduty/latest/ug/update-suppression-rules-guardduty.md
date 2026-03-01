@@ -1,6 +1,4 @@
-#
-
-Updating suppression rules in GuardDuty
+# Updating suppression rules in GuardDuty
 
 This section provides the steps to update a suppression rule in your AWS account in
 a specific AWS Region.

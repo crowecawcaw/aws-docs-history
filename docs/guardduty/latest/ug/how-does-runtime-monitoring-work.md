@@ -34,10 +34,7 @@ differently for each resource type.
 
 ###### Contents
 
-- [How Runtime Monitoring works with Amazon EKS
-  clusters](how-runtime-monitoring-works-eks.md "how-runtime-monitoring-works-eks.md")
-- [How Runtime Monitoring works with Amazon EC2
-  instances](how-runtime-monitoring-works-ec2.md "how-runtime-monitoring-works-ec2.md")
-- [How Runtime Monitoring works with Fargate
-  (Amazon ECS only)](how-runtime-monitoring-works-ecs-fargate.md "how-runtime-monitoring-works-ecs-fargate.md")
+- [How Runtime Monitoring works with Amazon EKS clusters](how-runtime-monitoring-works-eks.md "how-runtime-monitoring-works-eks.md")
+- [How Runtime Monitoring works with Amazon EC2 instances](how-runtime-monitoring-works-ec2.md "how-runtime-monitoring-works-ec2.md")
+- [How Runtime Monitoring works with Fargate (Amazon ECS only)](how-runtime-monitoring-works-ecs-fargate.md "how-runtime-monitoring-works-ecs-fargate.md")
 - [After you enable Runtime Monitoring](runtime-monitoring-after-configuration.md "runtime-monitoring-after-configuration.md")

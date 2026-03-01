@@ -32,9 +32,7 @@ To resolve the `storage-full` status, you can perform one of the following actio
   storage capacity, see [Increasing DB instance storage capacity](../../../AmazonRDS/latest/UserGuide/USER_PIOPS.md "../../../AmazonRDS/latest/UserGuide/USER_PIOPS.md")
   in the _Amazon RDS User Guide_.
 
-## Unsupported
-
-versions on primary database for RDS for PostgreSQL
+## Unsupported versions on primary database for RDS for PostgreSQL
 
 RDS for PostgreSQL read replica instances require the primary database instance to be on supported database version and
 to be successfully replicated from the primary database. GuardDuty monitors your instances only when these

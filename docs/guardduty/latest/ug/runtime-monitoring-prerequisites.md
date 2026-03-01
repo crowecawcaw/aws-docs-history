@@ -13,9 +13,6 @@ The following sections include prerequisites based on the resource type.
 
 ###### Contents
 
-- [Prerequisites for Amazon EC2 instance
-  support](prereq-runtime-monitoring-ec2-support.md "prereq-runtime-monitoring-ec2-support.md")
-- [Prerequisites for AWS Fargate (Amazon ECS
-  only) support](prereq-runtime-monitoring-ecs-support.md "prereq-runtime-monitoring-ecs-support.md")
-- [Prerequisites for Amazon EKS cluster
-  support](prereq-runtime-monitoring-eks-support.md "prereq-runtime-monitoring-eks-support.md")
+- [Prerequisites for Amazon EC2 instance support](prereq-runtime-monitoring-ec2-support.md "prereq-runtime-monitoring-ec2-support.md")
+- [Prerequisites for AWS Fargate (Amazon ECS only) support](prereq-runtime-monitoring-ecs-support.md "prereq-runtime-monitoring-ecs-support.md")
+- [Prerequisites for Amazon EKS cluster support](prereq-runtime-monitoring-eks-support.md "prereq-runtime-monitoring-eks-support.md")

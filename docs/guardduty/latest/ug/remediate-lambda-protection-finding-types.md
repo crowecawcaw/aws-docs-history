@@ -1,6 +1,4 @@
-# Remediating a potentially
-
-compromised Lambda function
+# Remediating a potentially compromised Lambda function
 
 When GuardDuty generates [Lambda Protection finding types](lambda-protection-finding-types.md "lambda-protection-finding-types.md"), your Lambda function
 may be compromised. If the activity that caused GuardDuty to generate this finding was expected, you can consider

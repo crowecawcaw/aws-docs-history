@@ -9,19 +9,13 @@ agent.
 
 ###### Contents
 
-- [Enabling automated security agent for
-  Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
+- [Enabling automated security agent for Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
 - [Managing security agent manually for Amazon EC2 resource](managing-gdu-agent-ec2-manually.md "managing-gdu-agent-ec2-manually.md")
-- [Managing automated security agent for
-  Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
-- [Managing security agent automatically
-  for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
-- [Managing security agent manually for
-  Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")
-- [Configure GuardDuty security agent
-  (add-on) parameters for Amazon EKS](guardduty-configure-security-agent-eks-addon.md "guardduty-configure-security-agent-eks-addon.md")
-- [Validating VPC
-  endpoint configuration](validate-vpc-endpoint-config-runtime-monitoring.md "validate-vpc-endpoint-config-runtime-monitoring.md")
+- [Managing automated security agent for Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
+- [Managing security agent automatically for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
+- [Managing security agent manually for Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")
+- [Configure GuardDuty security agent (add-on) parameters for Amazon EKS](guardduty-configure-security-agent-eks-addon.md "guardduty-configure-security-agent-eks-addon.md")
+- [Validating VPC endpoint configuration](validate-vpc-endpoint-config-runtime-monitoring.md "validate-vpc-endpoint-config-runtime-monitoring.md")
   The following list includes good to know items after you install or update the security
   agent.
 

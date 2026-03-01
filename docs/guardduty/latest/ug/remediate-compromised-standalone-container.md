@@ -1,6 +1,4 @@
-# Remediating a potentially
-
-compromised standalone container
+# Remediating a potentially compromised standalone container
 
 When GuardDuty generates [finding
 types that indicate potentially compromised container](guardduty_finding-types-active.md#findings-table "guardduty_finding-types-active.md#findings-table"), your

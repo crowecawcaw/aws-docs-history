@@ -17,14 +17,10 @@ outlines appropriate remediation guidance. The following are the primary root ca
 lead to GuardDuty Kubernetes findings:
 
 - [Potential configuration issues](#compromised-kubernetes-config "#compromised-kubernetes-config")
-- [Remediating potentially compromised Kubernetes
-  users](#compromised-kubernetes-user "#compromised-kubernetes-user")
-- [Remediating potentially compromised Kubernetes
-  pods](#compromised-kubernetes-pod "#compromised-kubernetes-pod")
-- [Remediating potentially compromised Kubernetes
-  nodes](#compromised-kubernetes-node "#compromised-kubernetes-node")
-- [Remediating potentially compromised
-  container images](#compromised-kubernetes-image "#compromised-kubernetes-image")
+- [Remediating potentially compromised Kubernetes users](#compromised-kubernetes-user "#compromised-kubernetes-user")
+- [Remediating potentially compromised Kubernetes pods](#compromised-kubernetes-pod "#compromised-kubernetes-pod")
+- [Remediating potentially compromised Kubernetes nodes](#compromised-kubernetes-node "#compromised-kubernetes-node")
+- [Remediating potentially compromised container images](#compromised-kubernetes-image "#compromised-kubernetes-image")
 
 ###### Note
 
@@ -52,9 +48,7 @@ following finding types that indicate configuration issues:
 - [Policy:Kubernetes/KubeflowDashboardExposed](guardduty-finding-types-eks-audit-logs.md#policy-kubernetes-kubeflowdashboardexposed "guardduty-finding-types-eks-audit-logs.md#policy-kubernetes-kubeflowdashboardexposed")
 - Any finding that ends in **SuccessfulAnonymousAccess**
 
-## Remediating potentially compromised Kubernetes
-
-users
+## Remediating potentially compromised Kubernetes users
 
 A GuardDuty finding can indicate a compromised Kubernetes user when a user identified in the
 finding has performed an unexpected API action. You can identify the user in the
@@ -87,8 +81,7 @@ details` section.
   - If the `userType` is **Role**
     and the role belongs to an EC2 instance role:
     - Identify that instance then follow the
-      instructions in [Remediating a potentially compromised Amazon EC2
-      instance](compromised-ec2.md "compromised-ec2.md").
+      instructions in [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
   - If the `userType` is **User**,
     or is a **Role** that was assumed by a
@@ -194,9 +187,7 @@ account:**
 2. Review the guidance for pod compromise in the following
    section.
 
-## Remediating potentially compromised Kubernetes
-
-pods
+## Remediating potentially compromised Kubernetes pods
 
 When GuardDuty specifies details of a pod or workload resource inside the
 `resource.kubernetesDetails.kubernetesWorkloadDetails` section, that pod
@@ -265,9 +256,7 @@ from the attack. Similarly, if the Pod has been assigned an IAM role, evaluate w
 you can safely remove the IAM policies from the role without impacting other
 workloads.
 
-## Remediating potentially compromised
-
-container images
+## Remediating potentially compromised container images
 
 When a GuardDuty finding indicates a pod compromise, the image used to launch the pod
 could be potentially malicious or compromised. GuardDuty findings identify the container
@@ -287,9 +276,7 @@ for analysis. For more information, see [Isolate the pod by creating a network p
 and egress traffic to the pod](../../../eks/latest/best-practices/incident-response-and-forensics.md#_isolate_the_pod_by_creating_a_network_policy_that_denies_all_ingress_and_egress_traffic_to_the_pod "../../../eks/latest/best-practices/incident-response-and-forensics.md#_isolate_the_pod_by_creating_a_network_policy_that_denies_all_ingress_and_egress_traffic_to_the_pod")
 in the _Amazon EKS Best Practices Guide_. 4. Delete all pods using the potentially compromised image.
 
-## Remediating potentially compromised Kubernetes
-
-nodes
+## Remediating potentially compromised Kubernetes nodes
 
 A GuardDuty finding can indicate a node compromise if the user identified in the finding
 represents a node identity or if the finding indicates the use of a privileged

@@ -1,6 +1,4 @@
-# How Runtime Monitoring works with Amazon EKS
-
-clusters
+# How Runtime Monitoring works with Amazon EKS clusters
 
 Runtime Monitoring uses an [EKS add-on
 `aws-guardduty-agent`](../../../eks/latest/userguide/eks-add-ons.md#workloads-add-ons-available-eks "../../../eks/latest/userguide/eks-add-ons.md#workloads-add-ons-available-eks"), also called as GuardDuty security agent. After GuardDuty
@@ -43,17 +41,14 @@ the _Amazon VPC User Guide_.
   centralized VPC works, see [Interface VPC endpoints](../../../whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/centralized-access-to-vpc-private-endpoints.md#interface-vpc-endpoints "../../../whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/centralized-access-to-vpc-private-endpoints.md#interface-vpc-endpoints") in the _AWS Whitepaper - Building a Scalable and
   Secure Multi-VPC AWS Network Infrastructure_.
 
-## Approaches to manage GuardDuty
-
-security agent in Amazon EKS clusters
+## Approaches to manage GuardDuty security agent in Amazon EKS clusters
 
 Prior to September 13, 2023, you could configure GuardDuty to manage the security agent at the
 account level. This behavior indicated that by default, GuardDuty will manage the security agent on
 all the EKS clusters that belong to an AWS account. Now, GuardDuty provides a granular capability
 to help you choose the EKS clusters where you want GuardDuty to manage the security agent.
 
-When you choose to [Manage GuardDuty security agent
-manually](#eks-runtime-using-gdu-agent-manually "#eks-runtime-using-gdu-agent-manually"), you can still select the EKS clusters
+When you choose to [Manage GuardDuty security agent manually](#eks-runtime-using-gdu-agent-manually "#eks-runtime-using-gdu-agent-manually"), you can still select the EKS clusters
 that you want to monitor. However, to manage the agent manually, creating a Amazon VPC endpoint for
 your AWS account is a prerequisite.
 
@@ -64,14 +59,10 @@ is always enabled at the account level.
 
 ###### Topics
 
-- [Manage security agent through
-  GuardDuty](#eks-runtime-using-gdu-agent-management-auto "#eks-runtime-using-gdu-agent-management-auto")
-- [Manage GuardDuty security agent
-  manually](#eks-runtime-using-gdu-agent-manually "#eks-runtime-using-gdu-agent-manually")
+- [Manage security agent through GuardDuty](#eks-runtime-using-gdu-agent-management-auto "#eks-runtime-using-gdu-agent-management-auto")
+- [Manage GuardDuty security agent manually](#eks-runtime-using-gdu-agent-manually "#eks-runtime-using-gdu-agent-manually")
 
-### Manage security agent through
-
-GuardDuty
+### Manage security agent through GuardDuty
 
 GuardDuty deploys and manages the security agent on your behalf. At any point in time, you
 can monitor the EKS clusters in your account by using one of the following approaches.
@@ -114,8 +105,7 @@ want to receive the runtime events. The pre-defined tag must have
 This approach requires that you to enable GuardDuty agent auto-management only after adding tags to the
 EKS clusters that you want to exclude from monitoring.
 
-Therefore, the impact when you [Manage security agent through
-GuardDuty](#eks-runtime-using-gdu-agent-management-auto "#eks-runtime-using-gdu-agent-management-auto") applies to this approach
+Therefore, the impact when you [Manage security agent through GuardDuty](#eks-runtime-using-gdu-agent-management-auto "#eks-runtime-using-gdu-agent-management-auto") applies to this approach
 too. When you add tags prior to enabling GuardDuty agent auto-management, GuardDuty will neither deploy nor
 manage the security agent for the EKS clusters that are excluded from monitoring.
 
@@ -179,9 +169,7 @@ AWS resources](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest
 see [Tagging your
 Amazon EKS resources](../../../eks/latest/userguide/eks-using-tags.md "../../../eks/latest/userguide/eks-using-tags.md") in the **Amazon EKS User Guide**.
 
-### Manage GuardDuty security agent
-
-manually
+### Manage GuardDuty security agent manually
 
 Use this approach when you want deploy and manage the GuardDuty security agent on all of your
 EKS clusters manually. Ensure that EKS Runtime Monitoring is enabled for your accounts. The GuardDuty

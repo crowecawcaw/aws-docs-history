@@ -1,6 +1,4 @@
-# Opting out of using your data for service
-
-improvement
+# Opting out of using your data for service improvement
 
 You can choose to opt out of having your data used to develop and improve GuardDuty and other
 AWS security services by using the AWS Organizations opt-out policy. You can choose to opt out even
@@ -35,8 +33,7 @@ AWS Fargate Amazon Elastic Container Service(Amazon ECS) only, and Amazon Elasti
 environment. After you enable Runtime Monitoring and deploy the GuardDuty security agent for your
 resource, GuardDuty starts to monitor and analyze the runtime events associated with your
 resource. These runtime event types include process events, container events, DNS events,
-and more. For more information, see [Collected runtime event types that GuardDuty
-uses](runtime-monitoring-collected-events.md "runtime-monitoring-collected-events.md").
+and more. For more information, see [Collected runtime event types that GuardDuty uses](runtime-monitoring-collected-events.md "runtime-monitoring-collected-events.md").
 
 GuardDuty collects both commands (such as `curl`,
 `systemctl`, and `cron`) and their associated arguments (such as

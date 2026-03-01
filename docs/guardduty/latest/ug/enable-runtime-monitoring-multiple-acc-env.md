@@ -1,6 +1,4 @@
-# Enabling Runtime Monitoring for
-
-multiple-account environments
+# Enabling Runtime Monitoring for multiple-account environments
 
 In a multiple-account environments, only the delegated GuardDuty administrator account can enable or disable Runtime Monitoring
 for the member accounts, and manage automated agent configuration for the resource types
@@ -36,15 +34,11 @@ then choose **Configure accounts manually**.
 
 ###### To enable GuardDuty security agent
 
-    * [Enabling automated security agent for
-     Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
+    * [Enabling automated security agent for Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
     * [Managing security agent manually for Amazon EC2 resource](managing-gdu-agent-ec2-manually.md "managing-gdu-agent-ec2-manually.md")
-    * [Managing automated security agent for
-     Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
-    * [Managing security agent automatically
-     for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
-    * [Managing security agent manually for
-     Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")
+    * [Managing automated security agent for Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
+    * [Managing security agent automatically for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
+    * [Managing security agent manually for Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")
 
 ###### To enable Runtime Monitoring for all member accounts in the organization
 
@@ -59,19 +53,13 @@ resources:
 
 ###### To enable GuardDuty security agent
 
-    * [Enabling automated security agent for
-     Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
+    * [Enabling automated security agent for Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
     * [Managing security agent manually for Amazon EC2 resource](managing-gdu-agent-ec2-manually.md "managing-gdu-agent-ec2-manually.md")
-    * [Managing automated security agent for
-     Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
-    * [Managing security agent automatically
-     for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
-    * [Managing security agent manually for
-     Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")
+    * [Managing automated security agent for Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
+    * [Managing security agent automatically for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
+    * [Managing security agent manually for Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")
 
-###### To enable Runtime Monitoring for existing member accounts in the
-
-organization
+###### To enable Runtime Monitoring for existing member accounts in the organization
 
 1. Sign in to the AWS Management Console and open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
 
@@ -88,15 +76,11 @@ resources:
 
 ###### To enable GuardDuty security agent
 
-    * [Enabling automated security agent for
-     Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
+    * [Enabling automated security agent for Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
     * [Managing security agent manually for Amazon EC2 resource](managing-gdu-agent-ec2-manually.md "managing-gdu-agent-ec2-manually.md")
-    * [Managing automated security agent for
-     Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
-    * [Managing security agent automatically
-     for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
-    * [Managing security agent manually for
-     Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")
+    * [Managing automated security agent for Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
+    * [Managing security agent automatically for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
+    * [Managing security agent manually for Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")
 
 ###### Note
 
@@ -116,15 +100,11 @@ resources:
 
 ###### To enable GuardDuty security agent
 
-    * [Enabling automated security agent for
-     Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
+    * [Enabling automated security agent for Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
     * [Managing security agent manually for Amazon EC2 resource](managing-gdu-agent-ec2-manually.md "managing-gdu-agent-ec2-manually.md")
-    * [Managing automated security agent for
-     Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
-    * [Managing security agent automatically
-     for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
-    * [Managing security agent manually for
-     Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")
+    * [Managing automated security agent for Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
+    * [Managing security agent automatically for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
+    * [Managing security agent manually for Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")
 
 ###### To enable Runtime Monitoring for individual active member accounts
 
@@ -144,12 +124,8 @@ resources:
 
 ###### To enable GuardDuty security agent
 
-    * [Enabling automated security agent for
-     Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
+    * [Enabling automated security agent for Amazon EC2 instance](managing-gdu-agent-ec2-automated.md "managing-gdu-agent-ec2-automated.md")
     * [Managing security agent manually for Amazon EC2 resource](managing-gdu-agent-ec2-manually.md "managing-gdu-agent-ec2-manually.md")
-    * [Managing automated security agent for
-     Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
-    * [Managing security agent automatically
-     for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
-    * [Managing security agent manually for
-     Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")
+    * [Managing automated security agent for Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md")
+    * [Managing security agent automatically for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md")
+    * [Managing security agent manually for Amazon EKS cluster](managing-gdu-agent-eks-manually.md "managing-gdu-agent-eks-manually.md")

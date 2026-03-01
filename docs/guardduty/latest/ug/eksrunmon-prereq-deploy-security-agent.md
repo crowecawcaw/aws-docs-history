@@ -1,6 +1,4 @@
-# Prerequisite – Creating
-
-an Amazon VPC endpoint
+# Prerequisite – Creating an Amazon VPC endpoint
 
 Before you can install the GuardDuty security agent, you must create an Amazon Virtual Private Cloud (Amazon VPC)
 endpoint. This will help GuardDuty receive the runtime events of your Amazon EKS resources.
@@ -69,9 +67,7 @@ account containing the VPC and VPC endpoint. The following list
 shows how to share the VPC endpoint with other AWS account
 IDs:
 
-###### Organization condition to restrict access to your
-
-endpoint
+###### Organization condition to restrict access to your endpoint
 
     * To specify multiple accounts to access the VPC endpoint,
      replace `"aws:PrincipalAccount":
@@ -142,6 +138,5 @@ API/CLI
 
 - For AWS Command Line Interface, see [create-vpc-endpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc-endpoint.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc-endpoint.html").
 
-After you have followed the steps, see [Validating VPC
-endpoint configuration](validate-vpc-endpoint-config-runtime-monitoring.md "validate-vpc-endpoint-config-runtime-monitoring.md") to ensure that the VPC
+After you have followed the steps, see [Validating VPC endpoint configuration](validate-vpc-endpoint-config-runtime-monitoring.md "validate-vpc-endpoint-config-runtime-monitoring.md") to ensure that the VPC
 endpoint was set up correctly.

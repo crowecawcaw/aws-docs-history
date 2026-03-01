@@ -31,9 +31,7 @@ criterion of `service.archived` equal to true.
 In a multi-account environment only the GuardDuty administrator can create suppression
 rules.
 
-## Using suppression rules with
-
-Extended Threat Detection
+## Using suppression rules with Extended Threat Detection
 
 GuardDuty Extended Threat Detection automatically detects multi-stage attacks that span data sources, multiple types of
 AWS resources, and time, within an AWS account. It correlates events
@@ -56,9 +54,7 @@ Consider the following recommendations from GuardDuty:
 - Keep the suppression rules focused
   on specific behaviors for which you don't want GuardDuty to generate a finding.
 
-## Common use cases for suppression
-
-rules and examples
+## Common use cases for suppression rules and examples
 
 The following finding types have common use cases for applying suppression rules.
 Select the finding name to learn more about that finding. Review the use case
@@ -157,9 +153,7 @@ instances with a certain instance tag key in the console.
 Finding type: `Recon:EC2/PortProbeUnprotectedPort` Instance tag key: `prod`
 ```
 
-### Recommended suppression rules
-
-for Runtime Monitoring findings
+### Recommended suppression rules for Runtime Monitoring findings
 
 - [PrivilegeEscalation:Runtime/DockerSocketAccessed](findings-runtime-monitoring.md#privilegeesc-runtime-dockersocketaccessed "findings-runtime-monitoring.md#privilegeesc-runtime-dockersocketaccessed") gets
   generated when a process inside a container communicates with the Docker

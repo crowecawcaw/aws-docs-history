@@ -59,10 +59,7 @@ example, you can HTML encode finding fields when displaying them on a webpage.
 
 ## CryptoCurrency:Runtime/BitcoinTool.B
 
-### An Amazon EC2 instance or a
-
-container is querying an IP address that is associated with a cryptocurrency-related
-activity.
+### An Amazon EC2 instance or a container is querying an IP address that is associated with a cryptocurrency-related activity.
 
 **Default severity: High**
 
@@ -96,9 +93,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Backdoor:Runtime/C&CActivity.B
 
-### An Amazon EC2 instance or a container is
-
-querying an IP that is associated with a known command and control server.
+### An Amazon EC2 instance or a container is querying an IP that is associated with a known command and control server.
 
 **Default severity: High**
 
@@ -137,9 +132,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## UnauthorizedAccess:Runtime/TorRelay
 
-### Your Amazon EC2 instance or a
-
-container is making connections to a Tor network as a Tor relay.
+### Your Amazon EC2 instance or a container is making connections to a Tor network as a Tor relay.
 
 **Default severity: High**
 
@@ -166,9 +159,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## UnauthorizedAccess:Runtime/TorClient
 
-### Your Amazon EC2 instance or a
-
-container is making connections to a Tor Guard or an Authority node.
+### Your Amazon EC2 instance or a container is making connections to a Tor Guard or an Authority node.
 
 **Default severity: High**
 
@@ -197,10 +188,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Trojan:Runtime/BlackholeTraffic
 
-### An Amazon EC2 instance or a container
-
-is attempting to communicate with an IP address of a remote host that is a known black
-hole.
+### An Amazon EC2 instance or a container is attempting to communicate with an IP address of a remote host that is a known black hole.
 
 **Default severity: Medium**
 
@@ -225,10 +213,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Trojan:Runtime/DropPoint
 
-### An Amazon EC2 instance or a container is
-
-attempting to communicate with an IP address of a remote host that is known to hold credentials
-and other stolen data captured by malware.
+### An Amazon EC2 instance or a container is attempting to communicate with an IP address of a remote host that is known to hold credentials and other stolen data captured by malware.
 
 **Default severity: Medium**
 
@@ -250,9 +235,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## CryptoCurrency:Runtime/BitcoinTool.B!DNS
 
-### An Amazon EC2 instance or a
-
-container is querying a domain name that is associated with a cryptocurrency activity.
+### An Amazon EC2 instance or a container is querying a domain name that is associated with a cryptocurrency activity.
 
 **Default severity: High**
 
@@ -286,9 +269,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Backdoor:Runtime/C&CActivity.B!DNS
 
-### An Amazon EC2 instance or a container
-
-is querying a domain name that is associated with a known command and control server.
+### An Amazon EC2 instance or a container is querying a domain name that is associated with a known command and control server.
 
 **Default severity: High**
 
@@ -332,10 +313,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Trojan:Runtime/BlackholeTraffic!DNS
 
-### An Amazon EC2 instance or a
-
-container is querying a domain name that is being redirected to a black hole IP
-address.
+### An Amazon EC2 instance or a container is querying a domain name that is being redirected to a black hole IP address.
 
 **Default severity: Medium**
 
@@ -357,10 +335,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Trojan:Runtime/DropPoint!DNS
 
-### An Amazon EC2 instance or a container is
-
-querying a domain name of a remote host that is known to hold credentials and other stolen data
-captured by malware.
+### An Amazon EC2 instance or a container is querying a domain name of a remote host that is known to hold credentials and other stolen data captured by malware.
 
 **Default severity: Medium**
 
@@ -382,10 +357,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Trojan:Runtime/DGADomainRequest.C!DNS
 
-### An Amazon EC2 instance or a
-
-container is querying algorithmically generated domains. Such domains are commonly used by
-malware and could be an indication of a compromised EC2 instance or a container.
+### An Amazon EC2 instance or a container is querying algorithmically generated domains. Such domains are commonly used by malware and could be an indication of a compromised EC2 instance or a container.
 
 **Default severity: High**
 
@@ -419,10 +391,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Trojan:Runtime/DriveBySourceTraffic!DNS
 
-### An Amazon EC2 instance or a
-
-container is querying a domain name of a remote host that is a known source of Drive-By
-download attacks.
+### An Amazon EC2 instance or a container is querying a domain name of a remote host that is a known source of Drive-By download attacks.
 
 **Default severity: High**
 
@@ -446,9 +415,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Trojan:Runtime/PhishingDomainRequest!DNS
 
-### An Amazon EC2 instance or a
-
-container is querying domains involved in phishing attacks.
+### An Amazon EC2 instance or a container is querying domains involved in phishing attacks.
 
 **Default severity: High**
 
@@ -474,10 +441,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Impact:Runtime/AbusedDomainRequest.Reputation
 
-### An Amazon EC2 instance or
-
-a container is querying a low reputation domain name that is associated with known abused
-domains.
+### An Amazon EC2 instance or a container is querying a low reputation domain name that is associated with known abused domains.
 
 **Default severity: Medium**
 
@@ -509,10 +473,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Impact:Runtime/BitcoinDomainRequest.Reputation
 
-### An Amazon EC2 instance or
-
-a container is querying a low reputation domain name that is associated with
-cryptocurrency-related activity.
+### An Amazon EC2 instance or a container is querying a low reputation domain name that is associated with cryptocurrency-related activity.
 
 **Default severity: High**
 
@@ -548,10 +509,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Impact:Runtime/MaliciousDomainRequest.Reputation
 
-### An Amazon EC2 instance
-
-or a container is querying a low reputation domain that is associated with known malicious
-domains.
+### An Amazon EC2 instance or a container is querying a low reputation domain that is associated with known malicious domains.
 
 **Default severity: High**
 
@@ -579,10 +537,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Impact:Runtime/SuspiciousDomainRequest.Reputation
 
-### An Amazon EC2 instance
-
-or a container is querying a low reputation domain name that is suspicious in nature due to its
-age, or low popularity.
+### An Amazon EC2 instance or a container is querying a low reputation domain name that is suspicious in nature due to its age, or low popularity.
 
 **Default severity: Low**
 
@@ -609,9 +564,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## UnauthorizedAccess:Runtime/MetadataDNSRebind
 
-### An Amazon EC2 instance or
-
-a container is performing DNS lookups that resolve to the instance metadata service.
+### An Amazon EC2 instance or a container is performing DNS lookups that resolve to the instance metadata service.
 
 **Default severity: High**
 
@@ -665,9 +618,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Execution:Runtime/NewBinaryExecuted
 
-### A newly created or recently
-
-modified binary file in a container has been executed.
+### A newly created or recently modified binary file in a container has been executed.
 
 **Default severity: Medium**
 
@@ -710,9 +661,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## PrivilegeEscalation:Runtime/DockerSocketAccessed
 
-### A process inside a
-
-container is communicating with Docker daemon using Docker socket.
+### A process inside a container is communicating with Docker daemon using Docker socket.
 
 **Default severity: Medium**
 
@@ -737,9 +686,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## PrivilegeEscalation:Runtime/RuncContainerEscape
 
-### A container escape
-
-attempt through runC was detected.
+### A container escape attempt through runC was detected.
 
 **Default severity: High**
 
@@ -781,9 +728,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## PrivilegeEscalation:Runtime/CGroupsReleaseAgentModified
 
-### A container
-
-escape attempt through CGroups release agent was detected.
+### A container escape attempt through CGroups release agent was detected.
 
 **Default severity: High**
 
@@ -809,9 +754,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## DefenseEvasion:Runtime/ProcessInjection.Proc
 
-### A process injection using
-
-proc filesystem was detected in a container or an Amazon EC2 instance.
+### A process injection using proc filesystem was detected in a container or an Amazon EC2 instance.
 
 **Default severity: High**
 
@@ -836,9 +779,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## DefenseEvasion:Runtime/ProcessInjection.Ptrace
 
-### A process injection
-
-using ptrace system call was detected in a container or an Amazon EC2 instance.
+### A process injection using ptrace system call was detected in a container or an Amazon EC2 instance.
 
 **Default severity: Medium**
 
@@ -861,10 +802,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## DefenseEvasion:Runtime/ProcessInjection.VirtualMemoryWrite
 
-### A process injection
-
-through a direct write to virtual memory was detected in a container or an Amazon EC2
-instance.
+### A process injection through a direct write to virtual memory was detected in a container or an Amazon EC2 instance.
 
 **Default severity: High**
 
@@ -888,9 +826,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Execution:Runtime/ReverseShell
 
-### A process in a container or an
-
-Amazon EC2 instance has created a reverse shell.
+### A process in a container or an Amazon EC2 instance has created a reverse shell.
 
 **Default severity: High**
 
@@ -916,9 +852,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## DefenseEvasion:Runtime/FilelessExecution
 
-### A process in a container or
-
-an Amazon EC2 instance is executing code from memory.
+### A process in a container or an Amazon EC2 instance is executing code from memory.
 
 **Default severity: Medium**
 
@@ -942,10 +876,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Impact:Runtime/CryptoMinerExecuted
 
-### A container or an Amazon EC2
-
-instance is executing a binary file that is associated with a cryptocurrency mining
-activity.
+### A container or an Amazon EC2 instance is executing a binary file that is associated with a cryptocurrency mining activity.
 
 **Default severity: High**
 
@@ -969,9 +900,7 @@ and see [Remediating Runtime Monitoring findings](guardduty-remediate-runtime-mo
 
 ## Execution:Runtime/NewLibraryLoaded
 
-### A newly created or recently
-
-modified library was loaded by a process inside a container.
+### A newly created or recently modified library was loaded by a process inside a container.
 
 **Default severity: Medium**
 
@@ -1000,9 +929,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## PrivilegeEscalation:Runtime/ContainerMountsHostDirectory
 
-### A process
-
-inside a container mounted a host filesystem at runtime.
+### A process inside a container mounted a host filesystem at runtime.
 
 **Default severity: Medium**
 
@@ -1024,9 +951,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## PrivilegeEscalation:Runtime/UserfaultfdUsage
 
-### A process used
-
-`userfaultfd` system calls to handle page faults in user space.
+### A process used `userfaultfd` system calls to handle page faults in user space.
 
 **Default severity: Medium**
 
@@ -1053,10 +978,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Execution:Runtime/SuspiciousTool
 
-### A container or an Amazon EC2 instance
-
-is running a binary file or script that is frequently used in offensive security scenarios such
-as pentesting engagement.
+### A container or an Amazon EC2 instance is running a binary file or script that is frequently used in offensive security scenarios such as pentesting engagement.
 
 **Default severity: Variable**
 
@@ -1087,9 +1009,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Execution:Runtime/SuspiciousCommand
 
-### A suspicious command has been
-
-executed on an Amazon EC2 instance or a container that is indicative of a compromise.
+### A suspicious command has been executed on an Amazon EC2 instance or a container that is indicative of a compromise.
 
 **Default severity: Variable**
 
@@ -1119,10 +1039,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## DefenseEvasion:Runtime/SuspiciousCommand
 
-### A command has been
-
-executed on the listed Amazon EC2 instance or a container, it attempts to modify or disable a Linux
-defense mechanism, such as firewall or essential system services.
+### A command has been executed on the listed Amazon EC2 instance or a container, it attempts to modify or disable a Linux defense mechanism, such as firewall or essential system services.
 
 **Default severity: Variable**
 
@@ -1153,10 +1070,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## DefenseEvasion:Runtime/PtraceAntiDebugging
 
-### A process in a container
-
-or an Amazon EC2 instance has executed an anti-debugging measure using the ptrace system
-call.
+### A process in a container or an Amazon EC2 instance has executed an anti-debugging measure using the ptrace system call.
 
 **Default severity: Low**
 
@@ -1184,9 +1098,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Execution:Runtime/MaliciousFileExecuted
 
-### A known malicious
-
-executable file has been executed on an Amazon EC2 instance or a container.
+### A known malicious executable file has been executed on an Amazon EC2 instance or a container.
 
 **Default severity: High**
 
@@ -1212,10 +1124,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Execution:Runtime/SuspiciousShellCreated
 
-### A network service or
-
-network-accessible process on an Amazon EC2 instance, or in a container has started an interactive
-shell process.
+### A network service or network-accessible process on an Amazon EC2 instance, or in a container has started an interactive shell process.
 
 **Default severity: Low**
 
@@ -1239,9 +1148,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## PrivilegeEscalation:Runtime/ElevationToRoot
 
-### A process running on the
-
-listed Amazon EC2 instance or container has assumed root privileges.
+### A process running on the listed Amazon EC2 instance or container has assumed root privileges.
 
 **Default severity: Medium**
 
@@ -1273,11 +1180,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Discovery:Runtime/SuspiciousCommand
 
-### A suspicious command
-
-has been executed on an Amazon EC2 instance or in a container, which allows an attacker
-to gain information about the local system, surrounding AWS infrastructure, or container
-infrastructure.
+### A suspicious command has been executed on an Amazon EC2 instance or in a container, which allows an attacker to gain information about the local system, surrounding AWS infrastructure, or container infrastructure.
 
 **Default severity: Low**
 
@@ -1306,10 +1209,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## Persistence:Runtime/SuspiciousCommand
 
-### A suspicious command has
-
-been executed on an Amazon EC2 instance or in a container, which allows an attacker to persist
-access and control in your AWS environment.
+### A suspicious command has been executed on an Amazon EC2 instance or in a container, which allows an attacker to persist access and control in your AWS environment.
 
 **Default severity: Medium**
 
@@ -1340,10 +1240,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## PrivilegeEscalation:Runtime/SuspiciousCommand
 
-### A suspicious command
-
-has been executed on an Amazon EC2 instance or in a container, which allows an attacker
-to escalate privileges.
+### A suspicious command has been executed on an Amazon EC2 instance or in a container, which allows an attacker to escalate privileges.
 
 **Default severity: Medium**
 
@@ -1370,9 +1267,7 @@ information, see [Remediating Runtime Monitoring findings](guardduty-remediate-r
 
 ## DefenseEvasion:Runtime/KernelModuleLoaded
 
-### A kernel module
-
-was loaded on an Amazon EC2 instance, indicating an attempt to gain kernel-level access.
+### A kernel module was loaded on an Amazon EC2 instance, indicating an attempt to gain kernel-level access.
 
 **Default severity: High**
 

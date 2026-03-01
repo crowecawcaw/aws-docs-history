@@ -11,14 +11,10 @@ Before you remove a delegated GuardDuty administrator account, you must disassoc
 associated with the delegated GuardDuty administrator account, and then delete them from the GuardDuty organization. For
 more information about these steps, see the following documents:
 
-- [Disassociating
-  (removing) member account from administrator account](disassociate-remove-member-account-from-admin.md "disassociate-remove-member-account-from-admin.md")
-- [Deleting member accounts
-  from GuardDuty organization](delete-member-accounts-guardduty-organization.md "delete-member-accounts-guardduty-organization.md")
+- [Disassociating (removing) member account from administrator account](disassociate-remove-member-account-from-admin.md "disassociate-remove-member-account-from-admin.md")
+- [Deleting member accounts from GuardDuty organization](delete-member-accounts-guardduty-organization.md "delete-member-accounts-guardduty-organization.md")
 
-## Removing existing
-
-delegated GuardDuty administrator account
+## Removing existing delegated GuardDuty administrator account
 
 ###### Step 1 - To remove existing delegated GuardDuty administrator account in each Region
 
@@ -39,9 +35,7 @@ delegated GuardDuty administrator account
 6. Repeat these steps in each AWS Region where you have this
    delegated GuardDuty administrator account.
 
-###### Step 2 - To de-register existing delegated GuardDuty administrator account in AWS Organizations (One-time global
-
-action)
+###### Step 2 - To de-register existing delegated GuardDuty administrator account in AWS Organizations (One-time global action)
 
 - Run [DeregisterDelegatedAdministrator](../../../organizations/latest/APIReference/API_DeregisterDelegatedAdministrator.md "../../../organizations/latest/APIReference/API_DeregisterDelegatedAdministrator.md") in the
   _AWS Organizations API Reference_, to de-register the existing delegated GuardDuty administrator account
@@ -59,9 +53,7 @@ with the existing delegated GuardDuty administrator account.
 After you de-register the old delegated GuardDuty administrator account, you can add it as a member account
 to the new delegated GuardDuty administrator account.
 
-## Designating a new delegated GuardDuty administrator account
-
-in each Region
+## Designating a new delegated GuardDuty administrator account in each Region
 
 1. Designate a new delegated GuardDuty administrator account in each Region by using your preferred access
    method - GuardDuty console, or API or AWS CLI. For more information, see [Designating a delegated GuardDuty administrator account](delegated-admin-designate.md "delegated-admin-designate.md").
@@ -80,5 +72,4 @@ protection plans.
 
 Change the organization configuration for the new delegated GuardDuty administrator account by using your
 preferred access method - GuardDuty console, or API or AWS CLI. For more
-information, see [Setting organization auto-enable
-preferences](set-guardduty-auto-enable-preferences.md "set-guardduty-auto-enable-preferences.md").
+information, see [Setting organization auto-enable preferences](set-guardduty-auto-enable-preferences.md "set-guardduty-auto-enable-preferences.md").

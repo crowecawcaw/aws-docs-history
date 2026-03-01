@@ -1,6 +1,4 @@
-# GuardDuty API changes in March
-
-2023
+# GuardDuty API changes in March 2023
 
 The GuardDuty APIs configure protection features that don't belong to the list of [GuardDuty foundational data sources](guardduty_data-sources.md "guardduty_data-sources.md"). A feature object
 contains feature details, such as feature name and status, and may contain additional
@@ -17,9 +15,7 @@ _Amazon GuardDuty API Reference_:
 - [GetRemainingFreeTrialDays](../APIReference/API_GetRemainingFreeTrialDays.md "../APIReference/API_GetRemainingFreeTrialDays.md")
 - [GetUsageStatistics](../APIReference/API_GetUsageStatistics.md "../APIReference/API_GetUsageStatistics.md")
 
-## Features compared to data
-
-sources
+## Features compared to data sources
 
 Historically, all GuardDuty features were passed through a `dataSources` object in
 the API. From March 2023, GuardDuty prefers `features` object instead of the
@@ -40,9 +36,7 @@ features in your AWS environment.
   AWS Region where GuardDuty is available. However, every feature may not be available in each
   Region. Therefore, the available feature names may differ based on the Region.
 
-## Understanding how APIs with
-
-features work
+## Understanding how APIs with features work
 
 The GuardDuty APIs will continue to return a `dataSources` object as applicable, and
 they will also return a `features` object containing the same information in a
@@ -62,9 +56,7 @@ GuardDuty has deprecated the use of data sources that are associated with the pr
 However, it still supports the [GuardDuty foundational data sources](guardduty_data-sources.md "guardduty_data-sources.md"). The GuardDuty best practices recommend using features for
 enabling or editing the configuration for any protection plan in your account.
 
-## Incorporating feature changes in
-
-APIs
+## Incorporating feature changes in APIs
 
 - If you manage GuardDuty configurations through APIs, SDKs, or CloudFormation template, and want to
   enable potential new GuardDuty features, you will need to modify your code and template,
@@ -73,8 +65,7 @@ APIs
   SDKs, or CloudFormation template. However, we recommend that you switch to using `feature`
   object.
 
-All the data sources have an equivalent feature object. For more information, see [Mapping
-dataSources to features](#guardduty-feature-enablement-datasource-relation "#guardduty-feature-enablement-datasource-relation").
+All the data sources have an equivalent feature object. For more information, see [Mapping dataSources to features](#guardduty-feature-enablement-datasource-relation "#guardduty-feature-enablement-datasource-relation").
 
 - Presently, `additionalConfiguration` in the `features` object is
   only available for certain protection types.
@@ -87,9 +78,7 @@ dataSources to features](#guardduty-feature-enablement-datasource-relation "#gua
     - [UpdateMemberDetectors](../APIReference/API_UpdateMemberDetectors.md "../APIReference/API_UpdateMemberDetectors.md")
     - [UpdateOrganizationConfiguration](../APIReference/API_UpdateOrganizationConfiguration.md "../APIReference/API_UpdateOrganizationConfiguration.md")
 
-## Mapping
-
-`dataSources` to `features`
+## Mapping `dataSources` to `features`
 
 The following table shows the mapping of protection types, `dataSources`, and
 `features`.

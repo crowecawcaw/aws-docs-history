@@ -1,6 +1,4 @@
-# I enabled EKS Runtime Monitoring prior to
-
-the launch of Runtime Monitoring
+# I enabled EKS Runtime Monitoring prior to the launch of Runtime Monitoring
 
 Use this section only when EKS Runtime Monitoring was enabled for your AWS account, and now you want
 to migrate to Runtime Monitoring.
@@ -14,8 +12,7 @@ Runtime Monitoring:
   existing configuration for EKS Runtime Monitoring remains the same. You can continue to use the API/CLI
   support to perform operations associated with EKS Runtime Monitoring.
 - To use EKS Runtime Monitoring as a part of Runtime Monitoring, you will need to configure Runtime Monitoring for your
-  account or organization. To keep the same configuration for Runtime Monitoring, see [Migrating from EKS Runtime Monitoring to
-  Runtime Monitoring](migrating-from-eksrunmon-to-runtime-monitoring.md "migrating-from-eksrunmon-to-runtime-monitoring.md"). However, this will not
+  account or organization. To keep the same configuration for Runtime Monitoring, see [Migrating from EKS Runtime Monitoring to Runtime Monitoring](migrating-from-eksrunmon-to-runtime-monitoring.md "migrating-from-eksrunmon-to-runtime-monitoring.md"). However, this will not
   impact your 30-day free trial for Amazon EKS resource.
 - The Runtime Monitoring protection plan is enabled at the account level per Region. After the GuardDuty
   security agent gets deployed to one of the specified resource types (Amazon EC2 instance and Amazon ECS

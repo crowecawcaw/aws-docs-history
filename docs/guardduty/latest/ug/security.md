@@ -29,5 +29,4 @@ Model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 - [Compliance validation for Amazon GuardDuty](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon GuardDuty](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon GuardDuty](infrastructure-security.md "infrastructure-security.md")
-- [Amazon GuardDuty and interface VPC endpoints
-  (AWS PrivateLink)](security-vpc-endpoints.md "security-vpc-endpoints.md")
+- [Amazon GuardDuty and interface VPC endpoints (AWS PrivateLink)](security-vpc-endpoints.md "security-vpc-endpoints.md")

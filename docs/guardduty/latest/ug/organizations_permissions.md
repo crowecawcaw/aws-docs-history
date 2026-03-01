@@ -1,6 +1,4 @@
-# Permissions required to designate a
-
-delegated GuardDuty administrator account
+# Permissions required to designate a delegated GuardDuty administrator account
 
 To start using Amazon GuardDuty with AWS Organizations, the AWS Organizations management account for the
 organization designates an account as the delegated GuardDuty administrator account. This enables GuardDuty as a trusted
@@ -40,8 +38,7 @@ policy for your account:
 
 If you want to designate your AWS Organizations management account as the delegated GuardDuty administrator account, your account
 will also need the IAM action: `CreateServiceLinkedRole`. This action
-allows you to initialize GuardDuty for the management account. However, review [Considerations and recommendations for using
-GuardDuty with AWS Organizations](guardduty_organizations.md#delegated_admin_important "guardduty_organizations.md#delegated_admin_important")
+allows you to initialize GuardDuty for the management account. However, review [Considerations and recommendations for using GuardDuty with AWS Organizations](guardduty_organizations.md#delegated_admin_important "guardduty_organizations.md#delegated_admin_important")
 before you proceed to add the permissions.
 
 To continue with designating the management account as the delegated GuardDuty administrator account, add the following

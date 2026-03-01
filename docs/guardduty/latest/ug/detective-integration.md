@@ -16,8 +16,7 @@ session, user agent, federated user, Amazon EC2 instance, or IP address.
 
 - [Enabling the integration](detective-integration.md#detective-integration-enable "detective-integration.md#detective-integration-enable")
 - [Pivoting to Amazon Detective from a GuardDuty finding](detective-integration.md#pivot-to-detective "detective-integration.md#pivot-to-detective")
-- [Using the integration with a GuardDuty
-  multi-account environment](detective-integration.md#detective-integration-multiaccount "detective-integration.md#detective-integration-multiaccount")
+- [Using the integration with a GuardDuty multi-account environment](detective-integration.md#detective-integration-multiaccount "detective-integration.md#detective-integration-multiaccount")
 
 ## Enabling the integration
 
@@ -34,8 +33,7 @@ GuardDuty sends findings to Detective based on the GuardDuty findings export fre
 default, the export frequency for updates to existing findings is 6 hours. To ensure
 Detective receives the most recent updates to your findings it is recommended that you
 change the export frequency to 15 minutes in each region in which you use Detective with
-GuardDuty. For more information see [Step 5 – Setting frequency
-to export updated active findings](guardduty_exportfindings.md#guardduty_exportfindings-frequency "guardduty_exportfindings.md#guardduty_exportfindings-frequency").
+GuardDuty. For more information see [Step 5 – Setting frequency to export updated active findings](guardduty_exportfindings.md#guardduty_exportfindings-frequency "guardduty_exportfindings.md#guardduty_exportfindings-frequency").
 
 ## Pivoting to Amazon Detective from a GuardDuty finding
 
@@ -54,9 +52,7 @@ Guide_.
 If you archive a GuardDuty finding in the Detective console, that finding gets archived in
 the GuardDuty console as well.
 
-## Using the integration with a GuardDuty
-
-multi-account environment
+## Using the integration with a GuardDuty multi-account environment
 
 If you are managing a multi-account environment in GuardDuty, you must add your member
 accounts to Amazon Detective to view Detective data visualizations for findings and

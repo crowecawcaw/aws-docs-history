@@ -1,6 +1,4 @@
-# Processing GuardDuty findings with
-
-Amazon EventBridge
+# Processing GuardDuty findings with Amazon EventBridge
 
 GuardDuty automatically publishes (sends) findings as events to Amazon EventBridge (formerly Amazon CloudWatch Events),
 a serverless event bus service. EventBridge delivers a stream of near real-time
@@ -35,9 +33,7 @@ Amazon S3](guardduty_exportfindings.md "guardduty_exportfindings.md").
 - [EventBridge rule for
   multi-account environments](#guardduty_findings_eventbridge_multiaccount "#guardduty_findings_eventbridge_multiaccount")
 
-## Understanding EventBridge notification
-
-frequency in GuardDuty
+## Understanding EventBridge notification frequency in GuardDuty
 
 This section explains how often you receive finding notifications through EventBridge
 and how to update the frequency for subsequent finding occurrences.
@@ -70,16 +66,13 @@ information, see [Multiple accounts in Amazon GuardDuty](guardduty_accounts.md "
 As an administrator account, you can customize the default frequency of
 notifications about the subsequent finding occurrences. Possible values
 are 15 minutes, 1 hour, or the default 6 hours. For information about
-setting the frequency for these notifications, see [Step 5 – Setting frequency
-to export updated active findings](guardduty_exportfindings.md#guardduty_exportfindings-frequency "guardduty_exportfindings.md#guardduty_exportfindings-frequency").
+setting the frequency for these notifications, see [Step 5 – Setting frequency to export updated active findings](guardduty_exportfindings.md#guardduty_exportfindings-frequency "guardduty_exportfindings.md#guardduty_exportfindings-frequency").
 
 For more details about administrator account receiving EventBridge notifications for member accounts,
 see [EventBridge rule for
 multi-account environments](#guardduty_findings_eventbridge_multiaccount "#guardduty_findings_eventbridge_multiaccount").
 
-## Set up an Amazon SNS
-
-topic and endpoint (Email, Slack, and Amazon Chime)
+## Set up an Amazon SNS topic and endpoint (Email, Slack, and Amazon Chime)
 
 Amazon Simple Notification Service (Amazon SNS) is a fully managed service that provides message
 delivery from publishers to subscribers. Publishers communicate
@@ -146,9 +139,7 @@ Perform the steps under
 [Tutorial: Get started
 with Amazon Chime](../../../chatbot/latest/adminguide/chime-setup.md "../../../chatbot/latest/adminguide/chime-setup.md") in the _Amazon Q Developer in chat applications Administrator Guide_.
 
-## Using Amazon EventBridge for GuardDuty
-
-findings
+## Using Amazon EventBridge for GuardDuty findings
 
 With EventBridge, you create rules to specify the events that you want to monitor. These rules
 also specify the target services and applications that can
@@ -179,8 +170,7 @@ the same, the event schema for GuardDuty findings is also the same.
 
 For findings that you manually archive, the initial and all subsequent occurrences
 of these findings (generated after the archiving is complete) are sent to EventBridge based on a specific
-notification frequency. For more information, see [Understanding EventBridge notification
-frequency in GuardDuty](#eventbridge-freq-notifications-gdu "#eventbridge-freq-notifications-gdu").
+notification frequency. For more information, see [Understanding EventBridge notification frequency in GuardDuty](#eventbridge-freq-notifications-gdu "#eventbridge-freq-notifications-gdu").
 
 For the findings that are automatically archived with
 [Suppression rules](findings_suppression-rule.md "findings_suppression-rule.md"),
@@ -219,9 +209,7 @@ For a complete list of all the parameters included in
 `GUARDDUTY_FINDING_JSON_OBJECT`, see [GetFindings](../APIReference/API_GetFindings.md#API_GetFindings_ResponseSyntax "../APIReference/API_GetFindings.md#API_GetFindings_ResponseSyntax"). The `id` parameter that appears in
 `GUARDDUTY_FINDING_JSON_OBJECT` is the finding ID previously described.
 
-## Creating an EventBridge rule for
-
-GuardDuty findings
+## Creating an EventBridge rule for GuardDuty findings
 
 The following procedures explain how to use the Amazon EventBridge console and the [AWS Command Line Interface
 (AWS CLI)](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") to create an EventBridge rule for GuardDuty findings. The rule detects EventBridge
@@ -250,8 +238,7 @@ Before you create this rule, create the Lambda function that you want the
 rule to use as a target. When you create the rule, you'll need to specify
 this function as the target for the rule. Your target can also be the
 SNS topic that you created earlier. For more information, see
-[Set up an Amazon SNS
-topic and endpoint (Email, Slack, and Amazon Chime)](#guardduty-eventbridge-set-up-sns-and-endpoint "#guardduty-eventbridge-set-up-sns-and-endpoint").
+[Set up an Amazon SNS topic and endpoint (Email, Slack, and Amazon Chime)](#guardduty-eventbridge-set-up-sns-and-endpoint "#guardduty-eventbridge-set-up-sns-and-endpoint").
 
 ###### To create an event rule by using console
 
@@ -537,9 +524,7 @@ aws lambda add-permission --function-name `your-target-name` --statement-id 1 --
 Make sure to replace `your_function` in the command above with
 your actual Lambda function for the GuardDuty events.
 
-## EventBridge rule for GuardDuty multi-account
-
-environments
+## EventBridge rule for GuardDuty multi-account environments
 
 When using a delegated GuardDuty administrator account, you can view the events
 generated in the member accounts and take action using other applications

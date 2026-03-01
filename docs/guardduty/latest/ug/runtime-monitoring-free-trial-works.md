@@ -1,14 +1,10 @@
-# How does 30-day free trial work in
-
-Runtime Monitoring
+# How does 30-day free trial work in Runtime Monitoring
 
 The 30-day free trial period works differently for the new GuardDuty accounts and the existing
 accounts that have already enabled EKS Runtime Monitoring prior to when Runtime Monitoring capability extended to
 Amazon EC2 instances and AWS Fargate (Amazon ECS only).
 
-## I am using GuardDuty trial
-
-period or I have never enabled EKS Runtime Monitoring
+## I am using GuardDuty trial period or I have never enabled EKS Runtime Monitoring
 
 The following list explains how the 30-day free trial period works if you're either using
 the GuardDuty 30-day trial period or have never enabled EKS Runtime Monitoring:

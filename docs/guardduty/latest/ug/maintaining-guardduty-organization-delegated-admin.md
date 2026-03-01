@@ -1,15 +1,11 @@
-# Continually
-
-managing your member accounts within GuardDuty
+# Continually managing your member accounts within GuardDuty
 
 As a delegated GuardDuty administrator account, you are responsible for maintaining the configuration of GuardDuty and its
 optional protection plans for all the accounts in your organization in each supported
 AWS Region. The following sections provide the options about maintaining the
 configuration status of GuardDuty or any of its optional protection plans:
 
-###### To maintain the configuration status of your entire organization in each
-
-Region
+###### To maintain the configuration status of your entire organization in each Region
 
 - **Set auto-enable preferences for the entire organization
   by using GuardDuty console** – You can enable GuardDuty
@@ -34,9 +30,7 @@ accounts in the organization.
 
 To view all the accounts in your organization, run [ListAccounts](../../../organizations/latest/APIReference/API_ListAccounts.md "../../../organizations/latest/APIReference/API_ListAccounts.md") in the _AWS Organizations API Reference_.
 
-###### To maintain the configuration status for member accounts individually in each
-
-Region
+###### To maintain the configuration status for member accounts individually in each Region
 
 - To view all the accounts in your organization, run [ListAccounts](../../../organizations/latest/APIReference/API_ListAccounts.md "../../../organizations/latest/APIReference/API_ListAccounts.md") in the _AWS Organizations API Reference_.
 - When you want selective member accounts to have a different configuration

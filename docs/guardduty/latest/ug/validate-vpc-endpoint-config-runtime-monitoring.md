@@ -1,6 +1,4 @@
-# Validating VPC
-
-endpoint configuration
+# Validating VPC endpoint configuration
 
 After you install the security agent manually or through GuardDuty automated configuration, you
 can use this document to validate that the VPC endpoint configuration. You can also use

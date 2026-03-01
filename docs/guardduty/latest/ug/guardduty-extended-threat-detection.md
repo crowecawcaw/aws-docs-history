@@ -12,8 +12,7 @@ to your AWS environment, and then generates an attack sequence finding.
 - [How it works](#extended-threat-detection-how-it-works "#extended-threat-detection-how-it-works")
 - [Enabling protection plans to maximize threat detection](#extended-threat-detection-related-gdu-protection-plans "#extended-threat-detection-related-gdu-protection-plans")
 - [Extended Threat Detection in GuardDuty console](#extended-threat-detection-in-guardduty-console "#extended-threat-detection-in-guardduty-console")
-- [Understanding and managing attack
-  sequence findings](#extended-threat-detection-understanding-attack-sequence-findings "#extended-threat-detection-understanding-attack-sequence-findings")
+- [Understanding and managing attack sequence findings](#extended-threat-detection-understanding-attack-sequence-findings "#extended-threat-detection-understanding-attack-sequence-findings")
 - [Additional resources](#guardduty-extended-threat-detection-additional-resources "#guardduty-extended-threat-detection-additional-resources")
 
 ## Attack sequence threat scenario examples
@@ -67,8 +66,7 @@ including those findings that are automatically archived because of
 [Suppression rules](findings_suppression-rule.md "findings_suppression-rule.md"). This behavior ensures
 that only active, relevant signals contribute to attack sequence detection. To ensure that you're
 not impacted by this, review existing suppression rules in your account. For more information,
-see [Using suppression rules with
-Extended Threat Detection](findings_suppression-rule.md#using-suppression-rules-with-extended-threat-detection "findings_suppression-rule.md#using-suppression-rules-with-extended-threat-detection").
+see [Using suppression rules with Extended Threat Detection](findings_suppression-rule.md#using-suppression-rules-with-extended-threat-detection "findings_suppression-rule.md#using-suppression-rules-with-extended-threat-detection").
 
 GuardDuty is also designed to identify potential in-progress or recent attack behaviors (within a 24-hour rolling time window)
 in your account. For example, an attack could start by an actor gaining unintended access to a compute workload. The
@@ -197,9 +195,7 @@ This page provides details about the threat scenarios that Extended Threat Detec
 If you **want to** enable dedicated protection plans to enhance threat detection coverage in your
 account, select **Configure** option for that protection plan.
 
-## Understanding and managing attack
-
-sequence findings
+## Understanding and managing attack sequence findings
 
 Attack sequence findings are just like other GuardDuty findings in your account.
 You can view them on the **Findings** page in the GuardDuty console. For information about

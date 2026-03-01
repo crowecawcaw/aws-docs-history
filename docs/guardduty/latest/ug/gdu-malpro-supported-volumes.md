@@ -1,6 +1,4 @@
-# Supported Amazon EBS volumes for malware
-
-scan
+# Supported Amazon EBS volumes for malware scan
 
 In all of the AWS Regions where GuardDuty supports the Malware Protection for EC2 feature, you can scan the
 Amazon EBS volumes that are unencrypted or encrypted. You can have Amazon EBS volumes that are encrypted
@@ -8,11 +6,9 @@ with either [AWS managed key](../../../kms/latest/developerguide/concepts.md#aws
 [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk"). Presently, some of the Regions where Malware Protection for EC2 is available, may support
 both the ways to encrypt your Amazon EBS volumes, while others support only customer managed key. For
 information about supported Regions, see
-and [GuardDuty service accounts by
-AWS Region](gdu-service-account-region-list.md "gdu-service-account-region-list.md").
+and [GuardDuty service accounts by AWS Region](gdu-service-account-region-list.md "gdu-service-account-region-list.md").
 For information about Regions where GuardDuty is available but Malware Protection for EC2 is not available, see
-[Region-specific feature
-availability](guardduty_regions.md#gd-regional-feature-availability "guardduty_regions.md#gd-regional-feature-availability").
+[Region-specific feature availability](guardduty_regions.md#gd-regional-feature-availability "guardduty_regions.md#gd-regional-feature-availability").
 
 The following list describes the key that GuardDuty uses whether or not your Amazon EBS volumes are
 encrypted:
@@ -25,17 +21,13 @@ If your Region doesn't support scanning Amazon EBS volumes that are encrypted wi
 [Amazon EBS encryption by default](../../../ebs/latest/userguide/encryption-by-default.md "../../../ebs/latest/userguide/encryption-by-default.md"), then you need to
 modify the default key to be a customer managed key. This will help GuardDuty access these EBS volumes. By modifying the
 key, even the future EBS volumes will get created with the updated key so that GuardDuty can support malware
-scans. For steps to modify the default key, see [Modify default AWS KMS key ID of
-an Amazon EBS volume](#regional-parity-supported-volumes-encrypt "#regional-parity-supported-volumes-encrypt") in next section.
+scans. For steps to modify the default key, see [Modify default AWS KMS key ID of an Amazon EBS volume](#regional-parity-supported-volumes-encrypt "#regional-parity-supported-volumes-encrypt") in next section.
 
 - **Amazon EBS volumes that are encrypted with customer managed key**
   – GuardDuty uses the same key to encrypt the replica EBS volume. For information about
-  what AWS KMS encryption related policies are supported, see [Service-linked role permissions for
-  Malware Protection for EC2](slr-permissions-malware-protection.md "slr-permissions-malware-protection.md").
+  what AWS KMS encryption related policies are supported, see [Service-linked role permissions for Malware Protection for EC2](slr-permissions-malware-protection.md "slr-permissions-malware-protection.md").
 
-## Modify default AWS KMS key ID of
-
-an Amazon EBS volume
+## Modify default AWS KMS key ID of an Amazon EBS volume
 
 When you use create an Amazon EBS volume by using [Amazon EBS encryption](../../../ebs/latest/userguide/ebs-encryption.md#encryption-parameters "../../../ebs/latest/userguide/ebs-encryption.md#encryption-parameters"),
 and do not specify AWS KMS key ID, your Amazon EBS volume gets encrypted with a

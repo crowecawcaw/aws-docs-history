@@ -20,8 +20,7 @@ charged for using GuardDuty when the service is suspended.
   then suspending or disabling GuardDuty doesn't impact the status of a protected
   bucket under Malware Protection for S3. Even after suspending or disabling GuardDuty, your account will
   continue incurring the usage costs associated with the Malware Protection for S3 feature. For
-  information about disabling Malware Protection for S3, see [Disabling Malware Protection for S3 for a protected
-  bucket](disable-malware-s3-protected-bucket.md "disable-malware-s3-protected-bucket.md").
+  information about disabling Malware Protection for S3, see [Disabling Malware Protection for S3 for a protected bucket](disable-malware-s3-protected-bucket.md "disable-malware-s3-protected-bucket.md").
 
 ###### To suspend or disable GuardDuty
 

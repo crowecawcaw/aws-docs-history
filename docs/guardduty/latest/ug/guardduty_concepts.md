@@ -96,8 +96,7 @@ A feature object configured for your GuardDuty protection plan helps to detect a
 unauthorized or unexpected activity in your AWS environment. Each GuardDuty protection plan
 configures the corresponding feature object to analyze and process data. Some of the
 feature objects include EKS audit logs, RDS login activity monitoring, Lambda network activity logs,
-and EBS volumes. For more information, see [Feature names for protection plans in GuardDuty
-API](guardduty-features-activation-model.md "guardduty-features-activation-model.md").
+and EBS volumes. For more information, see [Feature names for protection plans in GuardDuty API](guardduty-features-activation-model.md "guardduty-features-activation-model.md").
 
 **Finding**
 
@@ -107,8 +106,7 @@ Findings are displayed in the GuardDuty console and contain a detailed descripti
 security issue. You can also retrieve your generated findings by calling the [GetFindings](../APIReference/API_GetFindings.md "../APIReference/API_GetFindings.md") and [ListFindings](../APIReference/API_ListFindings.md "../APIReference/API_ListFindings.md") API operations.
 
 You can also see your GuardDuty findings through Amazon CloudWatch events. GuardDuty sends findings to
-Amazon CloudWatch through HTTPS protocol. For more information, see [Processing GuardDuty findings with
-Amazon EventBridge](guardduty_findings_eventbridge.md "guardduty_findings_eventbridge.md").
+Amazon CloudWatch through HTTPS protocol. For more information, see [Processing GuardDuty findings with Amazon EventBridge](guardduty_findings_eventbridge.md "guardduty_findings_eventbridge.md").
 
 **IAM role**
 
@@ -183,12 +181,10 @@ can focus on larger threats. For more information, see [Suppression rules in Gua
 
 A list of trusted IP addresses for highly secure communication with your AWS
 environment. GuardDuty does not generate findings based on trusted IP lists. For more
-information, see [Customizing threat detection with entity lists and
-IP address lists](guardduty_upload-lists.md "guardduty_upload-lists.md").
+information, see [Customizing threat detection with entity lists and IP address lists](guardduty_upload-lists.md "guardduty_upload-lists.md").
 
 **Threat IP list**
 
 A list of known malicious IP addresses. In addition to generating findings because of
 a potentially suspicious activity, GuardDuty also generates findings based on these threat
-lists. For more information, see [Customizing threat detection with entity lists and
-IP address lists](guardduty_upload-lists.md "guardduty_upload-lists.md").
+lists. For more information, see [Customizing threat detection with entity lists and IP address lists](guardduty_upload-lists.md "guardduty_upload-lists.md").

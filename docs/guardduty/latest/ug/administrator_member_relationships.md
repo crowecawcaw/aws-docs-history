@@ -1,6 +1,4 @@
-# Understanding the relationship
-
-between GuardDuty administrator account and member accounts
+# Understanding the relationship between GuardDuty administrator account and member accounts
 
 When you use GuardDuty in a multiple-account environment, the administrator account can manage certain
 aspects of GuardDuty on behalf of the member accounts. An administrator account can perform the following
@@ -81,5 +79,4 @@ organization members.
 member account directly. The delegated GuardDuty administrator account must first disassociate the member account, and
 then delete them. After this, each member account can disable GuardDuty in their own
 accounts. For more information about performing these tasks in your organization, see
-[Continually
-managing your member accounts within GuardDuty](maintaining-guardduty-organization-delegated-admin.md "maintaining-guardduty-organization-delegated-admin.md").
+[Continually managing your member accounts within GuardDuty](maintaining-guardduty-organization-delegated-admin.md "maintaining-guardduty-organization-delegated-admin.md").

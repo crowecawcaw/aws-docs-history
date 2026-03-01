@@ -39,8 +39,7 @@ security monitoring capability in GuardDuty.
   logs for your Amazon EKS resources.
 
 EKS Protection may not be available in all the AWS Regions where GuardDuty is available. For more
-information, see [Region-specific feature
-availability](guardduty_regions.md#gd-regional-feature-availability "guardduty_regions.md#gd-regional-feature-availability").
+information, see [Region-specific feature availability](guardduty_regions.md#gd-regional-feature-availability "guardduty_regions.md#gd-regional-feature-availability").
 
 ###### Note
 

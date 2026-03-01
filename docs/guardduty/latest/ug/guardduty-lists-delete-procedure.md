@@ -1,11 +1,8 @@
-# Deleting entity list
-
-or IP address list
+# Deleting entity list or IP address list
 
 When you no longer want to keep a list entry in your entity set or IP address set, you can delete it. It might take
 a few minutes for the process to complete. For more information, see
-[Important
-considerations for GuardDuty lists](guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations "guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations").
+[Important considerations for GuardDuty lists](guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations "guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations").
 
 If the status of the list is **Activating** or **Deactivating**,
 you must wait for a few minutes before performing any action. For more information, see [Understanding list statuses](guardduty_upload-lists.md#guardduty-entity-list-statuses "guardduty_upload-lists.md#guardduty-entity-list-statuses").

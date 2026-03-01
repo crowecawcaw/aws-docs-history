@@ -1,6 +1,4 @@
-# Remediating a potentially
-
-compromised database
+# Remediating a potentially compromised database
 
 GuardDuty generates [RDS Protection finding types](findings-rds-protection.md "findings-rds-protection.md") that indicate potentially suspicious and
 anomalous login behavior in your [Supported databases](rds-protection.md#rds-pro-supported-db "rds-protection.md#rds-pro-supported-db") after you enable [RDS Protection](rds-protection.md "rds-protection.md"). Using RDS login activity, GuardDuty analyzes and profiles threats
@@ -15,17 +13,12 @@ your AWS environment.
 
 ###### Topics
 
-- [Remediating potentially compromised
-  database with successful login events](#gd-compromised-db-successful-attempt "#gd-compromised-db-successful-attempt")
-- [Remediating potentially compromised database
-  with failed login events](#gd-compromised-db-failed-attempt "#gd-compromised-db-failed-attempt")
-- [Remediating potentially compromised
-  credentials](#gd-rds-database-compromised-credentials "#gd-rds-database-compromised-credentials")
+- [Remediating potentially compromised database with successful login events](#gd-compromised-db-successful-attempt "#gd-compromised-db-successful-attempt")
+- [Remediating potentially compromised database with failed login events](#gd-compromised-db-failed-attempt "#gd-compromised-db-failed-attempt")
+- [Remediating potentially compromised credentials](#gd-rds-database-compromised-credentials "#gd-rds-database-compromised-credentials")
 - [Restrict network access](#gd-rds-database-restrict-network-access "#gd-rds-database-restrict-network-access")
 
-## Remediating potentially compromised
-
-database with successful login events
+## Remediating potentially compromised database with successful login events
 
 The following recommended steps can help you remediate a potentially compromised Aurora
 database that exhibits unusual behavior related to successful login events.
@@ -48,8 +41,7 @@ finding:
     1. **Restrict database access**
 
     Restrict database access for the suspected accounts and the source of this login
-    activity. For more information, see [Remediating potentially compromised
-    credentials](#gd-rds-database-compromised-credentials "#gd-rds-database-compromised-credentials") and [Restrict network access](#gd-rds-database-restrict-network-access "#gd-rds-database-restrict-network-access"). 2. **Assess the impact and determine what information was
+    activity. For more information, see [Remediating potentially compromised credentials](#gd-rds-database-compromised-credentials "#gd-rds-database-compromised-credentials") and [Restrict network access](#gd-rds-database-restrict-network-access "#gd-rds-database-restrict-network-access"). 2. **Assess the impact and determine what information was
     accessed.**
 
         * If available, review the audit logs to identify the pieces of information that might
@@ -58,9 +50,7 @@ finding:
          *Amazon Aurora User Guide*.
         * Determine if any sensitive or protected information was accessed or modified.
 
-## Remediating potentially compromised database
-
-with failed login events
+## Remediating potentially compromised database with failed login events
 
 The following recommended steps can help you remediate a potentially compromised Aurora
 database that exhibits unusual behavior related to failed login events.
@@ -93,17 +83,14 @@ the database as follows:
    1. **Restrict database access**
 
    Restrict database access for the suspected accounts and the source of this login
-   activity. For more information, see [Remediating potentially compromised
-   credentials](#gd-rds-database-compromised-credentials "#gd-rds-database-compromised-credentials") and [Restrict network access](#gd-rds-database-restrict-network-access "#gd-rds-database-restrict-network-access"). 2. **Perform root-cause analysis and determine the steps that
+   activity. For more information, see [Remediating potentially compromised credentials](#gd-rds-database-compromised-credentials "#gd-rds-database-compromised-credentials") and [Restrict network access](#gd-rds-database-restrict-network-access "#gd-rds-database-restrict-network-access"). 2. **Perform root-cause analysis and determine the steps that
    potentially led to this activity.**
 
    Set up an alert to get notified when an activity modifies a networking policy and
    creates an insecure state. For more information, see [Firewall policies in
    AWS Network Firewall](../../../network-firewall/latest/developerguide/firewall-policies.md "../../../network-firewall/latest/developerguide/firewall-policies.md") in the _AWS Network Firewall Developer Guide_.
 
-## Remediating potentially compromised
-
-credentials
+## Remediating potentially compromised credentials
 
 A GuardDuty finding may indicate that the user credentials for an affected database have been
 compromised when the user identified in the finding has performed an unexpected database

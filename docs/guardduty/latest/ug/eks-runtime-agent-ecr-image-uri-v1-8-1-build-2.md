@@ -2,8 +2,7 @@
 
 When you enable GuardDuty automated
 configuration for Runtime Monitoring for EKS, GuardDuty will deploy this agent version to your Amazon EKS clusters. For information about
-enabling automated agent, see [Managing security agent automatically
-for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md").
+enabling automated agent, see [Managing security agent automatically for Amazon EKS resources](managing-gdu-agent-eks-automatically.md "managing-gdu-agent-eks-automatically.md").
 
 The following table shows the Amazon ECR repository URIs where the GuardDuty security agent versions
 `1.12.1.eks.build.2`, `1.11.0.eks.build.2`, `1.10.0.eks.build.2`, `1.9.0.eks.build.2`,

@@ -1,6 +1,4 @@
-# Setting organization auto-enable
-
-preferences
+# Setting organization auto-enable preferences
 
 The auto-enable organization feature in GuardDuty helps you set the same GuardDuty and
 protection plans status for `ALL` existing or `NEW` member

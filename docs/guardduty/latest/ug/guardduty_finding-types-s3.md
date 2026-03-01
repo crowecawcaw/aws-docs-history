@@ -16,8 +16,7 @@ S3** are only generated if you have enabled S3 Protection. By default, after Jul
 31, 2020, S3 Protection is enabled when an account enables GuardDuty for the first time, or when a
 delegated GuardDuty administrator account enables GuardDuty in an existing member account. However, when a new member joins
 the GuardDuty organization, the organization's auto-enable preferences will apply. For
-information about auto-enable preferences, see [Setting organization auto-enable
-preferences](set-guardduty-auto-enable-preferences.md "set-guardduty-auto-enable-preferences.md"). For information about how
+information about auto-enable preferences, see [Setting organization auto-enable preferences](set-guardduty-auto-enable-preferences.md "set-guardduty-auto-enable-preferences.md"). For information about how
 to enable S3 Protection, see [GuardDuty S3 Protection](s3-protection.md "s3-protection.md")
 
 For all `S3Bucket` type findings, it is recommended that you examine the
@@ -49,9 +48,7 @@ finding, if the activity is unexpected see the remediation recommendations detai
 
 ## Discovery:S3/AnomalousBehavior
 
-### An API commonly used to
-
-discover S3 objects was invoked in an anomalous way.
+### An API commonly used to discover S3 objects was invoked in an anomalous way.
 
 **Default severity: Low**
 
@@ -82,10 +79,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Discovery:S3/MaliciousIPCaller
 
-### An S3 API commonly used
-
-to discover resources in an AWS environment was invoked from a known malicious
-IP address.
+### An S3 API commonly used to discover resources in an AWS environment was invoked from a known malicious IP address.
 
 **Default severity: High**
 
@@ -104,9 +98,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Discovery:S3/MaliciousIPCaller.Custom
 
-### An S3 API was
-
-invoked from an IP address on a custom threat list.
+### An S3 API was invoked from an IP address on a custom threat list.
 
 **Default severity: High**
 
@@ -127,9 +119,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Discovery:S3/TorIPCaller
 
-### An S3 API was invoked from a
-
-Tor exit node IP address.
+### An S3 API was invoked from a Tor exit node IP address.
 
 **Default severity: Medium**
 
@@ -152,9 +142,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Exfiltration:S3/AnomalousBehavior
 
-### An IAM entity
-
-invoked an S3 API in a suspicious way.
+### An IAM entity invoked an S3 API in a suspicious way.
 
 **Default severity: High**
 
@@ -184,10 +172,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Exfiltration:S3/MaliciousIPCaller
 
-### An S3 API commonly
-
-used to collect data from an AWS environment was invoked from a known
-malicious IP address.
+### An S3 API commonly used to collect data from an AWS environment was invoked from a known malicious IP address.
 
 **Default severity: High**
 
@@ -206,9 +191,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Impact:S3/AnomalousBehavior.Delete
 
-### An IAM entity
-
-invoked an S3 API that attempts to delete data in a suspicious way.
+### An IAM entity invoked an S3 API that attempts to delete data in a suspicious way.
 
 **Default severity: High**
 
@@ -241,10 +224,7 @@ previous object version can or should be restored.
 
 ## Impact:S3/AnomalousBehavior.Permission
 
-### An API commonly
-
-used to set the access control list (ACL) permissions was invoked in an
-anomalous way.
+### An API commonly used to set the access control list (ACL) permissions was invoked in an anomalous way.
 
 **Default severity: High**
 
@@ -273,9 +253,7 @@ were unexpectedly allowed to be accessed publicly.
 
 ## Impact:S3/AnomalousBehavior.Write
 
-### An IAM entity
-
-invoked an S3 API that attempts to write data in a suspicious way.
+### An IAM entity invoked an S3 API that attempts to write data in a suspicious way.
 
 **Default severity: Medium**
 
@@ -308,10 +286,7 @@ call didn't write malicious or unauthorized data.
 
 ## Impact:S3/MaliciousIPCaller
 
-### An S3 API commonly used to
-
-tamper with data or processes in an AWS environment was invoked from a known
-malicious IP address.
+### An S3 API commonly used to tamper with data or processes in an AWS environment was invoked from a known malicious IP address.
 
 **Default severity: High**
 
@@ -330,9 +305,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## PenTest:S3/KaliLinux
 
-### An S3 API was invoked from a Kali
-
-Linux machine.
+### An S3 API was invoked from a Kali Linux machine.
 
 **Default severity: Medium**
 
@@ -352,9 +325,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## PenTest:S3/ParrotLinux
 
-### An S3 API was invoked from a
-
-Parrot Security Linux machine.
+### An S3 API was invoked from a Parrot Security Linux machine.
 
 **Default severity: Medium**
 
@@ -375,9 +346,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## PenTest:S3/PentooLinux
 
-### An S3 API was invoked from a
-
-Pentoo Linux machine.
+### An S3 API was invoked from a Pentoo Linux machine.
 
 **Default severity: Medium**
 
@@ -397,10 +366,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Policy:S3/AccountBlockPublicAccessDisabled
 
-### An IAM
-
-entity invoked an API used to disable S3 Block Public Access on an
-account.
+### An IAM entity invoked an API used to disable S3 Block Public Access on an account.
 
 **Default severity: Low**
 
@@ -426,10 +392,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Policy:S3/BucketAnonymousAccessGranted
 
-### An IAM
-
-principal has granted access to an S3 bucket to the internet by changing bucket
-policies or ACLs.
+### An IAM principal has granted access to an S3 bucket to the internet by changing bucket policies or ACLs.
 
 **Default severity: High**
 
@@ -457,10 +420,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Policy:S3/BucketBlockPublicAccessDisabled
 
-### An IAM
-
-entity invoked an API used to disable S3 Block Public Access on a
-bucket.
+### An IAM entity invoked an API used to disable S3 Block Public Access on a bucket.
 
 **Default severity: Low**
 
@@ -485,10 +445,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Policy:S3/BucketPublicAccessGranted
 
-### An IAM principal
-
-has granted public access to an S3 bucket to all AWS users by changing bucket
-policies or ACLs.
+### An IAM principal has granted public access to an S3 bucket to all AWS users by changing bucket policies or ACLs.
 
 **Default severity: High**
 
@@ -516,9 +473,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Stealth:S3/ServerAccessLoggingDisabled
 
-### S3 server
-
-access logging was disabled for a bucket.
+### S3 server access logging was disabled for a bucket.
 
 **Default severity: Low**
 
@@ -541,9 +496,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## UnauthorizedAccess:S3/MaliciousIPCaller.Custom
 
-### An S3
-
-API was invoked from an IP address on a custom threat list.
+### An S3 API was invoked from an IP address on a custom threat list.
 
 **Default severity: High**
 
@@ -562,9 +515,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## UnauthorizedAccess:S3/TorIPCaller
 
-### An S3 API was
-
-invoked from a Tor exit node IP address.
+### An S3 API was invoked from a Tor exit node IP address.
 
 **Default severity: High**
 

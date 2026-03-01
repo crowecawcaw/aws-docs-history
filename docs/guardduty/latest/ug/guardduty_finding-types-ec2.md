@@ -17,8 +17,7 @@ type. For more information data sources and models see [GuardDuty foundational d
   determine if it is behaving in an expected manner. If the activity is authorized, you can
   use Suppression Rules or Trusted IP lists to prevent false positive notifications for that
   resource. If the activity is unexpected, the security best practice is to assume the
-  instance has been compromised and take the actions detailed in [Remediating a potentially compromised Amazon EC2
-  instance](compromised-ec2.md "compromised-ec2.md").
+  instance has been compromised and take the actions detailed in [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ###### Topics
 
@@ -65,9 +64,7 @@ type. For more information data sources and models see [GuardDuty foundational d
 
 ## Backdoor:EC2/C&CActivity.B
 
-### An EC2 instance is querying
-
-an IP that is associated with a known command and control server.
+### An EC2 instance is querying an IP that is associated with a known command and control server.
 
 **Default severity: High**
 
@@ -96,15 +93,11 @@ include the following values:
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Backdoor:EC2/C&CActivity.B!DNS
 
-### An EC2 instance is
-
-querying a domain name that is associated with a known command and control
-server.
+### An EC2 instance is querying a domain name that is associated with a known command and control server.
 
 **Default severity: High**
 
@@ -140,15 +133,11 @@ DNS request from your instance (using `dig` for Linux or
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Backdoor:EC2/DenialOfService.Dns
 
-### An EC2 instance is
-
-behaving in a manner that may indicate it is being used to perform a Denial of
-Service (DoS) attack using the DNS protocol.
+### An EC2 instance is behaving in a manner that may indicate it is being used to perform a Denial of Service (DoS) attack using the DNS protocol.
 
 **Default severity: High**
 
@@ -166,15 +155,11 @@ addresses, which are primary targets of DoS attacks.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Backdoor:EC2/DenialOfService.Tcp
 
-### An EC2 instance is
-
-behaving in a manner indicating it is being used to perform a Denial of Service
-(DoS) attack using the TCP protocol.
+### An EC2 instance is behaving in a manner indicating it is being used to perform a Denial of Service (DoS) attack using the TCP protocol.
 
 **Default severity: High**
 
@@ -192,15 +177,11 @@ addresses, which are primary targets of DoS attacks.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Backdoor:EC2/DenialOfService.Udp
 
-### An EC2 instance is
-
-behaving in a manner indicating it is being used to perform a Denial of Service
-(DoS) attack using the UDP protocol.
+### An EC2 instance is behaving in a manner indicating it is being used to perform a Denial of Service (DoS) attack using the UDP protocol.
 
 **Default severity: High**
 
@@ -218,15 +199,11 @@ addresses, which are primary targets of DoS attacks.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Backdoor:EC2/DenialOfService.UdpOnTcpPorts
 
-### An EC2
-
-instance is behaving in a manner that may indicate it is being used to perform a
-Denial of Service (DoS) attack using the UDP protocol on a TCP port.
+### An EC2 instance is behaving in a manner that may indicate it is being used to perform a Denial of Service (DoS) attack using the UDP protocol on a TCP port.
 
 **Default severity: High**
 
@@ -245,15 +222,11 @@ addresses, which are primary targets of DoS attacks.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Backdoor:EC2/DenialOfService.UnusualProtocol
 
-### An EC2
-
-instance is behaving in a manner that may indicate it is being used to perform a
-Denial of Service (DoS) attack using an unusual protocol.
+### An EC2 instance is behaving in a manner that may indicate it is being used to perform a Denial of Service (DoS) attack using an unusual protocol.
 
 **Default severity: High**
 
@@ -269,14 +242,11 @@ addresses, which are primary targets of DoS attacks.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Backdoor:EC2/Spambot
 
-### An EC2 instance is exhibiting
-
-unusual behavior by communicating with a remote host on port 25.
+### An EC2 instance is exhibiting unusual behavior by communicating with a remote host on port 25.
 
 **Default severity: Medium**
 
@@ -290,14 +260,11 @@ spam.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Behavior:EC2/NetworkPortUnusual
 
-### An EC2 instance is
-
-communicating with a remote host on an unusual server port.
+### An EC2 instance is communicating with a remote host on an unusual server port.
 
 **Default severity: Medium**
 
@@ -318,14 +285,11 @@ will include the following value:
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Behavior:EC2/TrafficVolumeUnusual
 
-### An EC2 instance is
-
-generating unusually large amounts of network traffic to a remote host.
+### An EC2 instance is generating unusually large amounts of network traffic to a remote host.
 
 **Default severity: Medium**
 
@@ -338,15 +302,11 @@ remote host.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## CryptoCurrency:EC2/BitcoinTool.B
 
-### An EC2 instance is
-
-querying an IP address that is associated with cryptocurrency-related
-activity.
+### An EC2 instance is querying an IP address that is associated with cryptocurrency-related activity.
 
 **Default severity: High**
 
@@ -371,15 +331,11 @@ value of `CryptoCurrency:EC2/BitcoinTool.B`. The second filter
 criteria should be the **Instance ID** of the instance involved
 in blockchain activity. To learn more about creating suppression rules see [Suppression rules in GuardDuty](findings_suppression-rule.md "findings_suppression-rule.md").
 
-If this activity is unexpected, your instance is likely compromised, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance is likely compromised, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## CryptoCurrency:EC2/BitcoinTool.B!DNS
 
-### An EC2 instance is
-
-querying a domain name that is associated with cryptocurrency-related
-activity.
+### An EC2 instance is querying a domain name that is associated with cryptocurrency-related activity.
 
 **Default severity: High**
 
@@ -404,14 +360,11 @@ value of `CryptoCurrency:EC2/BitcoinTool.B!DNS`. The second filter
 criteria should be the **Instance ID** of the instance involved
 in blockchain activity. To learn more about creating suppression rules see [Suppression rules in GuardDuty](findings_suppression-rule.md "findings_suppression-rule.md").
 
-If this activity is unexpected, your instance is likely compromised, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance is likely compromised, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## DefenseEvasion:EC2/UnusualDNSResolver
 
-### An Amazon EC2
-
-instance is communicating with an unusual public DNS resolver.
+### An Amazon EC2 instance is communicating with an unusual public DNS resolver.
 
 **Default severity: Medium**
 
@@ -425,14 +378,11 @@ the GuardDuty console can provide information about the queried DNS resolver.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## DefenseEvasion:EC2/UnusualDoHActivity
 
-### An Amazon EC2 instance
-
-is performing an unusual DNS over HTTPS (DoH) communication.
+### An Amazon EC2 instance is performing an unusual DNS over HTTPS (DoH) communication.
 
 **Default severity: Medium**
 
@@ -447,14 +397,11 @@ server.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## DefenseEvasion:EC2/UnusualDoTActivity
 
-### An Amazon EC2
-
-instance is performing an unusual DNS over TLS (DoT) communication.
+### An Amazon EC2 instance is performing an unusual DNS over TLS (DoT) communication.
 
 **Default severity: Medium**
 
@@ -469,15 +416,11 @@ server.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Impact:EC2/AbusedDomainRequest.Reputation
 
-### An EC2
-
-instance is querying a low reputation domain name that is associated with known
-abused domains.
+### An EC2 instance is querying a low reputation domain name that is associated with known abused domains.
 
 **Default severity: Medium**
 
@@ -501,15 +444,11 @@ of being malicious.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Impact:EC2/BitcoinDomainRequest.Reputation
 
-### An EC2
-
-instance is querying a low reputation domain name that is associated with
-cryptocurrency-related activity.
+### An EC2 instance is querying a low reputation domain name that is associated with cryptocurrency-related activity.
 
 **Default severity: High**
 
@@ -539,15 +478,11 @@ second filter criteria should be the **Instance ID** of the
 instance involved in blockchain activity. To learn more about creating
 suppression rules see [Suppression rules in GuardDuty](findings_suppression-rule.md "findings_suppression-rule.md").
 
-If this activity is unexpected, your instance is likely compromised, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance is likely compromised, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Impact:EC2/MaliciousDomainRequest.Reputation
 
-### An EC2
-
-instance is querying a low reputation domain that is associated with known
-malicious domains.
+### An EC2 instance is querying a low reputation domain that is associated with known malicious domains.
 
 **Default severity: High**
 
@@ -567,14 +502,11 @@ of being malicious.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Impact:EC2/MaliciousDomainRequest.Custom
 
-### An EC2
-
-instance is querying a domain on a custom threat entity list.
+### An EC2 instance is querying a domain on a custom threat entity list.
 
 **Default severity: Medium**
 
@@ -589,14 +521,11 @@ list in the finding details.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Impact:EC2/PortSweep
 
-### An EC2 instance is probing a port
-
-on a large number of IP addresses.
+### An EC2 instance is probing a port on a large number of IP addresses.
 
 **Default severity: High**
 
@@ -610,15 +539,11 @@ displayed
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Impact:EC2/SuspiciousDomainRequest.Reputation
 
-### An EC2
-
-instance is querying a low reputation domain name that is suspicious in nature
-due to its age, or low popularity.
+### An EC2 instance is querying a low reputation domain name that is suspicious in nature due to its age, or low popularity.
 
 **Default severity: Low**
 
@@ -637,14 +562,11 @@ of being malicious.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Impact:EC2/WinRMBruteForce
 
-### An EC2 instance is
-
-performing an outbound Windows Remote Management brute force attack.
+### An EC2 instance is performing an outbound Windows Remote Management brute force attack.
 
 **Default severity: Low\***
 
@@ -663,15 +585,11 @@ Windows-based systems.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Recon:EC2/PortProbeEMRUnprotectedPort
 
-### An EC2 instance
-
-has an unprotected EMR related port which is being probed by a known malicious
-host.
+### An EC2 instance has an unprotected EMR related port which is being probed by a known malicious host.
 
 **Default severity: High**
 
@@ -694,9 +612,7 @@ for EMR Clusters](../../../emr/latest/ManagementGuide/emr-security-groups.md "..
 
 ## Recon:EC2/PortProbeUnprotectedPort
 
-### An EC2 instance has
-
-an unprotected port that is being probed by a known malicious host.
+### An EC2 instance has an unprotected port that is being probed by a known malicious host.
 
 **Default severity: Low\***
 
@@ -735,14 +651,11 @@ You can use either the **Instance image ID** attribute or the
 identifiable with the instances that host these tools. For more information
 about creating suppression rules see [Suppression rules in GuardDuty](findings_suppression-rule.md "findings_suppression-rule.md").
 
-If this activity is unexpected, your instance is likely compromised, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance is likely compromised, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Recon:EC2/Portscan
 
-### An EC2 instance is performing
-
-outbound port scans to a remote host.
+### An EC2 instance is performing outbound port scans to a remote host.
 
 **Default severity: Medium**
 
@@ -770,15 +683,11 @@ attribute depending on which criteria are identifiable with the instances that
 host these tools. For more information about creating suppression rules see
 [Suppression rules in GuardDuty](findings_suppression-rule.md "findings_suppression-rule.md").
 
-If this activity is unexpected, your instance is likely compromised, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance is likely compromised, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Trojan:EC2/BlackholeTraffic
 
-### An EC2 instance is
-
-attempting to communicate with an IP address of a remote host that is a known
-black hole.
+### An EC2 instance is attempting to communicate with an IP address of a remote host that is a known black hole.
 
 **Default severity: Medium**
 
@@ -794,15 +703,11 @@ assigned.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Trojan:EC2/BlackholeTraffic!DNS
 
-### An EC2 instance is
-
-querying a domain name that is being redirected to a black hole IP
-address.
+### An EC2 instance is querying a domain name that is being redirected to a black hole IP address.
 
 **Default severity: Medium**
 
@@ -816,15 +721,11 @@ source that the data didn't reach its intended recipient.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Trojan:EC2/DGADomainRequest.B
 
-### An EC2 instance is
-
-querying algorithmically generated domains. Such domains are commonly used by
-malware and could be an indication of a compromised EC2 instance.
+### An EC2 instance is querying algorithmically generated domains. Such domains are commonly used by malware and could be an indication of a compromised EC2 instance.
 
 **Default severity: High**
 
@@ -851,15 +752,11 @@ intelligence feeds.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Trojan:EC2/DGADomainRequest.C!DNS
 
-### An EC2 instance is
-
-querying algorithmically generated domains. Such domains are commonly used by
-malware and could be an indication of a compromised EC2 instance.
+### An EC2 instance is querying algorithmically generated domains. Such domains are commonly used by malware and could be an indication of a compromised EC2 instance.
 
 **Default severity: High**
 
@@ -885,14 +782,11 @@ intelligence feeds.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Trojan:EC2/DNSDataExfiltration
 
-### An EC2 instance is
-
-exfiltrating data through DNS queries.
+### An EC2 instance is exfiltrating data through DNS queries.
 
 **Default severity: High**
 
@@ -908,15 +802,11 @@ a remote DNS server that is controlled by an attacker.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Trojan:EC2/DriveBySourceTraffic!DNS
 
-### An EC2 instance is
-
-querying a domain name of a remote host that is a known source of Drive-By
-download attacks.
+### An EC2 instance is querying a domain name of a remote host that is a known source of Drive-By download attacks.
 
 **Default severity: High**
 
@@ -930,15 +820,11 @@ automatic installation of a virus, spyware, or malware.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Trojan:EC2/DropPoint
 
-### An EC2 instance is attempting to
-
-communicate with an IP address of a remote host that is known to hold
-credentials and other stolen data captured by malware.
+### An EC2 instance is attempting to communicate with an IP address of a remote host that is known to hold credentials and other stolen data captured by malware.
 
 **Default severity: Medium**
 
@@ -950,15 +836,11 @@ credentials and other stolen data captured by malware.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Trojan:EC2/DropPoint!DNS
 
-### An EC2 instance is querying a
-
-domain name of a remote host that is known to hold credentials and other stolen
-data captured by malware.
+### An EC2 instance is querying a domain name of a remote host that is known to hold credentials and other stolen data captured by malware.
 
 **Default severity: Medium**
 
@@ -970,15 +852,11 @@ other stolen data captured by malware.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Trojan:EC2/PhishingDomainRequest!DNS
 
-### An EC2 instance is
-
-querying domains involved in phishing attacks. Your EC2 instance might be
-compromised.
+### An EC2 instance is querying domains involved in phishing attacks. Your EC2 instance might be compromised.
 
 **Default severity: High**
 
@@ -995,14 +873,11 @@ might be compromised.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## UnauthorizedAccess:EC2/MaliciousIPCaller.Custom
 
-### An EC2
-
-instance is making connections to an IP address on a custom threat list.
+### An EC2 instance is making connections to an IP address on a custom threat list.
 
 **Default severity: Medium**
 
@@ -1016,15 +891,11 @@ generate this finding will be listed in the finding's details.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## UnauthorizedAccess:EC2/MetadataDNSRebind
 
-### An EC2
-
-instance is performing DNS lookups that resolve to the instance metadata
-service.
+### An EC2 instance is performing DNS lookups that resolve to the instance metadata service.
 
 **Default severity: High**
 
@@ -1068,9 +939,7 @@ For more information on creating suppression rules see [Suppression rules in Gua
 
 ## UnauthorizedAccess:EC2/RDPBruteForce
 
-### An EC2 instance
-
-has been involved in RDP brute force attacks.
+### An EC2 instance has been involved in RDP brute force attacks.
 
 **Default severity: Low\***
 
@@ -1093,8 +962,7 @@ If your instance's **Resource Role** is `ACTOR`,
 this indicates your instance has been used to perform RDP brute force attacks.
 Unless this instance has a legitimate reason to be contacting the IP address
 listed as the `Target`, it is recommended that you assume your
-instance has been compromised and take the actions listed in [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+instance has been compromised and take the actions listed in [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 If your instance's **Resource Role** is `TARGET`,
 this finding can be remediated by securing your RDP port to only trusted IPs
@@ -1103,9 +971,7 @@ for securing your EC2 instances (Linux)](https://aws.amazon.com/articles/tips-fo
 
 ## UnauthorizedAccess:EC2/SSHBruteForce
 
-### An EC2 instance
-
-has been involved in SSH brute force attacks.
+### An EC2 instance has been involved in SSH brute force attacks.
 
 **Default severity: Low\***
 
@@ -1152,14 +1018,11 @@ If your instance's **Resource Role** is `ACTOR`,
 this indicates the instance has been used to perform SSH brute force attacks.
 Unless this instance has a legitimate reason to be contacting the IP address
 listed as the `Target`, it is recommended that you assume your
-instance has been compromised and take the actions listed in [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+instance has been compromised and take the actions listed in [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## UnauthorizedAccess:EC2/TorClient
 
-### Your EC2 instance is
-
-making connections to a Tor Guard or an Authority node.
+### Your EC2 instance is making connections to a Tor Guard or an Authority node.
 
 **Default severity: High**
 
@@ -1175,14 +1038,11 @@ hiding the attacker's true identity.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## UnauthorizedAccess:EC2/TorRelay
 
-### Your EC2 instance is
-
-making connections to a Tor network as a Tor relay.
+### Your EC2 instance is making connections to a Tor network as a Tor relay.
 
 **Default severity: High**
 
@@ -1196,5 +1056,4 @@ traffic from one Tor relay to another.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").

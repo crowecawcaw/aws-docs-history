@@ -1,6 +1,4 @@
-# Prerequisite –
-
-Creating Amazon VPC endpoint manually
+# Prerequisite – Creating Amazon VPC endpoint manually
 
 Before you can install the GuardDuty security agent, you must create an Amazon Virtual Private Cloud (Amazon VPC)
 endpoint. This will help GuardDuty receive the runtime events of your Amazon EC2
@@ -121,6 +119,5 @@ If there is an issue while restricting the in-bound permissions to your VPC
 `(0.0.0.0/0)`. However, GuardDuty recommends using IP addresses that
 matches the CIDR block for your VPC. For more information, see [VPC
 CIDR blocks](../../../vpc/latest/userguide/vpc-cidr-blocks.md "../../../vpc/latest/userguide/vpc-cidr-blocks.md") in the _Amazon VPC User Guide_.
-After you have followed the steps, see [Validating VPC
-endpoint configuration](validate-vpc-endpoint-config-runtime-monitoring.md "validate-vpc-endpoint-config-runtime-monitoring.md") to ensure that the VPC
+After you have followed the steps, see [Validating VPC endpoint configuration](validate-vpc-endpoint-config-runtime-monitoring.md "validate-vpc-endpoint-config-runtime-monitoring.md") to ensure that the VPC
 endpoint was set up correctly.

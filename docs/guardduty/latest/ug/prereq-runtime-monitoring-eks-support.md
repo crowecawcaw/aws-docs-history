@@ -1,6 +1,4 @@
-# Prerequisites for Amazon EKS cluster
-
-support
+# Prerequisites for Amazon EKS cluster support
 
 This section includes the prerequisites for monitoring runtime behavior of your Amazon EKS
 resources. These prerequisites are crucial for the GuardDuty agent to function as expected. After
@@ -17,9 +15,7 @@ Amazon EKS Hybrid Nodes, and those running on AWS Fargate.
 For information about these Amazon EKS features, see [What is Amazon EKS?](../../../eks/latest/userguide/what-is-eks.md "../../../eks/latest/userguide/what-is-eks.md") in the
 **Amazon EKS User Guide**.
 
-## Validating architectural
-
-requirements
+## Validating architectural requirements
 
 The platform that you use may impact how GuardDuty security agent supports GuardDuty in receiving
 the runtime events from your EKS clusters. You must validate that you're using one of the
@@ -61,9 +57,7 @@ agent and configuring EKS Runtime Monitoring.
 5. Runtime Monitoring supports AL2023 with the release of the GuardDuty security agent v1.6.0 and above.
    For more information, see [GuardDuty security agent versions for Amazon EKS resources](runtime-monitoring-agent-release-history.md#eks-runtime-monitoring-agent-release-history "runtime-monitoring-agent-release-history.md#eks-runtime-monitoring-agent-release-history").
 
-#### Kubernetes versions supported by GuardDuty security
-
-agent
+#### Kubernetes versions supported by GuardDuty security agent
 
 The following table shows the Kubernetes versions for your EKS clusters that are supported by
 GuardDuty security agent.
@@ -71,7 +65,7 @@ GuardDuty security agent.
 | Amazon EKS add-on GuardDuty security agent version                               | Kubernetes version |
 | -------------------------------------------------------------------------------- | ------------------ |
 | v1.12.1 (latest<br>• v1.12.1-eksbuild.2)                                         | 1.28<br>• 1.34     |
-| v1.11.0 (latest<br>• v1.11.0-eksbuild.2)                                         | 1.28<br>• 1.34     |
+| v1.11.0 (latest<br>• v1.11.0-eksbuild.4)                                         | 1.28<br>• 1.34     |
 | v1.10.0 (latest<br>• v1.10.0-eksbuild.2)                                         | 1.21<br>• 1.33     |
 | v1.9.0 (latest<br>• v1.9.0-eksbuild.2)<br>v1.8.1 (latest<br>• v1.8.1-eksbuild.2) | 1.21<br>• 1.32     |
 | v1.7.1<br>v1.7.0<br>v1.6.1                                                       | 1.21<br>• 1.31     |
@@ -97,16 +91,12 @@ The following table shows the CPU and memory limits for the Amazon EKS add-on fo
 
 When you use Amazon EKS add-on version 1.5.0 or above, GuardDuty provides the capability to
 configure the add-on schema for your CPU and memory values. For information about the
-configurable range, see [Configurable parameters and
-values](guardduty-configure-security-agent-eks-addon.md#gdu-eks-addon-configure-parameters-values "guardduty-configure-security-agent-eks-addon.md#gdu-eks-addon-configure-parameters-values").
+configurable range, see [Configurable parameters and values](guardduty-configure-security-agent-eks-addon.md#gdu-eks-addon-configure-parameters-values "guardduty-configure-security-agent-eks-addon.md#gdu-eks-addon-configure-parameters-values").
 
 After you enable EKS Runtime Monitoring and assess the coverage status of your EKS clusters, you can
-set up and view the container insight metrics. For more information, see [Setting up CPU and memory
-monitoring](runtime-monitoring-setting-cpu-mem-monitoring.md "runtime-monitoring-setting-cpu-mem-monitoring.md").
+set up and view the container insight metrics. For more information, see [Setting up CPU and memory monitoring](runtime-monitoring-setting-cpu-mem-monitoring.md "runtime-monitoring-setting-cpu-mem-monitoring.md").
 
-## Validating your organization service control
-
-policy
+## Validating your organization service control policy
 
 If you have set up a service control policy (SCP) to manage permissions in your
 organization, validate that permissions boundary is not restricting

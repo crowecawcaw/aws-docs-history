@@ -19,9 +19,7 @@ details of the findings will differ based on the finding type.
 
 ## CredentialAccess:RDS/AnomalousBehavior.SuccessfulLogin
 
-### A user successfully
-
-logged into an RDS database in your account in an anomalous way.
+### A user successfully logged into an RDS database in your account in an anomalous way.
 
 **Default severity: Variable**
 
@@ -60,14 +58,11 @@ performed by the anomalous user. Medium and high severity findings may indicate 
 an overly permissive access policy to the database, and user credentials may have been exposed
 or compromised. It is recommended to place the database in a private VPC, and limit the
 security group rules to allow traffic only from the necessary sources. For more information,
-see [Remediating potentially compromised
-database with successful login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt").
+see [Remediating potentially compromised database with successful login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt").
 
 ## CredentialAccess:RDS/AnomalousBehavior.FailedLogin
 
-### One or more unusual failed
-
-login attempts were observed on an RDS database in your account.
+### One or more unusual failed login attempts were observed on an RDS database in your account.
 
 **Default severity: Low**
 
@@ -90,15 +85,11 @@ about the RDS login activity that are potentially unusual, see [RDS login activi
 If this activity is unexpected for the associated database, it may indicate that the
 database is publicly exposed or there is an overly permissive access policy to the database. It
 is recommended to place the database in a private VPC, and limit the security group rules to
-allow traffic only from the necessary sources. For more information, see [Remediating potentially compromised database
-with failed login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt").
+allow traffic only from the necessary sources. For more information, see [Remediating potentially compromised database with failed login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt").
 
 ## CredentialAccess:RDS/AnomalousBehavior.SuccessfulBruteForce
 
-### A user
-
-successfully logged into an RDS database in your account from a public IP address in an
-anomalous way after a consistent pattern of unusual failed login attempts.
+### A user successfully logged into an RDS database in your account from a public IP address in an anomalous way after a consistent pattern of unusual failed login attempts.
 
 **Default severity: High**
 
@@ -127,15 +118,11 @@ audit logs for activity performed by the potentially compromised user. A consist
 unusual failed login attempts indicate an overly permissive access policy to the database or
 the database may have also been public exposed. It is recommended to place the database in a
 private VPC, and limit the security group rules to allow traffic only from the necessary
-sources. For more information, see [Remediating potentially compromised
-database with successful login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt").
+sources. For more information, see [Remediating potentially compromised database with successful login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt").
 
 ## CredentialAccess:RDS/MaliciousIPCaller.SuccessfulLogin
 
-### A user
-
-successfully logged into an RDS database in your account from a known malicious IP
-address.
+### A user successfully logged into an RDS database in your account from a known malicious IP address.
 
 **Default severity: High**
 
@@ -155,15 +142,11 @@ the associated database user, and review the available audit logs for activity p
 compromised user. This activity may also indicate that there is an overly permissive access
 policy to the database or the database is publicly exposed. It is recommended to place the
 database in a private VPC, and limit the security group rules to allow traffic only from the
-necessary sources. For more information, see [Remediating potentially compromised
-database with successful login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt").
+necessary sources. For more information, see [Remediating potentially compromised database with successful login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt").
 
 ## CredentialAccess:RDS/MaliciousIPCaller.FailedLogin
 
-### An IP address that is
-
-associated with a known malicious activity unsuccessfully attempted to log in to an RDS
-database in your account.
+### An IP address that is associated with a known malicious activity unsuccessfully attempted to log in to an RDS database in your account.
 
 **Default severity: Medium**
 
@@ -179,15 +162,11 @@ attempting to compromise the RDS database in your account.
 If this activity is unexpected for the associated database, it may indicate that there is
 an overly permissive access policy to the database or the database is publicly exposed. It is
 recommended to place the database in a private VPC, and limit the security group rules to allow
-traffic only from the necessary sources. For more information, see [Remediating potentially compromised database
-with failed login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt").
+traffic only from the necessary sources. For more information, see [Remediating potentially compromised database with failed login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt").
 
 ## Discovery:RDS/MaliciousIPCaller
 
-### An IP address that is associated
-
-with a known malicious activity probed an RDS database in your account; no authentication
-attempt was made.
+### An IP address that is associated with a known malicious activity probed an RDS database in your account; no authentication attempt was made.
 
 **Default severity: Medium**
 
@@ -203,14 +182,11 @@ infrastructure.
 If this activity is unexpected for the associated database, it may indicate that there is
 an overly permissive access policy to the database or the database is publicly exposed. It is
 recommended to place the database in a private VPC, and limit the security group rules to allow
-traffic only from the necessary sources. For more information, see [Remediating potentially compromised database
-with failed login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt").
+traffic only from the necessary sources. For more information, see [Remediating potentially compromised database with failed login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt").
 
 ## CredentialAccess:RDS/TorIPCaller.SuccessfulLogin
 
-### A user successfully
-
-logged into an RDS database in your account from a Tor exit node IP address.
+### A user successfully logged into an RDS database in your account from a Tor exit node IP address.
 
 **Default severity: High**
 
@@ -231,14 +207,11 @@ the associated database user, and review the available audit logs for activity p
 compromised user. This activity may also indicate that there is an overly permissive access
 policy to the database or the database is publicly exposed. It is recommended to place the
 database in a private VPC, and limit the security group rules to allow traffic only from the
-necessary sources. For more information, see [Remediating potentially compromised
-database with successful login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt").
+necessary sources. For more information, see [Remediating potentially compromised database with successful login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-successful-attempt").
 
 ## CredentialAccess:RDS/TorIPCaller.FailedLogin
 
-### A Tor IP address attempted
-
-to unsuccessfully log in to an RDS database in your account.
+### A Tor IP address attempted to unsuccessfully log in to an RDS database in your account.
 
 **Default severity: Medium**
 
@@ -256,14 +229,11 @@ the intent of hiding the anonymous user's true identity.
 If this activity is unexpected for the associated database, it may indicate that there is
 an overly permissive access policy to the database or the database is publicly exposed. It is
 recommended to place the database in a private VPC, and limit the security group rules to allow
-traffic only from the necessary sources. For more information, see [Remediating potentially compromised database
-with failed login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt").
+traffic only from the necessary sources. For more information, see [Remediating potentially compromised database with failed login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt").
 
 ## Discovery:RDS/TorIPCaller
 
-### A Tor exit node IP address probed an RDS
-
-database in your account, no authentication attempt was made.
+### A Tor exit node IP address probed an RDS database in your account, no authentication attempt was made.
 
 **Default severity: Medium**
 
@@ -282,5 +252,4 @@ the potentially malicious actor's true identity.
 If this activity is unexpected for the associated database, it may indicate that there is
 an overly permissive access policy to the database or the database is publicly exposed. It is
 recommended to place the database in a private VPC, and limit the security group rules to allow
-traffic only from the necessary sources. For more information, see [Remediating potentially compromised database
-with failed login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt").
+traffic only from the necessary sources. For more information, see [Remediating potentially compromised database with failed login events](guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt "guardduty-remediate-compromised-database-rds.md#gd-compromised-db-failed-attempt").

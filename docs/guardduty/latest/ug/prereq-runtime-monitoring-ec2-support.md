@@ -1,25 +1,18 @@
-# Prerequisites for Amazon EC2 instance
-
-support
+# Prerequisites for Amazon EC2 instance support
 
 This section includes the prerequisites for monitoring runtime behavior of your Amazon EC2
 instances. After these prerequisites are met, see [Enabling GuardDuty Runtime Monitoring](runtime-monitoring-configuration.md "runtime-monitoring-configuration.md").
 
 ###### Topics
 
-- [Make EC2 instances SSM managed (for automated agent
-  configuration only)](#ssm-managed-prereq-ec2 "#ssm-managed-prereq-ec2")
+- [Make EC2 instances SSM managed (for automated agent configuration only)](#ssm-managed-prereq-ec2 "#ssm-managed-prereq-ec2")
 - [Validate architectural requirements](#validating-architecture-req-ec2 "#validating-architecture-req-ec2")
-- [Validating your organization service control
-  policy in a multi-account environment](#validate-organization-scp-ec2 "#validate-organization-scp-ec2")
-- [When using automated agent
-  configuration](#runtime-ec2-prereq-automated-agent "#runtime-ec2-prereq-automated-agent")
+- [Validating your organization service control policy in a multi-account environment](#validate-organization-scp-ec2 "#validate-organization-scp-ec2")
+- [When using automated agent configuration](#runtime-ec2-prereq-automated-agent "#runtime-ec2-prereq-automated-agent")
 - [CPU and memory limit for GuardDuty agent](#ec2-cpu-memory-limits-gdu-agent "#ec2-cpu-memory-limits-gdu-agent")
 - [Next step](#next-step-after-prereq-ec2 "#next-step-after-prereq-ec2")
 
-## Make EC2 instances SSM managed (for automated agent
-
-configuration only)
+## Make EC2 instances SSM managed (for automated agent configuration only)
 
 GuardDuty uses AWS Systems Manager (SSM) to automatically deploy, install, and manage the security agent
 on your instances. If you plan to manually install and manage the GuardDuty agent, SSM is not
@@ -69,8 +62,7 @@ security agent for Amazon EC2 instances.
      RAM (`RLIMIT_MEMLOCK`) to function as expected. If your system's
      `RLIMIT_MEMLOCK` value is set too low, GuardDuty recommends setting both hard and
      soft limits to at least 32 MB. For information about verifying and modifying the default
-     `RLIMIT_MEMLOCK` value, see [Viewing and updating
-     RLIMIT\_MEMLOCK values](#runtime-monitoring-ec2-modify-rlimit-memlock "#runtime-monitoring-ec2-modify-rlimit-memlock").
+     `RLIMIT_MEMLOCK` value, see [Viewing and updating RLIMIT\_MEMLOCK values](#runtime-monitoring-ec2-modify-rlimit-memlock "#runtime-monitoring-ec2-modify-rlimit-memlock").
     5. For Ubuntu 24.04, the kernel versions 6.13 and 6.14 support EC2 agent versions only 1.9.1 and above.
 
 - Additional requirements - Only if you have Amazon ECS/Amazon EC2
@@ -78,9 +70,7 @@ security agent for Amazon EC2 instances.
 For Amazon ECS/Amazon EC2, we recommend that you use the latest Amazon ECS-optimized AMIs (dated
 September 29, 2023 or later), or use Amazon ECS agent version v1.77.0.
 
-### Viewing and updating
-
-`RLIMIT_MEMLOCK` values
+### Viewing and updating `RLIMIT_MEMLOCK` values
 
 When your system's `RLIMIT_MEMLOCK` limit is set too low, GuardDuty security agent
 may not perform as designed. GuardDuty recommends that both hard and soft limits must be at least
@@ -117,9 +107,7 @@ This will display the maximum locked memory for running the GuardDuty security a
    `soft-limit:hard-limit`.
 4. Run `sudo reboot`.
 
-## Validating your organization service control
-
-policy in a multi-account environment
+## Validating your organization service control policy in a multi-account environment
 
 If you have set up a service control policy (SCP) to manage permissions in your
 organization, validate that permissions boundary allows the
@@ -130,9 +118,7 @@ If you are a member account, connect with the associated delegated administrator
 information about managing SCPs for your organization, see [Service control policies
 (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md").
 
-## When using automated agent
-
-configuration
+## When using automated agent configuration
 
 To [Use automated agent configuration
 (recommended)](how-runtime-monitoring-works-ec2.md#use-automated-agent-config-ec2 "how-runtime-monitoring-works-ec2.md#use-automated-agent-config-ec2"), your AWS account must meet the

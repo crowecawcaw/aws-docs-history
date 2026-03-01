@@ -6,8 +6,7 @@ to the existing finding types, and other functionality changes. Notifications ar
 in all formats that Amazon SNS supports.
 
 The GuardDuty SNS sends announcement about updates to the GuardDuty service across AWS to any
-subscribed account. To receive notifications about findings within your account, see [Processing GuardDuty findings with
-Amazon EventBridge](guardduty_findings_eventbridge.md "guardduty_findings_eventbridge.md").
+subscribed account. To receive notifications about findings within your account, see [Processing GuardDuty findings with Amazon EventBridge](guardduty_findings_eventbridge.md "guardduty_findings_eventbridge.md").
 
 ###### Note
 

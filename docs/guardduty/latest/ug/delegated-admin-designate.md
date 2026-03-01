@@ -6,8 +6,7 @@ organization.
 As a management account of the AWS organization, make sure that you read through the
 [Considerations and
 recommendations](guardduty_organizations.md#delegated_admin_important "guardduty_organizations.md#delegated_admin_important") on how a delegated GuardDuty administrator account operates. Before
-proceeding, ensure that you have [Permissions required to designate a
-delegated GuardDuty administrator account](organizations_permissions.md "organizations_permissions.md").
+proceeding, ensure that you have [Permissions required to designate a delegated GuardDuty administrator account](organizations_permissions.md "organizations_permissions.md").
 
 Choose a preferred access method to designate a delegated GuardDuty administrator account for your organization. Only a
 management account can perform this step.

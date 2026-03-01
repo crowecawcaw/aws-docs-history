@@ -1,6 +1,4 @@
-# Enabling RDS Protection in multiple-account
-
-environments
+# Enabling RDS Protection in multiple-account environments
 
 In a multiple-account environment, only the delegated GuardDuty administrator account has the option to enable or disable
 the RDS Protection feature for the member accounts in their organization. The GuardDuty member accounts
@@ -89,8 +87,7 @@ Make sure to use the delegated GuardDuty administrator account credentials. 2. D
     4. Choose **Save**.
 
 If you can't use the **Enable for all accounts** option,
-see [Selectively enable RDS Protection for
-member accounts](#enable-disable-rds-pro-selectively "#enable-disable-rds-pro-selectively").
+see [Selectively enable RDS Protection for member accounts](#enable-disable-rds-pro-selectively "#enable-disable-rds-pro-selectively").
 
 API/CLI
 To selectively enable or disable RDS Protection for your member accounts, invoke the

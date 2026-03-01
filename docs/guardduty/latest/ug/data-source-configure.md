@@ -1,14 +1,11 @@
-# Enabling S3 Protection for a standalone
-
-account
+# Enabling S3 Protection for a standalone account
 
 A standalone account owns the decision to enable or disable a protection plan in their
 AWS account in a specific AWS Region.
 
 If your account is associated with a GuardDuty administrator account through AWS Organizations, or by the method
 of invitation, this section doesn't apply to your account. For more information,
-see [Enabling S3 Protection in multiple-account
-environments](s3-multiaccount.md "s3-multiaccount.md").
+see [Enabling S3 Protection in multiple-account environments](s3-multiaccount.md "s3-multiaccount.md").
 
 After you enable S3 Protection, GuardDuty will start monitoring AWS CloudTrail data events for the S3
 buckets in your account.

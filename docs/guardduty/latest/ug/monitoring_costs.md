@@ -10,11 +10,11 @@ In this page:
 
 ## Amazon CloudWatch Usage Metrics
 
-GuardDuty publishes usage metrics to Amazon Amazon CloudWatch, enabling you to:
+GuardDuty publishes usage metrics to Amazon CloudWatch, enabling you to:
 
 - Track actual usage over time
 - Create custom dashboards and alarms
-- Export usage data for cost estimation in AWS Cost Calculator
+- Export usage data for cost estimation in AWS Pricing Calculator
 
 GuardDuty usage metrics are published based on your account configuration:
 
@@ -32,19 +32,19 @@ GuardDuty publishes the following usage metrics `Hourly` to Amazon CloudWatch un
 | **Protection Plan**           | **Data Source**          | **Metric Name**    | **Unit**           | **Description**                                       |
 | Foundational Threat Detection | CloudTrailEvents         | AnalyzedCount      | Count              | Number of CloudTrail management events analyzed       |
 | Foundational Threat Detection | VPCFlowLogDNSLogEvents   | AnalyzedBytes      | Bytes              | Volume of VPC flow logs and DNS logs analyzed         |
+| EKS Protection                | KubernetesAuditLogs      | AnalyzedCount      | Count              | Number of Amazon EKS audit log events analyzed        |
 | S3 Protection                 | S3DataEvents             | AnalyzedCount      | Count              | Number of S3 data events analyzed                     |
-| Amazon EKS Protection         | KubernetesAuditLogs      | AnalyzedCount      | Count              | Number of Amazon EKS audit log events analyzed        |
-| Lambda Protection             | LambdaNetworkLogs        | AnalyzedBytes      | Bytes              | Volume of Lambda network logs analyzed                |
 | Runtime Monitoring            | RuntimeMonitoringEC2     | MonitoredVcpuHours | Count (vCPU-Hours) | EC2 vCPU hours monitored by Runtime Monitoring        |
 | Runtime Monitoring            | RuntimeMonitoringEKS     | MonitoredVcpuHours | Count (vCPU-Hours) | Amazon EKS vCPU hours monitored by Runtime Monitoring |
 | Runtime Monitoring            | RuntimeMonitoringFargate | MonitoredVcpuHours | Count (vCPU-Hours) | Fargate vCPU hours monitored by Runtime Monitoring    |
 | Malware Protection for EC2    | OnDemandEBSSnapshot      | ScannedBytes       | Bytes              | Volume of on-demand EBS snapshot data scanned         |
 | Malware Protection for EC2    | OnDemandEBSVolume        | ScannedBytes       | Bytes              | Volume of on-demand EBS volume data scanned           |
 | Malware Protection for EC2    | MalwareProtectionEBS     | ScannedBytes       | Bytes              | Volume of EBS data scanned by Malware Protection      |
-| Amazon RDS Protection         | RDS                      | MonitoredAcuHours  | Count (ACU-Hours)  | Amazon RDS Aurora Capacity Units monitored            |
-| Amazon RDS Protection         | RDSLimitless             | MonitoredAcuHours  | Count (ACU-Hours)  | Amazon RDS Aurora Limitless ACU hours monitored       |
-| Amazon RDS Protection         | AuroraScaleout           | MonitoredAcuHours  | Count (ACU-Hours)  | Aurora Scaleout ACU hours monitored                   |
-| Amazon RDS Protection         | RDS                      | MonitoredVcpuHours | Count (vCPU-Hours) | Amazon RDS vCPU hours monitored                       |
+| RDS Protection                | RDS                      | MonitoredAcuHours  | Count (ACU-Hours)  | Amazon RDS Aurora Capacity Units monitored            |
+| RDS Protection                | RDSLimitless             | MonitoredAcuHours  | Count (ACU-Hours)  | Amazon RDS Aurora Limitless ACU hours monitored       |
+| RDS Protection                | AuroraScaleout           | MonitoredAcuHours  | Count (ACU-Hours)  | Aurora Scaleout ACU hours monitored                   |
+| RDS Protection                | RDS                      | MonitoredVcpuHours | Count (vCPU-Hours) | Amazon RDS vCPU hours monitored                       |
+| Lambda Protection             | LambdaNetworkLogs        | AnalyzedBytes      | Bytes              | Volume of Lambda network logs analyzed                |
 
 **Metrics Dimensions**
 
@@ -94,13 +94,13 @@ GuardDuty offers a 30-day free trial per AWS account for most protection plans. 
 
 The following protection plans include a 30-day free trial:
 
-- Foundational GuardDuty
-- GuardDuty S3 Protection
-- GuardDuty Amazon EKS Protection
-- GuardDuty Runtime Monitoring
-- GuardDuty Amazon RDS Protection
-- GuardDuty Lambda Protection
-- GuardDuty Malware Protection for EC2 (only for GuardDuty-initiated scans when enabled with Foundational GuardDuty)
+- Foundational Threat Detection
+- S3 Protection
+- EKS Protection
+- Runtime Monitoring
+- RDS Protection
+- Lambda Protection
+- Malware Protection for EC2 (only for GuardDuty-initiated scans when enabled with Foundational Threat Detection)
 
 ### Security Hub Customers
 

@@ -18,8 +18,7 @@ When GuardDuty detects a potential security threat in the tasks or applications 
 container workloads and instances, GuardDuty generates [GuardDuty Runtime Monitoring finding types](findings-runtime-monitoring.md "findings-runtime-monitoring.md").
 
 You can also configure an Amazon EventBridge (EventBridge) to receive a notification when the coverage
-status changes from **Unhealthy** to **Healthy** and otherwise. For more information, see [Reviewing runtime coverage statistics and
-troubleshooting issues](runtime-monitoring-assessing-coverage.md "runtime-monitoring-assessing-coverage.md").
+status changes from **Unhealthy** to **Healthy** and otherwise. For more information, see [Reviewing runtime coverage statistics and troubleshooting issues](runtime-monitoring-assessing-coverage.md "runtime-monitoring-assessing-coverage.md").
 
 **Set up CPU and memory monitoring for GuardDuty security
 agent**
@@ -27,8 +26,7 @@ agent**
 After you have assessed that the coverage status shows as **Healthy**,
 you can evaluate the performance of the security agent for your resource type. For Amazon EKS
 clusters that have the security agent release v1.5 or above, GuardDuty supports configuring the
-parameters of the (add-on) security agent. For more information, see [Setting up CPU and memory
-monitoring](runtime-monitoring-setting-cpu-mem-monitoring.md "runtime-monitoring-setting-cpu-mem-monitoring.md").
+parameters of the (add-on) security agent. For more information, see [Setting up CPU and memory monitoring](runtime-monitoring-setting-cpu-mem-monitoring.md "runtime-monitoring-setting-cpu-mem-monitoring.md").
 
 **GuardDuty detects potential threats**
 

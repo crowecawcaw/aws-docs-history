@@ -1,6 +1,4 @@
-# Prerequisites for AWS Fargate (Amazon ECS
-
-only) support
+# Prerequisites for AWS Fargate (Amazon ECS only) support
 
 This section includes the prerequisites for monitoring runtime behavior of your
 Fargate-Amazon ECS resources. After these prerequisites are met, see [Enabling GuardDuty Runtime Monitoring](runtime-monitoring-configuration.md "runtime-monitoring-configuration.md").
@@ -9,10 +7,8 @@ Fargate-Amazon ECS resources. After these prerequisites are met, see [Enabling G
 
 - [Validating architectural requirements](#validating-architecture-req-ecs "#validating-architecture-req-ecs")
 - [Prerequisites for container image access](#before-enable-runtime-monitoring-ecs "#before-enable-runtime-monitoring-ecs")
-- [Validating your organization service control
-  policy in a multi-account environment](#validate-organization-scp-ecs "#validate-organization-scp-ecs")
-- [Validating role
-  permissions and policy permissions boundary](#guardduty-runtime-monitoring-ecs-permission-boundary "#guardduty-runtime-monitoring-ecs-permission-boundary")
+- [Validating your organization service control policy in a multi-account environment](#validate-organization-scp-ecs "#validate-organization-scp-ecs")
+- [Validating role permissions and policy permissions boundary](#guardduty-runtime-monitoring-ecs-permission-boundary "#guardduty-runtime-monitoring-ecs-permission-boundary")
 - [CPU and memory limits](#ecs-runtime-agent-cpu-memory-limits "#ecs-runtime-agent-cpu-memory-limits")
 
 ## Validating architectural requirements
@@ -64,8 +60,7 @@ The task execution role requires certain Amazon Elastic Container Registry (Amaz
 
 To further restrict the Amazon ECR permissions, you can add the Amazon ECR repository URI that
 hosts the GuardDuty security agent for AWS Fargate (Amazon ECS only). For more information, see
-[Amazon ECR repository hosting GuardDuty
-agent](runtime-monitoring-ecr-repository-gdu-agent.md "runtime-monitoring-ecr-repository-gdu-agent.md").
+[Amazon ECR repository hosting GuardDuty agent](runtime-monitoring-ecr-repository-gdu-agent.md "runtime-monitoring-ecr-repository-gdu-agent.md").
 
 You can either use the [AmazonECSTaskExecutionRolePolicy](../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md "../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md") managed policy or add the above permissions to
 your `TaskExecutionRole` policy.
@@ -114,9 +109,7 @@ To view your AWS-managed prefix lists in the console or describe them by using A
 [AWS-managed prefix lists](../../../vpc/latest/userguide/working-with-aws-managed-prefix-lists.md "../../../vpc/latest/userguide/working-with-aws-managed-prefix-lists.md")
 in the _Amazon VPC User Guide_.
 
-## Validating your organization service control
-
-policy in a multi-account environment
+## Validating your organization service control policy in a multi-account environment
 
 This section explains how to validate your service control policy (SCP) settings to ensure
 Runtime Monitoring works as expected across your organization.
@@ -172,9 +165,7 @@ If your policy denies this action, you must update the policy. For more informat
 [Update a service
 control policy (SCP)](../../../organizations/latest/userguide/orgs_policies_update.md#update_policy "../../../organizations/latest/userguide/orgs_policies_update.md#update_policy") in the _AWS Organizations User Guide_.
 
-## Validating role
-
-permissions and policy permissions boundary
+## Validating role permissions and policy permissions boundary
 
 Use the following steps to validate that the permissions boundaries associated with the
 role and its policy **doesn't** the restrict
@@ -228,7 +219,6 @@ the corresponding GuardDuty security agent maximum memory limit for the GuardDut
 | 16384 (16 vCPU)                            | Between 32 GB and 120 GB in 8 GB increments | 1 GB                                 |
 
 After you enable Runtime Monitoring and assess that the coverage status of your cluster is **Healthy**, you can set up and view the Container insight metrics. For more
-information, [Setting up monitoring on Amazon ECS
-cluster](runtime-monitoring-setting-cpu-mem-monitoring.md#ecs-runtime-cpu-memory-monitoring-agent "runtime-monitoring-setting-cpu-mem-monitoring.md#ecs-runtime-cpu-memory-monitoring-agent").
+information, [Setting up monitoring on Amazon ECS cluster](runtime-monitoring-setting-cpu-mem-monitoring.md#ecs-runtime-cpu-memory-monitoring-agent "runtime-monitoring-setting-cpu-mem-monitoring.md#ecs-runtime-cpu-memory-monitoring-agent").
 
 The next step is to configure Runtime Monitoring and also configure the security agent.

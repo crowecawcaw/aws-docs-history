@@ -1,6 +1,4 @@
-# Enabling Lambda Protection in
-
-multiple-account environments
+# Enabling Lambda Protection in multiple-account environments
 
 In a multi-account environment, only the delegated GuardDuty administrator account has the option to enable or disable
 Lambda Protection for the member accounts in their organization. The GuardDuty member accounts can't modify
@@ -97,8 +95,7 @@ Make sure to use the delegated GuardDuty administrator account credentials. 2. D
     4. Choose **Save**.
 
 If you can't use the **Enable for all accounts** option,
-see [Selectively enable or disable
-Lambda Network Activity Monitoring for member accounts](#enable-disable-lambda-pro-selectively "#enable-disable-lambda-pro-selectively").
+see [Selectively enable or disable Lambda Network Activity Monitoring for member accounts](#enable-disable-lambda-pro-selectively "#enable-disable-lambda-pro-selectively").
 
 API/CLI
 To selectively enable or disable Lambda Network Activity Monitoring for your member accounts,

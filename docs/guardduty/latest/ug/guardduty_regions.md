@@ -9,9 +9,7 @@ actively using. This also allows GuardDuty to monitor AWS CloudTrail events for 
 AWS Regions, its ability to detect activity that involves global services is
 reduced.
 
-## Region-specific feature
-
-availability
+## Region-specific feature availability
 
 A list of regional differences to specify the availability of GuardDuty features.
 

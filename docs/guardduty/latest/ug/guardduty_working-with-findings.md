@@ -1,6 +1,4 @@
-# Viewing generated findings in GuardDuty
-
-console
+# Viewing generated findings in GuardDuty console
 
 When GuardDuty detects an activity that matches the pattern of a security issue, GuardDuty generates a
 finding. This finding is associated with a resource type that may have been

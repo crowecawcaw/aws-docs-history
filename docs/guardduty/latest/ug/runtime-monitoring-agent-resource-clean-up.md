@@ -1,6 +1,4 @@
-# Disabling, uninstalling, and
-
-cleaning up resources in Runtime Monitoring
+# Disabling, uninstalling, and cleaning up resources in Runtime Monitoring
 
 This section applies to your AWS account if you choose to disable Runtime Monitoring, or only GuardDuty
 automated agent configuration for a resource type.
@@ -24,8 +22,7 @@ This section applies to you in the following scenarios:
 
 - You never enabled EKS Runtime Monitoring separately and now you disabled Runtime Monitoring.
 - You are disabling both Runtime Monitoring and EKS Runtime Monitoring. If you're unsure about the
-  configuration status of EKS Runtime Monitoring, see [Checking EKS Runtime Monitoring configuration
-  status](checking-eks-runtime-monitoring-enable-status.md "checking-eks-runtime-monitoring-enable-status.md").
+  configuration status of EKS Runtime Monitoring, see [Checking EKS Runtime Monitoring configuration status](checking-eks-runtime-monitoring-enable-status.md "checking-eks-runtime-monitoring-enable-status.md").
 
 ###### Disabling Runtime Monitoring without disabling EKS Runtime Monitoring
 
@@ -53,8 +50,7 @@ For an Amazon ECS resource, because an ECS task is immutable, GuardDuty can't
 uninstall the security agent from that resource. This is independent of how you manage
 the security agent – manually or automatically through GuardDuty. After you disable
 Runtime Monitoring, GuardDuty will not attach a sidecar container when a new ECS task starts
-running. For information about working with Fargate-ECS tasks, see [How Runtime Monitoring works with Fargate
-(Amazon ECS only)](how-runtime-monitoring-works-ecs-fargate.md "how-runtime-monitoring-works-ecs-fargate.md").
+running. For information about working with Fargate-ECS tasks, see [How Runtime Monitoring works with Fargate (Amazon ECS only)](how-runtime-monitoring-works-ecs-fargate.md "how-runtime-monitoring-works-ecs-fargate.md").
 
 For an Amazon EC2 resource, GuardDuty uninstalls the security agent from all the Systems Manager
 (SSM) managed Amazon EC2 instances only when it meets the following conditions:

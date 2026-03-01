@@ -25,8 +25,7 @@ access the identified resource.**
 For example consider the following:
 
     * If an IAM user was involved, is it possible that their credentials
-     have been potentially compromised? For more information, see [Remediating potentially compromised AWS
-     credentials](compromised-creds.md "compromised-creds.md").
+     have been potentially compromised? For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
     * If an API was invoked from a principal that has no prior history of
      invoking this type of API, does this source need access permissions for
      this operation? Can the bucket permissions be further restricted?
@@ -65,9 +64,7 @@ party, review the following S3 security recommendations to tighten permissions a
 restrict access. Appropriate remediation solutions will depend on the needs of your
 specific environment.
 
-## Recommendations based on
-
-specific S3 bucket access needs
+## Recommendations based on specific S3 bucket access needs
 
 **The following list provides recommendations based on
 specific Amazon S3 bucket access needs:**

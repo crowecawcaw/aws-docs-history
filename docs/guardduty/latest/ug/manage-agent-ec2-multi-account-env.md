@@ -1,6 +1,4 @@
-# Enabling GuardDuty agent for Amazon EC2
-
-resources in multiple-account environment
+# Enabling GuardDuty agent for Amazon EC2 resources in multiple-account environment
 
 In a multiple-account environments, only the delegated GuardDuty administrator account can enable or disable automated
 agent configuration for the resource types belonging to the member accounts in their
@@ -97,9 +95,7 @@ without an exclusion tag will be covered under GuardDuty automated agent configu
    tag to the instances that you **don't** want GuardDuty to monitor and detect
    potential threats. For information about adding this tag,
    see [To add a tag to an individual resource](../../../AWSEC2/latest/UserGuide/Using_Tags.md#adding-or-deleting-tags "../../../AWSEC2/latest/UserGuide/Using_Tags.md#adding-or-deleting-tags").
-3. ###### For the [exclusion tags to be available](prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2 "prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2") in the instance
-
-   metadata, perform the following steps:
+3. ###### For the [exclusion tags to be available](prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2 "prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2") in the instance metadata, perform the following steps:
    1. Under the **Details** tab of your
       instance, view the status for **Allow tags
       in instance metadata**.
@@ -116,8 +112,7 @@ without an exclusion tag will be covered under GuardDuty automated agent configu
    steps as specified in the **Configure
    for all instances** tab.
 
-You can now assess the runtime [Runtime coverage and troubleshooting for Amazon EC2
-instance](gdu-assess-coverage-ec2.md "gdu-assess-coverage-ec2.md").
+You can now assess the runtime [Runtime coverage and troubleshooting for Amazon EC2 instance](gdu-assess-coverage-ec2.md "gdu-assess-coverage-ec2.md").
 
 ###### Note
 
@@ -174,9 +169,7 @@ Ensure that you add the exclusion tag to your Amazon EC2 instances before you la
 configuration for Amazon EC2, any EC2 instance that launches
 without an exclusion tag will be covered under GuardDuty automated agent configuration.
 
-###### To configure GuardDuty security agent for selected Amazon EC2
-
-instances
+###### To configure GuardDuty security agent for selected Amazon EC2 instances
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -184,9 +177,7 @@ instances
    tag to the instances that you **don't** want GuardDuty to monitor and detect
    potential threats. For information about adding this tag,
    see [To add a tag to an individual resource](../../../AWSEC2/latest/UserGuide/Using_Tags.md#adding-or-deleting-tags "../../../AWSEC2/latest/UserGuide/Using_Tags.md#adding-or-deleting-tags").
-3. ###### For the [exclusion tags to be available](prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2 "prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2") in the instance
-
-   metadata, perform the following steps:
+3. ###### For the [exclusion tags to be available](prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2 "prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2") in the instance metadata, perform the following steps:
    1. Under the **Details** tab of your
       instance, view the status for **Allow tags
       in instance metadata**.
@@ -203,8 +194,7 @@ instances
    steps as specified in the **Configure
    for all instances** tab.
 
-You can now assess the runtime [Runtime coverage and troubleshooting for Amazon EC2
-instance](gdu-assess-coverage-ec2.md "gdu-assess-coverage-ec2.md").
+You can now assess the runtime [Runtime coverage and troubleshooting for Amazon EC2 instance](gdu-assess-coverage-ec2.md "gdu-assess-coverage-ec2.md").
 
 The delegated GuardDuty administrator account can set the automated agent configuration for Amazon EC2 resource to
 enable automatically for the new member accounts as they join the organization.
@@ -247,9 +237,7 @@ account.
 
 Using inclusion tag in selected instances
 
-###### To configure GuardDuty security agent for selected instances in
-
-your account
+###### To configure GuardDuty security agent for selected instances in your account
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -279,9 +267,7 @@ Ensure that you add the exclusion tag to your Amazon EC2 instances before you la
 configuration for Amazon EC2, any EC2 instance that launches
 without an exclusion tag will be covered under GuardDuty automated agent configuration.
 
-###### To configure GuardDuty security agent for specific instances in
-
-your standalone account
+###### To configure GuardDuty security agent for specific instances in your standalone account
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -289,9 +275,7 @@ your standalone account
    tag to the instances that you **don't** want GuardDuty to monitor and detect
    potential threats. For information about adding this tag,
    see [To add a tag to an individual resource](../../../AWSEC2/latest/UserGuide/Using_Tags.md#adding-or-deleting-tags "../../../AWSEC2/latest/UserGuide/Using_Tags.md#adding-or-deleting-tags").
-3. ###### For the [exclusion tags to be available](prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2 "prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2") in the instance
-
-   metadata, perform the following steps:
+3. ###### For the [exclusion tags to be available](prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2 "prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2") in the instance metadata, perform the following steps:
    1. Under the **Details** tab of your
       instance, view the status for **Allow tags
       in instance metadata**.
@@ -308,8 +292,7 @@ your standalone account
    steps as specified in the **Configure
    for all instances** tab.
 
-You can now assess the runtime [Runtime coverage and troubleshooting for Amazon EC2
-instance](gdu-assess-coverage-ec2.md "gdu-assess-coverage-ec2.md").
+You can now assess the runtime [Runtime coverage and troubleshooting for Amazon EC2 instance](gdu-assess-coverage-ec2.md "gdu-assess-coverage-ec2.md").
 
 Configure for all instances
 
@@ -326,9 +309,7 @@ Configure for all instances
 
 Using inclusion tag in selected instances
 
-###### To configure GuardDuty security agent for selected
-
-instances
+###### To configure GuardDuty security agent for selected instances
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -351,9 +332,7 @@ Ensure that you add the exclusion tag to your Amazon EC2 instances before you la
 configuration for Amazon EC2, any EC2 instance that launches
 without an exclusion tag will be covered under GuardDuty automated agent configuration.
 
-###### To configure GuardDuty security agent for selected
-
-instances
+###### To configure GuardDuty security agent for selected instances
 
 1. Sign in to the AWS Management Console and open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -361,9 +340,7 @@ instances
    tag to the EC2 instances that you **don't** want GuardDuty to monitor or detect
    potential threats. For information about adding this tag,
    see [To add a tag to an individual resource](../../../AWSEC2/latest/UserGuide/Using_Tags.md#adding-or-deleting-tags "../../../AWSEC2/latest/UserGuide/Using_Tags.md#adding-or-deleting-tags").
-3. ###### For the [exclusion tags to be available](prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2 "prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2") in the instance
-
-   metadata, perform the following steps:
+3. ###### For the [exclusion tags to be available](prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2 "prereq-runtime-monitoring-ec2-support.md#general-runtime-monitoring-prereq-ec2") in the instance metadata, perform the following steps:
    1. Under the **Details** tab of your
       instance, view the status for **Allow tags
       in instance metadata**.
@@ -380,5 +357,4 @@ instances
    steps as specified in the **Configure
    for all instances** tab.
 
-You can now assess [Runtime coverage and troubleshooting for Amazon EC2
-instance](gdu-assess-coverage-ec2.md "gdu-assess-coverage-ec2.md").
+You can now assess [Runtime coverage and troubleshooting for Amazon EC2 instance](gdu-assess-coverage-ec2.md "gdu-assess-coverage-ec2.md").

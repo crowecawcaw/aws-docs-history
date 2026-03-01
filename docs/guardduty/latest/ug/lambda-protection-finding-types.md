@@ -21,9 +21,7 @@ potentially compromised and follow the remediation recommendations.
 
 ## Backdoor:Lambda/C&CActivity.B
 
-### A Lambda function is querying an IP
-
-address that is associated with a known command and control server.
+### A Lambda function is querying an IP address that is associated with a known command and control server.
 
 **Default severity: High**
 
@@ -43,14 +41,11 @@ the C&C server might also issue commands to begin a distributed denial of servic
 **Remediation recommendations:**
 
 If this activity is unexpected, your Lambda function may be compromised. For more
-information, see [Remediating a potentially
-compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").
+information, see [Remediating a potentially compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").
 
 ## CryptoCurrency:Lambda/BitcoinTool.B
 
-### A Lambda function is querying
-
-an IP address that is associated with a cryptocurrency-related activity.
+### A Lambda function is querying an IP address that is associated with a cryptocurrency-related activity.
 
 **Default severity: High**
 
@@ -73,14 +68,11 @@ Lambda function name of the function involved in blockchain activity. For inform
 creating suppression rules, see [Suppression rules](findings_suppression-rule.md "findings_suppression-rule.md").
 
 If this activity is unexpected, your Lambda function is potentially compromised. For more
-information, see [Remediating a potentially
-compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").
+information, see [Remediating a potentially compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").
 
 ## Trojan:Lambda/BlackholeTraffic
 
-### A Lambda function is attempting to
-
-communicate with an IP address of a remote host that is a known black hole.
+### A Lambda function is attempting to communicate with an IP address of a remote host that is a known black hole.
 
 **Default severity: Medium**
 
@@ -96,15 +88,11 @@ The listed Lambda function is potentially compromised.
 **Remediation recommendations:**
 
 If this activity is unexpected, your Lambda function may be compromised. For more
-information, see [Remediating a potentially
-compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").
+information, see [Remediating a potentially compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").
 
 ## Trojan:Lambda/DropPoint
 
-### A Lambda function is attempting to
-
-communicate with an IP address of a remote host that is known to hold credentials and other
-stolen data captured by malware.
+### A Lambda function is attempting to communicate with an IP address of a remote host that is known to hold credentials and other stolen data captured by malware.
 
 **Default severity: Medium**
 
@@ -117,14 +105,11 @@ other stolen data captured by malware.
 **Remediation recommendations:**
 
 If this activity is unexpected, your Lambda function may be compromised. For more
-information, see [Remediating a potentially
-compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").
+information, see [Remediating a potentially compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").
 
 ## UnauthorizedAccess:Lambda/MaliciousIPCaller.Custom
 
-### A Lambda
-
-function is making connections to an IP address on a custom threat list.
+### A Lambda function is making connections to an IP address on a custom threat list.
 
 **Default severity: Medium**
 
@@ -139,14 +124,11 @@ console.
 **Remediation recommendations:**
 
 If this activity is unexpected, your Lambda function may be compromised. For more
-information, see [Remediating a potentially
-compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").
+information, see [Remediating a potentially compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").
 
 ## UnauthorizedAccess:Lambda/TorClient
 
-### A Lambda function is making
-
-connections to a Tor Guard or an Authority node.
+### A Lambda function is making connections to a Tor Guard or an Authority node.
 
 **Default severity: High**
 
@@ -165,14 +147,11 @@ is now acting as a client on a Tor network.
 **Remediation recommendations:**
 
 If this activity is unexpected, your Lambda function may be compromised. For more
-information, see [Remediating a potentially
-compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").
+information, see [Remediating a potentially compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").
 
 ## UnauthorizedAccess:Lambda/TorRelay
 
-### A Lambda function is making
-
-connections to a Tor network as a Tor relay.
+### A Lambda function is making connections to a Tor network as a Tor relay.
 
 **Default severity: High**
 
@@ -186,5 +165,4 @@ forwarding the client's potentially illicit traffic from one Tor relay to anothe
 **Remediation recommendations:**
 
 If this activity is unexpected, your Lambda function may be compromised. For more
-information, see [Remediating a potentially
-compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").
+information, see [Remediating a potentially compromised Lambda function](remediate-lambda-protection-finding-types.md "remediate-lambda-protection-finding-types.md").

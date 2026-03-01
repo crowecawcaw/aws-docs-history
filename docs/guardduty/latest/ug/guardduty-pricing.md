@@ -21,9 +21,7 @@ term free trial category. Malware Protection for S3 falls into the 12 months fre
 AWS Free Tier whereas the On-demand malware scan follows a pay-as-you-use cost model. There is no
 30-day free trial or a 12-month Free Tier cost model with On-demand malware scan.
 
-## Using GuardDuty 30-day free
-
-trial
+## Using GuardDuty 30-day free trial
 
 When using GuardDuty for the first time in an AWS Region, your AWS account is
 automatically enrolled in a 30-day free trial in that Region. Some of the protection
@@ -67,11 +65,8 @@ you will start incurring associated usage costs. To view your bill, navigate to
 **Cost Explorer** in the [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/") console.
 For more information about AWS account billing, see the [AWS Billing User Guide](../../../awsaccountbilling/latest/aboutv2/billing-what-is.md "../../../awsaccountbilling/latest/aboutv2/billing-what-is.md").
 
-## Using Malware Protection for S3 with
-
-12-month Free Tier
+## Using Malware Protection for S3 with 12-month Free Tier
 
 Malware Protection for S3 uses a Free Tier plan associated with your AWS accounts that are
 either new, have an ongoing free tier, or have an expired 12-month free tier. For
-more information, see [Pricing and usage cost for
-Malware Protection for S3](pricing-malware-protection-for-s3-guardduty.md "pricing-malware-protection-for-s3-guardduty.md").
+more information, see [Pricing and usage cost for Malware Protection for S3](pricing-malware-protection-for-s3-guardduty.md "pricing-malware-protection-for-s3-guardduty.md").

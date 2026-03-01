@@ -1,6 +1,4 @@
-# Adding members to the
-
-organization
+# Adding members to the organization
 
 As a delegated GuardDuty administrator account, you can add one or more AWS accounts to the GuardDuty organization. When
 you add an account as a GuardDuty member, it will automatically have GuardDuty enabled in that
@@ -34,8 +32,7 @@ information, see [Managing accounts by
 invitation](guardduty_invitations.md "guardduty_invitations.md"). 4. Choose the **Actions** dropdown, and then choose
 **Add member**. After you add this account as a
 member, the auto-enable GuardDuty configuration will apply. Based on the
-settings in [Setting organization auto-enable
-preferences](set-guardduty-auto-enable-preferences.md "set-guardduty-auto-enable-preferences.md"), the
+settings in [Setting organization auto-enable preferences](set-guardduty-auto-enable-preferences.md "set-guardduty-auto-enable-preferences.md"), the
 GuardDuty configuration of these accounts may change. 5. You can select the down arrow of the **Status**
 column to sort the accounts by the **Not a member**
 status and then choose each account that doesn't have GuardDuty enabled

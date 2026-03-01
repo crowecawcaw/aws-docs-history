@@ -6,8 +6,7 @@ information, see [Prerequisites](runtime-monitoring-prerequisites.md "runtime-mo
 
 If you have been using EKS Runtime Monitoring prior to the launch of Runtime Monitoring, you can use the APIs
 to check and update the existing configuration for EKS Runtime Monitoring. You can also migrate your
-existing configuration from EKS Runtime Monitoring to Runtime Monitoring. For more information, see [Migrating from EKS Runtime Monitoring to
-Runtime Monitoring](migrating-from-eksrunmon-to-runtime-monitoring.md "migrating-from-eksrunmon-to-runtime-monitoring.md").
+existing configuration from EKS Runtime Monitoring to Runtime Monitoring. For more information, see [Migrating from EKS Runtime Monitoring to Runtime Monitoring](migrating-from-eksrunmon-to-runtime-monitoring.md "migrating-from-eksrunmon-to-runtime-monitoring.md").
 
 ###### Note
 
@@ -19,7 +18,5 @@ You can configure Runtime Monitoring by using the steps in the following topics.
 
 ###### Contents
 
-- [Enabling Runtime Monitoring for
-  multiple-account environments](enable-runtime-monitoring-multiple-acc-env.md "enable-runtime-monitoring-multiple-acc-env.md")
-- [Enabling Runtime Monitoring for a
-  standalone account](enable-runtime-monitoring-standalone-acc.md "enable-runtime-monitoring-standalone-acc.md")
+- [Enabling Runtime Monitoring for multiple-account environments](enable-runtime-monitoring-multiple-acc-env.md "enable-runtime-monitoring-multiple-acc-env.md")
+- [Enabling Runtime Monitoring for a standalone account](enable-runtime-monitoring-standalone-acc.md "enable-runtime-monitoring-standalone-acc.md")

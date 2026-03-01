@@ -1,12 +1,9 @@
-# ECR Repository for GuardDuty agent on AWS Fargate
-
-(Amazon ECS only)
+# ECR Repository for GuardDuty agent on AWS Fargate (Amazon ECS only)
 
 As a prerequisite to using Runtime Monitoring for Amazon ECS-Fargate, you must
 [Prerequisites for container image access](prereq-runtime-monitoring-ecs-support.md#before-enable-runtime-monitoring-ecs "prereq-runtime-monitoring-ecs-support.md#before-enable-runtime-monitoring-ecs"). The GuardDuty
 agent sidecar container image is stored in Amazon ECR, with its image layers stored in Amazon S3. For more information, see
-[How Runtime Monitoring works with Fargate
-(Amazon ECS only)](how-runtime-monitoring-works-ecs-fargate.md "how-runtime-monitoring-works-ecs-fargate.md").
+[How Runtime Monitoring works with Fargate (Amazon ECS only)](how-runtime-monitoring-works-ecs-fargate.md "how-runtime-monitoring-works-ecs-fargate.md").
 
 The following table shows the Amazon ECR repositories that hosts the GuardDuty agent for
 AWS Fargate (Amazon ECS only) for each AWS Region.

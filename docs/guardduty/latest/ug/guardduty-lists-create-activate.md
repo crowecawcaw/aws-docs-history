@@ -1,13 +1,9 @@
-# Adding and activating an entity list or IP
-
-list
+# Adding and activating an entity list or IP list
 
 Entity lists and IP address lists help you customize the threat detection capabilities in GuardDuty. For more
-information about these lists, see [Understanding entity lists and IP address
-lists](guardduty_upload-lists.md#guardduty-threat-intel-list-entity-sets "guardduty_upload-lists.md#guardduty-threat-intel-list-entity-sets").
+information about these lists, see [Understanding entity lists and IP address lists](guardduty_upload-lists.md#guardduty-threat-intel-list-entity-sets "guardduty_upload-lists.md#guardduty-threat-intel-list-entity-sets").
 To manage the trusted and threat intelligence data for your AWS environment, GuardDuty
-recommends using entity lists. Before you begin, see [Setting up prerequisites for entity lists and IP address
-lists](guardduty-lists-prerequisites.md "guardduty-lists-prerequisites.md").
+recommends using entity lists. Before you begin, see [Setting up prerequisites for entity lists and IP address lists](guardduty-lists-prerequisites.md "guardduty-lists-prerequisites.md").
 
 Choose one of the following access methods to add and
 activate a trusted entity list, threat entity list, trusted IP list, or a threat IP
@@ -15,9 +11,7 @@ list.
 
 Console
 
-###### (Optional)
-
-step 1: Fetching location URL of your list
+###### (Optional) step 1: Fetching location URL of your list
 
 1. Open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
@@ -78,9 +72,7 @@ step 1: Fetching location URL of your list
     **Inactive**. For the list to be
     effective, you must activate the list.
 
-###### Step 3: Activating an entity list or IP
-
-address list
+###### Step 3: Activating an entity list or IP address list
 
 1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
 2. In the navigation pane, choose **Lists**.
@@ -260,5 +252,4 @@ belong to the specified account ID, you will get an error at the time of activat
 this list.
 
 After you activate an entity list or IP address list, it might take a few
-minutes for this list to be effective. For more information, see [Important
-considerations for GuardDuty lists](guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations "guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations").
+minutes for this list to be effective. For more information, see [Important considerations for GuardDuty lists](guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations "guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations").

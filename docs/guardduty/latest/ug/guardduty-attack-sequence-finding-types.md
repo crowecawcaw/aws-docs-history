@@ -1,6 +1,4 @@
-# GuardDuty attack sequence finding
-
-types
+# GuardDuty attack sequence finding types
 
 GuardDuty detects an attack sequence when a specific sequence of multiple actions aligns with a
 potentially suspicious activity. An attack sequence includes **signals** such as API activities and GuardDuty findings. When GuardDuty observes a group of
@@ -24,9 +22,7 @@ The following sections provide details about each of the attack sequences.
 
 ## AttackSequence:EKS/CompromisedCluster
 
-### A sequence of suspicious
-
-actions performed by potentially compromised Amazon EKS cluster.
+### A sequence of suspicious actions performed by potentially compromised Amazon EKS cluster.
 
 - Default severity: Critical
 - Data sources:
@@ -56,15 +52,12 @@ environment, then your Amazon EKS cluster may be compromised. For comprehensive 
 [Remediating Runtime Monitoring findings](guardduty-remediate-runtime-monitoring.md "guardduty-remediate-runtime-monitoring.md").
 
 Additionally, since AWS credentials may have been compromised through the EKS cluster, see
-[Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md"). For steps to remediate other
+[Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md"). For steps to remediate other
 resources that may have been potentially impacted, see [Remediating detected GuardDuty security findings](guardduty_remediate.md "guardduty_remediate.md").
 
 ## AttackSequence:ECS/CompromisedCluster
 
-### A sequence of suspicious
-
-actions performed by potentially compromised Amazon ECS cluster.
+### A sequence of suspicious actions performed by potentially compromised Amazon ECS cluster.
 
 - Default severity: Critical
 - Data sources:
@@ -82,16 +75,13 @@ GuardDuty identifies common and emerging attack patterns, providing high-confide
 
 **Remediation actions**: If this behavior is unexpected in your
 environment, your Amazon ECS cluster may be compromised. For threat containment recommendations, see
-[Remediating a potentially compromised ECS
-cluster](compromised-ecs.md "compromised-ecs.md"). Note that the compromise may extend to one or more
+[Remediating a potentially compromised ECS cluster](compromised-ecs.md "compromised-ecs.md"). Note that the compromise may extend to one or more
 ECS tasks or container workloads, which could have been used to create or modify AWS resources.
 For comprehensive remediation guidance covering potentially impacted resources, see [Remediating detected GuardDuty security findings](guardduty_remediate.md "guardduty_remediate.md").
 
 ## AttackSequence:EC2/CompromisedInstanceGroup
 
-### A sequence of suspicious
-
-actions indicating potentially compromised Amazon EC2 instances.
+### A sequence of suspicious actions indicating potentially compromised Amazon EC2 instances.
 
 - Default severity: Critical
 - Data sources:
@@ -121,17 +111,14 @@ environment, your Amazon EC2 instances may be compromised. The compromise could 
 - Multiple processes
 - Instance credentials that may have been used to modify Amazon EC2 instances or other AWS resources
 
-For threat containment recommendations, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+For threat containment recommendations, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 Note that the compromise may extend to one or more Amazon EC2 instances and involve compromised processes or instance credentials
 that could have been used to create or modify Amazon EC2 instances or other AWS resources.
 For comprehensive remediation guidance covering potentially impacted resources, see [Remediating detected GuardDuty security findings](guardduty_remediate.md "guardduty_remediate.md").
 
 ## AttackSequence:IAM/CompromisedCredentials
 
-### A sequence of API
-
-requests that were invoked by using potentially compromised AWS credentials.
+### A sequence of API requests that were invoked by using potentially compromised AWS credentials.
 
 - Default severity: Critical
 - Data source: [AWS CloudTrail management events](guardduty_data-sources.md#guardduty_controlplane "guardduty_data-sources.md#guardduty_controlplane")
@@ -149,17 +136,14 @@ potentially impacted resources.
 
 **Remediation actions**: If this behavior is unexpected in your
 environment, then your AWS credentials may have been compromised. For steps to remediate, see
-[Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md"). The compromised
+[Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md"). The compromised
 credentials may have been used to create or modify additional resources, such as Amazon S3 buckets,
 AWS Lambda functions, or Amazon EC2 instances, in your environment. For steps to remediate other
 resources that may have been potentially impacted, see [Remediating detected GuardDuty security findings](guardduty_remediate.md "guardduty_remediate.md").
 
 ## AttackSequence:S3/CompromisedData
 
-### A sequence of API requests was
-
-invoked in a potential attempt to exfiltrate or destroy data in Amazon S3.
+### A sequence of API requests was invoked in a potential attempt to exfiltrate or destroy data in Amazon S3.
 
 - Default severity: Critical
 - Data sources: [AWS CloudTrail data events for S3](s3-protection.md#guardduty_s3dataplane "s3-protection.md#guardduty_s3dataplane") and [AWS CloudTrail management events](guardduty_data-sources.md#guardduty_controlplane "guardduty_data-sources.md#guardduty_controlplane")
@@ -177,5 +161,4 @@ potentially impacted resources.
 
 **Remediation actions**: If this activity is unexpected in
 your environment, your AWS credentials, or Amazon S3 data may have potentially exfiltrated or
-destroyed. For steps to remediate, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md") and [Remediating a potentially compromised S3 bucket](compromised-s3.md "compromised-s3.md").
+destroyed. For steps to remediate, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md") and [Remediating a potentially compromised S3 bucket](compromised-s3.md "compromised-s3.md").

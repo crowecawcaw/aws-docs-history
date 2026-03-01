@@ -1,11 +1,8 @@
-# De-activating entity list
-
-or IP address list
+# De-activating entity list or IP address list
 
 When you no longer want GuardDuty to use a list, you can deactivate it. It might take
 a few minutes for the process to complete. For more information, see
-[Important
-considerations for GuardDuty lists](guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations "guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations"). After the list gets deactivated,
+[Important considerations for GuardDuty lists](guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations "guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations"). After the list gets deactivated,
 the entries in the entity list or IP address list will not impact threat detection in GuardDuty.
 
 Choose one of the access methods to deactivate the list.

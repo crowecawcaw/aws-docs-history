@@ -19,8 +19,7 @@ accounts that will use shared VPC.
 ###### Topics
 
 - [How it works](#how-shared-vpc-works-runtime-monitoring-auto "#how-shared-vpc-works-runtime-monitoring-auto")
-- [Prerequisites for using shared
-  VPC](#shared-vpc-prerequisite-runtime-monitoring "#shared-vpc-prerequisite-runtime-monitoring")
+- [Prerequisites for using shared VPC](#shared-vpc-prerequisite-runtime-monitoring "#shared-vpc-prerequisite-runtime-monitoring")
 
 ## How it works
 
@@ -91,16 +90,13 @@ to GuardDuty, resulting in an `Unhealthy` coverage status. For setting up the en
 Runtime coverage may not be
 accurate in scenarios such as missing permissions to the shared VPC. You can continuously monitor resource coverage
 by following the steps
-for your resource type in [Reviewing runtime coverage statistics and
-troubleshooting issues](runtime-monitoring-assessing-coverage.md "runtime-monitoring-assessing-coverage.md").
+for your resource type in [Reviewing runtime coverage statistics and troubleshooting issues](runtime-monitoring-assessing-coverage.md "runtime-monitoring-assessing-coverage.md").
 
 To ensure continuous Runtime Monitoring protection of your compute resources,
 GuardDuty recommends enabling automated agent configuration for the shared VPC owner account and all the participating accounts
 for your resources.
 
-## Prerequisites for using shared
-
-VPC
+## Prerequisites for using shared VPC
 
 As a part of an
 initial setup, perform the following steps in the AWS account that you want to be the owner
@@ -114,9 +110,7 @@ For information about adding or removing member accounts, see [Managing AWS acco
 create a shared VPC resource from the owner account. For more information, see [Share your VPC subnets with other accounts](../../../vpc/latest/userguide/vpc-sharing.md "../../../vpc/latest/userguide/vpc-sharing.md") in the
 _Amazon VPC User Guide_.
 
-### Prerequisites specific to
-
-GuardDuty Runtime Monitoring
+### Prerequisites specific to GuardDuty Runtime Monitoring
 
 The following list provides the prerequisites that are specific to GuardDuty:
 

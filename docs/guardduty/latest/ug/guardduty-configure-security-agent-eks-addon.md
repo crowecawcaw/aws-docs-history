@@ -1,6 +1,4 @@
-# Configure GuardDuty security agent
-
-(add-on) parameters for Amazon EKS
+# Configure GuardDuty security agent (add-on) parameters for Amazon EKS
 
 You can configure specific parameters of your GuardDuty security agent for Amazon EKS. This support is
 available for GuardDuty security agent version 1.5.0 and above. For information about latest add-on
@@ -16,25 +14,19 @@ instance size, consider configuring the CPU settings, memory settings,
 the GuardDuty agent for your Amazon EKS clusters, you can configure or update the existing configuration
 of these parameters.
 
-## Automated agent configuration
-
-behavior with configured parameters
+## Automated agent configuration behavior with configured parameters
 
 When GuardDuty manages the security agent (EKS add-on) on your behalf, it updates the add-on, as
 needed. GuardDuty will set the value of the configurable parameters to a default value. However, you
 can still update the parameters to a desired value. If this leads to a conflict, the default
 option to [resolveConflicts](../../../eks/latest/APIReference/API_UpdateAddon.md#AmazonEKS-UpdateAddon-request-resolveConflicts "../../../eks/latest/APIReference/API_UpdateAddon.md#AmazonEKS-UpdateAddon-request-resolveConflicts") is `None`.
 
-## Configurable parameters and
-
-values
+## Configurable parameters and values
 
 For information about the steps to configure the add-on parameters, see:
 
-- [Installing GuardDuty security agent
-  manually on Amazon EKS resources](eksrunmon-deploy-security-agent.md "eksrunmon-deploy-security-agent.md") or
-- [Updating security agent
-  manually for Amazon EKS resources](eksrunmon-update-security-agent.md "eksrunmon-update-security-agent.md")
+- [Installing GuardDuty security agent manually on Amazon EKS resources](eksrunmon-deploy-security-agent.md "eksrunmon-deploy-security-agent.md") or
+- [Updating security agent manually for Amazon EKS resources](eksrunmon-update-security-agent.md "eksrunmon-update-security-agent.md")
 
 The following tables provide the ranges and values that you can use to deploy the Amazon EKS
 add-on manually or update the existing add-on settings.
@@ -82,9 +74,7 @@ is specified, `ClusterFirst` is used as the default value.
 
 For information about these policies, see [Pod's DNS Policy](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy") in the _Kubernetes documentation_.
 
-## Verifying configuration schema
-
-updates
+## Verifying configuration schema updates
 
 After you have configured the parameters, perform the following steps to verify that the
 configuration schema has been updated:
@@ -102,5 +92,4 @@ configuration schema has been updated:
    that you provided.
 
 After you verify, switch to the GuardDuty console. Select the corresponding AWS Region and view
-the coverage status for your Amazon EKS clusters. For more information, see [Runtime coverage and troubleshooting for Amazon EKS
-clusters](eks-runtime-monitoring-coverage.md "eks-runtime-monitoring-coverage.md").
+the coverage status for your Amazon EKS clusters. For more information, see [Runtime coverage and troubleshooting for Amazon EKS clusters](eks-runtime-monitoring-coverage.md "eks-runtime-monitoring-coverage.md").

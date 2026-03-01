@@ -20,14 +20,12 @@ populated.
 
 - [Finding overview](#findings-summary-section "#findings-summary-section")
 - [Resource](#findings-resource-affected "#findings-resource-affected")
-- [Attack sequence
-  finding details](#guardduty-extended-threat-detection-attack-sequence-finding-details "#guardduty-extended-threat-detection-attack-sequence-finding-details")
+- [Attack sequence finding details](#guardduty-extended-threat-detection-attack-sequence-finding-details "#guardduty-extended-threat-detection-attack-sequence-finding-details")
 - [RDS database (DB) user details](#rds-pro-db-user-details "#rds-pro-db-user-details")
 - [Runtime Monitoring finding details](#runtime-monitoring-runtime-details "#runtime-monitoring-runtime-details")
 - [EBS volumes scan details](#mp-ebs-volumes-scan-details "#mp-ebs-volumes-scan-details")
 - [Malware Protection for EC2 finding details](#malware-protection-scan-details "#malware-protection-scan-details")
-- [Malware Protection for S3 finding
-  details](#gdu-malware-protection-for-s3-finding-details "#gdu-malware-protection-for-s3-finding-details")
+- [Malware Protection for S3 finding details](#gdu-malware-protection-for-s3-finding-details "#gdu-malware-protection-for-s3-finding-details")
 - [Action](#finding-action-section "#finding-action-section")
 - [Actor or Target](#finding-actor-target "#finding-actor-target")
 - [Geolocation details](#guardduty-finding-details-geolocation "#guardduty-finding-details-geolocation")
@@ -435,9 +433,7 @@ Lambda
   attached to this resource, listed in the format of
   `key`:`value` pair.
 
-## Attack sequence
-
-finding details
+## Attack sequence finding details
 
 GuardDuty provides details for each finding it generates in your account. These details help you understand
 the reasons behind the finding. This section focuses on details associated with [Attack sequence finding
@@ -719,8 +715,7 @@ compromised EC2 instance or container workload.
 - **Sources** – The potential values are
   `Bitdefender` and `Amazon`.
 
-For more information about the scan engine used to detect malware, see [GuardDuty malware detection scan
-engine](guardduty-malware-detection-scan-engine.md "guardduty-malware-detection-scan-engine.md").
+For more information about the scan engine used to detect malware, see [GuardDuty malware detection scan engine](guardduty-malware-detection-scan-engine.md "guardduty-malware-detection-scan-engine.md").
 
 - **Scan detections** – The complete view of
   details and results for each malware scan.
@@ -799,9 +794,7 @@ details** section in the details panel.
   - **Device name** – The name of the
     device. For example, `/dev/xvda`.
 
-## Malware Protection for S3 finding
-
-details
+## Malware Protection for S3 finding details
 
 The following malware scan details are available when you enable both GuardDuty and
 Malware Protection for S3 in your AWS account:
@@ -817,8 +810,7 @@ the scan status is marked as complete. GuardDuty generates the associated findin
 also sends EventBridge events that it generates. For more information about monitoring
 the Amazon S3 object scans using the EventBridge events,
 see the sample notification schema for **THREATS_FOUND**
-in [S3 object scan
-result](monitor-with-eventbridge-s3-malware-protection.md#s3-object-scan-status-malware-protection-s3-ev "monitor-with-eventbridge-s3-malware-protection.md#s3-object-scan-status-malware-protection-s3-ev").
+in [S3 object scan result](monitor-with-eventbridge-s3-malware-protection.md#s3-object-scan-status-malware-protection-s3-ev "monitor-with-eventbridge-s3-malware-protection.md#s3-object-scan-status-malware-protection-s3-ev").
 
 - **Item path** – A list of nested item path
   and hash details of the scanned S3 object.
@@ -833,8 +825,7 @@ result](monitor-with-eventbridge-s3-malware-protection.md#s3-object-scan-status-
 - **Sources** – The potential values are
   `Bitdefender` and `Amazon`.
 
-For more information about the scan engine used to detect malware, see [GuardDuty malware detection scan
-engine](guardduty-malware-detection-scan-engine.md "guardduty-malware-detection-scan-engine.md").
+For more information about the scan engine used to detect malware, see [GuardDuty malware detection scan engine](guardduty-malware-detection-scan-engine.md "guardduty-malware-detection-scan-engine.md").
 
 ## Action
 

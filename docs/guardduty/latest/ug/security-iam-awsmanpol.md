@@ -27,9 +27,7 @@ used to process a policy. The following policies include the current version tha
 supports. For more information, see [IAM JSON policy
 elements: Version](../../../IAM/latest/UserGuide/reference_policies_elements_version.md "../../../IAM/latest/UserGuide/reference_policies_elements_version.md").
 
-## AWS managed policy:
-
-AmazonGuardDutyFullAccess_v2 (recommended)
+## AWS managed policy: AmazonGuardDutyFullAccess_v2 (recommended)
 
 You can attach the AmazonGuardDutyFullAccess_v2 policy to your IAM
 identities. This policy will allow a user full access to perform all GuardDuty actions and access
@@ -60,9 +58,7 @@ The AmazonGuardDutyFullAccess_v2 policy includes the following permissions:
 To review the permissions for this policy, see [AmazonGuardDutyFullAccess_v2](../../../aws-managed-policy/latest/reference/AmazonGuardDutyFullAccess_v2.md "../../../aws-managed-policy/latest/reference/AmazonGuardDutyFullAccess_v2.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed policy:
-
-AmazonGuardDutyFullAccess
+## AWS managed policy: AmazonGuardDutyFullAccess
 
 You can attach the `AmazonGuardDutyFullAccess` policy to your IAM
 identities.
@@ -70,8 +66,7 @@ identities.
 ###### Important
 
 For enhanced security and restrictive permissions to GuardDuty service principals,
-we recommend you to use [AWS managed policy:
-AmazonGuardDutyFullAccess_v2 (recommended)](#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2 "#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2").
+we recommend you to use [AWS managed policy: AmazonGuardDutyFullAccess_v2 (recommended)](#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2 "#security-iam-awsmanpol-AmazonGuardDutyFullAccess-v2").
 
 This policy grants administrative permissions that allow a user full access to perform all
 GuardDuty actions and resources.
@@ -98,9 +93,7 @@ service-linked role (SLR) for Malware Protection for EC2 exists in an account.
 To review the permissions for this policy, see [AmazonGuardDutyFullAccess](../../../aws-managed-policy/latest/reference/AmazonGuardDutyFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonGuardDutyFullAccess.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed
-
-policy: AmazonGuardDutyReadOnlyAccess
+## AWS managed policy: AmazonGuardDutyReadOnlyAccess
 
 You can attach the `AmazonGuardDutyReadOnlyAccess` policy to your IAM
 identities.
@@ -122,17 +115,13 @@ This policy includes the following permissions.
 To review the permissions for this policy, see [AmazonGuardDutyReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonGuardDutyReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonGuardDutyReadOnlyAccess.md") in the _AWS Managed Policy
 Reference Guide_.
 
-## AWS managed
-
-policy: AmazonGuardDutyServiceRolePolicy
+## AWS managed policy: AmazonGuardDutyServiceRolePolicy
 
 You can't attach `AmazonGuardDutyServiceRolePolicy` to your IAM entities.
 This AWS managed policy is attached to a service-linked role that allows GuardDuty to
 perform actions on your behalf. For more information, see [Service-linked role permissions for GuardDuty](slr-permissions.md "slr-permissions.md").
 
-## GuardDuty updates to AWS managed
-
-policies
+## GuardDuty updates to AWS managed policies
 
 View details about updates to AWS managed policies for GuardDuty since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

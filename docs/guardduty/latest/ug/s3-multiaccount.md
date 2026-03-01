@@ -1,6 +1,4 @@
-# Enabling S3 Protection in multiple-account
-
-environments
+# Enabling S3 Protection in multiple-account environments
 
 In a multi-account environment, only the delegated GuardDuty administrator account has the option to configure (enable
 or disable) S3 Protection for the member accounts in their AWS organization. The GuardDuty
@@ -94,8 +92,7 @@ Sign in using your administrator account account. 2. Do one of the following:
     4. Choose **Save**.
 
 If you can't use the **Enable for all
-accounts** option, see [Selectively enable S3 Protection in member
-accounts](#s3-enable-members "#s3-enable-members").
+accounts** option, see [Selectively enable S3 Protection in member accounts](#s3-enable-members "#s3-enable-members").
 
 API/CLI
 

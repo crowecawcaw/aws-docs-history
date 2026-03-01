@@ -23,8 +23,7 @@ Learn how to automatically filter the findings GuardDuty alerts you to through
 suppression rules. Suppression rules automatically archive findings based on
 filters.
 
-[Customizing threat detection with entity lists and
-IP address lists](guardduty_upload-lists.md "guardduty_upload-lists.md")
+[Customizing threat detection with entity lists and IP address lists](guardduty_upload-lists.md "guardduty_upload-lists.md")
 
 Customize the GuardDuty monitoring scope using IP Lists and Threat Lists based on
 publicly-routable IP addresses. Trusted IP lists prevent non-DNS findings from
@@ -39,14 +38,12 @@ records past the 90-day findings retention period in GuardDuty. Use this histori
 data to track potential suspicious activities in your account and evaluate
 whether the recommended remediation steps were successful.
 
-[Processing GuardDuty findings with
-Amazon EventBridge](guardduty_findings_eventbridge.md "guardduty_findings_eventbridge.md")
+[Processing GuardDuty findings with Amazon EventBridge](guardduty_findings_eventbridge.md "guardduty_findings_eventbridge.md")
 
 Set up automatic notifications for GuardDuty findings through Amazon EventBridge events. You
 can also automate other tasks through EventBridge to help you respond to findings.
 
-[Understanding CloudWatch Logs and reasons for
-skipping resources during Malware Protection for EC2 scan](malware-protection-auditing-scan-logs.md "malware-protection-auditing-scan-logs.md")
+[Understanding CloudWatch Logs and reasons for skipping resources during Malware Protection for EC2 scan](malware-protection-auditing-scan-logs.md "malware-protection-auditing-scan-logs.md")
 
 Learn how you can audit the CloudWatch Logs for GuardDuty Malware Protection for EC2 and what are the reasons
 because of which your impacted Amazon EC2 instance or Amazon EBS volumes may have been
@@ -57,8 +54,7 @@ skipped during the scanning process.
 Learn how you can report potential false positive threat detections in
 Malware Protection for EC2.
 
-[Reporting S3 object scan
-result as false positive in Malware Protection for S3](report-malware-protection-s3-false-positives.md "report-malware-protection-s3-false-positives.md")
+[Reporting S3 object scan result as false positive in Malware Protection for S3](report-malware-protection-s3-false-positives.md "report-malware-protection-s3-false-positives.md")
 
 Learn how you can report potential false positive threat detections in
 Malware Protection for S3.

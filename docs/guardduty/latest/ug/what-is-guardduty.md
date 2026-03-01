@@ -113,8 +113,7 @@ security findings, see [GuardDuty finding types](guardduty_finding-types-active.
 
 With GuardDuty, you can also use a tester
 script that generates specific GuardDuty security findings to understand how to
-review and respond to GuardDuty findings. For more information, see [Test GuardDuty findings in dedicated
-accounts](guardduty_findings-scripts.md "guardduty_findings-scripts.md").
+review and respond to GuardDuty findings. For more information, see [Test GuardDuty findings in dedicated accounts](guardduty_findings-scripts.md "guardduty_findings-scripts.md").
 
 **Assessing and managing security
 findings**

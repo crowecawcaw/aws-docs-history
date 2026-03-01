@@ -1,11 +1,8 @@
-# Updating security agent
-
-manually for Amazon EKS resources
+# Updating security agent manually for Amazon EKS resources
 
 When you manage the GuardDuty security agent manually, you are responsible to update it
 for your account. For notification about new agent versions, you can subscribe to an RSS
-feed to [GuardDuty security agent release
-versions](runtime-monitoring-agent-release-history.md "runtime-monitoring-agent-release-history.md").
+feed to [GuardDuty security agent release versions](runtime-monitoring-agent-release-history.md "runtime-monitoring-agent-release-history.md").
 
 You can update the security agent to the latest version to benefit from the added
 support and improvements. If your current agent version is reaching an end of standard
@@ -16,8 +13,7 @@ available or the latest agent version.
 
 Before you update the security agent version, make sure that the agent
 version that you're planning to use now, is compatible with your Kubernetes
-version. For more information, see [Kubernetes versions supported by GuardDuty security
-agent](prereq-runtime-monitoring-eks-support.md#gdu-agent-supported-k8-version "prereq-runtime-monitoring-eks-support.md#gdu-agent-supported-k8-version").
+version. For more information, see [Kubernetes versions supported by GuardDuty security agent](prereq-runtime-monitoring-eks-support.md#gdu-agent-supported-k8-version "prereq-runtime-monitoring-eks-support.md#gdu-agent-supported-k8-version").
 
 Console
 
@@ -89,5 +85,4 @@ aws eks update-addon --region `us-east-1` --cluster-name `myClusterName` --addon
 
 If your Amazon EKS add-on version is 1.5.0 or above, and you have configured the add-on
 schema, you can verify whether or not the values appear correctly for your cluster. For
-more information, see [Verifying configuration schema
-updates](guardduty-configure-security-agent-eks-addon.md#gdu-verify-eks-add-on-configuration-param "guardduty-configure-security-agent-eks-addon.md#gdu-verify-eks-add-on-configuration-param").
+more information, see [Verifying configuration schema updates](guardduty-configure-security-agent-eks-addon.md#gdu-verify-eks-add-on-configuration-param "guardduty-configure-security-agent-eks-addon.md#gdu-verify-eks-add-on-configuration-param").

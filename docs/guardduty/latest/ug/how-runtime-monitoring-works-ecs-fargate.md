@@ -1,6 +1,4 @@
-# How Runtime Monitoring works with Fargate
-
-(Amazon ECS only)
+# How Runtime Monitoring works with Fargate (Amazon ECS only)
 
 When you enable Runtime Monitoring, GuardDuty becomes ready to consume the runtime events from a task.
 These tasks run within the Amazon ECS clusters, which in turn run on the AWS Fargate instances.
@@ -61,9 +59,7 @@ By default, a Fargate task is immutable. GuardDuty will not deploy the sidecar w
 is already in a running state. If you want to monitor a container in an already running task,
 you can stop the task and start it again.
 
-## Approaches to manage
-
-GuardDuty security agent in Amazon ECS-Fargate resources
+## Approaches to manage GuardDuty security agent in Amazon ECS-Fargate resources
 
 Runtime Monitoring provides you the option to detect potential security threats on either all of the
 Amazon ECS clusters (account level) or selective clusters (cluster level) in your account. When you
@@ -93,8 +89,7 @@ helps you monitor the runtime behavior of the containers within your Amazon ECS 
 cluster level. For example, the number of Amazon ECS clusters that belong to your account are 1000. However, you want to monitor only 930 Amazon ECS clusters.
 
 This approach requires you to add a pre-defined GuardDuty tag to the Amazon ECS clusters that
-you don't want to monitor. For more information, see [Managing automated security agent for
-Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md").
+you don't want to monitor. For more information, see [Managing automated security agent for Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md").
 
 **Include specific Amazon ECS clusters**
 
@@ -104,5 +99,4 @@ within your Amazon ECS tasks at the cluster level. For example, the number of Am
 belong to your account are 1000. However, you want to monitor 230 clusters only.
 
 This approach requires you to add a pre-defined GuardDuty tag to the Amazon ECS clusters that
-you want to monitor. For more information, see [Managing automated security agent for
-Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md").
+you want to monitor. For more information, see [Managing automated security agent for Fargate (Amazon ECS only)](managing-gdu-agent-ecs-automated.md "managing-gdu-agent-ecs-automated.md").

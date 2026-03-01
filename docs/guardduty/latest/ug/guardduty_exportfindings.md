@@ -1,6 +1,4 @@
-# Exporting generated GuardDuty findings to Amazon S3
-
-buckets
+# Exporting generated GuardDuty findings to Amazon S3 buckets
 
 GuardDuty retains the generated findings for a period of 90 days. GuardDuty exports the active
 findings to Amazon EventBridge (EventBridge). You can optionally export the generated findings to an Amazon Simple Storage Service
@@ -23,16 +21,11 @@ account.
 ###### Contents
 
 - [Considerations](#guardduty-export-findings-considerations "#guardduty-export-findings-considerations")
-- [Step 1 – Permissions
-  required to export findings](#guardduty_exportfindings-permissions "#guardduty_exportfindings-permissions")
-- [Step 2 – Attaching
-  policy to your KMS key](#guardduty-exporting-findings-kms-policy "#guardduty-exporting-findings-kms-policy")
-- [Step 3 – Attaching policy
-  to Amazon S3 bucket](#guardduty_exportfindings-s3-policies "#guardduty_exportfindings-s3-policies")
-- [Step 4 - Exporting findings to an
-  S3 bucket (Console)](#guardduty_exportfindings-new-bucket "#guardduty_exportfindings-new-bucket")
-- [Step 5 – Setting frequency
-  to export updated active findings](#guardduty_exportfindings-frequency "#guardduty_exportfindings-frequency")
+- [Step 1 – Permissions required to export findings](#guardduty_exportfindings-permissions "#guardduty_exportfindings-permissions")
+- [Step 2 – Attaching policy to your KMS key](#guardduty-exporting-findings-kms-policy "#guardduty-exporting-findings-kms-policy")
+- [Step 3 – Attaching policy to Amazon S3 bucket](#guardduty_exportfindings-s3-policies "#guardduty_exportfindings-s3-policies")
+- [Step 4 - Exporting findings to an S3 bucket (Console)](#guardduty_exportfindings-new-bucket "#guardduty_exportfindings-new-bucket")
+- [Step 5 – Setting frequency to export updated active findings](#guardduty_exportfindings-frequency "#guardduty_exportfindings-frequency")
 
 ## Considerations
 
@@ -73,12 +66,9 @@ Frequency for exporting findings](#guardduty_exportfindings-frequency "#guarddut
   associated member accounts** – When you configure export
   findings in an administrator account, all the findings from the associated member accounts
   that are generated in the same Region are also exported to the same location
-  that you configured for the administrator account. For more information, see [Understanding the relationship
-  between GuardDuty administrator account and member accounts](administrator_member_relationships.md "administrator_member_relationships.md").
+  that you configured for the administrator account. For more information, see [Understanding the relationship between GuardDuty administrator account and member accounts](administrator_member_relationships.md "administrator_member_relationships.md").
 
-## Step 1 – Permissions
-
-required to export findings
+## Step 1 – Permissions required to export findings
 
 When you configure settings for exporting findings, you select an Amazon S3 bucket where
 you can store the findings and an AWS KMS key to use for data encryption. In addition to
@@ -94,9 +84,7 @@ add the following permissions to the IAM role:
 - `s3:GetObject`
 - `s3:ListBucket`
 
-## Step 2 – Attaching
-
-policy to your KMS key
+## Step 2 – Attaching policy to your KMS key
 
 GuardDuty encrypts the findings data in your bucket by using AWS Key Management Service. To successfully
 configure the settings, you must first give GuardDuty permission to use a KMS key. You can
@@ -108,9 +96,7 @@ logging in to the AWS account that owns the key. When you configure the settings
 export findings, you'll also need the key ARN from the account that owns the
 key.
 
-###### To modify the KMS key policy for GuardDuty to encrypt your exported
-
-findings
+###### To modify the KMS key policy for GuardDuty to encrypt your exported findings
 
 1. Open the AWS KMS console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
@@ -182,9 +168,7 @@ policy is valid.
 
 Choose **Save**. 8. (Optional) copy the key ARN to a notepad for use in the later steps.
 
-## Step 3 – Attaching policy
-
-to Amazon S3 bucket
+## Step 3 – Attaching policy to Amazon S3 bucket
 
 Add permissions to the Amazon S3 bucket to which you will export findings so that GuardDuty can
 upload objects to this S3 bucket. Independent of using an Amazon S3 bucket that belongs to
@@ -199,9 +183,7 @@ If you do not already have an Amazon S3 bucket where you want to export these fi
 [Creating a
 bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in the _Amazon S3 User Guide_.
 
-### To attach permissions to your S3 bucket
-
-policy
+### To attach permissions to your S3 bucket policy
 
 1. Perform the steps under [To create or edit
    a bucket policy](../../../AmazonS3/latest/userguide/add-bucket-policy.md "../../../AmazonS3/latest/userguide/add-bucket-policy.md") in the _Amazon S3 User Guide_, until
@@ -349,9 +331,7 @@ you're using GuardDuty in the Middle East (Bahrain) (me-south-1) Region, replace
  "guardduty.me-south-1.amazonaws.com"`. For information about
 endpoints for each opt-in Region, see [GuardDuty endpoints and quotas](../../../general/latest/gr/guardduty.md "../../../general/latest/gr/guardduty.md"). 4. Choose **Save**.
 
-## Step 4 - Exporting findings to an
-
-S3 bucket (Console)
+## Step 4 - Exporting findings to an S3 bucket (Console)
 
 GuardDuty permits you to export findings to an existing bucket in another
 AWS account.
@@ -391,18 +371,14 @@ ARN`**. To locate the key ARN, see [Finding the key ID and ARN](../../../kms/lat
    in the _AWS Key Management Service Developer Guide_.
 6. ###### Attach policies
    - Perform the steps to attach the S3 bucket policy. For more
-     information, see [Step 3 – Attaching policy
-     to Amazon S3 bucket](#guardduty_exportfindings-s3-policies "#guardduty_exportfindings-s3-policies").
+     information, see [Step 3 – Attaching policy to Amazon S3 bucket](#guardduty_exportfindings-s3-policies "#guardduty_exportfindings-s3-policies").
 
    - Perform the steps to attach the KMS key policy. For more
-     information, see [Step 2 – Attaching
-     policy to your KMS key](#guardduty-exporting-findings-kms-policy "#guardduty-exporting-findings-kms-policy").
+     information, see [Step 2 – Attaching policy to your KMS key](#guardduty-exporting-findings-kms-policy "#guardduty-exporting-findings-kms-policy").
 
 7. Choose **Save**.
 
-## Step 5 – Setting frequency
-
-to export updated active findings
+## Step 5 – Setting frequency to export updated active findings
 
 Configure the frequency for exporting updated active findings as appropriate for your
 environment. By default, updated findings are exported every 6 hours. This means that

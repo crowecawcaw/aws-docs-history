@@ -1,6 +1,4 @@
-# Migrating from EKS Runtime Monitoring to
-
-Runtime Monitoring
+# Migrating from EKS Runtime Monitoring to Runtime Monitoring
 
 With the launch of GuardDuty Runtime Monitoring, the threat detection coverage has been expanded to Amazon ECS
 containers and Amazon EC2 instances. EKS Runtime Monitoring experience has now been consolidated into Runtime Monitoring.
@@ -9,10 +7,8 @@ You can enable Runtime Monitoring and manage individual GuardDuty security agent
 behavior.
 
 GuardDuty has consolidated the console experience for EKS Runtime Monitoring into Runtime Monitoring.
-GuardDuty recommends [Checking EKS Runtime Monitoring configuration
-status](checking-eks-runtime-monitoring-enable-status.md "checking-eks-runtime-monitoring-enable-status.md") and
-Migrating from EKS Runtime Monitoring to
-Runtime Monitoring.
+GuardDuty recommends [Checking EKS Runtime Monitoring configuration status](checking-eks-runtime-monitoring-enable-status.md "checking-eks-runtime-monitoring-enable-status.md") and
+Migrating from EKS Runtime Monitoring to Runtime Monitoring.
 
 As a part of migrating to Runtime Monitoring, ensure to [Disable
 EKS Runtime Monitoring](disabling-eks-runtime-monitoring.md "disabling-eks-runtime-monitoring.md"). This is important
@@ -23,8 +19,7 @@ you will continue incurring usage cost for EKS Runtime Monitoring.
 
 1. The GuardDuty console supports EKS Runtime Monitoring as a part of Runtime Monitoring.
 
-You can start using Runtime Monitoring by [Checking EKS Runtime Monitoring configuration
-status](checking-eks-runtime-monitoring-enable-status.md "checking-eks-runtime-monitoring-enable-status.md") of your organization and
+You can start using Runtime Monitoring by [Checking EKS Runtime Monitoring configuration status](checking-eks-runtime-monitoring-enable-status.md "checking-eks-runtime-monitoring-enable-status.md") of your organization and
 accounts.
 
 Make sure to not disable EKS Runtime Monitoring before enabling Runtime Monitoring. If you disable
@@ -48,8 +43,7 @@ Runtime Monitoring](runtime-monitoring-configuration.md "runtime-monitoring-conf
    [disable EKS Runtime Monitoring](disabling-eks-runtime-monitoring.md "disabling-eks-runtime-monitoring.md")
    by using either the API or the AWS CLI command.
 5. (Optional) if you want to clean any resource associated with the GuardDuty security agent,
-   see [Disabling, uninstalling, and
-   cleaning up resources in Runtime Monitoring](runtime-monitoring-agent-resource-clean-up.md "runtime-monitoring-agent-resource-clean-up.md").
+   see [Disabling, uninstalling, and cleaning up resources in Runtime Monitoring](runtime-monitoring-agent-resource-clean-up.md "runtime-monitoring-agent-resource-clean-up.md").
    If you want to continue using EKS Runtime Monitoring without enabling Runtime Monitoring, see [EKS Runtime Monitoring in GuardDuty](eks-runtime-monitoring-guardduty.md "eks-runtime-monitoring-guardduty.md").
    Based on your use case, choose the steps to configure EKS Runtime Monitoring for a standalone account or
    for multiple member accounts.

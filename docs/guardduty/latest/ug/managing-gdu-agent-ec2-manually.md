@@ -15,9 +15,6 @@ Amazon EC2 resources.
 
 ###### Topics
 
-- [Prerequisite –
-  Creating Amazon VPC endpoint manually](creating-vpc-endpoint-ec2-agent-manually.md "creating-vpc-endpoint-ec2-agent-manually.md")
-- [Installing the security
-  agent manually](installing-gdu-security-agent-ec2-manually.md "installing-gdu-security-agent-ec2-manually.md")
-- [Updating the GuardDuty security agent for
-  Amazon EC2 instance manually](gdu-update-security-agent-ec2.md "gdu-update-security-agent-ec2.md")
+- [Prerequisite – Creating Amazon VPC endpoint manually](creating-vpc-endpoint-ec2-agent-manually.md "creating-vpc-endpoint-ec2-agent-manually.md")
+- [Installing the security agent manually](installing-gdu-security-agent-ec2-manually.md "installing-gdu-security-agent-ec2-manually.md")
+- [Updating the GuardDuty security agent for Amazon EC2 instance manually](gdu-update-security-agent-ec2.md "gdu-update-security-agent-ec2.md")

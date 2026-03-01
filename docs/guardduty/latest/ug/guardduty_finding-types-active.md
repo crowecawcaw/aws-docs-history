@@ -9,9 +9,7 @@ or retired finding types, see [Document history for Amazon GuardDuty](doc-histor
 
 For information about finding types which are now retired, see [Retired finding types](guardduty_finding-types-retired.md "guardduty_finding-types-retired.md").
 
-## GuardDuty finding types by potentially impacted
-
-resources
+## GuardDuty finding types by potentially impacted resources
 
 The following pages are categorized by the potentially impacted resource type
 associated to a GuardDuty finding:

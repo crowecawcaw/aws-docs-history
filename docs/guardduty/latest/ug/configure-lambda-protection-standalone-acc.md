@@ -1,13 +1,10 @@
-# Enabling Lambda Protection for a
-
-standalone account
+# Enabling Lambda Protection for a standalone account
 
 A standalone account owns the decision to enable or disable a protection plan in their
 AWS account in a specific AWS Region.
 
 If your account is associated with a GuardDuty administrator account through AWS Organizations, or by the method of
-invitation, this section doesn't apply to your account. For more information, see [Enabling Lambda Protection in
-multiple-account environments](configure-lambda-protection-multi-acc-env.md "configure-lambda-protection-multi-acc-env.md").
+invitation, this section doesn't apply to your account. For more information, see [Enabling Lambda Protection in multiple-account environments](configure-lambda-protection-multi-acc-env.md "configure-lambda-protection-multi-acc-env.md").
 
 After you enable Lambda Protection, GuardDuty will start monitoring [Lambda Network Activity Monitoring](lambda-protection.md#gdu-lambda-flow-logs "lambda-protection.md#gdu-lambda-flow-logs") in your
 account.

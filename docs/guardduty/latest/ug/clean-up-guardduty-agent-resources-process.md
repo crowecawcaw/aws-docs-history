@@ -1,6 +1,4 @@
-# Cleaning up security agent
-
-resources
+# Cleaning up security agent resources
 
 This section explains how you can clean up the AWS resources associated with the
 security agent. As listed in [Disabling,
@@ -23,8 +21,7 @@ a shared VPC.
 - With a shared VPC – When a shared VPC owner account deletes the shared VPC
   resource that was still being used, the
   Runtime Monitoring (and when applicable, EKS Runtime Monitoring) coverage status for the resources in your shared VPC owner account and the
-  participating account might become unhealthy. For information about coverage status, see [Reviewing runtime coverage statistics and
-  troubleshooting issues](runtime-monitoring-assessing-coverage.md "runtime-monitoring-assessing-coverage.md").
+  participating account might become unhealthy. For information about coverage status, see [Reviewing runtime coverage statistics and troubleshooting issues](runtime-monitoring-assessing-coverage.md "runtime-monitoring-assessing-coverage.md").
 
 For deleting the VPC endpoint, see [Delete an interface
 endpoint](../../../vpc/latest/privatelink/delete-interface-endpoint.md "../../../vpc/latest/privatelink/delete-interface-endpoint.md") in the _AWS PrivateLink Guide_.
@@ -38,8 +35,7 @@ endpoint](../../../vpc/latest/privatelink/delete-interface-endpoint.md "../../..
   security group, any participant account that is currently using the security group
   associated with the shared VPC, the Runtime Monitoring coverage status for the resources in
   your shared VPC owner account and the participating account might become unhealthy.
-  For more information, see [Reviewing runtime coverage statistics and
-  troubleshooting issues](runtime-monitoring-assessing-coverage.md "runtime-monitoring-assessing-coverage.md").
+  For more information, see [Reviewing runtime coverage statistics and troubleshooting issues](runtime-monitoring-assessing-coverage.md "runtime-monitoring-assessing-coverage.md").
 
 For information about steps, see [Delete an Amazon EC2 security group](../../../AWSEC2/latest/UserGuide/deleting-security-group.md "../../../AWSEC2/latest/UserGuide/deleting-security-group.md") in the _Amazon EC2 User Guide_.
 

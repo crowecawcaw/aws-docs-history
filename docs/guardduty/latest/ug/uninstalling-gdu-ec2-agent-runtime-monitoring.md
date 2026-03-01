@@ -1,6 +1,4 @@
-# Uninstalling security agent
-
-manually for Amazon EC2 resources
+# Uninstalling security agent manually for Amazon EC2 resources
 
 This section provides methods to uninstall the GuardDuty security agent from your Amazon EC2
 resources. When you manage the security agent manually, you're responsible to remove the agent
@@ -15,14 +13,10 @@ it.
 
 ###### Topics
 
-- [Method 1 - By using the Run
-  command](#remove-gdu-ec2-agent-run-command "#remove-gdu-ec2-agent-run-command")
-- [Method 2 - By using Linux Package
-  Managers](#remove-gdu-ec2-agent-rpm-script "#remove-gdu-ec2-agent-rpm-script")
+- [Method 1 - By using the Run command](#remove-gdu-ec2-agent-run-command "#remove-gdu-ec2-agent-run-command")
+- [Method 2 - By using Linux Package Managers](#remove-gdu-ec2-agent-rpm-script "#remove-gdu-ec2-agent-rpm-script")
 
-## Method 1 - By using the Run
-
-command
+## Method 1 - By using the Run command
 
 When you installed the security agent with [Method 1 - Using AWS Systems Manager](installing-gdu-security-agent-ec2-manually.md#install-gdu-by-using-sys-runtime-monitoring "installing-gdu-security-agent-ec2-manually.md#install-gdu-by-using-sys-runtime-monitoring"), perform the following steps to uninstall the
 agent:
@@ -49,9 +43,7 @@ To remove the Amazon VPC endpoint configuration, you must disable both Runtime M
 Runtime Monitoring. 3. If you also want to delete the VPC endpoint that is associated with this security agent, then
 see [To delete a VPC endpoint](clean-up-guardduty-agent-resources-process.md#runtime-monitoring-delete-vpc-endpoint "clean-up-guardduty-agent-resources-process.md#runtime-monitoring-delete-vpc-endpoint").
 
-## Method 2 - By using Linux Package
-
-Managers
+## Method 2 - By using Linux Package Managers
 
 When you installed the security agent with [Method 2 - Using Linux Package Managers](installing-gdu-security-agent-ec2-manually.md#install-gdu-by-rpm-scripts-runtime-monitoring "installing-gdu-security-agent-ec2-manually.md#install-gdu-by-rpm-scripts-runtime-monitoring"), perform the following steps
 to uninstall the agent:

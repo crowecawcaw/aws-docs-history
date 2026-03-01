@@ -13,20 +13,16 @@ If the **Resource type** in the finding details is
 **Instance**, it indicates that either an EC2 instance or an EKS node is
 potentially compromised.
 
-- To remediate a compromised EKS node, see [Remediating potentially compromised Kubernetes
-  nodes](guardduty-remediate-kubernetes.md#compromised-kubernetes-node "guardduty-remediate-kubernetes.md#compromised-kubernetes-node").
-- To remediate a compromised EC2 instance, see [Remediating a potentially compromised Amazon EC2
-  instance](compromised-ec2.md "compromised-ec2.md").
+- To remediate a compromised EKS node, see [Remediating potentially compromised Kubernetes nodes](guardduty-remediate-kubernetes.md#compromised-kubernetes-node "guardduty-remediate-kubernetes.md#compromised-kubernetes-node").
+- To remediate a compromised EC2 instance, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 EKSCluster
 If the **Resource type** in the finding details is
 **EKSCluster**, it indicates that either a pod or a container inside an EKS
 cluster is potentially compromised.
 
-- To remediate a compromised pod, see [Remediating potentially compromised Kubernetes
-  pods](guardduty-remediate-kubernetes.md#compromised-kubernetes-pod "guardduty-remediate-kubernetes.md#compromised-kubernetes-pod").
-- To remediate a compromised container image, see [Remediating potentially compromised
-  container images](guardduty-remediate-kubernetes.md#compromised-kubernetes-image "guardduty-remediate-kubernetes.md#compromised-kubernetes-image").
+- To remediate a compromised pod, see [Remediating potentially compromised Kubernetes pods](guardduty-remediate-kubernetes.md#compromised-kubernetes-pod "guardduty-remediate-kubernetes.md#compromised-kubernetes-pod").
+- To remediate a compromised container image, see [Remediating potentially compromised container images](guardduty-remediate-kubernetes.md#compromised-kubernetes-image "guardduty-remediate-kubernetes.md#compromised-kubernetes-image").
 
 ECSCluster
 If the **Resource type** in the finding details is
@@ -55,21 +51,16 @@ If the **Resource type** in the finding details is
 **Container**, it indicates that a standalone container is potentially
 compromised.
 
-- To remediate, see [Remediating a potentially
-  compromised standalone container](remediate-compromised-standalone-container.md "remediate-compromised-standalone-container.md").
+- To remediate, see [Remediating a potentially compromised standalone container](remediate-compromised-standalone-container.md "remediate-compromised-standalone-container.md").
 - If the finding is generated across multiple containers using the same container image,
-  see [Remediating potentially compromised
-  container images](guardduty-remediate-kubernetes.md#compromised-kubernetes-image "guardduty-remediate-kubernetes.md#compromised-kubernetes-image").
+  see [Remediating potentially compromised container images](guardduty-remediate-kubernetes.md#compromised-kubernetes-image "guardduty-remediate-kubernetes.md#compromised-kubernetes-image").
 - If the container has accessed the underlying EC2 host, its associated instance
-  credentials may have been compromised. For more information, see [Remediating potentially compromised AWS
-  credentials](compromised-creds.md "compromised-creds.md").
+  credentials may have been compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 - If a potentially malicious actor has accessed the underlying EKS node or an EC2
   instance, see the recommended remediation under the _EKSCluster_ and
   _Instance_ tabs.
 
-## Remediating compromised container
-
-images
+## Remediating compromised container images
 
 When a GuardDuty finding indicates a task compromise, the image used to launch the task could be
 malicious or compromised. GuardDuty findings identify the container image within the

@@ -23,8 +23,7 @@ The permission policies help GuardDuty perform the following tasks:
   and manage [Amazon EKS add-ons](../../../eks/latest/userguide/eks-add-ons.md "../../../eks/latest/userguide/eks-add-ons.md") on EKS
   clusters. The EKS actions also retrieve the information about the tags
   associated to GuardDuty.
-- Use IAM to create the [Service-linked role permissions for
-  Malware Protection for EC2](slr-permissions-malware-protection.md "slr-permissions-malware-protection.md") after Malware Protection for EC2 has been
+- Use IAM to create the [Service-linked role permissions for Malware Protection for EC2](slr-permissions-malware-protection.md "slr-permissions-malware-protection.md") after Malware Protection for EC2 has been
   enabled.
 - Use Amazon ECS actions to manage and retrieve information about the Amazon ECS clusters,
   and manage the Amazon ECS account setting with `guarddutyActivate`. The
@@ -57,8 +56,7 @@ JSON
 
 ```
 
-For details about updates to the `AmazonGuardDutyServiceRolePolicy` policy, see [GuardDuty updates to AWS managed
-policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates"). For automatic alerts about changes
+For details about updates to the `AmazonGuardDutyServiceRolePolicy` policy, see [GuardDuty updates to AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates"). For automatic alerts about changes
 to this policy, subscribe to the RSS feed on the [Document history](doc-history.md "doc-history.md") page.
 
 ## Creating a service-linked role for GuardDuty

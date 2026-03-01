@@ -1,6 +1,4 @@
-# Checking EKS Runtime Monitoring configuration
-
-status
+# Checking EKS Runtime Monitoring configuration status
 
 Use the following APIs or AWS CLI commands to check the existing configuration status of
 EKS Runtime Monitoring.
@@ -19,9 +17,7 @@ To find the `detectorId` for your account and current Region, see the
 **Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/") console,
 or run the [ListDetectors](../APIReference/API_ListDetectors.md "../APIReference/API_ListDetectors.md") API.
 
-###### To check existing EKS Runtime Monitoring configuration status for your organization (as a delegated GuardDuty administrator account
-
-only)
+###### To check existing EKS Runtime Monitoring configuration status for your organization (as a delegated GuardDuty administrator account only)
 
 - Run [DescribeOrganizationConfiguration](../APIReference/API_DescribeOrganizationConfiguration.md "../APIReference/API_DescribeOrganizationConfiguration.md") to check the configuration status of your
   organization.

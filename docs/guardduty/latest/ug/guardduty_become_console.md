@@ -50,9 +50,7 @@ Account ID,Email
    information about sending an invite to one or more added accounts,
    see [Step 2 - Invite an account](#guardduty_invite_member_proc "#guardduty_invite_member_proc").
 
-###### Step 2 - Invite an
-
-account
+###### Step 2 - Invite an account
 
 1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
 2. In the navigation pane, choose **Accounts**.
@@ -72,9 +70,7 @@ opening the GuardDuty console at [https://console.aws.amazon.com/guardduty/](htt
 **Invited**. For information about accepting an
 invite, see [Step 3 - Accept an invitation](#guardduty_accept_invite_proc "#guardduty_accept_invite_proc").
 
-###### Step 3 - Accept an
-
-invitation
+###### Step 3 - Accept an invitation
 
 1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
 
@@ -119,9 +115,7 @@ GuardDuty.
 Complete the following procedure using the credentials of the
 AWS account that you want to designate as the GuardDuty administrator account.
 
-###### Creating
-
-or adding member accounts
+###### Creating or adding member accounts
 
 1. Run the [CreateMembers](../APIReference/API_CreateMembers.md "../APIReference/API_CreateMembers.md") API operation using the credentials of
    the AWS account that has GuardDuty enabled. This is the account that

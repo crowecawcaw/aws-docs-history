@@ -1,10 +1,7 @@
-# Installing the security
-
-agent manually
+# Installing the security agent manually
 
 GuardDuty provides the following two methods to install the GuardDuty security agent on your
-Amazon EC2 instances. Before proceeding, make sure to follow the steps under [Prerequisite –
-Creating Amazon VPC endpoint manually](creating-vpc-endpoint-ec2-agent-manually.md "creating-vpc-endpoint-ec2-agent-manually.md").
+Amazon EC2 instances. Before proceeding, make sure to follow the steps under [Prerequisite – Creating Amazon VPC endpoint manually](creating-vpc-endpoint-ec2-agent-manually.md "creating-vpc-endpoint-ec2-agent-manually.md").
 
 Choose a preferred access method to install the security agent in your Amazon EC2
 resources.
@@ -18,9 +15,7 @@ resources.
   To use this method, make sure that your Amazon EC2 instances are AWS Systems Manager managed
   and then install the agent.
 
-### AWS Systems Manager
-
-managed Amazon EC2 instance
+### AWS Systems Manager managed Amazon EC2 instance
 
 Use the following steps to make your Amazon EC2 instances AWS Systems Manager
 managed.
@@ -68,15 +63,13 @@ _AWS Systems Manager User Guide_.
      `AmazonGuardDuty-RuntimeMonitoringSsmPlugin`
    - Version: If this remains empty, you'll get latest version of
      the GuardDuty security agent. For more information about the release
-     versions, [GuardDuty security agent versions for Amazon EC2
-     instances](runtime-monitoring-agent-release-history.md#ec2-gdu-agent-release-history "runtime-monitoring-agent-release-history.md#ec2-gdu-agent-release-history").
+     versions, [GuardDuty security agent versions for Amazon EC2 instances](runtime-monitoring-agent-release-history.md#ec2-gdu-agent-release-history "runtime-monitoring-agent-release-history.md#ec2-gdu-agent-release-history").
 
 6. Select the targeted Amazon EC2 instance. You can select one or more Amazon EC2
    instances. For more information, see [AWS Systems Manager Running commands from the console](../../../systems-manager/latest/userguide/running-commands-console.md "../../../systems-manager/latest/userguide/running-commands-console.md") in the
    _AWS Systems Manager User Guide_
 7. Validate if the GuardDuty agent installation is healthy. For more
-   information, see [Validating GuardDuty
-   security agent installation status](#validate-ec2-gdu-agent-installation-healthy "#validate-ec2-gdu-agent-installation-healthy").
+   information, see [Validating GuardDuty security agent installation status](#validate-ec2-gdu-agent-installation-healthy "#validate-ec2-gdu-agent-installation-healthy").
    With this method, you can install the GuardDuty security agent by running RPM
    scripts or Debian scripts. Based on the operating systems, you can choose a
    preferred method:
@@ -273,8 +266,7 @@ sudo rpm -ivh amazon-guardduty-agent-`1.9.1`.x86_64.rpm
 ```
 
 4. Validate if the GuardDuty agent installation is healthy. For
-   more information about the steps, see [Validating GuardDuty
-   security agent installation status](#validate-ec2-gdu-agent-installation-healthy "#validate-ec2-gdu-agent-installation-healthy").
+   more information about the steps, see [Validating GuardDuty security agent installation status](#validate-ec2-gdu-agent-installation-healthy "#validate-ec2-gdu-agent-installation-healthy").
 
 Debian installation
 
@@ -284,11 +276,7 @@ We recommend verifying the GuardDuty security agent Debian
 signature before installing it on your machine.
 
 1.  Verify the GuardDuty security agent Debian signature
-    1. ###### Prepare templates for the appropriate public key,
-       signature of amd64 Debian package, signature of
-       arm64 Debian package, and the corresponding access
-       link to the Debian scripts hosted in Amazon S3
-       buckets
+    1. ###### Prepare templates for the appropriate public key, signature of amd64 Debian package, signature of arm64 Debian package, and the corresponding access link to the Debian scripts hosted in Amazon S3 buckets
 
     In the following templates, replace the value of
     the AWS Region, AWS account ID, and the GuardDuty
@@ -376,10 +364,7 @@ signature before installing it on your machine.
     | `il-central-1`   | Israel (Tel Aviv)         | 870907303882   |
     | `mx-central-1`   | Mexico (Central)          | 982081086614   |
     | `ap-east-2`      | Asia Pacific (Taipei)     | 259886477082   |
-    2. ###### Download the appropriate public key,
-       signature of amd64, signature of arm64, and the
-       corresponding access link to the Debian scripts
-       hosted in Amazon S3 buckets
+    2. ###### Download the appropriate public key, signature of amd64, signature of arm64, and the corresponding access link to the Debian scripts hosted in Amazon S3 buckets
 
     In the following commands, replace the account ID
     with the appropriate AWS account ID, and the
@@ -457,8 +442,7 @@ sudo dpkg -i amazon-guardduty-agent-`1.9.1`.amd64.deb
 ```
 
 4. Validate if the GuardDuty agent installation is healthy. For
-   more information about the steps, see [Validating GuardDuty
-   security agent installation status](#validate-ec2-gdu-agent-installation-healthy "#validate-ec2-gdu-agent-installation-healthy").
+   more information about the steps, see [Validating GuardDuty security agent installation status](#validate-ec2-gdu-agent-installation-healthy "#validate-ec2-gdu-agent-installation-healthy").
 
 ## Out of memory error
 
@@ -466,9 +450,7 @@ If you experience an `out-of-memory` error while installing or updating
 the GuardDuty security agent for Amazon EC2 manually, see [Troubleshooting out of
 memory error](troubleshooting-guardduty-runtime-monitoring.md#troubleshoot-ec2-cpu-out-of-memory-error "troubleshooting-guardduty-runtime-monitoring.md#troubleshoot-ec2-cpu-out-of-memory-error").
 
-## Validating GuardDuty
-
-security agent installation status
+## Validating GuardDuty security agent installation status
 
 After you have performed the steps to install the GuardDuty security agent, use the
 following steps to validate the status of the agent:

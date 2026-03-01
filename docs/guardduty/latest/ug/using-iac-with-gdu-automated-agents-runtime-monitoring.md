@@ -1,6 +1,4 @@
-# Using Infrastructure as
-
-Code (IaC) with GuardDuty automated security agents
+# Using Infrastructure as Code (IaC) with GuardDuty automated security agents
 
 Use this section only if the following list applies to your use case:
 
@@ -9,16 +7,13 @@ Use this section only if the following list applies to your use case:
 - You need to enable GuardDuty automated agent configuration for one or more resource
   types - Amazon EKS, Amazon EC2, or Amazon ECS-Fargate.
 
-## IaC resource dependency graph
-
-overview
+## IaC resource dependency graph overview
 
 When you enable GuardDuty automated agent configuration for a resource type, GuardDuty
 automatically creates a VPC endpoint and a security group associated with this VPC
 endpoint, and installs the security agent for this resource type. By default, GuardDuty will
 delete the VPC endpoint and the associated security group only after you disable
-Runtime Monitoring. For more information, see [Disabling, uninstalling, and
-cleaning up resources in Runtime Monitoring](runtime-monitoring-agent-resource-clean-up.md "runtime-monitoring-agent-resource-clean-up.md").
+Runtime Monitoring. For more information, see [Disabling, uninstalling, and cleaning up resources in Runtime Monitoring](runtime-monitoring-agent-resource-clean-up.md "runtime-monitoring-agent-resource-clean-up.md").
 
 When you use an IaC tool, it maintains a dependency graph of resources. At the time of
 deletion of resources using the IaC tool, it only deletes resources that can be tracked
@@ -31,9 +26,7 @@ IaC tool, then you will get an error. The way to get around this error is to del
 associated security group manually or to update the IaC configuration to include this
 added resource.
 
-## Common issue - Deleting resources in
-
-IaC
+## Common issue - Deleting resources in IaC
 
 When using GuardDuty automated agent configuration, you may want to delete a resource
 (Amazon EKS, Amazon EC2, or Amazon ECS-Fargate) that you created by using an IaC tool. However, this
@@ -69,9 +62,7 @@ Error: deleting EC2 Subnet (subnet-`APKAEIBAERJR2EXAMPLE`): DependencyViolation:
 
 [Show moreShow less](# "#")
 
-### Solution - Prevent
-
-resource deletion issue
+### Solution - Prevent resource deletion issue
 
 This section helps you manage the VPC endpoint and security group independent of
 GuardDuty.
@@ -90,7 +81,5 @@ For information about creating your own VPC, see [Create a VPC
 only](../../../vpc/latest/userguide/create-vpc.md#create-vpc-only "../../../vpc/latest/userguide/create-vpc.md#create-vpc-only") in the _Amazon VPC Transit Gateways_. For information about
 creating a VPC endpoint, see the following section for your resource type:
 
-- For Amazon EC2, see [Prerequisite –
-  Creating Amazon VPC endpoint manually](creating-vpc-endpoint-ec2-agent-manually.md "creating-vpc-endpoint-ec2-agent-manually.md").
-- For Amazon EKS, see [Prerequisite – Creating
-  an Amazon VPC endpoint](eksrunmon-prereq-deploy-security-agent.md "eksrunmon-prereq-deploy-security-agent.md").
+- For Amazon EC2, see [Prerequisite – Creating Amazon VPC endpoint manually](creating-vpc-endpoint-ec2-agent-manually.md "creating-vpc-endpoint-ec2-agent-manually.md").
+- For Amazon EKS, see [Prerequisite – Creating an Amazon VPC endpoint](eksrunmon-prereq-deploy-security-agent.md "eksrunmon-prereq-deploy-security-agent.md").

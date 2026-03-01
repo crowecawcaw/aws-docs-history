@@ -1,6 +1,4 @@
-# How Runtime Monitoring works with Amazon EC2
-
-instances
+# How Runtime Monitoring works with Amazon EC2 instances
 
 Your Amazon EC2 instances can run multiple types of applications and workloads in your AWS
 environment. When you enable Runtime Monitoring and manage the GuardDuty security agent, GuardDuty helps you
@@ -28,9 +26,7 @@ To install the GuardDuty security agent, Runtime Monitoring provides the followi
   (recommended)](#use-automated-agent-config-ec2 "#use-automated-agent-config-ec2"), or
 - [Manage security agent manually](#ec2-security-agent-option2-manual "#ec2-security-agent-option2-manual")
 
-## Use automated agent configuration through
-
-GuardDuty (recommended)
+## Use automated agent configuration through GuardDuty (recommended)
 
 Use automated agent configuration that permits GuardDuty to install the security agent on your
 Amazon EC2 instances on your behalf. GuardDuty also manages the updates to the security agent.
@@ -115,5 +111,4 @@ Whenever you launch a new Amazon EC2 instance, ensure that it is SSM enabled.
 
 ## Next step
 
-To get started with Runtime Monitoring configuration to monitor your Amazon EC2 instances, see [Prerequisites for Amazon EC2 instance
-support](prereq-runtime-monitoring-ec2-support.md "prereq-runtime-monitoring-ec2-support.md").
+To get started with Runtime Monitoring configuration to monitor your Amazon EC2 instances, see [Prerequisites for Amazon EC2 instance support](prereq-runtime-monitoring-ec2-support.md "prereq-runtime-monitoring-ec2-support.md").

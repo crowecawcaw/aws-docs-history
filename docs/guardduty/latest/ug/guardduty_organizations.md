@@ -11,30 +11,19 @@ delegated GuardDuty administrator account.
 
 ###### Contents
 
-- [Considerations and recommendations for using
-  GuardDuty with AWS Organizations](#delegated_admin_important "#delegated_admin_important")
-- [Permissions required to designate a
-  delegated GuardDuty administrator account](organizations_permissions.md "organizations_permissions.md")
+- [Considerations and recommendations for using GuardDuty with AWS Organizations](#delegated_admin_important "#delegated_admin_important")
+- [Permissions required to designate a delegated GuardDuty administrator account](organizations_permissions.md "organizations_permissions.md")
 - [Designating a delegated GuardDuty administrator account](delegated-admin-designate.md "delegated-admin-designate.md")
-- [Setting organization auto-enable
-  preferences](set-guardduty-auto-enable-preferences.md "set-guardduty-auto-enable-preferences.md")
-- [Adding members to the
-  organization](add-member-accounts-guardduty-organization.md "add-member-accounts-guardduty-organization.md")
-- [(Optional) Enable protection
-  plans for existing member accounts](guardduty_quick_protection_plan_config.md "guardduty_quick_protection_plan_config.md")
-- [Continually
-  managing your member accounts within GuardDuty](maintaining-guardduty-organization-delegated-admin.md "maintaining-guardduty-organization-delegated-admin.md")
-- [Suspending GuardDuty for
-  member account](suspending-guardduty-member-account-from-admin.md "suspending-guardduty-member-account-from-admin.md")
-- [Disassociating
-  (removing) member account from administrator account](disassociate-remove-member-account-from-admin.md "disassociate-remove-member-account-from-admin.md")
-- [Deleting member accounts
-  from GuardDuty organization](delete-member-accounts-guardduty-organization.md "delete-member-accounts-guardduty-organization.md")
+- [Setting organization auto-enable preferences](set-guardduty-auto-enable-preferences.md "set-guardduty-auto-enable-preferences.md")
+- [Adding members to the organization](add-member-accounts-guardduty-organization.md "add-member-accounts-guardduty-organization.md")
+- [(Optional) Enable protection plans for existing member accounts](guardduty_quick_protection_plan_config.md "guardduty_quick_protection_plan_config.md")
+- [Continually managing your member accounts within GuardDuty](maintaining-guardduty-organization-delegated-admin.md "maintaining-guardduty-organization-delegated-admin.md")
+- [Suspending GuardDuty for member account](suspending-guardduty-member-account-from-admin.md "suspending-guardduty-member-account-from-admin.md")
+- [Disassociating (removing) member account from administrator account](disassociate-remove-member-account-from-admin.md "disassociate-remove-member-account-from-admin.md")
+- [Deleting member accounts from GuardDuty organization](delete-member-accounts-guardduty-organization.md "delete-member-accounts-guardduty-organization.md")
 - [Changing the delegated GuardDuty administrator account](change-guardduty-delegated-admin.md "change-guardduty-delegated-admin.md")
 
-## Considerations and recommendations for using
-
-GuardDuty with AWS Organizations
+## Considerations and recommendations for using GuardDuty with AWS Organizations
 
 The following considerations and recommendations can help you understand how a
 delegated GuardDuty administrator account operates in GuardDuty:

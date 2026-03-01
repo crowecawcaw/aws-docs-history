@@ -1,6 +1,4 @@
-# Deleting suppression rules in
-
-GuardDuty
+# Deleting suppression rules in GuardDuty
 
 This section provides the steps to delete a suppression rule in your AWS account in
 a specific AWS Region.

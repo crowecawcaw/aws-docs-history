@@ -10,8 +10,7 @@ type. For more information, see [GuardDuty foundational data sources](guardduty_
 For all IAM-related findings, we recommend that you examine the entity in question and
 ensure that their permissions follow the best practice of least privilege. If the activity
 is unexpected, the credentials may be compromised. For information about remediating
-findings, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+findings, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ###### Topics
 
@@ -44,9 +43,7 @@ credentials](compromised-creds.md "compromised-creds.md").
 
 ## CredentialAccess:IAMUser/AnomalousBehavior
 
-### An API used to
-
-gain access to an AWS environment was invoked in an anomalous way.
+### An API used to gain access to an AWS environment was invoked in an anomalous way.
 
 **Default severity: Medium**
 
@@ -72,14 +69,11 @@ unusual for the user identity that invoked the request can be found in the
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## DefenseEvasion:IAMUser/AnomalousBehavior
 
-### An API used to
-
-evade defensive measures was invoked in an anomalous way.
+### An API used to evade defensive measures was invoked in an anomalous way.
 
 **Default severity: Medium**
 
@@ -105,8 +99,7 @@ unusual for the user identity that invoked the request can be found in the
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## DefenseEvasion:IAMUser/BedrockLoggingDisabled
 
@@ -121,14 +114,11 @@ This finding informs you that logging was disabled for Bedrock model invocations
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Discovery:IAMUser/AnomalousBehavior
 
-### An API commonly used
-
-to discover resources was invoked in an anomalous way.
+### An API commonly used to discover resources was invoked in an anomalous way.
 
 **Default severity: Low**
 
@@ -155,15 +145,11 @@ unusual for the user identity that invoked the request can be found in the
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Exfiltration:IAMUser/AnomalousBehavior
 
-### An API commonly
-
-used to collect data from an AWS environment was invoked in an anomalous
-way.
+### An API commonly used to collect data from an AWS environment was invoked in an anomalous way.
 
 **Default severity: High**
 
@@ -191,15 +177,11 @@ unusual for the user identity that invoked the request can be found in the
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Impact:IAMUser/AnomalousBehavior
 
-### An API commonly used to
-
-tamper with data or processes in an AWS environment was invoked in an
-anomalous way.
+### An API commonly used to tamper with data or processes in an AWS environment was invoked in an anomalous way.
 
 **Default severity: High**
 
@@ -226,15 +208,11 @@ unusual for the user identity that invoked the request can be found in the
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## InitialAccess:IAMUser/AnomalousBehavior
 
-### An API commonly
-
-used to gain unauthorized access to an AWS environment was invoked in an
-anomalous way.
+### An API commonly used to gain unauthorized access to an AWS environment was invoked in an anomalous way.
 
 **Default severity: Medium**
 
@@ -260,14 +238,11 @@ unusual for the user identity that invoked the request can be found in the
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## PenTest:IAMUser/KaliLinux
 
-### An API was invoked from a Kali
-
-Linux machine.
+### An API was invoked from a Kali Linux machine.
 
 **Default severity: Medium**
 
@@ -283,14 +258,11 @@ to your AWS environment.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## PenTest:IAMUser/ParrotLinux
 
-### An API was invoked from a
-
-Parrot Security Linux machine.
+### An API was invoked from a Parrot Security Linux machine.
 
 **Default severity: Medium**
 
@@ -306,14 +278,11 @@ weaknesses and gain unauthorized access to your AWS environment.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## PenTest:IAMUser/PentooLinux
 
-### An API was invoked from a
-
-Pentoo Linux machine.
+### An API was invoked from a Pentoo Linux machine.
 
 **Default severity: Medium**
 
@@ -329,15 +298,11 @@ unauthorized access to your AWS environment.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Persistence:IAMUser/AnomalousBehavior
 
-### An API commonly used
-
-to maintain unauthorized access to an AWS environment was invoked in an
-anomalous way.
+### An API commonly used to maintain unauthorized access to an AWS environment was invoked in an anomalous way.
 
 **Default severity: Medium**
 
@@ -363,14 +328,11 @@ unusual for the user identity that invoked the request can be found in the
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Policy:IAMUser/RootCredentialUsage
 
-### An API was invoked
-
-using root user sign-in credentials.
+### An API was invoked using root user sign-in credentials.
 
 **Default severity: Low**
 
@@ -396,14 +358,11 @@ information about S3 Protection, see [S3 Protection](s3-protection.md "s3-protec
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Policy:IAMUser/ShortTermRootCredentialUsage
 
-### An API was invoked
-
-by using restricted root user credentials.
+### An API was invoked by using restricted root user credentials.
 
 **Default severity: Low**
 
@@ -425,15 +384,11 @@ the _IAM User Guide_.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## PrivilegeEscalation:IAMUser/AnomalousBehavior
 
-### An API
-
-commonly used to obtain high-level permissions to an AWS environment was
-invoked in an anomalous way.
+### An API commonly used to obtain high-level permissions to an AWS environment was invoked in an anomalous way.
 
 **Default severity: Medium**
 
@@ -460,14 +415,11 @@ unusual for the user identity that invoked the request can be found in the
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Recon:IAMUser/MaliciousIPCaller
 
-### An API was invoked from a
-
-known malicious IP address.
+### An API was invoked from a known malicious IP address.
 
 **Default severity: Medium**
 
@@ -483,14 +435,11 @@ already have.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Recon:IAMUser/MaliciousIPCaller.Custom
 
-### An API was invoked
-
-from a known malicious IP address.
+### An API was invoked from a known malicious IP address.
 
 **Default severity: Medium**
 
@@ -507,14 +456,11 @@ have.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Recon:IAMUser/TorIPCaller
 
-### An API was invoked from a Tor
-
-exit node IP address.
+### An API was invoked from a Tor exit node IP address.
 
 **Default severity: Medium**
 
@@ -530,14 +476,11 @@ mask their true identity.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Stealth:IAMUser/CloudTrailLoggingDisabled
 
-### AWS CloudTrail logging
-
-was disabled.
+### AWS CloudTrail logging was disabled.
 
 **Default severity: Low**
 
@@ -554,14 +497,11 @@ associated with GuardDuty.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Stealth:IAMUser/PasswordPolicyChange
 
-### Account password
-
-policy was weakened.
+### Account password policy was weakened.
 
 **Default severity: Low\***
 
@@ -585,14 +525,11 @@ risk.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## UnauthorizedAccess:IAMUser/ConsoleLoginSuccess.B
 
-### Multiple
-
-worldwide successful console logins were observed.
+### Multiple worldwide successful console logins were observed.
 
 **Default severity: Medium**
 
@@ -606,14 +543,11 @@ unauthorized access to your AWS resources.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.InsideAWS
 
-### Credentials that were created exclusively for an EC2 instance through an
-
-Instance launch role are being used from another account within AWS.
+### Credentials that were created exclusively for an EC2 instance through an Instance launch role are being used from another account within AWS.
 
 **Default severity: High\***
 
@@ -686,8 +620,7 @@ account. Next, contact the owner of the Amazon EC2 instance
 credentials to determine if there is a use case for a remote account to use these
 credentials. 4. If the owner of the credentials does not recognize the remote account
 the credentials may have been compromised by a threat actor operating
-within AWS. You should take the steps recommended in [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md"), to
+within AWS. You should take the steps recommended in [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md"), to
 secure your environment.
 
 Additionally, you can [submit
@@ -698,9 +631,7 @@ finding.
 
 ## UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS
 
-### Credentials that were created exclusively for an EC2 instance through an
-
-Instance launch role are being used from an external IP address.
+### Credentials that were created exclusively for an EC2 instance through an Instance launch role are being used from an external IP address.
 
 **Default severity: High**
 
@@ -750,14 +681,11 @@ this finding for activity from that source. GuardDuty will continue to generate
 findings for new behavior from other sources, and will reevaluate learned
 sources as behavior changes over time.
 
-If this activity is unexpected your credentials may be compromised, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected your credentials may be compromised, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## UnauthorizedAccess:IAMUser/MaliciousIPCaller
 
-### An API was
-
-invoked from a known malicious IP address.
+### An API was invoked from a known malicious IP address.
 
 **Default severity: Medium**
 
@@ -771,14 +699,11 @@ unauthorized access to AWS resources within your environment.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## UnauthorizedAccess:IAMUser/MaliciousIPCaller.Custom
 
-### An API
-
-was invoked from an IP address on a custom threat list.
+### An API was invoked from an IP address on a custom threat list.
 
 **Default severity: Medium**
 
@@ -793,14 +718,11 @@ unauthorized access to AWS resources within your environment.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.OutsideAWS
 
-### Credentials that were created exclusively for an AWS Lambda resource are being used
-
-from an IP address outside of AWS.
+### Credentials that were created exclusively for an AWS Lambda resource are being used from an IP address outside of AWS.
 
 **Default severity: High**
 
@@ -838,14 +760,11 @@ to create a rule with a two-filter criteria. The first criteria is **finding typ
 **API caller IPv4 Address** with the IP address or CIDR range for your on-premises internet gateway.
 
 If this activity is unexpected, your credentials may have been compromised. For information about
-steps to remediate this finding type, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+steps to remediate this finding type, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## UnauthorizedAccess:IAMUser/TorIPCaller
 
-### An API was invoked
-
-from a Tor exit node IP address.
+### An API was invoked from a Tor exit node IP address.
 
 **Default severity: Medium**
 
@@ -862,5 +781,4 @@ AWS resources with the intent of hiding the attacker's true identity.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").

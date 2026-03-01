@@ -1,6 +1,4 @@
-# Two security agents on same
-
-underlying host
+# Two security agents on same underlying host
 
 Amazon EC2 instances can support multiple types of workloads. When you configure automated
 security agent on an Amazon EC2 instance, the same EC2 instance might have another security agent
@@ -26,9 +24,7 @@ potentially generating duplicate findings.
   underlying host, your account will only be charged for one stream of runtime
   events.
 
-## How GuardDuty handles multiple
-
-agents
+## How GuardDuty handles multiple agents
 
 GuardDuty detects when two security agents are running on the same host and designates
 only one of them to be the security agent that actively collects runtime events. The

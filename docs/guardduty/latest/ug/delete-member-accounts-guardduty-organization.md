@@ -1,6 +1,4 @@
-# Deleting member accounts
-
-from GuardDuty organization
+# Deleting member accounts from GuardDuty organization
 
 As a delegated GuardDuty administrator account, after you have disassociated a member account and you no longer want to
 keep that member account in the GuardDuty organization, you can delete that member account

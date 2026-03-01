@@ -38,26 +38,17 @@ to the data in your environment.
 ###### Contents
 
 - [How it works](how-does-runtime-monitoring-work.md "how-does-runtime-monitoring-work.md")
-- [How does 30-day free trial work in
-  Runtime Monitoring](runtime-monitoring-free-trial-works.md "runtime-monitoring-free-trial-works.md")
+- [How does 30-day free trial work in Runtime Monitoring](runtime-monitoring-free-trial-works.md "runtime-monitoring-free-trial-works.md")
 - [Prerequisites to enabling Runtime Monitoring](runtime-monitoring-prerequisites.md "runtime-monitoring-prerequisites.md")
 - [Enabling GuardDuty Runtime Monitoring](runtime-monitoring-configuration.md "runtime-monitoring-configuration.md")
 - [Managing GuardDuty security agents](runtime-monitoring-managing-agents.md "runtime-monitoring-managing-agents.md")
-- [Reviewing runtime coverage statistics and
-  troubleshooting issues](runtime-monitoring-assessing-coverage.md "runtime-monitoring-assessing-coverage.md")
-- [Setting up CPU and memory
-  monitoring](runtime-monitoring-setting-cpu-mem-monitoring.md "runtime-monitoring-setting-cpu-mem-monitoring.md")
+- [Reviewing runtime coverage statistics and troubleshooting issues](runtime-monitoring-assessing-coverage.md "runtime-monitoring-assessing-coverage.md")
+- [Setting up CPU and memory monitoring](runtime-monitoring-setting-cpu-mem-monitoring.md "runtime-monitoring-setting-cpu-mem-monitoring.md")
 - [Using shared VPC with Runtime Monitoring](runtime-monitoring-shared-vpc.md "runtime-monitoring-shared-vpc.md")
-- [Using Infrastructure as
-  Code (IaC) with GuardDuty automated security agents](using-iac-with-gdu-automated-agents-runtime-monitoring.md "using-iac-with-gdu-automated-agents-runtime-monitoring.md")
-- [Collected runtime event types that GuardDuty
-  uses](runtime-monitoring-collected-events.md "runtime-monitoring-collected-events.md")
-- [Amazon ECR repository hosting GuardDuty
-  agent](runtime-monitoring-ecr-repository-gdu-agent.md "runtime-monitoring-ecr-repository-gdu-agent.md")
-- [Two security agents on same
-  underlying host](two-security-agents-installed-on-ec2-node.md "two-security-agents-installed-on-ec2-node.md")
+- [Using Infrastructure as Code (IaC) with GuardDuty automated security agents](using-iac-with-gdu-automated-agents-runtime-monitoring.md "using-iac-with-gdu-automated-agents-runtime-monitoring.md")
+- [Collected runtime event types that GuardDuty uses](runtime-monitoring-collected-events.md "runtime-monitoring-collected-events.md")
+- [Amazon ECR repository hosting GuardDuty agent](runtime-monitoring-ecr-repository-gdu-agent.md "runtime-monitoring-ecr-repository-gdu-agent.md")
+- [Two security agents on same underlying host](two-security-agents-installed-on-ec2-node.md "two-security-agents-installed-on-ec2-node.md")
 - [EKS Runtime Monitoring in GuardDuty](eks-runtime-monitoring-guardduty.md "eks-runtime-monitoring-guardduty.md")
-- [GuardDuty security agent release
-  versions](runtime-monitoring-agent-release-history.md "runtime-monitoring-agent-release-history.md")
-- [Disabling, uninstalling, and
-  cleaning up resources in Runtime Monitoring](runtime-monitoring-agent-resource-clean-up.md "runtime-monitoring-agent-resource-clean-up.md")
+- [GuardDuty security agent release versions](runtime-monitoring-agent-release-history.md "runtime-monitoring-agent-release-history.md")
+- [Disabling, uninstalling, and cleaning up resources in Runtime Monitoring](runtime-monitoring-agent-resource-clean-up.md "runtime-monitoring-agent-resource-clean-up.md")

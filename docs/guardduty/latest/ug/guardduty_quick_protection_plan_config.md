@@ -1,6 +1,4 @@
-# (Optional) Enable protection
-
-plans for existing member accounts
+# (Optional) Enable protection plans for existing member accounts
 
 The following procedure includes steps to enable protection plans for existing member
 accounts by using the **Accounts** page. For steps to do this by using

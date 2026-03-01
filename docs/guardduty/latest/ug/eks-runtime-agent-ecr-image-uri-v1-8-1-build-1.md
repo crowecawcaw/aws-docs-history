@@ -4,8 +4,7 @@ This section provides the Amazon ECR repository for the Amazon EKS agent version
 **1.8.1 (v1.8.1-eks-build.1)**. If you're using v1.8.1-eks-build.1,
 GuardDuty recommends switching to the default agent version which is usually the latest agent version. To do so, identify the latest
 agent from [Released agent versions for Amazon EKS resources](runtime-monitoring-agent-release-history.md#eks-runtime-monitoring-agent-release-history "runtime-monitoring-agent-release-history.md#eks-runtime-monitoring-agent-release-history"), and then perform the steps in
-[Updating security agent
-manually for Amazon EKS resources](eksrunmon-update-security-agent.md "eksrunmon-update-security-agent.md").
+[Updating security agent manually for Amazon EKS resources](eksrunmon-update-security-agent.md "eksrunmon-update-security-agent.md").
 
 The following table shows the Amazon ECR repository URIs where GuardDuty security agent version
 `1.8.1-eks-build.1` for Amazon EKS is hosted.

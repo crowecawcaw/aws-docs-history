@@ -1,6 +1,4 @@
-# Enabling EKS Protection in multiple-account
-
-environments
+# Enabling EKS Protection in multiple-account environments
 
 In a multiple-account environment, only the delegated GuardDuty administrator account has the option to enable or disable the
 EKS Protection; feature for the member accounts in their organization. The GuardDuty member accounts can't
@@ -102,8 +100,7 @@ Make sure to use the delegated GuardDuty administrator account credentials. 2. D
     4. Choose **Save**.
 
 If you can't use the **Enable for all accounts** option and want to
-customize EKS Audit Log Monitoring configuration for specific accounts in your organization, see [Selectively enable or disable
-EKS Audit Log Monitoring for member accounts](#k8s-enable-disable-selective-members-org "#k8s-enable-disable-selective-members-org").
+customize EKS Audit Log Monitoring configuration for specific accounts in your organization, see [Selectively enable or disable EKS Audit Log Monitoring for member accounts](#k8s-enable-disable-selective-members-org "#k8s-enable-disable-selective-members-org").
 
 API/CLI
 

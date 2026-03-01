@@ -1,6 +1,4 @@
-# Managing security agent manually for
-
-Amazon EKS cluster
+# Managing security agent manually for Amazon EKS cluster
 
 This section describes how you can manage your Amazon EKS add-on agent (GuardDuty agent) after you
 enable Runtime Monitoring (or EKS Runtime Monitoring). To use Runtime Monitoring, you must enable Runtime Monitoring and configure
@@ -16,9 +14,6 @@ your account.
 
 ###### Topics
 
-- [Prerequisite – Creating
-  an Amazon VPC endpoint](eksrunmon-prereq-deploy-security-agent.md "eksrunmon-prereq-deploy-security-agent.md")
-- [Installing GuardDuty security agent
-  manually on Amazon EKS resources](eksrunmon-deploy-security-agent.md "eksrunmon-deploy-security-agent.md")
-- [Updating security agent
-  manually for Amazon EKS resources](eksrunmon-update-security-agent.md "eksrunmon-update-security-agent.md")
+- [Prerequisite – Creating an Amazon VPC endpoint](eksrunmon-prereq-deploy-security-agent.md "eksrunmon-prereq-deploy-security-agent.md")
+- [Installing GuardDuty security agent manually on Amazon EKS resources](eksrunmon-deploy-security-agent.md "eksrunmon-deploy-security-agent.md")
+- [Updating security agent manually for Amazon EKS resources](eksrunmon-update-security-agent.md "eksrunmon-update-security-agent.md")

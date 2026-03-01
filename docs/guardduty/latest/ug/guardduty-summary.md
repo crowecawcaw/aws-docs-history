@@ -23,16 +23,12 @@ can refresh the dashboard, or adjust the date range.
 
 - [Overview](#understanding-guardduty-summary-overview "#understanding-guardduty-summary-overview")
 - [Findings](#understanding-guardduty-summary-findings-widget "#understanding-guardduty-summary-findings-widget")
-- [Most common finding
-  types](#understanding-guardduty-summary-most-common-finding-types "#understanding-guardduty-summary-most-common-finding-types")
+- [Most common finding types](#understanding-guardduty-summary-most-common-finding-types "#understanding-guardduty-summary-most-common-finding-types")
 - [Findings by severity](#understanding-guardduty-summary-findings-by-sev "#understanding-guardduty-summary-findings-by-sev")
-- [Accounts with most
-  findings](#understanding-guardduty-summary-account-with-findings "#understanding-guardduty-summary-account-with-findings")
+- [Accounts with most findings](#understanding-guardduty-summary-account-with-findings "#understanding-guardduty-summary-account-with-findings")
 - [Resources with findings](#understanding-guardduty-summary-resources-with-findings "#understanding-guardduty-summary-resources-with-findings")
-- [Least occurring
-  findings](#understanding-guardduty-summary-least-occurring-findings "#understanding-guardduty-summary-least-occurring-findings")
-- [Protection plans
-  coverage](#understanding-guardduty-summary-protection-plans-coverage "#understanding-guardduty-summary-protection-plans-coverage")
+- [Least occurring findings](#understanding-guardduty-summary-least-occurring-findings "#understanding-guardduty-summary-least-occurring-findings")
+- [Protection plans coverage](#understanding-guardduty-summary-protection-plans-coverage "#understanding-guardduty-summary-protection-plans-coverage")
 
 ## Overview
 
@@ -77,9 +73,7 @@ In this list, you can select any finding to view its details.
 
 ![Findings widget in the GuardDuty Summary dashboard.](images/attack-sequence-summary-finding-widget-console.png)
 
-## Most common finding
-
-types
+## Most common finding types
 
 This section provides a pie chart illustrating the top five most common finding types
 generated in the current Region. When hovering over each sector
@@ -103,9 +97,7 @@ and helps you view the number of findings for specific dates within the range.
 To view the counts for each severity level on a specific date, hover over the corresponding bar in
 the chart.
 
-## Accounts with most
-
-findings
+## Accounts with most findings
 
 This section provides the following data:
 
@@ -145,9 +137,7 @@ This section provides the following data:
   levels. Possible options are **Critical severity**, **High severity**, **Medium
   severity**, and **All severity**.
 
-## Least occurring
-
-findings
+## Least occurring findings
 
 This section highlights finding types that occur infrequently in your AWS environment. This
 widget is designed to help you identify and investigate potential emergent threat patterns.
@@ -165,9 +155,7 @@ This widget displays the following data:
   severity**, **Medium severity**, and **All
   severity**.
 
-## Protection plans
-
-coverage
+## Protection plans coverage
 
 This section displays statistics for the member accounts in your organization. It shows the number of member accounts
 that have enabled GuardDuty (foundational threat detection) in the current Region. Only a delegated GuardDuty administrator

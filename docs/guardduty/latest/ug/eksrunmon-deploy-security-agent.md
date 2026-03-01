@@ -1,6 +1,4 @@
-# Installing GuardDuty security agent
-
-manually on Amazon EKS resources
+# Installing GuardDuty security agent manually on Amazon EKS resources
 
 This section describes how you can deploy the GuardDuty security agent for the first time
 for specific EKS clusters. Before you proceed with this section, make sure you have
@@ -27,8 +25,7 @@ Console
 8. After you've configured Runtime Monitoring for your accounts, switch back to
    the Amazon EKS console. The **Status** of your EKS
    add-on should have changed to **Ready to install**.
-9. ###### (Optional)
-   Providing EKS add-on configuration schema
+9. ###### (Optional) Providing EKS add-on configuration schema
 
 For the add-on **Version**, if you choose
 **v1.5.0** or above, Runtime Monitoring supports
@@ -109,8 +106,7 @@ Use the following values for the request parameters:
     }
     ```
     + For information about supported `addonVersion`,
-     see [Kubernetes versions supported by GuardDuty security
-     agent](prereq-runtime-monitoring-eks-support.md#gdu-agent-supported-k8-version "prereq-runtime-monitoring-eks-support.md#gdu-agent-supported-k8-version").
+     see [Kubernetes versions supported by GuardDuty security agent](prereq-runtime-monitoring-eks-support.md#gdu-agent-supported-k8-version "prereq-runtime-monitoring-eks-support.md#gdu-agent-supported-k8-version").
 
 - Alternatively, you can use AWS CLI. For more information, see [create-addon](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/create-addon.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/eks/create-addon.html").
 

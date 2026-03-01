@@ -20,8 +20,7 @@ disassociate your account from the existing administrator account. Alternatively
 disassociate and remove your account from their organization.
 
 Accounts associated by invitation have the similar overall administrator account-to-member relationship as
-accounts associated by AWS Organizations, as described in [Understanding the relationship
-between GuardDuty administrator account and member accounts](administrator_member_relationships.md "administrator_member_relationships.md"). However, invitation administrator account users
+accounts associated by AWS Organizations, as described in [Understanding the relationship between GuardDuty administrator account and member accounts](administrator_member_relationships.md "administrator_member_relationships.md"). However, invitation administrator account users
 cannot enable GuardDuty on behalf of associated member accounts or view other non-member
 accounts within their AWS Organizations organization.
 
@@ -34,5 +33,4 @@ verification service that operates only in the US East (N. Virginia) Region.
 ###### Topics
 
 - [Adding accounts by invitation](guardduty_become_console.md "guardduty_become_console.md")
-- [Consolidating GuardDuty administrator accounts under a single
-  organization](consolidate-orgs.md "consolidate-orgs.md")
+- [Consolidating GuardDuty administrator accounts under a single organization](consolidate-orgs.md "consolidate-orgs.md")

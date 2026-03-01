@@ -65,10 +65,7 @@ Amazon EKS](../../../eks/latest/userguide/security-best-practices.md "../../../e
 
 ## CredentialAccess:Kubernetes/MaliciousIPCaller
 
-### An API
-
-commonly used to access credentials or secrets in a Kubernetes cluster was invoked
-from a known malicious IP address.
+### An API commonly used to access credentials or secrets in a Kubernetes cluster was invoked from a known malicious IP address.
 
 **Default severity: High**
 
@@ -93,10 +90,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## CredentialAccess:Kubernetes/MaliciousIPCaller.Custom
 
-### An
-
-API commonly used to access credentials or secrets in a Kubernetes cluster was
-invoked from an IP address on a custom threat list.
+### An API commonly used to access credentials or secrets in a Kubernetes cluster was invoked from an IP address on a custom threat list.
 
 **Default severity: High**
 
@@ -123,9 +117,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## CredentialAccess:Kubernetes/SuccessfulAnonymousAccess
 
-### An API commonly used to access credentials or secrets in a Kubernetes cluster was
-
-invoked by an unauthenticated user.
+### An API commonly used to access credentials or secrets in a Kubernetes cluster was invoked by an unauthenticated user.
 
 **Default severity: High**
 
@@ -153,10 +145,7 @@ For more information, see [Remediating EKS Protection findings](guardduty-remedi
 
 ## CredentialAccess:Kubernetes/TorIPCaller
 
-### An API
-
-commonly used to access credentials or secrets in a Kubernetes cluster was invoked
-from a Tor exit node IP address.
+### An API commonly used to access credentials or secrets in a Kubernetes cluster was invoked from a Tor exit node IP address.
 
 **Default severity: High**
 
@@ -185,10 +174,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## DefenseEvasion:Kubernetes/MaliciousIPCaller
 
-### An API
-
-commonly used to evade defensive measures was invoked from a known malicious IP
-address.
+### An API commonly used to evade defensive measures was invoked from a known malicious IP address.
 
 **Default severity: High**
 
@@ -213,10 +199,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## DefenseEvasion:Kubernetes/MaliciousIPCaller.Custom
 
-### An
-
-API commonly used to evade defensive measures was invoked from an IP address on
-a custom threat list.
+### An API commonly used to evade defensive measures was invoked from an IP address on a custom threat list.
 
 **Default severity: High**
 
@@ -243,10 +226,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## DefenseEvasion:Kubernetes/SuccessfulAnonymousAccess
 
-### An
-
-API commonly used to evade defensive measures was invoked by an unauthenticated
-user.
+### An API commonly used to evade defensive measures was invoked by an unauthenticated user.
 
 **Default severity: High**
 
@@ -273,10 +253,7 @@ For more information, see [Remediating EKS Protection findings](guardduty-remedi
 
 ## DefenseEvasion:Kubernetes/TorIPCaller
 
-### An API commonly
-
-used to evade defensive measures was invoked from a Tor exit node IP
-address.
+### An API commonly used to evade defensive measures was invoked from a Tor exit node IP address.
 
 **Default severity: High**
 
@@ -304,10 +281,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## Discovery:Kubernetes/MaliciousIPCaller
 
-### An API commonly
-
-used to discover resources in a Kubernetes cluster was invoked from an IP
-address.
+### An API commonly used to discover resources in a Kubernetes cluster was invoked from an IP address.
 
 **Default severity: Medium**
 
@@ -341,10 +315,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## Discovery:Kubernetes/MaliciousIPCaller.Custom
 
-### An API
-
-commonly used to discover resources in a Kubernetes cluster was invoked from an IP
-address on a custom threat list.
+### An API commonly used to discover resources in a Kubernetes cluster was invoked from an IP address on a custom threat list.
 
 **Default severity: Medium**
 
@@ -371,10 +342,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## Discovery:Kubernetes/SuccessfulAnonymousAccess
 
-### An API
-
-commonly used to discover resources in a Kubernetes cluster was invoked by an
-unauthenticated user.
+### An API commonly used to discover resources in a Kubernetes cluster was invoked by an unauthenticated user.
 
 **Default severity: Medium**
 
@@ -406,10 +374,7 @@ For more information, see [Remediating EKS Protection findings](guardduty-remedi
 
 ## Discovery:Kubernetes/TorIPCaller
 
-### An API commonly used
-
-to discover resources in a Kubernetes cluster was invoked from a Tor exit node IP
-address.
+### An API commonly used to discover resources in a Kubernetes cluster was invoked from a Tor exit node IP address.
 
 **Default severity: Medium**
 
@@ -438,9 +403,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## Execution:Kubernetes/ExecInKubeSystemPod
 
-### A command was
-
-executed inside a pod within the `kube-system` namespace
+### A command was executed inside a pod within the `kube-system` namespace
 
 **Default severity: Medium**
 
@@ -463,10 +426,7 @@ information, see [Remediating EKS Protection findings](guardduty-remediate-kuber
 
 ## Impact:Kubernetes/MaliciousIPCaller
 
-### An API commonly
-
-used to tamper with resources in a Kubernetes cluster was invoked from a known
-malicious IP address.
+### An API commonly used to tamper with resources in a Kubernetes cluster was invoked from a known malicious IP address.
 
 **Default severity: High**
 
@@ -491,10 +451,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## Impact:Kubernetes/MaliciousIPCaller.Custom
 
-### An API
-
-commonly used to tamper with resources in a Kubernetes cluster was invoked from an IP
-address on a custom threat list.
+### An API commonly used to tamper with resources in a Kubernetes cluster was invoked from an IP address on a custom threat list.
 
 **Default severity: High**
 
@@ -521,10 +478,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## Impact:Kubernetes/SuccessfulAnonymousAccess
 
-### An API
-
-commonly used to tamper with resources in a Kubernetes cluster was invoked by an
-unauthenticated user.
+### An API commonly used to tamper with resources in a Kubernetes cluster was invoked by an unauthenticated user.
 
 **Default severity: High**
 
@@ -551,10 +505,7 @@ For more information, see [Remediating EKS Protection findings](guardduty-remedi
 
 ## Impact:Kubernetes/TorIPCaller
 
-### An API commonly used to
-
-tamper with resources in a Kubernetes cluster was invoked from a Tor exit node IP
-address.
+### An API commonly used to tamper with resources in a Kubernetes cluster was invoked from a Tor exit node IP address.
 
 **Default severity: High**
 
@@ -583,10 +534,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## Persistence:Kubernetes/ContainerWithSensitiveMount
 
-### A
-
-container was launched with a sensitive external host path mounted
-inside.
+### A container was launched with a sensitive external host path mounted inside.
 
 **Default severity: Medium**
 
@@ -615,10 +563,7 @@ rules](findings_suppression-rule.md "findings_suppression-rule.md").
 
 ## Persistence:Kubernetes/MaliciousIPCaller
 
-### An API
-
-commonly used to obtain persistent access to a Kubernetes cluster was invoked from a
-known malicious IP address.
+### An API commonly used to obtain persistent access to a Kubernetes cluster was invoked from a known malicious IP address.
 
 **Default severity: Medium**
 
@@ -643,10 +588,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## Persistence:Kubernetes/MaliciousIPCaller.Custom
 
-### An API
-
-commonly used to obtain persistent access to a Kubernetes cluster was invoked from an
-IP address on a custom threat list.
+### An API commonly used to obtain persistent access to a Kubernetes cluster was invoked from an IP address on a custom threat list.
 
 **Default severity: Medium**
 
@@ -673,10 +615,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## Persistence:Kubernetes/SuccessfulAnonymousAccess
 
-### An
-
-API commonly used to obtain high-level permissions to a Kubernetes cluster was
-invoked by an unauthenticated user.
+### An API commonly used to obtain high-level permissions to a Kubernetes cluster was invoked by an unauthenticated user.
 
 **Default severity: High**
 
@@ -704,10 +643,7 @@ For more information, see [Remediating EKS Protection findings](guardduty-remedi
 
 ## Persistence:Kubernetes/TorIPCaller
 
-### An API commonly
-
-used to obtain persistent access to a Kubernetes cluster was invoked from a Tor exit
-node IP address.
+### An API commonly used to obtain persistent access to a Kubernetes cluster was invoked from a Tor exit node IP address.
 
 **Default severity: Medium**
 
@@ -736,9 +672,7 @@ any changes made by an adversary to your cluster. For more information, see
 
 ## Policy:Kubernetes/AdminAccessToDefaultServiceAccount
 
-### The default service account was granted admin privileges on a Kubernetes
-
-cluster.
+### The default service account was granted admin privileges on a Kubernetes cluster.
 
 **Default severity: High**
 
@@ -765,10 +699,7 @@ service account. For more information, see [Remediating EKS Protection findings]
 
 ## Policy:Kubernetes/AnonymousAccessGranted
 
-### The
-
-`system:anonymous` user was granted API permission on a Kubernetes
-cluster.
+### The `system:anonymous` user was granted API permission on a Kubernetes cluster.
 
 **Default severity: High**
 
@@ -794,9 +725,7 @@ more information, see [Remediating EKS Protection findings](guardduty-remediate-
 
 ## Policy:Kubernetes/ExposedDashboard
 
-### The dashboard for a
-
-Kubernetes cluster was exposed to the internet
+### The dashboard for a Kubernetes cluster was exposed to the internet
 
 **Default severity: Medium**
 
@@ -818,10 +747,7 @@ For more information, see [Remediating EKS Protection findings](guardduty-remedi
 
 ## Policy:Kubernetes/KubeflowDashboardExposed
 
-### The
-
-**Kubeflow** dashboard for a Kubernetes cluster was exposed to
-the Internet
+### The **Kubeflow** dashboard for a Kubernetes cluster was exposed to the Internet
 
 **Default severity: Medium**
 
@@ -845,10 +771,7 @@ For more information, see [Remediating EKS Protection findings](guardduty-remedi
 
 ## PrivilegeEscalation:Kubernetes/PrivilegedContainer
 
-### A
-
-privileged container with root level access was launched on your Kubernetes
-cluster.
+### A privileged container with root level access was launched on your Kubernetes cluster.
 
 **Default severity: Medium**
 
@@ -869,10 +792,7 @@ see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "gua
 
 ## CredentialAccess:Kubernetes/AnomalousBehavior.SecretsAccessed
 
-### A
-
-Kubernetes API commonly used to access secrets was invoked in an anomalous
-way.
+### A Kubernetes API commonly used to access secrets was invoked in an anomalous way.
 
 **Default severity: Medium**
 
@@ -901,15 +821,11 @@ that all these permissions are needed. If the permissions were granted
 mistakenly or maliciously, revoke user access and reverse any changes made by an
 unauthorized user to your cluster. For more information, see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
 
-If your AWS credentials are compromised, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If your AWS credentials are compromised, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## PrivilegeEscalation:Kubernetes/AnomalousBehavior.RoleBindingCreated
 
-### A
-
-RoleBinding or ClusterRoleBinding to an overly permissive role or sensitive
-namespace was created or modified in your Kubernetes cluster.
+### A RoleBinding or ClusterRoleBinding to an overly permissive role or sensitive namespace was created or modified in your Kubernetes cluster.
 
 **Default severity: Medium\***
 
@@ -944,14 +860,11 @@ defined in the role and subjects involved in `RoleBinding` and
 or maliciously, revoke user access and reverse any changes made by an
 unauthorized user to your cluster. For more information, see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
 
-If your AWS credentials are compromised, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If your AWS credentials are compromised, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Execution:Kubernetes/AnomalousBehavior.ExecInPod
 
-### A
-
-command was executed inside a pod in an anomalous way.
+### A command was executed inside a pod in an anomalous way.
 
 **Default severity: Medium**
 
@@ -978,14 +891,11 @@ identity used to execute the command may have been compromised. Revoke user
 access and reverse any changes made by an unauthorized user to your cluster. For
 more information, see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
 
-If your AWS credentials are compromised, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If your AWS credentials are compromised, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## PrivilegeEscalation:Kubernetes/AnomalousBehavior.WorkloadDeployed!PrivilegedContainer
 
-### A workload was launched with a privileged container in an anomalous
-
-way.
+### A workload was launched with a privileged container in an anomalous way.
 
 **Default severity: High**
 
@@ -1015,8 +925,7 @@ used to launch the container may have been compromised. Revoke user access and
 reverse any changes made by an unauthorized user to your cluster. For more
 information, see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
 
-If your AWS credentials are compromised, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If your AWS credentials are compromised, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 If this container launch is expected, it is recommended that you use a
 suppression rule with a filter criteria based on the
@@ -1027,9 +936,7 @@ more information, see [Suppression rules in GuardDuty](findings_suppression-rule
 
 ## Persistence:Kubernetes/AnomalousBehavior.WorkloadDeployed!ContainerWithSensitiveMount
 
-### A workload was deployed in an anomalous way, with a sensitive host path mounted
-
-inside the workload.
+### A workload was deployed in an anomalous way, with a sensitive host path mounted inside the workload.
 
 **Default severity: High**
 
@@ -1059,8 +966,7 @@ used to launch the container may have been compromised. Revoke user access and
 reverse any changes made by an unauthorized user to your cluster. For more
 information, see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
 
-If your AWS credentials are compromised, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If your AWS credentials are compromised, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 If this container launch is expected, it is recommended that you use a
 suppression rule with a filter criteria based on the
@@ -1071,9 +977,7 @@ more information, see [Suppression rules in GuardDuty](findings_suppression-rule
 
 ## Execution:Kubernetes/AnomalousBehavior.WorkloadDeployed
 
-### A
-
-workload was launched in an anomalous way.
+### A workload was launched in an anomalous way.
 
 **Default severity: Low\***
 
@@ -1111,8 +1015,7 @@ used to launch the container may have been compromised. Revoke user access and
 reverse any changes made by an unauthorized user to your cluster. For more
 information, see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
 
-If your AWS credentials are compromised, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If your AWS credentials are compromised, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 If this container launch is expected, it is recommended that you use a
 suppression rule with a filter criteria based on the
@@ -1123,10 +1026,7 @@ more information, see [Suppression rules in GuardDuty](findings_suppression-rule
 
 ## PrivilegeEscalation:Kubernetes/AnomalousBehavior.RoleCreated
 
-### A
-
-highly permissive Role or ClusterRole was created or modified in an anomalous
-way.
+### A highly permissive Role or ClusterRole was created or modified in an anomalous way.
 
 **Default severity: Low**
 
@@ -1159,8 +1059,7 @@ follow least privilege principles. If the permissions were granted mistakenly or
 maliciously, revoke user access and reverse any changes made by an unauthorized
 user to your cluster. For more information, see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
 
-If your AWS credentials are compromised, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If your AWS credentials are compromised, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Discovery:Kubernetes/AnomalousBehavior.PermissionChecked
 
@@ -1193,5 +1092,4 @@ permissions are needed. If the permissions were granted mistakenly or
 maliciously, revoke user access and reverse any changes made by an unauthorized
 user to your cluster. For more information, see [Remediating EKS Protection findings](guardduty-remediate-kubernetes.md "guardduty-remediate-kubernetes.md").
 
-If your AWS credentials are compromised, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If your AWS credentials are compromised, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").

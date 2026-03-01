@@ -34,9 +34,7 @@ You can't reactivate retired GuardDuty finding types.
 
 ## Exfiltration:S3/ObjectRead.Unusual
 
-### An IAM entity
-
-invoked an S3 API in a suspicious way.
+### An IAM entity invoked an S3 API in a suspicious way.
 
 **Default severity: Medium\***
 
@@ -63,9 +61,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Impact:S3/PermissionsModification.Unusual
 
-### An IAM entity
-
-invoked an API to modify permissions on one or more S3 resources.
+### An IAM entity invoked an API to modify permissions on one or more S3 resources.
 
 **Default severity: Medium\***
 
@@ -89,9 +85,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Impact:S3/ObjectDelete.Unusual
 
-### An IAM entity invoked an
-
-API used to delete data in an S3 bucket.
+### An IAM entity invoked an API used to delete data in an S3 bucket.
 
 **Default severity: Medium\***
 
@@ -114,9 +108,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Discovery:S3/BucketEnumeration.Unusual
 
-### An IAM entity
-
-invoked an S3 API used to discover S3 buckets within your network.
+### An IAM entity invoked an S3 API used to discover S3 buckets within your network.
 
 **Default severity: Medium\***
 
@@ -141,10 +133,7 @@ If this activity is unexpected for the associated principal, it may indicate tha
 
 ## Persistence:IAMUser/NetworkPermissions
 
-### An IAM entity
-
-invoked an API commonly used to change the network access permissions for
-security groups, routes, and ACLs in your AWS account.
+### An IAM entity invoked an API commonly used to change the network access permissions for security groups, routes, and ACLs in your AWS account.
 
 **Default severity: Medium\***
 
@@ -168,15 +157,11 @@ instance.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Persistence:IAMUser/ResourcePermissions
 
-### A principal
-
-invoked an API commonly used to change the security access policies of various
-resources in your AWS account.
+### A principal invoked an API commonly used to change the security access policies of various resources in your AWS account.
 
 **Default severity: Medium\***
 
@@ -201,15 +186,11 @@ to that resource.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Persistence:IAMUser/UserPermissions
 
-### A principal invoked an
-
-API commonly used to add, modify, or delete IAM users, groups or policies in
-your AWS account.
+### A principal invoked an API commonly used to add, modify, or delete IAM users, groups or policies in your AWS account.
 
 **Default severity: Medium\***
 
@@ -237,15 +218,11 @@ leaving their AWS account accessible to the attacker.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## PrivilegeEscalation:IAMUser/AdministrativePermissions
 
-### A
-
-principal has attempted to assign a highly permissive policy to
-themselves.
+### A principal has attempted to assign a highly permissive policy to themselves.
 
 **Default severity: Low\***
 
@@ -272,15 +249,11 @@ account still accessible to the attacker.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Recon:IAMUser/NetworkPermissions
 
-### A principal invoked an
-
-API commonly used to change the network access permissions for security groups,
-routes, and ACLs in your AWS account.
+### A principal invoked an API commonly used to change the network access permissions for security groups, routes, and ACLs in your AWS account.
 
 **Default severity: Medium\***
 
@@ -305,15 +278,11 @@ have.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Recon:IAMUser/ResourcePermissions
 
-### A principal invoked an
-
-API commonly used to change the security access policies of various resources in
-your AWS account.
+### A principal invoked an API commonly used to change the security access policies of various resources in your AWS account.
 
 **Default severity: Medium\***
 
@@ -338,15 +307,11 @@ have.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Recon:IAMUser/UserPermissions
 
-### A principal invoked an API
-
-commonly used to add, modify, or delete IAM users, groups or policies in your
-AWS account.
+### A principal invoked an API commonly used to add, modify, or delete IAM users, groups or policies in your AWS account.
 
 **Default severity: Medium\***
 
@@ -370,15 +335,11 @@ principal has no prior history of invoking this API in this way.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## ResourceConsumption:IAMUser/ComputeResources
 
-### A principal
-
-invoked an API commonly used to launch Compute resources like EC2
-Instances.
+### A principal invoked an API commonly used to launch Compute resources like EC2 Instances.
 
 **Default severity: Medium\***
 
@@ -401,15 +362,11 @@ its credentials to maintain access to your account.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## Stealth:IAMUser/LoggingConfigurationModified
 
-### A principal
-
-invoked an API commonly used to stop CloudTrail Logging, delete existing logs, and
-otherwise eliminate traces of activity in your AWS account.
+### A principal invoked an API commonly used to stop CloudTrail Logging, delete existing logs, and otherwise eliminate traces of activity in your AWS account.
 
 **Default severity: Medium\***
 
@@ -430,14 +387,11 @@ trace of their activity.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## UnauthorizedAccess:IAMUser/ConsoleLogin
 
-### An unusual console
-
-login by a principal in your AWS account was observed.
+### An unusual console login by a principal in your AWS account was observed.
 
 **Default severity: Medium\***
 
@@ -461,14 +415,11 @@ from this specific location.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## UnauthorizedAccess:EC2/TorIPCaller
 
-### Your EC2 instance
-
-is receiving inbound connections from a Tor exit node.
+### Your EC2 instance is receiving inbound connections from a Tor exit node.
 
 **Default severity: Medium**
 
@@ -481,14 +432,11 @@ the intent of hiding the attacker's true identity.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Backdoor:EC2/XORDDOS
 
-### An EC2 instance is attempting to communicate
-
-with an IP address that is associated with XOR DDoS malware.
+### An EC2 instance is attempting to communicate with an IP address that is associated with XOR DDoS malware.
 
 **Default severity: High**
 
@@ -504,14 +452,11 @@ malware is then used as part of a botnet to launch distributed denial of service
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## Behavior:IAMUser/InstanceLaunchUnusual
 
-### A user launched an EC2 instance of an
-
-unusual type.
+### A user launched an EC2 instance of an unusual type.
 
 **Default severity: High**
 
@@ -522,14 +467,11 @@ credentials might be compromised.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").
 
 ## CryptoCurrency:EC2/BitcoinTool.A
 
-### EC2 instance is communicating with Bitcoin
-
-mining pools.
+### EC2 instance is communicating with Bitcoin mining pools.
 
 **Default severity: High**
 
@@ -542,14 +484,11 @@ instance might be compromised.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2
-instance](compromised-ec2.md "compromised-ec2.md").
+If this activity is unexpected, your instance may be compromised. For more information, see [Remediating a potentially compromised Amazon EC2 instance](compromised-ec2.md "compromised-ec2.md").
 
 ## UnauthorizedAccess:IAMUser/UnusualASNCaller
 
-### An API was invoked from an IP address of
-
-an unusual network.
+### An API was invoked from an IP address of an unusual network.
 
 **Default severity: High**
 
@@ -561,5 +500,4 @@ privileges, etc. This can indicate unauthorized access to your AWS resources.
 
 **Remediation recommendations:**
 
-If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS
-credentials](compromised-creds.md "compromised-creds.md").
+If this activity is unexpected, your credentials may be compromised. For more information, see [Remediating potentially compromised AWS credentials](compromised-creds.md "compromised-creds.md").

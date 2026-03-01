@@ -1,15 +1,11 @@
-# Managing automated security agent for
-
-Fargate (Amazon ECS only)
+# Managing automated security agent for Fargate (Amazon ECS only)
 
 Runtime Monitoring supports managing the security agent for your Amazon ECS clusters (AWS Fargate) only through GuardDuty. There is
 no support for managing the security agent manually on Amazon ECS clusters.
 
-Before proceeding with the steps in this section, make sure to follow [Prerequisites for AWS Fargate (Amazon ECS
-only) support](prereq-runtime-monitoring-ecs-support.md "prereq-runtime-monitoring-ecs-support.md").
+Before proceeding with the steps in this section, make sure to follow [Prerequisites for AWS Fargate (Amazon ECS only) support](prereq-runtime-monitoring-ecs-support.md "prereq-runtime-monitoring-ecs-support.md").
 
-Based on the [Approaches to manage
-GuardDuty security agent in Amazon ECS-Fargate resources](how-runtime-monitoring-works-ecs-fargate.md#gdu-runtime-approaches-agent-deployment-ecs-clusters "how-runtime-monitoring-works-ecs-fargate.md#gdu-runtime-approaches-agent-deployment-ecs-clusters"), choose a
+Based on the [Approaches to manage GuardDuty security agent in Amazon ECS-Fargate resources](how-runtime-monitoring-works-ecs-fargate.md#gdu-runtime-approaches-agent-deployment-ecs-clusters "how-runtime-monitoring-works-ecs-fargate.md#gdu-runtime-approaches-agent-deployment-ecs-clusters"), choose a
 preferred method to enable GuardDuty automated agent for your resources.
 
 ###### Contents
@@ -21,9 +17,7 @@ organization. A GuardDuty member account can't modify this configuration. The
 delegated GuardDuty administrator account manages their member accounts using AWS Organizations. For more information about
 multi-account environments, see [Managing multiple accounts in GuardDuty](guardduty_accounts.md "guardduty_accounts.md").
 
-### Enabling
-
-automated agent configuration for delegated GuardDuty administrator account
+### Enabling automated agent configuration for delegated GuardDuty administrator account
 
 Manage for all Amazon ECS clusters (account level)
 If you chose **Enable for all accounts** for
@@ -271,9 +265,7 @@ For steps to update the service, see the following resources:
      in the *Amazon Elastic Container Service API Reference*.
     * [update-service](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html") in the *AWS CLI Command Reference*.
 
-### Auto-enable for all member
-
-accounts
+### Auto-enable for all member accounts
 
 Manage for all Amazon ECS clusters (account level)
 The following steps assume that you chose **Enable for all
@@ -513,9 +505,7 @@ For steps to update the service, see the following resources:
      in the *Amazon Elastic Container Service API Reference*.
     * [update-service](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html") in the *AWS CLI Command Reference*.
 
-### Enabling automated agent
-
-configuration for existing active member accounts
+### Enabling automated agent configuration for existing active member accounts
 
 Manage for all Amazon ECS clusters (account level)
 
@@ -754,9 +744,7 @@ For steps to update the service, see the following resources:
      in the *Amazon Elastic Container Service API Reference*.
     * [update-service](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html") in the *AWS CLI Command Reference*.
 
-### Auto-enable Automated agent
-
-configuration for new members
+### Auto-enable Automated agent configuration for new members
 
 Manage for all Amazon ECS clusters (account level)
 
@@ -991,9 +979,7 @@ For steps to update the service, see the following resources:
      in the *Amazon Elastic Container Service API Reference*.
     * [update-service](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecs/update-service.html") in the *AWS CLI Command Reference*.
 
-### Enabling
-
-Automated agent configuration for active member accounts selectively
+### Enabling Automated agent configuration for active member accounts selectively
 
 Manage for all Amazon ECS (account level)
 
@@ -1245,8 +1231,7 @@ For steps to update the service, see the following resources:
 2.  In the navigation pane, choose **Runtime
     Monitoring**.
 3.  Under the **Configuration** tab:
-    1. ###### To manage Automated agent configuration for all Amazon ECS clusters
-       (account level)
+    1. ###### To manage Automated agent configuration for all Amazon ECS clusters (account level)
 
     Choose **Enable** in the **Automated
     agent configuration** section for
@@ -1256,9 +1241,7 @@ For steps to update the service, see the following resources:
 
         1. Choose **Save**.
 
-    2. ###### To manage Automated agent configuration by excluding some of the
-
-       Amazon ECS clusters (cluster level)
+    2. ###### To manage Automated agent configuration by excluding some of the Amazon ECS clusters (cluster level)
        1. Add a tag to the Amazon ECS cluster for which you want to
           exclude all of the tasks. The key-value pair must be
           `GuardDutyManaged`-`false`.
@@ -1356,9 +1339,7 @@ For steps to update the service, see the following resources:
        will manage the deployment of the security agent in the
        sidecar container. 4. Choose **Save**.
 
-    3. ###### To manage Automated agent configuration by including some of the
-
-       Amazon ECS clusters (cluster level)
+    3. ###### To manage Automated agent configuration by including some of the Amazon ECS clusters (cluster level)
        1. Add a tag to an Amazon ECS cluster for which you want to
           include all of the tasks. The key-value pair must be
           `GuardDutyManaged`-`true`.

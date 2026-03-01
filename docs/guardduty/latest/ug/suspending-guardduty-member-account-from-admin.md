@@ -1,14 +1,11 @@
-# Suspending GuardDuty for
-
-member account
+# Suspending GuardDuty for member account
 
 As a delegated GuardDuty administrator account, you can suspend the GuardDuty service for a member account in your
 organization. If you do this, the member account stills stays in your GuardDuty
 organization. You can also re-enable GuardDuty for these member accounts at a later time.
 However, if you eventually want to disassociate (remove) this member account, then
 **after** following the steps in this section, you must
-follow the steps in [Disassociating
-(removing) member account from administrator account](disassociate-remove-member-account-from-admin.md "disassociate-remove-member-account-from-admin.md").
+follow the steps in [Disassociating (removing) member account from administrator account](disassociate-remove-member-account-from-admin.md "disassociate-remove-member-account-from-admin.md").
 
 When you suspend GuardDuty in a member account, you can expect the following
 changes:
@@ -23,8 +20,7 @@ If the member account has enabled Malware Protection for S3 for one or more buck
 account, then suspending GuardDuty doesn't impact the configuration of
 Malware Protection for S3. The member account will continue incurring the usage cost for
 Malware Protection for S3. For the member account to stop using Malware Protection for S3, they must disable
-this feature for the protected buckets. For more information, see [Disabling Malware Protection for S3 for a protected
-bucket](disable-malware-s3-protected-bucket.md "disable-malware-s3-protected-bucket.md").
+this feature for the protected buckets. For more information, see [Disabling Malware Protection for S3 for a protected bucket](disable-malware-s3-protected-bucket.md "disable-malware-s3-protected-bucket.md").
 Choose a preferred method to suspend GuardDuty for a member account in your
 organization.
 
@@ -76,5 +72,4 @@ you want to suspend this account. If you have a list of account IDs
 that you want to remove, separate them by a space character.
 
 If you further want to disassociate (remove) this member account, then follow the
-steps in [Disassociating
-(removing) member account from administrator account](disassociate-remove-member-account-from-admin.md "disassociate-remove-member-account-from-admin.md").
+steps in [Disassociating (removing) member account from administrator account](disassociate-remove-member-account-from-admin.md "disassociate-remove-member-account-from-admin.md").

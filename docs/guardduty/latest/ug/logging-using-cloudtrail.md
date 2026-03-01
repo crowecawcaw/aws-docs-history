@@ -48,9 +48,7 @@ identity information helps you determine the following:
 For more information, see [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## GuardDuty control plane
-
-events in CloudTrail
+## GuardDuty control plane events in CloudTrail
 
 By default, CloudTrail logs all the GuardDuty API operations provided in the [Amazon GuardDuty API Reference](../APIReference.md "../APIReference.md") as
 events in CloudTrail files.
@@ -64,9 +62,7 @@ and AWS Fargate (Amazon Elastic Container Service (Amazon ECS) only) tasks to co
 types](runtime-monitoring-collected-events.md "runtime-monitoring-collected-events.md") for your AWS workloads
 and then send them to GuardDuty for threat detection and analysis.
 
-### Logging and monitoring
-
-data events
+### Logging and monitoring data events
 
 You can optionally configure the AWS CloudTrail logs to view the data events for your
 GuardDuty security agent.

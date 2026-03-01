@@ -1,6 +1,4 @@
-# Test GuardDuty findings in dedicated
-
-accounts
+# Test GuardDuty findings in dedicated accounts
 
 Use this document to run a tester script that generates GuardDuty findings against test
 resources that will be deployed in your AWS account. You can perform these steps when you
@@ -12,15 +10,12 @@ information about the experience of testing GuardDuty findings, see [Considerati
 ###### Contents
 
 - [Considerations](#considerations-generate-gdu-findings-tester "#considerations-generate-gdu-findings-tester")
-- [GuardDuty findings tester script can
-  generate](#gdu-findings-tester-generates "#gdu-findings-tester-generates")
+- [GuardDuty findings tester script can generate](#gdu-findings-tester-generates "#gdu-findings-tester-generates")
 - [Step 1 - Prerequisites](#prerequisites-gdu-tester-script "#prerequisites-gdu-tester-script")
 - [Step 2 - Deploy AWS resources](#deploy-gdu-tester-script "#deploy-gdu-tester-script")
 - [Step 3 - Run tester scripts](#run-gdu-tester-script "#run-gdu-tester-script")
-- [Step 4 - Clean up AWS test
-  resources](#clean-gdu-tester-script-resources "#clean-gdu-tester-script-resources")
-- [Troubleshooting common
-  issues](#troubleshooting-gdu-tester-script-issues "#troubleshooting-gdu-tester-script-issues")
+- [Step 4 - Clean up AWS test resources](#clean-gdu-tester-script-resources "#clean-gdu-tester-script-resources")
+- [Troubleshooting common issues](#troubleshooting-gdu-tester-script-issues "#troubleshooting-gdu-tester-script-issues")
 
 ## Considerations
 
@@ -34,8 +29,7 @@ Before you proceed, take the following considerations into account:
   properly scoped with a clear account boundary.
 - The tester script generates over 100 GuardDuty findings with different AWS
   resource combinations. Presently, this does't include all the [GuardDuty finding types](guardduty_finding-types-active.md "guardduty_finding-types-active.md"). For a list of finding
-  types that you can generate with this tester script, see [GuardDuty findings tester script can
-  generate](#gdu-findings-tester-generates "#gdu-findings-tester-generates").
+  types that you can generate with this tester script, see [GuardDuty findings tester script can generate](#gdu-findings-tester-generates "#gdu-findings-tester-generates").
 
 ###### Note
 
@@ -62,8 +56,7 @@ enrolled in a 30-day free trial.
 
 GuardDuty offers optional protection plans. At the time of enabling
 GuardDuty, certain protection plans also get enabled and are included in
-the GuardDuty 30-day free trial. For more information, see [Using GuardDuty 30-day free
-trial](guardduty-pricing.md#using-guardduty-30-day-free-trial "guardduty-pricing.md#using-guardduty-30-day-free-trial").
+the GuardDuty 30-day free trial. For more information, see [Using GuardDuty 30-day free trial](guardduty-pricing.md#using-guardduty-30-day-free-trial "guardduty-pricing.md#using-guardduty-30-day-free-trial").
 
 **GuardDuty is already enabled in your account prior
 to running the tester script**
@@ -77,15 +70,12 @@ By running this tester script, certain protection plans may get
 enabled for the first time in your dedicated account in a Region.
 This will start the 30-day free trial for that protection plan. For
 information about free trial associated with each protection plan,
-see [Using GuardDuty 30-day free
-trial](guardduty-pricing.md#using-guardduty-30-day-free-trial "guardduty-pricing.md#using-guardduty-30-day-free-trial").
+see [Using GuardDuty 30-day free trial](guardduty-pricing.md#using-guardduty-30-day-free-trial "guardduty-pricing.md#using-guardduty-30-day-free-trial").
 
 - As long as the GuardDuty tester infrastructure is deployed, you may occasionally
   receive [UnauthorizedAccess:EC2/TorClient](guardduty_finding-types-ec2.md#unauthorizedaccess-ec2-torclient "guardduty_finding-types-ec2.md#unauthorizedaccess-ec2-torclient") findings from the PenTest instance.
 
-## GuardDuty findings tester script can
-
-generate
+## GuardDuty findings tester script can generate
 
 Presently, the tester script generates following finding types that are related to
 Amazon EC2, Amazon EKS, Amazon S3, IAM, and EKS audit logs:
@@ -213,15 +203,12 @@ deploy the resources:
   a CDK stack into an AWS environment, the environment must first be
   bootstrapped. This process of provisioning specific AWS resources in your
   environment that are used by AWS CDK is part of the steps that you will
-  perform in the next section - [Steps to deploy
-  AWS resources](#steps-deploy-resource-test-guardduty-findings "#steps-deploy-resource-test-guardduty-findings").
+  perform in the next section - [Steps to deploy AWS resources](#steps-deploy-resource-test-guardduty-findings "#steps-deploy-resource-test-guardduty-findings").
 
 For more information about how bootstrapping works, see [Bootstrapping](../../../cdk/v2/guide/bootstrapping.md "../../../cdk/v2/guide/bootstrapping.md") in the
 _AWS Cloud Development Kit (AWS CDK) Developer Guide_.
 
-### Steps to deploy
-
-AWS resources
+### Steps to deploy AWS resources
 
 Perform the following steps to start deploying the resources:
 
@@ -297,8 +284,7 @@ aws ssm start-session
 The tester script is a Python-based program that dynamically builds a bash
 script to generate findings based on your input. You have flexibility to
 generate findings based on one or more AWS resource types, GuardDuty protection
-plans, [Threat Purposes](guardduty_finding-format.md#guardduty_threat_purposes "guardduty_finding-format.md#guardduty_threat_purposes") (tactics), [Foundational data sources](guardduty_data-sources.md "guardduty_data-sources.md"), or [GuardDuty findings tester script can
-generate](#gdu-findings-tester-generates "#gdu-findings-tester-generates").
+plans, [Threat Purposes](guardduty_finding-format.md#guardduty_threat_purposes "guardduty_finding-format.md#guardduty_threat_purposes") (tactics), [Foundational data sources](guardduty_data-sources.md "guardduty_data-sources.md"), or [GuardDuty findings tester script can generate](#gdu-findings-tester-generates "#gdu-findings-tester-generates").
 
 Use the following command examples as reference, and run one or more commands
 to generate findings that you want to explore:
@@ -370,9 +356,7 @@ For more information about the parameters that you can use
 to filter findings, see [list-findings](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-findings.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-findings.html") in the
 _AWS CLI Command Reference_.
 
-## Step 4 - Clean up AWS test
-
-resources
+## Step 4 - Clean up AWS test resources
 
 The account-level settings and other configuration status updates made during [Step 3 - Run tester scripts](#run-gdu-tester-script "#run-gdu-tester-script") return to
 the original state when the tester script concludes.
@@ -390,9 +374,7 @@ cdk destroy
   **GuardDutyTesterStack**. For information about steps, see
   [Deleting a stack on the CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.md").
 
-## Troubleshooting common
-
-issues
+## Troubleshooting common issues
 
 GuardDuty has identified common issues and recommends troubleshooting steps:
 
@@ -413,9 +395,7 @@ Availability Zone` – Some Availability zones don't support
 
   Console
 
-  ###### To identify Availability zones that support preferred
-
-  instance type
+  ###### To identify Availability zones that support preferred instance type
 
       1. Sign in to the AWS Management Console and open the Amazon EC2 console at
        [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -467,5 +447,4 @@ Availability Zone` – Some Availability zones don't support
        '`us-east-1c`'],` where
        you must specify the Availability zones for your instance
        type.
-      4. Continue with the remaining steps under [Steps to deploy
-       AWS resources](#steps-deploy-resource-test-guardduty-findings "#steps-deploy-resource-test-guardduty-findings").
+      4. Continue with the remaining steps under [Steps to deploy AWS resources](#steps-deploy-resource-test-guardduty-findings "#steps-deploy-resource-test-guardduty-findings").

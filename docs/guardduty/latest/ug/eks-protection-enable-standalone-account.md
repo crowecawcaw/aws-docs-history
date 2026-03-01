@@ -1,14 +1,11 @@
-# Enabling EKS Protection for a
-
-standalone account
+# Enabling EKS Protection for a standalone account
 
 A standalone account owns the decision to enable or disable a protection plan in their
 AWS account in a specific Region.
 
 If your account is associated with a GuardDuty administrator account through AWS Organizations, or by the method of
 invitation, this section doesn't apply to you. For
-information about managing multiple accounts, see [Enabling EKS Protection in multiple-account
-environments](eks-protection-enable-multiple-accounts.md "eks-protection-enable-multiple-accounts.md").
+information about managing multiple accounts, see [Enabling EKS Protection in multiple-account environments](eks-protection-enable-multiple-accounts.md "eks-protection-enable-multiple-accounts.md").
 
 After you enable EKS Protection, GuardDuty will start monitoring EKS audit logs for the Amazon EKS
 clusters in your account.

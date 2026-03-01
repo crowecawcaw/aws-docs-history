@@ -22,8 +22,7 @@ commands. The generated sample findings include fictitious details to help you
 understand the finding details associated with each GuardDuty finding. These
 findings are marked with a prefix **[SAMPLE]**.
 
-[Test GuardDuty findings in dedicated
-accounts](guardduty_findings-scripts.md "guardduty_findings-scripts.md")
+[Test GuardDuty findings in dedicated accounts](guardduty_findings-scripts.md "guardduty_findings-scripts.md")
 
 You can test specific GuardDuty findings in your environment. Run
 `guardduty-tester` script in a dedicated non-production
@@ -31,8 +30,7 @@ AWS account. For GuardDuty to detect and simulate findings, it will deploy certa
 resources in your environment. This experience is different than generating
 sample findings.
 
-[Viewing generated findings in GuardDuty
-console](guardduty_working-with-findings.md "guardduty_working-with-findings.md")
+[Viewing generated findings in GuardDuty console](guardduty_working-with-findings.md "guardduty_working-with-findings.md")
 
 Learn how to review the generated findings in the
 GuardDuty console.

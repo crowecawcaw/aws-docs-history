@@ -1,6 +1,4 @@
-# Creating suppression rules in
-
-GuardDuty
+# Creating suppression rules in GuardDuty
 
 A suppression rule is a set of criteria that includes using filter attributes and
 providing values for which you don't want GuardDuty to generate a finding type. The
@@ -27,9 +25,7 @@ types.
 
 Console
 
-###### To create a
-
-suppression rule using the console:
+###### To create a suppression rule using the console:
 
 1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
 2. On the **Suppression rules** page, click on the **Create suppression rule**
@@ -53,9 +49,7 @@ suppression rule using the console:
 You can also create a suppression rule from an existing saved filter. For
 more information about creating filters, see [Filtering findings in GuardDuty](guardduty_filter-findings.md "guardduty_filter-findings.md").
 
-###### To create a
-
-suppression rule from a saved filter:
+###### To create a suppression rule from a saved filter:
 
 1. Open the GuardDuty console at [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/ "https://console.aws.amazon.com/guardduty/").
 2. On the **Findings** page, from the **Saved rules**

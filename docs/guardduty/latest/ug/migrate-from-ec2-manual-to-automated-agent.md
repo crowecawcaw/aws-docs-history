@@ -1,6 +1,4 @@
-# Migrating from Amazon EC2 manual agent to
-
-automated agent
+# Migrating from Amazon EC2 manual agent to automated agent
 
 This section applies to your AWS account if you were previously managing the security agent
 manually and now want to use the GuardDuty automated agent configuration. If this doesn't apply to
@@ -32,8 +30,7 @@ instances**
   (`GuardDutyManaged`:`true`), GuardDuty creates an SSM association that
   will install and manage the security agent on the selected EC2 instances. This is an
   expected behavior that helps you manage the security agent on selected EC2 instances only.
-  For more information, see [How Runtime Monitoring works with Amazon EC2
-  instances](how-runtime-monitoring-works-ec2.md "how-runtime-monitoring-works-ec2.md").
+  For more information, see [How Runtime Monitoring works with Amazon EC2 instances](how-runtime-monitoring-works-ec2.md "how-runtime-monitoring-works-ec2.md").
 
 To prevent GuardDuty from installing and managing the security agent, remove the inclusion
 tag from these EC2 instances. For more information, see [Add and delete

@@ -1,10 +1,7 @@
-# Updating an entity list or IP address
-
-list
+# Updating an entity list or IP address list
 
 Entity lists and IP address lists help you customize the threat detection capabilities in GuardDuty. For more
-information about these lists, see [Understanding entity lists and IP address
-lists](guardduty_upload-lists.md#guardduty-threat-intel-list-entity-sets "guardduty_upload-lists.md#guardduty-threat-intel-list-entity-sets").
+information about these lists, see [Understanding entity lists and IP address lists](guardduty_upload-lists.md#guardduty-threat-intel-list-entity-sets "guardduty_upload-lists.md#guardduty-threat-intel-list-entity-sets").
 
 You can update the name of a list, S3 bucket location, expected bucket owner account ID,
 and the entries in an existing list. If you update the
@@ -12,8 +9,7 @@ entries in a list, you must follow the steps to activate the list again for
 GuardDuty to use the latest version of the list. After you update or
 activate an entity list or IP address list, it might take a few minutes
 for this list to be effective. For more information,
-see [Important
-considerations for GuardDuty lists](guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations "guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations").
+see [Important considerations for GuardDuty lists](guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations "guardduty_upload-lists.md#guardduty-lists-entity-sets-considerations").
 
 ###### Note
 

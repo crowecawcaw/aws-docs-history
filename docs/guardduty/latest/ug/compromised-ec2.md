@@ -1,6 +1,4 @@
-# Remediating a potentially compromised Amazon EC2
-
-instance
+# Remediating a potentially compromised Amazon EC2 instance
 
 When GuardDuty generates [finding
 types that indicate potentially compromised Amazon EC2 resources](guardduty_finding-types-active.md#findings-table "guardduty_finding-types-active.md#findings-table"), then your

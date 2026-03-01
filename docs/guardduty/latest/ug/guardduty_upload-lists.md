@@ -1,6 +1,4 @@
-# Customizing threat detection with entity lists and
-
-IP address lists
+# Customizing threat detection with entity lists and IP address lists
 
 Amazon GuardDuty monitors the security of your AWS environment by analyzing and processing VPC
 Flow Logs, AWS CloudTrail event logs, and DNS logs. By enabling one or more [Use-case focused
@@ -15,26 +13,17 @@ IP addresses, domains, or both.
 
 ###### Topics
 
-- [Understanding entity lists and IP address
-  lists](#guardduty-threat-intel-list-entity-sets "#guardduty-threat-intel-list-entity-sets")
-- [Important
-  considerations for GuardDuty lists](#guardduty-lists-entity-sets-considerations "#guardduty-lists-entity-sets-considerations")
+- [Understanding entity lists and IP address lists](#guardduty-threat-intel-list-entity-sets "#guardduty-threat-intel-list-entity-sets")
+- [Important considerations for GuardDuty lists](#guardduty-lists-entity-sets-considerations "#guardduty-lists-entity-sets-considerations")
 - [List formats](#prepare_list "#prepare_list")
 - [Understanding list statuses](#guardduty-entity-list-statuses "#guardduty-entity-list-statuses")
-- [Setting up prerequisites for entity lists and IP address
-  lists](guardduty-lists-prerequisites.md "guardduty-lists-prerequisites.md")
-- [Adding and activating an entity list or IP
-  list](guardduty-lists-create-activate.md "guardduty-lists-create-activate.md")
-- [Updating an entity list or IP address
-  list](guardduty-lists-update-procedure.md "guardduty-lists-update-procedure.md")
-- [De-activating entity list
-  or IP address list](guardduty-lists-deactivate-procedure.md "guardduty-lists-deactivate-procedure.md")
-- [Deleting entity list
-  or IP address list](guardduty-lists-delete-procedure.md "guardduty-lists-delete-procedure.md")
+- [Setting up prerequisites for entity lists and IP address lists](guardduty-lists-prerequisites.md "guardduty-lists-prerequisites.md")
+- [Adding and activating an entity list or IP list](guardduty-lists-create-activate.md "guardduty-lists-create-activate.md")
+- [Updating an entity list or IP address list](guardduty-lists-update-procedure.md "guardduty-lists-update-procedure.md")
+- [De-activating entity list or IP address list](guardduty-lists-deactivate-procedure.md "guardduty-lists-deactivate-procedure.md")
+- [Deleting entity list or IP address list](guardduty-lists-delete-procedure.md "guardduty-lists-delete-procedure.md")
 
-## Understanding entity lists and IP address
-
-lists
+## Understanding entity lists and IP address lists
 
 GuardDuty offers two implementation approaches: entity lists (recommended) and IP lists.
 Both approaches help you specify trusted sources, which stop GuardDuty from generate
@@ -64,14 +53,11 @@ threat IP address lists per AWS account per Region.
 
 ###### Note
 
-To migrate from IP address lists to entity lists, follow [Prerequisites for entity
-lists](guardduty-lists-prerequisites.md#guardduty-entity-list-prerequisites "guardduty-lists-prerequisites.md#guardduty-entity-list-prerequisites"), then
+To migrate from IP address lists to entity lists, follow [Prerequisites for entity lists](guardduty-lists-prerequisites.md#guardduty-entity-list-prerequisites "guardduty-lists-prerequisites.md#guardduty-entity-list-prerequisites"), then
 add and activate the required entity list. After this, you can choose to
 deactivate or delete the corresponding IP address list.
 
-## Important
-
-considerations for GuardDuty lists
+## Important considerations for GuardDuty lists
 
 Before you begin working with lists, read the following considerations:
 
@@ -99,8 +85,7 @@ findings, but not to Route53 Resolver DNS query logs findings.
 - GuardDuty uses a list for threat detection only when the status of the list
   becomes **Active**.
 - Whenever you add or update an entry in the list's S3 bucket location, you must
-  activate the list again. For more information, see [Updating an entity list or IP address
-  list](guardduty-lists-update-procedure.md "guardduty-lists-update-procedure.md").
+  activate the list again. For more information, see [Updating an entity list or IP address list](guardduty-lists-update-procedure.md "guardduty-lists-update-procedure.md").
 - Entity lists and IP addresses have different quotas. For more information, see
   [GuardDuty quotas](guardduty_limits.md "guardduty_limits.md").
 
@@ -321,8 +306,7 @@ if any action is required. The following list describes valid status values:
 - **Inactive** – Indicates that the list is
   currently not in use. For GuardDuty to use this list for threat detection in your
   environment, see Step 3: Activating an entity list or IP address list in
-  [Adding and activating an entity list or IP
-  list](guardduty-lists-create-activate.md "guardduty-lists-create-activate.md").
+  [Adding and activating an entity list or IP list](guardduty-lists-create-activate.md "guardduty-lists-create-activate.md").
 - **Error** – Indicates that there is an issue with the
   list. Hover over the status to view the error details.
 - **Activating** – Indicates that GuardDuty has initiated
