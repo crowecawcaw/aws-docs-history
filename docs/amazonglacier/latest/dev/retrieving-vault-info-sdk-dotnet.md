@@ -9,10 +9,8 @@ Amazon Glacier (original standalone vault-based service) is no longer accepting 
 ###### Topics
 
 - [Retrieve Vault Metadata for a Vault](#retrieve-vault-info-sdk-dotnet-lowlevel-one-vault "#retrieve-vault-info-sdk-dotnet-lowlevel-one-vault")
-- [Retrieve Vault Metadata for
-  All Vaults in a Region](#retrieve-vault-info-sdk-dotnet-lowlevel-all-vaults "#retrieve-vault-info-sdk-dotnet-lowlevel-all-vaults")
-- [Example: Retrieving Vault Metadata Using the
-  Low-Level API of the AWS SDK for .NET](#creating-vaults-sdk-dotnet-example "#creating-vaults-sdk-dotnet-example")
+- [Retrieve Vault Metadata for All Vaults in a Region](#retrieve-vault-info-sdk-dotnet-lowlevel-all-vaults "#retrieve-vault-info-sdk-dotnet-lowlevel-all-vaults")
+- [Example: Retrieving Vault Metadata Using the Low-Level API of the AWS SDK for .NET](#creating-vaults-sdk-dotnet-example "#creating-vaults-sdk-dotnet-example")
 
 ## Retrieve Vault Metadata for a Vault
 
@@ -61,9 +59,7 @@ Console.WriteLine(
 
 For information about the underlying REST API, see [Describe Vault (GET vault)](api-vault-get.md "api-vault-get.md").
 
-## Retrieve Vault Metadata for
-
-All Vaults in a Region
+## Retrieve Vault Metadata for All Vaults in a Region
 
 You can also use the `ListVaults` method to retrieve metadata for all the vaults
 in a specific AWS Region.
@@ -106,9 +102,7 @@ vault.
 
 The `ListVaults` method calls the underlying REST API (see [List Vaults (GET vaults)](api-vaults-get.md "api-vaults-get.md")).
 
-## Example: Retrieving Vault Metadata Using the
-
-Low-Level API of the AWS SDK for .NET
+## Example: Retrieving Vault Metadata Using the Low-Level API of the AWS SDK for .NET
 
 For a working code example, see [Example: Vault Operations Using the Low-Level API of the AWS SDK for .NET](creating-vaults-dotnet-sdk.md#vault-operations-example-dotnet-lowlevel "creating-vaults-dotnet-sdk.md#vault-operations-example-dotnet-lowlevel"). The C# code example creates a vault and
 retrieves the vault metadata.

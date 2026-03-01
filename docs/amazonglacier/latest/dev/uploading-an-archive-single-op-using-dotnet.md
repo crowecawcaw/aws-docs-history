@@ -4,9 +4,7 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
 
-# Uploading an Archive in a Single Operation
-
-Using the AWS SDK for .NET in Amazon Glacier
+# Uploading an Archive in a Single Operation Using the AWS SDK for .NET in Amazon Glacier
 
 Both the [high-level and low-level APIs](using-aws-sdk.md "using-aws-sdk.md") provided by the Amazon SDK for .NET provide a method to upload an archive in a single operation.
 
@@ -91,9 +89,7 @@ parameter.
 
 In response, Amazon Glacier returns an archive ID of the newly uploaded archive.
 
-### Example: Uploading an Archive in a Single Operation
-
-Using the Low-Level API of the AWS SDK for .NET
+### Example: Uploading an Archive in a Single Operation Using the Low-Level API of the AWS SDK for .NET
 
 The following C# code example illustrates the preceding steps. The example uses the AWS SDK for .NET to upload an archive to a vault
 (`examplevault`).

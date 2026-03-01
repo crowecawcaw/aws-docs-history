@@ -21,16 +21,11 @@ objects](../../../AmazonS3/latest/userguide/lifecycle-transition-general-conside
 
 ###### Topics
 
-- [Choosing an Amazon Glacier Data Retrieval
-  Policy](#data-retrieval-policy-details "#data-retrieval-policy-details")
-- [Using the Amazon Glacier Console to Set Up a Data
-  Retrieval Policy](#data-retrieval-policy-using-console "#data-retrieval-policy-using-console")
-- [Using the Amazon Glacier API to Set Up a Data Retrieval
-  Policy](#data-retrieval-policy-using-api "#data-retrieval-policy-using-api")
+- [Choosing an Amazon Glacier Data Retrieval Policy](#data-retrieval-policy-details "#data-retrieval-policy-details")
+- [Using the Amazon Glacier Console to Set Up a Data Retrieval Policy](#data-retrieval-policy-using-console "#data-retrieval-policy-using-console")
+- [Using the Amazon Glacier API to Set Up a Data Retrieval Policy](#data-retrieval-policy-using-api "#data-retrieval-policy-using-api")
 
-## Choosing an Amazon Glacier Data Retrieval
-
-Policy
+## Choosing an Amazon Glacier Data Retrieval Policy
 
 You can choose from three types of Amazon Glacier data retrieval policies: No Retrieval Limit,
 Free Tier Only, and Max Retrieval Rate.
@@ -85,9 +80,7 @@ charges within a month. In that case, the Free Tier Only policy takes effect for
 retrieval requests, but does not affect past requests. You will be billed for the
 previously incurred charges.
 
-### Max Retrieval
-
-Rate Policy
+### Max Retrieval Rate Policy
 
 You can set your data retrieval policy to Max Retrieval Rate to control the peak retrieval
 rate by specifying a data retrieval quota that has a bytes-per-hour maximum. When
@@ -105,16 +98,12 @@ allowance, you can first set your policy to Free Tier Only, and then switch to t
 Max Retrieval Rate policy later if you need to. For more information about how your
 retrieval allowance is calculated, go to [Amazon Glacier FAQs](https://aws.amazon.com/glacier/faqs/ "https://aws.amazon.com/glacier/faqs/").
 
-### No Retrieval Limit
-
-Policy
+### No Retrieval Limit Policy
 
 If your data retrieval policy is set to No Retrieval Limit, all valid data retrieval
 requests are accepted and your data retrieval costs will vary based on your usage.
 
-## Using the Amazon Glacier Console to Set Up a Data
-
-Retrieval Policy
+## Using the Amazon Glacier Console to Set Up a Data Retrieval Policy
 
 ###### To create a data retrieval policy by using the Amazon Glacier console
 
@@ -145,16 +134,12 @@ a max retrieval rate**.
 
 6. Choose **Save changes**.
 
-## Using the Amazon Glacier API to Set Up a Data Retrieval
-
-Policy
+## Using the Amazon Glacier API to Set Up a Data Retrieval Policy
 
 You can view and set a data retrieval policy by using the Amazon Glacier REST API or by using the
 AWS SDKs.
 
-### Using the Amazon Glacier REST API to Set Up a
-
-Data Retrieval Policy
+### Using the Amazon Glacier REST API to Set Up a Data Retrieval Policy
 
 You can view and set a data retrieval policy by using the Amazon Glacier REST API. You can view
 an existing data retrieval policy by using the [Get Data Retrieval Policy (GET policy)](api-GetDataRetrievalPolicy.md "api-GetDataRetrievalPolicy.md") operation. You set a data retrieval policy by using the [Set Data Retrieval Policy (PUT policy)](api-SetDataRetrievalPolicy.md "api-SetDataRetrievalPolicy.md") operation.
@@ -170,9 +155,7 @@ When you use the [Initiate Job (POST jobs)](api-initiate-job-post.md "api-initia
 job that will exceed the maximum retrieval rate set in your data retrieval policy,
 the `Initiate Job` operation stops and throws an exception.
 
-### Using the AWS SDKs to Set Up a Data
-
-Retrieval Policy
+### Using the AWS SDKs to Set Up a Data Retrieval Policy
 
 AWS provides SDKs for you to develop applications for Amazon Glacier. These SDKs provide
 libraries that map to the underlying REST API and provide objects that enable you to

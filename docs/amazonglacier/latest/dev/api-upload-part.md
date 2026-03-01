@@ -29,8 +29,7 @@ true:
   For information about computing a SHA256 linear hash, see
   [Computing Checksums](checksum-calculations.md "checksum-calculations.md").
 - Part size does not match—The size of each part except the last must match the size that is specified in the
-  corresponding [Initiate Multipart Upload (POST
-  multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md") request. The size of the last part must
+  corresponding [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md") request. The size of the last part must
   be the same size as, or smaller than, the specified size.
 
 ###### Note
@@ -181,8 +180,7 @@ Date: Wed, 10 Feb 2017 12:00:00 GMT
 
 ## Related Sections
 
-- [Initiate Multipart Upload (POST
-  multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
+- [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
 - [Upload Part (PUT uploadID)](api-upload-part.md "api-upload-part.md")
 - [Complete Multipart Upload (POST uploadID)](api-multipart-complete-upload.md "api-multipart-complete-upload.md")
 - [Abort Multipart Upload (DELETE uploadID)](api-multipart-abort-upload.md "api-multipart-abort-upload.md")

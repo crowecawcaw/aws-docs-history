@@ -10,21 +10,16 @@ Both the [high-level and low-level APIs](using-aws-sdk.md "using-aws-sdk.md") pr
 
 ###### Topics
 
-- [Creating a Vault Using the High-Level API of the
-  AWS SDK for .NET](#create-vault-dotnet-highlevel "#create-vault-dotnet-highlevel")
+- [Creating a Vault Using the High-Level API of the AWS SDK for .NET](#create-vault-dotnet-highlevel "#create-vault-dotnet-highlevel")
 - [Creating a Vault Using the Low-Level API of the AWS SDK for .NET](#create-vault-dotnet-lowlevel "#create-vault-dotnet-lowlevel")
 
-## Creating a Vault Using the High-Level API of the
-
-AWS SDK for .NET
+## Creating a Vault Using the High-Level API of the AWS SDK for .NET
 
 The `ArchiveTransferManager` class of the high-level API provides the
 `CreateVault` method you can use to create a vault in an AWS
 Region.
 
-### Example: Vault Operations
-
-Using the High-Level API of the AWS SDK for .NET
+### Example: Vault Operations Using the High-Level API of the AWS SDK for .NET
 
 The following C# code example creates and delete a vault in the US West (Oregon) Region. For a list of AWS Regions in which you can create vaults, see
 [Accessing Amazon Glacier](amazon-glacier-accessing.md "amazon-glacier-accessing.md").

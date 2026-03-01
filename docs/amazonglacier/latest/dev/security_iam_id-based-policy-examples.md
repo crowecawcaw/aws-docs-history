@@ -4,9 +4,7 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
 
-# Identity-based policy
-
-examples for Amazon Glacier
+# Identity-based policy examples for Amazon Glacier
 
 By default, users and roles don't have permission to create or modify Amazon Glacier
 resources. To grant users permission to perform actions on the
@@ -56,17 +54,12 @@ you create the vault.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Amazon Glacier
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#id-based-policy-view-own-permissions "#id-based-policy-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon Glacier console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#id-based-policy-view-own-permissions "#id-based-policy-view-own-permissions")
 - [Customer Managed Policy Examples](#id-based-policy-customer-managed "#id-based-policy-customer-managed")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Glacier resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -99,9 +92,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Amazon Glacier
-
-console
+## Using the Amazon Glacier console
 
 To access the Amazon Glacier console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Amazon Glacier resources
@@ -152,9 +143,7 @@ Both of the Amazon Glacier AWS Managed policies discussed in the next section gr
 
 For more information, see [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -205,17 +194,12 @@ fictitious account IDs.
 
 ###### Examples
 
-- [Example 1: Allow a User to Download
-  Archives from a Vault](#vault-access-policy-example-init-jobs "#vault-access-policy-example-init-jobs")
-- [Example 2: Allow a User to Create a
-  Vault and Configure Notifications](#vault-access-policy-example-create-vault "#vault-access-policy-example-create-vault")
-- [Example 3: Allow a User to Upload
-  Archives to a Specific Vault](#vault-access-policy-example-upload-archives "#vault-access-policy-example-upload-archives")
+- [Example 1: Allow a User to Download Archives from a Vault](#vault-access-policy-example-init-jobs "#vault-access-policy-example-init-jobs")
+- [Example 2: Allow a User to Create a Vault and Configure Notifications](#vault-access-policy-example-create-vault "#vault-access-policy-example-create-vault")
+- [Example 3: Allow a User to Upload Archives to a Specific Vault](#vault-access-policy-example-upload-archives "#vault-access-policy-example-upload-archives")
 - [Example 4: Allow a User Full Permissions on a Specific Vault](#vault-access-policy-example-full-permission "#vault-access-policy-example-full-permission")
 
-### Example 1: Allow a User to Download
-
-Archives from a Vault
+### Example 1: Allow a User to Download Archives from a Vault
 
 To download an archive, you first initiate a job to retrieve the archive. After the
 retrieval job is complete, you can download the data. The following example policy
@@ -231,9 +215,7 @@ or programmatically by calling either the [Describe Vault (GET vault)](api-vault
 [List Vaults (GET vaults)](api-vaults-get.md "api-vaults-get.md")
 API actions.
 
-### Example 2: Allow a User to Create a
-
-Vault and Configure Notifications
+### Example 2: Allow a User to Create a Vault and Configure Notifications
 
 The following example policy grants permissions to create a vault in the
 us-west-2 Region as specified in the `Resource` element and configure
@@ -247,14 +229,11 @@ When you grant permissions to create a vault using the
 in the `Resource` value because you don't know the vault name until after you
 create the vault.
 
-### Example 3: Allow a User to Upload
-
-Archives to a Specific Vault
+### Example 3: Allow a User to Upload Archives to a Specific Vault
 
 The following example policy grants permissions to upload archives to a specific vault
 in the us-west-2 Region. These permissions allow a user to upload an archive all at once using the [Upload Archive (POST archive)](api-archive-post.md "api-archive-post.md") API operation
-or in parts using the [Initiate Multipart Upload (POST
-multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md") API operation.
+or in parts using the [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md") API operation.
 
 ### Example 4: Allow a User Full Permissions on a Specific Vault
 

@@ -52,8 +52,7 @@ that upload data.
 ###### Topics
 
 - [Example Signature Calculation](#example-signature-calculation "#example-signature-calculation")
-- [Calculating Signatures for the Streaming
-  Operations](#signature-calculation-streaming "#signature-calculation-streaming")
+- [Calculating Signatures for the Streaming Operations](#signature-calculation-streaming "#signature-calculation-streaming")
 
 ## Example Signature Calculation
 
@@ -133,9 +132,7 @@ SignedHeaders=host;x-amz-date;x-amz-glacier-version,
 Signature=3ce5b2f2fffac9262b4da9256f8d086b4aaf42eba5f111c21681a65a127b7c2a
 ```
 
-## Calculating Signatures for the Streaming
-
-Operations
+## Calculating Signatures for the Streaming Operations
 
 [Upload Archive (POST archive)](api-archive-post.md "api-archive-post.md") and [Upload Part (PUT uploadID)](api-upload-part.md "api-upload-part.md") are streaming operations
 that require you to include an additional header `x-amz-content-sha256` when

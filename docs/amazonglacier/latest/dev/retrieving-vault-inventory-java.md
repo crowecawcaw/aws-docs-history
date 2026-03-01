@@ -74,9 +74,7 @@ GetJobOutputResult jobOutputResult = client.getJobOutput(jobOutputRequest);
 
 For information about the job related underlying REST API, see [Job Operations](job-operations.md "job-operations.md").
 
-## Example: Retrieving a Vault Inventory Using the Amazon SDK
-
-for Java
+## Example: Retrieving a Vault Inventory Using the Amazon SDK for Java
 
 The following Java code example retrieves the vault inventory for the specified vault.
 

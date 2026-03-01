@@ -4,13 +4,10 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
 
-# List Provisioned Capacity (GET
-
-provisioned-capacity)
+# List Provisioned Capacity (GET provisioned-capacity)
 
 This operation lists the provisioned capacity units for the specified AWS account. For
-more information about provisioned capacity, see [Archive
-Retrieval Options](downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options "downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options").
+more information about provisioned capacity, see [Archive Retrieval Options](downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options "downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options").
 
 A provisioned capacity unit lasts for one month starting at the date and time of purchase,
 which is the start date. The unit expires on the expiration date, which is exactly one month
@@ -19,8 +16,7 @@ after the start date to the nearest second.
 If the start date is on the 31st day of a month, the expiration date is the last day of
 the next month. For example, if the start date is August 31, the expiration date is
 September 30. If the start date is January 31, the expiration date is February 28. You can
-see this functionality in the [Example
-Response](#api-ListProvisionedCapacity-example1-response "#api-ListProvisionedCapacity-example1-response").
+see this functionality in the [Example Response](#api-ListProvisionedCapacity-example1-response "#api-ListProvisionedCapacity-example1-response").
 
 ## Request Syntax
 
@@ -41,9 +37,7 @@ x-amz-glacier-version: 2012-06-01
 The `AccountId` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '`-`' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request.
 If you specify your account ID, do not include any hyphens ('-') in the ID.
 
-## Request
-
-Parameters
+## Request Parameters
 
 This operation does not use request parameters.
 
@@ -117,9 +111,7 @@ exceptions and error messages, see [Error Responses](api-error-responses.md "api
 
 The following example lists the provisioned capacity units for an account.
 
-### Example
-
-Request
+### Example Request
 
 In this example, a GET request is sent to retrieve a list of the provisioned
 capacity units for the specified account.
@@ -132,9 +124,7 @@ x-amz-glacier-version: 2012-06-01
 Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west-2/glacier/aws4_request,SignedHeaders=host;x-amz-date;x-amz-glacier-version,Signature=9257c16da6b25a715ce900a5b45b03da0447acf430195dcb540091b12966f2a2
 ```
 
-### Example
-
-Response
+### Example Response
 
 If the request was successful, Amazon Glacier (Amazon Glacier) returns a `HTTP 200 OK` with a list
 of provisioned capacity units for the account as shown in the following
@@ -170,5 +160,4 @@ Content-Length: *length*
 
 ## Related Sections
 
-- [Purchase Provisioned Capacity (POST
-  provisioned-capacity)](api-PurchaseProvisionedCapacity.md "api-PurchaseProvisionedCapacity.md")
+- [Purchase Provisioned Capacity (POST provisioned-capacity)](api-PurchaseProvisionedCapacity.md "api-PurchaseProvisionedCapacity.md")

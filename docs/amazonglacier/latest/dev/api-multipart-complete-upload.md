@@ -156,8 +156,7 @@ you can send a GET request to retrieve the archive.
 
 ## Related Sections
 
-- [Initiate Multipart Upload (POST
-  multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
+- [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
 - [Upload Part (PUT uploadID)](api-upload-part.md "api-upload-part.md")
 - [Abort Multipart Upload (DELETE uploadID)](api-multipart-abort-upload.md "api-multipart-abort-upload.md")
 - [List Multipart Uploads (GET multipart-uploads)](api-multipart-list-uploads.md "api-multipart-list-uploads.md")

@@ -20,8 +20,7 @@ The `ArchiveTransferManager` class of the high-level API provides the
 
 ### Example: Deleting a Vault Using the High-Level API of the AWS SDK for .NET
 
-For a working code example, see [Example: Vault Operations
-Using the High-Level API of the AWS SDK for .NET](creating-vaults-dotnet-sdk.md#vault-operations-example-dotnet-highlevel "creating-vaults-dotnet-sdk.md#vault-operations-example-dotnet-highlevel"). The C# code example shows basic vault
+For a working code example, see [Example: Vault Operations Using the High-Level API of the AWS SDK for .NET](creating-vaults-dotnet-sdk.md#vault-operations-example-dotnet-highlevel "creating-vaults-dotnet-sdk.md#vault-operations-example-dotnet-highlevel"). The C# code example shows basic vault
 operations including create and delete vault.
 
 ## Deleting a Vault Using the Low-Level API of the AWS SDK for .NET

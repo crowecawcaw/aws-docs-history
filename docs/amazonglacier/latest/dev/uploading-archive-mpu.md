@@ -10,12 +10,10 @@ Amazon Glacier (original standalone vault-based service) is no longer accepting 
 
 - [Multipart Upload Process](#MPUprocess "#MPUprocess")
 - [Quick Facts](#qfacts "#qfacts")
-- [Uploading Large Archives by Using the
-  AWS CLI](uploading-an-archive-mpu-using-cli.md "uploading-an-archive-mpu-using-cli.md")
+- [Uploading Large Archives by Using the AWS CLI](uploading-an-archive-mpu-using-cli.md "uploading-an-archive-mpu-using-cli.md")
 - [Uploading Large Archives in Parts Using the Amazon SDK for Java](uploading-an-archive-mpu-using-java.md "uploading-an-archive-mpu-using-java.md")
 - [Uploading Large Archives Using the AWS SDK for .NET](uploading-an-archive-mpu-using-dotnet.md "uploading-an-archive-mpu-using-dotnet.md")
-- [Uploading Large Archives in Parts Using the REST
-  API](uploading-an-archive-mpu-using-rest.md "uploading-an-archive-mpu-using-rest.md")
+- [Uploading Large Archives in Parts Using the REST API](uploading-an-archive-mpu-using-rest.md "uploading-an-archive-mpu-using-rest.md")
 
 ## Multipart Upload Process
 
@@ -69,9 +67,7 @@ multipart upload ID. All storage consumed by any parts associated with the
 stopped multipart upload is freed. If any part uploads were in-progress, they
 can still succeed or fail even after stopped.
 
-### Additional Multipart Upload
-
-Operations
+### Additional Multipart Upload Operations
 
 Amazon Glacier (Amazon Glacier) provides the following additional multipart upload API calls.
 

@@ -24,18 +24,14 @@ The `ArchiveTransferManager` class creates an Amazon Simple Notification Service
 Amazon Simple Queue Service (Amazon SQS) queue that is subscribed to that topic. It then initiates the
 archive retrieval job and polls the queue for the archive to be available. When the
 archive is available, download begins. For information about retrieval times, see
-[Archive
-Retrieval Options](downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options "downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options").
+[Archive Retrieval Options](downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options "downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options").
 
-### Example: Downloading an Archive Using
-
-the High-Level API of the AWS SDK for Java
+### Example: Downloading an Archive Using the High-Level API of the AWS SDK for Java
 
 The following Java code example downloads an archive from a vault
 (`examplevault`) in the US West (Oregon) Region (`us-west-2`).
 
-For step-by-step instructions to run this sample, see [Running Java Examples for Amazon Glacier
-Using Eclipse](using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java "using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java"). You need to update the code
+For step-by-step instructions to run this sample, see [Running Java Examples for Amazon Glacier Using Eclipse](using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java "using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java"). You need to update the code
 as shown with an existing archive ID and the local file path where you want to save
 the downloaded archive.
 
@@ -198,18 +194,14 @@ checksum Amazon Glacier returns in response to your describe job request to veri
 that the entire byte range you have downloaded is the same as the byte range
 that is stored in Amazon Glacier.
 
-For a working example, see [Example 2: Retrieving an
-Archive Using the Low-Level API of the AWS SDK for Java—Download Output in Chunks](#downloading-an-archive-with-range-using-java-example "#downloading-an-archive-with-range-using-java-example") .
+For a working example, see [Example 2: Retrieving an Archive Using the Low-Level API of the AWS SDK for Java—Download Output in Chunks](#downloading-an-archive-with-range-using-java-example "#downloading-an-archive-with-range-using-java-example").
 
-### Example 1: Retrieving an Archive Using
-
-the Low-Level API of the AWS SDK for Java
+### Example 1: Retrieving an Archive Using the Low-Level API of the AWS SDK for Java
 
 The following Java code example downloads an archive from the specified vault.
 After the job completes, the example downloads the entire output in a single
 `getJobOutput` call. For an example of downloading output in chunks,
-see [Example 2: Retrieving an
-Archive Using the Low-Level API of the AWS SDK for Java—Download Output in Chunks](#downloading-an-archive-with-range-using-java-example "#downloading-an-archive-with-range-using-java-example") .
+see [Example 2: Retrieving an Archive Using the Low-Level API of the AWS SDK for Java—Download Output in Chunks](#downloading-an-archive-with-range-using-java-example "#downloading-an-archive-with-range-using-java-example").
 
 The example performs the following tasks:
 
@@ -467,9 +459,7 @@ public class AmazonGlacierDownloadArchiveWithSQSPolling {
 
 ```
 
-### Example 2: Retrieving an
-
-Archive Using the Low-Level API of the AWS SDK for Java—Download Output in Chunks
+### Example 2: Retrieving an Archive Using the Low-Level API of the AWS SDK for Java—Download Output in Chunks
 
 The following Java code example retrieves an archive from Amazon Glacier. The code example
 downloads the job output in chunks by specifying byte range in a

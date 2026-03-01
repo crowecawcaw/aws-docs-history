@@ -9,10 +9,8 @@ Amazon Glacier (original standalone vault-based service) is no longer accepting 
 ###### Topics
 
 - [Retrieve Vault Metadata for a Vault](#retrieve-vault-info-sdk-java-lowlevel-one-vault "#retrieve-vault-info-sdk-java-lowlevel-one-vault")
-- [Retrieve Vault Metadata for
-  All Vaults in a Region](#retrieve-vault-info-sdk-java-lowlevel-all-vaults "#retrieve-vault-info-sdk-java-lowlevel-all-vaults")
-- [Example: Retrieving Vault Metadata Using the Amazon SDK
-  for Java](#retrieving-vault-info-sdk-java-example "#retrieving-vault-info-sdk-java-example")
+- [Retrieve Vault Metadata for All Vaults in a Region](#retrieve-vault-info-sdk-java-lowlevel-all-vaults "#retrieve-vault-info-sdk-java-lowlevel-all-vaults")
+- [Example: Retrieving Vault Metadata Using the Amazon SDK for Java](#retrieving-vault-info-sdk-java-example "#retrieving-vault-info-sdk-java-example")
 
 ## Retrieve Vault Metadata for a Vault
 
@@ -55,9 +53,7 @@ System.out.print(
 
 For information about the underlying REST API, see [Describe Vault (GET vault)](api-vault-get.md "api-vault-get.md").
 
-## Retrieve Vault Metadata for
-
-All Vaults in a Region
+## Retrieve Vault Metadata for All Vaults in a Region
 
 You can also use the `listVaults` method to retrieve metadata for all the vaults
 in a specific AWS Region.
@@ -105,9 +101,7 @@ get by calling the `describeVault` method for a specific vault.
 
 The `listVaults` method calls the underlying REST API (see [List Vaults (GET vaults)](api-vaults-get.md "api-vaults-get.md")).
 
-## Example: Retrieving Vault Metadata Using the Amazon SDK
-
-for Java
+## Example: Retrieving Vault Metadata Using the Amazon SDK for Java
 
 For a working code example, see [Example: Creating a Vault Using the AWS SDK for Java](creating-vaults-sdk-java.md#creating-vaults-sdk-java-example "creating-vaults-sdk-java.md#creating-vaults-sdk-java-example"). The Java code example creates a vault
 and retrieves the vault metadata.

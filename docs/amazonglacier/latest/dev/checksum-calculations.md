@@ -53,16 +53,12 @@ You compute the SHA-256 tree hash as follows:
 
 ###### Topics
 
-- [Tree Hash Example 1: Uploading an archive in a
-  single request](#checksum-calculations-upload-archive-in-single-payload "#checksum-calculations-upload-archive-in-single-payload")
-- [Tree Hash Example 2: Uploading an archive using a
-  multipart upload](#checksum-calculations-upload-archive-using-mpu "#checksum-calculations-upload-archive-using-mpu")
+- [Tree Hash Example 1: Uploading an archive in a single request](#checksum-calculations-upload-archive-in-single-payload "#checksum-calculations-upload-archive-in-single-payload")
+- [Tree Hash Example 2: Uploading an archive using a multipart upload](#checksum-calculations-upload-archive-using-mpu "#checksum-calculations-upload-archive-using-mpu")
 - [Computing the Tree Hash of a File](#checksum-calculations-examples "#checksum-calculations-examples")
 - [Receiving Checksums When Downloading Data](checksum-calculations-range.md "checksum-calculations-range.md")
 
-## Tree Hash Example 1: Uploading an archive in a
-
-single request
+## Tree Hash Example 1: Uploading an archive in a single request
 
 When you upload an archive in a single request using the Upload Archive API (see [Upload Archive (POST archive)](api-archive-post.md "api-archive-post.md")), the request payload
 includes the entire archive. Accordingly, you must include the tree hash of the entire
@@ -74,9 +70,7 @@ tree as outlined in the preceding procedure.
 
 ![Diagram showing tree hash example uploading an archive in a single request.](images/TreeHash-ArchiveUploadSingleRequest.png)
 
-## Tree Hash Example 2: Uploading an archive using a
-
-multipart upload
+## Tree Hash Example 2: Uploading an archive using a multipart upload
 
 The process of computing the tree hash when uploading an archive using multipart upload is
 the same when uploading the archive in a single request. The only difference is that in

@@ -27,6 +27,5 @@ For automated deletion of vault archives, see [Automated deletion of vault archi
 - [Deleting a Vault in Amazon Glacier Using the AWS SDK for Java](deleting-vaults-sdk-java.md "deleting-vaults-sdk-java.md")
 - [Deleting a Vault in Amazon Glacier Using the AWS SDK for .NET](deleting-vaults-sdk-dotnet.md "deleting-vaults-sdk-dotnet.md")
 - [Deleting a Vault in Amazon Glacier Using the REST API](deleting-vault-rest-api.md "deleting-vault-rest-api.md")
-- [Deleting an Empty Vault by Using the Amazon Glacier
-  Console](deleting-vaults-console.md "deleting-vaults-console.md")
+- [Deleting an Empty Vault by Using the Amazon Glacier Console](deleting-vaults-console.md "deleting-vaults-console.md")
 - [Deleting a Vault in Amazon Glacier Using the AWS Command Line Interface](deleting-vaults-cli.md "deleting-vaults-cli.md")

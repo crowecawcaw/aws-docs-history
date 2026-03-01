@@ -293,9 +293,7 @@ Content-Length: 1444
 }
 ```
 
-### Example: Return a Partial List of
-
-Jobs
+### Example: Return a Partial List of Jobs
 
 #### Example Request
 

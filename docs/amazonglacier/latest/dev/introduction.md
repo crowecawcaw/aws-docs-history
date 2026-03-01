@@ -14,16 +14,12 @@ pricing](https://aws.amazon.com/s3/glacier/pricing/ "https://aws.amazon.com/s3/g
 
 ###### Topics
 
-- [Do You Currently Use
-  Amazon Glacier?](#are-you-a-firsttime-glacier-user "#are-you-a-firsttime-glacier-user")
+- [Do You Currently Use Amazon Glacier?](#are-you-a-firsttime-glacier-user "#are-you-a-firsttime-glacier-user")
 - [Amazon Glacier Data Model](amazon-glacier-data-model.md "amazon-glacier-data-model.md")
-- [Supported Operations in
-  Amazon Glacier](amazon-glacier-supported-operations.md "amazon-glacier-supported-operations.md")
+- [Supported Operations in Amazon Glacier](amazon-glacier-supported-operations.md "amazon-glacier-supported-operations.md")
 - [Accessing Amazon Glacier](amazon-glacier-accessing.md "amazon-glacier-accessing.md")
 
-## Do You Currently Use
-
-Amazon Glacier?
+## Do You Currently Use Amazon Glacier?
 
 ###### Note
 

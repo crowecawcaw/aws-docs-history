@@ -11,8 +11,7 @@ You can download archives in Amazon Glacier (Amazon Glacier) using the AWS Comma
 ###### Topics
 
 - [(Prerequisite) Setting Up the AWS CLI](#Creating-Vaults-CLI-Setup "#Creating-Vaults-CLI-Setup")
-- [Example: Download an Archive
-  Using the AWS CLI](#Downloading-Archives-CLI-Implementation "#Downloading-Archives-CLI-Implementation")
+- [Example: Download an Archive Using the AWS CLI](#Downloading-Archives-CLI-Implementation "#Downloading-Archives-CLI-Implementation")
 
 ## (Prerequisite) Setting Up the AWS CLI
 
@@ -48,9 +47,7 @@ profile are used.
     aws configure list
     ```
 
-## Example: Download an Archive
-
-Using the AWS CLI
+## Example: Download an Archive Using the AWS CLI
 
 ###### Note
 

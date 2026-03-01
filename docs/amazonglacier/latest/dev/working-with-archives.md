@@ -32,8 +32,7 @@ for Amazon Glacier](../../../cli/latest/reference/glacier/index.md "../../../cli
 ###### Topics
 
 - [Archive Operations in Amazon Glacier](#archive-operations-quick-intro "#archive-operations-quick-intro")
-- [Maintaining Client-Side Archive
-  Metadata](#client-side-key-map-concept "#client-side-key-map-concept")
+- [Maintaining Client-Side Archive Metadata](#client-side-key-map-concept "#client-side-key-map-concept")
 - [Uploading an Archive in Amazon Glacier](uploading-an-archive.md "uploading-an-archive.md")
 - [Downloading an Archive in Amazon Glacier](downloading-an-archive.md "downloading-an-archive.md")
 - [Deleting an Archive in Amazon Glacier](deleting-an-archive.md "deleting-an-archive.md")
@@ -43,9 +42,7 @@ for Amazon Glacier](../../../cli/latest/reference/glacier/index.md "../../../cli
 Amazon Glacier supports the following basic archive operations: upload, download, and delete.
 Downloading an archive is an asynchronous operation.
 
-### Uploading an Archive in
-
-Amazon Glacier
+### Uploading an Archive in Amazon Glacier
 
 You can upload an archive in a single operation or upload it in parts. The API
 call you use to upload an archive in parts is referred as Multipart Upload.
@@ -62,17 +59,13 @@ requests, using either the REST API directly or by using the Amazon SDKs. For mo
 information about using Amazon Glacier with the AWS CLI, go to [AWS CLI
 Reference for Amazon Glacier](../../../cli/latest/reference/glacier/index.md "../../../cli/latest/reference/glacier/index.md"). To install the AWS CLI, go to [AWS Command Line Interface](http://aws.amazon.com/cli/ "http://aws.amazon.com/cli/").
 
-### Finding an Archive ID in
-
-Amazon Glacier
+### Finding an Archive ID in Amazon Glacier
 
 You can get the archive ID by downloading the vault inventory for the vault that
 contains the archive. For more information about downloading the vault inventory,
 see [Downloading a Vault Inventory in Amazon Glacier](vault-inventory.md "vault-inventory.md").
 
-### Downloading an Archive in
-
-Amazon Glacier
+### Downloading an Archive in Amazon Glacier
 
 Downloading an archive is an asynchronous operation. You must first initiate a job
 to download a specific archive. After receiving the job request, Amazon Glacier prepares your
@@ -83,25 +76,19 @@ an SNS topic for each individual job request or configure your vault to send a
 notification when specific events occur. For more information about downloading an
 archive, see [Downloading an Archive in Amazon Glacier](downloading-an-archive.md "downloading-an-archive.md").
 
-### Deleting an Archive in
-
-Amazon Glacier
+### Deleting an Archive in Amazon Glacier
 
 Amazon Glacier provides an API call that you can use to delete one archive at a time. For
 more information, see [Deleting an Archive in Amazon Glacier](deleting-an-archive.md "deleting-an-archive.md").
 
-### Updating an Archive in
-
-Amazon Glacier
+### Updating an Archive in Amazon Glacier
 
 After you upload an archive, you cannot update its content or its description. The
 only way you can update the archive content or its description is by deleting the
 archive and uploading another archive. Note that each time you upload an archive,
 Amazon Glacier returns to you a unique archive ID.
 
-## Maintaining Client-Side Archive
-
-Metadata
+## Maintaining Client-Side Archive Metadata
 
 Except for the optional archive description, Amazon Glacier does not support any additional
 metadata for the archives. When you upload an archive Amazon Glacier assigns an ID, an opaque

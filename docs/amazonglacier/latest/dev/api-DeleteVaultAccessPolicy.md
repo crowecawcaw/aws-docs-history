@@ -4,9 +4,7 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
 
-# Delete Vault Access Policy (DELETE
-
-access-policy)
+# Delete Vault Access Policy (DELETE access-policy)
 
 ## Description
 
@@ -38,15 +36,11 @@ x-amz-glacier-version: 2012-06-01
 
 The `AccountId` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '`-`' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 
-### Request
-
-Parameters
+### Request Parameters
 
 This operation does not use request parameters.
 
-### Request
-
-Headers
+### Request Headers
 
 This operation uses only request headers that are common to all operations. For information about common request headers, see
 [Common Request Headers](api-common-request-headers.md "api-common-request-headers.md").
@@ -68,16 +62,12 @@ x-amzn-RequestId: **x-amzn-RequestId**
 Date: **Date**
 ```
 
-### Response
-
-Headers
+### Response Headers
 
 This operation uses only response headers that are common to most responses. For information about common response headers, see
 [Common Response Headers](api-common-response-headers.md "api-common-response-headers.md").
 
-### Response
-
-Body
+### Response Body
 
 This operation does not return a response body.
 
@@ -90,9 +80,7 @@ exceptions and error messages, see [Error Responses](api-error-responses.md "api
 
 The following example demonstrates how to delete a vault access policy.
 
-### Example
-
-Request
+### Example Request
 
 In this example, a `DELETE` request is sent to the
 `access-policy` subresource of the vault named
@@ -107,9 +95,7 @@ x-amz-glacier-version: 2012-06-01
 
 ```
 
-### Example
-
-Response
+### Example Response
 
 In response, if the policy is successfully deleted Amazon Glacier returns a `204 No
  Content` as shown in the following example.

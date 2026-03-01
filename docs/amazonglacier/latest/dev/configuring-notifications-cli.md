@@ -4,9 +4,7 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
 
-# Configuring Vault Notifications Using the
-
-AWS Command Line Interface
+# Configuring Vault Notifications Using the AWS Command Line Interface
 
 This section describes how to configure vault notifications using the AWS Command Line Interface. When you
 configure notifications, you specify job completion events that trigger notification to an
@@ -20,8 +18,7 @@ Follow these steps to configure vault notification using the AWS CLI.
 ###### Topics
 
 - [(Prerequisite) Setting Up the AWS CLI](#Creating-Vaults-CLI-Setup "#Creating-Vaults-CLI-Setup")
-- [Example: Configure
-  Vault Notifications Using the AWS CLI](#Configure-Vault-Notifications-CLI-Implementation "#Configure-Vault-Notifications-CLI-Implementation")
+- [Example: Configure Vault Notifications Using the AWS CLI](#Configure-Vault-Notifications-CLI-Implementation "#Configure-Vault-Notifications-CLI-Implementation")
 
 ## (Prerequisite) Setting Up the AWS CLI
 
@@ -57,9 +54,7 @@ profile are used.
     aws configure list
     ```
 
-## Example: Configure
-
-Vault Notifications Using the AWS CLI
+## Example: Configure Vault Notifications Using the AWS CLI
 
 1. Use the `set-vault-notifications` command to configure
    notifications that will be sent when specific events happen to a vault. By

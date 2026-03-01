@@ -4,15 +4,12 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
 
-# Get Vault Notifications (GET
-
-notification-configuration)
+# Get Vault Notifications (GET notification-configuration)
 
 ## Description
 
 This operation retrieves the `notification-configuration` subresource set on the
-vault (see [Set Vault Notification Configuration (PUT
-notification-configuration)](api-vault-notifications-put.md "api-vault-notifications-put.md"). If notification configuration for a
+vault (see [Set Vault Notification Configuration (PUT notification-configuration)](api-vault-notifications-put.md "api-vault-notifications-put.md"). If notification configuration for a
 vault is not set, the operation returns a `404 Not Found` error. For more
 information about vault notifications, see [Configuring Vault Notifications in Amazon Glacier](configuring-notifications.md "configuring-notifications.md").
 
@@ -80,8 +77,7 @@ The response body contains the following JSON fields.
 
 A list of one or more events for which Amazon Glacier (Amazon Glacier) will send a notification to the
 specified Amazon SNS topic. For information about vault events for
-which you can configure a vault to publish notifications, see [Set Vault Notification Configuration (PUT
-notification-configuration)](api-vault-notifications-put.md "api-vault-notifications-put.md").
+which you can configure a vault to publish notifications, see [Set Vault Notification Configuration (PUT notification-configuration)](api-vault-notifications-put.md "api-vault-notifications-put.md").
 
 _Type_: Array
 
@@ -141,10 +137,8 @@ Content-Length: 150
 
 ## Related Sections
 
-- [Delete Vault Notifications (DELETE
-  notification-configuration)](api-vault-notifications-delete.md "api-vault-notifications-delete.md")
-- [Set Vault Notification Configuration (PUT
-  notification-configuration)](api-vault-notifications-put.md "api-vault-notifications-put.md")
+- [Delete Vault Notifications (DELETE notification-configuration)](api-vault-notifications-delete.md "api-vault-notifications-delete.md")
+- [Set Vault Notification Configuration (PUT notification-configuration)](api-vault-notifications-put.md "api-vault-notifications-put.md")
 - [Identity and Access Management for Amazon Glacier](security-iam.md "security-iam.md")
 
 ## See Also

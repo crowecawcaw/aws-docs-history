@@ -33,9 +33,7 @@ the specific error encountered.
 Amazon Glacier returns error information in the response body. The following examples show some of the error
 responses.
 
-## Example 1: Describe Job request with a job ID that does not
-
-exist
+## Example 1: Describe Job request with a job ID that does not exist
 
 Suppose you send a [Describe Job (GET JobID)](api-describe-job-get.md "api-describe-job-get.md") request for
 a job that does not exist. That is, you specify a job ID that does not exist.
@@ -109,9 +107,7 @@ Date: Wed, 10 Feb 2017 12:00:00 GMT
 }
 ```
 
-## Example 2: List Jobs request with an invalid value for the request
-
-parameter
+## Example 2: List Jobs request with an invalid value for the request parameter
 
 In this example you send a [List Jobs (GET jobs)](api-jobs-get.md "api-jobs-get.md") request to retrieve
 vault jobs with a specific `statuscode`, and you provide an incorrect `statuscode`

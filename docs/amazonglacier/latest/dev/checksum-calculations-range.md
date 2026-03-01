@@ -29,8 +29,7 @@ two types of range alignments are as follows:
   equivalent to a node in the tree hash of the whole archive. Both the range
   to retrieve and range to download must be tree hash aligned in order to
   receive checksum values for the data you download. For an example of ranges
-  and their relationship to the archive tree hash, see [Tree Hash Example:
-  Retrieving an archive range that is tree-hash aligned](#checksum-calculations-upload-archive-with-ranges "#checksum-calculations-upload-archive-with-ranges").
+  and their relationship to the archive tree hash, see [Tree Hash Example: Retrieving an archive range that is tree-hash aligned](#checksum-calculations-upload-archive-with-ranges "#checksum-calculations-upload-archive-with-ranges").
 
 Note that a range that is tree-hash aligned is also megabyte aligned.
 However, a megabyte aligned range is not necessarily tree-hash aligned.
@@ -51,9 +50,7 @@ archive data:
   aligned, then you can still get your archive data but no checksum values are returned
   when you download data in the Get Job Request.
 
-## Tree Hash Example:
-
-Retrieving an archive range that is tree-hash aligned
+## Tree Hash Example: Retrieving an archive range that is tree-hash aligned
 
 Suppose you have a 6.5 MB archive in your vault and you want to retrieve 2 MB of the
 archive. How you specify the 2 MB range in the Initiate Job request determines if
@@ -75,8 +72,7 @@ A range [*A*, *B*] is _tree-hash
 aligned_ with respect to an archive if and only if when a new tree
 hash is built over [*A*, *B*], the root of the
 tree hash of that range is equivalent to a node in the tree hash of the whole
-archive. You can see this shown in the diagram in [Tree Hash Example:
-Retrieving an archive range that is tree-hash aligned](#checksum-calculations-upload-archive-with-ranges "#checksum-calculations-upload-archive-with-ranges"). In this section, we
+archive. You can see this shown in the diagram in [Tree Hash Example: Retrieving an archive range that is tree-hash aligned](#checksum-calculations-upload-archive-with-ranges "#checksum-calculations-upload-archive-with-ranges"). In this section, we
 provide the specification for tree-hash alignment.
 
 Consider [_P_, _Q_) as the range query for

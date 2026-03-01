@@ -17,14 +17,10 @@ see [Vault Lock Policies](vault-lock-policy.md "vault-lock-policy.md").
 
 ###### Examples
 
-- [Example 1: Grant Cross-Account
-  Permissions for Specific Amazon Glacier Actions](#vault-access-multiple-accounts "#vault-access-multiple-accounts")
-- [Example 2: Grant Cross-Account
-  Permissions for MFA Delete Operations](#vault-access-mfa-authentication "#vault-access-mfa-authentication")
+- [Example 1: Grant Cross-Account Permissions for Specific Amazon Glacier Actions](#vault-access-multiple-accounts "#vault-access-multiple-accounts")
+- [Example 2: Grant Cross-Account Permissions for MFA Delete Operations](#vault-access-mfa-authentication "#vault-access-mfa-authentication")
 
-## Example 1: Grant Cross-Account
-
-Permissions for Specific Amazon Glacier Actions
+## Example 1: Grant Cross-Account Permissions for Specific Amazon Glacier Actions
 
 The following example policy grants cross-account permissions to two
 AWS accounts for a set of Amazon Glacier operations on a vault named
@@ -36,9 +32,7 @@ The account that owns the vault is billed for all costs associated with the
 vault. All requests, data transfer, and retrieval costs made by allowed external
 accounts are billed to the account that owns the vault.
 
-## Example 2: Grant Cross-Account
-
-Permissions for MFA Delete Operations
+## Example 2: Grant Cross-Account Permissions for MFA Delete Operations
 
 You can use multi-factor authentication (MFA) to protect your Amazon Glacier resources.
 To provide an extra level of security, MFA requires users to prove physical

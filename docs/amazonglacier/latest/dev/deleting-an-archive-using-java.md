@@ -38,8 +38,7 @@ For information about the underlying REST API, see [Delete Archive (DELETE archi
 ## Example: Deleting an Archive Using the AWS SDK for Java
 
 The following Java code example uses the AWS SDK for Java to delete an archive.
-For step-by-step instructions on how to run this example, see [Running Java Examples for Amazon Glacier
-Using Eclipse](using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java "using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java"). You need to update the code as shown with a vault
+For step-by-step instructions on how to run this example, see [Running Java Examples for Amazon Glacier Using Eclipse](using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java "using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java"). You need to update the code as shown with a vault
 name and the archive ID of the archive you want to delete.
 
 ###### Example

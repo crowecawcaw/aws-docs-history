@@ -66,9 +66,7 @@ abstraction for some of the operations. For example:
 For information about these SDK libraries, see [Using the AWS SDK for Java with Amazon Glacier](using-aws-sdk-for-java.md "using-aws-sdk-for-java.md") and
 [Using the AWS SDK for .NET with Amazon Glacier](using-aws-sdk-for-dot-net.md "using-aws-sdk-for-dot-net.md").
 
-### When to Use the High-Level and Low-Level
-
-API
+### When to Use the High-Level and Low-Level API
 
 In general, if the high-level API provides methods you need to perform an operation,
 you should use the high-level API because of the simplicity it provides. However, if the

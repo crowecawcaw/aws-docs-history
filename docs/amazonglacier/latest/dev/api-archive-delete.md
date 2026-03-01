@@ -120,7 +120,6 @@ Date: Wed, 10 Feb 2017 12:00:00 GMT
 
 ## Related Sections
 
-- [Initiate Multipart Upload (POST
-  multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
+- [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
 - [Upload Archive (POST archive)](api-archive-post.md "api-archive-post.md")
 - [Identity and Access Management for Amazon Glacier](security-iam.md "security-iam.md")

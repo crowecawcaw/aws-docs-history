@@ -20,8 +20,7 @@ your applications should create one client and reuse the client between threads.
 
 - [Using the Low-Level API](#about-low-level-java-api "#about-low-level-java-api")
 - [Using the High-Level API](#about-high-level-java-api "#about-high-level-java-api")
-- [Running Java Examples for Amazon Glacier
-  Using Eclipse](#setting-up-and-testing-sdk-java "#setting-up-and-testing-sdk-java")
+- [Running Java Examples for Amazon Glacier Using Eclipse](#setting-up-and-testing-sdk-java "#setting-up-and-testing-sdk-java")
 - [Setting the Endpoint](#setting-sdk-java-endpoint "#setting-sdk-java-endpoint")
 
 ## Using the Low-Level API
@@ -93,9 +92,7 @@ The high-level `ArchiveTransferManager` class can be
 constructed with an `AmazonGlacierClient` instance or an
 `AWSCredentials` instance.
 
-## Running Java Examples for Amazon Glacier
-
-Using Eclipse
+## Running Java Examples for Amazon Glacier Using Eclipse
 
 The easiest way to get started with the Java code examples is to install the
 latest AWS Toolkit for Eclipse. For information on installing or updating to the latest toolkit, go to

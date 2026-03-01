@@ -11,8 +11,7 @@ You can upload an archive in Amazon Glacier (Amazon Glacier) using the AWS Comma
 ###### Topics
 
 - [(Prerequisite) Setting Up the AWS CLI](#Creating-Vaults-CLI-Setup "#Creating-Vaults-CLI-Setup")
-- [Example: Upload an Archive
-  Using the AWS CLI](#Uploading-Archives-CLI-Implementation "#Uploading-Archives-CLI-Implementation")
+- [Example: Upload an Archive Using the AWS CLI](#Uploading-Archives-CLI-Implementation "#Uploading-Archives-CLI-Implementation")
 
 ## (Prerequisite) Setting Up the AWS CLI
 
@@ -48,9 +47,7 @@ profile are used.
     aws configure list
     ```
 
-## Example: Upload an Archive
-
-Using the AWS CLI
+## Example: Upload an Archive Using the AWS CLI
 
 In order to upload an archive you must have a vault created. For
 more information about creating vaults, see [Creating a Vault in Amazon Glacier](creating-vaults.md "creating-vaults.md").

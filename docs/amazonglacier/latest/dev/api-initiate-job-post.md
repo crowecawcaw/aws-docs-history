@@ -13,16 +13,13 @@ This operation initiates the following types of Amazon Glacier (Amazon Glacier) 
 
 ###### Topics
 
-- [Initializing an Archive or Vault
-  Inventory Retrieval Job](#api-initiate-job-post-description "#api-initiate-job-post-description")
+- [Initializing an Archive or Vault Inventory Retrieval Job](#api-initiate-job-post-description "#api-initiate-job-post-description")
 - [Requests](#api-initiate-job-post-requests "#api-initiate-job-post-requests")
 - [Responses](#api-initiate-job-post-responses "#api-initiate-job-post-responses")
 - [Examples](#api-initiate-job-post-examples "#api-initiate-job-post-examples")
 - [Related Sections](#more-info-api-initiate-job-post "#more-info-api-initiate-job-post")
 
-## Initializing an Archive or Vault
-
-Inventory Retrieval Job
+## Initializing an Archive or Vault Inventory Retrieval Job
 
 Retrieving an archive or a vault inventory are asynchronous operations that require
 you to initiate a job. Once started, job cannot be cancelled. Retrieval is a two-step
@@ -50,8 +47,7 @@ complete, you have the following options:
   is completed. You can specify an SNS topic per job request. The notification is
   sent only after Amazon Glacier completes the job. In addition to specifying an SNS
   topic per job request, you can configure vault notifications for a vault so that
-  job notifications are sent for all retrievals. For more information, see [Set Vault Notification Configuration (PUT
-  notification-configuration)](api-vault-notifications-put.md "api-vault-notifications-put.md").
+  job notifications are sent for all retrievals. For more information, see [Set Vault Notification Configuration (PUT notification-configuration)](api-vault-notifications-put.md "api-vault-notifications-put.md").
 - Get job details— You can make a [Describe Job (GET JobID)](api-describe-job-get.md "api-describe-job-get.md")
   request to obtain job status information while a job is in progress. However, it
   is more efficient to use an Amazon SNS notification to determine when a job is
@@ -63,12 +59,9 @@ The information you get via notification is same that you get by calling [Descri
 
 If for a specific event, you add both the notification configuration on the vault and
 also specify an SNS topic in your initiate job request, Amazon Glacier sends both
-notifications. For more information, see [Set Vault Notification Configuration (PUT
-notification-configuration)](api-vault-notifications-put.md "api-vault-notifications-put.md").
+notifications. For more information, see [Set Vault Notification Configuration (PUT notification-configuration)](api-vault-notifications-put.md "api-vault-notifications-put.md").
 
-### The Vault
-
-Inventory
+### The Vault Inventory
 
 Amazon Glacier updates a vault inventory approximately once a day, starting on the day
 you first upload an archive to the vault. If there have been no archive additions or
@@ -86,9 +79,7 @@ inventory useful to reconcile information, as needed, in your database with the
 actual vault inventory. For more information about the data fields returned in an
 inventory job output, see [Response Body](api-job-output-get.md#api-job-output-get-responses-elements "api-job-output-get.md#api-job-output-get-responses-elements").
 
-### Range
-
-Inventory Retrieval
+### Range Inventory Retrieval
 
 You can limit the number of inventory items retrieved by filtering on the archive
 creation date or by setting a limit.
@@ -137,9 +128,7 @@ using **Get Job Output** ([Get Job Output (GET output)](api-job-output-get.md "a
 must be tree-hash aligned. For more information about tree-hash aligned ranges, see
 [Receiving Checksums When Downloading Data](checksum-calculations-range.md "checksum-calculations-range.md").
 
-### Expedited, Standard, and Bulk
-
-Tiers
+### Expedited, Standard, and Bulk Tiers
 
 When initiating an archive retrieval job, you can specify one of the
 following options in the `Tier` field of the request body:
@@ -318,9 +307,7 @@ errors and a list of error codes, see [Error Responses](api-error-responses.md "
 
 ## Examples
 
-### Example Request: Initiate an
-
-archive retrieval job
+### Example Request: Initiate an archive retrieval job
 
 ```
 POST /-/vaults/examplevault/jobs HTTP/1.1
@@ -362,9 +349,7 @@ Location: /111122223333/vaults/examplevault/jobs/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7
 x-amz-job-id: HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID
 ```
 
-### Example
-
-Request: Initiate an inventory retrieval job
+### Example Request: Initiate an inventory retrieval job
 
 The following request initiates an inventory retrieval job to get a list of
 archives from the `examplevault` vault. The `Format` set to
@@ -387,9 +372,7 @@ Authorization: AWS4-HMAC-SHA256 Credential=AKIAIOSFODNN7EXAMPLE/20141123/us-west
 }
 ```
 
-### Example
-
-Response
+### Example Response
 
 ```
 HTTP/1.1 202 Accepted
@@ -399,11 +382,7 @@ Location: /111122223333/vaults/examplevault/jobs/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7
 x-amz-job-id: HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID
 ```
 
-### Example
-
-Requests: Initiate an inventory retrieval job by using date filtering with a set
-limit, and a subsequent request to retrieve the next page of inventory
-items.
+### Example Requests: Initiate an inventory retrieval job by using date filtering with a set limit, and a subsequent request to retrieve the next page of inventory items.
 
 The following request initiates a vault inventory retrieval job by using date
 filtering and setting a limit.
@@ -445,9 +424,7 @@ page of inventory items using a marker obtained from [Describe Job (GET JobID)](
 }
 ```
 
-### Example
-
-Response
+### Example Response
 
 ```
 HTTP/1.1 202 Accepted

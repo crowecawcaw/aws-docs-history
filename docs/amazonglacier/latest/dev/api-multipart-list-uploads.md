@@ -10,8 +10,7 @@ Amazon Glacier (original standalone vault-based service) is no longer accepting 
 
 This multipart upload operation lists in-progress multipart uploads for the specified
 vault. An in-progress multipart upload is a multipart upload that has been initiated by
-an [Initiate Multipart Upload (POST
-multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md") request, but has not yet been
+an [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md") request, but has not yet been
 completed or stopped. The list returned in the List Multipart Upload response has no
 guaranteed order.
 
@@ -128,8 +127,7 @@ _Type_: String
 
 **PartSizeInBytes**
 
-The part size specified in the [Initiate Multipart Upload (POST
-multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md") request. This is the
+The part size specified in the [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md") request. This is the
 size of all the parts in the upload except the last part, which may be
 smaller than this size.
 
@@ -223,9 +221,7 @@ Content-Length: 1054
 }
 ```
 
-### Example: Partial List of Multipart
-
-Uploads
+### Example: Partial List of Multipart Uploads
 
 The following example demonstrates how to use pagination to get a limited number of
 results. The example shows an HTTP `GET` request to the URI of the
@@ -273,8 +269,7 @@ Content-Length: 470
 
 ## Related Sections
 
-- [Initiate Multipart Upload (POST
-  multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
+- [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
 - [Upload Part (PUT uploadID)](api-upload-part.md "api-upload-part.md")
 - [Complete Multipart Upload (POST uploadID)](api-multipart-complete-upload.md "api-multipart-complete-upload.md")
 - [Abort Multipart Upload (DELETE uploadID)](api-multipart-abort-upload.md "api-multipart-abort-upload.md")

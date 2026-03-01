@@ -12,8 +12,7 @@ The following are the multipart upload operations available for use in Amazon Gl
 
 - [Abort Multipart Upload (DELETE uploadID)](api-multipart-abort-upload.md "api-multipart-abort-upload.md")
 - [Complete Multipart Upload (POST uploadID)](api-multipart-complete-upload.md "api-multipart-complete-upload.md")
-- [Initiate Multipart Upload (POST
-  multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
+- [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
 - [List Parts (GET uploadID)](api-multipart-list-parts.md "api-multipart-list-parts.md")
 - [List Multipart Uploads (GET multipart-uploads)](api-multipart-list-uploads.md "api-multipart-list-uploads.md")
 - [Upload Part (PUT uploadID)](api-upload-part.md "api-upload-part.md")

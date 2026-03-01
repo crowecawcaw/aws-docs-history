@@ -4,9 +4,7 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
 
-# Purchase Provisioned Capacity (POST
-
-provisioned-capacity)
+# Purchase Provisioned Capacity (POST provisioned-capacity)
 
 This operation purchases a provisioned capacity unit for an AWS account.
 
@@ -21,8 +19,7 @@ If the start date is January 31, the expiration date is February 28.
 Provisioned capacity helps ensure that your retrieval capacity for expedited retrievals is
 available when you need it. Each unit of capacity ensures that at least three expedited
 retrievals can be performed every five minutes and provides up to 150 MB/s of retrieval
-throughput. For more information about provisioned capacity, see [Archive
-Retrieval Options](downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options "downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options").
+throughput. For more information about provisioned capacity, see [Archive Retrieval Options](downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options "downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options").
 
 ###### Note
 
@@ -50,20 +47,14 @@ x-amz-glacier-version: 2012-06-01
 The `AccountId` value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '`-`' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request.
 If you specify your account ID, do not include any hyphens ('-') in the ID.
 
-### Request
+### Request Parameters
 
-Parameters
-
-#### Request
-
-Headers
+#### Request Headers
 
 This operation uses only request headers that are common to all operations. For information about common request headers, see
 [Common Request Headers](api-common-request-headers.md "api-common-request-headers.md").
 
-#### Request
-
-Body
+#### Request Body
 
 This operation does not have a request body.
 
@@ -81,9 +72,7 @@ Date: **Date**
 x-amz-capacity-id: `CapacityId`
 ```
 
-### Response
-
-Headers
+### Response Headers
 
 A successful response includes the following response headers, in addition to the response headers that are common to all operations. For more information about common response headers, see
 [Common Response Headers](api-common-response-headers.md "api-common-response-headers.md").
@@ -92,9 +81,7 @@ A successful response includes the following response headers, in addition to th
 | ------------------- | --------------------------------------------------------------------- |
 | `x-amz-capacity-id` | The ID that identifies the provisioned capacity unit.<br>Type: String |
 
-### Response
-
-Body
+### Response Body
 
 This operation does not return a response body.
 
@@ -111,9 +98,7 @@ errors and a list of error codes, see [Error Responses](api-error-responses.md "
 
 The following example purchases provisioned capacity for an account.
 
-### Example
-
-Request
+### Example Request
 
 The following example sends an HTTP POST request to purchase a provisioned capacity
 unit.
@@ -128,9 +113,7 @@ x-amz-glacier-version: 2012-06-01
 
 ```
 
-### Example
-
-Response
+### Example Response
 
 If the request was successful, Amazon Glacier (Amazon Glacier) returns an `HTTP 201 Created`
 response, as shown in the following example.
@@ -144,5 +127,4 @@ x-amz-capacity-id: zSaq7NzHFQDANTfQkDen4V7z
 
 ## Related Sections
 
-- [List Provisioned Capacity (GET
-  provisioned-capacity)](api-ListProvisionedCapacity.md "api-ListProvisionedCapacity.md")
+- [List Provisioned Capacity (GET provisioned-capacity)](api-ListProvisionedCapacity.md "api-ListProvisionedCapacity.md")

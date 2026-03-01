@@ -271,9 +271,7 @@ Content-Length: 906
 }
 ```
 
-### Example 2: Download only partial
-
-output
+### Example 2: Download only partial output
 
 This example retrieves only a portion of the archive prepared by Amazon Glacier in response to
 your initiate archive retrieval job request. The request uses the optional

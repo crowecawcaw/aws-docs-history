@@ -39,7 +39,6 @@ Deleting a vault can't be undone. 4. Choose **Delete**. 5. The **Delete vault** 
 1. If you're deleting a nonempty vault, you must first delete all existing archives before
    deleting the vault. You can do this by writing code to make a delete archive
    request by using either the REST API, the AWS SDK for Java, the AWS SDK for .NET or the
-   AWS CLI. For information about deleting archives, see [Step 5: Delete an Archive from a Vault in
-   Amazon Glacier](getting-started-delete-archive.md "getting-started-delete-archive.md").
+   AWS CLI. For information about deleting archives, see [Step 5: Delete an Archive from a Vault in Amazon Glacier](getting-started-delete-archive.md "getting-started-delete-archive.md").
 2. After the vault is empty, follow the steps to delete an empty vault in the preceding
    procedure.

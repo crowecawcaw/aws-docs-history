@@ -13,8 +13,7 @@ AWS CLI, or the AWS SDKs.
 
 ###### Topics
 
-- [Archive
-  Retrieval Options](#api-downloading-an-archive-two-steps-retrieval-options "#api-downloading-an-archive-two-steps-retrieval-options")
+- [Archive Retrieval Options](#api-downloading-an-archive-two-steps-retrieval-options "#api-downloading-an-archive-two-steps-retrieval-options")
 - [Ranged Archive Retrievals](#downloading-an-archive-range "#downloading-an-archive-range")
   Retrieving an archive from Amazon Glacier is a two-step process. The following is an overview of this process.
 
@@ -71,9 +70,7 @@ to that SNS topic. For more information, see [Configuring Vault Notifications in
 The information that you get by using an Amazon SNS notification is the same as what you get by
 calling the `Describe Job` API operation.
 
-## Archive
-
-Retrieval Options
+## Archive Retrieval Options
 
 When initiating a job to retrieve an archive, you can specify one of the following
 retrieval options, based on your access time and cost requirements. For information
@@ -125,8 +122,7 @@ provisioned retrieval capacity.
 
 #### Purchasing Provisioned Capacity
 
-You can purchase provisioned capacity units by using the Amazon Glacier console, the [Purchase Provisioned Capacity (POST
-provisioned-capacity)](api-PurchaseProvisionedCapacity.md "api-PurchaseProvisionedCapacity.md") REST API operation,
+You can purchase provisioned capacity units by using the Amazon Glacier console, the [Purchase Provisioned Capacity (POST provisioned-capacity)](api-PurchaseProvisionedCapacity.md "api-PurchaseProvisionedCapacity.md") REST API operation,
 the AWS SDKs, or the AWS CLI. For provisioned capacity pricing information,
 see [Amazon Glacier
 Pricing](https://aws.amazon.com/s3/glacier/pricing/ "https://aws.amazon.com/s3/glacier/pricing/").

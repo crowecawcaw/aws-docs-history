@@ -20,9 +20,7 @@ administrator user in the account.
 
 To complete the setup, follow the instructions in the following topics.
 
-### Set Up an AWS account and Create an Administrator
-
-User
+### Set Up an AWS account and Create an Administrator User
 
 #### Sign up for AWS
 
@@ -58,9 +56,7 @@ platform.
 
 The getting started exercise provides examples in Java and C#.
 
-### Downloading the
-
-AWS SDK for Java
+### Downloading the AWS SDK for Java
 
 To test the Java examples in this developer guide, you need the AWS SDK for Java.
 You have the following download options:
@@ -71,9 +67,7 @@ You have the following download options:
 - If you are using any other IDE to create your application, download
   the [AWS SDK for Java](http://aws.amazon.com/sdkforjava "http://aws.amazon.com/sdkforjava").
 
-### Downloading the
-
-AWS SDK for .NET
+### Downloading the AWS SDK for .NET
 
 To test the C# examples in this developer guide, you need the AWS SDK for .NET. You
 have the following download options:

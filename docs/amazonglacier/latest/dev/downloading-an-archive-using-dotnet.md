@@ -4,21 +4,16 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
 
-# Downloading an Archive in Amazon Glacier Using the
-
-AWS SDK for .NET
+# Downloading an Archive in Amazon Glacier Using the AWS SDK for .NET
 
 Both the [high-level and low-level APIs](using-aws-sdk.md "using-aws-sdk.md") provided by the Amazon SDK for .NET provide a method to download an archive.
 
 ###### Topics
 
-- [Downloading an Archive Using
-  the High-Level API of the AWS SDK for .NET](#downloading-an-archive-using-dotnet-highlevel-api "#downloading-an-archive-using-dotnet-highlevel-api")
+- [Downloading an Archive Using the High-Level API of the AWS SDK for .NET](#downloading-an-archive-using-dotnet-highlevel-api "#downloading-an-archive-using-dotnet-highlevel-api")
 - [Downloading an Archive Using the Low-Level API of the AWS SDK for .NET](#downloading-an-archive-using-dotnet-lowlevel-api "#downloading-an-archive-using-dotnet-lowlevel-api")
 
-## Downloading an Archive Using
-
-the High-Level API of the AWS SDK for .NET
+## Downloading an Archive Using the High-Level API of the AWS SDK for .NET
 
 The `ArchiveTransferManager` class of the high-level API provides the
 `Download` method you can use to download an archive.
@@ -28,8 +23,7 @@ The `ArchiveTransferManager` class of the high-level API provides the
 The `ArchiveTransferManager` class creates an Amazon Simple Notification Service (Amazon SNS) topic, and an
 Amazon Simple Queue Service (Amazon SQS) queue that is subscribed to that topic. It then initiates the archive
 retrieval job and polls the queue for the archive to be available. When the archive is
-available, download begins. For information about retrieval times, see [Archive
-Retrieval Options](downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options "downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options")
+available, download begins. For information about retrieval times, see [Archive Retrieval Options](downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options "downloading-an-archive-two-steps.md#api-downloading-an-archive-two-steps-retrieval-options")
 
 ### Example: Downloading an Archive Using the High-Level API of the AWS SDK for .NET
 
@@ -217,17 +211,13 @@ compare it with the checksum Amazon Glacier returns in response to your describe
 request to verify that the entire byte range you have downloaded is the same as the byte
 range that is stored in Amazon Glacier.
 
-For a working example, see [Example 2: Retrieving an Archive Using
-the Low-Level API of the AWS SDK for .NET—Download Output in Chunks](#creating-vaults-sdk-dotnet-example2 "#creating-vaults-sdk-dotnet-example2").
+For a working example, see [Example 2: Retrieving an Archive Using the Low-Level API of the AWS SDK for .NET—Download Output in Chunks](#creating-vaults-sdk-dotnet-example2 "#creating-vaults-sdk-dotnet-example2").
 
-### Example 1: Retrieving an Archive Using the
-
-Low-Level API of the AWS SDK for .NET
+### Example 1: Retrieving an Archive Using the Low-Level API of the AWS SDK for .NET
 
 The following C# code example downloads an archive from the specified vault. After the job
 completes, the example downloads the entire output in a single `GetJobOutput`
-call. For an example of downloading output in chunks, see [Example 2: Retrieving an Archive Using
-the Low-Level API of the AWS SDK for .NET—Download Output in Chunks](#creating-vaults-sdk-dotnet-example2 "#creating-vaults-sdk-dotnet-example2").
+call. For an example of downloading output in chunks, see [Example 2: Retrieving an Archive Using the Low-Level API of the AWS SDK for .NET—Download Output in Chunks](#creating-vaults-sdk-dotnet-example2 "#creating-vaults-sdk-dotnet-example2").
 
 The example performs the following tasks:
 
@@ -451,9 +441,7 @@ namespace glacier.amazon.com.docsamples
 }
 ```
 
-### Example 2: Retrieving an Archive Using
-
-the Low-Level API of the AWS SDK for .NET—Download Output in Chunks
+### Example 2: Retrieving an Archive Using the Low-Level API of the AWS SDK for .NET—Download Output in Chunks
 
 The following C# code example retrieves an archive from Amazon Glacier. The code
 example downloads the job output in chunks by specifying the byte range in a

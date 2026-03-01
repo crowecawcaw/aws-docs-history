@@ -40,15 +40,11 @@ x-amz-glacier-version: 2012-06-01
 
 The `AccountId` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '`-`' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 
-### Request
-
-Parameters
+### Request Parameters
 
 This operation does not use request parameters.
 
-### Request
-
-Headers
+### Request Headers
 
 This operation uses only request headers that are common to all operations. For information about common request headers, see
 [Common Request Headers](api-common-request-headers.md "api-common-request-headers.md").
@@ -106,8 +102,7 @@ Date: Wed, 10 Feb 2017 12:00:00 GMT
 
 ## Related Sections
 
-- [Initiate Multipart Upload (POST
-  multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
+- [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
 - [Upload Part (PUT uploadID)](api-upload-part.md "api-upload-part.md")
 - [Complete Multipart Upload (POST uploadID)](api-multipart-complete-upload.md "api-multipart-complete-upload.md")
 - [List Multipart Uploads (GET multipart-uploads)](api-multipart-list-uploads.md "api-multipart-list-uploads.md")

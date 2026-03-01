@@ -4,9 +4,7 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
 
-# Uploading Large Archives by Using the
-
-AWS CLI
+# Uploading Large Archives by Using the AWS CLI
 
 You can upload an archive in Amazon Glacier (Amazon Glacier) by using the AWS Command Line Interface (AWS CLI). To
 improve the upload experience for larger archives, Amazon Glacier provides several API operations
@@ -20,12 +18,9 @@ For more information about Amazon Glacier multipart uploads, see [Uploading Larg
 ###### Topics
 
 - [(Prerequisite) Setting Up the AWS CLI](#Creating-Vaults-CLI-Setup "#Creating-Vaults-CLI-Setup")
-- [(Prerequisite) Install
-  Python](#Uploading-Archives-mpu-CLI-Install-Python "#Uploading-Archives-mpu-CLI-Install-Python")
-- [(Prerequisite) Create an
-  Amazon Glacier Vault](#Uploading-Archives-mpu-CLI-Create-Vault "#Uploading-Archives-mpu-CLI-Create-Vault")
-- [Example: Uploading Large
-  Archives in Parts by Using the AWS CLI](#Uploading-Archives-mpu-CLI-Implementation "#Uploading-Archives-mpu-CLI-Implementation")
+- [(Prerequisite) Install Python](#Uploading-Archives-mpu-CLI-Install-Python "#Uploading-Archives-mpu-CLI-Install-Python")
+- [(Prerequisite) Create an Amazon Glacier Vault](#Uploading-Archives-mpu-CLI-Create-Vault "#Uploading-Archives-mpu-CLI-Create-Vault")
+- [Example: Uploading Large Archives in Parts by Using the AWS CLI](#Uploading-Archives-mpu-CLI-Implementation "#Uploading-Archives-mpu-CLI-Implementation")
 
 ## (Prerequisite) Setting Up the AWS CLI
 
@@ -61,9 +56,7 @@ profile are used.
     aws configure list
     ```
 
-## (Prerequisite) Install
-
-Python
+## (Prerequisite) Install Python
 
 To complete a multipart upload, you must calculate the SHA256 tree hash of the archive
 that you're uploading. Doing so is different than calculating the SHA256 tree hash of
@@ -75,16 +68,12 @@ instructions on using Java or C#, see [Computing Checksums](checksum-calculation
 For more information about installing Python, see [Install or update Python](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation") in the _Boto3 Developer
 Guide_.
 
-## (Prerequisite) Create an
-
-Amazon Glacier Vault
+## (Prerequisite) Create an Amazon Glacier Vault
 
 To use the following example, you must have at least one Amazon Glacier vault created. For more
 information about creating vaults, see [Creating a Vault in Amazon Glacier](creating-vaults.md "creating-vaults.md").
 
-## Example: Uploading Large
-
-Archives in Parts by Using the AWS CLI
+## Example: Uploading Large Archives in Parts by Using the AWS CLI
 
 In this example, you will create a file and use multipart upload API operations to
 upload this file, in parts, to Amazon Glacier.

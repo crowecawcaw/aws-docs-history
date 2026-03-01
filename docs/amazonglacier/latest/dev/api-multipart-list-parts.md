@@ -34,8 +34,7 @@ You can also limit the number of parts returned in the response by specifying th
 
 To list the parts of an in-progress multipart upload, you send a `GET` request
 to the URI of the multipart upload ID resource. The multipart upload ID is returned
-when you initiate a multipart upload ([Initiate Multipart Upload (POST
-multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")). You may optionally specify
+when you initiate a multipart upload ([Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")). You may optionally specify
 `marker` and `limit` parameters.
 
 ```
@@ -174,9 +173,7 @@ exceptions and error messages, see [Error Responses](api-error-responses.md "api
 
 ## Examples
 
-### Example: List Parts of a Multipart
-
-Upload
+### Example: List Parts of a Multipart Upload
 
 The following example lists all the parts of an upload. The example sends an HTTP
 `GET` request to the URI of the specific multipart upload ID of an
@@ -225,9 +222,7 @@ Content-Length: 412
 }
 ```
 
-### Example: List Parts of a Multipart
-
-Upload (Specify the Marker and the Limit Request Parameters)
+### Example: List Parts of a Multipart Upload (Specify the Marker and the Limit Request Parameters)
 
 The following example demonstrates how to use pagination to get a limited number of
 results. The example sends an HTTP `GET` request to the URI of the
@@ -277,8 +272,7 @@ Content-Length: 412
 
 ## Related Sections
 
-- [Initiate Multipart Upload (POST
-  multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
+- [Initiate Multipart Upload (POST multipart-uploads)](api-multipart-initiate-upload.md "api-multipart-initiate-upload.md")
 - [Upload Part (PUT uploadID)](api-upload-part.md "api-upload-part.md")
 - [Complete Multipart Upload (POST uploadID)](api-multipart-complete-upload.md "api-multipart-complete-upload.md")
 - [Abort Multipart Upload (DELETE uploadID)](api-multipart-abort-upload.md "api-multipart-abort-upload.md")

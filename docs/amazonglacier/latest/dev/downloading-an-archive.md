@@ -20,9 +20,7 @@ by using the AWS SDK for Java, the AWS SDK for .NET, and the Amazon Glacier REST
 
 - [Retrieving Amazon Glacier Archives](downloading-an-archive-two-steps.md "downloading-an-archive-two-steps.md")
 - [Downloading an Archive in Amazon Glacier Using the AWS SDK for Java](downloading-an-archive-using-java.md "downloading-an-archive-using-java.md")
-- [Downloading an Archive in Amazon Glacier Using the
-  AWS SDK for .NET](downloading-an-archive-using-dotnet.md "downloading-an-archive-using-dotnet.md")
+- [Downloading an Archive in Amazon Glacier Using the AWS SDK for .NET](downloading-an-archive-using-dotnet.md "downloading-an-archive-using-dotnet.md")
 - [Downloading a Large Archive Using Parallel Processing with Python](downloading-large-archive-parallel-python.md "downloading-large-archive-parallel-python.md")
-- [Downloading an Archive by Using the REST
-  API](downloading-an-archive-using-rest.md "downloading-an-archive-using-rest.md")
+- [Downloading an Archive by Using the REST API](downloading-an-archive-using-rest.md "downloading-an-archive-using-rest.md")
 - [Downloading an Archive in Amazon Glacier Using the AWS CLI](downloading-an-archive-using-cli.md "downloading-an-archive-using-cli.md")

@@ -68,12 +68,9 @@ Describe Job.
 
 - [About the Inventory](#vault-inventory-about "#vault-inventory-about")
 - [Downloading a Vault Inventory in Amazon Glacier Using the AWS SDK for Java](retrieving-vault-inventory-java.md "retrieving-vault-inventory-java.md")
-- [Downloading a Vault Inventory in Amazon Glacier Using the
-  AWS SDK for .NET](retrieving-vault-inventory-sdk-dotnet.md "retrieving-vault-inventory-sdk-dotnet.md")
-- [Downloading a Vault Inventory Using the REST
-  API](retrieving-vault-inventory-rest-api.md "retrieving-vault-inventory-rest-api.md")
-- [Downloading a Vault Inventory in Amazon Glacier
-  Using the AWS Command Line Interface](retrieving-vault-inventory-cli.md "retrieving-vault-inventory-cli.md")
+- [Downloading a Vault Inventory in Amazon Glacier Using the AWS SDK for .NET](retrieving-vault-inventory-sdk-dotnet.md "retrieving-vault-inventory-sdk-dotnet.md")
+- [Downloading a Vault Inventory Using the REST API](retrieving-vault-inventory-rest-api.md "retrieving-vault-inventory-rest-api.md")
+- [Downloading a Vault Inventory in Amazon Glacier Using the AWS Command Line Interface](retrieving-vault-inventory-cli.md "retrieving-vault-inventory-cli.md")
 
 ## About the Inventory
 
@@ -85,8 +82,7 @@ client-side associating metadata about the archives you upload to Amazon Glacier
 might find the vault inventory useful to reconcile information, as needed, in your database
 with the actual vault inventory.
 You can limit the number of inventory items retrieved by filtering on the archive creation date
-or by setting a quota. For more information about limiting inventory retrieval, see [Range
-Inventory Retrieval](api-initiate-job-post.md#api-initiate-job-post-vault-inventory-list-filtering "api-initiate-job-post.md#api-initiate-job-post-vault-inventory-list-filtering").
+or by setting a quota. For more information about limiting inventory retrieval, see [Range Inventory Retrieval](api-initiate-job-post.md#api-initiate-job-post-vault-inventory-list-filtering "api-initiate-job-post.md#api-initiate-job-post-vault-inventory-list-filtering").
 
 The inventory can be returned in two formats, comma-separated values (CSV) or JSON.
 You can optionally specify the format when you initiate the inventory job. The default format is

@@ -16,22 +16,14 @@ two-step process.
 
 ###### Topics
 
-- [Configuring Vault Notifications in
-  Amazon Glacier: General Concepts](#configuring-notifications.general "#configuring-notifications.general")
-- [Configuring Vault Notifications in Amazon Glacier Using the
-  AWS SDK for Java](configuring-notifications-sdk-java.md "configuring-notifications-sdk-java.md")
-- [Configuring Vault Notifications in Amazon Glacier Using the
-  AWS SDK for .NET](configuring-notifications-sdk-dotnet.md "configuring-notifications-sdk-dotnet.md")
-- [Configuring Vault Notifications in Amazon Glacier Using the
-  REST API](configuring-notifications-rest-api.md "configuring-notifications-rest-api.md")
-- [Configuring Vault Notifications by Using the
-  Amazon Glacier Console](configuring-notifications-console.md "configuring-notifications-console.md")
-- [Configuring Vault Notifications Using the
-  AWS Command Line Interface](configuring-notifications-cli.md "configuring-notifications-cli.md")
+- [Configuring Vault Notifications in Amazon Glacier: General Concepts](#configuring-notifications.general "#configuring-notifications.general")
+- [Configuring Vault Notifications in Amazon Glacier Using the AWS SDK for Java](configuring-notifications-sdk-java.md "configuring-notifications-sdk-java.md")
+- [Configuring Vault Notifications in Amazon Glacier Using the AWS SDK for .NET](configuring-notifications-sdk-dotnet.md "configuring-notifications-sdk-dotnet.md")
+- [Configuring Vault Notifications in Amazon Glacier Using the REST API](configuring-notifications-rest-api.md "configuring-notifications-rest-api.md")
+- [Configuring Vault Notifications by Using the Amazon Glacier Console](configuring-notifications-console.md "configuring-notifications-console.md")
+- [Configuring Vault Notifications Using the AWS Command Line Interface](configuring-notifications-cli.md "configuring-notifications-cli.md")
 
-## Configuring Vault Notifications in
-
-Amazon Glacier: General Concepts
+## Configuring Vault Notifications in Amazon Glacier: General Concepts
 
 A Amazon Glacier retrieval job request is run asynchronously. You must wait until Amazon Glacier
 completes the job before you can get its output. You can periodically poll Amazon Glacier to

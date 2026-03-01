@@ -26,14 +26,10 @@ resource-based policies, see [API Permissions Reference](glacier-api-permissions
 
 ###### Examples
 
-- [Example 1: Deny Deletion Permissions for
-  Archives Less Than 365 Days Old](#vault-lock-archive-age "#vault-lock-archive-age")
-- [Example 2: Deny Deletion Permissions
-  Based on a Tag](#vault-lock-legal-hold-tag "#vault-lock-legal-hold-tag")
+- [Example 1: Deny Deletion Permissions for Archives Less Than 365 Days Old](#vault-lock-archive-age "#vault-lock-archive-age")
+- [Example 2: Deny Deletion Permissions Based on a Tag](#vault-lock-legal-hold-tag "#vault-lock-legal-hold-tag")
 
-## Example 1: Deny Deletion Permissions for
-
-Archives Less Than 365 Days Old
+## Example 1: Deny Deletion Permissions for Archives Less Than 365 Days Old
 
 Suppose that you have a regulatory requirement to retain archives for up to one
 year before you can delete them. You can enforce that requirement by implementing the
@@ -42,9 +38,7 @@ action on the examplevault vault if the archive being deleted is less than one y
 old. The policy uses the Amazon Glacier-specific condition key
 `ArchiveAgeInDays` to enforce the one-year retention requirement.
 
-## Example 2: Deny Deletion Permissions
-
-Based on a Tag
+## Example 2: Deny Deletion Permissions Based on a Tag
 
 Suppose that you have a time-based retention rule that an archive can be deleted
 if it is less than a year old. At the same time, suppose that you need to place a

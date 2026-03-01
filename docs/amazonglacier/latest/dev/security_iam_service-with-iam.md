@@ -42,12 +42,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for Amazon Glacier
 
-Identity-based policy examples for Amazon Glacier
-
-To view examples of Amazon Glacier identity-based policies, see [Identity-based policy
-examples for Amazon Glacier](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Glacier identity-based policies, see [Identity-based policy examples for Amazon Glacier](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies within Amazon Glacier
 
@@ -76,12 +73,9 @@ Amazon Glacier vault policies manage permissions in the following ways:
 
 ### Resource-based policy examples within Amazon Glacier
 
-To view examples of Amazon Glacier resource-based policies, see [Resource-based policy
-examples for Amazon Glacier](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
+To view examples of Amazon Glacier resource-based policies, see [Resource-based policy examples for Amazon Glacier](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
-## Policy actions
-
-for Amazon Glacier
+## Policy actions for Amazon Glacier
 
 **Supports policy actions:**
 
@@ -117,8 +111,7 @@ You can specify multiple actions using wildcards (\*). For example, to specify a
 "Action": "glacier:GetVault*"
 ```
 
-To view examples of Amazon Glacier identity-based policies, see [Identity-based policy
-examples for Amazon Glacier](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon Glacier identity-based policies, see [Identity-based policy examples for Amazon Glacier](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Policy resources for Amazon Glacier
 
@@ -164,9 +157,7 @@ Some Amazon Glacier API actions support multiple resources. For example, `glacie
 
 ```
 
-## Policy
-
-condition keys for Amazon Glacier
+## Policy condition keys for Amazon Glacier
 
 **Supports service-specific policy condition keys:**
 
@@ -213,9 +204,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Amazon Glacier
+## Using temporary credentials with Amazon Glacier
 
 **Supports temporary credentials:**
 
@@ -227,9 +216,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Amazon Glacier
+## Cross-service principal permissions for Amazon Glacier
 
 **Supports forward access sessions (FAS):**
 
@@ -238,9 +225,7 @@ No
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon Glacier
+## Service roles for Amazon Glacier
 
 **Supports service roles:**
 
@@ -255,9 +240,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break Amazon Glacier functionality.
 Edit service roles only when Amazon Glacier provides guidance to do so.
 
-## Service-linked
-
-roles for Amazon Glacier
+## Service-linked roles for Amazon Glacier
 
 **Supports service-linked roles:**
 

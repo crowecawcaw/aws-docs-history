@@ -13,6 +13,5 @@ you can upload smaller archives in a single operation. However, we encourage Ama
 
 - [Uploading an Archive in a Single Operation Using the AWS Command Line Interface](uploading-an-archive-single-op-using-cli.md "uploading-an-archive-single-op-using-cli.md")
 - [Uploading an Archive in a Single Operation Using the AWS SDK for Java](uploading-an-archive-single-op-using-java.md "uploading-an-archive-single-op-using-java.md")
-- [Uploading an Archive in a Single Operation
-  Using the AWS SDK for .NET in Amazon Glacier](uploading-an-archive-single-op-using-dotnet.md "uploading-an-archive-single-op-using-dotnet.md")
+- [Uploading an Archive in a Single Operation Using the AWS SDK for .NET in Amazon Glacier](uploading-an-archive-single-op-using-dotnet.md "uploading-an-archive-single-op-using-dotnet.md")
 - [Uploading an Archive in a Single Operation Using the REST API](uploading-an-archive-single-op-using-rest.md "uploading-an-archive-single-op-using-rest.md")

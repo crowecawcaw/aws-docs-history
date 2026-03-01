@@ -22,11 +22,8 @@ This getting started exercise provides code examples in Java and C# for you to u
 
 - [Step 1: Before You Begin with Amazon Glacier](getting-started-before-you-begin.md "getting-started-before-you-begin.md")
 - [Step 2: Create a Vault in Amazon Glacier](getting-started-create-vault.md "getting-started-create-vault.md")
-- [Step 3: Upload an Archive to a Vault in
-  Amazon Glacier](getting-started-upload-archive.md "getting-started-upload-archive.md")
-- [Step 4: Download an Archive from a Vault in
-  Amazon Glacier](getting-started-download-archive.md "getting-started-download-archive.md")
-- [Step 5: Delete an Archive from a Vault in
-  Amazon Glacier](getting-started-delete-archive.md "getting-started-delete-archive.md")
+- [Step 3: Upload an Archive to a Vault in Amazon Glacier](getting-started-upload-archive.md "getting-started-upload-archive.md")
+- [Step 4: Download an Archive from a Vault in Amazon Glacier](getting-started-download-archive.md "getting-started-download-archive.md")
+- [Step 5: Delete an Archive from a Vault in Amazon Glacier](getting-started-delete-archive.md "getting-started-delete-archive.md")
 - [Step 6: Delete a Vault in Amazon Glacier](getting-started-delete-vault.md "getting-started-delete-vault.md")
 - [Where Do I Go From Here?](getting-started-where-do-i-go-next.md "getting-started-where-do-i-go-next.md")

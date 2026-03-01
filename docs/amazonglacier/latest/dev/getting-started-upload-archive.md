@@ -4,9 +4,7 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
 
-# Step 3: Upload an Archive to a Vault in
-
-Amazon Glacier
+# Step 3: Upload an Archive to a Vault in Amazon Glacier
 
 In this step, you'll upload a sample archive to the vault that you created in the preceding
 step (see [Step 2: Create a Vault in Amazon Glacier](getting-started-create-vault.md "getting-started-create-vault.md")). Depending on the development
@@ -37,7 +35,5 @@ upload is suitable. For more information, see [Uploading Large Archives in Parts
 
 ###### Topics
 
-- [Upload an Archive to a Vault in Amazon Glacier by
-  Using the AWS SDK for Java](getting-started-upload-archive-java.md "getting-started-upload-archive-java.md")
-- [Upload an Archive to a Vault in Amazon Glacier by
-  Using the AWS SDK for .NET](getting-started-upload-archive-dotnet.md "getting-started-upload-archive-dotnet.md")
+- [Upload an Archive to a Vault in Amazon Glacier by Using the AWS SDK for Java](getting-started-upload-archive-java.md "getting-started-upload-archive-java.md")
+- [Upload an Archive to a Vault in Amazon Glacier by Using the AWS SDK for .NET](getting-started-upload-archive-dotnet.md "getting-started-upload-archive-dotnet.md")

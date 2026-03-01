@@ -4,17 +4,14 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
 
-# Deleting an Archive in Amazon Glacier Using the
-
-AWS Command Line Interface
+# Deleting an Archive in Amazon Glacier Using the AWS Command Line Interface
 
 You can delete archives in Amazon Glacier (Amazon Glacier) using the AWS Command Line Interface (AWS CLI).
 
 ###### Topics
 
 - [(Prerequisite) Setting Up the AWS CLI](#Creating-Vaults-CLI-Setup "#Creating-Vaults-CLI-Setup")
-- [Example: Deleting an Archive
-  Using the AWS CLI](#Deleting-Archives-CLI-Implementation "#Deleting-Archives-CLI-Implementation")
+- [Example: Deleting an Archive Using the AWS CLI](#Deleting-Archives-CLI-Implementation "#Deleting-Archives-CLI-Implementation")
 
 ## (Prerequisite) Setting Up the AWS CLI
 
@@ -50,9 +47,7 @@ profile are used.
     aws configure list
     ```
 
-## Example: Deleting an Archive
-
-Using the AWS CLI
+## Example: Deleting an Archive Using the AWS CLI
 
 1. Use the [initiate-job](../../../cli/latest/reference/glacier/initiate-job.md "../../../cli/latest/reference/glacier/initiate-job.md") command to start an inventory retrieval
    job.

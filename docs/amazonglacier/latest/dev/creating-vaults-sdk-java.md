@@ -48,8 +48,7 @@ The following Java code example creates a vault in the `us-west-2` Region (for m
 [Accessing Amazon Glacier](amazon-glacier-accessing.md "amazon-glacier-accessing.md")). In addition, the code example retrieves the vault information, lists all vaults in
 the same AWS Region, and then deletes the vault created.
 
-For step-by-step instructions on how to run the following example, see [Running Java Examples for Amazon Glacier
-Using Eclipse](using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java "using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java").
+For step-by-step instructions on how to run the following example, see [Running Java Examples for Amazon Glacier Using Eclipse](using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java "using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java").
 
 ###### Example
 

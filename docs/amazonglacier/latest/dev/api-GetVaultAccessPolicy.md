@@ -32,9 +32,7 @@ x-amz-glacier-version: 2012-06-01
 
 The `AccountId` value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '`-`' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 
-### Request
-
-Parameters
+### Request Parameters
 
 This operation does not use request parameters.
 
@@ -145,8 +143,7 @@ Content-Length: length
 
 ## Related Sections
 
-- [Delete Vault Access Policy (DELETE
-  access-policy)](api-DeleteVaultAccessPolicy.md "api-DeleteVaultAccessPolicy.md")
+- [Delete Vault Access Policy (DELETE access-policy)](api-DeleteVaultAccessPolicy.md "api-DeleteVaultAccessPolicy.md")
 
 - [Set Vault Access Policy (PUT access-policy)](api-SetVaultAccessPolicy.md "api-SetVaultAccessPolicy.md")
 

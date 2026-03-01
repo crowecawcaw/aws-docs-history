@@ -49,9 +49,7 @@ you will not immediately see the new archive added to your vault (in the console
 in your downloaded vault inventory list) until the vault inventory has been
 updated.
 
-### Using the AWS Snowball Edge
-
-Service
+### Using the AWS Snowball Edge Service
 
 AWS Snowball Edge accelerates moving large amounts of data into and out of AWS using
 Amazon-owned devices, bypassing the internet. For more information, see [AWS Snowball Edge](http://aws.amazon.com/snowball "http://aws.amazon.com/snowball") detail page.

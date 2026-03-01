@@ -4,9 +4,7 @@ If you're looking for archival storage solutions, we recommend using the Amazon 
 
 Amazon Glacier (original standalone vault-based service) is no longer accepting new customers. Amazon Glacier is a standalone service with its own APIs that stores data in vaults and is distinct from Amazon S3 and the Amazon S3 Glacier storage classes. Your existing data will remain secure and accessible in Amazon Glacier indefinitely. No migration is required. For low-cost, long-term archival storage, AWS recommends the [Amazon S3 Glacier storage classes](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"), which deliver a superior customer experience with S3 bucket-based APIs, full AWS Region availability, lower costs, and AWS service integration. If you want enhanced capabilities, consider migrating to Amazon S3 Glacier storage classes by using our [AWS Solutions Guidance for transferring data from Amazon Glacier vaults to Amazon S3 Glacier storage classes](https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/ "https://aws.amazon.com/solutions/guidance/data-transfer-from-amazon-s3-glacier-vaults-to-amazon-s3/").
 
-# Configuring Vault Notifications in Amazon Glacier Using the
-
-AWS SDK for Java
+# Configuring Vault Notifications in Amazon Glacier Using the AWS SDK for Java
 
 The following are the steps to configure notifications on a vault using the low-level API of the AWS SDK for Java.
 
@@ -20,8 +18,7 @@ You need to provide the vault name, notification configuration information,
 and account ID. In specifying a notification configuration, you provide the
 Amazon Resource Name (ARN) of an existing Amazon SNS topic and one or more
 events for which you want to be notified. For a list of supported events, see
-[Set Vault Notification Configuration (PUT
-notification-configuration)](api-vault-notifications-put.md "api-vault-notifications-put.md")). 3. Run the `setVaultNotifications` method by providing the request object
+[Set Vault Notification Configuration (PUT notification-configuration)](api-vault-notifications-put.md "api-vault-notifications-put.md")). 3. Run the `setVaultNotifications` method by providing the request object
 as a parameter.
 The following Java code snippet illustrates the preceding steps. The snippet sets a
 notification configuration on a vault. The configuration requests Amazon Glacier (Amazon Glacier) to send a
@@ -45,9 +42,7 @@ client.setVaultNotifications(request);
 
 For information about the underlying REST API, see [Vault Operations](vault-operations.md "vault-operations.md").
 
-## Example: Setting the Notification Configuration on a
-
-Vault Using the AWS SDK for Java
+## Example: Setting the Notification Configuration on a Vault Using the AWS SDK for Java
 
 The following Java code example sets a vault's notifications configuration, deletes
 the configuration, and then restores the configuration. For step-by-step

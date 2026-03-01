@@ -20,13 +20,10 @@ Both the [high-level and low-level APIs](using-aws-sdk.md "using-aws-sdk.md") pr
 
 ###### Topics
 
-- [Uploading Large Archives in Parts
-  Using the High-Level API of the AWS SDK for Java](#uploading-an-archive-in-parts-highlevel-using-java "#uploading-an-archive-in-parts-highlevel-using-java")
+- [Uploading Large Archives in Parts Using the High-Level API of the AWS SDK for Java](#uploading-an-archive-in-parts-highlevel-using-java "#uploading-an-archive-in-parts-highlevel-using-java")
 - [Upload Large Archives in Parts Using the Low-Level API of the AWS SDK for Java](#uploading-an-archive-mpu-using-java-lowlevel "#uploading-an-archive-mpu-using-java-lowlevel")
 
-## Uploading Large Archives in Parts
-
-Using the High-Level API of the AWS SDK for Java
+## Uploading Large Archives in Parts Using the High-Level API of the AWS SDK for Java
 
 You use the same methods of the high-level API to upload small or large archives. Based on
 the archive size, the high-level API methods decide whether to upload the archive in a
@@ -61,13 +58,10 @@ archive, the archive size (combined size of all parts you uploaded), and the
 vault name. Amazon Glacier constructs the archive from the uploaded parts
 and returns an archive ID.
 
-### Example: Uploading a Large Archive in a Parts Using
-
-the AWS SDK for Java
+### Example: Uploading a Large Archive in a Parts Using the AWS SDK for Java
 
 The following Java code example uses the AWS SDK for Java to upload an archive to a vault
-(`examplevault`). For step-by-step instructions on how to run this example, see [Running Java Examples for Amazon Glacier
-Using Eclipse](using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java "using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java"). You need to
+(`examplevault`). For step-by-step instructions on how to run this example, see [Running Java Examples for Amazon Glacier Using Eclipse](using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java "using-aws-sdk-for-java.md#setting-up-and-testing-sdk-java"). You need to
 update the code as shown with the name of the file you want to upload.
 
 ###### Note

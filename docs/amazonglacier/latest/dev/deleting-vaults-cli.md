@@ -12,10 +12,8 @@ You can delete empty and nonempty vaults in Amazon Glacier (Amazon Glacier) usin
 ###### Topics
 
 - [(Prerequisite) Setting Up the AWS CLI](#Creating-Vaults-CLI-Setup "#Creating-Vaults-CLI-Setup")
-- [Example: Deleting an Empty
-  Vault Using the AWS CLI](#Deleting-Empty-Vaults-CLI-Implementation "#Deleting-Empty-Vaults-CLI-Implementation")
-- [Example: Deleting a
-  Nonempty Vault Using the AWS CLI](#Deleting-A-Nonempty-Vaults-CLI-Implementation "#Deleting-A-Nonempty-Vaults-CLI-Implementation")
+- [Example: Deleting an Empty Vault Using the AWS CLI](#Deleting-Empty-Vaults-CLI-Implementation "#Deleting-Empty-Vaults-CLI-Implementation")
+- [Example: Deleting a Nonempty Vault Using the AWS CLI](#Deleting-A-Nonempty-Vaults-CLI-Implementation "#Deleting-A-Nonempty-Vaults-CLI-Implementation")
 
 ## (Prerequisite) Setting Up the AWS CLI
 
@@ -51,9 +49,7 @@ profile are used.
     aws configure list
     ```
 
-## Example: Deleting an Empty
-
-Vault Using the AWS CLI
+## Example: Deleting an Empty Vault Using the AWS CLI
 
 - Use the `delete-vault` command to delete a vault that contains no
   archives.
@@ -65,9 +61,7 @@ Vault Using the AWS CLI
 
   ```
 
-## Example: Deleting a
-
-Nonempty Vault Using the AWS CLI
+## Example: Deleting a Nonempty Vault Using the AWS CLI
 
 Amazon Glacier deletes a vault only if there are no archives in the vault as of the last
 inventory it computed, and there have been no writes to the vault since the last

@@ -16,10 +16,8 @@ API, and the AWS CLI.
 
 - [Deleting an Archive in Amazon Glacier Using the AWS SDK for Java](deleting-an-archive-using-java.md "deleting-an-archive-using-java.md")
 - [Deleting an Archive in Amazon Glacier Using the AWS SDK for .NET](deleting-an-archive-using-dot-net.md "deleting-an-archive-using-dot-net.md")
-- [Deleting an Amazon Glacier Archive Using the
-  REST API](deleting-an-archive-using-rest.md "deleting-an-archive-using-rest.md")
-- [Deleting an Archive in Amazon Glacier Using the
-  AWS Command Line Interface](deleting-an-archive-using-cli.md "deleting-an-archive-using-cli.md")
+- [Deleting an Amazon Glacier Archive Using the REST API](deleting-an-archive-using-rest.md "deleting-an-archive-using-rest.md")
+- [Deleting an Archive in Amazon Glacier Using the AWS Command Line Interface](deleting-an-archive-using-cli.md "deleting-an-archive-using-cli.md")
   You can delete one archive at a time from a vault. To delete the archive you must provide
   its archive ID in your delete request. You can get the archive ID by downloading the vault
   inventory for the vault that contains the archive. For more information about downloading

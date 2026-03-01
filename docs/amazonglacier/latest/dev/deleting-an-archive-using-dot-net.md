@@ -10,21 +10,15 @@ Both the [high-level and low-level APIs](using-aws-sdk.md "using-aws-sdk.md") pr
 
 ###### Topics
 
-- [Deleting an Archive Using the High-Level
-  API of the AWS SDK for .NET](#delete-archive-using-dot-net-high-level "#delete-archive-using-dot-net-high-level")
-- [Deleting an Archive Using the Low-Level
-  API AWS SDK for .NET](#delete-archive-using-dot-net-low-level "#delete-archive-using-dot-net-low-level")
+- [Deleting an Archive Using the High-Level API of the AWS SDK for .NET](#delete-archive-using-dot-net-high-level "#delete-archive-using-dot-net-high-level")
+- [Deleting an Archive Using the Low-Level API AWS SDK for .NET](#delete-archive-using-dot-net-low-level "#delete-archive-using-dot-net-low-level")
 
-## Deleting an Archive Using the High-Level
-
-API of the AWS SDK for .NET
+## Deleting an Archive Using the High-Level API of the AWS SDK for .NET
 
 The `ArchiveTransferManager` class of the high-level API provides the
 `DeleteArchive` method you can use to delete an archive.
 
-### Example: Deleting an Archive Using
-
-the High-Level API of the AWS SDK for .NET
+### Example: Deleting an Archive Using the High-Level API of the AWS SDK for .NET
 
 The following C# code example uses the high-level API of the AWS SDK for .NET to delete an
 archive. For step-by-step instructions on how to run this example, see [Running Code Examples](using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet "using-aws-sdk-for-dot-net.md#setting-up-and-testing-sdk-dotnet"). You need to update the code as
@@ -63,9 +57,7 @@ namespace glacier.amazon.com.docsamples
 }
 ```
 
-## Deleting an Archive Using the Low-Level
-
-API AWS SDK for .NET
+## Deleting an Archive Using the Low-Level API AWS SDK for .NET
 
 The following are the steps to delete an using the AWS SDK for .NET.
 
@@ -81,9 +73,7 @@ to sign the request is assumed. For more information, see
 [Using the AWS SDKs with Amazon Glacier](using-aws-sdk.md "using-aws-sdk.md"). 3. Run the `DeleteArchive` method by providing the request object as a
 parameter.
 
-### Example: Deleting an Archive Using the
-
-Low-Level API of the AWS SDK for .NET
+### Example: Deleting an Archive Using the Low-Level API of the AWS SDK for .NET
 
 The following C# example illustrates the preceding steps. The example uses the low-level API of the AWS SDK for .NET to delete an archive.
 
