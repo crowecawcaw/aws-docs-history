@@ -1,6 +1,4 @@
-# Configuring Reusable Expressions for a
-
-Search Domain in Amazon CloudSearch
+# Configuring Reusable Expressions for a Search Domain in Amazon CloudSearch
 
 When you define an expression in a domain's configuration, you can reference the
 expression in any search request. Adding an expression to the domain configuration

@@ -6,9 +6,7 @@ Updates the domain's endpoint options, specifically whether all requests to the 
 must arrive over HTTPS. For more information, see [Configuring Domain Endpoint Options](configuring-domain-endpoint-options.md "configuring-domain-endpoint-options.md") in the _Amazon CloudSearch
 Developer Guide_.
 
-## Request
-
-Parameters
+## Request Parameters
 
 **DomainName**
 
@@ -26,9 +24,7 @@ Type: [DomainEndpointOptions](API_DomainEndpointOptions.md "API_DomainEndpointOp
 
 Required: Yes
 
-## Response
-
-Elements
+## Response Elements
 
 **DomainEndpointOptionsStatus**
 

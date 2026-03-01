@@ -6,9 +6,7 @@ Returns the domain's endpoint options, specifically whether all requests to the 
 must arrive over HTTPS. For more information, see [Configuring Domain Endpoint Options](configuring-domain-endpoint-options.md "configuring-domain-endpoint-options.md") in the _Amazon CloudSearch
 Developer Guide_.
 
-## Request
-
-Parameters
+## Request Parameters
 
 For information about the common parameters that all actions use, see [Common Parameters](CommonParameters.md "CommonParameters.md").
 
@@ -30,9 +28,7 @@ Type: Boolean
 
 Required: No
 
-## Response
-
-Elements
+## Response Elements
 
 **DomainEndpointOptions**
 

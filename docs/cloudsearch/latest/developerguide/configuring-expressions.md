@@ -8,8 +8,7 @@ requests.
 
 - [Writing Expressions for Amazon CloudSearch](#writing-expressions "#writing-expressions")
 - [Defining Amazon CloudSearch Expressions in Search Requests](defining-expressions-in-requests.md "defining-expressions-in-requests.md")
-- [Configuring Reusable Expressions for a
-  Search Domain in Amazon CloudSearch](configuring-reusable-expressions.md "configuring-reusable-expressions.md")
+- [Configuring Reusable Expressions for a Search Domain in Amazon CloudSearch](configuring-reusable-expressions.md "configuring-reusable-expressions.md")
 - [Comparing Expressions in Amazon CloudSearch](comparing-expressions.md "comparing-expressions.md")
 
 ## Writing Expressions for Amazon CloudSearch

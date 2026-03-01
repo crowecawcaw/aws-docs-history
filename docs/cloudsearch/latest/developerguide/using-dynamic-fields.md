@@ -90,9 +90,7 @@ so they'll have minimal impact on the size of your index. (They do, however, cou
 toward the total number of fields configured for the domain.) Similarly, you can
 selectively ignore fields that match a particular pattern, such as `*_n`.
 
-###### To
-
-ignore unrecognized fields
+###### To ignore unrecognized fields
 
 1. Configure the fields that you want to index, search, or return in the
    results.

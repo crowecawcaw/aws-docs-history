@@ -4,5 +4,5 @@ You use the document service API to add, replace, or delete documents in your Am
 
 The other APIs you use to interact with Amazon CloudSearch are:
 
-- [Configuration API Reference for Amazon CloudSearch](configuration-api.md "configuration-api.md") —Set up and manage your search domain.
+- [Configuration API Reference for Amazon CloudSearch](configuration-api.md "configuration-api.md")—Set up and manage your search domain.
 - [Search API](search-api.md "search-api.md")—Search your domain.

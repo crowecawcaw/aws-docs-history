@@ -1,6 +1,4 @@
-# Logging Amazon CloudSearch Configuration API Calls with
-
-AWS CloudTrail
+# Logging Amazon CloudSearch Configuration API Calls with AWS CloudTrail
 
 Amazon CloudSearch integrates with AWS CloudTrail, a service that provides a record of actions taken by a
 user, role, or an AWS service in Amazon CloudSearch. CloudTrail captures all configuration API calls for Amazon CloudSearch as
@@ -44,7 +42,7 @@ following:
   Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail Log
   Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
 
-All Amazon CloudSearch configuration API actions are logged by CloudTrail and are documented in the [Configuration API Reference for Amazon CloudSearch](configuration-api.md "configuration-api.md") .
+All Amazon CloudSearch configuration API actions are logged by CloudTrail and are documented in the [Configuration API Reference for Amazon CloudSearch](configuration-api.md "configuration-api.md").
 
 Every event or log entry contains information about who generated the request. The
 identity information helps you determine the following:
@@ -57,9 +55,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding Amazon CloudSearch Log File
-
-Entries
+## Understanding Amazon CloudSearch Log File Entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single

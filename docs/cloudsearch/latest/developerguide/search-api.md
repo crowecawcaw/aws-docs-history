@@ -911,9 +911,7 @@ Content-Length
 
 The length in bytes of the body in the response.
 
-#### Search Response Properties
-
-(JSON)
+#### Search Response Properties (JSON)
 
 status
 

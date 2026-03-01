@@ -21,12 +21,11 @@ The HTTP status codes returned by the Amazon CloudSearch APIs indicate whether t
 
 An HTTP status code is returned for every request. In addition, the body of the response provides additional warning and error information.
 
-Messages in a `search` response indicate the severity level, the warning or error code, and a description of the problem with the search request. For a list of the warnings and errors that can be returned by the search service, see [Search Response Properties
-(JSON)](search-api.md#search-response-elements-json "search-api.md#search-response-elements-json") or [Search Response Elements (XML)](search-api.md#search-response-elements-xml "search-api.md#search-response-elements-xml").
+Messages in a `search` response indicate the severity level, the warning or error code, and a description of the problem with the search request. For a list of the warnings and errors that can be returned by the search service, see [Search Response Properties (JSON)](search-api.md#search-response-elements-json "search-api.md#search-response-elements-json") or [Search Response Elements (XML)](search-api.md#search-response-elements-xml "search-api.md#search-response-elements-xml").
 
 Errors and warnings in a `documents/batch` response provide information about parsing and validation issues encountered while processing the document data. For more information, see [documents/batch Response (JSON)](documents-batch-resource.md#documents-batch-json-response "documents-batch-resource.md#documents-batch-json-response") or [documents/batch Response (XML)](documents-batch-xml.md#documents-batch-xml-response "documents-batch-xml.md#documents-batch-xml-response").
 
-Errors returned in a configuration service response provide information about what caused the request to return a 4xx or 5xx status code. For information about the common errors that all actions use, see [Common Errors](CommonErrors.md "CommonErrors.md"). Action-specific errors are listed in the action topics in the [Configuration API Reference for Amazon CloudSearch](configuration-api.md "configuration-api.md") .
+Errors returned in a configuration service response provide information about what caused the request to return a 4xx or 5xx status code. For information about the common errors that all actions use, see [Common Errors](CommonErrors.md "CommonErrors.md"). Action-specific errors are listed in the action topics in the [Configuration API Reference for Amazon CloudSearch](configuration-api.md "configuration-api.md").
 
 ## Retrying Requests in Amazon CloudSearch
 

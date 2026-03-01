@@ -16,7 +16,6 @@ To begin, [Get Signed Up](getting-started-sign-up.md "getting-started-sign-up.md
 
 - [Before You Begin with Amazon CloudSearch](getting-started-sign-up.md "getting-started-sign-up.md")
 - [Step 1: Create an Amazon CloudSearch Domain](getting-started-create-domain.md "getting-started-create-domain.md")
-- [Step 2: Upload Data to Amazon CloudSearch for
-  Indexing](getting-started-uploading-data.md "getting-started-uploading-data.md")
+- [Step 2: Upload Data to Amazon CloudSearch for Indexing](getting-started-uploading-data.md "getting-started-uploading-data.md")
 - [Step 3: Search Your Amazon CloudSearch Domain](getting-started-search.md "getting-started-search.md")
 - [Step 4: Delete Your Amazon CloudSearch Movies Domain](getting-started-delete-domain.md "getting-started-delete-domain.md")

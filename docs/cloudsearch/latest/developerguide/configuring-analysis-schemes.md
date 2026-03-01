@@ -385,10 +385,7 @@ mydomain --analysis-scheme file://jascheme.txt
 
 For more information about creating and using analysis schemes, see [Configuring Analysis Schemes](configuring-analysis-schemes.md "configuring-analysis-schemes.md").
 
-### Japanese
-
-Part-of-Speech
-Tags in Amazon CloudSearch
+### Japanese Part-of-Speech Tags in Amazon CloudSearch
 
 When you use a custom tokenization dictionary for Japanese, you specify a
 part-of-speech tag for each entry. If the part-of-speech tag matches one of the tags

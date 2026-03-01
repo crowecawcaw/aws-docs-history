@@ -10,16 +10,11 @@ search domain.
 
 ###### Topics
 
-- [Configuring an Amazon CloudSearch Domain to
-  Search DynamoDB Data](#searching-dynamodb-data.configuring "#searching-dynamodb-data.configuring")
-- [Uploading Data to Amazon CloudSearch from
-  DynamoDB](#searching-dynamodb-data.uploading "#searching-dynamodb-data.uploading")
-- [Synchronizing a Search Domain with a
-  DynamoDB Table](#searching-dynamodb-data.sync "#searching-dynamodb-data.sync")
+- [Configuring an Amazon CloudSearch Domain to Search DynamoDB Data](#searching-dynamodb-data.configuring "#searching-dynamodb-data.configuring")
+- [Uploading Data to Amazon CloudSearch from DynamoDB](#searching-dynamodb-data.uploading "#searching-dynamodb-data.uploading")
+- [Synchronizing a Search Domain with a DynamoDB Table](#searching-dynamodb-data.sync "#searching-dynamodb-data.sync")
 
-## Configuring an Amazon CloudSearch Domain to
-
-Search DynamoDB Data
+## Configuring an Amazon CloudSearch Domain to Search DynamoDB Data
 
 The easiest way to configure a search domain to search DynamoDB data is to use the Amazon CloudSearch
 console. The console's configuration wizard analyzes your table data and suggests
@@ -79,15 +74,12 @@ start key to begin reading from a particular item.
     selected. When you're ready to apply the changes, choose
     **Finish**.
 
-## Uploading Data to Amazon CloudSearch from
-
-DynamoDB
+## Uploading Data to Amazon CloudSearch from DynamoDB
 
 You can upload DynamoDB data to a search domain through the Amazon CloudSearch console or with the Amazon CloudSearch
 command line tools. When you upload data from a DynamoDB table, Amazon CloudSearch converts it to
 document batches so it can be indexed. You select define index fields for each of the
-attributes in your domain configuration. For more information, see [Configuring an Amazon CloudSearch Domain to
-Search DynamoDB Data](#searching-dynamodb-data.configuring "#searching-dynamodb-data.configuring").
+attributes in your domain configuration. For more information, see [Configuring an Amazon CloudSearch Domain to Search DynamoDB Data](#searching-dynamodb-data.configuring "#searching-dynamodb-data.configuring").
 
 You can upload data from more than one DynamoDB table to the same Amazon CloudSearch domain. However,
 keep in mind that you can upload a maximum of 200 attributes from all tables combined.
@@ -133,9 +125,7 @@ When Amazon CloudSearch generates documents for table items:
     value is truncated.
   - Negative integers are treated as unsigned positive integers.
 
-### Uploading DynamoDB Data to a Domain
-
-through the Amazon CloudSearch Console
+### Uploading DynamoDB Data to a Domain through the Amazon CloudSearch Console
 
 You can use the Amazon CloudSearch console to upload up to 5 MB of data from a DynamoDB table to a
 search domain.
@@ -163,9 +153,7 @@ search domain.
    document batch by choosing **Download the generated document
    batch**. Then choose **Upload documents**.
 
-## Synchronizing a Search Domain with a
-
-DynamoDB Table
+## Synchronizing a Search Domain with a DynamoDB Table
 
 To keep your search domain in sync with updates to your DynamoDB table, you can either
 programmatically track and apply updates to your domain, or periodically create a new
@@ -212,8 +200,7 @@ query traffic over to the new domain.
 1. Create a new search domain and copy the configuration from your existing
    domain.
 2. Upload the entire DynamoDB table to the new domain. For more information, see
-   [Uploading Data to Amazon CloudSearch from
-   DynamoDB](#searching-dynamodb-data.uploading "#searching-dynamodb-data.uploading").
+   [Uploading Data to Amazon CloudSearch from DynamoDB](#searching-dynamodb-data.uploading "#searching-dynamodb-data.uploading").
 3. After the new domain is active, update the DNS entry that directs query
    traffic to the old search domain to point to the new domain. For example, if
    you use [Amazon Route 53](http://aws.amazon.com/route53/ "http://aws.amazon.com/route53/"), you can
