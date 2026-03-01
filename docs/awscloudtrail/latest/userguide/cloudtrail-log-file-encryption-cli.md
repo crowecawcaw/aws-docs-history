@@ -6,13 +6,10 @@ and event data stores by using the AWS CLI. For background information, see
 
 ###### Topics
 
-- [Enabling encryption for CloudTrail log files, digest files,
-  and event data stores by using the AWS CLI](#cloudtrail-log-file-encryption-cli-enable "#cloudtrail-log-file-encryption-cli-enable")
+- [Enabling encryption for CloudTrail log files, digest files, and event data stores by using the AWS CLI](#cloudtrail-log-file-encryption-cli-enable "#cloudtrail-log-file-encryption-cli-enable")
 - [Disabling encryption for log files and digest files by using the AWS CLI](#cloudtrail-log-file-encryption-cli-disable "#cloudtrail-log-file-encryption-cli-disable")
 
-## Enabling encryption for CloudTrail log files, digest files,
-
-and event data stores by using the AWS CLI
+## Enabling encryption for CloudTrail log files, digest files, and event data stores by using the AWS CLI
 
 - [Enable log file and digest file encryption for a
   trail](#log-encryption-trail "#log-encryption-trail")

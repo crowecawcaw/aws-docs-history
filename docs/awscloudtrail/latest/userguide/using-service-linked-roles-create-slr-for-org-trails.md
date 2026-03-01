@@ -20,9 +20,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role
-
-permissions for CloudTrail
+## Service-linked role permissions for CloudTrail
 
 CloudTrail uses the service-linked role named **AWSServiceRoleForCloudTrail**
 – This service linked role is used for supporting organization trails and organization event data stores.
@@ -57,9 +55,7 @@ _IAM User Guide_.
 
 For more information about the managed policy associated with AWSServiceRoleForCloudTrail, see [AWS managed policies for AWS CloudTrail](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
-## Creating a service-linked role for
-
-CloudTrail
+## Creating a service-linked role for CloudTrail
 
 You don't need to manually create a service-linked role. When you
 create an organization trail or organization event data store, or add a delegated administrator in the CloudTrail console, in the AWS Management Console, the AWS CLI, or the AWS API, CloudTrail
@@ -69,9 +65,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 the same process to recreate the role in your account. When you
 create an organization trail or organization event data store, or add a delegated administrator in the CloudTrail console,, CloudTrail creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-CloudTrail
+## Editing a service-linked role for CloudTrail
 
 CloudTrail does not allow you to edit the AWSServiceRoleForCloudTrail service-linked role. After
 you create a service-linked role, you cannot change the name of the role because various
@@ -79,9 +73,7 @@ entities might reference the role. However, you can edit the description of the 
 IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-CloudTrail
+## Deleting a service-linked role for CloudTrail
 
 You don't need to manually delete the AWSServiceRoleForCloudTrail role. If an AWS account is removed from
 an Organizations organization, the AWSServiceRoleForCloudTrail role is automatically removed from that

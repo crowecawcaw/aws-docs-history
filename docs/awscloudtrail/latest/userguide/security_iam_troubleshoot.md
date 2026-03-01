@@ -1,25 +1,17 @@
-# Troubleshooting AWS CloudTrail identity and
-
-access
+# Troubleshooting AWS CloudTrail identity and access
 
 Use the following information to help you diagnose and fix common issues that you might
 encounter when working with CloudTrail and IAM.
 
 ###### Topics
 
-- [I am not authorized to
-  perform an action in CloudTrail](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
-- [I am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
-- [I want to allow people
-  outside of my AWS account to access my CloudTrail resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
-- [I am not authorized to perform
-  iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I am not authorized to perform an action in CloudTrail](#security_iam_troubleshoot-no-permissions "#security_iam_troubleshoot-no-permissions")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
+- [I want to allow people outside of my AWS account to access my CloudTrail resources](#security_iam_troubleshoot-cross-account-access "#security_iam_troubleshoot-cross-account-access")
+- [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole "#security_iam_troubleshoot-passrole")
 - [I am getting a NoManagementAccountSLRExistsException exception when I try to create an organization trail or event data store](#security_iam_troubleshoot-no-slr "#security_iam_troubleshoot-no-slr")
 
-## I am not authorized to
-
-perform an action in CloudTrail
+## I am not authorized to perform an action in CloudTrail
 
 If you receive an error that you're not authorized to perform an action, your
 policies must be updated to allow you to perform the action.
@@ -61,9 +53,7 @@ equivalent permissions, and you can't configure AWS Config or Amazon CloudWatch 
 trail, you might be missing the required permissions for integration with those
 services. For more information, see [Granting permission to view AWS Config information on the CloudTrail console](security_iam_id-based-policy-examples.md#grant-aws-config-permissions-for-cloudtrail-users "security_iam_id-based-policy-examples.md#grant-aws-config-permissions-for-cloudtrail-users") and [Granting permission to view and configure Amazon CloudWatch Logs information on the CloudTrail console](security_iam_id-based-policy-examples.md#grant-cloudwatch-permissions-for-cloudtrail-users "security_iam_id-based-policy-examples.md#grant-cloudwatch-permissions-for-cloudtrail-users").
 
-## I am not authorized to perform
-
-`iam:PassRole`
+## I am not authorized to perform `iam:PassRole`
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to CloudTrail.
 
@@ -82,9 +72,7 @@ In this case, Mary's policies must be updated to allow her to perform the `iam:P
 
 If you need help, contact your AWS administrator. Your administrator is the person who provided you with your sign-in credentials.
 
-## I want to allow people
-
-outside of my AWS account to access my CloudTrail resources
+## I want to allow people outside of my AWS account to access my CloudTrail resources
 
 You can create a role and share CloudTrail information between multiple AWS accounts. For
 more information, see [Sharing CloudTrail log files between AWS accounts](cloudtrail-sharing-logs.md "cloudtrail-sharing-logs.md").
@@ -104,9 +92,7 @@ To learn more, consult the following:
 - To learn the difference between using roles and resource-based policies for cross-account access, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
   _IAM User Guide_.
 
-## I am not authorized to perform
-
-`iam:PassRole`
+## I am not authorized to perform `iam:PassRole`
 
 If you receive an error that you're not authorized to perform the `iam:PassRole` action, your policies must be updated to allow you to pass a role to CloudTrail.
 
@@ -140,10 +126,8 @@ the AWSServiceRoleForCloudTrailEventContext service-linked roles.
 When you use your organization's management account to add a delegated administrator or create an
 organization trail or event data store in the CloudTrail console, or by using the AWS CLI or CloudTrail
 API, CloudTrail automatically creates the AWSServiceRoleForCloudTrail service-linked role for your management account if it does not already exist.
-For more information, see [Using service-linked roles for
-CloudTrail](using-service-linked-roles.md "using-service-linked-roles.md").
+For more information, see [Using service-linked roles for CloudTrail](using-service-linked-roles.md "using-service-linked-roles.md").
 
 If you haven't added a delegated administrator, use the CloudTrail console, AWS CLI or CloudTrail API to add the delegated administrator. For more information about adding a delegated administrator, see [Add a CloudTrail delegated administrator](cloudtrail-add-delegated-administrator.md "cloudtrail-add-delegated-administrator.md") and [RegisterOrganizationDelegatedAdmin](../APIReference/API_RegisterOrganizationDelegatedAdmin.md "../APIReference/API_RegisterOrganizationDelegatedAdmin.md") (API).
 
-If you've already added the delegated administrator, use the management account to create the organization trail or event data store in the CloudTrail console, or by using the AWS CLI or CloudTrail API. For more information about creating an organization trail, see [Creating a trail for
-your organization in the console](creating-an-organizational-trail-in-the-console.md "creating-an-organizational-trail-in-the-console.md"), [Creating a trail for an organization with the AWS CLI](cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli.md "cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli.md"), and [CreateTrail](../APIReference/API_CreateTrail.md "../APIReference/API_CreateTrail.md") (API).
+If you've already added the delegated administrator, use the management account to create the organization trail or event data store in the CloudTrail console, or by using the AWS CLI or CloudTrail API. For more information about creating an organization trail, see [Creating a trail for your organization in the console](creating-an-organizational-trail-in-the-console.md "creating-an-organizational-trail-in-the-console.md"), [Creating a trail for an organization with the AWS CLI](cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli.md "cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli.md"), and [CreateTrail](../APIReference/API_CreateTrail.md "../APIReference/API_CreateTrail.md") (API).

@@ -1,6 +1,4 @@
-# Disable the refresh schedule for a
-
-custom dashboard with the CloudTrail console
+# Disable the refresh schedule for a custom dashboard with the CloudTrail console
 
 You can disable the refresh schedule if you no longer want CloudTrail to automatically
 refresh your dashboard, and instead wish to manually refresh your dashboard.

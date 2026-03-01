@@ -37,9 +37,7 @@ features, you must use Lake Formation access control.
 
 For more information about access control, see [Methods for fine-grained access control](../../../lake-formation/latest/dg/access-control-fine-grained.md "../../../lake-formation/latest/dg/access-control-fine-grained.md").
 
-## Determining
-
-the permissions method for a federated resource
+## Determining the permissions method for a federated resource
 
 When you enable federation for the first time, CloudTrail creates a managed
 database and managed federated table using your Lake Formation data lake settings.

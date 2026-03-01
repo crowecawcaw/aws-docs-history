@@ -35,8 +35,7 @@ of digest files and log files enables you to enforce granular security policies 
 permits existing log processing solutions to continue to operate without modification.
 Each digest file also contains the digital signature of the previous digest file if one
 exists. The signature for the current digest file is in the metadata properties of the
-digest file Amazon S3 object. For more information about digest file contents, see [CloudTrail digest file
-structure](cloudtrail-log-file-validation-digest-file-structure.md "cloudtrail-log-file-validation-digest-file-structure.md").
+digest file Amazon S3 object. For more information about digest file contents, see [CloudTrail digest file structure](cloudtrail-log-file-validation-digest-file-structure.md "cloudtrail-log-file-validation-digest-file-structure.md").
 
 ### Storing log and digest files
 

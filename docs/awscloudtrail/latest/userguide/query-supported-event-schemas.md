@@ -4,18 +4,13 @@ The following sections provide the supported SQL schema for each event data stor
 
 ###### Topics
 
-- [Supported schema for CloudTrail event
-  record ﬁelds](#query-supported-event-schema "#query-supported-event-schema")
+- [Supported schema for CloudTrail event record ﬁelds](#query-supported-event-schema "#query-supported-event-schema")
 - [Supported schema for CloudTrail Insights event record fields](#query-supported-insights-schema "#query-supported-insights-schema")
-- [Supported schema for
-  AWS Config configuration item record ﬁelds](#query-supported-config-items-schema "#query-supported-config-items-schema")
-- [Supported schema for AWS Audit Manager evidence record
-  ﬁelds](#query-supported-event-schema-audit-manager "#query-supported-event-schema-audit-manager")
+- [Supported schema for AWS Config configuration item record ﬁelds](#query-supported-config-items-schema "#query-supported-config-items-schema")
+- [Supported schema for AWS Audit Manager evidence record ﬁelds](#query-supported-event-schema-audit-manager "#query-supported-event-schema-audit-manager")
 - [Supported schema for non-AWS event ﬁelds](#query-supported-event-schema-integration "#query-supported-event-schema-integration")
 
-## Supported schema for CloudTrail event
-
-record ﬁelds
+## Supported schema for CloudTrail event record ﬁelds
 
 The following is the valid SQL schema for CloudTrail management, data, and network activity event record fields. For more information about CloudTrail event record fields, see [CloudTrail record contents for management, data, and network activity events](cloudtrail-event-reference-record-contents.md "cloudtrail-event-reference-record-contents.md").
 
@@ -252,9 +247,7 @@ within the `attributions` field of `insightContext` will begin to be deprecated 
 ]
 ```
 
-## Supported schema for
-
-AWS Config configuration item record ﬁelds
+## Supported schema for AWS Config configuration item record ﬁelds
 
 The following is the valid SQL schema for configuration item record fields. For
 configuration items, the value of `eventcategory` is
@@ -307,9 +300,7 @@ configuration items, the value of `eventcategory` is
 ]
 ```
 
-## Supported schema for AWS Audit Manager evidence record
-
-ﬁelds
+## Supported schema for AWS Audit Manager evidence record ﬁelds
 
 The following is the valid SQL schema for Audit Manager evidence record fields. For Audit Manager
 evidence record fields, the value of `eventcategory` is

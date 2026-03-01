@@ -90,8 +90,7 @@ accidentally deleted. To delete an event data store with termination
 protection enabled, choose **Change termination
 protection** from the **Actions** menu on the
 event data store’s details page. Then you can proceed with deleting the
-event data store. For more information, see [Change termination protection
-with the console](query-eds-termination-protection.md "query-eds-termination-protection.md").
+event data store. For more information, see [Change termination protection with the console](query-eds-termination-protection.md "query-eds-termination-protection.md").
 
 ## Integrations
 
@@ -106,8 +105,7 @@ data from the following sources:
 An integration requires a channel to deliver the events and an event data store to
 receive the events. After you set up your integration, call the [PutAuditEvents](../../../awscloudtraildata/latest/APIReference/API_PutAuditEvents.md "../../../awscloudtraildata/latest/APIReference/API_PutAuditEvents.md") API operation to ingest your application activity into CloudTrail.
 Then, you can use CloudTrail Lake to search, query, and analyze the data that is logged from
-your applications. For more information, see [Create an integration with an event
-source outside of AWS](query-event-data-store-integration.md "query-event-data-store-integration.md").
+your applications. For more information, see [Create an integration with an event source outside of AWS](query-event-data-store-integration.md "query-event-data-store-integration.md").
 
 **Integration type**
 
@@ -146,8 +144,7 @@ _Queries_ in CloudTrail Lake are authored in SQL. You can build a query
 on the CloudTrail Lake **Editor** tab by writing the query in SQL from
 scratch, by opening a saved or sample query and editing it, or by using the query generator
 to produce a query from an English language prompt. For more
-information, see [Create or edit a query with the CloudTrail console](query-create-edit-query.md "query-create-edit-query.md") and [Create CloudTrail Lake queries from natural language
-prompts](lake-query-generator.md "lake-query-generator.md").
+information, see [Create or edit a query with the CloudTrail console](query-create-edit-query.md "query-create-edit-query.md") and [Create CloudTrail Lake queries from natural language prompts](lake-query-generator.md "lake-query-generator.md").
 
 CloudTrail Lake supports all valid Trino
 `SELECT` statements and functions. For more information about the supported

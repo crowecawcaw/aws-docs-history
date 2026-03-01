@@ -1,6 +1,4 @@
-# Create an event data store for S3 data
-
-events
+# Create an event data store for S3 data events
 
 You can create an event data store to log CloudTrail events (management events, data events),
 [CloudTrail Insights events](query-event-data-store-insights.md "query-event-data-store-insights.md"), [AWS Audit Manager evidence](../../../audit-manager/latest/userguide/evidence-finder.md#understanding-evidence-finder "../../../audit-manager/latest/userguide/evidence-finder.md#understanding-evidence-finder"), [AWS Config
@@ -123,10 +121,8 @@ you could attach a tag with the name `stage` and the value
 `prod`. You can use tags to limit access to your event data store. You
 can also use tags to track the query and ingestion costs for your event data store.
 
-For information about how to use tags to track costs, see [Creating user-defined cost
-allocation tags for CloudTrail Lake event data stores](cloudtrail-budgets-tools.md#cloudtrail-lake-manage-costs-tags "cloudtrail-budgets-tools.md#cloudtrail-lake-manage-costs-tags"). For information about how to use IAM policies to authorize access to an event data store
-based on tags, see [Examples: Denying
-access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For information about how
+For information about how to use tags to track costs, see [Creating user-defined cost allocation tags for CloudTrail Lake event data stores](cloudtrail-budgets-tools.md#cloudtrail-lake-manage-costs-tags "cloudtrail-budgets-tools.md#cloudtrail-lake-manage-costs-tags"). For information about how to use IAM policies to authorize access to an event data store
+based on tags, see [Examples: Denying access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For information about how
 you can use tags in AWS, see [Tagging
 your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") in the
 _Tagging AWS Resources User Guide_. 11. Choose **Next** to configure the event data store. 12. On the **Choose events** page, leave the default selections for

@@ -25,9 +25,7 @@ to use the key to encrypt your log files and digest files,
 and allow the users you specify to read log files or digest files in unencrypted form.
 For information about manually editing the key policy, see [Configure AWS KMS key policies for CloudTrail](create-kms-key-policy-for-cloudtrail.md "create-kms-key-policy-for-cloudtrail.md").
 
-## Redacting bucket owner account IDs
-
-for data events called by other accounts
+## Redacting bucket owner account IDs for data events called by other accounts
 
 Historically, if CloudTrail data events were enabled in the AWS account of an Amazon S3 data
 event API caller, CloudTrail showed the account ID of the S3 bucket owner in the data event

@@ -1,6 +1,4 @@
-# Filtering data events by using advanced event
-
-selectors
+# Filtering data events by using advanced event selectors
 
 This section describes how you can use advanced event selectors to create fine-grained selectors for logging data events, which can help
 you control costs by only logging the specific data events of interest.
@@ -195,8 +193,7 @@ Based on the evaluation logic:
 ## AWS CLI examples for filtering data events
 
 This section provides AWS CLI examples showing how to filter data events on different fields.
-For additional AWS CLI examples, see [Log data events for trails by using
-advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced") and
+For additional AWS CLI examples, see [Log data events for trails by using advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced") and
 [Logging data events for event data stores with the AWS CLI](logging-data-events-with-cloudtrail.md#logging-data-events-CLI-eds-examples "logging-data-events-with-cloudtrail.md#logging-data-events-CLI-eds-examples").
 
 For information about how to log data events using the console, see
@@ -206,9 +203,7 @@ For information about how to log data events using the console, see
 
 - [Example 1: Filtering on the eventName field](#filtering-data-events-eventname "#filtering-data-events-eventname")
 - [Example 2: Filtering on the resources.ARN and userIdentity.arn fields](#filtering-data-events-useridentityarn "#filtering-data-events-useridentityarn")
-- [Example 3: Filtering on
-  the resources.type and eventName fields to exclude
-  individual objects deleted by an Amazon S3 DeleteObjects event](#filtering-data-events-deleteobjects "#filtering-data-events-deleteobjects")
+- [Example 3: Filtering on the resources.type and eventName fields to exclude individual objects deleted by an Amazon S3 DeleteObjects event](#filtering-data-events-deleteobjects "#filtering-data-events-deleteobjects")
 
 ### Example 1: Filtering on the `eventName` field
 
@@ -281,10 +276,7 @@ aws cloudtrail put-event-selectors \
 
 ```
 
-### Example 3: Filtering on
-
-the `resources.type` and `eventName` fields to exclude
-individual objects deleted by an Amazon S3 DeleteObjects event
+### Example 3: Filtering on the `resources.type` and `eventName` fields to exclude individual objects deleted by an Amazon S3 DeleteObjects event
 
 The following example shows how to include all data events for all Amazon S3
 objects in a specific general purpose Amazon S3 bucket but exclude the individual

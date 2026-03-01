@@ -11,8 +11,7 @@ _AWS Account Management Reference Guide_. For the list of Regions CloudTrail sup
 see [CloudTrail supported Regions](cloudtrail-supported-regions.md "cloudtrail-supported-regions.md").
 
 After you enable an opt-in Region, CloudTrail creates an identical copy of each multi-Region
-trail in the opt-in Region that you enabled. For more information, see [What happens when you enable an
-opt-in Region?](cloudtrail-multi-region-trails.md#cloudtrail-multi-region-trails-optin "cloudtrail-multi-region-trails.md#cloudtrail-multi-region-trails-optin").
+trail in the opt-in Region that you enabled. For more information, see [What happens when you enable an opt-in Region?](cloudtrail-multi-region-trails.md#cloudtrail-multi-region-trails-optin "cloudtrail-multi-region-trails.md#cloudtrail-multi-region-trails-optin").
 
 If you later disable an opt-in Region, the copy of the multi-Region trail in that Region will remain.
 Because your account may have activity in the Region you disabled, such as actions by
@@ -47,7 +46,6 @@ element in the output shows `true`.
 
 For more information, see the following resources:
 
-- [Understanding multi-Region trails and
-  opt-in Regions](cloudtrail-multi-region-trails.md "cloudtrail-multi-region-trails.md")
+- [Understanding multi-Region trails and opt-in Regions](cloudtrail-multi-region-trails.md "cloudtrail-multi-region-trails.md")
 - [Creating a trail for your AWS account](cloudtrail-create-and-update-a-trail.md "cloudtrail-create-and-update-a-trail.md")
 - [CloudTrail FAQs](https://aws.amazon.com/cloudtrail/faqs/ "https://aws.amazon.com/cloudtrail/faqs/")

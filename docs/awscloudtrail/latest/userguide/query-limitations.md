@@ -28,14 +28,10 @@ see [Optimize CloudTrail Lake queries](lake-queries-optimization.md "lake-querie
 
 ###### Topics
 
-- [Supported functions,
-  condition and join operators](#query-aggregates-condition-operators "#query-aggregates-condition-operators")
-- [Advanced, multi-table query
-  support](#query-advanced-multi-table "#query-advanced-multi-table")
+- [Supported functions, condition and join operators](#query-aggregates-condition-operators "#query-aggregates-condition-operators")
+- [Advanced, multi-table query support](#query-advanced-multi-table "#query-advanced-multi-table")
 
-## Supported functions,
-
-condition and join operators
+## Supported functions, condition and join operators
 
 **Supported functions**
 
@@ -70,8 +66,7 @@ IS NOT DISTINCT FROM
 **Supported join operators**
 
 The following are the supported `JOIN` operators. For more information about
-running multi-table queries, see [Advanced, multi-table query
-support](#query-advanced-multi-table "#query-advanced-multi-table").
+running multi-table queries, see [Advanced, multi-table query support](#query-advanced-multi-table "#query-advanced-multi-table").
 
 ```
 UNION
@@ -83,16 +78,12 @@ RIGHT JOIN
 INNER JOIN
 ```
 
-## Advanced, multi-table query
-
-support
+## Advanced, multi-table query support
 
 CloudTrail Lake supports advanced query language across multiple event data stores.
 
-- [UNION|UNION
-  ALL|EXCEPT|INTERSECT](#query-multi-table-union "#query-multi-table-union")
-- [LEFT|RIGHT|INNER
-  JOIN](#query-multi-table-left-right "#query-multi-table-left-right")
+- [UNION|UNION ALL|EXCEPT|INTERSECT](#query-multi-table-union "#query-multi-table-union")
+- [LEFT|RIGHT|INNER JOIN](#query-multi-table-left-right "#query-multi-table-left-right")
 
 To run your query, use the **start-query** command in the AWS CLI.
 The following is an example, using one of the sample queries in this section.
@@ -107,9 +98,7 @@ The response is a `QueryId` string. To get the status of a query, run
 `start-query`. If the query is successful, you can run
 `get-query-results` to get results.
 
-### `UNION|UNION
-
-ALL|EXCEPT|INTERSECT`
+### `UNION|UNION ALL|EXCEPT|INTERSECT`
 
 The following is an example query
 that uses `UNION` and `UNION ALL` to find events by their
@@ -126,9 +115,7 @@ Select eventId, eventName from EDS3
 ORDER BY eventId LIMIT 10;
 ```
 
-### `LEFT|RIGHT|INNER
-
-JOIN`
+### `LEFT|RIGHT|INNER JOIN`
 
 The following is an example query
 that uses `LEFT JOIN` to find all events from an event data store

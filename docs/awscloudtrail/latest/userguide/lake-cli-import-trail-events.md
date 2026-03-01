@@ -47,9 +47,7 @@ days.
   By default, event data store's begin ingesting events when they're
   created.
 
-## To create an event data store
-
-and import trail events to that event data store
+## To create an event data store and import trail events to that event data store
 
 1. Run the **create-event-data-store** command to create the new event data store. In this example,
    the `--retention-period` is set to `120` because the oldest event being copied is 90 days old and we want to retain the events for 30 days.

@@ -346,17 +346,14 @@ command. When an event occurs in your account, CloudTrail evaluates the configur
 your trails. If the event matches any advanced event selector for a trail, the trail
 processes and logs the event. You can configure up to 500 conditions on a trail,
 including all values specified for all advanced event selectors on your trail. For
-more information, see [Logging data events](logging-data-events-with-cloudtrail.md "logging-data-events-with-cloudtrail.md") and [Logging network activity
-events](logging-network-events-with-cloudtrail.md "logging-network-events-with-cloudtrail.md").
+more information, see [Logging data events](logging-data-events-with-cloudtrail.md "logging-data-events-with-cloudtrail.md") and [Logging network activity events](logging-network-events-with-cloudtrail.md "logging-network-events-with-cloudtrail.md").
 
 ###### Topics
 
 - [Example trail with specific advanced event selectors](#configuring-adv-event-selector-specific "#configuring-adv-event-selector-specific")
 - [Example trail that uses custom advanced event selectors to log Amazon S3 on AWS Outposts data events](#configuring-adv-event-selector-outposts "#configuring-adv-event-selector-outposts")
 - [Example trail that uses advanced event selectors to exclude AWS Key Management Service events](#configuring-adv-event-selector-exclude "#configuring-adv-event-selector-exclude")
-- [Example trail that
-  uses advanced event selectors to exclude Amazon RDS Data API management
-  events](#configuring-adv-event-selector-exclude-rds "#configuring-adv-event-selector-exclude-rds")
+- [Example trail that uses advanced event selectors to exclude Amazon RDS Data API management events](#configuring-adv-event-selector-exclude-rds "#configuring-adv-event-selector-exclude-rds")
 
 ### Example trail with specific advanced event selectors
 
@@ -602,10 +599,7 @@ aws cloudtrail put-event-selectors --trail-name `TrailName` \
 ]'
 ```
 
-### Example trail that
-
-uses advanced event selectors to exclude Amazon RDS Data API management
-events
+### Example trail that uses advanced event selectors to exclude Amazon RDS Data API management events
 
 The following example creates an advanced event selector for a trail named
 `TrailName` to include read-only and write-only
@@ -984,6 +978,24 @@ time.
 
 If you stop logging or delete a trail, CloudTrail Insights is disabled on that
 trail.
+
+###### Event delivery after logging is stopped
+
+After you stop logging for a trail, the trail can still receive events that
+occurred before logging was stopped. Events can be delayed for a number of
+reasons, including high network traffic, connectivity issues, a service
+outage, or updates to existing events. CloudTrail uses the most recent time that
+logging was stopped to determine whether to deliver delayed events, rather than
+the logging state of the trail at the time the event occurred. As a result,
+delayed events that occurred before logging was last stopped can still be
+delivered to the trail. For more information about delayed event delivery, see
+the `addendum` field in
+[CloudTrail record contents for management, data, and network activity events](cloudtrail-event-reference-record-contents.md "cloudtrail-event-reference-record-contents.md").
+
+Additionally, event selectors and advanced event selectors are not evaluated for
+delayed events delivered to a trail after logging is stopped. This means that a
+trail can receive any type of event that occurred before logging was stopped,
+regardless of the trail's event selector configuration.
 
 ## Deleting a trail
 

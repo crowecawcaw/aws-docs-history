@@ -1,6 +1,4 @@
-# Delete a custom dashboard with the CloudTrail
-
-console
+# Delete a custom dashboard with the CloudTrail console
 
 This section describes how to delete a dashboard using the CloudTrail.
 

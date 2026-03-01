@@ -63,9 +63,7 @@ For a JSON listing of the policy details, see
 [CloudTrailEventContext](../../../aws-managed-policy/latest/reference/CloudTrailEventContext.md "../../../aws-managed-policy/latest/reference/CloudTrailEventContext.md")
 in the _AWS Managed Policy reference guide_.
 
-## CloudTrail updates to AWS managed
-
-policies
+## CloudTrail updates to AWS managed policies
 
 View details about updates to AWS managed policies for CloudTrail. For automatic alerts
 about changes to this page, subscribe to the RSS feed on the CloudTrail [Document history](cloudtrail-document-history.md "cloudtrail-document-history.md")

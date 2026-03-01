@@ -45,8 +45,7 @@ Commands for creating and updating event data stores in CloudTrail Lake include:
   data store is configured to collect `Standard` size events or `Large` size events.
 - [put-event-configuration](lake-cli-manage-eds.md#lake-cli-put-event-configuration "lake-cli-manage-eds.md#lake-cli-put-event-configuration") to expand the event size and add or remove
   resource tag keys and IAM global condition keys. For more information, see
-  [Enrich CloudTrail events by adding resource tag
-  keys and IAM global condition keys](cloudtrail-context-events.md "cloudtrail-context-events.md").
+  [Enrich CloudTrail events by adding resource tag keys and IAM global condition keys](cloudtrail-context-events.md "cloudtrail-context-events.md").
 - `put-resource-policy` to attach a resource-based policy to an event data store.
   Resource-based polices allow you to control which principals can perform actions on your event data store.
   For example policies, see [Resource-based policy examples for event data stores](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds").

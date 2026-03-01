@@ -9,12 +9,9 @@ start and stop ingestion on an event data store, and enable and disable [federat
 - [List all event data stores in an account with the AWS CLI](#lake-cli-list-eds "#lake-cli-list-eds")
 - [Add resource tag keys and IAM global conditions keys, and expand event size](#lake-cli-put-event-configuration "#lake-cli-put-event-configuration")
 - [Get the event configuration for an event data store](#lake-cli-get-event-configuration "#lake-cli-get-event-configuration")
-- [Get the resource-based policy for
-  an event data store with the AWS CLI](#lake-cli-get-resource-policy "#lake-cli-get-resource-policy")
-- [Attach a resource-based policy to
-  an event data store with the AWS CLI](#lake-cli-put-resource-policy "#lake-cli-put-resource-policy")
-- [Delete the resource-based policy attached to
-  an event data store with the AWS CLI](#lake-cli-delete-resource-policy "#lake-cli-delete-resource-policy")
+- [Get the resource-based policy for an event data store with the AWS CLI](#lake-cli-get-resource-policy "#lake-cli-get-resource-policy")
+- [Attach a resource-based policy to an event data store with the AWS CLI](#lake-cli-put-resource-policy "#lake-cli-put-resource-policy")
+- [Delete the resource-based policy attached to an event data store with the AWS CLI](#lake-cli-delete-resource-policy "#lake-cli-delete-resource-policy")
 - [Stop ingestion on an event data store with the AWS CLI](#lake-cli-stop-ingestion-eds "#lake-cli-stop-ingestion-eds")
 - [Start ingestion on an event data store with the AWS CLI](#lake-cli-start-ingestion-eds "#lake-cli-start-ingestion-eds")
 - [Enable federation on an event data store](#lake-cli-enable-federation-eds "#lake-cli-enable-federation-eds")
@@ -144,8 +141,7 @@ ensure all of your added keys are included in the event.
 - `--context-key-selectors` – Specify the type of keys
   you want included in the events collected by your event data store. You can include resource tag
   keys and IAM global condition keys. Information about the added resource tags and IAM global condition keys is shown in the `eventContext`
-  field in the event. For more information, see [Enrich CloudTrail events by adding resource tag
-  keys and IAM global condition keys](cloudtrail-context-events.md "cloudtrail-context-events.md").
+  field in the event. For more information, see [Enrich CloudTrail events by adding resource tag keys and IAM global condition keys](cloudtrail-context-events.md "cloudtrail-context-events.md").
   - Set the `Type` to `TagContext` to pass in an array of up to 50 resource tag keys. If you add resource tags,
     CloudTrail events will include the selected tag keys associated with the resources that were involved in the API call.
     API events related to deleted resources will not have resource tags.
@@ -194,9 +190,7 @@ aws cloudtrail get-event-configuration \
 --event-data-store arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE
 ```
 
-## Get the resource-based policy for
-
-an event data store with the AWS CLI
+## Get the resource-based policy for an event data store with the AWS CLI
 
 The following example runs the `get-resource-policy` command on an organization event data store.
 
@@ -207,15 +201,12 @@ aws cloudtrail get-resource-policy --resource-arn arn:aws:cloudtrail:us-east-1:8
 Because the command was run on an organization event data store, the output will show both the provided resource-based policy and the [DelegatedAdminResourcePolicy](cloudtrail-lake-organizations.md#cloudtrail-lake-organizations-eds-rbp "cloudtrail-lake-organizations.md#cloudtrail-lake-organizations-eds-rbp") generated
 for the delegated administrator accounts.
 
-## Attach a resource-based policy to
-
-an event data store with the AWS CLI
+## Attach a resource-based policy to an event data store with the AWS CLI
 
 To run queries on a dashboard during a manual or scheduled refresh, you need to attach a resource-based policy to
 every event data store that is associated with a widget on the dashboard.
 This allows CloudTrail Lake to run the queries on your behalf. For more information about the resource-based policy, see
-[Example:
-Allow CloudTrail to run queries to refresh a dashboard](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard").
+[Example: Allow CloudTrail to run queries to refresh a dashboard](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard").
 
 The following example attaches a resource-based policy to an event data store
 that allows CloudTrail to run queries on a dashboard when the dashboard is refreshed. The
@@ -254,9 +245,7 @@ The following is the example response.
 
 For additional policy examples, see [Resource-based policy examples for event data stores](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds").
 
-## Delete the resource-based policy attached to
-
-an event data store with the AWS CLI
+## Delete the resource-based policy attached to an event data store with the AWS CLI
 
 The following examples deletes the resource-based policy attached to an event data store. Replace `eds-arn` with the ARN of the event data store.
 

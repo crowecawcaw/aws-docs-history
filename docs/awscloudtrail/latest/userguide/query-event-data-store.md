@@ -7,8 +7,7 @@ configuration items, or events outside of AWS. Each event data store type can on
 contain specific event categories (for example, AWS Config configuration items), because the
 event schema is unique to the event category. You can run SQL queries across multiple
 event data stores using the supported SQL JOIN keywords. For information about running
-queries across multiple event data stores, see [Advanced, multi-table query
-support](query-limitations.md#query-advanced-multi-table "query-limitations.md#query-advanced-multi-table").
+queries across multiple event data stores, see [Advanced, multi-table query support](query-limitations.md#query-advanced-multi-table "query-limitations.md#query-advanced-multi-table").
 
 The following table shows the supported event categories for each event data store
 type. The **eventCategory** column shows the value that you would specify in the advanced event selectors to collect events of that type.
@@ -36,8 +35,7 @@ The sections which follow describe how to create, update, and manage event data 
 
 - [Create, update, and manage event data stores with the console](manage-lake-eds-console.md "manage-lake-eds-console.md")
 - [Create, update, and manage event data stores with the AWS CLI](lake-eds-cli.md "lake-eds-cli.md")
-- [Manage event data store
-  lifecycles](query-eds-disable-termination.md "query-eds-disable-termination.md")
+- [Manage event data store lifecycles](query-eds-disable-termination.md "query-eds-disable-termination.md")
 - [Copy trail events to an event data store](cloudtrail-copy-trail-to-lake-eds.md "cloudtrail-copy-trail-to-lake-eds.md")
 - [Federate an event data store](query-federation.md "query-federation.md")
 - [Understanding organization event data stores](cloudtrail-lake-organizations.md "cloudtrail-lake-organizations.md")

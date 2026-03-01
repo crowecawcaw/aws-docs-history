@@ -1,6 +1,4 @@
-# Create a new widget from a SQL
-
-query with the CloudTrail console
+# Create a new widget from a SQL query with the CloudTrail console
 
 This section describes how to create a new widget by writing or pasting a SQL
 query and choosing a chart type. You can add a maximum of 10 widgets to a custom
@@ -26,8 +24,7 @@ dashboard.
 
 You can also provide a natural language prompt in English and choose
 **Generate query** to produce a SQL query from your
-prompt. For more information, see [Create CloudTrail Lake queries from natural language
-prompts](lake-query-generator.md "lake-query-generator.md"). 9. Choose **Run** to run the query and preview the query
+prompt. For more information, see [Create CloudTrail Lake queries from natural language prompts](lake-query-generator.md "lake-query-generator.md"). 9. Choose **Run** to run the query and preview the query
 results.
 
 ###### Note

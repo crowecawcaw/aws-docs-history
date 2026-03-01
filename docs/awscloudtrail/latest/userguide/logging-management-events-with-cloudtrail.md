@@ -9,13 +9,11 @@ charges apply for data or Insights events. For more information, see [AWS CloudT
 
 - [Management events](logging-management-events-with-cloudtrail.md#logging-management-events "logging-management-events-with-cloudtrail.md#logging-management-events")
 - [Read and write events](logging-management-events-with-cloudtrail.md#read-write-events-mgmt "logging-management-events-with-cloudtrail.md#read-write-events-mgmt")
-- [Logging
-  management events with the AWS Management Console](logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console "logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console")
+- [Logging management events with the AWS Management Console](logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console "logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console")
   - [Updating the management event settings for an existing trail](logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console-trail "logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console-trail")
   - [Updating the management event settings for an existing event data store](logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console-eds "logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console-eds")
 
-- [Logging management events with the
-  AWS CLI](logging-management-events-with-cloudtrail.md#creating-mgmt-event-selectors-with-the-AWS-CLI "logging-management-events-with-cloudtrail.md#creating-mgmt-event-selectors-with-the-AWS-CLI")
+- [Logging management events with the AWS CLI](logging-management-events-with-cloudtrail.md#creating-mgmt-event-selectors-with-the-AWS-CLI "logging-management-events-with-cloudtrail.md#creating-mgmt-event-selectors-with-the-AWS-CLI")
   - [Examples: Logging management events for trails](logging-management-events-with-cloudtrail.md#log-mgmt-events-trails-examples "logging-management-events-with-cloudtrail.md#log-mgmt-events-trails-examples")
     - [Examples: Logging management events for trails using advanced event selectors](logging-management-events-with-cloudtrail.md#log-mgmt-events-trails-examples-adv "logging-management-events-with-cloudtrail.md#log-mgmt-events-trails-examples-adv")
     - [Examples: Logging management events for trails using basic event selectors](logging-management-events-with-cloudtrail.md#log-mgmt-events-trails-examples-basic "logging-management-events-with-cloudtrail.md#log-mgmt-events-trails-examples-basic")
@@ -26,8 +24,7 @@ charges apply for data or Insights events. For more information, see [AWS CloudT
     - [Example: Exclude AWS service events and events from AWS Management Console sessions](logging-management-events-with-cloudtrail.md#log-mgmt-events-eds-examples-service "logging-management-events-with-cloudtrail.md#log-mgmt-events-eds-examples-service")
     - [Example: Exclude management events for a specific IAM identity](logging-management-events-with-cloudtrail.md#log-mgmt-events-eds-examples-useridentity "logging-management-events-with-cloudtrail.md#log-mgmt-events-eds-examples-useridentity")
 
-- [Logging management events with the
-  AWS SDKs](logging-management-events-with-cloudtrail.md#logging-management-events-with-the-AWS-SDKs "logging-management-events-with-cloudtrail.md#logging-management-events-with-the-AWS-SDKs")
+- [Logging management events with the AWS SDKs](logging-management-events-with-cloudtrail.md#logging-management-events-with-the-AWS-SDKs "logging-management-events-with-cloudtrail.md#logging-management-events-with-the-AWS-SDKs")
 
 ## Management events
 
@@ -98,9 +95,7 @@ second bucket receives write-only events.
    matches the settings for the second trail. The trail logs and delivers the event
    to `amzn-s3-demo-bucket2`.
 
-## Logging
-
-management events with the AWS Management Console
+## Logging management events with the AWS Management Console
 
 This section describes how to update the management event settings for an existing trail or event data store.
 
@@ -273,9 +268,7 @@ Use the following procedure to update the management event settings for an exist
 
 4.  Choose **Save changes** when you are finished.
 
-## Logging management events with the
-
-AWS CLI
+## Logging management events with the AWS CLI
 
 You can configure your trails or event data stores to log management events using the AWS CLI.
 
@@ -919,9 +912,7 @@ The following is an example response.
 }
 ```
 
-## Logging management events with the
-
-AWS SDKs
+## Logging management events with the AWS SDKs
 
 Use the [GetEventSelectors](../APIReference/API_GetEventSelectors.md "../APIReference/API_GetEventSelectors.md")
 operation to see whether your trail is logging management events for a trail. You can

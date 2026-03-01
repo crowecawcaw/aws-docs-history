@@ -56,9 +56,7 @@ administrator accounts can query and share information using the [Lake Formation
 feature](../../../lake-formation/latest/dg/data-sharing-overivew.md "../../../lake-formation/latest/dg/data-sharing-overivew.md"). Any delegated administrator account as well as the organization's
 management account can disable federation.
 
-## Create an organization event
-
-data store
+## Create an organization event data store
 
 The management account or delegated administrator account for an organization can
 create an organization event data store to collect either CloudTrail events (management
@@ -150,9 +148,7 @@ aws cloudtrail create-event-data-store --name config-items-org-eds \
 ]'
 ```
 
-## Apply an account-level event
-
-data store to an organization
+## Apply an account-level event data store to an organization
 
 The organization's management account can convert an account-level event data store to
 apply it to an organization.
@@ -186,9 +182,7 @@ aws cloudtrail update-event-data-store --region us-east-1 \
 --event-data-store arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE
 ```
 
-## Default resource policy for
-
-delegated administrators
+## Default resource policy for delegated administrators
 
 CloudTrail automatically generates a resource policy named
 `DelegatedAdminResourcePolicy` for [organization event data stores](cloudtrail-lake-organizations.md "cloudtrail-lake-organizations.md") that

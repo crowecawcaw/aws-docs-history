@@ -1,6 +1,4 @@
-# Create CloudTrail Lake queries from natural language
-
-prompts
+# Create CloudTrail Lake queries from natural language prompts
 
 You can use the CloudTrail Lake query generator to produce a query from an English language
 prompt that you provide. The query generator uses generative artificial intelligence

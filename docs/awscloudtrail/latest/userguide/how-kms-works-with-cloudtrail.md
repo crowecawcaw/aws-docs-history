@@ -15,9 +15,7 @@ For information about AWS KMS pricing, see [AWS Key Management Service Pricing](
 CloudTrail pricing, see [AWS CloudTrail
 pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
-## Understanding when your KMS key is used for
-
-your trail
+## Understanding when your KMS key is used for your trail
 
 Encrypting CloudTrail log files with AWS KMS builds on the Amazon S3 feature called server-side
 encryption with an AWS KMS key (SSE-KMS). To learn more about SSE-KMS, see [Using
@@ -31,16 +29,11 @@ provide additional information that you can use to validate this explanation.
 
 ###### Actions that cause CloudTrail and Amazon S3 to use your KMS key
 
-- [You configure CloudTrail to
-  encrypt log files with your AWS KMS key](how-kms-works-with-cloudtrail.md#cloudtrail-details-update-configuration "how-kms-works-with-cloudtrail.md#cloudtrail-details-update-configuration")
-- [CloudTrail puts a log file into your S3
-  bucket](how-kms-works-with-cloudtrail.md#cloudtrail-details-put-log-file "how-kms-works-with-cloudtrail.md#cloudtrail-details-put-log-file")
-- [You get an encrypted log file from
-  your S3 bucket](how-kms-works-with-cloudtrail.md#cloudtrail-details-get-log-file "how-kms-works-with-cloudtrail.md#cloudtrail-details-get-log-file")
+- [You configure CloudTrail to encrypt log files with your AWS KMS key](how-kms-works-with-cloudtrail.md#cloudtrail-details-update-configuration "how-kms-works-with-cloudtrail.md#cloudtrail-details-update-configuration")
+- [CloudTrail puts a log file into your S3 bucket](how-kms-works-with-cloudtrail.md#cloudtrail-details-put-log-file "how-kms-works-with-cloudtrail.md#cloudtrail-details-put-log-file")
+- [You get an encrypted log file from your S3 bucket](how-kms-works-with-cloudtrail.md#cloudtrail-details-get-log-file "how-kms-works-with-cloudtrail.md#cloudtrail-details-get-log-file")
 
-### You configure CloudTrail to
-
-encrypt log files with your AWS KMS key
+### You configure CloudTrail to encrypt log files with your AWS KMS key
 
 When you [update
 your CloudTrail configuration to use your KMS key](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md"), CloudTrail sends a [`GenerateDataKey`](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md")
@@ -99,9 +92,7 @@ AWS KMS created the data key under a specific KMS key.
 }
 ```
 
-### CloudTrail puts a log file into your S3
-
-bucket
+### CloudTrail puts a log file into your S3 bucket
 
 Each time CloudTrail puts a log file into your S3 bucket, Amazon S3 sends a [`GenerateDataKey`](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md")
 request to AWS KMS on behalf of CloudTrail. In response to this request, AWS KMS generates a
@@ -164,9 +155,7 @@ shown twice in the same log entry.
 }
 ```
 
-### You get an encrypted log file from
-
-your S3 bucket
+### You get an encrypted log file from your S3 bucket
 
 Each time you get an encrypted CloudTrail log file from your S3 bucket, Amazon S3 sends a
 [`Decrypt`](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") request

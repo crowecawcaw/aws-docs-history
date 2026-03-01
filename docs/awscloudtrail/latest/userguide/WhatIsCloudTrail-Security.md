@@ -28,7 +28,6 @@ responsibility model](https://aws.amazon.com/compliance/shared-responsibility-mo
 - [Compliance validation for AWS CloudTrail](CloudTrail-compliance.md "CloudTrail-compliance.md")
 - [Resilience in AWS CloudTrail](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in AWS CloudTrail](infrastructure-security.md "infrastructure-security.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 - [Security best practices in AWS CloudTrail](best-practices-security.md "best-practices-security.md")
 - [Encrypting CloudTrail log files, digest files, and event data stores with AWS KMS keys (SSE-KMS)](encrypting-cloudtrail-log-files-with-aws-kms.md "encrypting-cloudtrail-log-files-with-aws-kms.md")

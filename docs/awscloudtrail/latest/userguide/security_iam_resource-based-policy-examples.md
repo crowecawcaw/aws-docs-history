@@ -7,12 +7,10 @@ CloudTrail supports the following types of resource-based policies:
 - Resource-based policies on channels used for CloudTrail Lake integrations with event sources outside of AWS. The
   resource-based policy for the channel defines which principal entities (accounts, users,
   roles, and federated users) can call `PutAuditEvents` on the channel to deliver events to the destination event data store. For more information about
-  creating integrations with CloudTrail Lake, see [Create an integration with an event
-  source outside of AWS](query-event-data-store-integration.md "query-event-data-store-integration.md").
+  creating integrations with CloudTrail Lake, see [Create an integration with an event source outside of AWS](query-event-data-store-integration.md "query-event-data-store-integration.md").
 - Resource-based polices to control which principals can perform actions on your event data store.
   You can use resource-based policies to provide cross-account access to your event data stores.
-- Resource-based policies on dashboards to allow CloudTrail to refresh a CloudTrail Lake dashboard at the interval you define when you set a refresh schedule for a dashboard. For more information, see [Set a refresh schedule for a custom dashboard
-  with the CloudTrail console](lake-dashboard-refresh.md "lake-dashboard-refresh.md").
+- Resource-based policies on dashboards to allow CloudTrail to refresh a CloudTrail Lake dashboard at the interval you define when you set a refresh schedule for a dashboard. For more information, see [Set a refresh schedule for a custom dashboard with the CloudTrail console](lake-dashboard-refresh.md "lake-dashboard-refresh.md").
 
 ###### Examples:
 
@@ -49,13 +47,10 @@ The channel owner can call the `PutAuditEvents` API on the channel unless the po
 
 ###### Topics
 
-- [Example: Providing
-  channel access to principals](#security_iam_resource-based-policy-examples-principals "#security_iam_resource-based-policy-examples-principals")
+- [Example: Providing channel access to principals](#security_iam_resource-based-policy-examples-principals "#security_iam_resource-based-policy-examples-principals")
 - [Example: Using an external ID to prevent against confused deputy](#security_iam_resource-based-policy-examples-externalID "#security_iam_resource-based-policy-examples-externalID")
 
-### Example: Providing
-
-channel access to principals
+### Example: Providing channel access to principals
 
 The following example grants permissions to the principals with the ARNs
 `arn:aws:iam::111122223333:root`, `arn:aws:iam::444455556666:root`, and
@@ -171,13 +166,10 @@ administrator permissions in AWS Organizations. This policy is updated automatic
 
 ###### Examples:
 
-- [Example:
-  Allow CloudTrail to run queries to refresh a dashboard](#security_iam_resource-based-policy-examples-eds-dashboard "#security_iam_resource-based-policy-examples-eds-dashboard")
+- [Example: Allow CloudTrail to run queries to refresh a dashboard](#security_iam_resource-based-policy-examples-eds-dashboard "#security_iam_resource-based-policy-examples-eds-dashboard")
 - [Example: Allow other accounts to query an event data store and view query results](#security_iam_resource-based-policy-examples-eds-query "#security_iam_resource-based-policy-examples-eds-query")
 
-### Example:
-
-Allow CloudTrail to run queries to refresh a dashboard
+### Example: Allow CloudTrail to run queries to refresh a dashboard
 
 To populate the data on a CloudTrail Lake dashboard during a refresh, you need to allow CloudTrail to run queries on your behalf.
 To do this, attach a resource-based policy to each event data store associated with a dashboard widget that includes a statement that allows CloudTrail

@@ -1,6 +1,4 @@
-# Create an event data store for CloudTrail
-
-events with the console
+# Create an event data store for CloudTrail events with the console
 
 Event data stores for CloudTrail events can include CloudTrail management events, data events, and
 network activity events. You can keep the event data in an event data store for up to 3,653 days (about 10 years) if you choose the **One-year extendable retention pricing** option,
@@ -12,9 +10,7 @@ the default and maximum retention period for the event data store. For informati
 about CloudTrail pricing and managing Lake costs, see
 [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/") and [Managing CloudTrail Lake costs](cloudtrail-lake-manage-costs.md "cloudtrail-lake-manage-costs.md").
 
-## To create an event
-
-data store for CloudTrail events
+## To create an event data store for CloudTrail events
 
 Use this procedure to create an event data store that logs CloudTrail management events, data events, or network activity events.
 
@@ -129,8 +125,7 @@ administrator permissions in AWS Organizations. This policy is updated automatic
 (for example, a CloudTrail delegated administrator account is registered or removed). 10. (Optional) In the **Tags** section, you can add up to 50
 tag key pairs to help you identify, sort, and control access to your event
 data store. For more information about how to use IAM policies to
-authorize access to an event data store based on tags, see [Examples: Denying
-access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
+authorize access to an event data store based on tags, see [Examples: Denying access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
 more information about how you can use tags in AWS, see [Tagging
 AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") in the
 _Tagging AWS Resources
@@ -442,8 +437,7 @@ created.
         the data. If your source S3 bucket uses multiple KMS keys, you
         must update each key's policy to allow CloudTrail to decrypt the data in
         the bucket. For more information about updating the KMS key
-        policy, see [KMS key policy for decrypting data
-        in the source S3 bucket](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-kms "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-kms").
+        policy, see [KMS key policy for decrypting data in the source S3 bucket](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-kms "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-kms").
     2.  Choose the time range for
         copying the events. CloudTrail checks the prefix and log file name to verify the name contains a date between the chosen start and end date before attempting to copy trail events. You can choose a **Relative range** or an
         **Absolute range**. To avoid duplicating events between the source trail and destination event data store, choose a time range that is earlier than the creation of the event data store.
@@ -462,8 +456,7 @@ created.
         IAM role options. If you choose an existing IAM role, verify
         that the IAM role policy provides the necessary permissions. For
         more information about updating the IAM role permissions, see
-        [IAM permissions
-        for copying trail events](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam").
+        [IAM permissions for copying trail events](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam").
         - Choose **Create a new role
           (recommended)** to create a new IAM role. For
           **Enter IAM role name**, enter a name
@@ -486,8 +479,7 @@ CloudTrail will include information about the selected condition keys that were 
 including additional details about the principal, session, network, and the request itself.
 
 Information about the resource tag keys and IAM global condition keys is shown in the `eventContext`
-field of the event. For more information, see [Enrich CloudTrail events by adding resource tag
-keys and IAM global condition keys](cloudtrail-context-events.md "cloudtrail-context-events.md").
+field of the event. For more information, see [Enrich CloudTrail events by adding resource tag keys and IAM global condition keys](cloudtrail-context-events.md "cloudtrail-context-events.md").
 
 ###### Note
 

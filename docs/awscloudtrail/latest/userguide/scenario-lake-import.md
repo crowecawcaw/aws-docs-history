@@ -121,10 +121,8 @@ administrator permissions in AWS Organizations. This policy is updated automatic
 `stage` and the value `prod`. You can use tags to limit access
 to your event data store. You can also use tags to track the query and ingestion costs for your event data store.
 
-For information about how to use tags to track costs, see [Creating user-defined cost
-allocation tags for CloudTrail Lake event data stores](cloudtrail-budgets-tools.md#cloudtrail-lake-manage-costs-tags "cloudtrail-budgets-tools.md#cloudtrail-lake-manage-costs-tags"). For information about how to use IAM policies to
-authorize access to an event data store based on tags, see [Examples: Denying
-access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
+For information about how to use tags to track costs, see [Creating user-defined cost allocation tags for CloudTrail Lake event data stores](cloudtrail-budgets-tools.md#cloudtrail-lake-manage-costs-tags "cloudtrail-budgets-tools.md#cloudtrail-lake-manage-costs-tags"). For information about how to use IAM policies to
+authorize access to an event data store based on tags, see [Examples: Denying access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
 information about how you can use tags in AWS, see [Tagging
 your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") in the
 _Tagging AWS Resources User Guide_. 11. Choose **Next** to configure the event data store. 12. On the **Choose events** page, leave the default selections for **Event type**.
@@ -158,8 +156,7 @@ events**, we'll leave the default settings. 17. In the **Copy trail events** are
      the data. If your source S3 bucket uses multiple KMS keys, you
      must update each key's policy to allow CloudTrail to decrypt the data in
      the bucket. For more information about updating the KMS key
-     policy, see [KMS key policy for decrypting data
-     in the source S3 bucket](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-kms "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-kms").
+     policy, see [KMS key policy for decrypting data in the source S3 bucket](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-kms "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-kms").
     2. Choose a time range for copying the events. CloudTrail checks the prefix and log file name to
      verify the name contains a date between the chosen start and end
      date before attempting to copy trail events. You can choose a
@@ -187,8 +184,7 @@ events**, we'll leave the default settings. 17. In the **Copy trail events** are
      IAM role options. If you choose an existing IAM role, verify
      that the IAM role policy provides the necessary permissions. For
      more information about updating the IAM role permissions, see
-     [IAM permissions
-     for copying trail events](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam").
+     [IAM permissions for copying trail events](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam").
 
 
 

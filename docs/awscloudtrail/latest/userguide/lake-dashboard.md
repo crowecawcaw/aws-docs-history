@@ -33,22 +33,14 @@ running queries. For more information about CloudTrail pricing, see [CloudTrail 
 - [Limitations](#lake-dashboard-limitations "#lake-dashboard-limitations")
 - [Region support](#lake-dashboard-regions "#lake-dashboard-regions")
 - [Required permissions](#lake-dashboard-permissions "#lake-dashboard-permissions")
-- [View a managed dashboard with the CloudTrail
-  console](lake-dashboard-managed.md "lake-dashboard-managed.md")
-- [Enable the Highlights dashboard with the
-  CloudTrail console](lake-dashboard-highlights.md "lake-dashboard-highlights.md")
-- [Disable the Highlights dashboard
-  with the CloudTrail console](lake-dashboard-highlights-disable.md "lake-dashboard-highlights-disable.md")
-- [Create a custom dashboard with the CloudTrail
-  console](lake-dashboard-custom.md "lake-dashboard-custom.md")
-- [Set a refresh schedule for a custom dashboard
-  with the CloudTrail console](lake-dashboard-refresh.md "lake-dashboard-refresh.md")
-- [Disable the refresh schedule for a
-  custom dashboard with the CloudTrail console](lake-dashboard-refresh-disable.md "lake-dashboard-refresh-disable.md")
-- [Change termination protection with
-  the CloudTrail console](lake-dashboard-termination-protection.md "lake-dashboard-termination-protection.md")
-- [Delete a custom dashboard with the CloudTrail
-  console](lake-dashboard-delete.md "lake-dashboard-delete.md")
+- [View a managed dashboard with the CloudTrail console](lake-dashboard-managed.md "lake-dashboard-managed.md")
+- [Enable the Highlights dashboard with the CloudTrail console](lake-dashboard-highlights.md "lake-dashboard-highlights.md")
+- [Disable the Highlights dashboard with the CloudTrail console](lake-dashboard-highlights-disable.md "lake-dashboard-highlights-disable.md")
+- [Create a custom dashboard with the CloudTrail console](lake-dashboard-custom.md "lake-dashboard-custom.md")
+- [Set a refresh schedule for a custom dashboard with the CloudTrail console](lake-dashboard-refresh.md "lake-dashboard-refresh.md")
+- [Disable the refresh schedule for a custom dashboard with the CloudTrail console](lake-dashboard-refresh-disable.md "lake-dashboard-refresh-disable.md")
+- [Change termination protection with the CloudTrail console](lake-dashboard-termination-protection.md "lake-dashboard-termination-protection.md")
+- [Delete a custom dashboard with the CloudTrail console](lake-dashboard-delete.md "lake-dashboard-delete.md")
 - [Create, update, and manage dashboards with the AWS CLI](lake-dashboard-cli.md "lake-dashboard-cli.md")
 
 ## Prerequisites
@@ -57,8 +49,7 @@ The following prerequisites apply to CloudTrail Lake dashboards:
 
 - To view and use Lake dashboards, you must create at least one CloudTrail Lake event
   data store. You can create event data stores using the console, AWS CLI, or SDKs.
-  For information about creating an event data store using the console, see [Create an event data store for CloudTrail
-  events with the console](query-event-data-store-cloudtrail.md "query-event-data-store-cloudtrail.md"). For information about
+  For information about creating an event data store using the console, see [Create an event data store for CloudTrail events with the console](query-event-data-store-cloudtrail.md "query-event-data-store-cloudtrail.md"). For information about
   creating an event data store using the AWS CLI, see [Create an event data store with the AWS CLI](lake-cli-create-eds.md "lake-cli-create-eds.md").
 - You must have adequate permissions to view, create, update, and refresh
   dashboards. For more information, see [Required permissions](#lake-dashboard-permissions "#lake-dashboard-permissions").
@@ -104,9 +95,7 @@ two types of IAM policies:
   resource-based policies. You can also run the AWS CLI [put-resource-policy](lake-dashboard-cli-manage.md#lake-dashboard-cli-add-rbp "lake-dashboard-cli-manage.md#lake-dashboard-cli-add-rbp")
   command to add a resource-based policy to your event data stores or dashboards.
 
-### Identity-based policy
-
-requirements
+### Identity-based policy requirements
 
 Identity-based policies are JSON permissions policy documents that you can attach
 to an identity, such as an IAM user, group of users, or role. These policies
@@ -124,16 +113,11 @@ policies:
 
 ###### Topics
 
-- [Required
-  permissions for creating dashboards](#lake-dashboard-permissions-identity-create "#lake-dashboard-permissions-identity-create")
-- [Required
-  permissions for updating dashboards](#lake-dashboard-permissions-identity-update "#lake-dashboard-permissions-identity-update")
-- [Required
-  permissions for refreshing dashboards](#lake-dashboard-permissions-identity-create "#lake-dashboard-permissions-identity-create")
+- [Required permissions for creating dashboards](#lake-dashboard-permissions-identity-create "#lake-dashboard-permissions-identity-create")
+- [Required permissions for updating dashboards](#lake-dashboard-permissions-identity-update "#lake-dashboard-permissions-identity-update")
+- [Required permissions for refreshing dashboards](#lake-dashboard-permissions-identity-create "#lake-dashboard-permissions-identity-create")
 
-#### Required
-
-permissions for creating dashboards
+#### Required permissions for creating dashboards
 
 The following sample policy provides the required minimum permissions for
 creating dashboards. Replace `partition`,
@@ -174,9 +158,7 @@ JSON
 
 ```
 
-#### Required
-
-permissions for updating dashboards
+#### Required permissions for updating dashboards
 
 The following sample policy provides the required minimum permissions for
 updating dashboards. Replace `partition`,
@@ -217,9 +199,7 @@ JSON
 
 ```
 
-#### Required
-
-permissions for refreshing dashboards
+#### Required permissions for refreshing dashboards
 
 The following sample policy provides the required minimum permissions for
 refreshing dashboards. Replace `partition`,
@@ -258,9 +238,7 @@ JSON
 
 ```
 
-### Resource-based policies for
-
-dashboards and event data stores
+### Resource-based policies for dashboards and event data stores
 
 Resource-based policies are JSON policy documents that you attach to a resource.
 Examples of resource-based policies are IAM role trust policies and Amazon S3 bucket
@@ -274,8 +252,7 @@ widget on the dashboard. This allows CloudTrail Lake to run the queries on your 
 When you create a custom dashboard, or enable the **Highlights**
 dashboard using the CloudTrail console, CloudTrail gives you the option to choose which event
 data stores you want to apply permissions to. For more information about the
-resource-based policy, see [Example:
-Allow CloudTrail to run queries to refresh a dashboard](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard").
+resource-based policy, see [Example: Allow CloudTrail to run queries to refresh a dashboard](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard").
 
 To set a refresh schedule for a dashboard, you must attach a resource-based policy
 to the dashboard to allow CloudTrail Lake to refresh the dashboard on your behalf. When
@@ -287,9 +264,7 @@ policy, see [Resource-based policy example for a dashboard](security_iam_resourc
 You can attach a resource-based policy using the CloudTrail console, the [AWS CLI](lake-dashboard-cli-manage.md#lake-dashboard-cli-add-rbp "lake-dashboard-cli-manage.md#lake-dashboard-cli-add-rbp"), or the
 [PutResourcePolicy](../APIReference/API_PutResourcePolicy.md "../APIReference/API_PutResourcePolicy.md") API operation.
 
-### KMS key permissions to decrypt
-
-data in an event data store
+### KMS key permissions to decrypt data in an event data store
 
 If an event data store being queried is encrypted with a KMS key, ensure the
 KMS key policy allows CloudTrail to decrypt the data in the event data store. The

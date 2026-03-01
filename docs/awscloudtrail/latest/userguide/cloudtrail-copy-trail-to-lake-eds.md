@@ -5,8 +5,7 @@ the trail in any way.
 
 You can copy trail events to an existing event data store configured for CloudTrail events, or you can create a new CloudTrail event data store and choose the **Copy trail events** option as part of event data store creation. For more information about copying trail
 events to an existing event data store, see [Copy trail events to an existing event data store with the console](cloudtrail-copy-trail-events-lake.md "cloudtrail-copy-trail-events-lake.md"). For more information about creating a new event data store, see
-[Create an event data store for CloudTrail
-events with the console](query-event-data-store-cloudtrail.md "query-event-data-store-cloudtrail.md").
+[Create an event data store for CloudTrail events with the console](query-event-data-store-cloudtrail.md "query-event-data-store-cloudtrail.md").
 
 If you are copying trail events to an organization event data store, you must use the management account for the organization. You cannot copy trail events using the delegated administrator account
 for an organization.
@@ -62,8 +61,7 @@ Consider the following factors when copying trail events.
 - Before copying trail events to an existing event data store, be sure the event data store's pricing option and retention period are configured appropriately for your use case.
   - **Pricing option:** The pricing option determines the cost
     for ingesting and storing events. For more information about pricing options, see [AWS CloudTrail
-    Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/") and [Event data store pricing
-    options](cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option").
+    Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/") and [Event data store pricing options](cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option").
   - **Retention period:** The retention period determines how long event data is kept in the event data store. CloudTrail only copies trail events that have an `eventTime` within the event data store’s retention period.
     To determine the appropriate retention period, take the sum of the oldest event you want to copy in days and the number of days you
     want to retain the events in the event data store (**retention period** =
@@ -75,8 +73,7 @@ Consider the following factors when copying trail events.
 
 - If you are copying trail events to an event data store for investigation and do not want to ingest any future events, you can stop ingestion on the event data store. When creating the event data store, deselect the **Ingest events** option (step 15 of the [procedure](query-event-data-store-cloudtrail.md#query-event-data-store-cloudtrail-procedure "query-event-data-store-cloudtrail.md#query-event-data-store-cloudtrail-procedure"))
   to ensure the event data store contains only the historical events for your trail and no future events.
-- Before copying trail events, disable any access control lists (ACLs) attached to the source S3 bucket, and update the S3 bucket policy for the destination event data store. For more information about updating the S3 bucket policy, see [Amazon S3 bucket policy for copying trail
-  events](cloudtrail-copy-trail-to-lake.md#cloudtrail-copy-trail-events-permissions-s3 "cloudtrail-copy-trail-to-lake.md#cloudtrail-copy-trail-events-permissions-s3"). For more information about disabling ACLs, see [Controlling ownership of objects and disabling ACLs for your bucket](../../../AmazonS3/latest/userguide/about-object-ownership.md "../../../AmazonS3/latest/userguide/about-object-ownership.md").
+- Before copying trail events, disable any access control lists (ACLs) attached to the source S3 bucket, and update the S3 bucket policy for the destination event data store. For more information about updating the S3 bucket policy, see [Amazon S3 bucket policy for copying trail events](cloudtrail-copy-trail-to-lake.md#cloudtrail-copy-trail-events-permissions-s3 "cloudtrail-copy-trail-to-lake.md#cloudtrail-copy-trail-events-permissions-s3"). For more information about disabling ACLs, see [Controlling ownership of objects and disabling ACLs for your bucket](../../../AmazonS3/latest/userguide/about-object-ownership.md "../../../AmazonS3/latest/userguide/about-object-ownership.md").
 - CloudTrail only copies trail events from Gzip compressed log files that are in the source S3 bucket. CloudTrail does not copy trail events from uncompressed log files, or log files that were compressed using a format other than Gzip.
 - To avoid duplicating events between the source trail and destination event data store, choose a time range for the copied events that is earlier than the creation of the event data store.
 - By default, CloudTrail only copies CloudTrail events contained in the S3 bucket's `CloudTrail` prefix and the prefixes inside the `CloudTrail` prefix, and does not check prefixes for other AWS services. If you want to copy CloudTrail events contained in another prefix, you must choose the prefix when you copy trail events.
@@ -94,16 +91,11 @@ the bucket.
 
 ###### Topics
 
-- [IAM permissions
-  for copying trail events](#copy-trail-events-permissions-iam "#copy-trail-events-permissions-iam")
-- [Amazon S3 bucket policy for copying trail
-  events](#copy-trail-events-permissions-s3 "#copy-trail-events-permissions-s3")
-- [KMS key policy for decrypting data
-  in the source S3 bucket](#copy-trail-events-permissions-kms "#copy-trail-events-permissions-kms")
+- [IAM permissions for copying trail events](#copy-trail-events-permissions-iam "#copy-trail-events-permissions-iam")
+- [Amazon S3 bucket policy for copying trail events](#copy-trail-events-permissions-s3 "#copy-trail-events-permissions-s3")
+- [KMS key policy for decrypting data in the source S3 bucket](#copy-trail-events-permissions-kms "#copy-trail-events-permissions-kms")
 
-### IAM permissions
-
-for copying trail events
+### IAM permissions for copying trail events
 
 When copying trail events, you have the option to create a new IAM role, or use an existing IAM role. When you choose a new IAM role, CloudTrail creates an IAM role with the required permissions and no further action is required on your part.
 
@@ -189,9 +181,7 @@ be the same as the AWS account ID for the S3 bucket.
 
 ```
 
-### Amazon S3 bucket policy for copying trail
-
-events
+### Amazon S3 bucket policy for copying trail events
 
 By default, Amazon S3 buckets and objects are private. Only the resource owner (the AWS
 account that created the bucket) can access the bucket and objects it contains. The resource
@@ -224,9 +214,7 @@ appropriate values for your configuration.
 },
 ```
 
-### KMS key policy for decrypting data
-
-in the source S3 bucket
+### KMS key policy for decrypting data in the source S3 bucket
 
 If the source S3 bucket uses a KMS key for data encryption, ensure the KMS key
 policy provides CloudTrail with the `kms:Decrypt` and `kms:GenerateDataKey`

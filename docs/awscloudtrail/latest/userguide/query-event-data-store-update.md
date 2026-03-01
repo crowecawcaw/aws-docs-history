@@ -134,16 +134,14 @@ administrator permissions in AWS Organizations. This policy is updated automatic
      for data events. You can choose which resource types
      you want to log and choose the log selector
      template you want to use. For more information,
-     see [Updating an existing event data store to log
-     data events using the console](logging-data-events-with-cloudtrail.md#logging-data-events-with-the-cloudtrail-console-eds "logging-data-events-with-cloudtrail.md#logging-data-events-with-the-cloudtrail-console-eds").
+     see [Updating an existing event data store to log data events using the console](logging-data-events-with-cloudtrail.md#logging-data-events-with-the-cloudtrail-console-eds "logging-data-events-with-cloudtrail.md#logging-data-events-with-the-cloudtrail-console-eds").
     * In **Network activity
      events**, choose
      **Edit** to change the settings
      for network activity events. You can choose which
      network activity event type you want to log and
      choose the log selector template you want to use.
-     For more information, see [Update an existing event data
-     store to log network activity events](logging-network-events-with-cloudtrail.md#log-network-events-lake-console "logging-network-events-with-cloudtrail.md#log-network-events-lake-console").
+     For more information, see [Update an existing event data store to log network activity events](logging-network-events-with-cloudtrail.md#log-network-events-lake-console "logging-network-events-with-cloudtrail.md#log-network-events-lake-console").
     * In **Enrich events, expand event size**,
      choose **Edit** to add or remove resource tags and IAM global condition keys, and expand the event size.
 
@@ -162,8 +160,7 @@ administrator permissions in AWS Organizations. This policy is updated automatic
 
 
     Information about the resource tag keys and IAM global condition keys is shown in the `eventContext`
-     field of the event. For more information, see [Enrich CloudTrail events by adding resource tag
-     keys and IAM global condition keys](cloudtrail-context-events.md "cloudtrail-context-events.md").
+     field of the event. For more information, see [Enrich CloudTrail events by adding resource tag keys and IAM global condition keys](cloudtrail-context-events.md "cloudtrail-context-events.md").
 
 
     ###### Note

@@ -78,8 +78,7 @@ If you do not create a resource policy for the channel, only the channel owner c
 7. (Optional) In the **Tags** area, you can add up to 50 tag
    key and value pairs to help you identify, sort, and control access to your
    event data store and channel. For more information about how to use IAM
-   policies to authorize access to an event data store based on tags, see [Examples: Denying
-   access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
+   policies to authorize access to an event data store based on tags, see [Examples: Denying access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
    more information about how you can use tags in AWS, see [Tagging
    AWS resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the
    _AWS General Reference_.

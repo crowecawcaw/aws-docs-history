@@ -19,8 +19,7 @@ Example data events include:
   that is used to log events from outside AWS.
 - Amazon SNS [`Publish`](../../../sns/latest/api/API_Publish.md "../../../sns/latest/api/API_Publish.md") and [`PublishBatch`](../../../sns/latest/api/API_PublishBatch.md "../../../sns/latest/api/API_PublishBatch.md") API operations on topics.
   You can use advanced event selectors to create fine-grained selectors, which help you control costs by only logging the specific events of interest for your use cases.
-  For example, you can use advanced event selectors to log specific API calls by adding a filter on the `eventName` field. For more information, see [Filtering data events by using advanced event
-  selectors](filtering-data-events.md "filtering-data-events.md").
+  For example, you can use advanced event selectors to log specific API calls by adding a filter on the `eventName` field. For more information, see [Filtering data events by using advanced event selectors](filtering-data-events.md "filtering-data-events.md").
 
 ###### Note
 
@@ -33,43 +32,30 @@ for these S3 objects are available in Amazon EventBridge. For more information, 
 
 - [Data events](logging-data-events-with-cloudtrail.md#logging-data-events "logging-data-events-with-cloudtrail.md#logging-data-events")
   - [Data events supported by AWS CloudTrail](logging-data-events-with-cloudtrail.md#w2aac21c31c19c11 "logging-data-events-with-cloudtrail.md#w2aac21c31c19c11")
-  - [Examples: Logging data events for
-    Amazon S3 objects](logging-data-events-with-cloudtrail.md#logging-data-events-examples "logging-data-events-with-cloudtrail.md#logging-data-events-examples")
-  - [Logging
-    data events for S3 objects in other AWS accounts](logging-data-events-with-cloudtrail.md#logging-data-events-for-s3-resources-in-other-accounts "logging-data-events-with-cloudtrail.md#logging-data-events-for-s3-resources-in-other-accounts")
+  - [Examples: Logging data events for Amazon S3 objects](logging-data-events-with-cloudtrail.md#logging-data-events-examples "logging-data-events-with-cloudtrail.md#logging-data-events-examples")
+  - [Logging data events for S3 objects in other AWS accounts](logging-data-events-with-cloudtrail.md#logging-data-events-for-s3-resources-in-other-accounts "logging-data-events-with-cloudtrail.md#logging-data-events-for-s3-resources-in-other-accounts")
 
 - [Read-only and write-only events](logging-data-events-with-cloudtrail.md#read-write-events-data "logging-data-events-with-cloudtrail.md#read-write-events-data")
 - [Logging data events with the AWS Management Console](logging-data-events-with-cloudtrail.md#logging-data-events-console "logging-data-events-with-cloudtrail.md#logging-data-events-console")
-- [Logging data events
-  with the AWS Command Line Interface](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI")
-  - [Logging data events for
-    trails with the AWS CLI](logging-data-events-with-cloudtrail.md#logging-data-events-CLI-trail-examples "logging-data-events-with-cloudtrail.md#logging-data-events-CLI-trail-examples")
-    - [Log data events for trails by using
-      advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced")
-    - [Log all Amazon S3 events for an Amazon S3
-      bucket by using advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-adv-event-selectors-CLI-s3 "logging-data-events-with-cloudtrail.md#creating-data-adv-event-selectors-CLI-s3")
-    - [Log Amazon S3 on AWS Outposts
-      events by using advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-CLI-outposts "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-CLI-outposts")
-    - [Log events by using basic
-      event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-basic "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-basic")
+- [Logging data events with the AWS Command Line Interface](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI")
+  - [Logging data events for trails with the AWS CLI](logging-data-events-with-cloudtrail.md#logging-data-events-CLI-trail-examples "logging-data-events-with-cloudtrail.md#logging-data-events-CLI-trail-examples")
+    - [Log data events for trails by using advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced")
+    - [Log all Amazon S3 events for an Amazon S3 bucket by using advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-adv-event-selectors-CLI-s3 "logging-data-events-with-cloudtrail.md#creating-data-adv-event-selectors-CLI-s3")
+    - [Log Amazon S3 on AWS Outposts events by using advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-CLI-outposts "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-CLI-outposts")
+    - [Log events by using basic event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-basic "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-basic")
 
   - [Logging data events for event data stores with the AWS CLI](logging-data-events-with-cloudtrail.md#logging-data-events-CLI-eds-examples "logging-data-events-with-cloudtrail.md#logging-data-events-CLI-eds-examples")
-    - [Include all Amazon S3
-      events for a specific bucket](logging-data-events-with-cloudtrail.md#creating-data-adv-event-selectors-CLI-s3-eds "logging-data-events-with-cloudtrail.md#creating-data-adv-event-selectors-CLI-s3-eds")
-    - [Include Amazon S3 on
-      AWS Outposts events](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-CLI-outposts-eds "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-CLI-outposts-eds")
+    - [Include all Amazon S3 events for a specific bucket](logging-data-events-with-cloudtrail.md#creating-data-adv-event-selectors-CLI-s3-eds "logging-data-events-with-cloudtrail.md#creating-data-adv-event-selectors-CLI-s3-eds")
+    - [Include Amazon S3 on AWS Outposts events](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-CLI-outposts-eds "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-CLI-outposts-eds")
 
-- [Filtering data events by using advanced event
-  selectors](filtering-data-events.md "filtering-data-events.md")
+- [Filtering data events by using advanced event selectors](filtering-data-events.md "filtering-data-events.md")
   - [How CloudTrail evaluates multiple conditions for a field](filtering-data-events.md#filtering-data-events-conditions "filtering-data-events.md#filtering-data-events-conditions")
     - [Example showing multiple conditions for the resources.ARN field](filtering-data-events.md#filtering-data-events-conditions-ex "filtering-data-events.md#filtering-data-events-conditions-ex")
 
   - [AWS CLI examples for filtering data events](filtering-data-events.md#filtering-data-events-examples "filtering-data-events.md#filtering-data-events-examples")
     - [Example 1: Filtering on the eventName field](filtering-data-events.md#filtering-data-events-eventname "filtering-data-events.md#filtering-data-events-eventname")
     - [Example 2: Filtering on the resources.ARN and userIdentity.arn fields](filtering-data-events.md#filtering-data-events-useridentityarn "filtering-data-events.md#filtering-data-events-useridentityarn")
-    - [Example 3: Filtering on
-      the resources.type and eventName fields to exclude
-      individual objects deleted by an Amazon S3 DeleteObjects event](filtering-data-events.md#filtering-data-events-deleteobjects "filtering-data-events.md#filtering-data-events-deleteobjects")
+    - [Example 3: Filtering on the resources.type and eventName fields to exclude individual objects deleted by an Amazon S3 DeleteObjects event](filtering-data-events.md#filtering-data-events-deleteobjects "filtering-data-events.md#filtering-data-events-deleteobjects")
 
 - [Aggregating data events](aggregating-data-events.md "aggregating-data-events.md")
   - [Enabling aggregations for data events using the console](aggregating-data-events.md#aggregating-data-events-console "aggregating-data-events.md#aggregating-data-events-console")
@@ -77,10 +63,8 @@ for these S3 objects are available in Amazon EventBridge. For more information, 
     - [Example: API_ACTIVITY aggregated event](aggregating-data-events.md#aggregating-data-events-api-activity-example "aggregating-data-events.md#aggregating-data-events-api-activity-example")
     - [Example: RESOURCE_ACCESS aggregated event](aggregating-data-events.md#aggregating-data-events-resource-access-example "aggregating-data-events.md#aggregating-data-events-resource-access-example")
 
-- [Logging data events for AWS Config
-  compliance](logging-data-events-with-cloudtrail.md#config-data-events-best-practices "logging-data-events-with-cloudtrail.md#config-data-events-best-practices")
-- [Logging data events with the AWS
-  SDKs](logging-data-events-with-cloudtrail.md#logging-data-events-with-the-AWS-SDKs "logging-data-events-with-cloudtrail.md#logging-data-events-with-the-AWS-SDKs")
+- [Logging data events for AWS Config compliance](logging-data-events-with-cloudtrail.md#config-data-events-best-practices "logging-data-events-with-cloudtrail.md#config-data-events-best-practices")
+- [Logging data events with the AWS SDKs](logging-data-events-with-cloudtrail.md#logging-data-events-with-the-AWS-SDKs "logging-data-events-with-cloudtrail.md#logging-data-events-with-the-AWS-SDKs")
 
 ## Data events
 
@@ -227,9 +211,9 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon Q Business                           | Amazon Q Business integration API activity.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Amazon Q Business integration**                   | `AWS::QBusiness::Integration`                      |
 | Amazon Q Developer                          | Amazon Q Developer API activity on an integration.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | **Q Developer integration**                         | `AWS::QDeveloper::Integration`                     |
 | Amazon Q Developer                          | [Amazon Q Developer API activity](../../../AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.md#Q-Developer-Investigations-Cloudtrail "../../../AmazonCloudWatch/latest/monitoring/logging_cw_api_calls.md#Q-Developer-Investigations-Cloudtrail") on operational investigations.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | **AIOps Investigation Group**                       | `AWS::AIOps::InvestigationGroup`                   |
-| Amazon Quick Suite                          | Amazon Quick Suite API activity on an action connector.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | **AWSQuickSuite Actions**                           | `AWS::Quicksight::ActionConnector`                 |
-| Amazon Quick Suite                          | Amazon Quick Suite Flow API activity.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | **QuickSight flow**                                 | `AWS::QuickSight::Flow`                            |
-| Amazon Quick Suite                          | Amazon Quick Suite FlowSession API activity.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | **QuickSight flow session**                         | `AWS::QuickSight::FlowSession`                     |
+| Amazon Quick                                | Amazon Quick API activity on an action connector.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | **AWSQuickSuite Actions**                           | `AWS::Quicksight::ActionConnector`                 |
+| Amazon Quick                                | Amazon Quick Flow API activity.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | **QuickSight flow**                                 | `AWS::QuickSight::Flow`                            |
+| Amazon Quick                                | Amazon Quick FlowSession API activity.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | **QuickSight flow session**                         | `AWS::QuickSight::FlowSession`                     |
 | Amazon SageMaker AI                         | Amazon SageMaker AI [`InvokeEndpointWithResponseStream`](../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.md "../../../sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.md") activity on endpoints.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | **SageMaker AI endpoint**                           | `AWS::SageMaker::Endpoint`                         |
 | Amazon SageMaker AI                         | Amazon SageMaker AI API activity on feature stores.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | **SageMaker AI feature store**                      | `AWS::SageMaker::FeatureGroup`                     |
 | Amazon SageMaker AI                         | Amazon SageMaker AI API activity on [experiment trial components](../../../sagemaker/latest/dg/experiments-monitoring.md "../../../sagemaker/latest/dg/experiments-monitoring.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | **SageMaker AI metrics experiment trial component** | `AWS::SageMaker::ExperimentTrialComponent`         |
@@ -276,8 +260,7 @@ For event data stores, you can use only advanced event selectors to include data
 
 To record CloudTrail data
 events, you must explicitly add each resource type for which you
-want to collect activity. For more information, see [Creating a trail with the CloudTrail console](cloudtrail-create-a-trail-using-the-console-first-time.md "cloudtrail-create-a-trail-using-the-console-first-time.md") and [Create an event data store for CloudTrail
-events with the console](query-event-data-store-cloudtrail.md "query-event-data-store-cloudtrail.md").
+want to collect activity. For more information, see [Creating a trail with the CloudTrail console](cloudtrail-create-a-trail-using-the-console-first-time.md "cloudtrail-create-a-trail-using-the-console-first-time.md") and [Create an event data store for CloudTrail events with the console](query-event-data-store-cloudtrail.md "query-event-data-store-cloudtrail.md").
 
 On a single-Region trail or event data store, you can log data events only for resources that you can
 access in that Region. Though S3 buckets are global, AWS Lambda functions and DynamoDB
@@ -285,13 +268,9 @@ tables are regional.
 
 Additional charges apply for logging data events. For CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
-### Examples: Logging data events for
+### Examples: Logging data events for Amazon S3 objects
 
-Amazon S3 objects
-
-###### Logging data
-
-events for all S3 objects in an S3 bucket
+###### Logging data events for all S3 objects in an S3 bucket
 
 The following example demonstrates how logging works when you configure
 logging of all data events for an S3 bucket named
@@ -310,9 +289,7 @@ and **Write** data events.
    bucket that wasn't specified for the trail or event data store. The trail or
    event data store doesn't log the event.
 
-###### Logging
-
-data events for specific S3 objects
+###### Logging data events for specific S3 objects
 
 The following example demonstrates how logging works when you configure a
 trail or event data store to log events for specific S3 objects. In this
@@ -363,9 +340,7 @@ if you configure a trail to log all Amazon S3 data events in your AWS account,
 consider configuring delivery of log files to an Amazon S3 bucket that belongs to
 another AWS account. For more information, see [Receiving CloudTrail log files from multiple accounts](cloudtrail-receive-logs-from-multiple-accounts.md "cloudtrail-receive-logs-from-multiple-accounts.md").
 
-### Logging
-
-data events for S3 objects in other AWS accounts
+### Logging data events for S3 objects in other AWS accounts
 
 When you configure your trail to log data events, you can also specify S3 objects
 that belong to other AWS accounts. When an event occurs on a specified object,
@@ -381,9 +356,7 @@ If you specify an S3 object in your trail, and another account owns the object,
 your trail only logs events that occur on that object in your account. Your trail
 doesn't log events that occur in other accounts.
 
-###### Example: Logging data events for an Amazon S3 object for two AWS
-
-accounts
+###### Example: Logging data events for an Amazon S3 object for two AWS accounts
 
 The following example shows how two AWS accounts configure CloudTrail to log
 events for the same S3 object.
@@ -410,9 +383,7 @@ events for the same S3 object.
    bucket, Bob's trail doesn't log the event. CloudTrail charges for only one copy of
    this data event.
 
-###### Example: Logging data events for all buckets, including an S3 bucket used by
-
-two AWS accounts
+###### Example: Logging data events for all buckets, including an S3 bucket used by two AWS accounts
 
 The following example shows the logging behavior when **Select all S3
 buckets in your account** is enabled for trails that collect data
@@ -496,8 +467,7 @@ second amzn-s3-demo-bucket2 receives write-only events.
 
 The following procedures describe how to an update existing event data store or trail
 to log data events by using the AWS Management Console. For information about how to create an
-event data store to log data events, see [Create an event data store for CloudTrail
-events with the console](query-event-data-store-cloudtrail.md "query-event-data-store-cloudtrail.md"). For information about how to
+event data store to log data events, see [Create an event data store for CloudTrail events with the console](query-event-data-store-cloudtrail.md "query-event-data-store-cloudtrail.md"). For information about how to
 create a trail to log data events, see [Creating a trail with the console](cloudtrail-create-a-trail-using-the-console-first-time.md#creating-a-trail-in-the-console "cloudtrail-create-a-trail-using-the-console-first-time.md#creating-a-trail-in-the-console").
 
 For trails, the steps for logging data events differ based on whether you're using
@@ -507,8 +477,7 @@ selectors you're limited to logging data events for Amazon S3 buckets and bucket
 AWS Lambda functions, and Amazon DynamoDB tables.
 
 Use the following procedure to update an existing event data store to log data events. For more
-information about using advanced event selectors, see [Filtering data events by using advanced event
-selectors](filtering-data-events.md "filtering-data-events.md") in this
+information about using advanced event selectors, see [Filtering data events by using advanced event selectors](filtering-data-events.md "filtering-data-events.md") in this
 topic.
 
 1. Sign in to the AWS Management Console and open the CloudTrail console at
@@ -649,8 +618,7 @@ In the AWS Management Console, if your trail is using advanced event selectors, 
 choose from predefined templates that log all data events on a selected
 resource. After you choose a log selector template, you can customize the
 template to include only the data events you most want to see. For more
-information about using advanced event selectors, see [Filtering data events by using advanced event
-selectors](filtering-data-events.md "filtering-data-events.md") in this
+information about using advanced event selectors, see [Filtering data events by using advanced event selectors](filtering-data-events.md "filtering-data-events.md") in this
 topic.
 
 1. On the **Dashboard** or **Trails**
@@ -951,21 +919,16 @@ for logging data events. 3. For **Data events**, choose
 
 9. Choose **Save changes**.
 
-## Logging data events
-
-with the AWS Command Line Interface
+## Logging data events with the AWS Command Line Interface
 
 You can configure your trails or event data stores to log data events using the AWS CLI.
 
 ###### Topics
 
-- [Logging data events for
-  trails with the AWS CLI](#logging-data-events-CLI-trail-examples "#logging-data-events-CLI-trail-examples")
+- [Logging data events for trails with the AWS CLI](#logging-data-events-CLI-trail-examples "#logging-data-events-CLI-trail-examples")
 - [Logging data events for event data stores with the AWS CLI](#logging-data-events-CLI-eds-examples "#logging-data-events-CLI-eds-examples")
 
-### Logging data events for
-
-trails with the AWS CLI
+### Logging data events for trails with the AWS CLI
 
 You can configure your trails to log management and data events using the AWS CLI.
 
@@ -993,8 +956,7 @@ You can configure your trails to log management and data events using the AWS CL
 - You can use advanced event selectors to filter based
   on the value of the [supported advanced event selector fields](filtering-data-events.md "filtering-data-events.md")supported advanced event selector fields, giving you the ability to log only the
   data events of interest. For more information about configuring these
-  fields, see [AdvancedFieldSelector](../APIReference/API_AdvancedFieldSelector.md "../APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_ and [Filtering data events by using advanced event
-  selectors](filtering-data-events.md "filtering-data-events.md") in this
+  fields, see [AdvancedFieldSelector](../APIReference/API_AdvancedFieldSelector.md "../APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_ and [Filtering data events by using advanced event selectors](filtering-data-events.md "filtering-data-events.md") in this
   guide.
 
 To
@@ -1008,18 +970,12 @@ The command returns the event selectors for the trail.
 
 ###### Topics
 
-- [Log data events for trails by using
-  advanced event selectors](#creating-data-event-selectors-advanced "#creating-data-event-selectors-advanced")
-- [Log all Amazon S3 events for an Amazon S3
-  bucket by using advanced event selectors](#creating-data-adv-event-selectors-CLI-s3 "#creating-data-adv-event-selectors-CLI-s3")
-- [Log Amazon S3 on AWS Outposts
-  events by using advanced event selectors](#creating-data-event-selectors-CLI-outposts "#creating-data-event-selectors-CLI-outposts")
-- [Log events by using basic
-  event selectors](#creating-data-event-selectors-basic "#creating-data-event-selectors-basic")
+- [Log data events for trails by using advanced event selectors](#creating-data-event-selectors-advanced "#creating-data-event-selectors-advanced")
+- [Log all Amazon S3 events for an Amazon S3 bucket by using advanced event selectors](#creating-data-adv-event-selectors-CLI-s3 "#creating-data-adv-event-selectors-CLI-s3")
+- [Log Amazon S3 on AWS Outposts events by using advanced event selectors](#creating-data-event-selectors-CLI-outposts "#creating-data-event-selectors-CLI-outposts")
+- [Log events by using basic event selectors](#creating-data-event-selectors-basic "#creating-data-event-selectors-basic")
 
-#### Log data events for trails by using
-
-advanced event selectors
+#### Log data events for trails by using advanced event selectors
 
 ###### Note
 
@@ -1126,9 +1082,7 @@ trail.
 }
 ```
 
-#### Log all Amazon S3 events for an Amazon S3
-
-bucket by using advanced event selectors
+#### Log all Amazon S3 events for an Amazon S3 bucket by using advanced event selectors
 
 ###### Note
 
@@ -1190,9 +1144,7 @@ The command returns the following example output.
 }
 ```
 
-#### Log Amazon S3 on AWS Outposts
-
-events by using advanced event selectors
+#### Log Amazon S3 on AWS Outposts events by using advanced event selectors
 
 ###### Note
 
@@ -1242,9 +1194,7 @@ The command returns the following example output.
 }
 ```
 
-#### Log events by using basic
-
-event selectors
+#### Log events by using basic event selectors
 
 The following is an example result of the **get-event-selectors**
 command showing basic event selectors. By default, when you create a trail by using
@@ -1309,8 +1259,7 @@ You can configure your event data stores to include data events using the AWS CL
 log data events. Use the [`update-event-data-store`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/update-event-data-store.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/update-event-data-store.html") command to update the advanced event selectors for an existing event data store.
 
 You configure advanced event selectors to log data events on an event data store. For a list of supported fields,
-see [Filtering data events by using advanced event
-selectors](filtering-data-events.md "filtering-data-events.md").
+see [Filtering data events by using advanced event selectors](filtering-data-events.md "filtering-data-events.md").
 
 To
 see whether your event data store includes data events, run the [`get-event-data-store`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/get-event-data-store.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/get-event-data-store.html") command.
@@ -1357,14 +1306,10 @@ The command returns the settings for the event data store.
 
 ###### Topics
 
-- [Include all Amazon S3
-  events for a specific bucket](#creating-data-adv-event-selectors-CLI-s3-eds "#creating-data-adv-event-selectors-CLI-s3-eds")
-- [Include Amazon S3 on
-  AWS Outposts events](#creating-data-event-selectors-CLI-outposts-eds "#creating-data-event-selectors-CLI-outposts-eds")
+- [Include all Amazon S3 events for a specific bucket](#creating-data-adv-event-selectors-CLI-s3-eds "#creating-data-adv-event-selectors-CLI-s3-eds")
+- [Include Amazon S3 on AWS Outposts events](#creating-data-event-selectors-CLI-outposts-eds "#creating-data-event-selectors-CLI-outposts-eds")
 
-#### Include all Amazon S3
-
-events for a specific bucket
+#### Include all Amazon S3 events for a specific bucket
 
 The following example shows how to create an event data store to include all data events
 for all Amazon S3 objects in a specific general purpose S3 bucket and exclude AWS service events and events generated by the `bucket-scanner-role` `userIdentity`.
@@ -1446,9 +1391,7 @@ The command returns the following example output.
 }
 ```
 
-#### Include Amazon S3 on
-
-AWS Outposts events
+#### Include Amazon S3 on AWS Outposts events
 
 The following example shows how to create an event data store that includes all data events
 for all Amazon S3 on Outposts objects in your outpost.
@@ -1503,9 +1446,7 @@ The command returns the following example output.
 }
 ```
 
-## Logging data events for AWS Config
-
-compliance
+## Logging data events for AWS Config compliance
 
 If you are using AWS Config conformance packs to help your enterprise maintain compliance
 with formalized standards such as those required by Federal Risk and Authorization
@@ -1531,9 +1472,7 @@ are examples of conformance packs that include this rule.
 For a full list of sample conformance packs available in AWS Config, see [Conformance pack sample templates](../../../config/latest/developerguide/conformancepack-sample-templates.md "../../../config/latest/developerguide/conformancepack-sample-templates.md") in the _AWS Config
 Developer Guide._
 
-## Logging data events with the AWS
-
-SDKs
+## Logging data events with the AWS SDKs
 
 Run the [GetEventSelectors](../APIReference/API_GetEventSelectors.md "../APIReference/API_GetEventSelectors.md")
 operation to see whether your trail is logging data events. You can

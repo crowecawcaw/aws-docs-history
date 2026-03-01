@@ -50,7 +50,7 @@ Consider the following factors when federating an event data store:
   allows this action. If you use inline policies, be sure to update permissions policies to allow this action. For more information, see
   [Managing Lake Formation and Athena user permissions](../../../athena/latest/ug/lf-athena-user-permissions.md "../../../athena/latest/ug/lf-athena-user-permissions.md").
 - To create views on federated tables in Athena, you need a destination database other than `aws:cloudtrail`. This is because the `aws:cloudtrail` database is managed by CloudTrail.
-- To create a dataset in Amazon Quick Suite, you must choose the **Use
+- To create a dataset in Amazon Quick, you must choose the **Use
   custom SQL** option. For more information, see [Creating
   a dataset using Amazon Athena data](../../../quicksight/latest/user/create-a-data-set-athena.md "../../../quicksight/latest/user/create-a-data-set-athena.md").
 - If federation is enabled, you can't delete an event data store. To
@@ -78,10 +78,8 @@ role.
 ###### Topics
 
 - [IAM permissions for federating an event data store](#query-federation-permissions-role "#query-federation-permissions-role")
-- [Required permissions for enabling
-  federation](#query-federation-permissions-enable "#query-federation-permissions-enable")
-- [Required permissions for disabling
-  federation](#query-federation-permissions-disable "#query-federation-permissions-disable")
+- [Required permissions for enabling federation](#query-federation-permissions-enable "#query-federation-permissions-enable")
+- [Required permissions for disabling federation](#query-federation-permissions-disable "#query-federation-permissions-disable")
 
 ### IAM permissions for federating an event data store
 
@@ -146,9 +144,7 @@ JSON
 
 ```
 
-### Required permissions for enabling
-
-federation
+### Required permissions for enabling federation
 
 The following example policy provides the minimum required permissions to enable federation on an event data store. This policy allows CloudTrail to enable federation
 on the event data store, AWS Glue to create the federated resources in the AWS Glue Data Catalog, and AWS Lake Formation to manage resource registration.
@@ -203,9 +199,7 @@ JSON
 
 ```
 
-### Required permissions for disabling
-
-federation
+### Required permissions for disabling federation
 
 The following example policy provides the minimum required resources to disable federation on an event data store. This policy
 allows CloudTrail to disable federation on the event data store, AWS Glue to delete the managed federated table in the AWS Glue Data Catalog, and Lake Formation to deregister the

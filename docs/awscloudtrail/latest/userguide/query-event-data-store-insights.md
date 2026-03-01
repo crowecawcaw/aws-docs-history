@@ -144,8 +144,7 @@ administrator permissions in AWS Organizations. This policy is updated automatic
 (for example, a CloudTrail delegated administrator account is registered or removed). 10. (Optional) In the **Tags** section, you can add up to 50
 tag key pairs to help you identify, sort, and control access to your event
 data store. For more information about how to use IAM policies to
-authorize access to an event data store based on tags, see [Examples: Denying
-access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
+authorize access to an event data store based on tags, see [Examples: Denying access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
 more information about how you can use tags in AWS, see [Tagging
 AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") in the
 _Tagging AWS Resources
@@ -291,8 +290,7 @@ administrator permissions in AWS Organizations. This policy is updated automatic
 (for example, a CloudTrail delegated administrator account is registered or removed). 10. (Optional) In the **Tags** section, you can add up to 50
 tag key pairs to help you identify, sort, and control access to your event
 data store. For more information about how to use IAM policies to
-authorize access to an event data store based on tags, see [Examples: Denying
-access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
+authorize access to an event data store based on tags, see [Examples: Denying access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
 more information about how you can use tags in AWS, see [Tagging
 AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") in the
 _Tagging AWS Resources
@@ -432,8 +430,7 @@ CloudTrail will include information about the selected condition keys that were 
 including additional details about the principal, session, network, and the request itself.
 
 Information about the resource tag keys and IAM global condition keys is shown in the `eventContext`
-field of the event. For more information, see [Enrich CloudTrail events by adding resource tag
-keys and IAM global condition keys](cloudtrail-context-events.md "cloudtrail-context-events.md").
+field of the event. For more information, see [Enrich CloudTrail events by adding resource tag keys and IAM global condition keys](cloudtrail-context-events.md "cloudtrail-context-events.md").
 
 ###### Note
 

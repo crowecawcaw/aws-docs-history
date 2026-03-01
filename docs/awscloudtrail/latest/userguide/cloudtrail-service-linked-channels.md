@@ -7,14 +7,10 @@ AWS Regions, or a single AWS Region.
 
 ###### Topics
 
-- [Viewing service-linked channels by
-  using the console](#viewing-service-linked-channels-console "#viewing-service-linked-channels-console")
-- [Viewing service-linked channels by
-  using the AWS CLI](#viewing-service-linked-channels-cli "#viewing-service-linked-channels-cli")
+- [Viewing service-linked channels by using the console](#viewing-service-linked-channels-console "#viewing-service-linked-channels-console")
+- [Viewing service-linked channels by using the AWS CLI](#viewing-service-linked-channels-cli "#viewing-service-linked-channels-cli")
 
-## Viewing service-linked channels by
-
-using the console
+## Viewing service-linked channels by using the console
 
 Using the CloudTrail console, you can view information about any CloudTrail service-linked channels created by AWS services. The table is empty if your account does not have any service-linked channels.
 
@@ -34,9 +30,7 @@ You can view the following information on the details page.
     * **Management events** - Shows any management events configured for the channel.
     * **Data events** - Shows any data events configured for the channel.
 
-## Viewing service-linked channels by
-
-using the AWS CLI
+## Viewing service-linked channels by using the AWS CLI
 
 Using the AWS CLI, you can view information about any CloudTrail service-linked channels created by AWS services.
 

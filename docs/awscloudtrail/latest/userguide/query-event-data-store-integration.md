@@ -1,6 +1,4 @@
-# Create an integration with an event
-
-source outside of AWS
+# Create an integration with an event source outside of AWS
 
 You can use CloudTrail to log and store user activity data from any source in your hybrid
 environments, such as in-house or SaaS applications hosted on-premises or in the cloud,
@@ -45,8 +43,7 @@ sources using the CloudTrail console.
 - [Create a custom integration with the console](query-event-data-store-integration-custom.md "query-event-data-store-integration-custom.md")
 - [Create, update, and manage CloudTrail Lake integrations with the AWS CLI](lake-integrations-cli.md "lake-integrations-cli.md")
 - [Additional information about integration partners](#cloudtrail-lake-partner-information "#cloudtrail-lake-partner-information")
-- [CloudTrail Lake integrations event
-  schema](query-integration-event-schema.md "query-integration-event-schema.md")
+- [CloudTrail Lake integrations event schema](query-integration-event-schema.md "query-integration-event-schema.md")
 
 ## Additional information about integration partners
 

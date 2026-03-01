@@ -1,6 +1,4 @@
-# Change termination protection
-
-with the console
+# Change termination protection with the console
 
 By default, event data stores in AWS CloudTrail Lake are configured with termination
 protection enabled. Termination protection prevents an event data store from

@@ -1,6 +1,4 @@
-# Creating a trail for
-
-your organization in the console
+# Creating a trail for your organization in the console
 
 To create an organization trail from the CloudTrail console, you must sign in to the console
 as a user or role in the management or delegated administrator account that has [sufficient permissions](creating-an-organizational-trail-prepare.md#org_trail_permissions "creating-an-organizational-trail-prepare.md#org_trail_permissions"). If you don't sign in
@@ -48,14 +46,12 @@ If you enable SSE-KMS encryption, choose a **New** or
 **Existing** AWS KMS key. In **AWS KMS
 Alias**, specify an alias, in the format
 `alias/``MyAliasName`. For more
-information, see [Updating a resource to
-use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md").
+information, see [Updating a resource to use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md").
 
 ###### Note
 
 You can also type the ARN of a key from another account. For more
-information, see [Updating a resource to
-use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md"). The
+information, see [Updating a resource to use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md"). The
 key policy must allow CloudTrail to use the key to encrypt your log files and digest files, and
 allow the users you specify to read log files or digest files in unencrypted form. For
 information about manually editing the key policy, see [Configure AWS KMS key policies for CloudTrail](create-kms-key-policy-for-cloudtrail.md "create-kms-key-policy-for-cloudtrail.md"). 7. In **Additional settings**, configure the following.
@@ -407,8 +403,7 @@ After you create your trail, you can return to the trail to make changes:
 - If needed, configure the Amazon S3 bucket to allow specific users in member
   accounts to read the log files for the organization. For more information,
   see [Sharing CloudTrail log files between AWS accounts](cloudtrail-sharing-logs.md "cloudtrail-sharing-logs.md").
-- Configure CloudTrail to send log files to CloudWatch Logs. For more information, see [Sending events to CloudWatch Logs](send-cloudtrail-events-to-cloudwatch-logs.md "send-cloudtrail-events-to-cloudwatch-logs.md") and [the CloudWatch Logs item](creating-an-organizational-trail-prepare.md#cwl-org-pb "creating-an-organizational-trail-prepare.md#cwl-org-pb") in [Prepare for creating a trail
-  for your organization](creating-an-organizational-trail-prepare.md "creating-an-organizational-trail-prepare.md").
+- Configure CloudTrail to send log files to CloudWatch Logs. For more information, see [Sending events to CloudWatch Logs](send-cloudtrail-events-to-cloudwatch-logs.md "send-cloudtrail-events-to-cloudwatch-logs.md") and [the CloudWatch Logs item](creating-an-organizational-trail-prepare.md#cwl-org-pb "creating-an-organizational-trail-prepare.md#cwl-org-pb") in [Prepare for creating a trail for your organization](creating-an-organizational-trail-prepare.md "creating-an-organizational-trail-prepare.md").
 
 ###### Note
 

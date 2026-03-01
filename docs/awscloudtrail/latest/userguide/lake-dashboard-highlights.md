@@ -1,6 +1,4 @@
-# Enable the Highlights dashboard with the
-
-CloudTrail console
+# Enable the Highlights dashboard with the CloudTrail console
 
 Enable the Highlights dashboard to view an at-a-glance overview of the
 AWS activity collected by the event data stores in your account. The Highlights dashboard is managed by CloudTrail
@@ -17,9 +15,7 @@ You can only enable the Highlights dashboard for event data stores that exist in
 
 You cannot set a refresh schedule for the Highlights dashboard, or add or remove widgets.
 
-## To enable the Highlights
-
-dashboard
+## To enable the Highlights dashboard
 
 Use the following procedure to enable the Highlights dashboard.
 

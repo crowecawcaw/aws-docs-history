@@ -152,11 +152,8 @@ information, see [AWS service integrations with CloudTrail logs](cloudtrail-aws-
 
 ###### Topics
 
-- [Moving from member
-  account trails to organization trails](creating-an-organizational-trail-best-practice.md "creating-an-organizational-trail-best-practice.md")
-- [Prepare for creating a trail
-  for your organization](creating-an-organizational-trail-prepare.md "creating-an-organizational-trail-prepare.md")
-- [Creating a trail for
-  your organization in the console](creating-an-organizational-trail-in-the-console.md "creating-an-organizational-trail-in-the-console.md")
+- [Moving from member account trails to organization trails](creating-an-organizational-trail-best-practice.md "creating-an-organizational-trail-best-practice.md")
+- [Prepare for creating a trail for your organization](creating-an-organizational-trail-prepare.md "creating-an-organizational-trail-prepare.md")
+- [Creating a trail for your organization in the console](creating-an-organizational-trail-in-the-console.md "creating-an-organizational-trail-in-the-console.md")
 - [Creating a trail for an organization with the AWS CLI](cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli.md "cloudtrail-create-and-update-an-organizational-trail-by-using-the-aws-cli.md")
 - [Troubleshooting issues with an organization trail](cloudtrail-troubleshooting.md "cloudtrail-troubleshooting.md")

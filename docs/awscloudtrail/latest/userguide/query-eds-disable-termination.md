@@ -1,6 +1,4 @@
-# Manage event data store
-
-lifecycles
+# Manage event data store lifecycles
 
 The following are the lifecycle stages of an event data store:
 

@@ -31,8 +31,7 @@ see [Optimize CloudTrail Lake queries](lake-queries-optimization.md "lake-querie
 ###### Topics
 
 - [Query editor tools](#query-editor-format-controls "#query-editor-format-controls")
-- [Create CloudTrail Lake queries from natural language
-  prompts](lake-query-generator.md "lake-query-generator.md")
+- [Create CloudTrail Lake queries from natural language prompts](lake-query-generator.md "lake-query-generator.md")
 - [View sample queries with the CloudTrail console](lake-console-queries.md "lake-console-queries.md")
 - [Create or edit a query with the CloudTrail console](query-create-edit-query.md "query-create-edit-query.md")
 - [Run a query and save query results with the console](query-run-query.md "query-run-query.md")

@@ -101,9 +101,7 @@ get the SNS topic name from your trail's settings in the CloudTrail console.
 The `aws:SourceAccount` condition key is also supported, but is not
 recommended.
 
-###### To add the `aws:SourceArn` condition key to your SNS topic
-
-policy
+###### To add the `aws:SourceArn` condition key to your SNS topic policy
 
 1. Open the Amazon SNS console at
    [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
@@ -150,9 +148,7 @@ policy
 7. When you are finished editing the SNS topic policy, choose **Save
    changes**.
 
-###### To add the `aws:SourceAccount` condition key to your SNS topic
-
-policy
+###### To add the `aws:SourceAccount` condition key to your SNS topic policy
 
 1. Open the Amazon SNS console at
    [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").

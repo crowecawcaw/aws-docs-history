@@ -1,6 +1,4 @@
-# Create an event data store for
-
-configuration items with the console
+# Create an event data store for configuration items with the console
 
 You can create an event data store to include [AWS Config configuration items](../../../config/latest/developerguide/config-concepts.md#config-items "../../../config/latest/developerguide/config-concepts.md#config-items"), and use
 the event data store to investigate non-compliant changes to your production
@@ -69,9 +67,7 @@ create an event data store.
   Resources with AWS Config Rules](../../../config/latest/developerguide/evaluate-config.md "../../../config/latest/developerguide/evaluate-config.md") in the _AWS Config Developer
   Guide_.
 
-## To create an event data store for
-
-configuration items
+## To create an event data store for configuration items
 
 1. Sign in to the AWS Management Console and open the CloudTrail console at
    [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/").
@@ -172,8 +168,7 @@ administrator permissions in AWS Organizations. This policy is updated automatic
 (for example, a CloudTrail delegated administrator account is registered or removed). 10. (Optional) In the **Tags** section, you can add up to 50
 tag key pairs to help you identify, sort, and control access to your event
 data store. For more information about how to use IAM policies to
-authorize access to an event data store based on tags, see [Examples: Denying
-access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
+authorize access to an event data store based on tags, see [Examples: Denying access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
 more information about how you can use tags in AWS, see [Tagging
 AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") in the
 _Tagging AWS Resources
@@ -200,9 +195,7 @@ From this point forward, the event data store captures configuration
 items. Configuration items that occurred before you created the event data
 store are not in the event data store.
 
-## Configuration item
-
-schema
+## Configuration item schema
 
 The following table describes the required and optional schema elements that match
 those in configuration item records. The contents of `eventData` are
@@ -227,30 +220,29 @@ CloudTrail event record contents are described in more detail in [CloudTrail rec
 | recipientAccountId                                     | string     | Required   | Represents the AWS account ID that received this<br>event.                                                                                                                                             |
 | addendum                                               | addendum   | Optional   | Shows information about why an event was delayed. If<br>information was missing from an existing event, the addendum<br>block includes the missing information and a reason for why it<br>was missing. |
 
-Fields in `eventData` are provided by your configuration
-items| Field name | Input type | Requirement | Description |
-| --- | --- | --- | --- |
-| eventData | - | Required | Fields in eventData are provided by your configuration<br>items. |
-| • configurationItemVersion | string | Optional | The version of the configuration item from its source. |
-| • configurationItemCaptureTime | string | Optional | The time when the configuration recording was<br>initiated. |
-| • configurationItemStatus | string | Optional | The configuration item status. Valid values are<br>`OK`, `ResourceDiscovered`,<br>`ResourceNotRecorded`, `ResourceDeleted`, and<br>`ResourceDeletedNotRecorded`. |
-| • accountId | string | Optional | The 12-digit AWS account ID associated with the<br>resource. |
-| • resourceType | string | Optional | The type of AWS resource. For more information about valid<br>resource types, see [ConfigurationItem](../../../config/latest/APIReference/API_ConfigurationItem.md "../../../config/latest/APIReference/API_ConfigurationItem.md") in the _AWS Config API<br>Reference_. |
-| • resourceId | string | Optional | The ID of the resource (for example.,<br>sg-`xxxxxx`). |
-| • resourceName | string | Optional | The custom name of the resource, if available. |
-| • arn | string | Optional | Amazon Resource Name (ARN) associated with the resource. |
-| • awsRegion | string | Optional | The AWS Region where the resource resides. |
-| • availabilityZone | string | Optional | The Availability Zone associated with the resource. |
-| • resourceCreationTime | string | Optional | The time stamp when the resource was created. |
-| • configuration | JSON | Optional | The description of the resource configuration. |
-| • supplementaryConfiguration | JSON | Optional | Configuration attributes that AWS Config returns for certain<br>resource types to supplement the information returned for the<br>configuration parameter. |
-| • relatedEvents | string | Optional | A list of CloudTrail event IDs. |
-| • relationships | - | Optional | A list of related AWS resources. |
-| • + name | string | Optional | The type of relationship with the related resource. |
-| • + resourceType | string | Optional | The resource type of the related resource. |
-| • + resourceId | string | Optional | The ID of the related resource (for example,<br>sg-`xxxxxx`). |
-| • + resourceName | string | Optional | The custom name of the related resource, if available. |
-| • tags | JSON | Optional | A mapping of key value tags associated with the<br>resource. |
+| Fields in `eventData` are provided by your configuration items | Field name | Input type | Requirement                                                                                                                                                                                                                                                              | Description |
+| -------------------------------------------------------------- | ---------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| eventData                                                      | -          | Required   | Fields in eventData are provided by your configuration<br>items.                                                                                                                                                                                                         |
+| • configurationItemVersion                                     | string     | Optional   | The version of the configuration item from its source.                                                                                                                                                                                                                   |
+| • configurationItemCaptureTime                                 | string     | Optional   | The time when the configuration recording was<br>initiated.                                                                                                                                                                                                              |
+| • configurationItemStatus                                      | string     | Optional   | The configuration item status. Valid values are<br>`OK`, `ResourceDiscovered`,<br>`ResourceNotRecorded`, `ResourceDeleted`, and<br>`ResourceDeletedNotRecorded`.                                                                                                         |
+| • accountId                                                    | string     | Optional   | The 12-digit AWS account ID associated with the<br>resource.                                                                                                                                                                                                             |
+| • resourceType                                                 | string     | Optional   | The type of AWS resource. For more information about valid<br>resource types, see [ConfigurationItem](../../../config/latest/APIReference/API_ConfigurationItem.md "../../../config/latest/APIReference/API_ConfigurationItem.md") in the _AWS Config API<br>Reference_. |
+| • resourceId                                                   | string     | Optional   | The ID of the resource (for example.,<br>sg-`xxxxxx`).                                                                                                                                                                                                                   |
+| • resourceName                                                 | string     | Optional   | The custom name of the resource, if available.                                                                                                                                                                                                                           |
+| • arn                                                          | string     | Optional   | Amazon Resource Name (ARN) associated with the resource.                                                                                                                                                                                                                 |
+| • awsRegion                                                    | string     | Optional   | The AWS Region where the resource resides.                                                                                                                                                                                                                               |
+| • availabilityZone                                             | string     | Optional   | The Availability Zone associated with the resource.                                                                                                                                                                                                                      |
+| • resourceCreationTime                                         | string     | Optional   | The time stamp when the resource was created.                                                                                                                                                                                                                            |
+| • configuration                                                | JSON       | Optional   | The description of the resource configuration.                                                                                                                                                                                                                           |
+| • supplementaryConfiguration                                   | JSON       | Optional   | Configuration attributes that AWS Config returns for certain<br>resource types to supplement the information returned for the<br>configuration parameter.                                                                                                                |
+| • relatedEvents                                                | string     | Optional   | A list of CloudTrail event IDs.                                                                                                                                                                                                                                          |
+| • relationships                                                | -          | Optional   | A list of related AWS resources.                                                                                                                                                                                                                                         |
+| • + name                                                       | string     | Optional   | The type of relationship with the related resource.                                                                                                                                                                                                                      |
+| • + resourceType                                               | string     | Optional   | The resource type of the related resource.                                                                                                                                                                                                                               |
+| • + resourceId                                                 | string     | Optional   | The ID of the related resource (for example,<br>sg-`xxxxxx`).                                                                                                                                                                                                            |
+| • + resourceName                                               | string     | Optional   | The custom name of the related resource, if available.                                                                                                                                                                                                                   |
+| • tags                                                         | JSON       | Optional   | A mapping of key value tags associated with the<br>resource.                                                                                                                                                                                                             |
 
 The following example shows the hierarchy of schema elements that match those in
 configuration item records.

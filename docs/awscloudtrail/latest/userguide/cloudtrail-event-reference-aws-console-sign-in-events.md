@@ -1,6 +1,4 @@
-# AWS Management Console sign-in
-
-events
+# AWS Management Console sign-in events
 
 CloudTrail logs attempts to sign in to the AWS Management Console, the AWS Discussion Forums, and the AWS
 Support Center. All IAM user and root user sign-in events, as well as all federated
@@ -33,35 +31,24 @@ use a global or regional endpoint to sign in.
 
 ###### Topics
 
-- [Example
-  event records for IAM users](#cloudtrail-event-reference-aws-console-sign-in-events-iam-user "#cloudtrail-event-reference-aws-console-sign-in-events-iam-user")
-- [Example
-  event records for root users](#cloudtrail-event-reference-aws-console-sign-in-events-root "#cloudtrail-event-reference-aws-console-sign-in-events-root")
+- [Example event records for IAM users](#cloudtrail-event-reference-aws-console-sign-in-events-iam-user "#cloudtrail-event-reference-aws-console-sign-in-events-iam-user")
+- [Example event records for root users](#cloudtrail-event-reference-aws-console-sign-in-events-root "#cloudtrail-event-reference-aws-console-sign-in-events-root")
 - [Example event records for federated users](#cloudtrail-event-reference-aws-console-sign-in-events-federated-user "#cloudtrail-event-reference-aws-console-sign-in-events-federated-user")
 
-## Example
-
-event records for IAM users
+## Example event records for IAM users
 
 The following examples show event records for several IAM user sign-in
 scenarios.
 
 ###### Topics
 
-- [IAM user,
-  successful sign-in without MFA](#cloudtrail-aws-console-sign-in-events-iam-user-success "#cloudtrail-aws-console-sign-in-events-iam-user-success")
-- [IAM user,
-  successful sign-in with MFA](#cloudtrail-aws-console-sign-in-events-iam-user-mfa "#cloudtrail-aws-console-sign-in-events-iam-user-mfa")
-- [IAM user,
-  unsuccessful sign-in](#cloudtrail-aws-console-sign-in-events-iam-user-failure "#cloudtrail-aws-console-sign-in-events-iam-user-failure")
-- [IAM user, sign-in
-  process checks for MFA (single MFA device type)](#cloudtrail-aws-console-sign-in-requires-mfa "#cloudtrail-aws-console-sign-in-requires-mfa")
-- [IAM user,
-  sign-in process checks for MFA (multiple MFA device types)](#cloudtrail-aws-console-sign-in-requires-mfa-multiple "#cloudtrail-aws-console-sign-in-requires-mfa-multiple")
+- [IAM user, successful sign-in without MFA](#cloudtrail-aws-console-sign-in-events-iam-user-success "#cloudtrail-aws-console-sign-in-events-iam-user-success")
+- [IAM user, successful sign-in with MFA](#cloudtrail-aws-console-sign-in-events-iam-user-mfa "#cloudtrail-aws-console-sign-in-events-iam-user-mfa")
+- [IAM user, unsuccessful sign-in](#cloudtrail-aws-console-sign-in-events-iam-user-failure "#cloudtrail-aws-console-sign-in-events-iam-user-failure")
+- [IAM user, sign-in process checks for MFA (single MFA device type)](#cloudtrail-aws-console-sign-in-requires-mfa "#cloudtrail-aws-console-sign-in-requires-mfa")
+- [IAM user, sign-in process checks for MFA (multiple MFA device types)](#cloudtrail-aws-console-sign-in-requires-mfa-multiple "#cloudtrail-aws-console-sign-in-requires-mfa-multiple")
 
-### IAM user,
-
-successful sign-in without MFA
+### IAM user, successful sign-in without MFA
 
 The following record shows that a user named `Anaya` successfully
 signed in to the AWS Management Console without using multi-factor authentication (MFA).
@@ -105,9 +92,7 @@ signed in to the AWS Management Console without using multi-factor authenticatio
 }
 ```
 
-### IAM user,
-
-successful sign-in with MFA
+### IAM user, successful sign-in with MFA
 
 The following record shows that an IAM user named `Anaya`
 successfully signed in to the AWS Management Console using multi-factor authentication
@@ -153,9 +138,7 @@ successfully signed in to the AWS Management Console using multi-factor authenti
 }
 ```
 
-### IAM user,
-
-unsuccessful sign-in
+### IAM user, unsuccessful sign-in
 
 The following record shows an unsuccessful sign-in attempt from an IAM user
 named `Paulo`.
@@ -201,9 +184,7 @@ named `Paulo`.
 
 ```
 
-### IAM user, sign-in
-
-process checks for MFA (single MFA device type)
+### IAM user, sign-in process checks for MFA (single MFA device type)
 
 The following shows that the sign-process checked whether multi-factor
 authentication (MFA) is required for an IAM user during sign-in. In this example,
@@ -248,9 +229,7 @@ type (`U2F MFA`).
 }
 ```
 
-### IAM user,
-
-sign-in process checks for MFA (multiple MFA device types)
+### IAM user, sign-in process checks for MFA (multiple MFA device types)
 
 The following shows that the sign-process checked whether multi-factor
 authentication (MFA) is required for an IAM user during sign-in. In this example,
@@ -294,9 +273,7 @@ that the IAM user enabled multiple MFA device types.
 }
 ```
 
-## Example
-
-event records for root users
+## Example event records for root users
 
 The following examples show event records for several `root` user sign-in
 scenarios. When you sign-in using the root user, CloudTrail records the `ConsoleLogin`
@@ -304,20 +281,13 @@ event in us-east-1.
 
 ###### Topics
 
-- [Root user, successful sign-in without
-  MFA](#cloudtrail-signin-root "#cloudtrail-signin-root")
-- [Root user, successful sign-in
-  with MFA](#cloudtrail-signin-root-mfa "#cloudtrail-signin-root-mfa")
-- [Root user, unsuccessful
-  sign-in](#cloudtrail-unsuccessful-signin-root "#cloudtrail-unsuccessful-signin-root")
-- [Root user, MFA
-  changed](#cloudtrail-signin-mfa-changed-root "#cloudtrail-signin-mfa-changed-root")
-- [Root user, password
-  changed](#cloudtrail-root-password-changed "#cloudtrail-root-password-changed")
+- [Root user, successful sign-in without MFA](#cloudtrail-signin-root "#cloudtrail-signin-root")
+- [Root user, successful sign-in with MFA](#cloudtrail-signin-root-mfa "#cloudtrail-signin-root-mfa")
+- [Root user, unsuccessful sign-in](#cloudtrail-unsuccessful-signin-root "#cloudtrail-unsuccessful-signin-root")
+- [Root user, MFA changed](#cloudtrail-signin-mfa-changed-root "#cloudtrail-signin-mfa-changed-root")
+- [Root user, password changed](#cloudtrail-root-password-changed "#cloudtrail-root-password-changed")
 
-### Root user, successful sign-in without
-
-MFA
+### Root user, successful sign-in without MFA
 
 The following shows a successful sign-in event for a root user not using
 multi-factor authentication (MFA).
@@ -361,9 +331,7 @@ multi-factor authentication (MFA).
 }
 ```
 
-### Root user, successful sign-in
-
-with MFA
+### Root user, successful sign-in with MFA
 
 The following shows a successful sign-in event for a root user using
 multi-factor authentication (MFA).
@@ -408,9 +376,7 @@ multi-factor authentication (MFA).
 }
 ```
 
-### Root user, unsuccessful
-
-sign-in
+### Root user, unsuccessful sign-in
 
 The following shows an unsuccessful sign-in event for a root user not using
 MFA.
@@ -455,9 +421,7 @@ MFA.
 }
 ```
 
-### Root user, MFA
-
-changed
+### Root user, MFA changed
 
 The following shows an example event for a root user changing multi-factor
 authentication (MFA) settings.
@@ -503,9 +467,7 @@ authentication (MFA) settings.
 }
 ```
 
-### Root user, password
-
-changed
+### Root user, password changed
 
 The following shows an example event for a root user changing their
 password.

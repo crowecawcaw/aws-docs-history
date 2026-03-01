@@ -5,32 +5,23 @@ provides information about the widgets featured on each dashboard.
 
 ###### Available managed dashboards:
 
-- [Security monitoring
-  dashboard](#lake-managed-dashboard-security "#lake-managed-dashboard-security")
+- [Security monitoring dashboard](#lake-managed-dashboard-security "#lake-managed-dashboard-security")
 - [IAM activity dashboard](#lake-managed-dashboard-iam "#lake-managed-dashboard-iam")
 - [User activity dashboard](#lake-managed-dashboard-user "#lake-managed-dashboard-user")
 - [Enriched events dashboard](#lake-managed-dashboard-enriched-events "#lake-managed-dashboard-enriched-events")
 - [Error analysis dashboard](#lake-managed-dashboard-error "#lake-managed-dashboard-error")
 - [EC2 activity dashboard](#lake-managed-dashboard-ec2 "#lake-managed-dashboard-ec2")
-- [Organizations activity
-  dashboard](#lake-managed-dashboard-organizations "#lake-managed-dashboard-organizations")
-- [Resource changes
-  dashboard](#lake-managed-dashboard-resources "#lake-managed-dashboard-resources")
-- [Data events overview
-  dashboard](#lake-managed-dashboard-data "#lake-managed-dashboard-data")
-- [Lambda data events
-  dashboard](#lake-managed-dashboard-lambda "#lake-managed-dashboard-lambda")
-- [DynamoDB data events
-  dashboard](#lake-managed-dashboard-dynamodb "#lake-managed-dashboard-dynamodb")
+- [Organizations activity dashboard](#lake-managed-dashboard-organizations "#lake-managed-dashboard-organizations")
+- [Resource changes dashboard](#lake-managed-dashboard-resources "#lake-managed-dashboard-resources")
+- [Data events overview dashboard](#lake-managed-dashboard-data "#lake-managed-dashboard-data")
+- [Lambda data events dashboard](#lake-managed-dashboard-lambda "#lake-managed-dashboard-lambda")
+- [DynamoDB data events dashboard](#lake-managed-dashboard-dynamodb "#lake-managed-dashboard-dynamodb")
 - [S3 data events dashboard](#lake-managed-dashboard-s3 "#lake-managed-dashboard-s3")
 - [Insights events dashboard](#lake-managed-dashboard-insights "#lake-managed-dashboard-insights")
-- [Management events
-  dashboard](#lake-managed-dashboard-mgmt "#lake-managed-dashboard-mgmt")
+- [Management events dashboard](#lake-managed-dashboard-mgmt "#lake-managed-dashboard-mgmt")
 - [Overview dashboard](#lake-managed-dashboard-overview "#lake-managed-dashboard-overview")
 
-## Security monitoring
-
-dashboard
+## Security monitoring dashboard
 
 This dashboard provides a centralized view of critical security focused
 widgets, such as top access denied events, failed console login attempts and
@@ -323,9 +314,7 @@ changes.
 
 Tracks the most recent EC2 actions performed by root users with highly privileged permissions.
 
-## Organizations activity
-
-dashboard
+## Organizations activity dashboard
 
 Designed for organization event data stores, this dashboard offers visibility
 into organizational activities and trends, including insights on active members,
@@ -382,9 +371,7 @@ the highest number of access denied errors.
 Tracks the most recent changes made to service control policies
 (SCPs) within the organization.
 
-## Resource changes
-
-dashboard
+## Resource changes dashboard
 
 This dashboard provides a comprehensive view of resource management
 activities, monitoring trends in provisioning, deletion, and modifications
@@ -433,9 +420,7 @@ Tracks the most recent S3 bucket access changes.
 
 Tracks the most recent KMS key policy changes.
 
-## Data events overview
-
-dashboard
+## Data events overview dashboard
 
 This dashboard offers a centralized view of data events in the event data
 store, including overall activity trends, top services, APIs, regions, throttled
@@ -475,9 +460,7 @@ throttling within the account.
 Tracks the top users who utilize data plane APIs most across the
 account.
 
-## Lambda data events
-
-dashboard
+## Lambda data events dashboard
 
 This dashboard provides visibility into Lambda data plane API activity,
 including top users, frequently invoked functions, common API errors. These
@@ -517,9 +500,7 @@ calls.
 Tracks the users who experience the highest number of throttling
 events for Lambda invocations.
 
-## DynamoDB data events
-
-dashboard
+## DynamoDB data events dashboard
 
 This dashboard provides visibility into DynamoDB data plane API activity,
 including usage trends, top APIs, and throttling patterns involving users and
@@ -642,9 +623,7 @@ events.
 
 Lists recent Insights events.
 
-## Management events
-
-dashboard
+## Management events dashboard
 
 This dashboard highlights insights on access denied events, destructive
 actions, console sign-in events, top errors by user, TLS version usage, and

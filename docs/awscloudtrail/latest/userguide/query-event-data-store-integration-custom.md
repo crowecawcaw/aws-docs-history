@@ -57,8 +57,7 @@ If you do not create a resource policy for the channel, only the channel owner c
 7. (Optional) In the **Tags** area, you can add up to 50 tag
    key and value pairs to help you identify, sort, and control access to your
    event data store and channel. For more information about how to use IAM
-   policies to authorize access to an event data store based on tags, see [Examples: Denying
-   access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
+   policies to authorize access to an event data store based on tags, see [Examples: Denying access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags"). For
    more information about how you can use tags in AWS, see [Tagging
    your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") in the
    _AWS General Reference_.
@@ -72,8 +71,7 @@ If you do not create a resource policy for the channel, only the channel owner c
    the payload of events that you want CloudTrail to add, and the external ID (if specified for your resource policy). Be sure that there is
    no sensitive or personally-identifying information in event payload before
    ingesting it into CloudTrail. Events that you ingest into CloudTrail must follow the
-   [CloudTrail Lake integrations event
-   schema](query-integration-event-schema.md "query-integration-event-schema.md").
+   [CloudTrail Lake integrations event schema](query-integration-event-schema.md "query-integration-event-schema.md").
 
 ###### Tip
 
@@ -145,9 +143,7 @@ The following are the sample contents of the example JSON file,
 }
 ```
 
-## (Optional)
-
-Calculate a checksum value
+## (Optional) Calculate a checksum value
 
 The checksum that you specify as the value of `EventDataChecksum`
 in a `PutAuditEvents` request helps you verify that CloudTrail receives the

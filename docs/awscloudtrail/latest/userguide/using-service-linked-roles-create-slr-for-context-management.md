@@ -20,9 +20,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role
-
-permissions for CloudTrail
+## Service-linked role permissions for CloudTrail
 
 CloudTrail uses the service-linked role named **AWSServiceRoleForCloudTrailEventContext**
 – This service linked role is used for managing CloudTrail Event Context and EventBridge rules.
@@ -63,9 +61,7 @@ _IAM User Guide_.
 
 For more information about the managed policy associated with AWSServiceRoleForCloudTrailEventContext, see [AWS managed policies for AWS CloudTrail](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
-## Creating a service-linked role for
-
-CloudTrail
+## Creating a service-linked role for CloudTrail
 
 You don't need to manually create a service-linked role. When you
 begin using the context event feature in the AWS Management Console, the AWS CLI, or the AWS API, CloudTrail
@@ -75,9 +71,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 the same process to recreate the role in your account. When you
 begin using the context event feature, CloudTrail creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-CloudTrail
+## Editing a service-linked role for CloudTrail
 
 CloudTrail does not allow you to edit the AWSServiceRoleForCloudTrailEventContext service-linked role. After
 you create a service-linked role, you cannot change the name of the role because various
@@ -85,9 +79,7 @@ entities might reference the role. However, you can edit the description of the 
 IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting the AWSServiceRoleForCloudTrailEventContext service-linked role for
-
-CloudTrail
+## Deleting the AWSServiceRoleForCloudTrailEventContext service-linked role for CloudTrail
 
 If you no longer need to use a feature or service that requires the AWSServiceRoleForCloudTrailEventContext
 service-linked role, we recommend that you delete that role. That way you don’t have an
@@ -101,9 +93,7 @@ If the CloudTrail service is using the role when you try to delete the resources
 then the deletion might fail. If that happens, wait for a few minutes and try the operation
 again.
 
-###### To delete CloudTrail resources used by the AWSServiceRoleForCloudTrailEventContext service linked
-
-role
+###### To delete CloudTrail resources used by the AWSServiceRoleForCloudTrailEventContext service linked role
 
 1. At the terminal or command line, run the **put-event-configuration**
    command for the event store from which you want to remove the `TagContext`

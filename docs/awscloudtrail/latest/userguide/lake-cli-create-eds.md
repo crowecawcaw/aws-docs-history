@@ -43,8 +43,7 @@ The following examples show how to create different types of event data stores.
 
 - [Create an event data store for S3 data events with the AWS CLI](#lake-cli-create-eds-data "#lake-cli-create-eds-data")
 - [Create an event data store for KMS network activity events with the AWS CLI](#lake-cli-create-eds-network "#lake-cli-create-eds-network")
-- [Create an event data store for AWS Config
-  configuration items with the AWS CLI](#lake-cli-create-eds-config "#lake-cli-create-eds-config")
+- [Create an event data store for AWS Config configuration items with the AWS CLI](#lake-cli-create-eds-config "#lake-cli-create-eds-config")
 - [Create an organization event data store for management events with the AWS CLI](#lake-cli-create-eds-org "#lake-cli-create-eds-org")
 - [Create event data stores for Insights events with the AWS CLI](#lake-cli-insights "#lake-cli-insights")
 
@@ -187,12 +186,9 @@ The command returns the following example output.
 ```
 
 For more information about network activity events, see
-[Logging network activity
-events](logging-network-events-with-cloudtrail.md "logging-network-events-with-cloudtrail.md").
+[Logging network activity events](logging-network-events-with-cloudtrail.md "logging-network-events-with-cloudtrail.md").
 
-## Create an event data store for AWS Config
-
-configuration items with the AWS CLI
+## Create an event data store for AWS Config configuration items with the AWS CLI
 
 The following example AWS CLI **create-event-data-store** command creates an event data store named
 `config-items-eds` that selects AWS Config configuration items. To collect configuration items, specify that the

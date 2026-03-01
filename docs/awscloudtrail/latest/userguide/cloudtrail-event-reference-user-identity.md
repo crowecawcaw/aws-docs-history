@@ -159,7 +159,7 @@ _IAM User Guide_.
 
 - `Directory` – The request was made to a directory
   service, and the type is unknown. Directory services include the
-  following: Amazon WorkDocs and Amazon Quick Suite.
+  following: Amazon WorkDocs and Amazon Quick.
 - `AWSAccount` – The request was made by another AWS account
 - `AWSService` – The request was made by an AWS account that belongs
   to an AWS service. For example, AWS Elastic Beanstalk assumes an IAM role in
@@ -174,9 +174,7 @@ _IAM User Guide_.
 logs when there is cross-account access using an IAM role that you
 own.
 
-###### Example: Cross-account access initiated by another AWS
-
-account
+###### Example: Cross-account access initiated by another AWS account
 
 1. You own an IAM role in your account.
 2. Another AWS account switches to that role to assume the role for

@@ -8,14 +8,10 @@ than prescriptions.
 
 ###### Topics
 
-- [CloudTrail detective security best
-  practices](#best-practices-security-detective "#best-practices-security-detective")
-- [CloudTrail preventative security best
-  practices](#best-practices-security-preventative "#best-practices-security-preventative")
+- [CloudTrail detective security best practices](#best-practices-security-detective "#best-practices-security-detective")
+- [CloudTrail preventative security best practices](#best-practices-security-preventative "#best-practices-security-preventative")
 
-## CloudTrail detective security best
-
-practices
+## CloudTrail detective security best practices
 
 **Create a trail**
 
@@ -107,9 +103,7 @@ Security Hub CSPM uses detective _security controls_ to evaluate resource config
 compliance frameworks. For more information about using Security Hub CSPM to evaluate CloudTrail resources, see [AWS CloudTrail controls](../../../securityhub/latest/userguide/cloudtrail-controls.md "../../../securityhub/latest/userguide/cloudtrail-controls.md")
 in the _AWS Security Hub User Guide_.
 
-## CloudTrail preventative security best
-
-practices
+## CloudTrail preventative security best practices
 
 The following best practices for CloudTrail can help prevent security incidents.
 

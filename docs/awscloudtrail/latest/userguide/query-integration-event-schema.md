@@ -1,6 +1,4 @@
-# CloudTrail Lake integrations event
-
-schema
+# CloudTrail Lake integrations event schema
 
 The following table describes the required and optional schema elements that match
 those in CloudTrail event records. The contents of `eventData` are provided by

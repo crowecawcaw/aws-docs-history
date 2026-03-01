@@ -29,8 +29,7 @@ You can change the following settings for your trail using the CloudTrail consol
 - If you are configuring a trail to log data events, using the CloudTrail console allows you to view the available data types. For more information, see
   [Logging data events](logging-data-events-with-cloudtrail.md "logging-data-events-with-cloudtrail.md").
 - If you are configuring a trail to network activity events, using the CloudTrail console allows you to view the available event sources. For more information, see
-  [Logging network activity
-  events](logging-network-events-with-cloudtrail.md "logging-network-events-with-cloudtrail.md").
+  [Logging network activity events](logging-network-events-with-cloudtrail.md "logging-network-events-with-cloudtrail.md").
   For information specific to creating a trail for an organization in AWS Organizations, see [Creating a trail for an organization](creating-trail-organization.md "creating-trail-organization.md").
 
 ###### Topics

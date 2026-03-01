@@ -66,8 +66,7 @@ Run the `put-resource-policy` command to apply a resource-based policy to an eve
 To run queries on a dashboard during a manual or scheduled refresh, you need to attach a resource-based policy to
 every event data store that is associated with a widget on the dashboard.
 This allows CloudTrail Lake to run the queries on your behalf. For more information about the resource-based policy, see
-[Example:
-Allow CloudTrail to run queries to refresh a dashboard](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard").
+[Example: Allow CloudTrail to run queries to refresh a dashboard](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard").
 
 The following example attaches a resource-based policy to an event data store.
 Replace `account-id` with your account ID, `eds-arn` with the ARN of the event data store for which CloudTrail will run queries, and

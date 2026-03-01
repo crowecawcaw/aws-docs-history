@@ -36,8 +36,7 @@ in the _AWS CloudTrail API Reference_.
 **Topics**
 
 - [Limitations of Event history](#event-history-limitations "#event-history-limitations")
-- [Viewing recent management events with
-  the console](view-cloudtrail-events-console.md "view-cloudtrail-events-console.md")
+- [Viewing recent management events with the console](view-cloudtrail-events-console.md "view-cloudtrail-events-console.md")
 - [Viewing recent management events with the AWS CLI](view-cloudtrail-events-cli.md "view-cloudtrail-events-cli.md")
 
 ## Limitations of Event history
@@ -58,7 +57,6 @@ In CloudTrail Lake, you can query multiple event types, including management eve
 configuration items, Audit Manager evidence, and non-AWS events. CloudTrail Lake queries offer a deeper and more
 customizable view of events than simple key and value lookups on the **Event
 history** page, or by running `LookupEvents`. For more information,
-see [Working with AWS CloudTrail Lake](cloudtrail-lake.md "cloudtrail-lake.md") and [Create an event data store for CloudTrail
-events with the console](query-event-data-store-cloudtrail.md "query-event-data-store-cloudtrail.md").
+see [Working with AWS CloudTrail Lake](cloudtrail-lake.md "cloudtrail-lake.md") and [Create an event data store for CloudTrail events with the console](query-event-data-store-cloudtrail.md "query-event-data-store-cloudtrail.md").
 
 - You cannot exclude AWS KMS or Amazon RDS Data API events from event history; settings that you apply to a trail or event data store do not apply to event history.

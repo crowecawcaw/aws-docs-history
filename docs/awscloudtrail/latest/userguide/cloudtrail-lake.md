@@ -18,8 +18,7 @@ specific event category (for example, AWS Config configuration items), because t
 category. You can store events from an organization in AWS Organizations in an [organization event data store](cloudtrail-lake-organizations.md "cloudtrail-lake-organizations.md"),
 including events from multiple Regions and accounts. You can also run SQL queries across
 multiple event data stores using the supported SQL JOIN keywords. For information about
-running queries across multiple event data stores, see [Advanced, multi-table query
-support](query-limitations.md#query-advanced-multi-table "query-limitations.md#query-advanced-multi-table").
+running queries across multiple event data stores, see [Advanced, multi-table query support](query-limitations.md#query-advanced-multi-table "query-limitations.md#query-advanced-multi-table").
 
 You can copy trail events to a new or existing event data store to create a
 point-in-time snapshot of events logged to the trail. For more information, see
@@ -42,8 +41,7 @@ incurs AWS KMS costs for encryption and decryption. After you associate an event
 with a KMS key, the KMS key cannot be removed or changed.
 
 You can control access to actions on event data stores by using authorization based on tags. For more
-information and examples, see [Examples: Denying
-access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags") in this guide.
+information and examples, see [Examples: Denying access to create or delete event data stores based on tags](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-eds-tags") in this guide.
 
 CloudTrail Lake event data stores incur charges. When you create an event data store, you choose the [pricing option](cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option") you want
 to use for the event data store. The pricing option determines the cost for ingesting and storing events, and
@@ -73,8 +71,7 @@ You can build a query
 on the CloudTrail Lake **Editor** tab by writing the query in SQL from
 scratch, by opening a saved or sample query and editing it, or by using the query generator
 to produce a query from an English language prompt. For more
-information, see [Create or edit a query with the CloudTrail console](query-create-edit-query.md "query-create-edit-query.md") and [Create CloudTrail Lake queries from natural language
-prompts](lake-query-generator.md "lake-query-generator.md").
+information, see [Create or edit a query with the CloudTrail console](query-create-edit-query.md "query-create-edit-query.md") and [Create CloudTrail Lake queries from natural language prompts](lake-query-generator.md "lake-query-generator.md").
 
 You can save CloudTrail Lake queries for future use, and view results of queries for up to seven
 days. When you run queries, you can save the query results to an Amazon S3 bucket.

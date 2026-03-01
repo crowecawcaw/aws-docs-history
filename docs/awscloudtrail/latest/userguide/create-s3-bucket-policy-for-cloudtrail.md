@@ -84,8 +84,7 @@ For more information about AWS Regions, see [CloudTrail supported Regions](cloud
 
 - [Specifying an existing bucket for CloudTrail log delivery](create-s3-bucket-policy-for-cloudtrail.md#specify-an-existing-bucket-for-cloudtrail-log-delivery "create-s3-bucket-policy-for-cloudtrail.md#specify-an-existing-bucket-for-cloudtrail-log-delivery")
 - [Receiving log files from other accounts](create-s3-bucket-policy-for-cloudtrail.md#aggregration-option "create-s3-bucket-policy-for-cloudtrail.md#aggregration-option")
-- [Create or update an Amazon S3 bucket to use to store the log files for an
-  organization trail](create-s3-bucket-policy-for-cloudtrail.md#org-trail-bucket-policy "create-s3-bucket-policy-for-cloudtrail.md#org-trail-bucket-policy")
+- [Create or update an Amazon S3 bucket to use to store the log files for an organization trail](create-s3-bucket-policy-for-cloudtrail.md#org-trail-bucket-policy "create-s3-bucket-policy-for-cloudtrail.md#org-trail-bucket-policy")
 - [Troubleshooting the Amazon S3 bucket policy](create-s3-bucket-policy-for-cloudtrail.md#troubleshooting-s3-bucket-policy "create-s3-bucket-policy-for-cloudtrail.md#troubleshooting-s3-bucket-policy")
   - [Common Amazon S3 policy configuration errors](create-s3-bucket-policy-for-cloudtrail.md#s3-bucket-policy-for-multiple-regions "create-s3-bucket-policy-for-cloudtrail.md#s3-bucket-policy-for-multiple-regions")
   - [Changing a prefix for an existing bucket](create-s3-bucket-policy-for-cloudtrail.md#cloudtrail-add-change-or-remove-a-bucket-prefix "create-s3-bucket-policy-for-cloudtrail.md#cloudtrail-add-change-or-remove-a-bucket-prefix")
@@ -126,9 +125,7 @@ users who will access the bucket.
 You can configure CloudTrail to deliver log files from multiple AWS accounts to a single
 S3 bucket. For more information, see [Receiving CloudTrail log files from multiple accounts](cloudtrail-receive-logs-from-multiple-accounts.md "cloudtrail-receive-logs-from-multiple-accounts.md").
 
-## Create or update an Amazon S3 bucket to use to store the log files for an
-
-organization trail
+## Create or update an Amazon S3 bucket to use to store the log files for an organization trail
 
 You must specify an Amazon S3
 bucket to receive the log files for an organization trail. This bucket must have a policy that

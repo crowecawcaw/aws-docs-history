@@ -8,8 +8,7 @@ and provides information about how you can grant permissions.
 - [Grant permissions to use CloudTrail](#tutorial-grant-permissions "#tutorial-grant-permissions")
 - [View event history](tutorial-event-history.md "tutorial-event-history.md")
 - [Create a trail to log management events](tutorial-trail.md "tutorial-trail.md")
-- [Create an event data store for S3 data
-  events](tutorial-lake-S3.md "tutorial-lake-S3.md")
+- [Create an event data store for S3 data events](tutorial-lake-S3.md "tutorial-lake-S3.md")
 
 ## Grant permissions to use CloudTrail
 

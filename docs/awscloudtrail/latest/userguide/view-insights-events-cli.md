@@ -3,15 +3,13 @@
 This section describes how to use the AWS CLI `lookup-events`
 and `list-insights-data` command to lookup the last 90 days of Insights events
 for a trail with Insights events enabled. For
-information about how to enable CloudTrail Insights on a trail, see [Logging Insights events for a trail using
-the AWS CLI](insights-events-CLI-enable.md#insights-events-CLI-enable-trails "insights-events-CLI-enable.md#insights-events-CLI-enable-trails").
+information about how to enable CloudTrail Insights on a trail, see [Logging Insights events for a trail using the AWS CLI](insights-events-CLI-enable.md#insights-events-CLI-enable-trails "insights-events-CLI-enable.md#insights-events-CLI-enable-trails").
 
 ###### Note
 
 You cannot use the `lookup-events` or `list-insights-data`command
 to lookup Insights events for an event data store, however, CloudTrail Lake offers a number of sample queries
-for Insights event data stores. For more information, see [Viewing sample queries for
-Insights events](insights-events-view-lake.md#insights-events-lake-queries "insights-events-view-lake.md#insights-events-lake-queries").
+for Insights event data stores. For more information, see [Viewing sample queries for Insights events](insights-events-view-lake.md#insights-events-lake-queries "insights-events-view-lake.md#insights-events-lake-queries").
 
 The `lookup-events` command has the following options:
 

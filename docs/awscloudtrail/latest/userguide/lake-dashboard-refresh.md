@@ -1,6 +1,4 @@
-# Set a refresh schedule for a custom dashboard
-
-with the CloudTrail console
+# Set a refresh schedule for a custom dashboard with the CloudTrail console
 
 This section describes how to set a dashboard refresh schedule. You can set a refresh
 schedule to allow CloudTrail Lake to refresh a dashboard every 1 hour, 6 hours, 12 hours, or

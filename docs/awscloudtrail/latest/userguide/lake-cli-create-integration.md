@@ -9,8 +9,7 @@ cannot log events for organizations in AWS Organizations, and they can only incl
 The event type in the console must be **Events from
 integrations**. In the API, the `eventCategory`
 value must be `ActivityAuditLog`. For more information
-about integrations, see [Create an integration with an event
-source outside of AWS](query-event-data-store-integration.md "query-event-data-store-integration.md").
+about integrations, see [Create an integration with an event source outside of AWS](query-event-data-store-integration.md "query-event-data-store-integration.md").
 
 1. Run [**create-event-data-store**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/index.html") to create an
    event data store, if you do not already have one or more event data stores
@@ -266,9 +265,7 @@ received events.
 aws cloudtrail get-channel --channel arn:aws:cloudtrail:us-east-1:01234567890:channel/EXAMPLE8-0558-4f7e-a06a-43969EXAMPLE
 ```
 
-## (Optional) Calculate a checksum
-
-value
+## (Optional) Calculate a checksum value
 
 The checksum that you specify as the value of `EventDataChecksum`
 in a `PutAuditEvents` request helps you verify that CloudTrail receives the

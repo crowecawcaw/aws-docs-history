@@ -1,6 +1,4 @@
-# View a managed dashboard with the CloudTrail
-
-console
+# View a managed dashboard with the CloudTrail console
 
 CloudTrail Lake provides managed dashboards that show event trends for event data stores
 that collect management events, data events, and Insights events. These dashboards are managed by
@@ -43,9 +41,7 @@ help control costs, you can filter on a narrower time range. For more
 information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/"). 8. Choose the refresh icon to populate the graphics for the dashboard's
 widgets. Each widget indicates the status of the refresh.
 
-## Save a managed dashboard as a custom
-
-dashboard
+## Save a managed dashboard as a custom dashboard
 
 You cannot modify a managed dashboard, but you can save a copy as a custom
 dashboard. This allows you to set a refresh schedule for the dashboard and modify

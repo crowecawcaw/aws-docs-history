@@ -16,14 +16,11 @@ Follow the recommendations in this section to optimize your queries.
 ###### Recommendations:
 
 - [Optimize aggregations](#query-optimization-aggregation "#query-optimization-aggregation")
-- [Use approximation
-  techniques](#query-optimization-approximation "#query-optimization-approximation")
+- [Use approximation techniques](#query-optimization-approximation "#query-optimization-approximation")
 - [Limit query results](#query-optimization-limit "#query-optimization-limit")
 - [Optimize LIKE queries](#query-optimization-like "#query-optimization-like")
-- [Use UNION ALL instead of
-  UNION](#query-optimization-union "#query-optimization-union")
-- [Include only required
-  columns](#query-optimization-reqcolumns "#query-optimization-reqcolumns")
+- [Use UNION ALL instead of UNION](#query-optimization-union "#query-optimization-union")
+- [Include only required columns](#query-optimization-reqcolumns "#query-optimization-reqcolumns")
 - [Reduce window function scope](#query-optimization-windows "#query-optimization-windows")
 
 ### Optimize aggregations
@@ -57,9 +54,7 @@ FROM $EDS_ID
 GROUP BY eventName, awsRegion
 ```
 
-### Use approximation
-
-techniques
+### Use approximation techniques
 
 Whenever exact values are not needed for counting distinct values, use [approximate aggregate functions](https://trino.io/docs/current/functions/aggregate.html#approximate-aggregate-functions "https://trino.io/docs/current/functions/aggregate.html#approximate-aggregate-functions") to find the most frequent values. For
 example, [`approx_distinct`](https://trino.io/docs/current/functions/aggregate.html#approx_distinct "https://trino.io/docs/current/functions/aggregate.html#approx_distinct") uses much less memory and runs faster
@@ -93,9 +88,7 @@ for. For example, if you're looking for a prefix, it's better to use
 `LIKE` operator and '^`substr`' with the
 `regexp_like` function.
 
-### Use `UNION ALL` instead of
-
-`UNION`
+### Use `UNION ALL` instead of `UNION`
 
 `UNION ALL` and `UNION` are two ways to combine the results
 of two queries into one result but `UNION` removes duplicates.
@@ -104,9 +97,7 @@ which is memory and compute intensive, but `UNION ALL` is a relatively
 quick operation. Unless you need to deduplicate records, use `UNION ALL`
 for the best performance.
 
-### Include only required
-
-columns
+### Include only required columns
 
 If you don't need a column, don't include it in your query. The less data a query
 has to process, the faster it will run. If you have queries that do `SELECT

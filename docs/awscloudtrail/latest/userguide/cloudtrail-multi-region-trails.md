@@ -1,6 +1,4 @@
-# Understanding multi-Region trails and
-
-opt-in Regions
+# Understanding multi-Region trails and opt-in Regions
 
 A trail can be applied to all AWS Regions that are [enabled](../../../accounts/latest/reference/manage-acct-regions.md#manage-acct-regions-enable-standalone "../../../accounts/latest/reference/manage-acct-regions.md#manage-acct-regions-enable-standalone") in your AWS account, or can be applied to a single Region. A trail
 that applies to all AWS Regions that are enabled in your AWS account is referred to as a
@@ -17,18 +15,12 @@ see [CloudTrail supported Regions](cloudtrail-supported-regions.md "cloudtrail-s
 
 ###### Topics
 
-- [What are the advantages of
-  multi-Region trails?](#cloudtrail-multi-region-trails-advantages "#cloudtrail-multi-region-trails-advantages")
-- [What happens when you create a
-  multi-Region trail?](#cloudtrail-multi-region-trails-create "#cloudtrail-multi-region-trails-create")
-- [What happens when you enable an
-  opt-in Region?](#cloudtrail-multi-region-trails-optin "#cloudtrail-multi-region-trails-optin")
-- [What happens when you disable
-  an opt-in Region?](#cloudtrail-multi-region-trails-disable "#cloudtrail-multi-region-trails-disable")
+- [What are the advantages of multi-Region trails?](#cloudtrail-multi-region-trails-advantages "#cloudtrail-multi-region-trails-advantages")
+- [What happens when you create a multi-Region trail?](#cloudtrail-multi-region-trails-create "#cloudtrail-multi-region-trails-create")
+- [What happens when you enable an opt-in Region?](#cloudtrail-multi-region-trails-optin "#cloudtrail-multi-region-trails-optin")
+- [What happens when you disable an opt-in Region?](#cloudtrail-multi-region-trails-disable "#cloudtrail-multi-region-trails-disable")
 
-## What are the advantages of
-
-multi-Region trails?
+## What are the advantages of multi-Region trails?
 
 A multi-Region trail has the following advantages:
 
@@ -39,9 +31,7 @@ A multi-Region trail has the following advantages:
 - You manage trail configurations for all enabled AWS Regions from one
   location.
 
-## What happens when you create a
-
-multi-Region trail?
+## What happens when you create a multi-Region trail?
 
 Creating a multi-Region trail, has the following effects:
 
@@ -54,9 +44,7 @@ Creating a multi-Region trail, has the following effects:
 - You can see the multi-Region trail in all enabled AWS Regions, but you can
   only modify the trail in the home Region where it was created.
 
-## What happens when you enable an
-
-opt-in Region?
+## What happens when you enable an opt-in Region?
 
 After you enable an opt-in Region, CloudTrail creates an identical copy of each multi-Region
 trail in the opt-in Region that you enabled.
@@ -72,9 +60,7 @@ management events logged in a Region, and does not require a trail.
 
 For information about enabling an opt-in Region for your AWS account, see [Enable or disable a Region for standalone accounts](../../../accounts/latest/reference/manage-acct-regions.md#manage-acct-regions-enable-standalone "../../../accounts/latest/reference/manage-acct-regions.md#manage-acct-regions-enable-standalone") or [Enable or disable a Region in your organization](../../../accounts/latest/reference/manage-acct-regions.md#manage-acct-regions-enable-organization "../../../accounts/latest/reference/manage-acct-regions.md#manage-acct-regions-enable-organization").
 
-## What happens when you disable
-
-an opt-in Region?
+## What happens when you disable an opt-in Region?
 
 Because your account may have activity in the Region you disabled, such as actions by
 AWS services to remove resources, CloudTrail will continue to capture activity and attempt

@@ -10,14 +10,10 @@ collect Insights events, see [Create an event data store for Insights events wit
 
 ###### Topics
 
-- [Enabling CloudTrail Insights on an existing
-  trail with the console](#insights-events-enable-trail "#insights-events-enable-trail")
-- [Enabling CloudTrail Insights on an existing
-  event data store with the console](#insights-events-enable-lake "#insights-events-enable-lake")
+- [Enabling CloudTrail Insights on an existing trail with the console](#insights-events-enable-trail "#insights-events-enable-trail")
+- [Enabling CloudTrail Insights on an existing event data store with the console](#insights-events-enable-lake "#insights-events-enable-lake")
 
-## Enabling CloudTrail Insights on an existing
-
-trail with the console
+## Enabling CloudTrail Insights on an existing trail with the console
 
 Use the following procedure to enable CloudTrail Insights on an existing trail.
 
@@ -38,9 +34,7 @@ CloudTrail may take up to 36 hours to begin delivering Insights events after you
 Insights events on a trail, provided that unusual activity is detected during that
 time.
 
-## Enabling CloudTrail Insights on an existing
-
-event data store with the console
+## Enabling CloudTrail Insights on an existing event data store with the console
 
 Use the following procedure to enable CloudTrail Insights on an existing event data store.
 

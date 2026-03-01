@@ -7,15 +7,12 @@ Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/clou
 
 ###### Topics
 
-- [Event data store pricing
-  options](#cloudtrail-lake-manage-costs-pricing-option "#cloudtrail-lake-manage-costs-pricing-option")
+- [Event data store pricing options](#cloudtrail-lake-manage-costs-pricing-option "#cloudtrail-lake-manage-costs-pricing-option")
 - [Understanding CloudTrail Lake charges](#cloudtrail-lake-charges "#cloudtrail-lake-charges")
 - [Recommendations for how you can reduce costs](#cloudtrail-lake-manage-costs-recommendations "#cloudtrail-lake-manage-costs-recommendations")
 - [See also](#w2aab9c23c13 "#w2aab9c23c13")
 
-## Event data store pricing
-
-options
+## Event data store pricing options
 
 When you create an event data store, you choose the pricing
 option that you want to use for the event data store. The
@@ -99,12 +96,10 @@ You can filter management events on the following advanced event selector fields
 
 You can filter data events on the following advanced event selector fields: `eventName`, `eventSource`, `eventType`,
 `resources.type`, `resources.ARN`,
-`readOnly`, `sessionCredentialFromConsole`, and `userIdentity.arn`. For more information, see [Filtering data events by using advanced event
-selectors](filtering-data-events.md "filtering-data-events.md").
+`readOnly`, `sessionCredentialFromConsole`, and `userIdentity.arn`. For more information, see [Filtering data events by using advanced event selectors](filtering-data-events.md "filtering-data-events.md").
 
 You can filter network activity events on the following advanced event selector fields:
-`eventName`, `errorCode`, and `vpcEndpointId`. For more information, see [Logging network activity
-events](logging-network-events-with-cloudtrail.md "logging-network-events-with-cloudtrail.md").
+`eventName`, `errorCode`, and `vpcEndpointId`. For more information, see [Logging network activity events](logging-network-events-with-cloudtrail.md "logging-network-events-with-cloudtrail.md").
 
 **Choose a narrower time range when copying trail events**
 

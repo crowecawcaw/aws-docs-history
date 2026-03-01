@@ -8,8 +8,7 @@ management account.
 
 If you choose a delegated administrator, this member account has administrative permissions on all organization trails and event data stores in the organization. Adding a delegated administrator does not alter the management or operation of the organization's trails or event data stores.
 
-The first time you add a delegated administrator in the CloudTrail console, or by using the AWS CLI or CloudTrail API, CloudTrail checks whether the organization’s management account has a service-linked role. If the management account does not have a service-linked role, CloudTrail creates the service-linked role for the management account. For more information about service-linked roles, see [Using service-linked roles for
-CloudTrail](using-service-linked-roles.md "using-service-linked-roles.md").
+The first time you add a delegated administrator in the CloudTrail console, or by using the AWS CLI or CloudTrail API, CloudTrail checks whether the organization’s management account has a service-linked role. If the management account does not have a service-linked role, CloudTrail creates the service-linked role for the management account. For more information about service-linked roles, see [Using service-linked roles for CloudTrail](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ###### Note
 
@@ -19,8 +18,7 @@ administrator or create an organization trail or event data store using the Clou
 service-linked role is created.
 
 When you add a delegated administrator using the AWS CloudTrail; CLI or API operation, CloudTrail will create both the AWSServiceRoleForCloudTrail and
-the AWSServiceRoleForCloudTrailEventContext service-linked roles. For more information, see [Using service-linked roles for
-CloudTrail](using-service-linked-roles.md "using-service-linked-roles.md")..
+the AWSServiceRoleForCloudTrailEventContext service-linked roles. For more information, see [Using service-linked roles for CloudTrail](using-service-linked-roles.md "using-service-linked-roles.md")..
 
 Take note of the following factors that define how the delegated administrator operates in CloudTrail.
 

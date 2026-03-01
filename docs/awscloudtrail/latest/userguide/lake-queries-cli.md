@@ -12,8 +12,7 @@ Commands for running and managing queries in CloudTrail Lake include:
 - `start-query` to run a query.
 - `describe-query` to return metadata about a query.
 - `generate-query` to produce a query from an English language prompt. For more information,
-  see [Create CloudTrail Lake queries from natural language
-  prompts](lake-query-generator.md "lake-query-generator.md").
+  see [Create CloudTrail Lake queries from natural language prompts](lake-query-generator.md "lake-query-generator.md").
 - `get-query-results` to return query results for the specified query ID.
 - `list-queries` to get a list queries for the specified event data store.
 - `cancel-query` to cancel a running query.
@@ -161,9 +160,7 @@ aws cloudtrail get-query-results
 }
 ```
 
-## List all queries on an event data
-
-store with the AWS CLI
+## List all queries on an event data store with the AWS CLI
 
 The following example AWS CLI **list-queries** command returns a list of queries and query statuses
 on a specified event data store for the past seven days. You must specify an ARN or

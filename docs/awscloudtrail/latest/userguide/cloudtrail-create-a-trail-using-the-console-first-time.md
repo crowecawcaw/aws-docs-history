@@ -68,8 +68,7 @@ If you enable SSE-KMS encryption, choose a **New** or
 **Existing** AWS KMS key. In
 **AWS KMS Alias**, specify an alias, in the format
 `alias/``MyAliasName`. For more
-information, see [Updating a resource to
-use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md").
+information, see [Updating a resource to use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md").
 CloudTrail also supports AWS KMS multi-Region keys. For more information about
 multi-Region keys, see [Using
 multi-Region keys](../../../kms/latest/developerguide/multi-region-keys-overview.md "../../../kms/latest/developerguide/multi-region-keys-overview.md") in the _AWS Key Management Service
@@ -78,8 +77,7 @@ Developer Guide_.
 ###### Note
 
 You can also type the ARN of a key from another account. For more
-information, see [Updating a resource to
-use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md").
+information, see [Updating a resource to use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md").
 The key policy must allow CloudTrail to use the key to encrypt your log files and digest files,
 and allow the users you specify to read log files or digest files in unencrypted form.
 For information about manually editing the key policy, see [Configure AWS KMS key policies for CloudTrail](create-kms-key-policy-for-cloudtrail.md "create-kms-key-policy-for-cloudtrail.md"). 7. In **Additional settings**, configure the

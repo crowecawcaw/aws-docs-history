@@ -1,6 +1,4 @@
-# Create a custom dashboard with the CloudTrail
-
-console
+# Create a custom dashboard with the CloudTrail console
 
 You can create custom dashboards and add up to 10 widgets to each custom dashboard.
 You can choose to add sample widgets or create new widgets from SQL queries.
@@ -36,9 +34,6 @@ refresh schedule](lake-dashboard-refresh.md "lake-dashboard-refresh.md").
 
 ###### Topics
 
-- [Add a sample widget with the CloudTrail
-  console](lake-dashboard-custom-widgets.md "lake-dashboard-custom-widgets.md")
-- [Create a new widget from a SQL
-  query with the CloudTrail console](lake-dashboard-custom-widgets-new.md "lake-dashboard-custom-widgets-new.md")
-- [Remove a widget from a
-  dashboard with the CloudTrail console](lake-dashboard-custom-widgets-remove.md "lake-dashboard-custom-widgets-remove.md")
+- [Add a sample widget with the CloudTrail console](lake-dashboard-custom-widgets.md "lake-dashboard-custom-widgets.md")
+- [Create a new widget from a SQL query with the CloudTrail console](lake-dashboard-custom-widgets-new.md "lake-dashboard-custom-widgets-new.md")
+- [Remove a widget from a dashboard with the CloudTrail console](lake-dashboard-custom-widgets-remove.md "lake-dashboard-custom-widgets-remove.md")

@@ -1,6 +1,4 @@
-# Change termination protection with
-
-the CloudTrail console
+# Change termination protection with the CloudTrail console
 
 Termination protection prevents a dashboard from accidental deletion. If you want to
 delete a custom dashboard, or disable the Highlights dashboard, you must disable

@@ -12,8 +12,7 @@ CloudTrail runs queries to populate the dashboard's widgets during a manual or
 scheduled refresh. CloudTrail must be granted permissions to run the `StartQuery`
 operation on each event data store associated with a dashboard widget. To provide permissions, run the
 `put-resource-policy` command to attach a resource-based policy to each
-event data store, or edit the event data store's policy on the CloudTrail console. For an example policy, see [Example:
-Allow CloudTrail to run queries to refresh a dashboard](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard").
+event data store, or edit the event data store's policy on the CloudTrail console. For an example policy, see [Example: Allow CloudTrail to run queries to refresh a dashboard](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard").
 
 To set a refresh schedule, CloudTrail must be granted permissions to run the `StartDashboardRefresh` operation to refresh the dashboard on your behalf.
 To provide permissions, run the `put-resource-policy` operation to attach a resource-based policy to the dashboard, or edit the dashboard's policy on the CloudTrail console.
@@ -124,8 +123,7 @@ Replace `123456789012` with your account ID,
 with the ARN of the dashboard.
 
 For more information about resource-based policies for dashboards,
-see [Example:
-Allow CloudTrail to run queries to refresh a dashboard](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard"). 3. Run the `put-resource-policy` command to attach the policy. You can also update an event data
+see [Example: Allow CloudTrail to run queries to refresh a dashboard](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard"). 3. Run the `put-resource-policy` command to attach the policy. You can also update an event data
 store's resource-based policy on the CloudTrail console.
 
 The following example attaches a resource-based policy to an event data store.
@@ -188,8 +186,7 @@ aws cloudtrail create-dashboard --name AWSCloudTrail-Highlights
 2. For each event data store in your account, run the
    `put-resource-policy` command to attach a resource-based
    policy to the event data store. You can also update an event data store's
-   resource-based policy on the CloudTrail console. For an example policy, see [Example:
-   Allow CloudTrail to run queries to refresh a dashboard](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard").
+   resource-based policy on the CloudTrail console. For an example policy, see [Example: Allow CloudTrail to run queries to refresh a dashboard](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-eds-dashboard").
 
 The following example attaches a resource-based policy to an event data store.
 Replace `account-id` with your account ID, `eds-arn` with the ARN of the event data store, and

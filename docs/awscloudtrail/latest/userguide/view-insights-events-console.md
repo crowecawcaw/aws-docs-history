@@ -2,8 +2,7 @@
 
 This section describes how to view, look up, and download the last 90 days of Insights
 events for a trail from the **Insights** page on the CloudTrail console. For information about how to view CloudTrail Insights for an event data store,
-see [Viewing the Insights dashboard for an
-event data store](insights-events-view-lake.md#insights-events-view-lake-dashboard "insights-events-view-lake.md#insights-events-view-lake-dashboard").
+see [Viewing the Insights dashboard for an event data store](insights-events-view-lake.md#insights-events-view-lake-dashboard "insights-events-view-lake.md#insights-events-view-lake-dashboard").
 
 After Insights events are logged for a trail, the events are shown on the
 **Insights** page for 90 days. You cannot manually delete events from

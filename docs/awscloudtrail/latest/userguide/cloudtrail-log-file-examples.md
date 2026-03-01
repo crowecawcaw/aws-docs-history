@@ -52,8 +52,7 @@ For information about CloudTrail event record fields, see [CloudTrail record con
 
 - [Amazon EC2 log examples](cloudtrail-log-file-examples.md#cloudtrail-log-file-examples-ec2 "cloudtrail-log-file-examples.md#cloudtrail-log-file-examples-ec2")
 - [IAM log examples](cloudtrail-log-file-examples.md#cloudtrail-log-file-examples-iam "cloudtrail-log-file-examples.md#cloudtrail-log-file-examples-iam")
-- [Error code and message log
-  example](cloudtrail-log-file-examples.md#error-code-and-error-message "cloudtrail-log-file-examples.md#error-code-and-error-message")
+- [Error code and message log example](cloudtrail-log-file-examples.md#error-code-and-error-message "cloudtrail-log-file-examples.md#error-code-and-error-message")
 - [CloudTrail Insights event log example](cloudtrail-log-file-examples.md#insights-event-example "cloudtrail-log-file-examples.md#insights-event-example")
 
 ### Amazon EC2 log examples
@@ -466,9 +465,7 @@ the [`CreateRole`](../../../IAM/latest/APIReference/API_CreateRole.md "../../../
 }]}
 ```
 
-### Error code and message log
-
-example
+### Error code and message log example
 
 The following example shows that the IAM user named `Terry` ran the **aws cloudtrail update-trail** command to call the
 [`UpdateTrail`](../APIReference/API_UpdateTrail.md "../APIReference/API_UpdateTrail.md") action to update a trail named `myTrail2`,

@@ -17,8 +17,7 @@ S3 bucket that you specify. As a best practice, we recommend creating a
 multi-Region trail because it captures activity in all enabled Regions. All trails created
 using the CloudTrail console are multi-Region trails. You can convert a single-Region trail
 to a multi-Region trail by using the AWS CLI. For
-more information, see [Understanding multi-Region trails and
-opt-in Regions](cloudtrail-multi-region-trails.md "cloudtrail-multi-region-trails.md"), [Creating a trail with the console](cloudtrail-create-a-trail-using-the-console-first-time.md#creating-a-trail-in-the-console "cloudtrail-create-a-trail-using-the-console-first-time.md#creating-a-trail-in-the-console"), and [Converting a single-Region trail to a multi-Region trail](cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-update-trail.md#cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-examples-convert "cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-update-trail.md#cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-examples-convert").
+more information, see [Understanding multi-Region trails and opt-in Regions](cloudtrail-multi-region-trails.md "cloudtrail-multi-region-trails.md"), [Creating a trail with the console](cloudtrail-create-a-trail-using-the-console-first-time.md#creating-a-trail-in-the-console "cloudtrail-create-a-trail-using-the-console-first-time.md#creating-a-trail-in-the-console"), and [Converting a single-Region trail to a multi-Region trail](cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-update-trail.md#cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-examples-convert "cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-update-trail.md#cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-examples-convert").
 
 **Single-Region trails**
 
@@ -47,10 +46,8 @@ organization trail in the Amazon S3 bucket. For more information, see [Creating 
 
 - [Creating a trail for your AWS account](cloudtrail-create-and-update-a-trail.md "cloudtrail-create-and-update-a-trail.md")
 - [Creating a trail for an organization](creating-trail-organization.md "creating-trail-organization.md")
-- [Understanding multi-Region trails and
-  opt-in Regions](cloudtrail-multi-region-trails.md "cloudtrail-multi-region-trails.md")
-- [Copying trail events to CloudTrail
-  Lake](cloudtrail-copy-trail-to-lake.md "cloudtrail-copy-trail-to-lake.md")
+- [Understanding multi-Region trails and opt-in Regions](cloudtrail-multi-region-trails.md "cloudtrail-multi-region-trails.md")
+- [Copying trail events to CloudTrail Lake](cloudtrail-copy-trail-to-lake.md "cloudtrail-copy-trail-to-lake.md")
 - [Getting and viewing your CloudTrail log files](get-and-view-cloudtrail-log-files.md "get-and-view-cloudtrail-log-files.md")
 - [Configuring Amazon SNS notifications for CloudTrail](configure-sns-notifications-for-cloudtrail.md "configure-sns-notifications-for-cloudtrail.md")
 - [Using AWS CloudTrail with interface VPC endpoints](cloudtrail-and-interface-VPC.md "cloudtrail-and-interface-VPC.md")

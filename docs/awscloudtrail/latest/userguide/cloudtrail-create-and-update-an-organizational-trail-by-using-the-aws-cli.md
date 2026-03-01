@@ -16,9 +16,7 @@ use the management account for the organization.
 You must configure the Amazon S3 bucket used for an organization trail with sufficient
 permissions.
 
-## Create or update an Amazon S3 bucket to use to store the log files for an
-
-organization trail
+## Create or update an Amazon S3 bucket to use to store the log files for an organization trail
 
 You must specify an Amazon S3
 bucket to receive the log files for an organization trail. This bucket must have a policy that
@@ -211,9 +209,7 @@ trail that does not enable log file validation.
 Run the `start-logging` command to start logging for your
 trail.
 
-## Running
-
-**update-trail** to update an organization trail
+## Running **update-trail** to update an organization trail
 
 You can run the `update-trail` command to change the configuration
 settings for an organization trail, or to apply an existing trail for a single AWS
@@ -279,9 +275,7 @@ In the preceding example, the trail was configured as a multi-Region trail
 single Region would show `"IsMultiRegionTrail": false` in the
 output.
 
-### Converting a single-Region organization trail to a multi-Region
-
-organization trail
+### Converting a single-Region organization trail to a multi-Region organization trail
 
 To convert an existing single-Region organization trail to a multi-Region
 organization trail, add the `--is-multi-region-trail` option as shown

@@ -1,6 +1,4 @@
-# CloudTrail digest file
-
-structure
+# CloudTrail digest file structure
 
 Each digest file contains the names of the log files that were delivered to your Amazon S3
 bucket during the last hour, the hash values for those log files, and the digital signature
@@ -8,9 +6,7 @@ of the previous digest file. The signature for the current digest file is stored
 metadata properties of the digest file object. The digital signatures and hashes are used
 for validating the integrity of the log files and of the digest file itself.
 
-## Digest file
-
-location
+## Digest file location
 
 Digest files are delivered to an Amazon S3 bucket location that follows this syntax.
 
@@ -44,9 +40,7 @@ s3://`amzn-s3-demo-bucket`/`optional-prefix/`AWSLogs/`aws-account-id`/CloudTrail
     `aws-account-id`_CloudTrail-Digest_`region_trail-name`_`region_digest`_`end_timestamp`_backfill.json.gz
 ```
 
-## Sample digest file
-
-contents
+## Sample digest file contents
 
 The following example digest file contains information for a CloudTrail log.
 
@@ -79,9 +73,7 @@ The following example digest file contains information for a CloudTrail log.
 }
 ```
 
-## Digest file
-
-field descriptions
+## Digest file field descriptions
 
 The following are descriptions for each field in the digest file:
 
@@ -198,9 +190,7 @@ The hexadecimal encoded hash value of the uncompressed log file content.
 
 The hash algorithm used to hash the log file.
 
-## Starting digest
-
-file
+## Starting digest file
 
 When log file integrity validation is started, a starting digest file will be
 generated. A starting digest file will also be generated when log file integrity
@@ -215,9 +205,7 @@ will be null:
 - `previousDigestHashAlgorithm`
 - `previousDigestSignature`
 
-## 'Empty' digest
-
-files
+## 'Empty' digest files
 
 CloudTrail will deliver a digest file even when there has been no API activity in your
 account during the one hour period that the digest file represents. This can be useful
@@ -248,9 +236,7 @@ the digest file contents is empty.
 }
 ```
 
-## Signature of the
-
-digest file
+## Signature of the digest file
 
 The signature information for a digest file is located in two object metadata
 properties of the Amazon S3 digest file object. Each digest file has the following metadata
@@ -284,9 +270,7 @@ for signature validation. The following is an example timestamp:
 
 `2025-05-20T00:00:00.000Z`
 
-## Digest file
-
-chaining
+## Digest file chaining
 
 The fact that each digest file contains a reference to its previous digest file
 enables a "chaining" that permits validation tools like the AWS CLI to detect if a digest

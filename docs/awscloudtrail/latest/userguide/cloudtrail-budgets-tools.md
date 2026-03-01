@@ -20,9 +20,7 @@ To get started with AWS Budgets, open [AWS Billing and Cost Management](https://
 budget alerts as you create a budget to track CloudTrail spending. For more information about
 how to use AWS Budgets, see [Managing your costs with AWS Budgets](../../../cost-management/latest/userguide/budgets-managing-costs.md "../../../cost-management/latest/userguide/budgets-managing-costs.md") and [Best practices for AWS Budgets](../../../cost-management/latest/userguide/budgets-best-practices.md "../../../cost-management/latest/userguide/budgets-best-practices.md").
 
-## Creating user-defined cost
-
-allocation tags for CloudTrail Lake event data stores
+## Creating user-defined cost allocation tags for CloudTrail Lake event data stores
 
 You can create [user-defined cost
 allocation tags](../../../awsaccountbilling/latest/aboutv2/custom-tags.md "../../../awsaccountbilling/latest/aboutv2/custom-tags.md") to track the query and ingestion costs for your CloudTrail
@@ -31,8 +29,7 @@ key-value pair that you can associate with an event data store. After you activa
 cost allocation tags, AWS uses the tags to organize your resource costs on your
 cost allocation report.
 
-- To create tags in the console, see step 9 of the [To create an event
-  data store for CloudTrail events](query-event-data-store-cloudtrail.md#query-event-data-store-cloudtrail-procedure "query-event-data-store-cloudtrail.md#query-event-data-store-cloudtrail-procedure")
+- To create tags in the console, see step 9 of the [To create an event data store for CloudTrail events](query-event-data-store-cloudtrail.md#query-event-data-store-cloudtrail-procedure "query-event-data-store-cloudtrail.md#query-event-data-store-cloudtrail-procedure")
   procedure.
 - To create tags using the CloudTrail API, see [CreateEventDataStore](../APIReference/API_CreateEventDataStore.md "../APIReference/API_CreateEventDataStore.md") and [AddTags](../APIReference/API_AddTags.md "../APIReference/API_AddTags.md")
   in the _AWS CloudTrail API Reference_.

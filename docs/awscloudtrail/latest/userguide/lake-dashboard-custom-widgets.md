@@ -1,6 +1,4 @@
-# Add a sample widget with the CloudTrail
-
-console
+# Add a sample widget with the CloudTrail console
 
 This section describes how to add a sample widget to your dashboard. You can add a
 maximum of 10 widgets to a custom dashboard.

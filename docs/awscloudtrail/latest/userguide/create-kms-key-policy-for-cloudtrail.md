@@ -252,9 +252,7 @@ The following is an example policy that is required to allow the CloudTrail serv
 }
 ```
 
-### Allow
-
-users in your account to decrypt trail logs with your KMS key
+### Allow users in your account to decrypt trail logs with your KMS key
 
 ###### Example
 
@@ -293,9 +291,7 @@ KMS key policy statement:
 
 ###### Topics
 
-### Allow
-
-users in other accounts to decrypt trail logs with your KMS key
+### Allow users in other accounts to decrypt trail logs with your KMS key
 
 You can allow users in other accounts to use your KMS key to decrypt trail logs.
 The changes required to your key policy depend on whether the S3 bucket is in your
@@ -361,9 +357,7 @@ JSON
 
 ```
 
-#### Allow
-
-users in a different account to decrypt trail logs from your bucket
+#### Allow users in a different account to decrypt trail logs from your bucket
 
 ###### Example
 

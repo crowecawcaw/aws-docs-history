@@ -1,6 +1,4 @@
-# Enrich CloudTrail events by adding resource tag
-
-keys and IAM global condition keys
+# Enrich CloudTrail events by adding resource tag keys and IAM global condition keys
 
 You can enrich CloudTrail management events and data events by adding resource tag keys, principal
 tag keys, and IAM global condition keys when you create or update an event data store.
@@ -61,15 +59,11 @@ the `eventContext` field.
 
 ###### Topics
 
-- [AWS services supporting resource
-  tags](#resource-tags-supported-services "#resource-tags-supported-services")
-- [AWS services supporting IAM
-  global condition keys](#condition-keys-supported-services "#condition-keys-supported-services")
+- [AWS services supporting resource tags](#resource-tags-supported-services "#resource-tags-supported-services")
+- [AWS services supporting IAM global condition keys](#condition-keys-supported-services "#condition-keys-supported-services")
 - [Event examples](#context-event-examples "#context-event-examples")
 
-## AWS services supporting resource
-
-tags
+## AWS services supporting resource tags
 
 All AWS services support resource tags. For more information, see [Services
 that support the AWS Resource Groups Tagging API](../../../resourcegroupstagging/latest/APIReference/supported-services.md "../../../resourcegroupstagging/latest/APIReference/supported-services.md") .
@@ -110,9 +104,7 @@ of a service outage delay, subsequent CloudTrail events will include an
 change. This additional information will be used as specified to provide enriched
 CloudTrailevents.
 
-## AWS services supporting IAM
-
-global condition keys
+## AWS services supporting IAM global condition keys
 
 The following AWS services support IAM global condition keys for enriched events:
 

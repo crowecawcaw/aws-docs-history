@@ -160,8 +160,7 @@ internal purposes.
 **`errorCode`**
 
 The AWS service error if the request returns an error. For an example that shows this
-field, see [Error code and message log
-example](cloudtrail-log-file-examples.md#error-code-and-error-message "cloudtrail-log-file-examples.md#error-code-and-error-message").
+field, see [Error code and message log example](cloudtrail-log-file-examples.md#error-code-and-error-message "cloudtrail-log-file-examples.md#error-code-and-error-message").
 
 This field has a maximum
 size of 1 KB; content exceeding that limit is truncated. For event data stores configured to have a maximum event size of 1 MB,
@@ -178,8 +177,7 @@ the error code is `VpceAccessDenied`.
 
 If the request returns an error, the description of the error. This message includes
 messages for authorization failures. CloudTrail captures the message logged by the
-service in its exception handling. For an example, see [Error code and message log
-example](cloudtrail-log-file-examples.md#error-code-and-error-message "cloudtrail-log-file-examples.md#error-code-and-error-message").
+service in its exception handling. For an example, see [Error code and message log example](cloudtrail-log-file-examples.md#error-code-and-error-message "cloudtrail-log-file-examples.md#error-code-and-error-message").
 
 This field has a maximum
 size of 1 KB; content exceeding that limit is truncated. For event data stores configured to have a maximum event size of 1 MB,
@@ -506,8 +504,7 @@ was used, the`tlsDetails` event field is not shown.
 
 This field is present in enriched events recorded for event data stores that were
 configured to include resource tag keys or IAM global condition keys. For more
-information, see [Enrich CloudTrail events by adding resource tag
-keys and IAM global condition keys](cloudtrail-context-events.md "cloudtrail-context-events.md").
+information, see [Enrich CloudTrail events by adding resource tag keys and IAM global condition keys](cloudtrail-context-events.md "cloudtrail-context-events.md").
 
 Contents include the following:
 

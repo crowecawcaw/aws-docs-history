@@ -83,8 +83,7 @@ files and digest files.
     * For information about attaching a policy to a KMS key with the AWS CLI, see [put-key-policy](../../../cli/latest/reference/kms/put-key-policy.md "../../../cli/latest/reference/kms/put-key-policy.md").
 
 3. Update your trail or event data store to use the KMS key whose policy you modified for CloudTrail.
-   - To update a trail or event data store using the CloudTrail console, see [Updating a resource to
-     use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md").
+   - To update a trail or event data store using the CloudTrail console, see [Updating a resource to use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md").
    - To update a trail or event data store using the AWS CLI, see [Enabling and disabling encryption for CloudTrail log files, digest files and event data stores with the AWS CLI](cloudtrail-log-file-encryption-cli.md "cloudtrail-log-file-encryption-cli.md").
 
 CloudTrail also supports AWS KMS multi-Region keys. For more information about multi-Region keys,

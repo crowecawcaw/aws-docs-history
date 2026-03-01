@@ -2,8 +2,7 @@
 
 This section describes how you can view Insights events for an Insights
 event data store by viewing the **Insights events dashboard** and running sample queries. For information about how to enable CloudTrail Insights
-on an event data store, see [Enabling CloudTrail Insights on an existing
-event data store with the console](insights-events-enable.md#insights-events-enable-lake "insights-events-enable.md#insights-events-enable-lake").
+on an event data store, see [Enabling CloudTrail Insights on an existing event data store with the console](insights-events-enable.md#insights-events-enable-lake "insights-events-enable.md#insights-events-enable-lake").
 
 CloudTrail queries incur charges based upon the amount of data scanned. To help control
 costs, we recommend that you constrain queries by adding starting and ending
@@ -16,14 +15,10 @@ For descriptions of Insights events record fields for event data stores, see
 
 ###### Topics
 
-- [Viewing the Insights dashboard for an
-  event data store](#insights-events-view-lake-dashboard "#insights-events-view-lake-dashboard")
-- [Viewing sample queries for
-  Insights events](#insights-events-lake-queries "#insights-events-lake-queries")
+- [Viewing the Insights dashboard for an event data store](#insights-events-view-lake-dashboard "#insights-events-view-lake-dashboard")
+- [Viewing sample queries for Insights events](#insights-events-lake-queries "#insights-events-lake-queries")
 
-## Viewing the Insights dashboard for an
-
-event data store
+## Viewing the Insights dashboard for an event data store
 
 The **Insights events dashboard** shows the overall proportion of Insights
 events by Insights type, the proportion of Insights events by Insights type for the
@@ -70,9 +65,7 @@ widgets. Each widget indicates the status of the refresh.
 
 For more information about Lake dashboards, see [CloudTrail Lake dashboards](lake-dashboard.md "lake-dashboard.md").
 
-## Viewing sample queries for
-
-Insights events
+## Viewing sample queries for Insights events
 
 The CloudTrail console provides a number of sample queries for Insights events that can help you
 get started writing your own queries.

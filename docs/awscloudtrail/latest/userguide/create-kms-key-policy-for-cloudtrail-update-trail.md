@@ -1,6 +1,4 @@
-# Updating a resource to
-
-use your KMS key with the console
+# Updating a resource to use your KMS key with the console
 
 On the CloudTrail console, update a trail or an event data store to use an KMS key. Be
 aware that using your own KMS key incurs AWS KMS costs for encryption and decryption. For
@@ -50,8 +48,7 @@ properties in the S3 console.
 ###### Note
 
 You can also type the ARN of a key from another account. For more
-information, see [Updating a resource to
-use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md"). The
+information, see [Updating a resource to use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md"). The
 key policy must allow CloudTrail to use the key to encrypt your log files and digest files, and
 allow the users you specify to read log files or digest files in unencrypted form. For
 information about manually editing the key policy, see [Configure AWS KMS key policies for CloudTrail](create-kms-key-policy-for-cloudtrail.md "create-kms-key-policy-for-cloudtrail.md").
@@ -59,8 +56,7 @@ information about manually editing the key policy, see [Configure AWS KMS key po
 In **AWS KMS Alias**, specify the alias for which you changed
 the policy for use with CloudTrail, in the format
 `alias/``MyAliasName`. For more
-information, see [Updating a resource to
-use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md").
+information, see [Updating a resource to use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md").
 
 You can type the alias name, ARN, or the globally unique key ID. If the
 KMS key belongs to another account, verify that the key policy has permissions
@@ -120,8 +116,7 @@ store. A key from another account is not supported.
 In **Enter AWS KMS Alias**, specify the alias for which you
 changed the policy for use with CloudTrail, in the format
 `alias/``MyAliasName`. For more
-information, see [Updating a resource to
-use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md").
+information, see [Updating a resource to use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md").
 
 You can choose an alias, or use the globally unique key ID. The value can be
 one of the following formats:

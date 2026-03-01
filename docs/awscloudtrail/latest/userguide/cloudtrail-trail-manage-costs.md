@@ -43,14 +43,12 @@ selectors, you can only filter management events. However, you can use
 advanced event selectors to filter both management and data events.
 
 You can use advanced event selectors to include or exclude data events, giving you
-the ability to log only the data events of interest. For more information, see [Filtering data events by using advanced event
-selectors](filtering-data-events.md "filtering-data-events.md").
+the ability to log only the data events of interest. For more information, see [Filtering data events by using advanced event selectors](filtering-data-events.md "filtering-data-events.md").
 
 You can use advanced event selectors to include or exclude network activity events based on the
 `eventName`, `resources.type`, `resources.ARN`
 , `errorCode`, and `vpcEndpointId` fields, giving you
-the ability to log only the data events of interest. For more information, see [Logging network activity
-events](logging-network-events-with-cloudtrail.md "logging-network-events-with-cloudtrail.md").
+the ability to log only the data events of interest. For more information, see [Logging network activity events](logging-network-events-with-cloudtrail.md "logging-network-events-with-cloudtrail.md").
 
 For more information
 about creating and updating a trail, see [Creating a trail with the CloudTrail console](cloudtrail-create-a-trail-using-the-console-first-time.md "cloudtrail-create-a-trail-using-the-console-first-time.md")
@@ -82,5 +80,4 @@ charges.
   Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/")
 - [Managing your costs with AWS Budgets](../../../cost-management/latest/userguide/budgets-managing-costs.md "../../../cost-management/latest/userguide/budgets-managing-costs.md")
 - [Getting started with Cost Explorer](../../../cost-management/latest/userguide/ce-getting-started.md "../../../cost-management/latest/userguide/ce-getting-started.md")
-- [Prepare for creating a trail
-  for your organization](creating-an-organizational-trail-prepare.md "creating-an-organizational-trail-prepare.md")
+- [Prepare for creating a trail for your organization](creating-an-organizational-trail-prepare.md "creating-an-organizational-trail-prepare.md")

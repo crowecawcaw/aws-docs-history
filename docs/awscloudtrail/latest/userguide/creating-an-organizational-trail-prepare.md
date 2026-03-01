@@ -1,6 +1,4 @@
-# Prepare for creating a trail
-
-for your organization
+# Prepare for creating a trail for your organization
 
 Before you create a trail for your organization, be sure that your organization
 management account or delegated administrator account is set up correctly for trail
@@ -138,9 +136,7 @@ Region is free, charges apply to additional trails. To reduce the potential cost
 organization trail, consider deleting any unneeded trails in the management and member
 accounts. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
-## Security best
-
-practices in organization trails
+## Security best practices in organization trails
 
 As a security best practice, we recommend adding the `aws:SourceArn`
 condition key to resource policies (such as those for S3 buckets, KMS keys, or SNS

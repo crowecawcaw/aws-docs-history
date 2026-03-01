@@ -1,6 +1,4 @@
-# Viewing recent management events with
-
-the console
+# Viewing recent management events with the console
 
 You can use the **Event history** page in the CloudTrail console to view the
 last 90 days of management events in an AWS Region. You can also download a file with that
@@ -58,8 +56,7 @@ For an ongoing record of activity and events past 90 days, create an
 - [Filtering CloudTrail events](view-cloudtrail-events-console.md#filtering-cloudtrail-events "view-cloudtrail-events-console.md#filtering-cloudtrail-events")
 - [Viewing details for an event](view-cloudtrail-events-console.md#viewing-details-for-an-event "view-cloudtrail-events-console.md#viewing-details-for-an-event")
 - [Downloading events](view-cloudtrail-events-console.md#downloading-events "view-cloudtrail-events-console.md#downloading-events")
-- [Viewing resources referenced with
-  AWS Config](view-cloudtrail-events-console.md#viewing-resources-config "view-cloudtrail-events-console.md#viewing-resources-config")
+- [Viewing resources referenced with AWS Config](view-cloudtrail-events-console.md#viewing-resources-config "view-cloudtrail-events-console.md#viewing-resources-config")
 
 ## Navigating between pages
 
@@ -264,9 +261,7 @@ specified. 4. To cancel your download, choose **Cancel**, and then confirm
 by choosing **Cancel download**. If you need to restart a
 download, wait until the earlier download is finished canceling.
 
-## Viewing resources referenced with
-
-AWS Config
+## Viewing resources referenced with AWS Config
 
 AWS Config records configuration details, relationships, and changes to your AWS
 resources.

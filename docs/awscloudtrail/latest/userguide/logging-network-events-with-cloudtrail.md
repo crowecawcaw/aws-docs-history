@@ -1,6 +1,4 @@
-# Logging network activity
-
-events
+# Logging network activity events
 
 CloudTrail network activity events enable VPC endpoint owners to record AWS API calls made
 using their VPC endpoints from a private VPC to the AWS service. Network activity events
@@ -85,40 +83,26 @@ charges apply for network activity events. For more information, see [AWS CloudT
 ###### Contents
 
 - [Advanced event selector fields for network activity events](logging-network-events-with-cloudtrail.md#logging-network-events "logging-network-events-with-cloudtrail.md#logging-network-events")
-- [Logging network
-  activity events with the AWS Management Console](logging-network-events-with-cloudtrail.md#creating-network-event-selectors-with-the-console "logging-network-events-with-cloudtrail.md#creating-network-event-selectors-with-the-console")
-  - [Update an existing trail to log
-    network activity events](logging-network-events-with-cloudtrail.md#log-network-events-trail-console "logging-network-events-with-cloudtrail.md#log-network-events-trail-console")
-  - [Update an existing event data
-    store to log network activity events](logging-network-events-with-cloudtrail.md#log-network-events-lake-console "logging-network-events-with-cloudtrail.md#log-network-events-lake-console")
+- [Logging network activity events with the AWS Management Console](logging-network-events-with-cloudtrail.md#creating-network-event-selectors-with-the-console "logging-network-events-with-cloudtrail.md#creating-network-event-selectors-with-the-console")
+  - [Update an existing trail to log network activity events](logging-network-events-with-cloudtrail.md#log-network-events-trail-console "logging-network-events-with-cloudtrail.md#log-network-events-trail-console")
+  - [Update an existing event data store to log network activity events](logging-network-events-with-cloudtrail.md#log-network-events-lake-console "logging-network-events-with-cloudtrail.md#log-network-events-lake-console")
 
-- [Logging network
-  activity events with the AWS Command Line Interface](logging-network-events-with-cloudtrail.md#creating-network-event-selectors-with-the-AWS-CLI "logging-network-events-with-cloudtrail.md#creating-network-event-selectors-with-the-AWS-CLI")
-  - [Examples: Logging
-    network activity events for trails](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-examples "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-examples")
-    - [Example: Log
-      network activity events for CloudTrail operations](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-all-ct "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-all-ct")
-    - [Example: Log
-      VpceAccessDenied events for AWS KMS](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-kms "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-kms")
+- [Logging network activity events with the AWS Command Line Interface](logging-network-events-with-cloudtrail.md#creating-network-event-selectors-with-the-AWS-CLI "logging-network-events-with-cloudtrail.md#creating-network-event-selectors-with-the-AWS-CLI")
+  - [Examples: Logging network activity events for trails](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-examples "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-examples")
+    - [Example: Log network activity events for CloudTrail operations](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-all-ct "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-all-ct")
+    - [Example: Log VpceAccessDenied events for AWS KMS](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-kms "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-kms")
     - [Example: Log VpceAccessDenied events for Amazon S3](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-s3 "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-s3")
-    - [Example: Log EC2
-      VpceAccessDenied events over a specific VPC endpoint](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-ec2 "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-ec2")
+    - [Example: Log EC2 VpceAccessDenied events over a specific VPC endpoint](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-ec2 "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-ec2")
     - [Example: Log all management events and network activity events for multiple event sources](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-multiple "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-multiple")
 
-  - [Examples: Logging network
-    activity events for event data stores](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-eds-examples "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-eds-examples")
-    - [Example: Log all network
-      activity events for CloudTrail operations](logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-ct "logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-ct")
-    - [Example: Log
-      VpceAccessDenied events for AWS KMS](logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-kms "logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-kms")
-    - [Example: Log EC2
-      VpceAccessDenied events over a specific VPC endpoint](logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-ec2 "logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-ec2")
+  - [Examples: Logging network activity events for event data stores](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-eds-examples "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-eds-examples")
+    - [Example: Log all network activity events for CloudTrail operations](logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-ct "logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-ct")
+    - [Example: Log VpceAccessDenied events for AWS KMS](logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-kms "logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-kms")
+    - [Example: Log EC2 VpceAccessDenied events over a specific VPC endpoint](logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-ec2 "logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-ec2")
     - [Example: Log VpceAccessDenied events for Amazon S3](logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-s3 "logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-s3")
-    - [Example: Log all management events and network
-      activity events for multiple event sources](logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-multiple "logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-multiple")
+    - [Example: Log all management events and network activity events for multiple event sources](logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-multiple "logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-multiple")
 
-- [Logging events with the AWS
-  SDKs](logging-network-events-with-cloudtrail.md#logging-network-events-with-the-AWS-SDKs "logging-network-events-with-cloudtrail.md#logging-network-events-with-the-AWS-SDKs")
+- [Logging events with the AWS SDKs](logging-network-events-with-cloudtrail.md#logging-network-events-with-the-AWS-SDKs "logging-network-events-with-cloudtrail.md#logging-network-events-with-the-AWS-SDKs")
 
 ## Advanced event selector fields for network activity events
 
@@ -233,23 +217,17 @@ source for which you want to collect activity.
 Additional charges apply for logging network activity events. For CloudTrail pricing, see
 [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 
-## Logging network
-
-activity events with the AWS Management Console
+## Logging network activity events with the AWS Management Console
 
 You can update an existing trail or event data store to log network
 activity events using the console.
 
 ###### Topics
 
-- [Update an existing trail to log
-  network activity events](#log-network-events-trail-console "#log-network-events-trail-console")
-- [Update an existing event data
-  store to log network activity events](#log-network-events-lake-console "#log-network-events-lake-console")
+- [Update an existing trail to log network activity events](#log-network-events-trail-console "#log-network-events-trail-console")
+- [Update an existing event data store to log network activity events](#log-network-events-lake-console "#log-network-events-lake-console")
 
-### Update an existing trail to log
-
-network activity events
+### Update an existing trail to log network activity events
 
 Use the following procedure to update an existing trail to log network activity
 events.
@@ -274,8 +252,7 @@ Take these steps to switch to advanced event selectors:
     2. Choose **Edit** and
      then choose **Switch to advanced event selectors**.
     3. Reapply your data event selections using advanced event selectors.
-     For more information, see [Updating an existing trail to log
-     data events with advanced event selectors using the console](logging-data-events-with-cloudtrail.md#logging-data-events-with-the-cloudtrail-console-adv "logging-data-events-with-cloudtrail.md#logging-data-events-with-the-cloudtrail-console-adv").
+     For more information, see [Updating an existing trail to log data events with advanced event selectors using the console](logging-data-events-with-cloudtrail.md#logging-data-events-with-the-cloudtrail-console-adv "logging-data-events-with-cloudtrail.md#logging-data-events-with-the-cloudtrail-console-adv").
 
 4. In **Network activity events**, choose
    **Edit**.
@@ -313,9 +290,7 @@ To log network activity events, take the following steps:
 
 5. Choose **Save changes** to save your changes.
 
-### Update an existing event data
-
-store to log network activity events
+### Update an existing event data store to log network activity events
 
 Use the following procedure to update an existing event data store to log network
 activity events.
@@ -367,23 +342,17 @@ To log network activity events, take the following steps:
 
 5. Choose **Save changes** to save your changes.
 
-## Logging network
-
-activity events with the AWS Command Line Interface
+## Logging network activity events with the AWS Command Line Interface
 
 You can configure your trails or event data stores to log network activity events
 using the AWS CLI.
 
 ###### Topics
 
-- [Examples: Logging
-  network activity events for trails](#logging-network-events-CLI-trail-examples "#logging-network-events-CLI-trail-examples")
-- [Examples: Logging network
-  activity events for event data stores](#logging-network-events-CLI-eds-examples "#logging-network-events-CLI-eds-examples")
+- [Examples: Logging network activity events for trails](#logging-network-events-CLI-trail-examples "#logging-network-events-CLI-trail-examples")
+- [Examples: Logging network activity events for event data stores](#logging-network-events-CLI-eds-examples "#logging-network-events-CLI-eds-examples")
 
-### Examples: Logging
-
-network activity events for trails
+### Examples: Logging network activity events for trails
 
 You can configure your trails to log network activity events using the AWS CLI. Run
 the [**put-event-selectors**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/put-event-selectors.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/put-event-selectors.html") command to configure the advanced event selectors for your trail.
@@ -392,18 +361,13 @@ To see whether your trail is logging network activity events, run the [`get-even
 
 ###### Topics
 
-- [Example: Log
-  network activity events for CloudTrail operations](#logging-network-events-CLI-trail-all-ct "#logging-network-events-CLI-trail-all-ct")
-- [Example: Log
-  VpceAccessDenied events for AWS KMS](#logging-network-events-CLI-trail-kms "#logging-network-events-CLI-trail-kms")
+- [Example: Log network activity events for CloudTrail operations](#logging-network-events-CLI-trail-all-ct "#logging-network-events-CLI-trail-all-ct")
+- [Example: Log VpceAccessDenied events for AWS KMS](#logging-network-events-CLI-trail-kms "#logging-network-events-CLI-trail-kms")
 - [Example: Log VpceAccessDenied events for Amazon S3](#logging-network-events-CLI-trail-s3 "#logging-network-events-CLI-trail-s3")
-- [Example: Log EC2
-  VpceAccessDenied events over a specific VPC endpoint](#logging-network-events-CLI-trail-ec2 "#logging-network-events-CLI-trail-ec2")
+- [Example: Log EC2 VpceAccessDenied events over a specific VPC endpoint](#logging-network-events-CLI-trail-ec2 "#logging-network-events-CLI-trail-ec2")
 - [Example: Log all management events and network activity events for multiple event sources](#logging-network-events-CLI-trail-multiple "#logging-network-events-CLI-trail-multiple")
 
-#### Example: Log
-
-network activity events for CloudTrail operations
+#### Example: Log network activity events for CloudTrail operations
 
 The following example shows how to configure your trail to include all network
 activity events for CloudTrail API operations, such as `CreateTrail`
@@ -460,9 +424,7 @@ The command returns the following example output.
 
 ```
 
-#### Example: Log
-
-`VpceAccessDenied` events for AWS KMS
+#### Example: Log `VpceAccessDenied` events for AWS KMS
 
 The following example shows how to configure your trail to include
 `VpceAccessDenied` events for AWS KMS. This example sets the
@@ -594,9 +556,7 @@ The command returns the following example output.
 }
 ```
 
-#### Example: Log EC2
-
-`VpceAccessDenied` events over a specific VPC endpoint
+#### Example: Log EC2 `VpceAccessDenied` events over a specific VPC endpoint
 
 The following example shows how to configure your trail to include
 `VpceAccessDenied` events for Amazon EC2 for a specific VPC endpoint. This example sets the
@@ -863,9 +823,7 @@ The command returns the following example output.
 }
 ```
 
-### Examples: Logging network
-
-activity events for event data stores
+### Examples: Logging network activity events for event data stores
 
 You can configure your event data stores to include network activity events using
 the AWS CLI. Use the [`create-event-data-store`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/create-event-data-store.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/create-event-data-store.html") command to create a new event
@@ -881,19 +839,13 @@ aws cloudtrail get-event-data-store --event-data-store `EventDataStoreARN`
 
 ###### Topics
 
-- [Example: Log all network
-  activity events for CloudTrail operations](#creating-network-events-eds-CLI-ct "#creating-network-events-eds-CLI-ct")
-- [Example: Log
-  VpceAccessDenied events for AWS KMS](#creating-network-events-eds-CLI-kms "#creating-network-events-eds-CLI-kms")
-- [Example: Log EC2
-  VpceAccessDenied events over a specific VPC endpoint](#creating-network-events-eds-CLI-ec2 "#creating-network-events-eds-CLI-ec2")
+- [Example: Log all network activity events for CloudTrail operations](#creating-network-events-eds-CLI-ct "#creating-network-events-eds-CLI-ct")
+- [Example: Log VpceAccessDenied events for AWS KMS](#creating-network-events-eds-CLI-kms "#creating-network-events-eds-CLI-kms")
+- [Example: Log EC2 VpceAccessDenied events over a specific VPC endpoint](#creating-network-events-eds-CLI-ec2 "#creating-network-events-eds-CLI-ec2")
 - [Example: Log VpceAccessDenied events for Amazon S3](#creating-network-events-eds-CLI-s3 "#creating-network-events-eds-CLI-s3")
-- [Example: Log all management events and network
-  activity events for multiple event sources](#creating-network-events-eds-CLI-multiple "#creating-network-events-eds-CLI-multiple")
+- [Example: Log all management events and network activity events for multiple event sources](#creating-network-events-eds-CLI-multiple "#creating-network-events-eds-CLI-multiple")
 
-#### Example: Log all network
-
-activity events for CloudTrail operations
+#### Example: Log all network activity events for CloudTrail operations
 
 The following example shows how to create an event data store that includes
 all network activity events related to CloudTrail operations, such as calls to
@@ -957,9 +909,7 @@ The command returns the following example output.
 }
 ```
 
-#### Example: Log
-
-`VpceAccessDenied` events for AWS KMS
+#### Example: Log `VpceAccessDenied` events for AWS KMS
 
 The following example shows how to create an event data store to include
 `VpceAccessDenied` events for AWS KMS. This example sets the
@@ -1032,9 +982,7 @@ The command returns the following example output.
 }
 ```
 
-#### Example: Log EC2
-
-`VpceAccessDenied` events over a specific VPC endpoint
+#### Example: Log EC2 `VpceAccessDenied` events over a specific VPC endpoint
 
 The following example shows how to create an event data store to include
 `VpceAccessDenied` events for Amazon EC2 for a specific VPC endpoint. This example sets the
@@ -1188,9 +1136,7 @@ The command returns the following example output.
 }
 ```
 
-#### Example: Log all management events and network
-
-activity events for multiple event sources
+#### Example: Log all management events and network activity events for multiple event sources
 
 The following examples updates an event data store that is currently logging only
 management events to also log network activity events for multiple event
@@ -1396,9 +1342,7 @@ The command returns the following example output.
 }
 ```
 
-## Logging events with the AWS
-
-SDKs
+## Logging events with the AWS SDKs
 
 Run the [GetEventSelectors](../APIReference/API_GetEventSelectors.md "../APIReference/API_GetEventSelectors.md")
 operation to see whether your trail is logging network activity events. You can

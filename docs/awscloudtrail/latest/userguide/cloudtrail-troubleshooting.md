@@ -6,8 +6,7 @@ trail.
 ###### Topics
 
 - [CloudTrail is not delivering events](#event-delivery-failure-optin "#event-delivery-failure-optin")
-- [CloudTrail is not sending Amazon SNS notifications
-  for a member account in an organization](#sns-topic-policy-failure "#sns-topic-policy-failure")
+- [CloudTrail is not sending Amazon SNS notifications for a member account in an organization](#sns-topic-policy-failure "#sns-topic-policy-failure")
 
 ## CloudTrail is not delivering events
 
@@ -91,9 +90,7 @@ allowed in the service-linked role policy. To resolve the issue, fix the
 organization's resource-based policy so that it doesn't deny actions that
 are allowed in the service-linked role policy.
 
-## CloudTrail is not sending Amazon SNS notifications
-
-for a member account in an organization
+## CloudTrail is not sending Amazon SNS notifications for a member account in an organization
 
 When a member account with an AWS Organizations organization trail is not sending Amazon SNS
 notifications, there could be an issue with the configuration of the SNS topic

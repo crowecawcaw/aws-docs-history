@@ -12,14 +12,10 @@ For Data events Insights: To log Insights events on the API call rate or API err
 
 ###### Topics
 
-- [Logging Insights events for a trail using
-  the AWS CLI](#insights-events-CLI-enable-trails "#insights-events-CLI-enable-trails")
-- [Logging Insights events for an event data
-  store using the AWS CLI](#insights-events-CLI-enable-lake "#insights-events-CLI-enable-lake")
+- [Logging Insights events for a trail using the AWS CLI](#insights-events-CLI-enable-trails "#insights-events-CLI-enable-trails")
+- [Logging Insights events for an event data store using the AWS CLI](#insights-events-CLI-enable-lake "#insights-events-CLI-enable-lake")
 
-## Logging Insights events for a trail using
-
-the AWS CLI
+## Logging Insights events for a trail using the AWS CLI
 
 To return the current Insights selectors for a trail, run the
 `get-insight-selectors` command.
@@ -95,9 +91,7 @@ trail.
  }
 ```
 
-## Logging Insights events for an event data
-
-store using the AWS CLI
+## Logging Insights events for an event data store using the AWS CLI
 
 To enable Insights on an event data store, you must have a source event data store
 that logs management events and a destination event data store that logs Insights events.

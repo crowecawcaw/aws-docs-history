@@ -1,6 +1,4 @@
-# Moving from member
-
-account trails to organization trails
+# Moving from member account trails to organization trails
 
 If you already have CloudTrail trails configured for individual member accounts, but want to
 move to an organization trail to log events in all accounts, you do not want to lose

@@ -32,8 +32,7 @@ you can expect a latency of 60 to 90 seconds for every GB of data delivered to t
    policies. If you choose the default S3 bucket, your IAM policy needs to include
    permission for the `s3:PutEncryptionConfiguration` action because by
    default server-side encryption is enabled for the bucket. For more information about saving
-   query results, see [Additional information about saved query
-   results](#save-query-results "#save-query-results").
+   query results, see [Additional information about saved query results](#save-query-results "#save-query-results").
 
 ###### Note
 
@@ -58,9 +57,7 @@ deliver partial query results to an S3 bucket. To avoid a time out, you can refi
 your query to limit the amount of data scanned by specifying a narrower time
 range.
 
-## Additional information about saved query
-
-results
+## Additional information about saved query results
 
 After you save query results, you can download the saved query results from the S3
 bucket. For more information about finding and downloading saved query results, see

@@ -33,24 +33,20 @@ You can update the following settings using the CloudTrail console:
   information, see [Logging data events](logging-data-events-with-cloudtrail.md "logging-data-events-with-cloudtrail.md").
 - If you're configuring an event data store to collect network activity events, using the CloudTrail
   console allows you to view the event sources for which you can log network activity events. For more
-  information, see [Logging network activity
-  events](logging-network-events-with-cloudtrail.md "logging-network-events-with-cloudtrail.md").
+  information, see [Logging network activity events](logging-network-events-with-cloudtrail.md "logging-network-events-with-cloudtrail.md").
 - If you're configuring a event data store to collect events outside of AWS,
   using the CloudTrail console lets you view information about available partners. For more information, see
   [Create an event data store for events outside of AWS with the console](event-data-store-integration-events.md "event-data-store-integration-events.md").
 
 ###### Topics
 
-- [Create an event data store for CloudTrail
-  events with the console](query-event-data-store-cloudtrail.md "query-event-data-store-cloudtrail.md")
+- [Create an event data store for CloudTrail events with the console](query-event-data-store-cloudtrail.md "query-event-data-store-cloudtrail.md")
 - [Create an event data store for Insights events with the console](query-event-data-store-insights.md "query-event-data-store-insights.md")
-- [Create an event data store for
-  configuration items with the console](query-event-data-store-config.md "query-event-data-store-config.md")
+- [Create an event data store for configuration items with the console](query-event-data-store-config.md "query-event-data-store-config.md")
 - [Create an event data store for events outside of AWS with the console](event-data-store-integration-events.md "event-data-store-integration-events.md")
 - [Update an event data store with the console](query-event-data-store-update.md "query-event-data-store-update.md")
 - [Stop and start event ingestion with the console](query-eds-stop-ingestion.md "query-eds-stop-ingestion.md")
-- [Change termination protection
-  with the console](query-eds-termination-protection.md "query-eds-termination-protection.md")
+- [Change termination protection with the console](query-eds-termination-protection.md "query-eds-termination-protection.md")
 - [Delete an event data store with the console](query-event-data-store-delete.md "query-event-data-store-delete.md")
 - [Restore an event data store with the console](query-eds-restore.md "query-eds-restore.md")
 - [Exporting data from CloudTrail Lake Event Data Store to CloudWatch](cloudtrail-lake-export-cloudwatch.md "cloudtrail-lake-export-cloudwatch.md")

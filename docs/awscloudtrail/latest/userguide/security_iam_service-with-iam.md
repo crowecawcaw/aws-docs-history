@@ -21,9 +21,7 @@ To get a high-level view of how CloudTrail and other AWS services work with most
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for CloudTrail
+## Identity-based policies for CloudTrail
 
 **Supports identity-based policies:**
 
@@ -40,16 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for CloudTrail
 
-Identity-based policy examples for CloudTrail
+To view examples of CloudTrail identity-based policies, see [Identity-based policy examples for AWS CloudTrail](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of CloudTrail identity-based policies, see [Identity-based policy
-examples for AWS CloudTrail](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within CloudTrail
+## Resource-based policies within CloudTrail
 
 **Supports resource-based policies:**
 
@@ -70,20 +63,16 @@ CloudTrail supports the following types of resource-based policies:
 - Resource-based policies on channels used for CloudTrail Lake integrations with event sources outside of AWS. The
   resource-based policy for the channel defines which principal entities (accounts, users,
   roles, and federated users) can call `PutAuditEvents` on the channel to deliver events to the destination event data store. For more information about
-  creating integrations with CloudTrail Lake, see [Create an integration with an event
-  source outside of AWS](query-event-data-store-integration.md "query-event-data-store-integration.md").
+  creating integrations with CloudTrail Lake, see [Create an integration with an event source outside of AWS](query-event-data-store-integration.md "query-event-data-store-integration.md").
 - Resource-based polices to control which principals can perform actions on your event data store.
   You can use resource-based policies to provide cross-account access to your event data stores.
-- Resource-based policies on dashboards to allow CloudTrail to refresh a CloudTrail Lake dashboard at the interval you define when you set a refresh schedule for a dashboard. For more information, see [Set a refresh schedule for a custom dashboard
-  with the CloudTrail console](lake-dashboard-refresh.md "lake-dashboard-refresh.md").
+- Resource-based policies on dashboards to allow CloudTrail to refresh a CloudTrail Lake dashboard at the interval you define when you set a refresh schedule for a dashboard. For more information, see [Set a refresh schedule for a custom dashboard with the CloudTrail console](lake-dashboard-refresh.md "lake-dashboard-refresh.md").
 
 ### Examples
 
 To view examples of CloudTrail resource-based policies, see [AWS CloudTrail resource-based policy examples](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md").
 
-## Policy actions
-
-for CloudTrail
+## Policy actions for CloudTrail
 
 **Supports policy actions:**
 
@@ -129,9 +118,7 @@ the following action:
 `"Action": "cloudtrail:Get*"`
 ```
 
-## Policy
-
-resources for CloudTrail
+## Policy resources for CloudTrail
 
 **Supports policy resources:**
 
@@ -217,9 +204,7 @@ resources in a single statement, separate the ARNs with commas.
       "*resource2*"
 ```
 
-## Policy
-
-condition keys for CloudTrail
+## Policy condition keys for CloudTrail
 
 **Supports service-specific policy condition keys:**
 
@@ -272,9 +257,7 @@ You can attach tags to CloudTrail resources or pass tags in a request to
 CloudTrail. For more information about tagging CloudTrail resources, see
 [Creating a trail with the CloudTrail console](cloudtrail-create-a-trail-using-the-console-first-time.md "cloudtrail-create-a-trail-using-the-console-first-time.md") and [Creating, updating, and managing trails with the AWS CLI](cloudtrail-create-and-update-a-trail-by-using-the-aws-cli.md "cloudtrail-create-and-update-a-trail-by-using-the-aws-cli.md").
 
-## Using temporary
-
-credentials with CloudTrail
+## Using temporary credentials with CloudTrail
 
 **Supports temporary credentials:**
 
@@ -286,9 +269,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for CloudTrail
+## Forward access sessions for CloudTrail
 
 **Supports forward access sessions (FAS):**
 
@@ -297,9 +278,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-CloudTrail
+## Service roles for CloudTrail
 
 **Supports service roles:**
 
@@ -314,9 +293,7 @@ more information, see [Create a role to delegate permissions to an AWS service](
 Changing the permissions for a service role might break CloudTrail functionality.
 Edit service roles only when CloudTrail provides guidance to do so.
 
-## Service-linked
-
-roles for CloudTrail
+## Service-linked roles for CloudTrail
 
 **Supports service-linked roles:**
 
@@ -330,5 +307,4 @@ CloudTrail supports a service-linked role for integration with AWS Organizations
 role is required for the creation of an organization trail or event data store.
 Organization trails and event data stores log events for all AWS accounts in an
 organization. For more information about creating or managing CloudTrail
-service-linked roles, see [Using service-linked roles for
-CloudTrail](using-service-linked-roles.md "using-service-linked-roles.md").
+service-linked roles, see [Using service-linked roles for CloudTrail](using-service-linked-roles.md "using-service-linked-roles.md").
