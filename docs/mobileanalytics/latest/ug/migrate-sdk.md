@@ -1,6 +1,4 @@
-# Migrating to Amazon Pinpoint in the AWS Mobile SDKs or JavaScript
-
-Library
+# Migrating to Amazon Pinpoint in the AWS Mobile SDKs or JavaScript Library
 
 After April 30, 2018, the Amazon Mobile Analytics client in the AWS Mobile SDKs will no longer be updated,
 and support for existing versions of the client will no longer be offered.
@@ -49,9 +47,7 @@ you customize your app's configuration and IAM permissions.
 2. On the **Projects** page, find the app that you're migrating, and note the
    value in the **ID** column.
 
-## Step 2: Integrate the AWS Mobile SDK or JavaScript
-
-Library
+## Step 2: Integrate the AWS Mobile SDK or JavaScript Library
 
 To connect to Amazon Pinpoint from your app, integrate the AWS Mobile SDK or JavaScript library with
 your code.
@@ -95,9 +91,7 @@ Mobile Developer Guide_.
 To update your JavaScript app, see [Add Analytics (Web)](../../../aws-mobile/latest/developerguide/web-add-analytics.md "../../../aws-mobile/latest/developerguide/web-add-analytics.md") or [Add Analytics (React Native)](../../../aws-mobile/latest/developerguide/react-native-add-analytics.md "../../../aws-mobile/latest/developerguide/react-native-add-analytics.md") in the _AWS Mobile Developer
 Guide_.
 
-## Step 4: Delete the Amazon Pinpoint Project That Mobile Hub
-
-Created
+## Step 4: Delete the Amazon Pinpoint Project That Mobile Hub Created
 
 When you created a project in Mobile Hub, a corresponding project was automatically created in
 Amazon Pinpoint. You aren't using this Amazon Pinpoint project. Instead, you're using the project that
@@ -120,9 +114,7 @@ matches your original Mobile Analytics app.
 
 The project is removed from Amazon Pinpoint.
 
-## Step 5: Update the App ID in Your App
-
-Configuration
+## Step 5: Update the App ID in Your App Configuration
 
 Customize the default configuration for your app so that it reports analytics data to the
 Amazon Pinpoint project for your Mobile Analytics app.
@@ -158,9 +150,7 @@ To update your app code, see the [Manual Setup](https://aws.github.io/aws-amplif
 documentation. In the configuration code, for the `appID` parameter, use
 the ID that you got from the Amazon Pinpoint console.
 
-## Step 6: Update the App ID in the IAM
-
-Role
+## Step 6: Update the App ID in the IAM Role
 
 When you created a project by using Mobile Hub or the AWS Mobile CLI, an IAM role was created
 in your AWS account. This role includes a policy that allows your app to report events

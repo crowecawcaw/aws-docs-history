@@ -19,9 +19,7 @@ values.
 
 ## Requests
 
-### Client Context
-
-Header
+### Client Context Header
 
 #### Syntax
 
