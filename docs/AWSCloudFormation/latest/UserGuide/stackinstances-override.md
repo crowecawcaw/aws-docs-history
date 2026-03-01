@@ -1,6 +1,4 @@
-# Override parameter values on stacks within
-
-your CloudFormation StackSet
+# Override parameter values on stacks within your CloudFormation StackSet
 
 In certain cases, you might want stacks in certain Regions or accounts to have
 different property values than those specified in the StackSet itself. For example, you
@@ -27,14 +25,10 @@ StackSets](stackinstances-create.md "stackinstances-create.md").
 
 ###### Topics
 
-- [Override parameters on stacks
-  (console)](#stackinstances-override-console "#stackinstances-override-console")
-- [Override parameters on stacks
-  (AWS CLI)](#stackinstances-override-cli "#stackinstances-override-cli")
+- [Override parameters on stacks (console)](#stackinstances-override-console "#stackinstances-override-console")
+- [Override parameters on stacks (AWS CLI)](#stackinstances-override-cli "#stackinstances-override-cli")
 
-## Override parameters on stacks
-
-(console)
+## Override parameters on stacks (console)
 
 ###### To override parameters for specific stacks
 
@@ -134,9 +128,7 @@ CloudFormation starts updating your stacks. View the progress and status of
 the stacks in the StackSet details page that opens when you choose
 **Submit**.
 
-## Override parameters on stacks
-
-(AWS CLI)
+## Override parameters on stacks (AWS CLI)
 
 ###### Note
 

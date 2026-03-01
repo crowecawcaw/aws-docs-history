@@ -8,8 +8,7 @@ experience from current CloudFormation customers.
 
 **Planning and organizing**
 
-- [Shorten the feedback loop to improve development
-  velocity](#shortenfeedbackloop "#shortenfeedbackloop")
+- [Shorten the feedback loop to improve development velocity](#shortenfeedbackloop "#shortenfeedbackloop")
 - [Organize your stacks by lifecycle and ownership](#organizingstacks "#organizingstacks")
 - [Use cross-stack references to return the value of an output exported by another stack](#cross-stack "#cross-stack")
 - [Use CloudFormation StackSets for multi-account and multi-region deployments](#stack-sets "#stack-sets")
@@ -24,8 +23,7 @@ experience from current CloudFormation customers.
 - [Use AWS-specific parameter types](#parmtypes "#parmtypes")
 - [Use parameter constraints](#parmconstraints "#parmconstraints")
 - [Use pseudo parameters to promote portability](#pseudoparameters "#pseudoparameters")
-- [Use AWS::CloudFormation::Init to deploy software
-  applications on Amazon EC2 instances](#cfninit "#cfninit")
+- [Use AWS::CloudFormation::Init to deploy software applications on Amazon EC2 instances](#cfninit "#cfninit")
 - [Use the latest helper scripts](#helper-scripts "#helper-scripts")
 - [Validate templates before using them](#validate "#validate")
 - [Using YAML or JSON for template authoring](#use-yaml-json "#use-yaml-json")
@@ -35,8 +33,7 @@ experience from current CloudFormation customers.
 **Managing stacks**
 
 - [Manage all stack resources through CloudFormation](#donttouch "#donttouch")
-- [Create change sets before updating your
-  stacks](#cfn-best-practices-changesets "#cfn-best-practices-changesets")
+- [Create change sets before updating your stacks](#cfn-best-practices-changesets "#cfn-best-practices-changesets")
 - [Use stack policies to protect resources](#stackpolicy "#stackpolicy")
 - [Use AWS CloudTrail to log CloudFormation calls](#cloudtrail-logging "#cloudtrail-logging")
 - [Use code reviews and revision controls to manage your templates](#code "#code")
@@ -59,9 +56,7 @@ experience from current CloudFormation customers.
 - [Secure sensitive parameters](#secure-parameters "#secure-parameters")
 - [Implement policy as code with AWS CloudFormation Guard](#cfn-guard "#cfn-guard")
 
-## Shorten the feedback loop to improve development
-
-velocity
+## Shorten the feedback loop to improve development velocity
 
 Adopt practices and tools that help you shorten the feedback loop for your infrastructure
 you describe with CloudFormation templates. This includes performing early linting and testing of
@@ -136,8 +131,7 @@ function.
 For example, you might have a network stack that includes a VPC, a security group, and a
 subnet. You want all public web applications to use these resources. By exporting the
 resources, you allow all stacks with public web applications to use them. For more
-information, see [Get exported outputs from a deployed CloudFormation
-stack](using-cfn-stack-exports.md "using-cfn-stack-exports.md").
+information, see [Get exported outputs from a deployed CloudFormation stack](using-cfn-stack-exports.md "using-cfn-stack-exports.md").
 
 ## Use CloudFormation StackSets for multi-account and multi-region deployments
 
@@ -189,8 +183,7 @@ can stack your best practices into higher-level building blocks. CloudFormation 
 available in the [CloudFormation registry](registry.md "registry.md"), so you can use them just
 like a native resource. When you use a CloudFormation module, the module template is expanded into
 the consuming template, which makes it possible for you to access the resources inside the
-module using a [Ref](../TemplateReference/intrinsic-function-reference-ref.md "../TemplateReference/intrinsic-function-reference-ref.md") or [Fn::GetAtt](../TemplateReference/intrinsic-function-reference-getatt.md "../TemplateReference/intrinsic-function-reference-getatt.md"). For more information, see [Create reusable resource configurations that can be included across
-templates with CloudFormation modules](modules.md "modules.md").
+module using a [Ref](../TemplateReference/intrinsic-function-reference-ref.md "../TemplateReference/intrinsic-function-reference-ref.md") or [Fn::GetAtt](../TemplateReference/intrinsic-function-reference-getatt.md "../TemplateReference/intrinsic-function-reference-getatt.md"). For more information, see [Create reusable resource configurations that can be included across templates with CloudFormation modules](modules.md "modules.md").
 
 ## Adopt infrastructure as code practices
 
@@ -223,8 +216,7 @@ specify template values](dynamic-references.md "dynamic-references.md").
 [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") helps you to securely encrypt, store, and retrieve credentials for your databases and other services. The [AWS Systems Manager Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md") provides secure, hierarchical storage for configuration data management.
 
 For more information on defining template parameters, see
-[CloudFormation template Parameters
-syntax](parameters-section-structure.md "parameters-section-structure.md").
+[CloudFormation template Parameters syntax](parameters-section-structure.md "parameters-section-structure.md").
 
 ## Use AWS-specific parameter types
 
@@ -235,8 +227,7 @@ existing key pair name that's in your AWS account and in the Region where you ar
 the stack. CloudFormation can quickly validate values for AWS-specific parameter types before
 creating your stack. Also, if you use the CloudFormation console, CloudFormation shows a drop down
 list of valid values, so you don't have to look up or memorize the correct VPC IDs or key pair
-names. For more information, see [Specify existing resources at
-runtime with CloudFormation-supplied parameter types](cloudformation-supplied-parameter-types.md "cloudformation-supplied-parameter-types.md").
+names. For more information, see [Specify existing resources at runtime with CloudFormation-supplied parameter types](cloudformation-supplied-parameter-types.md "cloudformation-supplied-parameter-types.md").
 
 ## Use parameter constraints
 
@@ -244,8 +235,7 @@ With constraints, you can describe allowed input values so that CloudFormation c
 valid values before creating a stack. You can set constraints such as a minimum length,
 maximum length, and allowed patterns. For example, you can set constraints on a database user
 name value so that it must be a minimum length of eight character and contain only
-alphanumeric characters. For more information, see [CloudFormation template Parameters
-syntax](parameters-section-structure.md "parameters-section-structure.md").
+alphanumeric characters. For more information, see [CloudFormation template Parameters syntax](parameters-section-structure.md "parameters-section-structure.md").
 
 ## Use pseudo parameters to promote portability
 
@@ -273,8 +263,7 @@ stacks. In this example, assume you have created a [subnet](../../../vpc/latest/
 exported its ID for use with other stacks in the same AWS account and Region. In another
 stack, you reference the exported value of the subnet ID when describing an Amazon EC2 instance.
 For a detailed example of using the `Export` output field and
-`Fn::ImportValue` intrinsic function, see [Refer to resource outputs in another CloudFormation
-stack](walkthrough-crossstackref.md "walkthrough-crossstackref.md").
+`Fn::ImportValue` intrinsic function, see [Refer to resource outputs in another CloudFormation stack](walkthrough-crossstackref.md "walkthrough-crossstackref.md").
 
 Stack exports must be unique per account and Region. So, in this case, you can use the
 `AWS::StackName` pseudo parameter to create a prefix for your export. Since stack
@@ -283,9 +272,7 @@ prefix increases the possibility of having a unique export name while also promo
 reusable approach across stacks from where you export values. Alternatively, you can use a
 prefix of your own choice.
 
-## Use `AWS::CloudFormation::Init` to deploy software
-
-applications on Amazon EC2 instances
+## Use `AWS::CloudFormation::Init` to deploy software applications on Amazon EC2 instances
 
 When you launch stacks, you can install and configure software applications on Amazon EC2
 instances by using the `cfn-init` helper script and the
@@ -325,9 +312,7 @@ During validation, CloudFormation first checks if the template is valid JSON. If
 CloudFormation checks if the template is valid YAML. If both checks fail, CloudFormation returns a
 template validation error.
 
-### Validate templates for organization policy
-
-compliance
+### Validate templates for organization policy compliance
 
 You can also validate your template for compliance to organization policy guidelines.
 AWS CloudFormation Guard (`cfn-guard`) is an open-source command line interface (CLI) tool
@@ -408,9 +393,7 @@ For more information on drift, see [What is drift?](using-cfn-stack-drift.md#wha
 
 For more information on updating stacks, see [Update a CloudFormation stack](updating.stacks.md "updating.stacks.md").
 
-## Create change sets before updating your
-
-stacks
+## Create change sets before updating your stacks
 
 Change sets allow you to see how proposed changes to a stack might impact your running
 resources before you implement them. CloudFormation doesn't make any changes to your stack until
@@ -422,8 +405,7 @@ for critical resources. For example, if you change the name of an Amazon RDS dat
 CloudFormation will create a new database and delete the old one; you will lose the data in the
 old database unless you've already backed it up. If you generate a change set, you will see
 that your change will replace your database. This can help you plan before you update your
-stack. For more information, see [Update CloudFormation stacks using change
-sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
+stack. For more information, see [Update CloudFormation stacks using change sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
 
 ## Use stack policies to protect resources
 

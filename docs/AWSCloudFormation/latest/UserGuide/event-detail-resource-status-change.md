@@ -1,6 +1,4 @@
-# Resource Status Change event
-
-detail
+# Resource Status Change event detail
 
 Below are the detail fields for Resource Status Change events.
 

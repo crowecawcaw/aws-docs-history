@@ -3,8 +3,7 @@
 In CloudFormation, you can use template parameters to customize your stacks by providing input
 values during stack creation or update. These parameters allow you to change certain aspects
 of the stack based on your needs. For more information about defining template parameters, see
-[CloudFormation template Parameters
-syntax](parameters-section-structure.md "parameters-section-structure.md").
+[CloudFormation template Parameters syntax](parameters-section-structure.md "parameters-section-structure.md").
 
 Similarly, modules can also have parameters. These module parameters allow you to input
 custom values to the module from the template (or another module) that's using it. The module
@@ -22,9 +21,7 @@ either:
   module's parameters to be set by the template (or module) in which the parent module is
   contained.
 
-## Using template parameters to specify module
-
-parameter values
+## Using template parameters to specify module parameter values
 
 The following example shows how to define template parameters that pass values to a
 module.
@@ -46,9 +43,7 @@ Resources:
       BucketName: !Ref BucketName
 ```
 
-## Specifying properties on resources in a
-
-child module from the parent module
+## Specifying properties on resources in a child module from the parent module
 
 The following example illustrates how to specify parameter values in a module that's
 nested within another module.
@@ -109,12 +104,9 @@ Resources:
       AccessControl: Private
 ```
 
-## Specifying constraints for module
-
-parameters
+## Specifying constraints for module parameters
 
 Module parameters don't support constraint enforcement. To perform constraint checking
 on a module parameter, create a template parameter with the desired constraints. Then,
 reference that template parameter in your module parameter. For more information about
-defining template parameters, see [CloudFormation template Parameters
-syntax](parameters-section-structure.md "parameters-section-structure.md").
+defining template parameters, see [CloudFormation template Parameters syntax](parameters-section-structure.md "parameters-section-structure.md").

@@ -1,6 +1,4 @@
-# Allocate and associate Elastic IP addresses
-
-with CloudFormation
+# Allocate and associate Elastic IP addresses with CloudFormation
 
 The following template snippets are examples related to Elastic IP addresses (EIPs) in
 Amazon EC2. These examples cover allocation, association, and management of EIPs for your
@@ -8,16 +6,11 @@ instances.
 
 ###### Example snippets
 
-- [Allocate an Elastic IP address and associate it
-  with an Amazon EC2 instance](#scenario-ec2-eip "#scenario-ec2-eip")
-- [Associate an Elastic IP address to an
-  Amazon EC2 instance by specifying the IP address](#scenario-ec2-eip-association "#scenario-ec2-eip-association")
-- [Associate an Elastic IP address
-  to an Amazon EC2 instance by specifying the allocation ID of the IP address](#scenario-ec2-eip-association-vpc "#scenario-ec2-eip-association-vpc")
+- [Allocate an Elastic IP address and associate it with an Amazon EC2 instance](#scenario-ec2-eip "#scenario-ec2-eip")
+- [Associate an Elastic IP address to an Amazon EC2 instance by specifying the IP address](#scenario-ec2-eip-association "#scenario-ec2-eip-association")
+- [Associate an Elastic IP address to an Amazon EC2 instance by specifying the allocation ID of the IP address](#scenario-ec2-eip-association-vpc "#scenario-ec2-eip-association-vpc")
 
-## Allocate an Elastic IP address and associate it
-
-with an Amazon EC2 instance
+## Allocate an Elastic IP address and associate it with an Amazon EC2 instance
 
 The following snippet allocates an Amazon EC2 Elastic IP (EIP) address and associates
 it with an Amazon EC2 instance using an [AWS::EC2::EIP](../TemplateReference/aws-resource-ec2-eip.md "../TemplateReference/aws-resource-ec2-eip.md") resource. You
@@ -52,9 +45,7 @@ ElasticIP:
     InstanceId: !Ref EC2Instance
 ```
 
-## Associate an Elastic IP address to an
-
-Amazon EC2 instance by specifying the IP address
+## Associate an Elastic IP address to an Amazon EC2 instance by specifying the IP address
 
 The following snippet associates an existing Amazon EC2 Elastic IP address to an EC2
 instance using an [AWS::EC2::EIPAssociation](../TemplateReference/aws-resource-ec2-eipassociation.md "../TemplateReference/aws-resource-ec2-eipassociation.md") resource. You must first allocate an Elastic
@@ -85,9 +76,7 @@ IPAssoc:
     EIP: `192.0.2.0`
 ```
 
-## Associate an Elastic IP address
-
-to an Amazon EC2 instance by specifying the allocation ID of the IP address
+## Associate an Elastic IP address to an Amazon EC2 instance by specifying the allocation ID of the IP address
 
 The following snippet associates an existing Elastic IP address to an Amazon EC2
 instance by specifying the allocation ID using an [AWS::EC2::EIPAssociation](../TemplateReference/aws-resource-ec2-eipassociation.md "../TemplateReference/aws-resource-ec2-eipassociation.md") resource. An allocation ID is assigned to an

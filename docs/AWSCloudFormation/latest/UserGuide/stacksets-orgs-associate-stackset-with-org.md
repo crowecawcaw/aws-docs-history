@@ -1,6 +1,4 @@
-# Create CloudFormation StackSets with
-
-service-managed permissions
+# Create CloudFormation StackSets with service-managed permissions
 
 With _service-managed_ permissions, you can deploy stacks to
 accounts managed by AWS Organizations in specific Regions. With this model, you don't need to
@@ -11,10 +9,8 @@ access](stacksets-orgs-activate-trusted-access.md "stacksets-orgs-activate-trust
 ###### Topics
 
 - [Considerations](#stacksets-orgs-considerations "#stacksets-orgs-considerations")
-- [Create a StackSet
-  with service-managed permissions (console)](#stacksets-orgs-associate-stackset-with-org-console "#stacksets-orgs-associate-stackset-with-org-console")
-- [Create a StackSet with
-  service-managed permissions (AWS CLI)](#stacksets-orgs-associate-stackset-with-org-cli "#stacksets-orgs-associate-stackset-with-org-cli")
+- [Create a StackSet with service-managed permissions (console)](#stacksets-orgs-associate-stackset-with-org-console "#stacksets-orgs-associate-stackset-with-org-console")
+- [Create a StackSet with service-managed permissions (AWS CLI)](#stacksets-orgs-associate-stackset-with-org-cli "#stacksets-orgs-associate-stackset-with-org-cli")
 
 ## Considerations
 
@@ -37,8 +33,7 @@ following:
 - Your authorization to deploy StackSets depends on the permissions
   assigned to the IAM principal (user, role, or group) you use to sign in to
   the management account. For an example IAM policy that grants permissions
-  to deploy to an organization, see [Restrict stack
-  set operations based on Region and resource types](security_iam_id-based-policy-examples.md#resource-level-permissions-service-managed-stack-set "security_iam_id-based-policy-examples.md#resource-level-permissions-service-managed-stack-set").
+  to deploy to an organization, see [Restrict stack set operations based on Region and resource types](security_iam_id-based-policy-examples.md#resource-level-permissions-service-managed-stack-set "security_iam_id-based-policy-examples.md#resource-level-permissions-service-managed-stack-set").
 - Delegated administrators have full permissions to deploy to any account in
   your organization. The management account can't limit delegated administrator
   permissions to deploy to specific OUs or StackSet operations.
@@ -47,9 +42,7 @@ following:
 - StackSets that use service-managed permissions don't support nested
   stacks or templates that contain macros or transforms.
 
-## Create a StackSet
-
-with service-managed permissions (console)
+## Create a StackSet with service-managed permissions (console)
 
 ###### To create a StackSet
 
@@ -68,8 +61,7 @@ with service-managed permissions (console)
 If trusted access with AWS Organizations is disabled, a banner displays.
 Trusted access is required to create or update a StackSet with
 service-managed permissions. Only the administrator in the
-organization's management account has permissions to [Activate trusted access for
-StackSets with AWS Organizations](stacksets-orgs-activate-trusted-access.md "stacksets-orgs-activate-trusted-access.md"). 6. Under **Prerequisite - Prepare template**, choose
+organization's management account has permissions to [Activate trusted access for StackSets with AWS Organizations](stacksets-orgs-activate-trusted-access.md "stacksets-orgs-activate-trusted-access.md"). 6. Under **Prerequisite - Prepare template**, choose
 **Template is ready**. 7. Under **Specify template**, choose to either specify the
 URL for the S3 bucket that contains your stack template or upload a stack
 template file. Then, choose **Next**. 8. On the **Specify StackSet details** page, provide a name
@@ -93,8 +85,7 @@ operations even if they're non-conflicting. You can't change execution
 settings during this time. 11. If your template contains IAM resources, for
 **Capabilities**, choose **I acknowledge that
 this template may create IAM resources** to specify that you
-want to use IAM resources in the template. For more information, see [Acknowledging IAM resources in CloudFormation
-templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities"). 12. Choose **Next** to proceed and to activate trusted access
+want to use IAM resources in the template. For more information, see [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities"). 12. Choose **Next** to proceed and to activate trusted access
 if not already activated. 13. On the **Set deployment options** page, under
 **Deployment targets**, do one of the following:
 
@@ -121,8 +112,7 @@ options and providing account numbers.
 
 14. Under **Automatic deployment**, choose whether to
     automatically deploy to accounts that are added to the target organization
-    or OUs in the future. For more information, see [Enable or disable automatic
-    deployments for StackSets in AWS Organizations](stacksets-orgs-manage-auto-deployment.md "stacksets-orgs-manage-auto-deployment.md").
+    or OUs in the future. For more information, see [Enable or disable automatic deployments for StackSets in AWS Organizations](stacksets-orgs-manage-auto-deployment.md "stacksets-orgs-manage-auto-deployment.md").
 15. If you enabled automatic deployment, under **Account removal
     behavior**, choose whether stack resources are retained or
     deleted when an account is removed from a target organization or OU.
@@ -161,8 +151,7 @@ deploy stacks in. 17. For **Deployment options**, do the following:
     	 regardless of failures.
     * For StackSet **dependencies**, add dependent StackSet
      ARNs, staying within 10 dependencies maximum. For more information,
-     see [Enable or disable automatic
-     deployments for StackSets in AWS Organizations](stacksets-orgs-manage-auto-deployment.md "stacksets-orgs-manage-auto-deployment.md").
+     see [Enable or disable automatic deployments for StackSets in AWS Organizations](stacksets-orgs-manage-auto-deployment.md "stacksets-orgs-manage-auto-deployment.md").
 
 18. Choose **Next** to continue.
 19. On the **Review** page, verify that your StackSet will deploy
@@ -172,9 +161,7 @@ deploy stacks in. 17. For **Deployment options**, do the following:
 The **StackSet details** page opens. You can view the
 progress and status of the creation of the stacks in your StackSet.
 
-## Create a StackSet with
-
-service-managed permissions (AWS CLI)
+## Create a StackSet with service-managed permissions (AWS CLI)
 
 Follow the steps in this section to use the AWS CLI to:
 
@@ -195,8 +182,7 @@ Deploy to your organization
    `my-stackset`. The
    following example uses a template stored in an S3 bucket,
    enables automatic deployments, and preserves stacks when
-   accounts are removed. For more information, see [Enable or disable automatic
-   deployments for StackSets in AWS Organizations](stacksets-orgs-manage-auto-deployment.md "stacksets-orgs-manage-auto-deployment.md").
+   accounts are removed. For more information, see [Enable or disable automatic deployments for StackSets in AWS Organizations](stacksets-orgs-manage-auto-deployment.md "stacksets-orgs-manage-auto-deployment.md").
 
 ```
 aws cloudformation create-stack-set \
@@ -359,9 +345,7 @@ After you create the StackSet container with the
 **create-stack-set** command, use one of the
 following examples to deploy stacks to specific accounts.
 
-###### Target specific accounts in
-
-an OU
+###### Target specific accounts in an OU
 
 The following example deploys stacks only to accounts A1 and A2 in
 OU1.
@@ -372,9 +356,7 @@ aws cloudformation create-stack-instances --stack-set-name `my-stackset` \
   --regions `us-west-2 us-east-1`
 ```
 
-###### Exclude accounts from an
-
-OU
+###### Exclude accounts from an OU
 
 The following example deploys stacks to all accounts in OU1 except
 accounts A1 and A2.

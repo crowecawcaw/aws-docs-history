@@ -55,9 +55,7 @@ Outputs:
     Value: !GetAtt myStack.Outputs.BucketName
 ```
 
-### Nesting a stack with input parameters in a
-
-template
+### Nesting a stack with input parameters in a template
 
 This example template contains a stack resource that specifies input parameters. When CloudFormation creates a stack from this template, it uses the value pairs declared within the `Parameters` property as the input parameters for the template used to create the `myStackWithParams` stack. In this example, the `InstanceType` and `KeyName` parameters are specified.
 
@@ -99,9 +97,7 @@ Resources:
 
 ## Wait condition
 
-### Using a wait condition with an Amazon EC2
-
-instance
+### Using a wait condition with an Amazon EC2 instance
 
 ###### Important
 
@@ -121,8 +117,7 @@ You need to use `cfn-signal` or create the application or script that signals th
 condition. The output value `ApplicationData` contains the data passed back from the
 wait condition signal.
 
-For more information, see [Create wait conditions in a CloudFormation
-template](using-cfn-waitcondition.md "using-cfn-waitcondition.md").
+For more information, see [Create wait conditions in a CloudFormation template](using-cfn-waitcondition.md "using-cfn-waitcondition.md").
 
 #### JSON
 
@@ -221,9 +216,7 @@ Outputs:
     Description: The data passed back as part of signalling the WaitCondition.
 ```
 
-### Using the cfn-signal helper script to signal a wait
-
-condition
+### Using the cfn-signal helper script to signal a wait condition
 
 This example shows a `cfn-signal` command line that signals success to a wait
 condition. You need to define the command line in the `UserData`
@@ -264,9 +257,7 @@ UserData:
           '
 ```
 
-### Using Curl to signal a wait
-
-condition
+### Using Curl to signal a wait condition
 
 This example shows a Curl command line that signals success to a wait
 condition.

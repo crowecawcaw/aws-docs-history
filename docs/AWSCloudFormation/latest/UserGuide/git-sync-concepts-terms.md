@@ -9,8 +9,7 @@ with it.
 - [Comments on pull requests](#git-sync-comments-on-pull-requests "#git-sync-comments-on-pull-requests")
 - [Stack deployment file](#git-sync-concepts-terms-depoyment-file "#git-sync-concepts-terms-depoyment-file")
 - [CloudFormation template file](#git-sync-concepts-terms-template-file "#git-sync-concepts-terms-template-file")
-- [Template definition
-  repository](#git-sync-concepts-terms-template-definition-repository "#git-sync-concepts-terms-template-definition-repository")
+- [Template definition repository](#git-sync-concepts-terms-template-definition-repository "#git-sync-concepts-terms-template-definition-repository")
 
 ## How Git sync works
 
@@ -64,8 +63,7 @@ You can choose to have CloudFormation create a summary of the code changes in pu
 through the CodeConnections service by turning on the **Enable comment on pull
 request** option in the console. Providing a summary of the changes in pull
 requests means that team members can easily review and understand the impact of the proposed
-modifications before merging the pull request. For more information, see [Enable CloudFormation to post a
-summary of stack changes in pull requests](gitsync-enable-comments-on-pull-requests.md "gitsync-enable-comments-on-pull-requests.md").
+modifications before merging the pull request. For more information, see [Enable CloudFormation to post a summary of stack changes in pull requests](gitsync-enable-comments-on-pull-requests.md "gitsync-enable-comments-on-pull-requests.md").
 
 ## Stack deployment file
 
@@ -121,9 +119,7 @@ committing changes to the repository.
 
 For more information, see [Working with CloudFormation templates](template-guide.md "template-guide.md").
 
-## Template definition
-
-repository
+## Template definition repository
 
 The template definition repository is the Git repository that is linked to CloudFormation
 through Git sync. The repository is monitored for changes to the CloudFormation template and

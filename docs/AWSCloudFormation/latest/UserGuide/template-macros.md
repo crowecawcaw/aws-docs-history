@@ -1,6 +1,4 @@
-# Perform custom processing on CloudFormation templates with
-
-template macros
+# Perform custom processing on CloudFormation templates with template macros
 
 With macros, you can perform custom processing on templates, from simple actions like
 find-and-replace operations to extensive transformations of entire templates.
@@ -21,8 +19,7 @@ To get an idea of the breadth of possibilities, consider the `AWS::Include` and
 - [Overview of CloudFormation macros](template-macros-overview.md "template-macros-overview.md")
 - [Create a CloudFormation macro definition](template-macros-author.md "template-macros-author.md")
 - [Example simple string replacement macro](macros-example.md "macros-example.md")
-- [Troubleshoot the
-  processed template](template-macros-troubleshoot-processed-template.md "template-macros-troubleshoot-processed-template.md")
+- [Troubleshoot the processed template](template-macros-troubleshoot-processed-template.md "template-macros-troubleshoot-processed-template.md")
 
 ## Billing
 

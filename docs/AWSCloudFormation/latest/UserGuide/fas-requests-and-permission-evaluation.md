@@ -1,6 +1,4 @@
-# Forward access sessions (FAS) requests and permission
-
-evaluation
+# Forward access sessions (FAS) requests and permission evaluation
 
 When creating, updating, and deleting CloudFormation stacks, users can optionally specify an
 IAM role ARN. If no role is provided, CloudFormation uses its default service mechanism to

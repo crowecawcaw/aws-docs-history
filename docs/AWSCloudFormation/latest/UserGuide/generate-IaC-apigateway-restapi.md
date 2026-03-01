@@ -1,6 +1,4 @@
-# How to resolve issues with write-only
-
-properties in AWS::ApiGateway::RestAPI resources
+# How to resolve issues with write-only properties in AWS::ApiGateway::RestAPI resources
 
 This topic explains how to resolve issues with write-only properties in [AWS::ApiGateway::RestApi](../TemplateReference/aws-resource-apigateway-restapi.md "../TemplateReference/aws-resource-apigateway-restapi.md") resources when using the IaC
 generator.

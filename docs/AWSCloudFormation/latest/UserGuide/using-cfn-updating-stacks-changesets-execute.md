@@ -9,9 +9,7 @@ After you execute a change set, CloudFormation deletes any additional change set
 associated with the stack because they're no longer valid for the updated stack. If an
 update fails, you need to create a new change set.
 
-###### Stack Policies and Executing a
-
-Change Set
+###### Stack Policies and Executing a Change Set
 
 If you execute a change set on a stack that has a stack policy associated with it,
 CloudFormation enforces the policy when it updates the stack. You can't specify a temporary

@@ -7,8 +7,7 @@ split large stacks into smaller ones, or combine multiple stacks into one.
 ###### Topics
 
 - [How stack refactoring works](#stack-refactoring-overview "#stack-refactoring-overview")
-- [Stack refactoring
-  considerations](#stack-refactoring-considerations "#stack-refactoring-considerations")
+- [Stack refactoring considerations](#stack-refactoring-considerations "#stack-refactoring-considerations")
 - [Prerequisites](#stack-refactoring-prerequisites "#stack-refactoring-prerequisites")
 - [Refactor stacks (console)](#stack-refactoring-console "#stack-refactoring-console")
 - [Refactor stacks (AWS CLI)](#stack-refactoring-cli "#stack-refactoring-cli")
@@ -49,9 +48,7 @@ the changes align with your refactoring goals, complete the stack
 refactor. 8. Monitor – Track the execution status to
 ensure the operation completes successfully.
 
-## Stack refactoring
-
-considerations
+## Stack refactoring considerations
 
 As you refactor your stacks, keep the following in mind:
 
@@ -405,8 +402,11 @@ Example output:
   - `AWS::DataZone::SubscriptionTarget`
   - `AWS::DirectoryService::MicrosoftAD`
   - `AWS::DynamoDB::GlobalTable`
+  - `AWS::EC2::CustomerGateway`
+  - `AWS::EC2::EIP`
   - `AWS::EC2::LaunchTemplate`
   - `AWS::EC2::NetworkInterfacePermission`
+  - `AWS::EC2::PlacementGroup`
   - `AWS::EC2::SpotFleet`
   - `AWS::EC2::VPCDHCPOptionsAssociation`
   - `AWS::EC2::VolumeAttachment`

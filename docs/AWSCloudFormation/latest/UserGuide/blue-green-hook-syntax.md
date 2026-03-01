@@ -1,6 +1,4 @@
-# `AWS::CodeDeploy::BlueGreen` hook
-
-syntax
+# `AWS::CodeDeploy::BlueGreen` hook syntax
 
 The following syntax describes the structure of an `AWS::CodeDeploy::BlueGreen`
 hook for ECS blue/green deployments.

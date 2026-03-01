@@ -1,6 +1,4 @@
-# Get values stored in other services using dynamic
-
-references
+# Get values stored in other services using dynamic references
 
 Dynamic references provide a convenient way for you to specify external values stored and
 managed in other services and decouple sensitive information from your
@@ -59,9 +57,6 @@ references.
 
 ###### Topics
 
-- [Get a plaintext value from Systems Manager Parameter
-  Store](dynamic-references-ssm.md "dynamic-references-ssm.md")
-- [Get a secure string value from
-  Systems Manager Parameter Store](dynamic-references-ssm-secure-strings.md "dynamic-references-ssm-secure-strings.md")
-- [Get a secret or secret value from
-  Secrets Manager](dynamic-references-secretsmanager.md "dynamic-references-secretsmanager.md")
+- [Get a plaintext value from Systems Manager Parameter Store](dynamic-references-ssm.md "dynamic-references-ssm.md")
+- [Get a secure string value from Systems Manager Parameter Store](dynamic-references-ssm-secure-strings.md "dynamic-references-ssm-secure-strings.md")
+- [Get a secret or secret value from Secrets Manager](dynamic-references-secretsmanager.md "dynamic-references-secretsmanager.md")

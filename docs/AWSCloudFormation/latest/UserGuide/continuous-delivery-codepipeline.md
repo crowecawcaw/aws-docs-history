@@ -19,9 +19,7 @@ information about CodePipeline, see the [AWS CodePipeline User Guide](../../../c
 
 ###### Topics
 
-- [Walkthrough: Building a
-  pipeline for test and production stacks](continuous-delivery-codepipeline-basic-walkthrough.md "continuous-delivery-codepipeline-basic-walkthrough.md")
+- [Walkthrough: Building a pipeline for test and production stacks](continuous-delivery-codepipeline-basic-walkthrough.md "continuous-delivery-codepipeline-basic-walkthrough.md")
 - [CloudFormation configuration properties reference](continuous-delivery-codepipeline-action-reference.md "continuous-delivery-codepipeline-action-reference.md")
 - [CloudFormation artifacts](continuous-delivery-codepipeline-cfn-artifacts.md "continuous-delivery-codepipeline-cfn-artifacts.md")
-- [Using parameter
-  override functions with CodePipeline pipelines](continuous-delivery-codepipeline-parameter-override-functions.md "continuous-delivery-codepipeline-parameter-override-functions.md")
+- [Using parameter override functions with CodePipeline pipelines](continuous-delivery-codepipeline-parameter-override-functions.md "continuous-delivery-codepipeline-parameter-override-functions.md")

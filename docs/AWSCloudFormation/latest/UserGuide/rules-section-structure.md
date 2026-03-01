@@ -1,6 +1,4 @@
-# CloudFormation template Rules
-
-syntax
+# CloudFormation template Rules syntax
 
 The `Rules` section is an optional part of a CloudFormation template that enables
 custom validation logic. When included, this section contains rule functions that validate
@@ -106,9 +104,7 @@ A condition that must evaluate to `true`.
 
 A message displayed when an assertion fails.
 
-## Rule-specific intrinsic
-
-functions
+## Rule-specific intrinsic functions
 
 To define your rules, you must use _rule-specific functions_, which are
 functions that can only be used in the `Rules` section of a template. While these
@@ -141,13 +137,10 @@ operation.
 
 ###### Topics
 
-- [Conditionally verify a parameter
-  value](#template-constraint-rules-example-verify "#template-constraint-rules-example-verify")
+- [Conditionally verify a parameter value](#template-constraint-rules-example-verify "#template-constraint-rules-example-verify")
 - [Cross-parameter validation](#template-cross-parameter-rules-example "#template-cross-parameter-rules-example")
 
-### Conditionally verify a parameter
-
-value
+### Conditionally verify a parameter value
 
 In the following example, the two rules check the value of the `InstanceType`
 parameter. Depending on the value of the environment parameter (`test` or

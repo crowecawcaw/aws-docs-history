@@ -1,6 +1,4 @@
-# Create wait conditions in a CloudFormation
-
-template
+# Create wait conditions in a CloudFormation template
 
 This topic explains how to create a wait condition in a template to coordinate the
 creation of stack resources or track the progress of a configuration process. For example,
@@ -36,20 +34,16 @@ If you use AWS PrivateLink, resources in the VPC that respond to wait conditions
 have access to CloudFormation-specific Amazon Simple Storage Service (Amazon S3) buckets. Resources must send wait
 condition responses to a presigned Amazon S3 URL. If they can't send responses to Amazon S3,
 CloudFormation won't receive a response and the stack operation fails. For more information,
-see [Access CloudFormation using an interface endpoint
-(AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+see [Access CloudFormation using an interface endpoint (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 and [Controlling access from VPC endpoints with bucket policies](../../../AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.md "../../../AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.md").
 
 ###### Topics
 
-- [Creating a wait condition in your
-  template](#creating-wait-condition "#creating-wait-condition")
+- [Creating a wait condition in your template](#creating-wait-condition "#creating-wait-condition")
 - [Wait condition signal syntax](#wait-condition-signal-syntax "#wait-condition-signal-syntax")
 - [Accessing signal data](#wait-condition-access-signal-data "#wait-condition-access-signal-data")
 
-## Creating a wait condition in your
-
-template
+## Creating a wait condition in your template
 
 ###### 1. Wait condition handle
 

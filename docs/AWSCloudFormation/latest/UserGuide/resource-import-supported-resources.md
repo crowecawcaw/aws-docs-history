@@ -1,6 +1,4 @@
-# Resource type
-
-support
+# Resource type support
 
 The following table lists AWS resource types that currently support import, drift
 detection, and infrastructure as code (IaC) generator operations. Each resource type name links
@@ -18,8 +16,7 @@ CloudFormation also supports import and drift detection operations for private r
 that are provisionable (those with provisioning types of either `FULLY_MUTABLE` or
 `IMMUTABLE`). To import or perform drift detection on a private resource type, you
 must first register the default version of that resource type in your account, and ensure it's
-provisionable. For more information, see [Use third-party private extensions that have been
-shared with you](registry-private.md "registry-private.md").
+provisionable. For more information, see [Use third-party private extensions that have been shared with you](registry-private.md "registry-private.md").
 
 Note that IaC generator only supports AWS resources that are compatible with Cloud Control API in
 your Region.
@@ -32,10 +29,8 @@ To get started with import, drift detection, or IaC generator, here are some use
 topics to review:
 
 - [Import AWS resources into a CloudFormation stack](import-resources.md "import-resources.md")
-- [Detect unmanaged configuration changes to stacks and
-  resources with drift detection](using-cfn-stack-drift.md "using-cfn-stack-drift.md")
-- [Generate templates from existing resources with IaC
-  generator](generate-IaC.md "generate-IaC.md")
+- [Detect unmanaged configuration changes to stacks and resources with drift detection](using-cfn-stack-drift.md "using-cfn-stack-drift.md")
+- [Generate templates from existing resources with IaC generator](generate-IaC.md "generate-IaC.md")
 
 | Resource                                                                                                                                                                                                                                                                         | Import | Drift detection | IaC generator |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --------------- | ------------- |

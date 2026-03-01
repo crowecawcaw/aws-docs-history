@@ -64,9 +64,7 @@ automatically created for StackSets have the suffix
 management account, and `CloudFormationStackSetsOrgMember` in each target
 account. For more information, see [Service-linked roles](stacksets-orgs-activate-trusted-access.md#stacksets-orgs-service-linked-roles "stacksets-orgs-activate-trusted-access.md#stacksets-orgs-service-linked-roles").
 
-###### To delete a service role
-
-(console)
+###### To delete a service role (console)
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. From the navigation pane, choose **Roles**, and then fill
@@ -77,9 +75,7 @@ account. For more information, see [Service-linked roles](stacksets-orgs-activat
    If you are sure, you can proceed with the deletion even if the service last
    accessed data is still loading.
 
-###### To delete a service role
-
-(AWS CLI)
+###### To delete a service role (AWS CLI)
 
 - Use the following **delete-role** command. When you are
   prompted to confirm, type `y`, and then press

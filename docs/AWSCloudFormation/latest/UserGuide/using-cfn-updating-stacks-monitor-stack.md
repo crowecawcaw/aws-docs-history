@@ -1,6 +1,4 @@
-# Monitor the progress of a stack
-
-update
+# Monitor the progress of a stack update
 
 You can monitor the progress of a stack update by viewing the stack's events. The stack's
 **Events** tab displays each major step in the creation and update of the
@@ -9,14 +7,10 @@ stack sorted by the time of each event with latest events on top. For more infor
 
 ###### Topics
 
-- [Events generated
-  during a successful stack update](#using-cfn-updating-stacks-monitor-stack-update-events "#using-cfn-updating-stacks-monitor-stack-update-events")
-- [Events generated
-  when a resource update fails](#using-cfn-updating-stacks-monitor-stack-update-failure "#using-cfn-updating-stacks-monitor-stack-update-failure")
+- [Events generated during a successful stack update](#using-cfn-updating-stacks-monitor-stack-update-events "#using-cfn-updating-stacks-monitor-stack-update-events")
+- [Events generated when a resource update fails](#using-cfn-updating-stacks-monitor-stack-update-failure "#using-cfn-updating-stacks-monitor-stack-update-failure")
 
-## Events generated
-
-during a successful stack update
+## Events generated during a successful stack update
 
 The start of the stack update process is marked with an `UPDATE_IN_PROGRESS` event for the
 stack:
@@ -71,9 +65,7 @@ directly using the console or API for the underlying service.
 This is also true for resources that you have removed from the stack template, and so
 will be deleted from the stack during the stack update.
 
-## Events generated
-
-when a resource update fails
+## Events generated when a resource update fails
 
 If an update of a resource fails, CloudFormation reports an `UPDATE_FAILED` event
 that includes a reason for the failure. For example, if your update template specified a

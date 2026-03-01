@@ -83,20 +83,14 @@ AWS-managed properties are:
 Drift-aware change sets clarify the properties which were identified as AWS-managed. See
 the AWS CLI section for details.
 
-## Using drift-aware change sets
-
-(console)
+## Using drift-aware change sets (console)
 
 You can create and manage drift-aware change sets through the CloudFormation console using the
 same workflow as traditional change sets, with additional options for deployment modes.
 
-### Creating drift-aware change
+### Creating drift-aware change sets
 
-sets
-
-###### To create a drift-aware
-
-change set (console)
+###### To create a drift-aware change set (console)
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -112,9 +106,7 @@ change set (console)
 7. If you're satisfied with the changes, choose **Execute change
    set**.
 
-### Reviewing drift-aware change
-
-sets
+### Reviewing drift-aware change sets
 
 When you view a drift-aware change set in the console, you'll see enhanced information
 compared to traditional change sets:
@@ -135,9 +127,7 @@ You can create and manage drift-aware change sets using the AWS CLI by adding th
 `--deployment-mode REVERT_DRIFT` parameter to the
 **create-change-set** command.
 
-### Creating drift-aware change
-
-sets
+### Creating drift-aware change sets
 
 ###### To create a drift-aware change set
 
@@ -153,9 +143,7 @@ aws cloudformation create-change-set \
   --capabilities `CAPABILITY_IAM`
 ```
 
-### Reviewing drift-aware change
-
-sets
+### Reviewing drift-aware change sets
 
 ###### To review the details of a drift-aware change set
 
@@ -188,9 +176,7 @@ The response includes enhanced information for drift-aware change sets:
 
 For more information, see [DescribeChangeSet](../APIReference/API_DescribeChangeSet.md "../APIReference/API_DescribeChangeSet.md") in the _AWS CloudFormation API Reference_.
 
-### Executing drift-aware change
-
-sets
+### Executing drift-aware change sets
 
 ###### To execute a drift-aware change set
 

@@ -1,6 +1,4 @@
-# Specify existing resources at
-
-runtime with CloudFormation-supplied parameter types
+# Specify existing resources at runtime with CloudFormation-supplied parameter types
 
 When creating your template, you can create parameters that require users to input
 identifiers of existing AWS resources or Systems Manager parameters by using specialized parameter
@@ -11,12 +9,9 @@ types provided by CloudFormation.
 - [Overview](#cloudformation-supplied-parameter-types-overview "#cloudformation-supplied-parameter-types-overview")
 - [Example](#cloudformation-supplied-parameter-types-example "#cloudformation-supplied-parameter-types-example")
 - [Considerations](#cloudformation-supplied-parameter-types-considerations "#cloudformation-supplied-parameter-types-considerations")
-- [Supported AWS-specific
-  parameter types](#aws-specific-parameter-types-supported "#aws-specific-parameter-types-supported")
-- [Supported Systems Manager parameter
-  types](#systems-manager-parameter-types-supported "#systems-manager-parameter-types-supported")
-- [Unsupported Systems Manager
-  parameter types](#systems-manager-parameter-types-unsupported "#systems-manager-parameter-types-unsupported")
+- [Supported AWS-specific parameter types](#aws-specific-parameter-types-supported "#aws-specific-parameter-types-supported")
+- [Supported Systems Manager parameter types](#systems-manager-parameter-types-supported "#systems-manager-parameter-types-supported")
+- [Unsupported Systems Manager parameter types](#systems-manager-parameter-types-unsupported "#systems-manager-parameter-types-unsupported")
 
 ## Overview
 
@@ -26,8 +21,7 @@ flexible across different scenarios.
 
 Parameters are defined in the `Parameters` section of a CloudFormation
 template. Each parameter has a name and a type, and can have additional settings such as
-a default value and allowed values. For more information, see [CloudFormation template Parameters
-syntax](parameters-section-structure.md "parameters-section-structure.md").
+a default value and allowed values. For more information, see [CloudFormation template Parameters syntax](parameters-section-structure.md "parameters-section-structure.md").
 
 The parameter type determines the kind of input value the parameter can accept. For
 example, `Number` only accepts numeric values, while `String`
@@ -187,9 +181,7 @@ Outputs:
     Value: !Ref Ec2Instance
 ```
 
-### AWS CLI command
-
-to create the stack
+### AWS CLI command to create the stack
 
 The following [create-stack](../../../cli/latest/reference/cloudformation/create-stack.md "../../../cli/latest/reference/cloudformation/create-stack.md") command creates a stack based on the
 example template.
@@ -217,8 +209,7 @@ example.
 
 It's strongly recommended that you use dynamic references to restrict access to
 sensitive configuration definitions, such as third-party credentials. For more
-information, see [Get values stored in other services using dynamic
-references](dynamic-references.md "dynamic-references.md").
+information, see [Get values stored in other services using dynamic references](dynamic-references.md "dynamic-references.md").
 
 If you want to allow template users to specify values from different AWS accounts,
 don't use AWS-specific parameter types. Instead, define parameters of type
@@ -249,9 +240,7 @@ There are a few things to keep in mind with Systems Manager parameter types:
   provide the parameter name. For Parameter Store parameters shared by another
   AWS account, you must provide the full parameter ARN.
 
-## Supported AWS-specific
-
-parameter types
+## Supported AWS-specific parameter types
 
 CloudFormation supports the following AWS-specific types:
 
@@ -343,9 +332,7 @@ An array of VPC IDs, such as `vpc-a123baa3,
 An array of Amazon Route 53 hosted zone IDs, such as `Z23YXV4OVPL04A,
  Z23YXV4OVPL04B`.
 
-## Supported Systems Manager parameter
-
-types
+## Supported Systems Manager parameter types
 
 CloudFormation supports the following Systems Manager parameter types:
 
@@ -386,9 +373,7 @@ For example, the following specifies a list of
 
 - `AWS::SSM::Parameter::Value<List<AWS::EC2::KeyPair::KeyName>>`
 
-## Unsupported Systems Manager
-
-parameter types
+## Unsupported Systems Manager parameter types
 
 CloudFormation doesn't support the following Systems Manager parameter type:
 
@@ -398,5 +383,4 @@ CloudFormation doesn't support the following Systems Manager parameter type:
 In addition, CloudFormation doesn't support defining template parameters as
 `SecureString` Systems Manager parameter types. However, you can specify secure
 strings as parameter _values_ for certain resources. For more
-information, see [Get values stored in other services using dynamic
-references](dynamic-references.md "dynamic-references.md").
+information, see [Get values stored in other services using dynamic references](dynamic-references.md "dynamic-references.md").

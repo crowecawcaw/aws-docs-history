@@ -9,8 +9,7 @@ expected.
 
 - [View stack events (console)](#view-stack-events-console "#view-stack-events-console")
 - [View stack events (AWS CLI)](#view-stack-events-cli "#view-stack-events-cli")
-- [Stack status
-  codes](#cfn-console-view-stack-data-resources-status-codes "#cfn-console-view-stack-data-resources-status-codes")
+- [Stack status codes](#cfn-console-view-stack-data-resources-status-codes "#cfn-console-view-stack-data-resources-status-codes")
 
 ## View stack events (console)
 
@@ -36,9 +35,7 @@ While your stack is being created, it's listed on the **Stacks**
 page with a status of `CREATE_IN_PROGRESS`. After your stack has been
 successfully created, its status changes to `CREATE_COMPLETE`.
 
-For more information, see [Understand CloudFormation stack creation
-events](stack-resource-configuration-complete.md "stack-resource-configuration-complete.md") and [Monitor the progress of a stack
-update](using-cfn-updating-stacks-monitor-stack.md "using-cfn-updating-stacks-monitor-stack.md").
+For more information, see [Understand CloudFormation stack creation events](stack-resource-configuration-complete.md "stack-resource-configuration-complete.md") and [Monitor the progress of a stack update](using-cfn-updating-stacks-monitor-stack.md "using-cfn-updating-stacks-monitor-stack.md").
 
 ## View stack events (AWS CLI)
 
@@ -175,9 +172,7 @@ returned by the **describe-stack-events** command:
 | `DetailedStatus`       | The detailed status of the stack. If<br>`CONFIGURATION_COMPLETE` is present, the stack<br>resources configuration phase has completed and the<br>stabilization of the resources is in progress. |
 | `ResourceStatusReason` | More information on the status.                                                                                                                                                                 |
 
-## Stack status
-
-codes
+## Stack status codes
 
 The following table describes stack status codes:
 

@@ -6,21 +6,15 @@ common failure scenarios, helping you catch issues early in the development cycl
 
 ###### Topics
 
-- [How pre-deployment validation
-  works](#validate-stack-deployments-how-it-works "#validate-stack-deployments-how-it-works")
+- [How pre-deployment validation works](#validate-stack-deployments-how-it-works "#validate-stack-deployments-how-it-works")
 - [Considerations](#validate-stack-deployments-considerations "#validate-stack-deployments-considerations")
 - [Prerequisites](#validate-stack-deployments-prerequisites "#validate-stack-deployments-prerequisites")
-- [Validate a stack deployment
-  (console)](#validate-stack-deployments-console "#validate-stack-deployments-console")
-- [Validate a stack deployment
-  (AWS CLI)](#validate-stack-deployments-cli "#validate-stack-deployments-cli")
+- [Validate a stack deployment (console)](#validate-stack-deployments-console "#validate-stack-deployments-console")
+- [Validate a stack deployment (AWS CLI)](#validate-stack-deployments-cli "#validate-stack-deployments-cli")
 - [Validation types](#validate-stack-deployments-validation-types "#validate-stack-deployments-validation-types")
-- [Resource
-  limitations](#validate-stack-deployments-resource-limitations "#validate-stack-deployments-resource-limitations")
+- [Resource limitations](#validate-stack-deployments-resource-limitations "#validate-stack-deployments-resource-limitations")
 
-## How pre-deployment validation
-
-works
+## How pre-deployment validation works
 
 Pre-deployment validation involves these phases:
 
@@ -78,9 +72,7 @@ To use pre-deployment validation, you must have:
 - Access to the AWS Regions where your stacks are deployed.
 - CloudFormation templates that you want to validate before deployment.
 
-## Validate a stack deployment
-
-(console)
+## Validate a stack deployment (console)
 
 Use the following procedure to validate your stack deployment using the
 console.
@@ -114,9 +106,7 @@ console.
 11. If validation fails, fix the issues and create a new change set to re-validate
     your deployment.
 
-## Validate a stack deployment
-
-(AWS CLI)
+## Validate a stack deployment (AWS CLI)
 
 The AWS CLI commands for pre-deployment validation include:
 
@@ -213,9 +203,7 @@ Pre-deployment validation includes the following types of checks:
 Each validation type provides specific error messages and with error location in the
 template to help you resolve issues quickly.
 
-## Resource
-
-limitations
+## Resource limitations
 
 The following resource types are not supported for pre-deployment validation:
 

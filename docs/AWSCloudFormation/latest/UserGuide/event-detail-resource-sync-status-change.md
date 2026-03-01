@@ -1,6 +1,4 @@
-# Resource Sync Status
-
-Change event detail
+# Resource Sync Status Change event detail
 
 Below are the detail fields for Resource Sync Status Change events.
 

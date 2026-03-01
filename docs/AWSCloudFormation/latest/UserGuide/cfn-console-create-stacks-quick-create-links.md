@@ -1,6 +1,4 @@
-# Use quick-create links to
-
-create CloudFormation stacks
+# Use quick-create links to create CloudFormation stacks
 
 Quick-create links provide a streamlined method to launch CloudFormation stacks directly from
 URLs in the CloudFormation console. By specifying the template URL, stack name, and template
@@ -90,9 +88,7 @@ breaks are removed. This is the actual URL format.
 https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://s3.us-east-2.amazonaws.com/cloudformation-templates-us-east-2/WordPress_Single_Instance.template&stackName=MyWPBlog&param_DBName=mywpblog&param_InstanceType=t2.medium
 ```
 
-## Creating a stack using a quick-create
-
-link
+## Creating a stack using a quick-create link
 
 When you open a quick-create link, you are directed to the CloudFormation console. The
 console opens directly to the **Quick create stack** page, with the
@@ -134,12 +130,10 @@ supplied values automatically used for the parameters.
     For example, if your template contains IAM resources, select **I
     acknowledge that this template may create IAM resources** to
     specify that you want to use IAM resources in the template. For more
-    information, see [Acknowledging IAM resources in CloudFormation
-    templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
+    information, see [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
 7.  (Optional) You can create a change set to preview the configuration of the
     stack before creating it. Choose **Create change set** and
-    follow the directions. For more information, see [Preview the configuration of your
-    stack](cfn-console-create-stack.md#cfn-console-create-stacks-changesets "cfn-console-create-stack.md#cfn-console-create-stacks-changesets").
+    follow the directions. For more information, see [Preview the configuration of your stack](cfn-console-create-stack.md#cfn-console-create-stacks-changesets "cfn-console-create-stack.md#cfn-console-create-stacks-changesets").
 8.  When you're ready, choose **Create stack** to launch the
     stack and then monitor the stack creation progress in the
     **Events** tab. For more information, see [Monitor stack progress](monitor-stack-progress.md "monitor-stack-progress.md").

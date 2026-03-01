@@ -1,6 +1,4 @@
-# Detect drift on individual stack
-
-resources
+# Detect drift on individual stack resources
 
 You can detect drift on specific resources within a stack, rather than the entire
 stack. This is especially useful when you only need to determine if specific resources
@@ -19,9 +17,7 @@ resource again, CloudFormation will update both resource drift status and stack 
 to `IN_SYNC` without requiring you to detect drift on the entire
 stack again.
 
-###### To detect drift on an
-
-individual resource using the AWS Management Console
+###### To detect drift on an individual resource using the AWS Management Console
 
 1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -72,9 +68,7 @@ the expected and current property values of the resource. 5. Review the drift de
 
 ![The Resource drift status section of the Drift Details page, which contains drift information for each resource in the stack that supports drift detection. Details include drift status and expected and current property values.](images/console-stacks-drifts-drift-details-differences-1.png)
 
-###### To detect drift on an individual
-
-resource using the AWS CLI
+###### To detect drift on an individual resource using the AWS CLI
 
 - ###### Important
 

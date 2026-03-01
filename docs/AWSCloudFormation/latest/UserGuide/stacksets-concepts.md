@@ -6,8 +6,7 @@ The following terminology and concepts are central to your understanding and use
 
 - [Administrator and target accounts](#stacksets-concepts-accts "#stacksets-concepts-accts")
 - [CloudFormation StackSets](#stacksets-concepts-stackset "#stacksets-concepts-stackset")
-- [Permission models for
-  StackSets](#stacksets-concepts-stackset-permission-models "#stacksets-concepts-stackset-permission-models")
+- [Permission models for StackSets](#stacksets-concepts-stackset-permission-models "#stacksets-concepts-stackset-permission-models")
 - [Stack instances](#stacksets-concepts-stackinstances "#stacksets-concepts-stackinstances")
 - [StackSet operations](#stacksets-concepts-ops "#stacksets-concepts-ops")
 - [StackSet operation options](#stackset-ops-options "#stackset-ops-options")
@@ -41,9 +40,7 @@ number of accounts performing stack operations concurrently.
 A StackSet is a regional resource. If you create a StackSet in one AWS Region, you can only see
 or change it when viewing that Region.
 
-## Permission models for
-
-StackSets
+## Permission models for StackSets
 
 You can create StackSets using either _self-managed_ permissions or
 _service-managed_ permissions.
@@ -74,12 +71,9 @@ environment as you scale and grow your AWS resources.
 For more information about creating and managing StackSets with service-managed
 permissions, see the following topics:
 
-- [Activate trusted access for
-  StackSets with AWS Organizations](stacksets-orgs-activate-trusted-access.md "stacksets-orgs-activate-trusted-access.md")
-- [Register a delegated administrator
-  member account](stacksets-orgs-delegated-admin.md "stacksets-orgs-delegated-admin.md")
-- [Create CloudFormation StackSets with
-  service-managed permissions](stacksets-orgs-associate-stackset-with-org.md "stacksets-orgs-associate-stackset-with-org.md")
+- [Activate trusted access for StackSets with AWS Organizations](stacksets-orgs-activate-trusted-access.md "stacksets-orgs-activate-trusted-access.md")
+- [Register a delegated administrator member account](stacksets-orgs-delegated-admin.md "stacksets-orgs-delegated-admin.md")
+- [Create CloudFormation StackSets with service-managed permissions](stacksets-orgs-associate-stackset-with-org.md "stacksets-orgs-associate-stackset-with-org.md")
 
 ## Stack instances
 

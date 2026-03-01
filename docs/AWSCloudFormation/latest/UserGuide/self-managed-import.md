@@ -16,16 +16,11 @@ set.
 
 ###### Topics
 
-- [Import an existing stack into a new StackSet
-  (console)](#import-stacks-to-stack-set "#import-stacks-to-stack-set")
-- [Import an existing stack into an existing
-  StackSet (console)](#import-stack-to-existing-stackset "#import-stack-to-existing-stackset")
-- [Import a stack into a StackSet
-  (AWS CLI)](#importing-stack-to-stackset.cli "#importing-stack-to-stackset.cli")
+- [Import an existing stack into a new StackSet (console)](#import-stacks-to-stack-set "#import-stacks-to-stack-set")
+- [Import an existing stack into an existing StackSet (console)](#import-stack-to-existing-stackset "#import-stack-to-existing-stackset")
+- [Import a stack into a StackSet (AWS CLI)](#importing-stack-to-stackset.cli "#importing-stack-to-stackset.cli")
 
-## Import an existing stack into a new StackSet
-
-(console)
+## Import an existing stack into a new StackSet (console)
 
 Before you begin, identify the stack that you want to import.
 
@@ -61,9 +56,7 @@ properties. When you are ready to import your stack into your StackSet, choose
 **Results**: The imported stack is now a stack instance of the
 specified StackSet. To learn more about the stack import status, see [StackSets status codes](stacksets-concepts.md#stackset-status-codes "stacksets-concepts.md#stackset-status-codes").
 
-## Import an existing stack into an existing
-
-StackSet (console)
+## Import an existing stack into an existing StackSet (console)
 
 Before you begin, identify the stack that you want to import.
 
@@ -91,9 +84,7 @@ properties. When you are ready to create your StackSet, choose
 **Results**: The imported stack is now a stack instance of the
 specified StackSet. To learn more about the stack import status, see [StackSets status codes](stacksets-concepts.md#stackset-status-codes "stacksets-concepts.md#stackset-status-codes").
 
-## Import a stack into a StackSet
-
-(AWS CLI)
+## Import a stack into a StackSet (AWS CLI)
 
 ###### To import an existing stack into a new StackSet
 

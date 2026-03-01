@@ -93,8 +93,7 @@ reference.
 You can use intrinsic functions to customize the `Name`
 value of an export.
 
-For more information, see [Get exported outputs from a deployed CloudFormation
-stack](using-cfn-stack-exports.md "using-cfn-stack-exports.md").
+For more information, see [Get exported outputs from a deployed CloudFormation stack](using-cfn-stack-exports.md "using-cfn-stack-exports.md").
 
 To associate a condition with an output, define the condition in the [Conditions](conditions-section-structure.md "conditions-section-structure.md") section of the template.
 
@@ -104,18 +103,12 @@ The following examples illustrate how stack output works.
 
 ###### Topics
 
-- [Stack
-  output](#outputs-section-structure-examples-stack-output "#outputs-section-structure-examples-stack-output")
-- [Customize export
-  name using Fn::Sub](#outputs-section-structure-examples-cross-stack "#outputs-section-structure-examples-cross-stack")
-- [Customize
-  export name using Fn::Join](#outputs-section-structure-examples-join-export-name "#outputs-section-structure-examples-join-export-name")
-- [Return a URL
-  constructed using Fn::Join](#outputs-section-structure-examples-join-export-url "#outputs-section-structure-examples-join-export-url")
+- [Stack output](#outputs-section-structure-examples-stack-output "#outputs-section-structure-examples-stack-output")
+- [Customize export name using Fn::Sub](#outputs-section-structure-examples-cross-stack "#outputs-section-structure-examples-cross-stack")
+- [Customize export name using Fn::Join](#outputs-section-structure-examples-join-export-name "#outputs-section-structure-examples-join-export-name")
+- [Return a URL constructed using Fn::Join](#outputs-section-structure-examples-join-export-url "#outputs-section-structure-examples-join-export-url")
 
-### Stack
-
-output
+### Stack output
 
 In the following example, the output named `BackupLoadBalancerDNSName`
 returns the DNS name for the resource with the logical ID
@@ -152,9 +145,7 @@ Outputs:
     Value: !Ref EC2Instance
 ```
 
-### Customize export
-
-name using `Fn::Sub`
+### Customize export name using `Fn::Sub`
 
 In the following examples, the output named `StackVPC` returns the ID
 of a VPC, and then exports the value for cross-stack referencing with the name
@@ -187,9 +178,7 @@ Outputs:
 
 For more information about the `Fn::Sub` function, see [Fn::Sub](../TemplateReference/intrinsic-function-reference-sub.md "../TemplateReference/intrinsic-function-reference-sub.md").
 
-### Customize
-
-export name using `Fn::Join`
+### Customize export name using `Fn::Join`
 
 You can also use the `Fn::Join` function to construct values based on
 parameters, resource attributes, and other strings.
@@ -226,9 +215,7 @@ Outputs:
 
 For more information about the `Fn::Join` function, see [Fn::Join](../TemplateReference/intrinsic-function-reference-join.md "../TemplateReference/intrinsic-function-reference-join.md").
 
-### Return a URL
-
-constructed using `Fn::Join`
+### Return a URL constructed using `Fn::Join`
 
 In the following example for a template that creates a WordPress site,
 `InstallURL` is the string returned by a `Fn::Join`

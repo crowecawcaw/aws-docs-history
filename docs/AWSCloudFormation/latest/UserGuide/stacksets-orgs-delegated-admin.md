@@ -1,6 +1,4 @@
-# Register a delegated administrator
-
-member account
+# Register a delegated administrator member account
 
 In addition to your organization's management account, member accounts with
 delegated administrator permissions can create and manage StackSets with
@@ -15,8 +13,7 @@ Your organization can have up to five registered delegated administrators at one
 time. Delegated administrators can choose to deploy to all accounts in your
 organization or specific OUs. Trusted access with AWS Organizations must be activated before
 delegated administrators can deploy to accounts managed by Organizations. For more
-information, see [Activate trusted access for
-StackSets with AWS Organizations](stacksets-orgs-activate-trusted-access.md "stacksets-orgs-activate-trusted-access.md").
+information, see [Activate trusted access for StackSets with AWS Organizations](stacksets-orgs-activate-trusted-access.md "stacksets-orgs-activate-trusted-access.md").
 
 ###### Important
 
@@ -39,9 +36,7 @@ Please be aware of the following:
 
 You can register and deregister delegated administrators using the [CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"), [AWS CLI](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/"), or [AWS SDKs](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
 
-## To register a
-
-delegated administrator (console)
+## To register a delegated administrator (console)
 
 1. Sign in to AWS as an administrator of the management account and open
    the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -56,9 +51,7 @@ delegated administrator (console)
 The success message indicates that the member account has successfully
 been registered as a delegated administrator.
 
-## To
-
-deregister a delegated administrator (console)
+## To deregister a delegated administrator (console)
 
 1. Sign in to AWS as an administrator of the management account and open
    the CloudFormation console at [https://console.aws.amazon.com/](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
@@ -73,9 +66,7 @@ been deregistered as a delegated administrator.
 
 You can register this account again at any time.
 
-## To register a
-
-delegated administrator (AWS CLI)
+## To register a delegated administrator (AWS CLI)
 
 1. Open the AWS CLI.
 2. Run the `register-delegated-administrator` command.
@@ -95,9 +86,7 @@ delegated administrator (AWS CLI)
   --service-principal=member.org.stacksets.cloudformation.amazonaws.com
 ```
 
-## To deregister a
-
-delegated administrator (AWS CLI)
+## To deregister a delegated administrator (AWS CLI)
 
 1. Open the AWS CLI.
 2. Run the `deregister-delegated-administrator`

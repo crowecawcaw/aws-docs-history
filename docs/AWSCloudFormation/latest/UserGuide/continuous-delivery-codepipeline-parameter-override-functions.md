@@ -1,6 +1,4 @@
-# Using parameter
-
-override functions with CodePipeline pipelines
+# Using parameter override functions with CodePipeline pipelines
 
 In a CodePipeline stage, you can specify [parameter overrides](continuous-delivery-codepipeline-action-reference.md "continuous-delivery-codepipeline-action-reference.md") for
 CloudFormation actions. Parameter overrides let you specify template parameter values that override

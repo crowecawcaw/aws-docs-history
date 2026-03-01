@@ -1,6 +1,4 @@
-# Extend your template's capabilities
-
-with CloudFormation-supplied resource types
+# Extend your template's capabilities with CloudFormation-supplied resource types
 
 CloudFormation offers several resource types that you can use in your stack template to extend
 its capabilities beyond those of a simple stack template.

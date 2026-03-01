@@ -16,8 +16,7 @@ during StackSet operations. You can choose between the following modes:
   speed while still leveraging CloudFormation safety capabilities. This allows you to review and address StackSet operation
   failures for common issues such as those related to existing resources, service quotas, and permissions.
 
-For more information on StackSets stack operation failures, see [Common reasons for stack
-operation failure](stacksets-troubleshooting.md#common-reasons-for-stack-operation-failure "stacksets-troubleshooting.md#common-reasons-for-stack-operation-failure").
+For more information on StackSets stack operation failures, see [Common reasons for stack operation failure](stacksets-troubleshooting.md#common-reasons-for-stack-operation-failure "stacksets-troubleshooting.md#common-reasons-for-stack-operation-failure").
 
 For more information on **Maximum concurrent accounts** and **Failure
 tolerance**, see [StackSet operation options](stacksets-concepts.md#stackset-ops-options "stacksets-concepts.md#stackset-ops-options").
@@ -98,9 +97,7 @@ even though the StackSet operation had reached the **Failure tolerance** of 5.
 In this example, StackSets deployed 15 stack instances (7 successful and 8 failed) before stopping the
 stack operation.
 
-## Choosing between Strict failure tolerance and Soft failure tolerance
-
-based on deployment speed
+## Choosing between Strict failure tolerance and Soft failure tolerance based on deployment speed
 
 Choosing between **Strict failure tolerance** and **Soft failure tolerance**
 modes depends on the preferred speed of your StackSet deployment and the permissible number of deployment

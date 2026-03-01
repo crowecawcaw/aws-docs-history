@@ -7,15 +7,12 @@ have _drifted_, from their expected configuration.
 
 ###### Topics
 
-- [How CloudFormation performs drift detection on a
-  StackSet](#stacksets-drift-how "#stacksets-drift-how")
+- [How CloudFormation performs drift detection on a StackSet](#stacksets-drift-how "#stacksets-drift-how")
 - [Detect drift on a StackSet (console)](#stacksets-drift-console-procedure "#stacksets-drift-console-procedure")
 - [Detect drift on a StackSet (AWS CLI)](#stacksets-drift-cli-procedure "#stacksets-drift-cli-procedure")
 - [Stopping drift detection on a StackSet](#stacksets-drift-stop "#stacksets-drift-stop")
 
-## How CloudFormation performs drift detection on a
-
-StackSet
+## How CloudFormation performs drift detection on a StackSet
 
 When CloudFormation performs drift detection on a StackSet, it performs drift detection
 on the stack associated with each stack instance in the StackSet. To do this,
@@ -37,14 +34,12 @@ that stack now has a different template than any other stacks belonging to the S
 configuration in CloudFormation.
 
 For detailed information on how CloudFormation performs drift detection on a stack, see
-[Detect unmanaged configuration changes to stacks and
-resources with drift detection](using-cfn-stack-drift.md "using-cfn-stack-drift.md").
+[Detect unmanaged configuration changes to stacks and resources with drift detection](using-cfn-stack-drift.md "using-cfn-stack-drift.md").
 
 Because CloudFormation performs drift detection on each stack individually, it takes
 any overridden parameter values into account when determining whether a stack has
 drifted. For more information on overriding template parameters in stack instances, see
-[Override parameter values on stacks within
-your CloudFormation StackSet](stackinstances-override.md "stackinstances-override.md").
+[Override parameter values on stacks within your CloudFormation StackSet](stackinstances-override.md "stackinstances-override.md").
 
 If you perform drift detection [directly on a
 stack](using-cfn-stack-drift.md "using-cfn-stack-drift.md") that is associated with a stack instance, those drift results aren't
@@ -419,9 +414,7 @@ Because drift detection on a StackSet can be a long-running operation, there may
 instances when you want to stop a drift detection operation that is currently running on
 a StackSet.
 
-###### To stop drift detection on a
-
-StackSet (console)
+###### To stop drift detection on a StackSet (console)
 
 1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").

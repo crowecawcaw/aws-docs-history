@@ -34,9 +34,7 @@ If an error occurs at any point before the green deployment is successful and fi
 CloudFormation rolls the stack back to its state before the entire green deployment was
 initiated.
 
-## Resource updates that initiate green
-
-deployments
+## Resource updates that initiate green deployments
 
 When you perform a stack update that updates certain properties of specific ECS
 resources, CloudFormation initiates a green deployment process. The resources that initiate this
@@ -46,8 +44,7 @@ process are:
 - [AWS::ECS::TaskSet](../TemplateReference/aws-resource-ecs-taskset.md "../TemplateReference/aws-resource-ecs-taskset.md")
 
 However, if the updates to these resources don't involve property changes that require
-replacement, a green deployment won't be initiated. For more information, see [Understand update behaviors of stack
-resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md").
+replacement, a green deployment won't be initiated. For more information, see [Understand update behaviors of stack resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md").
 
 It's important to note that you can't combine updates to the above resources with
 updates to other resources in the same stack update operation. If you need to update both
@@ -60,9 +57,7 @@ the listed resources and other resources within the same stack, you have two opt
   and then perform the stack update. In this case, CloudFormation won't perform a green
   deployment.
 
-## Preparing your template to perform ECS blue/green
-
-deployments
+## Preparing your template to perform ECS blue/green deployments
 
 To enable blue/green deployments on your stack, include the following sections in your
 stack template before performing a stack update.
@@ -78,8 +73,7 @@ stack template before performing a stack update.
 
 - Add a `Hooks` section that invokes the
   `AWS::CodeDeploy::BlueGreen` hook and specifies the properties for your
-  deployment. For more information, see [AWS::CodeDeploy::BlueGreen hook
-  syntax](blue-green-hook-syntax.md "blue-green-hook-syntax.md").
+  deployment. For more information, see [AWS::CodeDeploy::BlueGreen hook syntax](blue-green-hook-syntax.md "blue-green-hook-syntax.md").
 - In the `Resources` section, define the blue and green resources for your
   deployment.
 
@@ -89,9 +83,7 @@ update. If you specify the blue/green deployment for a new stack, CloudFormation
 the blue resources during stack creation — resources for the green deployment aren't
 created until they're required during a stack update.
 
-## Modeling your blue/green deployment using CloudFormation
-
-resources
+## Modeling your blue/green deployment using CloudFormation resources
 
 To perform CodeDeploy blue/green deployment on ECS, your CloudFormation template needs to include
 the resources that model your deployment, such as an Amazon ECS service and load balancer. For
@@ -116,8 +108,7 @@ We strongly recommend that you create a change set before performing a stack upd
 will initiate a green deployment. This allows you to see the actual changes that will be
 made to your stack before performing stack update. Be aware that resource changes may not be
 listed in the order in which they will be performed during the stack update. For more
-information, see [Update CloudFormation stacks using change
-sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
+information, see [Update CloudFormation stacks using change sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
 
 ## Monitoring stack events
 

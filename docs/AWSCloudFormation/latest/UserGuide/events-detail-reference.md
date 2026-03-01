@@ -36,19 +36,11 @@ events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge
 
 ###### Topics
 
-- [Resource Status Change event
-  detail](event-detail-resource-status-change.md "event-detail-resource-status-change.md")
-- [Stack Status Change event
-  detail](event-detail-stack-status-change.md "event-detail-stack-status-change.md")
-- [Drift Detection Status
-  Change event detail](event-detail-stack-drift-detection-change.md "event-detail-stack-drift-detection-change.md")
-- [StackSet Status Change event
-  detail](event-detail-stackset-status-change.md "event-detail-stackset-status-change.md")
-- [StackSet Stack
-  Instance Status Change event detail](event-detail-stackset-stack-instance-status-change.md "event-detail-stackset-stack-instance-status-change.md")
-- [StackSet Operation
-  Status Change event detail](event-detail-stackset-operation-status-change.md "event-detail-stackset-operation-status-change.md")
-- [Repository Sync Status
-  Change event detail](event-detail-respository-sync-status-change.md "event-detail-respository-sync-status-change.md")
-- [Resource Sync Status
-  Change event detail](event-detail-resource-sync-status-change.md "event-detail-resource-sync-status-change.md")
+- [Resource Status Change event detail](event-detail-resource-status-change.md "event-detail-resource-status-change.md")
+- [Stack Status Change event detail](event-detail-stack-status-change.md "event-detail-stack-status-change.md")
+- [Drift Detection Status Change event detail](event-detail-stack-drift-detection-change.md "event-detail-stack-drift-detection-change.md")
+- [StackSet Status Change event detail](event-detail-stackset-status-change.md "event-detail-stackset-status-change.md")
+- [StackSet Stack Instance Status Change event detail](event-detail-stackset-stack-instance-status-change.md "event-detail-stackset-stack-instance-status-change.md")
+- [StackSet Operation Status Change event detail](event-detail-stackset-operation-status-change.md "event-detail-stackset-operation-status-change.md")
+- [Repository Sync Status Change event detail](event-detail-respository-sync-status-change.md "event-detail-respository-sync-status-change.md")
+- [Resource Sync Status Change event detail](event-detail-resource-sync-status-change.md "event-detail-resource-sync-status-change.md")

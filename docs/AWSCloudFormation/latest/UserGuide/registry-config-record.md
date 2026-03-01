@@ -37,9 +37,7 @@ configuration item, you can review the `schema` property of the
 For more information about configuration items, see [Configuration
 items](../../../config/latest/developerguide/config-concepts.md#config-items "../../../config/latest/developerguide/config-concepts.md#config-items") in the _AWS Config Developer Guide_.
 
-## Preventing sensitive properties
-
-being recorded in a configuration item
+## Preventing sensitive properties being recorded in a configuration item
 
 Your resource type may contain properties that you consider sensitive information,
 such as passwords, secrets, or other sensitive data, that you don't want recorded as

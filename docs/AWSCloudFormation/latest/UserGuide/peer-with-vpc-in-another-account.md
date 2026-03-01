@@ -1,6 +1,4 @@
-# Peer with a VPC in another
-
-AWS account
+# Peer with a VPC in another AWS account
 
 You can peer with a Virtual Private Cloud (VPC) in another AWS account by using [AWS::EC2::VPCPeeringConnection](../TemplateReference/aws-resource-ec2-vpcpeeringconnection.md "../TemplateReference/aws-resource-ec2-vpcpeeringconnection.md"). This creates a networking connection
 between two VPCs that enables you to route traffic between them so they can communicate as if
@@ -28,9 +26,7 @@ account. For information about how an IAM administrator grants permissions to as
 cross-account role, see [Grant a user
 permissions to switch roles](../../../IAM/latest/UserGuide/id_roles_use_permissions-to-switch.md "../../../IAM/latest/UserGuide/id_roles_use_permissions-to-switch.md") in the _IAM User Guide_.
 
-## Step 1: Create a VPC and a
-
-cross-account role
+## Step 1: Create a VPC and a cross-account role
 
 In this step, you'll create the VPC and role in the _accepter
 account_.
@@ -175,9 +171,7 @@ Outputs:
 8. Choose **I acknowledge that CloudFormation might create IAM resources**, and
    then choose **Create stack**.
 
-## Step 2: Create a
-
-template that includes `AWS::EC2::VPCPeeringConnection`
+## Step 2: Create a template that includes `AWS::EC2::VPCPeeringConnection`
 
 Now that you've created the VPC and cross-account role, you can peer with the VPC using
 another AWS account (the _requester account_).
@@ -294,9 +288,7 @@ Outputs:
 8. Choose **I acknowledge that CloudFormation might create IAM resources**, and
    then choose **Create stack**.
 
-## Create a template with a
-
-highly restrictive policy
+## Create a template with a highly restrictive policy
 
 You might want to create a highly restrictive policy for peering your VPC with another
 AWS account.

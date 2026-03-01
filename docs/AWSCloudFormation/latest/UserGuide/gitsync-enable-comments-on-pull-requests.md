@@ -1,6 +1,4 @@
-# Enable CloudFormation to post a
-
-summary of stack changes in pull requests
+# Enable CloudFormation to post a summary of stack changes in pull requests
 
 This topic shows you how to enable CloudFormation to post a summary of stack changes in pull
 requests in your Git repository.

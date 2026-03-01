@@ -1,6 +1,4 @@
-# Walkthrough: Building a
-
-pipeline for test and production stacks
+# Walkthrough: Building a pipeline for test and production stacks
 
 Imagine a release process where you submit an CloudFormation template, which CloudFormation then uses to
 automatically build a test stack. After you review the test stack, you can preview how your
@@ -137,8 +135,7 @@ CloudFormation, an S3 bucket for the CodePipeline artifact store, and an Amazon 
 the pipeline sends notifications, such as notifications about reviews. The sample template
 makes it easy to provision and configure these resources in a single CloudFormation stack.
 
-For more details about the configuration of the pipeline, see [What the pipeline
-does](#codepipeline-basic-walkthrough-template-details "#codepipeline-basic-walkthrough-template-details").
+For more details about the configuration of the pipeline, see [What the pipeline does](#codepipeline-basic-walkthrough-template-details "#codepipeline-basic-walkthrough-template-details").
 
 ###### Important
 
@@ -191,9 +188,7 @@ After your stack has been created, CodePipeline starts your new pipeline. To vie
 the [CodePipeline console](https://console.aws.amazon.com/codepipeline/ "https://console.aws.amazon.com/codepipeline/"). From the list of
 pipelines, choose **WordPress-test-pipeline**.
 
-### What the pipeline
-
-does
+### What the pipeline does
 
 This section explains the pipeline's three stages, using snippets from the sample
 WordPress pipeline template.

@@ -1,6 +1,4 @@
-# Walkthrough: Create a delay
-
-mechanism with a Lambda-backed custom resource
+# Walkthrough: Create a delay mechanism with a Lambda-backed custom resource
 
 This walkthrough shows you how to configure and launch a Lambda-backed custom resource using
 a sample CloudFormation template. This template creates a delay mechanism that pauses stack
@@ -12,19 +10,16 @@ dependent resources are created.
 
 While Lambda-backed custom resources were previously recommended for retrieving AMI IDs, we
 now recommend using AWS Systems Manager parameters. This approach makes your templates more reusable and
-easier to maintain. For more information, see [Get a plaintext value from Systems Manager Parameter
-Store](dynamic-references-ssm.md "dynamic-references-ssm.md").
+easier to maintain. For more information, see [Get a plaintext value from Systems Manager Parameter Store](dynamic-references-ssm.md "dynamic-references-ssm.md").
 
 ###### Topics
 
 - [Overview](#walkthrough-lambda-backed-custom-resources-overview "#walkthrough-lambda-backed-custom-resources-overview")
-- [Sample
-  template](#walkthrough-lambda-backed-custom-resources-sample-template "#walkthrough-lambda-backed-custom-resources-sample-template")
+- [Sample template](#walkthrough-lambda-backed-custom-resources-sample-template "#walkthrough-lambda-backed-custom-resources-sample-template")
 - [Sample template walkthrough](#walkthrough-lambda-backed-custom-resources-sample-template-walkthrough "#walkthrough-lambda-backed-custom-resources-sample-template-walkthrough")
 - [Prerequisites](#walkthrough-lambda-backed-custom-resources-prerequisites "#walkthrough-lambda-backed-custom-resources-prerequisites")
 - [Launching the stack](#walkthrough-lambda-backed-custom-resources-createfunction-createstack "#walkthrough-lambda-backed-custom-resources-createfunction-createstack")
-- [Cleaning
-  up resources](#walkthrough-lambda-backed-custom-resources-createfunction-cleanup "#walkthrough-lambda-backed-custom-resources-createfunction-cleanup")
+- [Cleaning up resources](#walkthrough-lambda-backed-custom-resources-createfunction-cleanup "#walkthrough-lambda-backed-custom-resources-createfunction-cleanup")
 - [Related information](#w2aac11c45b9c24b9c23 "#w2aac11c45b9c24b9c23")
 
 ## Overview
@@ -51,9 +46,7 @@ CloudFormation is a free service but Lambda charges based on the number of reque
 functions and the time your code executes. For more information about Lambda pricing, see
 [AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.amazon.com/lambda/pricing/").
 
-## Sample
-
-template
+## Sample template
 
 You can see the Lambda-backed custom resource sample template with the delay mechanism
 below:
@@ -456,8 +449,7 @@ CloudFormation.
 
 ###### To create the stack
 
-1. Find the template of your preference (YAML or JSON) from the [Sample
-   template](#walkthrough-lambda-backed-custom-resources-sample-template "#walkthrough-lambda-backed-custom-resources-sample-template") section and
+1. Find the template of your preference (YAML or JSON) from the [Sample template](#walkthrough-lambda-backed-custom-resources-sample-template "#walkthrough-lambda-backed-custom-resources-sample-template") section and
    save it to your machine with the name
    `samplelambdabackedcustomresource.template`.
 2. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -479,8 +471,7 @@ CloudFormation.
     **Create**.
 
 It might take several minutes for CloudFormation to create your stack. To monitor progress,
-view the stack events. For more information, see [View stack information from the
-CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md").
+view the stack events. For more information, see [View stack information from the CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md").
 
 If stack creation succeeds, all resources in the stack, such as the Lambda function and
 custom resource, were created. You have successfully used a Lambda function and custom
@@ -490,9 +481,7 @@ If the Lambda function returns an error, view the function's logs in the CloudWa
 the physical ID of the custom resource, which you can find by viewing the stack's resources.
 For more information, see [View log data](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#ViewingLogData "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#ViewingLogData") in the _Amazon CloudWatch User Guide_.
 
-## Cleaning
-
-up resources
+## Cleaning up resources
 
 Delete the stack to clean up all the stack resources that you created so that you aren't
 charged for unnecessary resources.

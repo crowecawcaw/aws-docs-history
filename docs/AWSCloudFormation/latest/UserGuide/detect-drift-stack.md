@@ -4,9 +4,7 @@ Performing a drift detection operation on a stack determines whether the stack h
 drifted from its expected template configuration, and returns detailed information about
 the drift status of each resource in the stack that supports drift detection.
 
-###### To detect drift on an entire
-
-stack using the AWS Management Console
+###### To detect drift on an entire stack using the AWS Management Console
 
 1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -79,9 +77,7 @@ You can sort the resources based on their drift status using the
 
 ![The Resource drift status section of the Drift Details page, which contains drift information for each resource in the stack that supports drift detection. Details include drift status and expected and current property values.](images/console-stacks-drifts-drift-details-differences-1.png)
 
-###### To detect drift on an entire stack
-
-using the AWS CLI
+###### To detect drift on an entire stack using the AWS CLI
 
 ###### Important
 

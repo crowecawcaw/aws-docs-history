@@ -1,6 +1,4 @@
-# Import AWS resources into a CloudFormation stack
-
-manually
+# Import AWS resources into a CloudFormation stack manually
 
 With resource import, you can import existing AWS resources into a new or existing
 CloudFormation stack. During an import operation, you create a change set that imports your existing
@@ -92,9 +90,7 @@ This table describes the various status types used with the resource import feat
 | `IMPORT_ROLLBACK_FAILED`      | The import rollback operation failed.                                                 |
 | `IMPORT_ROLLBACK_COMPLETE`    | The import rolled back to the previous template configuration.                        |
 
-## Considerations during an import
-
-operation
+## Considerations during an import operation
 
 - After the import is complete and before performing subsequent stack operations, we
   recommend running drift detection on imported resources. Drift detection ensures that the
@@ -114,5 +110,4 @@ operation
 
 ## Additional resources
 
-To resolve stack drift with a resource import, see [Resolve drift with an import
-operation](resource-import-resolve-drift.md "resource-import-resolve-drift.md").
+To resolve stack drift with a resource import, see [Resolve drift with an import operation](resource-import-resolve-drift.md "resource-import-resolve-drift.md").

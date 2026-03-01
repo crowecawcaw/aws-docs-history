@@ -1,22 +1,15 @@
-# Deactivate third-party public
-
-extensions in your account
+# Deactivate third-party public extensions in your account
 
 When you no longer need an activated third-party public extension, use the
 following procedures to deactivate it in your account.
 
 ###### Topics
 
-- [Deactivate a
-  public extension in your account (console)](#registry-public-deactivate-extension-console "#registry-public-deactivate-extension-console")
-- [Deactivate a public
-  extension in your account (AWS CLI)](#registry-public-deactivate-extension-cli "#registry-public-deactivate-extension-cli")
-- [Disable a Hook
-  in your account (AWS CLI)](#registry-public-deactivate-extension-cli-hook "#registry-public-deactivate-extension-cli-hook")
+- [Deactivate a public extension in your account (console)](#registry-public-deactivate-extension-console "#registry-public-deactivate-extension-console")
+- [Deactivate a public extension in your account (AWS CLI)](#registry-public-deactivate-extension-cli "#registry-public-deactivate-extension-cli")
+- [Disable a Hook in your account (AWS CLI)](#registry-public-deactivate-extension-cli-hook "#registry-public-deactivate-extension-cli-hook")
 
-## Deactivate a
-
-public extension in your account (console)
+## Deactivate a public extension in your account (console)
 
 ###### To deactivate a public extension in your account
 
@@ -27,15 +20,12 @@ public extension in your account (console)
 3. From the navigation pane, under **Registry**, choose
    **Activated extensions**.
 4. Find the extension you want to deactivate and select it. For more
-   information, see [View the available and activated extensions in the
-   CloudFormation registry](registry-view.md "registry-view.md").
+   information, see [View the available and activated extensions in the CloudFormation registry](registry-view.md "registry-view.md").
 5. From the **Actions** menu, choose
    **Deactivate**.
 6. Choose **Deactivate**.
 
-## Deactivate a public
-
-extension in your account (AWS CLI)
+## Deactivate a public extension in your account (AWS CLI)
 
 Use the following [deactivate-type](../../../cli/latest/reference/cloudformation/deactivate-type.md "../../../cli/latest/reference/cloudformation/deactivate-type.md") command.
 
@@ -45,9 +35,7 @@ aws cloudformation deactivate-type --type `MODULE` \
   --region `us-west-2`
 ```
 
-## Disable a Hook
-
-in your account (AWS CLI)
+## Disable a Hook in your account (AWS CLI)
 
 Disabling a Hook prevents the Hook from running in your AWS account without
 removing it.

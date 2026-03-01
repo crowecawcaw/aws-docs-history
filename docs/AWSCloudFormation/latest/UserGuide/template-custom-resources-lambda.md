@@ -13,7 +13,5 @@ For an introduction to custom resources and how they work, see [How custom resou
 
 ###### Topics
 
-- [Walkthrough: Create a delay
-  mechanism with a Lambda-backed custom resource](walkthrough-lambda-backed-custom-resources.md "walkthrough-lambda-backed-custom-resources.md")
-- [cfn-response
-  module](cfn-lambda-function-code-cfnresponsemodule.md "cfn-lambda-function-code-cfnresponsemodule.md")
+- [Walkthrough: Create a delay mechanism with a Lambda-backed custom resource](walkthrough-lambda-backed-custom-resources.md "walkthrough-lambda-backed-custom-resources.md")
+- [cfn-response module](cfn-lambda-function-code-cfnresponsemodule.md "cfn-lambda-function-code-cfnresponsemodule.md")

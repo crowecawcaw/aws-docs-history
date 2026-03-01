@@ -17,8 +17,7 @@ This section contains AWS Identity and Access Management template snippets.
 ###### Important
 
 When creating or updating a stack using a template containing IAM resources, you must
-acknowledge the use of IAM capabilities. For more information, see [Acknowledging IAM resources in CloudFormation
-templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
+acknowledge the use of IAM capabilities. For more information, see [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
 
 ## Declaring an IAM user resource
 

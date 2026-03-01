@@ -78,8 +78,7 @@ the macros performs.
 
 To reduce the number of steps for launching stacks from templates that reference
 macros, you can use the `package` and `deploy` AWS CLI commands.
-For more information, see [Upload local artifacts to an S3 bucket with the
-AWS CLI](using-cfn-cli-package.md "using-cfn-cli-package.md") and [Create a stack that includes transforms](service_code_examples.md#deploy-sdk "service_code_examples.md#deploy-sdk").
+For more information, see [Upload local artifacts to an S3 bucket with the AWS CLI](using-cfn-cli-package.md "using-cfn-cli-package.md") and [Create a stack that includes transforms](service_code_examples.md#deploy-sdk "service_code_examples.md#deploy-sdk").
 
 ## Considerations
 
@@ -111,9 +110,7 @@ When working with macros, keep in mind the following notes and limitations:
   with service-managed permissions from templates that reference CloudFormation
   macros.
 
-## Macro account scope and
-
-permissions
+## Macro account scope and permissions
 
 You can use macros only in the account in which they were created as a resource.
 The name of the macro must be unique within a given account. However, you can make

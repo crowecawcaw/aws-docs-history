@@ -7,15 +7,11 @@ CodePipeline API, or CloudFormation templates.
 
 ###### Topics
 
-- [Configuration properties
-  (console)](#continuous-delivery-codepipeline-action-reference-console "#continuous-delivery-codepipeline-action-reference-console")
-- [Configuration properties (JSON
-  object)](#continuous-delivery-codepipeline-action-reference-json "#continuous-delivery-codepipeline-action-reference-json")
+- [Configuration properties (console)](#continuous-delivery-codepipeline-action-reference-console "#continuous-delivery-codepipeline-action-reference-console")
+- [Configuration properties (JSON object)](#continuous-delivery-codepipeline-action-reference-json "#continuous-delivery-codepipeline-action-reference-json")
 - [See also](#continuous-delivery-codepipeline-action-reference-see-also "#continuous-delivery-codepipeline-action-reference-see-also")
 
-## Configuration properties
-
-(console)
+## Configuration properties (console)
 
 The CodePipeline [console](https://console.aws.amazon.com/codepipeline/ "https://console.aws.amazon.com/codepipeline/") shows the configuration properties and
 indicates the properties that are required based on the action mode that you choose.
@@ -102,8 +98,7 @@ If you don't specify a name, CodePipeline doesn't generate an output artifact.
 
 Parameters are defined in your template and allow you to input custom values when you create or update a
 stack. You can specify a JSON object that overrides template parameter values in the template configuration file.
-All parameter names must be present in the stack template. For more information, see [CloudFormation template Parameters
-syntax](parameters-section-structure.md "parameters-section-structure.md").
+All parameter names must be present in the stack template. For more information, see [CloudFormation template Parameters syntax](parameters-section-structure.md "parameters-section-structure.md").
 
 ###### Note
 
@@ -116,8 +111,7 @@ pipeline.
 
 The following example defines a value for the `ParameterName` parameter by using a parameter
 override function. The function retrieves a value from a CodePipeline input artifact. For more information about
-parameter override functions, see [Using parameter
-override functions with CodePipeline pipelines](continuous-delivery-codepipeline-parameter-override-functions.md "continuous-delivery-codepipeline-parameter-override-functions.md").
+parameter override functions, see [Using parameter override functions with CodePipeline pipelines](continuous-delivery-codepipeline-parameter-override-functions.md "continuous-delivery-codepipeline-parameter-override-functions.md").
 
 ```
 {
@@ -125,14 +119,11 @@ override functions with CodePipeline pipelines](continuous-delivery-codepipeline
 }
 ```
 
-## Configuration properties (JSON
-
-object)
+## Configuration properties (JSON object)
 
 When you specify `CloudFormation` as a provider for a stage action, define the following properties
 in the `Configuration` property. Use the JSON object for the AWS CLI, CodePipeline
-API, or CloudFormation templates. For examples, see [Walkthrough: Building a
-pipeline for test and production stacks](continuous-delivery-codepipeline-basic-walkthrough.md "continuous-delivery-codepipeline-basic-walkthrough.md") and [CloudFormation configuration properties reference](continuous-delivery-codepipeline-action-reference.md "continuous-delivery-codepipeline-action-reference.md").
+API, or CloudFormation templates. For examples, see [Walkthrough: Building a pipeline for test and production stacks](continuous-delivery-codepipeline-basic-walkthrough.md "continuous-delivery-codepipeline-basic-walkthrough.md") and [CloudFormation configuration properties reference](continuous-delivery-codepipeline-action-reference.md "continuous-delivery-codepipeline-action-reference.md").
 
 `ActionMode`
 
@@ -213,8 +204,7 @@ This property is optional. If you don't specify a name, CodePipeline doesn't gen
 
 Parameters are defined in your template and allow you to input custom values when you create or update a
 stack. You can specify a JSON object that overrides template parameter values in the template configuration file.
-All parameter names must be present in the stack template. For more information, see [CloudFormation template Parameters
-syntax](parameters-section-structure.md "parameters-section-structure.md").
+All parameter names must be present in the stack template. For more information, see [CloudFormation template Parameters syntax](parameters-section-structure.md "parameters-section-structure.md").
 
 The following example adds the `InstanceType` and `KeyName` parameter overrides to the
 template:
@@ -260,8 +250,7 @@ the pipeline.
 
 The following example defines a value for the `ParameterName` parameter by using a parameter
 override function. The function retrieves a value from a CodePipeline input artifact. For more information about
-parameter override functions, see [Using parameter
-override functions with CodePipeline pipelines](continuous-delivery-codepipeline-parameter-override-functions.md "continuous-delivery-codepipeline-parameter-override-functions.md").
+parameter override functions, see [Using parameter override functions with CodePipeline pipelines](continuous-delivery-codepipeline-parameter-override-functions.md "continuous-delivery-codepipeline-parameter-override-functions.md").
 
 ```
 {

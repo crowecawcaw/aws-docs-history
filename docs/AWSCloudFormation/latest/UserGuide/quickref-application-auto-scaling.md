@@ -1,6 +1,4 @@
-# Configure Application Auto Scaling resources with
-
-CloudFormation
+# Configure Application Auto Scaling resources with CloudFormation
 
 This section provides CloudFormation template examples for Application Auto Scaling scaling policies and scheduled
 actions for different AWS resources.
@@ -21,10 +19,8 @@ attribute](../TemplateReference/aws-attribute-dependson.md "../TemplateReference
 - [Create a scaling policy for an AppStream fleet](#w2aac11c41c15c19b9 "#w2aac11c41c15c19b9")
 - [Create a scaling policy for an Aurora DB cluster](#w2aac11c41c15c19c11 "#w2aac11c41c15c19c11")
 - [Create a scaling policy for a DynamoDB table](#w2aac11c41c15c19c13 "#w2aac11c41c15c19c13")
-- [Create a scaling policy for an Amazon ECS service (metrics: average CPU and
-  memory)](#w2aac11c41c15c19c15 "#w2aac11c41c15c19c15")
-- [Create a scaling policy for an Amazon ECS service (metric: average request count per
-  target)](#w2aac11c41c15c19c17 "#w2aac11c41c15c19c17")
+- [Create a scaling policy for an Amazon ECS service (metrics: average CPU and memory)](#w2aac11c41c15c19c15 "#w2aac11c41c15c19c15")
+- [Create a scaling policy for an Amazon ECS service (metric: average request count per target)](#w2aac11c41c15c19c17 "#w2aac11c41c15c19c17")
 - [Create a scheduled action with a cron expression for a Lambda function](#w2aac11c41c15c19c19 "#w2aac11c41c15c19c19")
 - [Create a scheduled action with an at expression for a Spot Fleet](#w2aac11c41c15c19c21 "#w2aac11c41c15c19c21")
 
@@ -320,9 +316,7 @@ Resources:
           PredefinedMetricType: DynamoDBWriteCapacityUtilization
 ```
 
-## Create a scaling policy for an Amazon ECS service (metrics: average CPU and
-
-memory)
+## Create a scaling policy for an Amazon ECS service (metrics: average CPU and memory)
 
 This snippet shows how to create a policy and apply it to an [`AWS::ECS::Service`](../TemplateReference/aws-resource-ecs-service.md "../TemplateReference/aws-resource-ecs-service.md")
 resource using the [`AWS::ApplicationAutoScaling::ScalingPolicy`](../TemplateReference/aws-resource-applicationautoscaling-scalingpolicy.md "../TemplateReference/aws-resource-applicationautoscaling-scalingpolicy.md") resource. The [`AWS::ApplicationAutoScaling::ScalableTarget`](../TemplateReference/aws-resource-applicationautoscaling-scalabletarget.md "../TemplateReference/aws-resource-applicationautoscaling-scalabletarget.md") resource declares a
@@ -449,9 +443,7 @@ Resources:
           PredefinedMetricType: ECSServiceAverageMemoryUtilization
 ```
 
-## Create a scaling policy for an Amazon ECS service (metric: average request count per
-
-target)
+## Create a scaling policy for an Amazon ECS service (metric: average request count per target)
 
 The following example applies a target tracking scaling policy with the
 `ALBRequestCountPerTarget` predefined metric to an ECS service. The policy is

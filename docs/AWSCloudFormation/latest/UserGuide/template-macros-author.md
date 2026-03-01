@@ -124,9 +124,7 @@ Error creating change set: Transform
 
 ## Create a macro definition
 
-###### To create a CloudFormation macro
-
-definition
+###### To create a CloudFormation macro definition
 
 1. [Build a Lambda function](../../../lambda/latest/dg/getting-started.md "../../../lambda/latest/dg/getting-started.md") that will handle the processing of
    template contents. It can process any part of a template, up to the entire

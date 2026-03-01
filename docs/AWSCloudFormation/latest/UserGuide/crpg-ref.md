@@ -479,9 +479,7 @@ _Type_: JSON object
 
 ### Success Response Examples
 
-#### `Create` and
-
-`Update` Response
+#### `Create` and `Update` Response
 
 ```
 {
@@ -498,9 +496,7 @@ _Type_: JSON object
 }
 ```
 
-#### `Delete`
-
-Response
+#### `Delete` Response
 
 ```
 {

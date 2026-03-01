@@ -6,14 +6,10 @@ configure aspects of VPCs to meet your networking requirements.
 
 ###### Example snippets
 
-- [Enable IPv6
-  egress-only internet access in a VPC](#quickref-ec2-route-egressonlyinternetgateway "#quickref-ec2-route-egressonlyinternetgateway")
-- [Elastic network interface (ENI) template
-  snippets](#cfn-template-snippets-eni "#cfn-template-snippets-eni")
+- [Enable IPv6 egress-only internet access in a VPC](#quickref-ec2-route-egressonlyinternetgateway "#quickref-ec2-route-egressonlyinternetgateway")
+- [Elastic network interface (ENI) template snippets](#cfn-template-snippets-eni "#cfn-template-snippets-eni")
 
-## Enable IPv6
-
-egress-only internet access in a VPC
+## Enable IPv6 egress-only internet access in a VPC
 
 An egress-only internet gateway allows instances within a VPC to access the
 internet and prevent resources on the internet from communicating with the
@@ -97,13 +93,9 @@ VPC:
     CidrBlock: "10.0.0.0/16"
 ```
 
-## Elastic network interface (ENI) template
+## Elastic network interface (ENI) template snippets
 
-snippets
-
-### Create an Amazon EC2 instance with attached
-
-elastic network interfaces (ENIs)
+### Create an Amazon EC2 instance with attached elastic network interfaces (ENIs)
 
 The following example snippet creates an Amazon EC2 instance using an [AWS::EC2::Instance](../TemplateReference/aws-resource-ec2-instance.md "../TemplateReference/aws-resource-ec2-instance.md") resource in the specified Amazon VPC and subnet. It attaches two
 network interfaces (ENIs) with the instance, associates Elastic IP addresses to the instances

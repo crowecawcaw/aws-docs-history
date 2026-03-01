@@ -1,6 +1,4 @@
-# Refer to resource outputs in another CloudFormation
-
-stack
+# Refer to resource outputs in another CloudFormation stack
 
 This walkthrough shows you how to reference outputs from one CloudFormation stack within another
 stack to create more modular and reusable templates.
@@ -19,8 +17,7 @@ or maintain networking rules or assets.
 
 To create a cross-stack reference, use the `Export` output field to flag the
 value of a resource output for export. Then, use the `Fn::ImportValue` intrinsic
-function to import the value. For more information, see [Get exported outputs from a deployed CloudFormation
-stack](using-cfn-stack-exports.md "using-cfn-stack-exports.md").
+function to import the value. For more information, see [Get exported outputs from a deployed CloudFormation stack](using-cfn-stack-exports.md "using-cfn-stack-exports.md").
 
 ###### Note
 
@@ -30,18 +27,13 @@ pricing, see [the detail page for each product](http://aws.amazon.com "http://aw
 
 ###### Topics
 
-- [Use a sample template to create a
-  network stack](#walkthrough-crossstackref-create-vpc-stack "#walkthrough-crossstackref-create-vpc-stack")
-- [Use a sample template to create a
-  web application stack](#walkthrough-crossstackref-create-ec2-stack "#walkthrough-crossstackref-create-ec2-stack")
+- [Use a sample template to create a network stack](#walkthrough-crossstackref-create-vpc-stack "#walkthrough-crossstackref-create-vpc-stack")
+- [Use a sample template to create a web application stack](#walkthrough-crossstackref-create-ec2-stack "#walkthrough-crossstackref-create-ec2-stack")
 - [Verify the stack works as designed](#walkthrough-crossstackref-verify "#walkthrough-crossstackref-verify")
-- [Troubleshoot AMI mapping
-  errors](#walkthrough-crossstackref-troubleshooting-ami "#walkthrough-crossstackref-troubleshooting-ami")
+- [Troubleshoot AMI mapping errors](#walkthrough-crossstackref-troubleshooting-ami "#walkthrough-crossstackref-troubleshooting-ami")
 - [Clean up your resources](#walkthrough-crossstackref-clean-up "#walkthrough-crossstackref-clean-up")
 
-## Use a sample template to create a
-
-network stack
+## Use a sample template to create a network stack
 
 Before you begin this walkthrough, check that you have IAM permissions to use all of the
 following services: Amazon VPC, Amazon EC2, and CloudFormation.
@@ -60,9 +52,7 @@ template exports. The names of the exported resources are prefixed with the stac
 case you export networking resources from other stacks. When users import networking
 resources, they can specify from which stack the resources are imported.
 
-###### To create the network
-
-stack
+###### To create the network stack
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -88,9 +78,7 @@ It might take several minutes for CloudFormation to create your stack. Wait unti
 resources have been successfully created before proceeding to create the web application
 stack. 9. To monitor progress, view the stack events. For more information, see [Monitor stack progress](monitor-stack-progress.md "monitor-stack-progress.md").
 
-## Use a sample template to create a
-
-web application stack
+## Use a sample template to create a web application stack
 
 The web application stack creates an EC2 instance that uses the security group and subnet
 from the network stack.
@@ -103,9 +91,7 @@ template. In the `Resources` section, view the EC2 instance's properties. You ca
 see how the networking resources are imported from another stack by using the
 `Fn::ImportValue` function.
 
-###### To create the web
-
-application stack
+###### To create the web application stack
 
 1. From the **Stacks** page, choose **Create stack** at
    top right, and then choose **With new resources (standard)**.
@@ -129,8 +115,7 @@ It might take several minutes for CloudFormation to create your stack.
 ## Verify the stack works as designed
 
 After the stack has been created, view its resources and note the instance ID. For more
-information on viewing stack resources, see [View stack information from the
-CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md").
+information on viewing stack resources, see [View stack information from the CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md").
 
 To verify the instance's security group and subnet, view the instance's properties in the
 [Amazon EC2 console](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). If the instance uses the security
@@ -138,12 +123,9 @@ group and subnet from the `SampleNetworkCrossStack` stack, you have successfully
 created a cross-stack reference.
 
 Use the console to view the stack outputs and the example website URL to verify that the
-web application is running. For more information, see [View stack information from the
-CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md").
+web application is running. For more information, see [View stack information from the CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md").
 
-## Troubleshoot AMI mapping
-
-errors
+## Troubleshoot AMI mapping errors
 
 If you receive the error `Template error: Unable to get mapping for
  AWSRegionArch2AMI::[region]::HVM64`, the template doesn't include an AMI mapping for

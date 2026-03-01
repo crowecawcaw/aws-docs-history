@@ -1,6 +1,4 @@
-# CloudFormation template Resources
-
-syntax
+# CloudFormation template Resources syntax
 
 The `Resources` section is a required top-level section in a CloudFormation
 template. It declares the AWS resources that you want CloudFormation to provision and
@@ -49,9 +47,7 @@ Resources:
       `...`
 ```
 
-## Logical ID (also called \*logical
-
-name\*)
+## Logical ID (also called _logical name_)
 
 Within a CloudFormation template, resources are identified by their logical resource
 names. These names must be alphanumeric (A-Za-z0-9) and unique within the template.
@@ -175,9 +171,7 @@ Properties:
 
 For more detailed information about the `Ref` function, see [Ref](../TemplateReference/intrinsic-function-reference-ref.md "../TemplateReference/intrinsic-function-reference-ref.md").
 
-### The `Fn::GetAtt`
-
-function
+### The `Fn::GetAtt` function
 
 The `Ref` function is helpful if the parameter or the value returned
 for a resource is exactly what you want. However, you may need other attributes of a
@@ -223,16 +217,11 @@ AWS resources.
 
 ###### Topics
 
-- [Declaring a
-  single resource with a custom name](#resources-section-structure-examples-single-resource "#resources-section-structure-examples-single-resource")
-- [Referencing other
-  resources with the Ref function](#resources-section-structure-examples-ref "#resources-section-structure-examples-ref")
-- [Referencing resource
-  attributes using the Fn::GetAtt function](#resources-section-structure-examples-getatt "#resources-section-structure-examples-getatt")
+- [Declaring a single resource with a custom name](#resources-section-structure-examples-single-resource "#resources-section-structure-examples-single-resource")
+- [Referencing other resources with the Ref function](#resources-section-structure-examples-ref "#resources-section-structure-examples-ref")
+- [Referencing resource attributes using the Fn::GetAtt function](#resources-section-structure-examples-getatt "#resources-section-structure-examples-getatt")
 
-### Declaring a
-
-single resource with a custom name
+### Declaring a single resource with a custom name
 
 The following examples declare a single resource of type
 `AWS::S3::Bucket` with the logical name `MyBucket`. The
@@ -268,9 +257,7 @@ Resources:
       BucketName: `amzn-s3-demo-bucket`
 ```
 
-### Referencing other
-
-resources with the `Ref` function
+### Referencing other resources with the `Ref` function
 
 The following examples show a resource declaration that defines an EC2 instance
 and a security group. The `Ec2Instance` resource references the
@@ -339,9 +326,7 @@ Resources:
           CidrIp: 0.0.0.0/0
 ```
 
-### Referencing resource
-
-attributes using the `Fn::GetAtt` function
+### Referencing resource attributes using the `Fn::GetAtt` function
 
 The following examples show a resource declaration that defines a CloudFront
 distribution resource and an S3 bucket. The `MyDistribution` resource

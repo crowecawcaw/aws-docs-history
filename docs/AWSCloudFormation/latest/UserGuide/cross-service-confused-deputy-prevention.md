@@ -1,6 +1,4 @@
-# Cross-service confused deputy
-
-prevention
+# Cross-service confused deputy prevention
 
 The confused deputy problem is a security issue where an entity that doesn't have permission
 to perform an action can coerce a more-privileged entity to perform the action. In AWS,
@@ -35,14 +33,11 @@ The following example shows how you can use the `aws:SourceArn` and
 `aws:SourceAccount` global condition context keys in CloudFormation to prevent the
 confused deputy problem.
 
-## Example trust policy that
-
-uses `aws:SourceArn` and `aws:SourceAccount` condition keys
+## Example trust policy that uses `aws:SourceArn` and `aws:SourceAccount` condition keys
 
 For registry services, CloudFormation makes calls to AWS Security Token Service (AWS STS) to assume a service
 role in your account. This role is configured for `ExecutionRoleArn` in the [RegisterType](../APIReference/API_RegisterType.md "../APIReference/API_RegisterType.md") operation and `LogRoleArn` set in the
-[LoggingConfig](../APIReference/API_LoggingConfig.md "../APIReference/API_LoggingConfig.md") operation. For more information, see [Configure an execution role
-with IAM permissions and a trust policy for public extension access](registry-public.md#registry-public-enable-execution-role "registry-public.md#registry-public-enable-execution-role").
+[LoggingConfig](../APIReference/API_LoggingConfig.md "../APIReference/API_LoggingConfig.md") operation. For more information, see [Configure an execution role with IAM permissions and a trust policy for public extension access](registry-public.md#registry-public-enable-execution-role "registry-public.md#registry-public-enable-execution-role").
 
 This example role trust policy uses condition statements to limit the
 `AssumeRole` capability on the service role to only actions on the specified
@@ -78,14 +73,11 @@ JSON
 
 ```
 
-## Additional
-
-information
+## Additional information
 
 For example policies that use the `aws:SourceArn` and
 `aws:SourceAccount` global condition context keys for a service role used by
-StackSets, see [Set up global keys to mitigate confused
-deputy problems](stacksets-prereqs-self-managed.md#confused-deputy-mitigation "stacksets-prereqs-self-managed.md#confused-deputy-mitigation").
+StackSets, see [Set up global keys to mitigate confused deputy problems](stacksets-prereqs-self-managed.md#confused-deputy-mitigation "stacksets-prereqs-self-managed.md#confused-deputy-mitigation").
 
 For more information, see [Update a role trust
 policy](../../../IAM/latest/UserGuide/id_roles_update-role-trust-policy.md "../../../IAM/latest/UserGuide/id_roles_update-role-trust-policy.md") in the _IAM User Guide_.

@@ -3,8 +3,7 @@
 This topic shows you how to create a stack from existing AWS resources by describing them
 in a template. To instead scan for existing resources and automatically generate a template that
 you can use to import existing resources into CloudFormation or replicate resources in a new account,
-see [Generate templates from existing resources with IaC
-generator](generate-IaC.md "generate-IaC.md").
+see [Generate templates from existing resources with IaC generator](generate-IaC.md "generate-IaC.md").
 
 **Prerequisites**
 
@@ -95,9 +94,7 @@ replace the sample resources with resources from your account.
 }
 ```
 
-## Create a stack from existing resources using
-
-the AWS Management Console
+## Create a stack from existing resources using the AWS Management Console
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -151,9 +148,7 @@ configurations.
     3. Repeat steps 2 – 8 using the modified template to import the resources
      again.
 
-## Create a stack from existing resources using the
-
-AWS CLI
+## Create a stack from existing resources using the AWS CLI
 
 1. To learn which properties identify each resource type in the template, run the
    **get-template-summary** command, specifying the S3 URL of the template. For
@@ -246,8 +241,7 @@ aws cloudformation execute-change-set \
 
 6. (Optional) Run drift detection on the `IMPORT_COMPLETE` stack to make sure the
    template and actual configuration of the imported resources match. For more information on
-   detecting drift, see [Detect drift on individual stack
-   resources](detect-drift-resource.md "detect-drift-resource.md").
+   detecting drift, see [Detect drift on individual stack resources](detect-drift-resource.md "detect-drift-resource.md").
    1. Run drift detection on the specified stack.
 
    ```

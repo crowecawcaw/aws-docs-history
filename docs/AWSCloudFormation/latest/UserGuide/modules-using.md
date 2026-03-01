@@ -17,8 +17,7 @@ To use a module, the steps are as follows:
   modules into the appropriate resources.
 - Preview changes – Before making changes, you can
   use a change set to see what resources will be added or changed. For more information, see
-  [Update CloudFormation stacks using change
-  sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
+  [Update CloudFormation stacks using change sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
   Consider the following example: you have a template that contains both resources and
   modules. The template contains one individual resource, `ResourceA`, as well as a
   module, `ModuleParent`. That module contains two resources, `ResourceB`

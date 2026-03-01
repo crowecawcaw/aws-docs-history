@@ -1,6 +1,4 @@
-# Get a secret or secret value from
-
-Secrets Manager
+# Get a secret or secret value from Secrets Manager
 
 Secrets Manager is a service that allows you to securely store and manage secrets like database
 credentials, passwords, and third-party API keys. Using Secrets Manager, you can store and control
@@ -12,9 +10,7 @@ is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../.
 To use entire secrets or secret values that are stored in Secrets Manager within your CloudFormation
 templates, you use `secretsmanager` dynamic references.
 
-## Best
-
-practices
+## Best practices
 
 Follow these best practices when using Secrets Manager dynamic references in your CloudFormation
 templates:
@@ -77,9 +73,7 @@ automatically rotate the secret.
 
 To specify a secret stored in Secrets Manager, you must have permission to call [GetSecretValue](../../../secretsmanager/latest/apireference/API_GetSecretValue.md "../../../secretsmanager/latest/apireference/API_GetSecretValue.md") for the secret.
 
-## Reference
-
-pattern
+## Reference pattern
 
 To reference Secrets Manager secrets in your CloudFormation template, use the following
 `secretsmanager` reference pattern.

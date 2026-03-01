@@ -22,8 +22,7 @@ _of_ the cloud and security _in_ the cloud:
 
 ###### Topics
 
-- [Protect CloudFormation stacks from being
-  deleted](using-cfn-protect-stacks.md "using-cfn-protect-stacks.md")
+- [Protect CloudFormation stacks from being deleted](using-cfn-protect-stacks.md "using-cfn-protect-stacks.md")
 - [Prevent updates to stack resources](protect-stack-resources.md "protect-stack-resources.md")
 - [Data protection in CloudFormation](security-data-protection.md "security-data-protection.md")
 - [Control CloudFormation access with AWS Identity and Access Management](control-access-with-iam.md "control-access-with-iam.md")
@@ -31,8 +30,6 @@ _of_ the cloud and security _in_ the cloud:
 - [Infrastructure security in CloudFormation](infrastructure-security.md "infrastructure-security.md")
 - [Resilience in CloudFormation](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Compliance validation for CloudFormation](cloudformation-compliance.md "cloudformation-compliance.md")
-- [Configuration and vulnerability
-  analysis in CloudFormation](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Configuration and vulnerability analysis in CloudFormation](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
 - [Security best practices for CloudFormation](security-best-practices.md "security-best-practices.md")
-- [Access CloudFormation using an interface endpoint
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Access CloudFormation using an interface endpoint (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")

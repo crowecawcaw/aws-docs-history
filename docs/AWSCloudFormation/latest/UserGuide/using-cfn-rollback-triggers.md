@@ -1,6 +1,4 @@
-# Roll back your CloudFormation stack on alarm
-
-breach with rollback triggers
+# Roll back your CloudFormation stack on alarm breach with rollback triggers
 
 With rollback triggers, you can have CloudFormation monitor the state of your application during
 stack creation and updating, and roll back that operation if the application breaches the
@@ -49,9 +47,7 @@ to access AWS resources, such as retrieving CloudWatch metric data about your re
 more information, see [Authentication and access control for CloudWatch](../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md "../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md") in
 _Amazon CloudWatch User Guide_.
 
-## Add rollback triggers during stack
-
-creation or updating
+## Add rollback triggers during stack creation or updating
 
 ###### To add rollback triggers during stack creation or update (console)
 
@@ -83,9 +79,7 @@ aws cloudformation update-stack --stack-name `MyStack` \
   "RollbackTriggers=[{Arn=arn:aws:cloudwatch:`us-east-1`:`123456789012`:alarm:`MyCompositeAlarm`,Type=`AWS::CloudWatch::CompositeAlarm`}],MonitoringTimeInMinutes=`5`"
 ```
 
-## Add rollback triggers to a
-
-change set
+## Add rollback triggers to a change set
 
 To add rollback triggers to a change set (console)
 
@@ -107,9 +101,7 @@ change set.
 Use the [create-change-set](../../../cli/latest/reference/cloudformation/create-change-set.md "../../../cli/latest/reference/cloudformation/create-change-set.md") command with the
 `--rollback-configuration` option.
 
-## View rollback triggers for a
-
-stack
+## View rollback triggers for a stack
 
 To view rollback triggers for a stack, see the **Rollback
 configuration** section.
@@ -119,9 +111,7 @@ configuration** section.
 2. On the **Stack info** tab, expand the **Rollback
    configuration** section to view the rollback triggers.
 
-## View rollback triggers for
-
-a change set
+## View rollback triggers for a change set
 
 To view rollback triggers for a change set, see the **Rollback
 configuration** section.

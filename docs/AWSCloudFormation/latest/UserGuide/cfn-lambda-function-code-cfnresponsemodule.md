@@ -1,6 +1,4 @@
-# `cfn-response`
-
-module
+# `cfn-response` module
 
 In your CloudFormation template, you can specify a Lambda function as the target of a custom
 resource. When you use the `ZipFile` property to specify your [function's](../TemplateReference/aws-resource-lambda-function.md "../TemplateReference/aws-resource-lambda-function.md")
@@ -20,9 +18,7 @@ buckets. For code in buckets, you must write your own functions to send response
 After executing the `send` method, the Lambda function terminates, so anything
 you write after that method is ignored.
 
-## Loading the
-
-`cfn-response` module
+## Loading the `cfn-response` module
 
 For Node.js functions, use the `require()` function to load the
 `cfn-response` module. For example, the following code example creates a
@@ -44,9 +40,7 @@ CloudFormation doesn't include the response module.
 import cfnresponse
 ```
 
-## `send`
-
-method parameters
+## `send` method parameters
 
 You can use the following parameters with the `send` method.
 
@@ -180,10 +174,8 @@ ZipFile: |
 ###### Topics
 
 - [Asynchronous Node.js source code](#cfn-lambda-function-code-cfnresponsemodule-source-nodejs-async "#cfn-lambda-function-code-cfnresponsemodule-source-nodejs-async")
-- [Node.js source
-  code](#cfn-lambda-function-code-cfnresponsemodule-source-nodejs "#cfn-lambda-function-code-cfnresponsemodule-source-nodejs")
-- [Python source
-  code](#cfn-lambda-function-code-cfnresponsemodule-source-python "#cfn-lambda-function-code-cfnresponsemodule-source-python")
+- [Node.js source code](#cfn-lambda-function-code-cfnresponsemodule-source-nodejs "#cfn-lambda-function-code-cfnresponsemodule-source-nodejs")
+- [Python source code](#cfn-lambda-function-code-cfnresponsemodule-source-python "#cfn-lambda-function-code-cfnresponsemodule-source-python")
 
 ### Asynchronous Node.js source code
 
@@ -251,9 +243,7 @@ function maskCredentialsAndSignature(message) {
 
 ```
 
-### Node.js source
-
-code
+### Node.js source code
 
 The following is the response module source code for the Node.js functions if the
 handler is not asynchronous. Review it to understand what the module does and for help with
@@ -311,9 +301,7 @@ exports.send = function(event, context, responseStatus, responseData, physicalRe
 }
 ```
 
-### Python source
-
-code
+### Python source code
 
 The following is the response module source code for Python functions:
 

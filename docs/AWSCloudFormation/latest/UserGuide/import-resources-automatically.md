@@ -1,6 +1,4 @@
-# Import AWS resources into a CloudFormation stack
-
-automatically
+# Import AWS resources into a CloudFormation stack automatically
 
 You can now import _named resources_ automatically when creating or
 updating CloudFormation stacks. A _named resource_ is one with a custom name. For
@@ -23,8 +21,7 @@ To import a resource, they need to meet the following requirements:
   `RetainExceptOnCreate`.
 - The resource must not already belong to another CloudFormation stack.
 - The resource type must support CloudFormation import operations. For more information, see
-  [Resource type
-  support](resource-import-supported-resources.md "resource-import-supported-resources.md").
+  [Resource type support](resource-import-supported-resources.md "resource-import-supported-resources.md").
 - The primary ID for the resource type must be in the template. Primary IDs with read only properties aren't supported. To find out what the
   primary ID is for a type, look for the `primaryIdentifier` property in the resource schema. For more information on the property, see [primaryIdentifier](../../../cloudformation-cli/latest/userguide/resource-type-schema.md#schema-properties-primaryidentifier "../../../cloudformation-cli/latest/userguide/resource-type-schema.md#schema-properties-primaryidentifier").
 

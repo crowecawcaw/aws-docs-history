@@ -1,6 +1,4 @@
-# Edit configuration data for extensions in
-
-your account
+# Edit configuration data for extensions in your account
 
 This topic provides guidance on editing configuration data for extensions in your
 account within a specific Region. Extensions can include configuration properties that
@@ -18,16 +16,11 @@ an extension, see the following documentation.
 
 ###### Topics
 
-- [Permissions required to
-  use dynamic references](#registry-set-configuration-considerations "#registry-set-configuration-considerations")
-- [Edit configuration
-  data for an extension (console)](#registry-set-configuration-procedure-console "#registry-set-configuration-procedure-console")
-- [Edit configuration data
-  for an extension (AWS CLI)](#registry-set-configuration-procedure-cli "#registry-set-configuration-procedure-cli")
+- [Permissions required to use dynamic references](#registry-set-configuration-considerations "#registry-set-configuration-considerations")
+- [Edit configuration data for an extension (console)](#registry-set-configuration-procedure-console "#registry-set-configuration-procedure-console")
+- [Edit configuration data for an extension (AWS CLI)](#registry-set-configuration-procedure-cli "#registry-set-configuration-procedure-cli")
 
-## Permissions required to
-
-use dynamic references
+## Permissions required to use dynamic references
 
 If your configuration data includes dynamic references to values stored in
 AWS Systems Manager or AWS Secrets Manager, any role used to provision the type (for example, when
@@ -40,12 +33,9 @@ value. Specifically:
 - If the configuration data contains a secret stored in AWS Secrets Manager, the user
   or role used to provision the type must have permissions to call [GetSecretValue](../../../secretsmanager/latest/apireference/API_GetSecretValue.md "../../../secretsmanager/latest/apireference/API_GetSecretValue.md").
 
-For more information, see [Get values stored in other services using dynamic
-references](dynamic-references.md "dynamic-references.md").
+For more information, see [Get values stored in other services using dynamic references](dynamic-references.md "dynamic-references.md").
 
-## Edit configuration
-
-data for an extension (console)
+## Edit configuration data for an extension (console)
 
 Follow the steps in this section to use the console to:
 
@@ -60,8 +50,7 @@ Follow the steps in this section to use the console to:
    AWS Region.
 3. From the navigation pane, under **Registry**, choose
    **Activated extensions**.
-4. Find the extension you want to view. For more information, see [View the available and activated extensions in the
-   CloudFormation registry](registry-view.md "registry-view.md").
+4. Find the extension you want to view. For more information, see [View the available and activated extensions in the CloudFormation registry](registry-view.md "registry-view.md").
 5. Choose the extension to view the extension details.
 6. On the extension details page, choose the
    **Configuration** tab.
@@ -86,9 +75,7 @@ string that represents the configuration schema you want to set for this
 extension. It must validate against the schema defined in
 **Configuration schema**. 3. Choose **Configure extension**.
 
-## Edit configuration data
-
-for an extension (AWS CLI)
+## Edit configuration data for an extension (AWS CLI)
 
 Follow the steps in this section to use the AWS CLI to:
 

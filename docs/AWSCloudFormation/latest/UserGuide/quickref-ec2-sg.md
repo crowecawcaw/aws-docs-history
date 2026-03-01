@@ -5,30 +5,21 @@ Amazon EC2 instances to control access to your AWS resources.
 
 ###### Snippet categories
 
-- [Associate an Amazon EC2
-  instance with a security group](#quickref-ec2-instances-associate-security-group "#quickref-ec2-instances-associate-security-group")
-- [Create security groups with ingress
-  rules](#quickref-ec2-instances-ingress "#quickref-ec2-instances-ingress")
-- [Create an Elastic Load
-  Balancer with a security group ingress rule](#scenario-ec2-security-group-elbingress "#scenario-ec2-security-group-elbingress")
+- [Associate an Amazon EC2 instance with a security group](#quickref-ec2-instances-associate-security-group "#quickref-ec2-instances-associate-security-group")
+- [Create security groups with ingress rules](#quickref-ec2-instances-ingress "#quickref-ec2-instances-ingress")
+- [Create an Elastic Load Balancer with a security group ingress rule](#scenario-ec2-security-group-elbingress "#scenario-ec2-security-group-elbingress")
 
-## Associate an Amazon EC2
-
-instance with a security group
+## Associate an Amazon EC2 instance with a security group
 
 The following example snippets demonstrate how to associate an Amazon EC2 instance with
 a default Amazon VPC security group using CloudFormation.
 
 ###### Example snippets
 
-- [Associate an Amazon EC2 instance
-  with a default VPC security group](#using-cfn-getatt-default-values "#using-cfn-getatt-default-values")
-- [Create an Amazon EC2 instance with an
-  attached volume and security group](#scenario-ec2-volumeattachment "#scenario-ec2-volumeattachment")
+- [Associate an Amazon EC2 instance with a default VPC security group](#using-cfn-getatt-default-values "#using-cfn-getatt-default-values")
+- [Create an Amazon EC2 instance with an attached volume and security group](#scenario-ec2-volumeattachment "#scenario-ec2-volumeattachment")
 
-### Associate an Amazon EC2 instance
-
-with a default VPC security group
+### Associate an Amazon EC2 instance with a default VPC security group
 
 The following snippet creates an Amazon VPC, a subnet within the VPC, and an Amazon EC2
 instance. The VPC is created using an [AWS::EC2::VPC](../TemplateReference/aws-resource-ec2-vpc.md "../TemplateReference/aws-resource-ec2-vpc.md") resource.
@@ -133,9 +124,7 @@ MyInstance:
       Ref: MySubnet
 ```
 
-### Create an Amazon EC2 instance with an
-
-attached volume and security group
+### Create an Amazon EC2 instance with an attached volume and security group
 
 The following snippet creates an Amazon EC2 instance using an [AWS::EC2::Instance](../TemplateReference/aws-resource-ec2-instance.md "../TemplateReference/aws-resource-ec2-instance.md") resource, which is launched from a designated
 AMI . The instance is associated with a security group that allows incoming SSH
@@ -232,26 +221,18 @@ MountPoint:
     Device: /dev/sdh
 ```
 
-## Create security groups with ingress
-
-rules
+## Create security groups with ingress rules
 
 The following example snippets demonstrate how to configure security groups with
 specific ingress rules using CloudFormation.
 
 ###### Snippets
 
-- [Create security group with
-  ingress rules for SSH and HTTP access](#scenario-ec2-security-group-rule "#scenario-ec2-security-group-rule")
-- [Create a security group
-  with ingress rules for HTTP and SSH access from specified CIDR
-  ranges](#scenario-ec2-security-group-two-ports "#scenario-ec2-security-group-two-ports")
-- [Create cross-referencing
-  security groups with ingress rules](#scenario-ec2-security-group-ingress "#scenario-ec2-security-group-ingress")
+- [Create security group with ingress rules for SSH and HTTP access](#scenario-ec2-security-group-rule "#scenario-ec2-security-group-rule")
+- [Create a security group with ingress rules for HTTP and SSH access from specified CIDR ranges](#scenario-ec2-security-group-two-ports "#scenario-ec2-security-group-two-ports")
+- [Create cross-referencing security groups with ingress rules](#scenario-ec2-security-group-ingress "#scenario-ec2-security-group-ingress")
 
-### Create security group with
-
-ingress rules for SSH and HTTP access
+### Create security group with ingress rules for SSH and HTTP access
 
 The following snippet describes two security group ingress rules using an
 [AWS::EC2::SecurityGroup](../TemplateReference/aws-resource-ec2-securitygroup.md "../TemplateReference/aws-resource-ec2-securitygroup.md") resource. The first ingress rule allows SSH
@@ -323,10 +304,7 @@ SecurityGroup:
           Ref: MySecurityGroupCreatedInCFNTemplate
 ```
 
-### Create a security group
-
-with ingress rules for HTTP and SSH access from specified CIDR
-ranges
+### Create a security group with ingress rules for HTTP and SSH access from specified CIDR ranges
 
 The following snippet creates a security group for an Amazon EC2 instance with two
 inbound rules. The inbound rules allow incoming TCP traffic on the specified
@@ -383,9 +361,7 @@ ServerSecurityGroup:
         CidrIp: `192.0.2.0/24`
 ```
 
-### Create cross-referencing
-
-security groups with ingress rules
+### Create cross-referencing security groups with ingress rules
 
 The following snippet uses the [AWS::EC2::SecurityGroup](../TemplateReference/aws-resource-ec2-securitygroup.md "../TemplateReference/aws-resource-ec2-securitygroup.md") resource to create two Amazon EC2 security
 groups, `SGroup1` and `SGroup2`. Ingress rules that allow
@@ -470,9 +446,7 @@ SGroup2Ingress:
     SourceSecurityGroupName: !Ref SGroup1
 ```
 
-## Create an Elastic Load
-
-Balancer with a security group ingress rule
+## Create an Elastic Load Balancer with a security group ingress rule
 
 The following template creates an [AWS::ElasticLoadBalancing::LoadBalancer](../TemplateReference/aws-resource-elasticloadbalancing-loadbalancer.md "../TemplateReference/aws-resource-elasticloadbalancing-loadbalancer.md") resource in the specified
 availability zone. The [AWS::ElasticLoadBalancing::LoadBalancer](../TemplateReference/aws-resource-elasticloadbalancing-loadbalancer.md "../TemplateReference/aws-resource-elasticloadbalancing-loadbalancer.md") resource is configured to

@@ -58,8 +58,7 @@ With [Git sync](git-sync.md "git-sync.md"), you can store templates in a Git
 repository. When creating or updating a stack, you can specify the Git repository location
 and branch containing the template instead of uploading it directly or referencing an S3
 URL. CloudFormation automatically monitors the specified repository and branch for template
-changes. For more information, see [Create a stack from repository source code with
-Git sync](git-sync-create-stack-from-repository-source-code.md "git-sync-create-stack-from-repository-source-code.md").
+changes. For more information, see [Create a stack from repository source code with Git sync](git-sync-create-stack-from-repository-source-code.md "git-sync-create-stack-from-repository-source-code.md").
 
 ## Validating templates
 

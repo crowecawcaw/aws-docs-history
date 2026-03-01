@@ -8,16 +8,11 @@ See the following sections for more details about change sets for nested stacks:
 
 ###### Topics
 
-- [Overview of change sets and
-  nested stacks](#overview-of-change-sets-and-nested-stacks "#overview-of-change-sets-and-nested-stacks")
-- [Working with change sets for
-  nested stacks (console)](#change-sets-for-nested-stacks-console "#change-sets-for-nested-stacks-console")
-- [Working with change sets for nested
-  stacks (AWS CLI)](#change-sets-for-nested-stacks-cli "#change-sets-for-nested-stacks-cli")
+- [Overview of change sets and nested stacks](#overview-of-change-sets-and-nested-stacks "#overview-of-change-sets-and-nested-stacks")
+- [Working with change sets for nested stacks (console)](#change-sets-for-nested-stacks-console "#change-sets-for-nested-stacks-console")
+- [Working with change sets for nested stacks (AWS CLI)](#change-sets-for-nested-stacks-cli "#change-sets-for-nested-stacks-cli")
 
-## Overview of change sets and
-
-nested stacks
+## Overview of change sets and nested stacks
 
 Change sets for nested stacks combines the following features together to expand
 the scope of previewing changes to the entire stack hierarchy:
@@ -26,18 +21,14 @@ the scope of previewing changes to the entire stack hierarchy:
   preview of how proposed changes to a stack will impact existing or newly created
   resources. Upon creating a change set, CloudFormation provides a list of proposed
   changes by comparing your stack with the changes to the resources you submitted.
-  For more information about change sets, see [Update CloudFormation stacks using change
-  sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
+  For more information about change sets, see [Update CloudFormation stacks using change sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
 - A _nested stack_ is stack created as part of another stack.
   For example, you might have networking and security related resources in one
   nested stack and application resources in another. Partitioning application
   models this way helps with code maintainability and reuse. For more information
-  about nested stacks, see [Split a template into reusable pieces using nested
-  stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md").
+  about nested stacks, see [Split a template into reusable pieces using nested stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md").
 
-## Working with change sets for
-
-nested stacks (console)
+## Working with change sets for nested stacks (console)
 
 - **Create a change set** – Creates a change
   set by submitting changes from any level of the stack hierarchy. You can submit
@@ -53,8 +44,7 @@ nested stacks (console)
 A root change set is the change set associated with the stack from which
 the whole hierarchy of change sets are created. You must execute or delete
 change sets for nested stacks from the root change set. For more
-information, see [Performing stack operations
-on nested stacks](using-cfn-nested-stacks.md#perform-stack-operations-on-nested-stacks "using-cfn-nested-stacks.md#perform-stack-operations-on-nested-stacks").
+information, see [Performing stack operations on nested stacks](using-cfn-nested-stacks.md#perform-stack-operations-on-nested-stacks "using-cfn-nested-stacks.md#perform-stack-operations-on-nested-stacks").
 
 - **View the change set** – Visualize
   changes to resources inside nested stacks before executing them. You can view
@@ -71,9 +61,7 @@ on nested stacks](using-cfn-nested-stacks.md#perform-stack-operations-on-nested-
   applied. The delete operation must be executed from the root change set. For
   more information, see [Delete a change set for a CloudFormation stack](using-cfn-updating-stacks-changesets-delete.md "using-cfn-updating-stacks-changesets-delete.md").
 
-## Working with change sets for nested
-
-stacks (AWS CLI)
+## Working with change sets for nested stacks (AWS CLI)
 
 - [create-change-set](../../../cli/latest/reference/cloudformation/create-change-set.md "../../../cli/latest/reference/cloudformation/create-change-set.md") – Change sets
   for nested stacks isn't enabled by default for the AWS CLI. To create a

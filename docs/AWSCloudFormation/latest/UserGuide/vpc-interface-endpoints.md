@@ -1,6 +1,4 @@
-# Access CloudFormation using an interface endpoint
-
-(AWS PrivateLink)
+# Access CloudFormation using an interface endpoint (AWS PrivateLink)
 
 You can use AWS PrivateLink to create a private connection between your VPC and CloudFormation.
 You can access CloudFormation as if it were in your VPC, without the use of an internet gateway,
@@ -15,9 +13,7 @@ network interfaces that serve as the entry point for traffic destined for CloudF
 CloudFormation supports making calls to all of its API actions through the interface
 endpoint.
 
-## Considerations for CloudFormation VPC
-
-endpoints
+## Considerations for CloudFormation VPC endpoints
 
 Before you set up an interface endpoint, first make sure you have met the
 prerequisites in the [Access an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") topic in the
@@ -64,9 +60,7 @@ in the _Amazon Web Services General Reference_.
 - The security group attached to the VPC endpoint must allow incoming
   connections on port 443 from the private subnet of the VPC.
 
-## Creating an interface VPC endpoint for
-
-CloudFormation
+## Creating an interface VPC endpoint for CloudFormation
 
 You can create a VPC endpoint for CloudFormation using either the Amazon VPC console or the
 AWS Command Line Interface (AWS CLI). For more information, see [Create a VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the
@@ -91,9 +85,7 @@ interface endpoint for CloudFormation using the following service name:
 For a complete list of CloudFormation endpoints, see [CloudFormation endpoints and quotas](../../../general/latest/gr/cfn.md "../../../general/latest/gr/cfn.md") in the
 _Amazon Web Services General Reference_.
 
-## Creating a VPC endpoint policy for
-
-CloudFormation
+## Creating a VPC endpoint policy for CloudFormation
 
 An endpoint policy is an IAM resource that you can attach to an interface endpoint.
 The default endpoint policy allows full access to CloudFormation through the interface
@@ -110,9 +102,7 @@ An endpoint policy specifies the following information:
 For more information, see [Control access to VPC endpoints using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the
 _AWS PrivateLink Guide_.
 
-###### Example: VPC endpoint policy for CloudFormation
-
-actions
+###### Example: VPC endpoint policy for CloudFormation actions
 
 The following is an example of an endpoint policy for CloudFormation. When attached to
 an endpoint, this policy grants access to the listed CloudFormation actions for all

@@ -1,12 +1,9 @@
-# Importing existing resources into a
-
-stack
+# Importing existing resources into a stack
 
 This topic shows you how to import existing AWS resources into an existing stack by
 describing them in a template. To instead scan for existing resources and automatically generate
 a template that you can use to import existing resources into CloudFormation or replicate resources
-in a new account, see [Generate templates from existing resources with IaC
-generator](generate-IaC.md "generate-IaC.md").
+in a new account, see [Generate templates from existing resources with IaC generator](generate-IaC.md "generate-IaC.md").
 
 **Prerequisites**
 
@@ -35,10 +32,8 @@ Before you begin, you must have the following:
 
 - [Example
   template](#resource-import-existing-stack-example-template "#resource-import-existing-stack-example-template")
-- [Import an existing resource into a
-  stack using the AWS Management Console](#resource-import-existing-stack-console "#resource-import-existing-stack-console")
-- [Import an existing resource into a stack
-  using the AWS CLI](#resource-import-existing-stack-cli "#resource-import-existing-stack-cli")
+- [Import an existing resource into a stack using the AWS Management Console](#resource-import-existing-stack-console "#resource-import-existing-stack-console")
+- [Import an existing resource into a stack using the AWS CLI](#resource-import-existing-stack-cli "#resource-import-existing-stack-cli")
 
 ## Example template
 
@@ -106,9 +101,7 @@ replace the sample resources with resources from your account.
 }
 ```
 
-## Import an existing resource into a
-
-stack using the AWS Management Console
+## Import an existing resource into a stack using the AWS Management Console
 
 ###### Note
 
@@ -159,12 +152,9 @@ The **Events** page for the stack displays.
 configuration of the imported resources match. For more information about detecting drift, see
 [Detect drift on an entire CloudFormation stack](detect-drift-stack.md "detect-drift-stack.md"). 10. (Optional) If your imported resources don't match their expected template configurations,
 either correct the template configurations or update the resources directly. For more
-information about importing drifted resources, see [Resolve drift with an import
-operation](resource-import-resolve-drift.md "resource-import-resolve-drift.md").
+information about importing drifted resources, see [Resolve drift with an import operation](resource-import-resolve-drift.md "resource-import-resolve-drift.md").
 
-## Import an existing resource into a stack
-
-using the AWS CLI
+## Import an existing resource into a stack using the AWS CLI
 
 1. To learn which properties identify each resource type in the template, run the
    **get-template-summary** command, specifying the S3 URL of the template. For
@@ -281,5 +271,4 @@ aws cloudformation execute-change-set \
 
 7. (Optional) If your imported resources don't match their expected template configurations,
    either correct the template configurations or update the resources directly. For more
-   information about importing drifted resources, see [Resolve drift with an import
-   operation](resource-import-resolve-drift.md "resource-import-resolve-drift.md").
+   information about importing drifted resources, see [Resolve drift with an import operation](resource-import-resolve-drift.md "resource-import-resolve-drift.md").

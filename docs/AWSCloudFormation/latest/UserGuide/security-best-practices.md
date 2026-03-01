@@ -38,8 +38,7 @@ values that are stored and managed in other services, such as the AWS Systems Ma
 Parameter Store or AWS Secrets Manager. When you use a dynamic reference, CloudFormation
 retrieves the value of the specified reference when necessary during stack and change
 set operations, and passes the value to the appropriate resource. However, CloudFormation
-never stores the actual reference value. For more information, see [Get values stored in other services using dynamic
-references](dynamic-references.md "dynamic-references.md").
+never stores the actual reference value. For more information, see [Get values stored in other services using dynamic references](dynamic-references.md "dynamic-references.md").
 
 [AWS
 Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") helps you to securely encrypt, store, and retrieve
@@ -47,8 +46,7 @@ credentials for your databases and other services. The [AWS
 Systems Manager Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md") provides secure, hierarchical storage for
 configuration data management.
 
-For more information on defining template parameters, see [CloudFormation template Parameters
-syntax](parameters-section-structure.md "parameters-section-structure.md").
+For more information on defining template parameters, see [CloudFormation template Parameters syntax](parameters-section-structure.md "parameters-section-structure.md").
 
 ## Use AWS CloudTrail to log CloudFormation calls
 

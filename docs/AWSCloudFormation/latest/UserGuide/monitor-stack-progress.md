@@ -14,8 +14,6 @@ progress and any issues encountered during the deployment.
 - [Understand stack creation
   events](stack-resource-configuration-complete.md "stack-resource-configuration-complete.md")
 - [Monitor stack updates](using-cfn-updating-stacks-monitor-stack.md "using-cfn-updating-stacks-monitor-stack.md")
-- [Continue rolling back an
-  update](using-cfn-updating-stacks-continueupdaterollback.md "using-cfn-updating-stacks-continueupdaterollback.md")
-- [Determine the cause of a stack
-  failure](determine-root-cause-for-stack-failures.md "determine-root-cause-for-stack-failures.md")
+- [Continue rolling back an update](using-cfn-updating-stacks-continueupdaterollback.md "using-cfn-updating-stacks-continueupdaterollback.md")
+- [Determine the cause of a stack failure](determine-root-cause-for-stack-failures.md "determine-root-cause-for-stack-failures.md")
 - [Stack failure options](stack-failure-options.md "stack-failure-options.md")

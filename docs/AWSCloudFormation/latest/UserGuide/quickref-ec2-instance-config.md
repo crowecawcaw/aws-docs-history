@@ -1,38 +1,26 @@
-# Configure Amazon EC2 instances with
-
-CloudFormation
+# Configure Amazon EC2 instances with CloudFormation
 
 The following snippets demonstrate how to configure Amazon EC2 instances using
 CloudFormation.
 
 ###### Snippet categories
 
-- [General Amazon EC2
-  configurations](#quickref-ec2-instance-config-general "#quickref-ec2-instance-config-general")
-- [Specify the block device mappings for an
-  instance](#scenario-ec2-bdm "#scenario-ec2-bdm")
+- [General Amazon EC2 configurations](#quickref-ec2-instance-config-general "#quickref-ec2-instance-config-general")
+- [Specify the block device mappings for an instance](#scenario-ec2-bdm "#scenario-ec2-bdm")
 
-## General Amazon EC2
-
-configurations
+## General Amazon EC2 configurations
 
 The following snippets demonstrate general configurations for Amazon EC2 instances
 using CloudFormation.
 
 ###### Example snippets
 
-- [Create an Amazon EC2 instance in a specified
-  Availability Zone](#scenario-ec2-instance "#scenario-ec2-instance")
-- [Configure a tagged
-  Amazon EC2 instance with an EBS volume and user data](#scenario-ec2-instance-with-vol-and-tags "#scenario-ec2-instance-with-vol-and-tags")
-- [Define DynamoDB table name in
-  user data for Amazon EC2 instance launch](#scenario-ec2-with-sdb-domain "#scenario-ec2-with-sdb-domain")
-- [Create an Amazon EBS volume with
-  DeletionPolicy](#scenario-ec2-volume "#scenario-ec2-volume")
+- [Create an Amazon EC2 instance in a specified Availability Zone](#scenario-ec2-instance "#scenario-ec2-instance")
+- [Configure a tagged Amazon EC2 instance with an EBS volume and user data](#scenario-ec2-instance-with-vol-and-tags "#scenario-ec2-instance-with-vol-and-tags")
+- [Define DynamoDB table name in user data for Amazon EC2 instance launch](#scenario-ec2-with-sdb-domain "#scenario-ec2-with-sdb-domain")
+- [Create an Amazon EBS volume with DeletionPolicy](#scenario-ec2-volume "#scenario-ec2-volume")
 
-### Create an Amazon EC2 instance in a specified
-
-Availability Zone
+### Create an Amazon EC2 instance in a specified Availability Zone
 
 The following snippet creates an Amazon EC2 instance in the specified Availability
 Zone using an [AWS::EC2::Instance](../TemplateReference/aws-resource-ec2-instance.md "../TemplateReference/aws-resource-ec2-instance.md")
@@ -61,9 +49,7 @@ Ec2Instance:
     ImageId: `ami-1234567890abcdef0`
 ```
 
-### Configure a tagged
-
-Amazon EC2 instance with an EBS volume and user data
+### Configure a tagged Amazon EC2 instance with an EBS volume and user data
 
 The following snippet creates an Amazon EC2 instance with a tag, an EBS volume, and
 user data. It uses an [AWS::EC2::Instance](../TemplateReference/aws-resource-ec2-instance.md "../TemplateReference/aws-resource-ec2-instance.md")
@@ -144,9 +130,7 @@ Ec2Instance:
         Value: MyTag
 ```
 
-### Define DynamoDB table name in
-
-user data for Amazon EC2 instance launch
+### Define DynamoDB table name in user data for Amazon EC2 instance launch
 
 The following snippet creates an Amazon EC2 instance and defines a DynamoDB table name
 in the user data to pass to the instance at launch. It uses an [AWS::EC2::Instance](../TemplateReference/aws-resource-ec2-instance.md "../TemplateReference/aws-resource-ec2-instance.md") resource. You can define parameters or dynamic
@@ -197,9 +181,7 @@ Ec2Instance:
     ImageId: `ami-1234567890abcdef0`
 ```
 
-### Create an Amazon EBS volume with
-
-`DeletionPolicy`
+### Create an Amazon EBS volume with `DeletionPolicy`
 
 The following snippets create an Amazon EBS volume using an Amazon EC2 [AWS::EC2::Volume](../TemplateReference/aws-resource-ec2-volume.md "../TemplateReference/aws-resource-ec2-volume.md") resource. You can use the `Size` or
 `SnapshotID` properties to define the volume, but not both. A
@@ -279,9 +261,7 @@ MyEBSVolume:
   DeletionPolicy: Snapshot
 ```
 
-## Specify the block device mappings for an
-
-instance
+## Specify the block device mappings for an instance
 
 A block device mapping defines the block devices, which includes instance store
 volumes and EBS volumes, to attach to an instance. You can specify a block device

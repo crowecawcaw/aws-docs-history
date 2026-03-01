@@ -1,6 +1,4 @@
-# Create a stack from repository source code with
-
-Git sync
+# Create a stack from repository source code with Git sync
 
 This topic explains how to create a CloudFormation stack that syncs to a Git repository with
 Git sync.
@@ -10,9 +8,7 @@ Git sync.
 Before you continue, complete all [prerequisites](git-sync-prereq.md "git-sync-prereq.md")
 in the previous section.
 
-## Create a stack from
-
-repository source code
+## Create a stack from repository source code
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -128,9 +124,7 @@ created in your Git repository. You must merge this pull request into your Git
 repository to create your stack. After the stack is created, CloudFormation monitors
 your Git repository for changes.
 
-## Update your stack from your
-
-Git repository
+## Update your stack from your Git repository
 
 To update the stack, make changes directly to your template file or stack deployment
 file in your Git repository. After you commit your changes to the monitored branch,

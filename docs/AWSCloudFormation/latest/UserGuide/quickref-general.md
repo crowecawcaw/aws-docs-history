@@ -6,32 +6,20 @@ AWS service.
 ###### Topics
 
 - [Base64 encoded UserData property](#scenario-userdata-base64 "#scenario-userdata-base64")
-- [Base64 encoded UserData property with
-  AccessKey and SecretKey](#scenario-userdata-base64-with-keys "#scenario-userdata-base64-with-keys")
-- [Parameters section with one literal string
-  parameter](#scenario-one-string-parameter "#scenario-one-string-parameter")
-- [Parameters section with string
-  parameter with regular expression constraint](#scenario-constraint-string-parameter "#scenario-constraint-string-parameter")
-- [Parameters section with number parameter
-  with MinValue and MaxValue constraints](#scenario-one-number-min-parameter "#scenario-one-number-min-parameter")
-- [Parameters section with number parameter
-  with AllowedValues constraint](#scenario-one-number-parameter "#scenario-one-number-parameter")
-- [Parameters section with one literal
-  CommaDelimitedList parameter](#scenario-one-list-parameter "#scenario-one-list-parameter")
-- [Parameters section with parameter value
-  based on pseudo parameter](#scenario-one-pseudo-parameter "#scenario-one-pseudo-parameter")
-- [Mapping section with three
-  mappings](#scenario-mapping-with-four-maps "#scenario-mapping-with-four-maps")
-- [Description based on literal
-  string](#scenario-description-from-literal-string "#scenario-description-from-literal-string")
-- [Outputs section with one literal
-  string output](#scenario-output-with-literal-string "#scenario-output-with-literal-string")
-- [Outputs section with one resource
-  reference and one pseudo reference output](#scenario-output-with-ref-and-pseudo-ref "#scenario-output-with-ref-and-pseudo-ref")
-- [Outputs section with an output based on
-  a function, a literal string, a reference, and a pseudo parameter](#scenario-output-with-complex-spec "#scenario-output-with-complex-spec")
+- [Base64 encoded UserData property with AccessKey and SecretKey](#scenario-userdata-base64-with-keys "#scenario-userdata-base64-with-keys")
+- [Parameters section with one literal string parameter](#scenario-one-string-parameter "#scenario-one-string-parameter")
+- [Parameters section with string parameter with regular expression constraint](#scenario-constraint-string-parameter "#scenario-constraint-string-parameter")
+- [Parameters section with number parameter with MinValue and MaxValue constraints](#scenario-one-number-min-parameter "#scenario-one-number-min-parameter")
+- [Parameters section with number parameter with AllowedValues constraint](#scenario-one-number-parameter "#scenario-one-number-parameter")
+- [Parameters section with one literal CommaDelimitedList parameter](#scenario-one-list-parameter "#scenario-one-list-parameter")
+- [Parameters section with parameter value based on pseudo parameter](#scenario-one-pseudo-parameter "#scenario-one-pseudo-parameter")
+- [Mapping section with three mappings](#scenario-mapping-with-four-maps "#scenario-mapping-with-four-maps")
+- [Description based on literal string](#scenario-description-from-literal-string "#scenario-description-from-literal-string")
+- [Outputs section with one literal string output](#scenario-output-with-literal-string "#scenario-output-with-literal-string")
+- [Outputs section with one resource reference and one pseudo reference output](#scenario-output-with-ref-and-pseudo-ref "#scenario-output-with-ref-and-pseudo-ref")
+- [Outputs section with an output based on a function, a literal string, a reference, and a pseudo parameter](#scenario-output-with-complex-spec "#scenario-output-with-complex-spec")
 - [Template format version](#scenario-format-version "#scenario-format-version")
-- [AWSTags property](#scenario-format-aws-tag "#scenario-format-aws-tag")
+- [AWS Tags property](#scenario-format-aws-tag "#scenario-format-aws-tag")
 
 ## Base64 encoded UserData property
 
@@ -65,9 +53,7 @@ UserData:
      Hello World
 ```
 
-## Base64 encoded UserData property with
-
-AccessKey and SecretKey
+## Base64 encoded UserData property with AccessKey and SecretKey
 
 This example shows the assembly of a `UserData` property using the `Fn::Base64` and
 `Fn::Join` functions. It includes the `AccessKey` and `SecretKey`
@@ -97,9 +83,7 @@ UserData:
      SECRET_KEY=${SecretKey}
 ```
 
-## Parameters section with one literal string
-
-parameter
+## Parameters section with one literal string parameter
 
 The following example depicts a valid Parameters section declaration in which a single
 `String` type parameter is declared.
@@ -126,9 +110,7 @@ Parameters:
     Description: Assume a vanilla user if no command-line spec provided
 ```
 
-## Parameters section with string
-
-parameter with regular expression constraint
+## Parameters section with string parameter with regular expression constraint
 
 The following example depicts a valid Parameters section declaration in which a single
 `String` type parameter is declared. The `AdminUserAccount` parameter has a
@@ -166,9 +148,7 @@ Parameters:
     AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
 ```
 
-## Parameters section with number parameter
-
-with MinValue and MaxValue constraints
+## Parameters section with number parameter with MinValue and MaxValue constraints
 
 The following example depicts a valid Parameters section declaration in which a single
 `Number` type parameter is declared. The `WebServerPort` parameter has a
@@ -200,9 +180,7 @@ Parameters:
     MaxValue: 65535
 ```
 
-## Parameters section with number parameter
-
-with AllowedValues constraint
+## Parameters section with number parameter with AllowedValues constraint
 
 The following example depicts a valid Parameters section declaration in which a single
 `Number` type parameter is declared. The `WebServerPort` parameter has a
@@ -234,9 +212,7 @@ Parameters:
     - 8888
 ```
 
-## Parameters section with one literal
-
-CommaDelimitedList parameter
+## Parameters section with one literal CommaDelimitedList parameter
 
 The following example depicts a valid `Parameters` section declaration in which a single
 `CommaDelimitedList` type parameter is declared. The `NoEcho` property is
@@ -286,9 +262,7 @@ Parameters:
     NoEcho: true
 ```
 
-## Parameters section with parameter value
-
-based on pseudo parameter
+## Parameters section with parameter value based on pseudo parameter
 
 The following example shows commands in the EC2 user data that use the pseudo
 parameters `AWS::StackName` and `AWS::Region`. For more
@@ -325,9 +299,7 @@ UserData:
      /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource WebServerGroup --region ${AWS::Region}
 ```
 
-## Mapping section with three
-
-mappings
+## Mapping section with three mappings
 
 The following example depicts a valid `Mapping` section declaration that contains three
 mappings. The map, when matched with a mapping key of `Stop`,
@@ -371,9 +343,7 @@ Mappings:
       RGBColor: "RED 0 GREEN 128 BLUE 0"
 ```
 
-## Description based on literal
-
-string
+## Description based on literal string
 
 The following example depicts a valid `Description` section declaration where the value
 is based on a literal string. This snippet can be for templates, parameters, resources,
@@ -391,9 +361,7 @@ properties, or outputs.
 Description: "`Replace this value`"
 ```
 
-## Outputs section with one literal
-
-string output
+## Outputs section with one literal string output
 
 This example shows a output assignment based on a literal string.
 
@@ -417,9 +385,7 @@ Outputs:
     Description: A random message for aws cloudformation describe-stacks
 ```
 
-## Outputs section with one resource
-
-reference and one pseudo reference output
+## Outputs section with one resource reference and one pseudo reference output
 
 This example shows an `Outputs` section with two output assignments. One is based on a
 resource, and the other is based on a pseudo reference.
@@ -444,9 +410,7 @@ Outputs:
     Value: !Ref AWS::StackName
 ```
 
-## Outputs section with an output based on
-
-a function, a literal string, a reference, and a pseudo parameter
+## Outputs section with an output based on a function, a literal string, a reference, and a pseudo parameter
 
 This example shows an Outputs section with one output assignment. The Join function is
 used to concatenate the value, using a percent sign as the delimiter.
@@ -488,7 +452,7 @@ declaration.
 AWSTemplateFormatVersion: '2010-09-09'
 ```
 
-## AWSTags property
+## AWS Tags property
 
 This example shows an AWS `Tags` property. You would specify this property within the
 Properties section of a resource. When the resource is created, it will be tagged with

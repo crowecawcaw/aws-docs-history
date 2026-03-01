@@ -1,6 +1,4 @@
-# CloudFormation template Conditions
-
-syntax
+# CloudFormation template Conditions syntax
 
 The optional `Conditions` section contains statements that define the
 circumstances under which entities are created or configured. For example, you can create a
@@ -78,8 +76,7 @@ To use conditions, follow these steps:
     – Reference conditions in resources or outputs using the
     `Condition` key and a condition's logical ID. Optionally, use
     `Fn::If` in other parts of the template (such as property values)
-    to set values based on a condition. For more information, see [Using the Condition
-    key](#using-conditions-in-templates "#using-conditions-in-templates").
+    to set values based on a condition. For more information, see [Using the Condition key](#using-conditions-in-templates "#using-conditions-in-templates").
 
 CloudFormation evaluates conditions when creating or updating a stack. CloudFormation creates
 entities that are associated with a true condition and ignores entities that are
@@ -94,9 +91,7 @@ During a stack update, you can't update conditions by themselves. You can update
 conditions only when you include changes that add, modify, or delete
 resources.
 
-## Condition intrinsic
-
-functions
+## Condition intrinsic functions
 
 You can use the following intrinsic functions to define conditions:
 
@@ -113,9 +108,7 @@ You can use the following intrinsic functions to define conditions:
 attribute, and property values in the `Resources` section and
 `Outputs` sections of a template.
 
-## Using the `Condition`
-
-key
+## Using the `Condition` key
 
 Once a condition is defined, you can apply it in several places in the template, such
 as `Resources` and `Outputs`, using the `Condition`
@@ -124,18 +117,12 @@ the evaluated result of the specified condition.
 
 ###### Topics
 
-- [Associate conditions with
-  resources](#associate-conditions-with-resources "#associate-conditions-with-resources")
-- [Associate conditions with
-  outputs](#associate-conditions-with-outputs "#associate-conditions-with-outputs")
-- [Reference conditions in
-  other conditions](#reference-conditions-in-other-conditions "#reference-conditions-in-other-conditions")
-- [Conditionally
-  return property values using Fn::If](#conditional-return-property-values-using-fn-if "#conditional-return-property-values-using-fn-if")
+- [Associate conditions with resources](#associate-conditions-with-resources "#associate-conditions-with-resources")
+- [Associate conditions with outputs](#associate-conditions-with-outputs "#associate-conditions-with-outputs")
+- [Reference conditions in other conditions](#reference-conditions-in-other-conditions "#reference-conditions-in-other-conditions")
+- [Conditionally return property values using Fn::If](#conditional-return-property-values-using-fn-if "#conditional-return-property-values-using-fn-if")
 
-### Associate conditions with
-
-resources
+### Associate conditions with resources
 
 To conditionally create resources, add the `Condition` key and the
 logical ID of the condition as an attribute to the resource. CloudFormation creates the
@@ -165,9 +152,7 @@ NewVolume:
     AvailabilityZone: !GetAtt EC2Instance.AvailabilityZone
 ```
 
-### Associate conditions with
-
-outputs
+### Associate conditions with outputs
 
 You can also associate conditions with outputs. CloudFormation creates the output only
 when the associated condition evaluates to true.
@@ -192,9 +177,7 @@ Outputs:
     Value: !Ref NewVolume
 ```
 
-### Reference conditions in
-
-other conditions
+### Reference conditions in other conditions
 
 When defining conditions in the `Conditions` section, you can reference
 other conditions using the `Condition` key. This allows you to create
@@ -232,18 +215,14 @@ Conditions:
     - !Condition IsFeatureEnabled
 ```
 
-### Conditionally
-
-return property values using `Fn::If`
+### Conditionally return property values using `Fn::If`
 
 For more granular control, you can use the `Fn::If` intrinsic function
 to conditionally return one of two property values within resources or outputs. This
 function evaluates a condition and returns one value if the condition is true and
 another value if the condition is false.
 
-#### Conditional property
-
-values
+#### Conditional property values
 
 The following example demonstrates setting an EC2 instance type based on an
 environment condition. If the `IsProduction` condition evaluates to
@@ -304,14 +283,10 @@ DBSnapshotIdentifier: !If
 
 ###### Topics
 
-- [Environment-based resource
-  creation](#environment-based-resource-creation "#environment-based-resource-creation")
-- [Multi-condition resource
-  provisioning](#multi-condition-resource-provisioning "#multi-condition-resource-provisioning")
+- [Environment-based resource creation](#environment-based-resource-creation "#environment-based-resource-creation")
+- [Multi-condition resource provisioning](#multi-condition-resource-provisioning "#multi-condition-resource-provisioning")
 
-### Environment-based resource
-
-creation
+### Environment-based resource creation
 
 This following examples provision an EC2 instance, and conditionally create and
 attach a new EBS volume only if the environment type is `prod`. If the
@@ -423,9 +398,7 @@ Resources:
         - AvailabilityZone
 ```
 
-### Multi-condition resource
-
-provisioning
+### Multi-condition resource provisioning
 
 The following examples conditionally create an S3 bucket if a bucket name is
 provided, and attach a bucket policy only when the environment is set to

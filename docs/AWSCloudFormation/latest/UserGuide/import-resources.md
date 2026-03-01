@@ -29,8 +29,7 @@ CloudFormation offers the following options for importing existing resources int
 - Nesting existing stacks – You can import an existing
   stack as a nested stack within another stack, enabling modular and reusable infrastructure
   designs.
-  CloudFormation supports importing a wide range of resources. For more information, see [Resource type
-  support](resource-import-supported-resources.md "resource-import-supported-resources.md").
+  CloudFormation supports importing a wide range of resources. For more information, see [Resource type support](resource-import-supported-resources.md "resource-import-supported-resources.md").
 
 ###### Topics
 

@@ -6,10 +6,8 @@ more examples, see the [Examples](../TemplateReference/aws-resource-s3-bucket.md
 ###### Topics
 
 - [Creating an Amazon S3 bucket with defaults](#scenario-s3-bucket "#scenario-s3-bucket")
-- [Creating an Amazon S3 bucket for website hosting
-  and with a DeletionPolicy](#scenario-s3-bucket-website "#scenario-s3-bucket-website")
-- [Creating a static website
-  using a custom domain](#scenario-s3-bucket-website-customdomain "#scenario-s3-bucket-website-customdomain")
+- [Creating an Amazon S3 bucket for website hosting and with a DeletionPolicy](#scenario-s3-bucket-website "#scenario-s3-bucket-website")
+- [Creating a static website using a custom domain](#scenario-s3-bucket-website-customdomain "#scenario-s3-bucket-website-customdomain")
 
 ## Creating an Amazon S3 bucket with defaults
 
@@ -31,9 +29,7 @@ MyS3Bucket:
     Type: AWS::S3::Bucket
 ```
 
-## Creating an Amazon S3 bucket for website hosting
-
-and with a `DeletionPolicy`
+## Creating an Amazon S3 bucket for website hosting and with a `DeletionPolicy`
 
 This example creates a bucket as a website and disables Block Public Access (public
 read permissions are required for buckets set up for website hosting). A public bucket
@@ -187,9 +183,7 @@ Outputs:
     Description: Name of S3 bucket to hold website content
 ```
 
-## Creating a static website
-
-using a custom domain
+## Creating a static website using a custom domain
 
 You can use Route 53 with a registered domain. The following sample assumes that you have
 already created a hosted zone in Route 53 for your domain. The example creates two buckets

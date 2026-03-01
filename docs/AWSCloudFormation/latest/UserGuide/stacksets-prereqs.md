@@ -20,8 +20,6 @@ _service-managed_ permissions.
 
 ###### Topics
 
-- [Prepare to perform StackSet operations in
-  AWS Regions that are disabled by default](stacksets-opt-in-regions.md "stacksets-opt-in-regions.md")
+- [Prepare to perform StackSet operations in AWS Regions that are disabled by default](stacksets-opt-in-regions.md "stacksets-opt-in-regions.md")
 - [Grant self-managed permissions](stacksets-prereqs-self-managed.md "stacksets-prereqs-self-managed.md")
-- [Activate trusted access for
-  StackSets with AWS Organizations](stacksets-orgs-activate-trusted-access.md "stacksets-orgs-activate-trusted-access.md")
+- [Activate trusted access for StackSets with AWS Organizations](stacksets-orgs-activate-trusted-access.md "stacksets-orgs-activate-trusted-access.md")

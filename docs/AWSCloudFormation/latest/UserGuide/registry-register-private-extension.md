@@ -1,6 +1,4 @@
-# Register a third-party private
-
-extension in your account
+# Register a third-party private extension in your account
 
 This topic covers the steps to register a third-party private extension that's
 shared with you so it's available for use in your account.
@@ -87,8 +85,7 @@ Hook’s schema `properties` section. For more information, see [Hook configurat
 ###### To specify the configuration data for a Hook (AWS CLI)
 
 1. Get the ARN for your Hook and save it. You can get the ARN of a Hook using
-   the AWS Management Console or AWS CLI. For more information see [View the available and activated extensions in the
-   CloudFormation registry](registry-view.md "registry-view.md").
+   the AWS Management Console or AWS CLI. For more information see [View the available and activated extensions in the CloudFormation registry](registry-view.md "registry-view.md").
 
 ```
 export HOOK_TYPE_ARN="`arn:aws:cloudformation:us-west-2:123456789012:type/hook/Organization-Service-Hook/`"

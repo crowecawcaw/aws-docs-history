@@ -1,6 +1,4 @@
-# Examples of CloudFormation stack operation commands for
-
-the AWS CLI and PowerShell
+# Examples of CloudFormation stack operation commands for the AWS CLI and PowerShell
 
 The following command line examples demonstrate how to perform individual CloudFormation
 actions with the AWS CLI and PowerShell. These examples include only the most commonly used
@@ -26,8 +24,7 @@ command line continues on the next line.
 - [List stacks](#list-stacks-sdk "#list-stacks-sdk")
 - [Update a stack](#update-stack-sdk "#update-stack-sdk")
 - [Validate your template](#validate-template-sdk "#validate-template-sdk")
-- [Upload local artifacts to an S3 bucket with the
-  AWS CLI](using-cfn-cli-package.md "using-cfn-cli-package.md")
+- [Upload local artifacts to an S3 bucket with the AWS CLI](using-cfn-cli-package.md "using-cfn-cli-package.md")
 
 ## Cancel a stack update
 
@@ -82,8 +79,7 @@ Stop-CFNUpdateStack -StackName "myStack"
 ## Continue rolling back an update
 
 Use the [continue-update-rollback](../../../cli/latest/reference/cloudformation/continue-update-rollback.md "../../../cli/latest/reference/cloudformation/continue-update-rollback.md") command to continue rolling
-back an update. For more information, see [Continue rolling back an
-update](using-cfn-updating-stacks-continueupdaterollback.md "using-cfn-updating-stacks-continueupdaterollback.md").
+back an update. For more information, see [Continue rolling back an update](using-cfn-updating-stacks-continueupdaterollback.md "using-cfn-updating-stacks-continueupdaterollback.md").
 
 CLI
 
@@ -1008,8 +1004,7 @@ Get-CFNStackResourceSummary -StackName "myStack"
 Use the [list-stacks](../../../cli/latest/reference/cloudformation/list-stacks.md "../../../cli/latest/reference/cloudformation/list-stacks.md") command to list stacks. To list only stacks
 with the specified status codes, include the `--stack-status-filter` option.
 You can specify one or more stack status codes for the
-`--stack-status-filter` option. For more information, see [Stack status
-codes](view-stack-events.md#cfn-console-view-stack-data-resources-status-codes "view-stack-events.md#cfn-console-view-stack-data-resources-status-codes").
+`--stack-status-filter` option. For more information, see [Stack status codes](view-stack-events.md#cfn-console-view-stack-data-resources-status-codes "view-stack-events.md#cfn-console-view-stack-data-resources-status-codes").
 
 CLI
 

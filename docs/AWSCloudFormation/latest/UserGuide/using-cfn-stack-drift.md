@@ -1,6 +1,4 @@
-# Detect unmanaged configuration changes to stacks and
-
-resources with drift detection
+# Detect unmanaged configuration changes to stacks and resources with drift detection
 
 Even as you manage your resources through CloudFormation, users can change those resources
 outside of CloudFormation. Users can edit resources directly by using
@@ -21,10 +19,8 @@ successful stack operations.
 - [Drift detection status codes](#drift-status-codes "#drift-status-codes")
 - [Considerations when detecting drift](#drift-considerations "#drift-considerations")
 - [Detect drift on an entire CloudFormation stack](detect-drift-stack.md "detect-drift-stack.md")
-- [Detect drift on individual stack
-  resources](detect-drift-resource.md "detect-drift-resource.md")
-- [Resolve drift with an import
-  operation](resource-import-resolve-drift.md "resource-import-resolve-drift.md")
+- [Detect drift on individual stack resources](detect-drift-resource.md "detect-drift-resource.md")
+- [Resolve drift with an import operation](resource-import-resolve-drift.md "resource-import-resolve-drift.md")
 
 ## What is drift?
 
@@ -47,8 +43,7 @@ drifted.
 
 CloudFormation detects drift on those AWS resources that support drift detection.
 Resources that don't support drift detection are assigned a drift status of NOT_CHECKED.
-For a list of AWS resources that support drift detection, see [Resource type
-support](resource-import-supported-resources.md "resource-import-supported-resources.md").
+For a list of AWS resources that support drift detection, see [Resource type support](resource-import-supported-resources.md "resource-import-supported-resources.md").
 
 In addition, CloudFormation supports drift detection on private resource types that are
 _provisionable_; that's, whose provisioning type is either
@@ -65,8 +60,7 @@ You can perform drift detection on stacks with the following statuses:
 `UPDATE_ROLLBACK_FAILED`.
 
 When detecting drift on a stack, CloudFormation does not detect drift on any nested stacks
-that belong to that stack. For more information, see [Split a template into reusable pieces using nested
-stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md").
+that belong to that stack. For more information, see [Split a template into reusable pieces using nested stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md").
 Instead, you can initiate a drift detection operation directly on the nested
 stack.
 

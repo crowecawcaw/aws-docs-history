@@ -5,19 +5,15 @@ existing stack. Nested stacks are common components that you declare and referen
 other templates. That way, you can avoid copying and pasting the same configurations into your
 templates and simplify stack updates. If you have a template for a common component, you can
 use the `AWS::CloudFormation::Stack` resource to reference this template from
-within another template. For more information on nested stacks, see [Split a template into reusable pieces using nested
-stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md").
+within another template. For more information on nested stacks, see [Split a template into reusable pieces using nested stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md").
 
 CloudFormation only supports one level of nesting using `resource import`. This means
 that you can't import a stack into a child stack or import a stack that has children.
 
 If you're new to importing, we recommend that you first review the introductory information
-in the [Import AWS resources into a CloudFormation stack
-manually](import-resources-manually.md "import-resources-manually.md") topic.
+in the [Import AWS resources into a CloudFormation stack manually](import-resources-manually.md "import-resources-manually.md") topic.
 
-## Nested stack import
-
-validation
+## Nested stack import validation
 
 During a nested stack import operation, CloudFormation performs the following validations.
 
@@ -26,9 +22,7 @@ During a nested stack import operation, CloudFormation performs the following va
 - The tags for the nested `AWS::CloudFormation::Stack` definition in the
   parent stack template match the tags for the actual nested stack resource.
 
-## Nest an existing stack using the
-
-AWS Management Console
+## Nest an existing stack using the AWS Management Console
 
 1. Add the `AWS::CloudFormation::Stack` resource to the parent stack
    template with a `Retain`
@@ -156,9 +150,7 @@ It's not necessary to run drift detection on the parent stack after this import
 operation because the `AWS::CloudFormation::Stack` resource was already
 managed by CloudFormation.
 
-## Nest an existing stack using the
-
-AWS CLI
+## Nest an existing stack using the AWS CLI
 
 1. Add the `AWS::CloudFormation::Stack` resource to the parent stack
    template with a `Retain`

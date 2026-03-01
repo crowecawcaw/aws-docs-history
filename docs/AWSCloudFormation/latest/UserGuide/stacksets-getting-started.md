@@ -1,6 +1,4 @@
-# Get started with StackSets using a sample
-
-template
+# Get started with StackSets using a sample template
 
 This tutorial will help you get started with StackSets using the AWS Management Console. It guides
 you through creating a StackSet using a sample template. You'll learn how to deploy stacks
@@ -364,10 +362,8 @@ StackSets.
 
 To learn more about StackSets, explore the following topics:
 
-- [Override parameter values on stacks within
-  your CloudFormation StackSet](stackinstances-override.md "stackinstances-override.md") – Learn how to override
+- [Override parameter values on stacks within your CloudFormation StackSet](stackinstances-override.md "stackinstances-override.md") – Learn how to override
   parameter values for specific accounts and Regions.
-- [Create CloudFormation StackSets with
-  service-managed permissions](stacksets-orgs-associate-stackset-with-org.md "stacksets-orgs-associate-stackset-with-org.md") –
+- [Create CloudFormation StackSets with service-managed permissions](stacksets-orgs-associate-stackset-with-org.md "stacksets-orgs-associate-stackset-with-org.md") –
   Explore creating StackSets for multi-account deployments with
   AWS Organizations.

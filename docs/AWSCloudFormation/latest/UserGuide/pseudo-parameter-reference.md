@@ -121,10 +121,8 @@ endpoints.
 ###### Topics
 
 - [Basic usage](#pseudo-parameter-basic-example "#pseudo-parameter-basic-example")
-- [Using
-  AWS::NotificationARNs](#pseudo-parameter-notification-example "#pseudo-parameter-notification-example")
-- [Conditional properties with
-  AWS::NoValue](#pseudo-parameter-novalue-example "#pseudo-parameter-novalue-example")
+- [Using AWS::NotificationARNs](#pseudo-parameter-notification-example "#pseudo-parameter-notification-example")
+- [Conditional properties with AWS::NoValue](#pseudo-parameter-novalue-example "#pseudo-parameter-novalue-example")
 
 ### Basic usage
 
@@ -187,9 +185,7 @@ Resources:
         - !Sub arn:aws:sns:${AWS::Region}:${AWS::AccountId}:${MyNotificationTopic}
 ```
 
-### Using
-
-AWS::NotificationARNs
+### Using AWS::NotificationARNs
 
 The following examples configure an Auto Scaling group to send notifications for instance launch
 events and launch errors. The configuration uses the `AWS::NotificationARNs`
@@ -246,9 +242,7 @@ myASG:
         - autoscaling:EC2_INSTANCE_LAUNCH_ERROR
 ```
 
-### Conditional properties with
-
-AWS::NoValue
+### Conditional properties with AWS::NoValue
 
 The following examples create an Amazon RDS DB instance that uses a snapshot only if a snapshot ID is
 provided. If the `UseDBSnapshot` condition evaluates to true, CloudFormation uses the

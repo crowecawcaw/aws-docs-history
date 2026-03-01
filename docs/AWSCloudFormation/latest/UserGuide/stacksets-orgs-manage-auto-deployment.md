@@ -1,6 +1,4 @@
-# Enable or disable automatic
-
-deployments for StackSets in AWS Organizations
+# Enable or disable automatic deployments for StackSets in AWS Organizations
 
 CloudFormation can automatically deploy additional stacks to new AWS Organizations accounts when
 they're added to your target organization or organizational units (OUs). You can enable
@@ -8,9 +6,7 @@ automatic deployments and choose whether to delete or retain stacks and their as
 resources when accounts are removed from target OUs. These settings can be modified
 anytime for StackSets that use service-managed permissions.
 
-## How automatic deployments
-
-work
+## How automatic deployments work
 
 When automatic deployments are enabled, they're triggered when accounts are added
 to a target organization or OU, removed from a target organization or OU, or moved
@@ -54,9 +50,7 @@ The following are considerations when using automatic deployments:
   accounts to execute concurrently within a StackSet, increasing processing
   velocity, especially for larger Organizations.
 
-## Enable or disable
-
-automatic deployments (console)
+## Enable or disable automatic deployments (console)
 
 ###### To enable or disable automatic deployments
 
@@ -82,9 +76,7 @@ automatic deployments (console)
 
 7. Choose **Save**.
 
-## Enable or disable
-
-automatic deployments (AWS CLI)
+## Enable or disable automatic deployments (AWS CLI)
 
 ###### To enable or disable automatic deployments
 

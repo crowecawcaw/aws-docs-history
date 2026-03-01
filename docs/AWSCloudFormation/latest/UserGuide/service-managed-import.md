@@ -20,18 +20,12 @@ Regions with a single operation.
 
 ###### Topics
 
-- [Import a service-managed stack
-  into a new StackSet (console)](#import-service-managed-stack-to-new-stackset "#import-service-managed-stack-to-new-stackset")
-- [Create and import a
-  service-managed stack into an existing StackSet (console)](#import-service-managed-stack-to-existing-stackset "#import-service-managed-stack-to-existing-stackset")
-- [Import a
-  service-managed stack into an existing StackSet (console)](#import-service-managed-stack-to-existing-stackset-console "#import-service-managed-stack-to-existing-stackset-console")
-- [Importing a service-managed stack
-  into a StackSet (AWS CLI)](#import-service-managed-stack-to-stackset.cli "#import-service-managed-stack-to-stackset.cli")
+- [Import a service-managed stack into a new StackSet (console)](#import-service-managed-stack-to-new-stackset "#import-service-managed-stack-to-new-stackset")
+- [Create and import a service-managed stack into an existing StackSet (console)](#import-service-managed-stack-to-existing-stackset "#import-service-managed-stack-to-existing-stackset")
+- [Import a service-managed stack into an existing StackSet (console)](#import-service-managed-stack-to-existing-stackset-console "#import-service-managed-stack-to-existing-stackset-console")
+- [Importing a service-managed stack into a StackSet (AWS CLI)](#import-service-managed-stack-to-stackset.cli "#import-service-managed-stack-to-stackset.cli")
 
-## Import a service-managed stack
-
-into a new StackSet (console)
+## Import a service-managed stack into a new StackSet (console)
 
 Import a stack into a new StackSet using the AWS Management Console
 
@@ -77,9 +71,7 @@ want to import.
 8. Review your settings on the **Review** page and choose
    **Submit**.
 
-## Create and import a
-
-service-managed stack into an existing StackSet (console)
+## Create and import a service-managed stack into an existing StackSet (console)
 
 To import an existing stack into a new StackSet, identify a stack that contains the
 resource you want to import.
@@ -125,15 +117,11 @@ resource you want to import.
 Accept your settings and choose **Next**. 9. Review your settings on the **Review** page and choose
 **Submit**.
 
-## Import a
-
-service-managed stack into an existing StackSet (console)
+## Import a service-managed stack into an existing StackSet (console)
 
 Choose your StackSet and identify the stack you want to import.
 
-###### To import
-
-a stack to an existing StackSet
+###### To import a stack to an existing StackSet
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -159,9 +147,7 @@ a stack to an existing StackSet
 6. Confirm and review the **Review** page and choose
    **Submit**.
 
-## Importing a service-managed stack
-
-into a StackSet (AWS CLI)
+## Importing a service-managed stack into a StackSet (AWS CLI)
 
 Once a StackSet is created, you can import your stacks by passing the stack ID's of the
 stacks being imported. You may also pass the OU ID list to which you want to map it to.

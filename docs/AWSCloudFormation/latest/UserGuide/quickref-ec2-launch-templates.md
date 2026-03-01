@@ -1,6 +1,4 @@
-# Create launch templates with
-
-CloudFormation
+# Create launch templates with CloudFormation
 
 This section provides an example for creating an Amazon EC2 launch template using
 CloudFormation. Launch templates allow you to create templates for configuring and
@@ -18,12 +16,9 @@ launch templates](../../../autoscaling/ec2/userguide/launch-templates.md "../../
 
 ###### Snippet categories
 
-- [Create a launch template that
-  specifies security groups, tags, user data, and an IAM role](#scenario-as-launch-template "#scenario-as-launch-template")
+- [Create a launch template that specifies security groups, tags, user data, and an IAM role](#scenario-as-launch-template "#scenario-as-launch-template")
 
-## Create a launch template that
-
-specifies security groups, tags, user data, and an IAM role
+## Create a launch template that specifies security groups, tags, user data, and an IAM role
 
 This snippet shows an [AWS::EC2::LaunchTemplate](../TemplateReference/aws-resource-ec2-launchtemplate.md "../TemplateReference/aws-resource-ec2-launchtemplate.md") resource that contains the configuration
 information to launch an instance. You specify values for the `ImageId`,

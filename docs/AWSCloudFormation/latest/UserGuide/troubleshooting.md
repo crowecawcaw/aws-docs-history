@@ -55,35 +55,22 @@ following solutions to help you find the source of the problems and fix them.
 
 ###### Topics
 
-- [Delete stack
-  fails](#troubleshooting-errors-delete-stack-fails "#troubleshooting-errors-delete-stack-fails")
+- [Delete stack fails](#troubleshooting-errors-delete-stack-fails "#troubleshooting-errors-delete-stack-fails")
 - [Dependency error](#troubleshooting-errors-dependency-error "#troubleshooting-errors-dependency-error")
-- [AWS Config and
-  AWS Systems Manager conflicts](#troubleshooting-errors-config-system-manager-conflict "#troubleshooting-errors-config-system-manager-conflict")
+- [AWS Config and AWS Systems Manager conflicts](#troubleshooting-errors-config-system-manager-conflict "#troubleshooting-errors-config-system-manager-conflict")
 - [Error parsing parameter when passing a list](#troubleshooting-errors-error-parsing-parameter-when-passing-a-list "#troubleshooting-errors-error-parsing-parameter-when-passing-a-list")
-- [Insufficient
-  IAM permissions](#troubleshooting-errors-insufficient-iam-permissions "#troubleshooting-errors-insufficient-iam-permissions")
+- [Insufficient IAM permissions](#troubleshooting-errors-insufficient-iam-permissions "#troubleshooting-errors-insufficient-iam-permissions")
 - [Invalid value or unsupported resource property](#troubleshooting-errors-invalid-value-or-unsupported-resource-property "#troubleshooting-errors-invalid-value-or-unsupported-resource-property")
 - [Quota exceeded](#troubleshooting-errors-limit-exceeded "#troubleshooting-errors-limit-exceeded")
-- [Nested stacks are
-  stuck in UPDATE_COMPLETE_CLEANUP_IN_PROGRESS,
-  UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS, or
-  UPDATE_ROLLBACK_IN_PROGRESS](#troubleshooting-errors-nested-stacks-are-stuck "#troubleshooting-errors-nested-stacks-are-stuck")
-- [No updates to
-  perform](#troubleshooting-errors-no-updates-to-perform "#troubleshooting-errors-no-updates-to-perform")
-- [Resource failed to
-  stabilize during a create, update, or delete stack operation](#troubleshooting-resource-did-not-stabilize "#troubleshooting-resource-did-not-stabilize")
+- [Nested stacks are stuck in UPDATE_COMPLETE_CLEANUP_IN_PROGRESS, UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS, or UPDATE_ROLLBACK_IN_PROGRESS](#troubleshooting-errors-nested-stacks-are-stuck "#troubleshooting-errors-nested-stacks-are-stuck")
+- [No updates to perform](#troubleshooting-errors-no-updates-to-perform "#troubleshooting-errors-no-updates-to-perform")
+- [Resource failed to stabilize during a create, update, or delete stack operation](#troubleshooting-resource-did-not-stabilize "#troubleshooting-resource-did-not-stabilize")
 - [Security group does not exist in VPC](#troubleshooting-errors-security-group-does-not-exist-in-vpc "#troubleshooting-errors-security-group-does-not-exist-in-vpc")
-- [Update rollback
-  failed](#troubleshooting-errors-update-rollback-failed "#troubleshooting-errors-update-rollback-failed")
-- [Wait condition didn't receive the required number of signals from an Amazon EC2
-  instance](#troubleshooting-errors-wait-condition-didnt-receive-the-required-number-of-signals "#troubleshooting-errors-wait-condition-didnt-receive-the-required-number-of-signals")
-- [Resource
-  removed from stack but not deleted](#troubleshooting-errors-resource-removed-not-deleted "#troubleshooting-errors-resource-removed-not-deleted")
+- [Update rollback failed](#troubleshooting-errors-update-rollback-failed "#troubleshooting-errors-update-rollback-failed")
+- [Wait condition didn't receive the required number of signals from an Amazon EC2 instance](#troubleshooting-errors-wait-condition-didnt-receive-the-required-number-of-signals "#troubleshooting-errors-wait-condition-didnt-receive-the-required-number-of-signals")
+- [Resource removed from stack but not deleted](#troubleshooting-errors-resource-removed-not-deleted "#troubleshooting-errors-resource-removed-not-deleted")
 
-### Delete stack
-
-fails
+### Delete stack fails
 
 To resolve this situation, try the following:
 
@@ -122,8 +109,7 @@ again. It's strongly recommended that you don't delete nested stacks
 directly, but only delete them as part of deleting the root stack and all
 its resources.
 
-For more information, see [Protect CloudFormation stacks from being
-deleted](using-cfn-protect-stacks.md "using-cfn-protect-stacks.md").
+For more information, see [Protect CloudFormation stacks from being deleted](using-cfn-protect-stacks.md "using-cfn-protect-stacks.md").
 
 - For all other issues, if you have AWS Support, you can create a Support case.
   See [Contacting support](#contacting-support "#contacting-support").
@@ -138,9 +124,7 @@ gateway in the same stack, the Elastic IP must depend on the Internet gateway
 attachment. For more information, see [DependsOn
 attribute](../TemplateReference/aws-attribute-dependson.md "../TemplateReference/aws-attribute-dependson.md").
 
-### AWS Config and
-
-AWS Systems Manager conflicts
+### AWS Config and AWS Systems Manager conflicts
 
 AWS Config and AWS Systems Manager can automate infrastructure management tasks which can
 cause conflict with the deployment of a CloudFormation stack. Do the following to avoid
@@ -178,9 +162,7 @@ an input parameter when using the AWS CLI.
 ParameterKey=CIDR,ParameterValue='10.10.0.0/16\,10.10.0.0/24\,10.10.1.0/24'
 ```
 
-### Insufficient
-
-IAM permissions
+### Insufficient IAM permissions
 
 When you work with a CloudFormation stack, you not only need permissions to use
 CloudFormation, you must also have permission to use the underlying services that are
@@ -219,11 +201,7 @@ resource quota, which would cause your update to fail. You can delete excess
 resources or request a [quota
 increase](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md").
 
-### Nested stacks are
-
-stuck in `UPDATE_COMPLETE_CLEANUP_IN_PROGRESS`,
-`UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS`, or
-`UPDATE_ROLLBACK_IN_PROGRESS`
+### Nested stacks are stuck in `UPDATE_COMPLETE_CLEANUP_IN_PROGRESS`, `UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS`, or `UPDATE_ROLLBACK_IN_PROGRESS`
 
 A nested stack failed to roll back. Because of potential resource dependencies
 between nested stacks, CloudFormation doesn't start cleaning up nested stack resources
@@ -245,9 +223,7 @@ updated.
 
 To fix the stack, contact [AWS Support](#contacting-support "#contacting-support").
 
-### No updates to
-
-perform
+### No updates to perform
 
 To update a CloudFormation stack, you must submit template or parameter value changes
 to CloudFormation. However, CloudFormation won't recognize some template changes as an
@@ -258,9 +234,7 @@ metadata attribute can be any arbitrary value, as CloudFormation does not interp
 content. For more information, see [Metadata
 attribute](../TemplateReference/aws-attribute-metadata.md "../TemplateReference/aws-attribute-metadata.md").
 
-### Resource failed to
-
-stabilize during a create, update, or delete stack operation
+### Resource failed to stabilize during a create, update, or delete stack operation
 
 A resource didn't respond because the operation exceeded the CloudFormation timeout
 period or an AWS service was interrupted. For service interruptions, [check](http://status.aws.amazon.com/ "http://status.aws.amazon.com/") that the relevant AWS service is
@@ -300,9 +274,7 @@ resource has a `SourceSecurityGroupName` and
 use the `SourceSecurityGroupId` property and specify the security group
 ID.
 
-### Update rollback
-
-failed
+### Update rollback failed
 
 A dependent resource can't return to its original state, causing the rollback to
 fail (`UPDATE_ROLLBACK_FAILED` state). For example, you might have a
@@ -367,8 +339,7 @@ operation is complete or the AWS service is back in operation,
 continue rolling back the update.
 
 To continue rolling back an update, you can use the CloudFormation console or AWS
-command line interface (AWS CLI). For more information, see [Continue rolling back an
-update](using-cfn-updating-stacks-continueupdaterollback.md "using-cfn-updating-stacks-continueupdaterollback.md").
+command line interface (AWS CLI). For more information, see [Continue rolling back an update](using-cfn-updating-stacks-continueupdaterollback.md "using-cfn-updating-stacks-continueupdaterollback.md").
 
 If none of these solutions work, you can skip the resources that CloudFormation can't
 successfully roll back. For more information, see the `ResourcesToSkip`
@@ -381,9 +352,7 @@ perform another stack update, you must modify the resources or update the stack 
 be consistent with each other. If you don't, subsequent stack updates might fail and
 make your stack unrecoverable.
 
-### Wait condition didn't receive the required number of signals from an Amazon EC2
-
-instance
+### Wait condition didn't receive the required number of signals from an Amazon EC2 instance
 
 To resolve this situation, try the following:
 
@@ -416,9 +385,7 @@ To resolve this situation, try the following:
 For information about configuring a NAT device, see [NAT](../../../vpc/latest/userguide/vpc-nat.md "../../../vpc/latest/userguide/vpc-nat.md") in the
 _Amazon VPC User Guide_.
 
-### Resource
-
-removed from stack but not deleted
+### Resource removed from stack but not deleted
 
 During a stack update, CloudFormation has removed a resource from a stack but not
 deleted the resource. The resource still exists, but is no longer accessible through
@@ -452,8 +419,7 @@ support, gather the following information:
 
 - The ID of the stack. You can find the stack ID in the
   **Overview** tab of the [CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"). For more information, see
-  [View stack information from the
-  CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md").
+  [View stack information from the CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md").
 
 ###### Important
 

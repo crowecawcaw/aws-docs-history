@@ -1,6 +1,4 @@
-# StackSet Stack
-
-Instance Status Change event detail
+# StackSet Stack Instance Status Change event detail
 
 Below are the detail fields for StackSet stack instance status events.
 

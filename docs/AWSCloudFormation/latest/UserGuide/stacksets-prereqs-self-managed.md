@@ -13,18 +13,12 @@ access](stacksets-orgs-activate-trusted-access.md "stacksets-orgs-activate-trust
 
 ###### Topics
 
-- [Self-managed permissions
-  overview](#prereqs-self-managed-permissions "#prereqs-self-managed-permissions")
-- [Give all users of the administrator
-  account permissions to manage stacks in all target accounts](#stacksets-prereqs-accountsetup "#stacksets-prereqs-accountsetup")
-- [Set up advanced permissions
-  options for StackSet operations](#stacksets-prereqs-advanced-perms "#stacksets-prereqs-advanced-perms")
-- [Set up global keys to mitigate confused
-  deputy problems](#confused-deputy-mitigation "#confused-deputy-mitigation")
+- [Self-managed permissions overview](#prereqs-self-managed-permissions "#prereqs-self-managed-permissions")
+- [Give all users of the administrator account permissions to manage stacks in all target accounts](#stacksets-prereqs-accountsetup "#stacksets-prereqs-accountsetup")
+- [Set up advanced permissions options for StackSet operations](#stacksets-prereqs-advanced-perms "#stacksets-prereqs-advanced-perms")
+- [Set up global keys to mitigate confused deputy problems](#confused-deputy-mitigation "#confused-deputy-mitigation")
 
-## Self-managed permissions
-
-overview
+## Self-managed permissions overview
 
 Before you create a StackSet with self-managed permissions, you must have created
 IAM service roles in each account.
@@ -62,9 +56,7 @@ Specifically, the two required roles are:
      – This role is deployed to all accounts where you create
      stack instances.
 
-## Give all users of the administrator
-
-account permissions to manage stacks in all target accounts
+## Give all users of the administrator account permissions to manage stacks in all target accounts
 
 This section shows you how to set up permissions to allow all users and groups of
 the administrator account to perform StackSet operations in all target accounts. It
@@ -161,8 +153,7 @@ disabled by default.
 
 ```
 
-For more information, see [Prepare to perform StackSet operations in
-AWS Regions that are disabled by default](stacksets-opt-in-regions.md "stacksets-opt-in-regions.md"). For a list of Region
+For more information, see [Prepare to perform StackSet operations in AWS Regions that are disabled by default](stacksets-opt-in-regions.md "stacksets-opt-in-regions.md"). For a list of Region
 codes, see [Regional
 endpoints](../../../general/latest/gr/rande.md#regional-endpoints "../../../general/latest/gr/rande.md#regional-endpoints") in the _AWS General Reference
 Guide_.
@@ -266,9 +257,7 @@ account trust relationships with the new administrator account role,
 represented by `admin_account_id` in the
 preceding example.
 
-## Set up advanced permissions
-
-options for StackSet operations
+## Set up advanced permissions options for StackSet operations
 
 If you require finer-grained control over the StackSets that users and groups
 are creating through a single administrator account, you can use IAM roles to
@@ -280,9 +269,7 @@ specify:
   StackSets.
 - Which StackSet operations specific users and groups can perform.
 
-### Control which users can perform
-
-StackSet operations in specific target accounts
+### Control which users can perform StackSet operations in specific target accounts
 
 Use customized administration roles to control which users and groups can
 perform StackSet operations in which target accounts. You might want to control
@@ -426,8 +413,7 @@ disabled by default.
 
 ```
 
-For more information, see [Prepare to perform StackSet operations in
-AWS Regions that are disabled by default](stacksets-opt-in-regions.md "stacksets-opt-in-regions.md"). For a list of Region
+For more information, see [Prepare to perform StackSet operations in AWS Regions that are disabled by default](stacksets-opt-in-regions.md "stacksets-opt-in-regions.md"). For a list of Region
 codes, see [Regional endpoints](../../../general/latest/gr/rande.md#regional-endpoints "../../../general/latest/gr/rande.md#regional-endpoints") in the _AWS General
 Reference Guide_.
 
@@ -523,9 +509,7 @@ the role to define the trust relationship.
 
 ```
 
-### Control the resources that
-
-users can include in specific StackSets
+### Control the resources that users can include in specific StackSets
 
 Use customized execution roles to control which stack resources users and
 groups can include in their StackSets. For example, you might want to set up
@@ -563,8 +547,7 @@ permissions to perform operations on that StackSet.
 
 Administrator account
 Create a customized administration role in your administrator
-account, as detailed in [Control which users can perform
-StackSet operations in specific target accounts](#stacksets-prereqs-multiadmin "#stacksets-prereqs-multiadmin"). Include a trust
+account, as detailed in [Control which users can perform StackSet operations in specific target accounts](#stacksets-prereqs-multiadmin "#stacksets-prereqs-multiadmin"). Include a trust
 relationship between the customized administration role and the
 customized execution roles that you want it to use.
 
@@ -651,18 +634,14 @@ the role to define the trust relationship.
 
 ```
 
-### Set up permissions for specific
-
-StackSet operations
+### Set up permissions for specific StackSet operations
 
 In addition, you can set up permissions for which user and groups can perform
 specific StackSet operations, such as creating, updating, or deleting StackSets
 or stack instances. For more information, see [Actions, resources, and condition keys for CloudFormation](../../../service-authorization/latest/reference/list_awscloudformation.md "../../../service-authorization/latest/reference/list_awscloudformation.md") in the
 _Service Authorization Reference_.
 
-## Set up global keys to mitigate confused
-
-deputy problems
+## Set up global keys to mitigate confused deputy problems
 
 The confused deputy problem is a security issue where an entity that doesn't have
 permission to perform an action can coerce a more-privileged entity to perform the
@@ -704,10 +683,7 @@ context keys in StackSets to prevent the confused deputy problem.
 
 Administrator account
 
-###### Example Global keys for
-
-`aws:SourceAccount` and
-`aws:SourceArn`
+###### Example Global keys for `aws:SourceAccount` and `aws:SourceArn`
 
 When using StackSets, define the global keys
 `aws:SourceAccount` and `aws:SourceArn` in
@@ -739,9 +715,7 @@ trust policy to prevent confused deputy problems.
 
 ```
 
-###### Example StackSets
-
-ARNs
+###### Example StackSets ARNs
 
 Specify your associated StackSets ARNs for finer
 control.

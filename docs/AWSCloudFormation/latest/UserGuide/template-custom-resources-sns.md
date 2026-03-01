@@ -21,9 +21,7 @@ subscribed to the SNS topic.
 For an introduction to custom resources and how they work, see [How custom resources work](template-custom-resources.md#how-custom-resources-work "template-custom-resources.md#how-custom-resources-work"). For
 information about Amazon SNS and how it works, see the [Amazon Simple Notification Service Developer Guide](../../../sns/latest/dg.md "../../../sns/latest/dg.md").
 
-## Using Amazon SNS to
-
-create custom resources
+## Using Amazon SNS to create custom resources
 
 ###### Topics
 
@@ -174,8 +172,7 @@ outputs:
 To update an existing stack, you must submit a template that specifies updates for
 the properties of resources in the stack, as shown in the example below. CloudFormation
 updates only the resources that have changes specified in the template. For more
-information, see [Understand update behaviors of stack
-resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md").
+information, see [Understand update behaviors of stack resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md").
 
 You can update custom resources that require a replacement of the underlying physical
 resource. When you update a custom resource in a CloudFormation template, CloudFormation sends

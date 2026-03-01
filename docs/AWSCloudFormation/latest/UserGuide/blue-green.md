@@ -1,6 +1,4 @@
-# Perform ECS blue/green deployments through CodeDeploy using
-
-CloudFormation
+# Perform ECS blue/green deployments through CodeDeploy using CloudFormation
 
 To update an application running on Amazon Elastic Container Service (Amazon ECS), you can use a CodeDeploy blue/green
 deployment strategy. This strategy helps minimize interruptions caused by changing application
@@ -25,8 +23,6 @@ information in your stack template:
 ###### Topics
 
 - [About blue/green deployments](about-blue-green-deployments.md "about-blue-green-deployments.md")
-- [Considerations when managing ECS blue/green
-  deployments using CloudFormation](blue-green-considerations.md "blue-green-considerations.md")
-- [AWS::CodeDeploy::BlueGreen hook
-  syntax](blue-green-hook-syntax.md "blue-green-hook-syntax.md")
+- [Considerations when managing ECS blue/green deployments using CloudFormation](blue-green-considerations.md "blue-green-considerations.md")
+- [AWS::CodeDeploy::BlueGreen hook syntax](blue-green-hook-syntax.md "blue-green-hook-syntax.md")
 - [Blue/green deployment template example](blue-green-template-example.md "blue-green-template-example.md")

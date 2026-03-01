@@ -1,6 +1,4 @@
-# Drift Detection Status
-
-Change event detail
+# Drift Detection Status Change event detail
 
 Below are the detail fields for stack drift detection events.
 

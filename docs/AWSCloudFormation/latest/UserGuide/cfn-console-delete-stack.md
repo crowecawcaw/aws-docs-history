@@ -24,8 +24,7 @@ The stack proceeds to the `DELETE_IN_PROGRESS` state.
 After the stack deletion is complete, the stack will be in the
 `DELETE_COMPLETE` state. Stacks in the `DELETE_COMPLETE`
 state aren't displayed in the CloudFormation console by default. To display deleted
-stacks, you must change the stack view filter as described in [View deleted stacks from the CloudFormation
-console](cfn-console-view-deleted-stacks.md "cfn-console-view-deleted-stacks.md").
+stacks, you must change the stack view filter as described in [View deleted stacks from the CloudFormation console](cfn-console-view-deleted-stacks.md "cfn-console-view-deleted-stacks.md").
 
 ###### To force delete a stack (console)
 
@@ -67,14 +66,11 @@ You can use one of the following commands:
 
 - [delete-stack](../../../cli/latest/reference/cloudformation/delete-stack.md "../../../cli/latest/reference/cloudformation/delete-stack.md") (AWS CLI)
 - [Remove-CFNStack](../../../powershell/latest/reference/items/Remove-CFNStack.md "../../../powershell/latest/reference/items/Remove-CFNStack.md") (AWS Tools for Windows PowerShell)
-  For examples of using the command line to delete a stack, see [Examples of CloudFormation stack operation commands for
-  the AWS CLI and PowerShell](service_code_examples.md "service_code_examples.md").
+  For examples of using the command line to delete a stack, see [Examples of CloudFormation stack operation commands for the AWS CLI and PowerShell](service_code_examples.md "service_code_examples.md").
 
 ## Related resources
 
-For help troubleshooting stack deletion errors, see the [Delete stack
-fails](troubleshooting.md#troubleshooting-errors-delete-stack-fails "troubleshooting.md#troubleshooting-errors-delete-stack-fails") troubleshooting
+For help troubleshooting stack deletion errors, see the [Delete stack fails](troubleshooting.md#troubleshooting-errors-delete-stack-fails "troubleshooting.md#troubleshooting-errors-delete-stack-fails") troubleshooting
 topic.
 
-For information on protecting stacks from being accidentally deleted, see [Protect CloudFormation stacks from being
-deleted](using-cfn-protect-stacks.md "using-cfn-protect-stacks.md").
+For information on protecting stacks from being accidentally deleted, see [Protect CloudFormation stacks from being deleted](using-cfn-protect-stacks.md "using-cfn-protect-stacks.md").

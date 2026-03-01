@@ -56,8 +56,7 @@ Remember, you can't change execution settings when operations are
 running or queued. 14. If your template contains IAM resources, for
 **Capabilities**, choose **I acknowledge that
 this template may create IAM resources** to specify that you
-want to use IAM resources in the template. For more information, see [Acknowledging IAM resources in CloudFormation
-templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities"). 15. Choose **Next**. 16. On the **Set deployment options** page, provide the
+want to use IAM resources in the template. For more information, see [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities"). 15. Choose **Next**. 16. On the **Set deployment options** page, provide the
 accounts and Regions for the update.
 
 CloudFormation will deploy stack updates in the specified accounts within the
@@ -117,8 +116,7 @@ deployment failures don't exceed a specified failure tolerance.
     	* [Service-managed permissions] For StackSet
     	 **dependencies**, add dependent StackSet
     	 ARNs, staying within 10 dependencies maximum. For more
-    	 information, see [Enable or disable automatic
-    	 deployments for StackSets in AWS Organizations](stacksets-orgs-manage-auto-deployment.md "stacksets-orgs-manage-auto-deployment.md").
+    	 information, see [Enable or disable automatic deployments for StackSets in AWS Organizations](stacksets-orgs-manage-auto-deployment.md "stacksets-orgs-manage-auto-deployment.md").
     4. Choose **Next** to continue.
 
 17. On the **Review** page, review your choices. To make

@@ -4,9 +4,7 @@ To revert an import operation, specify a `Retain` deletion policy for the
 resource you want to remove from the template to ensure that it's preserved when you delete it
 from the stack.
 
-## Revert an import operation using the
-
-AWS Management Console
+## Revert an import operation using the AWS Management Console
 
 1. Specify a `Retain`
    [DeletionPolicy](../TemplateReference/aws-attribute-deletionpolicy.md "../TemplateReference/aws-attribute-deletionpolicy.md") for the resources you want to remove from your stack. In
@@ -93,8 +91,7 @@ AWS Management Console
       **I acknowledge that this template may create IAM
       resources** to specify that you want to use IAM resources in the
       template. For more information, see
-      [Acknowledging IAM resources in CloudFormation
-      templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
+      [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
       Then, either update your source stack by creating a change set or update your
       source stack directly.
 
@@ -137,9 +134,7 @@ AWS Management Console
 4. Repeat step 2 to delete the resource (`GamesTable`) and its related
    parameters and outputs from the stack.
 
-## Revert an import operation using the
-
-AWS CLI
+## Revert an import operation using the AWS CLI
 
 1. Specify a `Retain`
    [DeletionPolicy](../TemplateReference/aws-attribute-deletionpolicy.md "../TemplateReference/aws-attribute-deletionpolicy.md") for the resources you want to remove from your stack. In

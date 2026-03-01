@@ -36,8 +36,7 @@ CloudFormation will add, modify, or remove.
 ###### Note
 
 A modification can cause the resource to be interrupted or replaced
-(recreated). For more information about resource update behaviors, see [Understand update behaviors of stack
-resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md").
+(recreated). For more information about resource update behaviors, see [Understand update behaviors of stack resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md").
 
 To focus on specific changes, use the filter view. For example, filter for a
 specific resource type, such as `AWS::EC2::Instance`. To filter for a
@@ -96,8 +95,7 @@ CloudFormation will add, modify, remove, or show the status of dynamic.
 ###### Note
 
 A modification can cause the resource to be interrupted or replaced
-(recreated). For more information about resource update behaviors, see [Understand update behaviors of stack
-resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md").
+(recreated). For more information about resource update behaviors, see [Understand update behaviors of stack resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md").
 
 To focus on specific changes, use the filter view. For example, filter for a
 specific resource type, such as `AWS::CloudFormation::Stack`.
@@ -234,9 +232,7 @@ _AWS CloudFormation API Reference_.
 
 For additional examples of change sets, see [Example change sets for CloudFormation stacks](using-cfn-updating-stacks-changesets-samples.md "using-cfn-updating-stacks-changesets-samples.md").
 
-###### To view property-level changes in a change set
-
-(AWS CLI)
+###### To view property-level changes in a change set (AWS CLI)
 
 - The following command lists the property-level changes related to a change set for a
   `AWS::EC2::NetworkInterface` resource that will remove the

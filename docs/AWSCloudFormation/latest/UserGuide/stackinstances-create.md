@@ -7,13 +7,10 @@ AWS CLI.
 
 ###### Topics
 
-- [Add stacks to a StackSet
-  (console)](#stackinstances-create-console "#stackinstances-create-console")
+- [Add stacks to a StackSet (console)](#stackinstances-create-console "#stackinstances-create-console")
 - [Add stacks to a StackSet (AWS CLI)](#stackinstances-create-cli "#stackinstances-create-cli")
 
-## Add stacks to a StackSet
-
-(console)
+## Add stacks to a StackSet (console)
 
 ###### To add stacks to a StackSet
 
@@ -125,8 +122,7 @@ aws cloudformation create-stack-instances --stack-set-name `my-stackset` \
 Use the **create-stack-instances** CLI command. For the
 `--deployment-targets` option, provide the organization (root) ID
 or OU IDs for which you want to create stacks. For example commands that target
-specific accounts, see [Create a StackSet with
-service-managed permissions (AWS CLI)](stacksets-orgs-associate-stackset-with-org.md#stacksets-orgs-associate-stackset-with-org-cli "stacksets-orgs-associate-stackset-with-org.md#stacksets-orgs-associate-stackset-with-org-cli").
+specific accounts, see [Create a StackSet with service-managed permissions (AWS CLI)](stacksets-orgs-associate-stackset-with-org.md#stacksets-orgs-associate-stackset-with-org-cli "stacksets-orgs-associate-stackset-with-org.md#stacksets-orgs-associate-stackset-with-org-cli").
 
 ```
 aws cloudformation create-stack-instances --stack-set-name `my-stackset` \

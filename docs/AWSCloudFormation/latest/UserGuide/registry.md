@@ -16,14 +16,10 @@ extensions in your account, including:
 
 - [Related documentation](#registry-related-documentation "#registry-related-documentation")
 - [CloudFormation registry concepts](registry-concepts.md "registry-concepts.md")
-- [View the available and activated extensions in the
-  CloudFormation registry](registry-view.md "registry-view.md")
-- [Use third-party public extensions from the CloudFormation
-  registry](registry-public.md "registry-public.md")
-- [Use third-party private extensions that have been
-  shared with you](registry-private.md "registry-private.md")
-- [Edit configuration data for extensions in
-  your account](registry-set-configuration.md "registry-set-configuration.md")
+- [View the available and activated extensions in the CloudFormation registry](registry-view.md "registry-view.md")
+- [Use third-party public extensions from the CloudFormation registry](registry-public.md "registry-public.md")
+- [Use third-party private extensions that have been shared with you](registry-private.md "registry-private.md")
+- [Edit configuration data for extensions in your account](registry-set-configuration.md "registry-set-configuration.md")
 - [Record resource types in AWS Config](registry-config-record.md "registry-config-record.md")
 
 ## Related documentation

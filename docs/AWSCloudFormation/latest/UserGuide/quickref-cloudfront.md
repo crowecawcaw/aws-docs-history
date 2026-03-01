@@ -5,19 +5,13 @@ more information, see the [Amazon CloudFront resource type reference](../Templat
 
 ###### Topics
 
-- [Amazon CloudFront distribution resource with an
-  Amazon S3 origin](#scenario-cloudfront-s3origin "#scenario-cloudfront-s3origin")
-- [Amazon CloudFront distribution resource with
-  custom origin](#scenario-cloudfront-customorigin "#scenario-cloudfront-customorigin")
-- [Amazon CloudFront distribution with
-  multi-origin support](#scenario-cloudfront-multiorigin "#scenario-cloudfront-multiorigin")
-- [Amazon CloudFront distribution with a Lambda
-  function as origin](#scenario-cloudfront-lambda-origin "#scenario-cloudfront-lambda-origin")
+- [Amazon CloudFront distribution resource with an Amazon S3 origin](#scenario-cloudfront-s3origin "#scenario-cloudfront-s3origin")
+- [Amazon CloudFront distribution resource with custom origin](#scenario-cloudfront-customorigin "#scenario-cloudfront-customorigin")
+- [Amazon CloudFront distribution with multi-origin support](#scenario-cloudfront-multiorigin "#scenario-cloudfront-multiorigin")
+- [Amazon CloudFront distribution with a Lambda function as origin](#scenario-cloudfront-lambda-origin "#scenario-cloudfront-lambda-origin")
 - [See also](#w2aac11c41c27c15 "#w2aac11c41c27c15")
 
-## Amazon CloudFront distribution resource with an
-
-Amazon S3 origin
+## Amazon CloudFront distribution resource with an Amazon S3 origin
 
 The following example template shows an Amazon CloudFront [Distribution](../TemplateReference/aws-resource-cloudfront-distribution.md "../TemplateReference/aws-resource-cloudfront-distribution.md")
 using an [S3Origin](../TemplateReference/aws-properties-cloudfront-distribution-s3originconfig.md "../TemplateReference/aws-properties-cloudfront-distribution-s3originconfig.md") and legacy origin access identity (OAI). For information about
@@ -128,9 +122,7 @@ Resources:
           CloudFrontDefaultCertificate: 'true'
 ```
 
-## Amazon CloudFront distribution resource with
-
-custom origin
+## Amazon CloudFront distribution resource with custom origin
 
 The following example template shows an Amazon CloudFront [Distribution](../TemplateReference/aws-resource-cloudfront-distribution.md "../TemplateReference/aws-resource-cloudfront-distribution.md")
 using a [CustomOrigin](../TemplateReference/aws-properties-cloudfront-distribution-customoriginconfig.md "../TemplateReference/aws-properties-cloudfront-distribution-customoriginconfig.md").
@@ -253,9 +245,7 @@ Resources:
           CloudFrontDefaultCertificate: 'true'
 ```
 
-## Amazon CloudFront distribution with
-
-multi-origin support
+## Amazon CloudFront distribution with multi-origin support
 
 The following example template shows how to declare a CloudFront [Distribution](../TemplateReference/aws-resource-cloudfront-distribution.md "../TemplateReference/aws-resource-cloudfront-distribution.md") with
 multi-origin support. In the [DistributionConfig](../TemplateReference/aws-properties-cloudfront-distribution-distributionconfig.md "../TemplateReference/aws-properties-cloudfront-distribution-distributionconfig.md"), a list of origins is provided and a [DefaultCacheBehavior](../TemplateReference/aws-properties-cloudfront-distribution-defaultcachebehavior.md "../TemplateReference/aws-properties-cloudfront-distribution-defaultcachebehavior.md") is set.
@@ -438,9 +428,7 @@ Resources:
           CloudFrontDefaultCertificate: 'true'
 ```
 
-## Amazon CloudFront distribution with a Lambda
-
-function as origin
+## Amazon CloudFront distribution with a Lambda function as origin
 
 The following example creates a CloudFront distribution that fronts a specified Lambda
 function URL (provided as a parameter), enabling HTTPS-only access, caching,
@@ -543,5 +531,4 @@ Outputs:
 ## See also
 
 For an example of adding a custom alias to a Route 53 record to make a friendly name
-for a CloudFront distribution, see [Alias resource record
-set for a CloudFront distribution](quickref-route53.md#scenario-user-friendly-url-for-cloudfront-distribution "quickref-route53.md#scenario-user-friendly-url-for-cloudfront-distribution").
+for a CloudFront distribution, see [Alias resource record set for a CloudFront distribution](quickref-route53.md#scenario-user-friendly-url-for-cloudfront-distribution "quickref-route53.md#scenario-user-friendly-url-for-cloudfront-distribution").

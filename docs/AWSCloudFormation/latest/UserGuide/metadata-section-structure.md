@@ -1,6 +1,4 @@
-# CloudFormation template Metadata
-
-syntax
+# CloudFormation template Metadata syntax
 
 `Metadata` stores additional information using JSON or YAML objects. The types
 of template-level metadata you can use in your template include:
@@ -56,5 +54,4 @@ Metadata:
     `Description`: "`Information about the databases`"
 ```
 
-For the syntax for the `AWS::CloudFormation::Interface`, see [Organizing CloudFormation parameters with
-AWS::CloudFormation::Interface metadata](aws-cloudformation-interface.md "aws-cloudformation-interface.md").
+For the syntax for the `AWS::CloudFormation::Interface`, see [Organizing CloudFormation parameters with AWS::CloudFormation::Interface metadata](aws-cloudformation-interface.md "aws-cloudformation-interface.md").

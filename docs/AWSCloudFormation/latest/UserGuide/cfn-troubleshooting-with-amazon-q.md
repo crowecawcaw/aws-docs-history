@@ -1,6 +1,4 @@
-# Troubleshoot unsuccessful CloudFormation stack
-
-deployments with Amazon Q Developer
+# Troubleshoot unsuccessful CloudFormation stack deployments with Amazon Q Developer
 
 Amazon Q Developer is a generative artificial intelligence (AI) powered conversational assistant
 that can help you understand, build, extend, and operate AWS applications. For information

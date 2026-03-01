@@ -1,6 +1,4 @@
-# Get exported outputs from a deployed CloudFormation
-
-stack
+# Get exported outputs from a deployed CloudFormation stack
 
 When you have multiple stacks in the same AWS account and Region, you might want to share
 information between them. This is useful when one stack needs to use resources created by
@@ -23,12 +21,9 @@ stack and _import_ them into another stack. Here's how it works:
 4. When you create or update the second stack (for example, the web server stack),
    CloudFormation automatically retrieves the exported values from the first stack and uses
    them.
-   For a walkthrough and sample templates, see [Refer to resource outputs in another CloudFormation
-   stack](walkthrough-crossstackref.md "walkthrough-crossstackref.md").
+   For a walkthrough and sample templates, see [Refer to resource outputs in another CloudFormation stack](walkthrough-crossstackref.md "walkthrough-crossstackref.md").
 
-## Exporting stack output values versus using nested
-
-stacks
+## Exporting stack output values versus using nested stacks
 
 A nested stack is a stack that you create within another stack by using the
 `AWS::CloudFormation::Stack` resource. With nested stacks, you deploy and manage
@@ -42,8 +37,7 @@ then export its ID. Other stacks can use that subnet by importing its ID. Each s
 need to create its own subnet. As long as stacks are importing the subnet ID, you can't change
 or delete it.
 
-For more information about nested stacks, see [Split a template into reusable pieces using nested
-stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md").
+For more information about nested stacks, see [Split a template into reusable pieces using nested stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md").
 
 ## Considerations
 
@@ -64,18 +58,14 @@ Similarly, the `ImportValue` function can't include `Ref` or `GetAtt` functions 
 If you need to view the exported output values from your stacks, use one of the following
 methods:
 
-###### To list exported output
-
-values (console)
+###### To list exported output values (console)
 
 1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the navigation bar at the top of the screen, choose your AWS Region.
 3. From the left navigation pane, choose **Exports**.
 
-###### To list exported output values
-
-(AWS CLI)
+###### To list exported output values (AWS CLI)
 
 Use the following [list-exports](../../../cli/latest/reference/cloudformation/list-exports.md "../../../cli/latest/reference/cloudformation/list-exports.md") command. Replace
 `us-east-1` with your AWS Region.
@@ -112,9 +102,7 @@ CloudFormation shows the names and values of the exported outputs for the curren
 the stack they were exported from. To use an exported output value in another stack's
 template, you can reference it using the export name and the `Fn::ImportValue` function.
 
-## Listing stacks that import an exported output
-
-value
+## Listing stacks that import an exported output value
 
 To delete or change exported output values, you must first find out which stacks are
 importing them.
@@ -122,9 +110,7 @@ importing them.
 To view the stacks that import an exported output value, use one of the following
 methods:
 
-###### To list stacks that import an
-
-exported output value (console)
+###### To list stacks that import an exported output value (console)
 
 1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -133,9 +119,7 @@ exported output value (console)
    Name** for that export value. CloudFormation displays the export details page, which
    lists all the stacks that are importing the value.
 
-###### To list stacks that import an exported
-
-output value (AWS CLI)
+###### To list stacks that import an exported output value (AWS CLI)
 
 Use the [list-imports](../../../cli/latest/reference/cloudformation/list-imports.md "../../../cli/latest/reference/cloudformation/list-imports.md") command. Replace
 `us-east-1` with your AWS Region and

@@ -1,6 +1,4 @@
-# Create custom provisioning logic with custom
-
-resources
+# Create custom provisioning logic with custom resources
 
 Custom resources provide a way for you to write custom provisioning logic into your
 CloudFormation templates and have CloudFormation run it anytime you create, update (if you changed
@@ -158,8 +156,7 @@ response:
 If you use AWS PrivateLink, custom resources in the VPC must have access to
 CloudFormation-specific S3 buckets. Custom resources must send responses to a pre-signed
 Amazon S3 URL. If they can't send responses to Amazon S3, CloudFormation won't receive a response
-and the stack operation fails. For more information, see [Access CloudFormation using an interface endpoint
-(AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
+and the stack operation fails. For more information, see [Access CloudFormation using an interface endpoint (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md").
 
 ## Response timeout
 

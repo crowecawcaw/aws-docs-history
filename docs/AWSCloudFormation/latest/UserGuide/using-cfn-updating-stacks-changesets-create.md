@@ -55,8 +55,7 @@ stacks, see [Change sets for nested stacks](change-sets-for-nested-stacks.md "ch
 choose **I acknowledge that CloudFormation might create IAM
 resources**. IAM resources can modify permissions in your AWS
 account; review these resources to ensure that you're permitting only the actions
-that you intend. For more information, see [Acknowledging IAM resources in CloudFormation
-templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities"). 9. Choose **Next** to continue. 10. On the **Review `stack-name`** page,
+that you intend. For more information, see [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities"). 9. Choose **Next** to continue. 10. On the **Review `stack-name`** page,
 review the changes for this change set. 11. Choose **Submit**.
 
 You're redirected to the **Changes** tab of the change set's
@@ -120,8 +119,7 @@ For more information about change sets for nested stacks, see [Change sets for n
 choose **I acknowledge that CloudFormation might create IAM
 resources**. IAM resources can modify permissions in your AWS
 account; review these resources to ensure that you're permitting only the actions
-that you intend. For more information, see [Acknowledging IAM resources in CloudFormation
-templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities"). 9. Choose **Next** to continue. 10. On the **Review `stack-name`** page,
+that you intend. For more information, see [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities"). 9. Choose **Next** to continue. 10. On the **Review `stack-name`** page,
 review the changes for this change set. 11. Choose **Submit**.
 
 ###### Note

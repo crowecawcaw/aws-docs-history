@@ -18,8 +18,7 @@ process.
 ###### Topics
 
 - [Prerequisites](#getting-started-prerequisites "#getting-started-prerequisites")
-- [Create a CloudFormation stack with the
-  console](#getting-started-create-stack "#getting-started-create-stack")
+- [Create a CloudFormation stack with the console](#getting-started-create-stack "#getting-started-create-stack")
 - [Monitor stack creation](#getting-started-monitor-stack-creation "#getting-started-monitor-stack-creation")
 - [Test the web server](#getting-started-test-web-server "#getting-started-test-web-server")
 - [Troubleshooting](#getting-started-troubleshooting "#getting-started-troubleshooting")
@@ -35,9 +34,7 @@ process.
   AWS accounts. If you don't have a default VPC, or if it was deleted, see the
   troubleshooting section in this topic for alternative solutions.
 
-## Create a CloudFormation stack with the
-
-console
+## Create a CloudFormation stack with the console
 
 ###### To create a Hello world CloudFormation stack with the console
 
@@ -296,9 +293,7 @@ web page.
 If you experience a rollback during stack creation, it might be due to a missing VPC.
 Here's how to resolve this issue.
 
-### No default VPC
-
-available
+### No default VPC available
 
 The template in this walkthrough requires a default VPC. If your stack creation fails
 because of VPC or subnet availability errors, you might not have a default VPC in your

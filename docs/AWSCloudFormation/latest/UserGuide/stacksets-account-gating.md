@@ -1,6 +1,4 @@
-# Prevent failed StackSets deployments using target
-
-account gates
+# Prevent failed StackSets deployments using target account gates
 
 An account gate is an optional feature that helps you verify that a target account meets
 certain requirements before CloudFormation begins StackSets operations in that account. This
@@ -52,9 +50,7 @@ JSON
 
 ```
 
-## CloudFormation templates for creating Lambda
-
-functions
+## CloudFormation templates for creating Lambda functions
 
 Use the following sample templates to create Lambda
 `AWSCloudFormationStackSetAccountGate` functions. To create a new stack using either

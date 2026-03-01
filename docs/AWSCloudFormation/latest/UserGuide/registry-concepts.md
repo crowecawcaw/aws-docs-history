@@ -69,16 +69,14 @@ activated extensions:
   local copies of third-party public extensions that you have explicitly
   activated for your account and Region. When you activate a third-party
   public extension, CloudFormation creates a local copy in your account's
-  registry. For more information, see [Use third-party public extensions from the CloudFormation
-  registry](registry-public.md "registry-public.md").
+  registry. For more information, see [Use third-party public extensions from the CloudFormation registry](registry-public.md "registry-public.md").
 - Privately registered – These are
   private extensions that aren't listed in the public CloudFormation registry.
   These may be extensions you've created yourself or ones shared with you by
   your organization or other third parties. To use such a private extension in
   your account, you must first register it. Registering the extension uploads
   a copy to the CloudFormation registry in your account and activates it. For more
-  information, see [Use third-party private extensions that have been
-  shared with you](registry-private.md "registry-private.md").
+  information, see [Use third-party private extensions that have been shared with you](registry-private.md "registry-private.md").
 
 Using privately registered extensions and activated public extensions from
 third-party publishers in your account is like using them in a sandbox environment.

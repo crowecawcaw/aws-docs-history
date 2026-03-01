@@ -1,6 +1,4 @@
-# Continue rolling back an
-
-update
+# Continue rolling back an update
 
 Sometimes, when CloudFormation tries to roll back a stack update, it can't roll back all the
 changes it made during the update process. This is called the
@@ -22,9 +20,7 @@ without any changes, for example when a stack operation times out.
 If you use nested stacks, rolling back the parent stack will attempt to roll back all the
 child stacks as well.
 
-###### To continue rolling
-
-back an update (console)
+###### To continue rolling back an update (console)
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -61,9 +57,7 @@ corresponding embedded stack must be in one of the following states:
 `DELETE_IN_PROGRESS`, `DELETE_COMPLETE`, or
 `DELETE_FAILED`.
 
-###### To continue rolling back
-
-an update (AWS CLI)
+###### To continue rolling back an update (AWS CLI)
 
 - Use the [continue-update-rollback](../../../cli/latest/reference/cloudformation/continue-update-rollback.md "../../../cli/latest/reference/cloudformation/continue-update-rollback.md") command with the
   `--stack-name` option to specify the ID of the stack that you want to continue
@@ -134,5 +128,4 @@ diagram, the `LogicalId` of the `WebInfra-Storage-DB` child stack is
 
 In the CloudFormation console, you can also find the logical ID in the **Logical
 ID** column for the stack resource on the **Resources** tab or the
-**Events** tab. For more information, see [View stack information from the
-CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md").
+**Events** tab. For more information, see [View stack information from the CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md").

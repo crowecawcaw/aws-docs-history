@@ -1,6 +1,4 @@
-# Stack Status Change event
-
-detail
+# Stack Status Change event detail
 
 Below are the detail fields for Stack Status Change events.
 
@@ -54,8 +52,7 @@ The unique stack ID associated with the stack.
 Status of the stack.
 
 For a complete list of stack status codes, see
-[Stack status
-codes](view-stack-events.md#cfn-console-view-stack-data-resources-status-codes "view-stack-events.md#cfn-console-view-stack-data-resources-status-codes").
+[Stack status codes](view-stack-events.md#cfn-console-view-stack-data-resources-status-codes "view-stack-events.md#cfn-console-view-stack-data-resources-status-codes").
 
 `status-reason`
 

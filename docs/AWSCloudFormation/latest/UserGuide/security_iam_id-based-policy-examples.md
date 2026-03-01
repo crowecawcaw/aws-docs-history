@@ -1,13 +1,10 @@
-# Example IAM identity-based
-
-policies for CloudFormation
+# Example IAM identity-based policies for CloudFormation
 
 By default, users and roles don't have permission to create or modify CloudFormation
 resources. They also can't perform tasks by using the AWS Management Console, AWS Command Line Interface (AWS CLI), or
 AWS API. To grant users permission to perform actions on the resources that they need, an
 IAM administrator can create IAM policies. The administrator can then add the IAM
-policies to roles, and users can assume the roles. For more information, see [Defining IAM identity-based policies for
-CloudFormation](control-access-with-iam.md#iam-id-based-policies "control-access-with-iam.md#iam-id-based-policies").
+policies to roles, and users can assume the roles. For more information, see [Defining IAM identity-based policies for CloudFormation](control-access-with-iam.md#iam-id-based-policies "control-access-with-iam.md#iam-id-based-policies").
 
 The following examples show policy statements that you could use to allow or deny
 permissions to use one or more CloudFormation actions.
@@ -20,10 +17,8 @@ permissions to use one or more CloudFormation actions.
 - [Deny IAM resources in stack templates](#w2aac43c23c17c15 "#w2aac43c23c17c15")
 - [Allow stack creation with specific resource types](#w2aac43c23c17c17 "#w2aac43c23c17c17")
 - [Control access based on resource-mutating API actions](#w2aac43c23c17c19 "#w2aac43c23c17c19")
-- [Restrict stack
-  set operations based on Region and resource types](#resource-level-permissions-service-managed-stack-set "#resource-level-permissions-service-managed-stack-set")
-- [Allow all IaC generator
-  operations](#iam-policy-example-for-iac-generator "#iam-policy-example-for-iac-generator")
+- [Restrict stack set operations based on Region and resource types](#resource-level-permissions-service-managed-stack-set "#resource-level-permissions-service-managed-stack-set")
+- [Allow all IaC generator operations](#iam-policy-example-for-iac-generator "#iam-policy-example-for-iac-generator")
 
 ## Require a specific template URL
 
@@ -234,9 +229,7 @@ JSON
 
 ```
 
-## Restrict stack
-
-set operations based on Region and resource types
+## Restrict stack set operations based on Region and resource types
 
 The following policy grants service-managed stack set permissions. A user with this
 policy can only perform operations on stack sets with templates containing Amazon S3 resource
@@ -290,9 +283,7 @@ JSON
 
 ```
 
-## Allow all IaC generator
-
-operations
+## Allow all IaC generator operations
 
 The following policy allows access to CloudFormation actions related to IaC generator
 resource scanning and template management. The first statement grants permissions to
@@ -304,8 +295,7 @@ resource types. The second statement grants full permissions to create, delete,
 describe, list, and update generated templates.
 
 You must also grant read permissions for the target AWS services to anyone who will
-scan resources with IaC generator. For more information, see [IAM permissions required for scanning
-resources](generate-IaC.md#iac-generator-permissions "generate-IaC.md#iac-generator-permissions").
+scan resources with IaC generator. For more information, see [IAM permissions required for scanning resources](generate-IaC.md#iac-generator-permissions "generate-IaC.md#iac-generator-permissions").
 
 JSON
 

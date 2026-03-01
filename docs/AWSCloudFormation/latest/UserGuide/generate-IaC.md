@@ -1,6 +1,4 @@
-# Generate templates from existing resources with IaC
-
-generator
+# Generate templates from existing resources with IaC generator
 
 With the CloudFormation infrastructure as code generator (IaC generator), you can generate a
 template using AWS resources provisioned in your account that are not already managed by
@@ -28,25 +26,18 @@ The following are benefits of the IaC generator:
 3. Import resources – Use your template to
    import the resources as a CloudFormation stack or migrate them into an AWS CDK app.
    The IaC generator feature is available in all commercial Regions and supports many common
-   AWS resource types. For a full list of supported resources, see [Resource type
-   support](resource-import-supported-resources.md "resource-import-supported-resources.md").
+   AWS resource types. For a full list of supported resources, see [Resource type support](resource-import-supported-resources.md "resource-import-supported-resources.md").
 
 ###### Topics
 
 - [Considerations](#iac-generator-considerations "#iac-generator-considerations")
-- [IAM permissions required for scanning
-  resources](#iac-generator-permissions "#iac-generator-permissions")
-- [Commonly used commands for
-  template generation, management, and deletion](#iac-generator-commonly-used-commands "#iac-generator-commonly-used-commands")
+- [IAM permissions required for scanning resources](#iac-generator-permissions "#iac-generator-permissions")
+- [Commonly used commands for template generation, management, and deletion](#iac-generator-commonly-used-commands "#iac-generator-commonly-used-commands")
 - [Migrate a template to the AWS CDK](#iac-generator-cdk-migrate "#iac-generator-cdk-migrate")
-- [Start a resource scan with
-  CloudFormation IaC generator](iac-generator-start-resource-scan.md "iac-generator-start-resource-scan.md")
-- [View the scan summary in the CloudFormation
-  console](generate-IaC-view-scan-summary.md "generate-IaC-view-scan-summary.md")
-- [Create a
-  CloudFormation template from resources scanned with IaC generator](iac-generator-create-template-from-scanned-resources.md "iac-generator-create-template-from-scanned-resources.md")
-- [Create a CloudFormation
-  stack from scanned resources](iac-generator-create-stack-from-scanned-resources.md "iac-generator-create-stack-from-scanned-resources.md")
+- [Start a resource scan with CloudFormation IaC generator](iac-generator-start-resource-scan.md "iac-generator-start-resource-scan.md")
+- [View the scan summary in the CloudFormation console](generate-IaC-view-scan-summary.md "generate-IaC-view-scan-summary.md")
+- [Create a CloudFormation template from resources scanned with IaC generator](iac-generator-create-template-from-scanned-resources.md "iac-generator-create-template-from-scanned-resources.md")
+- [Create a CloudFormation stack from scanned resources](iac-generator-create-stack-from-scanned-resources.md "iac-generator-create-stack-from-scanned-resources.md")
 - [Resolve write-only properties](generate-IaC-write-only-properties.md "generate-IaC-write-only-properties.md")
 
 ## Considerations
@@ -70,12 +61,9 @@ The following table lists the quotas available for the IaC generation feature.
 ###### Important
 
 IaC generator only supports AWS resources that are supported by Cloud Control API in your
-Region. For more information, see [Resource type
-support](resource-import-supported-resources.md "resource-import-supported-resources.md").
+Region. For more information, see [Resource type support](resource-import-supported-resources.md "resource-import-supported-resources.md").
 
-## IAM permissions required for scanning
-
-resources
+## IAM permissions required for scanning resources
 
 To scan resources with IaC generator, your IAM principal (user, role, or group) must
 have:
@@ -87,12 +75,9 @@ The scan scope is limited to resources you have read access to. Missing permissi
 won't cause scan failure but will exclude those resources.
 
 For an example IAM policy that grants scanning and template management permissions,
-see [Allow all IaC generator
-operations](security_iam_id-based-policy-examples.md#iam-policy-example-for-iac-generator "security_iam_id-based-policy-examples.md#iam-policy-example-for-iac-generator").
+see [Allow all IaC generator operations](security_iam_id-based-policy-examples.md#iam-policy-example-for-iac-generator "security_iam_id-based-policy-examples.md#iam-policy-example-for-iac-generator").
 
-## Commonly used commands for
-
-template generation, management, and deletion
+## Commonly used commands for template generation, management, and deletion
 
 The commonly used commands for working with IaC generator include:
 

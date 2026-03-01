@@ -1,6 +1,4 @@
-# Remove third-party private
-
-extensions from your account
+# Remove third-party private extensions from your account
 
 To remove a third-party private extension or extension version, use the [deregister-type](../../../cli/latest/reference/cloudformation/deregister-type.md "../../../cli/latest/reference/cloudformation/deregister-type.md") command.
 
@@ -24,9 +22,7 @@ Deregistering a private extension can't be undone. This action will:
   Before proceeding, use the [list-stacks](../../../cli/latest/reference/cloudformation/list-stacks.md "../../../cli/latest/reference/cloudformation/list-stacks.md") and [get-template](../../../cli/latest/reference/cloudformation/get-template.md "../../../cli/latest/reference/cloudformation/get-template.md") commands to verify that no active stacks are using
   this extension.
 
-## Example deregister extension
-
-commands
+## Example deregister extension commands
 
 This section provides examples that show the different ways to deregister
 private extensions.

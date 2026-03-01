@@ -1,6 +1,4 @@
-# Update CloudFormation stacks using change
-
-sets
+# Update CloudFormation stacks using change sets
 
 When you need to update a stack, understanding how your changes will affect running
 resources before you implement them can help you update stacks with confidence. Change sets

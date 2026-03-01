@@ -8,8 +8,7 @@ predefined options, which streamlines the stack creation process.
 
 - [Creating a stack](#create-stack "#create-stack")
 - [Configure stack options](#configure-stack-options "#configure-stack-options")
-- [Preview the configuration of your
-  stack](#cfn-console-create-stacks-changesets "#cfn-console-create-stacks-changesets")
+- [Preview the configuration of your stack](#cfn-console-create-stacks-changesets "#cfn-console-create-stacks-changesets")
 
 ## Creating a stack
 
@@ -119,8 +118,7 @@ that were defined in the template. 8. Choose **Next** to continue creating the s
 default stack options. For more information, see [Configure stack options](#configure-stack-options "#configure-stack-options"). 10. If your template contains IAM resources, for **Capabilities**,
 choose **I acknowledge that this template may create IAM
 resources** to specify that you want to use IAM resources in the
-template. For more information, see [Acknowledging IAM resources in CloudFormation
-templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities"). 11. Choose **Next** to continue. 12. On the **Review and create** page, review the details of your
+template. For more information, see [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities"). 11. Choose **Next** to continue. 12. On the **Review and create** page, review the details of your
 stack.
 
 To change any of the values before launching the stack, choose
@@ -128,8 +126,7 @@ To change any of the values before launching the stack, choose
 change. 13. (Optional) You can create a change set to preview the configuration of the stack
 before creating it. On the **Review and create** page, choose
 **Create change set** and follow the directions. For more
-information, see [Preview the configuration of your
-stack](#cfn-console-create-stacks-changesets "#cfn-console-create-stacks-changesets"). 14. Choose **Submit** to launch your stack.
+information, see [Preview the configuration of your stack](#cfn-console-create-stacks-changesets "#cfn-console-create-stacks-changesets"). 14. Choose **Submit** to launch your stack.
 
 CloudFormation will then proceed to create all the resources defined in the template.
 
@@ -143,8 +140,7 @@ You can use one of the following commands:
 - [create-stack](../../../cli/latest/reference/cloudformation/create-stack.md "../../../cli/latest/reference/cloudformation/create-stack.md") (AWS CLI)
 - [New-CFNStack](../../../powershell/latest/reference/items/New-CFNStack.md "../../../powershell/latest/reference/items/New-CFNStack.md") (AWS Tools for Windows PowerShell)
 
-For examples of using the command line to create a stack, see [Examples of CloudFormation stack operation commands for
-the AWS CLI and PowerShell](service_code_examples.md "service_code_examples.md").
+For examples of using the command line to create a stack, see [Examples of CloudFormation stack operation commands for the AWS CLI and PowerShell](service_code_examples.md "service_code_examples.md").
 
 ## Configure stack options
 
@@ -178,8 +174,7 @@ stack. For more information, see [CloudFormation service role](using-iam-service
 **Stack failure options**
 
 Specifies the provision failure options for all stack deployments and change
-set operations. For more information, see [Choose how to handle failures when provisioning
-resources](stack-failure-options.md "stack-failure-options.md").
+set operations. For more information, see [Choose how to handle failures when provisioning resources](stack-failure-options.md "stack-failure-options.md").
 
 The **Roll back all stack resources** option will roll back
 all resources specified in the template when the stack status is
@@ -214,8 +209,7 @@ and updating, and roll back that operation if the stack breaches the threshold o
 any of the alarms you've specified. Specify the CloudWatch alarms that CloudFormation should
 monitor. If any of the alarms goes to `ALARM` state during the stack
 operation or the monitoring period, CloudFormation rolls back the entire stack
-operation. For more information, see [Roll back your CloudFormation stack on alarm
-breach with rollback triggers](using-cfn-rollback-triggers.md "using-cfn-rollback-triggers.md").
+operation. For more information, see [Roll back your CloudFormation stack on alarm breach with rollback triggers](using-cfn-rollback-triggers.md "using-cfn-rollback-triggers.md").
 
 **Notification options**
 
@@ -248,25 +242,19 @@ you specified for stack creation hasn't yet been reached.
 Prevents a stack from being accidentally deleted. If a user attempts
 to delete a stack with termination protection enabled, the deletion fails
 and the stack, including its status, remains unchanged. For more
-information, see [Protect CloudFormation stacks from being
-deleted](using-cfn-protect-stacks.md "using-cfn-protect-stacks.md").
+information, see [Protect CloudFormation stacks from being deleted](using-cfn-protect-stacks.md "using-cfn-protect-stacks.md").
 
 Termination protection is **Disabled** by
 default.
 
-## Preview the configuration of your
-
-stack
+## Preview the configuration of your stack
 
 To preview how a CloudFormation stack will be configured before creating the stack, create a
 change set. This functionality allows you to examine various configurations and make
 corrections and changes to your stack before executing the change set. For more information
-on change sets, see [Update CloudFormation stacks using change
-sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
+on change sets, see [Update CloudFormation stacks using change sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
 
-### Creating a
-
-change set for a new stack
+### Creating a change set for a new stack
 
 To create a change set for a new stack, select your stack template and specify the
 configuration of your stack as you would if you were creating a new stack, then choose

@@ -38,22 +38,15 @@ Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/") to minimize o
 ###### Topics
 
 - [Prerequisites](#bootstrapping-tutorial-prerequisites "#bootstrapping-tutorial-prerequisites")
-- [Understanding bootstrap
-  concepts](#bootstrapping-tutorial-understand-concepts "#bootstrapping-tutorial-understand-concepts")
-- [Start with a simple bootstrap
-  example](#bootstrapping-tutorial-simple-example "#bootstrapping-tutorial-simple-example")
+- [Understanding bootstrap concepts](#bootstrapping-tutorial-understand-concepts "#bootstrapping-tutorial-understand-concepts")
+- [Start with a simple bootstrap example](#bootstrapping-tutorial-simple-example "#bootstrapping-tutorial-simple-example")
 - [Adding files and commands](#bootstrapping-tutorial-add-complexity "#bootstrapping-tutorial-add-complexity")
 - [Adding network security](#bootstrapping-tutorial-security-group "#bootstrapping-tutorial-security-group")
-- [The complete bootstrap
-  template](#bootstrapping-tutorial-complete-template "#bootstrapping-tutorial-complete-template")
-- [Create the stack using the
-  console](#bootstrapping-tutorial-create-stack "#bootstrapping-tutorial-create-stack")
-- [Monitor the bootstrap
-  process](#bootstrapping-tutorial-validate-bootstrap "#bootstrapping-tutorial-validate-bootstrap")
-- [Test the bootstrapped web
-  server](#bootstrapping-tutorial-test-web-server "#bootstrapping-tutorial-test-web-server")
-- [Troubleshooting bootstrap
-  issues](#bootstrapping-tutorial-troubleshooting "#bootstrapping-tutorial-troubleshooting")
+- [The complete bootstrap template](#bootstrapping-tutorial-complete-template "#bootstrapping-tutorial-complete-template")
+- [Create the stack using the console](#bootstrapping-tutorial-create-stack "#bootstrapping-tutorial-create-stack")
+- [Monitor the bootstrap process](#bootstrapping-tutorial-validate-bootstrap "#bootstrapping-tutorial-validate-bootstrap")
+- [Test the bootstrapped web server](#bootstrapping-tutorial-test-web-server "#bootstrapping-tutorial-test-web-server")
+- [Troubleshooting bootstrap issues](#bootstrapping-tutorial-troubleshooting "#bootstrapping-tutorial-troubleshooting")
 - [Clean up resources](#bootstrapping-tutorial-clean-up "#bootstrapping-tutorial-clean-up")
 - [Next steps](#bootstrapping-tutorial-next-steps "#bootstrapping-tutorial-next-steps")
 
@@ -68,16 +61,12 @@ Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/") to minimize o
   AWS accounts. If you don't have a default VPC, or if it was deleted, see the
   troubleshooting section in the [Creating your first stack](gettingstarted.md "gettingstarted.md") tutorial for alternative solutions.
 
-## Understanding bootstrap
-
-concepts
+## Understanding bootstrap concepts
 
 Let's understand the key concepts that make bootstrapping work before creating the
 template.
 
-### The `cfn-init` helper
-
-script
+### The `cfn-init` helper script
 
 CloudFormation provides Python helper scripts that you can use to install software and start
 services on an Amazon EC2 instance. The `cfn-init` script reads resource metadata from
@@ -111,9 +100,7 @@ Resources:
 The `cfn-init` script processes these sections in a specific order: packages,
 groups, users, sources, files, commands, and then services.
 
-## Start with a simple bootstrap
-
-example
+## Start with a simple bootstrap example
 
 Let's start with a minimal bootstrap example that just installs and starts Apache.
 
@@ -207,9 +194,7 @@ WebServerSecurityGroup:
         CidrIp: !Ref MyIP
 ```
 
-## The complete bootstrap
-
-template
+## The complete bootstrap template
 
 Now, let's put all the pieces together. Here's the complete template that combines all the
 concepts we've discussed.
@@ -296,9 +281,7 @@ Outputs:
     Description: EC2 instance public DNS name
 ```
 
-## Create the stack using the
-
-console
+## Create the stack using the console
 
 The following procedure involves uploading the sample stack template from a file. Open a
 text editor on your local machine and add the template. Save the file with the name
@@ -326,9 +309,7 @@ text editor on your local machine and add the template. Save the file with the n
 7. Choose **Next** twice, then **Submit** to create the
    stack.
 
-## Monitor the bootstrap
-
-process
+## Monitor the bootstrap process
 
 Bootstrap processes take longer than simple EC2 launches because additional software is
 being installed and configured.
@@ -354,9 +335,7 @@ instance logs.
    progress.
 3. If you don't see the logs immediately, wait and refresh the page.
 
-## Test the bootstrapped web
-
-server
+## Test the bootstrapped web server
 
 When your stack shows `CREATE_COMPLETE`, test your web server.
 
@@ -374,9 +353,7 @@ successfully launched the AWS CloudFormation sample`.
 If the page doesn't load immediately, wait a minute and try again. The bootstrap process
 may still be completing even after the stack shows `CREATE_COMPLETE`.
 
-## Troubleshooting bootstrap
-
-issues
+## Troubleshooting bootstrap issues
 
 If your bootstrap process fails or your web server isn't working, here are common issues
 and solutions.
@@ -423,8 +400,7 @@ To continue learning:
 
 - Learn how to update a running stack and use the `cfn-hup` helper script.
   For more information, see [Update a CloudFormation stack](updating.stacks.md "updating.stacks.md").
-- Learn how to bootstrap a Windows stack. For more information, see [Bootstrapping Windows-based
-  CloudFormation stacks](cfn-windows-stacks-bootstrapping.md "cfn-windows-stacks-bootstrapping.md").
+- Learn how to bootstrap a Windows stack. For more information, see [Bootstrapping Windows-based CloudFormation stacks](cfn-windows-stacks-bootstrapping.md "cfn-windows-stacks-bootstrapping.md").
 - Explore more complex bootstrap scenarios with multiple configuration sets. For more
   information, see [cfn-init](../TemplateReference/cfn-init.md "../TemplateReference/cfn-init.md") and
   [AWS::CloudFormation::Init](../TemplateReference/aws-resource-init.md "../TemplateReference/aws-resource-init.md") in the _CloudFormation Template Reference Guide_.

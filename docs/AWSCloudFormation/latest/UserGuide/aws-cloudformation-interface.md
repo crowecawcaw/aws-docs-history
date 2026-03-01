@@ -1,6 +1,4 @@
-# Organizing CloudFormation parameters with
-
-`AWS::CloudFormation::Interface` metadata
+# Organizing CloudFormation parameters with `AWS::CloudFormation::Interface` metadata
 
 `AWS::CloudFormation::Interface` is a metadata key that defines how parameters
 are grouped and sorted in the CloudFormation console. By default, the console lists input parameters

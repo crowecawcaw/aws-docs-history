@@ -6,15 +6,11 @@ For more information about Amazon CloudWatch Logs, see the [Amazon CloudWatch Lo
 
 ###### Topics
 
-- [Send logs to CloudWatch Logs from a Linux
-  instance](#quickref-cloudwatchlogs-example1 "#quickref-cloudwatchlogs-example1")
-- [Send logs to CloudWatch Logs from a Windows
-  instance](#quickref-cloudwatchlogs-example2 "#quickref-cloudwatchlogs-example2")
+- [Send logs to CloudWatch Logs from a Linux instance](#quickref-cloudwatchlogs-example1 "#quickref-cloudwatchlogs-example1")
+- [Send logs to CloudWatch Logs from a Windows instance](#quickref-cloudwatchlogs-example2 "#quickref-cloudwatchlogs-example2")
 - [See also](#w2aac11c41c35c11 "#w2aac11c41c35c11")
 
-## Send logs to CloudWatch Logs from a Linux
-
-instance
+## Send logs to CloudWatch Logs from a Linux instance
 
 The following template demonstrates how to set up a web server on Amazon Linux 2023 with
 CloudWatch Logs integration. The template performs the following tasks:
@@ -572,9 +568,7 @@ Outputs:
 
 ```
 
-## Send logs to CloudWatch Logs from a Windows
-
-instance
+## Send logs to CloudWatch Logs from a Windows instance
 
 The following template configures CloudWatch Logs for a Windows 2012R2 instance.
 

@@ -1,6 +1,4 @@
-# Understand CloudFormation stack creation
-
-events
+# Understand CloudFormation stack creation events
 
 During stack deployment, several events occur to create, configure, and validate the
 resources defined in the stack template. Understanding these events can help you optimize your
@@ -35,8 +33,7 @@ stack creation process and streamline deployments.
 While leveraging the `CONFIGURATION_COMPLETE` event accelerates stack creation
 times, you should be aware of its trade-offs. First, it's only supported for a subset of
 resource type that support drift detection. For a list of resource types that support drift
-detection, see [Resource type
-support](resource-import-supported-resources.md "resource-import-supported-resources.md"). This approach may not be suitable for all
+detection, see [Resource type support](resource-import-supported-resources.md "resource-import-supported-resources.md"). This approach may not be suitable for all
 scenarios, especially where resources require thorough eventual consistency checks to ensure
 full operational readiness across the cloud environment (for example, in production
 environments). We recommend carefully assessing your deployment requirements and the

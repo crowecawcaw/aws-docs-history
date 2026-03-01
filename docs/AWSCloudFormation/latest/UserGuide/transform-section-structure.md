@@ -7,8 +7,7 @@ Macros can perform simple tasks like finding and replacing text, or they can mak
 extensive transformations to the entire template. CloudFormation executes macros in the order
 that they're specified. When you create a change set, CloudFormation generates a change set that
 includes the processed template content. You can then review the changes and execute the
-change set. For more information about how macros work, see [Perform custom processing on CloudFormation templates with
-template macros](template-macros.md "template-macros.md").
+change set. For more information about how macros work, see [Perform custom processing on CloudFormation templates with template macros](template-macros.md "template-macros.md").
 
 CloudFormation also supports _transforms_, which are macros hosted by
 CloudFormation. CloudFormation treats these transforms the same as any macros you create in terms of

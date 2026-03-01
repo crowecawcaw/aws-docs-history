@@ -1,6 +1,4 @@
-# Create a scaled and load-balanced
-
-application
+# Create a scaled and load-balanced application
 
 For this walkthrough, you create a stack that helps you set up a scaled and load-balanced
 application. The walkthrough provides a sample template that you use to create the stack. The
@@ -11,9 +9,7 @@ notifications about scaling activities.
 This template creates one or more Amazon EC2 instances and an Application Load Balancer. You will be billed for the
 AWS resources used if you create a stack from this template.
 
-## Full stack
-
-template
+## Full stack template
 
 Let's start with the template.
 
@@ -558,9 +554,7 @@ address can start to receive notifications. For more information, see [Get Amazo
 notifications when your Auto Scaling group scales](../../../autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.md "../../../autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.md") in the
 _Amazon EC2 Auto Scaling User Guide_.
 
-## Step 2: Clean up your sample
-
-resources
+## Step 2: Clean up your sample resources
 
 To make sure that you aren't charged for unused sample resources, delete the stack.
 

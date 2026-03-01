@@ -1,6 +1,4 @@
-# Prerequisites for syncing stacks to a Git repository using
-
-Git sync
+# Prerequisites for syncing stacks to a Git repository using Git sync
 
 Before you sync a CloudFormation stack to your Git repository, verify that the following
 requirements are met.
@@ -10,8 +8,7 @@ requirements are met.
 - [Git repository](#git-sync-prereq-repo "#git-sync-prereq-repo")
 - [CloudFormation template](#git-sync-prereq-template "#git-sync-prereq-template")
 - [Git sync service role](#git-sync-prereq-iam "#git-sync-prereq-iam")
-- [IAM permissions for console
-  users](#git-sync-prereq-user-permissions "#git-sync-prereq-user-permissions")
+- [IAM permissions for console users](#git-sync-prereq-user-permissions "#git-sync-prereq-user-permissions")
 
 ## Git repository
 
@@ -45,9 +42,7 @@ An automatically generated IAM role only applies permissions to the stack for
 which the role is generated. To reuse an automatically generated IAM role, you
 must edit the role for the new stack.
 
-### Required permissions for Git sync
-
-service role
+### Required permissions for Git sync service role
 
 The IAM role that you provide for Git sync requires the following
 permissions.
@@ -176,12 +171,9 @@ JSON
 
 ```
 
-For more information about the confused deputy problem, see [Cross-service confused deputy
-prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+For more information about the confused deputy problem, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
-## IAM permissions for console
-
-users
+## IAM permissions for console users
 
 To successfully set up Git sync through the CloudFormation console, end users must also
 be granted permissions through IAM.

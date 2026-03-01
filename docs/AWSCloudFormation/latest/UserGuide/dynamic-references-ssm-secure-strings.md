@@ -1,6 +1,4 @@
-# Get a secure string value from
-
-Systems Manager Parameter Store
+# Get a secure string value from Systems Manager Parameter Store
 
 In CloudFormation, you can use sensitive data like passwords or license keys without
 exposing them directly in your templates by storing the sensitive data as a "secure
@@ -15,8 +13,7 @@ plaintext parameter name of the secure string.
 During stack creation or updates, CloudFormation accesses the secure string value as
 needed, without exposing the actual value. Secure strings can only be used for resource
 properties that support the `ssm-secure` dynamic reference pattern. For more
-information, see [Resources that
-support dynamic parameter patterns for secure strings](#template-parameters-dynamic-patterns-resources "#template-parameters-dynamic-patterns-resources").
+information, see [Resources that support dynamic parameter patterns for secure strings](#template-parameters-dynamic-patterns-resources "#template-parameters-dynamic-patterns-resources").
 
 CloudFormation doesn't return the actual parameter value for secure strings in any API
 calls. It only returns the literal dynamic reference. When comparing changes using
@@ -43,9 +40,7 @@ things to keep in mind:
     template. Then, use `CONTINUE_UPDATE_ROLLBACK` without
     skipping the resource.
 
-## Resources that
-
-support dynamic parameter patterns for secure strings
+## Resources that support dynamic parameter patterns for secure strings
 
 Resources that support the `ssm-secure` dynamic reference pattern
 include:

@@ -12,10 +12,8 @@ identify the root cause of failures.
 ###### Topics
 
 - [Prerequisites](#view-stack-events-by-operation-prerequisites "#view-stack-events-by-operation-prerequisites")
-- [View stack events by operation
-  (console)](#view-stack-events-by-operation-console "#view-stack-events-by-operation-console")
-- [View stack events by operation
-  (AWS CLI)](#view-stack-events-by-operation-cli "#view-stack-events-by-operation-cli")
+- [View stack events by operation (console)](#view-stack-events-by-operation-console "#view-stack-events-by-operation-console")
+- [View stack events by operation (AWS CLI)](#view-stack-events-by-operation-cli "#view-stack-events-by-operation-cli")
 - [Stack status codes](#stack-status-codes "#stack-status-codes")
 
 ## Prerequisites
@@ -23,9 +21,7 @@ identify the root cause of failures.
 To use `DescribeEvents` API, you must have the necessary IAM permissions
 to: `DescribeEvents`.
 
-## View stack events by operation
-
-(console)
+## View stack events by operation (console)
 
 ###### To view stack events grouped by operation
 
@@ -59,13 +55,9 @@ While your stack operation is running, it's listed with a status of
 its status changes to `CREATE_COMPLETE`, `UPDATE_COMPLETE`, or
 `DELETE_COMPLETE`.
 
-For more information, see [Understand CloudFormation stack creation
-events](stack-resource-configuration-complete.md "stack-resource-configuration-complete.md") and [Monitor the progress of a stack
-update](using-cfn-updating-stacks-monitor-stack.md "using-cfn-updating-stacks-monitor-stack.md").
+For more information, see [Understand CloudFormation stack creation events](stack-resource-configuration-complete.md "stack-resource-configuration-complete.md") and [Monitor the progress of a stack update](using-cfn-updating-stacks-monitor-stack.md "using-cfn-updating-stacks-monitor-stack.md").
 
-## View stack events by operation
-
-(AWS CLI)
+## View stack events by operation (AWS CLI)
 
 You can use the `describe-events` command with operation ID filtering to
 view events for specific operations.
@@ -117,9 +109,7 @@ following a failed Update operation.
 }
 ```
 
-### Filter events by operation
-
-ID
+### Filter events by operation ID
 
 The following `describe-events` command describes events for a specific
 operation ID:

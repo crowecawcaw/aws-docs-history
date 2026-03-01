@@ -1,6 +1,4 @@
-# Create reusable resource configurations that can be included across
-
-templates with CloudFormation modules
+# Create reusable resource configurations that can be included across templates with CloudFormation modules
 
 _Modules_ are a way for you to package resource configurations for
 inclusion across stack templates, in a transparent, manageable, and repeatable way. Modules can
@@ -46,8 +44,7 @@ Characteristics of using modules in your templates include:
 - [Understand module versioning](module-versioning.md "module-versioning.md")
 - [Use modules from the CloudFormation private registry](modules-using.md "modules-using.md")
 - [Use parameters to specify module values](module-using-params.md "module-using-params.md")
-- [Reference module resources in CloudFormation
-  templates](module-ref-resources.md "module-ref-resources.md")
+- [Reference module resources in CloudFormation templates](module-ref-resources.md "module-ref-resources.md")
 
 ## Considerations when using modules
 
@@ -64,8 +61,7 @@ Characteristics of using modules in your templates include:
   level.
 
 Each output will be assigned a logical ID that's a concatenation of the module logical
-name and the output name as defined in the module. For more information, see [Get exported outputs from a deployed CloudFormation
-stack](using-cfn-stack-exports.md "using-cfn-stack-exports.md").
+name and the output name as defined in the module. For more information, see [Get exported outputs from a deployed CloudFormation stack](using-cfn-stack-exports.md "using-cfn-stack-exports.md").
 
 - Parameters specified in the module aren't propagated to parameters at the template
   level.

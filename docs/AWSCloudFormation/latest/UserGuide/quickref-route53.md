@@ -2,18 +2,12 @@
 
 ###### Topics
 
-- [Amazon Route 53 resource record set using
-  hosted zone name or ID](#scenario-route53-recordset-by-host "#scenario-route53-recordset-by-host")
-- [Using RecordSetGroup to set up weighted
-  resource record sets](#scenario-recordsetgroup-weighted "#scenario-recordsetgroup-weighted")
-- [Using RecordSetGroup to set up an alias
-  resource record set](#scenario-recordsetgroup-zoneapex "#scenario-recordsetgroup-zoneapex")
-- [Alias resource record
-  set for a CloudFront distribution](#scenario-user-friendly-url-for-cloudfront-distribution "#scenario-user-friendly-url-for-cloudfront-distribution")
+- [Amazon Route 53 resource record set using hosted zone name or ID](#scenario-route53-recordset-by-host "#scenario-route53-recordset-by-host")
+- [Using RecordSetGroup to set up weighted resource record sets](#scenario-recordsetgroup-weighted "#scenario-recordsetgroup-weighted")
+- [Using RecordSetGroup to set up an alias resource record set](#scenario-recordsetgroup-zoneapex "#scenario-recordsetgroup-zoneapex")
+- [Alias resource record set for a CloudFront distribution](#scenario-user-friendly-url-for-cloudfront-distribution "#scenario-user-friendly-url-for-cloudfront-distribution")
 
-## Amazon Route 53 resource record set using
-
-hosted zone name or ID
+## Amazon Route 53 resource record set using hosted zone name or ID
 
 When you create an Amazon Route 53 resource record set, you must specify the hosted zone where
 you want to add it. CloudFormation provides two ways to specify a hosted zone:
@@ -60,9 +54,7 @@ myDNSRecord:
     - '"v=spf1 ip4:192.168.0.1/16 -all"'
 ```
 
-### Adding RecordSet using
-
-HostedZoneName
+### Adding RecordSet using HostedZoneName
 
 This example adds an Amazon Route 53 resource record set for the domain name
 "mysite.example.com" using the `HostedZoneName` property to specify the hosted
@@ -102,9 +94,7 @@ myDNSRecord2:
 
 ```
 
-## Using RecordSetGroup to set up weighted
-
-resource record sets
+## Using RecordSetGroup to set up weighted resource record sets
 
 This example uses an [AWS::Route53::RecordSetGroup](../TemplateReference/aws-resource-route53-recordsetgroup.md "../TemplateReference/aws-resource-route53-recordsetgroup.md") to set up two CNAME records for the "example.com."
 hosted zone. The `RecordSets` property contains the CNAME record sets for the
@@ -174,9 +164,7 @@ myDNSOne:
       - example-ec2-larger.amazonaws.com
 ```
 
-## Using RecordSetGroup to set up an alias
-
-resource record set
+## Using RecordSetGroup to set up an alias resource record set
 
 The following examples use an [AWS::Route53::RecordSetGroup](../TemplateReference/aws-resource-route53-recordsetgroup.md "../TemplateReference/aws-resource-route53-recordsetgroup.md") to set up an alias resource record set named
 `example.com` that routes traffic to an ELB Version 1 (Classic) load balancer and
@@ -252,9 +240,7 @@ myDNS:
         DNSName: !GetAtt 'myELB.DNSName'
 ```
 
-### JSON for version 2 load
-
-balancer
+### JSON for version 2 load balancer
 
 ```
       "myELB" : {
@@ -285,9 +271,7 @@ balancer
     }
 ```
 
-### YAML for version 2 load
-
-balancer
+### YAML for version 2 load balancer
 
 ```
 myELB:
@@ -309,9 +293,7 @@ myDNS:
         DNSName: !GetAtt 'myELB.DNSName'
 ```
 
-## Alias resource record
-
-set for a CloudFront distribution
+## Alias resource record set for a CloudFront distribution
 
 The following example creates an alias A record that points a custom domain name to an
 existing CloudFront distribution. `myHostedZoneID` is assumed to be either a reference to

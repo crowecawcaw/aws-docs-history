@@ -1,6 +1,4 @@
-# Repository Sync Status
-
-Change event detail
+# Repository Sync Status Change event detail
 
 Below are the detail fields for Repository Sync Status Change events.
 

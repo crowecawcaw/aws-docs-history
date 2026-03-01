@@ -61,8 +61,7 @@ CloudFormation opens the template in Infrastructure Composer. 4. Update your tem
   these rules, that part will fail.
 - Updating one resource can also affect others that reference it. If you use functions
   like [The Ref function](resources-section-structure.md#resource-properties-ref "resources-section-structure.md#resource-properties-ref")
-  or [The Fn::GetAtt
-  function](resources-section-structure.md#resource-properties-getatt "resources-section-structure.md#resource-properties-getatt") to set a property based on another resource, CloudFormation will update the referencing
+  or [The Fn::GetAtt function](resources-section-structure.md#resource-properties-getatt "resources-section-structure.md#resource-properties-getatt") to set a property based on another resource, CloudFormation will update the referencing
   resource too when the referenced one changes.
 - For information about the effects of updating particular resource properties, see the
   [AWS resource and property types reference](../TemplateReference/aws-template-resource-type-ref.md "../TemplateReference/aws-template-resource-type-ref.md"). For each property, the effects of an update will be one of

@@ -1,6 +1,4 @@
-# Choose how to handle failures when provisioning
-
-resources
+# Choose how to handle failures when provisioning resources
 
 If your stack operation fails, you don't have to roll back resources that were already
 successfully provisioned and start over from the beginning every time. Instead, you can
@@ -23,12 +21,9 @@ option is available for all stack deployments and change set operations.
 ###### Topics
 
 - [Overview of stack failure options](#stack-failure-options-overview "#stack-failure-options-overview")
-- [Required conditions for pausing stack
-  rollback](#stack-failure-options-conditions "#stack-failure-options-conditions")
-- [Preserve successfully provisioned resources
-  (console)](#stack-failure-options-console "#stack-failure-options-console")
-- [Preserve successfully provisioned resources
-  (AWS CLI)](#stack-failure-options-cli "#stack-failure-options-cli")
+- [Required conditions for pausing stack rollback](#stack-failure-options-conditions "#stack-failure-options-conditions")
+- [Preserve successfully provisioned resources (console)](#stack-failure-options-console "#stack-failure-options-console")
+- [Preserve successfully provisioned resources (AWS CLI)](#stack-failure-options-cli "#stack-failure-options-cli")
 
 ## Overview of stack failure options
 
@@ -67,9 +62,7 @@ can select the following options.
 - **Roll back** – CloudFormation rolls back the stack to the last known
   stable state.
 
-## Required conditions for pausing stack
-
-rollback
+## Required conditions for pausing stack rollback
 
 To prevent CloudFormation from automatically rolling back and deleting the resources that were
 successfully created, the following conditions must be met.
@@ -84,9 +77,7 @@ successfully created, the following conditions must be met.
 
 Immutable update types aren't supported.
 
-## Preserve successfully provisioned resources
-
-(console)
+## Preserve successfully provisioned resources (console)
 
 Create stack
 
@@ -176,9 +167,7 @@ Resources that are successfully provisioned are in a `CREATE_COMPLETE` or
 `UPDATE_COMPLETE` state. You can monitor the stack in the **Stack
 events** tab.
 
-## Preserve successfully provisioned resources
-
-(AWS CLI)
+## Preserve successfully provisioned resources (AWS CLI)
 
 Create stack
 

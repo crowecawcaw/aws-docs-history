@@ -1,6 +1,4 @@
-# Start a resource scan with
-
-CloudFormation IaC generator
+# Start a resource scan with CloudFormation IaC generator
 
 Before you create a template from existing resources, you first must initiate a
 resource scan to discover your current resources and their relationships.
@@ -30,18 +28,14 @@ of IaC generator, we recommend the first option.
 ###### Note
 
 Before you continue, confirm that you have the permissions required to work with
-IaC generator. For more information, see [IAM permissions required for scanning
-resources](generate-IaC.md#iac-generator-permissions "generate-IaC.md#iac-generator-permissions").
+IaC generator. For more information, see [IAM permissions required for scanning resources](generate-IaC.md#iac-generator-permissions "generate-IaC.md#iac-generator-permissions").
 
 ###### Topics
 
-- [Start a resource scan
-  (console)](#start-resource-scan-console "#start-resource-scan-console")
+- [Start a resource scan (console)](#start-resource-scan-console "#start-resource-scan-console")
 - [Start a resource scan (AWS CLI)](#start-resource-scan-cli "#start-resource-scan-cli")
 
-## Start a resource scan
-
-(console)
+## Start a resource scan (console)
 
 ###### To start a resource scan of all resource types (full scan)
 

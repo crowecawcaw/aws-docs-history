@@ -1,6 +1,4 @@
-# Bootstrapping Windows-based
-
-CloudFormation stacks
+# Bootstrapping Windows-based CloudFormation stacks
 
 This topic describes how to bootstrap a Windows stack and troubleshoot stack
 creation issues.
@@ -8,16 +6,11 @@ creation issues.
 ###### Topics
 
 - [User data in EC2 instances](#cfn-windows-bootstrapping-user-data "#cfn-windows-bootstrapping-user-data")
-- [CloudFormation helper
-  scripts](#cfn-windows-bootstrapping-helper-scripts "#cfn-windows-bootstrapping-helper-scripts")
-- [Example of bootstrapping a
-  Windows stack](#cfn-windows-bootstrapping-example "#cfn-windows-bootstrapping-example")
-- [Escape backslashes in
-  Windows file paths](#cfn-windows-stacks-escape-backslashes "#cfn-windows-stacks-escape-backslashes")
-- [Manage Windows
-  services](#cfn-windows-stacks-manage-windows-services "#cfn-windows-stacks-manage-windows-services")
-- [Troubleshoot stack creation
-  issues](#cfn-windows-stacks-troubleshooting "#cfn-windows-stacks-troubleshooting")
+- [CloudFormation helper scripts](#cfn-windows-bootstrapping-helper-scripts "#cfn-windows-bootstrapping-helper-scripts")
+- [Example of bootstrapping a Windows stack](#cfn-windows-bootstrapping-example "#cfn-windows-bootstrapping-example")
+- [Escape backslashes in Windows file paths](#cfn-windows-stacks-escape-backslashes "#cfn-windows-stacks-escape-backslashes")
+- [Manage Windows services](#cfn-windows-stacks-manage-windows-services "#cfn-windows-stacks-manage-windows-services")
+- [Troubleshoot stack creation issues](#cfn-windows-stacks-troubleshooting "#cfn-windows-stacks-troubleshooting")
 
 ## User data in EC2 instances
 
@@ -42,9 +35,7 @@ Guide_.
 For information about AWS Windows AMIs, see the [AWS Windows
 AMI Reference](../../../ec2/latest/windows-ami-reference/windows-amis.md "../../../ec2/latest/windows-ami-reference/windows-amis.md").
 
-## CloudFormation helper
-
-scripts
+## CloudFormation helper scripts
 
 Helper scripts are utilities for configuring instances during the bootstrapping process.
 Used with Amazon EC2 user data, they provide powerful configuration options.
@@ -70,9 +61,7 @@ instance during the stack creation process.
 For more information, see the [CloudFormation helper scripts reference](../TemplateReference/cfn-helper-scripts-reference.md "../TemplateReference/cfn-helper-scripts-reference.md") in the _CloudFormation Template
 Reference Guide_.
 
-## Example of bootstrapping a
-
-Windows stack
+## Example of bootstrapping a Windows stack
 
 Let's examine example snippets from a Windows Server template that
 performs the following actions:
@@ -239,9 +228,7 @@ instances, see [Connect to your
 Windows instance using RDP](../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md") in the
 _Amazon EC2 User Guide_.
 
-## Escape backslashes in
-
-Windows file paths
+## Escape backslashes in Windows file paths
 
 When referencing Windows paths in CloudFormation templates, always remember to properly
 escape backslashes (`\`) according to the template format you're using.
@@ -265,9 +252,7 @@ commands:
     command: C:\SharePoint\SharePointFoundation2010.exe /extract:C:\SharePoint\SPF2010 /quiet /log:C:\SharePoint\SharePointFoundation2010-extract.log
 ```
 
-## Manage Windows
-
-services
+## Manage Windows services
 
 You manage Windows services in the same way as Linux services, except that you
 use a `windows` key instead of `sysvinit`. The following example
@@ -289,9 +274,7 @@ starts the `cfn-hup` service, sets it to Automatic, and restarts the service if
 You can manage other Windows services in the same way by using the name, not the
 display name, to reference the service.
 
-## Troubleshoot stack creation
-
-issues
+## Troubleshoot stack creation issues
 
 If your stack fails during creation, the default behavior is to rollback on failure.
 While this is normally a good default because it avoids unnecessary charges, it makes it
@@ -299,8 +282,7 @@ difficult to debug why your stack creation is failing.
 
 To turn this behavior off when creating or updating your stack with the CloudFormation
 console, choose the **Preserve successfully provisioned resources** option
-under **Stack failure options**. For more information, see [Choose how to handle failures when provisioning
-resources](stack-failure-options.md "stack-failure-options.md"). This allows you
+under **Stack failure options**. For more information, see [Choose how to handle failures when provisioning resources](stack-failure-options.md "stack-failure-options.md"). This allows you
 to log into your instance and view the log files to pinpoint issues encountered when
 running your startup scripts.
 

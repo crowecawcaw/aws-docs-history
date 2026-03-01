@@ -1,6 +1,4 @@
-# Get a plaintext value from Systems Manager Parameter
-
-Store
+# Get a plaintext value from Systems Manager Parameter Store
 
 When you're creating a CloudFormation template, you might want to use plaintext values
 stored in Parameter Store. Parameter Store is a capability of AWS Systems Manager. For an
@@ -32,8 +30,7 @@ keep in mind:
   Systems Manager parameter key as the default value for your parameter. CloudFormation will
   then retrieve the latest version of the parameter value from Parameter Store,
   without you having to specify a version number. This can make your templates
-  simpler and easier to maintain. For more information, see [Specify existing resources at
-  runtime with CloudFormation-supplied parameter types](cloudformation-supplied-parameter-types.md "cloudformation-supplied-parameter-types.md").
+  simpler and easier to maintain. For more information, see [Specify existing resources at runtime with CloudFormation-supplied parameter types](cloudformation-supplied-parameter-types.md "cloudformation-supplied-parameter-types.md").
 - For custom resources, CloudFormation resolves the `ssm` dynamic
   references before sending the request to the custom resource.
 - CloudFormation doesn't support using dynamic references to reference a parameter
@@ -88,14 +85,10 @@ Optional.
 
 ###### Topics
 
-- [Public AMI ID
-  parameter](#dynamic-references-ssm-public-ami-example "#dynamic-references-ssm-public-ami-example")
-- [Custom AMI ID
-  parameter](#dynamic-references-ssm-custom-ami-example "#dynamic-references-ssm-custom-ami-example")
+- [Public AMI ID parameter](#dynamic-references-ssm-public-ami-example "#dynamic-references-ssm-public-ami-example")
+- [Custom AMI ID parameter](#dynamic-references-ssm-custom-ami-example "#dynamic-references-ssm-custom-ami-example")
 
-### Public AMI ID
-
-parameter
+### Public AMI ID parameter
 
 The following example creates an EC2 instance that references a public AMI
 parameter. The dynamic reference retrieves the latest Amazon Linux 2023 AMI ID
@@ -129,9 +122,7 @@ Resources:
       InstanceType: t2.micro
 ```
 
-### Custom AMI ID
-
-parameter
+### Custom AMI ID parameter
 
 The following example creates an EC2 launch template that references a custom
 AMI ID stored in the Parameter Store. The dynamic reference retrieves the AMI ID

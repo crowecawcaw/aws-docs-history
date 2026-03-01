@@ -279,9 +279,7 @@ associate different stack policies with different users.
 
 For information about writing stack policies, see [Defining a stack policy](#stack-policy-reference "#stack-policy-reference").
 
-###### To set a stack policy
-
-when you create a stack (console)
+###### To set a stack policy when you create a stack (console)
 
 1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -299,17 +297,13 @@ when you create a stack (console)
      file**, then **Choose file** to select the file containing
      the stack policy.
 
-###### To set a stack policy when
-
-you create a stack (AWS CLI)
+###### To set a stack policy when you create a stack (AWS CLI)
 
 - Use the [create-stack](../../../cli/latest/reference/cloudformation/create-stack.md "../../../cli/latest/reference/cloudformation/create-stack.md") command with the `--stack-policy-body`
   option to type in a modified policy or the `--stack-policy-url` option to
   specify a file containing the policy.
 
-###### To set a stack policy
-
-on an existing stack (AWS CLI only)
+###### To set a stack policy on an existing stack (AWS CLI only)
 
 - Use the [set-stack-policy](../../../cli/latest/reference/cloudformation/set-stack-policy.md "../../../cli/latest/reference/cloudformation/set-stack-policy.md") command with the
   `--stack-policy-body` option to type in a modified policy or the
@@ -337,9 +331,7 @@ resource. CloudFormation makes no physical changes, such as the resources' ID, t
 updated resources, but if a stack policy is associated with those resources, you must have
 permission to update them.
 
-###### To update a protected
-
-resource (console)
+###### To update a protected resource (console)
 
 1. Open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -401,21 +393,19 @@ a temporary override policy that allows all updates:
 ###### Note
 
 CloudFormation applies the override policy only during this update. The override policy
-doesn't permanently change the stack policy. To modify a stack policy, see [Modifying a stack policy](#protect-stack-resources-modifying "#protect-stack-resources-modifying") . 6. Review the stack information and the changes that you submitted.
+doesn't permanently change the stack policy. To modify a stack policy, see [Modifying a stack policy](#protect-stack-resources-modifying "#protect-stack-resources-modifying"). 6. Review the stack information and the changes that you submitted.
 
 Check that you submitted the correct information, such as the correct parameter values
 or template URL. If your template contains IAM resources, choose **I acknowledge
 that this template may create IAM resources** to specify that you want to use
 IAM resources in the template. For more information,
-see [Acknowledging IAM resources in CloudFormation
-templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
+see [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
 
 In the **Preview your changes** section, check that CloudFormation will
 make all the changes that you expect. For example, check that CloudFormation adds, removes,
 and modifies the resources that you intended to add, remove, or modify. CloudFormation
 generates this preview by creating a change set for the stack. For more information, see
-[Update CloudFormation stacks using change
-sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md"). 7. When you are satisfied with your changes, click **Update**.
+[Update CloudFormation stacks using change sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md"). 7. When you are satisfied with your changes, click **Update**.
 
 ###### Note
 
@@ -433,9 +423,7 @@ CloudFormation has successfully finished updating the stack, it sets the stack s
 If the stack update fails, CloudFormation; automatically rolls back changes, and sets
 the stack status to `UPDATE_ROLLBACK_COMPLETE`.
 
-###### To update a protected
-
-resource (AWS CLI)
+###### To update a protected resource (AWS CLI)
 
 - Use the [update-stack](../../../cli/latest/reference/cloudformation/update-stack.md "../../../cli/latest/reference/cloudformation/update-stack.md") command with the
   `--stack-policy-during-update-body` option to type in a modified policy or
@@ -445,7 +433,7 @@ resource (AWS CLI)
 ###### Note
 
 CloudFormation applies the override policy only during this update. The override policy
-doesn't permanently change the stack policy. To modify a stack policy, see [Modifying a stack policy](#protect-stack-resources-modifying "#protect-stack-resources-modifying") .
+doesn't permanently change the stack policy. To modify a stack policy, see [Modifying a stack policy](#protect-stack-resources-modifying "#protect-stack-resources-modifying").
 
 ## Modifying a stack policy
 
@@ -456,9 +444,7 @@ must have permission to use the [SetStackPolicy](../APIReference/API_SetStackPol
 
 Use the AWS CLI to modify stack policies.
 
-###### To modify a stack policy
-
-(AWS CLI)
+###### To modify a stack policy (AWS CLI)
 
 - Use the [set-stack-policy](../../../cli/latest/reference/cloudformation/set-stack-policy.md "../../../cli/latest/reference/cloudformation/set-stack-policy.md") command with the
   `--stack-policy-body` option to type in a modified policy or the

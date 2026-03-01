@@ -1,6 +1,4 @@
-# How to resolve issues with write-only properties
-
-in AWS::Lambda::Function resources
+# How to resolve issues with write-only properties in AWS::Lambda::Function resources
 
 This topic explains how to resolve issues with write-only properties in [AWS::Lambda::Function](../TemplateReference/aws-resource-lambda-function.md "../TemplateReference/aws-resource-lambda-function.md") resources when using the IaC generator.
 
@@ -40,9 +38,7 @@ If you store your Lambda code in an Amazon S3 bucket and do not use the
 without any modifications. The IaC generator will ask you for the Amazon S3 bucket and key as
 template parameters during the import operation.
 
-###### If you store your Lambda code as an Amazon ECR repository, you
-
-can update your template using the following instructions:
+###### If you store your Lambda code as an Amazon ECR repository, you can update your template using the following instructions:
 
 1. Download the generated template.
 2. Remove the properties and corresponding parameters for the `Code/S3Bucket`
@@ -52,9 +48,7 @@ can update your template using the following instructions:
 4. Open the generated template in the IaC generator console and choose the
    **Import edited template** button.
 
-###### If you store your Lambda code as in a zip file, you can
-
-update your template using the following instructions:
+###### If you store your Lambda code as in a zip file, you can update your template using the following instructions:
 
 1. Download the generated template.
 2. Remove the properties and corresponding parameters for the `Code/S3Bucket`
@@ -64,9 +58,7 @@ update your template using the following instructions:
 4. Open the generated template in the IaC generator console and choose the
    **Import edited template** button.
 
-###### If you don’t have a copy of your Lambda code, you can
-
-update your template using the following instructions:
+###### If you don’t have a copy of your Lambda code, you can update your template using the following instructions:
 
 1. Use the AWS Lambda [`GetFunction`](../../../lambda/latest/api/API_GetFunction.md "../../../lambda/latest/api/API_GetFunction.md") API action
    (for example, by using the [`aws lambda

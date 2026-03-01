@@ -8,17 +8,13 @@ bucket.
 
 For resource properties that don't support updates, you must keep the current values. To
 preview the changes that CloudFormation will make to your stack before you update it, use change
-sets. For more information, see [Update CloudFormation stacks using change
-sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
+sets. For more information, see [Update CloudFormation stacks using change sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
 
 When updating a stack, CloudFormation might interrupt resources or replace updated resources,
 depending on which properties you update. For more information about resource update behaviors,
-see [Understand update behaviors of stack
-resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md").
+see [Understand update behaviors of stack resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md").
 
-###### To update a stack
-
-(console)
+###### To update a stack (console)
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -91,8 +87,7 @@ configuration, or update the Amazon SNS notification topic. For more information
 options, see [Configure stack options](cfn-console-create-stack.md#configure-stack-options "cfn-console-create-stack.md#configure-stack-options"). 8. If your template contains IAM resources, for **Capabilities**, choose
 **I acknowledge that this template may create IAM resources** to
 specify that you want to use IAM resources in the template. For more information, see
-[Acknowledging IAM resources in CloudFormation
-templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities"). 9. Choose **Next** to continue. 10. Review the stack information and the changes that you submitted.
+[Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities"). 9. Choose **Next** to continue. 10. Review the stack information and the changes that you submitted.
 
 Check that you submitted the correct information, such as the correct parameter values
 or template URL.
@@ -100,8 +95,7 @@ or template URL.
 In the **Change set preview** section, check that CloudFormation will make
 all the changes that you expect. For example, you can check that CloudFormation adds, removes,
 and modifies the resources that you intended to add, remove, or modify. CloudFormation generates
-this preview by creating a change set for the stack. For more information, see [Update CloudFormation stacks using change
-sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md"). 11. When you are satisfied with your changes, choose **Update
+this preview by creating a change set for the stack. For more information, see [Update CloudFormation stacks using change sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md"). 11. When you are satisfied with your changes, choose **Update
 stack**.
 
 ###### Note
@@ -131,5 +125,4 @@ You can use one of the following commands:
 
 - [update-stack](../../../cli/latest/reference/cloudformation/update-stack.md "../../../cli/latest/reference/cloudformation/update-stack.md") (AWS CLI)
 - [Update-CFNStack](../../../powershell/latest/reference/items/Update-CFNStack.md "../../../powershell/latest/reference/items/Update-CFNStack.md") (AWS Tools for Windows PowerShell)
-  For examples of using the command line to update a stack, see [Examples of CloudFormation stack operation commands for
-  the AWS CLI and PowerShell](service_code_examples.md "service_code_examples.md").
+  For examples of using the command line to update a stack, see [Examples of CloudFormation stack operation commands for the AWS CLI and PowerShell](service_code_examples.md "service_code_examples.md").

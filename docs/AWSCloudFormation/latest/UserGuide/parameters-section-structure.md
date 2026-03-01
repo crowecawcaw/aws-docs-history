@@ -1,6 +1,4 @@
-# CloudFormation template Parameters
-
-syntax
+# CloudFormation template Parameters syntax
 
 Use the optional `Parameters` section to customize your templates. With
 parameters, you can input custom values to your template each time you create or update a stack.
@@ -9,15 +7,13 @@ tailored to specific scenarios.
 
 By defining parameters of the appropriate type, you can choose from a list of identifiers of
 existing resources when you use the console to create your stack. For more information, see
-[Specify existing resources at
-runtime with CloudFormation-supplied parameter types](cloudformation-supplied-parameter-types.md "cloudformation-supplied-parameter-types.md").
+[Specify existing resources at runtime with CloudFormation-supplied parameter types](cloudformation-supplied-parameter-types.md "cloudformation-supplied-parameter-types.md").
 
 Parameters are a popular way to specify property values of stack resources. However, there
 may be settings that are region dependent or are somewhat complex for users to figure out
 because of other conditions or dependencies. In these cases, you might want to put some logic in
 the template itself so that users can specify simpler values (or none at all) to get the results
-that they want, such as by using a mapping. For more information, see [CloudFormation template Mappings
-syntax](mappings-section-structure.md "mappings-section-structure.md").
+that they want, such as by using a mapping. For more information, see [CloudFormation template Mappings syntax](mappings-section-structure.md "mappings-section-structure.md").
 
 ## Syntax
 
@@ -62,8 +58,7 @@ when you use the template in the **Create Stack** wizard.
 By default, the CloudFormation console lists input parameters alphabetically by their
 logical ID. To override this default ordering and group related parameters together, you can
 use the `AWS::CloudFormation::Interface` metadata key in your template. For more
-information, see [Organizing CloudFormation parameters with
-AWS::CloudFormation::Interface metadata](aws-cloudformation-interface.md "aws-cloudformation-interface.md").
+information, see [Organizing CloudFormation parameters with AWS::CloudFormation::Interface metadata](aws-cloudformation-interface.md "aws-cloudformation-interface.md").
 
 For parameters with default values, CloudFormation uses the default values unless users
 specify another value. If you omit the default attribute, users are required to specify a
@@ -276,9 +271,7 @@ CloudFormation retrieves the latest value from Parameter Store to use for the st
 For more information, see [Specify existing
 resources at runtime](cloudformation-supplied-parameter-types.md "cloudformation-supplied-parameter-types.md").
 
-## General requirements for
-
-parameters
+## General requirements for parameters
 
 The following requirements apply when using parameters:
 
@@ -301,10 +294,8 @@ The following requirements apply when using parameters:
 - [Simple string parameter](#parameters-section-structure-example-1 "#parameters-section-structure-example-1")
 - [Password parameter](#parameters-section-structure-example-2 "#parameters-section-structure-example-2")
 - [Referencing parameters](#parameters-section-structure-example-3 "#parameters-section-structure-example-3")
-- [Comma-delimited list
-  parameter](#parameters-section-structure-example-4 "#parameters-section-structure-example-4")
-- [Return a value from a
-  comma-delimited list parameter](#parameters-section-structure-example-5 "#parameters-section-structure-example-5")
+- [Comma-delimited list parameter](#parameters-section-structure-example-4 "#parameters-section-structure-example-4")
+- [Return a value from a comma-delimited list parameter](#parameters-section-structure-example-5 "#parameters-section-structure-example-5")
 
 ### Simple string parameter
 
@@ -408,9 +399,7 @@ Ec2Instance:
     ImageId: ami-0ff8a91507f77f867
 ```
 
-### Comma-delimited list
-
-parameter
+### Comma-delimited list parameter
 
 The `CommaDelimitedList` parameter type can be useful when you need to
 provide multiple values for a single property. The following example declares a parameter
@@ -440,9 +429,7 @@ Parameters:
 
 ```
 
-### Return a value from a
-
-comma-delimited list parameter
+### Return a value from a comma-delimited list parameter
 
 To refer to a specific value in a parameter's comma-delimited list, use the
 `Fn::Select` intrinsic function in the `Resources` section of your
@@ -592,8 +579,7 @@ Resources:
 
 CloudFormation also supports the use of dynamic references to specify property values
 dynamically. For example, you might need to reference secure strings stored in Systems Manager Parameter
-Store. For more information, see [Get values stored in other services using dynamic
-references](dynamic-references.md "dynamic-references.md").
+Store. For more information, see [Get values stored in other services using dynamic references](dynamic-references.md "dynamic-references.md").
 
 You can also use pseudo parameters within a `Ref` or a `Sub`
 function to dynamically populate values. For more information, see [Get AWS values using pseudo parameters](pseudo-parameter-reference.md "pseudo-parameter-reference.md").

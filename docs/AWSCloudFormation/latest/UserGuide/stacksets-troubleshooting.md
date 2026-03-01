@@ -5,18 +5,13 @@ issues.
 
 ###### Topics
 
-- [Common reasons for stack
-  operation failure](#common-reasons-for-stack-operation-failure "#common-reasons-for-stack-operation-failure")
-- [Retrying failed
-  stack creation or update operations](#retrying-failed-stack-creation-or-update-operations "#retrying-failed-stack-creation-or-update-operations")
+- [Common reasons for stack operation failure](#common-reasons-for-stack-operation-failure "#common-reasons-for-stack-operation-failure")
+- [Retrying failed stack creation or update operations](#retrying-failed-stack-creation-or-update-operations "#retrying-failed-stack-creation-or-update-operations")
 - [Stack instance deletion fails](#stack-instance-delete-fails "#stack-instance-delete-fails")
 - [Stack import operation fails](#stack-import-fails "#stack-import-fails")
-- [Stack instance
-  failure count for StackSets operations](#stack-instance-failure-count-for-stackset-operations "#stack-instance-failure-count-for-stackset-operations")
+- [Stack instance failure count for StackSets operations](#stack-instance-failure-count-for-stackset-operations "#stack-instance-failure-count-for-stackset-operations")
 
-## Common reasons for stack
-
-operation failure
+## Common reasons for stack operation failure
 
 Problem: A stack operation failed, and the stack
 instance status is `OUTDATED`.
@@ -44,12 +39,9 @@ operation failure.
 
 Solution: For more information about the permissions
 required of target and administrator accounts before you can create StackSets, see
-[Give all users of the administrator
-account permissions to manage stacks in all target accounts](stacksets-prereqs-self-managed.md#stacksets-prereqs-accountsetup "stacksets-prereqs-self-managed.md#stacksets-prereqs-accountsetup").
+[Give all users of the administrator account permissions to manage stacks in all target accounts](stacksets-prereqs-self-managed.md#stacksets-prereqs-accountsetup "stacksets-prereqs-self-managed.md#stacksets-prereqs-accountsetup").
 
-## Retrying failed
-
-stack creation or update operations
+## Retrying failed stack creation or update operations
 
 Problem: A stack creation or update failed, and the
 stack instance status is `OUTDATED`. To troubleshoot why a stack creation or
@@ -112,15 +104,13 @@ completing the following tasks.
 1. Use **Delete Stacks from StackSets** option and enable
    **RetainStacks** during configuration, then proceed to
    delete stack instances from your StackSet. For more information, For more
-   information, see [Delete stacks from CloudFormation StackSets](stackinstances-delete.md "stackinstances-delete.md") .
+   information, see [Delete stacks from CloudFormation StackSets](stackinstances-delete.md "stackinstances-delete.md").
 2. You will see the stack instances of the StackSet are updated to remove the
    `INOPERABLE` stack instance.
 3. Fix the stack instances according to the import failure error and retry the
    stack import operation.
 
-## Stack instance
-
-failure count for StackSets operations
+## Stack instance failure count for StackSets operations
 
 The stack instance failure count alerts you if stack instances fail to provision or
 update. These stack instances didn't deploy because of one or more of the following
@@ -152,9 +142,7 @@ stack instances to determine which instances need to be redeployed.
    status details. You will find the number of failed stack instances for a
    particular operation in the status details.
 
-###### To view the account, region, and status of stack instances for the
-
-operation:
+###### To view the account, region, and status of stack instances for the operation:
 
 1. In the status details, choose the failed stack instances count.
    _Example:_

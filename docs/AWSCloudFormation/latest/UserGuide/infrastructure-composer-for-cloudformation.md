@@ -17,9 +17,7 @@ templates directly. To access this mode from the [CloudFormation console](https:
 For more information, see [How to compose in
 AWS Infrastructure Composer](../../../infrastructure-composer/latest/dg/using-composer-basics.md "../../../infrastructure-composer/latest/dg/using-composer-basics.md") in the _AWS Infrastructure Composer Developer Guide_.
 
-## Why use Infrastructure Composer in CloudFormation console
-
-mode?
+## Why use Infrastructure Composer in CloudFormation console mode?
 
 Visualizing your templates in Infrastructure Composer helps you identify gaps and areas of improvement in
 your CloudFormation templates and application architecture. Infrastructure Composer improves your development
@@ -27,9 +25,7 @@ experience with the ease and efficiency of visually building and modifying Cloud
 You can start with an initial draft, create deployable code, and incorporate your developer
 workflows with the visual designer in Infrastructure Composer.
 
-## How is this mode different than
-
-the Infrastructure Composer console?
+## How is this mode different than the Infrastructure Composer console?
 
 While the CloudFormation console version of Infrastructure Composer has similar features to the standard Infrastructure Composer
 console, there are a few differences. Lambda-related cards (**Lambda

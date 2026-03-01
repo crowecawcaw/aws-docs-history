@@ -248,11 +248,9 @@ The following diagram summarizes the workflow for updating a stack.
 
 As you update your template, keep in mind that updates can cause interruptions.
 Depending on the resource and properties that you are updating, an update might interrupt
-or even replace an existing resource. For more information, see [Understand update behaviors of stack
-resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md"). 2. Save the CloudFormation template locally or in an S3 bucket. 3. Create a change set by specifying the stack that you want to update and the location
+or even replace an existing resource. For more information, see [Understand update behaviors of stack resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md"). 2. Save the CloudFormation template locally or in an S3 bucket. 3. Create a change set by specifying the stack that you want to update and the location
 of the modified template, such as a path on your local computer or an Amazon S3 URL. For more
-information about creating change sets, see [Update CloudFormation stacks using change
-sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
+information about creating change sets, see [Update CloudFormation stacks using change sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
 
 ###### Note
 

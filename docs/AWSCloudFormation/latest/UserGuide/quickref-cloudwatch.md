@@ -9,8 +9,7 @@ more information, see the [Amazon CloudWatch resource type reference](../Templat
 - [CPU utilization alarm](#cloudwatch-sample-cpu-utilization-alarm "#cloudwatch-sample-cpu-utilization-alarm")
 - [Recover an Amazon Elastic Compute Cloud instance](#cloudwatch-sample-recover-instance "#cloudwatch-sample-recover-instance")
 - [Create a basic dashboard](#cloudwatch-sample-dashboard-basic "#cloudwatch-sample-dashboard-basic")
-- [Create a dashboard with side-by-side
-  widgets](#cloudwatch-sample-dashboard-sidebyside "#cloudwatch-sample-dashboard-sidebyside")
+- [Create a dashboard with side-by-side widgets](#cloudwatch-sample-dashboard-sidebyside "#cloudwatch-sample-dashboard-sidebyside")
 
 ## Billing alarm
 
@@ -224,9 +223,7 @@ BasicDashboard:
 
 ```
 
-## Create a dashboard with side-by-side
-
-widgets
+## Create a dashboard with side-by-side widgets
 
 The following example creates a dashboard with two metric widgets that appear side by
 side.

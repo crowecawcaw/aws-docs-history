@@ -35,8 +35,7 @@ Choosing a resource shows the **Type**, deployment **Start time**, deployment
 **End time**, and **Duration** of each deployment status in the drop-down menus below. If the resource failed
 to deploy, a **Failure reason** will be provided.
 
-For more information on stack statuses, see [Stack status
-codes](view-stack-events.md#cfn-console-view-stack-data-resources-status-codes "view-stack-events.md#cfn-console-view-stack-data-resources-status-codes").
+For more information on stack statuses, see [Stack status codes](view-stack-events.md#cfn-console-view-stack-data-resources-status-codes "view-stack-events.md#cfn-console-view-stack-data-resources-status-codes").
 
 ## Viewing the stack deployment timeline graph (console)
 

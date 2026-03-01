@@ -12,8 +12,7 @@ Updating a stack involves making changes to the template or
 parameters. CloudFormation compares the changes you submit with the current state of your stack and
 updates only the changed resources. CloudFormation might interrupt resources or replace updated
 resources, depending on which properties you update. For more information about resource update
-behaviors, see [Understand update behaviors of stack
-resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md").
+behaviors, see [Understand update behaviors of stack resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md").
 
 CloudFormation provides two methods for updating stacks:
 
@@ -48,30 +47,22 @@ deleted.
 
 - [Interfaces for managing your stacks](#interfaces-for-managing-stacks "#interfaces-for-managing-stacks")
 - [Create a stack from the CloudFormation console](cfn-console-create-stack.md "cfn-console-create-stack.md")
-- [View stack information from the
-  CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md")
+- [View stack information from the CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md")
 - [Update your stack template](using-cfn-updating-stacks-get-template.md "using-cfn-updating-stacks-get-template.md")
-- [Understand update behaviors of stack
-  resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md")
-- [Update CloudFormation stacks using change
-  sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md")
+- [Understand update behaviors of stack resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md")
+- [Update CloudFormation stacks using change sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md")
 - [Validate stack deployments](validate-stack-deployments.md "validate-stack-deployments.md")
 - [Update stacks directly](using-cfn-updating-stacks-direct.md "using-cfn-updating-stacks-direct.md")
 - [Cancel a stack update](using-cfn-stack-update-cancel.md "using-cfn-stack-update-cancel.md")
 - [Delete a stack from the CloudFormation console](cfn-console-delete-stack.md "cfn-console-delete-stack.md")
 - [Monitor stack progress](monitor-stack-progress.md "monitor-stack-progress.md")
-- [Roll back your CloudFormation stack on alarm
-  breach with rollback triggers](using-cfn-rollback-triggers.md "using-cfn-rollback-triggers.md")
-- [Detect unmanaged configuration changes to stacks and
-  resources with drift detection](using-cfn-stack-drift.md "using-cfn-stack-drift.md")
+- [Roll back your CloudFormation stack on alarm breach with rollback triggers](using-cfn-rollback-triggers.md "using-cfn-rollback-triggers.md")
+- [Detect unmanaged configuration changes to stacks and resources with drift detection](using-cfn-stack-drift.md "using-cfn-stack-drift.md")
 - [Import AWS resources into a CloudFormation stack](import-resources.md "import-resources.md")
 - [Stack refactoring](stack-refactoring.md "stack-refactoring.md")
-- [Resource type
-  support](resource-import-supported-resources.md "resource-import-supported-resources.md")
-- [Use quick-create links to
-  create CloudFormation stacks](cfn-console-create-stacks-quick-create-links.md "cfn-console-create-stacks-quick-create-links.md")
-- [Examples of CloudFormation stack operation commands for
-  the AWS CLI and PowerShell](service_code_examples.md "service_code_examples.md")
+- [Resource type support](resource-import-supported-resources.md "resource-import-supported-resources.md")
+- [Use quick-create links to create CloudFormation stacks](cfn-console-create-stacks-quick-create-links.md "cfn-console-create-stacks-quick-create-links.md")
+- [Examples of CloudFormation stack operation commands for the AWS CLI and PowerShell](service_code_examples.md "service_code_examples.md")
 
 ## Interfaces for managing your stacks
 

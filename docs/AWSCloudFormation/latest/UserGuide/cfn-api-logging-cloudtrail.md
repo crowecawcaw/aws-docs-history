@@ -15,8 +15,7 @@ To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../aws
 ###### Topics
 
 - [CloudFormation information in CloudTrail](#cloudformation_info_in_cloudtrail "#cloudformation_info_in_cloudtrail")
-- [Understanding CloudFormation log file
-  entries](#understanding_cloudformation_entries "#understanding_cloudformation_entries")
+- [Understanding CloudFormation log file entries](#understanding_cloudformation_entries "#understanding_cloudformation_entries")
 
 ## CloudFormation information in CloudTrail
 
@@ -55,9 +54,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding CloudFormation log file
-
-entries
+## Understanding CloudFormation log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single

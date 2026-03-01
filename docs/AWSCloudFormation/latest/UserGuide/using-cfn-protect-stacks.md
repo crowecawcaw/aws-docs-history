@@ -1,6 +1,4 @@
-# Protect CloudFormation stacks from being
-
-deleted
+# Protect CloudFormation stacks from being deleted
 
 You can prevent a stack from being accidentally deleted by enabling termination protection
 on the stack. If a user attempts to delete a stack with termination protection enabled, the
@@ -71,9 +69,7 @@ select **Save**.
 
 Use the [update-termination-protection](../../../cli/latest/reference/cloudformation/update-termination-protection.md "../../../cli/latest/reference/cloudformation/update-termination-protection.md") command.
 
-## Controlling who can change termination protection
-
-on stacks
+## Controlling who can change termination protection on stacks
 
 To enable or disable termination protection on stacks, a user requires permission to
 the `cloudformation:UpdateTerminationProtection` action. For example, the
@@ -81,9 +77,7 @@ policy below allows users to enable or disable termination protection on stacks.
 
 For more information on specifying permissions in CloudFormation, see [Control CloudFormation access with AWS Identity and Access Management](control-access-with-iam.md "control-access-with-iam.md").
 
-###### Example A sample policy that grants permissions to change stack termination
-
-protection
+###### Example A sample policy that grants permissions to change stack termination protection
 
 JSON
 

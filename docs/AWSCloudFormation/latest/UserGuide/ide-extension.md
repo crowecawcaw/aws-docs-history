@@ -15,17 +15,13 @@ CloudFormation.
 
 ###### Topics
 
-- [IDEs integrating with the AWS CloudFormation
-  language server](#ide-extension-supported-ides "#ide-extension-supported-ides")
+- [IDEs integrating with the AWS CloudFormation language server](#ide-extension-supported-ides "#ide-extension-supported-ides")
 - [Getting started](#ide-extension-getting-started "#ide-extension-getting-started")
-- [Initializing a CloudFormation project in
-  the IDE](#ide-extension-initialize-project "#ide-extension-initialize-project")
+- [Initializing a CloudFormation project in the IDE](#ide-extension-initialize-project "#ide-extension-initialize-project")
 - [Open source](#ide-extension-open-source "#ide-extension-open-source")
 - [Need help?](#ide-extension-need-help "#ide-extension-need-help")
 
-## IDEs integrating with the AWS CloudFormation
-
-language server
+## IDEs integrating with the AWS CloudFormation language server
 
 The [AWS Toolkit](../../../toolkit-for-vscode/latest/userguide/welcome.md "../../../toolkit-for-vscode/latest/userguide/welcome.md") extension integrates the CloudFormation language server to
 enhance the authoring experience. This integration is currently supported in VS Code
@@ -40,14 +36,10 @@ based IDEs, including:
 ###### Topics
 
 - [Prerequisites](#ide-extension-prerequisites "#ide-extension-prerequisites")
-- [Step 1: Install or upgrade the AWS
-  Toolkit](#ide-extension-install-toolkit "#ide-extension-install-toolkit")
-- [Step 2: Access CloudFormation in
-  the AWS Toolkit panel](#ide-extension-access-toolkit-panel "#ide-extension-access-toolkit-panel")
-- [Step 3: Validate, test, and
-  refine your template](#ide-extension-validate-test-refine "#ide-extension-validate-test-refine")
-- [Step 4: Navigate through the
-  template](#ide-extension-navigate-template "#ide-extension-navigate-template")
+- [Step 1: Install or upgrade the AWS Toolkit](#ide-extension-install-toolkit "#ide-extension-install-toolkit")
+- [Step 2: Access CloudFormation in the AWS Toolkit panel](#ide-extension-access-toolkit-panel "#ide-extension-access-toolkit-panel")
+- [Step 3: Validate, test, and refine your template](#ide-extension-validate-test-refine "#ide-extension-validate-test-refine")
+- [Step 4: Navigate through the template](#ide-extension-navigate-template "#ide-extension-navigate-template")
 - [Step 5: Validate and deploy](#ide-extension-validate-deploy "#ide-extension-validate-deploy")
 
 ### Prerequisites
@@ -63,9 +55,7 @@ Some features in the AWS CloudFormation language server require an active AWS ac
 configured credentials. You must be signed in to your AWS account through the
 AWS Toolkit using valid credentials.
 
-### Step 1: Install or upgrade the AWS
-
-Toolkit
+### Step 1: Install or upgrade the AWS Toolkit
 
 - Open your IDE's Extensions or Plugin Manager.
 - Search for AWS Toolkit.
@@ -85,9 +75,7 @@ and performance metrics. These insights help AWS identify and prioritize
 improvements such as faster validation, enhanced autocomplete, and better error
 diagnostics.
 
-### Step 2: Access CloudFormation in
-
-the AWS Toolkit panel
+### Step 2: Access CloudFormation in the AWS Toolkit panel
 
 In your IDE, open the AWS Toolkit panel from the activity bar. Under AWS
 Toolkit, choose **CLOUDFORMATION**.
@@ -123,9 +111,7 @@ Panel sections:
   panel displays the AWS resources of that type in your account. You can
   view, refresh, copy, or import them into your template.
 
-### Step 3: Validate, test, and
-
-refine your template
+### Step 3: Validate, test, and refine your template
 
 As you write your CloudFormation template, the IDE provides intelligent authoring
 assistance to help you create accurate and compliant infrastructure faster. The
@@ -139,9 +125,7 @@ authoring features:
   properties of the resource, helping you clone or reuse existing
   infrastructure within your template.
 
-#### To add resources to
-
-your template
+#### To add resources to your template
 
 - **Expand the CloudFormation Resources
   panel**: In the AWS Toolkit side panel, expand
@@ -189,9 +173,7 @@ your template
   Management Info** to check whether a resource belongs to a
   stack.
 
-##### Add related
-
-resources
+##### Add related resources
 
 You can add related resources to the selected resource by using the
 command **AWS CloudFormation: Add Related Resources by Type**. Once
@@ -221,9 +203,7 @@ You will see two types of real-time static validations in the IDE:
 - Guard (`cfn-guard`): Validates your template
   against compliance rules and organizational policy packs.
 
-##### CloudFormation Linter
-
-(cfn-lint)
+##### CloudFormation Linter (cfn-lint)
 
 The CloudFormation Linter is integrated into the IDE to automatically check
 your template syntax and structure as you type.
@@ -239,9 +219,7 @@ your template syntax and structure as you type.
   that issue. If a quick fix is available, it will also be offered in
   the hover panel.
 
-##### Guard
-
-integration
+##### Guard integration
 
 Guard validates your templates against rule sets that define
 compliance and security policies. The IDE runs Guard validations
@@ -266,9 +244,7 @@ indicators
 - Red squiggles: Deployment blockers such as invalid property names,
   missing required fields, or schema mismatches.
 
-### Step 4: Navigate through the
-
-template
+### Step 4: Navigate through the template
 
 When you click on a template file in the **Explorer**, the
 **Outline** panel automatically displays a structured,
@@ -292,9 +268,7 @@ template, and if no blocking errors are found, it proceeds to the deployment pha
 Before confirming, the IDE shows a [drift-aware change set](drift-aware-change-sets.md "drift-aware-change-sets.md") summary and a diff view so you can review all
 proposed changes.
 
-#### How validation
-
-works
+#### How validation works
 
 The IDE automatically performs a [validation check before deployment](validate-stack-deployments.md "validate-stack-deployments.md") and validates your template
 against common failure causes, including:
@@ -355,9 +329,7 @@ in the AWS Management Console, use the external-link icon next to the stack name
 identify potential issues, and confirm when your stack has completed
 successfully.
 
-## Initializing a CloudFormation project in
-
-the IDE
+## Initializing a CloudFormation project in the IDE
 
 Initializing a CloudFormation project in the IDE helps you set up a structured workspace
 with the correct folders, environment configuration, and AWS credentials so you can

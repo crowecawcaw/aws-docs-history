@@ -1,6 +1,4 @@
-# CloudFormation template Mappings
-
-syntax
+# CloudFormation template Mappings syntax
 
 The optional `Mappings` section helps you create key-value pairs that can be used
 to specify values based on certain conditions or dependencies.
@@ -71,12 +69,9 @@ mapping alone. You must include changes that add, modify, or delete resources.
 ###### Topics
 
 - [Basic mapping](#mappings-section-structure-basic-example "#mappings-section-structure-basic-example")
-- [Mapping with multiple
-  values](#mappings-section-structure-multiple-values-example "#mappings-section-structure-multiple-values-example")
-- [Return a value from a
-  mapping](#mappings-section-structure-return-value-example "#mappings-section-structure-return-value-example")
-- [Input parameter and
-  Fn::FindInMap](#mappings-section-structure-input-parameter-example "#mappings-section-structure-input-parameter-example")
+- [Mapping with multiple values](#mappings-section-structure-multiple-values-example "#mappings-section-structure-multiple-values-example")
+- [Return a value from a mapping](#mappings-section-structure-return-value-example "#mappings-section-structure-return-value-example")
+- [Input parameter and Fn::FindInMap](#mappings-section-structure-input-parameter-example "#mappings-section-structure-input-parameter-example")
 
 ### Basic mapping
 
@@ -117,9 +112,7 @@ Mappings:
       InstanceType: t3.micro
 ```
 
-### Mapping with multiple
-
-values
+### Mapping with multiple values
 
 The following example has region keys that are mapped to two sets of values: one named
 `MyAMI1` and the other `MyAMI2`.
@@ -169,9 +162,7 @@ Mappings:
       MyAMI2: `ami-01234567890123456`
 ```
 
-### Return a value from a
-
-mapping
+### Return a value from a mapping
 
 You can use the `Fn::FindInMap` function to return a named value based on a
 specified key. The following example template contains an Amazon EC2 resource whose
@@ -232,9 +223,7 @@ Resources:
       InstanceType: !FindInMap [RegionToInstanceType, !Ref 'AWS::Region', InstanceType]
 ```
 
-### Input parameter and
-
-`Fn::FindInMap`
+### Input parameter and `Fn::FindInMap`
 
 The following example template shows how to create an EC2 instance using multiple
 mappings. The template uses nested mappings to automatically select the appropriate instance

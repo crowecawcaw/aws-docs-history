@@ -1,6 +1,4 @@
-# StackSet Status Change event
-
-detail
+# StackSet Status Change event detail
 
 Below are the detail fields for StackSet Status Change events.
 

@@ -40,12 +40,9 @@ template** option specified, as described below.
   with stack sets, you should ensure that the same version of the module is set as the
   default version in all the accounts and Regions in which you are planning to deploy your
   stack instances. This includes for modules that are nested in other modules. For more
-  information, see [Managing stacks across accounts and Regions with
-  StackSets](what-is-cfnstacksets.md "what-is-cfnstacksets.md").
+  information, see [Managing stacks across accounts and Regions with StackSets](what-is-cfnstacksets.md "what-is-cfnstacksets.md").
 
-## Requirements for activating third-party public
-
-modules
+## Requirements for activating third-party public modules
 
 To successfully activate a third-party public module in your account and Region, the
 following must be true for each third-party public extension (resource or module) included
@@ -53,12 +50,10 @@ in the module:
 
 - Extension activation – The extension must be
   activated in the account and Region you want to use it in. For more information, see
-  [Use third-party public extensions from the CloudFormation
-  registry](registry-public.md "registry-public.md").
+  [Use third-party public extensions from the CloudFormation registry](registry-public.md "registry-public.md").
 - Alias registration – If the extension in the
   module uses a type name alias, the extension must be registered in your account and
-  Region using the same type name alias. For more information, see [Use aliases to refer to
-  extensions](registry-public.md#registry-public-enable-alias "registry-public.md#registry-public-enable-alias").
+  Region using the same type name alias. For more information, see [Use aliases to refer to extensions](registry-public.md#registry-public-enable-alias "registry-public.md#registry-public-enable-alias").
 - Version compatibility – The extension version
   currently activated must be one of the supported major versions of that extension
   specified in the module.

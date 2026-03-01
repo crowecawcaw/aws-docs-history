@@ -5,19 +5,15 @@ AWS CLI.
 
 ###### Topics
 
-- [Delete stacks from your StackSet
-  (console)](#stackinstances-delete-console "#stackinstances-delete-console")
-- [Delete stacks from your StackSet
-  (AWS CLI)](#stackinstances-delete-cli "#stackinstances-delete-cli")
+- [Delete stacks from your StackSet (console)](#stackinstances-delete-console "#stackinstances-delete-console")
+- [Delete stacks from your StackSet (AWS CLI)](#stackinstances-delete-cli "#stackinstances-delete-cli")
 
 ###### Note
 
 Deleting stacks from a top-level organizational unit (OU) removes that OU as a
 StackSet target.
 
-## Delete stacks from your StackSet
-
-(console)
+## Delete stacks from your StackSet (console)
 
 ###### To delete stacks
 
@@ -106,9 +102,7 @@ After stack deletion is finished, you can verify that stacks were deleted
 from your StackSet in the StackSet detail page, on the **Stack
 instances** tab.
 
-## Delete stacks from your StackSet
-
-(AWS CLI)
+## Delete stacks from your StackSet (AWS CLI)
 
 ###### Note
 

@@ -16,9 +16,7 @@ also explore how to authorize IAM resource creation in templates, give applicati
 on EC2 instances the permissions they need, and make use of temporary security credentials for
 enhanced security in your AWS environment.
 
-## Defining IAM identity-based policies for
-
-CloudFormation
+## Defining IAM identity-based policies for CloudFormation
 
 To give access to CloudFormation, you need to create and assign IAM policies that give
 your IAM identities (such as users or roles) permission to call the API actions they
@@ -37,8 +35,7 @@ managed policy](../../../IAM/latest/UserGuide/tutorial_managed-policies.md "../.
 ###### Topics
 
 - [Policy actions for CloudFormation](#using-iam-actions "#using-iam-actions")
-- [Console-specific actions for
-  CloudFormation](#console-specific-actions "#console-specific-actions")
+- [Console-specific actions for CloudFormation](#console-specific-actions "#console-specific-actions")
 - [Policy resources for CloudFormation](#resource-level-permissions "#resource-level-permissions")
 - [Policy condition keys for CloudFormation](#using-iam-conditions "#using-iam-conditions")
 
@@ -75,9 +72,7 @@ _Service Authorization Reference_.
 The following shows an example of a permissions policy that grants permissions to
 view CloudFormation stacks.
 
-###### Example 1: A sample policy that grants view
-
-stack permissions
+###### Example 1: A sample policy that grants view stack permissions
 
 JSON
 
@@ -103,9 +98,7 @@ templates. For example, if your template describes an Amazon SQS queue, users mu
 permissions for both CloudFormation and Amazon SQS actions, as shown in the following sample
 policy.
 
-###### Example 2: A sample policy that grants create
-
-and view stack actions and all Amazon SQS actions
+###### Example 2: A sample policy that grants create and view stack actions and all Amazon SQS actions
 
 JSON
 
@@ -129,9 +122,7 @@ JSON
 
 ```
 
-### Console-specific actions for
-
-CloudFormation
+### Console-specific actions for CloudFormation
 
 Users of the CloudFormation console require additional permissions beyond those needed
 for the AWS Command Line Interface or CloudFormation APIs. These additional permissions support
@@ -168,8 +159,7 @@ in the template:
 - `ec2:DescribeVpcs` – Required for the
   `AWS::EC2::VPC::Id` parameter type.
 
-For more information about AWS-specific parameter types, see [Specify existing resources at
-runtime with CloudFormation-supplied parameter types](cloudformation-supplied-parameter-types.md "cloudformation-supplied-parameter-types.md").
+For more information about AWS-specific parameter types, see [Specify existing resources at runtime with CloudFormation-supplied parameter types](cloudformation-supplied-parameter-types.md "cloudformation-supplied-parameter-types.md").
 
 ### Policy resources for CloudFormation
 
@@ -186,9 +176,7 @@ You can specify actions for a specific stack, as shown in the following policy
 example. When you provide an ARN, replace the `placeholder
  text` with your resource-specific information.
 
-###### Example 1: A sample policy that denies
-
-the delete and update stack actions for the specified stack
+###### Example 1: A sample policy that denies the delete and update stack actions for the specified stack
 
 JSON
 
@@ -219,9 +207,7 @@ To allow `AWS::Serverless` transforms to create a change set, include the
 `arn:aws:cloudformation:`region`:aws:transform/Serverless-2016-10-31`
 resource-level permission, as shown in the following policy.
 
-###### Example 2: A sample policy that allows
-
-the create change set action for the specified transform
+###### Example 2: A sample policy that allows the create change set action for the specified transform
 
 JSON
 
@@ -280,8 +266,7 @@ resource types you want users to control during import operations. For more
 information about the `ResourcesToImport` parameter, see the [CreateChangeSet](../APIReference/API_CreateChangeSet.md "../APIReference/API_CreateChangeSet.md") action in the
 _AWS CloudFormation API Reference_.
 
-For a list of possible `ResourcesToImport`, see [Resource type
-support](resource-import-supported-resources.md "resource-import-supported-resources.md").
+For a list of possible `ResourcesToImport`, see [Resource type support](resource-import-supported-resources.md "resource-import-supported-resources.md").
 
 Use the three-part resource naming convention to specify which resource
 types users can work with, from all resources across an organization, down to
@@ -375,15 +360,13 @@ Specify the individual [Alexa::ASK::Skill](../TemplateReference/alexa-resource-a
 
 Specify all custom resources.
 
-For more information, see [Create custom provisioning logic with custom
-resources](template-custom-resources.md "template-custom-resources.md").
+For more information, see [Create custom provisioning logic with custom resources](template-custom-resources.md "template-custom-resources.md").
 
 `Custom::`resource_type``
 
 Specify a specific custom resource type.
 
-For more information, see [Create custom provisioning logic with custom
-resources](template-custom-resources.md "template-custom-resources.md").
+For more information, see [Create custom provisioning logic with custom resources](template-custom-resources.md "template-custom-resources.md").
 
 `cloudformation:RoleARN`
 
@@ -428,12 +411,9 @@ of the same name:
   `TemplateUrl` parameter for `CreateStack`,
   `UpdateStack`, and `CreateChangeSet` APIs.
 
-For examples of IAM policies that use condition keys to control access, see [Example IAM identity-based
-policies for CloudFormation](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+For examples of IAM policies that use condition keys to control access, see [Example IAM identity-based policies for CloudFormation](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Acknowledging IAM resources in CloudFormation
-
-templates
+## Acknowledging IAM resources in CloudFormation templates
 
 Before you can create a stack, CloudFormation validates your template. During validation,
 CloudFormation checks your template for IAM resources that it might create. IAM resources,
@@ -471,9 +451,7 @@ resources among stacks can have unintended consequences from which you can't rec
 For example, if you delete or update shared IAM resources in one stack, you will
 unintentionally modify the resources of other stacks.
 
-## Managing credentials for applications running on
-
-Amazon EC2 instances
+## Managing credentials for applications running on Amazon EC2 instances
 
 If you have an application that runs on an Amazon EC2 instance and needs to make requests to
 AWS resources such as Amazon S3 buckets or an DynamoDB table, the application requires AWS
@@ -498,9 +476,7 @@ credentials, see [AWS
 services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Granting temporary access (federated
-
-access)
+## Granting temporary access (federated access)
 
 In some cases, you might want to grant users with no AWS credentials temporary access
 to your AWS account. Rather than creating and deleting long-term credentials whenever you

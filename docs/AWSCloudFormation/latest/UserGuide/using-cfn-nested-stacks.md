@@ -1,6 +1,4 @@
-# Split a template into reusable pieces using nested
-
-stacks
+# Split a template into reusable pieces using nested stacks
 
 As your infrastructure grows, you might find yourself repeatedly creating identical
 resource configurations across multiple templates. To avoid this redundancy, you can
@@ -28,16 +26,12 @@ stack.
 
 ###### Topics
 
-- [Before and after example of splitting a
-  template](#create-nested-stack-template "#create-nested-stack-template")
+- [Before and after example of splitting a template](#create-nested-stack-template "#create-nested-stack-template")
 - [Example of a nested stack architecture](#nested-stack-examples "#nested-stack-examples")
-- [Performing stack operations
-  on nested stacks](#perform-stack-operations-on-nested-stacks "#perform-stack-operations-on-nested-stacks")
+- [Performing stack operations on nested stacks](#perform-stack-operations-on-nested-stacks "#perform-stack-operations-on-nested-stacks")
 - [Related information](#nested-stacks-related-information "#nested-stacks-related-information")
 
-## Before and after example of splitting a
-
-template
+## Before and after example of splitting a template
 
 This example demonstrates how you can take a single, large CloudFormation template and
 reorganize it into a more structured and reusable design using nested templates.
@@ -60,16 +54,11 @@ exposed through the top-level stack.
 
 ###### Topics
 
-- [Step 1: Create a template for the
-  nested stack on your local system](#create-a-nested-stack-template "#create-a-nested-stack-template")
-- [Step 2: Create a template
-  for the top-level stack on your local system](#create-a-nested-stack-parent-template "#create-a-nested-stack-parent-template")
-- [Step 3: Package and deploy
-  the templates](#create-a-nested-stack-parent-template "#create-a-nested-stack-parent-template")
+- [Step 1: Create a template for the nested stack on your local system](#create-a-nested-stack-template "#create-a-nested-stack-template")
+- [Step 2: Create a template for the top-level stack on your local system](#create-a-nested-stack-parent-template "#create-a-nested-stack-parent-template")
+- [Step 3: Package and deploy the templates](#create-a-nested-stack-parent-template "#create-a-nested-stack-parent-template")
 
-### Step 1: Create a template for the
-
-nested stack on your local system
+### Step 1: Create a template for the nested stack on your local system
 
 The following example shows the format of the nested stack template.
 
@@ -120,9 +109,7 @@ Outputs:
     Value: !GetAtt LambdaFunction.Arn
 ```
 
-### Step 2: Create a template
-
-for the top-level stack on your local system
+### Step 2: Create a template for the top-level stack on your local system
 
 The following example shows the format of the top-level stack template and the
 [AWS::CloudFormation::Stack](../TemplateReference/aws-resource-cloudformation-stack.md "../TemplateReference/aws-resource-cloudformation-stack.md") resource that references
@@ -146,9 +133,7 @@ Outputs:
     Value: !GetAtt NestedStack.Outputs.LambdaArn
 ```
 
-### Step 3: Package and deploy
-
-the templates
+### Step 3: Package and deploy the templates
 
 ###### Note
 
@@ -156,8 +141,7 @@ When working with templates locally, the AWS CLI **package**
 command can help you prepare templates for deployment. It automatically handles
 the upload of local artifacts to Amazon S3 (including `TemplateURL`) and
 generates a new template file with updated references to these S3 locations. For
-more information, see [Upload local artifacts to an S3 bucket with the
-AWS CLI](using-cfn-cli-package.md "using-cfn-cli-package.md").
+more information, see [Upload local artifacts to an S3 bucket with the AWS CLI](using-cfn-cli-package.md "using-cfn-cli-package.md").
 
 Next, you can use the [package](../../../cli/latest/reference/cloudformation/package.md "../../../cli/latest/reference/cloudformation/package.md") command to upload the nested template to an
 Amazon S3 bucket.
@@ -207,9 +191,7 @@ aws cloudformation deploy \
   --capabilities CAPABILITY_NAMED_IAM
 ```
 
-## Performing stack operations
-
-on nested stacks
+## Performing stack operations on nested stacks
 
 When working with nested stacks, you must handle them carefully during operations.
 Certain stack operations, such as stack updates, should be initiated from the root stack
@@ -225,9 +207,7 @@ it rolls back. For more information, see [Control CloudFormation access with AWS
 
 Use the following procedures to find the root stack and nested stacks.
 
-###### To view the root stack of a
-
-nested stack
+###### To view the root stack of a nested stack
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
@@ -239,9 +219,7 @@ name. 3. On the **Stack info** tab, in the
 **Overview** section, choose the stack name listed as
 **Root stack**.
 
-###### To view the nested stacks
-
-that belong to a root stack
+###### To view the nested stacks that belong to a root stack
 
 1. From the root stack whose nested stacks you want to view, choose the
    **Resources** tab.
@@ -251,8 +229,7 @@ that belong to a root stack
 ## Related information
 
 - [Nesting an existing stack](resource-import-nested-stacks.md "resource-import-nested-stacks.md")
-- [Understand update behaviors of stack
-  resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md")
+- [Understand update behaviors of stack resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md")
 - [Continue rolling back from failed nested stack updates](using-cfn-updating-stacks-continueupdaterollback.md#nested-stacks "using-cfn-updating-stacks-continueupdaterollback.md#nested-stacks")
 - [Nested
   stacks rollback failure](troubleshooting.md#troubleshooting-errors-nested-stacks-are-stuck "troubleshooting.md#troubleshooting-errors-nested-stacks-are-stuck")

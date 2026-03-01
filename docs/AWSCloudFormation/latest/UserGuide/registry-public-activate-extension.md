@@ -1,6 +1,4 @@
-# Activate a third-party public
-
-extension in your account
+# Activate a third-party public extension in your account
 
 The following topic shows you how to activate a third-party public extension in
 your account, which makes it usable in the account and Region it was activated
@@ -14,14 +12,10 @@ use with this extension.
 
 ###### Topics
 
-- [Activate a public
-  extension (console)](#registry-public-activate-extension-console "#registry-public-activate-extension-console")
-- [Activate a public
-  extension (AWS CLI)](#registry-public-activate-extension-cli "#registry-public-activate-extension-cli")
+- [Activate a public extension (console)](#registry-public-activate-extension-console "#registry-public-activate-extension-console")
+- [Activate a public extension (AWS CLI)](#registry-public-activate-extension-cli "#registry-public-activate-extension-cli")
 
-## Activate a public
-
-extension (console)
+## Activate a public extension (console)
 
 Follow the steps in this section to use the console to:
 
@@ -51,12 +45,10 @@ version. 6. For **Extension name**, you can either keep
 **Override default**, and then enter the extension
 type alias you want to use with this extension. The alias must follow
 the recommended format for the extension type. For more information, see
-[Use aliases to refer to
-extensions](registry-public.md#registry-public-enable-alias "registry-public.md#registry-public-enable-alias"). 7. If the extension you are activating is a Hook or resource type, for
+[Use aliases to refer to extensions](registry-public.md#registry-public-enable-alias "registry-public.md#registry-public-enable-alias"). 7. If the extension you are activating is a Hook or resource type, for
 **Execution role ARN**, specify the IAM role for
 CloudFormation to assume when invoking the extension. For more information,
-see [Configure an execution role
-with IAM permissions and a trust policy for public extension access](registry-public.md#registry-public-enable-execution-role "registry-public.md#registry-public-enable-execution-role"). 8. For **Logging config**, specify logging configuration
+see [Configure an execution role with IAM permissions and a trust policy for public extension access](registry-public.md#registry-public-enable-execution-role "registry-public.md#registry-public-enable-execution-role"). 8. For **Logging config**, specify logging configuration
 information for an extension, if desired. For example:
 
 ```
@@ -81,8 +73,7 @@ updates**, choose how to receive updates.
     * **Off** – Never automatically update
      to the latest version. All versions are updated manually.
 
-For more information, see [Automatically use new versions of
-extensions](registry-public.md#registry-public-enable-auto "registry-public.md#registry-public-enable-auto").
+For more information, see [Automatically use new versions of extensions](registry-public.md#registry-public-enable-auto "registry-public.md#registry-public-enable-auto").
 
 If the extension requires additional configuration, you have the option to
 specify the configuration data now, or after the extension has been
@@ -120,9 +111,7 @@ step and provide the configuration data at a later time.
    to the extension from the activated extensions page and providing the
    configuration data.
 
-## Activate a public
-
-extension (AWS CLI)
+## Activate a public extension (AWS CLI)
 
 Follow the steps in this section to use the AWS CLI to:
 
@@ -130,9 +119,7 @@ Follow the steps in this section to use the AWS CLI to:
 - Specify additional extension configuration data for your
   account
 
-### Activate public
-
-Hooks
+### Activate public Hooks
 
 By activating Hooks in your account, you are authorizing a Hook to use
 defined permissions from your AWS account. CloudFormation removes non-required
@@ -144,8 +131,7 @@ in your account.
 ###### To activate a public Hook for use in your account (AWS CLI)
 
 1. Get the ARN for your Hook and save it. You can get the ARN of a
-   Hook using the AWS Management Console or AWS CLI. For more information see [View the available and activated extensions in the
-   CloudFormation registry](registry-view.md "registry-view.md").
+   Hook using the AWS Management Console or AWS CLI. For more information see [View the available and activated extensions in the CloudFormation registry](registry-view.md "registry-view.md").
 
 ```
 export HOOK_TYPE_ARN="`arn:aws:cloudformation:us-west-2:123456789012:type/hook/Organization-Service-Hook/`"
@@ -169,13 +155,9 @@ For more information on the `HookConfiguration`
 configuration options, see [Hook configuration schema syntax reference](../../../cloudformation-cli/latest/hooks-userguide/hook-configuration-schema.md "../../../cloudformation-cli/latest/hooks-userguide/hook-configuration-schema.md") in the
 _CloudFormation Hooks User Guide_.
 
-### Activate public
+### Activate public modules and resource types
 
-modules and resource types
-
-###### To
-
-activate a public extension for use in your account (AWS CLI)
+###### To activate a public extension for use in your account (AWS CLI)
 
 - Use the [activate-type](../../../cli/latest/reference/cloudformation/activate-type.md "../../../cli/latest/reference/cloudformation/activate-type.md") command to activate
   the extension, and specify whether to auto update the extension
@@ -201,9 +183,7 @@ This command returns an ARN of the activated extension.
 }
 ```
 
-### Update the version
-
-of a public extension (AWS CLI)
+### Update the version of a public extension (AWS CLI)
 
 Use [activate-type](../../../cli/latest/reference/cloudformation/activate-type.md "../../../cli/latest/reference/cloudformation/activate-type.md") to activate the extension
 again.

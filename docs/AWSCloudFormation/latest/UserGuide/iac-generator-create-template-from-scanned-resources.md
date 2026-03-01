@@ -1,13 +1,9 @@
-# Create a
-
-CloudFormation template from resources scanned with IaC generator
+# Create a CloudFormation template from resources scanned with IaC generator
 
 This topic explains how to create a template from resources that were scanned using
 the IaC generator feature.
 
-## Create a template
-
-from scanned resources (console)
+## Create a template from scanned resources (console)
 
 ###### To create a stack template from scanned resources
 
@@ -43,9 +39,7 @@ from scanned resources (console)
 We suggest that you add all related resources to this template. 8. Review the template details, scanned resources, and related resources. 9. Choose **Create template** to exit the **Review
 and create** page and create the template.
 
-## Create a template from
-
-scanned resources (AWS CLI)
+## Create a template from scanned resources (AWS CLI)
 
 ###### To create a stack template from scanned resources
 

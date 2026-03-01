@@ -1,6 +1,4 @@
-# Understand update behaviors of stack
-
-resources
+# Understand update behaviors of stack resources
 
 When you submit an update, CloudFormation updates resources based on differences between what you
 submit and the stack's current template. Resources that haven't changed run without disruption

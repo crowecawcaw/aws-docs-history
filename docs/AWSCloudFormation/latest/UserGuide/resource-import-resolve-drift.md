@@ -1,6 +1,4 @@
-# Resolve drift with an import
-
-operation
+# Resolve drift with an import operation
 
 There may be cases where a resource's configuration has drifted from its intended
 configuration and you want to accept the new configuration as the intended
@@ -26,10 +24,8 @@ basic steps:
   the existing resource back into the stack](#resource-import-resolve-drift-console-step-03-update-template "#resource-import-resolve-drift-console-step-03-update-template"). This adds the resource
   back into the stack and resolves the property differences that were causing the
   drift results.
-  For more information on resource import, see [Import AWS resources into a CloudFormation stack
-  manually](import-resources-manually.md "import-resources-manually.md"). For a list of resources that support
-  import, see [Resource type
-  support](resource-import-supported-resources.md "resource-import-supported-resources.md").
+  For more information on resource import, see [Import AWS resources into a CloudFormation stack manually](import-resources-manually.md "import-resources-manually.md"). For a list of resources that support
+  import, see [Resource type support](resource-import-supported-resources.md "resource-import-supported-resources.md").
 
 In this example, we use the following template, named
 `templateToImport.json`.
@@ -130,23 +126,18 @@ Resources:
 In this example, let's assume a user changed a resource outside
 of CloudFormation. After running drift detect, we discovered that `GamesTable`
 has been modified `BillingMode` to `PAY_PER_REQUEST`. For more
-information about drift detect, see [Detect unmanaged configuration changes to stacks and
-resources with drift detection](using-cfn-stack-drift.md "using-cfn-stack-drift.md").
+information about drift detect, see [Detect unmanaged configuration changes to stacks and resources with drift detection](using-cfn-stack-drift.md "using-cfn-stack-drift.md").
 
 ![The drift results display the expected and actual results in the console.](images/drift-results-gamestable.png)
 Our stack is now out of date, our resources are live, but we want to preserve the
 intended resource configuration. We can do this by resolving drift through an import
 operation, without interrupting services.
 
-## Resolve drift with an import
-
-operation using the CloudFormation console
+## Resolve drift with an import operation using the CloudFormation console
 
 ### Step 1. Update stack with Retain deletion policy
 
-###### To update stack using a `DeletionPolicy` attribute with the
-
-`Retain` option
+###### To update stack using a `DeletionPolicy` attribute with the `Retain` option
 
 1.  Sign in to the AWS Management Console and open the CloudFormation console at
     [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").

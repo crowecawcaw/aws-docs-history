@@ -1,6 +1,4 @@
-# View deleted stacks from the CloudFormation
-
-console
+# View deleted stacks from the CloudFormation console
 
 By default, the CloudFormation console doesn't display stacks with a status of
 `DELETE_COMPLETE`. To display information about deleted stacks, you must change the
@@ -19,5 +17,4 @@ stack view.
 ## See also
 
 - [Delete a stack from the CloudFormation console](cfn-console-delete-stack.md "cfn-console-delete-stack.md")
-- [View stack information from the
-  CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md")
+- [View stack information from the CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md")

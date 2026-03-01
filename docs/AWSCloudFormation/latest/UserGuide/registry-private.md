@@ -1,6 +1,4 @@
-# Use third-party private extensions that have been
-
-shared with you
+# Use third-party private extensions that have been shared with you
 
 To use third-party private extensions that have been shared with you, you must first
 _register_ them with CloudFormation, in the accounts and Regions
@@ -11,18 +9,12 @@ and you can use it in your stack templates.
 
 ###### Topics
 
-- [IAM permissions for registering a
-  third-party private extension](#registry-register-permissions "#registry-register-permissions")
-- [Commonly used
-  AWS CLI commands for working with private extensions](#registry-commonly-used-commands-private-extensions "#registry-commonly-used-commands-private-extensions")
-- [Register a third-party private
-  extension in your account](registry-register-private-extension.md "registry-register-private-extension.md")
-- [Remove third-party private
-  extensions from your account](registry-private-deregister-extension.md "registry-private-deregister-extension.md")
+- [IAM permissions for registering a third-party private extension](#registry-register-permissions "#registry-register-permissions")
+- [Commonly used AWS CLI commands for working with private extensions](#registry-commonly-used-commands-private-extensions "#registry-commonly-used-commands-private-extensions")
+- [Register a third-party private extension in your account](registry-register-private-extension.md "registry-register-private-extension.md")
+- [Remove third-party private extensions from your account](registry-private-deregister-extension.md "registry-private-deregister-extension.md")
 
-## IAM permissions for registering a
-
-third-party private extension
+## IAM permissions for registering a third-party private extension
 
 As part of registering a private extension, you might specify an Amazon S3 bucket that
 contains the extension project package. This package contains any source files
@@ -37,9 +29,7 @@ For more information, see [Actions,
 Resources, and Condition Keys for Amazon S3](../../../service-authorization/latest/reference/list_amazons3.md "../../../service-authorization/latest/reference/list_amazons3.md") in the
 _Service Authorization Reference_.
 
-## Commonly used
-
-AWS CLI commands for working with private extensions
+## Commonly used AWS CLI commands for working with private extensions
 
 The commonly used commands for working with private extensions include:
 

@@ -1,6 +1,4 @@
-# Reference module resources in CloudFormation
-
-templates
+# Reference module resources in CloudFormation templates
 
 In CloudFormation templates, you often need to set properties on one resource based on the
 name or property of another resource. For more information, see [Referencing resources](resources-section-structure.md#using-cross-resource-references "resources-section-structure.md#using-cross-resource-references").

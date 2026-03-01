@@ -1,6 +1,4 @@
-# Use third-party public extensions from the CloudFormation
-
-registry
+# Use third-party public extensions from the CloudFormation registry
 
 To use a third-party public extension in your template, you must first
 _activate_ the extension for the account and Region where you
@@ -25,24 +23,15 @@ in the following ways:
 
 ###### Topics
 
-- [Configure an execution role
-  with IAM permissions and a trust policy for public extension access](#registry-public-enable-execution-role "#registry-public-enable-execution-role")
-- [Automatically use new versions of
-  extensions](#registry-public-enable-auto "#registry-public-enable-auto")
-- [Use aliases to refer to
-  extensions](#registry-public-enable-alias "#registry-public-enable-alias")
-- [Commonly used
-  AWS CLI commands for working with public extensions](#registry-commonly-used-commands-public-extensions "#registry-commonly-used-commands-public-extensions")
-- [Activate a third-party public
-  extension in your account](registry-public-activate-extension.md "registry-public-activate-extension.md")
-- [Update a public
-  third-party extension in your account](registry-public-update-extension-console.md "registry-public-update-extension-console.md")
-- [Deactivate third-party public
-  extensions in your account](registry-public-deactivate-extension.md "registry-public-deactivate-extension.md")
+- [Configure an execution role with IAM permissions and a trust policy for public extension access](#registry-public-enable-execution-role "#registry-public-enable-execution-role")
+- [Automatically use new versions of extensions](#registry-public-enable-auto "#registry-public-enable-auto")
+- [Use aliases to refer to extensions](#registry-public-enable-alias "#registry-public-enable-alias")
+- [Commonly used AWS CLI commands for working with public extensions](#registry-commonly-used-commands-public-extensions "#registry-commonly-used-commands-public-extensions")
+- [Activate a third-party public extension in your account](registry-public-activate-extension.md "registry-public-activate-extension.md")
+- [Update a public third-party extension in your account](registry-public-update-extension-console.md "registry-public-update-extension-console.md")
+- [Deactivate third-party public extensions in your account](registry-public-deactivate-extension.md "registry-public-deactivate-extension.md")
 
-## Configure an execution role
-
-with IAM permissions and a trust policy for public extension access
+## Configure an execution role with IAM permissions and a trust policy for public extension access
 
 When you activate a public extension from the CloudFormation registry, you can provide
 an execution role that gives CloudFormation the necessary permissions to invoke that
@@ -57,16 +46,13 @@ policy that allows CloudFormation to assume the role. Follow the guidance at [Cr
 _IAM User Guide_ to create a role with a custom trust
 policy.
 
-### Trust
-
-relationship
+### Trust relationship
 
 The following shows example trust policies you can use.
 
 You can optionally restrict the scope of the permission for cross-service
 confused deputy prevention by using one or more global condition context keys
-with the `Condition` field. For more information, see [Cross-service confused deputy
-prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+with the `Condition` field. For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
 - Set the `aws:SourceAccount` value to your account
   ID.
@@ -138,9 +124,7 @@ JSON
 
 ```
 
-## Automatically use new versions of
-
-extensions
+## Automatically use new versions of extensions
 
 When you activate an extension, you can also specify the extension type to use the
 latest minor version. Your extension type updates the minor version, whenever the
@@ -170,9 +154,7 @@ deployed in different accounts and Regions.
 This might potentially lead to unexpected results when using the same
 template, containing that extension, across those accounts and Regions.
 
-## Use aliases to refer to
-
-extensions
+## Use aliases to refer to extensions
 
 You can't activate more than one extension with a given name in a given
 AWS account and Region. Because different publishers may offer public extensions
@@ -195,9 +177,7 @@ alias to different third-party public extensions across accounts and Regions.
 Doing so could lead to unexpected results when using a template that contains
 the extension alias across multiple accounts or Regions.
 
-## Commonly used
-
-AWS CLI commands for working with public extensions
+## Commonly used AWS CLI commands for working with public extensions
 
 The commonly used commands for working with public extensions include:
 

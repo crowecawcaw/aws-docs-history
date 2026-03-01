@@ -5,22 +5,15 @@ Amazon EC2 Auto Scaling.
 
 ###### Snippet categories
 
-- [Create a single instance Auto Scaling
-  group](#scenario-single-instance-as-group "#scenario-single-instance-as-group")
-- [Create an Auto Scaling group with an attached load
-  balancer](#scenario-as-group "#scenario-as-group")
+- [Create a single instance Auto Scaling group](#scenario-single-instance-as-group "#scenario-single-instance-as-group")
+- [Create an Auto Scaling group with an attached load balancer](#scenario-as-group "#scenario-as-group")
 - [Create an Auto Scaling group with notifications](#scenario-as-notification "#scenario-as-notification")
-- [Create an Auto Scaling group that uses a
-  CreationPolicy and an UpdatePolicy](#scenario-as-updatepolicy "#scenario-as-updatepolicy")
+- [Create an Auto Scaling group that uses a CreationPolicy and an UpdatePolicy](#scenario-as-updatepolicy "#scenario-as-updatepolicy")
 - [Create a step scaling policy](#scenario-step-scaling-policy "#scenario-step-scaling-policy")
-- [Mixed instances group
-  examples](#scenario-mixed-instances-group-template-examples "#scenario-mixed-instances-group-template-examples")
-- [Launch configuration
-  examples](#scenario-launch-config-template-examples "#scenario-launch-config-template-examples")
+- [Mixed instances group examples](#scenario-mixed-instances-group-template-examples "#scenario-mixed-instances-group-template-examples")
+- [Launch configuration examples](#scenario-launch-config-template-examples "#scenario-launch-config-template-examples")
 
-## Create a single instance Auto Scaling
-
-group
+## Create a single instance Auto Scaling group
 
 This example shows an [`AWS::AutoScaling::AutoScalingGroup`](../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md "../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md") resource with a single instance
 to help you get started. The `VPCZoneIdentifier` property of the Auto Scaling group
@@ -31,8 +24,7 @@ the applicable subnet IDs from your account before you create your stack. The
 
 ###### Note
 
-For examples of launch templates, see [Create launch templates with
-CloudFormation](quickref-ec2-launch-templates.md "quickref-ec2-launch-templates.md") in the Amazon EC2 snippets section and the
+For examples of launch templates, see [Create launch templates with CloudFormation](quickref-ec2-launch-templates.md "quickref-ec2-launch-templates.md") in the Amazon EC2 snippets section and the
 [Examples](../TemplateReference/aws-resource-ec2-launchtemplate.md#aws-resource-ec2-launchtemplate--examples "../TemplateReference/aws-resource-ec2-launchtemplate.md#aws-resource-ec2-launchtemplate--examples") section in the `AWS::EC2::LaunchTemplate` resource.
 
 ### JSON
@@ -77,9 +69,7 @@ myASG:
     MinSize: '1'
 ```
 
-## Create an Auto Scaling group with an attached load
-
-balancer
+## Create an Auto Scaling group with an attached load balancer
 
 This example shows an [`AWS::AutoScaling::AutoScalingGroup`](../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md "../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md") resource for load balancing
 over multiple servers. It specifies the logical names of AWS resources declared elsewhere
@@ -230,9 +220,7 @@ myASG:
           - autoscaling:TEST_NOTIFICATION
 ```
 
-## Create an Auto Scaling group that uses a
-
-`CreationPolicy` and an `UpdatePolicy`
+## Create an Auto Scaling group that uses a `CreationPolicy` and an `UpdatePolicy`
 
 The following example shows how to add `CreationPolicy` and
 `UpdatePolicy` attributes to an [`AWS::AutoScaling::AutoScalingGroup`](../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md "../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md") resource.
@@ -456,13 +444,9 @@ Resources:
 For more example templates for scaling policies, see the [Examples](../TemplateReference/aws-resource-autoscaling-scalingpolicy.md#aws-resource-autoscaling-scalingpolicy--examples "../TemplateReference/aws-resource-autoscaling-scalingpolicy.md#aws-resource-autoscaling-scalingpolicy--examples") section in the `AWS::AutoScaling::ScalingPolicy`
 resource.
 
-## Mixed instances group
+## Mixed instances group examples
 
-examples
-
-### Create an Auto Scaling
-
-group using attribute-based instance type selection
+### Create an Auto Scaling group using attribute-based instance type selection
 
 This example shows an [`AWS::AutoScaling::AutoScalingGroup`](../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md "../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md") resource that contains the
 information to launch a mixed instances group using attribute-based instance type
@@ -553,9 +537,7 @@ Resources:
       MinSize: '1'
 ```
 
-## Launch configuration
-
-examples
+## Launch configuration examples
 
 ### Create a launch configuration
 
@@ -593,9 +575,7 @@ mySimpleConfig:
       - `myExistingEC2SecurityGroup`
 ```
 
-### Create an Auto Scaling
-
-group that uses a launch configuration
+### Create an Auto Scaling group that uses a launch configuration
 
 This example shows an [`AWS::AutoScaling::AutoScalingGroup`](../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md "../TemplateReference/aws-resource-autoscaling-autoscalinggroup.md") resource with a single
 instance. The `VPCZoneIdentifier` property of the Auto Scaling group specifies a list

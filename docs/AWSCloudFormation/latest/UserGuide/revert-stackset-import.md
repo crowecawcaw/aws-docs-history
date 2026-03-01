@@ -10,5 +10,5 @@ To revert a stack import operation, complete the following procedure.
 
 1. Specify a `DeletionPolicy` attribute of `Retain` for each resource
    that you want to keep after the stack instance is deleted. For more information, see [Reverting an import operation](resource-import-revert.md "resource-import-revert.md").
-2. Delete stack instances from your StackSet. For more information, see [Delete stacks from CloudFormation StackSets](stackinstances-delete.md "stackinstances-delete.md") .
+2. Delete stack instances from your StackSet. For more information, see [Delete stacks from CloudFormation StackSets](stackinstances-delete.md "stackinstances-delete.md").
 3. Delete your StackSet. For more information, see [Delete CloudFormation StackSets](stacksets-delete.md "stacksets-delete.md").

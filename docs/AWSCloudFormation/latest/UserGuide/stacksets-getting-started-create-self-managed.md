@@ -1,6 +1,4 @@
-# Create CloudFormation StackSets with
-
-self-managed permissions
+# Create CloudFormation StackSets with self-managed permissions
 
 This topic describes how to create StackSets with
 _self-managed_ permissions to deploy stacks across AWS accounts
@@ -14,14 +12,10 @@ from and the account you're deploying stacks to. For more information, see [Gran
 
 ###### Topics
 
-- [Create a
-  StackSet with self-managed permissions (console)](#stacksets-getting-started-create-self-managed-console "#stacksets-getting-started-create-self-managed-console")
-- [Create a StackSet with
-  self-managed permissions (AWS CLI)](#stacksets-getting-started-self-managed-cli "#stacksets-getting-started-self-managed-cli")
+- [Create a StackSet with self-managed permissions (console)](#stacksets-getting-started-create-self-managed-console "#stacksets-getting-started-create-self-managed-console")
+- [Create a StackSet with self-managed permissions (AWS CLI)](#stacksets-getting-started-self-managed-cli "#stacksets-getting-started-self-managed-cli")
 
-## Create a
-
-StackSet with self-managed permissions (console)
+## Create a StackSet with self-managed permissions (console)
 
 ###### To create a StackSet
 
@@ -65,8 +59,7 @@ StackSet with self-managed permissions (console)
 12. If your template contains IAM resources, for
     **Capabilities**, choose **I acknowledge that
     this template may create IAM resources** to specify that you
-    want to use IAM resources in the template. For more information, see [Acknowledging IAM resources in CloudFormation
-    templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
+    want to use IAM resources in the template. For more information, see [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
 13. Choose **Next**.
 14. On the **Set deployment options** page, for **Add
     stacks to StackSet**, choose **Deploy new
@@ -116,9 +109,7 @@ CloudFormation starts creating your StackSet. View the progress and status of th
 creation of the stacks in your StackSet in the StackSet details page that opens when
 you choose **Submit**.
 
-## Create a StackSet with
-
-self-managed permissions (AWS CLI)
+## Create a StackSet with self-managed permissions (AWS CLI)
 
 Follow the steps in this section to use the AWS CLI to:
 
