@@ -3,8 +3,7 @@
 The picklist dialog box allows limited and extended mappings between the partner’s
 picklist field and APN. The **ACE Mappings** page also has an Auto Map
 function if using the provided **custom ACE opportunity object** . For more information about the object, refer to
-[Using a standard Salesforce object or
-custom object](crm-connector-mapping.md#custom-ace-opportunity-object "crm-connector-mapping.md#custom-ace-opportunity-object") later in this guide.
+[Using a standard Salesforce object or custom object](crm-connector-mapping.md#custom-ace-opportunity-object "crm-connector-mapping.md#custom-ace-opportunity-object") later in this guide.
 
 If an exact match is found between the partner’s field values and APN, those
 values are mapped automatically. The option for extended mapping lets partners map a single

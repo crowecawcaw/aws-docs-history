@@ -1,6 +1,4 @@
-# Upgrading from a CRM with Amazon S3 integration to the Partner Central
-
-API
+# Upgrading from a CRM with Amazon S3 integration to the Partner Central API
 
 ###### Note
 

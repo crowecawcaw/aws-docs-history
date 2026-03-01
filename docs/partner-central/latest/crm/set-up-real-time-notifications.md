@@ -1,6 +1,4 @@
-# Setting up real-time notifications for AWS Partner Central and
-
-AWS Marketplace events
+# Setting up real-time notifications for AWS Partner Central and AWS Marketplace events
 
 The following topics explain how to set up real-time EventBridge
 notifications for AWS Partner Central and AWS Marketplace events. You can set up notifications in Salesforce by configuring a connected app, or you can use AWS CloudFormation templates.
@@ -126,8 +124,7 @@ The following steps explain how to manually create the components for EventBridg
 ###### Topics
 
 - [Create an Amazon EventBridge API destination and connection](#manual-destination-connection "#manual-destination-connection")
-- [Creating an
-  EventBridge Rule and connecting it to the API destination](#create-connect-ev-rule "#create-connect-ev-rule")
+- [Creating an EventBridge Rule and connecting it to the API destination](#create-connect-ev-rule "#create-connect-ev-rule")
 - [Creating change set events](#change-set-events "#change-set-events")
 - [Creating Offer Released events](#offer-released-events "#offer-released-events")
 - [Creating opportunity events](#opportunity-events "#opportunity-events")
@@ -208,9 +205,7 @@ Access](https://help.salesforce.com/s/articleView?id=sf.security_require_2fa_api
 
 After you create the API destination, you can create a rule that uses the target as the destination.
 
-#### Creating an
-
-EventBridge Rule and connecting it to the API destination
+#### Creating an EventBridge Rule and connecting it to the API destination
 
 EventBridge rules route events from the event bus to the API destination, which results in making a REST call to publish an event back to Salesforce.
 

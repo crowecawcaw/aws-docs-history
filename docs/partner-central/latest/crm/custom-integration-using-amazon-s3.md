@@ -10,8 +10,7 @@ To get started with a new custom CRM integration, refer to the
 
 ###### Topics
 
-- [Upgrading from a CRM with Amazon S3 integration to the Partner Central
-  API](upgrade-crm-api.md "upgrade-crm-api.md")
+- [Upgrading from a CRM with Amazon S3 integration to the Partner Central API](upgrade-crm-api.md "upgrade-crm-api.md")
 - [Configuring the connector for a CRM with Amazon S3 integration](s3-config.md "s3-config.md")
 - [Integration resources](resources.md "resources.md")
 - [Lead sharing](custom-lead-sharing.md "custom-lead-sharing.md")

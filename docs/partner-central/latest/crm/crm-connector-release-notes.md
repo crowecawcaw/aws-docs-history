@@ -4,6 +4,8 @@ This section contains the release history for the AWS Partner Customer Relations
 
 ###### Topics
 
+- [Version 3.16 (February 26, 2026)](#3.16 "#3.16")
+- [Version 3.15 (February 6, 2026)](#3.15 "#3.15")
 - [Version 3.14 (December 17, 2025)](#3.14 "#3.14")
 - [Version 3.13 (October 30, 2025)](#3.13 "#3.13")
 - [Version 3.12 (September 16, 2025)](#3.12 "#3.12")
@@ -21,6 +23,40 @@ This section contains the release history for the AWS Partner Customer Relations
 - [Version 1.6 (January 13, 2023)](#1.6 "#1.6")
 - [Version 1.5 (January 13, 2023)](#1.5 "#1.5")
 - [Version 1.4 (December 7, 2022)](#1.4 "#1.4")
+
+## Version 3.16 (February 26, 2026)
+
+AWS Partner CRM Connector version 3.16 contains the following features and
+improvements.
+
+### Bug fixes
+
+- Fixed an issue where solution fields were not persisting during opportunity creation. In version 3.15, when partners created opportunities with solution fields populated, the solutions were not being associated with the opportunity in AWS Partner Central. The connector now properly chains the CreateOpportunity and AssociateOpportunity API calls to ensure solutions are correctly associated during opportunity creation
+- Fixed a permission gap where the **Source Opportunity** field was missing edit permissions in the **APN Business Admin** permission set. This field, added in version 3.10 for the `Unified Standard-ACE Opportunity Sync Flow`, now has proper read and edit access, enabling business administrators to use automations that create ACE Opportunity records from Standard Opportunity records
+- Fixed an issue where postal code was incorrectly enforced as a mandatory field for all countries, including those without postal code systems (such as United Arab Emirates, Hong Kong, and Bonaire). The postal code field is now optional, aligning with the AWS Partner Central API specification and allowing partners to create opportunities for customers in countries that do not use postal codes
+
+## Version 3.15 (February 6, 2026)
+
+AWS Partner CRM Connector version 3.15 contains the following features and
+improvements.
+
+### AWS Partner Central API
+
+**Automatic AWS data sharing enhancement**
+
+- Enhanced automatic record synchronization with AWS to work seamlessly on both opportunity creation and updates
+- Eliminates the need for the `Sync ACE Opportunity to Partner Central API` flow for data sharing
+
+**Refresh from AWS capabilities**
+
+- Added ability to refresh opportunity data directly from AWS Partner Central without the need for events
+- Allows partners to pull the latest updates from AWS Partner Central on demand through a button on the **ACE Opportunity** page layout
+- Ensures data consistency between Salesforce and AWS Partner Central
+
+### Bug fixes
+
+- Fixed an issue where opportunities with "Other" specified in the **Industry** field were not being included in the API payload when syncing to AWS Partner Central, causing opportunities to remain stuck in draft status
+- Fixed a scientific notation formatting issue in currency and revenue fields that was causing API validation failures for large monetary values
 
 ## Version 3.14 (December 17, 2025)
 
@@ -242,9 +278,7 @@ features and improvements:
   and AWS Partner Network (APN) are no longer required.
 - The AWS Partner CRM connector handles synchronous errors.
 
-###### AWS Partner Central API support for AWS originated opportunities (AO)
-
-and partner-originated opportunities
+###### AWS Partner Central API support for AWS originated opportunities (AO) and partner-originated opportunities
 
 - Partners can use the **Share with AWS**
   button to create and update opportunities.

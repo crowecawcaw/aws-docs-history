@@ -1,6 +1,4 @@
-# Viewing sync log detail records for ACE
-
-opportunities
+# Viewing sync log detail records for ACE opportunities
 
 You can view sync log details for AWS-delivered ACE opportunities on the
 **Related** section of the ACE opportunity record.

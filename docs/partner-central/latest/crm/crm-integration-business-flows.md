@@ -1,6 +1,4 @@
-# Working with referrals, leads, and
-
-opportunities
+# Working with referrals, leads, and opportunities
 
 The following topics describe how sales referrals become leads and opportunities. The
 topics also explain the differences between opportunities originated by AWS and those
@@ -13,8 +11,7 @@ The approval process for [partner-originated referrals](#what-is-a-partner-origi
 ###### Topics
 
 - [What is a referral?](#what-is-a-lead-referral "#what-is-a-lead-referral")
-- [What is an AWS originated
-  opportunity referral?](#what-is-an-aws-originated-opportunity-referral "#what-is-an-aws-originated-opportunity-referral")
+- [What is an AWS originated opportunity referral?](#what-is-an-aws-originated-opportunity-referral "#what-is-an-aws-originated-opportunity-referral")
 - [What is a partner-originated opportunity referral?](#what-is-a-partner-originated-opportunity-referral "#what-is-a-partner-originated-opportunity-referral")
 - [Closing a referral](#closing-a-referral "#closing-a-referral")
 
@@ -29,9 +26,7 @@ _qualification_. If a lead is deemed qualified and has a higher
 probability of converting to a customer, it becomes an
 _opportunity_.
 
-## What is an AWS originated
-
-opportunity referral?
+## What is an AWS originated opportunity referral?
 
 AWS Sales creates an AWS-originated opportunity referral by sharing the referral
 with you. The AWS Sales team receives recommendations to attach a partner to an AWS

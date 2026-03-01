@@ -18,9 +18,7 @@ The following sections explain how to create object mappings.
 The following sections explain how to map ACE and Salesforce custom objects in object
 maps.
 
-### Using an AWS ACE opportunity custom
-
-object
+### Using an AWS ACE opportunity custom object
 
 Version 2.0 and later of the CRM connector includes an ACE custom opportunity object. You can use the
 object to manage AWS opportunities in Salesforce.
@@ -38,9 +36,7 @@ To use a custom ACE opportunity object, complete the following steps:
 3. To map Salesforce fields to AWS fields, choose the **Auto Map ACE
    object** button.
 
-### Using a standard Salesforce object or
-
-custom object
+### Using a standard Salesforce object or custom object
 
 Partners can use the Salesforce standard opportunity object or their own
 custom opportunity object. To avoid ACE synchronization failures, ensure that the custom

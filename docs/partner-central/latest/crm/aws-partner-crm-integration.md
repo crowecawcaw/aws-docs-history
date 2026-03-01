@@ -25,7 +25,6 @@ CRM integration provides several advantages:
 
 - [Integration options](routes-for-crm-integration.md "routes-for-crm-integration.md")
 - [Integration prerequisites](crm-integration-setting-up.md "crm-integration-setting-up.md")
-- [Working with referrals, leads, and
-  opportunities](crm-integration-business-flows.md "crm-integration-business-flows.md")
+- [Working with referrals, leads, and opportunities](crm-integration-business-flows.md "crm-integration-business-flows.md")
 - [Getting started](crm-integration-getting-started.md "crm-integration-getting-started.md")
 - [Partner Central API setup](guided-setup-apis.md "guided-setup-apis.md")

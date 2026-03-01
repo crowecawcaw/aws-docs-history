@@ -17,22 +17,16 @@ to use the connector to manage leads in Salesforce.
 
 ###### Topics
 
-- [Entering connection authentication
-  details](#apn-s3-authentication-details "#apn-s3-authentication-details")
+- [Entering connection authentication details](#apn-s3-authentication-details "#apn-s3-authentication-details")
 - [Entering system configuration settings](#apn-s3-config-settings "#apn-s3-config-settings")
 - [Testing the connection](#apn-s3-testing "#apn-s3-testing")
 - [Sending and receiving opportunities and leads](#sending-receiving-opportunities-leads "#sending-receiving-opportunities-leads")
 - [Production checklist](ace-production-checklist.md "ace-production-checklist.md")
-- [Upgrading AWS Partner CRM connector to the new data
-  model](connector-upgrade-plan.md "connector-upgrade-plan.md")
-- [Sandbox testing with the custom ACE opportunity and
-  ACE lead objects](custom-ace-opportunity.md "custom-ace-opportunity.md")
-- [Linking AWS Marketplace private offers to ACE
-  opportunities](#linking-private-offers-to-ace "#linking-private-offers-to-ace")
+- [Upgrading AWS Partner CRM connector to the new data model](connector-upgrade-plan.md "connector-upgrade-plan.md")
+- [Sandbox testing with the custom ACE opportunity and ACE lead objects](custom-ace-opportunity.md "custom-ace-opportunity.md")
+- [Linking AWS Marketplace private offers to ACE opportunities](#linking-private-offers-to-ace "#linking-private-offers-to-ace")
 
-## Entering connection authentication
-
-details
+## Entering connection authentication details
 
 Partners start the integration process by entering the details needed to connect to
 their Amazon S3 endpoint. Follow each set of steps in the order listed, and complete each set
@@ -138,9 +132,7 @@ create and map them for any custom source objects.
   ran, and it was updated by a user other than the designated integration user for the
   AWS Partner's organization.
 
-## Linking AWS Marketplace private offers to ACE
-
-opportunities
+## Linking AWS Marketplace private offers to ACE opportunities
 
 You can link private offers directly from the AWS delivered ACE opportunity record
 page.

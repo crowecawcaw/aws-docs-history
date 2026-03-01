@@ -38,8 +38,7 @@ The AWS Partner Central API provides the following features:
 - To start using the AWS Partner Central API, refer to the
   [AWS Partner Central API Reference](aws-partner-crm-integration.md "aws-partner-crm-integration.md").
 - To migrate from an earlier CRM with Amazon S3 integration to the AWS Partner Central API, refer to
-  [Upgrading from a CRM with Amazon S3 integration to the Partner Central
-  API](upgrade-crm-api.md "upgrade-crm-api.md") before proceeding.
+  [Upgrading from a CRM with Amazon S3 integration to the Partner Central API](upgrade-crm-api.md "upgrade-crm-api.md") before proceeding.
 
 Integrating the CRM connector with the AWS Partner Central API does the following:
 

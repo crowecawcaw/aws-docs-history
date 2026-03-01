@@ -12,5 +12,4 @@ refer to [Maintaining an integration](crm-integration-ongoing-maintenance.md "cr
 - You can also configure the CRM connector to work with your custom integration. For more information, refer to
   [What is the AWS Partner CRM connector for Salesforce?](aws-partner-crm-connector.md "aws-partner-crm-connector.md") later in this guide.
 - If you created an earlier CRM with Amazon S3 integration, and you plan to use the CRM connector, you can migrate to the Partner Central API. For more information, refer to
-  [Upgrading from a CRM with Amazon S3 integration to the Partner Central
-  API](upgrade-crm-api.md "upgrade-crm-api.md") later in this guide.
+  [Upgrading from a CRM with Amazon S3 integration to the Partner Central API](upgrade-crm-api.md "upgrade-crm-api.md") later in this guide.

@@ -1,6 +1,4 @@
-# Accepting or rejecting AWS-originated
-
-opportunities
+# Accepting or rejecting AWS-originated opportunities
 
 The following steps explain how to accept or reject opportunities in an APN Amazon S3
 integration.

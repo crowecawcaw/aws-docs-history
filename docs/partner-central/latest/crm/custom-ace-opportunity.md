@@ -1,11 +1,8 @@
-# Sandbox testing with the custom ACE opportunity and
-
-ACE lead objects
+# Sandbox testing with the custom ACE opportunity and ACE lead objects
 
 ###### Note
 
-If you are an existing CRM connector user, refer to [Upgrading AWS Partner CRM connector to the new data
-model](connector-upgrade-plan.md "connector-upgrade-plan.md").
+If you are an existing CRM connector user, refer to [Upgrading AWS Partner CRM connector to the new data model](connector-upgrade-plan.md "connector-upgrade-plan.md").
 
 1. Sign in to your Salesforce organization as a system administrator.
 2. Choose **Setup**, **Custom settings**,
@@ -27,9 +24,7 @@ corrections. 9. Review the synced opportunities and leads to ensure the data tra
 accurate. Alternatively, review the opportunities and leads in ACE to ensure that the new
 data model changes have been accurately captured.
 
-## Viewing sync log detail records for ACE
-
-opportunities
+## Viewing sync log detail records for ACE opportunities
 
 You can view sync log details for AWS-delivered ACE opportunities on the
 **Related** tab on the ACE opportunity record.

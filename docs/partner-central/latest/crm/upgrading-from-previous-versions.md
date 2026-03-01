@@ -5,16 +5,14 @@ opportunity records.
 
 ###### Note
 
-For information about upgrading an Amazon S3 integration, refer to [Upgrading from a CRM with Amazon S3 integration to the Partner Central
-API](upgrade-crm-api.md "upgrade-crm-api.md") later in this guide.
+For information about upgrading an Amazon S3 integration, refer to [Upgrading from a CRM with Amazon S3 integration to the Partner Central API](upgrade-crm-api.md "upgrade-crm-api.md") later in this guide.
 
 ###### Topics
 
 - [Adding the Import Resale Authorization button](#add-resale-authorization "#add-resale-authorization")
 - [Adding the Import Offer button](#import-offer-btn "#import-offer-btn")
 - [Adding the Import Agreement button](#import-agreements-btn "#import-agreements-btn")
-- [Adding sync log details to the ACE opportunity Record
-  page](#add-sync-log-details-ace "#add-sync-log-details-ace")
+- [Adding sync log details to the ACE opportunity Record page](#add-sync-log-details-ace "#add-sync-log-details-ace")
 - [Adding mapping values to the Closed Lost Reason label](#map-closed-lost "#map-closed-lost")
 
 ## Adding the Import Resale Authorization button
@@ -70,9 +68,7 @@ the **Agreements** section of an opportunity record.
    to the **Selected Buttons** list.
 7. Choose **Save**.
 
-## Adding sync log details to the ACE opportunity Record
-
-page
+## Adding sync log details to the ACE opportunity Record page
 
 The following steps explain how to add sync log details to an ACE Opportunity Record page.
 

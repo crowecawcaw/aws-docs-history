@@ -9,8 +9,7 @@ no-code solution for integrating Salesforce with AWS Partner Central and AWS Mar
 - [Available features](crm-connector-feature-list.md "crm-connector-feature-list.md")
 - [Installing the connector](install-connector.md "install-connector.md")
 - [Upgrading the connector to the latest version](upgrading-from-previous-versions.md "upgrading-from-previous-versions.md")
-- [Setting up real-time notifications for AWS Partner Central and
-  AWS Marketplace events](set-up-real-time-notifications.md "set-up-real-time-notifications.md")
+- [Setting up real-time notifications for AWS Partner Central and AWS Marketplace events](set-up-real-time-notifications.md "set-up-real-time-notifications.md")
 - [Mapping ACE objects](crm-connector-mapping.md "crm-connector-mapping.md")
 - [Configuring the CRM connector](configure-crm-connector.md "configure-crm-connector.md")
 - [Using the CRM connector in Salesforce](using-the-connector.md "using-the-connector.md")

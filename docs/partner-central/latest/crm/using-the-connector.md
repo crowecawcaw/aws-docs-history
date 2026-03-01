@@ -8,6 +8,5 @@ topics assume that you have configured the connector for AWS Partner Central and
 
 - [Managing ACE opportunities](manage-ace-opportunities.md "manage-ace-opportunities.md")
 - [Managing opportunities in a Partner Central API integration](manage-aws-opportunities.md "manage-aws-opportunities.md")
-- [Managing opportunities in a CRM with Amazon S3
-  integration](manage-s3-opportunities.md "manage-s3-opportunities.md")
+- [Managing opportunities in a CRM with Amazon S3 integration](manage-s3-opportunities.md "manage-s3-opportunities.md")
 - [Managing AWS Marketplace activities](crm-manage-marketplace.md "crm-manage-marketplace.md")

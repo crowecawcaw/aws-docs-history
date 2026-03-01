@@ -1,6 +1,4 @@
-# Upgrading AWS Partner CRM connector to the new data
-
-model
+# Upgrading AWS Partner CRM connector to the new data model
 
 ###### Important
 
@@ -35,8 +33,7 @@ This field specifies the payload version that partners use to interact with the 
 Integration. When partners move to version 2.0, they must fully adopt its
 specifications. Reverting to previous versions isn't permitted. 4. Choose the **ACE Mapping** tab. 5. Create, review, and update all required field mappings and details. For sandbox
 testing, use the custom ACE opportunity and ACE lead object to test the new data model
-features. For more information, refer to [Sandbox testing with the custom ACE opportunity and
-ACE lead objects](custom-ace-opportunity.md "custom-ace-opportunity.md"). 6. Activate schedules for opportunities and leads. 7. Review the ACE sync logs for synchronization errors and make any corrections. 8. Review the synced opportunities and leads to ensure that the data transformation is
+features. For more information, refer to [Sandbox testing with the custom ACE opportunity and ACE lead objects](custom-ace-opportunity.md "custom-ace-opportunity.md"). 6. Activate schedules for opportunities and leads. 7. Review the ACE sync logs for synchronization errors and make any corrections. 8. Review the synced opportunities and leads to ensure that the data transformation is
 accurate. Alternatively, review the opportunities and leads in ACE to ensure that the
 new data model changes are captured accurately. 9. Follow your product deployment process to migrate the changes to your production
 Salesforce environment.

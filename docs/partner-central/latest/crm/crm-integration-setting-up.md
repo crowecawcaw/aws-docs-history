@@ -81,6 +81,5 @@ prerequisites:
   Reference_, and [Using service-linked roles for Resale Authorization with AWS Marketplace](../../../marketplace/latest/userguide/using-roles-for-resale-authorization.md "../../../marketplace/latest/userguide/using-roles-for-resale-authorization.md")
   in the _AWS Marketplace Seller Guide_.
 - Amazon EventBridge for real-time notifications. For information about setting up
-  notifications, refer to [Setting up real-time notifications for AWS Partner Central and
-  AWS Marketplace events](set-up-real-time-notifications.md "set-up-real-time-notifications.md") later in this
+  notifications, refer to [Setting up real-time notifications for AWS Partner Central and AWS Marketplace events](set-up-real-time-notifications.md "set-up-real-time-notifications.md") later in this
   section.
