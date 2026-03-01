@@ -1,6 +1,4 @@
-# Exporting snapshots as a buyer using
-
-AWS Marketplace Vendor Insights
+# Exporting snapshots as a buyer using AWS Marketplace Vendor Insights
 
 A _snapshot_ is a point-in-time posture of a security
 profile. Exporting snapshots provides a way to download and review data offline, review evidence

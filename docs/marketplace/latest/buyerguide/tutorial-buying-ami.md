@@ -110,9 +110,7 @@ options, such as launching in an Amazon Virtual Private Cloud (Amazon VPC) or us
 launch using the Amazon EC2 console. The following procedures walk you through subscribing to the
 product and launching an EC2 instance using either 1-Click launch or the Amazon EC2 console.
 
-### Launching on Amazon EC2 using
-
-1-Click launch
+### Launching on Amazon EC2 using 1-Click launch
 
 ###### To launch on Amazon EC2 using 1-Click launch
 
@@ -139,9 +137,7 @@ and Automattic_ software running on it. From here, you can view the
 instance details, create another instance, or view all instances of your
 software.
 
-### Launching on Amazon EC2
-
-Using Launch with EC2 Console
+### Launching on Amazon EC2 Using Launch with EC2 Console
 
 ###### To launch on Amazon EC2 Using Launch with EC2 Console
 

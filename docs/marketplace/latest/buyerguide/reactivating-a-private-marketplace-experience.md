@@ -1,6 +1,4 @@
-# Reactivating a private
-
-marketplace experience
+# Reactivating a private marketplace experience
 
 If you decide you want to use an [archived](archiving-a-private-marketplace-experience.md "archiving-a-private-marketplace-experience.md") marketplace experience,
 you can always reactivate it. Management account administrators or delegated administrators

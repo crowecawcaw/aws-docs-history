@@ -8,8 +8,7 @@ You can create multiple Private Marketplace experiences with specific procuremen
 - [Selecting audiences (optional)](#select-audiences "#select-audiences")
 - [Selecting products (optional)](#select-products "#select-products")
 - [Customizing branding (optional)](#configure-branding-settings "#configure-branding-settings")
-- [Reviewing and creating an
-  experience](#review-and-create-experience "#review-and-create-experience")
+- [Reviewing and creating an experience](#review-and-create-experience "#review-and-create-experience")
 
 ###### Note
 
@@ -69,9 +68,7 @@ This step is optional.
 1. Enter a name and optional description for branding the experience you are creating. This name and description is shown to users on their **Your Private Marketplace** page. You can use these to provide details to your users about the Private Marketplace experience you are curating for them.
 2. Choose **Next** to continue.
 
-## Reviewing and creating an
-
-experience
+## Reviewing and creating an experience
 
 Review the settings for your Private Marketplace experience, and edit the settings as needed. When you are satisfied with your settings, choose **Create experience**.
 

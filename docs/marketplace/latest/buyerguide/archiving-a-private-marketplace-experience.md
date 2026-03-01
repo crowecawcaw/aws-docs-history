@@ -1,6 +1,4 @@
-# Archiving a private marketplace
-
-experience
+# Archiving a private marketplace experience
 
 You can remove a private marketplace experience by archiving it. Archived experiences
 can’t be updated or used to govern accounts in your organization. If you have audiences

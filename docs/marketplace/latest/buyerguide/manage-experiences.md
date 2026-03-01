@@ -6,8 +6,7 @@ You can create an experience, view a list of all the experiences, and make edits
 
 - [Viewing and updating experiences](#view-and-update-experiences "#view-and-update-experiences")
 - [Updating experience configuration](#update-experience-configuration "#update-experience-configuration")
-- [Managing audience
-  associations for an experience](#manage-audience-associations-for-an-experience "#manage-audience-associations-for-an-experience")
+- [Managing audience associations for an experience](#manage-audience-associations-for-an-experience "#manage-audience-associations-for-an-experience")
 - [Managing products in an experience](#manage-products-in-an-experience "#manage-products-in-an-experience")
 - [Customizing branding settings](#customize-branding-settings "#customize-branding-settings")
 
@@ -22,8 +21,7 @@ You can create an experience, view a list of all the experiences, and make edits
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace/](https://console.aws.amazon.com/marketplace/ "https://console.aws.amazon.com/marketplace/").
 2. In the navigation pane, choose **Experiences** under **Private Marketplace**.
 3. Choose the experience you want to update.
-4. Choose **View details** to view a page with all the details for the experience. To edit, see [Updating experience configuration](#update-experience-configuration "#update-experience-configuration"), [Managing audience
-   associations for an experience](#manage-audience-associations-for-an-experience "#manage-audience-associations-for-an-experience"), [Managing products in an experience](#manage-products-in-an-experience "#manage-products-in-an-experience"), and [Customizing branding settings](#customize-branding-settings "#customize-branding-settings").
+4. Choose **View details** to view a page with all the details for the experience. To edit, see [Updating experience configuration](#update-experience-configuration "#update-experience-configuration"), [Managing audience associations for an experience](#manage-audience-associations-for-an-experience "#manage-audience-associations-for-an-experience"), [Managing products in an experience](#manage-products-in-an-experience "#manage-products-in-an-experience"), and [Customizing branding settings](#customize-branding-settings "#customize-branding-settings").
 5. Choose **Save changes**.
 
 ## Updating experience configuration
@@ -44,9 +42,7 @@ Setting the status of an experience that is associated with an audience to **Liv
 8. You can edit the name and description for the experience in the **Experience details** section. This is the internal name and description used by administrators to keep track of this experience. End users do not see these fields.
 9. Choose **Save changes**.
 
-## Managing audience
-
-associations for an experience
+## Managing audience associations for an experience
 
 You can associate additional audiences with an experience or disassociate existing audiences from the experience. This section describes how you can associate and disassociate audiences from an experience using the experience details page.
 

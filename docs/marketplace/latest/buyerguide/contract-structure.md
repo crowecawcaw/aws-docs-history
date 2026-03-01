@@ -45,9 +45,7 @@ applicable.
 | Private    | Contract                  | Your current private offer expires and you resubscribe to the public offer or<br>to a new private offer. Renewals to the private offer are dependent on the specific<br>private offer. |
 | Private    | Contract with consumption | Your current private offer expires and you resubscribe to the public offer or<br>to a new private offer. Renewals to the private offer are dependent on the specific<br>private offer. |
 
-## Standard contracts for
-
-AWS Marketplace
+## Standard contracts for AWS Marketplace
 
 As you prepare to purchase a product, review the associated EULA or standardized
 contract. Many sellers oﬀer the same standardized contract on their listings, the [Standard Contract for AWS Marketplace (SCMP)](https://s3.amazonaws.com/aws-mp-standard-contracts/Standard-Contact-for-AWS-Marketplace-2022-07-14.pdf "https://s3.amazonaws.com/aws-mp-standard-contracts/Standard-Contact-for-AWS-Marketplace-2022-07-14.pdf"). AWS Marketplace developed the SCMP in collaboration

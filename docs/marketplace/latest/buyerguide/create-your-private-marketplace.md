@@ -1,6 +1,4 @@
-# Creating a private marketplace
-
-experience
+# Creating a private marketplace experience
 
 Your private marketplace is made up of one or more private marketplace experiences.
 Experiences are subsets of products and associated branding that can have one or more

@@ -7,8 +7,7 @@ container product, machine learning, and software as a service (SaaS) products.
 
 - [Canceling your AMI subscription](#cancel-ami-subscription "#cancel-ami-subscription")
 - [Canceling a container subscription](#cancel-container-subscription "#cancel-container-subscription")
-- [Canceling your machine learning
-  subscription](#cancel-machine-learning-subscription "#cancel-machine-learning-subscription")
+- [Canceling your machine learning subscription](#cancel-machine-learning-subscription "#cancel-machine-learning-subscription")
 - [Canceling your SaaS subscription](#cancel-saas-subscription "#cancel-saas-subscription")
 
 ## Canceling your AMI subscription
@@ -70,9 +69,7 @@ choose **Cancel subscription**. 5. In the **Cancel subscription** dialog box, en
 `confirm`, then choose **Yes, cancel
 subscription**.
 
-## Canceling your machine learning
-
-subscription
+## Canceling your machine learning subscription
 
 Before you cancel your machine learning subscription, take the following actions:
 

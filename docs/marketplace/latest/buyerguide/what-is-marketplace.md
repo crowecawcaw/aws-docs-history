@@ -51,9 +51,7 @@ license agreement (EULA) or by accepting a private offer with custom pricing and
 purchase products under a [standard
 contract](contract-structure.md#standard-contracts-for-aws-marketplace "contract-structure.md#standard-contracts-for-aws-marketplace") with specified time or usage boundaries.
 
-## Differences between AWS Marketplace and
-
-Amazon DevPay
+## Differences between AWS Marketplace and Amazon DevPay
 
 AWS Marketplace and Amazon DevPay have substantial differences. Both help customers buy software
 that runs on AWS, but AWS Marketplace offers a more comprehensive experience than Amazon DevPay. For software

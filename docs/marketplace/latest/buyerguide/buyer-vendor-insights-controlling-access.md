@@ -1,6 +1,4 @@
-# Controlling access in
-
-AWS Marketplace Vendor Insights
+# Controlling access in AWS Marketplace Vendor Insights
 
 AWS Identity and Access Management (IAM) is an AWS service that helps you control access to AWS resources.
 IAM is an AWS service that you can use with no additional charge. If you're an

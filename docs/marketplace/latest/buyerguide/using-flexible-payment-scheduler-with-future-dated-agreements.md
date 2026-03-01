@@ -1,6 +1,4 @@
-# Using a flexible
-
-payment scheduler with future dated agreements
+# Using a flexible payment scheduler with future dated agreements
 
 You can use the flexible payment scheduler with future dated agreements. You can set up
 payments for purchases at a time of your choosing between your agreement sign date and agreement

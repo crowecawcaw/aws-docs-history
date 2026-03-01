@@ -1,6 +1,4 @@
-# Changing your private marketplace
-
-status
+# Changing your private marketplace status
 
 After you are satisfied with the experience's product list, the marketplace's branding
 settings, and the associated account groups, then you can make your private marketplace live.

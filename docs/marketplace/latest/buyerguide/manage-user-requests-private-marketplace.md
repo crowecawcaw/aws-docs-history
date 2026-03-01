@@ -1,6 +1,4 @@
-# Managing user requests for products
-
-in a private marketplace
+# Managing user requests for products in a private marketplace
 
 You can allow users to submit requests for products to be added to their private
 marketplace catalog with the software request feature. Software requests are enabled by

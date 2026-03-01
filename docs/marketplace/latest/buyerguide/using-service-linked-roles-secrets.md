@@ -17,8 +17,7 @@ role trusts the following services to assume the role:
 
 ###### Note
 
-For more information about AWS Marketplace managed policies, see [AWS managed policies for AWS Marketplace
-buyers](buyer-security-iam-awsmanpol.md "buyer-security-iam-awsmanpol.md").
+For more information about AWS Marketplace managed policies, see [AWS managed policies for AWS Marketplace buyers](buyer-security-iam-awsmanpol.md "buyer-security-iam-awsmanpol.md").
 
 JSON
 

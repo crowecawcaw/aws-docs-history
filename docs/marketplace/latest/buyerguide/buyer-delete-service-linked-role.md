@@ -1,6 +1,4 @@
-# Deleting a service-linked role
-
-for AWS Marketplace
+# Deleting a service-linked role for AWS Marketplace
 
 If you no longer need to use a feature or service that requires a service-linked
 role, we recommend that you delete that role. That way you don’t have an unused

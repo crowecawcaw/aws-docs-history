@@ -1,6 +1,4 @@
-# Receiving notifications for
-
-future dated agreements
+# Receiving notifications for future dated agreements
 
 You receive email notifications that are sent to your designated root account for the
 following actions taken on your future dated agreements:

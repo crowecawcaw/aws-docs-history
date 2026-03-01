@@ -10,9 +10,7 @@ your related existing subscription or subscriptions automatically move to the pr
 pricing model. This doesn't require any further action from you. Use the following guidance to
 identify your scenario and the steps to start receiving the pricing for your private offer.
 
-## Changing from
-
-public to private offer pricing
+## Changing from public to private offer pricing
 
 After you accept the private offer, no further action is needed for the user that
 accepted the offer. They are switched to the pricing, terms, and conditions defined in the
@@ -21,9 +19,7 @@ linked user using the product must accept the private offer. Any user that start
 product must also accept the private offer to get the pricing, terms, and conditions defined
 in the private offer.
 
-## Changing a SaaS contract –
-
-upgrades and renewals
+## Changing a SaaS contract – upgrades and renewals
 
 This section applies to software as a service (SaaS) contract and SaaS contract with
 consumption products. If you have an active contract in place from a previous private offer
@@ -72,18 +68,14 @@ Not all contracts support quantity modifications. The ability to modify depends 
 
 Your contract end date remains the same when you modify quantities. You're adjusting the scale of your existing agreement rather than extending its duration.
 
-## Changing
-
-from a SaaS subscription to a SaaS contract
+## Changing from a SaaS subscription to a SaaS contract
 
 To change from a SaaS subscription to a SaaS contract, you must first unsubscribe from
 the SaaS subscription. Then you accept the private offer for the SaaS contract. To view your
 existing SaaS subscriptions, choose **Your Marketplace Software** in the
 upper-right corner of the AWS Marketplace console.
 
-## Changing from
-
-an AMI contract to a new contract
+## Changing from an AMI contract to a new contract
 
 If you have an Amazon Machine Image (AMI) contract in place from a previous private offer
 and you want to accept a new private offer for the same product, you must do one of the
@@ -96,9 +88,7 @@ following:
 - Accept the private offer using a different AWS account from the one that has the
   contract.
 
-## Changing from AMI
-
-hourly to AMI annual
+## Changing from AMI hourly to AMI annual
 
 When you move from an AMI hourly subscription to an AMI annual subscription, the
 subscription works similar to a voucher system. Each hour of AMI usage is offset by one unit
@@ -114,9 +104,7 @@ The annual licenses on your previous offer are deactivated immediately upon acce
 terms of the new offer. Work with the ISV to discuss compensation for the deactivated licenses and
 how to proceed forward with the new offer.
 
-## Changing from AMI
-
-annual to AMI hourly
+## Changing from AMI annual to AMI hourly
 
 When your annual subscription expires, any linked accounts subscribed to the product are
 automatically switched to the AMI hourly pricing. If an annual subscription is in place, the

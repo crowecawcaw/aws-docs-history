@@ -1,6 +1,4 @@
-# Get started with AWS Marketplace Vendor Insights as a
-
-buyer
+# Get started with AWS Marketplace Vendor Insights as a buyer
 
 AWS Marketplace Vendor Insights presents security information for software products available in AWS Marketplace. You can
 use AWS Marketplace Vendor Insights to view security profiles for products in AWS Marketplace.
@@ -38,9 +36,7 @@ products in AWS Marketplace with AWS Marketplace Vendor Insights, use the follow
 A success message appears, indicating that you have successfully requested access to
 the AWS Marketplace Vendor Insights data for this product.
 
-## Requesting access to assessment data by
-
-subscribing
+## Requesting access to assessment data by subscribing
 
 With AWS Marketplace Vendor Insights, you can continuously monitor the security profile of vendor software.
 First, subscribe, or request access, to vendor assessment data for the product that you want

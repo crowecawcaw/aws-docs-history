@@ -17,9 +17,7 @@ You can't undo this integration from the AWS Marketplace console. Use the IAM co
 
 You can also enable Private Marketplace by visiting the **Get started** page under **Private Marketplace** in the navigation pane in the AWS Marketplace console.
 
-## Registering a delegated
-
-administrator
+## Registering a delegated administrator
 
 After enabling Private Marketplace in your organization, you can register a trusted account as a delegated administrator. This reduces the work for the management account administrator by letting the delegated administrator account create and manage Private Marketplace experiences in your organization. Additionally, Organizations gives a delegated administrator account read-only access to view organization structure, memberships, and policies. For more information, see [Delegated administrator for AWS services that work with Organizations](../../../organizations/latest/userguide/orgs_integrate_delegated_admin.md "../../../organizations/latest/userguide/orgs_integrate_delegated_admin.md").
 

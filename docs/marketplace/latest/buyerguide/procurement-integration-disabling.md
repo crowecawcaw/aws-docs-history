@@ -1,6 +1,4 @@
-# Disabling procurement system
-
-integration
+# Disabling procurement system integration
 
 To disable integration with either Coupa or SAP Ariba, you must remove the punchout
 integration from within the procurement system. To do this, disable the auto-redirect

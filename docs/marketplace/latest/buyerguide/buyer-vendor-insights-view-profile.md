@@ -137,10 +137,8 @@ within each column of the table:
 - [End user device security controls](#end-user-device-security "#end-user-device-security")
 - [Human resources controls](#human-resources "#human-resources")
 - [Infrastructure security controls](#infrastructure-security "#infrastructure-security")
-- [Risk management and incident response
-  controls](#risk-management-incident-response "#risk-management-incident-response")
-- [Security and configuration policy
-  controls](#security-configuration-policy "#security-configuration-policy")
+- [Risk management and incident response controls](#risk-management-incident-response "#risk-management-incident-response")
+- [Security and configuration policy controls](#security-configuration-policy "#security-configuration-policy")
 
 ### Access management controls
 
@@ -316,9 +314,7 @@ policy controls.
 | Infrastructure Security 8.2.5<br>• Network Security<br>• Security and Hardening<br>Standards                       | Do you have security and hardening standards in place for network<br>devices?                                                                     | Specify if you have security and hardening standards in place for network<br>devices. If yes, can you provide more details (including details about how often<br>these standards are implemented and updated)? | Yes. Security and hardening standards are implemented on network devices<br>monthly.                                                                                   |
 | **Cloud services**                                                                                                 | Infrastructure Security 8.3.1<br>• Cloud Services<br>• Platforms Used to Host<br>Application (Requires manual attestation)                        | List the cloud platforms you use for hosting your application.                                                                                                                                                 | Specify which cloud platforms you use for hosting your application.                                                                                                    | AWS          |
 
-### Risk management and incident response
-
-controls
+### Risk management and incident response controls
 
 Risk management and incident response controls evaluate the level of risk deemed
 acceptable and the steps taken to respond to risks and attacks. This table lists the values
@@ -344,9 +340,7 @@ and descriptions for risk management and incident response policy controls.
 | Risk Management/Incident Response 5.3.3<br>• Incident Detection<br>• Third Party<br>Data Breach                                                      | Is there a process to identify and detect and log subcontractor security,<br>privacy, or data breach issues?         | Specify if there is a process in place to identify and detect third-party<br>vendors or subcontractors for data breach, security issues, or privacy<br>issues.                                                                                               | Yes                                                                                                                                                                                                                                                                                                                            |
 | **SLA for incident notification**                                                                                                                    | Risk Management/Incident Response 5.4.1<br>• SLA for Incident Notification<br>(Requires manual attestation)          | What is the SLA for sending notification about incidents or breaches?                                                                                                                                                                                        | What is the SLA for sending notification about incidents or breaches?                                                                                                                                                                                                                                                          | 7 days                                                                                                                                                               |
 
-### Security and configuration policy
-
-controls
+### Security and configuration policy controls
 
 Security and configuration policy controls evaluate security policies and security
 configurations that protect an organization's assets. This table lists the values and

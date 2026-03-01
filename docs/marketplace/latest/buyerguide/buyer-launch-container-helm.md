@@ -1,6 +1,4 @@
-# Launching with a Helm fulfillment
-
-option
+# Launching with a Helm fulfillment option
 
 For a fulfillment option with a **Helm** delivery method, use the
 seller-provided instructions to launch the product. This is done by installing a Helm chart
@@ -24,8 +22,7 @@ follows:
 
 ###### To launch a product with a Helm fulfillment option
 
-1. Follow steps 1–6 of [Launching container software from
-   AWS Marketplace](buyer-configuring-a-product.md "buyer-configuring-a-product.md"), and choose a fulfillment option with a
+1. Follow steps 1–6 of [Launching container software from AWS Marketplace](buyer-configuring-a-product.md "buyer-configuring-a-product.md"), and choose a fulfillment option with a
    **Helm chart** delivery method.
 2. In **Launch target**, choose the environment that you want to
    deploy on:

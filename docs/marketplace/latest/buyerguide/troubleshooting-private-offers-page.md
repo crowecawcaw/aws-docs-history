@@ -6,13 +6,10 @@ section.
 
 ###### Issues
 
-- [I get a Page not found (404) error when I
-  click the offer ID to view the private offer](#troubleshooting-page-not-found "#troubleshooting-page-not-found")
+- [I get a Page not found (404) error when I click the offer ID to view the private offer](#troubleshooting-page-not-found "#troubleshooting-page-not-found")
 - [None of these suggestions work](#troubleshooting-other-suggestions "#troubleshooting-other-suggestions")
 
-## I get a Page not found (404) error when I
-
-click the offer ID to view the private offer
+## I get a Page not found (404) error when I click the offer ID to view the private offer
 
 - Check that you're signed in to the correct AWS account. The seller extends private
   offers to specific AWS account IDs.

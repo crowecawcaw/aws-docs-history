@@ -12,9 +12,7 @@ the _AWS Data Exchange User Guide_.
 For information about security for sellers on AWS Marketplace, see [AWS Marketplace Security](../userguide/security.md "../userguide/security.md") in the
 _AWS Marketplace Seller Guide_.
 
-## Subscriber information shared
-
-with sellers
+## Subscriber information shared with sellers
 
 We may share your contact information with our sellers for the following reasons:
 

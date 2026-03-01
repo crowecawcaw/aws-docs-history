@@ -20,7 +20,7 @@ experience with your company or team’s logo, messaging, and color scheme.
 
 ###### Notes
 
-- You can add private products that have been shared with you (through a [private offer](buyer-private-offers.md "buyer-private-offers.md")) to a private marketplace. For more information, see [Subscribing to a private product in a private marketplace](subscribing-to-a-private-product-in-a-private-marketplace.md "subscribing-to-a-private-product-in-a-private-marketplace.md") .
+- You can add private products that have been shared with you (through a [private offer](buyer-private-offers.md "buyer-private-offers.md")) to a private marketplace. For more information, see [Subscribing to a private product in a private marketplace](subscribing-to-a-private-product-in-a-private-marketplace.md "subscribing-to-a-private-product-in-a-private-marketplace.md").
 - In a private marketplace, customers are automatically entitled to any products whose
   EULAs are governed by the AWS Customer Agreement or other agreement with AWS governing
   use of AWS services. Customers are already entitled to these products by default;
@@ -45,8 +45,7 @@ noting that the product is not approved for procurement in AWS Marketplace.
 If software requests are enabled, users can choose **Create request** on
 the product details page. When users choose **Create request**, they submit a
 request to the administrator to make the product available on your private marketplace. For
-more information about this feature, see [Managing user requests for products
-in a private marketplace](manage-user-requests-private-marketplace.md "manage-user-requests-private-marketplace.md").
+more information about this feature, see [Managing user requests for products in a private marketplace](manage-user-requests-private-marketplace.md "manage-user-requests-private-marketplace.md").
 
 ## Configuring notifications
 

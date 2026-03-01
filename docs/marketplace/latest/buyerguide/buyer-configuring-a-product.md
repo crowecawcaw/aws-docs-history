@@ -1,6 +1,4 @@
-# Launching container software from
-
-AWS Marketplace
+# Launching container software from AWS Marketplace
 
 After you have an active subscription to a container product in AWS Marketplace, you launch the
 software. To do so, follow the instructions included in one of the fulfillment options provided
@@ -34,8 +32,7 @@ each fulfillment option must have a delivery method. You can think of a delivery
 5. Choose the service to deploy on and the delivery methods provided by the seller.
 6. Follow the instructions provided by the seller to launch the product. The instructions
    are different for each fulfillment option. For more information, see [Launching with a Container image fulfillment option](buyer-launch-container-image.md "buyer-launch-container-image.md") or
-   [Launching with a Helm fulfillment
-   option](buyer-launch-container-helm.md "buyer-launch-container-helm.md").
+   [Launching with a Helm fulfillment option](buyer-launch-container-helm.md "buyer-launch-container-helm.md").
 7. _Optional -_ Choose **Usage instructions** for
    documentation from the seller about how to configure and use the product after
    launching.

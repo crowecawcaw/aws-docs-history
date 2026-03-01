@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-AWS Marketplace
+# Using service-linked roles for AWS Marketplace
 
 AWS Marketplace uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role
 that is linked directly to AWS Marketplace. Service-linked roles are predefined by
@@ -18,9 +16,7 @@ services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-service
 **Yes** with a link to view the service-linked role documentation
 for that service.
 
-## Supported Regions for AWS Marketplace
-
-service-linked roles
+## Supported Regions for AWS Marketplace service-linked roles
 
 AWS Marketplace supports using service-linked roles in all of the AWS Regions
 where the service is available. For more information, see [AWS Marketplace Regions and Endpoints](../../../general/latest/gr/aws-marketplace.md#aws-marketplace_region "../../../general/latest/gr/aws-marketplace.md#aws-marketplace_region").

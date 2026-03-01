@@ -1,6 +1,4 @@
-# Adding products to a private
-
-marketplace
+# Adding products to a private marketplace
 
 A private marketplace provides you with a broad catalog of products available in AWS Marketplace,
 along with ﬁne-grained control of those products.
@@ -32,9 +30,7 @@ marketplace.
 You can also add multiple products to multiple experiences at one time by choosing
 **Bulk add/remove products** from the left navigation pane.
 
-## Verifying products in your private
-
-marketplace experience
+## Verifying products in your private marketplace experience
 
 ###### To verify a product is approved in your private marketplace experience
 
@@ -51,9 +47,7 @@ the AWS Marketplace console ([https://console.aws.amazon.com/marketplace](https:
 _approved for procurement_ badge if they are part of your private
 marketplace.
 
-## Working with private
-
-products
+## Working with private products
 
 Some products are not publicly available to browse in AWS Marketplace. These products can only be
 seen when you are given a private offer from the seller. The private offer from the seller

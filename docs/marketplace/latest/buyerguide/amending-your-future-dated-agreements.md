@@ -1,6 +1,4 @@
-# Amending your future dated
-
-agreements
+# Amending your future dated agreements
 
 You can increase your purchased units of a particular dimension in your FDA after the
 agreement start date. This option is possible when the agreement doesn't have a flexible payment

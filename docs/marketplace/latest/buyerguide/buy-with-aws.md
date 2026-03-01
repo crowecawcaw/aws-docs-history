@@ -44,9 +44,7 @@ The following products support Buy with AWS:
 
 ## Product discovery and purchase
 
-### View and subscribe to products on
-
-seller's website
+### View and subscribe to products on seller's website
 
 1. Navigate to a seller's website that features Buy with AWS.
 2. Identify the product that you wish to purchase.
@@ -61,9 +59,7 @@ procurement page. 5. The Buy with AWS co-branded procurement page displays offer
 pricing, and terms for customer review and purchase. 6. Review the purchase offer details. 7. Choose **Subscribe**. 8. After subscribing the SaaS product, choose **Set up
 your account** to register on the seller's website.
 
-## Request a private offer from seller's
-
-website
+## Request a private offer from seller's website
 
 1. Navigate to a seller's website that features Buy with AWS.
 2. Identify the product that you wish to purchase.

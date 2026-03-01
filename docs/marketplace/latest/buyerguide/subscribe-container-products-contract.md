@@ -6,9 +6,7 @@ If the contract is a public offer, you can choose the duration of the contract a
 
 Private offers typically have a fixed duration that you can't change.
 
-###### To subscribe to a public offer container-based product with a contract pricing
-
-model
+###### To subscribe to a public offer container-based product with a contract pricing model
 
 ###### Note
 
@@ -44,9 +42,7 @@ license is generated in AWS License Manager.
 It can take up to 10 minutes for the subscription to process and a license to be
 generated in your License Manager account for the software product.
 
-###### To subscribe to a private offer container-based product with a contract pricing
-
-model
+###### To subscribe to a private offer container-based product with a contract pricing model
 
 ###### Note
 

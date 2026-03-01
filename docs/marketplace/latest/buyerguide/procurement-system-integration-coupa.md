@@ -74,5 +74,4 @@ the following links that guide you through configuring your Coupa procurement sy
 
 ###### Note
 
-For information about UNSPSC codes used by AWS Marketplace, see [UNSPSC codes used by
-AWS Marketplace](procurement-system-integration.md#procurement-integration-setup-unspsc-codes "procurement-system-integration.md#procurement-integration-setup-unspsc-codes") .
+For information about UNSPSC codes used by AWS Marketplace, see [UNSPSC codes used by AWS Marketplace](procurement-system-integration.md#procurement-integration-setup-unspsc-codes "procurement-system-integration.md#procurement-integration-setup-unspsc-codes") .

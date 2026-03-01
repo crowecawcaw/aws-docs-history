@@ -11,8 +11,7 @@ page.
 
 ###### To create a future dated agreement
 
-1. Follow the steps for [Viewing and subscribing to a private
-   offer](buyer-private-offers-subscribing.md "buyer-private-offers-subscribing.md").
+1. Follow the steps for [Viewing and subscribing to a private offer](buyer-private-offers-subscribing.md "buyer-private-offers-subscribing.md").
 2. In the offer details pane, verify that you chose the correct private offer and that the
    agreement start date is correct. Future dated offers are marked as **Future
    dated** on the **Offer** menu.

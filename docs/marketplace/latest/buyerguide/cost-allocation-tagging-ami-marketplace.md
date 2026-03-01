@@ -21,9 +21,7 @@ whether you use cost allocation tagging, there's no change to how much you're bi
 Whether you use cost allocation tags has no impact on the functionality of your AMI-based
 software products.
 
-## Tracking cost
-
-allocation tags for one AMI across multiple instances
+## Tracking cost allocation tags for one AMI across multiple instances
 
 Each launched Amazon EC2 instance for a AWS Marketplace AMI subscription has a corresponding AWS Marketplace
 software usage line item in the AWS Cost and Usage report. Your AWS Marketplace usage will
@@ -35,9 +33,7 @@ You can also sum up your tag-based usage costs to equal the AMI software usage c
 reflected in your bill with either the Cost Explorer or the AWS Cost and Usage
 report.
 
-## Finding budgets with cost allocated
-
-tagged instances
+## Finding budgets with cost allocated tagged instances
 
 If you already have active budgets filtered on cost allocation tags over a number of
 Amazon EC2 instances in the Billing and Cost Management console, it might be difficult to find all of them. The

@@ -20,15 +20,13 @@ Enabling private marketplace is a one-time action that must happen from the mana
 account. For more information, see [Getting started with private marketplace](private-catalog-administration.md#private-marketplace-getting-started "private-catalog-administration.md#private-marketplace-getting-started").
 
 You grant AWS Identity and Access Management (IAM) permissions to administer your private marketplace by
-attaching the [AWS
-managed policy: AWSPrivateMarketplaceAdminFullAccess](buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess "buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess")
+attaching the [AWS managed policy: AWSPrivateMarketplaceAdminFullAccess](buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess "buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess")
 to a user, group, or role. We recommend using a group or role. For more information about
 how to attach the policy, see [Attaching a policy to a user
 group](../../../IAM/latest/UserGuide/id_groups_manage_attach-policy.md "../../../IAM/latest/UserGuide/id_groups_manage_attach-policy.md") in the _IAM User Guide_.
 
 For more information about the permissions in the
-`AWSPrivateMarketplaceAdminFullAccess` policy, see [AWS
-managed policy: AWSPrivateMarketplaceAdminFullAccess](buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess "buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess"). To learn about
+`AWSPrivateMarketplaceAdminFullAccess` policy, see [AWS managed policy: AWSPrivateMarketplaceAdminFullAccess](buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess "buyer-security-iam-awsmanpol.md#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess"). To learn about
 other policies for use in AWS Marketplace, sign in to the AWS Management Console, and go to the [IAM policies page](https://console.aws.amazon.com/iam/home?#/policies "https://console.aws.amazon.com/iam/home?#/policies"). In the search box,
 enter `Marketplace` to find all of the policies that are associated
 with AWS Marketplace.

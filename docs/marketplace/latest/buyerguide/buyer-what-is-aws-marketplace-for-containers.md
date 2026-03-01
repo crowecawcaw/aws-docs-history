@@ -8,8 +8,7 @@ Container products are standalone products fulfilled as container images. Contai
 can either be free or must be paid for using a seller-provided pricing option. Container
 products can be used with multiple container runtimes and services, including [Amazon Elastic Container Service](../../../AmazonECS/latest/developerguide.md "../../../AmazonECS/latest/developerguide.md") (Amazon ECS), [Amazon Elastic Kubernetes Service](../../../eks/latest/userguide.md "../../../eks/latest/userguide.md")
 (Amazon EKS), and even services running on your own infrastructure. For a complete list of supported
-runtimes and services with more information about each, see [Supported services for container
-products](#buyer-container-product-launch-environments "#buyer-container-product-launch-environments").
+runtimes and services with more information about each, see [Supported services for container products](#buyer-container-product-launch-environments "#buyer-container-product-launch-environments").
 
 You can discover, subscribe to, and deploy container products on the AWS Marketplace website or in
 the Amazon ECS console. You can deploy many products to Amazon ECS or Amazon EKS by using seller-supplied
@@ -24,9 +23,7 @@ container software on it. For more information about launching with Quick Launch
 This section provides information about finding, subscribing to, and launching container
 products in AWS Marketplace.
 
-## Pricing models for paid
-
-container products
+## Pricing models for paid container products
 
 Paid container products must have one or more pricing models. Like with any other paid
 products in AWS Marketplace, you're billed for paid container products by AWS according to the
@@ -44,9 +41,7 @@ The supported pricing models for container products in AWS Marketplace are as fo
 
 For more information about each model, see [Container product pricing](../userguide/pricing-container-products.md "../userguide/pricing-container-products.md") in the _AWS Marketplace Seller Guide_.
 
-## Supported services for container
-
-products
+## Supported services for container products
 
 The following list includes all of the supported services for container products in
 AWS Marketplace. A _supported service_ is a container service or
@@ -79,9 +74,7 @@ You can search for, subscribe to, and deploy third-party Kubernetes software usi
 Amazon EKS console. For more information, see [Managing Amazon EKS add-ons](../../../eks/latest/userguide/managing-add-ons.md "../../../eks/latest/userguide/managing-add-ons.md") in
 the _Amazon EKS User Guide_.
 
-### Self-managed
-
-Kubernetes
+### Self-managed Kubernetes
 
 You can launch container products on self-managed Kubernetes clusters running in
 EKS Anywhere, Amazon ECS Anywhere, Amazon EC2, or on-premises
@@ -103,9 +96,7 @@ supported on-premises Kubernetes platform.
 For more information about EKS Anywhere, see the [EKS Anywhere
 documentation](https://anywhere.eks.amazonaws.com/docs/overview/ "https://anywhere.eks.amazonaws.com/docs/overview/").
 
-## Overview of
-
-containers and Kubernetes
+## Overview of containers and Kubernetes
 
 Containers, such as Docker containers, are an open-source software technology that provides an additional layer of
 abstraction and automation over virtualized operating systems such as Linux and Windows

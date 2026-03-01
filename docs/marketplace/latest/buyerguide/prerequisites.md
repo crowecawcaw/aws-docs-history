@@ -18,8 +18,7 @@ Trusted access in Organizations is essential for Private Marketplace to keep the
 ###### Important
 
 - We **strongly recommend** enabling trusted access using AWS Marketplace console which will also create the required service-linked role. If you enable trusted access using the Organizations console or API, it will not create the service-linked role. You must first create the service-linked role using AWS Identity and Access Management (IAM).
-- Do not disable trusted access unless you are certain that you do not require Private Marketplace governance for your entire organization. There are less disruptive ways to turn off or update governance for parts of your organization. For more information, see [Updating experience configuration](manage-experiences.md#update-experience-configuration "manage-experiences.md#update-experience-configuration") and [Managing audience
-  associations for an experience](manage-experiences.md#manage-audience-associations-for-an-experience "manage-experiences.md#manage-audience-associations-for-an-experience").
+- Do not disable trusted access unless you are certain that you do not require Private Marketplace governance for your entire organization. There are less disruptive ways to turn off or update governance for parts of your organization. For more information, see [Updating experience configuration](manage-experiences.md#update-experience-configuration "manage-experiences.md#update-experience-configuration") and [Managing audience associations for an experience](manage-experiences.md#manage-audience-associations-for-an-experience "manage-experiences.md#manage-audience-associations-for-an-experience").
 
 ### Service-linked role for Private Marketplace
 

@@ -1,6 +1,4 @@
-# Controlling access to AWS Marketplace
-
-subscriptions
+# Controlling access to AWS Marketplace subscriptions
 
 AWS IAM Identity Center helps you securely create or connect your workforce identities and manage their
 access centrally across AWS accounts and applications. IAM Identity Center is the recommended approach for
@@ -19,9 +17,7 @@ For example, Customer A assumes a role through federation with the
 can only view subscriptions in AWS Marketplace. You can create an IAM role with permissions to view
 subscriptions and grant permission to Customer A to [assume this role](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md").
 
-## Creating IAM roles for
-
-AWS Marketplace access
+## Creating IAM roles for AWS Marketplace access
 
 You can use IAM roles to delegate access to your AWS resources.
 
@@ -75,12 +71,9 @@ The following links take you to the [AWS Managed Policy Reference](../../../aws-
 
 AWS Marketplace also provides specialized managed policies for specific scenarios. For a full
 list of AWS managed policies for AWS Marketplace buyers, as well as descriptions of what permissions
-they provide, see [AWS managed policies for AWS Marketplace
-buyers](buyer-security-iam-awsmanpol.md "buyer-security-iam-awsmanpol.md") in this section.
+they provide, see [AWS managed policies for AWS Marketplace buyers](buyer-security-iam-awsmanpol.md "buyer-security-iam-awsmanpol.md") in this section.
 
-## Permissions for working with
-
-License Manager
+## Permissions for working with License Manager
 
 AWS Marketplace integrates with AWS License Manager to manage and share licenses for products that you
 subscribe to between accounts in your organization. To view the full details of your

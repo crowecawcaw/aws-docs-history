@@ -17,9 +17,7 @@ through the AWS Marketplace website. You can also manage private marketplaces us
 more information, see [Working with a private
 marketplace](../../../marketplace-catalog/latest/api-reference/private-marketplace.md "../../../marketplace-catalog/latest/api-reference/private-marketplace.md") in the _AWS Marketplace Catalog API Reference_.
 
-## Getting started with private
-
-marketplace
+## Getting started with private marketplace
 
 To get started with private marketplace, ensure you're signed into your AWS management
 account, navigate to [Private

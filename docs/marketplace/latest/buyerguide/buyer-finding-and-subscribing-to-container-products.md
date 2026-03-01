@@ -9,12 +9,9 @@ product delivery methods, see [Container product delivery methods](buyer-contain
 Many launch environments, also known as supported services, are available for fulfillment
 options in container products. Launch environments include services such as Amazon Elastic Container Service (Amazon ECS),
 Amazon Elastic Kubernetes Service (Amazon EKS), and even your own self-managed infrastructure. For a complete list of
-available container product launch environments, see [Supported services for container
-products](buyer-what-is-aws-marketplace-for-containers.md#buyer-container-product-launch-environments "buyer-what-is-aws-marketplace-for-containers.md#buyer-container-product-launch-environments").
+available container product launch environments, see [Supported services for container products](buyer-what-is-aws-marketplace-for-containers.md#buyer-container-product-launch-environments "buyer-what-is-aws-marketplace-for-containers.md#buyer-container-product-launch-environments").
 
-## Find container products using the AWS Marketplace
-
-website
+## Find container products using the AWS Marketplace website
 
 The product details page in AWS Marketplace includes details about the product, such as the following information:
 
@@ -53,9 +50,7 @@ The product details page in AWS Marketplace includes details about the product, 
 After you find a product that you're interested in, choose the title to navigate to the
 product details page.
 
-## Find container products using the Amazon ECS
-
-console
+## Find container products using the Amazon ECS console
 
 You can also find container products in the Amazon ECS console. The navigation pane has links
 to discover new products from AWS Marketplace and to see existing subscriptions.

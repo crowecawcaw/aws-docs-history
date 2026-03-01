@@ -41,9 +41,7 @@ offers.
 
 For more information about modifying, upgrading, or renewing a private offer, see [Modifying or unsubscribing from a private offer in AWS Marketplace](buyer-private-offers-modifying.md "buyer-private-offers-modifying.md").
 
-## Required permissions to view the Private
-
-offers page
+## Required permissions to view the Private offers page
 
 To view the **Private offers** page in the AWS Marketplace console, you must have
 the following permissions:
@@ -57,5 +55,4 @@ the following permissions:
 
 If you're unable to view the **Private offers** page, contact your
 administrator to set up the correct AWS Identity and Access Management (IAM) permissions. For more information about
-the necessary IAM permissions for AWS Marketplace, see [AWS managed policies for AWS Marketplace
-buyers](buyer-security-iam-awsmanpol.md "buyer-security-iam-awsmanpol.md").
+the necessary IAM permissions for AWS Marketplace, see [AWS managed policies for AWS Marketplace buyers](buyer-security-iam-awsmanpol.md "buyer-security-iam-awsmanpol.md").

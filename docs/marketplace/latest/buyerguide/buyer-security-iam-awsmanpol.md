@@ -1,6 +1,4 @@
-# AWS managed policies for AWS Marketplace
-
-buyers
+# AWS managed policies for AWS Marketplace buyers
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed
 to provide permissions for many common use cases so that you can start assigning permissions to users, groups, and roles.
@@ -23,41 +21,26 @@ for AWS Marketplace sellers](../userguide/security-iam-awsmanpol.md "../userguid
 
 ###### Topics
 
-- [AWS managed policy:
-  AWSMarketplaceDeploymentServiceRolePolicy](#deployment-service-manpol "#deployment-service-manpol")
-- [AWS managed policy:
-  AWSMarketplaceFullAccess](#security-iam-awsmanpol-awsmarketplacefullaccess "#security-iam-awsmanpol-awsmarketplacefullaccess")
-- [AWS
-  managed policy: AWSMarketplaceImageBuildFullAccess
-  (Deprecated)](#security-iam-awsmanpol-awsmarketplaceimagebuildfullaccess "#security-iam-awsmanpol-awsmarketplaceimagebuildfullaccess")
+- [AWS managed policy: AWSMarketplaceDeploymentServiceRolePolicy](#deployment-service-manpol "#deployment-service-manpol")
+- [AWS managed policy: AWSMarketplaceFullAccess](#security-iam-awsmanpol-awsmarketplacefullaccess "#security-iam-awsmanpol-awsmarketplacefullaccess")
+- [AWS managed policy: AWSMarketplaceImageBuildFullAccess (Deprecated)](#security-iam-awsmanpol-awsmarketplaceimagebuildfullaccess "#security-iam-awsmanpol-awsmarketplaceimagebuildfullaccess")
 - [AWS managed policy: AWSMarketplaceLicenseManagementServiceRolePolicy](#security-iam-awsmanpol-awsmarketplacelicensemanagementservicerolepolicy "#security-iam-awsmanpol-awsmarketplacelicensemanagementservicerolepolicy")
-- [AWS managed
-  policy: AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions "#security-iam-awsmanpol-awsmarketplacemanagesubscriptions")
+- [AWS managed policy: AWSMarketplaceManageSubscriptions](#security-iam-awsmanpol-awsmarketplacemanagesubscriptions "#security-iam-awsmanpol-awsmarketplacemanagesubscriptions")
 - [AWS managed policy: AWSMarketplaceProcurementSystemAdminFullAccess](#security-iam-awsmanpol-awsmarketplaceprocurementsystemadminfullaccess "#security-iam-awsmanpol-awsmarketplaceprocurementsystemadminfullaccess")
-- [AWS managed policy:
-  AWSMarketplaceRead-only](#security-iam-awsmanpol-awsmarketplaceread-only "#security-iam-awsmanpol-awsmarketplaceread-only")
-- [AWS
-  managed policy: AWSPrivateMarketplaceAdminFullAccess](#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess "#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess")
-- [AWS managed
-  policy: AWSPrivateMarketplaceRequests](#security-iam-awsmanpol-awsprivatemarketplacerequests "#security-iam-awsmanpol-awsprivatemarketplacerequests")
-- [AWS managed policy:
-  AWSServiceRoleForPrivateMarketplaceAdminPolicy](#private-marketplace-slr-manpol "#private-marketplace-slr-manpol")
-- [AWS managed policy:
-  AWSVendorInsightsAssessorFullAccess](#aws-vi-assessor-full-access "#aws-vi-assessor-full-access")
-- [AWS managed policy:
-  AWSVendorInsightsAssessorReadOnly](#aws-vi-assessor-read-only "#aws-vi-assessor-read-only")
+- [AWS managed policy: AWSMarketplaceRead-only](#security-iam-awsmanpol-awsmarketplaceread-only "#security-iam-awsmanpol-awsmarketplaceread-only")
+- [AWS managed policy: AWSPrivateMarketplaceAdminFullAccess](#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess "#security-iam-awsmanpol-awsprivatemarketplaceadminfullaccess")
+- [AWS managed policy: AWSPrivateMarketplaceRequests](#security-iam-awsmanpol-awsprivatemarketplacerequests "#security-iam-awsmanpol-awsprivatemarketplacerequests")
+- [AWS managed policy: AWSServiceRoleForPrivateMarketplaceAdminPolicy](#private-marketplace-slr-manpol "#private-marketplace-slr-manpol")
+- [AWS managed policy: AWSVendorInsightsAssessorFullAccess](#aws-vi-assessor-full-access "#aws-vi-assessor-full-access")
+- [AWS managed policy: AWSVendorInsightsAssessorReadOnly](#aws-vi-assessor-read-only "#aws-vi-assessor-read-only")
 - [AWS managed policy: AWSServiceRoleForProcurementInsightsPolicy](#aws-procurement-insights "#aws-procurement-insights")
-- [AWS Marketplace updates to AWS
-  managed policies](#buyer-security-iam-awsmanpol-updates "#buyer-security-iam-awsmanpol-updates")
+- [AWS Marketplace updates to AWS managed policies](#buyer-security-iam-awsmanpol-updates "#buyer-security-iam-awsmanpol-updates")
 
-## AWS managed policy:
-
-AWSMarketplaceDeploymentServiceRolePolicy
+## AWS managed policy: AWSMarketplaceDeploymentServiceRolePolicy
 
 You can't attach the `AWSMarketplaceDeploymentServiceRolePolicy` to your
 IAM entities. This policy is attached to a service-linked role that allows AWS Marketplace
-to perform actions on your behalf. For more information, see [Using service-linked roles for
-AWS Marketplace](buyer-using-service-linked-roles.md "buyer-using-service-linked-roles.md").
+to perform actions on your behalf. For more information, see [Using service-linked roles for AWS Marketplace](buyer-using-service-linked-roles.md "buyer-using-service-linked-roles.md").
 
 This policy grants contributor permissions that allow AWS Marketplace to manage
 deployment-related parameters, which are stored as secrets in [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md"), on your behalf.
@@ -65,9 +48,7 @@ deployment-related parameters, which are stored as secrets in [AWS Secrets Manag
 To view the permissions for this policy, see [AWSMarketplaceDeploymentServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSMarketplaceDeploymentServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceDeploymentServiceRolePolicy.md") in the _AWS
 Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSMarketplaceFullAccess
+## AWS managed policy: AWSMarketplaceFullAccess
 
 You can attach the `AWSMarketplaceFullAccess` policy to your IAM
 identities.
@@ -81,10 +62,7 @@ Amazon EC2, CloudFormation, and Amazon EC2 Systems Manager.
 To view the permissions for this policy, see [AWSMarketplaceFullAccess](../../../aws-managed-policy/latest/reference/AWSMarketplaceFullAccess.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceFullAccess.md") in the _AWS Managed
 Policy Reference_.
 
-## AWS
-
-managed policy: AWSMarketplaceImageBuildFullAccess
-(Deprecated)
+## AWS managed policy: AWSMarketplaceImageBuildFullAccess (Deprecated)
 
 This policy granted contributor permissions that allow full access to the AWS Marketplace private
 image build feature. In addition to creating private images, it also provided
@@ -96,8 +74,7 @@ For more information, see [Deprecated AWS managed policies](../../../aws-managed
 
 You can't attach the `AWSMarketplaceLicenseManagementServiceRolePolicy` to your IAM
 entities. This policy is attached to a service-linked role that allows AWS Marketplace to
-perform actions on your behalf. For more information, see [Using service-linked roles for
-AWS Marketplace](buyer-using-service-linked-roles.md "buyer-using-service-linked-roles.md").
+perform actions on your behalf. For more information, see [Using service-linked roles for AWS Marketplace](buyer-using-service-linked-roles.md "buyer-using-service-linked-roles.md").
 
 This policy grants contributor permissions that allow AWS Marketplace to manage licenses on your
 behalf.
@@ -105,9 +82,7 @@ behalf.
 To view the permissions for this policy, see [AWSMarketplaceLicenseManagementServiceRolePolicy](../../../aws-managed-policy/latest/reference/AWSMarketplaceLicenseManagementServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceLicenseManagementServiceRolePolicy.md") in the _AWS
 Managed Policy Reference_.
 
-## AWS managed
-
-policy: AWSMarketplaceManageSubscriptions
+## AWS managed policy: AWSMarketplaceManageSubscriptions
 
 You can attach the `AWSMarketplaceManageSubscriptions` policy to your IAM
 identities.
@@ -125,15 +100,12 @@ to your IAM identities.
 
 This policy grants admin permissions that allow managing all aspects of an AWS Marketplace
 eProcurement integration, including listing the accounts in your organization. For more
-information about eProcurement integrations, see [Integrating AWS Marketplace with procurement
-systems](procurement-system-integration.md "procurement-system-integration.md") .
+information about eProcurement integrations, see [Integrating AWS Marketplace with procurement systems](procurement-system-integration.md "procurement-system-integration.md") .
 
 To view the permissions for this policy, see [AWSMarketplaceProcurementSystemAdminFullAccess](../../../aws-managed-policy/latest/reference/AWSMarketplaceProcurementSystemAdminFullAccess.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceProcurementSystemAdminFullAccess.md") in the
 _AWS Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSMarketplaceRead-only
+## AWS managed policy: AWSMarketplaceRead-only
 
 You can attach the `AWSMarketplaceRead-only` policy to your IAM
 identities.
@@ -145,9 +117,7 @@ and Amazon SNS resources in the account.
 To view the permissions for this policy, see [AWSMarketplaceRead-only](../../../aws-managed-policy/latest/reference/AWSMarketplaceRead-only.md "../../../aws-managed-policy/latest/reference/AWSMarketplaceRead-only.md") in the _AWS Managed
 Policy Reference_.
 
-## AWS
-
-managed policy: AWSPrivateMarketplaceAdminFullAccess
+## AWS managed policy: AWSPrivateMarketplaceAdminFullAccess
 
 You can attach the `AWSPrivateMarketplaceAdminFullAccess` policy to your
 IAM identities.
@@ -180,9 +150,7 @@ The policy includes specific conditions to ensure Private Marketplace service pr
 To view the permissions for this policy, see [AWSPrivateMarketplaceAdminFullAccess](../../../aws-managed-policy/latest/reference/AWSPrivateMarketplaceAdminFullAccess.md "../../../aws-managed-policy/latest/reference/AWSPrivateMarketplaceAdminFullAccess.md") in the
 _AWS Managed Policy Reference_.
 
-## AWS managed
-
-policy: AWSPrivateMarketplaceRequests
+## AWS managed policy: AWSPrivateMarketplaceRequests
 
 You can attach the `AWSPrivateMarketplaceRequests` policy to your IAM
 identities.
@@ -202,14 +170,11 @@ The permissions are organized into multiple groups:
 To view the permissions for this policy, see [AWSPrivateMarketplaceRequests](../../../aws-managed-policy/latest/reference/AWSPrivateMarketplaceRequests.md "../../../aws-managed-policy/latest/reference/AWSPrivateMarketplaceRequests.md") in the _AWS
 Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSServiceRoleForPrivateMarketplaceAdminPolicy
+## AWS managed policy: AWSServiceRoleForPrivateMarketplaceAdminPolicy
 
 You can't attach the `AWSServiceRoleForPrivateMarketplaceAdminPolicy` to
 your IAM entities. This policy is attached to a service-linked role that allows
-AWS Marketplace to perform actions on your behalf. For more information, see [Using service-linked roles for
-AWS Marketplace](buyer-using-service-linked-roles.md "buyer-using-service-linked-roles.md").
+AWS Marketplace to perform actions on your behalf. For more information, see [Using service-linked roles for AWS Marketplace](buyer-using-service-linked-roles.md "buyer-using-service-linked-roles.md").
 
 This policy grants contributor permissions that allow AWS Marketplace to describe and update
 Private Marketplace resources and describe AWS Organizations.
@@ -217,9 +182,7 @@ Private Marketplace resources and describe AWS Organizations.
 To view the permissions for this policy, see [AWSServiceRoleForPrivateMarketplaceAdminPolicy](../../../aws-managed-policy/latest/reference/AWSServiceRoleForPrivateMarketplaceAdminPolicy.md "../../../aws-managed-policy/latest/reference/AWSServiceRoleForPrivateMarketplaceAdminPolicy.md") in the
 _AWS Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSVendorInsightsAssessorFullAccess
+## AWS managed policy: AWSVendorInsightsAssessorFullAccess
 
 You can attach the `AWSVendorInsightsAssessorFullAccess` policy to your
 IAM identities.
@@ -233,9 +196,7 @@ AWS Marketplace Vendor Insights identifies assessor is equal to buyer and vendor
 To view the permissions for this policy, see [AWSVendorInsightsAssessorFullAccess](../../../aws-managed-policy/latest/reference/AWSVendorInsightsAssessorFullAccess.md "../../../aws-managed-policy/latest/reference/AWSVendorInsightsAssessorFullAccess.md") in the
 _AWS Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSVendorInsightsAssessorReadOnly
+## AWS managed policy: AWSVendorInsightsAssessorReadOnly
 
 You can attach the `AWSVendorInsightsAssessorReadOnly` policy to your IAM
 identities.
@@ -266,9 +227,7 @@ an organization.
 To view the permissions for this policy, see [AWSServiceRoleForProcurementInsightsPolicy](../../../aws-managed-policy/latest/reference/AWSServiceRoleForProcurementInsightsPolicy.md "../../../aws-managed-policy/latest/reference/AWSServiceRoleForProcurementInsightsPolicy.md") in the
 _AWS Managed Policy Reference_.
 
-## AWS Marketplace updates to AWS
-
-managed policies
+## AWS Marketplace updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Marketplace since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

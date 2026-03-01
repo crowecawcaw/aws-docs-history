@@ -14,9 +14,7 @@ Private offers handle currency-specific invoicing and exchange rates differently
 - **Contract with consumption** - Fixed rate for contract portion, monthly refresh for consumption charges
 - **Pay-as-you-go (PAYG)** - Monthly refresh of exchange rates
 
-## Pay for a USD private offer in non-USD
-
-currency
+## Pay for a USD private offer in non-USD currency
 
 If you receive a private offer in USD currency and your payment method is a non-USD
 currency, the conversion rate used is the current rate on date of the invoice. Depending on
@@ -44,3 +42,9 @@ For contracts with consumption pricing (CCP) and pay-as-you-go (PAYG) offers, ex
 - **Pay-as-you-go (PAYG) or usage-based pricing** – The PAYG or usage-based charges appear on anniversary invoices. These invoices are separate from other usage-based products priced in USD. These invoices show USD pricing and a variable FX rate, but your non-USD unit price remains constant.
 
 For more information, see [Payment methods](buyer-paying-for-products.md#payment-methods "buyer-paying-for-products.md#payment-methods").
+
+###### Important Note on Cost and Usage Reports (CUR)
+
+When you purchase a Private Offer in a non-USD currency (EUR, GBP, JPY, AUD), please be aware that your AWS Cost and Usage Reports (CUR) will display all usage and costs in USD only. This is intended behavior, as CUR reports currently support pricing in USD only.
+
+While your invoices will reflect the original currency of your Private Offer with the locked exchange rate, the CUR data will show USD-converted amounts. For accurate financial reconciliation in your original offer currency, please refer to your invoices rather than relying solely on CUR reports.

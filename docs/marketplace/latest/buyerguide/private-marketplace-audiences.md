@@ -1,6 +1,4 @@
-# Managing audiences for private marketplace
-
-experiences
+# Managing audiences for private marketplace experiences
 
 An audience is an organization or a group of organizational units (OUs) or accounts that
 you can associate with a private marketplace experience. You can create an audience from the

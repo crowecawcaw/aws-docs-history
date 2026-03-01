@@ -1,6 +1,4 @@
-# Integrating AWS Marketplace with procurement
-
-systems
+# Integrating AWS Marketplace with procurement systems
 
 You can configure procurement software to integrate with AWS Marketplace following the commerce
 extensible markup language (cXML) protocol. This integration creates an access point into a
@@ -68,9 +66,7 @@ Additional notes about integrating with procurement systems include the followin
   $0.00 orders are produced in the customer's procurement system. For more information
   regarding Procurement System Integrations, see [https://aws.amazon.com/marketplace/features/procurementsystem](https://aws.amazon.com/marketplace/features/procurementsystem "https://aws.amazon.com/marketplace/features/procurementsystem")
 
-## UNSPSC codes used by
-
-AWS Marketplace
+## UNSPSC codes used by AWS Marketplace
 
 AWS Marketplace uses the following United Nations Standard Products and Services code (UNSPSC) for
 software listings that are sent back to the procurement cart: 43232701

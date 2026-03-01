@@ -7,9 +7,7 @@ purchases that are billed either immediately or according to a defined payment s
 private offer. Generally, pay-as-you-go charges appear on a consolidated AWS Marketplace monthly usage
 invoice.
 
-## Using purchase orders for AWS Marketplace
-
-transactions
+## Using purchase orders for AWS Marketplace transactions
 
 You can add a PO at transaction time. AWS generates invoices
 based on the provided PO, with each invoice associated with a single PO number.
@@ -49,9 +47,7 @@ For information about a PO, including POs provided during AWS Marketplace
 transactions, [view your purchase orders](../../../awsaccountbilling/latest/aboutv2/viewing-po.md "../../../awsaccountbilling/latest/aboutv2/viewing-po.md")
 in the AWS Billing console.
 
-## Adding a purchase order
-
-during a transaction
+## Adding a purchase order during a transaction
 
 The following steps explain how to add a PO number during a transaction.
 
@@ -88,9 +84,7 @@ You can only enter PO numbers for future charges.
 To add or update a purchase after invoice creation, contact
 [AWS Support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-## Using blanket-usage purchase
-
-orders
+## Using blanket-usage purchase orders
 
 To separate AWS Marketplace charges from other POs, create
 a PO with an AWS Marketplace blanket-usage line item in the

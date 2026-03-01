@@ -1,6 +1,4 @@
-# Viewing and subscribing to a private
-
-offer
+# Viewing and subscribing to a private offer
 
 Private offers are customized agreements between you and AWS Marketplace sellers that may include negotiated pricing, custom terms, and specific configurations.
 You can access these offers in multiple ways: through the Private offers page, directly from the product page, or via a seller-provided link.
@@ -26,8 +24,7 @@ Seller-provided link
 Following this link before logging into the correct account will result in a
 **Page not found** (404) error.
 
-For more information, see [I get a Page not found (404) error when I
-click the offer ID to view the private offer](troubleshooting-private-offers-page.md#troubleshooting-page-not-found "troubleshooting-private-offers-page.md#troubleshooting-page-not-found").
+For more information, see [I get a Page not found (404) error when I click the offer ID to view the private offer](troubleshooting-private-offers-page.md#troubleshooting-page-not-found "troubleshooting-private-offers-page.md#troubleshooting-page-not-found").
 
 Product page
 

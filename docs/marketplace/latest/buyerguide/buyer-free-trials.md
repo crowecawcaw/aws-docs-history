@@ -4,9 +4,7 @@ Some products listed on AWS Marketplace offer free trials. The free trial enable
 software before you buy it. Free trials are limited to a certain amount of free usage, or for a
 specific amount of time. You can't pause a free trial period once it starts.
 
-## Software and infrastructure
-
-pricing
+## Software and infrastructure pricing
 
 Free trials offered by sellers only apply to the software pricing of their product listed
 on AWS Marketplace. Buyers are responsible for all infrastructure costs while using a seller's product
@@ -24,9 +22,7 @@ storage, databases, or other AWS services into your AWS account. To understand w
 AWS services the seller has required for their product, review the detail pages for
 products listed on AWS Marketplace. Then, review the pricing pages of those AWS services.
 
-## Free trials for AMI-based
-
-products
+## Free trials for AMI-based products
 
 Some AMI products with hourly or hourly with annual pricing in AWS Marketplace have free trials.
 When you subscribe to a free trial, you can run one Amazon EC2 instance of the AMI product for a
@@ -40,9 +36,7 @@ software charges when the free trial ends. Unsubscribing to the free trial doesn
 automatically end your Amazon EC2 instances, and you incur software charges for any continued use.
 For more information about infrastructure charges, see the [Amazon EC2 pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/").
 
-## Free trials for container-based
-
-products
+## Free trials for container-based products
 
 Some container products with hourly or hourly with long-term pricing in AWS Marketplace have free
 trials. When you subscribe to a free trial, you can run several Amazon Elastic Container Service (Amazon ECS) tasks or
@@ -57,9 +51,7 @@ software charges when the free trial ends. Unsubscribing to the free trial doesn
 automatically end your tasks or pods, and you incur software charges for any continued use.
 For more information about infrastructure charges, see [Amazon ECS pricing](https://aws.amazon.com/ecs/pricing/ "https://aws.amazon.com/ecs/pricing/") and [Amazon EKS pricing](https://aws.amazon.com/eks/pricing/ "https://aws.amazon.com/eks/pricing/").
 
-## Free trials for machine learning
-
-products
+## Free trials for machine learning products
 
 Some machine learning products with hourly pricing in AWS Marketplace have free trials. When you
 subscribe to a free trial, you can run Amazon SageMaker AI endpoints, batch transform jobs, or training

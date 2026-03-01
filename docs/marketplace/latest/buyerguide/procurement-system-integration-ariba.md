@@ -78,5 +78,4 @@ For more information about configuring SAP Ariba, see [Introduction to SAP Ariba
 
 ###### Note
 
-For information about UNSPSC codes, see [UNSPSC codes used by
-AWS Marketplace](procurement-system-integration.md#procurement-integration-setup-unspsc-codes "procurement-system-integration.md#procurement-integration-setup-unspsc-codes") .
+For information about UNSPSC codes, see [UNSPSC codes used by AWS Marketplace](procurement-system-integration.md#procurement-integration-setup-unspsc-codes "procurement-system-integration.md#procurement-integration-setup-unspsc-codes") .

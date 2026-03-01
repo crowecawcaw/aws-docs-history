@@ -15,7 +15,7 @@ For example, you can use the dashboard to:
 
 ###### Note
 
-- You don't need an Quick Suite subscription to use the dashboard.
+- You don't need an Quick subscription to use the dashboard.
 - You must have a full-featured organization. For more information, see [Enabling all
   features for an organization with AWS Organizations](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md")
 - Data from new AWS Marketplace purchases may take more than 24 hours to appear in the dashboard.

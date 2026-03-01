@@ -37,16 +37,16 @@ The following steps explain how to open the dashboard in the console.
         The tab's **Expired agreements** section only shows data for agreements that
          expired after the dashboard became available for use.
 
-    For more information about using Quick Suite dashboards, see [Interacting with Quick Suite dashboards](../../../quicksight/latest/user/exploring-dashboards.md "../../../quicksight/latest/user/exploring-dashboards.md"), in the
-    _Quick Suite User Guide_.
+    For more information about using Quick dashboards, see [Interacting with Quick dashboards](../../../quicksight/latest/user/exploring-dashboards.md "../../../quicksight/latest/user/exploring-dashboards.md"), in the
+    _Quick User Guide_.
 
 ## Tips for using the dashboard
 
 The following tips can help you use the **Procurement insights** dashboard.
 
-- The dashboard uses Quick Suite to present your data. The system automatically chooses the charts and other display elements that most logically fit your data.
-  For more information about using Quick Suite dashboards, see [Interacting with Quick Suite dashboards](../../../quicksight/latest/user/exploring-dashboards.md "../../../quicksight/latest/user/exploring-dashboards.md"), in the
-  _Quick Suite User Guide_.
+- The dashboard uses Quick to present your data. The system automatically chooses the charts and other display elements that most logically fit your data.
+  For more information about using Quick dashboards, see [Interacting with Quick dashboards](../../../quicksight/latest/user/exploring-dashboards.md "../../../quicksight/latest/user/exploring-dashboards.md"), in the
+  _Quick User Guide_.
 - You can download your data. Scroll down to the **Source data** table in either tab.
   Point to the upper-right corner of the table, then choose the vertical ellipsis to export your data. You can export to a CSV file, or to Microsoft Excel.
 
@@ -66,6 +66,6 @@ The following tips can help you use the **Procurement insights** dashboard.
 
 ![Image of an arrow pointing down.](images/org-view-filter-arrow.png)
 
-For more information about using Quick Suite filters, see [Using filters on dashboard data](../../../quicksight/latest/user/filtering-dashboard-data.md "../../../quicksight/latest/user/filtering-dashboard-data.md")
+For more information about using Quick filters, see [Using filters on dashboard data](../../../quicksight/latest/user/filtering-dashboard-data.md "../../../quicksight/latest/user/filtering-dashboard-data.md")
 and [Filtering data during your session](../../../quicksight/latest/user/subscriber-dashboards-filtering-your-view-of-the-data.md "../../../quicksight/latest/user/subscriber-dashboards-filtering-your-view-of-the-data.md"), both
-in the _Quick Suite User Guide_.
+in the _Quick User Guide_.
