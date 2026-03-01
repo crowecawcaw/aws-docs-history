@@ -1,6 +1,4 @@
-# Complete the resharding
-
-action
+# Complete the resharding action
 
 After any kind of resharding procedure in Amazon Kinesis Data Streams, and before normal record
 processing resumes, other procedures and considerations are required. The following
@@ -8,14 +6,10 @@ sections describe these.
 
 ###### Topics
 
-- [Wait for a
-  stream to become active again](#kinesis-using-sdk-java-resharding-wait-until-active "#kinesis-using-sdk-java-resharding-wait-until-active")
-- [Consider data
-  routing, data persistence, and shard state after a reshard](#kinesis-using-sdk-java-resharding-data-routing "#kinesis-using-sdk-java-resharding-data-routing")
+- [Wait for a stream to become active again](#kinesis-using-sdk-java-resharding-wait-until-active "#kinesis-using-sdk-java-resharding-wait-until-active")
+- [Consider data routing, data persistence, and shard state after a reshard](#kinesis-using-sdk-java-resharding-data-routing "#kinesis-using-sdk-java-resharding-data-routing")
 
-## Wait for a
-
-stream to become active again
+## Wait for a stream to become active again
 
 After you call a resharding operation, either `splitShard` or
 `mergeShards`, you must wait for the stream to become active
@@ -58,9 +52,7 @@ if ( System.currentTimeMillis() >= endTime )
 }
 ```
 
-## Consider data
-
-routing, data persistence, and shard state after a reshard
+## Consider data routing, data persistence, and shard state after a reshard
 
 Kinesis Data Streams is a real-time data streaming service. Your applications should assume
 that data is flowing continuously through the shards in your stream. When you

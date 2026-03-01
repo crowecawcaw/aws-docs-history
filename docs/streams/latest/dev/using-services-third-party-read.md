@@ -1,6 +1,4 @@
-# Read from Kinesis Data Streams using third-party
-
-integrations
+# Read from Kinesis Data Streams using third-party integrations
 
 You can read data from Amazon Kinesis Data Streams data streams using one of the following third-party
 options that integrate with Kinesis Data Streams. Select the option you want to learn more about and find

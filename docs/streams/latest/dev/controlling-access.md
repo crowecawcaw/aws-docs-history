@@ -1,6 +1,4 @@
-# Controlling access to Amazon Kinesis Data Streams resources using
-
-IAM
+# Controlling access to Amazon Kinesis Data Streams resources using IAM
 
 AWS Identity and Access Management (IAM) enables you to do the following:
 
@@ -37,14 +35,11 @@ _Amazon CloudWatch User Guide_.
 
 - [Policy syntax](#policy-syntax "#policy-syntax")
 - [Actions for Kinesis Data Streams](#kinesis-using-iam-actions "#kinesis-using-iam-actions")
-- [Amazon Resource Names (ARNs) for
-  Kinesis Data Streams](#kinesis-using-iam-arn-format "#kinesis-using-iam-arn-format")
+- [Amazon Resource Names (ARNs) for Kinesis Data Streams](#kinesis-using-iam-arn-format "#kinesis-using-iam-arn-format")
 - [Example policies for Kinesis Data Streams](#kinesis-using-iam-examples "#kinesis-using-iam-examples")
-- [Share your data stream with another
-  account](#sharing-data-streams "#sharing-data-streams")
+- [Share your data stream with another account](#sharing-data-streams "#sharing-data-streams")
 - [Configure an AWS Lambda function to read from Kinesis Data Streams in another account](#sharing-data-streams-example "#sharing-data-streams-example")
-- [Share access using resource-based
-  policies](resource-based-policy-examples.md "resource-based-policy-examples.md")
+- [Share access using resource-based policies](resource-based-policy-examples.md "resource-based-policy-examples.md")
 
 ## Policy syntax
 
@@ -115,9 +110,7 @@ To specify all Kinesis Data Streams operations, use the \* wildcard as follows:
 
 For the complete list of Kinesis Data Streams API actions, see the [Amazon Kinesis API Reference](../../../kinesis/latest/APIReference.md "../../../kinesis/latest/APIReference.md").
 
-## Amazon Resource Names (ARNs) for
-
-Kinesis Data Streams
+## Amazon Resource Names (ARNs) for Kinesis Data Streams
 
 Each IAM policy statement applies to the resources that you specify using their
 ARNs.
@@ -258,9 +251,7 @@ JSONJSON
 
 ```
 
-## Share your data stream with another
-
-account
+## Share your data stream with another account
 
 ###### Note
 
@@ -305,9 +296,7 @@ Following are examples of using a resource-based policy to grant cross-account a
 
 To perform a cross-account action, you must specify the stream ARN for data stream access and the consumer ARN for registered consumer access.
 
-### Example resource-based
-
-policies for Kinesis data streams
+### Example resource-based policies for Kinesis data streams
 
 Sharing a registered consumer involves both a data stream policy and a consumer policy due to the actions needed.
 
@@ -436,9 +425,7 @@ JSONJSON
 
 Wildcard (\*) is not supported for actions or principal field in order maintain the principle of least privilege..
 
-### Manage the policy for your
-
-data stream programatically
+### Manage the policy for your data stream programatically
 
 Outside of the AWS Management Console, Kinesis Data Streams has three APIS for managing your data stream policy:
 
@@ -467,14 +454,11 @@ Kinesis Data Streams resource policies have the following restrictions:
 - Canonical user IDs are not supported.
 - The size of the policy cannot exceed 20KB.
 
-### Share access to encrypted
-
-data
+### Share access to encrypted data
 
 If you have enabled server-side encryption for a data stream with AWS managed KMS key and want to share access via a resource policy, you must switch to using customer-managed key (CMK). For more information, see [What is server-side encryption for Kinesis Data Streams?](what-is-sse.md "what-is-sse.md"). In addition, you must allow your sharing principal entities to have access to your CMK, using KMS cross account sharing capabilities. Make sure to also make the change in the IAM policies for the sharing principal entities.
 For more information, see [Allowing users in other accounts to use a KMS key](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md").
 
 ## Configure an AWS Lambda function to read from Kinesis Data Streams in another account
 
-For an example of how to configure a Lambda function to read from Kinesis Data Streams in another account, see [Share access with
-cross-account AWS Lambda functions](resource-based-policy-examples.md#Resource-based-policy-examples-lambda "resource-based-policy-examples.md#Resource-based-policy-examples-lambda").
+For an example of how to configure a Lambda function to read from Kinesis Data Streams in another account, see [Share access with cross-account AWS Lambda functions](resource-based-policy-examples.md#Resource-based-policy-examples-lambda "resource-based-policy-examples.md#Resource-based-policy-examples-lambda").

@@ -4,16 +4,11 @@
 
 producers:
 
-- [My producer application is writing at
-  a slower rate than expected](#producer-writing-at-slower-rate "#producer-writing-at-slower-rate")
-- [I receive an unauthorized KMS master key
-  permission error](#unauthorized-kms-producer "#unauthorized-kms-producer")
-- [Troubleshoot other common issues for
-  producers](#misc-troubleshooting-producer "#misc-troubleshooting-producer")
+- [My producer application is writing at a slower rate than expected](#producer-writing-at-slower-rate "#producer-writing-at-slower-rate")
+- [I receive an unauthorized KMS master key permission error](#unauthorized-kms-producer "#unauthorized-kms-producer")
+- [Troubleshoot other common issues for producers](#misc-troubleshooting-producer "#misc-troubleshooting-producer")
 
-## My producer application is writing at
-
-a slower rate than expected
+## My producer application is writing at a slower rate than expected
 
 ###### The most common reasons for write throughput being slower than
 
@@ -104,9 +99,7 @@ after every write operation, it can add substantial extra latency, around 500ms 
 write. Make sure that you have implemented `flushSync()` only for the
 application shutdown to avoid unnecessary extra delay in write performance.
 
-## I receive an unauthorized KMS master key
-
-permission error
+## I receive an unauthorized KMS master key permission error
 
 This error occurs when a producer application writes to an encrypted stream without
 permissions on the KMS master key. To assign permissions to an application to access a
@@ -114,9 +107,7 @@ KMS key, see [Using Key Policies in AWS
 KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") and [Using IAM Policies with
 AWS KMS](../../../kms/latest/developerguide/iam-policies.md "../../../kms/latest/developerguide/iam-policies.md").
 
-## Troubleshoot other common issues for
-
-producers
+## Troubleshoot other common issues for producers
 
 - [Why is my Kinesis data stream returning a 500 Internal Server
   Error?](https://aws.amazon.com/premiumsupport/knowledge-center/kinesis-data-stream-500-error/ "https://aws.amazon.com/premiumsupport/knowledge-center/kinesis-data-stream-500-error/")

@@ -36,14 +36,12 @@ for encryption, or use the default master key,
 encryption for a stream and use your own AWS KMS master key, ensure that your
 producer and consumer applications have access to the AWS KMS master key that
 you used. To assign permissions to an application to access a user-generated
-AWS KMS key, see [Permissions to use user-generated
-KMS keys](permissions-user-key-KMS.md "permissions-user-key-KMS.md"). 7. To edit the data retention period, choose **Edit** in the
+AWS KMS key, see [Permissions to use user-generated KMS keys](permissions-user-key-KMS.md "permissions-user-key-KMS.md"). 7. To edit the data retention period, choose **Edit** in the
 **Data retention period** section, and then enter a new
 data retention period. 8. If you have enabled custom metrics on your account, choose
 **Edit** in the **Shard level
 metrics** section, and then specify metrics for your stream.
-For more information, see [Monitor the Amazon Kinesis Data Streams service with
-Amazon CloudWatch](monitoring-with-cloudwatch.md "monitoring-with-cloudwatch.md").
+For more information, see [Monitor the Amazon Kinesis Data Streams service with Amazon CloudWatch](monitoring-with-cloudwatch.md "monitoring-with-cloudwatch.md").
 
 ## Use the API
 

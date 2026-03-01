@@ -2,15 +2,12 @@
 
 You must meet the following requirements to complete this tutorial:
 
-## Create and use an Amazon Web Services
-
-Account
+## Create and use an Amazon Web Services Account
 
 Before you begin, make sure that you are familiar with the concepts discussed in
 [Amazon Kinesis Data Streams Terminology and concepts](key-concepts.md "key-concepts.md"), particularly with
 streams, shards, producers, and consumers. It is also helpful to have completed the
-steps in the following guide: [Tutorial: Install and configure the AWS CLI for
-Kinesis Data Streams](kinesis-tutorial-cli-installation.md "kinesis-tutorial-cli-installation.md").
+steps in the following guide: [Tutorial: Install and configure the AWS CLI for Kinesis Data Streams](kinesis-tutorial-cli-installation.md "kinesis-tutorial-cli-installation.md").
 
 You must have an AWS account and a web browser to access the AWS Management Console.
 
@@ -26,9 +23,7 @@ For more information about IAM and security key setup
 instructions, see [Create an
 IAM User](../../../AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.md#create-an-iam-user "../../../AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.md#create-an-iam-user").
 
-## Fulfill system software
-
-requirements
+## Fulfill system software requirements
 
 The system that you are using to run the application must have Java 7 or higher
 installed. To download and install the latest Java Development Kit (JDK), go to

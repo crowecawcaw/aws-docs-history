@@ -1,6 +1,4 @@
-# IAM permissions required for KCL
-
-consumer applications
+# IAM permissions required for KCL consumer applications
 
 You must add the following permissions to the IAM role or user associated with your
 KCL consumer application.
@@ -28,8 +26,7 @@ consumer applications:
 Replace "region," "account," "StreamName," and "KCLApplicationName" in the ARNs
 with your own AWS Region, AWS account number, Kinesis data stream name, and
 KCL application name respectively. KCL 3.x creates two more metadata tables
-in DynamoDB. For details about DynamoDB metadata tables created by KCL, see [DynamoDB metadata tables and load balancing in
-KCL](kcl-dynamoDB.md "kcl-dynamoDB.md"). If you use configurations
+in DynamoDB. For details about DynamoDB metadata tables created by KCL, see [DynamoDB metadata tables and load balancing in KCL](kcl-dynamoDB.md "kcl-dynamoDB.md"). If you use configurations
 to customize names of the metadata tables created by KCL, use those
 specified table names instead of KCL application name.
 

@@ -57,5 +57,4 @@ splitShardRequest.setNewStartingHashKey(newStartingHashKey);
 client.splitShard(splitShardRequest);
 ```
 
-The first step after this procedure is shown in [Wait for a
-stream to become active again](kinesis-using-sdk-java-after-resharding.md#kinesis-using-sdk-java-resharding-wait-until-active "kinesis-using-sdk-java-after-resharding.md#kinesis-using-sdk-java-resharding-wait-until-active").
+The first step after this procedure is shown in [Wait for a stream to become active again](kinesis-using-sdk-java-after-resharding.md#kinesis-using-sdk-java-resharding-wait-until-active "kinesis-using-sdk-java-after-resharding.md#kinesis-using-sdk-java-resharding-wait-until-active").

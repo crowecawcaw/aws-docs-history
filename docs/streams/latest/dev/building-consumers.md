@@ -5,8 +5,7 @@ from a Kinesis data stream. When a consumer uses _enhanced
 fan-out_, it gets its own 2 MB/sec allotment of read throughput, allowing
 multiple consumers to read data from the same stream in parallel, without contending for
 read throughput with other consumers. To use the enhanced fan-out capability of shards, see
-[Develop enhanced fan-out consumers with dedicated
-throughput](enhanced-consumers.md "enhanced-consumers.md").
+[Develop enhanced fan-out consumers with dedicated throughput](enhanced-consumers.md "enhanced-consumers.md").
 
 You can build consumers for Kinesis Data Streams using Kinesis Client Library (KCL) or AWS SDK for Java.
 You can also develop consumers using other AWS services such as AWS Lambda, Amazon Managed Service for Apache Flink, and
@@ -17,8 +16,7 @@ and Talend.
 
 ###### Topics
 
-- [Develop enhanced fan-out consumers with dedicated
-  throughput](enhanced-consumers.md "enhanced-consumers.md")
+- [Develop enhanced fan-out consumers with dedicated throughput](enhanced-consumers.md "enhanced-consumers.md")
 - [Use the Data Viewer in the Kinesis console](data-viewer.md "data-viewer.md")
 - [Query your data streams in the Kinesis console](querying-data.md "querying-data.md")
 - [Use Kinesis Client Library](kcl.md "kcl.md")
@@ -27,7 +25,6 @@ and Talend.
 - [Develop consumers using Amazon Managed Service for Apache Flink](kda-consumer.md "kda-consumer.md")
 - [Develop consumers using Amazon Data Firehose](kdf-consumer.md "kdf-consumer.md")
 - [Read data from Kinesis Data Streams using other AWS services](using-other-services-read.md "using-other-services-read.md")
-- [Read from Kinesis Data Streams using third-party
-  integrations](using-services-third-party-read.md "using-services-third-party-read.md")
+- [Read from Kinesis Data Streams using third-party integrations](using-services-third-party-read.md "using-services-third-party-read.md")
 - [Troubleshoot Kinesis Data Streams consumers](troubleshooting-consumers.md "troubleshooting-consumers.md")
 - [Optimize Amazon Kinesis Data Streams consumers](advanced-consumers.md "advanced-consumers.md")

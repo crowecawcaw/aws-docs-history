@@ -55,5 +55,4 @@ states:
 - `UPDATING`
 - `DELETING`
   You can check the state of a stream using the `describeStream` method, as
-  shown in the previous section, [Create a stream using the
-  APIs](kinesis-using-sdk-java-create-stream.md "kinesis-using-sdk-java-create-stream.md").
+  shown in the previous section, [Create a stream using the APIs](kinesis-using-sdk-java-create-stream.md "kinesis-using-sdk-java-create-stream.md").

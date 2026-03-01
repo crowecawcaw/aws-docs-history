@@ -1,11 +1,8 @@
-# Develop a Kinesis Client Library
-
-consumer in Java
+# Develop a Kinesis Client Library consumer in Java
 
 ###### Important
 
-Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client"). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md "kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL
-3.x](kcl-migration-1-3.md "kcl-migration-1-3.md").
+Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client"). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md "kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md "kcl-migration-1-3.md").
 
 You can use the Kinesis Client Library (KCL) to build applications that process data
 from your Kinesis data streams. The Kinesis Client Library is available in multiple languages. This
@@ -30,19 +27,13 @@ application in Java:
 
 ###### Tasks
 
-- [Implement the
-  IRecordProcessor methods](#kinesis-record-processor-implementation-interface-java "#kinesis-record-processor-implementation-interface-java")
-- [Implement a class
-  factory for the IRecordProcessor interface](#kinesis-record-processor-implementation-factory-java "#kinesis-record-processor-implementation-factory-java")
+- [Implement the IRecordProcessor methods](#kinesis-record-processor-implementation-interface-java "#kinesis-record-processor-implementation-interface-java")
+- [Implement a class factory for the IRecordProcessor interface](#kinesis-record-processor-implementation-factory-java "#kinesis-record-processor-implementation-factory-java")
 - [Create a worker](#kcl-java-worker "#kcl-java-worker")
-- [Modify the configuration
-  properties](#kinesis-record-processor-initialization-java "#kinesis-record-processor-initialization-java")
-- [Migrate to Version 2 of the record processor
-  interface](#kcl-java-v2-migration "#kcl-java-v2-migration")
+- [Modify the configuration properties](#kinesis-record-processor-initialization-java "#kinesis-record-processor-initialization-java")
+- [Migrate to Version 2 of the record processor interface](#kcl-java-v2-migration "#kcl-java-v2-migration")
 
-## Implement the
-
-IRecordProcessor methods
+## Implement the IRecordProcessor methods
 
 The KCL currently supports two versions of the `IRecordProcessor`
 interface:The original interface is available with the first version of the KCL,
@@ -80,8 +71,7 @@ possibility that a data record might be processed more than one time. Kinesis Da
 _at least once_ semantics, meaning that every data record from a
 shard is processed at least one time by a worker in your consumer. For more information
 about cases in which a particular shard may be processed by more than one worker, see
-[Use resharding, scaling, and parallel
-processing to change the number of shards](kinesis-record-processor-scaling.md "kinesis-record-processor-scaling.md").
+[Use resharding, scaling, and parallel processing to change the number of shards](kinesis-record-processor-scaling.md "kinesis-record-processor-scaling.md").
 
 ```
 public void initialize(String shardId)
@@ -203,9 +193,7 @@ In the `InitializationInput` object passed to the
 any) that could not be committed before the previous record processor instance
 stopped.
 
-## Implement a class
-
-factory for the IRecordProcessor interface
+## Implement a class factory for the IRecordProcessor interface
 
 You also need to implement a factory for the class that implements the record processor
 methods. When your consumer instantiates the worker, it passes a reference to this
@@ -238,8 +226,7 @@ record processors, use the package name
 
 ## Create a worker
 
-As discussed in [Implement the
-IRecordProcessor methods](#kinesis-record-processor-implementation-interface-java "#kinesis-record-processor-implementation-interface-java"), there are two
+As discussed in [Implement the IRecordProcessor methods](#kinesis-record-processor-implementation-interface-java "#kinesis-record-processor-implementation-interface-java"), there are two
 versions of the KCL record processor interface to choose from, which affects how you would
 create a worker. The original record processor interface uses the following code structure
 to create a worker:
@@ -264,9 +251,7 @@ final Worker worker = new Worker.Builder()
     .build();
 ```
 
-## Modify the configuration
-
-properties
+## Modify the configuration properties
 
 The sample provides default values for configuration properties. This configuration data
 for the worker is then consolidated in a `KinesisClientLibConfiguration` object.
@@ -289,8 +274,7 @@ value in the following ways:
 - The KCL creates a DynamoDB table with the application name and uses the
   table to maintain state information (such as checkpoints and worker-shard mapping) for
   the application. Each application has its own DynamoDB table. For more information, see
-  [Use a lease table to track
-  the shards processed by the KCL consumer application](shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable "shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable").
+  [Use a lease table to track the shards processed by the KCL consumer application](shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable "shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable").
 
 ### Set up credentials
 
@@ -318,9 +302,7 @@ credentialsProvider = new ClasspathPropertiesFileCredentialsProvider();
 For more information about instance metadata, see [Instance Metadata](../../../AWSEC2/latest/UserGuide/ec2-instance-metadata.md "../../../AWSEC2/latest/UserGuide/ec2-instance-metadata.md") in the
 _Amazon EC2 User Guide_.
 
-### Use the worker ID for multiple
-
-instances
+### Use the worker ID for multiple instances
 
 The sample initialization code creates an ID for the worker, `workerId`,
 using the name of the local computer and appending a globally unique identifier as shown
@@ -331,9 +313,7 @@ of the consumer application running on a single computer.
 String workerId = InetAddress.getLocalHost().getCanonicalHostName() + ":" + UUID.randomUUID();
 ```
 
-## Migrate to Version 2 of the record processor
-
-interface
+## Migrate to Version 2 of the record processor interface
 
 If you want to migrate code that uses the original interface, in addition to the steps
 described previously, the following steps are required:

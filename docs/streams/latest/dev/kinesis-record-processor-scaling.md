@@ -1,6 +1,4 @@
-# Use resharding, scaling, and parallel
-
-processing to change the number of shards
+# Use resharding, scaling, and parallel processing to change the number of shards
 
 _Resharding_ enables you to increase or decrease the number of shards
 in a stream in order to adapt to changes in the rate of data flowing through the stream.
@@ -9,8 +7,7 @@ data-handling metrics. Although the KCL itself doesn't initiate resharding
 operations, it is designed to adapt to changes in the number of shards that result from
 resharding.
 
-As noted in [Use a lease table to track
-the shards processed by the KCL consumer application](shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable "shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable"), the KCL tracks the shards in the
+As noted in [Use a lease table to track the shards processed by the KCL consumer application](shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable "shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable"), the KCL tracks the shards in the
 stream using an Amazon DynamoDB table. When new shards are created as a result of resharding, the
 KCL discovers the new shards and populates new rows in the table. The workers
 automatically discover the new shards and create processors to handle the data from them. The
@@ -22,9 +19,7 @@ processed first. After that data has been processed, data from the new shards is
 record processors. In this way, the KCL preserves the order in which data records
 were added to the stream for a particular partition key.
 
-## Example: Resharding, scaling, and
-
-parallel processing
+## Example: Resharding, scaling, and parallel processing
 
 The following example illustrates how the KCL helps you handle scaling and
 resharding:

@@ -1,6 +1,4 @@
-# Use the KPL with the AWS Glue Schema
-
-Registry
+# Use the KPL with the AWS Glue Schema Registry
 
 You can integrate your Kinesis data streams with the AWS Glue Schema Registry. The
 AWS Glue Schema Registry allows you to centrally discover, control, and evolve schemas, while

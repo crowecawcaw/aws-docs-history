@@ -1,6 +1,4 @@
-# Costs, Regions, and performance
-
-considerations
+# Costs, Regions, and performance considerations
 
 When you apply server-side encryption, you are subject to AWS KMS API usage and key
 costs. Unlike custom KMS master keys, the `(Default) aws/kinesis` customer
@@ -43,9 +41,7 @@ higher calls to AWS KMS service. API requests to generate new data encryption
 keys are subject to AWS KMS usage costs. For more information, see [AWS Key Management Service
 Pricing: Usage](http://aws.amazon.com/kms/pricing/#Usage "http://aws.amazon.com/kms/pricing/#Usage").
 
-## Availability of server-side encryption by
-
-Region
+## Availability of server-side encryption by Region
 
 Currently, server-side encryption of Kinesis streams is available in all the Regions
 supported for Kinesis Data Streams, including AWS GovCloud (US-West), and the China Regions. For

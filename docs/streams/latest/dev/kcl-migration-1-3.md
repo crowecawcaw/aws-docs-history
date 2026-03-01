@@ -1,6 +1,4 @@
-# Migrating from KCL 1.x to KCL
-
-3.x
+# Migrating from KCL 1.x to KCL 3.x
 
 This topic explains the instructions to migrate your consumer from KCL 1.x to
 KCL 3.x. KCL 1.x uses different classes and interfaces compared to
@@ -34,12 +32,9 @@ Follow the [Idle time removal](kcl-migration.md#idle-time-removal "kcl-migration
 - **Step 6: Follow the step-by-step instructions in the
   KCL 2.x to KCL 3.x migration guide**
 
-Follow instructions on the [Migrate from KCL 2.x to KCL
-3.x](kcl-migration-from-2-3.md "kcl-migration-from-2-3.md") page to complete the migration. If
+Follow instructions on the [Migrate from KCL 2.x to KCL 3.x](kcl-migration-from-2-3.md "kcl-migration-from-2-3.md") page to complete the migration. If
 you need to roll back to the previous KCL version or roll forward to KCL 3.x
-after a rollback, refer to [Roll back to the previous KCL
-version](kcl-migration-rollback.md "kcl-migration-rollback.md") and [Roll forward to KCL 3.x after a
-rollback](kcl-migration-rollforward.md "kcl-migration-rollforward.md").
+after a rollback, refer to [Roll back to the previous KCL version](kcl-migration-rollback.md "kcl-migration-rollback.md") and [Roll forward to KCL 3.x after a rollback](kcl-migration-rollforward.md "kcl-migration-rollforward.md").
 
 ###### Important
 

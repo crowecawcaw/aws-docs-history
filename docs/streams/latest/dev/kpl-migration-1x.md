@@ -1,6 +1,4 @@
-# Migrate from KPL 0.x to
-
-KPL 1.x
+# Migrate from KPL 0.x to KPL 1.x
 
 This topic provides step-by-step instructions to migrate your consumer from
 KPL 0.x to KPL 1.x. KPL 1.x introduces

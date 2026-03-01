@@ -19,8 +19,7 @@ stream.
 
 - [Choose the right mode to stream in](how-do-i-size-a-stream.md "how-do-i-size-a-stream.md")
 - [Create a stream using the AWS Management Console](how-do-i-create-a-stream.md "how-do-i-create-a-stream.md")
-- [Create a stream using the
-  APIs](kinesis-using-sdk-java-create-stream.md "kinesis-using-sdk-java-create-stream.md")
+- [Create a stream using the APIs](kinesis-using-sdk-java-create-stream.md "kinesis-using-sdk-java-create-stream.md")
 - [Update a stream](updating-a-stream.md "updating-a-stream.md")
 - [List streams](kinesis-using-sdk-java-list-streams.md "kinesis-using-sdk-java-list-streams.md")
 - [List shards](kinesis-using-sdk-java-list-shards.md "kinesis-using-sdk-java-list-shards.md")

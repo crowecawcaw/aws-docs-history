@@ -9,10 +9,8 @@ presented in [Amazon Kinesis Data Streams Terminology and concepts](key-concepts
 
 ###### Topics
 
-- [Tutorial: Install and configure the AWS CLI for
-  Kinesis Data Streams](kinesis-tutorial-cli-installation.md "kinesis-tutorial-cli-installation.md")
-- [Tutorial: Perform basic Kinesis Data Streams operations using the
-  AWS CLI](fundamental-stream.md "fundamental-stream.md")
+- [Tutorial: Install and configure the AWS CLI for Kinesis Data Streams](kinesis-tutorial-cli-installation.md "kinesis-tutorial-cli-installation.md")
+- [Tutorial: Perform basic Kinesis Data Streams operations using the AWS CLI](fundamental-stream.md "fundamental-stream.md")
   For CLI access, you need an access key ID and a secret access key.
   Use temporary credentials instead of long-term access keys when possible.
   Temporary credentials include an access key ID, a secret access key, and a

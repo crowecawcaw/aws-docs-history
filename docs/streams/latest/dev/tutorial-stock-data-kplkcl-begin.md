@@ -1,17 +1,13 @@
 # Complete prerequisites
 
-The following are requirements for completing the [Tutorial: Process real-time stock data using
-KPL and KCL 1.x](tutorial-stock-data-kplkcl.md "tutorial-stock-data-kplkcl.md").
+The following are requirements for completing the [Tutorial: Process real-time stock data using KPL and KCL 1.x](tutorial-stock-data-kplkcl.md "tutorial-stock-data-kplkcl.md").
 
-## Create and use an Amazon Web Services
-
-Account
+## Create and use an Amazon Web Services Account
 
 Before you begin, ensure that you are familiar with the concepts discussed in
 [Amazon Kinesis Data Streams Terminology and concepts](key-concepts.md "key-concepts.md"), particularly
 streams, shards, producers, and consumers. It is also helpful to have completed
-[Tutorial: Install and configure the AWS CLI for
-Kinesis Data Streams](kinesis-tutorial-cli-installation.md "kinesis-tutorial-cli-installation.md").
+[Tutorial: Install and configure the AWS CLI for Kinesis Data Streams](kinesis-tutorial-cli-installation.md "kinesis-tutorial-cli-installation.md").
 
 You need an AWS account and a web browser to access the AWS Management Console.
 
@@ -27,9 +23,7 @@ For more information about IAM and security key setup
 instructions, see [Create an
 IAM User](../../../AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.md#create-an-iam-user "../../../AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.md#create-an-iam-user").
 
-## Fulfill system software
-
-requirements
+## Fulfill system software requirements
 
 The system used to run the application must have Java 7 or higher installed. To
 download and install the latest Java Development Kit (JDK), go to [Oracle's Java SE installation site](http://www.oracle.com/technetwork/java/javase/downloads/index.html "http://www.oracle.com/technetwork/java/javase/downloads/index.html").

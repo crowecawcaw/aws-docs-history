@@ -5,35 +5,25 @@ called _data ingestion_). The Amazon Kinesis Producer Library (KPL) simplifies
 producer application development, letting developers achieve high write throughput to a
 Kinesis data stream.
 
-You can monitor the KPL with Amazon CloudWatch. For more information, see [Monitor the Kinesis Producer Library with
-Amazon CloudWatch](monitoring-with-kpl.md "monitoring-with-kpl.md").
+You can monitor the KPL with Amazon CloudWatch. For more information, see [Monitor the Kinesis Producer Library with Amazon CloudWatch](monitoring-with-kpl.md "monitoring-with-kpl.md").
 
 ###### Topics
 
-- [Review the role of the
-  KPL](#developing-producers-with-kpl-role "#developing-producers-with-kpl-role")
-- [Realize the advantages of using the
-  KPL](#developing-producers-with-kpl-advantage "#developing-producers-with-kpl-advantage")
-- [Understand when not to use the
-  KPL](#developing-producers-with-kpl-when "#developing-producers-with-kpl-when")
+- [Review the role of the KPL](#developing-producers-with-kpl-role "#developing-producers-with-kpl-role")
+- [Realize the advantages of using the KPL](#developing-producers-with-kpl-advantage "#developing-producers-with-kpl-advantage")
+- [Understand when not to use the KPL](#developing-producers-with-kpl-when "#developing-producers-with-kpl-when")
 - [Install the KPL](kinesis-kpl-dl-install.md "kinesis-kpl-dl-install.md")
-- [Migrate from KPL 0.x to
-  KPL 1.x](kpl-migration-1x.md "kpl-migration-1x.md")
-- [Transition to Amazon Trust Services (ATS) certificates
-  for the KPL](kinesis-kpl-upgrades.md "kinesis-kpl-upgrades.md")
-- [KPL supported
-  platforms](kinesis-kpl-supported-plats.md "kinesis-kpl-supported-plats.md")
+- [Migrate from KPL 0.x to KPL 1.x](kpl-migration-1x.md "kpl-migration-1x.md")
+- [Transition to Amazon Trust Services (ATS) certificates for the KPL](kinesis-kpl-upgrades.md "kinesis-kpl-upgrades.md")
+- [KPL supported platforms](kinesis-kpl-supported-plats.md "kinesis-kpl-supported-plats.md")
 - [KPL key concepts](kinesis-kpl-concepts.md "kinesis-kpl-concepts.md")
-- [Integrate the KPL with producer
-  code](kinesis-kpl-integration.md "kinesis-kpl-integration.md")
+- [Integrate the KPL with producer code](kinesis-kpl-integration.md "kinesis-kpl-integration.md")
 - [Write to your Kinesis data stream using the KPL](kinesis-kpl-writing.md "kinesis-kpl-writing.md")
 - [Configure the Amazon Kinesis Producer Library](kinesis-kpl-config.md "kinesis-kpl-config.md")
 - [Implement consumer de-aggregation](kinesis-kpl-consumer-deaggregation.md "kinesis-kpl-consumer-deaggregation.md")
 - [Use the KPL with Amazon Data Firehose](kpl-with-firehose.md "kpl-with-firehose.md")
-- [Use the KPL with the AWS Glue Schema
-  Registry](kpl-with-schemaregistry.md "kpl-with-schemaregistry.md")
-- [Configure the KPL proxy
-  configuration](kpl-proxy-configuration.md "kpl-proxy-configuration.md")
+- [Use the KPL with the AWS Glue Schema Registry](kpl-with-schemaregistry.md "kpl-with-schemaregistry.md")
+- [Configure the KPL proxy configuration](kpl-proxy-configuration.md "kpl-proxy-configuration.md")
 - [KPL version lifecycle policy](kpl-version-lifecycle-policy.md "kpl-version-lifecycle-policy.md")
 
 ###### Note
@@ -42,9 +32,7 @@ It is recommended that you upgrade to the latest KPL version. KPL is regularly u
 with newer releases that include the latest dependency and security patches, bug fixes, and
 backward-compatible new features. For more information, see [https://github.com/awslabs/amazon-kinesis-producer/releases/](https://github.com/awslabs/amazon-kinesis-producer/releases/ "https://github.com/awslabs/amazon-kinesis-producer/releases/").
 
-## Review the role of the
-
-KPL
+## Review the role of the KPL
 
 The KPL is an easy-to-use, highly configurable library that helps you
 write to a Kinesis data stream. It acts as an intermediary between your producer application code and
@@ -66,9 +54,7 @@ streams, resharding, and putting and getting records), while the KPL
 provides a layer of abstraction specifically for ingesting data. For information about the
 Kinesis Data Streams API, see the [Amazon Kinesis API Reference](../../../kinesis/latest/APIReference.md "../../../kinesis/latest/APIReference.md").
 
-## Realize the advantages of using the
-
-KPL
+## Realize the advantages of using the KPL
 
 The following list represents some of the major advantages to using the
 KPL for developing Kinesis Data Streams producers.
@@ -115,15 +101,12 @@ received from the server. Instead, a `Future` object is created that receives
 the result of sending the record to Kinesis Data Streams at a later time. This is the same behavior as
 asynchronous clients in the AWS SDK.
 
-## Understand when not to use the
-
-KPL
+## Understand when not to use the KPL
 
 The KPL can incur an additional processing delay of up to
 `RecordMaxBufferedTime` within the library (user-configurable). Larger values of
 `RecordMaxBufferedTime` results in higher packing efficiencies and better
 performance. Applications that cannot tolerate this additional delay might need to use the
-AWS SDK directly. For more information about using the AWS SDK with Kinesis Data Streams, see [Develop producers using the Amazon Kinesis Data Streams API
-with the AWS SDK for Java](developing-producers-with-sdk.md "developing-producers-with-sdk.md"). For
+AWS SDK directly. For more information about using the AWS SDK with Kinesis Data Streams, see [Develop producers using the Amazon Kinesis Data Streams API with the AWS SDK for Java](developing-producers-with-sdk.md "developing-producers-with-sdk.md"). For
 more information about `RecordMaxBufferedTime` and other user-configurable
 properties of the KPL, see [Configure the Amazon Kinesis Producer Library](kinesis-kpl-config.md "kinesis-kpl-config.md").

@@ -1,6 +1,4 @@
-# Create and use user-generated
-
-KMS keys
+# Create and use user-generated KMS keys
 
 This section describes how to create and use your own KMS keys, instead of using the
 master key administered by Amazon Kinesis.

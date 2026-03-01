@@ -1,6 +1,4 @@
-# Customize KPL retries and
-
-rate limit behavior
+# Customize KPL retries and rate limit behavior
 
 When you add Amazon Kinesis Producer Library (KPL) user records using the KPL
 `addUserRecord()` operation, a record is given a time stamp and added to
@@ -32,9 +30,7 @@ flushed from the buffer based on the following criteria:
   retry strategy. Spamming due to excessive retries is prevented by rate limiting,
   discussed in the next section.
 
-## Rate
-
-limiting
+## Rate limiting
 
 The KPL includes a rate limiting feature, which limits per-shard throughput sent
 from a single producer. Rate limiting is implemented using a token bucket algorithm

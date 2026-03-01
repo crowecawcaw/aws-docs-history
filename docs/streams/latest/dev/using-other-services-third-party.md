@@ -1,6 +1,4 @@
-# Write to Kinesis Data Streams using third-party
-
-integrations
+# Write to Kinesis Data Streams using third-party integrations
 
 You can write data to Kinesis Data Streams using one of the following third-party options that integrate
 with Kinesis Data Streams. Select the option that you want to learn more about and find resources and links

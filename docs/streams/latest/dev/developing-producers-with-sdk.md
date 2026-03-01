@@ -1,6 +1,4 @@
-# Develop producers using the Amazon Kinesis Data Streams API
-
-with the AWS SDK for Java
+# Develop producers using the Amazon Kinesis Data Streams API with the AWS SDK for Java
 
 You can develop producers using the Amazon Kinesis Data Streams API with the AWS SDK for Java. If you are
 new to Kinesis Data Streams, start by becoming familiar with the concepts and terminology presented in
@@ -23,8 +21,7 @@ created a stream, which requires you to create a client . For more information, 
 ###### Topics
 
 - [Add data to a stream](#kinesis-using-sdk-java-add-data-to-stream "#kinesis-using-sdk-java-add-data-to-stream")
-- [Interact with data using the
-  AWS Glue Schema Registry](kinesis-integration-glue-schema-registry.md "kinesis-integration-glue-schema-registry.md")
+- [Interact with data using the AWS Glue Schema Registry](kinesis-integration-glue-schema-registry.md "kinesis-integration-glue-schema-registry.md")
 
 ## Add data to a stream
 
@@ -43,10 +40,8 @@ the separate subsections below.
 
 ###### Topics
 
-- [Add multiple records with
-  PutRecords](#kinesis-using-sdk-java-putrecords "#kinesis-using-sdk-java-putrecords")
-- [Add a single record with
-  PutRecord](#kinesis-using-sdk-java-putrecord "#kinesis-using-sdk-java-putrecord")
+- [Add multiple records with PutRecords](#kinesis-using-sdk-java-putrecords "#kinesis-using-sdk-java-putrecords")
+- [Add a single record with PutRecord](#kinesis-using-sdk-java-putrecord "#kinesis-using-sdk-java-putrecord")
 
 Always keep in mind that, as your source application is adding data to the stream
 using the Kinesis Data Streams API, there are most likely one or more consumer applications that are
@@ -57,9 +52,7 @@ data using the Kinesis Data Streams API, see [Get data from a stream](developing
 
 [Change the data retention period](kinesis-extended-retention.md "kinesis-extended-retention.md")
 
-### Add multiple records with
-
-PutRecords
+### Add multiple records with PutRecords
 
 The [`PutRecords`](../../../kinesis/latest/APIReference/API_PutRecords.md "../../../kinesis/latest/APIReference/API_PutRecords.md")
 operation sends multiple records to Kinesis Data Streams in a single request. By using
@@ -91,9 +84,7 @@ than requests with a small number of partition keys to a small number of shards.
 number of partition keys should be much larger than the number of shards to reduce
 latency and maximize throughput.
 
-#### PutRecords
-
-example
+#### PutRecords example
 
 The following code creates 100 data records with sequential partition keys and
 puts them in a stream called `DataStream`.
@@ -128,9 +119,7 @@ with a record in the request array using natural ordering, from the top to the
 bottom of the request and response. The response `Records` array
 always includes the same number of records as the request array.
 
-#### Handle
-
-failures when using PutRecords
+#### Handle failures when using PutRecords
 
 By default, failure of individual records within a request does not stop the
 processing of subsequent records in a `PutRecords` request. This
@@ -237,13 +226,10 @@ while (putRecordsResult.getFailedRecordCount() > 0) {
 }
 ```
 
-### Add a single record with
-
-PutRecord
+### Add a single record with PutRecord
 
 Each call to [`PutRecord`](../../../kinesis/latest/APIReference/API_PutRecord.md "../../../kinesis/latest/APIReference/API_PutRecord.md") operates on a single record. Prefer the
-`PutRecords` operation described in [Add multiple records with
-PutRecords](#kinesis-using-sdk-java-putrecords "#kinesis-using-sdk-java-putrecords") unless your application
+`PutRecords` operation described in [Add multiple records with PutRecords](#kinesis-using-sdk-java-putrecords "#kinesis-using-sdk-java-putrecords") unless your application
 specifically needs to always send single records per request, or some other reason
 `PutRecords` can't be used.
 
@@ -256,8 +242,7 @@ sequence numbers become.
 When puts occur in quick succession, the returned sequence numbers are not
 guaranteed to increase because the put operations appear essentially as simultaneous
 to Kinesis Data Streams. To guarantee strictly increasing sequence numbers for the same partition
-key, use the `SequenceNumberForOrdering` parameter, as shown in the [PutRecord
-example](#kinesis-using-sdk-java-putrecord-example "#kinesis-using-sdk-java-putrecord-example") code sample.
+key, use the `SequenceNumberForOrdering` parameter, as shown in the [PutRecord example](#kinesis-using-sdk-java-putrecord-example "#kinesis-using-sdk-java-putrecord-example") code sample.
 
 Whether or not you use `SequenceNumberForOrdering`, records that Kinesis Data Streams
 receives through a `GetRecords` call are strictly ordered by sequence
@@ -283,9 +268,7 @@ method of `CreateStreamRequest`) should be substantially less than the
 number of unique partition keys, and the amount of data flowing to a single
 partition key should be substantially less than the capacity of the shard.
 
-#### PutRecord
-
-example
+#### PutRecord example
 
 The following code creates ten data records, distributed across two partition
 keys, and puts them in a stream called `myStreamName`.

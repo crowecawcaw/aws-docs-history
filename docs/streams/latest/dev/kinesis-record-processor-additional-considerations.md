@@ -1,21 +1,15 @@
-# Handle startup, shutdown,
-
-and throttling
+# Handle startup, shutdown, and throttling
 
 Here are some additional considerations to incorporate into the design of your
 Amazon Kinesis Data Streams application.
 
 ###### Topics
 
-- [Start up data
-  producers and data consumers](#kinesis-record-processor-producer-consumer-coordination "#kinesis-record-processor-producer-consumer-coordination")
-- [Shut down an Amazon Kinesis Data Streams
-  application](#developing-consumers-with-kcl-shutdown "#developing-consumers-with-kcl-shutdown")
+- [Start up data producers and data consumers](#kinesis-record-processor-producer-consumer-coordination "#kinesis-record-processor-producer-consumer-coordination")
+- [Shut down an Amazon Kinesis Data Streams application](#developing-consumers-with-kcl-shutdown "#developing-consumers-with-kcl-shutdown")
 - [Read throttling](#kinesis-record-processor-read-throttling "#kinesis-record-processor-read-throttling")
 
-## Start up data
-
-producers and data consumers
+## Start up data producers and data consumers
 
 By default, the KCL begins reading records from the tip of the stream, which is
 the most recently added record. In this configuration, if a data-producing application adds
@@ -45,12 +39,9 @@ the stream. For example, you might run some initial records through the stream t
 the stream is working end-to-end as expected. After doing this initial verification, you
 would then start your workers and begin to put production data into the stream.
 
-For more information about the `TRIM_HORIZON` setting, see [Use shard
-iterators](developing-consumers-with-sdk.md#kinesis-using-sdk-java-get-data-shard-iterators "developing-consumers-with-sdk.md#kinesis-using-sdk-java-get-data-shard-iterators").
+For more information about the `TRIM_HORIZON` setting, see [Use shard iterators](developing-consumers-with-sdk.md#kinesis-using-sdk-java-get-data-shard-iterators "developing-consumers-with-sdk.md#kinesis-using-sdk-java-get-data-shard-iterators").
 
-## Shut down an Amazon Kinesis Data Streams
-
-application
+## Shut down an Amazon Kinesis Data Streams application
 
 When your Amazon Kinesis Data Streams application has completed its intended task, you should shut it down by
 terminating the EC2 instances on which it is running. You can terminate the instances using

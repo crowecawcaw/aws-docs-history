@@ -1,6 +1,4 @@
-# Roll forward to KCL 3.x after a
-
-rollback
+# Roll forward to KCL 3.x after a rollback
 
 This topic explains the steps to roll forward your consumer back to KCL 3.x
 after a rollback. When you need to roll forward, you must go through a two-step process:
@@ -8,9 +6,7 @@ after a rollback. When you need to roll forward, you must go through a two-step 
 1. Run the [KCL Migration Tool](https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/scripts/KclMigrationTool.py "https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/scripts/KclMigrationTool.py").
 2. Deploy the code with KCL 3.x.
 
-## Step 1: Run the KCL Migration
-
-Tool
+## Step 1: Run the KCL Migration Tool
 
 Run the KCL Migration Tool. KCL Migration Tool with the
 following command to roll forward to KCL 3.x:
@@ -40,11 +36,8 @@ following DynamoDB resources required for KCL 3.x:
 - A Global Secondary Index on the lease table
 - A worker metrics table
 
-## Step 2: Deploy the code with
-
-KCL 3.x
+## Step 2: Deploy the code with KCL 3.x
 
 After running the KCL Migration Tool for a roll forward, deploy your code
-with KCL 3.x to your workers. Follow [Step 8: Complete the
-migration](kcl-migration-from-2-3.md#kcl-migration-from-2-3-finish "kcl-migration-from-2-3.md#kcl-migration-from-2-3-finish")
+with KCL 3.x to your workers. Follow [Step 8: Complete the migration](kcl-migration-from-2-3.md#kcl-migration-from-2-3-finish "kcl-migration-from-2-3.md#kcl-migration-from-2-3-finish")
 to complete your migration.

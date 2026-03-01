@@ -1,6 +1,4 @@
-# Create an IAM policy and
-
-user
+# Create an IAM policy and user
 
 Security best practices for AWS dictate the use of fine-grained permissions to
 control access to different resources. AWS Identity and Access Management (IAM) lets you to manage users and
@@ -185,5 +183,4 @@ aws_secret_access_key=`secret access key`
 
 ## Next steps
 
-[Download and build the
-code](tutorial-stock-data-kplkcl2-download.md "tutorial-stock-data-kplkcl2-download.md")
+[Download and build the code](tutorial-stock-data-kplkcl2-download.md "tutorial-stock-data-kplkcl2-download.md")

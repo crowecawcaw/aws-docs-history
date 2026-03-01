@@ -1,6 +1,4 @@
-# Set up an AWS account and create an administrator
-
-user
+# Set up an AWS account and create an administrator user
 
 Before you use Amazon Managed Service for Apache Flink for the first time, complete the following tasks:
 
@@ -71,9 +69,7 @@ create `adminuser` in your account.
 
 Your new group is listed under **Group Name**.
 
-###### To create an IAM user for yourself, add it to the Administrators group, and
-
-create a password
+###### To create an IAM user for yourself, add it to the Administrators group, and create a password
 
 1. In the navigation pane, choose **Users**, and then choose
    **Add user**.

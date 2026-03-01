@@ -18,5 +18,4 @@ provided along with the source on GitHub. To download the KPL from GitHub, see
 
 ###### Important
 
-Amazon Kinesis Producer Library (KPL) 0.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KPL applications using version 0.x to the latest KPL version before January 30, 2026. To find the latest KPL version, see the [KPL page on Github](https://github.com/awslabs/amazon-kinesis-producer "https://github.com/awslabs/amazon-kinesis-producer"). For information about migrating from KPL 0.x to KPL 1.x, see [Migrate from KPL 0.x to
-KPL 1.x](kpl-migration-1x.md "kpl-migration-1x.md").
+Amazon Kinesis Producer Library (KPL) 0.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KPL applications using version 0.x to the latest KPL version before January 30, 2026. To find the latest KPL version, see the [KPL page on Github](https://github.com/awslabs/amazon-kinesis-producer "https://github.com/awslabs/amazon-kinesis-producer"). For information about migrating from KPL 0.x to KPL 1.x, see [Migrate from KPL 0.x to KPL 1.x](kpl-migration-1x.md "kpl-migration-1x.md").

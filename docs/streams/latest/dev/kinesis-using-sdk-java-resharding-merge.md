@@ -20,8 +20,7 @@ that cover the range 382..454.
 
 The set of all `OPEN` shards in a stream—as a group—always
 spans the entire range of MD5 hash key values. For more information about shard
-states—such as `CLOSED`—see [Consider data
-routing, data persistence, and shard state after a reshard](kinesis-using-sdk-java-after-resharding.md#kinesis-using-sdk-java-resharding-data-routing "kinesis-using-sdk-java-after-resharding.md#kinesis-using-sdk-java-resharding-data-routing").
+states—such as `CLOSED`—see [Consider data routing, data persistence, and shard state after a reshard](kinesis-using-sdk-java-after-resharding.md#kinesis-using-sdk-java-resharding-data-routing "kinesis-using-sdk-java-after-resharding.md#kinesis-using-sdk-java-resharding-data-routing").
 
 To identify shards that are candidates for merging, you should filter out all
 shards that are in a `CLOSED` state. Shards that are
@@ -67,5 +66,4 @@ mergeShardsRequest.setAdjacentShardToMerge(shard2.getShardId());
 client.mergeShards(mergeShardsRequest);
 ```
 
-The first step after this procedure is shown in [Wait for a
-stream to become active again](kinesis-using-sdk-java-after-resharding.md#kinesis-using-sdk-java-resharding-wait-until-active "kinesis-using-sdk-java-after-resharding.md#kinesis-using-sdk-java-resharding-wait-until-active").
+The first step after this procedure is shown in [Wait for a stream to become active again](kinesis-using-sdk-java-after-resharding.md#kinesis-using-sdk-java-resharding-wait-until-active "kinesis-using-sdk-java-after-resharding.md#kinesis-using-sdk-java-resharding-wait-until-active").

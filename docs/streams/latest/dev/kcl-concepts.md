@@ -37,8 +37,7 @@ KCL consumer applications.
   used to track all leases for the KCL consumer application. Each
   KCL consumer application creates its own lease table. The lease table
   is used to maintain state across all workers to coordinate data processing. For
-  more information, see [DynamoDB metadata tables and load balancing in
-  KCL](kcl-dynamoDB.md "kcl-dynamoDB.md").
+  more information, see [DynamoDB metadata tables and load balancing in KCL](kcl-dynamoDB.md "kcl-dynamoDB.md").
 - **Checkpointing** – is the process of
   persistently storing the position of the last successfully processed record in a
   shard. KCL manages checkpointing to make sure that processing can be

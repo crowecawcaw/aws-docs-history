@@ -1,6 +1,4 @@
-# Configure the KPL proxy
-
-configuration
+# Configure the KPL proxy configuration
 
 For applications that cannot directly connect to the internet, all AWS SDK clients
 support the use of HTTP or HTTPS proxies. In a typical enterprise environment, all outbound

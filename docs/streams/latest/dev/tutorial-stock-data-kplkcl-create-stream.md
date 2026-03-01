@@ -1,7 +1,6 @@
 # Create a data stream
 
-In the first step of the [Tutorial: Process real-time stock data using
-KPL and KCL 1.x](tutorial-stock-data-kplkcl.md "tutorial-stock-data-kplkcl.md"), you create the stream that you will
+In the first step of the [Tutorial: Process real-time stock data using KPL and KCL 1.x](tutorial-stock-data-kplkcl.md "tutorial-stock-data-kplkcl.md"), you create the stream that you will
 use in subsequent steps.
 
 ###### To create a stream
@@ -24,9 +23,7 @@ use in subsequent steps.
    stream configuration. The **Monitoring** section displays monitoring
    information for the stream.
 
-## Additional
-
-information about shards
+## Additional information about shards
 
 When you begin to use Kinesis Data Streams outside of this tutorial, you might need to plan the
 stream creation process more carefully. You should plan for expected maximum demand

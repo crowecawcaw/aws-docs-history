@@ -10,16 +10,11 @@ to as the _subsequence number_.
 
 ###### Options
 
-- [Migrate from previous
-  versions of the KCL](#kinesis-kpl-consumer-deaggregation-migration "#kinesis-kpl-consumer-deaggregation-migration")
-- [Use KCL extensions for
-  KPL de-aggregation](#kinesis-kpl-consumer-deaggregation-extensions "#kinesis-kpl-consumer-deaggregation-extensions")
-- [Use GetRecords
-  directly](#kinesis-kpl-consumer-deaggregation-getrecords "#kinesis-kpl-consumer-deaggregation-getrecords")
+- [Migrate from previous versions of the KCL](#kinesis-kpl-consumer-deaggregation-migration "#kinesis-kpl-consumer-deaggregation-migration")
+- [Use KCL extensions for KPL de-aggregation](#kinesis-kpl-consumer-deaggregation-extensions "#kinesis-kpl-consumer-deaggregation-extensions")
+- [Use GetRecords directly](#kinesis-kpl-consumer-deaggregation-getrecords "#kinesis-kpl-consumer-deaggregation-getrecords")
 
-## Migrate from previous
-
-versions of the KCL
+## Migrate from previous versions of the KCL
 
 You are not required to change your existing calls to do checkpointing with aggregation.
 It is still guaranteed that you can retrieve all records successfully stored in Kinesis Data Streams. The
@@ -60,9 +55,7 @@ consumers that must avoid skipping and duplication of records. If skipping (or d
 of records when stopping and restarting your consumer’s record processing is not important,
 you can run your existing code with no modification.
 
-## Use KCL extensions for
-
-KPL de-aggregation
+## Use KCL extensions for KPL de-aggregation
 
 KPL de-aggregation can involve subsequence checkpointing. To facilitate using
 subsequence checkpointing, a `UserRecord` class has been added to the
@@ -135,9 +128,7 @@ subrecord is the one checkpointed). Again, non-aggregated records can be thought
 aggregated records with a single subrecord, so the same algorithm works for both aggregated
 and non-aggregated records.
 
-## Use GetRecords
-
-directly
+## Use GetRecords directly
 
 You can also choose not to use the KCL but instead invoke the API operation
 `GetRecords` directly to retrieve Kinesis Data Streams records. To unpack these retrieved

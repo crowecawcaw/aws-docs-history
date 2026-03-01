@@ -1,6 +1,4 @@
-# Decide on a strategy
-
-for resharding
+# Decide on a strategy for resharding
 
 The purpose of resharding in Amazon Kinesis Data Streams is to enable your stream to adapt to
 changes in the rate of data flow. You split shards to increase the capacity (and

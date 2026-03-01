@@ -1,6 +1,4 @@
-# How do I get started with server-side
-
-encryption?
+# How do I get started with server-side encryption?
 
 The easiest way to get started with server-side encryption is to use the AWS Management Console and
 the Amazon Kinesis KMS Service Key, `aws/kinesis`.

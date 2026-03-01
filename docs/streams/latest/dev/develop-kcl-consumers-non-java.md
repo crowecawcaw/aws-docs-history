@@ -15,8 +15,7 @@ information about the `MultiLangDaemon` on GitHub, see [KCL MultiLangDaemon proj
 
 While the core concepts remain the same across languages, there are some
 language-specific considerations and implementations. For the core concepts about the
-KCL consumer development, see [Develop consumers with KCL in
-Java](develop-kcl-consumers-java.md "develop-kcl-consumers-java.md"). For more detailed information about
+KCL consumer development, see [Develop consumers with KCL in Java](develop-kcl-consumers-java.md "develop-kcl-consumers-java.md"). For more detailed information about
 how to develop KCL consumers in Python, Node.js, .NET, and Ruby and latest
 updates, please refer to the following GitHub repositories:
 

@@ -1,6 +1,4 @@
-# (Optional) Extend the
-
-consumer
+# (Optional) Extend the consumer
 
 This optional section shows how you can extend the consumer code for a slightly more
 elaborate scenario.
@@ -65,8 +63,6 @@ similar to this:
 
 ```
 
-## Next
-
-steps
+## Next steps
 
 [Clean up resources](tutorial-stock-data-kplkcl2-finish.md "tutorial-stock-data-kplkcl2-finish.md")

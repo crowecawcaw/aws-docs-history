@@ -1,6 +1,4 @@
-# Tutorial: Perform basic Kinesis Data Streams operations using the
-
-AWS CLI
+# Tutorial: Perform basic Kinesis Data Streams operations using the AWS CLI
 
 This section describes basic use of a Kinesis data stream from the command line using the AWS CLI. Be
 sure you are familiar with the concepts discussed in [Amazon Kinesis Data Streams Terminology and concepts](key-concepts.md "key-concepts.md").

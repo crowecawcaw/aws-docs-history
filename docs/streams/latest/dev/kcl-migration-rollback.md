@@ -1,6 +1,4 @@
-# Roll back to the previous KCL
-
-version
+# Roll back to the previous KCL version
 
 This topic explains the steps to roll back your consumer back to the previous version.
 When you need to roll back, there is a two-step process:
@@ -8,9 +6,7 @@ When you need to roll back, there is a two-step process:
 1. Run the [KCL Migration Tool](https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/scripts/KclMigrationTool.py "https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/scripts/KclMigrationTool.py").
 2. Redeploy previous KCL version code (optional).
 
-## Step 1: Run the KCL Migration
-
-Tool
+## Step 1: Run the KCL Migration Tool
 
 When you need to roll back to the previous KCL version, you must run the
 KCL Migration Tool. The KCL Migration Tool does two important
@@ -42,8 +38,7 @@ version.
 You can download the [KCL Migration Tool](https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/scripts/KclMigrationTool.py "https://github.com/awslabs/amazon-kinesis-client/blob/master/amazon-kinesis-client/scripts/KclMigrationTool.py") in the scripts directory of the [KCL GitHub
 repository](https://github.com/awslabs/amazon-kinesis-client/tree/master "https://github.com/awslabs/amazon-kinesis-client/tree/master"). The script can be run from any of your workers or any host
 which has the required permissions to write to the coordinator state table, delete
-the worker metrics table, and update the lease table. You can refer to [IAM permissions required for KCL
-consumer applications](kcl-iam-permissions.md "kcl-iam-permissions.md") for required
+the worker metrics table, and update the lease table. You can refer to [IAM permissions required for KCL consumer applications](kcl-iam-permissions.md "kcl-iam-permissions.md") for required
 IAM permission to run the script. You must run the script only once per
 KCL application. You can run the KCL Migration Tool with the
 following command:
@@ -78,9 +73,7 @@ python3 ./KclMigrationTool.py --region <region> --mode rollback [--application_n
   parameter. Replace `<workerMetricsTableName>` with the custom
   table name you specified for your worker metrics table.
 
-## Step 2: Redeploy the code with the
-
-previous KCL version (optional)
+## Step 2: Redeploy the code with the previous KCL version (optional)
 
 After running the KCL Migration Tool for a rollback, you'll see one of
 these messages:

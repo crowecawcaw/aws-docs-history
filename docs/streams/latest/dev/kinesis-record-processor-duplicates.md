@@ -36,12 +36,9 @@ In all these cases, the shards-to-worker-to-record-processor mapping is continuo
 updated to load balance processing. Shard processors that were migrated to other instances
 restart processing records from the last checkpoint. This results in duplicated record
 processing as shown in the example below. For more information about load-balancing, see
-[Use resharding, scaling, and parallel
-processing to change the number of shards](kinesis-record-processor-scaling.md "kinesis-record-processor-scaling.md").
+[Use resharding, scaling, and parallel processing to change the number of shards](kinesis-record-processor-scaling.md "kinesis-record-processor-scaling.md").
 
-### Example: Consumer
-
-retries resulting in redelivered records
+### Example: Consumer retries resulting in redelivered records
 
 In this example, you have an application that continuously reads records from a
 stream, aggregates records into a local file, and uploads the file to Amazon S3. For
@@ -62,9 +59,7 @@ number 10000:
 
 Thus, records 10001-20000 are consumed more than one time.
 
-### Being resilient
-
-to consumer retries
+### Being resilient to consumer retries
 
 Even though records may be processed more than one time, your application may want to
 present the side effects as if records were processed only one time (idempotent

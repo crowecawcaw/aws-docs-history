@@ -6,15 +6,11 @@ sink.
 ###### This section contains the following steps:
 
 - [Create two Amazon Kinesis data streams](#get-started-exercise-1 "#get-started-exercise-1")
-- [Write Sample Records to the Input
-  Stream](#get-started-exercise-2 "#get-started-exercise-2")
-- [Download and examine the Apache Flink
-  streaming Java code](#get-started-exercise-5 "#get-started-exercise-5")
+- [Write Sample Records to the Input Stream](#get-started-exercise-2 "#get-started-exercise-2")
+- [Download and examine the Apache Flink streaming Java code](#get-started-exercise-5 "#get-started-exercise-5")
 - [Compile the application code](#get-started-exercise-5.5 "#get-started-exercise-5.5")
-- [Upload the Apache Flink streaming Java
-  code](#get-started-exercise-6 "#get-started-exercise-6")
-- [Create and run the Managed Service for Apache Flink
-  application](#get-started-exercise-7 "#get-started-exercise-7")
+- [Upload the Apache Flink streaming Java code](#get-started-exercise-6 "#get-started-exercise-6")
+- [Create and run the Managed Service for Apache Flink application](#get-started-exercise-7 "#get-started-exercise-7")
 
 ## Create two Amazon Kinesis data streams
 
@@ -52,9 +48,7 @@ $ aws kinesis create-stream \
 --profile adminuser
 ```
 
-## Write Sample Records to the Input
-
-Stream
+## Write Sample Records to the Input Stream
 
 In this section, you use a Python script to write sample records to the stream for
 the application to process.
@@ -105,9 +99,7 @@ if __name__ == "__main__":
 $ python stock.py
 ```
 
-## Download and examine the Apache Flink
-
-streaming Java code
+## Download and examine the Apache Flink streaming Java code
 
 The Java application code for this examples is available from GitHub. To download
 the application code, do the following:
@@ -136,8 +128,7 @@ return env.addSource(new FlinkKinesisConsumer<>(inputStreamName,
 
 In this section, you use the Apache Maven compiler to create the Java code for the
 application. For information about installing Apache Maven and the Java Development
-Kit (JDK), see [Prerequisites for completing the
-exercises](tutorial-stock-data.md#setting-up-prerequisites "tutorial-stock-data.md#setting-up-prerequisites").
+Kit (JDK), see [Prerequisites for completing the exercises](tutorial-stock-data.md#setting-up-prerequisites "tutorial-stock-data.md#setting-up-prerequisites").
 
 Your Java application requires the following components:
 
@@ -290,9 +281,7 @@ If the application compiles successfully, the following file is created:
 
 `target/java-getting-started-1.0.jar`
 
-## Upload the Apache Flink streaming Java
-
-code
+## Upload the Apache Flink streaming Java code
 
 In this section, you create an Amazon Simple Storage Service (Amazon S3) bucket and upload your application
 code.
@@ -327,9 +316,7 @@ code.
 Your application code is now stored in an Amazon S3 bucket where your application can
 access it.
 
-## Create and run the Managed Service for Apache Flink
-
-application
+## Create and run the Managed Service for Apache Flink application
 
 You can create and run a Managed Service for Apache Flink application using either the console or the
 AWS CLI.
@@ -342,21 +329,15 @@ the AWS CLI, you create these resources separately.
 
 ###### Topics
 
-- [Create and run the application
-  (Console)](#get-started-exercise-7-console "#get-started-exercise-7-console")
-- [Create and run the application
-  (AWS CLI)](#get-started-exercise-7-cli "#get-started-exercise-7-cli")
+- [Create and run the application (Console)](#get-started-exercise-7-console "#get-started-exercise-7-console")
+- [Create and run the application (AWS CLI)](#get-started-exercise-7-cli "#get-started-exercise-7-cli")
 
-### Create and run the application
-
-(Console)
+### Create and run the application (Console)
 
 Follow these steps to create, configure, update, and run the application using
 the console.
 
-#### Create the
-
-application
+#### Create the application
 
 1. Open the Kinesis console at
    [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis").
@@ -389,9 +370,7 @@ application name and Region as follows:
 - Role:
   `kinesis-analytics-`MyApplication`-`us-west-2``
 
-#### Edit the IAM
-
-policy
+#### Edit the IAM policy
 
 Edit the IAM policy to add permissions to access the Kinesis data
 streams.
@@ -473,9 +452,7 @@ JSON
 
 ```
 
-#### Configure the
-
-application
+#### Configure the application
 
 1. On the **MyApplication** page, choose
    **Configure**.
@@ -517,25 +494,19 @@ log stream for you. The names of these resources are as follows:
   `/aws/kinesis-analytics/MyApplication`
 - Log stream: `kinesis-analytics-log-stream`
 
-#### Run the
-
-application
+#### Run the application
 
 1. On the **MyApplication** page, choose
    **Run**. Confirm the action.
 2. When the application is running, refresh the page. The console
    shows the **Application graph**.
 
-#### Stop the
-
-application
+#### Stop the application
 
 On the **MyApplication** page, choose
 **Stop**. Confirm the action.
 
-#### Update the
-
-application
+#### Update the application
 
 Using the console, you can update application settings such as application
 properties, monitoring settings, and the location or file name of the
@@ -546,17 +517,13 @@ On the **MyApplication** page, choose
 **Configure**. Update the application settings and
 choose **Update**.
 
-### Create and run the application
-
-(AWS CLI)
+### Create and run the application (AWS CLI)
 
 In this section, you use the AWS CLI to create and run the Managed Service for Apache Flink application.
 Managed Service for Apache Flink uses the `kinesisanalyticsv2` AWS CLI command to create and
 interact with Managed Service for Apache Flink applications.
 
-#### Create a Permissions
-
-Policy
+#### Create a Permissions Policy
 
 First, you create a permissions policy with two statements: one that
 grants permissions for the `read` action on the source stream,
@@ -660,8 +627,7 @@ permissions policies for the role. 6. Attach the permissions policy to the role.
 For this exercise, Managed Service for Apache Flink assumes this role for both reading
 data from a Kinesis data stream (source) and writing output to
 another Kinesis data stream. So you attach the policy that you
-created in the previous step, [Create a Permissions
-Policy](#get-started-exercise-7-cli-policy "#get-started-exercise-7-cli-policy").
+created in the previous step, [Create a Permissions Policy](#get-started-exercise-7-cli-policy "#get-started-exercise-7-cli-policy").
 
     1. On the **Summary** page, choose the
      **Permissions** tab.
@@ -681,9 +647,7 @@ to access resources. Make a note of the ARN of the new role.
 For step-by-step instructions for creating a role, see [Creating an IAM Role (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console "../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console") in the
 _IAM User Guide_.
 
-#### Create the Managed Service for Apache Flink
-
-Application
+#### Create the Managed Service for Apache Flink Application
 
 1. Save the following JSON code to a file named
    `create_request.json`. Replace the sample
@@ -744,9 +708,7 @@ aws kinesisanalyticsv2 create-application --cli-input-json file://create_request
 The application is now created. You start the application in the next
 step.
 
-#### Start the
-
-Application
+#### Start the Application
 
 In this section, you use the [`StartApplication`](../../../kinesisanalytics/latest/apiv2/API_StartApplication.md "../../../kinesisanalytics/latest/apiv2/API_StartApplication.md") action to start the
 application.
@@ -778,9 +740,7 @@ aws kinesisanalyticsv2 start-application --cli-input-json file://start_request.j
 The application is now running. You can check the Managed Service for Apache Flink metrics on the
 Amazon CloudWatch console to verify that the application is working.
 
-#### Stop the
-
-Application
+#### Stop the Application
 
 In this section, you use the [`StopApplication`](../../../kinesisanalytics/latest/apiv2/API_StopApplication.md "../../../kinesisanalytics/latest/apiv2/API_StopApplication.md") action to stop the
 application.

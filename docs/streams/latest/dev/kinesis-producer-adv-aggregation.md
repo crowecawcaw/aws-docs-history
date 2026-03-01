@@ -1,6 +1,4 @@
-# Apply best practices to KPL
-
-aggregation
+# Apply best practices to KPL aggregation
 
 While the sequence number scheme of the resulting Amazon Kinesis Data Streams records remains the same,
 aggregation causes the indexing of Amazon Kinesis Producer Library (KPL) user records

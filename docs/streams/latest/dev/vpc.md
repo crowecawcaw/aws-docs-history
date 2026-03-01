@@ -9,15 +9,11 @@ using an elastic network interface with private IPs in your Amazon VPC. For more
 
 ###### Topics
 
-- [Use interface VPC endpoints for
-  Kinesis Data Streams](#using-interface-vpc-endpoints "#using-interface-vpc-endpoints")
-- [Control access to VPC endpoints for
-  Kinesis Data Streams](#interface-vpc-endpoints-policies "#interface-vpc-endpoints-policies")
+- [Use interface VPC endpoints for Kinesis Data Streams](#using-interface-vpc-endpoints "#using-interface-vpc-endpoints")
+- [Control access to VPC endpoints for Kinesis Data Streams](#interface-vpc-endpoints-policies "#interface-vpc-endpoints-policies")
 - [Availability of VPC endpoint policies for Kinesis Data Streams](#availability "#availability")
 
-## Use interface VPC endpoints for
-
-Kinesis Data Streams
+## Use interface VPC endpoints for Kinesis Data Streams
 
 To get started, you do not need to change the settings for your streams, producers, or
 consumers. Create an interface VPC endpoint for your Kinesis Data Streams to start traffic flowing from
@@ -31,9 +27,7 @@ KCL application is running in a VPC with DynamoDB interface with VPC endpoints
 enabled, calls between DynamoDB and your KCL application flow through the
 interface VPC endpoint.
 
-## Control access to VPC endpoints for
-
-Kinesis Data Streams
+## Control access to VPC endpoints for Kinesis Data Streams
 
 VPC endpoint policies let you control access by either attaching a policy to a VPC
 endpoint or by using additional fields in a policy that is attached to an IAM user,

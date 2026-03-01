@@ -2,8 +2,7 @@
 
 ###### Important
 
-Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client"). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md "kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL
-3.x](kcl-migration-1-3.md "kcl-migration-1-3.md").
+Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client"). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md "kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md "kcl-migration-1-3.md").
 
 One of the methods of developing custom consumer applications that can process data from
 KDS data streams is to use the Kinesis Client Library (KCL).
@@ -11,16 +10,11 @@ KDS data streams is to use the Kinesis Client Library (KCL).
 ###### Topics
 
 - [About KCL (previous versions)](#shared-throughput-kcl-consumers-overview "#shared-throughput-kcl-consumers-overview")
-- [KCL previous
-  versions](#shared-throughput-kcl-consumers-versions "#shared-throughput-kcl-consumers-versions")
-- [KCL concepts
-  (previous versions)](#shared-throughput-kcl-consumers-concepts "#shared-throughput-kcl-consumers-concepts")
-- [Use a lease table to track
-  the shards processed by the KCL consumer application](#shared-throughput-kcl-consumers-leasetable "#shared-throughput-kcl-consumers-leasetable")
-- [Process multiple data streams with
-  the same KCL 2.x for Java consumer application](#shared-throughput-kcl-multistream "#shared-throughput-kcl-multistream")
-- [Use the
-  KCL with the AWS Glue Schema Registry](#shared-throughput-kcl-consumers-glue-schema-registry "#shared-throughput-kcl-consumers-glue-schema-registry")
+- [KCL previous versions](#shared-throughput-kcl-consumers-versions "#shared-throughput-kcl-consumers-versions")
+- [KCL concepts (previous versions)](#shared-throughput-kcl-consumers-concepts "#shared-throughput-kcl-consumers-concepts")
+- [Use a lease table to track the shards processed by the KCL consumer application](#shared-throughput-kcl-consumers-leasetable "#shared-throughput-kcl-consumers-leasetable")
+- [Process multiple data streams with the same KCL 2.x for Java consumer application](#shared-throughput-kcl-multistream "#shared-throughput-kcl-multistream")
+- [Use the KCL with the AWS Glue Schema Registry](#shared-throughput-kcl-consumers-glue-schema-registry "#shared-throughput-kcl-consumers-glue-schema-registry")
 
 ###### Note
 
@@ -61,9 +55,7 @@ to. For more information about the MultiLangDaemon on GitHub, see [KCL MultiLang
 The KCL acts as an intermediary between your record processing logic and
 Kinesis Data Streams.
 
-## KCL previous
-
-versions
+## KCL previous versions
 
 Currently, you can use either of the following supported versions of KCL to build your
 custom consumer applications:
@@ -77,19 +69,15 @@ For more information, see [Develop KCL 1.x consumers](developing-consumers-with-
 For more information, see [Develop KCL 2.x Consumers](developing-consumers-with-kcl-v2.md "developing-consumers-with-kcl-v2.md")
 
 You can use either KCL 1.x or KCL 2.x to build consumer applications that use shared
-throughput. For more information, see [Develop custom consumers with shared throughput using
-KCL](custom-kcl-consumers.md "custom-kcl-consumers.md").
+throughput. For more information, see [Develop custom consumers with shared throughput using KCL](custom-kcl-consumers.md "custom-kcl-consumers.md").
 
 To build consumer applications that use dedicated throughput (enhanced fan-out
-consumers), you can only use KCL 2.x. For more information, see [Develop enhanced fan-out consumers with dedicated
-throughput](enhanced-consumers.md "enhanced-consumers.md").
+consumers), you can only use KCL 2.x. For more information, see [Develop enhanced fan-out consumers with dedicated throughput](enhanced-consumers.md "enhanced-consumers.md").
 
 For information about the differences between KCL 1.x and KCL 2.x, and instructions on
 how to migrate from KCL 1.x to KCL 2.x, see [Migrate consumers from KCL 1.x to KCL 2.x](kcl-migration.md "kcl-migration.md").
 
-## KCL concepts
-
-(previous versions)
+## KCL concepts (previous versions)
 
 - **KCL consumer application** – an application
   that is custom-built using KCL and designed to read and process records from
@@ -157,29 +145,22 @@ for KCL 2.x.
   leased and processed by the workers of the KCL consumer application. The lease
   table must remain in sync (within a worker and across all workers) with the
   latest shard information from the data stream while the KCL consumer application
-  is running. For more information, see [Use a lease table to track
-  the shards processed by the KCL consumer application](#shared-throughput-kcl-consumers-leasetable "#shared-throughput-kcl-consumers-leasetable").
+  is running. For more information, see [Use a lease table to track the shards processed by the KCL consumer application](#shared-throughput-kcl-consumers-leasetable "#shared-throughput-kcl-consumers-leasetable").
 - **Record processor** – the logic that defines how
   your KCL consumer application processes the data that it gets from the data
   streams. At runtime, a KCL consumer application instance instantiates a worker,
   and this worker instantiates one record processor for every shard to which it
   holds a lease.
 
-## Use a lease table to track
-
-the shards processed by the KCL consumer application
+## Use a lease table to track the shards processed by the KCL consumer application
 
 ###### Topics
 
-- [What is a lease
-  table](#shared-throughput-kcl-consumers-what-is-leasetable "#shared-throughput-kcl-consumers-what-is-leasetable")
+- [What is a lease table](#shared-throughput-kcl-consumers-what-is-leasetable "#shared-throughput-kcl-consumers-what-is-leasetable")
 - [Throughput](#shared-throughput-kcl-leasetable-throughput "#shared-throughput-kcl-leasetable-throughput")
-- [How a lease table
-  is synchronized with the shards in a Kinesis data stream](#shared-throughput-kcl-consumers-leasetable-sync "#shared-throughput-kcl-consumers-leasetable-sync")
+- [How a lease table is synchronized with the shards in a Kinesis data stream](#shared-throughput-kcl-consumers-leasetable-sync "#shared-throughput-kcl-consumers-leasetable-sync")
 
-### What is a lease
-
-table
+### What is a lease table
 
 For each Amazon Kinesis Data Streams application, KCL uses a unique lease table (stored in a Amazon DynamoDB
 table) to keep track of the shards in a KDS data stream that are being leased and
@@ -206,8 +187,7 @@ addition to the costs associated with Kinesis Data Streams itself.
 Each row in the lease table represents a shard that is being processed by the
 workers of your consumer application. If your KCL consumer application processes
 only one data stream, then `leaseKey` which is the hash key for the lease
-table is the shard ID. If you are [Process multiple data streams with
-the same KCL 2.x for Java consumer application](#shared-throughput-kcl-multistream "#shared-throughput-kcl-multistream"), then the structure of the
+table is the shard ID. If you are [Process multiple data streams with the same KCL 2.x for Java consumer application](#shared-throughput-kcl-multistream "#shared-throughput-kcl-multistream"), then the structure of the
 leaseKey looks like this:
 `account-id:StreamName:streamCreationTimestamp:ShardId`. For example,
 `111111111:multiStreamTest-1:12345:shardId-000000000336`.
@@ -245,8 +225,7 @@ In addition to the shard ID, each row also includes the following data:
 This data is present in the lease table for every shard starting with
 KCL 1.14 and KCL 2.3. For more information about
 `PeriodicShardSyncManager` and periodic synchronization
-between leases and shards, see [How a lease table
-is synchronized with the shards in a Kinesis data stream](#shared-throughput-kcl-consumers-leasetable-sync "#shared-throughput-kcl-consumers-leasetable-sync").
+between leases and shards, see [How a lease table is synchronized with the shards in a Kinesis data stream](#shared-throughput-kcl-consumers-leasetable-sync "#shared-throughput-kcl-consumers-leasetable-sync").
 
 - **childshards:** Used by the
   `LeaseCleanupManager` to review the child shard's processing
@@ -262,8 +241,7 @@ KCL 1.14 and KCL 2.3.
 
 ###### Note
 
-This data is only present in the lease table if you are [Process multiple data streams with
-the same KCL 2.x for Java consumer application](#shared-throughput-kcl-multistream "#shared-throughput-kcl-multistream"). This is only
+This data is only present in the lease table if you are [Process multiple data streams with the same KCL 2.x for Java consumer application](#shared-throughput-kcl-multistream "#shared-throughput-kcl-multistream"). This is only
 supported in KCL 2.x for Java, starting with KCL 2.3 for Java and later.
 
 - **stream name** The identifier of the data
@@ -272,8 +250,7 @@ supported in KCL 2.x for Java, starting with KCL 2.3 for Java and later.
 
 ###### Note
 
-This data is only present in the lease table if you are [Process multiple data streams with
-the same KCL 2.x for Java consumer application](#shared-throughput-kcl-multistream "#shared-throughput-kcl-multistream"). This is only
+This data is only present in the lease table if you are [Process multiple data streams with the same KCL 2.x for Java consumer application](#shared-throughput-kcl-multistream "#shared-throughput-kcl-multistream"). This is only
 supported in KCL 2.x for Java, starting with KCL 2.3 for Java and later.
 
 ### Throughput
@@ -288,9 +265,7 @@ might need more throughput.
 For information about provisioned throughput in DynamoDB, see [Read/Write Capacity Mode](../../../amazondynamodb/latest/developerguide/HowItWorks.md "../../../amazondynamodb/latest/developerguide/HowItWorks.md") and [Working with Tables and Data](../../../amazondynamodb/latest/developerguide/WorkingWithDDTables.md "../../../amazondynamodb/latest/developerguide/WorkingWithDDTables.md")
 in the _Amazon DynamoDB Developer Guide_.
 
-### How a lease table
-
-is synchronized with the shards in a Kinesis data stream
+### How a lease table is synchronized with the shards in a Kinesis data stream
 
 Workers in KCL consumer applications use leases to process shards from a given
 data stream. The information on what worker is leasing what shard at any given time
@@ -522,9 +497,7 @@ New configuration options are available to configure
 - Including an optimization to `KinesisShardSyncer` to only
   create leases for one layer of shards.
 
-## Process multiple data streams with
-
-the same KCL 2.x for Java consumer application
+## Process multiple data streams with the same KCL 2.x for Java consumer application
 
 This section describes the following changes in KCL 2.x for Java that enable
 you to create KCL consumer applications that can process more than one data
@@ -673,9 +646,7 @@ application to process multiple data streams, it breaks your lease table,
 because with multistream support, the leaseKey structure must be as follows:
 `account-id:StreamName:StreamCreationTimestamp:ShardId`.
 
-## Use the
-
-KCL with the AWS Glue Schema Registry
+## Use the KCL with the AWS Glue Schema Registry
 
 You can integrate your Kinesis data streams with the AWS Glue Schema Registry. The AWS Glue
 Schema Registry allows you to centrally discover, control, and evolve schemas, while

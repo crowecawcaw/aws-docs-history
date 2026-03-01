@@ -1,6 +1,4 @@
-# Download and build the
-
-code
+# Download and build the code
 
 This topic provides sample implementation code for the sample stock trades ingestion
 into the data stream (_producer_) and the processing of

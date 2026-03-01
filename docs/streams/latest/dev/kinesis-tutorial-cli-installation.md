@@ -1,6 +1,4 @@
-# Tutorial: Install and configure the AWS CLI for
-
-Kinesis Data Streams
+# Tutorial: Install and configure the AWS CLI for Kinesis Data Streams
 
 ## Install the AWS CLI
 

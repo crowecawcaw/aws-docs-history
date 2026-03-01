@@ -1,6 +1,4 @@
-# Monitor the Kinesis Producer Library with
-
-Amazon CloudWatch
+# Monitor the Kinesis Producer Library with Amazon CloudWatch
 
 The [Amazon Kinesis Producer Library](../../../kinesis/latest/dev/developing-producers-with-kpl.md "../../../kinesis/latest/dev/developing-producers-with-kpl.md") (KPL) for Amazon Kinesis Data Streams publishes custom Amazon CloudWatch metrics on your
 behalf. You can view these metrics by navigating to the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/") and choosing

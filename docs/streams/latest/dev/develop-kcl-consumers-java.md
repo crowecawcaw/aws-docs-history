@@ -1,6 +1,4 @@
-# Develop consumers with KCL in
-
-Java
+# Develop consumers with KCL in Java
 
 ## Prerequisites
 
@@ -45,12 +43,9 @@ utilization metrics from workers, you must meet the following prerequisites:
 
 If KCL cannot collect CPU utilization metrics from workers, KCL will
 fall back to use throughput per worker to assign leases and balance the load
-across workers in the fleet. For more information, see [How KCL assigns leases to workers and
-balances the load](kcl-dynamoDB.md#kcl-assign-leases "kcl-dynamoDB.md#kcl-assign-leases").
+across workers in the fleet. For more information, see [How KCL assigns leases to workers and balances the load](kcl-dynamoDB.md#kcl-assign-leases "kcl-dynamoDB.md#kcl-assign-leases").
 
-## Install and add
-
-dependencies
+## Install and add dependencies
 
 If you're using Maven, add the following dependency to your `pom.xml` file.
 Make sure you replaced 3.x.x to the latest KCL version.
@@ -72,9 +67,7 @@ implementation 'software.amazon.kinesis:amazon-kinesis-client:3.x.x'
 
 You can check for the latest version of the KCL on the [Maven Central Repository](https://search.maven.org/artifact/software.amazon.kinesis/amazon-kinesis-client "https://search.maven.org/artifact/software.amazon.kinesis/amazon-kinesis-client").
 
-## Implement the
-
-consumer
+## Implement the consumer
 
 A KCL consumer application consists of the following key
 components:
@@ -392,8 +385,7 @@ public class SampleConsumer {
 
 KCL creates an Enhanced Fan-out (EFO) consumer with dedicated
 throughput by default. For more information about Enhanced Fan-out, see
-[Develop enhanced fan-out consumers with dedicated
-throughput](enhanced-consumers.md "enhanced-consumers.md"). If you have less than 2
+[Develop enhanced fan-out consumers with dedicated throughput](enhanced-consumers.md "enhanced-consumers.md"). If you have less than 2
 consumers or don't need read propagation delays under 200 ms, you must
 set the following configuration in the scheduler object to use
 shared-throughput consumers:

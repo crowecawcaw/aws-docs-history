@@ -1,6 +1,4 @@
-# Permissions to use user-generated
-
-KMS keys
+# Permissions to use user-generated KMS keys
 
 Before you can use server-side encryption with a user-generated KMS key, you must
 configure AWS KMS key policies to allow encryption of streams and encryption and
@@ -86,9 +84,7 @@ Amazon Managed Service for Apache Flink and AWS Lambda use roles to consume Kine
 `kms:Decrypt` permission to the roles that these consumers
 use.
 
-## Stream administrator
-
-permissions
+## Stream administrator permissions
 
 Kinesis stream administrators must have authorization to call `kms:List*`
 and `kms:DescribeKey*`.

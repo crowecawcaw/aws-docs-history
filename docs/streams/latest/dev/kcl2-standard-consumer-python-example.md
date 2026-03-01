@@ -1,11 +1,8 @@
-# Develop a Kinesis Client Library
-
-consumer in Python
+# Develop a Kinesis Client Library consumer in Python
 
 ###### Important
 
-Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client"). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md "kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL
-3.x](kcl-migration-1-3.md "kcl-migration-1-3.md").
+Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client"). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md "kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md "kcl-migration-1-3.md").
 
 You can use the Kinesis Client Library (KCL) to build applications that process
 data from your Kinesis data streams. The Kinesis Client Library is available in multiple
@@ -28,14 +25,10 @@ application in Python:
 
 ###### Tasks
 
-- [Implement the
-  RecordProcessor class methods](#kinesis-record-processor-implementation-interface-py "#kinesis-record-processor-implementation-interface-py")
-- [Modify the
-  configuration properties](#kinesis-record-processor-initialization-py "#kinesis-record-processor-initialization-py")
+- [Implement the RecordProcessor class methods](#kinesis-record-processor-implementation-interface-py "#kinesis-record-processor-implementation-interface-py")
+- [Modify the configuration properties](#kinesis-record-processor-initialization-py "#kinesis-record-processor-initialization-py")
 
-## Implement the
-
-RecordProcessor class methods
+## Implement the RecordProcessor class methods
 
 The `RecordProcess` class must extend the
 `RecordProcessorBase` class to implement the following
@@ -213,9 +206,7 @@ if __name__ == "__main__":
     kcl_process.run()
 ```
 
-## Modify the
-
-configuration properties
+## Modify the configuration properties
 
 The sample provides default values for the configuration properties, as shown in
 the following script. You can override any of these properties with your own
@@ -307,9 +298,7 @@ initialPositionInStream = TRIM_HORIZON
 #maxActiveThreads = 0
 ```
 
-### Application
-
-name
+### Application name
 
 The KCL requires an application name that is unique among your
 applications and among Amazon DynamoDB tables in the same Region. It uses the
@@ -324,8 +313,7 @@ application name configuration value in the following ways:
 - The KCL creates a DynamoDB table with the application name and
   uses the table to maintain state information (such as checkpoints and
   worker-shard mapping) for the application. Each application has its own
-  DynamoDB table. For more information, see [Use a lease table to track
-  the shards processed by the KCL consumer application](shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable "shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable").
+  DynamoDB table. For more information, see [Use a lease table to track the shards processed by the KCL consumer application](shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable "shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable").
 
 ### Credentials
 

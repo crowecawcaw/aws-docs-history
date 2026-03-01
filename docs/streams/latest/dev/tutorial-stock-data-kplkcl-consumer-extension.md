@@ -1,9 +1,6 @@
-# (Optional) Extend the
+# (Optional) Extend the consumer
 
-consumer
-
-The application in the [Tutorial: Process real-time stock data using
-KPL and KCL 1.x](tutorial-stock-data-kplkcl.md "tutorial-stock-data-kplkcl.md") might already be sufficient for your
+The application in the [Tutorial: Process real-time stock data using KPL and KCL 1.x](tutorial-stock-data-kplkcl.md "tutorial-stock-data-kplkcl.md") might already be sufficient for your
 purposes. This optional section shows how you can extend the consumer code for a
 slightly more elaborate scenario.
 
@@ -59,8 +56,6 @@ similar to this:
   ****************************************************************
 ```
 
-## Next
-
-steps
+## Next steps
 
 [Clean up resources](tutorial-stock-data-kplkcl-finish.md "tutorial-stock-data-kplkcl-finish.md")

@@ -173,8 +173,7 @@ time. For more information, see [Write data to Amazon Kinesis Data Streams](buil
 
 ###### To run the producer
 
-1. Verify that the access key and secret key pair retrieved in [Create an IAM policy and
-   user](tutorial-stock-data-kplkcl2-iam.md "tutorial-stock-data-kplkcl2-iam.md") are saved in the file
+1. Verify that the access key and secret key pair retrieved in [Create an IAM policy and user](tutorial-stock-data-kplkcl2-iam.md "tutorial-stock-data-kplkcl2-iam.md") are saved in the file
    `~/.aws/credentials`.
 2. Run the `StockTradeWriter` class with the following
    arguments:

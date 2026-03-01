@@ -5,24 +5,15 @@
 consumers:
 
 - [Compilation error with the LeaseManagementConfig constructor](#compilation-error-leasemanagementconfig "#compilation-error-leasemanagementconfig")
-- [Some Kinesis Data Streams records are skipped when using the Kinesis Client
-  Library](#records-skipped "#records-skipped")
-- [Records belonging to the same
-  shard are processed by different record processors at the same time](#records-belonging-to-the-same-shard "#records-belonging-to-the-same-shard")
-- [The consumer application is reading at a
-  slower rate than expected](#consumer-app-reading-slower "#consumer-app-reading-slower")
-- [GetRecords returns an empty records array
-  even when there is data in the stream](#getrecords-returns-empty "#getrecords-returns-empty")
-- [The shard iterator expires
-  unexpectedly](#shard-iterator-expires-unexpectedly "#shard-iterator-expires-unexpectedly")
-- [Consumer record processing is falling
-  behind](#record-processing-falls-behind "#record-processing-falls-behind")
-- [Unauthorized KMS key permission
-  error](#unauthorized-kms-consumer "#unauthorized-kms-consumer")
-- [DynamoDbException: The document path provided in
-  the update expression is invalid for update](#dynamo-db-exception "#dynamo-db-exception")
-- [Troubleshoot other common issues for
-  consumers](#misc-troubleshooting-consumer "#misc-troubleshooting-consumer")
+- [Some Kinesis Data Streams records are skipped when using the Kinesis Client Library](#records-skipped "#records-skipped")
+- [Records belonging to the same shard are processed by different record processors at the same time](#records-belonging-to-the-same-shard "#records-belonging-to-the-same-shard")
+- [The consumer application is reading at a slower rate than expected](#consumer-app-reading-slower "#consumer-app-reading-slower")
+- [GetRecords returns an empty records array even when there is data in the stream](#getrecords-returns-empty "#getrecords-returns-empty")
+- [The shard iterator expires unexpectedly](#shard-iterator-expires-unexpectedly "#shard-iterator-expires-unexpectedly")
+- [Consumer record processing is falling behind](#record-processing-falls-behind "#record-processing-falls-behind")
+- [Unauthorized KMS key permission error](#unauthorized-kms-consumer "#unauthorized-kms-consumer")
+- [DynamoDbException: The document path provided in the update expression is invalid for update](#dynamo-db-exception "#dynamo-db-exception")
+- [Troubleshoot other common issues for consumers](#misc-troubleshooting-consumer "#misc-troubleshooting-consumer")
 
 ## Compilation error with the LeaseManagementConfig constructor
 
@@ -78,9 +69,7 @@ Scheduler scheduler = new Scheduler(
 );
 ```
 
-## Some Kinesis Data Streams records are skipped when using the Kinesis Client
-
-Library
+## Some Kinesis Data Streams records are skipped when using the Kinesis Client Library
 
 The most common cause of skipped records is an unhandled exception thrown from
 `processRecords`. The Kinesis Client Library (KCL) relies on your
@@ -93,9 +82,7 @@ the record processor. This effectively results in consumer applications observin
 skipped records. To prevent skipped records, handle all exceptions within
 `processRecords` appropriately.
 
-## Records belonging to the same
-
-shard are processed by different record processors at the same time
+## Records belonging to the same shard are processed by different record processors at the same time
 
 For any running Kinesis Client Library (KCL) application, a shard only has one owner.
 However, multiple record processors may temporarily process the same shard. If a worker
@@ -125,9 +112,7 @@ following two cases to perform graceful shutdown:
 
 For more information, see [Handle duplicate records](kinesis-record-processor-duplicates.md "kinesis-record-processor-duplicates.md").
 
-## The consumer application is reading at a
-
-slower rate than expected
+## The consumer application is reading at a slower rate than expected
 
 The most common reasons for read throughput being slower than expected are as
 follows:
@@ -144,8 +129,7 @@ follows:
    than expected for a number of possible reasons; the logic may be CPU intensive,
    I/O blocking, or bottlenecked on synchronization. To test if this is true, test
    run empty record processors and compare the read throughput. For information
-   about how to keep up with the incoming data, see [Use resharding, scaling, and parallel
-   processing to change the number of shards](kinesis-record-processor-scaling.md "kinesis-record-processor-scaling.md").
+   about how to keep up with the incoming data, see [Use resharding, scaling, and parallel processing to change the number of shards](kinesis-record-processor-scaling.md "kinesis-record-processor-scaling.md").
 
 If you have only one consumer application, it is always possible to read at least two
 times faster than the put rate. That’s because you can write up to 1,000 records per second for writes, up to a maximum total data write rate of 1 MB per second (including partition keys). Each
@@ -156,9 +140,7 @@ shard. The maximum size of data that **GetRecords** can return is
 10 MB. If a call returns that limit, subsequent calls made within the
 next 5 seconds throw a `ProvisionedThroughputExceededException`.
 
-## GetRecords returns an empty records array
-
-even when there is data in the stream
+## GetRecords returns an empty records array even when there is data in the stream
 
 Consuming, or getting records is a pull model. Developers are expected to call [GetRecords](../../../kinesis/latest/APIReference/API_GetRecords.md "../../../kinesis/latest/APIReference/API_GetRecords.md") in a continuous loop with
 no back-offs. Every call to **GetRecords** also returns a
@@ -193,9 +175,7 @@ change. With the KCL, the developer only supplies the logic to process incoming
 records. This is possible because the library makes continuous calls to
 **GetRecords** for you.
 
-## The shard iterator expires
-
-unexpectedly
+## The shard iterator expires unexpectedly
 
 A new shard iterator is returned by every **GetRecords** request (as
 `NextShardIterator`), which you then use in the next
@@ -208,12 +188,9 @@ If the shard iterator expires immediately before you can use it, this might indi
 that the DynamoDB table used by Kinesis does not have enough capacity to store the lease data.
 This situation is more likely to happen if you have a large number of shards. To solve
 this problem, increase the write capacity assigned to the shard table. For more
-information, see [Use a lease table to track
-the shards processed by the KCL consumer application](shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable "shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable").
+information, see [Use a lease table to track the shards processed by the KCL consumer application](shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable "shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable").
 
-## Consumer record processing is falling
-
-behind
+## Consumer record processing is falling behind
 
 For most use cases, consumer applications are reading the latest data from the stream.
 In certain circumstances, consumer reads may fall behind, which may not be desired.
@@ -228,12 +205,10 @@ default,
 365
 days), there is risk for data loss due to record expiration. A quick stopgap solution is
 to increase the retention period. This stops the loss of important data while you
-troubleshoot the issue further. For more information, see [Monitor the Amazon Kinesis Data Streams service with
-Amazon CloudWatch](monitoring-with-cloudwatch.md "monitoring-with-cloudwatch.md").
+troubleshoot the issue further. For more information, see [Monitor the Amazon Kinesis Data Streams service with Amazon CloudWatch](monitoring-with-cloudwatch.md "monitoring-with-cloudwatch.md").
 Next, identify how far behind your consumer application is reading from each shard using
 a custom CloudWatch metric emitted by the Kinesis Client Library (KCL),
-`MillisBehindLatest`. For more information, see [Monitor the Kinesis Client Library with
-Amazon CloudWatch](monitoring-with-kcl.md "monitoring-with-kcl.md").
+`MillisBehindLatest`. For more information, see [Monitor the Kinesis Client Library with Amazon CloudWatch](monitoring-with-kcl.md "monitoring-with-kcl.md").
 
 Here are the most common reasons consumers can fall behind:
 
@@ -262,9 +237,7 @@ Here are the most common reasons consumers can fall behind:
     CPU utilization, among others) on the underlying processing nodes during
     peak demand.
 
-## Unauthorized KMS key permission
-
-error
+## Unauthorized KMS key permission error
 
 This error occurs when a consumer application reads from an encrypted stream without
 permissions on the AWS KMS key. To assign permissions to an application to access a
@@ -272,9 +245,7 @@ KMS key, see [Using Key Policies in AWS
 KMS](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") and [Using IAM Policies with
 AWS KMS](../../../kms/latest/developerguide/iam-policies.md "../../../kms/latest/developerguide/iam-policies.md").
 
-## DynamoDbException: The document path provided in
-
-the update expression is invalid for update
+## DynamoDbException: The document path provided in the update expression is invalid for update
 
 When using KCL 3.x with AWS SDK for Java versions 2.27.19 through 2.27.23, you may
 encounter the following DynamoDB exception:
@@ -289,9 +260,7 @@ and impacts all versions up to 2.27.23. The issue has been resolved in the AWS S
 version 2.27.24. For optimal performance and stability, we recommend upgrading to
 version 2.28.0 or later.
 
-## Troubleshoot other common issues for
-
-consumers
+## Troubleshoot other common issues for consumers
 
 - [Why is Kinesis Data Streams trigger unable to invoke my Lambda
   function?](https://aws.amazon.com/premiumsupport/knowledge-center/kinesis-data-streams-lambda-invocation/ "https://aws.amazon.com/premiumsupport/knowledge-center/kinesis-data-streams-lambda-invocation/")

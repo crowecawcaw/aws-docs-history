@@ -1,11 +1,8 @@
-# Develop a
-
-Kinesis Client Library consumer in .NET
+# Develop a Kinesis Client Library consumer in .NET
 
 ###### Important
 
-Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client"). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md "kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL
-3.x](kcl-migration-1-3.md "kcl-migration-1-3.md").
+Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client"). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md "kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md "kcl-migration-1-3.md").
 
 You can use the Kinesis Client Library (KCL) to build applications that process data
 from your Kinesis data streams. The Kinesis Client Library is available in multiple languages. This
@@ -29,14 +26,10 @@ application in .NET:
 
 ###### Tasks
 
-- [Implement the
-  IRecordProcessor class methods](#kinesis-record-processor-implementation-interface-dotnet "#kinesis-record-processor-implementation-interface-dotnet")
-- [Modify the configuration
-  properties](#kinesis-record-processor-initialization-dotnet "#kinesis-record-processor-initialization-dotnet")
+- [Implement the IRecordProcessor class methods](#kinesis-record-processor-implementation-interface-dotnet "#kinesis-record-processor-implementation-interface-dotnet")
+- [Modify the configuration properties](#kinesis-record-processor-initialization-dotnet "#kinesis-record-processor-initialization-dotnet")
 
-## Implement the
-
-IRecordProcessor class methods
+## Implement the IRecordProcessor class methods
 
 The consumer must implement the following methods for `IRecordProcessor`. The
 sample consumer provides implementations that you can use as a starting point (see the
@@ -59,8 +52,7 @@ for the possibility that a data record might be processed more than one time. Th
 because Kinesis Data Streams has _at least once_ semantics, meaning that every data
 record from a shard is processed at least one time by a worker in your consumer. For more
 information about cases in which a particular shard might be processed by more than one
-worker, see [Use resharding, scaling, and parallel
-processing to change the number of shards](kinesis-record-processor-scaling.md "kinesis-record-processor-scaling.md").
+worker, see [Use resharding, scaling, and parallel processing to change the number of shards](kinesis-record-processor-scaling.md "kinesis-record-processor-scaling.md").
 
 ```
 public void Initialize(InitializationInput input)
@@ -145,17 +137,13 @@ The KCL also passes a `Checkpointer` object to
 processor should finish processing any data records, and then call the
 `checkpoint` method on this interface.
 
-## Modify the configuration
-
-properties
+## Modify the configuration properties
 
 The sample consumer provides default values for the configuration properties. You can
 override any of these properties with your own values (see
 `SampleConsumer/kcl.properties`).
 
-### Application
-
-name
+### Application name
 
 The KCL requires an application that this is unique among your applications,
 and among Amazon DynamoDB tables in the same Region. It uses the application name configuration
@@ -169,8 +157,7 @@ value in the following ways:
 - The KCL creates a DynamoDB table with the application name and uses the
   table to maintain state information (such as checkpoints and worker-shard mapping) for
   the application. Each application has its own DynamoDB table. For more information, see
-  [Use a lease table to track
-  the shards processed by the KCL consumer application](shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable "shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable").
+  [Use a lease table to track the shards processed by the KCL consumer application](shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable "shared-throughput-kcl-consumers.md#shared-throughput-kcl-consumers-leasetable").
 
 ### Set up credentials
 

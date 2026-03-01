@@ -1,6 +1,4 @@
-# Develop shared-throughput consumers with the
-
-AWS SDK for Java
+# Develop shared-throughput consumers with the AWS SDK for Java
 
 One of the methods for developing custom Kinesis Data Streams consumers with shared throughout is to use
 the Amazon Kinesis Data Streams APIs with the AWS SDK for Java. This section describes using the Kinesis Data Streams APIs with
@@ -16,8 +14,7 @@ for all possible security or performance considerations.
 ###### Topics
 
 - [Get data from a stream](#kinesis-using-sdk-java-get-data "#kinesis-using-sdk-java-get-data")
-- [Use shard
-  iterators](#kinesis-using-sdk-java-get-data-shard-iterators "#kinesis-using-sdk-java-get-data-shard-iterators")
+- [Use shard iterators](#kinesis-using-sdk-java-get-data-shard-iterators "#kinesis-using-sdk-java-get-data-shard-iterators")
 - [Use GetRecords](#kinesis-using-sdk-java-get-data-getrecords "#kinesis-using-sdk-java-get-data-getrecords")
 - [Adapt to a reshard](#kinesis-using-sdk-java-get-data-reshard "#kinesis-using-sdk-java-get-data-reshard")
 
@@ -45,9 +42,7 @@ implement custom tools for monitoring or debugging your data streams.
 Kinesis Data Streams supports changes to the data record retention period of your data stream.
 For more information, see [Change the data retention period](kinesis-extended-retention.md "kinesis-extended-retention.md").
 
-## Use shard
-
-iterators
+## Use shard iterators
 
 You retrieve records from the stream on a per-shard basis. For each shard, and for
 each batch of records that you retrieve from that shard, you must obtain a
@@ -120,8 +115,7 @@ lastSequenceNumber = putRecordResult.getSequenceNumber();
 ```
 
 You can use sequence numbers to guarantee strictly increasing ordering of records. For
-more information, see the code example in [PutRecord
-example](developing-producers-with-sdk.md#kinesis-using-sdk-java-putrecord-example "developing-producers-with-sdk.md#kinesis-using-sdk-java-putrecord-example").
+more information, see the code example in [PutRecord example](developing-producers-with-sdk.md#kinesis-using-sdk-java-putrecord-example "developing-producers-with-sdk.md#kinesis-using-sdk-java-putrecord-example").
 
 ## Use GetRecords
 

@@ -1,6 +1,4 @@
-# DynamoDB metadata tables and load balancing in
-
-KCL
+# DynamoDB metadata tables and load balancing in KCL
 
 KCL manages metadata such as leases and CPU utilization metrics from workers.
 KCL tracks these metadata using DynamoDB tables. For each Amazon Kinesis Data Streams application,
@@ -15,17 +13,14 @@ metrics_ and _coordinator state_ tables.
 ###### Important
 
 You must add proper permissions for KCL applications to create and
-manage metadata tables in DynamoDB. For details, see [IAM permissions required for KCL
-consumer applications](kcl-iam-permissions.md "kcl-iam-permissions.md").
+manage metadata tables in DynamoDB. For details, see [IAM permissions required for KCL consumer applications](kcl-iam-permissions.md "kcl-iam-permissions.md").
 
 KCL consumer application does not automatically remove these three DynamoDB
 metadata tables. Make sure that you remove these DynamoDB metadata tables created by
 KCL consumer application when you decommission your consumer application to
 prevent unnecessary cost.
 
-## Lease
-
-table
+## Lease table
 
 A lease table is a unique Amazon DynamoDB table used to track the shards being leased
 and processed by the schedulers of the KCL consumer application. Each
@@ -55,7 +50,7 @@ schedulers of your consumer application. Key fields include the following:
   structured as
   `account-id:StreamName:streamCreationTimestamp:ShardId`.
   leaseKey is the partition key of the lease table. For more information about
-  multi-stream processing, see [Multi-stream processing with KCL](kcl-multi-stream.md "kcl-multi-stream.md") .
+  multi-stream processing, see [Multi-stream processing with KCL](kcl-multi-stream.md "kcl-multi-stream.md").
 - **checkpoint:** The most recent checkpoint
   sequence number for the shard.
 - **checkpointSubSequenceNumber:** When using
@@ -81,16 +76,14 @@ schedulers of your consumer application. Key fields include the following:
   hash key range for this shard.
 
 If you use multi-stream processing with KCL, you see the following two
-additional fields in the lease table. For more information, see [Multi-stream processing with KCL](kcl-multi-stream.md "kcl-multi-stream.md") .
+additional fields in the lease table. For more information, see [Multi-stream processing with KCL](kcl-multi-stream.md "kcl-multi-stream.md").
 
 - **shardID:** The ID of the shard.
 - **streamName:** The identifier of the data stream
   in the following format:
   `account-id:StreamName:streamCreationTimestamp`.
 
-## Worker metrics
-
-table
+## Worker metrics table
 
 Worker metrics table is a unique Amazon DynamoDB table for each KCL application
 and is used to record CPU utilization metrics from each worker. These metrics will
@@ -108,9 +101,7 @@ metadata associated with the in-place migration from KCL 2.x to
 KCL 3.x. KCL uses `KCLApplicationName-CoordinatorState`
 for the name of the coordinator state table by default.
 
-## DynamoDB capacity mode for metadata tables created
-
-by KCL
+## DynamoDB capacity mode for metadata tables created by KCL
 
 By default, the Kinesis Client Library (KCL) creates DynamoDB metadata tables
 such as lease table, worker metrics table, and coordinator state table using the
@@ -152,9 +143,7 @@ example, if your KCL consumer application does frequent checkpointing or
 operates on a stream with many shards, you might need more capacity units. For
 information about provisioned throughput in DynamoDB, see [DynamoDB throughput capacity](../../../amazondynamodb/latest/developerguide/capacity-mode.md "../../../amazondynamodb/latest/developerguide/capacity-mode.md") and [updating a table](../../../amazondynamodb/latest/developerguide/WorkingWithTables.md#WorkingWithTables.Basics.UpdateTable "../../../amazondynamodb/latest/developerguide/WorkingWithTables.md#WorkingWithTables.Basics.UpdateTable") in the Amazon DynamoDB Developer Guide.
 
-## How KCL assigns leases to workers and
-
-balances the load
+## How KCL assigns leases to workers and balances the load
 
 KCL continuously gathers and monitors CPU utilization metrics from
 compute hosts running the workers to ensure even workload distribution. These CPU

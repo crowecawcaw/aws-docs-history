@@ -1,7 +1,6 @@
 # Implement the consumer
 
-The consumer application in the [Tutorial: Process real-time stock data using
-KPL and KCL 1.x](tutorial-stock-data-kplkcl.md "tutorial-stock-data-kplkcl.md") continuously processes the stock trades
+The consumer application in the [Tutorial: Process real-time stock data using KPL and KCL 1.x](tutorial-stock-data-kplkcl.md "tutorial-stock-data-kplkcl.md") continuously processes the stock trades
 stream that you created in [Implement the producer](tutorial-stock-data-kplkcl-producer.md "tutorial-stock-data-kplkcl-producer.md"). It then outputs the most
 popular stocks being bought and sold every minute. The application is built on top of
 the Kinesis Client Library (KCL), which does much of the heavy lifting common to
@@ -65,8 +64,7 @@ performs the following steps:
 - Sets the next checkpointing time.
 
 This method uses 60-second intervals for the reporting and checkpointing
-rate. For more information about checkpointing, see [Additional
-information about the consumer](#tutorial-stock-data-kplkcl-consumer-supplement "#tutorial-stock-data-kplkcl-consumer-supplement").
+rate. For more information about checkpointing, see [Additional information about the consumer](#tutorial-stock-data-kplkcl-consumer-supplement "#tutorial-stock-data-kplkcl-consumer-supplement").
 
 **StockStats class**
 
@@ -143,9 +141,7 @@ thereafter:
   ****************************************************************
 ```
 
-## Additional
-
-information about the consumer
+## Additional information about the consumer
 
 If you are familiar with the advantages of the Kinesis Client Library, discussed in
 [Develop KCL 1.x consumers](developing-consumers-with-kcl.md "developing-consumers-with-kcl.md") and elsewhere, you might wonder
@@ -193,5 +189,4 @@ most effective way to scale up.
 
 ## Next steps
 
-[(Optional) Extend the
-consumer](tutorial-stock-data-kplkcl-consumer-extension.md "tutorial-stock-data-kplkcl-consumer-extension.md")
+[(Optional) Extend the consumer](tutorial-stock-data-kplkcl-consumer-extension.md "tutorial-stock-data-kplkcl-consumer-extension.md")

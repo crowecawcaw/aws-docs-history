@@ -1,6 +1,4 @@
-# Tutorial: Process real-time stock data using
-
-KPL and KCL 2.x
+# Tutorial: Process real-time stock data using KPL and KCL 2.x
 
 The scenario for this tutorial involves ingesting stock trades into a data stream and
 writing a basic Amazon Kinesis Data Streams application that performs calculations on the stream. You will
@@ -35,12 +33,9 @@ The examples shown use the US West (Oregon) Region, but they work on any of the 
 
 - [Complete prerequisites](tutorial-stock-data-kplkcl2-begin.md "tutorial-stock-data-kplkcl2-begin.md")
 - [Create a data stream](tutorial-stock-data-kplkcl2-create-stream.md "tutorial-stock-data-kplkcl2-create-stream.md")
-- [Create an IAM policy and
-  user](tutorial-stock-data-kplkcl2-iam.md "tutorial-stock-data-kplkcl2-iam.md")
-- [Download and build the
-  code](tutorial-stock-data-kplkcl2-download.md "tutorial-stock-data-kplkcl2-download.md")
+- [Create an IAM policy and user](tutorial-stock-data-kplkcl2-iam.md "tutorial-stock-data-kplkcl2-iam.md")
+- [Download and build the code](tutorial-stock-data-kplkcl2-download.md "tutorial-stock-data-kplkcl2-download.md")
 - [Implement the producer](tutorial-stock-data-kplkcl2-producer.md "tutorial-stock-data-kplkcl2-producer.md")
 - [Implement the consumer](tutorial-stock-data-kplkcl2-consumer.md "tutorial-stock-data-kplkcl2-consumer.md")
-- [(Optional) Extend the
-  consumer](tutorial-stock-data-kplkcl2-consumer-extension.md "tutorial-stock-data-kplkcl2-consumer-extension.md")
+- [(Optional) Extend the consumer](tutorial-stock-data-kplkcl2-consumer-extension.md "tutorial-stock-data-kplkcl2-consumer-extension.md")
 - [Clean up resources](tutorial-stock-data-kplkcl2-finish.md "tutorial-stock-data-kplkcl2-finish.md")

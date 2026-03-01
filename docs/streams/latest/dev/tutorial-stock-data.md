@@ -1,6 +1,4 @@
-# Tutorial: Analyze real-time stock data using
-
-Amazon Managed Service for Apache Flink
+# Tutorial: Analyze real-time stock data using Amazon Managed Service for Apache Flink
 
 The scenario for this tutorial involves ingesting stock trades into a data stream and
 writing a simple [Amazon Managed Service for Apache Flink](../../../kinesisanalytics/latest/java/what-is.md "../../../kinesisanalytics/latest/java/what-is.md") application that performs calculations on the stream. You will
@@ -33,16 +31,12 @@ The examples shown use the US West (Oregon) Region, but they work on any of the 
 
 ###### Tasks
 
-- [Prerequisites for completing the
-  exercises](#setting-up-prerequisites "#setting-up-prerequisites")
-- [Set up an AWS account and create an administrator
-  user](setting-up.md "setting-up.md")
+- [Prerequisites for completing the exercises](#setting-up-prerequisites "#setting-up-prerequisites")
+- [Set up an AWS account and create an administrator user](setting-up.md "setting-up.md")
 - [Set up the AWS Command Line Interface (AWS CLI)](setup-awscli.md "setup-awscli.md")
 - [Create and run a Managed Service for Apache Flink application](get-started-exercise.md "get-started-exercise.md")
 
-## Prerequisites for completing the
-
-exercises
+## Prerequisites for completing the exercises
 
 To complete the steps in this guide, you must have the following:
 
@@ -62,5 +56,4 @@ To complete the steps in this guide, you must have the following:
 $ mvn -version
 ```
 
-To get started, go to [Set up an AWS account and create an administrator
-user](setting-up.md "setting-up.md").
+To get started, go to [Set up an AWS account and create an administrator user](setting-up.md "setting-up.md").

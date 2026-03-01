@@ -1,6 +1,4 @@
-# Process serialized data using AWS Lambda with
-
-the Amazon Kinesis Producer Library
+# Process serialized data using AWS Lambda with the Amazon Kinesis Producer Library
 
 The [Amazon Kinesis Producer Library](../../../kinesis/latest/dev/developing-producers-with-kpl.md "../../../kinesis/latest/dev/developing-producers-with-kpl.md") (KPL) aggregates small user-formatted records into
 larger records up to 1 MB to make better use of Amazon Kinesis Data Streams throughput. While the KCL for Java

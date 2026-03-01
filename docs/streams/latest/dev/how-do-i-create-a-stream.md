@@ -30,8 +30,7 @@ information.
 
 ###### To create a stream using the Kinesis Data Streams API
 
-- For information about creating a stream using the Kinesis Data Streams API, see [Create a stream using the
-  APIs](kinesis-using-sdk-java-create-stream.md "kinesis-using-sdk-java-create-stream.md").
+- For information about creating a stream using the Kinesis Data Streams API, see [Create a stream using the APIs](kinesis-using-sdk-java-create-stream.md "kinesis-using-sdk-java-create-stream.md").
 
 ###### To create a stream using the AWS CLI
 

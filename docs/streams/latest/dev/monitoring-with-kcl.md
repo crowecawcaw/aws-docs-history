@@ -1,6 +1,4 @@
-# Monitor the Kinesis Client Library with
-
-Amazon CloudWatch
+# Monitor the Kinesis Client Library with Amazon CloudWatch
 
 The [Kinesis Client Library](../../../kinesis/latest/dev/developing-consumers-with-kcl.md "../../../kinesis/latest/dev/developing-consumers-with-kcl.md") (KCL) for Amazon Kinesis Data Streams publishes custom Amazon CloudWatch metrics on your
 behalf, using the name of your KCL application as the namespace. You can view these

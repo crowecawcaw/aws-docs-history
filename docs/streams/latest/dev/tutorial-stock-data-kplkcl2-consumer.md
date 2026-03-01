@@ -206,5 +206,4 @@ thereafter:
 
 ## Next steps
 
-[(Optional) Extend the
-consumer](tutorial-stock-data-kplkcl2-consumer-extension.md "tutorial-stock-data-kplkcl2-consumer-extension.md")
+[(Optional) Extend the consumer](tutorial-stock-data-kplkcl2-consumer-extension.md "tutorial-stock-data-kplkcl2-consumer-extension.md")

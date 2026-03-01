@@ -1,14 +1,10 @@
-# Share access using resource-based
-
-policies
+# Share access using resource-based policies
 
 ###### Note
 
 Updating an existing resource-based policy means replacing the existing one, so make sure to include all the necessary information in your new policy.
 
-## Share access with
-
-cross-account AWS Lambda functions
+## Share access with cross-account AWS Lambda functions
 
 ###### Lambda operator
 
@@ -27,13 +23,10 @@ cross-account AWS Lambda functions
 2. On the Amazon Kinesis Data Streams console, choose the data stream. Choose the **Data stream sharing** tab and then the **Create sharing policy** button to start the visual policy editor.
    To share a registered consumer within a data stream, choose the consumer and then choose **Create sharing policy**. You can also write the JSON policy directly.
 3. Specify the cross-account Lambda execution role as the principal and the exact Kinesis Data Streams actions you are sharing access to. Make sure to include the action `kinesis:DescribeStream`.
-   For more information on example resource policies for Kinesis Data Streams, see [Example resource-based
-   policies for Kinesis data streams](controlling-access.md#kinesis-stream-sharing-iam-examples "controlling-access.md#kinesis-stream-sharing-iam-examples").
+   For more information on example resource policies for Kinesis Data Streams, see [Example resource-based policies for Kinesis data streams](controlling-access.md#kinesis-stream-sharing-iam-examples "controlling-access.md#kinesis-stream-sharing-iam-examples").
 4. Choose **Create policy** or use the [PutResourcePolicy](../../../kinesis/latest/APIReference/API_PutResourcePolicy.md "../../../kinesis/latest/APIReference/API_PutResourcePolicy.md") to attach the policy to your resource.
 
-## Share access with
-
-cross-account KCL consumers
+## Share access with cross-account KCL consumers
 
 - If you are using KCL 1.x, ensure you are using KCL 1.15.0 or higher.
 - If you are using KCL 2.x, ensure you are using KCL 2.5.3 or higher.
@@ -52,13 +45,10 @@ cross-account KCL consumers
 1. Get the cross-account IAM user or IAM role that will run the KCL application.
 2. On the Amazon Kinesis Data Streams console, choose the data stream. Choose the **Data stream sharing** tab and then the **Create sharing policy** button to start the visual policy editor.
    To share a registered consumer within a data stream, choose the consumer and then choose **Create sharing policy**. You can also write the JSON policy directly.
-3. Specify the cross-account KCL application's IAM user or IAM role as the principal and the exact Kinesis Data Streams actions you are sharing access to. For more information on example resource policies for Kinesis Data Streams, see [Example resource-based
-   policies for Kinesis data streams](controlling-access.md#kinesis-stream-sharing-iam-examples "controlling-access.md#kinesis-stream-sharing-iam-examples").
+3. Specify the cross-account KCL application's IAM user or IAM role as the principal and the exact Kinesis Data Streams actions you are sharing access to. For more information on example resource policies for Kinesis Data Streams, see [Example resource-based policies for Kinesis data streams](controlling-access.md#kinesis-stream-sharing-iam-examples "controlling-access.md#kinesis-stream-sharing-iam-examples").
 4. Choose **Create policy** or use the [PutResourcePolicy](../../../kinesis/latest/APIReference/API_PutResourcePolicy.md "../../../kinesis/latest/APIReference/API_PutResourcePolicy.md") to attach the policy to your resource.
 
-## Share access to encrypted
-
-data
+## Share access to encrypted data
 
 If you have enabled server-side encryption for a data stream with AWS managed KMS key and want to share access via a resource policy, you must switch to using customer-managed key (CMK). For more information, see [What is server-side encryption for Kinesis Data Streams?](what-is-sse.md "what-is-sse.md"). In addition, you must allow your sharing principal entities to have access to your CMK, using KMS cross account sharing capabilities. Make sure to also make the change in the IAM policies for the sharing principal entities.
 For more information, see [Allowing users in other accounts to use a KMS key](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md").

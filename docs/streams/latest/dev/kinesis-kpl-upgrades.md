@@ -1,6 +1,4 @@
-# Transition to Amazon Trust Services (ATS) certificates
-
-for the KPL
+# Transition to Amazon Trust Services (ATS) certificates for the KPL
 
 On February 9, 2018, at 9:00 AM PST, Amazon Kinesis Data Streams installed ATS certificates. To continue to
 be able to write records to Kinesis Data Streams using the Amazon Kinesis Producer Library (KPL), you must

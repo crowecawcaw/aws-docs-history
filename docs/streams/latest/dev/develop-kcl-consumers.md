@@ -13,6 +13,5 @@ KCL consumers in Java and non-Java languages.
 
 ###### Topics
 
-- [Develop consumers with KCL in
-  Java](develop-kcl-consumers-java.md "develop-kcl-consumers-java.md")
+- [Develop consumers with KCL in Java](develop-kcl-consumers-java.md "develop-kcl-consumers-java.md")
 - [Develop consumers with KCL in non-Java languages](develop-kcl-consumers-non-java.md "develop-kcl-consumers-non-java.md")

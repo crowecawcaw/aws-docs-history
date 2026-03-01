@@ -20,8 +20,7 @@ collects data from the files and reliably sends it to the stream.
 - [Download and install the agent](#download-install "#download-install")
 - [Configure and start the agent](#config-start "#config-start")
 - [Specify the agent configuration settings](#agent-config-settings "#agent-config-settings")
-- [Monitor multiple file directories and write to multiple
-  streams](#sim-writes "#sim-writes")
+- [Monitor multiple file directories and write to multiple streams](#sim-writes "#sim-writes")
 - [Use the agent to pre-process data](#pre-processing "#pre-processing")
 - [Use agent CLI commands](#cli-commands "#cli-commands")
 - [FAQ](#agent-faq "#agent-faq")
@@ -46,8 +45,7 @@ collects data from the files and reliably sends it to the stream.
   perform the Kinesis Data Streams [PutRecords](../../../kinesis/latest/APIReference/API_PutRecords.md "../../../kinesis/latest/APIReference/API_PutRecords.md") operation for the agent to send data to
   your stream. If you enable CloudWatch monitoring for the agent, permission to perform
   the CloudWatch [PutMetricData](../../../AmazonCloudWatch/latest/APIReference/API_PutMetricData.md "../../../AmazonCloudWatch/latest/APIReference/API_PutMetricData.md") operation is also needed. For more
-  information, see [Controlling access to Amazon Kinesis Data Streams resources using
-  IAM](controlling-access.md "controlling-access.md"), [Monitor Kinesis Data Streams Agent health with Amazon CloudWatch](agent-health.md "agent-health.md"), and [CloudWatch Access Control](../../../AmazonCloudWatch/latest/DeveloperGuide/UsingIAM.md "../../../AmazonCloudWatch/latest/DeveloperGuide/UsingIAM.md").
+  information, see [Controlling access to Amazon Kinesis Data Streams resources using IAM](controlling-access.md "controlling-access.md"), [Monitor Kinesis Data Streams Agent health with Amazon CloudWatch](agent-health.md "agent-health.md"), and [CloudWatch Access Control](../../../AmazonCloudWatch/latest/DeveloperGuide/UsingIAM.md "../../../AmazonCloudWatch/latest/DeveloperGuide/UsingIAM.md").
 
 ## Download and install the agent
 
@@ -189,9 +187,7 @@ The following are the flow configuration settings.
 | `skipHeaderLines`               | The number of lines for the agent to skip parsing at the beginning<br>of monitored files.<br>Value range: 0 or more<br>Default: 0 (zero)                                                                                                                                                                                     |
 | `truncatedRecordTerminator`     | The string that the agent uses to truncate a parsed record when<br>the record size exceeds the Kinesis Data Streams record size limit. (1,000<br>KB)<br>Default: `'\n'` (newline)                                                                                                                                            |
 
-## Monitor multiple file directories and write to multiple
-
-streams
+## Monitor multiple file directories and write to multiple streams
 
 By specifying multiple flow configuration settings, you can configure the agent to
 monitor multiple file directories and send data to multiple streams. In the following
@@ -349,9 +345,7 @@ After conversion:
 {"host":"64.242.88.10","ident":null,"authuser":null,"datetime":"07/Mar/2004:16:10:02 -0800","request":"GET /mailman/listinfo/hsdivision HTTP/1.1","response":"200","bytes":"6291"}
 ```
 
-###### Example: LOGTOJSON Configuration With Custom
-
-Fields
+###### Example: LOGTOJSON Configuration With Custom Fields
 
 Here is another example `LOGTOJSON` configuration:
 
@@ -370,9 +364,7 @@ previous example is converted to JSON format as follows:
 {"f1":"64.242.88.10","f2":null,"f3":null,"f4":"07/Mar/2004:16:10:02 -0800","f5":"GET /mailman/listinfo/hsdivision HTTP/1.1","f6":"200","f7":"6291"}
 ```
 
-###### Example: Convert Apache Common Log
-
-Entry
+###### Example: Convert Apache Common Log Entry
 
 The following flow configuration converts an Apache Common Log entry to a single
 line record in JSON format:
@@ -424,9 +416,7 @@ form a single-line record in JSON format.
 }
 ```
 
-###### Example: LOGTOJSON Configuration with Match
-
-Pattern
+###### Example: LOGTOJSON Configuration with Match Pattern
 
 Here is one example of a `LOGTOJSON` configuration for an Apache Common
 Log entry converted to JSON format, with the last field (bytes) omitted:
@@ -501,7 +491,7 @@ and [Amazon Firehose Delivery Streams](../../../firehose/latest/dev/limits.md ".
 
 Once you rule out throttling, see if the Kinesis Agent is configured to tail a large amount of small files. There is a delay when Kinesis Agent tails a new file, so Kinesis Agent should be tailing a small amount of larger files. Try consolidating your log files into larger files.
 
-### Why am I getting `java.lang.OutOfMemoryError` exceptions?
+### Why am I getting `java.lang.OutOfMemoryError`exceptions?
 
 Kinesis Agent does not have enough memory to handle its current workload. Try increasing `JAVA_START_HEAP` and `JAVA_MAX_HEAP` in
 `/usr/bin/start-aws-kinesis-agent` and restarting the agent.

@@ -1,6 +1,4 @@
-# Verify and Troubleshoot KMS key
-
-permissions
+# Verify and Troubleshoot KMS key permissions
 
 After enabling encryption on a Kinesis stream, we recommend that you monitor the success
 of your `putRecord`, `putRecords`, and `getRecords`

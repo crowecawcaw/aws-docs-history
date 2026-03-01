@@ -2,8 +2,7 @@
 
 ###### Important
 
-Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client"). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md "kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL
-3.x](kcl-migration-1-3.md "kcl-migration-1-3.md").
+Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x will reach end-of-support on January 30, 2026. We **strongly recommend** that you migrate your KCL applications using version 1.x to the latest KCL version before January 30, 2026. To find the latest KCL version, see [Amazon Kinesis Client Library page on GitHub](https://github.com/awslabs/amazon-kinesis-client "https://github.com/awslabs/amazon-kinesis-client"). For information about the latest KCL versions, see [Use Kinesis Client Library](kcl.md "kcl.md"). For information about migrating from KCL 1.x to KCL 3.x, see [Migrating from KCL 1.x to KCL 3.x](kcl-migration-1-3.md "kcl-migration-1-3.md").
 
 This topic explains the differences between versions 1.x and 2.x of the Kinesis Client Library
 (KCL). It also shows you how to migrate your consumer from version 1.x to version 2.x of
@@ -21,8 +20,7 @@ Version 2.0 of the KCL introduces the following interface changes:
 ###### Topics
 
 - [Migrate the record processor](#recrod-processor-migration "#recrod-processor-migration")
-- [Migrate the record processor
-  factory](#recrod-processor-factory-migration "#recrod-processor-factory-migration")
+- [Migrate the record processor factory](#recrod-processor-factory-migration "#recrod-processor-factory-migration")
 - [Migrate the worker](#worker-migration "#worker-migration")
 - [Configure the Amazon Kinesis client](#client-configuration "#client-configuration")
 - [Idle time removal](#idle-time-removal "#idle-time-removal")
@@ -235,9 +233,7 @@ public class TestRecordProcessor implements ShardRecordProcessor {
 }
 ```
 
-## Migrate the record processor
-
-factory
+## Migrate the record processor factory
 
 The record processor factory is responsible for creating record processors when a
 lease is acquired. The following is an example of a KCL 1.x factory.

@@ -179,5 +179,4 @@ aws_secret_access_key=`secret access key`
 
 ## Next Steps
 
-[Download and build the
-implementation code](tutorial-stock-data-kplkcl-download.md "tutorial-stock-data-kplkcl-download.md")
+[Download and build the implementation code](tutorial-stock-data-kplkcl-download.md "tutorial-stock-data-kplkcl-download.md")

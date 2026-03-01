@@ -26,11 +26,9 @@ a stream.
 ###### Topics
 
 - [Develop producers using the Amazon Kinesis Producer Library (KPL)](developing-producers-with-kpl.md "developing-producers-with-kpl.md")
-- [Develop producers using the Amazon Kinesis Data Streams API
-  with the AWS SDK for Java](developing-producers-with-sdk.md "developing-producers-with-sdk.md")
+- [Develop producers using the Amazon Kinesis Data Streams API with the AWS SDK for Java](developing-producers-with-sdk.md "developing-producers-with-sdk.md")
 - [Write to Amazon Kinesis Data Streams using Kinesis Agent](writing-with-agents.md "writing-with-agents.md")
 - [Write to Kinesis Data Streams using other AWS services](using-other-services.md "using-other-services.md")
-- [Write to Kinesis Data Streams using third-party
-  integrations](using-other-services-third-party.md "using-other-services-third-party.md")
+- [Write to Kinesis Data Streams using third-party integrations](using-other-services-third-party.md "using-other-services-third-party.md")
 - [Troubleshoot Amazon Kinesis Data Streams producers](troubleshooting-producers.md "troubleshooting-producers.md")
 - [Optimize Kinesis Data Streams producers](advanced-producers.md "advanced-producers.md")

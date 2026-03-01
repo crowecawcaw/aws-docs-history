@@ -1,12 +1,8 @@
-# Create a stream using the
-
-APIs
+# Create a stream using the APIs
 
 Use the following steps to create your Kinesis data stream.
 
-## Build the Kinesis Data Streams
-
-client
+## Build the Kinesis Data Streams client
 
 Before you can work with Kinesis data streams, you must build a client object. The
 following Java code instantiates a client builder and uses it to set the Region,

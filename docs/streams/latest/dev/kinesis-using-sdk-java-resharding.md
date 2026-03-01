@@ -32,16 +32,13 @@ metrics provided by Amazon CloudWatch or based on metrics collected from the pro
 consumers. The administrative application also needs a broader set of IAM permissions
 than the consumers or producers because the consumers and producers usually should not
 need access to the APIs used for resharding. For more information about IAM
-permissions for Kinesis Data Streams, see [Controlling access to Amazon Kinesis Data Streams resources using
-IAM](controlling-access.md "controlling-access.md").
+permissions for Kinesis Data Streams, see [Controlling access to Amazon Kinesis Data Streams resources using IAM](controlling-access.md "controlling-access.md").
 
 For more information about resharding, see [How do I change the number of open shards in Kinesis Data Streams?](https://aws.amazon.com/premiumsupport/knowledge-center/kinesis-data-streams-open-shards/ "https://aws.amazon.com/premiumsupport/knowledge-center/kinesis-data-streams-open-shards/")
 
 ###### Topics
 
-- [Decide on a strategy
-  for resharding](kinesis-using-sdk-java-resharding-strategies.md "kinesis-using-sdk-java-resharding-strategies.md")
+- [Decide on a strategy for resharding](kinesis-using-sdk-java-resharding-strategies.md "kinesis-using-sdk-java-resharding-strategies.md")
 - [Split a shard](kinesis-using-sdk-java-resharding-split.md "kinesis-using-sdk-java-resharding-split.md")
 - [Merge two shards](kinesis-using-sdk-java-resharding-merge.md "kinesis-using-sdk-java-resharding-merge.md")
-- [Complete the resharding
-  action](kinesis-using-sdk-java-after-resharding.md "kinesis-using-sdk-java-after-resharding.md")
+- [Complete the resharding action](kinesis-using-sdk-java-after-resharding.md "kinesis-using-sdk-java-after-resharding.md")

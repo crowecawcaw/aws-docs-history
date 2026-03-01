@@ -1,7 +1,6 @@
 # Implement the producer
 
-The application in the [Tutorial: Process real-time stock data using
-KPL and KCL 1.x](tutorial-stock-data-kplkcl.md "tutorial-stock-data-kplkcl.md") uses the real-world scenario of stock
+The application in the [Tutorial: Process real-time stock data using KPL and KCL 1.x](tutorial-stock-data-kplkcl.md "tutorial-stock-data-kplkcl.md") uses the real-world scenario of stock
 market trade monitoring. The following principles briefly explain how this scenario maps
 to the producer and supporting code structure.
 

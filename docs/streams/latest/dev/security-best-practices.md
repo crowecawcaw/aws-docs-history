@@ -26,9 +26,7 @@ For more information, see the following topics in the _IAM User Guide_:
 - [IAM Roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md")
 - [Common Scenarios for Roles: Users, Applications, and Services](../../../IAM/latest/UserGuide/id_roles_common-scenarios.md "../../../IAM/latest/UserGuide/id_roles_common-scenarios.md")
 
-## Implement server-side encryption in dependent
-
-resources
+## Implement server-side encryption in dependent resources
 
 Data at rest and data in transit can be encrypted in Kinesis Data Streams. For more information, see [Data protection in Amazon Kinesis Data Streams](server-side-encryption.md "server-side-encryption.md").
 

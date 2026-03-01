@@ -27,5 +27,4 @@ information for the stream.
 
 ## Next steps
 
-[Create an IAM policy and
-user](tutorial-stock-data-kplkcl2-iam.md "tutorial-stock-data-kplkcl2-iam.md")
+[Create an IAM policy and user](tutorial-stock-data-kplkcl2-iam.md "tutorial-stock-data-kplkcl2-iam.md")

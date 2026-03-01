@@ -5,13 +5,10 @@ terminology.
 
 ###### Topics
 
-- [Review the high-level architecture of
-  Kinesis Data Streams](#high-level-architecture "#high-level-architecture")
+- [Review the high-level architecture of Kinesis Data Streams](#high-level-architecture "#high-level-architecture")
 - [Become familiar with the terminology of Kinesis Data Streams](#terminology "#terminology")
 
-## Review the high-level architecture of
-
-Kinesis Data Streams
+## Review the high-level architecture of Kinesis Data Streams
 
 The following diagram illustrates the high-level architecture of Kinesis Data Streams. The
 _producers_ continually push data to Kinesis Data Streams, and the
@@ -157,8 +154,7 @@ encryption. For more information, see [Data protection in Amazon Kinesis Data St
 
 To read from or write to an encrypted stream, producer and consumer
 applications must have permission to access the master key. For information
-about granting permissions to producer and consumer applications, see [Permissions to use user-generated
-KMS keys](permissions-user-key-KMS.md "permissions-user-key-KMS.md").
+about granting permissions to producer and consumer applications, see [Permissions to use user-generated KMS keys](permissions-user-key-KMS.md "permissions-user-key-KMS.md").
 
 ###### Note
 

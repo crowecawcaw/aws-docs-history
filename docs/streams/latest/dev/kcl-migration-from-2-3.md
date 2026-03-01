@@ -1,6 +1,4 @@
-# Migrate from KCL 2.x to KCL
-
-3.x
+# Migrate from KCL 2.x to KCL 3.x
 
 This topic provides step-by-step instructions to migrate your consumer from
 KCL 2.x to KCL 3.x. KCL 3.x supports in-place migration of
@@ -53,9 +51,7 @@ implementation 'software.amazon.kinesis:amazon-kinesis-client:3.x.x'
 
 You can check for the latest version of the KCL on the [Maven Central Repository](https://search.maven.org/artifact/software.amazon.kinesis/amazon-kinesis-client "https://search.maven.org/artifact/software.amazon.kinesis/amazon-kinesis-client").
 
-## Step 3: Set up the
-
-migration-related configuration
+## Step 3: Set up the migration-related configuration
 
 To migrate from KCL 2.x to KCL 3.x, you must set the following configuration
 parameter:
@@ -112,9 +108,7 @@ recommend using `ConfigsBuilder` to set KCL configurations.
 `ConfigsBuilder` provides a more flexible and maintainable way to
 configure your KCL application.
 
-## Step 4: Follow best practices for
-
-the shutdownRequested() method implementation
+## Step 4: Follow best practices for the shutdownRequested() method implementation
 
 KCL 3.x introduces a feature called _graceful lease handoff_ to
 minimize the reprocessing of data when a lease is handed over to another worker as
@@ -167,9 +161,7 @@ public void shutdownRequested(ShutdownRequestedInput shutdownRequestedInput) {
 }
 ```
 
-## Step 5: Check the
-
-KCL 3.x prerequisites for collecting worker metrics
+## Step 5: Check the KCL 3.x prerequisites for collecting worker metrics
 
 KCL 3.x collects CPU utilization metrics such as CPU utilization from
 workers to balance the load across workers evenly. Consumer application workers can
@@ -208,17 +200,13 @@ If KCL 3.x cannot collect CPU utilization metrics from workers
 because prerequisites are not met, it will rebalance the load the throughput
 level per lease. This fallback rebalancing mechanism will make sure all workers
 will get similar total throughput levels from leases assigned to each worker.
-For more information, see [How KCL assigns leases to workers and
-balances the load](kcl-dynamoDB.md#kcl-assign-leases "kcl-dynamoDB.md#kcl-assign-leases").
+For more information, see [How KCL assigns leases to workers and balances the load](kcl-dynamoDB.md#kcl-assign-leases "kcl-dynamoDB.md#kcl-assign-leases").
 
-## Step 6: Update IAM
-
-permissions for KCL 3.x
+## Step 6: Update IAM permissions for KCL 3.x
 
 You must add the following permissions to the IAM role or policy associated with
 your KCL 3.x consumer application. This involves updating the existing IAM policy
-used by the KCL application. For more information, see [IAM permissions required for KCL
-consumer applications](kcl-iam-permissions.md "kcl-iam-permissions.md").
+used by the KCL application. For more information, see [IAM permissions required for KCL consumer applications](kcl-iam-permissions.md "kcl-iam-permissions.md").
 
 ###### Important
 
@@ -261,17 +249,14 @@ If you see a compilation error with the `LeaseManagementConfig`
 constructor, see [Compilation error with the LeaseManagementConfig constructor](troubleshooting-consumers.md#compilation-error-leasemanagementconfig "troubleshooting-consumers.md#compilation-error-leasemanagementconfig") for
 troubleshooting information.
 
-## Step 8: Complete the
-
-migration
+## Step 8: Complete the migration
 
 During the deployment of KCL 3.x code, KCL continues using the
 lease assignment algorithm from KCL 2.x. When you have successfully
 deployed KCL 3.x code to all of your workers, KCL automatically
 detects this and switches to the new lease assignment algorithm based on resource
 utilization of the workers. For more details about the new lease assignment
-algorithm, see [How KCL assigns leases to workers and
-balances the load](kcl-dynamoDB.md#kcl-assign-leases "kcl-dynamoDB.md#kcl-assign-leases").
+algorithm, see [How KCL assigns leases to workers and balances the load](kcl-dynamoDB.md#kcl-assign-leases "kcl-dynamoDB.md#kcl-assign-leases").
 
 During the deployment, you can monitor the migration process with the following
 metrics emitted to CloudWatch. You can monitor metrics under the `Migration`

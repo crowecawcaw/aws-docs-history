@@ -13,14 +13,9 @@ Information Processing Standard (FIPS) 140-2](https://aws.amazon.com/compliance/
 ###### Topics
 
 - [What is server-side encryption for Kinesis Data Streams?](what-is-sse.md "what-is-sse.md")
-- [Costs, Regions, and performance
-  considerations](costs-performance.md "costs-performance.md")
-- [How do I get started with server-side
-  encryption?](getting-started-with-sse.md "getting-started-with-sse.md")
-- [Create and use user-generated
-  KMS keys](creating-using-sse-master-keys.md "creating-using-sse-master-keys.md")
-- [Permissions to use user-generated
-  KMS keys](permissions-user-key-KMS.md "permissions-user-key-KMS.md")
-- [Verify and Troubleshoot KMS key
-  permissions](sse-troubleshooting.md "sse-troubleshooting.md")
+- [Costs, Regions, and performance considerations](costs-performance.md "costs-performance.md")
+- [How do I get started with server-side encryption?](getting-started-with-sse.md "getting-started-with-sse.md")
+- [Create and use user-generated KMS keys](creating-using-sse-master-keys.md "creating-using-sse-master-keys.md")
+- [Permissions to use user-generated KMS keys](permissions-user-key-KMS.md "permissions-user-key-KMS.md")
+- [Verify and Troubleshoot KMS key permissions](sse-troubleshooting.md "sse-troubleshooting.md")
 - [Use Amazon Kinesis Data Streams with interface VPC endpoints](vpc.md "vpc.md")

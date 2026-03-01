@@ -36,9 +36,7 @@ aws kinesis update-max-record-size \ --stream-arn  \
         --max-record-size-in-ki-b 5000
 ```
 
-## Optimize your stream performance with large
-
-records
+## Optimize your stream performance with large records
 
 It's recommended to maintain large records to less than 2% of your overall traffic. In
 a stream, each shard has a throughput capacity of 1 MiB per second. To accommodate large
