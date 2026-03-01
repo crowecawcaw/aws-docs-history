@@ -4,9 +4,7 @@ Publication date: **December 15, 2022 ([Diagram history](#diagram-history "#diag
 
 This architecture enables you to deploy a fully automated, resilient, low latency, and highly available Telecom Online Charging System (OCS) / Charging Function (CHF) on AWS Outposts to run in the country of (or close to) the operator core network in cases of country data residency regulations or low latency requirements.
 
-## Telecom Charging (OCS/CHF) on AWS Outposts
-
-Diagram
+## Telecom Charging (OCS/CHF) on AWS Outposts Diagram
 
 ![Reference architecture diagram showing how you can use AWS services to deploy a fully automated, resilient, low latency, and highly available Telecom Online Charging System (OCS) / Charging Function (CHF) on AWS Outposts to run in the country of (or close to) the operator core network in cases of country data residency regulations or low latency requirements.](images/telecom-charging-ocs-chf-on-aws-outposts.png)
 
