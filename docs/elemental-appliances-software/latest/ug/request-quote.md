@@ -17,5 +17,4 @@ then select **Contact Sales**.
 ## Next steps
 
 After you receive your quote from your account manager, review the quote to confirm it
-or to request changes. For details, see [Review your
-quote for AWS Elemental appliances and software](access-and-confirm-your-quote.md "access-and-confirm-your-quote.md").
+or to request changes. For details, see [Review your quote for AWS Elemental appliances and software](access-and-confirm-your-quote.md "access-and-confirm-your-quote.md").

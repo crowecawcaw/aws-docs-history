@@ -17,8 +17,7 @@ encounter.
 
 ## Prerequisite
 
-Confirm your quote. For details, see [Review your
-quote for AWS Elemental appliances and software](access-and-confirm-your-quote.md "access-and-confirm-your-quote.md").
+Confirm your quote. For details, see [Review your quote for AWS Elemental appliances and software](access-and-confirm-your-quote.md "access-and-confirm-your-quote.md").
 
 ## Step 1: Add billing details
 

@@ -1,6 +1,4 @@
-# Review your
-
-quote for AWS Elemental appliances and software
+# Review your quote for AWS Elemental appliances and software
 
 After you receive a quote from your account manager, review the quote to either confirm the quote or to request changes.
 
