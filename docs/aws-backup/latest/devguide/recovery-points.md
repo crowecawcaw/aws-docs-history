@@ -26,8 +26,7 @@ AWS Backup.
 ###### Topics
 
 - [Creating an on-demand backup using AWS Backup](recov-point-create-on-demand-backup.md "recov-point-create-on-demand-backup.md")
-- [Continuous backups and point-in-time recovery
-  (PITR)](point-in-time-recovery.md "point-in-time-recovery.md")
+- [Continuous backups and point-in-time recovery (PITR)](point-in-time-recovery.md "point-in-time-recovery.md")
 - [Backup creation by resource type](creating-a-backup.md "creating-a-backup.md")
 - [Backup and tag copy](recov-point-create-a-copy.md "recov-point-create-a-copy.md")
 - [Backup deletion](deleting-backups.md "deleting-backups.md")

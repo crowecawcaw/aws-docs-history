@@ -68,9 +68,7 @@ events](../../../awscloudtrail/latest/userguide/non-api-aws-service-events.md ".
 - `ScanJobFailed`
 - `ScanJobStarted`
 
-## Understanding AWS Backup log file
-
-entries
+## Understanding AWS Backup log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents
@@ -243,9 +241,7 @@ there is an invalid organization backup plan:
 - `DeleteOrganizationalBackupPlan`
 - `InvalidOrganizationBackupPlan`
 
-### Example: AWS Backup log file entries for cross-account
-
-management
+### Example: AWS Backup log file entries for cross-account management
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

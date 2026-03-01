@@ -11,16 +11,11 @@ billing](metering-and-billing.md "metering-and-billing.md").
 
 ###### Topics
 
-- [Turning on resource tracking using
-  the console](#turning-on-resource-tracking-console "#turning-on-resource-tracking-console")
-- [Turning on resource tracking using the
-  AWS Command Line Interface (AWS CLI)](#turning-on-resource-tracking-cli "#turning-on-resource-tracking-cli")
-- [Turning on resource tracking using a
-  CloudFormation template](#turning-on-resource-tracking-cfn "#turning-on-resource-tracking-cfn")
+- [Turning on resource tracking using the console](#turning-on-resource-tracking-console "#turning-on-resource-tracking-console")
+- [Turning on resource tracking using the AWS Command Line Interface (AWS CLI)](#turning-on-resource-tracking-cli "#turning-on-resource-tracking-cli")
+- [Turning on resource tracking using a CloudFormation template](#turning-on-resource-tracking-cfn "#turning-on-resource-tracking-cfn")
 
-## Turning on resource tracking using
-
-the console
+## Turning on resource tracking using the console
 
 ###### To turn on resource tracking using the console:
 
@@ -53,9 +48,7 @@ either:
 - Choose **Settings**, then choose the text under **AWS Config
   recorder status**.
 
-## Turning on resource tracking using the
-
-AWS Command Line Interface (AWS CLI)
+## Turning on resource tracking using the AWS Command Line Interface (AWS CLI)
 
 If you have not yet onboarded to AWS Config, it might be faster to onboard using the
 AWS CLI.
@@ -290,9 +283,7 @@ $ aws backup describe-framework --framework-name `test` --region `us-east-1`
 }
 ```
 
-## Turning on resource tracking using a
-
-CloudFormation template
+## Turning on resource tracking using a CloudFormation template
 
 For a CloudFormation template that turns on resource tracking, see [Using AWS Backup Audit Manager
 with CloudFormation](bam-cfn-integration.md "bam-cfn-integration.md").

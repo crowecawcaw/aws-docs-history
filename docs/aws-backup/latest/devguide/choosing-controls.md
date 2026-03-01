@@ -17,8 +17,7 @@ parameters, and their AWS Config recording resource types.
 | Restore time for resources meet target                       | Evaluates if restore testing job completed within target restore time                                                                                                                                                                                                                                 | Value in minutes                                                | None                           |
 | Resources are inside a logically air-gapped vault            | Evaluates if resources have at least one recovery point copied to<br>a logically air-gapped vault within the specified value and timeframe.                                                                                                                                                           | Value in minutes, hours, or days                                | `AWS Backup: recovery points`  |
 
-For detailed information about these controls, see [Controls and
-remediation](controls-and-remediation.md "controls-and-remediation.md").
+For detailed information about these controls, see [Controls and remediation](controls-and-remediation.md "controls-and-remediation.md").
 
 For a list of AWS Backup-supported resources that don't support all controls, see the AWS Backup
 Audit Manager section of the [Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource") table.

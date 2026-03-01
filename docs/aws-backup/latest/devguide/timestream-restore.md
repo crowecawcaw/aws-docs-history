@@ -30,9 +30,7 @@ in the memory store becomes a week old, it is automatically moved to the magneti
 is then retained in the magnetic store for a year. At the end of that time, it is deleted
 from Timestream and from AWS Backup.
 
-## To restore a Amazon Timestream table using the AWS Backup
-
-console
+## To restore a Amazon Timestream table using the AWS Backup console
 
 You can restore Timestream tables in the AWS Backup console that were created by AWS Backup.
 
@@ -75,9 +73,7 @@ role or specify a different one. 9. Click **Restore backup**.
 Your restore jobs will be visible under protected resources. You can see the current
 status of your restore job by clicking the refresh button or CTRL-R.
 
-## To restore a Amazon Timestream table using API, CLI, or
-
-SDK
+## To restore a Amazon Timestream table using API, CLI, or SDK
 
 Use [`StartRestoreJob` to restore a Timestream table via API.](API_StartRestoreJob.md "API_StartRestoreJob.md").
 

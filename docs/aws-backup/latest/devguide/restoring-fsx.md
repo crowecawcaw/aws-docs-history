@@ -34,9 +34,7 @@ from the AWS Backup console. You can also recover these backups using AWS Backup
 delete these backups or change the automatic backup schedules of your Amazon FSx file systems
 using AWS Backup.
 
-## Use the AWS Backup console to restore Amazon FSx recovery
-
-points
+## Use the AWS Backup console to restore Amazon FSx recovery points
 
 You can restore most Amazon FSx backups created by AWS Backup using the AWS Backup console, API, or
 AWS CLI.
@@ -236,9 +234,7 @@ choose the **Default role**. If there is no default role, one is
 created for you with the correct permissions. You can also choose an IAM
 role. 11. Verify all your entries, and choose **Restore Backup**.
 
-## Use the AWS Backup API, CLI, or SDK to restore Amazon FSx recovery
-
-points
+## Use the AWS Backup API, CLI, or SDK to restore Amazon FSx recovery points
 
 To restore Amazon FSx using the API or CLI, use `StartRestoreJob`. You can specify the following metadata during an Amazon FSx
 restore:

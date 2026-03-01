@@ -1,6 +1,4 @@
-# Creating backup copies across
-
-AWS accounts
+# Creating backup copies across AWS accounts
 
 Using AWS Backup, you can back up to multiple AWS accounts on demand or automatically as
 part of a scheduled backup plan. Use a cross-account backup if you want to securely copy
@@ -63,17 +61,11 @@ into the destination account.
 - **A management account in AWS Organizations**
 
 The management account is the primary account in your organization, as defined by
-AWS Organizations, that you use to manage cross-account backup across your AWS accounts. To
-use cross-account backup, you also must enable service trust. After enabling service
-trust, you can use any account in the organization as a destination account. From your
-destination account, you can choose which vaults to use for cross-account
-backup.
+AWS Organizations, that you use to opt-in to cross-account backup across your AWS accounts.
+Before your organization can start with cross-account backups, you must enable
+cross-account backup in the AWS Backup console or through the [UpdateGlobalSettings](API_UpdateGlobalSettings.md "API_UpdateGlobalSettings.md") API.
 
-- **Enable cross-account backup in the AWS Backup
-  console**
-
-For information about security, see [Security considerations for cross-account
-backup](#security-considerations-cab "#security-considerations-cab").
+For information about security, see [Security considerations for cross-account backup](#security-considerations-cab "#security-considerations-cab").
 
 To use cross-account backup, you must enable the cross-account backup feature. Then,
 you must "Allow" the access policy `backup:CopyIntoBackupVault` into your
@@ -102,16 +94,13 @@ permissions** and then **Allow access to a Backup vault from
 organization**. Any cross-account action other than
 `backup:CopyIntoBackupVault` will be rejected. 7. Now, any account in your organization can share the contents of their backup
 vault with any other account in your organization. For more information, see [Configuring backup vault access for cross-account copies](#share-vault-cab "#share-vault-cab"). To limit which accounts
-can receive the contents of other accounts' backup vaults, see [Configuring your account as a
-destination account](#designate-destination-accounts-cab "#designate-destination-accounts-cab").
+can receive the contents of other accounts' backup vaults, see [Configuring your account as a destination account](#designate-destination-accounts-cab "#designate-destination-accounts-cab").
 
 ## Scheduling cross-account backup
 
 You can use a scheduled backup plan to copy backups across AWS accounts.
 
-###### To copy a backup using a scheduled backup
-
-plan
+###### To copy a backup using a scheduled backup plan
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. In **My account**, choose **Backup plans**, and
@@ -288,7 +277,12 @@ in that account. For example, you can't restore a backup from account A to accou
 you can copy a backup from account A to account B, and then restore it in account
 B.
 
-Restoring a backup from one account to another is a two-step process.
+Before restoring a backup from one account to another, ensure that the destination
+account has the service-linked role (SLR) for the resource type you are restoring. If the
+destination account has never used that AWS service before, the SLR may not exist. You
+can create the SLR by using the service in the destination account, which automatically
+creates it. Once the SLR requirement is addressed, restoring a backup from one account to
+another is a two-step process:
 
 ###### To restore a backup from one account to another
 
@@ -322,9 +316,7 @@ You can grant vault access to one or multiple accounts, or your entire organizat
 
 You can use IAM policies to configure vault access.
 
-###### Configure destination backup vault access for an
-
-AWS account or IAM role
+###### Configure destination backup vault access for an AWS account or IAM role
 
 The following policy configures vault access for account number
 `4444555566666` and the IAM role `SomeRole` in account number
@@ -352,9 +344,7 @@ JSON
 
 ```
 
-###### Share a destination backup vault an
-
-organizational unit in AWS Organizations
+###### Share a destination backup vault an organizational unit in AWS Organizations
 
 The following policy shares a backup vault with organizational units using their
 `PrincipalOrgPaths`.
@@ -384,9 +374,7 @@ JSON
 
 ```
 
-###### Share a destination backup vault
-
-with an organization in AWS Organizations
+###### Share a destination backup vault with an organization in AWS Organizations
 
 The following policy shares a backup vault with the organization with
 `PrincipalOrgID` "o-a1b2c3d4e5".
@@ -415,9 +403,7 @@ JSON
 
 ```
 
-## Configuring your account as a
-
-destination account
+## Configuring your account as a destination account
 
 When you first enable cross-account backups using your AWS Organizations management account, any
 user of a member account can configure their account to be a destination account. We
@@ -426,9 +412,7 @@ to limit your destination accounts. To learn more about attaching service contro
 to AWS Organizations nodes, see [Attaching and
 detaching service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps_attach.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_attach.md").
 
-###### Limit destination accounts using
-
-tags
+###### Limit destination accounts using tags
 
 When attached to an AWS Organizations root, OU, or individual account, this policy limits
 copies destinations from that root, OU, or account to only those accounts with backup
@@ -459,9 +443,7 @@ JSON
 
 ```
 
-###### Limit destination accounts using
-
-account numbers and vault names
+###### Limit destination accounts using account numbers and vault names
 
 When attached to an AWS Organizations root, OU, or individual account, this policy limits
 copies originating from that root, OU, or account to only two destination accounts. The
@@ -498,9 +480,7 @@ JSON
 
 ```
 
-###### Limit destination
-
-accounts using organizational units in AWS Organizations
+###### Limit destination accounts using organizational units in AWS Organizations
 
 When attached to an AWS Organizations root or OU that contains your source account, or when
 attached to your source account, the following policy limits the destination accounts to
@@ -530,9 +510,7 @@ JSON
 
 ```
 
-## Security considerations for cross-account
-
-backup
+## Security considerations for cross-account backup
 
 Be aware of the following when using performing cross-account backups in AWS Backup:
 

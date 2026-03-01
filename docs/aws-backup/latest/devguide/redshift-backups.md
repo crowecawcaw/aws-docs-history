@@ -40,9 +40,7 @@ an on-demand backup](recov-point-create-on-demand-backup.md "recov-point-create-
 To create a manual snapshot, leave the continuous backup checkbox unchecked when
 you create a backup plan that includes Amazon Redshift resources.
 
-### Create scheduled Amazon Redshift backups in a backup
-
-plan
+### Create scheduled Amazon Redshift backups in a backup plan
 
 Your scheduled backups can include Amazon Redshift clusters if they are a protected resource.
 To opt into protecting Amazon Redshift clusters:

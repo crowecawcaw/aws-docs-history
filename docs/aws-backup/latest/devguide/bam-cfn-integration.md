@@ -6,8 +6,7 @@ We provide the following sample CloudFormation templates for your reference:
 
 - [Turn on resource tracking](#turning-on-resource-tracking-cfn "#turning-on-resource-tracking-cfn")
 - [Deploy default controls](#bam-cfn-frameworks-template "#bam-cfn-frameworks-template")
-- [Exempt IAM roles from control
-  evaluation](#bam-cfn-exempt-role-for-manual-delete "#bam-cfn-exempt-role-for-manual-delete")
+- [Exempt IAM roles from control evaluation](#bam-cfn-exempt-role-for-manual-delete "#bam-cfn-exempt-role-for-manual-delete")
 - [Create a report plan](#bam-cfn-report-plan "#bam-cfn-report-plan")
 
 ## Turn on resource tracking
@@ -301,9 +300,7 @@ Outputs:
     Value: !GetAtt TestFramework.FrameworkArn
 ```
 
-## Exempt IAM roles from control
-
-evaluation
+## Exempt IAM roles from control evaluation
 
 The control `BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED` allows you to
 exempt up to five IAM roles that can still manually delete recovery points. The following

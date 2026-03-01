@@ -24,11 +24,9 @@ your backups.
 
 - [Resources and operations](#access-control-resources "#access-control-resources")
 - [Resource ownership](#access-control-owner "#access-control-owner")
-- [Specifying policy elements:
-  actions, effects, and principals](#access-control-specify-backup-actions "#access-control-specify-backup-actions")
+- [Specifying policy elements: actions, effects, and principals](#access-control-specify-backup-actions "#access-control-specify-backup-actions")
 - [Specifying conditions in a policy](#specifying-conditions "#specifying-conditions")
-- [API permissions: actions, resources, and
-  conditions reference](#backup-api-permissions-ref "#backup-api-permissions-ref")
+- [API permissions: actions, resources, and conditions reference](#backup-api-permissions-ref "#backup-api-permissions-ref")
 - [Copy tags permissions](#copy-tags "#copy-tags")
 - [Access policies](#access-policies "#access-policies")
 
@@ -100,9 +98,7 @@ the resource creation request. The following examples illustrate how this works:
   backup vault, anyone who can assume the role can create a vault. Your AWS account,
   to which the role belongs, owns the backup vault resource.
 
-## Specifying policy elements:
-
-actions, effects, and principals
+## Specifying policy elements: actions, effects, and principals
 
 For each AWS Backup resource (see [Resources and operations](#access-control-resources "#access-control-resources")), the service defines a set of API operations
 (see [Actions](API_Operations.md "API_Operations.md")). To grant
@@ -129,8 +125,7 @@ The following are the most basic policy elements:
 To learn more about IAM policy syntax and descriptions, see [IAM JSON Policy Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the
 _IAM User Guide_.
 
-For a table showing all of the AWS Backup API actions, see [API permissions: actions, resources, and
-conditions reference](#backup-api-permissions-ref "#backup-api-permissions-ref").
+For a table showing all of the AWS Backup API actions, see [API permissions: actions, resources, and conditions reference](#backup-api-permissions-ref "#backup-api-permissions-ref").
 
 ## Specifying conditions in a policy
 
@@ -147,9 +142,7 @@ AWS Backup defines its own set of condition keys. To see a list of AWS Backup co
 see [Condition keys
 for AWS Backup](../../../service-authorization/latest/reference/list_awsbackup.md#awsbackup-policy-keys "../../../service-authorization/latest/reference/list_awsbackup.md#awsbackup-policy-keys") in the _Service Authorization Reference_.
 
-## API permissions: actions, resources, and
-
-conditions reference
+## API permissions: actions, resources, and conditions reference
 
 When you are setting up [Access control](access-control.md "access-control.md") and writing a permissions policy that you can attach to an IAM identity (identity-based
 policies), you can use the following table
@@ -289,9 +282,7 @@ _IAM User Guide_. For information about IAM policy syntax and
 descriptions, see [IAM JSON Policy
 Reference](../../../IAM/latest/UserGuide/reference_policies.md "../../../IAM/latest/UserGuide/reference_policies.md") in the _IAM User Guide_.
 
-### Identity-based policies (IAM
-
-policies)
+### Identity-based policies (IAM policies)
 
 Identity-based policies are policies that you can attach to IAM identities, such
 as users or roles. For example, you can define a policy that allows a user to view and

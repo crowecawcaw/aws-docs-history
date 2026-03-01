@@ -28,15 +28,11 @@ referenced.
 
 ###### Topics
 
-- [Deny access to a resource type in a backup
-  vault](#deny-access-to-ebs-snapshots "#deny-access-to-ebs-snapshots")
+- [Deny access to a resource type in a backup vault](#deny-access-to-ebs-snapshots "#deny-access-to-ebs-snapshots")
 - [Deny access to a backup vault](#deny-access-to-a-backup-vault "#deny-access-to-a-backup-vault")
-- [Deny access to delete recovery
-  points in a backup vault](#deny-access-to-delete-recovery-points "#deny-access-to-delete-recovery-points")
+- [Deny access to delete recovery points in a backup vault](#deny-access-to-delete-recovery-points "#deny-access-to-delete-recovery-points")
 
-## Deny access to a resource type in a backup
-
-vault
+## Deny access to a resource type in a backup vault
 
 This policy denies access to the specified API operations for all Amazon EBS snapshots in a
 backup vault.
@@ -105,9 +101,7 @@ JSON
 
 ```
 
-## Deny access to delete recovery
-
-points in a backup vault
+## Deny access to delete recovery points in a backup vault
 
 Access to vaults and the ability to delete recovery points stored in them is determined
 by the access that you grant your users.

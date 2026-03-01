@@ -14,7 +14,6 @@ considerations.
 
 ###### Topics
 
-- [How AWS Backup works with supported AWS
-  services](working-with-supported-services.md "working-with-supported-services.md")
+- [How AWS Backup works with supported AWS services](working-with-supported-services.md "working-with-supported-services.md")
 - [Metering, costs, and billing for AWS Backup](metering-and-billing.md "metering-and-billing.md")
 - [AWS Backup blogs, videos, tutorials, and other resources](blogs-videos.md "blogs-videos.md")

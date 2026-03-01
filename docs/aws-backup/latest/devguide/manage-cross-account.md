@@ -1,6 +1,4 @@
-# Managing AWS Backup resources across multiple
-
-AWS accounts
+# Managing AWS Backup resources across multiple AWS accounts
 
 ###### Note
 
@@ -41,8 +39,7 @@ All the other accounts in the organization remain protected by backup policy A. 
 done only for backup policies that share the same backup plan name. You can also have policy
 A and policy B coexist in that account without any merging. You can use advanced merging
 operators in the JSON view of the console only. For details about merging policies, see
-[Defining policies, policy syntax, and policy
-inheritance](#merging-policies "#merging-policies") in the
+[Defining policies, policy syntax, and policy inheritance](#merging-policies "#merging-policies") in the
 _AWS Organizations User Guide_. For additional references and use cases, see
 the blog [Managing backups at scale in your AWS Organizations using AWS Backup](https://aws.amazon.com/blogs/storage/managing-backups-at-scale-in-your-aws-organizations-using-aws-backup/ "https://aws.amazon.com/blogs/storage/managing-backups-at-scale-in-your-aws-organizations-using-aws-backup/") and the video tutorial
 [Managing backups at scale in
@@ -147,9 +144,7 @@ enable backup policies for your organization so you can:
 See [AWS Backup quotas](aws-backup-limits.md "aws-backup-limits.md") for
 AWS Backup-specific quotas on elements contained in a policy.
 
-##
-
-Delegated administrator
+## Delegated administrator
 
 Delegated administration provides a convenient way for assigned users in a
 registered member account to perform most AWS Backup administrative tasks. You can
@@ -311,9 +306,7 @@ you can create, view, or delete a resource-based delegation policy for your orga
 For steps to delegate policies, see
 [Create a resource-based delegation policy](../../../organizations/latest/userguide/orgs_delegate_policies.md "../../../organizations/latest/userguide/orgs_delegate_policies.md") in the _AWS Organizations User Guide_.
 
-## Monitoring activities in multiple
-
-AWS accounts
+## Monitoring activities in multiple AWS accounts
 
 To monitor backup, copy, and restore jobs across accounts, you must enable
 cross-account monitoring. This lets you monitor backup activities in all accounts from
@@ -356,9 +349,7 @@ If the member account also has local-level backup plans created by users, those 
 plans will follow the opt-in settings in the member account, without reference to the
 Organizations management account's opt-in settings.
 
-## Defining policies, policy syntax, and policy
-
-inheritance
+## Defining policies, policy syntax, and policy inheritance
 
 The following topics are documented in the _AWS Organizations User
 Guide_.

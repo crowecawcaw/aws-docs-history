@@ -35,8 +35,7 @@ requirements. This helps ensure that each AWS resource is backed up according to
 requirements. Backup plans make it easy to enforce your backup strategy across your
 organization and across your applications in a scalable manner.
 
-For all the configuration options for backup plans, see [Backup plan options and
-configuration](plan-options-and-configuration.md "plan-options-and-configuration.md").
+For all the configuration options for backup plans, see [Backup plan options and configuration](plan-options-and-configuration.md "plan-options-and-configuration.md").
 
 ### Tag-based backup policies
 

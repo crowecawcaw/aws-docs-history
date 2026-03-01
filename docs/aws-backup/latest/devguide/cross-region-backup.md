@@ -27,9 +27,7 @@ See [Encryption for a backup copy to a
 different account or AWS Region](encryption.md#copy-encryption "encryption.md#copy-encryption") for details on how encryption works for copy
 jobs.
 
-## Cross-Region copy considerations with
-
-specific resources
+## Cross-Region copy considerations with specific resources
 
 ###### Amazon RDS
 
@@ -89,9 +87,7 @@ permissions. 7. Choose **Copy**.
 
 You can use a scheduled backup plan to copy backups across AWS Regions.
 
-###### To copy a backup using a scheduled backup
-
-plan
+###### To copy a backup using a scheduled backup plan
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. In **My account**, choose **Backup plans**, and

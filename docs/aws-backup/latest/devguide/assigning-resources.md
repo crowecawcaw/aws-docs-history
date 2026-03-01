@@ -15,8 +15,7 @@ buckets and Aurora clusters in a backup plan.
 
 - [AWS Backup service opt-in](#backup-service-optin "#backup-service-optin")
 - [Backup plan resource assignment](#backup-resource-assignment "#backup-resource-assignment")
-- [Assign resources using the AWS Backup
-  console](assigning-resources-console.md "assigning-resources-console.md")
+- [Assign resources using the AWS Backup console](assigning-resources-console.md "assigning-resources-console.md")
 - [Assign resources with AWS CLI](assigning-resources-json.md "assigning-resources-json.md")
 - [Assign AWS Backup resources through CloudFormation](assigning-resources-cfn.md "assigning-resources-cfn.md")
 - [Backup plan resource assignments quotas](#assigning-resources-quotas "#assigning-resources-quotas")

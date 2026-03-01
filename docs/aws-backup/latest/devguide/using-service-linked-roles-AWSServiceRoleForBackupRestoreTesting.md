@@ -20,9 +20,7 @@ That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role
-
-permissions for AWS Backup
+## Service-linked role permissions for AWS Backup
 
 AWS Backup uses the service-linked role named **AWSServiceRoleForBackupRestoreTesting**
 – Provides backup permissions to conduct restore testing.
@@ -37,9 +35,7 @@ To view the permissions for this policy, see [AWSServiceRolePolicyForBackupResto
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a service-linked role for
-
-AWS Backup
+## Creating a service-linked role for AWS Backup
 
 You don't need to manually create a service-linked role. When you
 conduct restore testing in the AWS Management Console, the AWS CLI, or the AWS API, AWS Backup
@@ -56,9 +52,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 the same process to recreate the role in your account. When you
 conduct restore testing, AWS Backup creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-AWS Backup
+## Editing a service-linked role for AWS Backup
 
 AWS Backup does not allow you to edit the AWSServiceRoleForBackupRestoreTesting service-linked role. After
 you create a service-linked role, you cannot change the name of the role because various
@@ -66,18 +60,14 @@ entities might reference the role. However, you can edit the description of the 
 IAM. For more information, see [Edit a service-linked role description](../../../IAM/latest/UserGuide/id_roles_update-service-linked-role.md#edit-service-linked-role-iam-console "../../../IAM/latest/UserGuide/id_roles_update-service-linked-role.md#edit-service-linked-role-iam-console") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-AWS Backup
+## Deleting a service-linked role for AWS Backup
 
 If you no longer need to use a feature or service that requires a service-linked role,
 we recommend that you delete that role. That way you don’t have an unused entity that is not
 actively monitored or maintained. However, you must clean up your service-linked role before
 you can manually delete it.
 
-### Cleaning up a
-
-service-linked role
+### Cleaning up a service-linked role
 
 Before you can use IAM to delete a service-linked role, you must first delete any
 resources used by the role. You must delete all restore testing plans.
@@ -100,17 +90,13 @@ operation again.
 
 - To delete restore testing plans, use `DeleteRestoreTestingPlan`.
 
-### Manually delete the service-linked
-
-role
+### Manually delete the service-linked role
 
 Use the IAM console, the AWS CLI, or the AWS API to delete the **AWSServiceRoleForBackupRestoreTesting**
 service-linked role. For more information, see [Delete a service-linked role](../../../IAM/latest/UserGuide/id_roles_manage_delete.md#id_roles_manage_delete_slr "../../../IAM/latest/UserGuide/id_roles_manage_delete.md#id_roles_manage_delete_slr") in the
 _IAM User Guide_.
 
-## Supported Regions for AWS Backup
-
-service-linked roles
+## Supported Regions for AWS Backup service-linked roles
 
 AWS Backup supports using service-linked roles in all of the Regions where the
 service is available. For more information, see [AWS Backup supported features and Regions](whatisbackup.md#features-by-region "whatisbackup.md#features-by-region").

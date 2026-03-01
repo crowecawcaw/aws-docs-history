@@ -42,21 +42,18 @@ resource types you can copy to a logically air-gapped vault.
 ###### Topics
 
 - [Use case for logically air-gapped vaults](#lag-usecase "#lag-usecase")
-- [Compare and contrast with a standard backup
-  vault](#lag-compare-and-contrast "#lag-compare-and-contrast")
+- [Compare and contrast with a standard backup vault](#lag-compare-and-contrast "#lag-compare-and-contrast")
 - [Create a logically air-gapped vault](#lag-create "#lag-create")
 - [View logically air-gapped vault details](#lag-view "#lag-view")
 - [Creating backups in a logically air-gapped vault](#lag-creation "#lag-creation")
 - [Share a logically air-gapped vault](#lag-share "#lag-share")
 - [Restore a backup from a logically air-gapped vault](#lag-restore "#lag-restore")
 - [Delete a logically air-gapped vault](#lag-delete "#lag-delete")
-- [Additional programmatic options for logically air-gapped
-  vaults](#lag-programmatic "#lag-programmatic")
+- [Additional programmatic options for logically air-gapped vaults](#lag-programmatic "#lag-programmatic")
 - [Understanding encryption key types for logically air-gapped vaults](#lag-encryption-key-types "#lag-encryption-key-types")
 - [Troubleshoot a logically air-gapped vault issue](#lag-troubleshoot "#lag-troubleshoot")
 - [Primary backups to logically air-gapped vaults](lag-vault-primary-backup.md "lag-vault-primary-backup.md")
-- [Multi-party approval for logically air-gapped
-  vaults](multipartyapproval.md "multipartyapproval.md")
+- [Multi-party approval for logically air-gapped vaults](multipartyapproval.md "multipartyapproval.md")
 
 ## Use case for logically air-gapped vaults
 
@@ -92,9 +89,7 @@ will fail with an error message such as "Source AMI ami-xxxxxx not found in Regi
 You can use the CLI command [`list-recovery-points-by-backup-vault`](API_ListRecoveryPointsByBackupVault.md "API_ListRecoveryPointsByBackupVault.md") to determine the
 ARN.
 
-## Compare and contrast with a standard backup
-
-vault
+## Compare and contrast with a standard backup vault
 
 A **backup vault** is the primary and standard type of vault used in
 AWS Backup. Each backup is stored in a backup vault when the backup is created. You can assign
@@ -119,7 +114,7 @@ for Amazon EC2 backups.
 
 | Feature                                                                                    | Backup vault                                                                                                                                                                                                                                                                                                                      | Logically air-gapped vault                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [AWS Backup Audit Manager](aws-backup-audit-manager.md "aws-backup-audit-manager.md")      | You can use AWS Backup Audit Manager [Controls and<br>remediation](controls-and-remediation.md "controls-and-remediation.md") to monitor your backup vaults.                                                                                                                                                                      | Ensure a backup of a specific resource is stored in<br>[at least one logically air-gapped<br>vault](controls-and-remediation.md#resources-in-lag-vault-control "controls-and-remediation.md#resources-in-lag-vault-control") on a schedule you determine, in addition to controls available to<br>standard vaults.                                                                           |
+| [AWS Backup Audit Manager](aws-backup-audit-manager.md "aws-backup-audit-manager.md")      | You can use AWS Backup Audit Manager [Controls and remediation](controls-and-remediation.md "controls-and-remediation.md") to monitor your backup vaults.                                                                                                                                                                         | Ensure a backup of a specific resource is stored in<br>[at least one logically air-gapped<br>vault](controls-and-remediation.md#resources-in-lag-vault-control "controls-and-remediation.md#resources-in-lag-vault-control") on a schedule you determine, in addition to controls available to<br>standard vaults.                                                                           |
 | [Billing](https://aws.amazon.com/backup/pricing/ "https://aws.amazon.com/backup/pricing/") | Storage and data transfer charges for resources fully managed by AWS Backup<br>occur under "AWS Backup". Other resource type storage and data transfer charges will<br>occur under their respective services.<br>For example, Amazon EBS backups will show under "Amazon EBS"; Amazon S3 backups will show<br>under "AWS Backup". | All billing charges from these vaults (storage or data transfer) occur<br>under "AWS Backup".                                                                                                                                                                                                                                                                                                |
 | [Regions](whatisbackup.md#features-by-region "whatisbackup.md#features-by-region")         | Available in all Regions in which AWS Backup operates                                                                                                                                                                                                                                                                             | Available in most Regions supported by AWS Backup. Not currently available in<br>Asia Pacific (Malaysia), Canada West (Calgary), Mexico (Central),<br>Asia Pacific (Thailand), Asia Pacific (Taipei), Asia Pacific (New Zealand), China (Beijing),<br>China (Ningxia), AWS GovCloud (US-East), or AWS GovCloud (US-West).                                                                    |
 | [Resources](whatisbackup.md#supported-resources "whatisbackup.md#supported-resources")     | Can store copies of backups for most resource types that support<br>cross-account copy.                                                                                                                                                                                                                                           | See the logically air-gapped vault column in<br>[Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource")<br>for resources that can be copied to<br>this vault.                                                                                                                                          |
@@ -546,9 +541,7 @@ aws backup delete-backup-vault
 --backup-vault-name `testvaultname`
 ```
 
-## Additional programmatic options for logically air-gapped
-
-vaults
+## Additional programmatic options for logically air-gapped vaults
 
 The CLI command [`list-backup-vaults`](API_ListBackupVaults.md "API_ListBackupVaults.md") can be modified to list all the vaults owned by and
 present in the account:
@@ -623,9 +616,7 @@ The `EncryptionKeyType` field can have the following values:
 - You can only select an AWS KMS encryption key during vault creation.
   Once created, all backups contained in the vault will be encrypted with that key. You cannot change or migrate your vaults to use a different encryption key.
 
-### Key policy for CMK encrypted logically air-gapped vault
-
-creation
+### Key policy for CMK encrypted logically air-gapped vault creation
 
 When creating a logically air-gapped vault with a customer managed key, you must apply the AWS-managed policy
 `AWSBackupFullAccess` to your account role. This policy includes
@@ -928,5 +919,4 @@ a logically air-gapped vault or its recovery points.
 
 **Resolution:**
 
-- Grant the permissions specified in the [Key policy for CMK encrypted logically air-gapped vault
-  creation](#key-policy-lag-vault-creation "#key-policy-lag-vault-creation") section, then retry the vault creation workflow.
+- Grant the permissions specified in the [Key policy for CMK encrypted logically air-gapped vault creation](#key-policy-lag-vault-creation "#key-policy-lag-vault-creation") section, then retry the vault creation workflow.

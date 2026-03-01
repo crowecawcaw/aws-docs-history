@@ -12,9 +12,7 @@ other resources types:
 EBS is one of the resource that supports a transition of backups to cold storage. For
 more information, see [Lifecycle and storage tiers](plan-options-and-configuration.md#backup-lifecycle "plan-options-and-configuration.md#backup-lifecycle").
 
-## Amazon EBS multi-volume,
-
-crash-consistent backups
+## Amazon EBS multi-volume, crash-consistent backups
 
 By default, AWS Backup creates crash-consistent backups of Amazon EBS volumes that are attached to
 an Amazon EC2 instance. Crash consistency means that the snapshots for every Amazon EBS volume

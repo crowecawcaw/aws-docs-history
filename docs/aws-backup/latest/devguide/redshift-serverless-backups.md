@@ -73,9 +73,7 @@ aws backup start-backup-job \
     --resource-arn arn:aws:redshift-serverless:`region`:`account`:namespace/`namespace-name-UUID`
 ```
 
-### Create scheduled Redshift Serverless backups
-
-in a backup plan
+### Create scheduled Redshift Serverless backups in a backup plan
 
 You can create a new backup plan for their Redshift Serverless namespaces through the AWS Backup
 console or through CLI, or you can add Redshift Serverless to an existing backup plan.

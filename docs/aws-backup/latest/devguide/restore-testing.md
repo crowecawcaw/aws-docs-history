@@ -7,8 +7,7 @@ duration times.
 ###### Contents
 
 - [Overview](#restore-testing-overview "#restore-testing-overview")
-- [Restore testing compared with restore
-  process](#restore-testing-compare "#restore-testing-compare")
+- [Restore testing compared with restore process](#restore-testing-compare "#restore-testing-compare")
 - [Restore testing management](#restore-testing-management "#restore-testing-management")
 - [Create a restore testing plan](#restore-testing-create "#restore-testing-create")
 - [Update a restore testing plan](#restore-testing-update "#restore-testing-update")
@@ -17,10 +16,8 @@ duration times.
 - [Delete a restore testing plan](#restore-testing-delete "#restore-testing-delete")
 - [Audit restore testing](#restore-testing-audit "#restore-testing-audit")
 - [Restore testing quotas and parameters](#restore-testing-quotas "#restore-testing-quotas")
-- [Restore testing failure
-  troubleshooting](#restore-testing-troubleshooting "#restore-testing-troubleshooting")
-- [Restore testing inferred
-  metadata](restore-testing-inferred-metadata.md "restore-testing-inferred-metadata.md")
+- [Restore testing failure troubleshooting](#restore-testing-troubleshooting "#restore-testing-troubleshooting")
+- [Restore testing inferred metadata](restore-testing-inferred-metadata.md "restore-testing-inferred-metadata.md")
 - [Restore testing validation](restore-testing-validation.md "restore-testing-validation.md")
 
 ## Overview
@@ -47,9 +44,7 @@ accordance with service SLAs.
 At the end of the testing process, you can view the results and the completion time of
 the tests.
 
-## Restore testing compared with restore
-
-process
+## Restore testing compared with restore process
 
 Restore testing runs restore jobs in the same way as on-demand restores and uses the
 same recovery points (backups) as an on-demand restore. You will see calls to
@@ -366,9 +361,7 @@ resource ARNs or use the wildcard with conditions, but it cannot have both.
 
 Console
 
-###### View details about an existing restore testing plan and assigned resources in
-
-the console
+###### View details about an existing restore testing plan and assigned resources in the console
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. Select **Restore testing** from the left-hand navigation. The
@@ -383,9 +376,7 @@ to be part of this testing plan.
 
 AWS CLI
 
-###### Get details about an existing restore testing plan and testing selection using
-
-the command line
+###### Get details about an existing restore testing plan and testing selection using the command line
 
 - [`list-restore-testing-plan`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/list-restore-testing-plan.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/list-restore-testing-plan.html")
 - [`list-restore-testing-selections`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/list-restore-testing-selections.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/list-restore-testing-selections.html")
@@ -495,9 +486,7 @@ controls and remediation](controls-and-remediation.md "controls-and-remediation.
 
 Additional information regarding limits can be viewed at [AWS Backup quotas](aws-backup-limits.md "aws-backup-limits.md").
 
-## Restore testing failure
-
-troubleshooting
+## Restore testing failure troubleshooting
 
 If you have restore testing jobs with a restore status of `Failed`, the
 following reasons can help you determine the cause and remedy.

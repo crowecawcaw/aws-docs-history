@@ -1,6 +1,4 @@
-# Backup plan options and
-
-configuration
+# Backup plan options and configuration
 
 When you define a backup plan in the AWS Backup console, you configure the following
 options:

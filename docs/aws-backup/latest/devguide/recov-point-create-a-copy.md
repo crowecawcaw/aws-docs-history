@@ -48,6 +48,5 @@ intervention for persistent issues.
 ###### Contents
 
 - [Creating backup copies across AWS Regions](cross-region-backup.md "cross-region-backup.md")
-- [Creating backup copies across
-  AWS accounts](create-cross-account-backup.md "create-cross-account-backup.md")
+- [Creating backup copies across AWS accounts](create-cross-account-backup.md "create-cross-account-backup.md")
 - [Copy tags onto backups](tags-on-backups.md "tags-on-backups.md")

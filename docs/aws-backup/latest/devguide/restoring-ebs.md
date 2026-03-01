@@ -46,9 +46,7 @@ UUID or file system Disk ID.
 encryption options; if you use CLI to restore, omit `encryptionType` to restore
 to the default destination bucket encryption.
 
-## Restore an EBS snapshot with the AWS Backup
-
-console
+## Restore an EBS snapshot with the AWS Backup console
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. In the navigation pane, choose **Protected resources** and then

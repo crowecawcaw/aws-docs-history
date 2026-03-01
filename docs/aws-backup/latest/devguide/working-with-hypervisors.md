@@ -53,9 +53,7 @@ error monitoring, network connection between the gateway and the hypervisor, and
 For information about CloudWatch log groups, see
 [Working with Log Groups and Log Streams](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md") in the _Amazon CloudWatch User Guide_.
 
-## Viewing virtual machines managed by a
-
-hypervisor
+## Viewing virtual machines managed by a hypervisor
 
 ###### To view virtual machines on a hypervisor:
 
@@ -68,9 +66,7 @@ hypervisor
 4. In the **Connected virtual machines** section, a list of
    virtual machines populates automatically.
 
-## Viewing gateways connected to a
-
-hypervisor
+## Viewing gateways connected to a hypervisor
 
 ###### To view gateways connected to the hypervisor:
 
@@ -78,9 +74,7 @@ hypervisor
 2. In the **Connected gateways** section, a list of gateways
    populates automatically.
 
-## Connecting a hypervisor to additional
-
-gateways
+## Connecting a hypervisor to additional gateways
 
 Your backup and restore speeds might be limited by the bandwidth of the connection
 between your gateway and hypervisor. You can increase these speeds by connecting one or

@@ -217,9 +217,7 @@ spikes over longer periods of time.
 You can add up to a maximum of 20 intervals. The maximum value for the upload rate
 is 8,000,000 Mbps.
 
-### View and edit the bandwidth rate-limit schedule for your gateway using
-
-the AWS Backup console.
+### View and edit the bandwidth rate-limit schedule for your gateway using the AWS Backup console.
 
 This section describes how to view and edit the bandwidth rate limit schedule for
 your gateway.
@@ -279,9 +277,7 @@ interval must occur after the end time of a preceding interval and before the st
 time of a following interval; its end time must occur before the start time of the
 following interval. 6. When you are finished, click the **Save changes** button.
 
-### View and edit the bandwidth rate-limit schedule for your gateway using
-
-AWS CLI.
+### View and edit the bandwidth rate-limit schedule for your gateway using AWS CLI.
 
 The
 [`GetBandwidthRateLimitSchedule`](API_BGW_GetBandwidthRateLimitSchedule.md "API_BGW_GetBandwidthRateLimitSchedule.md") action can be used to view the

@@ -1,6 +1,4 @@
-# Continuous backups and point-in-time recovery
-
-(PITR)
+# Continuous backups and point-in-time recovery (PITR)
 
 For some resources, AWS Backup supports continuous backups and point-in-time recovery (PITR) in
 addition to snapshot backups.
@@ -35,23 +33,16 @@ recovery point and updates that recovery point whenever the job runs.
 
 ###### Contents
 
-- [Point-in-time recovery
-  considerations](#point-in-time-recovery-considerations "#point-in-time-recovery-considerations")
-- [Supported services for
-  continuous backup and PITR](#point-in-time-recovery-supported-services "#point-in-time-recovery-supported-services")
+- [Point-in-time recovery considerations](#point-in-time-recovery-considerations "#point-in-time-recovery-considerations")
+- [Supported services for continuous backup and PITR](#point-in-time-recovery-supported-services "#point-in-time-recovery-supported-services")
 - [Finding a continuous backup](point-in-time-recovery-finding.md "point-in-time-recovery-finding.md")
 - [Restoring a continuous backup](point-in-time-recovery-restoring.md "point-in-time-recovery-restoring.md")
-- [Stopping or deleting continuous
-  backups](point-in-time-recovery-stopping.md "point-in-time-recovery-stopping.md")
+- [Stopping or deleting continuous backups](point-in-time-recovery-stopping.md "point-in-time-recovery-stopping.md")
 - [Copying continuous backups](point-in-time-recovery-copying.md "point-in-time-recovery-copying.md")
-- [Changing your retention
-  period](point-in-time-recovery-retention-period.md "point-in-time-recovery-retention-period.md")
-- [Removing the only continuous backup
-  rule from a backup plan](point-in-time-recovery-removing_rule.md "point-in-time-recovery-removing_rule.md")
+- [Changing your retention period](point-in-time-recovery-retention-period.md "point-in-time-recovery-retention-period.md")
+- [Removing the only continuous backup rule from a backup plan](point-in-time-recovery-removing_rule.md "point-in-time-recovery-removing_rule.md")
 
-## Point-in-time recovery
-
-considerations
+## Point-in-time recovery considerations
 
 Be aware of the following considerations for point-in-time recovery:
 
@@ -106,9 +97,7 @@ the plan that created them, then they will transition to `EXPIRED` and be
 deleted. The continuous backup and its point-in-time recovery ability will be maintained
 according to the rule that created it.
 
-## Supported services for
-
-continuous backup and PITR
+## Supported services for continuous backup and PITR
 
 AWS Backup supports continuous backups and point-in-time recovery for the following services
 and applications:
@@ -182,9 +171,32 @@ To learn more, see [DisassociateRecoveryPoint](API_DisassociateRecoveryPoint.md 
   Policies](access-control.md#managed-policies "access-control.md#managed-policies").
 
 **Retention periods:** When you change your PITR retention period,
-AWS Backup calls [`ModifyDBInstance`](../../../AmazonRDS/latest/APIReference/API_ModifyDBInstance.md "../../../AmazonRDS/latest/APIReference/API_ModifyDBInstance.md") and [applies that change](point-in-time-recovery-retention-period.md "point-in-time-recovery-retention-period.md"), starting
-with the next backup that occurs as defined by the frequency rule set in the backup
-plan.
+AWS Backup calls [`ModifyDBInstance`](../../../AmazonRDS/latest/APIReference/API_ModifyDBInstance.md "../../../AmazonRDS/latest/APIReference/API_ModifyDBInstance.md")to apply that change.
+
+When AWS Backup enables PITR for the first time on an Amazon RDS instance
+(changing retention from 0 to a non-zero value), the operation is scheduled to occur during
+your database's next maintenance window to prevent unexpected downtime.
+
+**Scenarios:**
+
+- **First-time PITR enablement:**
+  When PITR is enabled on an Amazon RDS instance for the first time (regardless of whether
+  it's managed by AWS Backup or configured directly), the change is queued for the next
+  maintenance window. AWS Backup automatically creates snapshot backups to maintain coverage
+  until PITR becomes active.
+- **PITR retention changes:**
+  Non-zero to non-zero retention changes apply immediately without restart.
+- **PITR disabling:**
+  Changes from non-zero to zero retention are scheduled for the next maintenance window.
+
+**Backup coverage during transition:**
+
+- Snapshot backups provide protection while waiting for maintenance window
+- Continuous recovery points become available when the backup job runs after PITR is enabled
+- No gap in backup protection occurs during the transition period
+- Recovery granularity may be limited to snapshot intervals until PITR is fully active
+
+Note: [Stopping the RDS instance](../../../AmazonRDS/latest/UserGuide/USER_StopInstance.md "../../../AmazonRDS/latest/UserGuide/USER_StopInstance.md") will remove pending changes. PITR configuration changes will be requeued by the next backup job and applied during a subsequent maintenance window.
 
 **Copies of Amazon RDS continuous backups:**
 

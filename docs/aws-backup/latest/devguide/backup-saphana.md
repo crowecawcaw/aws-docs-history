@@ -10,17 +10,13 @@ AWS Backup supports backups and restores of SAP HANA databases on Amazon EC2 ins
 ###### Topics
 
 - [Overview of SAP HANA databases with AWS Backup](#saphanaoverview "#saphanaoverview")
-- [Prerequisites for backing up SAP HANA databases
-  through AWS Backup](#saphanaprerequisites "#saphanaprerequisites")
-- [SAP HANA backup operations in the AWS Backup
-  console](#saphanabackupconsole "#saphanabackupconsole")
+- [Prerequisites for backing up SAP HANA databases through AWS Backup](#saphanaprerequisites "#saphanaprerequisites")
+- [SAP HANA backup operations in the AWS Backup console](#saphanabackupconsole "#saphanabackupconsole")
 - [View SAP HANA database backups](#saphanaviewbackup "#saphanaviewbackup")
 - [Use AWS CLI for SAP HANA databases with AWS Backup](#saphanaapicli "#saphanaapicli")
-- [Troubleshooting backups of SAP HANA
-  databases](#saphanatroubleshooting "#saphanatroubleshooting")
+- [Troubleshooting backups of SAP HANA databases](#saphanatroubleshooting "#saphanatroubleshooting")
 - [Glossary of SAP HANA terms when using AWS Backup](#saphanaglossary "#saphanaglossary")
-- [AWS Backup support of SAP HANA databases on EC2 instances
-  release notes](#saphanareleasenotes "#saphanareleasenotes")
+- [AWS Backup support of SAP HANA databases on EC2 instances release notes](#saphanareleasenotes "#saphanareleasenotes")
 
 ## Overview of SAP HANA databases with AWS Backup
 
@@ -33,9 +29,7 @@ For more information, see [AWS Backint](../../../sap/latest/sap-hana/aws-backint
 
 When you take backups of SAP HANA, your snapshots and on-demand backups are full backups. However, you can achieve incremental backups by enabling continuous backups for point-in-time recovery (PITR).
 
-## Prerequisites for backing up SAP HANA databases
-
-through AWS Backup
+## Prerequisites for backing up SAP HANA databases through AWS Backup
 
 Several prerequisites must be completed before backup and restore activities can be
 performed. Note you will need administrative access to your SAP HANA database and
@@ -62,9 +56,7 @@ can result in multiple ARNs for the same database. Maintaining a single ARN and
 registration simplifies backup plan creation and maintenance and can also help reduce
 unplanned duplication of backups.
 
-## SAP HANA backup operations in the AWS Backup
-
-console
+## SAP HANA backup operations in the AWS Backup console
 
 Once the prerequisites and SSM for SAP setups are complete, you can back up and
 restore your SAP HANA on EC2 databases.
@@ -83,9 +75,7 @@ of the protected resources. To opt in:
 
 Service opt-in for SAP HANA on Amazon EC2 will now be enabled.
 
-### Create a scheduled backup of SAP HANA
-
-databases
+### Create a scheduled backup of SAP HANA databases
 
 You can [edit an existing backup
 plan](updating-a-backup-plan.md "updating-a-backup-plan.md") and add SAP HANA resources to it, or you can [create a new backup
@@ -130,9 +120,7 @@ Whichever plan you use, ensure you [assign resources](assigning-resources.md "as
 You can choose which SAP HANA databases to assign, including system and tenant
 databases. You also have the option to exclude specific resource IDs.
 
-### Create an on-demand backup of SAP HANA
-
-databases
+### Create an on-demand backup of SAP HANA databases
 
 You can [create a
 full on-demand backup](recov-point-create-on-demand-backup.md "recov-point-create-on-demand-backup.md") that runs immediately after creation. Note that
@@ -225,9 +213,7 @@ instance.
 
 Use `start-backup-job` as the CLI command.
 
-## Troubleshooting backups of SAP HANA
-
-databases
+## Troubleshooting backups of SAP HANA databases
 
 If you encounter errors during your workflow, consult the following example errors and
 suggested resolutions:
@@ -450,9 +436,7 @@ database.
 **INC:** An incremental backup is a backup of all changes to an SAP
 HANA database since the previous backup.
 
-## AWS Backup support of SAP HANA databases on EC2 instances
-
-release notes
+## AWS Backup support of SAP HANA databases on EC2 instances release notes
 
 Certain functionalities are not supported at this time:
 

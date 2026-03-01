@@ -1,6 +1,4 @@
-# How AWS Backup works with supported AWS
-
-services
+# How AWS Backup works with supported AWS services
 
 Some AWS Backup-supported AWS services offer their own, stand-alone backup features. Those
 features are available to you independent of whether you use AWS Backup. However, the backups other

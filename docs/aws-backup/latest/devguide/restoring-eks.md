@@ -160,6 +160,10 @@ Use StartRestoreJob. You can specify the following metadata during Amazon EKS re
 - `newCluster` - (true/false) If we should create a new EKS cluster during restore. If newCluster is "true", the following metadata fields apply:
   - `eksClusterVersion` - Desired K8s version of cluster if wanting to increase cluster version during restore
   - `clusterRole` - The IAM Role ARN to attach to the created EKS cluster
+  - `encryptionConfigProviderKeyArn` - Specify the KMS key ARN to encrypt the destination cluster.
+    This can be either the KMS key from the source cluster, or a different KMS key.
+    A different KMS key must be provided when performing cross-region or cross-account restore.
+    Omit this metadata entirely if the source cluster is not encrypted.
   - `clusterVpcConfig` - VPC/Networking configuration for the created EKS cluster. This field has the following nested fields:
     - `vpcId` - The VPC associated with your cluster
     - `subnetIds [Required]` - The subnets associated with your cluster
@@ -172,6 +176,11 @@ Use StartRestoreJob. You can specify the following metadata during Amazon EKS re
     - `nodeRole [Required]` - The IAM role associated with your node group
     - `securityGroupIds` - The security group IDs that are allowed SSH access to the nodes
     - `remoteAccessEc2SshKey` - The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in the managed node group
+    - `launchTemplateId` - Specify the launch template ID to create the node group.
+      This can be either the launch template ID from the source cluster, or a different launch template ID.
+      If the source cluster's launch template contains hard-coded endpoint that points to the source cluster itself, you must provide a different launch template ID.
+      Omit this metadata entirely if the source cluster does not use a launch template.
+    - `launchTemplateVersion` - Launch template version associated with the specified launch template ID.
 
   - `fargateProfiles` - The Fargate Profiles to be created on the EKS Cluster. The Fargate Profiles for restore must have all the same Fargate Profiles from backup time and have matching name.
     - `name [Required]` - The name of the Fargate profile
@@ -230,7 +239,7 @@ aws backup start-restore-job \
 aws backup start-restore-job \
     --recovery-point-arn "arn:aws:backup:us-west-2:123456789012:recovery-point:composite:eks/my-cluster-20240115" \
     --iam-role-arn "arn:aws:iam::123456789012:role/AWSBackupDefaultServiceRole" \
-    --metadata '{"clusterName":"new-cluster","newCluster":"true","clusterRole":"arn:aws:iam::123456789012:role/EKSClusterRole","eksClusterVersion":"1.33","clusterVpcConfig":"{\"vpcId\":\"vpc-1234\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"securityGroupIds\":[\"sg-123\"]}","nodeGroups":"[{\"nodeGroupId\":\"nodegroup-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"nodeRole\":\"arn:aws:iam::123456789012:role/EKSNodeGroupRole\",\"instanceTypes\":[\"t3.small\"]}]","fargateProfiles":"[{\"name\":\"fargate-profile-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"podExecutionRoleArn\":\"arn:aws:iam::123456789012:role/EKSFargateProfileRole\"}]"}' \
+    --metadata '{"clusterName":"new-cluster","newCluster":"true","clusterRole":"arn:aws:iam::123456789012:role/EKSClusterRole","eksClusterVersion":"1.33","encryptionConfigProviderKeyArn":"arn:aws:kms:us-west-2:123456789012:key/ecb2b326-784d-4ec0-8d07-20ab826b5a13","clusterVpcConfig":"{\"vpcId\":\"vpc-1234\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"securityGroupIds\":[\"sg-123\"]}","nodeGroups":"[{\"nodeGroupId\":\"nodegroup-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"nodeRole\":\"arn:aws:iam::123456789012:role/EKSNodeGroupRole\",\"instanceTypes\":[\"t3.small\"],\"launchTemplateId\":\"lt-0b13949aae3f2b867\",\"launchTemplateVersion\":\"1\"}]","fargateProfiles":"[{\"name\":\"fargate-profile-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"podExecutionRoleArn\":\"arn:aws:iam::123456789012:role/EKSFargateProfileRole\"}]"}' \
     --resource-type "EKS"
 ```
 

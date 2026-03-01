@@ -1,6 +1,4 @@
-# Stopping or deleting continuous
-
-backups
+# Stopping or deleting continuous backups
 
 You can stop the creation of continuous backups or you can delete specific backups
 (point-in-time-recovery or PITR points).
@@ -24,9 +22,10 @@ When deleting Amazon RDS recovery points, consider:
   `disassociate-recovery-point` instead of
   `delete-recovery-point`, then change the retention setting to 1 in your Amazon RDS
   settings.
-- When a point-in-time recovery point (a backup created by continuous backup) for
-  Amazon RDS is deleted, a database reboot is triggered and the binary logs are disabled. For
-  further detail see [Backup retention period](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.BackupRetention "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.md#USER_WorkingWithAutomatedBackups.BackupRetention") in the _Amazon RDS User Guide_.
+- When point-in-time recovery (PITR) is disabled, the change is scheduled for your
+  maintenance window. You may continue to incur backup storage costs until the maintenance
+  window applies the change. This process may take up to 7 days depending on your
+  maintenance window schedule.
   When deleting Aurora recovery points, consider:
 
 If this is selected for an Amazon Aurora recovery point, AWS Backup sets the retention period to

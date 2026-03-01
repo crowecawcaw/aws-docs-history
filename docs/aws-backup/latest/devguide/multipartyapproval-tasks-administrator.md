@@ -83,9 +83,7 @@ JSON
 
 ```
 
-## Share a Multi-party approval
-
-team using AWS RAM
+## Share a Multi-party approval team using AWS RAM
 
 You can share a Multi-party approval team with other AWS accounts using [AWS Resource Access Manager (RAM)](../../../ram/latest/userguide/working-with-sharing-create.md "../../../ram/latest/userguide/working-with-sharing-create.md"), step 4 in the [overview](multipartyapproval.md#multipartyapproval-overview "multipartyapproval.md#multipartyapproval-overview").
 

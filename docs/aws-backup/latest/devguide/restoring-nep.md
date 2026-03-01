@@ -1,8 +1,6 @@
 # Restore a Neptune cluster
 
-## Use the AWS Backup console to restore Amazon Neptune
-
-recovery points
+## Use the AWS Backup console to restore Amazon Neptune recovery points
 
 Restoring an Amazon Neptune database requires that you specify multiple restore
 options. For information about these options, see [Restoring from a DB
@@ -41,9 +39,7 @@ The **Restore jobs** pane appears. A message at the top of the
 page provides information about the restore job. 11. After your restore finishes, attach your restored Neptune cluster to an Amazon RDS
 instance.
 
-## Use the AWS Backup API, CLI, or SDK to restore Neptune
-
-recovery points
+## Use the AWS Backup API, CLI, or SDK to restore Neptune recovery points
 
 First, restore your cluster. Use `StartRestoreJob`. You can specify the following metadata during Amazon DocumentDB
 restores:

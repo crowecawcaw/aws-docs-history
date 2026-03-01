@@ -1,6 +1,6 @@
-# AWS Backup
+# AWS Backup search
 
-The following data types are supported by AWS Backup:
+The following data types are supported by AWS Backup search:
 
 - [BackupCreationTimeFilter](API_BKS_BackupCreationTimeFilter.md "API_BKS_BackupCreationTimeFilter.md")
 - [CurrentSearchProgress](API_BKS_CurrentSearchProgress.md "API_BKS_CurrentSearchProgress.md")

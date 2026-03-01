@@ -26,7 +26,7 @@ The following quotas apply when working with AWS Backup.
 | Versions per backup plan                                                                                                     | 2,000     | Yes                                                                               |
 | Resource assignments per backup plan                                                                                         | 100       | No                                                                                |
 | Amazon S3 buckets per account                                                                                                | 100       | Yes                                                                               |
-| Concurrent cross-Region copy jobs per account in destination Region                                                          | 1002      | No                                                                                |
+| Concurrent cross-Region or in-Region copy jobs per account in destination Region                                             | 1002      | No                                                                                |
 | Additional cross-Region copy jobs per vault in a destination Region<br>after the limit in row above entry has been reached.1 | 52        | No                                                                                |
 | Concurrent cross-account copies that can be made of the same resource to the same destination<br>Region                      | 30        | No                                                                                |
 | Concurrent backup and copy jobs per resource                                                                                 | 1         | No                                                                                |
@@ -101,7 +101,6 @@ in the _AWS General Reference_.
 | Controls per account per Region                                                                                                                   | 50      | Yes        |
 | Report plans per account                                                                                                                          | 20      | Yes        |
 | Frameworks per report plan                                                                                                                        | 1,000   | No         |
-| [Number of accounts] multiplied by [number of Regions in a report plan]                                                                           | 300     | No         |
 | [Number of accounts] multiplied by [number of Regions in a report plan]<br>multiplied by [number of daily jobs plus evaluations in a report plan] | 100,000 | No         |
 
 ## [Restore testing](restore-testing.md "restore-testing.md") plan quotas

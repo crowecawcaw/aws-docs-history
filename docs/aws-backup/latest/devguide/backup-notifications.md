@@ -196,9 +196,7 @@ AWS Backup for EKS supports two additional events:
 You can use AWS CLI commands to subscribe to, list, and delete Amazon SNS notifications for
 your AWS Backup events.
 
-#### Example put backup vault
-
-notification
+#### Example put backup vault notification
 
 The following command subscribes to an Amazon SNS topic for the specified backup vault
 that notifies you when a restore job is started or completed, or when a recovery point
@@ -211,9 +209,7 @@ aws backup put-backup-vault-notifications
     --backup-vault-events RESTORE_JOB_STARTED RESTORE_JOB_COMPLETED RECOVERY_POINT_MODIFIED
 ```
 
-#### Example get backup vault
-
-notification
+#### Example get backup vault notification
 
 The following command lists all events currently subscribed to an Amazon SNS topic for
 the specified backup vault.
@@ -238,9 +234,7 @@ The sample output is as follows:
 }
 ```
 
-#### Example delete backup vault
-
-notification
+#### Example delete backup vault notification
 
 The following command unsubscribes from an Amazon SNS topic for the specified backup
 vault.
@@ -250,9 +244,7 @@ aws backup delete-backup-vault-notifications
     --backup-vault-name `myVault`
 ```
 
-### Specifying AWS Backup as a
-
-service principal
+### Specifying AWS Backup as a service principal
 
 ###### Note
 

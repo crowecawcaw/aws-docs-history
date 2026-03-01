@@ -1,8 +1,6 @@
 # Restore a Amazon DynamoDB table
 
-## Use the AWS Backup console to restore DynamoDB recovery
-
-points
+## Use the AWS Backup console to restore DynamoDB recovery points
 
 ###### To restore a DynamoDB table
 
@@ -57,9 +55,7 @@ _AWS Key Management Service Developer Guide_. 7. Choose **Restore backup**.
 The **Restore jobs** pane appears. A message at the top of the
 page provides information about the restore job.
 
-## Use the AWS Backup API, CLI, or SDK to restore DynamoDB recovery
-
-points
+## Use the AWS Backup API, CLI, or SDK to restore DynamoDB recovery points
 
 Use `StartRestoreJob`. You can specify the following metadata during any DynamoDB
 restore. The metadata is not case-sensitive.

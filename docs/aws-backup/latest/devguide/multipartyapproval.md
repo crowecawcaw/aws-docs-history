@@ -1,10 +1,6 @@
-# Multi-party approval for logically air-gapped
+# Multi-party approval for logically air-gapped vaults
 
-vaults
-
-## Overview of Multi-party approval in a
-
-logically air-gapped vault
+## Overview of Multi-party approval in a logically air-gapped vault
 
 AWS Backup offers you the option to add [Multi-party approval](../../../mpa/latest/userguide/what-is.md "../../../mpa/latest/userguide/what-is.md"), a capability from
 AWS Organizations, to your logically air-gapped vaults. Multi-party approval provides an additional
@@ -58,9 +54,7 @@ your logically air-gapped vaults:
    as necessary in accordance with their security practices or when people join or leave
    your organization.
 
-## Prerequisites and best practices for
-
-using Multi-party approval with a logically air-gapped vault
+## Prerequisites and best practices for using Multi-party approval with a logically air-gapped vault
 
 Before you can effectively and securely use Multi-party approval with your logically
 air-gapped vaults, there are prerequisites and recommended best practices.
@@ -88,9 +82,7 @@ and to each approval team. See [Multi-party approval terms](#multipartyapproval-
 section for a sample policy. 4. Your Multi-party approval team from the secondary (recovery) organization is [shared through AWS RAM](multipartyapproval-tasks-administrator.md#share-multipartyapproval-team-using-ram "multipartyapproval-tasks-administrator.md#share-multipartyapproval-team-using-ram") with
 both your accounts that own the logically air-gapped vault(s) and your recovery accounts.
 
-## Cross-Region considerations and
-
-dependencies when using Multi-party approval
+## Cross-Region considerations and dependencies when using Multi-party approval
 
 When you enable Multi-party approval and your IAM Identity Center instance in
 different Regions, Multi-party approval makes calls across Regions to IAM Identity Center.
@@ -102,9 +94,7 @@ AWS Region US East (N. Virginia). Accordingly, Multi-party approval will make cr
 calls if your Identity Center instance and/or logically air-gapped vault is not in
 US East (N. Virginia).
 
-## Multi-party approval terms, concepts, and user
-
-personas
+## Multi-party approval terms, concepts, and user personas
 
 Multi-party approval in your logically air-gapped vault is an integration of AWS Organizations,
 AWS Account Management, and AWS Backup, along with AWS Identity and Access Management ( IAM) and AWS RAM (RAM) features. Through the

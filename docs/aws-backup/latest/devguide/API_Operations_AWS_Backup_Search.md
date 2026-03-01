@@ -1,6 +1,6 @@
-# AWS Backup
+# AWS Backup search
 
-The following actions are supported by AWS Backup:
+The following actions are supported by AWS Backup search:
 
 - [GetSearchJob](API_BKS_GetSearchJob.md "API_BKS_GetSearchJob.md")
 - [GetSearchResultExportJob](API_BKS_GetSearchResultExportJob.md "API_BKS_GetSearchResultExportJob.md")

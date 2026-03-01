@@ -83,8 +83,7 @@ controls except [cross-account copy](controls-and-remediation.md#backup-cross-ac
 
 3 Amazon RDS, Aurora, DocumentDB, and Neptune now support cross-Region and cross-account snapshot copying in a single action. RDS multi availability
 zone (Multi-AZ) database instances can be copied, but Multi-AZ clusters do not currently
-support any copy operations. See [Cross-Region copy considerations with
-specific resources](cross-region-backup.md#cross-region-considerations "cross-region-backup.md#cross-region-considerations") for further information.
+support any copy operations. See [Cross-Region copy considerations with specific resources](cross-region-backup.md#cross-region-considerations "cross-region-backup.md#cross-region-considerations") for further information.
 
 4 See [RDS multi-availability zone
 backups](rds-multiaz-backup.md "rds-multiaz-backup.md") for Regions where Backup Audit Manager support is available.
@@ -223,6 +222,10 @@ and the listed resource operates:
 - Amazon EFS
 - Amazon Redshift
 - Amazon RDS
+
+###### Note
+
+AWS Backup cannot be deployed or operated locally on AWS Outposts infrastructure. All backup operations and storage are performed in the associated AWS Region, and local backup retention on Outposts is not supported.
 
 | Region and service                     | [Aurora DSQL](backup-aurora.md "backup-aurora.md") | [Amazon FSx](restoring-fsx.md "restoring-fsx.md") | [SAP HANA on EC2 instances](backup-saphana.md "backup-saphana.md") | [Amazon S3](s3-backups.md "s3-backups.md") | [Storage Gateway](working-with-gateways.md "working-with-gateways.md") | [Amazon Timestream](timestream-backup.md "timestream-backup.md") | [VMware](backing-up-vms.md "backing-up-vms.md") and [Backup gateway](working-with-gateways.md "working-with-gateways.md") | [Amazon EKS](eks-backups.md "eks-backups.md") | [Amazon Neptune](creating-a-backup.md "creating-a-backup.md") | [Amazon DocumentDB](creating-a-backup.md "creating-a-backup.md") |
 | -------------------------------------- | -------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------ | ---------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------- |

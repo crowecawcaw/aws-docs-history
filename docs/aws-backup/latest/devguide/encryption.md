@@ -52,9 +52,7 @@ algorithm. For more information about encryption in AWS Backup, see [cross-Regio
 [AWS Backup Audit
 Manager](aws-backup-audit-manager.md "aws-backup-audit-manager.md") helps you automatically detect unencrypted backups.
 
-## Encryption for copies of a backup to a different account
-
-or AWS Region
+## Encryption for copies of a backup to a different account or AWS Region
 
 When you copy your backups across accounts or Regions, AWS Backup automatically encrypts
 those copies for most resource types, even if the original backup is unencrypted. AWS Backup
@@ -90,9 +88,7 @@ failure.
 - Copies of unencrypted Amazon Aurora, Amazon DocumentDB, and Amazon Neptune clusters are also
   unencrypted.
 
-## AWS Backup permissions, grants, and
-
-deny statements
+## AWS Backup permissions, grants, and deny statements
 
 To help avoid failed jobs, you can examine the AWS KMS key policy to ensure it has
 required permissions and does not have any deny statements that prevent successful

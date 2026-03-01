@@ -42,9 +42,7 @@ If you only keep one weekly backup, you can only restore to the state of the fil
 system at the time you took that backup. You can't restore to prior incremental
 backups.
 
-## Use the AWS Backup console to restore an Amazon EFS recovery
-
-point
+## Use the AWS Backup console to restore an Amazon EFS recovery point
 
 ###### To restore an Amazon EFS file system
 
@@ -149,9 +147,7 @@ If you only keep one weekly backup, you can only restore to the state of the
 file system at the time you took that backup. You can't restore to prior incremental
 backups.
 
-## Use the AWS Backup API, CLI, or SDK to restore Amazon EFS recovery
-
-points
+## Use the AWS Backup API, CLI, or SDK to restore Amazon EFS recovery points
 
 Use `StartRestoreJob`. When restoring an Amazon EFS instance, you can restore an
 entire file system or specific files or directories. To restore Amazon EFS resources, you need

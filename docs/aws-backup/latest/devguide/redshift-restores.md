@@ -21,9 +21,7 @@ Guide_.
 - **Configuration summary**
 - **Cluster Permissions**
 
-## To restore an Amazon Redshift cluster or table using
-
-the AWS Backup console
+## To restore an Amazon Redshift cluster or table using the AWS Backup console
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. In the navigation pane, choose **Settings** and the Amazon Redshift
@@ -85,9 +83,7 @@ the AWS Backup console
 Your restore jobs will be visible under **Jobs**. You can see the
 current status of your restore job by clicking the refresh button or CTRL-R.
 
-## Restore an Amazon Redshift cluster using API, CLI, or
-
-SDK
+## Restore an Amazon Redshift cluster using API, CLI, or SDK
 
 Use [`StartRestoreJob`](API_StartRestoreJob.md "API_StartRestoreJob.md") to restore an Amazon Redshift cluster.
 

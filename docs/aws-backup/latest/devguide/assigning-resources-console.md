@@ -1,6 +1,4 @@
-# Assign resources using the AWS Backup
-
-console
+# Assign resources using the AWS Backup console
 
 ###### To navigate to the **Assign resources** page:
 
@@ -13,9 +11,7 @@ console
 6. Choose **Create plan**.
 7. Choose **Assign resources**.
 
-###### To begin your resource assignment, in the **General**
-
-section:
+###### To begin your resource assignment, in the **General** section:
 
 1. Type in a **Resource assignment name**.
 2. Choose the **Default role** or **Choose an IAM

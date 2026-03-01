@@ -24,7 +24,5 @@ To delete `EXPIRED` recovery points, manually delete them using the procedure in
 - [Access control](access-control.md "access-control.md")
 - [IAM service roles](iam-service-roles.md "iam-service-roles.md")
 - [Managed policies for AWS Backup](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Using service-linked roles for
-  AWS Backup](using-service-linked-roles.md "using-service-linked-roles.md")
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Using service-linked roles for AWS Backup](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")

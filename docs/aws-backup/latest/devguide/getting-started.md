@@ -78,8 +78,7 @@ AWS Backup.
 
 ###### Note
 
-For more information on how service opt-ins work for management and delegated administrator accounts, see [Managing AWS Backup resources across multiple
-AWS accounts](manage-cross-account.md "manage-cross-account.md").
+For more information on how service opt-ins work for management and delegated administrator accounts, see [Managing AWS Backup resources across multiple AWS accounts](manage-cross-account.md "manage-cross-account.md").
 
 ###### To opt in to use AWS Backup to protect all supported resource types
 

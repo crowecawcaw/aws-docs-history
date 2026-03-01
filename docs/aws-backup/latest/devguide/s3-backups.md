@@ -22,9 +22,7 @@ For more information, see [Backup tiering](backup-tiering.md "backup-tiering.md"
 
 ## Prerequisites for S3 backups
 
-### Permissions and policies for Amazon S3 backup and
-
-restore
+### Permissions and policies for Amazon S3 backup and restore
 
 To backup, copy, and restore S3 resources, you must have the correct policies in your
 role. To add these policies, go to [AWS
@@ -98,7 +96,10 @@ For more information, see [Data events](../../../awscloudtrail/latest/userguide/
   information, see [Enabling
   Amazon S3 server access logging](../../../AmazonS3/latest/userguide/enable-server-access-logging.md "../../../AmazonS3/latest/userguide/enable-server-access-logging.md").
 
-## Supported bucket types and quantities
+## Supported bucket types, quantities, and object sizes
+
+AWS Backup supports backup and restore operations for S3 objects of any size, up to the
+maximum object size supported by Amazon S3.
 
 AWS Backup supports backup and restore of general purpose S3 buckets. Directory buckets are
 not supported at this time.
@@ -259,9 +260,7 @@ with the size, content, configuration, and settings of each bucket.
 | 6 PB (petabytes)   | 5 billion         | 100 hours                                 |
 | 370 TB (terabytes) | 7.5 billion       | 180 hours                                 |
 
-## Best practices and cost considerations for
-
-S3 backups
+## Best practices and cost considerations for S3 backups
 
 ### Large bucket best practices
 

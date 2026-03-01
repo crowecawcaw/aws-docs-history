@@ -1,7 +1,8 @@
 # CloudFormation templates for backup plans
 
-We provide two sample CloudFormation templates for your reference. The first template creates a
-simple backup plan. The second template enables VSS backups in a backup plan.
+We provide three sample CloudFormation templates for your reference. The first template creates a
+simple backup plan. The second template enables VSS backups in a backup plan. The third
+template enables Amazon GuardDuty Malware Protection scanning in a backup plan.
 
 ###### Note
 
@@ -133,4 +134,87 @@ Resources:
             ScheduleExpression: "cron(0 5 ? * * *)"
 
     DependsOn: BackupVaultWithDailyBackups
+```
+
+```
+Description: Backup plan template with Amazon GuardDuty Malware Protection scanning enabled.
+
+Resources:
+  BackupVault:
+    Type: "AWS::Backup::BackupVault"
+    Properties:
+      BackupVaultName: "MalwareScanBackupVault"
+
+  BackupPlanWithMalwareScanning:
+    Type: "AWS::Backup::BackupPlan"
+    Properties:
+      BackupPlan:
+        BackupPlanName: "BackupPlanWithMalwareScanning"
+        BackupPlanRule:
+          - RuleName: "DailyBackupWithIncrementalScan"
+            TargetBackupVault: !Ref BackupVault
+            ScheduleExpression: "cron(0 5 ? * * *)"
+            Lifecycle:
+              DeleteAfterDays: 35
+            ScanActions:
+              - MalwareScanner: GUARDDUTY
+                ScanMode: INCREMENTAL_SCAN
+          - RuleName: "MonthlyBackupWithFullScan"
+            TargetBackupVault: !Ref BackupVault
+            ScheduleExpression: "cron(0 5 1 * ? *)"
+            Lifecycle:
+              DeleteAfterDays: 365
+            ScanActions:
+              - MalwareScanner: GUARDDUTY
+                ScanMode: FULL_SCAN
+        ScanSettings:
+          - MalwareScanner: GUARDDUTY
+            ResourceTypes:
+              - EBS
+            ScannerRoleArn: !GetAtt ScannerRole.Arn
+    DependsOn: BackupVault
+
+  ScannerRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "malware-protection.guardduty.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/AWSBackupGuardDutyRolePolicyForScans"
+
+  BackupRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "backup.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/service-role/`service-role`"
+        - "arn:aws:iam::aws:policy/AWSBackupServiceRolePolicyForScans"
+
+  TagBasedBackupSelection:
+    Type: "AWS::Backup::BackupSelection"
+    Properties:
+      BackupSelection:
+        SelectionName: "MalwareScanSelection"
+        IamRoleArn: !GetAtt BackupRole.Arn
+        ListOfTags:
+          - ConditionType: "STRINGEQUALS"
+            ConditionKey: "backup"
+            ConditionValue: "true"
+      BackupPlanId: !Ref BackupPlanWithMalwareScanning
+    DependsOn: BackupPlanWithMalwareScanning
 ```

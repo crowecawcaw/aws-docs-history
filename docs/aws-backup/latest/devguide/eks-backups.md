@@ -174,6 +174,7 @@ Amazon EKS backups support all copy types:
 - Persistent volumes using a CSI Driver via CSI migration, in-tree storage plugins or ACK controllers are not supported. Note that the annotation `volume.kubernetes.io/storage-provisioner: ebs.csi.aws.com` is metadata indicating which provisioner could manage the volume, not that the volume uses CSI. The actual provisioner is determined by the storageClass.
 - Amazon S3 buckets with specific prefixes attached to CSI Driver MountPoints cannot be backed up. Only Amazon S3 buckets as targets are supported, not specific prefixes.
 - Amazon S3 bucket backups as part of an EKS cluster backup will only support snapshot backups.
+- Backups of EFS file systems in a cross-account are not supported via EKS Backups.
 - Amazon FSx via CSI driver is not supported via EKS Backups.
 - AWS Backup does not support Amazon EKS on AWS Outposts.
 - Subject to [backup and restore quotas](aws-backup-limits.md "aws-backup-limits.md").

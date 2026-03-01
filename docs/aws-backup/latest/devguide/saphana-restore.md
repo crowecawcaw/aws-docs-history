@@ -6,8 +6,7 @@ or using AWS CLI.
 ###### Topics
 
 - [Restore an SAP HANA database with the AWS Backup console](#w2aac17c31c43b9 "#w2aac17c31c43b9")
-- [StartRestoreJob API
-  for SAP HANA on EC2](#w2aac17c31c43c11 "#w2aac17c31c43c11")
+- [StartRestoreJob API for SAP HANA on EC2](#w2aac17c31c43c11 "#w2aac17c31c43c11")
 - [CLI for SAP HANA on EC2](#w2aac17c31c43c13 "#w2aac17c31c43c13")
 - [SAP HANA High Availability (HA) restore](#saphanarestoreha "#saphanarestoreha")
 - [Troubleshooting](#saphanarestoretroubleshooting "#saphanarestoretroubleshooting")
@@ -74,9 +73,7 @@ recent job will have a status of `Pending`. You can search for and then click
 on the restore job ID too see details of each restore job. You can refresh the restore
 jobs list by clicking the refresh button to view changes to the restore job status.
 
-## [StartRestoreJob API](API_StartRestoreJob.md "API_StartRestoreJob.md")
-
-for SAP HANA on EC2
+## [StartRestoreJob API](API_StartRestoreJob.md "API_StartRestoreJob.md") for SAP HANA on EC2
 
 This action recovers the saved resource identified by an Amazon Resource Name
 (ARN).

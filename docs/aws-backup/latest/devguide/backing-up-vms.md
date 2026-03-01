@@ -15,9 +15,7 @@ left navigation pane.
   virtual machine, choose its **VM name** to open its detail page. The VM
   detail page is the starting point for the following procedures.
 
-## Creating an on-demand backup of a virtual
-
-machine
+## Creating an on-demand backup of a virtual machine
 
 An [on-demand](recov-point-create-on-demand-backup.md "recov-point-create-on-demand-backup.md") backup is a one-time, full backup you manually initiate. You can
 use on-demand backups to test AWS Backup’s backup and restore capabilities.
@@ -68,9 +66,7 @@ To verify if a virtual disk has CBT enabled:
    > **Configuration Parameters**.
 3. The option `ctkEnabled` needs to equal `True`.
 
-## Automating virtual machine backup by assigning
-
-resources to a backup plan
+## Automating virtual machine backup by assigning resources to a backup plan
 
 A [backup plan](about-backup-plans.md "about-backup-plans.md") is a
 user-defined data protection policy that automates data protection across many AWS
@@ -256,9 +252,7 @@ aws backup-gateway get-hypervisor-property-mappings \
 --region us-east-1
 ```
 
-### Sync metadata of virtual machines discovered by the hypervisor
-
-in AWS using API, CLI, or SDK
+### Sync metadata of virtual machines discovered by the hypervisor in AWS using API, CLI, or SDK
 
 You can sync the metadata of virtual machines. When you do, the VMware tags present
 on the virtual machine that are part of the mappings will be synched. Also, AWS
@@ -343,9 +337,7 @@ a backup job.
 5. Recommended: type in a tag **Value**.
 6. Choose **Confirm**.
 
-## Assigning virtual machines using the Assign
-
-resources to plan feature
+## Assigning virtual machines using the Assign resources to plan feature
 
 You can assign virtual machines currently discovered by AWS Backup to an existing or new
 backup plan using the **Assign resources to plan** feature.
@@ -372,9 +364,7 @@ backup plan using the **Assign resources to plan** feature.
    assignments** section, choose the resource assignment
    **Name**.
 
-## Assigning virtual machines using the
-
-Create group assignment feature
+## Assigning virtual machines using the Create group assignment feature
 
 Unlike the preceding two resource assignment features for virtual machines, the
 **Create group assignment** feature not only assigns virtual machines

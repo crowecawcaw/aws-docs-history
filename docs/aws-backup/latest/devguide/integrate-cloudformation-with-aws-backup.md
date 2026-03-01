@@ -19,9 +19,7 @@ Before you create your CloudFormation template or StackSet, consider the followi
   stack. You can also specify a custom role that you create. For more information about
   roles, see [IAM service roles](iam-service-roles.md "iam-service-roles.md").
 
-## Deploying a backup vault, backup
-
-plan, and resource assignment using CloudFormation
+## Deploying a backup vault, backup plan, and resource assignment using CloudFormation
 
 For a sample CloudFormation template that deploys a backup vault, backup plans, and resource
 assignment, see [Assign AWS Backup resources through CloudFormation](assigning-resources-cfn.md "assigning-resources-cfn.md").
@@ -30,9 +28,7 @@ assignment, see [Assign AWS Backup resources through CloudFormation](assigning-r
 
 For sample CloudFormation templates that deploy backup plans, see [CloudFormation templates for backup plans](plan-cfn.md "plan-cfn.md").
 
-## Deploying AWS Backup Audit Manager frameworks and
-
-report plans using CloudFormation
+## Deploying AWS Backup Audit Manager frameworks and report plans using CloudFormation
 
 For sample CloudFormation templates that deploy AWS Backup Audit Manager frameworks and report plans,
 see [Using AWS Backup Audit Manager with CloudFormation](bam-cfn-integration.md "bam-cfn-integration.md").

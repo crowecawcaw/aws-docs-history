@@ -137,7 +137,7 @@ The following actions are supported by AWS Backup:
 - [UpdateGatewayInformation](API_BGW_UpdateGatewayInformation.md "API_BGW_UpdateGatewayInformation.md")
 - [UpdateGatewaySoftwareNow](API_BGW_UpdateGatewaySoftwareNow.md "API_BGW_UpdateGatewaySoftwareNow.md")
 - [UpdateHypervisor](API_BGW_UpdateHypervisor.md "API_BGW_UpdateHypervisor.md")
-  The following actions are supported by AWS Backup:
+  The following actions are supported by AWS Backup search:
 
 - [GetSearchJob](API_BKS_GetSearchJob.md "API_BKS_GetSearchJob.md")
 - [GetSearchResultExportJob](API_BKS_GetSearchResultExportJob.md "API_BKS_GetSearchResultExportJob.md")

@@ -1,6 +1,4 @@
-# Controls and
-
-remediation
+# Controls and remediation
 
 This page lists the available controls for AWS Backup Audit Manager. You can choose the right
 info pane to see a list of controls and jump to a specific control. To quickly compare
@@ -33,9 +31,7 @@ This page lists each control with the following information:
   [Last recovery point was created](controls-and-remediation.md#last-recovery-point-created-control "controls-and-remediation.md#last-recovery-point-created-control"). An EC2 instance in a stopped state will not be
   included in the compliance evaluation.
 
-## Backup resources are included in
-
-at least one backup plan
+## Backup resources are included in at least one backup plan
 
 **Description**: Evaluates if resources are included in at
 least one backup plan.
@@ -57,9 +53,7 @@ AWS Backup automatically protects your resources after you assign them to a back
 information, see [Assigning resources to a backup
 plan](assigning-resources.md "assigning-resources.md").
 
-## Backup plan minimum
-
-frequency and minimum retention
+## Backup plan minimum frequency and minimum retention
 
 **Description**: Evaluates if backup plans contain at least
 one backup rule for which the backup frequency is at least [1 day] and retention period is
@@ -85,9 +79,7 @@ at least [35 days].
 change either its backup frequency, retention period, or both. Updating your backup plan
 changes the retention period for recovery points the plan creates after your update.
 
-## Vaults prevent manual
-
-deletion of recovery points
+## Vaults prevent manual deletion of recovery points
 
 **Description**: Evaluates if backup vaults do not allow
 manual deletion of recovery points except by certain IAM roles.
@@ -106,8 +98,7 @@ five IAM roles allowed to manually delete recovery points.
 
 **Remediation**: Create or modify a resource-based access
 policy on a backup vault. For an example policy and instructions on how to set a backup
-vault access policy, see [Deny access to delete recovery
-points in a backup vault](create-a-vault-access-policy.md#deny-access-to-delete-recovery-points "create-a-vault-access-policy.md#deny-access-to-delete-recovery-points").
+vault access policy, see [Deny access to delete recovery points in a backup vault](create-a-vault-access-policy.md#deny-access-to-delete-recovery-points "create-a-vault-access-policy.md#deny-access-to-delete-recovery-points").
 
 ## Recovery points are encrypted
 
@@ -136,9 +127,7 @@ resource types that support full AWS Backup management, see the "Full AWS Backup
 of the [Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource")
 table.
 
-## Minimum retention established
-
-for recovery point
+## Minimum retention established for recovery point
 
 **Description**: Evaluates if recovery point retention
 period is at least [35 days].
@@ -261,9 +250,7 @@ within the number of days or hours specified.
   to change the specified time frame of recovery point creation.
 - Additionally, you can create an on-demand backup.
 
-## Restore time for resources meet
-
-target
+## Restore time for resources meet target
 
 **Description**: Evaluates if restoring protected resources
 completed within the target restore time.
@@ -291,9 +278,7 @@ AWS Backup does not provide any service-level agreements (SLAs) for a restore ti
 Restore times can vary based upon system load and capacity, even
 for restores containing the same resources.
 
-## Resources in a logically air-gapped
-
-vault
+## Resources in a logically air-gapped vault
 
 **Description**: This control evaluates if resources have at least one
 recovery point copied to a logically air-gapped vault within the specified value and time

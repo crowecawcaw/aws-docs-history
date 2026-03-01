@@ -9,12 +9,9 @@ FAQ](https://aws.amazon.com/backup/faqs/ "https://aws.amazon.com/backup/faqs/").
 ###### Topics
 
 - [Troubleshooting general issues](#troubleshooting-backup-general "#troubleshooting-backup-general")
-- [Troubleshoot creating
-  resources](#troubleshooting-create-backup "#troubleshooting-create-backup")
-- [Troubleshooting deleting
-  resources](#troubleshooting-delete-backup "#troubleshooting-delete-backup")
-- [Troubleshooting restoring
-  resources](#troubleshooting-restore-backup "#troubleshooting-restore-backup")
+- [Troubleshoot creating resources](#troubleshooting-create-backup "#troubleshooting-create-backup")
+- [Troubleshooting deleting resources](#troubleshooting-delete-backup "#troubleshooting-delete-backup")
+- [Troubleshooting restoring resources](#troubleshooting-restore-backup "#troubleshooting-restore-backup")
 - [Troubleshooting formatting errors](#troubleshooting-formatting-errors "#troubleshooting-formatting-errors")
 
 ## Troubleshooting general issues
@@ -36,9 +33,7 @@ If AWS Backup fails to create or delete a resource, you can learn more about the
 using AWS CloudTrail to view error messages or logs. For more information about using CloudTrail
 with AWS Backup, see [Logging AWS Backup API calls with CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
 
-## Troubleshoot creating
-
-resources
+## Troubleshoot creating resources
 
 The following information can help you troubleshoot problems with creating
 backups.
@@ -89,9 +84,7 @@ expired before completion.` If this occurs, configure a longer
 
   **REMEDY:** Add your IAM role to your KMS key.
 
-## Troubleshooting deleting
-
-resources
+## Troubleshooting deleting resources
 
 Recovery points that are created by AWS Backup cannot be deleted in the console window of
 the protected resource. You can delete them on the AWS Backup console by selecting them in
@@ -100,9 +93,7 @@ the vault where they are stored and then choosing **Delete**.
 To delete a recovery point or a backup vault, you need the appropriate permissions.
 For more information about access control using IAM with AWS Backup, see [Access control](access-control.md "access-control.md").
 
-## Troubleshooting restoring
-
-resources
+## Troubleshooting restoring resources
 
 **Restoring using API**
 

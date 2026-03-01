@@ -1,6 +1,4 @@
-# Restore testing inferred
-
-metadata
+# Restore testing inferred metadata
 
 Restoring a recovery point requires restore metadata. To perform restore tests, AWS Backup
 automatically infers metadata that is likely to result in a successful restore. The command

@@ -35,9 +35,7 @@ Replace `role-name` with the name of the EC2 instance profile role that will be 
 - If the vault containing your Amazon EC2 recovery points has a vault lock, see [Additional security considerations](vault-lock.md#using-vault-lock-with-backup "vault-lock.md#using-vault-lock-with-backup")
   for more information.
 
-## Use the AWS Backup console to restore Amazon EC2 recovery
-
-points
+## Use the AWS Backup console to restore Amazon EC2 recovery points
 
 You can restore an entire Amazon EC2 instance from a single recovery point, including the
 root volume, data volumes, and some instance configuration settings, such as the instance

@@ -1,8 +1,6 @@
 # Restoring a DocumentDB cluster
 
-## Use the AWS Backup console to restore Amazon DocumentDB recovery
-
-points
+## Use the AWS Backup console to restore Amazon DocumentDB recovery points
 
 Restoring a Amazon DocumentDB cluster requires that you specify multiple restore options. For
 information about these options, see [Restoring from a Cluster Snapshot](../../../documentdb/latest/developerguide/backup_restore-restore_from_snapshot.md "../../../documentdb/latest/developerguide/backup_restore-restore_from_snapshot.md") in the
@@ -53,9 +51,7 @@ The **Restore jobs** pane appears. A message at the top of the
 page provides information about the restore job. 14. After your restore finishes, attach your restored Amazon DocumentDB cluster to an Amazon RDS
 instance.
 
-## Use the AWS Backup API, CLI, or SDK to restore Amazon DocumentDB
-
-recovery points
+## Use the AWS Backup API, CLI, or SDK to restore Amazon DocumentDB recovery points
 
 First, restore your cluster. Use `StartRestoreJob`. You can specify the following metadata during Amazon DocumentDB
 restores:

@@ -35,9 +35,7 @@ controls and remediation](controls-and-remediation.md "controls-and-remediation.
   - `Unavailable` when AWS Backup Audit Manager is unable to validate
     recording status at this time.
 
-###### To correct a `Partially active` or `Inactive`
-
-status
+###### To correct a `Partially active` or `Inactive` status
 
     1. Choose **Frameworks** from the left navigation pane.
     2. Choose **Manage resource tracking**.

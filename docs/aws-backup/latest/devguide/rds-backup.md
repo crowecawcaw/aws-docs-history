@@ -40,9 +40,7 @@ RDS Custom for SQL Server and RDS Custom for Oracle are not currently supported 
 
 AWS Backup does not support backup and restore of RDS on Outposts.
 
-## Amazon RDS continuous backups and point in time
-
-restore
+## Amazon RDS continuous backups and point in time restore
 
 Continuous backups involve using AWS Backup to create a full backup of your Amazon RDS resource,
 then capturing all changes through a transaction log. You can achieve a greater

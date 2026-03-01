@@ -55,8 +55,7 @@ receive the most recent information.
 
       ###### Note
 
-      See [Continuous backups and point-in-time recovery
-      (PITR)](point-in-time-recovery.md "point-in-time-recovery.md")
+      See [Continuous backups and point-in-time recovery (PITR)](point-in-time-recovery.md "point-in-time-recovery.md")
       for Amazon S3, Amazon RDS, and Aurora continuous backup considerations.
       - **Keep my continuous backup data** or **Disassociate
         recovery point**. By selecting one of these options, you stop future

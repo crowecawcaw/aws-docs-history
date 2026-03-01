@@ -1,8 +1,6 @@
 # Requester tasks
 
-## Associate a Multi-party approval
-
-team with a logically air-gapped vault
+## Associate a Multi-party approval team with a logically air-gapped vault
 
 Requester: **User with access to account that
 owns the logically air-gapped vault**.
@@ -50,9 +48,7 @@ will be associated with the vault. If the vault already has an associated team,
 see [Update Multi-party approval
 team](#update-multpartyapproval-team "#update-multpartyapproval-team") for steps.
 
-## Request access to a logically air-gapped
-
-vault
+## Request access to a logically air-gapped vault
 
 Requester: **User with access to recovery account**.
 
@@ -114,9 +110,7 @@ aws backup describe-backup-vault \
 --region `REGION`
 ```
 
-## Disassociate Multi-party approval
-
-team from logically air gapped vault
+## Disassociate Multi-party approval team from logically air gapped vault
 
 Requester: **Administrator of account that
 owns the logically air-gapped vault**.
@@ -218,9 +212,7 @@ The approval team members will receive a notification to approve the request.
 Once approved by the required number of team members, the restore access backup
 vault will be deleted from the recovery account.
 
-## Update the Multi-party approval team
-
-associated with a logically air-gapped vault
+## Update the Multi-party approval team associated with a logically air-gapped vault
 
 Requester: **Administrator of account that
 owns the logically air-gapped vault**.
@@ -230,9 +222,7 @@ vault (step 8 in the [Overview](multipartyapproval.md#multipartyapproval-overvie
 
 Console
 
-###### Update the approval team associated with a logically air-gapped
-
-vault
+###### Update the approval team associated with a logically air-gapped vault
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. Navigate to the **Backup vaults** section in the left

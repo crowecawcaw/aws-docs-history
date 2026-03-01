@@ -1,6 +1,4 @@
-# Creating report plans using the AWS Backup
-
-console
+# Creating report plans using the AWS Backup console
 
 There are two types of reports. One type is a **jobs report**, which
 shows jobs finished in the last 24 hours and all active jobs. The second type of report is a

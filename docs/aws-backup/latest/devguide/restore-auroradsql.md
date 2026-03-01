@@ -3,14 +3,10 @@
 ###### Topics
 
 - [Overview](#restore-auroradsql-overview "#restore-auroradsql-overview")
-- [Restore Aurora DSQL single Region
-  cluster](#restore-auroradsql-singleregion "#restore-auroradsql-singleregion")
-- [Restore an Aurora DSQL multi-Region
-  cluster](#restore-auroradsql-multiregion "#restore-auroradsql-multiregion")
-- [Troubleshoot Aurora DSQL restore
-  issues](#restore-auroradsql-troubleshoot "#restore-auroradsql-troubleshoot")
-- [Aurora DSQL restore frequently asked
-  questions](#restore-auroradsql-faq "#restore-auroradsql-faq")
+- [Restore Aurora DSQL single Region cluster](#restore-auroradsql-singleregion "#restore-auroradsql-singleregion")
+- [Restore an Aurora DSQL multi-Region cluster](#restore-auroradsql-multiregion "#restore-auroradsql-multiregion")
+- [Troubleshoot Aurora DSQL restore issues](#restore-auroradsql-troubleshoot "#restore-auroradsql-troubleshoot")
+- [Aurora DSQL restore frequently asked questions](#restore-auroradsql-faq "#restore-auroradsql-faq")
 
 ## Overview
 
@@ -26,9 +22,7 @@ witness Region, peer Region(s), and regional configuration settings. Multi-Regio
 creates a cluster that spans multiple AWS Regions, providing enhanced availability and
 disaster recovery capabilities.
 
-## Restore Aurora DSQL single Region
-
-cluster
+## Restore Aurora DSQL single Region cluster
 
 You can restore an Aurora DSQL cluster to a single Region by using the AWS Backup console or
 AWS CLI.
@@ -70,9 +64,7 @@ aws backup start-restore-job \
     --copy-source-tags-to-restored-resource
 ```
 
-## Restore an Aurora DSQL multi-Region
-
-cluster
+## Restore an Aurora DSQL multi-Region cluster
 
 Aurora DSQL multi-Region cluster restore occurs within a closed Region triplet, which
 is a group of three AWS Regions peers. Multi-Region restore requires that the Regions
@@ -167,9 +159,7 @@ group. Supported groups include:
 - Asia Pacific (Tokyo); Asia Pacific (Seoul);
   Asia Pacific (Osaka)
 
-###### Multi-Region restore through AWS CLI using orchestrated restore
-
-metadata
+###### Multi-Region restore through AWS CLI using orchestrated restore metadata
 
 1. Create a restore job using the CLI command `aws backup
 start-restore-job` with the new multi-Region orchestration
@@ -230,9 +220,7 @@ aws dsql describe-cluster --cluster-identifier your-cluster-id
 
 For more information about multi-Region cluster operations, see [UpdateCluster](../../../aurora-dsql/latest/APIReference/API_UpdateCluster.md "../../../aurora-dsql/latest/APIReference/API_UpdateCluster.md") in the Aurora DSQL API Reference.
 
-## Troubleshoot Aurora DSQL restore
-
-issues
+## Troubleshoot Aurora DSQL restore issues
 
 **Error:** Insufficient permissions
 
@@ -250,9 +238,7 @@ status of your backup and restore jobs in the AWS Backup console or using the AW
 Additionally, you can review the AWS CloudTrail logs for any relevant error messages or events
 related to your AWS Backup operations.
 
-## Aurora DSQL restore frequently asked
-
-questions
+## Aurora DSQL restore frequently asked questions
 
 1. _"Can I use AWS Backup for Aurora DSQL from the Aurora DSQL
    console?"_

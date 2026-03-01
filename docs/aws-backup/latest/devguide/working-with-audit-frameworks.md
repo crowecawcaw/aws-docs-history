@@ -22,8 +22,7 @@ There are two different types of frameworks:
 
 - [Choosing your controls](choosing-controls.md "choosing-controls.md")
 - [Turning on resource tracking](turning-on-resource-tracking.md "turning-on-resource-tracking.md")
-- [Creating frameworks using the AWS Backup
-  console](creating-frameworks-console.md "creating-frameworks-console.md")
+- [Creating frameworks using the AWS Backup console](creating-frameworks-console.md "creating-frameworks-console.md")
 - [Creating frameworks using the AWS Backup API](creating-frameworks-api.md "creating-frameworks-api.md")
 - [Viewing framework compliance status](viewing-frameworks.md "viewing-frameworks.md")
 - [Finding non-compliant resources](finding-non-compliant-resources.md "finding-non-compliant-resources.md")

@@ -1,6 +1,4 @@
-# Information about third-party source components
-
-for Backup gateway
+# Information about third-party source components for Backup gateway
 
 In this section, you can find information about third party tools and licenses that we
 depend on to deliver Backup gateway functionality.
@@ -18,9 +16,7 @@ This product includes software developed by VMware® vSphere Software Developmen
 
 For the relevant licenses for all dependent third-party tools, see [Third-Party Licenses](https://s3.amazonaws.com/aws-storage-gateway-terms/bgw_backup_vm/third-party-licenses.txt "https://s3.amazonaws.com/aws-storage-gateway-terms/bgw_backup_vm/third-party-licenses.txt").
 
-## Open-source components for AWS
-
-Appliance
+## Open-source components for AWS Appliance
 
 Several third-party tools and licenses are used to deliver functionality for Backup
 gateway.

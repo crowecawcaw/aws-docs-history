@@ -173,9 +173,7 @@ shorter than the minimum retention period will fail. Recovery points already sav
 the vault prior to AWS Backup Vault Lock are not affected. The shortest minimum retention period
 you can specify is 1 day.
 
-## Review a backup vault for its AWS Backup Vault
-
-Lock configuration
+## Review a backup vault for its AWS Backup Vault Lock configuration
 
 You can review AWS Backup Vault Lock details on a vault anytime by calling `DescribeBackupVault` or `ListBackupVaults` APIs.
 
@@ -250,9 +248,7 @@ aws backup delete-backup-vault-lock-configuration \
           --backup-vault-name `my_vault_to_lock`
 ```
 
-## AWS account closure with a locked
-
-vault
+## AWS account closure with a locked vault
 
 When you close an AWS account that contains a backup vault, AWS and AWS Backup suspend
 your account for 90 days with your backups intact. If you do not reopen your account during

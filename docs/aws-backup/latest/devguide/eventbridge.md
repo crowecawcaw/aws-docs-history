@@ -714,6 +714,9 @@ included. See `DescribeRestoreJob` for possible parameters.
   ],
   "detail":{
     "restoreJobId":"AB123456-78C9-0123-456D-789012E34567",
+    "backupVaultArn":"arn:aws:backup:us-west-2:1112233445566:backup-vault:ExampleVault",
+    "recoveryPointArn":"arn:aws:backup:us-west-2:1112233445566:recovery-point:6f7fc1f8-2f2e-40ac-943b-8f8efa9ba99d",
+    "sourceResourceArn":"arn:aws:rds:us-west-2:1112233445566:db:example-database",
     "backupSizeInBytes":"0",
     "creationDate":"2020-07-15T03:10:01.742Z",
     "iamRoleArn":"arn:aws:iam::1112233445566:role/RestoreTestRole",

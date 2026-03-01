@@ -20,9 +20,7 @@ or restore, you must pass a service role that has access to perform the underlyi
 operations on the specified resources. AWS Backup uses this role to create, tag, and delete
 resources in your account.
 
-## Using AWS roles to control access to
-
-backups
+## Using AWS roles to control access to backups
 
 You can use roles to control access to your backups by defining narrowly scoped roles
 and by specifying who can pass that role to AWS Backup. For example, you could create a role
@@ -66,9 +64,7 @@ It also includes permissions to tag the newly created resource.
 
 To restore an Amazon EC2 instance, you must launch a new instance.
 
-## Creating the default service role
-
-in the console
+## Creating the default service role in the console
 
 Specific actions you take in the AWS Backup Console create the AWS Backup default service role.
 

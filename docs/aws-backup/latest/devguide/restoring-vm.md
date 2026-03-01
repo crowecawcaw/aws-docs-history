@@ -16,16 +16,11 @@ machine.
 
 ###### Tasks
 
-- [Considerations when restoring a VM to an Amazon EC2
-  instance](#vm-restore-ec2 "#vm-restore-ec2")
-- [Use the AWS Backup console to restore virtual machine
-  recovery points](#vm-restore-console "#vm-restore-console")
-- [Use AWS CLI to restore virtual machine recovery
-  points](#vm-restore-cli "#vm-restore-cli")
+- [Considerations when restoring a VM to an Amazon EC2 instance](#vm-restore-ec2 "#vm-restore-ec2")
+- [Use the AWS Backup console to restore virtual machine recovery points](#vm-restore-console "#vm-restore-console")
+- [Use AWS CLI to restore virtual machine recovery points](#vm-restore-cli "#vm-restore-cli")
 
-## Considerations when restoring a VM to an Amazon EC2
-
-instance
+## Considerations when restoring a VM to an Amazon EC2 instance
 
 - Restoring (or migrating) a virtual machine to EC2 requires a license. By default,
   an AWS will include a license (charges apply). For more information, see [Licensing
@@ -51,9 +46,7 @@ instance
   the remaining disks, and after all restore operations complete, attach the
   EBS volumes to the restored instance.
 
-## Use the AWS Backup console to restore virtual machine
-
-recovery points
+## Use the AWS Backup console to restore virtual machine recovery points
 
 You can restore a virtual machine from multiple locations in the left navigation pane
 of the AWS Backup console:
@@ -77,9 +70,7 @@ resources** to locate your recovery point.
 - [Restore to an Amazon EBS volume](#restore-vm-ebs "#restore-vm-ebs")
 - [Restore to an Amazon EC2 instance](#restore-vm-ec2 "#restore-vm-ec2")
 
-###### To restore a virtual machine to VMware, VMware Cloud on AWS, and VMware Cloud on
-
-AWS Outposts
+###### To restore a virtual machine to VMware, VMware Cloud on AWS, and VMware Cloud on AWS Outposts
 
 1. In the **Hypervisors** or **Virtual machines**
    views, choose the **VM name** to restore. In the **Protected
@@ -182,9 +173,7 @@ data**. 12. Choose **Restore backup**. 13. _Optional_: Check when your restore j
 `Completed`. In the left navigation menu, choose
 **Jobs**.
 
-## Use AWS CLI to restore virtual machine recovery
-
-points
+## Use AWS CLI to restore virtual machine recovery points
 
 Use `StartRestoreJob`.
 

@@ -16,16 +16,12 @@ security features.
 
 - [Benefits of advanced DDB backup](#advanced-ddb-backup-benefits "#advanced-ddb-backup-benefits")
 - [Considerations for Advanced DynamoDB backup](#advanced-ddb-considerations "#advanced-ddb-considerations")
-- [Enabling advanced DynamoDB backup
-  using the console](#advanced-ddb-backup-enable-console "#advanced-ddb-backup-enable-console")
-- [Enabling advanced DynamoDB backup
-  programmatically](#advanced-ddb-backup-enable-cli "#advanced-ddb-backup-enable-cli")
+- [Enabling advanced DynamoDB backup using the console](#advanced-ddb-backup-enable-console "#advanced-ddb-backup-enable-console")
+- [Enabling advanced DynamoDB backup programmatically](#advanced-ddb-backup-enable-cli "#advanced-ddb-backup-enable-cli")
 - [Editing an advanced DynamoDB backup](#advanced-ddb-backup-edit "#advanced-ddb-backup-edit")
-- [Restoring an advanced DynamoDB
-  backup](#advanced-ddb-backup-restore "#advanced-ddb-backup-restore")
+- [Restoring an advanced DynamoDB backup](#advanced-ddb-backup-restore "#advanced-ddb-backup-restore")
 - [Deleting an advanced DynamoDB backup](#advanced-ddb-backup-delete "#advanced-ddb-backup-delete")
-- [Other benefits of full AWS Backup
-  management when you enable advanced DynamoDB backup](#advanced-ddb-backup-other-benefits "#advanced-ddb-backup-other-benefits")
+- [Other benefits of full AWS Backup management when you enable advanced DynamoDB backup](#advanced-ddb-backup-other-benefits "#advanced-ddb-backup-other-benefits")
 
 ## Benefits of advanced DDB backup
 
@@ -72,9 +68,7 @@ your custom role:
 To learn more about AWS-managed policies and view examples of customer-managed
 policies, see [Managed policies for AWS Backup](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
 
-## Enabling advanced DynamoDB backup
-
-using the console
+## Enabling advanced DynamoDB backup using the console
 
 You can enable AWS Backup advanced features for DynamoDB backups using either the AWS Backup or
 DynamoDB console.
@@ -93,9 +87,7 @@ supported service. 4. Under the **Advanced features for DynamoDB backups** secti
 For how to enable AWS Backup advanced features using the DynamoDB console, see [Enabling AWS Backup features](../../../amazondynamodb/latest/developerguide/CreateBackupAWS.md#CreateBackupAWS_enabling "../../../amazondynamodb/latest/developerguide/CreateBackupAWS.md#CreateBackupAWS_enabling") in the _Amazon DynamoDB User
 Guide_.
 
-## Enabling advanced DynamoDB backup
-
-programmatically
+## Enabling advanced DynamoDB backup programmatically
 
 You can also enable AWS Backup advanced features for DynamoDB backups using the AWS Command Line Interface
 (CLI). You enable advanced DynamoDB backups when you set both of the following values to
@@ -166,9 +158,7 @@ If you later disable AWS Backup advanced features for DynamoDB, you can continue
 those operations to DynamoDB backups that you created during the period of time when you
 enabled advanced features.
 
-## Restoring an advanced DynamoDB
-
-backup
+## Restoring an advanced DynamoDB backup
 
 You can restore DynamoDB backups taken with AWS Backup advanced features enabled in the same
 way you restore DynamoDB backups taken prior to enabling AWS Backup advanced features. You can
@@ -197,9 +187,7 @@ environment.
 
 To delete a DynamoDB backup, see [Backup deletion](deleting-backups.md "deleting-backups.md").
 
-## Other benefits of full AWS Backup
-
-management when you enable advanced DynamoDB backup
+## Other benefits of full AWS Backup management when you enable advanced DynamoDB backup
 
 When you enable AWS Backup advanced features for DynamoDB, you give full management of your
 DynamoDB backups to AWS Backup. Doing so gives you the following, additional benefits:

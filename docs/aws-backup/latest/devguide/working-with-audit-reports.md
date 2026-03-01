@@ -66,8 +66,7 @@ _report plan_ from a _report template_.
 ###### Topics
 
 - [Choosing your report template](choosing-report-template.md "choosing-report-template.md")
-- [Creating report plans using the AWS Backup
-  console](create-report-plan-console.md "create-report-plan-console.md")
+- [Creating report plans using the AWS Backup console](create-report-plan-console.md "create-report-plan-console.md")
 - [Creating report plans using the AWS Backup API](create-report-plan-api.md "create-report-plan-api.md")
 - [Creating on-demand reports](create-on-demand-reports.md "create-on-demand-reports.md")
 - [Viewing audit reports](view-reports.md "view-reports.md")

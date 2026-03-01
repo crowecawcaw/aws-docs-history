@@ -36,9 +36,7 @@ Amazon DynamoDB, Amazon EBS,
 Amazon EC2, Amazon FSx for Windows File Server, Amazon FSx for Lustre, Amazon FSx for OpenZFS, Amazon FSx for NetApp ONTAP, Amazon Neptune,
 Amazon RDS, and Amazon Redshift.
 
-## Objective confirmation and audit of
-
-AWS Backup data integrity
+## Objective confirmation and audit of AWS Backup data integrity
 
 The data stored directly by AWS Backup and the data stored in partnership with fellow AWS
 services with which AWS Backup interacts is subjected to the rigorous process of Amazon Simple Storage Service (Amazon S3)

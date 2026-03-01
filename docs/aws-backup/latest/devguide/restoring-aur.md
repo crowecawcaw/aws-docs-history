@@ -1,8 +1,6 @@
 # Restoring an Amazon Aurora cluster
 
-## Use the AWS Backup console to restore Aurora recovery
-
-points
+## Use the AWS Backup console to restore Aurora recovery points
 
 AWS Backup restores your Aurora cluster; it does not create or attach an Amazon RDS instance to
 your cluster. In the following steps, you will create and attach an Amazon RDS instance to your
@@ -76,9 +74,7 @@ See [continuous backups and
 point-in-time restore (PITR)](point-in-time-recovery.md "point-in-time-recovery.md") for information about continuous backups and
 restoring to a chosen point in time.
 
-## Use the AWS Backup API, CLI, or SDK to restore Amazon Aurora
-
-recovery points
+## Use the AWS Backup API, CLI, or SDK to restore Amazon Aurora recovery points
 
 Use `StartRestoreJob`. The metadata you can include for a restore job will
 depend if you are restoring a continuous backup to a point in time (PITR) or if you are

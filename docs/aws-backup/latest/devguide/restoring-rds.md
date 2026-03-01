@@ -4,9 +4,7 @@ Restoring an Amazon RDS database requires specifying multiple restore options. F
 information about these options, see [Backing Up and Restoring an Amazon RDS DB Instance](../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.md "../../../AmazonRDS/latest/UserGuide/CHAP_CommonTasks.md") in the
 _Amazon RDS User Guide_.
 
-## Use the AWS Backup console to restore Amazon RDS recovery
-
-points
+## Use the AWS Backup console to restore Amazon RDS recovery points
 
 1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2. In the navigation pane, choose **Protected resources** and the
@@ -40,9 +38,7 @@ points
 The **Restore jobs** pane appears. A message at the top of the
 page provides information about the restore job.
 
-## Use the AWS Backup API, CLI, or SDK to restore Amazon RDS recovery
-
-points
+## Use the AWS Backup API, CLI, or SDK to restore Amazon RDS recovery points
 
 Use `StartRestoreJob`. For information on accepted metadata and values, see
 [`RestoreDBInstanceFromDBSnapshot`](../../../AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromDBSnapshot.md "../../../AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromDBSnapshot.md") and [`RestoreDBInstanceToPointInTime`](../../../AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.md "../../../AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.md") in the _Amazon RDS API

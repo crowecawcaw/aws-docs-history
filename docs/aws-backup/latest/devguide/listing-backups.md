@@ -4,15 +4,11 @@ You can view a list of your backups using the [AWS Backup console](https://conso
 
 ###### Topics
 
-- [Listing backups by protected resource
-  in the console](#list-backups-by-protected-resources "#list-backups-by-protected-resources")
-- [Listing backups by backup vault in the
-  console](#list-backups-by-vault "#list-backups-by-vault")
+- [Listing backups by protected resource in the console](#list-backups-by-protected-resources "#list-backups-by-protected-resources")
+- [Listing backups by backup vault in the console](#list-backups-by-vault "#list-backups-by-vault")
 - [Listing backups programmatically](#list-backups-programmatically "#list-backups-programmatically")
 
-## Listing backups by protected resource
-
-in the console
+## Listing backups by protected resource in the console
 
 Follow these steps to view a list of backups of a particular resource on the AWS Backup
 console.
@@ -26,9 +22,7 @@ console.
 You can view the backups for the resource.
 From this view, you can also choose a backup and restore it.
 
-## Listing backups by backup vault in the
-
-console
+## Listing backups by backup vault in the console
 
 Follow these steps to view a list of backups organized in a backup vault.
 

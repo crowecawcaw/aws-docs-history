@@ -17,9 +17,7 @@ This applies only to full database restore, not single table restore.
 For more information about configurations, see [Snapshots and
 recovery points](../../../redshift/latest/mgmt/serverless-snapshots-recovery-points.md "../../../redshift/latest/mgmt/serverless-snapshots-recovery-points.md") in the _Amazon Redshift Management Guide_.
 
-## Considerations before
-
-restoring
+## Considerations before restoring
 
 Before you begin a restore job, review the following:
 
@@ -88,9 +86,7 @@ data warehouse or a single table.
 - For namespace restore, see [restore-from-snapshot](../../../cli/latest/reference/redshift-serverless/restore-from-snapshot.md "../../../cli/latest/reference/redshift-serverless/restore-from-snapshot.md") in the _AWS CLI Command Reference_.
 - To restore to a Amazon Redshift provisioned cluster, see [restore-from-cluster-snapshot](../../../cli/latest/reference/redshift/restore-from-cluster-snapshot.md "../../../cli/latest/reference/redshift/restore-from-cluster-snapshot.md") in the _AWS CLI Command Reference_.
 
-###### Example template for `start-restore-job` to restore to a Serverless
-
-namespace:
+###### Example template for `start-restore-job` to restore to a Serverless namespace:
 
 ```
 aws backup start-restore-job \

@@ -156,8 +156,7 @@ number of failed jobs. See [Working with gateways](working-with-gateways.md "wor
 
 **Increase backup plan window time:** You can increase the
 **complete within duration** of the backup window in your backup
-plan. See [Backup plan options and
-configuration](plan-options-and-configuration.md "plan-options-and-configuration.md") for more detail.
+plan. See [Backup plan options and configuration](plan-options-and-configuration.md "plan-options-and-configuration.md") for more detail.
 
 For help resolving these issues, see [AWS
 Knowledge Center](https://repost.aws/knowledge-center/backup-troubleshoot-vmware-backups "https://repost.aws/knowledge-center/backup-troubleshoot-vmware-backups").

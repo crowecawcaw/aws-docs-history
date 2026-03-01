@@ -5,18 +5,14 @@ template.
 
 ###### Topics
 
-- [Create backup plans using the AWS Backup
-  console](#create-backup-plan-console "#create-backup-plan-console")
+- [Create backup plans using the AWS Backup console](#create-backup-plan-console "#create-backup-plan-console")
 - [Create backup plans using the AWS CLI](#create-backup-plan-cli "#create-backup-plan-cli")
-- [Backup plan options and
-  configuration](plan-options-and-configuration.md "plan-options-and-configuration.md")
+- [Backup plan options and configuration](plan-options-and-configuration.md "plan-options-and-configuration.md")
 - [CloudFormation templates for backup plans](plan-cfn.md "plan-cfn.md")
 - [Delete a backup plan](deleting-a-backup-plan.md "deleting-a-backup-plan.md")
 - [Update a backup plan](updating-a-backup-plan.md "updating-a-backup-plan.md")
 
-## Create backup plans using the AWS Backup
-
-console
+## Create backup plans using the AWS Backup console
 
 Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup"). From the dashboard, choose
 **Manage Backup** plans. Or, using the navigation pane, choose
@@ -56,8 +52,7 @@ section, you will set the backup schedule, window, and lifecycle. 4. **Schedule:
    3. **Complete within** defaults to 7 days. Ensure that there is enough time for
       the backup up to complete even if the job starts at the end of the start window.
 
-6. **[Continuous backups and point-in-time recovery
-   (PITR)](point-in-time-recovery.md "point-in-time-recovery.md"):** You can select **Enable
+6. **[Continuous backups and point-in-time recovery (PITR)](point-in-time-recovery.md "point-in-time-recovery.md"):** You can select **Enable
    continuous backups for point-in-time recovery (PITR)**. To verify which
    resources are supported for this type of backup, see the [Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource") matrix.
 7. **Lifecycle**
