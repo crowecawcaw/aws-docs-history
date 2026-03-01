@@ -106,7 +106,7 @@ makes it hard to measure impact or secure stakeholder support.
    develop KPIs that offer predictive and prescriptive
    insights. Use
    [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") and
-   [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to create dashboards that visualize these
+   [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to create dashboards that visualize these
    forward-looking KPIs, making them accessible to business
    stakeholders.
 5. **Create a KPI governance

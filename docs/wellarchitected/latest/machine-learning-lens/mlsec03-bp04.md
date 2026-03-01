@@ -125,7 +125,7 @@ deviations caused by data corruption or malicious manipulation.
    compliance-aligned reporting**. Create automated
    reports that demonstrate data lineage for compliance-aligned
    purposes. Use
-   [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to visualize data lineage graphs and
+   [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to visualize data lineage graphs and
    [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/") to query lineage metadata for audit reports.
    Regularly review these reports to improve your adherence to
    your governance requirements.

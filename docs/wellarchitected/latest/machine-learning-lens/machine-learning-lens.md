@@ -1,6 +1,4 @@
-# Machine Learning Lens - AWS Well-Architected
-
-Framework
+# Machine Learning Lens - AWS Well-Architected Framework
 
 Publication date: **November 19, 2025** ([Document revisions](document-revisions.md "document-revisions.md"))
 
@@ -50,9 +48,7 @@ This paper is intended for those in a technology role, such as chief technology 
 you will understand the best practices and strategies to use when you design and operate ML
 workloads on AWS.
 
-## Distinction from the Generative AI
-
-Lens
+## Distinction from the Generative AI Lens
 
 The Machine Learning Lens addresses the broad spectrum of ML workloads, including
 traditional supervised and unsupervised learning, predictive analytics, classification,

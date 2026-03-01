@@ -1,6 +1,4 @@
-# MLCOST01-BP01 Define overall return on investment (ROI) and
-
-opportunity cost
+# MLCOST01-BP01 Define overall return on investment (ROI) and opportunity cost
 
 Machine learning projects require careful evaluation of their
 business value and resource requirements. By analyzing the ROI and
@@ -108,7 +106,7 @@ like competitive advantage and strategic positioning.
    operational expenses, and expected business benefits.
    Regularly reassess this model as business conditions change
    or when considering new data sources. Use
-   [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to build dashboards tracking ML costs
+   [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") to build dashboards tracking ML costs
    against business KPIs.
 5. **Understand, evaluate, and monitor
    project risks**. Identify technical, operational,

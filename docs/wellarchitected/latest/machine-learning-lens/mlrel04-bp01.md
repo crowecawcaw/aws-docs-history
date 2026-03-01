@@ -1,6 +1,4 @@
-# MLREL04-BP01 Automate endpoint changes through a
-
-pipeline
+# MLREL04-BP01 Automate endpoint changes through a pipeline
 
 Manual change management can be error prone and potentially incur a
 high effort cost. Use automated pipelines (that integrate with a

@@ -1,6 +1,4 @@
-# MLSUS01-BP01 Define the overall environmental impact or
-
-benefit
+# MLSUS01-BP01 Define the overall environmental impact or benefit
 
 Measure your workload's impact and its contribution to the overall
 sustainability goals of the organization. Understand the

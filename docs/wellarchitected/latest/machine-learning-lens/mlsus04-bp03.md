@@ -1,6 +1,4 @@
-# MLSUS04-BP03 Archive or delete unnecessary training
-
-artifacts
+# MLSUS04-BP03 Archive or delete unnecessary training artifacts
 
 Remove training artifacts that are unused and no longer required to
 limit wasted resources. Determine when you can archive training

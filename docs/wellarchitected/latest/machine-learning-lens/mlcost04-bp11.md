@@ -1,6 +1,4 @@
-# MLCOST04-BP11 Use hyperparameter optimization
-
-technologies
+# MLCOST04-BP11 Use hyperparameter optimization technologies
 
 Optimize your machine learning models through automatic
 hyperparameter tuning to find the optimal model configuration with

@@ -2,8 +2,7 @@
 
 The performance efficiency pillar focuses on the efficient use of computing resources to meet requirements and the maintenance of that efficiency as demand changes and technologies evolve.
 
-Each best practice in this section is presented based on its place in the ML lifecycle as detailed in [Well-Architected machine learning
-lifecycle](machine-learning-lifecycle.md "machine-learning-lifecycle.md").
+Each best practice in this section is presented based on its place in the ML lifecycle as detailed in [Well-Architected machine learning lifecycle](machine-learning-lifecycle.md "machine-learning-lifecycle.md").
 
 ###### Lifecycle phases
 

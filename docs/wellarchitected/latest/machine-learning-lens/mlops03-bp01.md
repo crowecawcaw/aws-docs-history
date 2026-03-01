@@ -101,7 +101,7 @@ can significantly improve their model's performance.
    of tables and schemas. Use
    [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/") for serverless SQL querying to constantly
    profile your data, and create
-   [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") dashboards for data visualization and
+   [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") dashboards for data visualization and
    monitoring.
 4. **Create a baseline dataset with
    SageMaker AI Model Monitor**. The training dataset

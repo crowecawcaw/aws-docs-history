@@ -1,6 +1,4 @@
-# MLREL01-BP01 Use APIs to abstract change from model consuming
-
-applications
+# MLREL01-BP01 Use APIs to abstract change from model consuming applications
 
 APIs abstract changes from model-consuming applications, keeping
 machine learning solutions flexible and resilient. Establishing an

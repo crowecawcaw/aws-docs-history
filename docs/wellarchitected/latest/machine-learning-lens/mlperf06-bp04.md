@@ -1,6 +1,4 @@
-# MLPERF06-BP04 Monitor, detect, and handle model performance
-
-degradation
+# MLPERF06-BP04 Monitor, detect, and handle model performance degradation
 
 Model performance could degrade over time for reasons such as data
 quality, model quality, model bias, and model explainability.

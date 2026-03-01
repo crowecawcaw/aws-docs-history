@@ -2,8 +2,7 @@
 
 The sustainability pillar focuses on environmental impacts, especially energy consumption and efficiency, since they are important levers for architects to guide direct action on how to reduce resource usage.
 
-Each best practice in this section is presented based on its place in the ML lifecycle as detailed in [Well-Architected machine learning
-lifecycle](machine-learning-lifecycle.md "machine-learning-lifecycle.md").
+Each best practice in this section is presented based on its place in the ML lifecycle as detailed in [Well-Architected machine learning lifecycle](machine-learning-lifecycle.md "machine-learning-lifecycle.md").
 
 ###### Lifecycle phases
 

@@ -1,6 +1,4 @@
-# MLREL04-BP02 Use an appropriate deployment and testing
-
-strategy
+# MLREL04-BP02 Use an appropriate deployment and testing strategy
 
 Select the right deployment and testing strategy for your machine
 learning models to create smoother transitions to production,

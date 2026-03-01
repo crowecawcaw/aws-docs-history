@@ -1,6 +1,4 @@
-# MLOPS01-BP03 Monitor model adherence to business
-
-requirements
+# MLOPS01-BP03 Monitor model adherence to business requirements
 
 Machine learning models degrade over time due to changes in the real
 world, such as _data drift_ and _concept
@@ -99,7 +97,7 @@ business operations.
    evolves.
 6. **Create visualization
    dashboards.** Implement dashboards using Amazon CloudWatch, Amazon Managed Grafana, or use
-   [Quick Suite with GenBI capabilities](https://aws.amazon.com/quicksight/generative-bi/ "https://aws.amazon.com/quicksight/generative-bi/") to automatically
+   [Quick with GenBI capabilities](https://aws.amazon.com/quicksight/generative-bi/ "https://aws.amazon.com/quicksight/generative-bi/") to automatically
    generate monitoring dashboards. These dashboards should
    present both technical and business metrics in an
    understandable format for stakeholders.

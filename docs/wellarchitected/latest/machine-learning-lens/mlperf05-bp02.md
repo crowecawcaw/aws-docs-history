@@ -1,6 +1,4 @@
-# MLPERF05-BP02 Choose an optimal deployment option in the
-
-cloud
+# MLPERF05-BP02 Choose an optimal deployment option in the cloud
 
 When deploying machine learning models in the cloud, selecting the
 right deployment option is crucial for performance efficiency. By

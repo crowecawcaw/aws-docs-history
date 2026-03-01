@@ -1,6 +1,4 @@
-# MLOPS06-BP01 Synchronize architecture and configuration, and
-
-check for skew across environments
+# MLOPS06-BP01 Synchronize architecture and configuration, and check for skew across environments
 
 Synchronize your systems and configurations across development and
 deployment phases for consistent machine learning model inference
@@ -141,7 +139,7 @@ of predictions and the model's behavior for edge cases.
     that might occur due to external factors.
 11. **Create environment comparison
     dashboards**. Use
-    [Quick Suite with GenBI capabilities](https://aws.amazon.com/quicksight/generative-bi/ "https://aws.amazon.com/quicksight/generative-bi/") to automatically
+    [Quick with GenBI capabilities](https://aws.amazon.com/quicksight/generative-bi/ "https://aws.amazon.com/quicksight/generative-bi/") to automatically
     generate visualizations and dashboards for model performance
     metrics across different environments, making it more
     straightforward to spot discrepancies and track trends over

@@ -1,6 +1,4 @@
-# MLPERF05-BP01 Evaluate cloud versus edge options for machine
-
-learning deployment
+# MLPERF05-BP01 Evaluate cloud versus edge options for machine learning deployment
 
 Evaluate machine learning deployment options to determine if your
 application requires near-instantaneous inference results or needs

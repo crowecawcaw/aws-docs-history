@@ -1,6 +1,4 @@
-# MLPERF06-BP06 Review for updated data and features for
-
-retraining
+# MLPERF06-BP06 Review for updated data and features for retraining
 
 Establishing a framework to regularly review and update your machine
 learning model's data and features is essential for maintaining

@@ -1,6 +1,4 @@
-# MLOPS02-BP05 Establish feedback loops across ML lifecycle
-
-phases
+# MLOPS02-BP05 Establish feedback loops across ML lifecycle phases
 
 Establishing feedback loops across machine learning (ML) lifecycle
 phases is essential for continuous improvement of ML workloads. By
@@ -128,7 +126,7 @@ decisions.
 6. **Document and share
    learnings**. Create a knowledge repository using
    services like
-   [Quick Suite with GenBI capabilities](https://aws.amazon.com/quicksight/generative-bi/ "https://aws.amazon.com/quicksight/generative-bi/") to automatically
+   [Quick with GenBI capabilities](https://aws.amazon.com/quicksight/generative-bi/ "https://aws.amazon.com/quicksight/generative-bi/") to automatically
    generate visualizations and dashboards, and
    [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/") for storing experiment results and operational
    reports. This documentation should include successful

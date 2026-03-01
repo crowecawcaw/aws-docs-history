@@ -1,6 +1,4 @@
-# MLPERF04-BP02 Explore alternatives for performance
-
-improvement
+# MLPERF04-BP02 Explore alternatives for performance improvement
 
 Benchmarking your machine learning models allows you to
 systematically improve performance by evaluating and comparing

@@ -1,6 +1,4 @@
-# MLOPS01-BP01 Develop the right skills with accountability and
-
-empowerment
+# MLOPS01-BP01 Develop the right skills with accountability and empowerment
 
 Artificial intelligence (AI) has many different and growing
 branches, such as machine learning, deep learning, and computer

@@ -1,6 +1,4 @@
-# MLSUS03-BP02 Implement data lifecycle policies aligned with
-
-your sustainability goals
+# MLSUS03-BP02 Implement data lifecycle policies aligned with your sustainability goals
 
 Classify your data to identify its business relevance and implement
 efficient storage strategies that support your sustainability goals.

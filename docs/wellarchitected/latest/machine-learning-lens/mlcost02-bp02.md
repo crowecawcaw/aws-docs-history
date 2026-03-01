@@ -1,6 +1,4 @@
-# MLCOST02-BP02 Perform a tradeoff analysis between custom and
-
-pre-trained models
+# MLCOST02-BP02 Perform a tradeoff analysis between custom and pre-trained models
 
 Optimize machine learning costs by carefully analyzing the tradeoffs
 between developing custom models and using pre-trained models. This

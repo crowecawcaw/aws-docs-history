@@ -1,6 +1,4 @@
-# MLREL05-BP01 Allow automatic scaling of the model
-
-endpoint
+# MLREL05-BP01 Allow automatic scaling of the model endpoint
 
 Implement capabilities that allow the automatic scaling of model
 endpoints. This improves the reliable processing of predictions to

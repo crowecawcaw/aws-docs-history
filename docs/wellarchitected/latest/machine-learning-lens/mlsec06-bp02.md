@@ -1,6 +1,4 @@
-# MLSEC06-BP02 Monitor human interactions with data for anomalous
-
-activity
+# MLSEC06-BP02 Monitor human interactions with data for anomalous activity
 
 Implement comprehensive monitoring of data access events to detect
 unauthorized or suspicious activities. By auditing user interactions

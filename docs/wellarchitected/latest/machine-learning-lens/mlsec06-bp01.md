@@ -1,6 +1,4 @@
-# MLSEC06-BP01 Restrict access to intended legitimate
-
-consumers
+# MLSEC06-BP01 Restrict access to intended legitimate consumers
 
 Use least privilege permissions to invoke the deployed model
 endpoint. For consumers who are external to the workload

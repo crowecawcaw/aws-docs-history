@@ -1,6 +1,4 @@
-# MLPERF02-BP02 Use purpose-built AI and ML services and
-
-resources
+# MLPERF02-BP02 Use purpose-built AI and ML services and resources
 
 Consider how the workload could be handled by pre-built AI services
 or ML resources. Better performance can often be delivered more

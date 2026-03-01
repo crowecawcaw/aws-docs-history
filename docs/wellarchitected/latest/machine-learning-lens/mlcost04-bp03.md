@@ -1,6 +1,4 @@
-# MLCOST04-BP03 Select local training for small scale
-
-experiments
+# MLCOST04-BP03 Select local training for small scale experiments
 
 When developing machine learning models, choosing the right training
 environment is crucial for both cost efficiency and rapid

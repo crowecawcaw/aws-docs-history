@@ -2,8 +2,7 @@
 
 The security pillar encompasses the ability to protect data, systems, and assets to take advantage of cloud technologies to improve your security posture. This section includes best practices to consider while identifying the business goal.
 
-Each best practice in this section is presented based on its place in the ML lifecycle as detailed in [Well-Architected machine learning
-lifecycle](machine-learning-lifecycle.md "machine-learning-lifecycle.md").
+Each best practice in this section is presented based on its place in the ML lifecycle as detailed in [Well-Architected machine learning lifecycle](machine-learning-lifecycle.md "machine-learning-lifecycle.md").
 
 ###### Lifecycle phases
 

@@ -1,6 +1,4 @@
-# MLPERF04-BP01 Optimize training and inference instance
-
-types
+# MLPERF04-BP01 Optimize training and inference instance types
 
 Selecting appropriate instance types for training and inference
 workloads provides optimal performance, reduced costs, and faster

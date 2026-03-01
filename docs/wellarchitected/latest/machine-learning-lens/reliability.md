@@ -2,8 +2,7 @@
 
 The reliability pillar encompasses the ability of a workload to perform its intended function correctly and consistently when it’s expected to.
 
-Each best practice in this section is presented based on its place in the ML lifecycle as detailed in [Well-Architected machine learning
-lifecycle](machine-learning-lifecycle.md "machine-learning-lifecycle.md").
+Each best practice in this section is presented based on its place in the ML lifecycle as detailed in [Well-Architected machine learning lifecycle](machine-learning-lifecycle.md "machine-learning-lifecycle.md").
 
 ###### Lifecycle phases
 

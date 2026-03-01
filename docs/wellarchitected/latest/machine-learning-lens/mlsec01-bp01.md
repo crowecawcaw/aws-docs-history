@@ -1,6 +1,4 @@
-# MLSEC01-BP01 Validate ML data permissions, privacy, software,
-
-and license terms
+# MLSEC01-BP01 Validate ML data permissions, privacy, software, and license terms
 
 Machine learning implementations require careful consideration of
 data permissions, privacy, and software licensing to adhere to

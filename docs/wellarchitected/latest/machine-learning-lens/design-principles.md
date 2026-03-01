@@ -1,6 +1,4 @@
-# Well-Architected machine learning design
-
-principles
+# Well-Architected machine learning design principles
 
 Well-Architected ML design principles are a set of considerations
 used as the basis for a well-architected ML workload.

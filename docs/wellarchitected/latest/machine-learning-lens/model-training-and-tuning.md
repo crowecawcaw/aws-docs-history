@@ -1,6 +1,4 @@
-# Model training and
-
-tuning
+# Model training and tuning
 
 In this phase, you select a machine learning algorithm that is
 appropriate for your problem and then train the ML model. You

@@ -1,6 +1,4 @@
-# MLOPS04-BP01 Automate operations through MLOps and
-
-CI/CD
+# MLOPS04-BP01 Automate operations through MLOps and CI/CD
 
 Automate ML workload operations using infrastructure as code (IaC)
 and configuration as code (CaC). Select appropriate MLOps mechanisms

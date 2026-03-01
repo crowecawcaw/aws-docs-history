@@ -1,6 +1,4 @@
-# MLCOST06-BP03 Monitor endpoint usage and right-size the
-
-instance fleet
+# MLCOST06-BP03 Monitor endpoint usage and right-size the instance fleet
 
 Use efficient compute resources to run models in production. Monitor
 your endpoint usage and right-size the instance fleet. Use automatic

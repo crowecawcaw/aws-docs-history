@@ -1,6 +1,4 @@
-# MLPERF04-BP03 Establish a model performance evaluation
-
-pipeline
+# MLPERF04-BP03 Establish a model performance evaluation pipeline
 
 Establish an end-to-end model performance evaluation pipeline that
 captures key metrics to evaluate your model's success, align with

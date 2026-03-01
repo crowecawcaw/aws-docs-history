@@ -1,6 +1,4 @@
-# MLOPS03-BP02 Create tracking and version control
-
-mechanisms
+# MLOPS03-BP02 Create tracking and version control mechanisms
 
 Machine learning model development requires robust tracking and
 version control mechanisms due to its iterative and exploratory

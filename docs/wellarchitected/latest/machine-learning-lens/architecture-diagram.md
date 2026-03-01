@@ -1,6 +1,4 @@
-# ML lifecycle architecture
-
-diagram
+# ML lifecycle architecture diagram
 
 Figure 3 shows the ML lifecycle phases with the _data
 processing phase_ (for example, Process Data) expanded

@@ -1,6 +1,4 @@
-# MLOPS04-BP02 Establish reliable packaging patterns to access
-
-approved public libraries
+# MLOPS04-BP02 Establish reliable packaging patterns to access approved public libraries
 
 Establishing reliable packaging patterns enables data scientists to
 access approved public libraries efficiently and consistently. By

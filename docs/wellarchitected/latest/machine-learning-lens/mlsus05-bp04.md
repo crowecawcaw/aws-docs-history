@@ -1,6 +1,4 @@
-# MLSUS05-BP04 Deploy multiple models behind a single
-
-endpoint
+# MLSUS05-BP04 Deploy multiple models behind a single endpoint
 
 Host multiple models behind a single endpoint to improve endpoint utilization. Sharing
 endpoint resources is more sustainable and less expensive than deploying a single model behind

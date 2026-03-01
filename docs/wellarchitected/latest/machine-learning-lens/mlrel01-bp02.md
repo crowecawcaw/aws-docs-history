@@ -1,6 +1,4 @@
-# MLREL01-BP02 Adopt a machine learning microservice
-
-strategy
+# MLREL01-BP02 Adopt a machine learning microservice strategy
 
 Machine learning systems can be effectively implemented through a
 microservice architecture that breaks down complex business problems

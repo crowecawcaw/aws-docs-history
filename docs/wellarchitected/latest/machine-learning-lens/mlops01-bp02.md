@@ -1,6 +1,4 @@
-# MLOPS01-BP02 Discuss and agree on the level of model
-
-explainability
+# MLOPS01-BP02 Discuss and agree on the level of model explainability
 
 Establish clear expectations with business stakeholders about the
 level of model explainability needed for your machine learning use

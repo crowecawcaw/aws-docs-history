@@ -1,6 +1,4 @@
-# MLREL05-BP02 Create a recoverable endpoint with a managed
-
-version control strategy
+# MLREL05-BP02 Create a recoverable endpoint with a managed version control strategy
 
 Establish a fully recoverable system for model prediction endpoints
 by implementing proper version control and lineage tracking for

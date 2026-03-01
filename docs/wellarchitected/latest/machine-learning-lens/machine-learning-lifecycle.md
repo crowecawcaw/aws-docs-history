@@ -1,6 +1,4 @@
-# Well-Architected machine learning
-
-lifecycle
+# Well-Architected machine learning lifecycle
 
 The ML lifecycle is the cyclic iterative process with instructions
 and best practices to use across defined phases while developing an

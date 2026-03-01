@@ -1,6 +1,4 @@
-# MLREL03-BP04 Establish data bias detection and
-
-mitigation
+# MLREL03-BP04 Establish data bias detection and mitigation
 
 Detect and mitigate bias to avoid inaccurate model results.
 Establish bias detection methodologies at data preparation stage

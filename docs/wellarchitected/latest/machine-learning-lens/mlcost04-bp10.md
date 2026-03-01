@@ -1,6 +1,4 @@
-# MLCOST04-BP10 Use warm start and checkpointing hyperparameter
-
-tuning
+# MLCOST04-BP10 Use warm start and checkpointing hyperparameter tuning
 
 When training machine learning models, you can significantly reduce
 time and costs by using previous training efforts. This practice

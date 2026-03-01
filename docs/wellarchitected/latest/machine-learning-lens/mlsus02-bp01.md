@@ -1,6 +1,4 @@
-# MLSUS02-BP01 Consider AI services and pre-trained
-
-models
+# MLSUS02-BP01 Consider AI services and pre-trained models
 
 Using AI services and pre-trained models can significantly reduce
 the resources needed for machine learning workloads, enabling you to

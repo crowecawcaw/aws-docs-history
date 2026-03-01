@@ -1,6 +1,4 @@
-# MLREL03-BP02 Verify feature consistency across training and
-
-inference
+# MLREL03-BP02 Verify feature consistency across training and inference
 
 Provide consistent, scalable, and highly available features between
 training and inference using a feature storage. This results in

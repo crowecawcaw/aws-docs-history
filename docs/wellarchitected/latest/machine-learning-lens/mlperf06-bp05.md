@@ -1,6 +1,4 @@
-# MLPERF06-BP05 Establish an automated re-training
-
-framework
+# MLPERF06-BP05 Establish an automated re-training framework
 
 Monitor data and model predictions to identify errors due to data
 and concept drift. By implementing automated model re-training at

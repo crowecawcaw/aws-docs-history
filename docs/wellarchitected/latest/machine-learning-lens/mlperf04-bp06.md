@@ -1,6 +1,4 @@
-# MLPERF04-BP06 Detect performance issues when using transfer
-
-learning
+# MLPERF04-BP06 Detect performance issues when using transfer learning
 
 Transfer learning can accelerate machine learning development by
 using pre-trained models for new tasks. Monitoring the performance

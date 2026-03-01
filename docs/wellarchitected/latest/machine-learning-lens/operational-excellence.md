@@ -2,8 +2,7 @@
 
 The operational excellence pillar includes the ability to run and monitor systems to deliver business value and to continually improve supporting processes and procedures. This section includes best practices to consider while identifying the business goal.
 
-Each best practice in this section is presented based on its place in the ML lifecycle as detailed in [Well-Architected machine learning
-lifecycle](machine-learning-lifecycle.md "machine-learning-lifecycle.md").
+Each best practice in this section is presented based on its place in the ML lifecycle as detailed in [Well-Architected machine learning lifecycle](machine-learning-lifecycle.md "machine-learning-lifecycle.md").
 
 ###### Lifecycle phases
 

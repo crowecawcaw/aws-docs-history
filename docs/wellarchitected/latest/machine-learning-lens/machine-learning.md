@@ -13,10 +13,8 @@ learning for each of the lifecycle phases.
 
 - [Business goal identification](business-goal-identification.md "business-goal-identification.md")
 - [ML problem framing](ml-problem-framing.md "ml-problem-framing.md")
-- [ML lifecycle architecture
-  diagram](architecture-diagram.md "architecture-diagram.md")
+- [ML lifecycle architecture diagram](architecture-diagram.md "architecture-diagram.md")
 - [Data processing](data-processing.md "data-processing.md")
-- [Model
-  development](model-development.md "model-development.md")
+- [Model development](model-development.md "model-development.md")
 - [Deployment](deployment.md "deployment.md")
 - [Monitoring](monitoring.md "monitoring.md")

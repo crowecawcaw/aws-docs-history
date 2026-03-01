@@ -1,6 +1,4 @@
-# MLCOST05-BP03 Right-size the model hosting instance
-
-fleet
+# MLCOST05-BP03 Right-size the model hosting instance fleet
 
 Use efficient compute resources to run models in production. In many
 cases, up to 90% of the infrastructure spend for developing and

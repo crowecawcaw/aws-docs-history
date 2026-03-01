@@ -1,6 +1,4 @@
-# MLSEC05-BP01 Protect against adversarial and malicious
-
-activities
+# MLSEC05-BP01 Protect against adversarial and malicious activities
 
 Machine learning systems must be robust against adversarial inputs
 designed to manipulate their behavior. Implementing protection

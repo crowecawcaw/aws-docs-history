@@ -1,6 +1,4 @@
-# MLCOST02-BP01 Identify if machine learning is the right
-
-solution
+# MLCOST02-BP01 Identify if machine learning is the right solution
 
 Evaluating whether machine learning is the appropriate solution for
 your business problem is crucial for cost optimization. Not every

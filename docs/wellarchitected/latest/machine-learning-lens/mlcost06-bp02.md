@@ -1,6 +1,4 @@
-# MLCOST06-BP02 Monitor return on investment for ML
-
-models
+# MLCOST06-BP02 Monitor return on investment for ML models
 
 Once a model is deployed into production, establish a reporting
 capability to track the value which is being delivered. For example:
@@ -129,9 +127,9 @@ process edge cases.
    [Amazon Kinesis](https://aws.amazon.com/kinesis/ "https://aws.amazon.com/kinesis/") to capture business event data. Store this
    data in [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/") or
    [Amazon Redshift](https://aws.amazon.com/redshift/ "https://aws.amazon.com/redshift/") for further analysis.
-4. **Create ROI dashboards using Quick Suite.** Develop business-focused dashboards
+4. **Create ROI dashboards using Quick.** Develop business-focused dashboards
    in
-   [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") that visualize the relationship between
+   [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") that visualize the relationship between
    model performance and business outcomes. Include metrics
    that show both the value generated (increased revenue, cost
    savings) and costs incurred (infrastructure, maintenance,
@@ -164,7 +162,7 @@ process edge cases.
    business processes to maximize value creation.
 8. **Use enhanced QuickSight capabilities
    for ROI analysis**. Use improved
-   [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") with generative AI insights and natural
+   [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") with generative AI insights and natural
    language query capabilities to automatically identify
    trends, anomalies, and optimization opportunities in your
    ROI data.
@@ -182,7 +180,7 @@ process edge cases.
 **Related documents:**
 
 - [What
-  is Quick Suite?](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md")
+  is Quick?](../../../quicksight/latest/user/welcome.md "../../../quicksight/latest/user/welcome.md")
 - [Publish
   custom metrics](../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md "../../../AmazonCloudWatch/latest/monitoring/publishingMetrics.md")
 - [Data
@@ -190,7 +188,7 @@ process edge cases.
   Monitor](../../../sagemaker/latest/dg/model-monitor.md "../../../sagemaker/latest/dg/model-monitor.md")
 - [What
   are AWS Cost and Usage Reports?](../../../cur/latest/userguide/what-is-cur.md "../../../cur/latest/userguide/what-is-cur.md")
-- [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
+- [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/")
 - [Cost
   Optimization Pillar - AWS Well-Architected Framework](../cost-optimization-pillar/welcome.md "../cost-optimization-pillar/welcome.md")
 - [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/")

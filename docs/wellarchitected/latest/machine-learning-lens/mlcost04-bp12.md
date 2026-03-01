@@ -1,6 +1,4 @@
-# MLCOST04-BP12 Set up a budget and use resource tagging to track
-
-costs
+# MLCOST04-BP12 Set up a budget and use resource tagging to track costs
 
 Setting up budgets and implementing resource tagging for machine
 learning workloads provides clear visibility into your ML-related

@@ -1,6 +1,4 @@
-# MLCOST03-BP02 Use no-code or low-code and code generation tools
-
-for interactive analysis
+# MLCOST03-BP02 Use no-code or low-code and code generation tools for interactive analysis
 
 Prepare data through data wrangler tools for interactive data
 analysis and model building. The no-code/low-code, automation, and
