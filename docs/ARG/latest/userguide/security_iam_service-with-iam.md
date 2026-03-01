@@ -7,15 +7,12 @@ Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [Resource Groups
-  identity-based policies](#security_iam_service-with-iam-id-based-policies-arg-te "#security_iam_service-with-iam-id-based-policies-arg-te")
+- [Resource Groups identity-based policies](#security_iam_service-with-iam-id-based-policies-arg-te "#security_iam_service-with-iam-id-based-policies-arg-te")
 - [Resource-based policies](#security_iam_resource-based-policies "#security_iam_resource-based-policies")
 - [Authorization based on Resource Groups tags](#security_iam_tags "#security_iam_tags")
 - [Resource Groups IAM roles](#security_iam_roles "#security_iam_roles")
 
-## Resource Groups
-
-identity-based policies
+## Resource Groups identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied. Resource Groups
@@ -123,9 +120,7 @@ you can specify the ARN of each resource, see [Actions, Resources, and
 Condition Keys for AWS Resource Groups](../../../IAM/latest/UserGuide/list_awsresourcegroups.md "../../../IAM/latest/UserGuide/list_awsresourcegroups.md") in the
 _IAM User Guide_.
 
-### Condition
-
-keys
+### Condition keys
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
 **actions** on what **resources**, and under what **conditions**.
@@ -148,8 +143,7 @@ _IAM User Guide_.
 
 ### Examples
 
-To view examples of Resource Groups identity-based policies, see [AWS Resource Groups identity-based policy
-examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Resource Groups identity-based policies, see [AWS Resource Groups identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## Resource-based policies
 
@@ -169,8 +163,7 @@ creating or updating the group. For more information about tagging a group in Re
 in this guide.
 
 To view an example identity-based policy for limiting access to a resource based on
-the tags on that resource, see [Viewing groups based on
-tags](security_iam_id-based-policy-examples.md#security_iam_policy-examples-view-tags "security_iam_id-based-policy-examples.md#security_iam_policy-examples-view-tags").
+the tags on that resource, see [Viewing groups based on tags](security_iam_id-based-policy-examples.md#security_iam_policy-examples-view-tags "security_iam_id-based-policy-examples.md#security_iam_policy-examples-view-tags").
 
 ## Resource Groups IAM roles
 
@@ -178,9 +171,7 @@ An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/Use
 is an entity within your AWS account that has specific permissions. Resource Groups does not
 have or use service roles.
 
-### Using temporary credentials with
-
-Resource Groups
+### Using temporary credentials with Resource Groups
 
 In Resource Groups, you can use temporary credentials to sign in with federation, assume an
 IAM role, or to assume a cross-account role. You obtain temporary security

@@ -1,6 +1,4 @@
-# Build a tag-based query and create a
-
-group
+# Build a tag-based query and create a group
 
 The following procedures show you how to build a tag-based query and use it to create
 a resource group.

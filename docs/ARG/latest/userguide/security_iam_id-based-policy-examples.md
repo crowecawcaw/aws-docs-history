@@ -1,6 +1,4 @@
-# AWS Resource Groups identity-based policy
-
-examples
+# AWS Resource Groups identity-based policy examples
 
 By default, IAM principals, such as roles and users, don't have permission to create or
 modify Resource Groups resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS
@@ -15,12 +13,9 @@ _IAM User Guide_.
 ###### Topics
 
 - [Policy best practices](#security_iam_policy-best-practices "#security_iam_policy-best-practices")
-- [Using the Resource Groups console and
-  API](#security_iam_policy-examples-console "#security_iam_policy-examples-console")
-- [Allow users to view their
-  own permissions](#security_iam_policy-examples-own-permissions "#security_iam_policy-examples-own-permissions")
-- [Viewing groups based on
-  tags](#security_iam_policy-examples-view-tags "#security_iam_policy-examples-view-tags")
+- [Using the Resource Groups console and API](#security_iam_policy-examples-console "#security_iam_policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_policy-examples-own-permissions "#security_iam_policy-examples-own-permissions")
+- [Viewing groups based on tags](#security_iam_policy-examples-view-tags "#security_iam_policy-examples-view-tags")
 
 ## Policy best practices
 
@@ -55,9 +50,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Resource Groups console and
-
-API
+## Using the Resource Groups console and API
 
 To access the AWS Resource Groups and Tag Editor console and API, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the Resource Groups
@@ -96,12 +89,9 @@ JSON
 
 ```
 
-For more information about granting access to Resource Groups, see [Granting permissions for
-using AWS Resource Groups and Tag Editor](gettingstarted-prereqs-permissions-howto.md "gettingstarted-prereqs-permissions-howto.md") in this guide.
+For more information about granting access to Resource Groups, see [Granting permissions for using AWS Resource Groups and Tag Editor](gettingstarted-prereqs-permissions-howto.md "gettingstarted-prereqs-permissions-howto.md") in this guide.
 
-## Allow users to view their
-
-own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -141,9 +131,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Viewing groups based on
-
-tags
+## Viewing groups based on tags
 
 You can use conditions in your identity-based policy to control access to Resource Groups
 resources based on tags. This example shows how you might create a policy that allows

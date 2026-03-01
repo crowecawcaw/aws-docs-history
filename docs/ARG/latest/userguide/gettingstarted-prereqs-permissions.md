@@ -36,18 +36,14 @@ such policies for Amazon EC2, see [Example policies for working
 in the Amazon EC2 console](../../../AWSEC2/latest/UserGuide/iam-policies-ec2-console.md "../../../AWSEC2/latest/UserGuide/iam-policies-ec2-console.md") in the
 _Amazon EC2 User Guide_.
 
-## Required permissions for
-
-Resource Groups and Tag Editor
+## Required permissions for Resource Groups and Tag Editor
 
 To use Resource Groups and Tag Editor, the following permissions must be added to a user's
 policy statement in IAM. You can add either AWS-managed policies that are
 maintained and kept up-to-date by AWS, or you can create and maintain your own
 custom policy.
 
-### Using AWS managed
-
-policies for Resource Groups and Tag Editor permissions
+### Using AWS managed policies for Resource Groups and Tag Editor permissions
 
 AWS Resource Groups and Tag Editor support the following AWS managed policies that you
 can use to provide a predefined set of permissions to your users. You can attach
@@ -134,9 +130,7 @@ JSON
 
 ```
 
-### Adding Resource Groups and Tag Editor
-
-permissions manually
+### Adding Resource Groups and Tag Editor permissions manually
 
 - `resource-groups:*` (This permission allows all Resource Groups
   actions. If you instead want to restrict actions that are available to a

@@ -8,35 +8,26 @@ use with no additional charge.
 ###### Topics
 
 - [Audience](#security_iam_audience_arg-te "#security_iam_audience_arg-te")
-- [Authenticating with
-  identities](#security_iam_authentication_arg-te "#security_iam_authentication_arg-te")
-- [Managing access using
-  policies](#security_iam_access-manage-arg-te "#security_iam_access-manage-arg-te")
+- [Authenticating with identities](#security_iam_authentication_arg-te "#security_iam_authentication_arg-te")
+- [Managing access using policies](#security_iam_access-manage-arg-te "#security_iam_access-manage-arg-te")
 - [How Resource Groups works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md")
 - [AWS managed policies for AWS Resource Groups](security_iam_awsmanpol.md "security_iam_awsmanpol.md")
-- [Using service-linked roles for
-  Resource Groups](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md")
-- [AWS Resource Groups identity-based policy
-  examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
-- [Troubleshooting AWS Resource Groups identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [Using service-linked roles for Resource Groups](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md")
+- [AWS Resource Groups identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+- [Troubleshooting AWS Resource Groups identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience
 
 How you use AWS Identity and Access Management (IAM) differs based on your role:
 
 - **Service user** - request permissions from your
-  administrator if you cannot access features (see [Troubleshooting AWS Resource Groups identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
+  administrator if you cannot access features (see [Troubleshooting AWS Resource Groups identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md"))
 - **Service administrator** - determine user access and
   submit permission requests (see [How Resource Groups works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md"))
 - **IAM administrator** - write policies to manage
-  access (see [AWS Resource Groups identity-based policy
-  examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
+  access (see [AWS Resource Groups identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"))
 
-## Authenticating with
-
-identities
+## Authenticating with identities
 
 Authentication is how you sign in to AWS using your identity credentials. You must be authenticated as the AWS account root user, an IAM user, or by assuming an IAM role.
 
@@ -48,9 +39,7 @@ For programmatic access, AWS provides an SDK and CLI to cryptographically sign r
 
 When you create an AWS account, you begin with one sign-in identity called the AWS account _root user_ that has complete access to all AWS services and resources. We strongly recommend that you don't use the root user for everyday tasks. For tasks that require root user credentials, see [Tasks that require root user credentials](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks") in the _IAM User Guide_.
 
-### IAM users and
-
-groups
+### IAM users and groups
 
 An _[IAM user](../../../IAM/latest/UserGuide/id_users.md "../../../IAM/latest/UserGuide/id_users.md")_ is an identity with specific permissions for a single person or application. We recommend using temporary credentials instead of IAM users with long-term credentials. For more information, see [Require human users to use federation with an identity provider to access AWS using temporary credentials](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_.
 
@@ -62,9 +51,7 @@ An _[IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/Us
 
 IAM roles are useful for federated user access, temporary IAM user permissions, cross-account access, cross-service access, and applications running on Amazon EC2. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the _IAM User Guide_.
 
-## Managing access using
-
-policies
+## Managing access using policies
 
 You control access in AWS by creating policies and attaching them to AWS identities or resources. A policy defines permissions when associated with an identity or resource. AWS evaluates these policies when a principal makes a request. Most policies are stored in AWS as JSON documents. For more information about JSON policy documents, see [Overview of JSON policies](../../../IAM/latest/UserGuide/access_policies.md#access_policies-json "../../../IAM/latest/UserGuide/access_policies.md#access_policies-json") in the _IAM User Guide_.
 
@@ -72,9 +59,7 @@ Using policies, administrators specify who has access to what by defining which 
 
 By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, which users can then assume. IAM policies define permissions regardless of the method used to perform the operation.
 
-### Identity-based
-
-policies
+### Identity-based policies
 
 Identity-based policies are JSON permissions policy documents that you attach to an identity (user, group, or role). These policies control what actions identities can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the _IAM User Guide_.
 
@@ -86,9 +71,7 @@ Resource-based policies are JSON policy documents that you attach to a resource.
 
 Resource-based policies are inline policies that are located in that service. You can't use AWS managed policies from IAM in a resource-based policy.
 
-### Access control lists
-
-(ACLs)
+### Access control lists (ACLs)
 
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
@@ -97,9 +80,7 @@ Amazon S3, AWS WAF, and Amazon VPC
 are examples of services that support ACLs. To learn more about ACLs, see [Access control list (ACL)
 overview](../../../AmazonS3/latest/userguide/acl-overview.md "../../../AmazonS3/latest/userguide/acl-overview.md") in the _Amazon Simple Storage Service Developer Guide_.
 
-### Other policy
-
-types
+### Other policy types
 
 AWS supports additional policy types that can set the maximum permissions granted by more common policy types:
 
@@ -108,8 +89,6 @@ AWS supports additional policy types that can set the maximum permissions grante
 - **Resource control policies (RCPs)** – Set the maximum available permissions for resources in your accounts. For more information, see [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the _AWS Organizations User Guide_.
 - **Session policies** – Advanced policies passed as a parameter when creating a temporary session for a role or federated user. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _IAM User Guide_.
 
-### Multiple
-
-policy types
+### Multiple policy types
 
 When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md "../../../IAM/latest/UserGuide/reference_policies_evaluation-logic.md") in the _IAM User Guide_.

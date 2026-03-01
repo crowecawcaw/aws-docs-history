@@ -1,6 +1,4 @@
-# Update tag-based query
-
-groups
+# Update tag-based query groups
 
 The following procedures show you how to update a tag-based query group.
 

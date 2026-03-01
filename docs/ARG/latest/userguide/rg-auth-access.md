@@ -1,6 +1,4 @@
-# Learn more about AWS Resource Groups authorization and access
-
-control
+# Learn more about AWS Resource Groups authorization and access control
 
 Resource Groups supports the following.
 

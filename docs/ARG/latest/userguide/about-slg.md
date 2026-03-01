@@ -10,14 +10,11 @@ services.
 
 ###### Topics
 
-- [How to access the service configuration
-  attached to a resource group](#about-slg-how-to-access "#about-slg-how-to-access")
+- [How to access the service configuration attached to a resource group](#about-slg-how-to-access "#about-slg-how-to-access")
 - [JSON syntax of a service configuration](#about-slg-config-syntax "#about-slg-config-syntax")
 - [Supported configuration types and parameters](about-slg-types.md "about-slg-types.md")
 
-## How to access the service configuration
-
-attached to a resource group
+## How to access the service configuration attached to a resource group
 
 Services that support service-linked groups typically set the configuration for you
 when you use the tools provided by that service, such as that service's management

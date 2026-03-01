@@ -1,6 +1,4 @@
-# Resource types you can use with AWS Resource Groups and
-
-Tag Editor
+# Resource types you can use with AWS Resource Groups and Tag Editor
 
 You can use the AWS Management Console or the AWS CLI to create resource groups and then interact with
 the member resources through those groups. You can add tags to many AWS resources and then
@@ -2038,7 +2036,7 @@ us-east-1** using the Region selector in the upper-right corner of the AWS Manag
 | `AWS::QLDB::Stream` | No                     | Yes                  | Yes                                   |
 | `AWS::QLDB::Table`  | No                     | Yes                  | No                                    |
 
-## Amazon Quick Suite
+## Amazon Quick
 
 | **Resources**                        | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** |
 | ------------------------------------ | ---------------------- | -------------------- | ------------------------------------- |

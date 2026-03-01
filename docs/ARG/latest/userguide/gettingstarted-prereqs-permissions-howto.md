@@ -1,6 +1,4 @@
-# Granting permissions for
-
-using AWS Resource Groups and Tag Editor
+# Granting permissions for using AWS Resource Groups and Tag Editor
 
 To add a policy for using AWS Resource Groups and Tag Editor to a user, do the
 following.

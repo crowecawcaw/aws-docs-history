@@ -1,13 +1,9 @@
-# Structure and syntax of Resource Groups lifecycle
-
-events
+# Structure and syntax of Resource Groups lifecycle events
 
 ###### Topics
 
-- [Structure of the detail
-  field](monitor-groups-syntax-detail.md "monitor-groups-syntax-detail.md")
-- [Example EventBridge custom event
-  patterns for different use cases](monitor-groups-example-eventbridge-filters.md "monitor-groups-example-eventbridge-filters.md")
+- [Structure of the detail field](monitor-groups-syntax-detail.md "monitor-groups-syntax-detail.md")
+- [Example EventBridge custom event patterns for different use cases](monitor-groups-example-eventbridge-filters.md "monitor-groups-example-eventbridge-filters.md")
   The lifecycle events for AWS Resource Groups take the form of [JSON](https://json.org "https://json.org") object strings in the following general format.
 
 ```

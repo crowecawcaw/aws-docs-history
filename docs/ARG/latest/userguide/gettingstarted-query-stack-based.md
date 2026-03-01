@@ -1,6 +1,4 @@
-# Create an CloudFormation stack-based
-
-group
+# Create an CloudFormation stack-based group
 
 The following procedures show you how to build a stack-based query and use it to
 create a resource group.
@@ -22,8 +20,7 @@ Console
    group. For this walkthrough, keep the default, **All
    supported resource types**. For more information about
    which resource types are supported and can be in the group, see
-   [Resource types you can use with AWS Resource Groups and
-   Tag Editor](supported-resources.md "supported-resources.md").
+   [Resource types you can use with AWS Resource Groups and Tag Editor](supported-resources.md "supported-resources.md").
 6. Choose **View group resources** to return the
    list of resources in the CloudFormation stack that match your selected
    resource types.

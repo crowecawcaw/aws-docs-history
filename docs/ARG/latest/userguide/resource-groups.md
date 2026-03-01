@@ -82,9 +82,7 @@ groups](../APIReference/about-slg.md "../APIReference/about-slg.md") in the _AWS
 Resource groups can be _nested_; a resource group can contain
 existing resource groups in the same region.
 
-### Use cases for resource
-
-groups
+### Use cases for resource groups
 
 By default, the AWS Management Console is organized by AWS service. But with Resource Groups, you can
 create a custom console that organizes and consolidates information based on

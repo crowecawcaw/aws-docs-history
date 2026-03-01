@@ -2,9 +2,7 @@
 
 All AWS Resource Groups actions are logged in AWS CloudTrail.
 
-## Logging AWS Resource Groups API calls with
-
-AWS CloudTrail
+## Logging AWS Resource Groups API calls with AWS CloudTrail
 
 AWS Resource Groups and Tag Editor are integrated with AWS CloudTrail, a service that provides a record
 of actions taken by a user, role, or an AWS service in Resource Groups or Tag Editor. CloudTrail captures
@@ -18,9 +16,7 @@ made, who made the request, when it was made, and additional details.
 
 To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 
-### Resource Groups information in
-
-CloudTrail
+### Resource Groups information in CloudTrail
 
 CloudTrail is enabled on your AWS account when you create the account. When activity
 occurs in Resource Groups, or in the Tag Editor console, that activity is recorded in a CloudTrail
@@ -64,9 +60,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail
 `userIdentity` Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-### Understanding Resource Groups log file
-
-entries
+### Understanding Resource Groups log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3
 bucket that you specify. CloudTrail log files contain one or more log entries. An event

@@ -1,6 +1,4 @@
-# Update an CloudFormation stack-based
-
-group
+# Update an CloudFormation stack-based group
 
 The following procedures show you how to update a CloudFormation stack-based group.
 
@@ -34,8 +32,7 @@ is **All supported resource types**. You can have a
 maximum of 20 resource types in a query. To remove a resource type,
 choose **X** on the resource type's label. For more
 information about which resource types are supported and can be in
-the group, see [Resource types you can use with AWS Resource Groups and
-Tag Editor](supported-resources.md "supported-resources.md"). 6. Choose **Preview group resources** to retrieve
+the group, see [Resource types you can use with AWS Resource Groups and Tag Editor](supported-resources.md "supported-resources.md"). 6. Choose **Preview group resources** to retrieve
 the list of resources in the CloudFormation stack that match your selected
 resource types. 7. In **Additional information**, you can edit the
 group description. You cannot edit a group's name after the group

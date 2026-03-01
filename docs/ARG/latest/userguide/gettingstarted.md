@@ -18,5 +18,4 @@ For more information about getting started with AWS Systems Manager features and
 ###### Topics
 
 - [Prerequisites for working with AWS Resource Groups](gettingstarted-prereqs.md "gettingstarted-prereqs.md")
-- [Learn more about AWS Resource Groups authorization and access
-  control](rg-auth-access.md "rg-auth-access.md")
+- [Learn more about AWS Resource Groups authorization and access control](rg-auth-access.md "rg-auth-access.md")

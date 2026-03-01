@@ -21,14 +21,11 @@ _IAM User Guide_.
 - [ResourceGroupsTaggingAPITagUntagSupportedResources](#security-iam-awsmanpol-ResourceGroupsTaggingAPITagUntagSupportedResources "#security-iam-awsmanpol-ResourceGroupsTaggingAPITagUntagSupportedResources")
 - [ResourceGroupsTaggingAPITagUntagSupportedResources](#security-iam-awsmanpol-ResourceGroupsTaggingAPITagUntagSupportedResources.title "#security-iam-awsmanpol-ResourceGroupsTaggingAPITagUntagSupportedResources.title")
 
-## AWS managed policy:
-
-ResourceGroupsServiceRolePolicy
+## AWS managed policy: ResourceGroupsServiceRolePolicy
 
 You can't attach `ResourceGroupsServiceRolePolicy` to any IAM entities yourself. This
 policy can be attached only to a service-linked role that allows Resource Groups to perform
-actions on your behalf. For more information, see [Using service-linked roles for
-Resource Groups](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md").
+actions on your behalf. For more information, see [Using service-linked roles for Resource Groups](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md").
 
 This policy grants the permissions required for Resource Groups to retrieve information about
 the resources in your resource groups and any CloudFormation stacks that those resources belong
@@ -36,9 +33,7 @@ to. This lets Resource Groups generate CloudWatch Events for the group lifecycle
 
 To see the latest version of this AWS managed policy, see `ResourceGroupsServiceRolePolicy` in the IAM console.
 
-## AWS managed
-
-policy: ResourceGroupsandTagEditorFullAccess
+## AWS managed policy: ResourceGroupsandTagEditorFullAccess
 
 When you attach a policy to a principal entity, you give the entity permissions that
 are defined in the policy. AWS managed policies make it easier for you to assign appropriate permissions to
@@ -52,9 +47,7 @@ To see the latest version of this AWS managed policy, see `ResourceGroupsandTagE
 For more information about this policy, see
 [ResourceGroupsandTagEditorFullAccess](../../../aws-managed-policy/latest/reference/ResourceGroupsandTagEditorFullAccess.md "../../../aws-managed-policy/latest/reference/ResourceGroupsandTagEditorFullAccess.md")in the _AWS Managed Policy Reference Guide_.
 
-## AWS managed
-
-policy: ResourceGroupsandTagEditorReadOnlyAccess
+## AWS managed policy: ResourceGroupsandTagEditorReadOnlyAccess
 
 When you attach a policy to a principal entity, you give the entity permissions that
 are defined in the policy. AWS managed policies make it easier for you to assign appropriate permissions to
@@ -68,9 +61,7 @@ To see the latest version of this AWS managed policy, see `ResourceGroupsandTagE
 For more information about this policy, see
 [ResourceGroupsandTagEditorReadOnlyAccess](../../../aws-managed-policy/latest/reference/ResourceGroupsandTagEditorReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/ResourceGroupsandTagEditorReadOnlyAccess.md") in the _AWS Managed Policy Reference Guide_.
 
-## AWS managed
-
-policy: ResourceGroupsTaggingAPITagUntagSupportedResources
+## AWS managed policy: ResourceGroupsTaggingAPITagUntagSupportedResources
 
 When you attach a policy to a principal entity, you give the entity permissions that
 are defined in the policy. AWS managed policies make it easier for you to assign appropriate permissions to
@@ -100,9 +91,7 @@ To see the latest version of this AWS managed policy, see `ResourceGroupsTagging
 For more information about this policy, see
 [ResourceGroupsTaggingAPITagUntagSupportedResources](../../../aws-managed-policy/latest/reference/ResourceGroupsTaggingAPITagUntagSupportedResources.md "../../../aws-managed-policy/latest/reference/ResourceGroupsTaggingAPITagUntagSupportedResources.md") in the _AWS Managed Policy Reference Guide_.
 
-## Resource Groups updates to AWS managed
-
-policies
+## Resource Groups updates to AWS managed policies
 
 View details about updates to AWS managed policies for Resource Groups since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

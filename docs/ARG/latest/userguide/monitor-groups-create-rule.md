@@ -1,6 +1,4 @@
-# Creating an EventBridge rule to capture group lifecycle events and
-
-publish notifications
+# Creating an EventBridge rule to capture group lifecycle events and publish notifications
 
 You can [turn on group lifecycle events for your resource
 groups](monitor-groups-turn-on.md "monitor-groups-turn-on.md") in AWS Resource Groups to publish events to Amazon EventBridge. Then, you can create EventBridge
@@ -79,8 +77,7 @@ the custom event pattern from the file.
 
 To capture other types of Resource Groups events, replace the
 `--event-pattern` string with filters like those
-presented in the section [Example EventBridge custom event
-patterns for different use cases](monitor-groups-example-eventbridge-filters.md "monitor-groups-example-eventbridge-filters.md").
+presented in the section [Example EventBridge custom event patterns for different use cases](monitor-groups-example-eventbridge-filters.md "monitor-groups-example-eventbridge-filters.md").
 
 Step 2: Attach a target that
 can process the events to the EventBridge rule
@@ -108,17 +105,14 @@ At this point, any group changes that match the event pattern in
 your rule are automatically sent to the configured target or
 targets. If, as in the previous example, the target is an Amazon SNS
 topic, then all subscribers to the topic receive a message
-containing the event as described in [Structure and syntax of Resource Groups lifecycle
-events](monitor-groups-syntax.md "monitor-groups-syntax.md").
+containing the event as described in [Structure and syntax of Resource Groups lifecycle events](monitor-groups-syntax.md "monitor-groups-syntax.md").
 
 For more information, see the following resources:
 
 - AWS CLI – [aws events put-rule](../../../cli/latest/reference/events/put-rule.md "../../../cli/latest/reference/events/put-rule.md") and [aws events put-targets](../../../cli/latest/reference/events/put-targets.md "../../../cli/latest/reference/events/put-targets.md")
 - API – [PutRule](../../../eventbridge/latest/APIReference/API_PutRule.md "../../../eventbridge/latest/APIReference/API_PutRule.md") and [PutTargets](../../../eventbridge/latest/APIReference/API_PutTargets.md "../../../eventbridge/latest/APIReference/API_PutTargets.md")
 
-## Creating a rule to capture only
-
-specific group lifecycle event types
+## Creating a rule to capture only specific group lifecycle event types
 
 You can create a rule with a custom event pattern that captures only the events that you
 are interested in. For complete details about how to filter incoming events using a custom
@@ -140,5 +134,4 @@ to the following example.
 ```
 
 That filter captures only those events that have those exact values in the specified
-fields. For a complete list of the fields available for you to match, see [Structure and syntax of Resource Groups lifecycle
-events](monitor-groups-syntax.md "monitor-groups-syntax.md").
+fields. For a complete list of the fields available for you to match, see [Structure and syntax of Resource Groups lifecycle events](monitor-groups-syntax.md "monitor-groups-syntax.md").

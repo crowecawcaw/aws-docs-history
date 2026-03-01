@@ -1,6 +1,4 @@
-# Structure of the `detail`
-
-field
+# Structure of the `detail` field
 
 The `detail` field includes all of the Resource Groups service-specific details about
 a specific change. The `detail` field can take one of two forms, a group
@@ -16,9 +14,7 @@ between a group that is deleted and a different group that is later created with
 same name. We recommend that you treat a concatenation of the ARN and unique id as
 the key for the group in your programs that interact with these events.
 
-## Group state
-
-change
+## Group state change
 
 `"detail-type": "ResourceGroups Group State Change"`
 
@@ -197,9 +193,7 @@ definition, the last event for this `arn` and
 }
 ```
 
-## Group membership
-
-change
+## Group membership change
 
 `"detail-type": "ResourceGroups Group Membership Change"`
 

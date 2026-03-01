@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Resource Groups
+# Using service-linked roles for Resource Groups
 
 AWS Resource Groups uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role
 that is linked directly to Resource Groups. Service-linked roles are predefined by
@@ -19,9 +17,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 Choose a **Yes** with a link to view the service-linked role
 documentation for that service.
 
-## Service-linked role permissions for
-
-Resource Groups
+## Service-linked role permissions for Resource Groups
 
 Resource Groups uses the following service-linked role to support group lifecycle events. Choose the link
 on the role name to view the role in the IAM console after you create it.
@@ -42,9 +38,7 @@ Choose the link on the policy name to view the policy in the IAM console.
 
 - `AWS managed policies for AWS Resource Groups`
 
-## Creating the service-linked role for
-
-Resource Groups
+## Creating the service-linked role for Resource Groups
 
 ###### Important
 
@@ -55,9 +49,7 @@ information, see [A new role appeared in my AWS account](../../../IAM/latest/Use
 To create the service-linked role, [turn on the
 group lifecycle events feature](monitor-groups-turn-on.md "monitor-groups-turn-on.md").
 
-## Editing a service-linked role for
-
-Resource Groups
+## Editing a service-linked role for Resource Groups
 
 Resource Groups doesn't allow you to edit the AWSServiceRoleForResourceGroups service-linked role. After you
 create a service-linked role, you can't change the name of the role because various
@@ -65,9 +57,7 @@ entities might reference the role. However, you can edit the description of the 
 using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Resource Groups
+## Deleting a service-linked role for Resource Groups
 
 You can delete the service-linked role only after you turn off the group lifecycle events feature.
 
@@ -134,9 +124,7 @@ identifier to the following AWS CLI command.
 }`
 ```
 
-## Supported Regions for Resource Groups service-linked
-
-roles
+## Supported Regions for Resource Groups service-linked roles
 
 Resource Groups supports using service-linked roles in all of the AWS Regions where
 the service is available. For more information, see [AWS Regions and Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md").

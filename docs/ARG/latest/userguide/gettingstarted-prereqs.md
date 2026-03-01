@@ -29,5 +29,4 @@ and resources in the account. As a security best practice, assign administrative
 
 You can create an empty resource group, but won't be able to perform any tasks on
 resource group members until there are resources in the group. For more information
-about the supported resource types, see [Resource types you can use with AWS Resource Groups and
-Tag Editor](supported-resources.md "supported-resources.md").
+about the supported resource types, see [Resource types you can use with AWS Resource Groups and Tag Editor](supported-resources.md "supported-resources.md").
