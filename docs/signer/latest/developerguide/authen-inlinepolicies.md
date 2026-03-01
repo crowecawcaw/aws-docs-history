@@ -25,17 +25,12 @@ in the _IAM User Guide_.
 
 ###### Examples
 
-- [Limit Access for Signing to All Signing Profiles
-  Within an Account](#all_profiles "#all_profiles")
-- [Limit Access for Signing to a Specific
-  Signing Profile](#particular_profile "#particular_profile")
-- [Limit Access for Signing to a Specific
-  Signing Profile Version](#particular_version "#particular_version")
+- [Limit Access for Signing to All Signing Profiles Within an Account](#all_profiles "#all_profiles")
+- [Limit Access for Signing to a Specific Signing Profile](#particular_profile "#particular_profile")
+- [Limit Access for Signing to a Specific Signing Profile Version](#particular_version "#particular_version")
 - [Allow Full Access](#policy-full-access "#policy-full-access")
 
-## Limit Access for Signing to All Signing Profiles
-
-Within an Account
+## Limit Access for Signing to All Signing Profiles Within an Account
 
 The following policies allow a principal to discover every
 `SigningProfile` within an account and to use any of them to
@@ -90,9 +85,7 @@ JSON
 
 ```
 
-## Limit Access for Signing to a Specific
-
-Signing Profile
+## Limit Access for Signing to a Specific Signing Profile
 
 The following policies allow a principal to call
 `GetSigningProfile` and `StartSigningJob` only on
@@ -158,9 +151,7 @@ JSON
 
 ```
 
-## Limit Access for Signing to a Specific
-
-Signing Profile Version
+## Limit Access for Signing to a Specific Signing Profile Version
 
 The following policy allows a principal to call `GetSigningProfile`
 and `StartSigningJob` only on version `abcde12345` of

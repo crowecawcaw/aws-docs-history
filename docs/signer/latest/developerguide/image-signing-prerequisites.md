@@ -1,6 +1,4 @@
-# Prerequisites for signing container
-
-images
+# Prerequisites for signing container images
 
 Before you begin signing, you need to set up an environment that bridges
 AWS Signer with Amazon ECR. Complete the following steps.

@@ -1,6 +1,4 @@
-# Create and populate an Amazon S3 source bucket for
-
-your unsigned object files
+# Create and populate an Amazon S3 source bucket for your unsigned object files
 
 This topic discusses how to prepare an Amazon S3 bucket and add your unsigned object
 files it.

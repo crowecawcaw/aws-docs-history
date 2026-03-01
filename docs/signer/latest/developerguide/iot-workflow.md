@@ -7,8 +7,6 @@ prerequisites listed in [Get started with AWS Signer](getting-started.md "gettin
 ###### Topics
 
 - [Obtain and import a code-signing certificate](obtain-cert.md "obtain-cert.md")
-- [Create and populate an Amazon S3 source bucket for your
-  unsigned object files](s3-source-iot.md "s3-source-iot.md")
-- [Create an Amazon S3 destination bucket for your
-  signed object files](s3-destination-iot.md "s3-destination-iot.md")
+- [Create and populate an Amazon S3 source bucket for your unsigned object files](s3-source-iot.md "s3-source-iot.md")
+- [Create an Amazon S3 destination bucket for your signed object files](s3-destination-iot.md "s3-destination-iot.md")
 - [Create a signing job for IoT in AWS Signer](signing-jobs-iot.md "signing-jobs-iot.md")

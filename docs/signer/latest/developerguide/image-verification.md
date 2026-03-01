@@ -11,8 +11,7 @@ Notation.
 
 1. A trust store is required for verification. If you used the installer for
    the AWS Signer plugin and Notation, a trust store for both AWS commercial and AWS GovCloud (US) Regions was set up automatically
-   and provisioned with a root certificate. For more information, see [Prerequisites for signing container
-   images](image-signing-prerequisites.md "image-signing-prerequisites.md").
+   and provisioned with a root certificate. For more information, see [Prerequisites for signing container images](image-signing-prerequisites.md "image-signing-prerequisites.md").
 2. Set up a trust policy that includes the trust store for your partition.
 
 The following example includes trust stores for both the AWS commercial and AWS GovCloud (US) Region. You can choose to include one or both in your trust policy depending on where you are verifying your signed images. To verify images signed in AWS commercial Regions, set `signingAuthority` to `aws-signer-ts`. To verify images signed in AWS GovCloud (US) Region, set `signingAuthority` to `aws-us-gov-signer-ts`.

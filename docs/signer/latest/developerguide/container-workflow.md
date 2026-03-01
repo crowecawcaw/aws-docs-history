@@ -12,8 +12,7 @@ image](../../../AmazonECR/latest/userguide/image-signing.md "../../../AmazonECR/
 
 ###### Topics
 
-- [Prerequisites for signing container
-  images](image-signing-prerequisites.md "image-signing-prerequisites.md")
+- [Prerequisites for signing container images](image-signing-prerequisites.md "image-signing-prerequisites.md")
 - [Sign an image](image-signing-steps.md "image-signing-steps.md")
 - [Locally verify an image after signing](image-verification.md "image-verification.md")
 - [Verify an image during in Amazon EKS or Kubernetes clusters](kubernetes-verification.md "kubernetes-verification.md")

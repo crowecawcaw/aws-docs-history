@@ -1,6 +1,4 @@
-# Customer managed policies for
-
-Signer
+# Customer managed policies for Signer
 
 Customer managed policies are standalone identity-based policies that an
 administrator creates and can attach to multiple users, groups, or roles in your

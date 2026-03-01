@@ -18,8 +18,7 @@ can grant permission for AWS Signer resources:
   embedded directly into a single user, group, or role.
   For more information, see:
 
-- [Customer managed policies for
-  Signer](authen-custmanagedpolicies.md "authen-custmanagedpolicies.md")
+- [Customer managed policies for Signer](authen-custmanagedpolicies.md "authen-custmanagedpolicies.md")
 - [Inline policies for Signer](authen-inlinepolicies.md "authen-inlinepolicies.md")
 - [Use Signer actions in IAM](authen-apipermissions.md "authen-apipermissions.md")
 - [Managed
