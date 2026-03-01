@@ -9,9 +9,7 @@ requirements, as follows:
   For more detailed information about NitroTPM, see [NitroTPM for Amazon EC2 instances](../../../AWSEC2/latest/UserGuide/nitrotpm.md "../../../AWSEC2/latest/UserGuide/nitrotpm.md") in the
   _Amazon EC2 User Guide_.
 
-## Find Windows Server AMIs configured with
-
-NitroTPM and UEFI Secure Boot
+## Find Windows Server AMIs configured with NitroTPM and UEFI Secure Boot
 
 AWS managed AMIs always include the AMI creation date as part of the name.
 The best way to ensure that your search returns the AMIs that you're looking for

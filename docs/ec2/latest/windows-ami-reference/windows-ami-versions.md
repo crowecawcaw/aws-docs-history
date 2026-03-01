@@ -14,9 +14,7 @@ public release, we perform automated processes to convert the ISO to an AMI.
 This prepared AMI is used for the monthly automated update and release
 process.
 
-## What to expect from an official
-
-AWS Windows AMI
+## What to expect from an official AWS Windows AMI
 
 Amazon provides AWS Windows AMIs with a variety of configurations for popular versions
 of Microsoft supported Windows Server Operating Systems. As outlined in the previous
@@ -68,9 +66,7 @@ examples include:
   directly from the vendor, stored in secure S3 buckets, and installed on
   the AMIs during the image build process.
 
-## How Amazon decides
-
-which AWS Windows AMIs to offer
+## How Amazon decides which AWS Windows AMIs to offer
 
 Each AMI is extensively tested prior to release to the public. We periodically streamline
 our AMI offerings to simplify customer choice and to reduce costs.
@@ -91,9 +87,7 @@ our AMI offerings to simplify customer choice and to reduce costs.
 If there is an AMI variant that you would like to see, let us know by opening a
 support case, or by [providing feedback](https://repost.aws/knowledge-center/send-feedback-aws "https://repost.aws/knowledge-center/send-feedback-aws").
 
-## Patches, security updates, and AMI
-
-IDs
+## Patches, security updates, and AMI IDs
 
 Amazon provides updated, fully-patched AWS Windows AMIs within five business days
 of Microsoft's patch Tuesday (the second Tuesday of each month). The new AMIs

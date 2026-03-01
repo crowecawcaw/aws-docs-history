@@ -7,8 +7,7 @@ the following types of specialized AWS Windows AMIs:
 
 Launching an instance from a Windows AMI with Microsoft SQL Server
 enables you to run the instance as a database server. For more
-information, see [AWS Windows Server license-included
-SQL Server AMIs](ami-windows-sql.md "ami-windows-sql.md").
+information, see [AWS Windows Server license-included SQL Server AMIs](ami-windows-sql.md "ami-windows-sql.md").
 
 **STIG Hardened AMIs**
 
@@ -38,11 +37,9 @@ Not all AMIs are available in all Regions.
 
 Each of the specialized AMI pages linked above has its own filtered search examples, as follows:
 
-- [Find Windows Server AMIs with
-  Microsoft SQL Server](ami-windows-sql.md#ami-windows-sql-find "ami-windows-sql.md#ami-windows-sql-find")
+- [Find Windows Server AMIs with Microsoft SQL Server](ami-windows-sql.md#ami-windows-sql-find "ami-windows-sql.md#ami-windows-sql-find")
 - [Find a STIG Hardened AMI](ami-windows-stig.md#find-windows-stig-ami "ami-windows-stig.md#find-windows-stig-ami")
-- [Find Windows Server AMIs configured with
-  NitroTPM and UEFI Secure Boot](ami-windows-tpm.md#ami-windows-tpm-find "ami-windows-tpm.md#ami-windows-tpm-find")
+- [Find Windows Server AMIs configured with NitroTPM and UEFI Secure Boot](ami-windows-tpm.md#ami-windows-tpm-find "ami-windows-tpm.md#ami-windows-tpm-find")
 
 You can also search for the latest Windows AMIs that include the EC2Launch v2 agent, as shown
 in the following PowerShell example:
@@ -64,9 +61,7 @@ Alternatively, you can use the [CloudShell console](https://console.aws.amazon.c
 and run `pwsh` to bring up a PowerShell prompt that already has all of the AWS tools installed.
 For more information, see the [AWS CloudShell User Guide](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md").
 
-### Find an AWS Windows AMI in a
-
-specific language
+### Find an AWS Windows AMI in a specific language
 
 The following language-specific AWS Windows AMIs are included in the monthly
 release:

@@ -1,6 +1,4 @@
-# AWS Windows Server license-included
-
-SQL Server AMIs
+# AWS Windows Server license-included SQL Server AMIs
 
 AWS Windows AMIs with Microsoft SQL Server include one of the
 following SQL Server editions. Launching an instance from a Windows AMI
@@ -20,9 +18,7 @@ following features:
 - SQL Server Management Studio included
 - Preconfigured SQL Server service accounts
 
-## Find Windows Server AMIs with
-
-Microsoft SQL Server
+## Find Windows Server AMIs with Microsoft SQL Server
 
 AWS managed AMIs always include the AMI creation date as part of the name.
 The best way to ensure that your search returns the AMIs that you're looking for

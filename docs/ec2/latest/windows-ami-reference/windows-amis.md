@@ -29,5 +29,4 @@ drivers:
   _Amazon EC2 User Guide_.
 
 To view changes to each release of the AWS Windows AMIs, including SQL Server
-updates, see the [AWS Windows AMI version
-history](ec2-windows-ami-version-history.md "ec2-windows-ami-version-history.md").
+updates, see the [AWS Windows AMI version history](ec2-windows-ami-version-history.md "ec2-windows-ami-version-history.md").

@@ -1,8 +1,7 @@
 # Document history for the AWS Windows AMI reference
 
 The following table describes documentation changes for the AWS Windows AMI reference content.
-For monthly AMI version release notes, see [AWS Windows AMI version
-history](ec2-windows-ami-version-history.md "ec2-windows-ami-version-history.md").
+For monthly AMI version release notes, see [AWS Windows AMI version history](ec2-windows-ami-version-history.md "ec2-windows-ami-version-history.md").
 
 | Change                              | Description                                              | Date             |
 | ----------------------------------- | -------------------------------------------------------- | ---------------- |
