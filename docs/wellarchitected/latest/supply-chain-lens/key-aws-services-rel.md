@@ -30,7 +30,7 @@
   prediction and optimization.
 - [AWS IoT FleetWise](https://aws.amazon.com/iot-fleetwise/ "https://aws.amazon.com/iot-fleetwise/"): Enables collection and transmission of
   data from vehicles and shipments to the cloud for analysis.
-- [Quick Suite](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"): A business intelligence service for
+- [Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/"): A business intelligence service for
   creating interactive dashboards to visualize shipment and
   supply chain data.
 - [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/"): A serverless compute service that runs code in

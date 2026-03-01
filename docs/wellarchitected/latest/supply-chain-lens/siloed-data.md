@@ -36,7 +36,7 @@ and real-time analytics capabilities.
 
 Supply chain teams gain powerful analytics capabilities through
 the data fabric. Business analysts run complex queries in Amazon Redshift. Planners and managers create their own visualizations
-and reports in Quick Suite without waiting for IT support.
+and reports in Quick without waiting for IT support.
 These self-service tools enable predictive analytics, process
 optimization, and data-driven decisions across roles. The result
 is greater productivity, faster response times, and better

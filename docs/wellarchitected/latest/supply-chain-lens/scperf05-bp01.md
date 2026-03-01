@@ -31,7 +31,7 @@ systems.
 
 1. Identify key performance indicators (KPIs) that are most
    critical to supply chain operations and business objectives.
-2. Design and implement comprehensive dashboards using Quick Suite or CloudWatch dashboards to visualize supply
+2. Design and implement comprehensive dashboards using Quick or CloudWatch dashboards to visualize supply
    chain performance.
 3. Configure automated alerts and alarms based on performance
    thresholds and anomaly detection to enable proactive

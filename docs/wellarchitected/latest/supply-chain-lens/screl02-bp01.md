@@ -35,7 +35,7 @@ practice is not established:** Medium
 End-to-end visibility requires integrating IoT devices and
 logistics APIs into the supply chain. AWS IoT FleetWise can be
 used to gather vehicle and shipment data, while dashboards
-created with Quick Suite provide stakeholders with
+created with Quick provide stakeholders with
 real-time insights. Providing customers with tracking links
 further enhances transparency.
 
@@ -45,7 +45,7 @@ further enhances transparency.
    devices**: Use AWS IoT FleetWise for collecting
    shipment data.
 2. **Create visualization
-   dashboards**: Use Quick Suite to display
+   dashboards**: Use Quick to display
    real-time shipment data.
 3. **Provide customer
    tracking**: Share real-time tracking links with

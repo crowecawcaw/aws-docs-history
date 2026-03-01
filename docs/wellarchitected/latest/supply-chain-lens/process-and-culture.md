@@ -21,5 +21,4 @@ sharing while supporting broader ESG objectives.
 ###### Best practices
 
 - [SCSUS09-BP01 Align your supply chain sustainability goals and metrics with the broader set of company-wise sustainability goals](scsus09-bp01.md "scsus09-bp01.md")
-- [SCSUS10-BP01 Use document digitization
-  as an ESG goal](scsus10-bp01.md "scsus10-bp01.md")
+- [SCSUS10-BP01 Use document digitization as an ESG goal](scsus10-bp01.md "scsus10-bp01.md")

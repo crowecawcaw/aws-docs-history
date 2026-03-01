@@ -66,7 +66,7 @@ the ELD data to make sure routes comply with driver work limits
 and required break periods. AWS Lambda functions monitor ELD
 alerts and driver status changes, triggering route adjustments
 through Amazon EventBridge when needed. Amazon DynamoDB maintains
-current driver status and available hours, while Quick Suite
+current driver status and available hours, while Quick
 provides fleet managers with compliance dashboards and driver
 performance analytics. Amazon SageMaker AI models can analyze the
 combined ELD and route data to optimize driver assignments and

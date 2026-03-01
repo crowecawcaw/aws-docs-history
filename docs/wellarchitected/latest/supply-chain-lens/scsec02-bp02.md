@@ -58,7 +58,7 @@ supply chain security posture.
    Amazon GuardDuty, and Amazon Inspector) to visualize
    security trends and compliance status across your supply
    chain.
-5. Develop automated reporting workflows using Amazon EventBridge, AWS Lambda, and Quick Suite to generate
+5. Develop automated reporting workflows using Amazon EventBridge, AWS Lambda, and Quick to generate
    and distribute regular security posture summaries to
    stakeholders based on their roles and responsibilities.
 6. Establish integration points between AWS security services

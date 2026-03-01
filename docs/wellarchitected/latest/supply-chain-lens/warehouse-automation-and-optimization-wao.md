@@ -67,7 +67,7 @@ in warehouse innovation and excellence.
    provides the environment to build, test, and deploy robotics
    applications.
 4. Amazon SageMaker AI provides AI/ML for measuring throughput and
-   optimization recommendations. AWS Step Functions and Amazon EventBridge coordinate event driven process flows. AWS Lambda holds programming logic. Amazon Quick Suite presents
+   optimization recommendations. AWS Step Functions and Amazon EventBridge coordinate event driven process flows. AWS Lambda holds programming logic. Amazon Quick presents
    dashboards and metrics.
 
 ## Architecture objectives

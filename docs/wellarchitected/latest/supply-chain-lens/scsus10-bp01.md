@@ -1,6 +1,4 @@
-# SCSUS10-BP01 Use document digitization
-
-as an ESG goal
+# SCSUS10-BP01 Use document digitization as an ESG goal
 
 Explore opportunities to digitize any physical documentation
 used for supply chain operations within the company but also
