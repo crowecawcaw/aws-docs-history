@@ -1,6 +1,6 @@
 # Overview of cost management capabilities in Amazon Q Developer
 
-Amazon Q Developer is a generative artificial intelligence (AI) powered conversational assistant that can help you understand, analyze, and optimize your AWS costs. With Amazon Q Developer, you can ask complex, open-ended questions about your costs and let Q perform the analysis on your behalf. Q explores your cost data, forms and tests hypotheses, gathers information from multiple sources, performs calculations, and provides actionable insights, all through a natural language conversation.
+Amazon Q Developer is a generative artificial intelligence (AI) powered conversational assistant that can help you understand, analyze, and optimize your AWS costs. With Amazon Q Developer, you can ask complex, open-ended questions about your costs and let Q perform the analysis on your behalf. Q explores your cost data, forms and tests hypotheses, gathers information from multiple sources, performs calculations, and provides custom visualizations and actionable insights, all through a natural language conversation.
 
 Amazon Q Developer helps you get deeper cost insights with less time and expertise. Instead of manually exploring data across multiple tools, adjusting filters, and performing offline calculations, you can delegate the analytical work to Q. This is particularly valuable for teams without dedicated FinOps expertise, as Q reduces the learning curve by handling the complexity of knowing which tools to use, which APIs to call, and how to structure queries.
 
@@ -10,29 +10,33 @@ For more information about Amazon Q Developer, see [What is Amazon Q Developer](
 
 Amazon Q Developer provides powerful capabilities across a wide range of cost management use cases:
 
-### Understand your costs
+**Understand your costs**
 
 Analyze your historical spending patterns, view cost breakdowns by service or account, and track trends over time. For example, you can ask "What were my costs by service last month?" or "Show me my EC2 spending trends for the past six months."
 
-### Investigate cost changes
+**Investigate cost changes**
 
 Perform root cause analysis to understand why your costs changed. Q can explore your data, identify the drivers of cost increases or decreases, and help you understand period-over-period changes. For example, you can ask "Why did my costs increase last week?" and Q will investigate the underlying causes.
 
-### Find savings opportunities
+**Find savings opportunities**
 
 Identify cost optimization recommendations from Cost Optimization Hub, AWS Compute Optimizer, and Savings Plans and reservation recommendations. Q can help you find idle resources, rightsizing opportunities, and commitment-based discount opportunities. For example, you can ask "What are my top cost optimization opportunities?" or "Which EC2 instances are over-provisioned?". You can also ask detailed follow-up questions, such as "Tell me more about the second recommendation" or "Why was that EBS volume classified as idle?".
 
-### Monitor cost health
+**Monitor cost health**
 
 Check your budget status, identify cost anomalies, and monitor your free tier usage. Q can alert you to unusual spending patterns and help you stay within your budget targets. For example, you can ask "Have any teams exceeded their budgets?" or "Do I have any cost anomalies?"
 
-### Estimate future costs
+**Estimate future costs**
 
 Understand AWS service pricing and estimate the cost of new workloads you plan to build. Q can help you compare pricing across regions, calculate costs for specific configurations, and forecast future spending. For example, you can ask "How much would it cost to store 1 PB in S3 in Dublin?" or "What's my cost forecast for this month?"
 
-### Analyze commitment performance
+**Analyze commitment performance**
 
 Review your Savings Plans and Reserved Instances coverage and utilization to understand how effectively you're using commitment-based discounts. Q can identify underutilized commitments and opportunities to improve your discount coverage. For example, you can ask "Analyze our Savings Plans performance over the last month."
+
+**Check payment status**
+
+List previously-issued invoices, check whether you have an outstanding payment balance, and check which payment methods you have set up.
 
 ## How to use it
 
@@ -71,6 +75,15 @@ Q can help you estimate costs for new workloads or compare pricing across region
 - "How much would it cost to store 1 PB in S3 in Dublin?"
 - "What's the monthly cost of a t4g.xlarge RDS instance with Multi-AZ and 300 GB gp2 storage?"
 - "What would be the price to build a basic three tier web app, with a small EC2 instance, API gateway, a ~5GB SQL database, and a basic JS front-end hosted in CloudFront?"
+
+**Visualizations**
+
+You can create charts and graphs to visualize your cost data:
+
+- "Chart S3 costs by storage tier last week"
+- "Graph my DynamoDB costs by region by day for the last 30 days"
+- "Graph RDS costs by instance type for the last 6 months"
+- "Show me an area chart of EC2-Other costs over the last 12 months"
 
 ### Tips for getting the most value
 
@@ -111,15 +124,15 @@ This transparency helps you build trust in Q's responses and gives you the infor
 
 Amazon Q Developer maintains context throughout your conversation, enabling a natural, iterative dialogue:
 
-- **Ask follow-up questions**: You can ask follow-up questions to dive deeper into specific aspects of the analysis. For example, after Q identifies that EC2 costs increased, you can ask "Which accounts had the highest EC2 cost increases?"
-- **Steer the analysis**: You can guide Q's investigation by providing specific directions. For example, "Next, check if any Savings Plans expired" or "Focus on the production environment."
+- **Ask follow-up questions**: You can ask follow-up questions to dive deeper into specific aspects of the analysis. For example, after Q identifies that EC2 costs increased, you can ask "Which accounts had the highest EC2 cost increases?". You can also ask questions about generated visualizations, such as "What drove that increase on Wednesday?"
+- **Steer the analysis**: You can guide Q's investigation by providing specific directions. For example, "Next, check if any Savings Plans expired" or "Focus on the production environment." For visualizations, you can request changes with follow-up prompts like "Let's switch from a bar chart to a line chart."
 - **Refine your questions**: If a response isn't quite what you need, you can rephrase or add more details to get a more targeted answer.
 
 ### Actionable insights
 
 Amazon Q Developer goes beyond simple data retrieval to provide meaningful insights:
 
-- **Interprets findings**: Q doesn't just show you numbers—it identifies patterns, highlights anomalies, and explains what the data means.
+- **Interprets findings**: Q not only provides facts and data, it also identifies patterns, highlights anomalies, and explains what the data means.
 - **Identifies opportunities**: Q proactively surfaces cost optimization opportunities and potential issues in your spending.
 - **Provides guidance**: For optimization recommendations, Q can explain the steps needed to implement the changes.
 
@@ -135,8 +148,7 @@ You can also create custom billing views to define custom multi-account aggregat
 
 To use the cost management capabilities in Amazon Q Developer, you need:
 
-- **Appropriate IAM permissions**: You need permissions to use Amazon Q Developer and to access the underlying Billing and Cost Management services. For details, see [Security for cost management capabilities in Amazon Q
-  Developer](ce-q-security.md "ce-q-security.md").
+- **Appropriate IAM permissions**: You need permissions to use Amazon Q Developer and to access the underlying Billing and Cost Management services. For details, see [Security for cost management capabilities in Amazon Q Developer](ce-q-security.md "ce-q-security.md").
 - **Cost Explorer opt-in**: To analyze your historical and forecasted costs, you must first opt in to Cost Explorer. To opt in, open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/"). After you opt in, it can take up to 24 hours for AWS to process your cost and usage data.
 
 To take advantage of the full range of cost management capabilities, you can also:
@@ -155,6 +167,7 @@ To take advantage of the full range of cost management capabilities, you can als
    - "What were my costs last month?"
    - "What are my top cost optimization opportunities?"
    - "How much does a c8g.2xlarge instance running Linux cost in us-east-1?"
+   - "Show me a pie chart of my costs by region last week"
 
 ### Use Amazon Q Developer in chat applications
 
@@ -167,8 +180,7 @@ To get started with Amazon Q Developer in chat applications, see [Chatting with 
 After you start using Amazon Q Developer for cost management, you can:
 
 - Learn more about [How the cost management capabilities in Amazon Q Developer work](ce-q-how-it-works.md "ce-q-how-it-works.md") to understand the agentic architecture and data sources
-- Review [Security for cost management capabilities in Amazon Q
-  Developer](ce-q-security.md "ce-q-security.md") to ensure your team has appropriate access
+- Review [Security for cost management capabilities in Amazon Q Developer](ce-q-security.md "ce-q-security.md") to ensure your team has appropriate access
 - Explore the full range of capabilities by asking open-ended questions like "Analyze my costs and give me insights"
 - Set up additional services like Cost Optimization Hub and Budgets to unlock more capabilities
 

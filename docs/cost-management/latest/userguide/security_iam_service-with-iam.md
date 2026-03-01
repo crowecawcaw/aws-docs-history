@@ -29,9 +29,7 @@ To get a high-level view of how AWS Cost Management and other AWS services work 
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for AWS Cost Management
+## Identity-based policies for AWS Cost Management
 
 **Supports identity-based policies:**
 
@@ -48,16 +46,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
+### Identity-based policy examples for AWS Cost Management
 
-Identity-based policy examples for AWS Cost Management
+To view examples of AWS Cost Management identity-based policies, see [Identity-based policy examples for AWS Cost Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-To view examples of AWS Cost Management identity-based policies, see [Identity-based policy
-examples for AWS Cost Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-
-## Resource-based
-
-policies within AWS Cost Management
+## Resource-based policies within AWS Cost Management
 
 **Supports resource-based policies:**
 
@@ -73,9 +66,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for AWS Cost Management
+## Policy actions for AWS Cost Management
 
 **Supports policy actions:**
 
@@ -105,12 +96,9 @@ To specify multiple actions in a single statement, separate them with commas.
          ]
 ```
 
-To view examples of AWS Cost Management identity-based policies, see [Identity-based policy
-examples for AWS Cost Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Cost Management identity-based policies, see [Identity-based policy examples for AWS Cost Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for AWS Cost Management
+## Policy resources for AWS Cost Management
 
 **Supports policy resources:**
 
@@ -129,12 +117,9 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 
 To see a list of AWS Cost Explorer resource types, see [Actions, resources, and condition keys for AWS Cost Explorer](../../../service-authorization/latest/reference/list_awscostexplorerservice.md "../../../service-authorization/latest/reference/list_awscostexplorerservice.md") in the _Service Authorization Reference_.
 
-To view examples of AWS Cost Management identity-based policies, see [Identity-based policy
-examples for AWS Cost Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Cost Management identity-based policies, see [Identity-based policy examples for AWS Cost Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for AWS Cost Management
+## Policy condition keys for AWS Cost Management
 
 **Supports service-specific policy condition keys:**
 
@@ -152,12 +137,9 @@ _IAM User Guide_.
 To see a list of AWS Cost Management condition keys, actions, and resources, see [Condition keys for AWS Cost Management](../../../service-authorization/latest/reference/list_awscostexplorerservice.md "../../../service-authorization/latest/reference/list_awscostexplorerservice.md") in the
 _Service Authorization Reference_.
 
-To view examples of AWS Cost Management identity-based policies, see [Identity-based policy
-examples for AWS Cost Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of AWS Cost Management identity-based policies, see [Identity-based policy examples for AWS Cost Management](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-AWS Cost Management
+## Access control lists (ACLs) in AWS Cost Management
 
 **Supports ACLs:**
 
@@ -166,9 +148,7 @@ No
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
 similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Attribute-based access control
-
-(ABAC) with AWS Cost Management
+## Attribute-based access control (ABAC) with AWS Cost Management
 
 **Supports ABAC (tags in policies):**
 
@@ -187,9 +167,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using Temporary
-
-credentials with AWS Cost Management
+## Using Temporary credentials with AWS Cost Management
 
 **Supports temporary credentials:**
 
@@ -201,9 +179,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for AWS Cost Management
+## Forward access sessions for AWS Cost Management
 
 **Supports forward access sessions (FAS):**
 
@@ -212,9 +188,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-AWS Cost Management
+## Service roles for AWS Cost Management
 
 **Supports service roles:**
 

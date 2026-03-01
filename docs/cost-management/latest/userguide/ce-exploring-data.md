@@ -92,9 +92,7 @@ aligns with the discount amount shown in your Billing and Cost Management consol
 You can view your gross monthly charges by excluding the **RI Volume
 Discount**.
 
-###### To exclude RI volume discounts in your
-
-monthly view
+###### To exclude RI volume discounts in your monthly view
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the left pane, choose **Cost Explorer**.

@@ -1,6 +1,4 @@
-# Estimating cost for Cost Explorer hourly
-
-granularity
+# Estimating cost for Cost Explorer hourly granularity
 
 Cost Explorer offers hourly granularity data at a daily charge of $0.00000033 per
 usage record, which translates to $0.01 per 1,000 usage records monthly. A usage

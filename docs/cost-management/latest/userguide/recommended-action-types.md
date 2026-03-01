@@ -1,6 +1,4 @@
-# Understanding recommended action
-
-types
+# Understanding recommended action types
 
 Recommended actions automatically identify and prioritize the most important actions
 you should take related to Billing and Cost Management, regarding budgets, payments, cost optimization, cost

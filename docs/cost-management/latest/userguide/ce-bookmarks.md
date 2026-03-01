@@ -1,6 +1,4 @@
-# Saving your Cost Explorer configuration with bookmarks
-
-or favorites
+# Saving your Cost Explorer configuration with bookmarks or favorites
 
 You can save your date, filter, chart style, group by, and advanced settings by saving
 the Cost Explorer URLs as favorites or bookmarks in your browser. When you return to

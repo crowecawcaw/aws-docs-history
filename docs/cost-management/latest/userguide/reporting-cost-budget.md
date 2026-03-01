@@ -1,6 +1,4 @@
-# Reporting your metrics with AWS Budgets
-
-Reports
+# Reporting your metrics with AWS Budgets Reports
 
 With AWS Budgets, you can configure a report to monitor the performance of your existing
 budgets on a daily, weekly, or monthly cadence and deliver that report to up to 50 email

@@ -1,6 +1,4 @@
-# Understanding how a cost comparison
-
-works
+# Understanding how a cost comparison works
 
 You can use Cost Comparison to quickly understand your cloud spending by automatically
 identifying and unfolding the largest cost drivers driving the cost variations between

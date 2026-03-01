@@ -4,26 +4,18 @@ Note the following best practices when you're working with budgets.
 
 ###### Topics
 
-- [Controlling access to
-  AWS Budgets](#budgets-best-practices-access "#budgets-best-practices-access")
-- [Understanding budget
-  actions](#budgets-best-practices-actions "#budgets-best-practices-actions")
+- [Controlling access to AWS Budgets](#budgets-best-practices-access "#budgets-best-practices-access")
+- [Understanding budget actions](#budgets-best-practices-actions "#budgets-best-practices-actions")
 - [Setting budgets](#budgets-best-practices-setting-budgets "#budgets-best-practices-setting-budgets")
 - [Understanding custom period budgets](#budgets-best-practices-custom-period "#budgets-best-practices-custom-period")
-- [Using the advanced options
-  when setting cost budgets](#budgets-best-practices-cost-budgets "#budgets-best-practices-cost-budgets")
-- [Understanding the AWS Budgets
-  update frequency](#budgets-best-practices-updates "#budgets-best-practices-updates")
+- [Using the advanced options when setting cost budgets](#budgets-best-practices-cost-budgets "#budgets-best-practices-cost-budgets")
+- [Understanding the AWS Budgets update frequency](#budgets-best-practices-updates "#budgets-best-practices-updates")
 - [Setting budget alerts](#budgets-best-practices-alerts "#budgets-best-practices-alerts")
-- [Setting budget alerts
-  using Amazon SNS topics](#budgets-best-practices-alerts-sns-topics "#budgets-best-practices-alerts-sns-topics")
+- [Setting budget alerts using Amazon SNS topics](#budgets-best-practices-alerts-sns-topics "#budgets-best-practices-alerts-sns-topics")
 - [Tagging budgets](#budgets-best-practices-tags "#budgets-best-practices-tags")
-- [Reviewing budgets when
-  organizational structure changes](#budgets-best-practices-organizations "#budgets-best-practices-organizations")
+- [Reviewing budgets when organizational structure changes](#budgets-best-practices-organizations "#budgets-best-practices-organizations")
 
-## Controlling access to
-
-AWS Budgets
+## Controlling access to AWS Budgets
 
 To allow users to create budgets in the AWS Billing and Cost Management console, you must also allow
 users to do the following:
@@ -42,13 +34,9 @@ between who in your organization has access to the AWS Budgets console and the
 API. To give multiple users query access to the Budgets API, we recommend creating
 a role for each of them.
 
-## Understanding budget
+## Understanding budget actions
 
-actions
-
-### Using managed
-
-policies
+### Using managed policies
 
 There are two AWS managed policies to help get you started with budget
 actions. One for the user, and the other for budgets. These policies are
@@ -110,18 +98,14 @@ To get the most benefit from your custom period budget and more effectively mana
   with monthly, quarterly, or annual budgets for comprehensive financial
   monitoring.
 
-## Using the advanced options
-
-when setting cost budgets
+## Using the advanced options when setting cost budgets
 
 Cost budgets can be aggregated by blended, unblended, net unblended, amortized, or
 net amortized costs. Cost budgets can also either include or exclude refunds,
 credits, upfront reservation fees, recurring reservation charges, non-reservation
 subscription costs, taxes, and support charges.
 
-## Understanding the AWS Budgets
-
-update frequency
+## Understanding the AWS Budgets update frequency
 
 AWS billing data, which Budgets uses to monitor resources, is updated at least
 once per day. Keep in mind that budget information and associated alerts are updated
@@ -149,9 +133,7 @@ The following video highlights the importance of setting up budget alerts, which
 give you control over your spending. It also touches on the use of multi-factor
 authentication (MFA) to increase the security of your account.
 
-## Setting budget alerts
-
-using Amazon SNS topics
+## Setting budget alerts using Amazon SNS topics
 
 When you create a budget that sends notifications to an Amazon SNS topic, you must
 either have a preexisting Amazon SNS topic or create an Amazon SNS topic. Amazon SNS topics enable
@@ -159,8 +141,7 @@ you to send notifications over SMS in addition to email.
 
 For budget notifications to be sent successfully, your budget must have
 permissions to send a notification to your topic, and you must accept the
-subscription to the Amazon SNS notification topic. For more information, see [Creating an Amazon SNS topic for budget
-notifications](budgets-sns-policy.md "budgets-sns-policy.md").
+subscription to the Amazon SNS notification topic. For more information, see [Creating an Amazon SNS topic for budget notifications](budgets-sns-policy.md "budgets-sns-policy.md").
 
 ## Tagging budgets
 
@@ -189,9 +170,7 @@ AWS Budgets does not support tags for cost allocation. This means you will
 not see tag information in cost and usage data—in Data Exports, Cost and Usage Reports,
 or Cost Explorer, for example.
 
-## Reviewing budgets when
-
-organizational structure changes
+## Reviewing budgets when organizational structure changes
 
 When a member account leaves an AWS Organization, their budget's behavior
 changes significantly. Keep the following points in mind:

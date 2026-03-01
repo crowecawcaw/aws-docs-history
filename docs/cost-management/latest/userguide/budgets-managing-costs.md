@@ -53,8 +53,7 @@ You can create the following types of budgets:
   You can set up optional notifications that warn you if you exceed, or are forecasted to
   exceed, your budgeted amount for cost or usage budgets. Or if you fall below your target
   utilization and coverage for RI or Savings Plans budgets. You can have notifications sent to an
-  Amazon SNS topic, to an email address, or to both. For more information, see [Creating an Amazon SNS topic for budget
-  notifications](budgets-sns-policy.md "budgets-sns-policy.md").
+  Amazon SNS topic, to an email address, or to both. For more information, see [Creating an Amazon SNS topic for budget notifications](budgets-sns-policy.md "budgets-sns-policy.md").
 
 If you use consolidated billing in an organization and you own the management account, you
 can use IAM policies to control access to budgets by member accounts. By default, owners
@@ -87,6 +86,5 @@ decrease after you receive the notification.
 - [Copying a budget](budgets-copy.md "budgets-copy.md")
 - [Deleting a budget](budgets-delete.md "budgets-delete.md")
 - [Configuring budget actions](budgets-controls.md "budgets-controls.md")
-- [Creating an Amazon SNS topic for budget
-  notifications](budgets-sns-policy.md "budgets-sns-policy.md")
+- [Creating an Amazon SNS topic for budget notifications](budgets-sns-policy.md "budgets-sns-policy.md")
 - [Receiving budget alerts in chat applications](sns-alert-chime.md "sns-alert-chime.md")

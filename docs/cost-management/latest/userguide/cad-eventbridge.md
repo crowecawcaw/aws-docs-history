@@ -11,9 +11,7 @@ information, initiate additional events, send notifications, take corrective act
 perform other actions. To set up an EventBridge rule for Cost Anomaly Detection events, see [Create a rule in Amazon EventBridge](../../../eventbridge/latest/userguide/eb-get-started.md#eb-gs-create-rule "../../../eventbridge/latest/userguide/eb-get-started.md#eb-gs-create-rule") in the
 _Amazon EventBridge User Guide_.
 
-## Example: EventBridge event for
-
-Cost Anomaly Detection
+## Example: EventBridge event for Cost Anomaly Detection
 
 When an immediate alert is detected, the subscriber receives an event with the
 `Anomaly Detected` detail type. The following example shows the event

@@ -30,8 +30,7 @@ for forecasted spend. 3. (Optional) Under **Notification preferences - Optional*
 want the alert to notify. Separate multiple email addresses with commas. A
 notification can have up to 10 email addresses. 4. (Optional) Under **Notification preferences - Optional**, for
 **Amazon SNS Alerts**, enter the Amazon Resource Name (ARN) for
-your Amazon SNS topic. For instructions on how to create a topic, see [Creating an Amazon SNS topic for budget
-notifications](budgets-sns-policy.md "budgets-sns-policy.md").
+your Amazon SNS topic. For instructions on how to create a topic, see [Creating an Amazon SNS topic for budget notifications](budgets-sns-policy.md "budgets-sns-policy.md").
 
 ###### Important
 
@@ -59,8 +58,7 @@ Action**.
 
 
      For more information and examples of IAM role permissions, see
-     [Allow AWS Budgets to apply
-     IAM policies and SCPs and target EC2 and RDS instances](billing-example-policies.md#example-budgets-applySCP "billing-example-policies.md#example-budgets-applySCP").
+     [Allow AWS Budgets to apply IAM policies and SCPs and target EC2 and RDS instances](billing-example-policies.md#example-budgets-applySCP "billing-example-policies.md#example-budgets-applySCP").
     2. For **Which action type should be applied when the budget
      threshold has been exceeded**, select the action that you
      want AWS Budgets to take on your behalf.
@@ -76,8 +74,7 @@ Action**.
      threshold is exceeded**, choose **Yes** or
      **No**. If you choose **No**, then
      you run the action manually on the **Alert details**
-     page. For instructions, see [Reviewing and approving your budget
-     action](budgets-action-review.md "budgets-action-review.md").
+     page. For instructions, see [Reviewing and approving your budget action](budgets-action-review.md "budgets-action-review.md").
     5. For **How do you want to be alerted when this action is
      run**, choose **Use the same alert settings when
      you defined this threshold** or **Use different

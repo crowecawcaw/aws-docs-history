@@ -1,6 +1,4 @@
-# Creating an Amazon SNS topic for budget
-
-notifications
+# Creating an Amazon SNS topic for budget notifications
 
 When you create a budget that sends notifications to an Amazon Simple Notification Service (Amazon SNS) topic, you need to
 either have a preexisting Amazon SNS topic or create one. Amazon SNS topics allow you to send
@@ -97,9 +95,7 @@ subscription confirmation email, use the Amazon SNS console.
 When each owner of an endpoint receives the email, they must choose the **Confirm
 subscription** link to activate the notification.
 
-## Protecting your Amazon SNS budget alerts data with SSE and
-
-AWS KMS
+## Protecting your Amazon SNS budget alerts data with SSE and AWS KMS
 
 You can use server-side encryption (SSE) to transfer sensitive data in encrypted topics. SSE
 protects Amazon SNS messages by using keys managed in AWS Key Management Service (AWS KMS).
@@ -128,9 +124,7 @@ Although you can configure global permissions to send and receive message from A
 
 You must ensure that the key policies of the KMS keys allow the necessary permissions. To do this, name the principals that produce and consume encrypted messages in Amazon SNS as users in the KMS key policy.
 
-###### To enable compatibility between AWS Budgets and
-
-encrypted Amazon SNS topics
+###### To enable compatibility between AWS Budgets and encrypted Amazon SNS topics
 
 1. [Create a KMS key](../../../kms/latest/developerguide/create-keys.md#create-keys-console "../../../kms/latest/developerguide/create-keys.md#create-keys-console").
 2. Add the following text to the KMS key policy.

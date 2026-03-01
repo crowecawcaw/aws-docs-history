@@ -16,9 +16,7 @@ attached to AWS resources. For more information about the difference between
 policies and permissions, see [Identity-based policies and resource-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") in the
 _IAM User Guide_.
 
-## Controlling access using
-
-resource-level policies
+## Controlling access using resource-level policies
 
 You can use resource-level permissions to allow or deny access to one or more Cost Anomaly Detection
 resources in an IAM policy. Alternatively, use resource-level permissions to allow

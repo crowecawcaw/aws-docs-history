@@ -10,16 +10,12 @@ categories, maintaining comprehensive coverage without additional setup.
 
 ###### Topics
 
-- [Creating your cost monitors and alert
-  subscriptions](#create-ad-alerts "#create-ad-alerts")
+- [Creating your cost monitors and alert subscriptions](#create-ad-alerts "#create-ad-alerts")
 - [Detected anomalies overview](#detector-history-values "#detector-history-values")
-- [Viewing your detected anomalies and potential root
-  causes](#view-ad-monitor "#view-ad-monitor")
+- [Viewing your detected anomalies and potential root causes](#view-ad-monitor "#view-ad-monitor")
 - [Monitor types](#monitor-type-def "#monitor-type-def")
 
-## Creating your cost monitors and alert
-
-subscriptions
+## Creating your cost monitors and alert subscriptions
 
 To start monitoring your spend, AWS Cost Anomaly Detection requires setting up at least one cost
 monitor to define what spending patterns to track. After creating your monitor, you
@@ -225,9 +221,7 @@ will track the top 5,000 values based on their total spend.
 
 Alert subscriptions
 
-###### To create an alert
-
-subscription
+###### To create an alert subscription
 
 You must create at least one alert subscription for each monitor.
 The "create cost monitor steps" that are described earlier already
@@ -428,17 +422,13 @@ However, a small spike with historically consistent spend is categorized
 as high severity. And, similarly, a big spike with irregular historical
 spend is categorized as low severity.
 
-## Viewing your detected anomalies and potential root
-
-causes
+## Viewing your detected anomalies and potential root causes
 
 After you create your monitors, AWS Cost Anomaly Detection evaluates your future spend. Based on
 your defined alert subscriptions, you might start receiving alerts within 24
 hours.
 
-###### To view your anomalies from an email
-
-alert
+###### To view your anomalies from an email alert
 
 1. Choose the provided **View in Anomaly Detection**
    link.
@@ -455,9 +445,7 @@ alert
    information alert to provide feedback and help improve our detection
    accuracy.
 
-###### To view your anomalies from the AWS Billing and Cost Management
-
-console
+###### To view your anomalies from the AWS Billing and Cost Management console
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, choose **Cost Anomaly Detection**.
@@ -480,9 +468,7 @@ console
    information alert to provide feedback and help improve our detection
    accuracy.
 
-###### To view your anomalies from an Amazon SNS
-
-topic
+###### To view your anomalies from an Amazon SNS topic
 
 1. Subscribe an endpoint to the Amazon SNS topic that you created for a cost
    monitor with individual alerts. For instructions, see [Subscribing to an Amazon SNS topic](../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md "../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md") in the

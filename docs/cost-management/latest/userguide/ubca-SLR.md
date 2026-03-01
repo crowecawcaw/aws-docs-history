@@ -17,9 +17,7 @@ For information about other services that support service-linked roles, see [AWS
 Role** column. Choose a **Yes** with a
 link to view the service-linked role documentation for that service.
 
-## Service-linked role permissions for
-
-user attributes for cost allocation
+## Service-linked role permissions for user attributes for cost allocation
 
 User attributes for cost allocation uses the service-linked role named
 `AWSServiceRoleForUserAttributeCostAllocation`, which grants
@@ -41,9 +39,7 @@ You must configure permissions to allow an IAM entity (such as a user, group,
 or role) to create, edit, or delete a service-linked role. For more information,
 see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the IAM User Guide.
 
-## Creating the user attributes for cost allocation
-
-service-linked role
+## Creating the user attributes for cost allocation service-linked role
 
 You don't need to manually create a service-linked role. When you enable
 user attributes for cost allocation in the AWS Cost Management console, the service
@@ -54,18 +50,14 @@ can use the same process to recreate the role in your account. When you enable
 user attributes for cost allocation, the service creates the service-linked role for you
 again.
 
-## Editing the user attributes for cost allocation
-
-service-linked role
+## Editing the user attributes for cost allocation service-linked role
 
 You can't edit the name or permissions of the
 `AWSServiceRoleForUserAttributeCostAllocation` service-linked
 role because various entities might reference the role. However, you can edit
 the description of the role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the IAM User Guide.
 
-## Deleting the user attributes for cost allocation
-
-service-linked role
+## Deleting the user attributes for cost allocation service-linked role
 
 If you no longer need to use user attributes for cost allocation, we recommend that you
 delete the `AWSServiceRoleForUserAttributeCostAllocation`
@@ -73,25 +65,19 @@ service-linked role. That way, you don't have an unused entity that isn't
 actively monitored or maintained. However, before you can manually delete the
 service-linked role, you must first opt out of user attributes for cost allocation.
 
-### Cleaning up the service-linked
-
-role
+### Cleaning up the service-linked role
 
 Before you can use IAM to delete the service-linked role, you must first
 opt out of user attributes for cost allocation by disabling all user attributes in
 the user attributes for cost allocation preferences.
 
-### Manually delete the service-linked
-
-role
+### Manually delete the service-linked role
 
 Use the IAM console, the AWS CLI, or the AWS API to delete the
 `AWSServiceRoleForUserAttributeCostAllocation` service-linked
 role. For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported Regions for user attributes for cost
-
-allocation service-linked roles
+## Supported Regions for user attributes for cost allocation service-linked roles
 
 User attributes for cost allocation supports using service-linked roles in all of the
 AWS Regions where the service is available. For more information, see AWS

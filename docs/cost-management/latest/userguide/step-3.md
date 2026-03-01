@@ -3,9 +3,7 @@
 Use features in the Billing and Cost Management console to view your current AWS
 charges and AWS usage.
 
-###### To open the Billing and Cost Management console and view your usage and
-
-charges
+###### To open the Billing and Cost Management console and view your usage and charges
 
 1. Sign into the AWS Management Console and open the Billing and Cost Management console at
    [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").

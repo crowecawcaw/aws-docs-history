@@ -37,6 +37,5 @@ comma-separated value (CSV) file.
 - [Getting started with Cost Explorer](ce-getting-started.md "ce-getting-started.md")
 - [Exploring your data using Cost Explorer](ce-exploring-data.md "ce-exploring-data.md")
 - [Comparing your costs between time periods](ce-cost-comparison.md "ce-cost-comparison.md")
-- [Exploring more data for advanced cost
-  analysis](ce-advanced-cost-analysis.md "ce-advanced-cost-analysis.md")
+- [Exploring more data for advanced cost analysis](ce-advanced-cost-analysis.md "ce-advanced-cost-analysis.md")
 - [Using the AWS Cost Explorer API](ce-api.md "ce-api.md")

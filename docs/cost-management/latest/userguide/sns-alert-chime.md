@@ -5,9 +5,7 @@ Microsoft Teams, and Slack.
 
 Amazon Chime
 
-###### To begin receiving your budget alerts in
-
-Amazon Chime
+###### To begin receiving your budget alerts in Amazon Chime
 
 1. Go to AWS Budgets and either create a new budget or edit an existing one.
 2. In the budget configuration, choose **Configure

@@ -1,6 +1,4 @@
-# Understanding rightsizing recommendations
-
-calculations
+# Understanding rightsizing recommendations calculations
 
 This section provides an overview of the savings calculations that are used in your
 rightsizing recommendations algorithms.
@@ -17,9 +15,7 @@ conservative recommendations, not to recommend instance modifications that could
 detrimental to application performance or that could unexpectedly impact your
 performance.
 
-## Determining if an instance is idle,
-
-underutilized, or neither
+## Determining if an instance is idle, underutilized, or neither
 
 We look at the maximum CPU utilization of the instance for the last 14 days to
 make one of the following assessments:

@@ -40,12 +40,10 @@ Cost Anomaly Detection isn't available for bill source accounts that use billing
 - [Setting up your anomaly detection](settingup-ad.md "settingup-ad.md")
 - [Controlling access for Cost Anomaly Detection](accesscontrol-ad.md "accesscontrol-ad.md")
 - [Getting started with AWS Cost Anomaly Detection](getting-started-ad.md "getting-started-ad.md")
-- [Transitioning from customer to AWS managed
-  monitors](transition-monitors.md "transition-monitors.md")
+- [Transitioning from customer to AWS managed monitors](transition-monitors.md "transition-monitors.md")
 - [Editing your alert preferences](edit-alert-pref.md "edit-alert-pref.md")
 - [Creating an Amazon SNS topic for anomaly notifications](ad-SNS.md "ad-SNS.md")
 - [Receiving anomaly alerts in chat applications](cad-alert-chime.md "cad-alert-chime.md")
 - [Using EventBridge with Cost Anomaly Detection](cad-eventbridge.md "cad-eventbridge.md")
-- [Using AWS User Notifications with
-  Cost Anomaly Detection](cad-user-notifications.md "cad-user-notifications.md")
+- [Using AWS User Notifications with Cost Anomaly Detection](cad-user-notifications.md "cad-user-notifications.md")
 - [Opting out of Cost Anomaly Detection](opting-out-cad.md "opting-out-cad.md")

@@ -1,6 +1,4 @@
-# Service-linked roles for split cost
-
-allocation data
+# Service-linked roles for split cost allocation data
 
 Split cost allocation data uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM
 role that is linked directly to split cost allocation data. Service-linked roles are
@@ -19,9 +17,7 @@ For information about other services that support service-linked roles, see [AWS
 Role** column. Choose a **Yes** with a
 link to view the service-linked role documentation for that service.
 
-## Service-linked role permissions for split
-
-cost allocation data
+## Service-linked role permissions for split cost allocation data
 
 Split cost allocation data uses the service-linked role named
 `AWSServiceRoleForSplitCostAllocationData`,
@@ -58,9 +54,7 @@ You must configure permissions to allow an IAM entity (such as a user, group,
 or role) to create, edit, or delete a service-linked role. For more information,
 see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the IAM User Guide.
 
-## Creating the split cost allocation data
-
-service-linked role
+## Creating the split cost allocation data service-linked role
 
 You don't need to manually create a service-linked role. When you opt in to
 split cost allocation data, the service automatically creates the service-linked
@@ -70,9 +64,7 @@ console. For more information, see [Enabling split cost allocation data](../../.
 If you delete this service-linked role, and then need to create it again, you
 can use the same process to recreate the role in your account.
 
-## Editing the split cost allocation data
-
-service-linked role
+## Editing the split cost allocation data service-linked role
 
 You can't edit the name or permissions of the
 `AWSServiceRoleForSplitCostAllocationData`
@@ -98,9 +90,7 @@ needs to edit the description of a service-linked role.
 }
 ```
 
-## Deleting the split cost allocation data
-
-service-linked role
+## Deleting the split cost allocation data service-linked role
 
 If you no longer need to use split cost allocation data, we recommend that you
 delete the `AWSServiceRoleForSplitCostAllocationData`
@@ -121,9 +111,7 @@ AWS API to delete the
 service-linked role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM
 User Guide_.
 
-## Supported Regions for split cost allocation
-
-data service-linked roles
+## Supported Regions for split cost allocation data service-linked roles
 
 Split cost allocation data supports using service-linked roles in all of the
 AWS Regions where split cost allocation data is available. For more

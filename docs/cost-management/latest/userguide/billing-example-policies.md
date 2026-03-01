@@ -39,21 +39,16 @@ For actions performed on a `budget` resource, specify the budget Amazon Resource
 ###### Note
 
 These policies require that you activate user access to the Billing and Cost Management console on the [Account Settings](https://portal.aws.amazon.com/billing/home#/account "https://portal.aws.amazon.com/billing/home#/account") console
-page. For more information, see [Activating access to the Billing and Cost Management
-console](control-access-billing.md#ControllingAccessWebsite-Activate "control-access-billing.md#ControllingAccessWebsite-Activate").
+page. For more information, see [Activating access to the Billing and Cost Management console](control-access-billing.md#ControllingAccessWebsite-Activate "control-access-billing.md#ControllingAccessWebsite-Activate").
 
 ###### Topics
 
 - [Deny users access to the Billing and Cost Management console](#example-billing-deny-all "#example-billing-deny-all")
 - [Deny AWS Console cost and usage widget access for member accounts](#example-billing-deny-widget "#example-billing-deny-widget")
-- [Deny AWS Console cost and usage widget
-  access for specific users and roles](#example-billing-deny-ce "#example-billing-deny-ce")
-- [Allow full access to AWS services but deny users
-  access to the Billing and Cost Management console](#ExampleAllowAllDenyBilling "#ExampleAllowAllDenyBilling")
-- [Allow users to view the Billing and Cost Management console except for
-  account settings](#example-billing-read-only "#example-billing-read-only")
-- [Allow users to modify billing
-  information](#example-billing-deny-modifybilling "#example-billing-deny-modifybilling")
+- [Deny AWS Console cost and usage widget access for specific users and roles](#example-billing-deny-ce "#example-billing-deny-ce")
+- [Allow full access to AWS services but deny users access to the Billing and Cost Management console](#ExampleAllowAllDenyBilling "#ExampleAllowAllDenyBilling")
+- [Allow users to view the Billing and Cost Management console except for account settings](#example-billing-read-only "#example-billing-read-only")
+- [Allow users to modify billing information](#example-billing-deny-modifybilling "#example-billing-deny-modifybilling")
 - [Allow users to create budgets](#example-billing-allow-createbudgets "#example-billing-allow-createbudgets")
 - [Deny access to account settings, but allow full access to all other billing and usage information](#example-billing-deny-modifyaccount "#example-billing-deny-modifyaccount")
 - [Deposit reports into an Amazon S3 bucket](#example-billing-s3-bucket "#example-billing-s3-bucket")
@@ -63,22 +58,14 @@ console](control-access-billing.md#ControllingAccessWebsite-Activate "control-ac
 - [View, create, update, and delete using the Cost Explorer reports page](#example-view-ce-reports "#example-view-ce-reports")
 - [View, create, update, and delete reservation and Savings Plans alerts](#example-view-ce-expiration "#example-view-ce-expiration")
 - [Allow read-only access to AWS Cost Anomaly Detection](#example-policy-ce-ad "#example-policy-ce-ad")
-- [Allow AWS Budgets to apply
-  IAM policies and SCPs](#example-budgets-IAM-SCP "#example-budgets-IAM-SCP")
-- [Allow AWS Budgets to apply
-  IAM policies and SCPs and target EC2 and RDS instances](#example-budgets-applySCP "#example-budgets-applySCP")
-- [Allow users to create, list, and
-  add usage to workload estimates in Pricing Calculator](#example-pc-create-list-estimates "#example-pc-create-list-estimates")
-- [Allow users to create, list, and
-  add usage and commitments to bill scenarios in Pricing Calculator](#example-pc-create-list-scenario "#example-pc-create-list-scenario")
-- [Allow users to create a bill
-  estimate in Pricing Calculator](#example-pc-create-bill-estimate "#example-pc-create-bill-estimate")
-- [Allow users to create preferences in
-  Pricing Calculator](#example-pc-create-preferences "#example-pc-create-preferences")
-- [Allow users to create, manage, and share
-  custom billing views](#example-billing-view "#example-billing-view")
-- [Allow users to access Cost Explorer
-  when accessing a specific custom billing view](#example-custom-billing-view "#example-custom-billing-view")
+- [Allow AWS Budgets to apply IAM policies and SCPs](#example-budgets-IAM-SCP "#example-budgets-IAM-SCP")
+- [Allow AWS Budgets to apply IAM policies and SCPs and target EC2 and RDS instances](#example-budgets-applySCP "#example-budgets-applySCP")
+- [Allow users to create, list, and add usage to workload estimates in Pricing Calculator](#example-pc-create-list-estimates "#example-pc-create-list-estimates")
+- [Allow users to create, list, and add usage and commitments to bill scenarios in Pricing Calculator](#example-pc-create-list-scenario "#example-pc-create-list-scenario")
+- [Allow users to create a bill estimate in Pricing Calculator](#example-pc-create-bill-estimate "#example-pc-create-bill-estimate")
+- [Allow users to create preferences in Pricing Calculator](#example-pc-create-preferences "#example-pc-create-preferences")
+- [Allow users to create, manage, and share custom billing views](#example-billing-view "#example-billing-view")
+- [Allow users to access Cost Explorer when accessing a specific custom billing view](#example-custom-billing-view "#example-custom-billing-view")
 
 ## Deny users access to the Billing and Cost Management console
 
@@ -110,9 +97,7 @@ usage data from the Cost Explorer (AWS Cost Management) console, Cost Explorer A
 Console Home page's cost and usage widget regardless of the IAM actions a member
 account’s user or role has.
 
-## Deny AWS Console cost and usage widget
-
-access for specific users and roles
+## Deny AWS Console cost and usage widget access for specific users and roles
 
 To deny AWS Console cost and usage widget access for specific users and roles,
 use the permissions policy below.
@@ -138,9 +123,7 @@ JSON
 
 ```
 
-## Allow full access to AWS services but deny users
-
-access to the Billing and Cost Management console
+## Allow full access to AWS services but deny users access to the Billing and Cost Management console
 
 To deny users access to everything on the Billing and Cost Management console, use the following policy. In this
 case, you should also deny user access to AWS Identity and Access Management (IAM) so that the users can't
@@ -169,9 +152,7 @@ JSON
 
 ```
 
-## Allow users to view the Billing and Cost Management console except for
-
-account settings
+## Allow users to view the Billing and Cost Management console except for account settings
 
 This policy allows read-only access to all of the Billing and Cost Management console, including the **Payments Method** and **Reports** console pages, but denies access to the **Account Settings** page, thus protecting the account password, contact information, and security questions.
 
@@ -196,9 +177,7 @@ JSON
 
 ```
 
-## Allow users to modify billing
-
-information
+## Allow users to modify billing information
 
 To allow users to modify account billing information in the Billing and Cost Management console, you must also
 allow users to view your billing information. The following policy example allows a
@@ -653,9 +632,7 @@ JSON
 
 ```
 
-## Allow AWS Budgets to apply
-
-IAM policies and SCPs
+## Allow AWS Budgets to apply IAM policies and SCPs
 
 This policy allows AWS Budgets to apply IAM policies and service control
 policies (SCPs) on behalf of the user.
@@ -685,9 +662,7 @@ JSON
 
 ```
 
-## Allow AWS Budgets to apply
-
-IAM policies and SCPs and target EC2 and RDS instances
+## Allow AWS Budgets to apply IAM policies and SCPs and target EC2 and RDS instances
 
 This policy allows AWS Budgets to apply IAM policies and service control
 policies (SCPs), and to target Amazon EC2 and Amazon RDS instances on behalf of the user.
@@ -696,8 +671,7 @@ Trust policy
 
 ###### Note
 
-This trust policy allows AWS Budgets to assume a role that can call other services on your behalf. For more information on the best practices for cross-service permissions like this, see [Cross-service confused deputy
-prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
+This trust policy allows AWS Budgets to assume a role that can call other services on your behalf. For more information on the best practices for cross-service permissions like this, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md").
 
 JSON
 
@@ -759,9 +733,7 @@ JSON
 
 ```
 
-## Allow users to create, list, and
-
-add usage to workload estimates in Pricing Calculator
+## Allow users to create, list, and add usage to workload estimates in Pricing Calculator
 
 This policy allows IAM users to create,
 list, and add usage to workload estimates, along
@@ -796,9 +768,7 @@ JSON
 
 ```
 
-## Allow users to create, list, and
-
-add usage and commitments to bill scenarios in Pricing Calculator
+## Allow users to create, list, and add usage and commitments to bill scenarios in Pricing Calculator
 
 This policy allows IAM users to create, list, and add usage and commitments to
 bill scenarios. Cost Explorer permissions aren't added, so you won't be able to load
@@ -830,9 +800,7 @@ JSON
 
 ```
 
-## Allow users to create a bill
-
-estimate in Pricing Calculator
+## Allow users to create a bill estimate in Pricing Calculator
 
 This policy allows IAM users to create bill estimate and list bill
 estimate line items.
@@ -863,9 +831,7 @@ JSON
 
 ```
 
-## Allow users to create preferences in
-
-Pricing Calculator
+## Allow users to create preferences in Pricing Calculator
 
 This policy allows IAM users to create and get rate preferences.
 
@@ -889,9 +855,7 @@ JSON
 
 ```
 
-## Allow users to create, manage, and share
-
-custom billing views
+## Allow users to create, manage, and share custom billing views
 
 This policy allows IAM users to create, manage, and share custom billing views.
 They will need the ability to create and manage custom billing views using Billing
@@ -935,9 +899,7 @@ JSON
 
 ```
 
-## Allow users to access Cost Explorer
-
-when accessing a specific custom billing view
+## Allow users to access Cost Explorer when accessing a specific custom billing view
 
 This policy allows IAM users to access Cost Explorer when accessing a specific
 custom billing view (`custom-1a2b3c4d`). Replace

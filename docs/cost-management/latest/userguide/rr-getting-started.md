@@ -1,6 +1,4 @@
-# Getting started with rightsizing
-
-recommendations
+# Getting started with rightsizing recommendations
 
 You can access your reservation recommendations and resource-based recommendations in
 the Billing and Cost Management console. After you enable the feature, it can take up to

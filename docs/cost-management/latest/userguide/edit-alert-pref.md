@@ -38,9 +38,7 @@ Cost monitors
 
 Alert subscriptions
 
-###### To edit your alert
-
-subscriptions
+###### To edit your alert subscriptions
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, choose **Cost Anomaly Detection**.

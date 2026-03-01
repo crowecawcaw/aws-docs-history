@@ -1,6 +1,4 @@
-# Security for cost management capabilities in Amazon Q
-
-Developer
+# Security for cost management capabilities in Amazon Q Developer
 
 The following provides an overview of permissions and data protection for the cost
 management capabilities in Amazon Q Developer.

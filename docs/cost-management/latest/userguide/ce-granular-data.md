@@ -20,7 +20,5 @@ Granular data visibility is only available for billing views that show chargeabl
 ###### Topics
 
 - [Resource-level data at daily granularity](ce-resource-daily.md "ce-resource-daily.md")
-- [Cost and usage data for all AWS services at hourly
-  granularity (without resource-level data)](ce-services-hourly.md "ce-services-hourly.md")
-- [EC2-Instances (Elastic Compute Cloud) resource-level
-  data at hourly granularity](ce-ec2-hourly.md "ce-ec2-hourly.md")
+- [Cost and usage data for all AWS services at hourly granularity (without resource-level data)](ce-services-hourly.md "ce-services-hourly.md")
+- [EC2-Instances (Elastic Compute Cloud) resource-level data at hourly granularity](ce-ec2-hourly.md "ce-ec2-hourly.md")

@@ -4,8 +4,7 @@ You can modify the parameters that Cost Explorer uses to create your chart to ex
 different sets of data.
 
 - [Selecting a style for your chart](#ce-style "#ce-style")
-- [Choosing time ranges for the data that you want to
-  view](#ce-timerange "#ce-timerange")
+- [Choosing time ranges for the data that you want to view](#ce-timerange "#ce-timerange")
 - [Grouping data by filter type](#ce-group "#ce-group")
 - [Filtering the data that you want to view](ce-filtering.md "ce-filtering.md")
 - [Choosing advanced options](ce-advanced.md "ce-advanced.md")
@@ -21,9 +20,7 @@ Cost Explorer provides three styles for charting your cost data:
 You can set the style by choosing one of the views on the top right corner of the
 chart.
 
-## Choosing time ranges for the data that you want to
-
-view
+## Choosing time ranges for the data that you want to view
 
 You can choose to view your cost data in monthly or daily _levels of granularity_. You can use preconfigured time ranges or set
 custom start and end dates.

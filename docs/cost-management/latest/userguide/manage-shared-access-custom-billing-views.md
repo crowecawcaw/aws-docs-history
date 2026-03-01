@@ -1,6 +1,4 @@
-# Managing shared access to custom
-
-billing views in your organization
+# Managing shared access to custom billing views in your organization
 
 ###### Note
 

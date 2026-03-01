@@ -15,9 +15,7 @@ For information about other services that support service-linked roles, see [AWS
 Role** column. Choose a **Yes** with a
 link to view the service-linked role documentation for that service.
 
-## Service-linked role permissions for
-
-Budgets
+## Service-linked role permissions for Budgets
 
 Budgets uses the service-linked role named
 `AWSServiceRoleForBudgets`, which enables Budgets to verify
@@ -47,9 +45,7 @@ or role) to create, edit, or delete a service-linked role. For more information,
 see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM
 User Guide_.
 
-## Creating the Budgets service-linked
-
-role
+## Creating the Budgets service-linked role
 
 You don't need to manually create a service-linked role. When you make a
 request to CreateBudget or UpdateBudget with a BillingView from another account
@@ -59,9 +55,7 @@ role for you.
 If you delete this service-linked role, and then need to create it again, you
 can use the same process to recreate the role in your account.
 
-## Editing the Budgets service-linked
-
-role
+## Editing the Budgets service-linked role
 
 You can't edit the name or permissions of the
 `AWSServiceRoleForBudgets` service-linked role because various
@@ -86,9 +80,7 @@ needs to edit the description of a service-linked role.
 }
 ```
 
-## Deleting the Budgets service-linked
-
-role
+## Deleting the Budgets service-linked role
 
 If you no longer need to use Budgets, we recommend that you delete the
 `AWSServiceRoleForBudgets` service-linked role. That way, you
@@ -106,9 +98,7 @@ AWS API to delete the `AWSServiceRoleForBudgets` service-linked
 role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM
 User Guide_.
 
-## Supported Regions for Budgets
-
-service-linked roles
+## Supported Regions for Budgets service-linked roles
 
 Budgets supports using service-linked roles in all of the AWS Regions where
 the service is available. For more information, see AWS service

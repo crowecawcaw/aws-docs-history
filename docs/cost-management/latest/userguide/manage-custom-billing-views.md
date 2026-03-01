@@ -19,11 +19,9 @@ cost management data based on the updated definition.
 - [Editing the sources of custom billing views](edit-sources-custom-billing-views.md "edit-sources-custom-billing-views.md")
 - [Editing the tags of custom billing views](edit-tags-custom-billing-views.md "edit-tags-custom-billing-views.md")
 - [Deleting custom billing views](delete-custom-billing-views.md "delete-custom-billing-views.md")
-- [Managing shared access to custom
-  billing views in your organization](manage-shared-access-custom-billing-views.md "manage-shared-access-custom-billing-views.md")
+- [Managing shared access to custom billing views in your organization](manage-shared-access-custom-billing-views.md "manage-shared-access-custom-billing-views.md")
 - [Understanding AWS managed billing views](manage-shared-access-managed-billing-views.md "manage-shared-access-managed-billing-views.md")
-- [Managing shared access to custom
-  billing views outside of your organization](manage-external-shared-access-custom-billing-views.md "manage-external-shared-access-custom-billing-views.md")
+- [Managing shared access to custom billing views outside of your organization](manage-external-shared-access-custom-billing-views.md "manage-external-shared-access-custom-billing-views.md")
   You can control which accounts can access a custom billing view by
   modifying its associated resource share. Once you add an account to the resource share, the
   account gains access to the custom billing view. Once you remove an account from the resource

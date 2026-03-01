@@ -1,6 +1,4 @@
-# Viewing recommended actions and estimated
-
-savings
+# Viewing recommended actions and estimated savings
 
 Use the following procedure to view a recommended action and estimated savings for a
 specific resource ID.

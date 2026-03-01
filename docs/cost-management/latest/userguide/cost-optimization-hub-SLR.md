@@ -1,6 +1,4 @@
-# Service-linked roles for Cost
-
-Optimization Hub
+# Service-linked roles for Cost Optimization Hub
 
 Cost Optimization Hub uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM
 role that is linked directly to Cost Optimization Hub. Service-linked roles are
@@ -19,9 +17,7 @@ For information about other services that support service-linked roles, see [AWS
 Role** column. Choose a **Yes** with a
 link to view the service-linked role documentation for that service.
 
-## Service-linked role
-
-permissions for Cost Optimization Hub
+## Service-linked role permissions for Cost Optimization Hub
 
 Cost Optimization Hub uses the service-linked role named
 `AWSServiceRoleForCostOptimizationHub`, which enables access to
@@ -58,9 +54,7 @@ or role) to create, edit, or delete a service-linked role. For more information,
 see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM
 User Guide_.
 
-## Creating the Cost
-
-Optimization Hub service-linked role
+## Creating the Cost Optimization Hub service-linked role
 
 You don't need to manually create a service-linked role. When you enable Cost
 Optimization Hub, the service automatically creates the service-linked role for
@@ -71,9 +65,7 @@ user guide.
 If you delete this service-linked role, and then need to create it again, you
 can use the same process to recreate the role in your account.
 
-## Editing the Cost Optimization
-
-Hub service-linked role
+## Editing the Cost Optimization Hub service-linked role
 
 You can't edit the name or permissions of the
 `AWSServiceRoleForCostOptimizationHub` service-linked role
@@ -98,9 +90,7 @@ needs to edit the description of a service-linked role.
 }
 ```
 
-## Deleting the Cost
-
-Optimization Hub service-linked role
+## Deleting the Cost Optimization Hub service-linked role
 
 If you no longer need to use Cost Optimization Hub, we recommend that you
 delete the `AWSServiceRoleForCostOptimizationHub` service-linked
@@ -120,9 +110,7 @@ AWS API to delete the `AWSServiceRoleForCostOptimizationHub`
 service-linked role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM
 User Guide_.
 
-## Supported Regions for Cost
-
-Optimization Hub service-linked roles
+## Supported Regions for Cost Optimization Hub service-linked roles
 
 Cost Optimization Hub supports using service-linked roles in all of the AWS
 Regions where the service is available. For more information, see AWS service

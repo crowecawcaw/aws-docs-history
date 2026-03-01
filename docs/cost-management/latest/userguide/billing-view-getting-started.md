@@ -33,9 +33,7 @@ billing views. For more information about IAM actions for managing custom billin
 [Using identity-based policies (IAM policies) for AWS Cost
 Management](billing-permissions-ref.md "billing-permissions-ref.md").
 
-## Accessing the console to create custom billing
-
-views
+## Accessing the console to create custom billing views
 
 There are two ways to access Billing View in the console to create custom billing
 views.

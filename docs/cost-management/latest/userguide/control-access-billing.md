@@ -1,8 +1,6 @@
 # Overview of managing access permissions
 
-## Granting access to your billing information and
-
-tools
+## Granting access to your billing information and tools
 
 The AWS account owner can access billing information and tools by signing in to
 the AWS Management Console using the account credentials. We recommend that you don't use the
@@ -28,9 +26,7 @@ Permissions for Cost Explorer apply to all accounts and member accounts,
 regardless of IAM policies. For more information about Cost Explorer access,
 see [Controlling access to Cost Explorer](ce-access.md "ce-access.md").
 
-## Activating access to the Billing and Cost Management
-
-console
+## Activating access to the Billing and Cost Management console
 
 IAM roles within an AWS account can't access the Billing and Cost Management console pages by
 default. This is true even if the role has IAM policies that grant access to

@@ -39,9 +39,7 @@ rightsizing recommendations:
    **Findings**, choose a recommendation to view the
    details.
 
-## Enhancing your recommendations using
-
-CloudWatch metrics
+## Enhancing your recommendations using CloudWatch metrics
 
 We can examine your memory utilization if you enable your Amazon CloudWatch agent.
 

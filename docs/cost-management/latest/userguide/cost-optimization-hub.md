@@ -37,8 +37,7 @@ Cost Optimization Hub provides the following main benefits:
 - [Customizing your Cost Optimization Hub preferences](coh-preferences.md "coh-preferences.md")
 - [Viewing your cost optimization opportunities](coh-view-opportunities.md "coh-view-opportunities.md")
 - [Understanding your cost efficiency metric](coh-cost-efficiency.md "coh-cost-efficiency.md")
-- [Prioritizing your cost optimization
-  opportunities](coh-prioritize-opportunities.md "coh-prioritize-opportunities.md")
+- [Prioritizing your cost optimization opportunities](coh-prioritize-opportunities.md "coh-prioritize-opportunities.md")
 - [Understanding cost optimization strategies](coh-optimization-strategies.md "coh-optimization-strategies.md")
 - [Viewing your savings opportunities](coh-savings-opportunities.md "coh-savings-opportunities.md")
 - [Estimating monthly savings](coh-estimated-monthly-savings.md "coh-estimated-monthly-savings.md")

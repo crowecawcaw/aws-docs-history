@@ -1,6 +1,4 @@
-# Prioritizing your cost optimization
-
-opportunities
+# Prioritizing your cost optimization opportunities
 
 In Cost Optimization Hub, you can use custom filters, sorting, and grouping, so that you can prioritize your
 cost optimization effort by return-on-investments.

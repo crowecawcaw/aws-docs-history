@@ -90,9 +90,7 @@ values:
 Your topic now appears in the list of topics on the
 **Topics** page.
 
-## Checking or resending notification
-
-confirmation email messages
+## Checking or resending notification confirmation email messages
 
 When you create an anomaly detection monitor with notifications, you also create
 Amazon SNS notifications. For notifications to be sent, you must accept the subscription
@@ -101,9 +99,7 @@ to the Amazon SNS notification topic.
 To confirm that your notification subscriptions are accepted or to resend a
 subscription confirmation email, use the Amazon SNS console.
 
-###### To check your notification status or to resend a notification confirmation
-
-email message
+###### To check your notification status or to resend a notification confirmation email message
 
 1. Sign in to the AWS Management Console and open the Amazon SNS console at
    [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
@@ -120,9 +116,7 @@ When each owner of an endpoint receives the email, they must choose the
 **Confirm subscription** link to activate the
 notification.
 
-## Protecting your Amazon SNS anomaly detection alerts
-
-data with SSE and AWS KMS
+## Protecting your Amazon SNS anomaly detection alerts data with SSE and AWS KMS
 
 You can use server-side encryption (SSE) to transfer sensitive data in encrypted
 topics. SSE protects Amazon SNS messages by using keys managed in AWS Key Management Service
@@ -161,9 +155,7 @@ Ensure that the key policies of the KMS key allow the necessary
 permissions. To do this, name the principals that produce and consume
 encrypted messages in Amazon SNS as users in the KMS key policy.
 
-###### To enable compatibility between AWS Cost Anomaly Detection
-
-and encrypted Amazon SNS topics
+###### To enable compatibility between AWS Cost Anomaly Detection and encrypted Amazon SNS topics
 
 1. [Create a KMS key](../../../kms/latest/developerguide/create-keys.md#create-keys-console "../../../kms/latest/developerguide/create-keys.md#create-keys-console").
 2. Add one of the following policies as the KMS key policy:

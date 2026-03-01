@@ -46,8 +46,7 @@ require updating with this migration:
 Programmatic requests to AWS Cost Explorer, AWS Cost and Usage Reports, and AWS Budgets remains
 unaffected.
 
-[Activating access to the Billing and Cost Management
-console](control-access-billing.md#ControllingAccessWebsite-Activate "control-access-billing.md#ControllingAccessWebsite-Activate") remain unchanged.
+[Activating access to the Billing and Cost Management console](control-access-billing.md#ControllingAccessWebsite-Activate "control-access-billing.md#ControllingAccessWebsite-Activate") remain unchanged.
 
 ###### Topics
 

@@ -1,8 +1,7 @@
 # Forecasting with Cost Explorer
 
 You create a forecast by selecting a future time range for your report. For more
-information, see [Choosing time ranges for the data that you want to
-view](ce-modify.md#ce-timerange "ce-modify.md#ce-timerange"). The
+information, see [Choosing time ranges for the data that you want to view](ce-modify.md#ce-timerange "ce-modify.md#ce-timerange"). The
 following section discusses the accuracy of the forecasts created by Cost Explorer and
 how to read them.
 
@@ -46,9 +45,7 @@ we encourage you to use **Show net unblended costs**. For more
 information about different costs, see [Cost Explorer
 Advanced Options](ce-advanced.md "ce-advanced.md").
 
-## Using forecasts with consolidated
-
-billing
+## Using forecasts with consolidated billing
 
 If you use the consolidated billing feature in AWS Organizations, the forecasts are
 calculated with the data from all the accounts. If you add a new member account to

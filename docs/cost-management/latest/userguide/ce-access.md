@@ -23,8 +23,7 @@ billing, see [Consolidated billing for AWS Organizations](../../../awsaccountbil
 ###### Topics
 
 - [Granting Cost Explorer access](#grant-ce-access "#grant-ce-access")
-- [Controlling access using Cost Explorer
-  preferences](#ce-controlling-access "#ce-controlling-access")
+- [Controlling access using Cost Explorer preferences](#ce-controlling-access "#ce-controlling-access")
 - [Managing Cost Explorer access for users](#ce-iam-users "#ce-iam-users")
 
 ## Granting Cost Explorer access
@@ -35,9 +34,7 @@ console. Enabling Cost Explorer at the management account level enables Cost Exp
 for all of your organization accounts. All accounts in the organization are granted
 access, and you can't grant or deny access individually.
 
-## Controlling access using Cost Explorer
-
-preferences
+## Controlling access using Cost Explorer preferences
 
 A management account can grant access to Cost Explorer for all or none of the member
 accounts. Access isn’t customizable for each individual member account.
@@ -104,17 +101,13 @@ visible in the following ways:
   this, the account regains access to its historical cost and usage
   data.
 
-### Controlling member accounts’ access
-
-using Cost Explorer preferences
+### Controlling member accounts’ access using Cost Explorer preferences
 
 You can grant or restrict the access to all member accounts in your Organizations. When you
 enable your account at the management account level, all member accounts are granted
 access to their cost and usage data by default.
 
-###### To control member account access to
-
-Cost Explorer data
+###### To control member account access to Cost Explorer data
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, choose **Cost Management Preferences**.

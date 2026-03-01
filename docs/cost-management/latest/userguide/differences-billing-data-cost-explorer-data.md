@@ -1,6 +1,4 @@
-# Knowing the differences
-
-between Billing and Cost Explorer data
+# Knowing the differences between Billing and Cost Explorer data
 
 ## Billing data
 
@@ -57,9 +55,7 @@ In another example, to help analyze data transfer costs, Cost Explorer groups yo
 costs by service. In billing data, data transfer costs are grouped into a single
 service named **Data Transfer**.
 
-## Estimated charges for the
-
-current month
+## Estimated charges for the current month
 
 Your billing data and Cost Explorer data are refreshed at least once per day. The cadence
 when they're refreshed might differ. This can result in differences for your
@@ -74,9 +70,7 @@ data and Cost Explorer data might vary due to rounding. When these data sources 
 different, the amount on your invoice is the final amount that you owe to
 AWS.
 
-## Presentation of
-
-discounts, credits, refunds, and taxes
+## Presentation of discounts, credits, refunds, and taxes
 
 The billing data on the **Bills** page (for example, in the
 **Charges by service** tab) excludes refunds, while Cost Explorer data

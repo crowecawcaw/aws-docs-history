@@ -14,6 +14,8 @@ To answer your question, Amazon Q Developer can perform the following steps.
 
 Throughout this process, Q displays the details of each API call it makes and each calculation it performs, so you can see exactly how it arrived at its answer.
 
+If you request it, Q can create a chart of your Billing and Cost Management data. To create a chart, Q gathers data from the relevant APIs, performs any necessary calculations, formats the data to populate the chart, then renders the chart. Charts generated in Amazon Q Developer reflect a snapshot of your billing data at the time you requested the chart, and do not update as additional charges are incurred.
+
 ## Data sources and API integrations
 
 Amazon Q Developer retrieves cost data from 38 APIs across seven Billing and Cost Management services. This broad integration allows Q to answer questions that span multiple data sources without requiring you to switch between different tools or console pages.

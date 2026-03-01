@@ -1,6 +1,4 @@
-# EC2-Instances (Elastic Compute Cloud) resource-level
-
-data at hourly granularity
+# EC2-Instances (Elastic Compute Cloud) resource-level data at hourly granularity
 
 In Cost Explorer, you can enable EC2 resource-level data at hourly granularity
 for the past 14 days. Using this data, you can view your hourly cost and usage at

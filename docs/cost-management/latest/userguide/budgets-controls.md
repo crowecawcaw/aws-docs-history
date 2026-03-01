@@ -24,8 +24,6 @@ us-east-1`.
 
 ###### Topics
 
-- [Setting up a role for AWS Budgets to run budget
-  actions](budgets-action-role.md "budgets-action-role.md")
+- [Setting up a role for AWS Budgets to run budget actions](budgets-action-role.md "budgets-action-role.md")
 - [Configuring a budget action](budgets-action-configure.md "budgets-action-configure.md")
-- [Reviewing and approving your budget
-  action](budgets-action-review.md "budgets-action-review.md")
+- [Reviewing and approving your budget action](budgets-action-review.md "budgets-action-review.md")

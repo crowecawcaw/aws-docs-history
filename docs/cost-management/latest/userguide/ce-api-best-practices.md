@@ -1,21 +1,14 @@
-# Best practices for the AWS Cost Explorer
-
-API
+# Best practices for the AWS Cost Explorer API
 
 The following are best practices when working with the [Cost Explorer API](../../../aws-cost-management/latest/APIReference/API_Operations_AWS_Cost_Explorer_Service.md "../../../aws-cost-management/latest/APIReference/API_Operations_AWS_Cost_Explorer_Service.md").
 
 ###### Topics
 
-- [Best practices for configuring access to
-  the Cost Explorer API](#ce-api-best-practices-access "#ce-api-best-practices-access")
-- [Best practices for querying the
-  Cost Explorer API](#ce-api-best-practices-query "#ce-api-best-practices-query")
-- [Best practices for optimizing
-  your Cost Explorer API costs](#ce-api-best-practices-optimize-costs "#ce-api-best-practices-optimize-costs")
+- [Best practices for configuring access to the Cost Explorer API](#ce-api-best-practices-access "#ce-api-best-practices-access")
+- [Best practices for querying the Cost Explorer API](#ce-api-best-practices-query "#ce-api-best-practices-query")
+- [Best practices for optimizing your Cost Explorer API costs](#ce-api-best-practices-optimize-costs "#ce-api-best-practices-optimize-costs")
 
-## Best practices for configuring access to
-
-the Cost Explorer API
+## Best practices for configuring access to the Cost Explorer API
 
 A user must be granted explicit permissions to query the Cost Explorer API. Granting a
 user access to the Cost Explorer API gives that user query access to any cost and
@@ -26,9 +19,7 @@ When configuring access to the Cost Explorer API, we recommend creating a unique
 the user. If you want to give multiple users query access to the Cost Explorer API,
 we recommend creating a role for each of them.
 
-## Best practices for querying the
-
-Cost Explorer API
+## Best practices for querying the Cost Explorer API
 
 When querying the Cost Explorer API, we recommend using filtering conditions to refine your
 queries so that you receive only the data that you need. You can do this by
@@ -45,9 +36,7 @@ current month. It can also provide 3 months of cost forecast data at the daily l
 of granularity and 12 months of cost forecast data at the monthly level of
 granularity.
 
-## Best practices for optimizing
-
-your Cost Explorer API costs
+## Best practices for optimizing your Cost Explorer API costs
 
 Because you're charged for the Cost Explorer API per paginated request, we recommend
 identifying the exact dataset to access before submitting queries.

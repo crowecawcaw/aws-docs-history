@@ -1,6 +1,4 @@
-# Visualizing and analyzing cost and usage data using
-
-Dashboards
+# Visualizing and analyzing cost and usage data using Dashboards
 
 AWS Billing and Cost Management Dashboards enable you to create and share customized views
 of your cost and usage data in a single page. You can create collections of charts and tables,

@@ -1,6 +1,4 @@
-# Understanding your estimated
-
-monthly usage summary
+# Understanding your estimated monthly usage summary
 
 When you enable granular data in Cost Explorer, it increases the number of usage records
 Cost Explorer needs to host for your organization. To ensure Cost Explorer can respond
@@ -36,7 +34,5 @@ usage records due to insufficient data.
 
 ###### Topics
 
-- [Understanding Cost Explorer data
-  threshold limits](ce-data-threshold-limits.md "ce-data-threshold-limits.md")
-- [Estimating cost for Cost Explorer hourly
-  granularity](ce-hourly-granularity.md "ce-hourly-granularity.md")
+- [Understanding Cost Explorer data threshold limits](ce-data-threshold-limits.md "ce-data-threshold-limits.md")
+- [Estimating cost for Cost Explorer hourly granularity](ce-hourly-granularity.md "ce-hourly-granularity.md")

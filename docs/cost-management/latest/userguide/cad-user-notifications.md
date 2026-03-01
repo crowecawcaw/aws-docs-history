@@ -1,6 +1,4 @@
-# Using AWS User Notifications with
-
-Cost Anomaly Detection
+# Using AWS User Notifications with Cost Anomaly Detection
 
 You can use [AWS User Notifications](../../../notifications/latest/userguide/what-is-service.md "../../../notifications/latest/userguide/what-is-service.md") to set up delivery channels
 that notify you about Cost Anomaly Detection events. You will receive a notification when an event matches
@@ -19,9 +17,7 @@ Management (IAM) permissions. For more information about configuring your IAM
 permissions, see [Creating a notification configuration](../../../notifications/latest/userguide/getting-started.md#getting-started-step1 "../../../notifications/latest/userguide/getting-started.md#getting-started-step1") in the
 _AWS User Notifications User Guide_.
 
-## Example: EventBridge event for
-
-`Anomaly Detected`
+## Example: EventBridge event for `Anomaly Detected`
 
 The following is a generalized example event for `Anomaly Detected`.
 You can subscribe to EventBridge events (such as this one) using AWS User
@@ -86,14 +82,10 @@ own EventBridge filter from JSON code.
 ###### Topics
 
 - [Example: Filter by impact](#example-filter-by-impact "#example-filter-by-impact")
-- [Example: Filter by service
-  dimension](#example-filter-by-service-dimension "#example-filter-by-service-dimension")
-- [Example: Filter by cost
-  allocation tag](#example-filter-by-cost-allocation-tag "#example-filter-by-cost-allocation-tag")
-- [Example: Filter by Region
-  root cause](#example-filter-by-region-root-cause "#example-filter-by-region-root-cause")
-- [Example: Filter by multiple
-  criteria](#example-filter-composition "#example-filter-composition")
+- [Example: Filter by service dimension](#example-filter-by-service-dimension "#example-filter-by-service-dimension")
+- [Example: Filter by cost allocation tag](#example-filter-by-cost-allocation-tag "#example-filter-by-cost-allocation-tag")
+- [Example: Filter by Region root cause](#example-filter-by-region-root-cause "#example-filter-by-region-root-cause")
+- [Example: Filter by multiple criteria](#example-filter-composition "#example-filter-composition")
 
 ### Example: Filter by impact
 
@@ -115,9 +107,7 @@ $100 and a percentage impact greater than 10%.
 }
 ```
 
-### Example: Filter by service
-
-dimension
+### Example: Filter by service dimension
 
 The following filter captures anomalies specific to the EC2 service, detected
 by the AWS services monitor.
@@ -131,9 +121,7 @@ by the AWS services monitor.
 }
 ```
 
-### Example: Filter by cost
-
-allocation tag
+### Example: Filter by cost allocation tag
 
 The following filter captures anomalies for the Frontend application team,
 detected by a dimensional cost allocation tag monitor.
@@ -147,9 +135,7 @@ detected by a dimensional cost allocation tag monitor.
 }
 ```
 
-### Example: Filter by Region
-
-root cause
+### Example: Filter by Region root cause
 
 The following filter captures anomalies that have root causes in the US East
 (N. Virginia) Region.
@@ -164,9 +150,7 @@ The following filter captures anomalies that have root causes in the US East
 }
 ```
 
-### Example: Filter by multiple
-
-criteria
+### Example: Filter by multiple criteria
 
 The following complex filter captures anomalies for the Frontend application
 team with a total impact greater than $100, a percentage impact greater than

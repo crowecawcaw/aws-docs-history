@@ -1,6 +1,4 @@
-# Optimizing your cost with rightsizing
-
-recommendations
+# Optimizing your cost with rightsizing recommendations
 
 The rightsizing recommendations feature in Cost Explorer helps you identify cost-saving
 opportunities by downsizing or terminating instances in Amazon Elastic Compute Cloud (Amazon EC2). Rightsizing
@@ -18,11 +16,9 @@ Rightsizing recommendations doesn't support billing transfer.
 
 ###### Topics
 
-- [Getting started with rightsizing
-  recommendations](rr-getting-started.md "rr-getting-started.md")
+- [Getting started with rightsizing recommendations](rr-getting-started.md "rr-getting-started.md")
 - [Using your rightsizing recommendations](rr-use.md "rr-use.md")
 - [Sharing your rightsizing recommendations](csv-details.md "csv-details.md")
-- [Understanding rightsizing recommendations
-  calculations](understanding-rr-calc.md "understanding-rr-calc.md")
+- [Understanding rightsizing recommendations calculations](understanding-rr-calc.md "understanding-rr-calc.md")
 - [Understanding reservations in Cost Explorer](ce-ris.md "ce-ris.md")
 - [Accessing reservation recommendations](ri-recommendations.md "ri-recommendations.md")

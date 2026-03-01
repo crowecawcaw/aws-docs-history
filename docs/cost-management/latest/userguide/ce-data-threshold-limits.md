@@ -1,6 +1,4 @@
-# Understanding Cost Explorer data
-
-threshold limits
+# Understanding Cost Explorer data threshold limits
 
 Cost Explorer supports up to 500 million usage records for resource-level data at
 daily granularity and up to 500 million usage records for hourly granularity

@@ -17,9 +17,7 @@ For information about other services that support service-linked roles, see [AWS
 Role** column. Choose a **Yes** with a
 link to view the service-linked role documentation for that service.
 
-## Service-linked role permissions
-
-for Data Exports
+## Service-linked role permissions for Data Exports
 
 Data Exports uses the service-linked role named
 `AWSServiceRoleForBCMDataExports`, which enables access to AWS
@@ -52,9 +50,7 @@ You must configure permissions to allow an IAM entity (such as a user, group,
 or role) to create, edit, or delete a service-linked role. For more information,
 see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the IAM User Guide.
 
-## Creating the Data Exports
-
-service-linked role
+## Creating the Data Exports service-linked role
 
 You don't need to manually create the Data Exports service-linked role. On the
 Data Exports console page, when you attempt to create an export of a table that
@@ -64,9 +60,7 @@ you.
 If you delete this service-linked role, and then need to create it again, you
 can use the same process to recreate the role in your account.
 
-## Editing the Data Exports service-linked
-
-role
+## Editing the Data Exports service-linked role
 
 You can't edit the name or permissions of the
 `AWSServiceRoleForBCMDataExports` service-linked role because
@@ -91,9 +85,7 @@ needs to edit the description of a service-linked role.
 }
 ```
 
-## Deleting the Data Exports
-
-service-linked role
+## Deleting the Data Exports service-linked role
 
 If you no longer need to use Data Exports, we recommend that you delete the
 `AWSServiceRoleForBCMDataExports` service-linked role. That way,
@@ -113,9 +105,7 @@ AWS API to delete the `AWSServiceRoleForBCMDataExports`
 service-linked role. For more information, see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM
 User Guide_.
 
-## Supported Regions for Data Exports
-
-service-linked roles
+## Supported Regions for Data Exports service-linked roles
 
 Data Exports supports using service-linked roles in all of the AWS Regions
 where Data Exports is available. For more information, see AWS service

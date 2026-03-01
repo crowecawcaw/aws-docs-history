@@ -69,8 +69,7 @@ recipients**, enter the email addresses that you want the alert
 to notify. Separate multiple email addresses with commas. A notification can
 be sent to a maximum of 10 email addresses. 14. (Optional) For **Amazon SNS Alerts**, enter the Amazon
 Resource Name (ARN) for your Amazon SNS topic. For instructions on how to create
-a topic, see [Creating an Amazon SNS topic for budget
-notifications](budgets-sns-policy.md "budgets-sns-policy.md").
+a topic, see [Creating an Amazon SNS topic for budget notifications](budgets-sns-policy.md "budgets-sns-policy.md").
 
 ###### Important
 

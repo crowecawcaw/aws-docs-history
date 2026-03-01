@@ -14,6 +14,5 @@ your report page along with the default Cost Explorer reports.
 - [Viewing a Cost Explorer report](view-saved-ce-reports.md "view-saved-ce-reports.md")
 - [Editing a Cost Explorer report](edit-saved-ce-reports.md "edit-saved-ce-reports.md")
 - [Deleting a Cost Explorer report](delete-saved-ce-report.md "delete-saved-ce-report.md")
-- [Saving your Cost Explorer configuration with bookmarks
-  or favorites](ce-bookmarks.md "ce-bookmarks.md")
+- [Saving your Cost Explorer configuration with bookmarks or favorites](ce-bookmarks.md "ce-bookmarks.md")
 - [Downloading the cost data CSV file](ce-download-csv.md "ce-download-csv.md")

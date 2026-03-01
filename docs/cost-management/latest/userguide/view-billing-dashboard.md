@@ -15,8 +15,7 @@ analytical purposes. This means the data can differ from your invoices and the
 AWS services; how discounts, credits, refunds, and taxes are displayed; differences in
 timing for the current month's estimated charges; and rounding.
 
-For more information, see [Knowing the differences
-between Billing and Cost Explorer data](differences-billing-data-cost-explorer-data.md "differences-billing-data-cost-explorer-data.md").
+For more information, see [Knowing the differences between Billing and Cost Explorer data](differences-billing-data-cost-explorer-data.md "differences-billing-data-cost-explorer-data.md").
 
 For more information about AWS Cloud Financial Management, see the [Getting started](https://console.aws.amazon.com/costmanagement/home?#/getting-started "https://console.aws.amazon.com/costmanagement/home?#/getting-started") page in the AWS Billing and Cost Management console. You can choose a topic and then follow the links to that specific console page or the documentation.
 

@@ -63,8 +63,7 @@ depending on whether you're enabling it for a single account or for all accounts
 organization.
 
 Both policies grant permission to create the necessary service-linked role and update the
-Cost Optimization Hub enrollment status. For more information on service-linked roles, see [Service-linked roles for Cost
-Optimization Hub](cost-optimization-hub-SLR.md "cost-optimization-hub-SLR.md").
+Cost Optimization Hub enrollment status. For more information on service-linked roles, see [Service-linked roles for Cost Optimization Hub](cost-optimization-hub-SLR.md "cost-optimization-hub-SLR.md").
 
 If enabling Cost Optimization Hub for all accounts, the management account also needs to set up AWS
 Organizations trusted access. For details, see [Cost Optimization Hub

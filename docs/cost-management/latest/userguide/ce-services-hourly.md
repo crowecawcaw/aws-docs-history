@@ -1,6 +1,4 @@
-# Cost and usage data for all AWS services at hourly
-
-granularity (without resource-level data)
+# Cost and usage data for all AWS services at hourly granularity (without resource-level data)
 
 By default, Cost Explorer provides up to 14 months of data at daily and monthly
 granularity. However, you can opt in to hourly granularity for the past 14

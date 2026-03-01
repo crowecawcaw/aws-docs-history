@@ -103,8 +103,7 @@ an alert for forecasted spend. 17. (Optional) Under **Notification preferences**
 you want the alert to notify. Separate multiple email addresses with commas.
 A notification can be sent to a maximum of 10 email addresses. 18. (Optional) Under **Notification preferences**, for
 **Amazon SNS Alerts**, enter the Amazon Resource Name (ARN)
-for your Amazon SNS topic. For instructions on how to create a topic, see [Creating an Amazon SNS topic for budget
-notifications](budgets-sns-policy.md "budgets-sns-policy.md").
+for your Amazon SNS topic. For instructions on how to create a topic, see [Creating an Amazon SNS topic for budget notifications](budgets-sns-policy.md "budgets-sns-policy.md").
 
 ###### Important
 
