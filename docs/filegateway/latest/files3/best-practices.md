@@ -4,22 +4,16 @@ This section contains the following topics, which provide information about the 
 practices for working with gateways, file shares, buckets, and data. We recommend that you
 familiarize yourself with the information outlined in this section, and attempt to follow these
 guidelines in order to avoid problems with your AWS Storage Gateway. For additional guidance on diagnosing
-and solving common issues you might encounter with your deployment, see [Troubleshooting problems with your Storage Gateway
-deployment](troubleshooting-gateway-issues.md "troubleshooting-gateway-issues.md").
+and solving common issues you might encounter with your deployment, see [Troubleshooting problems with your Storage Gateway deployment](troubleshooting-gateway-issues.md "troubleshooting-gateway-issues.md").
 
 ###### Topics
 
 - [Best practices: recovering your data](#recover-data-from-gateway "#recover-data-from-gateway")
-- [Best practices: managing multipart
-  uploads](#best-practices-managing-multi-part-uploads "#best-practices-managing-multi-part-uploads")
-- [Best practices: Unzip compressed files
-  locally before copying to a gateway](#best-practices-unzipping-on-gateway "#best-practices-unzipping-on-gateway")
-- [Retain file attributes when copying
-  data from Windows Server](#best-practices-copying-files-on-windows "#best-practices-copying-files-on-windows")
-- [Best practices: Proper sizing of cache
-  disks](#proper-sizing-of-cache-disks "#proper-sizing-of-cache-disks")
-- [Working with multiple file shares and Amazon S3
-  buckets](#prevent-multiple-writes "#prevent-multiple-writes")
+- [Best practices: managing multipart uploads](#best-practices-managing-multi-part-uploads "#best-practices-managing-multi-part-uploads")
+- [Best practices: Unzip compressed files locally before copying to a gateway](#best-practices-unzipping-on-gateway "#best-practices-unzipping-on-gateway")
+- [Retain file attributes when copying data from Windows Server](#best-practices-copying-files-on-windows "#best-practices-copying-files-on-windows")
+- [Best practices: Proper sizing of cache disks](#proper-sizing-of-cache-disks "#proper-sizing-of-cache-disks")
+- [Working with multiple file shares and Amazon S3 buckets](#prevent-multiple-writes "#prevent-multiple-writes")
 - [Clean up unnecessary resources](#cleanup-file "#cleanup-file")
 
 ## Best practices: recovering your data
@@ -36,9 +30,7 @@ your hypervisor or from your Amazon EC2 Amazon Machine Image (AMI). If your gate
 malfunctions, activate a new gateway and recover your data to that gateway using the
 instructions following.
 
-### Recovering from an unexpected virtual
-
-machine shutdown
+### Recovering from an unexpected virtual machine shutdown
 
 If your VM shuts down unexpectedly, for example during a power outage, your gateway
 becomes unreachable. When power and network connectivity are restored, your gateway
@@ -46,12 +38,9 @@ becomes reachable and starts to function normally. Following are some steps you 
 at that point to help recover your data:
 
 - If an outage causes network connectivity issues, you can troubleshoot the
-  issue. For information about how to test network connectivity, see [Testing your gateway's network
-  connectivity](MaintenanceTestGatewayConnectivity-fgw.md "MaintenanceTestGatewayConnectivity-fgw.md").
+  issue. For information about how to test network connectivity, see [Testing your gateway's network connectivity](MaintenanceTestGatewayConnectivity-fgw.md "MaintenanceTestGatewayConnectivity-fgw.md").
 
-### Recovering your data from a malfunctioning
-
-cache disk
+### Recovering your data from a malfunctioning cache disk
 
 If your cache disk encounters a failure, we recommend you use the following steps to
 recover your data depending on your situation:
@@ -59,9 +48,7 @@ recover your data depending on your situation:
 - If the malfunction occurred because a cache disk was removed from your host,
   shut down the gateway, re-add the disk, and restart the gateway.
 
-### Recovering your data from an inaccessible data
-
-center
+### Recovering your data from an inaccessible data center
 
 If your gateway or data center becomes inaccessible for some reason, you can recover
 your data to another gateway in a different data center or recover to a gateway hosted
@@ -74,8 +61,7 @@ type you are covering the data from.
 For File Gateway, you map a new to the Amazon S3 bucket that contains the data you want to recover.
 
 1. Create and activate a new File Gateway on an Amazon EC2 host. For more
-   information, see [Deploy a default Amazon EC2 host for
-   S3 File Gateway](ec2-gateway-file.md "ec2-gateway-file.md").
+   information, see [Deploy a default Amazon EC2 host for S3 File Gateway](ec2-gateway-file.md "ec2-gateway-file.md").
 2. Create a new on the EC2 gateway you created.
    For more information, see [Create a
    file share](GettingStartedCreateFileShare.md "GettingStartedCreateFileShare.md").
@@ -84,9 +70,7 @@ For File Gateway, you map a new to the Amazon S3 bucket that contains the data y
    more information, see [Mount and
    use your file share](getting-started-use-fileshare.md "getting-started-use-fileshare.md").
 
-## Best practices: managing multipart
-
-uploads
+## Best practices: managing multipart uploads
 
 When transferring large files, S3 File Gateway makes use of the Amazon S3 multipart upload feature to
 split the files into smaller parts and transfer them in parallel for improved efficiency. For
@@ -108,9 +92,7 @@ see
 bucket lifecycle configuration to delete incomplete multipart uploads](../../../AmazonS3/latest/userguide/mpu-abort-incomplete-mpu-lifecycle-config.md "../../../AmazonS3/latest/userguide/mpu-abort-incomplete-mpu-lifecycle-config.md") in the
 _Amazon Simple Storage Service User Guide_.
 
-## Best practices: Unzip compressed files
-
-locally before copying to a gateway
+## Best practices: Unzip compressed files locally before copying to a gateway
 
 If you try to unzip a compressed archive containing thousands of files while it is stored on
 your gateway, you might encounter significant performance-related delays. The process of
@@ -126,9 +108,7 @@ local machine first, before you unzip them. Then, if necessary, you can use a to
 _robocopy_ or _rsync_ to transfer the unzipped files back
 to the gateway.
 
-## Retain file attributes when copying
-
-data from Windows Server
+## Retain file attributes when copying data from Windows Server
 
 It is possible to copy files to your File Gateway using the basic `copy` command
 on Microsoft Windows, but this command copies only the file data by default - omitting certain
@@ -141,9 +121,7 @@ files to your gateway on Microsoft Windows Server, we recommend using the `roboc
 or `xcopy` commands, with the `/copy:DS` or `/o` flags,
 respectively. For more information, see [robocopy](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy") and [xcopy](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/xcopy "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/xcopy") in the Microsoft Windows Server command reference documentation.
 
-## Best practices: Proper sizing of cache
-
-disks
+## Best practices: Proper sizing of cache disks
 
 For best performance, the total disk cache size must be large enough to cover the size of
 your active working set. For read-heavy and mixed read/write workloads, this ensures that you can
@@ -164,9 +142,7 @@ increasing the dedicated network bandwidth available from the S3 File Gateway to
 For more information about cache disk sizing, see [Amazon S3 File Gateway cache sizing best
 practices](https://www.youtube.com/watch?v=-ibL1eEcROI "https://www.youtube.com/watch?v=-ibL1eEcROI") on the official Amazon Web Services YouTube channel.
 
-## Working with multiple file shares and Amazon S3
-
-buckets
+## Working with multiple file shares and Amazon S3 buckets
 
 When you configure a single Amazon S3 bucket to allow multiple gateways or file shares to write
 to it, the results can be unpredictable. You can configure your buckets in one of two ways to
@@ -231,7 +207,6 @@ to clean up resources.
 ###### To clean up resources you don't need
 
 1. If you no longer plan to continue using a gateway, delete it. For more information, see
-   [Deleting your gateway and removing associated
-   resources](deleting-gateway-common.md "deleting-gateway-common.md").
+   [Deleting your gateway and removing associated resources](deleting-gateway-common.md "deleting-gateway-common.md").
 2. Delete the Storage Gateway VM from your on-premises host. If you created your gateway on an Amazon EC2
    instance, terminate the instance.

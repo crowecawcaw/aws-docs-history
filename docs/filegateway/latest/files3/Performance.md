@@ -6,11 +6,9 @@ performance.
 ###### Topics
 
 - [Basic performance guidance for S3 File Gateway](#performance-fgw "#performance-fgw")
-- [Performance guidance for gateways
-  with multiple file shares](#performance-multiple-file-shares "#performance-multiple-file-shares")
+- [Performance guidance for gateways with multiple file shares](#performance-multiple-file-shares "#performance-multiple-file-shares")
 - [Maximizing S3 File Gateway throughput](Performance-Throughput.md "Performance-Throughput.md")
-- [Optimizing S3 File Gateway for SQL Server database
-  backups](SQL-Backup-Best-Practices.md "SQL-Backup-Best-Practices.md")
+- [Optimizing S3 File Gateway for SQL Server database backups](SQL-Backup-Best-Practices.md "SQL-Backup-Best-Practices.md")
 
 ## Basic performance guidance for S3 File Gateway
 
@@ -43,9 +41,7 @@ file shares that are served from Amazon S3.
 
 The following tables show example S3 File Gateway configurations.
 
-### S3 File Gateway performance on Linux
-
-clients
+### S3 File Gateway performance on Linux clients
 
 | Example Configurations                                                                                                                                  | Protocol                                          | Write throughput (file sizes 1 GB) | Cache hit read throughput | Cache miss read throughput |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ---------------------------------- | ------------------------- | -------------------------- | ---------------------- |
@@ -68,9 +64,7 @@ clients
 | SMBV3<br>• 1 thread                                                                                                                                     | 230 MiB/sec (1.9 Gbps)                            | 325 MiB/sec (2.7 Gbps)             | 245 MiB/sec (2.0 Gbps)    |
 | SMBV3<br>• 8 threads                                                                                                                                    | 585 MiB/sec (4.9 Gbps)                            | 590 MiB/sec (4.9 Gbps)             | 580 MiB/sec (4.8 Gbps)    |
 
-### File Gateway performance on
-
-Windows clients
+### File Gateway performance on Windows clients
 
 | Example Configurations                                                                                                                                  | Protocol                                            | Write throughput (file sizes 1 GB) | Cache hit read throughput | Cache miss read throughput |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ---------------------------------- | ------------------------- | -------------------------- | --------------------- |
@@ -94,9 +88,7 @@ bandwidth. Write throughput performance decreases with file size, with the highe
 achievable throughput for small files (less than 32MiB) being 16 files per
 second.
 
-## Performance guidance for gateways
-
-with multiple file shares
+## Performance guidance for gateways with multiple file shares
 
 Amazon S3 File Gateway supports attaching up to 50 file shares to a single Storage Gateway appliance. By
 adding multiple file shares per gateway, you can support more users and workloads while

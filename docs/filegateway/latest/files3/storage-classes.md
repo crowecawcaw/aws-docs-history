@@ -13,8 +13,7 @@ class.
 ###### Topics
 
 - [Using storage classes with a File Gateway](#ia-file-gateway "#ia-file-gateway")
-- [Using the GLACIER storage class with
-  File Gateway](#using-glacier-strage-class "#using-glacier-strage-class")
+- [Using the GLACIER storage class with File Gateway](#using-glacier-strage-class "#using-glacier-strage-class")
 
 ## Using storage classes with a File Gateway
 
@@ -38,9 +37,7 @@ share, especially if you're expecting to update or delete the object within 30 d
 archiving it. For information about lifecycle policy, see [Object lifecycle
 management](../../../AmazonS3/latest/dev/object-lifecycle-mgmt.md "../../../AmazonS3/latest/dev/object-lifecycle-mgmt.md").
 
-## Using the GLACIER storage class with
-
-File Gateway
+## Using the GLACIER storage class with File Gateway
 
 If you transition a file to Amazon Glacier through Amazon S3 lifecycle policies, and the file is
 visible to your file share clients through the cache, you will encounter I/O errors when

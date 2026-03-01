@@ -1,6 +1,4 @@
-# Limit user and group access for your SMB
-
-file share
+# Limit user and group access for your SMB file share
 
 We recommend adding allowed or denied users or groups to limit access to your file
 share. If you don't, the file share will be available to all authenticated

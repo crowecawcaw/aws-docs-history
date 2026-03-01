@@ -60,5 +60,4 @@ new appliance.
 
 **Next step**
 
-[Creating a gateway on your
-hardware appliance](appliance-launch-gateway.md "appliance-launch-gateway.md")
+[Creating a gateway on your hardware appliance](appliance-launch-gateway.md "appliance-launch-gateway.md")

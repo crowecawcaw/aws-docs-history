@@ -1,6 +1,4 @@
-# Edit settings for your SMB file
-
-share
+# Edit settings for your SMB file share
 
 You can edit the following settings for an existing SMB file share:
 

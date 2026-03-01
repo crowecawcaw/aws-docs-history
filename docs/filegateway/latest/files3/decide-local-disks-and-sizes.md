@@ -1,6 +1,4 @@
-# Deciding the amount of local disk
-
-storage
+# Deciding the amount of local disk storage
 
 When deploying an S3 File Gateway, consider how much cache disk to allocate.
 S3 File Gateway uses a least recently used algorithm to automatically evict

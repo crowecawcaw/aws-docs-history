@@ -1,6 +1,4 @@
-# Activating a gateway in a virtual private
-
-cloud
+# Activating a gateway in a virtual private cloud
 
 You can create a private connection between your on-premises gateway appliance and
 cloud-based storage infrastructure. You can use this connection to activate your gateway and

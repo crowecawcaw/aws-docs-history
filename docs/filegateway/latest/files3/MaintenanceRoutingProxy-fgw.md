@@ -17,14 +17,11 @@ network requirements for your gateway, see [Network and firewall requirements](R
 
 1. Log in to your gateway's local console:
    - For more information on logging in to the VMware ESXi local console,
-     see [Accessing the Gateway Local
-     Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
+     see [Accessing the Gateway Local Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
    - For more information on logging in to the Microsoft Hyper-V local
-     console, see [Access the Gateway Local Console
-     with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
+     console, see [Access the Gateway Local Console with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
    - For more information on logging in to the local console for the Linux
-     Kernel-Based Virtual Machine (KVM), see [Accessing the Gateway Local Console
-     with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common").
+     Kernel-Based Virtual Machine (KVM), see [Accessing the Gateway Local Console with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common").
 
 2. From the **AWS Appliance Activation - Configuration** main
    menu, enter the corresponding numeral to select **Configure HTTP

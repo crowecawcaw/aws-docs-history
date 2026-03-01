@@ -6,20 +6,14 @@ operations are done.
 
 ###### Topics
 
-- [Getting S3 File Gateway health logs
-  with CloudWatch log groups](#cw-log-groups "#cw-log-groups")
+- [Getting S3 File Gateway health logs with CloudWatch log groups](#cw-log-groups "#cw-log-groups")
 - [Using Amazon CloudWatch metrics](#using-CloudWatch-metrics "#using-CloudWatch-metrics")
 - [Getting notified about file operations](#get-notification "#get-notification")
-- [Understanding
-  gateway metrics](#understanding-file-gateway-metrics "#understanding-file-gateway-metrics")
-- [Understanding
-  file share metrics](#monitoring-file-gateway-resources "#monitoring-file-gateway-resources")
-- [Understanding S3 File Gateway audit
-  logs](#audit-logs "#audit-logs")
+- [Understanding gateway metrics](#understanding-file-gateway-metrics "#understanding-file-gateway-metrics")
+- [Understanding file share metrics](#monitoring-file-gateway-resources "#monitoring-file-gateway-resources")
+- [Understanding S3 File Gateway audit logs](#audit-logs "#audit-logs")
 
-## Getting S3 File Gateway health logs
-
-with CloudWatch log groups
+## Getting S3 File Gateway health logs with CloudWatch log groups
 
 You can use Amazon CloudWatch Logs to get information about the health of your S3 File Gateway
 and related resources. You can use the logs to monitor your gateway for errors that it
@@ -66,8 +60,7 @@ information:
   trying to upload the specified object to Amazon S3 or read from Amazon S3. However, in
   this case, the object has transitioned to Amazon Glacier. The value of
   `"type"` can be any error that the S3 File Gateway encounters. For a
-  list of possible errors, see [Troubleshooting: File Gateway
-  issues](troubleshooting-file-gateway-issues.md "troubleshooting-file-gateway-issues.md").
+  list of possible errors, see [Troubleshooting: File Gateway issues](troubleshooting-file-gateway-issues.md "troubleshooting-file-gateway-issues.md").
 - `"operation": "S3Upload"` indicates that this error occurred when the
   gateway was trying to upload this object to S3.
 - `"key": "myFolder/myFile.text"` indicates the object that caused
@@ -77,12 +70,9 @@ information:
 - `"timestamp": "1565740862516"` indicates the time that the error
   occurred.
 
-For information about how to troubleshoot the errors that may be reported by S3 File Gateway, see [Troubleshooting: File Gateway
-issues](troubleshooting-file-gateway-issues.md "troubleshooting-file-gateway-issues.md").
+For information about how to troubleshoot the errors that may be reported by S3 File Gateway, see [Troubleshooting: File Gateway issues](troubleshooting-file-gateway-issues.md "troubleshooting-file-gateway-issues.md").
 
-### Configuring a CloudWatch log group after your gateway is
-
-activated
+### Configuring a CloudWatch log group after your gateway is activated
 
 The following procedure shows you how to configure a CloudWatch Log Group after your
 gateway is activated.
@@ -158,18 +148,15 @@ Storage Gateway can initiate the following CloudWatch Events when your file oper
 - You can get notified when the gateway finishes the asynchronous uploading of
   your files from the file share to Amazon S3. Use the `NotificationPolicy`
   parameter to request a file upload notification. This sends a notification for
-  each completed file upload to Amazon S3. For more information, see [Getting file upload
-  notification](#get-file-upload-notification "#get-file-upload-notification").
+  each completed file upload to Amazon S3. For more information, see [Getting file upload notification](#get-file-upload-notification "#get-file-upload-notification").
 - You can get notified when the gateway finishes the asynchronous uploading of
   your working file set from the file share to Amazon S3. Use the [NotifyWhenUploaded](../../../storagegateway/latest/APIReference/API_NotifyWhenUploaded.md "../../../storagegateway/latest/APIReference/API_NotifyWhenUploaded.md") API operation to request a working file set
   upload notification. This sends a notification when all files in the working
-  file set have been uploaded to Amazon S3. For more information, see [Getting working file set
-  upload notification](#get-working-file-set-upload-notification "#get-working-file-set-upload-notification").
+  file set have been uploaded to Amazon S3. For more information, see [Getting working file set upload notification](#get-working-file-set-upload-notification "#get-working-file-set-upload-notification").
 - You can get notified when the gateway finishes refreshing the cache for your
   S3 bucket. When you invoke the [RefreshCache](../../../storagegateway/latest/APIReference/API_RefreshCache.md "../../../storagegateway/latest/APIReference/API_RefreshCache.md") operation through the Storage Gateway console or API,
   subscribe to the notification when the operation is complete. For more
-  information, see [Getting refresh cache
-  notification](#get-refresh-cache-notification "#get-refresh-cache-notification").
+  information, see [Getting refresh cache notification](#get-refresh-cache-notification "#get-refresh-cache-notification").
 
 When the file operation you requested is done, Storage Gateway sends you a notification
 through CloudWatch Events. You can configure CloudWatch Events to send the notification through event targets
@@ -212,9 +199,7 @@ For information about how to use CloudWatch Events rules, see
 CloudWatch Events rule that triggers on an event](../../../AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.md "../../../AmazonCloudWatch/latest/events/Create-CloudWatch-Events-Rule.md") in the
 _Amazon CloudWatch Events User Guide_.
 
-### Getting file upload
-
-notification
+### Getting file upload notification
 
 There are two use cases in which you can use file upload notification:
 
@@ -286,9 +271,7 @@ target as a text message. The `detail-type` is `Storage Gateway
 | prefix            | The prefix name of the S3 bucket.                                                    |
 | bucket-name       | The name of the S3 bucket.                                                           |
 
-### Getting working file set
-
-upload notification
+### Getting working file set upload notification
 
 There are two use cases in which you can use the working file set upload
 notification:
@@ -358,9 +341,7 @@ delivered to the target as a text message. The `detail-type` is
 | request-received | When the gateway received the<br>`NotifyWhenUploaded` request.                                                                                                                     |
 | completed        | When all the files in the working-set were uploaded to<br>Amazon S3.                                                                                                               |
 
-### Getting refresh cache
-
-notification
+### Getting refresh cache notification
 
 For refresh cache notification use case, you can have two S3 File Gateways that map to
 the same Amazon S3 bucket and the NFS client for Gateway1 uploads new files to the S3
@@ -421,9 +402,7 @@ target as a text message. The `detail-type` is `Storage Gateway
 | completed       | When the refresh of the working-set was<br>completed.                                                                                                                    |
 | folderList      | A comma-separated list of the paths of folders that were<br>refreshed in the cache. The default is ["/"].                                                                |
 
-## Understanding
-
-gateway metrics
+## Understanding gateway metrics
 
 The following table describes metrics that cover S3 File Gateways. Each
 gateway has a set of metrics associated with it. Some gateway-specific metrics have the
@@ -475,9 +454,7 @@ your S3 File Gateways.
 | `TotalCacheSize`            | This metric reports the total size of the cache.<br>Units: Bytes                                                                                                                                                                                                                                                                                                                     |
 | `UserCpuPercent`            | This metric reports the percentage of time that is spent on gateway processing.<br>Units: Percent                                                                                                                                                                                                                                                                                    |
 
-## Understanding
-
-file share metrics
+## Understanding file share metrics
 
 You can find information following about the Storage Gateway metrics that
 cover file shares. Each file share has a set of metrics associated with it. Some file
@@ -509,9 +486,7 @@ information about your file shares.
 | `ReadBytes`            | The total number of bytes read from your on-premises<br>applications in the reporting period for a file share.<br>Use this metric with the `Sum` statistic to measure<br>throughput and with the `Samples` statistic to<br>measure IOPS.<br>Units: Bytes                                                                                                                                                                                            |
 | `WriteBytes`           | The total number of bytes written to your on-premises<br>applications in the reporting period.<br>Use this metric with the `Sum` statistic to measure<br>throughput and with the `Samples` statistic to<br>measure IOPS.<br>Units: Bytes                                                                                                                                                                                                            |
 
-## Understanding S3 File Gateway audit
-
-logs
+## Understanding S3 File Gateway audit logs
 
 Amazon S3 File Gateway (S3 File Gateway) audit logs provide you with details about
 user access to files and folders within a file share. You can use them to monitor user

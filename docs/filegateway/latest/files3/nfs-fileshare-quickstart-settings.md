@@ -1,6 +1,4 @@
-# Create an NFS file share using the
-
-default configuration
+# Create an NFS file share using the default configuration
 
 This section explains how to create a new Network File System (NFS) file share using
 preconfigured default settings. Use this method for basic deployments, personal use,
@@ -21,9 +19,7 @@ file share after you create it.
 Using S3 Versioning, Cross-Region Replication, or the Rsync utility when uploading data from a File Gateway can
 have significant cost implications. For more information, see [Avoiding unanticipated costs when uploading data from File Gateway](avoid-unanticipated-costs.md "avoid-unanticipated-costs.md").
 
-###### To create an NFS file share using the default
-
-configuration:
+###### To create an NFS file share using the default configuration:
 
 1. Open the AWS Storage Gateway console at [https://console.aws.amazon.com/storagegateway/home/](https://console.aws.amazon.com/storagegateway/home/ "https://console.aws.amazon.com/storagegateway/home/") and choose **File
    shares** from the left navigation pane.
@@ -59,9 +55,7 @@ Storage Gateway console on the file share's **Details** tab. For information abo
 mounting your file share, see [Mount your NFS file
 share on your client](GettingStartedAccessFileShare.md "GettingStartedAccessFileShare.md").
 
-## Default configuration settings for NFS file
-
-shares
+## Default configuration settings for NFS file shares
 
 The following settings apply to all new NFS file shares that you create using the
 default configuration. After you create a file share, you can select it from the
@@ -86,6 +80,6 @@ your file share to access objects in a bucket that's owned by another account, s
 | **Object metadata**               | Guess MIME type                                                                                                                                                | This allows Storage Gateway to guess the Multipurpose Internet Mail<br>Extension (MIME) type for uploaded objects based on file<br>extensions. This option requires that Access Control<br>Lists (ACLs) are turned on  for the Amazon S3 bucket that's associated<br>with your file share. If ACLs are  turned off, the file share can't<br>access the Amazon S3 bucket, and remains in the<br>\*_Unavailable_<br>• state<br>indefinitely.                                      |
 | **Enable requester pays**         | Off                                                                                                                                                            | For more information, see [Requester<br>Pays buckets](../../../AmazonS3/latest/dev/RequesterPaysBuckets.md "../../../AmazonS3/latest/dev/RequesterPaysBuckets.md").                                                                                                                                                                                                                                                                                                             |
 | **Audit logs**                    | Off                                                                                                                                                            | Logging to an Amazon CloudWatch group is turned off by<br>default.                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Access to your S3 bucket**      | Create a new IAM role                                                                                                                                          | The default option allows the File Gateway to create a new IAM<br>role and access  policy on your behalf. All NFS clients are allowed<br>access. For information about supported  NFS clients, see [Supported NFS and SMB clients for<br>File Gateway](Requirements.md#requirements-s3-fgw-clients "Requirements.md#requirements-s3-fgw-clients").                                                                                                                              |
+| **Access to your S3 bucket**      | Create a new IAM role                                                                                                                                          | The default option allows the File Gateway to create a new IAM<br>role and access  policy on your behalf. All NFS clients are allowed<br>access. For information about supported  NFS clients, see [Supported NFS and SMB clients for File Gateway](Requirements.md#requirements-s3-fgw-clients "Requirements.md#requirements-s3-fgw-clients").                                                                                                                                 |
 | **Mount options**                 | • Squash level – Root squash<br>• Export as – Read-write                                                                                                       | The default value of \*_Squash level_<br>• means that<br>access for the remote  superuser (root) is mapped to User Identifier<br>(UID) (65534) and Group Identifier (GID) (65534).                                                                                                                                                                                                                                                                                              |
 | **File metadata defaults**        | • Directory permissions – 0777<br>• File permissions – 0666<br>• User Identifier (UID) – 65534<br>• Group Identifier (GID) – 65534                             |

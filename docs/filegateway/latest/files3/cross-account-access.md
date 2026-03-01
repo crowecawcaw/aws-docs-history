@@ -5,9 +5,7 @@ account are granted access to resources that belong to another Amazon Web Servic
 File Gateways, you can use a file share in one Amazon Web Services account to access objects in an
 Amazon S3 bucket that belongs to a different Amazon Web Services account.
 
-###### To use a file share owned by one Amazon Web Services account to access an S3 bucket in a
-
-different Amazon Web Services account
+###### To use a file share owned by one Amazon Web Services account to access an S3 bucket in a different Amazon Web Services account
 
 1. Make sure that the S3 bucket owner has granted your Amazon Web Services account access to
    the S3 bucket that you need to access and the objects in that bucket. For

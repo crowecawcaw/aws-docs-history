@@ -1,6 +1,4 @@
-# Managing bandwidth for your
-
-Amazon S3 File Gateway
+# Managing bandwidth for your Amazon S3 File Gateway
 
 You can limit the upload throughput from your gateway to AWS to control the amount of
 network bandwidth the gateway uses. By default, an activated gateway has no rate
@@ -9,8 +7,7 @@ limits.
 You can configure a bandwidth-rate-limit schedule using the AWS Management Console, an AWS Software
 Development Kit (SDK), or the AWS Storage Gateway API (see [UpdateBandwidthRateLimitSchedule](../../../storagegateway/latest/APIReference/API_UpdateBandwidthRateLimitSchedule.md "../../../storagegateway/latest/APIReference/API_UpdateBandwidthRateLimitSchedule.md") in the _AWS Storage Gateway API
 Reference_.). Using a bandwidth rate limit schedule, you can configure limits
-to change automatically throughout the day or week. For more information, see [View and edit the bandwidth-rate-limit
-schedule for your gateway using the Storage Gateway console](#SchedulingBandwidthThrottling "#SchedulingBandwidthThrottling").
+to change automatically throughout the day or week. For more information, see [View and edit the bandwidth-rate-limit schedule for your gateway using the Storage Gateway console](#SchedulingBandwidthThrottling "#SchedulingBandwidthThrottling").
 
 You can monitor your gateway's upload throughput using the `CloudBytesUploaded`
 metric on the **Monitoring** tab in the Storage Gateway console, or in Amazon CloudWatch.
@@ -30,18 +27,12 @@ Amazon FSx File Gateway type.
 
 ###### Topics
 
-- [View and edit the bandwidth-rate-limit
-  schedule for your gateway using the Storage Gateway console](#SchedulingBandwidthThrottling "#SchedulingBandwidthThrottling")
-- [Updating Gateway Bandwidth-Rate
-  Limits Using the AWS SDK for Java](#MaintenanceUpdateBandwidthJava-common "#MaintenanceUpdateBandwidthJava-common")
-- [Updating Gateway
-  Bandwidth-Rate Limits Using the AWS SDK for .NET](#MaintenanceUpdateBandwidthDotNet-common "#MaintenanceUpdateBandwidthDotNet-common")
-- [Updating Gateway
-  Bandwidth-Rate Limits Using the AWS Tools for Windows PowerShell](#MaintenanceUpdateBandwidthPowerShell-common "#MaintenanceUpdateBandwidthPowerShell-common")
+- [View and edit the bandwidth-rate-limit schedule for your gateway using the Storage Gateway console](#SchedulingBandwidthThrottling "#SchedulingBandwidthThrottling")
+- [Updating Gateway Bandwidth-Rate Limits Using the AWS SDK for Java](#MaintenanceUpdateBandwidthJava-common "#MaintenanceUpdateBandwidthJava-common")
+- [Updating Gateway Bandwidth-Rate Limits Using the AWS SDK for .NET](#MaintenanceUpdateBandwidthDotNet-common "#MaintenanceUpdateBandwidthDotNet-common")
+- [Updating Gateway Bandwidth-Rate Limits Using the AWS Tools for Windows PowerShell](#MaintenanceUpdateBandwidthPowerShell-common "#MaintenanceUpdateBandwidthPowerShell-common")
 
-## View and edit the bandwidth-rate-limit
-
-schedule for your gateway using the Storage Gateway console
+## View and edit the bandwidth-rate-limit schedule for your gateway using the Storage Gateway console
 
 This section describes how to view and edit the bandwidth rate limit schedule for your
 gateway.
@@ -105,9 +96,7 @@ Bandwidth-rate-limit intervals cannot overlap. The start time of an
 interval must occur after the end time of a preceding interval, and before
 the start time of a following interval. 6. When finished, choose **Save changes**.
 
-## Updating Gateway Bandwidth-Rate
-
-Limits Using the AWS SDK for Java
+## Updating Gateway Bandwidth-Rate Limits Using the AWS SDK for Java
 
 By updating bandwidth-rate limits programmatically, you can adjust these limits
 automatically over a period of time—for example, by using scheduled tasks. The
@@ -191,9 +180,7 @@ _AWS General Reference_.
     }
 ```
 
-## Updating Gateway
-
-Bandwidth-Rate Limits Using the AWS SDK for .NET
+## Updating Gateway Bandwidth-Rate Limits Using the AWS SDK for .NET
 
 By updating bandwidth-rate limits programmatically, you can adjust these limits
 automatically over a period of time—for example, by using scheduled tasks. The
@@ -281,9 +268,7 @@ _AWS General Reference_.
     }
 ```
 
-## Updating Gateway
-
-Bandwidth-Rate Limits Using the AWS Tools for Windows PowerShell
+## Updating Gateway Bandwidth-Rate Limits Using the AWS Tools for Windows PowerShell
 
 By updating bandwidth-rate limits programmatically, you can adjust these limits
 automatically over a period of time—for example, by using scheduled tasks. The

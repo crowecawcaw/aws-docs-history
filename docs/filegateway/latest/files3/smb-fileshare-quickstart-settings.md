@@ -1,6 +1,4 @@
-# Create an SMB file share using the
-
-default configuration
+# Create an SMB file share using the default configuration
 
 This section explains how to create a new Server Message Block (SMB) file share using
 preconfigured default settings. Use this method for basic deployments, personal use,
@@ -36,9 +34,7 @@ Before you create your file share, do the following:
   information, see [Port
   Requirements](Resource_Ports.md "Resource_Ports.md").
 
-###### To create an SMB file share using the default
-
-configuration:
+###### To create an SMB file share using the default configuration:
 
 1. Open the AWS Storage Gateway console at [https://console.aws.amazon.com/storagegateway/home/](https://console.aws.amazon.com/storagegateway/home/ "https://console.aws.amazon.com/storagegateway/home/") and choose **File
    shares** from the left navigation pane.
@@ -142,9 +138,7 @@ to use from the dropdown list:
    mounting your file share, see [Mount your SMB file share on
    your client](using-smb-fileshare.md "using-smb-fileshare.md").
 
-## Default configuration settings for SMB file
-
-shares
+## Default configuration settings for SMB file shares
 
 The following settings apply to all new SMB file shares that you create using the
 default configuration. After you create a file share, you can select it from the

@@ -31,15 +31,10 @@ power, configure, activate, launch, use, and delete an AWS Storage Gateway Hardw
 
 - [Setting up your AWS Storage Gateway Hardware Appliance](appliance-quick-start.md "appliance-quick-start.md")
 - [Physically installing your hardware appliance](appliance-rack-mount.md "appliance-rack-mount.md")
-- [Accessing the hardware appliance
-  console](access-hardware-appliance-console.md "access-hardware-appliance-console.md")
-- [Configuring hardware appliance network
-  parameters](appliance-configure-network.md "appliance-configure-network.md")
+- [Accessing the hardware appliance console](access-hardware-appliance-console.md "access-hardware-appliance-console.md")
+- [Configuring hardware appliance network parameters](appliance-configure-network.md "appliance-configure-network.md")
 - [Activating your AWS Storage Gateway Hardware Appliance](appliance-activation.md "appliance-activation.md")
-- [Creating a gateway on your
-  hardware appliance](appliance-launch-gateway.md "appliance-launch-gateway.md")
-- [Configuring a gateway IP address on the
-  hardware appliance](appliance-configure-ip.md "appliance-configure-ip.md")
-- [Removing gateway software from your
-  hardware appliance](appliance-remove-gateway.md "appliance-remove-gateway.md")
+- [Creating a gateway on your hardware appliance](appliance-launch-gateway.md "appliance-launch-gateway.md")
+- [Configuring a gateway IP address on the hardware appliance](appliance-configure-ip.md "appliance-configure-ip.md")
+- [Removing gateway software from your hardware appliance](appliance-remove-gateway.md "appliance-remove-gateway.md")
 - [Deleting your AWS Storage Gateway Hardware Appliance](delete-appliance.md "delete-appliance.md")

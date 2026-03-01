@@ -1,6 +1,4 @@
-# View and manage cache reports for your
-
-S3 File Gateway
+# View and manage cache reports for your S3 File Gateway
 
 Cache reports list files that are currently in the local cache for a specific file
 share, according to filters and criteria that you specify. You can view a list of

@@ -1,6 +1,4 @@
-# Encrypt objects stored
-
-by File Gateway in Amazon S3
+# Encrypt objects stored by File Gateway in Amazon S3
 
 S3 File Gateway supports the following methods of server-side encryption for the data that it
 stores in Amazon S3:
@@ -29,15 +27,12 @@ There are additional charges for using DSSE-KMS and AWS KMS keys. For more
 information, see [AWS KMS
 pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
 You can specify an encryption method when you create a new file share by using the
-Storage Gateway console or the Storage Gateway API. For console procedures, see [Create an NFS file share with a custom
-configuration](CreatingAnNFSFileShare.md "CreatingAnNFSFileShare.md") or [Create an SMB file share with a custom
-configuration](CreatingAnSMBFileShare.md "CreatingAnSMBFileShare.md"). For
+Storage Gateway console or the Storage Gateway API. For console procedures, see [Create an NFS file share with a custom configuration](CreatingAnNFSFileShare.md "CreatingAnNFSFileShare.md") or [Create an SMB file share with a custom configuration](CreatingAnSMBFileShare.md "CreatingAnSMBFileShare.md"). For
 information about the corresponding API commands, see [CreateNFSFileShare](../../../storagegateway/latest/APIReference/API_CreateNFSFileShare.md "../../../storagegateway/latest/APIReference/API_CreateNFSFileShare.md") or [CreateSMBFileShare](../../../storagegateway/latest/APIReference/API_CreateSMBFileShare.md "../../../storagegateway/latest/APIReference/API_CreateSMBFileShare.md") in the _AWS Storage Gateway API
 Reference_.
 
 You can also update encryption settings for an existing file share using the
-Storage Gateway console, or the Storage Gateway API. For the console procedure, see [Change the server-side encryption method
-for an existing file share](edit-file-share-encryption.md "edit-file-share-encryption.md").
+Storage Gateway console, or the Storage Gateway API. For the console procedure, see [Change the server-side encryption method for an existing file share](edit-file-share-encryption.md "edit-file-share-encryption.md").
 For information about the corresponding API commands, see [UpdateNFSFileShare](../../../storagegateway/latest/APIReference/API_UpdateNFSFileShare.md "../../../storagegateway/latest/APIReference/API_UpdateNFSFileShare.md") or [UpdateSMBFileShare](../../../storagegateway/latest/APIReference/API_UpdateSMBFileShare.md "../../../storagegateway/latest/APIReference/API_UpdateSMBFileShare.md") in the _AWS Storage Gateway API
 Reference_.
 

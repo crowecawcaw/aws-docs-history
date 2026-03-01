@@ -1,6 +1,4 @@
-# Granting access and permissions for file shares and
-
-buckets
+# Granting access and permissions for file shares and buckets
 
 After your S3 File Gateway is activated and running, you can add additional file shares and
 grant access to Amazon S3 buckets, including buckets in different AWS accounts than your
@@ -20,8 +18,7 @@ how to grant access and permissions for file shares and Amazon S3 buckets:
   to grant access for your File Gateway to upload files into your Amazon S3 bucket,
   and to perform actions on any access points or Amazon Virtual Private Cloud (Amazon VPC) endpoints that
   it uses to connect to the bucket.
-- [Cross-service confused deputy
-  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md") - Learn how to
+- [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md") - Learn how to
   prevent a common security issue where an entity that doesn't have permission to
   perform an action can coerce a more-privileged entity to perform the
   action.

@@ -1,6 +1,4 @@
-# Troubleshooting: hardware
-
-appliance issues
+# Troubleshooting: hardware appliance issues
 
 ###### Note
 
@@ -15,19 +13,14 @@ suggestions on troubleshooting these.
 
 ###### Topics
 
-- [You can't determine the service IP
-  address](#service_ip_address "#service_ip_address")
+- [You can't determine the service IP address](#service_ip_address "#service_ip_address")
 - [How do you perform a factory reset?](#factory_reset "#factory_reset")
 - [How do you perform a remote restart?](#remote-restart "#remote-restart")
 - [Where do you obtain Dell iDRAC support?](#iDRAC_support "#iDRAC_support")
-- [You can't find the hardware appliance
-  serial number](#appliance_serial_number "#appliance_serial_number")
-- [Where to obtain hardware appliance
-  support](#appliance_support "#appliance_support")
+- [You can't find the hardware appliance serial number](#appliance_serial_number "#appliance_serial_number")
+- [Where to obtain hardware appliance support](#appliance_support "#appliance_support")
 
-## You can't determine the service IP
-
-address
+## You can't determine the service IP address
 
 When attempting to connect to your service, make sure that you are using the
 service's IP address and not the host IP address. Configure the service IP
@@ -61,9 +54,7 @@ recommend the following:
   cause performance issues or prevent the normal functioning of the
   appliance.
 
-## You can't find the hardware appliance
-
-serial number
+## You can't find the hardware appliance serial number
 
 You can find the serial number for your AWS Storage Gateway Hardware Appliance using the Storage Gateway
 console.
@@ -78,9 +69,7 @@ console.
 4. Locate the **Serial Number** field on the
    **Details** tab for your appliance.
 
-## Where to obtain hardware appliance
-
-support
+## Where to obtain hardware appliance support
 
 To contact AWS about technical support for your hardware appliance, see [Support](https://aws.amazon.com/contact-us "https://aws.amazon.com/contact-us").
 

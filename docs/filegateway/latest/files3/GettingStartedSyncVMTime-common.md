@@ -1,6 +1,4 @@
-# Synchronize VM time with VMware host
-
-time
+# Synchronize VM time with VMware host time
 
 To successfully activate your gateway, you must ensure that your VM time is synchronized
 to the host time, and that the host time is correctly set. In this section, you first

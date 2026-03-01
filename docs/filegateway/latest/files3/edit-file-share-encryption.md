@@ -1,6 +1,4 @@
-# Change the server-side encryption method
-
-for an existing file share
+# Change the server-side encryption method for an existing file share
 
 The following procedure describes how to change the server-side encryption method for
 an existing NFS or SMB file share using the Storage Gateway console. To perform this action

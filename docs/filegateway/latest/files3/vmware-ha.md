@@ -29,19 +29,14 @@ cluster:
 
 ###### Topics
 
-- [Configure Your vSphere VMware HA
-  Cluster](#vmware-ha-configure-cluster "#vmware-ha-configure-cluster")
+- [Configure Your vSphere VMware HA Cluster](#vmware-ha-configure-cluster "#vmware-ha-configure-cluster")
 - [Set Up Your Gateway Type](#vmware-ha-download-image "#vmware-ha-download-image")
 - [Deploy the Gateway](#vmware-ha-deploy-gateway "#vmware-ha-deploy-gateway")
-- [(Optional) Add Override Options for Other VMs on
-  Your Cluster](#vmware-ha-overrides "#vmware-ha-overrides")
+- [(Optional) Add Override Options for Other VMs on Your Cluster](#vmware-ha-overrides "#vmware-ha-overrides")
 - [Activate Your Gateway](#vmware-ha-activate-gateway "#vmware-ha-activate-gateway")
-- [Test Your VMware High Availability
-  Configuration](#vmware-ha-test-failover "#vmware-ha-test-failover")
+- [Test Your VMware High Availability Configuration](#vmware-ha-test-failover "#vmware-ha-test-failover")
 
-## Configure Your vSphere VMware HA
-
-Cluster
+## Configure Your vSphere VMware HA Cluster
 
 First, if you haven’t already created a VMware cluster, create one. For information
 about how to create a VMware cluster, see [Create a vSphere HA Cluster](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.avail.doc/GUID-4BC60283-B638-472F-B1D2-1E4E57EAD213.html "https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.avail.doc/GUID-4BC60283-B638-472F-B1D2-1E4E57EAD213.html") in the VMware documentation.
@@ -90,8 +85,7 @@ Next, configure your VMware cluster to work with Storage Gateway.
 
 If you have other VMs running on the cluster, you might want to set these values
 specifically for your VM. You can't do this until you deploy the VM from the .ova. For
-more information on setting these values, see [(Optional) Add Override Options for Other VMs on
-Your Cluster](#vmware-ha-overrides "#vmware-ha-overrides").
+more information on setting these values, see [(Optional) Add Override Options for Other VMs on Your Cluster](#vmware-ha-overrides "#vmware-ha-overrides").
 
 ## Set Up Your Gateway Type
 
@@ -101,8 +95,7 @@ Use the following procedure to set up the gateway
 
 - Download the .ova image for your gateway type from one of the
   following:
-  - File Gateway – [Create and activate an
-    Amazon S3 File Gateway](create-gateway-file.md "create-gateway-file.md")
+  - File Gateway – [Create and activate an Amazon S3 File Gateway](create-gateway-file.md "create-gateway-file.md")
 
 ## Deploy the Gateway
 
@@ -116,9 +109,7 @@ documentation.
 2. Make sure the data stores that you choose for the root disk and the cache are
    available to all hosts in the cluster.
 
-## (Optional) Add Override Options for Other VMs on
-
-Your Cluster
+## (Optional) Add Override Options for Other VMs on Your Cluster
 
 If you have other VMs running on your cluster, you might want to set the cluster
 values specifically for each VM. For instructions, see [Customize an Individual Virtual Machine](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.avail.doc/GUID-CFD74742-26EA-4BED-A4FC-4E8F50A46C83.html "https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.avail.doc/GUID-CFD74742-26EA-4BED-A4FC-4E8F50A46C83.html") in the VMware vSphere online
@@ -159,9 +150,7 @@ Monitoring**:
 After the .ova is deployed in your VMware environment, activate your gateway using the
 Storage Gateway console. For instructions, see [Review settings and activate your Amazon S3 File Gateway](create-gateway-file.md#review-and-activate-s3-file "create-gateway-file.md#review-and-activate-s3-file").
 
-## Test Your VMware High Availability
-
-Configuration
+## Test Your VMware High Availability Configuration
 
 After you activate your gateway, test your configuration.
 
@@ -186,5 +175,4 @@ If the test is successful, the status of **Verified** appears
 in the details tab of the gateway in the console. 5. Choose **Exit**.
 
 You can find information about VMware HA events in the Amazon CloudWatch log groups. For more
-information, see [Getting S3 File Gateway health logs
-with CloudWatch log groups](monitoring-file-gateway.md#cw-log-groups "monitoring-file-gateway.md#cw-log-groups").
+information, see [Getting S3 File Gateway health logs with CloudWatch log groups](monitoring-file-gateway.md#cw-log-groups "monitoring-file-gateway.md#cw-log-groups").

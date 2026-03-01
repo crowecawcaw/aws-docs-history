@@ -1,19 +1,14 @@
-# Working with open-source components for
-
-AWS Storage Gateway
+# Working with open-source components for AWS Storage Gateway
 
 This section describes the third-party tools and licenses that we depend on to deliver
 AWS Storage Gateway functionality.
 
 ###### Topics
 
-- [Open-source components for
-  Storage Gateway](#open-source-volume-tape-s3 "#open-source-volume-tape-s3")
+- [Open-source components for Storage Gateway](#open-source-volume-tape-s3 "#open-source-volume-tape-s3")
 - [Open-source components for Amazon S3 File Gateway](#open-source-s3-file "#open-source-s3-file")
 
-## Open-source components for
-
-Storage Gateway
+## Open-source components for Storage Gateway
 
 Several third-party tools and licenses are used to deliver functionality for
 Volume Gateway, Tape Gateway, and Amazon S3 File Gateway.

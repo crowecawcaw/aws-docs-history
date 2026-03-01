@@ -1,6 +1,4 @@
-# Optimizing S3 File Gateway for SQL Server database
-
-backups
+# Optimizing S3 File Gateway for SQL Server database backups
 
 Database backups are a common and recommended use case for S3 File Gateway, which provides
 cost-effective short and long term retention by storing database backups in Amazon S3, with the
@@ -25,9 +23,7 @@ file system, but it is not a file system. Using Amazon S3 as durable backend sto
 additional overhead on each I/O operation, so evaluating S3 File Gateway performance against an
 existing NAS or file server is not an equivalent comparison.
 
-## Deploy your gateway in the same location as your
-
-SQL Servers
+## Deploy your gateway in the same location as your SQL Servers
 
 We recommend deploying your S3 File Gateway virtual appliance in a physical location with as
 little network latency as possible between it and your SQL servers. When choosing a
@@ -41,9 +37,7 @@ location for your gateway, consider the following:
   SQL servers in the same placement group. For more information, see [Placement groups for your Amazon EC2 instances](../../../AWSEC2/latest/UserGuide/placement-groups.md "../../../AWSEC2/latest/UserGuide/placement-groups.md") in the Amazon Elastic Compute Cloud User
   Guide.
 
-## Reduce bottlenecks caused by slow
-
-disks
+## Reduce bottlenecks caused by slow disks
 
 We recommend monitoring the `IoWaitPercent` CloudWatch metric to identify
 performance bottlenecks that can result from slow storage disks on your S3 File Gateway. When
@@ -62,9 +56,7 @@ attempting to optimize disk-related performance issues, consider the following:
 - We recommend using either NVMe or SSD for your gateway's root and cache disks
   to minimize `IoWaitPercent`.
 
-## Adjust S3 File Gateway virtual machine
-
-resource allocation for CPU, RAM, and cache disks
+## Adjust S3 File Gateway virtual machine resource allocation for CPU, RAM, and cache disks
 
 When attempting to optimize throughput for your S3 File Gateway, it is important to allocate
 sufficient resources to the gateway VM, including CPU, RAM, and cache disks. The minimum
@@ -134,9 +126,7 @@ necessary.
   it is important to select the right instance for your specific workload to
   optimize cost-effectiveness.
 
-## Improve SMB client throughput by adjusting
-
-the security level of your S3 File Gateway
+## Improve SMB client throughput by adjusting the security level of your S3 File Gateway
 
 The SMBv3 protocol allows for both SMB signing and SMB encryption, which have some
 trade-offs in performance and security. To optimize throughput, you can adjust your
@@ -172,9 +162,7 @@ for the file share status to change from **Updating** to
 disconnect and reconnect your SMB clients for the new setting to take
 effect.
 
-## Improve SMB client throughput by splitting
-
-SQL backups into multiple files
+## Improve SMB client throughput by splitting SQL backups into multiple files
 
 - It is difficult to achieve the maximum throughput performance with an S3 File Gateway
   that only one SQL server writing one file at a time, because sequential writing
@@ -210,9 +198,7 @@ For more information, see:
 - [Easily store your SQL Server backups in Amazon S3 using File
   Gateway](https://aws.amazon.com/blogs/storage/easily-store-your-sql-server-backups-in-amazon-s3-using-file-gateway/ "https://aws.amazon.com/blogs/storage/easily-store-your-sql-server-backups-in-amazon-s3-using-file-gateway/")
 
-## Prevent large file copy failures by increasing
-
-SMB timeout settings
+## Prevent large file copy failures by increasing SMB timeout settings
 
 When S3 File Gateway copies large SQL backup files to an SMB file share, the SMB client
 connection can timeout after an extended period of time. We recommend extending the SMB
@@ -221,9 +207,7 @@ on the size of the files and the write speed of your gateway. The default is 300
 seconds, or 5 minutes. For more information, see [Your gateway backup job fails or there are errors when writing to your
 gateway](troubleshooting-file-gateway-issues.md#backup-job-fails "troubleshooting-file-gateway-issues.md#backup-job-fails").
 
-## Increase the number of Amazon S3 uploader
-
-threads
+## Increase the number of Amazon S3 uploader threads
 
 By default, S3 File Gateway opens 8 threads for Amazon S3 data upload, which provides sufficient
 upload capacity for most typical deployments. However, it is possible for a gateway to
@@ -278,9 +262,7 @@ if that is tolerable for your workload.
   refresh the gateway cache can increase substantially depending on the number of
   files and subdirectories in your Amazon S3 bucket.
 
-## Deploy multiple gateways to support the
-
-workload
+## Deploy multiple gateways to support the workload
 
 It is possible for Storage Gateway to support SQL backups for large environments with hundreds
 of SQL databases, multiple SQL Servers, and hundreds of terabytes of backup data by
@@ -301,9 +283,7 @@ following:
   and support an increasing workload, you can deploy additional gateways as
   needed.
 
-## Additional resources for database
-
-backup workloads
+## Additional resources for database backup workloads
 
 - [Store SQL Server backups in Amazon S3 using AWS Storage Gateway](https://aws.amazon.com/blogs/database/storing-sql-server-backups-in-amazon-s3-using-aws-storage-gateway/ "https://aws.amazon.com/blogs/database/storing-sql-server-backups-in-amazon-s3-using-aws-storage-gateway/")
 - [Easily store your SQL Server backups in Amazon S3 using

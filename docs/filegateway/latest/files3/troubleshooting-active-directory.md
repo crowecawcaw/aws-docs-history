@@ -1,6 +1,4 @@
-# Troubleshooting: issues joining gateway
-
-to Active Directory
+# Troubleshooting: issues joining gateway to Active Directory
 
 Use the following troubleshooting information to determine what to do if you receive error
 messages such as `NETWORK_ERROR`, `TIMEOUT`, or
@@ -9,9 +7,7 @@ Directory domain.
 
 To resolve these errors, perform the following checks and configurations.
 
-## Confirm that the gateway can reach the domain controller by running an nping
-
-test
+## Confirm that the gateway can reach the domain controller by running an nping test
 
 ###### To run an nping test:
 
@@ -142,9 +138,7 @@ parameter to increase the time. The maximum timeout value is 3,600 seconds.
 If you receive errors when running AWS CLI commands, make sure that you’re using the
 most recent AWS CLI version.
 
-## Confirm that Active Directory creates new computer objects in the default
-
-organizational unit (OU)
+## Confirm that Active Directory creates new computer objects in the default organizational unit (OU)
 
 Make sure Microsoft Active Directory does not have any Group Policy Objects that
 create new computer objects in any location other than the default OU. Before you can

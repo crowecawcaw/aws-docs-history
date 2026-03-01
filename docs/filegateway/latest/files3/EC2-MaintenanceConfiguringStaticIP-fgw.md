@@ -1,14 +1,11 @@
-# Configuring your Amazon EC2 gateway
-
-network settings
+# Configuring your Amazon EC2 gateway network settings
 
 You can view and configure the network settings for your Amazon EC2 File Gateway by using the gateway local
 console.
 
 ###### To configure your network settings
 
-1. Log in to the local console on your Amazon EC2 File Gateway. For instructions, see [Logging in to your Amazon EC2 gateway
-   local console](EC2_MaintenanceConsoleWindow-fgw.md "EC2_MaintenanceConsoleWindow-fgw.md").
+1. Log in to the local console on your Amazon EC2 File Gateway. For instructions, see [Logging in to your Amazon EC2 gateway local console](EC2_MaintenanceConsoleWindow-fgw.md "EC2_MaintenanceConsoleWindow-fgw.md").
 2. From the **AWS Appliance Activation - Configuration** main
    menu, enter the corresponding numeral to select **Network
    Configuration**.

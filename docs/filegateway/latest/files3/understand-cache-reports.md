@@ -1,6 +1,4 @@
-# Understanding the information provided in
-
-S3 File Gateway cache reports
+# Understanding the information provided in S3 File Gateway cache reports
 
 Cache reports list files that are currently in the local cache for a specific file
 share, according to filters and criteria that you specify. Each cache report includes

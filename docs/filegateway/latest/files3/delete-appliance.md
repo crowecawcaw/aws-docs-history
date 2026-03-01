@@ -22,8 +22,7 @@ on-premises](troubleshooting-on-premises-gateway-issues.md#enable-support-access
 
 1. If you have installed a gateway on the hardware appliance, you must first remove the
    gateway before you can delete the appliance. For instructions on how to remove a
-   gateway from your hardware appliance, see [Removing gateway software from your
-   hardware appliance](appliance-remove-gateway.md "appliance-remove-gateway.md").
+   gateway from your hardware appliance, see [Removing gateway software from your hardware appliance](appliance-remove-gateway.md "appliance-remove-gateway.md").
 2. On the Hardware page of the Storage Gateway console, choose the hardware appliance you want
    to delete.
 3. For **Actions**, choose **Delete

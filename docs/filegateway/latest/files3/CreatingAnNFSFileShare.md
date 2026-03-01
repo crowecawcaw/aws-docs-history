@@ -1,6 +1,4 @@
-# Create an NFS file share with a custom
-
-configuration
+# Create an NFS file share with a custom configuration
 
 Use the following procedure to create a Network File System (NFS) file share with a
 custom configuration. To create an NFS file share using default configuration settings,

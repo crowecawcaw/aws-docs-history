@@ -1,6 +1,4 @@
-# Troubleshooting: high availability
-
-issues
+# Troubleshooting: high availability issues
 
 You can find information following about actions to take if you experience availability
 issues.
@@ -19,12 +17,9 @@ a log stream called `AvailabilityMonitor`.
 ###### Topics
 
 - [Notification: Reboot](#troubleshoot-reboot-notification "#troubleshoot-reboot-notification")
-- [Notification:
-  HardReboot](#troubleshoot-hardreboot-notification "#troubleshoot-hardreboot-notification")
-- [Notification:
-  HealthCheckFailure](#troubleshoot-healthcheckfailure-notification "#troubleshoot-healthcheckfailure-notification")
-- [Notification:
-  AvailabilityMonitorTest](#troubleshoot-availabilitymonitortest-notification "#troubleshoot-availabilitymonitortest-notification")
+- [Notification: HardReboot](#troubleshoot-hardreboot-notification "#troubleshoot-hardreboot-notification")
+- [Notification: HealthCheckFailure](#troubleshoot-healthcheckfailure-notification "#troubleshoot-healthcheckfailure-notification")
+- [Notification: AvailabilityMonitorTest](#troubleshoot-availabilitymonitortest-notification "#troubleshoot-availabilitymonitortest-notification")
 
 ### Notification: Reboot
 
@@ -41,9 +36,7 @@ this is probably a normal occurrence and not a sign of any problem. If the reboo
 occurred significantly outside the maintenance window, check whether the gateway was
 restarted manually.
 
-### Notification:
-
-HardReboot
+### Notification: HardReboot
 
 You can get a `HardReboot` notification when the gateway VM is
 restarted unexpectedly. Such a restart can be due to loss of power, a hardware
@@ -56,9 +49,7 @@ When your gateway runs in such an environment, check for the presence of the
 `HealthCheckFailure` notification and consult the VMware events log
 for the VM.
 
-### Notification:
-
-HealthCheckFailure
+### Notification: HealthCheckFailure
 
 For a gateway on VMware vSphere HA, you can get a `HealthCheckFailure`
 notification when a health check fails and a VM restart is requested. This event
@@ -76,9 +67,7 @@ If this event repeatedly occurs without an `AvailabilityMonitorTest`
 notification, check your VM infrastructure for issues (storage, memory, and so on).
 If you need additional assistance, contact Support.
 
-### Notification:
-
-AvailabilityMonitorTest
+### Notification: AvailabilityMonitorTest
 
 For a gateway on VMware vSphere HA, you can get an
 `AvailabilityMonitorTest` notification when you [run a test](vmware-ha.md#vmware-ha-test-failover "vmware-ha.md#vmware-ha-test-failover") of the [Availability and application monitoring](../../../storagegateway/latest/APIReference/API_StartAvailabilityMonitorTest.md "../../../storagegateway/latest/APIReference/API_StartAvailabilityMonitorTest.md") system in VMware.

@@ -1,6 +1,4 @@
-# Running Storage Gateway commands on the
-
-local console for an Amazon EC2 gateway
+# Running Storage Gateway commands on the local console for an Amazon EC2 gateway
 
 The AWS Storage Gateway console helps provide a secure environment for configuring and
 diagnosing issues with your gateway. Using the console commands, you can perform
@@ -8,8 +6,7 @@ maintenance tasks such as saving routing tables or connecting to Support.
 
 ###### To run a configuration or diagnostic command
 
-1. Log in to your gateway's local console. For instructions, see [Logging in to your Amazon EC2 gateway
-   local console](EC2_MaintenanceConsoleWindow-fgw.md "EC2_MaintenanceConsoleWindow-fgw.md").
+1. Log in to your gateway's local console. For instructions, see [Logging in to your Amazon EC2 gateway local console](EC2_MaintenanceConsoleWindow-fgw.md "EC2_MaintenanceConsoleWindow-fgw.md").
 2. From the **AWS Appliance Activation - Configuration** main
    menu, enter the corresponding numeral to select **Gateway
    Console**.

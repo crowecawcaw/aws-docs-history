@@ -1,6 +1,4 @@
-# Refreshing Amazon S3 bucket object
-
-cache
+# Refreshing Amazon S3 bucket object cache
 
 As your NFS or SMB client performs file system operations, your gateway maintains an
 inventory of the objects in the Amazon S3 object cache associated with your file share. Your
@@ -22,18 +20,12 @@ of entries in that directory.
 
 ###### Topics
 
-- [Configure an automated cache
-  refresh schedule using the Storage Gateway console](#auto-refresh-console-procedure "#auto-refresh-console-procedure")
-- [Configure an automated cache refresh
-  schedule using AWS Lambda with an Amazon CloudWatch rule](#auto-refresh-lambda-procedure "#auto-refresh-lambda-procedure")
-- [Perform a manual cache refresh
-  using the Storage Gateway console](#manual-refresh-console-procedure "#manual-refresh-console-procedure")
-- [Perform a manual cache refresh using
-  the Storage Gateway API](#manual-refresh-api-procedure "#manual-refresh-api-procedure")
+- [Configure an automated cache refresh schedule using the Storage Gateway console](#auto-refresh-console-procedure "#auto-refresh-console-procedure")
+- [Configure an automated cache refresh schedule using AWS Lambda with an Amazon CloudWatch rule](#auto-refresh-lambda-procedure "#auto-refresh-lambda-procedure")
+- [Perform a manual cache refresh using the Storage Gateway console](#manual-refresh-console-procedure "#manual-refresh-console-procedure")
+- [Perform a manual cache refresh using the Storage Gateway API](#manual-refresh-api-procedure "#manual-refresh-api-procedure")
 
-## Configure an automated cache
-
-refresh schedule using the Storage Gateway console
+## Configure an automated cache refresh schedule using the Storage Gateway console
 
 The following procedure configures an automatic cache refresh schedule based on a
 Time To Live (TTL) value that you specify. Before you configure a TTL-based cache
@@ -64,9 +56,7 @@ Because cache refresh can block directory access operations, we
 recommend configuring the longest TTL period that is practical for your
 deployment.
 
-###### To configure an automated cache refresh schedule using the Storage Gateway
-
-console
+###### To configure an automated cache refresh schedule using the Storage Gateway console
 
 1. Open the Storage Gateway console at
    [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/").
@@ -83,13 +73,9 @@ console
    bucket.
 6. Choose **Save changes**.
 
-## Configure an automated cache refresh
+## Configure an automated cache refresh schedule using AWS Lambda with an Amazon CloudWatch rule
 
-schedule using AWS Lambda with an Amazon CloudWatch rule
-
-###### To configure an automated cache refresh schedule using AWS Lambda with an
-
-Amazon CloudWatch rule
+###### To configure an automated cache refresh schedule using AWS Lambda with an Amazon CloudWatch rule
 
 1. Identify the S3 bucket used by the S3 File Gateway.
 2. Check that the _Event_ section is blank. It populates
@@ -210,9 +196,7 @@ with millions of objects, updates may take hours. 16. Delete your object manuall
 For cron jobs or scheduled tasks, your CloudWatch log event is
 `u'detail-type': u'Scheduled Event'`.
 
-## Perform a manual cache refresh
-
-using the Storage Gateway console
+## Perform a manual cache refresh using the Storage Gateway console
 
 ###### To perform a manual cache refresh using the Storage Gateway console
 
@@ -227,9 +211,7 @@ The time that the refresh process takes depends on the number of objects
 cached on the gateway and the number of objects that were added to or
 removed from the S3 bucket.
 
-## Perform a manual cache refresh using
-
-the Storage Gateway API
+## Perform a manual cache refresh using the Storage Gateway API
 
 The following procedure performs a manual cache refresh using the Storage Gateway API.
 Before you perform an API-based cache refresh, consider the following:

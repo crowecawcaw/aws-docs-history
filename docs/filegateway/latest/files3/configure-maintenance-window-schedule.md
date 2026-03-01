@@ -1,6 +1,4 @@
-# Modify the gateway maintenance
-
-window schedule
+# Modify the gateway maintenance window schedule
 
 If maintenance updates are turned on, your gateway automatically applies these updates
 according the maintenance window schedule. Urgent updates will sometimes be applied

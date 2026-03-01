@@ -1,6 +1,4 @@
-# Troubleshooting: file share
-
-issues
+# Troubleshooting: file share issues
 
 You can find information following about actions to take if you experience unexpected
 issues with your file share.
@@ -8,30 +6,17 @@ issues with your file share.
 ###### Topics
 
 - [Your file share is stuck in CREATING status](#creating-state "#creating-state")
-- [You can't create a file
-  share](#create-file-troubleshoot "#create-file-troubleshoot")
-- [SMB file shares don't allow
-  multiple different access methods](#smb-fileshare-troubleshoot "#smb-fileshare-troubleshoot")
-- [Multiple file shares can't write to the mapped S3
-  bucket](#multiwrite "#multiwrite")
-- [Notification for deleted log group when using audit
-  logs](#multiwrite "#multiwrite")
-- [Can't upload files into your S3
-  bucket](#access-s3bucket "#access-s3bucket")
-- [Can't change the default encryption to use
-  SSE-KMS to encrypt objects stored in my S3 bucket](#encryption-issues "#encryption-issues")
-- [Changes made directly in an
-  S3 bucket with object versioning turned on may affect what you see in your file
-  share](#s3-object-versioning-file-share-issue "#s3-object-versioning-file-share-issue")
-- [When writing to an S3
-  bucket with versioning turned on, the Amazon S3 File Gateway may create multiple versions
-  of Amazon S3 objects](#s3-object-versioning-file-gateway-issue "#s3-object-versioning-file-gateway-issue")
-- [Changes to an S3 bucket are not reflected in
-  Storage Gateway](#s3-changes-issue "#s3-changes-issue")
-- [ACL permissions aren't working as
-  expected](#smb-acl-issues "#smb-acl-issues")
-- [Your gateway performance declined after
-  you performed a recursive operation](#recursive-operation-issues "#recursive-operation-issues")
+- [You can't create a file share](#create-file-troubleshoot "#create-file-troubleshoot")
+- [SMB file shares don't allow multiple different access methods](#smb-fileshare-troubleshoot "#smb-fileshare-troubleshoot")
+- [Multiple file shares can't write to the mapped S3 bucket](#multiwrite "#multiwrite")
+- [Notification for deleted log group when using audit logs](#multiwrite "#multiwrite")
+- [Can't upload files into your S3 bucket](#access-s3bucket "#access-s3bucket")
+- [Can't change the default encryption to use SSE-KMS to encrypt objects stored in my S3 bucket](#encryption-issues "#encryption-issues")
+- [Changes made directly in an S3 bucket with object versioning turned on may affect what you see in your file share](#s3-object-versioning-file-share-issue "#s3-object-versioning-file-share-issue")
+- [When writing to an S3 bucket with versioning turned on, the Amazon S3 File Gateway may create multiple versions of Amazon S3 objects](#s3-object-versioning-file-gateway-issue "#s3-object-versioning-file-gateway-issue")
+- [Changes to an S3 bucket are not reflected in Storage Gateway](#s3-changes-issue "#s3-changes-issue")
+- [ACL permissions aren't working as expected](#smb-acl-issues "#smb-acl-issues")
+- [Your gateway performance declined after you performed a recursive operation](#recursive-operation-issues "#recursive-operation-issues")
 
 ## Your file share is stuck in CREATING status
 
@@ -57,9 +42,7 @@ periods (`.`) in the bucket name. 4. Make sure the IAM role you used to access t
 permissions and verify that the S3 bucket is listed as a resource in the IAM
 policy. For more information, see [Granting access to an Amazon S3 bucket](grant-access-s3.md "grant-access-s3.md").
 
-## You can't create a file
-
-share
+## You can't create a file share
 
 1. If you can't create a file share because your file share is stuck in
    CREATING status, verify that the S3 bucket you mapped your file share to
@@ -70,9 +53,7 @@ share
    token using AWS Security Token Service, see [Activating and deactivating AWS STS in an AWS Region](../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md "../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md") in the
    _IAM User Guide_.
 
-## SMB file shares don't allow
-
-multiple different access methods
+## SMB file shares don't allow multiple different access methods
 
 SMB file shares have the following restrictions:
 
@@ -88,9 +69,7 @@ again.`
 3. A Windows client can't mount both a Guest Access and an Active
    Directory SMB file share that is exported by the same gateway.
 
-## Multiple file shares can't write to the mapped S3
-
-bucket
+## Multiple file shares can't write to the mapped S3 bucket
 
 We don't recommend configuring your S3 bucket to allow multiple file shares
 to write to one S3 bucket. This approach can cause unpredictable results.
@@ -100,17 +79,13 @@ bucket. You create a bucket policy to allow only the role associated with your f
 share to write to the bucket. For more information, see [Best Practices for File
 Gateway](best-practices.md "best-practices.md").
 
-## Notification for deleted log group when using audit
-
-logs
+## Notification for deleted log group when using audit logs
 
 If the log group does not exist, the user could select the log group link below
 that message to go either create a new log group or use an existing log group to use
 as the target for audit logs
 
-## Can't upload files into your S3
-
-bucket
+## Can't upload files into your S3 bucket
 
 If you can't upload files into your S3 bucket, do the following:
 
@@ -129,9 +104,7 @@ If you can't upload files into your S3 bucket, do the following:
    Identity-Based Policies (IAM Policies) for Storage
    Gateway](using-identity-based-policies.md "using-identity-based-policies.md").
 
-## Can't change the default encryption to use
-
-SSE-KMS to encrypt objects stored in my S3 bucket
+## Can't change the default encryption to use SSE-KMS to encrypt objects stored in my S3 bucket
 
 If you change the default encryption and make SSE-KMS (server-side encryption with
 AWS KMS–managed keys) the default for your S3 bucket, objects that a
@@ -147,10 +120,7 @@ share by using the `UpdateNFSFileShare` or
 `UpdateSMBFileShare` API operation. This update applies to objects
 stored in the S3 buckets after the update. For more information, see [Data encryption using AWS KMS](encryption.md "encryption.md").
 
-## Changes made directly in an
-
-S3 bucket with object versioning turned on may affect what you see in your file
-share
+## Changes made directly in an S3 bucket with object versioning turned on may affect what you see in your file share
 
 If your S3 bucket has objects written to it by another client, your view of the S3
 bucket might not be up-to-date as a result of S3 bucket object versioning. You
@@ -178,18 +148,14 @@ version becomes the latest version.
 Your S3 File Gateway continues to read from the earlier version, and updates that you
 make are based on the earlier version should a new version be added to the S3 bucket
 outside of your application. To read the latest version of an object, use the [RefreshCache](../../../storagegateway/latest/APIReference/API_RefreshCache.md "../../../storagegateway/latest/APIReference/API_RefreshCache.md") API action or refresh from the console as described in
-[Refreshing Amazon S3 bucket object
-cache](refresh-cache.md "refresh-cache.md").
+[Refreshing Amazon S3 bucket object cache](refresh-cache.md "refresh-cache.md").
 
 ###### Important
 
 We don't recommend that objects or files be written to your S3 File Gateway S3
 bucket from outside of the file share.
 
-## When writing to an S3
-
-bucket with versioning turned on, the Amazon S3 File Gateway may create multiple versions
-of Amazon S3 objects
+## When writing to an S3 bucket with versioning turned on, the Amazon S3 File Gateway may create multiple versions of Amazon S3 objects
 
 With object versioning turned on, you may have multiple versions of an object
 created in Amazon S3 on every update to a file from your NFS or SMB client. Here are
@@ -247,9 +213,7 @@ version that contains a non-`NULL` ID is retained. Timestamps identify
 the new object as the current one, and that is the one that appears in the NFS file
 system.
 
-## Changes to an S3 bucket are not reflected in
-
-Storage Gateway
+## Changes to an S3 bucket are not reflected in Storage Gateway
 
 Storage Gateway updates the file share cache automatically when you write files to
 the cache locally using the file share. However, Storage Gateway doesn't
@@ -276,9 +240,7 @@ list-file-shares`
 
 To automate the `RefreshCache` operation, see [How can I automate the RefreshCache operation on Storage Gateway?](https://aws.amazon.com/premiumsupport/knowledge-center/storage-gateway-automate-refreshcache/ "https://aws.amazon.com/premiumsupport/knowledge-center/storage-gateway-automate-refreshcache/")
 
-## ACL permissions aren't working as
-
-expected
+## ACL permissions aren't working as expected
 
 If access control list (ACL) permissions aren't working as you expect with
 your SMB file share, you can perform a test.
@@ -287,9 +249,7 @@ To do this, first test the permissions on a Microsoft Windows file server or a
 local Windows file share. Then compare the behavior to your gateway's file
 share.
 
-## Your gateway performance declined after
-
-you performed a recursive operation
+## Your gateway performance declined after you performed a recursive operation
 
 In some cases, you might perform a recursive operation, such as renaming a
 directory or turning on inheritance for an ACL, and force it down the tree. If you

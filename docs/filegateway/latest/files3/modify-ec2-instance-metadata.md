@@ -1,6 +1,4 @@
-# Modify Amazon EC2 instance metadata
-
-options
+# Modify Amazon EC2 instance metadata options
 
 The instance metadata service (IMDS) is an on-instance component that provides secure
 access to Amazon EC2 instance metadata. An instance can be configured to accept incoming metadata

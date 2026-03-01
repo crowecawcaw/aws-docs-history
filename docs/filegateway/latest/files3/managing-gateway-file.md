@@ -42,8 +42,7 @@ indicators for gateways and file shares.
 - [Limit NFS file share access](edit-nfs-client.md "edit-nfs-client.md") - Learn
   how to to limit access to clients from specific IP addresses or IP ranges for your
   NFS fileshare.
-- [Refreshing Amazon S3 bucket object
-  cache](refresh-cache.md "refresh-cache.md") - Learn how to
+- [Refreshing Amazon S3 bucket object cache](refresh-cache.md "refresh-cache.md") - Learn how to
   refresh the S3 bucket object cache for a file share and configure a schedule to
   refresh the cache automatically.
 - [Using S3 Object Lock](s3-object-lock.md "s3-object-lock.md") - Learn
@@ -51,7 +50,6 @@ indicators for gateways and file shares.
 - [File share status](understand-file-share.md "understand-file-share.md") - Learn how to view and interpret file share status.
 - [Gateway status](understand-gateway-status.md "understand-gateway-status.md") - Learn how to view and
   interpret gateway status.
-- [Managing bandwidth for your
-  Amazon S3 File Gateway](MaintenanceUpdateBandwidth-common.md "MaintenanceUpdateBandwidth-common.md") - Learn how to limit the
+- [Managing bandwidth for your Amazon S3 File Gateway](MaintenanceUpdateBandwidth-common.md "MaintenanceUpdateBandwidth-common.md") - Learn how to limit the
   upload throughput from your gateway to AWS to control the amount of network
   bandwidth the gateway uses.

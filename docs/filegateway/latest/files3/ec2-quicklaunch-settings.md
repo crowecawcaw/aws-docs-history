@@ -1,6 +1,4 @@
-# Deploy a default Amazon EC2 host for
-
-S3 File Gateway
+# Deploy a default Amazon EC2 host for S3 File Gateway
 
 This topic lists the steps to deploy an Amazon EC2 host using the default
 specifications.

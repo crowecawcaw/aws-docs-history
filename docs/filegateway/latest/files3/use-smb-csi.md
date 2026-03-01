@@ -45,9 +45,7 @@ csi-smb-node-dr4s4                        3/3     Running   0          35s     1
 
 ```
 
-## Create an SMB StorageClass
-
-object
+## Create an SMB StorageClass object
 
 ###### To create a new SMB StorageClass object for your Kubernetes cluster:
 
@@ -95,9 +93,7 @@ third-party Kubernetes management and containerization platforms. 3. Configure t
 that you created. For more information, refer to the Kubernetes online
 documentation at [https://kubernetes.io/docs/concepts/storage/](https://kubernetes.io/docs/concepts/storage/ "https://kubernetes.io/docs/concepts/storage/").
 
-## Create SMB
-
-PersistentVolume and PersistentVolumeClaim objects
+## Create SMB PersistentVolume and PersistentVolumeClaim objects
 
 ###### To create new SMB PersistentVolume and PersistentVolumeClaim objects:
 

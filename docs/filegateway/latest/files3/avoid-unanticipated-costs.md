@@ -1,6 +1,4 @@
-# Avoiding unanticipated costs when uploading
-
-gateway data
+# Avoiding unanticipated costs when uploading gateway data
 
 When a file is written to the File Gateway by an NFS client, the File Gateway
 uploads the file's data to Amazon S3 followed by its metadata. Uploading the file data

@@ -1,6 +1,4 @@
-# Viewing your gateway system resource
-
-status
+# Viewing your gateway system resource status
 
 When your gateway starts, it checks its virtual CPU cores, root volume size, and RAM.
 It then determines whether these system resources are sufficient for your gateway to
@@ -11,13 +9,10 @@ console.
 
 1. Log in to your gateway's local console:
    - For more information on logging in to the VMware ESXi console, see
-     [Accessing the Gateway Local
-     Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
+     [Accessing the Gateway Local Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
    - For more information on logging in to the Microsoft Hyper-V local
-     console, see [Access the Gateway Local Console
-     with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
-   - For more information on logging in to the KVM local console, see [Accessing the Gateway Local Console
-     with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common").
+     console, see [Access the Gateway Local Console with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
+   - For more information on logging in to the KVM local console, see [Accessing the Gateway Local Console with Linux KVM](accessing-local-console.md#MaintenanceConsoleWindowKVM-common "accessing-local-console.md#MaintenanceConsoleWindowKVM-common").
 
 2. From the **AWS Appliance Activation - Configuration** main
    menu, enter the corresponding numeral to select **View System Resource

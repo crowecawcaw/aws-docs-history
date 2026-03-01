@@ -10,8 +10,7 @@ must change the password on first log in.
 ###### To change the temporary password
 
 1. On the **AWS Appliance Activation - Configuration** main menu, enter the corresponding numeral for **Gateway Console**.
-2. Run the `passwd` command. For information about how to run the command, see [Running Storage Gateway commands on the
-   local console](MaintenanceGatewayConsole-fgw.md "MaintenanceGatewayConsole-fgw.md").
+2. Run the `passwd` command. For information about how to run the command, see [Running Storage Gateway commands on the local console](MaintenanceGatewayConsole-fgw.md "MaintenanceGatewayConsole-fgw.md").
 
 ## Setting the local console password from the Storage Gateway console
 

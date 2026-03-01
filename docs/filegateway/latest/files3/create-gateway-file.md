@@ -1,6 +1,4 @@
-# Create and activate an
-
-Amazon S3 File Gateway
+# Create and activate an Amazon S3 File Gateway
 
 In this section, you can find instructions on how to create, deploy, and activate a
 File Gateway in AWS Storage Gateway.
@@ -8,10 +6,8 @@ File Gateway in AWS Storage Gateway.
 ###### Topics
 
 - [Set up an Amazon S3 File Gateway](#set-up-gateway-s3-file "#set-up-gateway-s3-file")
-- [Connect your Amazon S3 File Gateway to
-  AWS](#connect-to-amazon-s3-file "#connect-to-amazon-s3-file")
-- [Review settings and activate your
-  Amazon S3 File Gateway](#review-and-activate-s3-file "#review-and-activate-s3-file")
+- [Connect your Amazon S3 File Gateway to AWS](#connect-to-amazon-s3-file "#connect-to-amazon-s3-file")
+- [Review settings and activate your Amazon S3 File Gateway](#review-and-activate-s3-file "#review-and-activate-s3-file")
 - [Configure your Amazon S3 File Gateway](#configure-gateway-s3-file "#configure-gateway-s3-file")
 
 ## Set up an Amazon S3 File Gateway
@@ -72,9 +68,7 @@ File Gateway in AWS Storage Gateway.
    connect and communicate with AWS. Choose **Next** to
    proceed.
 
-## Connect your Amazon S3 File Gateway to
-
-AWS
+## Connect your Amazon S3 File Gateway to AWS
 
 ###### To connect a new S3 File Gateway to AWS
 
@@ -154,9 +148,7 @@ AWS
    you must activate the gateway. Choose **Next** to
    proceed.
 
-## Review settings and activate your
-
-Amazon S3 File Gateway
+## Review settings and activate your Amazon S3 File Gateway
 
 ###### To review settings and activate a new S3 File Gateway
 

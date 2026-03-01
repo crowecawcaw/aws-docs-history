@@ -1,6 +1,4 @@
-# Using file shares on buckets with
-
-pre-existing objects
+# Using file shares on buckets with pre-existing objects
 
 You can export a file share on an Amazon S3 bucket with objects created outside of the
 File Gateway using either NFS or SMB. Objects in the bucket that were created outside
@@ -11,8 +9,7 @@ the files assume the properties and access rights that you give them.
 
 You can upload objects to an S3 bucket at any time. For the file share to display
 these newly added objects as files, you need to refresh the S3 bucket. For more
-information, see [Refreshing Amazon S3 bucket object
-cache](refresh-cache.md "refresh-cache.md").
+information, see [Refreshing Amazon S3 bucket object cache](refresh-cache.md "refresh-cache.md").
 
 ###### Note
 

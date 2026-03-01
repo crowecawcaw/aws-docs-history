@@ -1,6 +1,4 @@
-# Using Kubernetes Container Storage Interface
-
-drivers
+# Using Kubernetes Container Storage Interface drivers
 
 Kubernetes is an open-source system for automating deployment, scaling, and management of
 containerized applications. In a Kubernetes environment, a container is similar to a VM, but

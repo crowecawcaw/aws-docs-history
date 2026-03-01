@@ -13,9 +13,7 @@ using the Storage Gateway console, see the following topics:
 - [Create and
   activate a Volume Gateway](../../../storagegateway/latest/vgw/create-volume-gateway-volume.md "../../../storagegateway/latest/vgw/create-volume-gateway-volume.md")
 
-## Overview - Gateway
-
-Activation
+## Overview - Gateway Activation
 
 Gateway activation involves setting up your gateway, connecting it to AWS, then
 reviewing your settings and activating it.
@@ -48,9 +46,7 @@ you want you can activate the gateway. Before you can start using your activated
 gateway, you will need to configure some additional settings and create your storage
 resources.
 
-## Overview - Gateway
-
-Configuration
+## Overview - Gateway Configuration
 
 After you activate your Storage Gateway, you need to perform some additional configuration. In
 this step, you allocate the physical storage you provisioned on the gateway host

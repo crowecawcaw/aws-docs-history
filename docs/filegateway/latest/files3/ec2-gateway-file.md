@@ -1,6 +1,4 @@
-# Deploy a customized Amazon EC2 host for
-
-S3 File Gateway
+# Deploy a customized Amazon EC2 host for S3 File Gateway
 
 You can deploy and activate an Amazon S3 File Gateway on an Amazon Elastic Compute Cloud (Amazon EC2) instance. The
 AWS Storage Gateway Amazon Machine Image (AMI) is available as a community AMI.
@@ -35,8 +33,7 @@ type**, choose the hardware configuration for your instance. The
 hardware configuration must meet certain minimum requirements to support your
 gateway. We recommend starting with the **m5.xlarge** instance
 type, which meets the minimum hardware requirements for your gateway to function
-properly. For more information, see [Requirements for Amazon EC2 instance
-types](Requirements.md#requirements-hardware "Requirements.md#requirements-hardware").
+properly. For more information, see [Requirements for Amazon EC2 instance types](Requirements.md#requirements-hardware "Requirements.md#requirements-hardware").
 
 You can resize your instance after you launch, if necessary. For more information,
 see [Resizing your

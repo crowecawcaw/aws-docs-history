@@ -1,6 +1,4 @@
-# Edit metadata defaults for your NFS file
-
-share
+# Edit metadata defaults for your NFS file share
 
 If you don't set metadata values for your files or directories in your bucket,
 your S3 File Gateway sets default metadata values. These values include Unix permissions for

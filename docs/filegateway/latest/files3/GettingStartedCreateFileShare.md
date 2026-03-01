@@ -37,9 +37,7 @@ _AWS Identity and Access Management User Guide_.
 
 ###### Topics
 
-- [Avoiding unanticipated costs when uploading
-  gateway data](avoid-unanticipated-costs.md "avoid-unanticipated-costs.md")
-- [Encrypt objects stored
-  by File Gateway in Amazon S3](encrypt-objects-stored-by-file-gateway-in-amazon-s3.md "encrypt-objects-stored-by-file-gateway-in-amazon-s3.md")
+- [Avoiding unanticipated costs when uploading gateway data](avoid-unanticipated-costs.md "avoid-unanticipated-costs.md")
+- [Encrypt objects stored by File Gateway in Amazon S3](encrypt-objects-stored-by-file-gateway-in-amazon-s3.md "encrypt-objects-stored-by-file-gateway-in-amazon-s3.md")
 - [Create an NFS file share](create-nfs-file-share.md "create-nfs-file-share.md")
 - [Create an SMB file share](create-smb-file-share.md "create-smb-file-share.md")

@@ -1,6 +1,4 @@
-# Configure local groups for your
-
-gateway
+# Configure local groups for your gateway
 
 Local Group settings allow you to grant Active Directory users or groups special
 permissions for the SMB file shares on your gateway.

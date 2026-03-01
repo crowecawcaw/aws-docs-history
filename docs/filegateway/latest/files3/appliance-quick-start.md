@@ -20,8 +20,7 @@ console.
 1. Rack-mount the appliance, and plug in power and network connections. For more
    information, see [Physically installing your hardware appliance](appliance-rack-mount.md "appliance-rack-mount.md").
 2. Set the Internet Protocol version 4 (IPv4) addresses for the hardware
-   appliance (the host). For more information, see [Configuring hardware appliance network
-   parameters](appliance-configure-network.md "appliance-configure-network.md").
+   appliance (the host). For more information, see [Configuring hardware appliance network parameters](appliance-configure-network.md "appliance-configure-network.md").
 3. Activate the hardware appliance on the console **Hardware appliance
    overview** page in the AWS Region of your choice. For more
    information, see [Activating your AWS Storage Gateway Hardware Appliance](appliance-activation.md "appliance-activation.md").

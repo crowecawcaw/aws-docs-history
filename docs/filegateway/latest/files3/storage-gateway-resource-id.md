@@ -1,6 +1,4 @@
-# Understanding Storage Gateway resources and resource
-
-IDs
+# Understanding Storage Gateway resources and resource IDs
 
 In Storage Gateway, the primary resource is a _gateway_ but other resource
 types is _file share_. File shares are referred to as

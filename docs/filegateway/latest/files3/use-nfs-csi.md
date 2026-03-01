@@ -36,9 +36,7 @@ csi-nfs-node-dr4s4                        3/3     Running   0          35s     1
 
 ```
 
-## Create an NFS StorageClass
-
-object
+## Create an NFS StorageClass object
 
 ###### To create an NFS StorageClass object for your Kubernetes cluster:
 
@@ -80,9 +78,7 @@ third-party Kubernetes management and containerization platforms. 3. Configure t
 object that you created. For more information, refer to the Kubernetes
 online documentation at [https://kubernetes.io/docs/concepts/storage/](https://kubernetes.io/docs/concepts/storage/ "https://kubernetes.io/docs/concepts/storage/").
 
-## Create NFS
-
-PersistentVolume and PersistentVolumeClaim objects
+## Create NFS PersistentVolume and PersistentVolumeClaim objects
 
 ###### To create new NFS PersistentVolume and PersistentVolumeClaim objects:
 

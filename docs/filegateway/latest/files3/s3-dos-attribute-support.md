@@ -1,6 +1,4 @@
-# Support for file attributes in
-
-Amazon S3 File Gateway
+# Support for file attributes in Amazon S3 File Gateway
 
 Amazon S3 File Gateway supports DOS or Windows file attributes by default. Using S3 File Gateway, you can
 preserve file data and metadata and update settings — such as marking items as

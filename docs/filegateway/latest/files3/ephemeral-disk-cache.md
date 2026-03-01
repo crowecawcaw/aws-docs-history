@@ -38,6 +38,5 @@ File Gateways.
 4. Wait for the API to complete and you receive a notification id.
 
 You receive a CloudWatch event with the same notification id. 5. Verify that the `CachePercentDirty` metric for your file share is 0. This confirms that all your data has been written to Amazon S3. For information
-about file share metrics, see [Understanding
-file share metrics](monitoring-file-gateway.md#monitoring-file-gateway-resources "monitoring-file-gateway.md#monitoring-file-gateway-resources"). 6. You can now restart or stop the File Gateway without risk of losing any
+about file share metrics, see [Understanding file share metrics](monitoring-file-gateway.md#monitoring-file-gateway-resources "monitoring-file-gateway.md#monitoring-file-gateway-resources"). 6. You can now restart or stop the File Gateway without risk of losing any
 data.

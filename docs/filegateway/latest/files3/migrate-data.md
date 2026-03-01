@@ -1,6 +1,4 @@
-# Replacing your existing S3 File Gateway with a new
-
-instance
+# Replacing your existing S3 File Gateway with a new instance
 
 You can replace an existing S3 File Gateway with a new instance as your data and
 performance needs grow, or if you receive an AWS notification to migrate your gateway. You
@@ -33,13 +31,9 @@ Use these instructions only for migrating gateway appliances running version 1.x
 Migration can only be performed between gateways of the same type. For example, you
 cannot migrate settings or data from an FSx File Gateway to an S3 File Gateway.
 
-## Method 1: Migrate cache disk and Gateway ID
+## Method 1: Migrate cache disk and Gateway ID to replacement instance
 
-to replacement instance
-
-###### To migrate your S3 File Gateway's cache disk and Gateway ID to a
-
-replacement instance:
+###### To migrate your S3 File Gateway's cache disk and Gateway ID to a replacement instance:
 
 1. Stop any applications that are writing to the existing S3 File Gateway.
 2. Use the following steps to update the gateway to the latest version
@@ -163,13 +157,9 @@ instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md "../../../AW
 information about deleting a KVM, VMware, or Hyper-V VM, see the documentation
 for your hypervisor.
 
-## Method 2: Replacement instance with
+## Method 2: Replacement instance with empty cache disk and new Gateway ID
 
-empty cache disk and new Gateway ID
-
-###### To set up a replacement S3 File Gateway instance with empty cache disk and new
-
-Gateway ID:
+###### To set up a replacement S3 File Gateway instance with empty cache disk and new Gateway ID:
 
 1.  Stop any applications that are writing to the existing S3 File Gateway. Verify that the `CachePercentDirty` metric
     on the **Monitoring** tab is `0` before you set up

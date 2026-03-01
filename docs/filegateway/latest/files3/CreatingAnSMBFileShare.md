@@ -1,6 +1,4 @@
-# Create an SMB file share with a custom
-
-configuration
+# Create an SMB file share with a custom configuration
 
 Use the following procedure to create a Server Message Block (SMB) file share with a
 custom configuration. To create an SMB file share using default configuration settings,

@@ -1,6 +1,4 @@
-# Troubleshooting: File Gateway
-
-issues
+# Troubleshooting: File Gateway issues
 
 You can configure your File Gateway to write log entries to a Amazon CloudWatch log group. If you
 do, you receive notifications about gateway health status and about any errors that the
@@ -13,24 +11,17 @@ of each error and health notification and how to fix issues.
 ###### Topics
 
 - [Error: 1344 (0x00000540)](#troubleshoot-copying-files-to-s3 "#troubleshoot-copying-files-to-s3")
-- [Error:
-  GatewayClockOutOfSync](#troubleshoot-logging-errors-gatewayclockoutofsync "#troubleshoot-logging-errors-gatewayclockoutofsync")
-- [Error:
-  InaccessibleStorageClass](#troubleshoot-logging-errors-inaccessiblestorageclass "#troubleshoot-logging-errors-inaccessiblestorageclass")
-- [Error:
-  InvalidObjectState](#troubleshoot-logging-errors-invalidobjectstate "#troubleshoot-logging-errors-invalidobjectstate")
+- [Error: GatewayClockOutOfSync](#troubleshoot-logging-errors-gatewayclockoutofsync "#troubleshoot-logging-errors-gatewayclockoutofsync")
+- [Error: InaccessibleStorageClass](#troubleshoot-logging-errors-inaccessiblestorageclass "#troubleshoot-logging-errors-inaccessiblestorageclass")
+- [Error: InvalidObjectState](#troubleshoot-logging-errors-invalidobjectstate "#troubleshoot-logging-errors-invalidobjectstate")
 - [Error: ObjectMissing](#troubleshoot-logging-errors-objectmissing "#troubleshoot-logging-errors-objectmissing")
 - [Error: RoleTrustRelationshipInvalid](#misconfig-trust "#misconfig-trust")
-- [Error:
-  S3AccessDenied](#troubleshoot-logging-errors-s3accessdenied "#troubleshoot-logging-errors-s3accessdenied")
-- [Error:
-  DroppedNotifications](#troubleshoot-logging-errors-droppednotifications "#troubleshoot-logging-errors-droppednotifications")
+- [Error: S3AccessDenied](#troubleshoot-logging-errors-s3accessdenied "#troubleshoot-logging-errors-s3accessdenied")
+- [Error: DroppedNotifications](#troubleshoot-logging-errors-droppednotifications "#troubleshoot-logging-errors-droppednotifications")
 - [Notification: HardReboot](#troubleshoot-hardreboot-notification "#troubleshoot-hardreboot-notification")
 - [Notification: Reboot](#troubleshoot-reboot-notification "#troubleshoot-reboot-notification")
-- [Troubleshooting: Security scans show open
-  NFS ports](#troubleshoot-open-nfs-ports "#troubleshoot-open-nfs-ports")
-- [Troubleshooting: Using CloudWatch
-  metrics](#troubleshooting-with-cw-metrics "#troubleshooting-with-cw-metrics")
+- [Troubleshooting: Security scans show open NFS ports](#troubleshoot-open-nfs-ports "#troubleshoot-open-nfs-ports")
+- [Troubleshooting: Using CloudWatch metrics](#troubleshooting-with-cw-metrics "#troubleshooting-with-cw-metrics")
 
 ## Error: 1344 (0x00000540)
 
@@ -50,9 +41,7 @@ entries, then replacing the list of entries with that single group. Once the num
 entries is less the 10, you can retry copying the files or folders to the
 gateway.
 
-## Error:
-
-GatewayClockOutOfSync
+## Error: GatewayClockOutOfSync
 
 You can get a `GatewayClockOutOfSync` error when the gateway detects a
 difference of 5 minutes or more between the local system time and the time reported by
@@ -68,9 +57,7 @@ authentication errors.
   server configuration, see [Configuring a Network Time Protocol (NTP) server for your
   gateway](manage-on-premises-fgw.md#MaintenanceTimeSync-fgw "manage-on-premises-fgw.md#MaintenanceTimeSync-fgw").
 
-## Error:
-
-InaccessibleStorageClass
+## Error: InaccessibleStorageClass
 
 You can get an `InaccessibleStorageClass` error when an object has moved
 out of the Amazon S3 Standard storage class.
@@ -96,9 +83,7 @@ If you restore the object to the S3 bucket to fix an upload error, the file is
 eventually uploaded. If you restore the object to fix a read error, the
 File Gateway's SMB or NFS client can then read the file.
 
-## Error:
-
-InvalidObjectState
+## Error: InvalidObjectState
 
 You can get an `InvalidObjectState` error when a writer other than the
 specified File Gateway modifies the specified file in the specified Amazon S3 bucket. As a
@@ -166,9 +151,7 @@ error**
   your file share's IAMrole. For information about IAM role, see [Tutorial:
   delegate access across AWS accounts using IAM roles](../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md "../../../IAM/latest/UserGuide/tutorial_cross-account-with-roles.md").
 
-## Error:
-
-S3AccessDenied
+## Error: S3AccessDenied
 
 You can get an `S3AccessDenied` error for a file share's Amazon S3 bucket
 access AWS Identity and Access Management (IAM) role. In this case, the S3 bucket access IAM role that is
@@ -200,9 +183,7 @@ occur:
     + `S3DeleteObject`
     + `S3PutObject`
 
-## Error:
-
-DroppedNotifications
+## Error: DroppedNotifications
 
 You might see a `DroppedNotifications` error instead of other expected
 types of CloudWatch log entries when free storage space on your gateway's root disk is less
@@ -250,9 +231,7 @@ reboot is probably a normal occurrence and not a sign of any problem. If the reb
 occurred significantly outside the maintenance window, check whether the gateway was
 restarted manually.
 
-## Troubleshooting: Security scans show open
-
-NFS ports
+## Troubleshooting: Security scans show open NFS ports
 
 Certain NFS ports are enabled by default, even on gateways that you only use with SMB
 file shares. If you use third-party security software such as Qualys to scan the network
@@ -264,8 +243,7 @@ procedure:
 ###### To disable NFS ports on a File Gateway:
 
 1. Access the gateway local console command prompt using the procedure outlined
-   in [Running Storage Gateway commands on the
-   local console](MaintenanceGatewayConsole-fgw.md "MaintenanceGatewayConsole-fgw.md").
+   in [Running Storage Gateway commands on the local console](MaintenanceGatewayConsole-fgw.md "MaintenanceGatewayConsole-fgw.md").
 2. Enter the following commands to disable NFS traffic:
 
 **IPv4**
@@ -305,30 +283,21 @@ iptables -n -L -v --line-numbers
 ip6tables -n -L -v --line-numbers
 ```
 
-## Troubleshooting: Using CloudWatch
-
-metrics
+## Troubleshooting: Using CloudWatch metrics
 
 You can find information following about actions to address issues using Amazon CloudWatch
 metrics with Storage Gateway.
 
 ###### Topics
 
-- [Your gateway reacts slowly when browsing
-  directories](#slow-gateway "#slow-gateway")
+- [Your gateway reacts slowly when browsing directories](#slow-gateway "#slow-gateway")
 - [Your gateway isn't responding](#gateway-not-responding "#gateway-not-responding")
-- [Your gateway is slow transferring data to
-  Amazon S3](#slow-data-transfer-to-S3 "#slow-data-transfer-to-S3")
-- [Your gateway is performing
-  more Amazon S3 operations than expected](#gateway-performing-more-s3-operations "#gateway-performing-more-s3-operations")
-- [You do not see files in your Amazon S3
-  bucket](#files-missing-s3-bucket "#files-missing-s3-bucket")
-- [Your gateway backup job fails or there are errors
-  when writing to your gateway](#backup-job-fails "#backup-job-fails")
+- [Your gateway is slow transferring data to Amazon S3](#slow-data-transfer-to-S3 "#slow-data-transfer-to-S3")
+- [Your gateway is performing more Amazon S3 operations than expected](#gateway-performing-more-s3-operations "#gateway-performing-more-s3-operations")
+- [You do not see files in your Amazon S3 bucket](#files-missing-s3-bucket "#files-missing-s3-bucket")
+- [Your gateway backup job fails or there are errors when writing to your gateway](#backup-job-fails "#backup-job-fails")
 
-### Your gateway reacts slowly when browsing
-
-directories
+### Your gateway reacts slowly when browsing directories
 
 If your File Gateway reacts slowly when you run the **ls** command
 or browse directories, check the `IndexFetch` and
@@ -373,9 +342,7 @@ at any given time, check the `SMBV(1/2/3)Sessions` metric. If
 there are many clients connected, you might need to add more RAM to your
 File Gateway.
 
-### Your gateway is slow transferring data to
-
-Amazon S3
+### Your gateway is slow transferring data to Amazon S3
 
 If your File Gateway is slow transferring data to Amazon S3, do the following:
 
@@ -396,17 +363,13 @@ If your File Gateway is slow transferring data to Amazon S3, do the following:
   bottleneck. Try analyzing your network to verify that the gateway has the
   expected bandwidth.
 
-### Your gateway is performing
-
-more Amazon S3 operations than expected
+### Your gateway is performing more Amazon S3 operations than expected
 
 If your File Gateway is performing more Amazon S3 operations than expected, check the
 `FilesRenamed` metric. Rename operations are expensive to run in
 Amazon S3. Optimize your workflow to minimize the number of rename operations.
 
-### You do not see files in your Amazon S3
-
-bucket
+### You do not see files in your Amazon S3 bucket
 
 If you notice that files on the gateway are not reflected in the Amazon S3 bucket,
 check the `FilesFailingUpload` metric. If the metric reports that some
@@ -414,9 +377,7 @@ files are failing upload, check your health notifications. When files fail to
 upload, the gateway generates a health notification containing more details on the
 issue.
 
-### Your gateway backup job fails or there are errors
-
-when writing to your gateway
+### Your gateway backup job fails or there are errors when writing to your gateway
 
 If your File Gateway backup job fails or there are errors when writing to your
 File Gateway, do the following:

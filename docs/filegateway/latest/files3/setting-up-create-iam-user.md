@@ -1,6 +1,4 @@
-# Create an IAM user with administrator
-
-privileges
+# Create an IAM user with administrator privileges
 
 After you
 create your AWS account, use the following steps to create an AWS Identity and Access Management (IAM) user for

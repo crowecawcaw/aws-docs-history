@@ -1,6 +1,4 @@
-# Infrastructure security in
-
-AWS Storage Gateway
+# Infrastructure security in AWS Storage Gateway
 
 As a managed service, AWS Storage Gateway is protected by the AWS global network security
 procedures that are described in [Security Pillar - AWS Well-Architected Framework](../../../wellarchitected/latest/security-pillar/welcome.md "../../../wellarchitected/latest/security-pillar/welcome.md").

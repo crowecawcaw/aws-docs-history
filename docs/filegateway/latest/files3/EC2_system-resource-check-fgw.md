@@ -1,6 +1,4 @@
-# Viewing your gateway system resource
-
-status
+# Viewing your gateway system resource status
 
 When your File Gateway starts, it checks its virtual CPU cores, root volume size, and
 RAM. It then determines whether the available system resources are sufficient for your
@@ -10,8 +8,7 @@ using the gateway local console.
 ###### To view the status of a system resource check
 
 1. Log in to the local console on your Amazon EC2 File Gateway. For instructions, see
-   [Logging in to your Amazon EC2 gateway
-   local console](EC2_MaintenanceConsoleWindow-fgw.md "EC2_MaintenanceConsoleWindow-fgw.md").
+   [Logging in to your Amazon EC2 gateway local console](EC2_MaintenanceConsoleWindow-fgw.md "EC2_MaintenanceConsoleWindow-fgw.md").
 2. From the **AWS Appliance Activation - Configuration** main
    menu, enter the corresponding numeral to select **View System Resource
    Check**.

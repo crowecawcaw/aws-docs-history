@@ -1,6 +1,4 @@
-# Mount your NFS file share on your
-
-client
+# Mount your NFS file share on your client
 
 Use the following procedure to mount your NFS file share on a drive on your client and
 map it to your Amazon S3 bucket.

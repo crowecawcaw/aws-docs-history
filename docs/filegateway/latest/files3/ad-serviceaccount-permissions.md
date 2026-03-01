@@ -1,6 +1,4 @@
-# Active Directory service account permission
-
-requirements
+# Active Directory service account permission requirements
 
 If you plan to use Microsoft Active directory to provide user authenticated access to the
 file shares on your AWS Storage Gateway, you need to make sure that you have an Active

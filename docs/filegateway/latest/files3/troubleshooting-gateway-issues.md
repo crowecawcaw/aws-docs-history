@@ -1,6 +1,4 @@
-# Troubleshooting problems with your Storage Gateway
-
-deployment
+# Troubleshooting problems with your Storage Gateway deployment
 
 Following, you can find information about best practices and
 troubleshooting issues related to gateways, host platforms, file shares, high availability,
@@ -48,11 +46,8 @@ platform.
   issues](troubleshooting-ha-issues.md "troubleshooting-ha-issues.md") - Learn what to do if you
   experience issues with gateways that are deployed in a VMware HA environment.
 
-## High Availability Health
-
-Notifications
+## High Availability Health Notifications
 
 When running your gateway on the VMware vSphere High Availability (HA) platform, you
 may receive health notifications. For more information about health notifications, see
-[Troubleshooting: high availability
-issues](troubleshooting-ha-issues.md "troubleshooting-ha-issues.md").
+[Troubleshooting: high availability issues](troubleshooting-ha-issues.md "troubleshooting-ha-issues.md").

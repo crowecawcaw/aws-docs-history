@@ -34,9 +34,7 @@ operation. Or you can turn on Windows ACLs on an existing SMB file share by usin
 [UpdateSMBFileShare](../../../storagegateway/latest/APIReference/API_UpdateSMBFileShare.md "../../../storagegateway/latest/APIReference/API_UpdateSMBFileShare.md") API
 operation.
 
-## Activating Windows ACLs on a New SMB File
-
-Share
+## Activating Windows ACLs on a New SMB File Share
 
 Take the following steps to activate Windows ACLs on a new SMB file share.
 
@@ -96,16 +94,12 @@ If you turn on inheritance and update the permissions recursively, Storage Gatew
 all the objects in the S3 bucket. Depending on the number of objects in the bucket, the
 update can take a while to complete.
 
-## Activating Windows ACLs on an Existing
-
-SMB File Share
+## Activating Windows ACLs on an Existing SMB File Share
 
 Take the following steps to activate Windows ACLs on an existing SMB file share that
 has POSIX permissions.
 
-###### To activate Windows ACLs on an existing SMB file share using the Storage Gateway
-
-Console
+###### To activate Windows ACLs on an existing SMB file share using the Storage Gateway Console
 
 1. Choose the file share and choose **Edit file share**.
 2. For the **File/directory access controlled by** option, choose

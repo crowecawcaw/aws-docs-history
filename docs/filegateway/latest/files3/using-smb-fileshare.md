@@ -33,9 +33,7 @@ system.
 If you are a guest user, make sure that you have the guest user password before
 attempting to mount the file share.
 
-###### To mount your SMB file share for authorized Microsoft AD users using the command
-
-prompt:
+###### To mount your SMB file share for authorized Microsoft AD users using the command prompt:
 
 1. Make sure the Microsoft AD user has the necessary permissions to the SMB file
    share before mounting the file share to the user's system.
@@ -45,9 +43,7 @@ prompt:
  \\`GatewayIPAddress`\`FileShareName`
  /persistent:`yes``
 
-###### To mount your SMB file share with a specific sign-in credentials combination
-
-using the command prompt:
+###### To mount your SMB file share with a specific sign-in credentials combination using the command prompt:
 
 1. Make sure that the user has access to the SMB file share before mounting the
    file share to the system.

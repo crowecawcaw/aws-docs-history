@@ -1,6 +1,4 @@
-# Use Active Directory to authenticate
-
-users
+# Use Active Directory to authenticate users
 
 To use your corporate Active Directory or AWS Managed Microsoft AD for user authenticated
 access to your SMB file share, edit the SMB settings for your gateway with your
