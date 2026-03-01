@@ -1,6 +1,4 @@
-# Monitor and apply a new firmware
-
-update for AWS IoT ExpressLink
+# Monitor and apply a new firmware update for AWS IoT ExpressLink
 
 After you create a firmware update job as described in the previous section, the ExpressLink
 module polls for firmware update jobs, receives and validates a job, and enters a state waiting
