@@ -1,6 +1,4 @@
-# How Amazon WorkMail works with
-
-IAM
+# How Amazon WorkMail works with IAM
 
 Before you use IAM to manage access to Amazon WorkMail, you should understand what
 IAM features are available to use with Amazon WorkMail. To get a high-level view of how
@@ -9,18 +7,12 @@ work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-wi
 
 ###### Topics
 
-- [Amazon WorkMail
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
-- [Amazon WorkMail
-  resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  Amazon WorkMail tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [Amazon WorkMail IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Amazon WorkMail identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [Amazon WorkMail resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
+- [Authorization based on Amazon WorkMail tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [Amazon WorkMail IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## Amazon WorkMail
-
-identity-based policies
+## Amazon WorkMail identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -195,18 +187,13 @@ JSON
 
 ### Examples
 
-To view examples of Amazon WorkMail identity-based policies, see [Amazon WorkMail identity-based
-policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Amazon WorkMail identity-based policies, see [Amazon WorkMail identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Amazon WorkMail
-
-resource-based policies
+## Amazon WorkMail resource-based policies
 
 Amazon WorkMail does not support resource-based policies.
 
-## Authorization based on
-
-Amazon WorkMail tags
+## Authorization based on Amazon WorkMail tags
 
 You can attach tags to Amazon WorkMail resources or pass tags in a request to
 Amazon WorkMail. To control access based on tags, you provide tag information in the
@@ -217,16 +204,12 @@ element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md 
 `aws:TagKeys` condition keys. For more information about tagging
 Amazon WorkMail resources, see [Tagging an organization](org-tag.md "org-tag.md").
 
-## Amazon WorkMail IAM
-
-roles
+## Amazon WorkMail IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with Amazon WorkMail
+### Using temporary credentials with Amazon WorkMail
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security credentials by
@@ -234,9 +217,7 @@ calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIRefer
 
 Amazon WorkMail supports using temporary credentials.
 
-### Service-linked
-
-roles
+### Service-linked roles
 
 [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other
 services to complete an action on your behalf. Service-linked roles appear in your
@@ -244,8 +225,7 @@ IAM account and are owned by the service. An IAM administrator can view but not
 edit the permissions for service-linked roles.
 
 Amazon WorkMail supports service-linked roles. For details about creating or
-managing Amazon WorkMail service-linked roles, see [Using service-linked roles for
-Amazon WorkMail](using-service-linked-roles.md "using-service-linked-roles.md").
+managing Amazon WorkMail service-linked roles, see [Using service-linked roles for Amazon WorkMail](using-service-linked-roles.md "using-service-linked-roles.md").
 
 ### Service roles
 

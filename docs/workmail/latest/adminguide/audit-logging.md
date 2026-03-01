@@ -47,9 +47,7 @@ these steps.
    this specific _DeliverySource_, then you can remove it by
    using the [DeleteDeliveryDestinations](../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveryDestinations.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveryDestinations.md") operation.
 
-## Configuring audit logging using the Amazon WorkMail
-
-console
+## Configuring audit logging using the Amazon WorkMail console
 
 You can configure audit logging in the Amazon WorkMail console:
 
@@ -358,9 +356,7 @@ To streamline this, instead of creating a new `Statement`, you can
 directly update the `AWSLogDeliveryAclCheck` to be `“Action”:
  [“s3:GetBucketAcl”, “s3:ListBucket”]`.
 
-### Amazon S3 bucket server-side
-
-encryption
+### Amazon S3 bucket server-side encryption
 
 You can protect the data in your Amazon S3 bucket by enabling either server-side
 encryption with Amazon S3-managed keys (SSE-S3) or server-side encryption with an
@@ -427,9 +423,7 @@ logs are being delivered to this bucket. For `aws:SourceArn`, specify
 the list of ARNs of the resource that generates the logs, in the form
 `arn:aws:logs:`source-region`:`source-account-id`:*`.
 
-## Logs sent to
-
-Firehose
+## Logs sent to Firehose
 
 **User permissions**
 
@@ -567,9 +561,7 @@ JSON
 
 ```
 
-## Console-specific
-
-permissions
+## Console-specific permissions
 
 In addition to the permissions listed in the previous sections, if you're setting
 up log delivery using the console instead of the APIs, you also need the following

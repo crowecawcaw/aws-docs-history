@@ -13,9 +13,7 @@ As a best practice, you should add aliases for `<postmaster@>` and
 for these aliases if you want specific users in your organization to receive mail
 sent to these aliases.
 
-###### When you configure your Amazon WorkMail organization with a custom domain, remember the
-
-following about your domain's DNS records:
+###### When you configure your Amazon WorkMail organization with a custom domain, remember the following about your domain's DNS records:
 
 - For MX and autodiscover CNAME records, we recommend setting the **Time to Live (TTL)** value to 3600. Reducing the TTL
   ensures that your mail servers don't use outdated or invalid MX records after

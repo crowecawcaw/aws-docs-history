@@ -1,6 +1,4 @@
-# Managing access to the Amazon WorkMail Message Flow
-
-API
+# Managing access to the Amazon WorkMail Message Flow API
 
 Use AWS Identity and Access Management (IAM) policies to manage access to the Amazon WorkMail Message Flow
 API.
@@ -40,9 +38,7 @@ You can use these ARNs as resources in the `Resource` section of
 your IAM user policies in order to manage access to Amazon WorkMail messages in
 transit.
 
-## Example IAM policies for Amazon WorkMail
-
-message flow access
+## Example IAM policies for Amazon WorkMail message flow access
 
 The following example policy grants an IAM entity full read access to
 all inbound and outbound messages for every Amazon WorkMail organization in your

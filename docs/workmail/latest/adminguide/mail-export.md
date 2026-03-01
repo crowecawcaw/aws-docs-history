@@ -24,8 +24,7 @@ The following are prerequisites for exporting mailbox content:
 - A symmetric AWS KMS CMK. For more information, see [Getting started](../../../kms/latest/developerguide/getting-started.md "../../../kms/latest/developerguide/getting-started.md") in the _AWS Key Management Service Developer Guide_.
 - An AWS Identity and Access Management (IAM) role with a policy that grants permission to write to the
   Amazon S3 bucket and encrypt the sent files with the AWS KMS CMK. For more information, see
-  [How Amazon WorkMail works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+  [How Amazon WorkMail works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 
 ## IAM policy examples and role creation
 

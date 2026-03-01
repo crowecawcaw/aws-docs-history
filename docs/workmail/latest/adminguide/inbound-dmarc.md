@@ -33,9 +33,7 @@ based on the sender's domain configuration.** 7. Choose **Save**.
 - Follow the steps in the previous section, but move the **DMARC
   enforcement** slider to the off position..
 
-## Using email event logging to track DMARC
-
-enforcement
+## Using email event logging to track DMARC enforcement
 
 Turning on DMARC enforcement might result in inbound emails being dropped or
 marked as spam, depending on how the sender configured their domain. If a sender

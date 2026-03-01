@@ -52,9 +52,7 @@ Remember the following when creating an Amazon WorkMail organization:
 - Amazon WorkMail synchronizes directory data with AWS Managed Active Directory,
   Simple AD and AD Connector every four hours.
 
-## Important changes for using AWS Managed Active
-
-Directory
+## Important changes for using AWS Managed Active Directory
 
 Amazon WorkMail is updating its authorization model for organizations that use AWS Managed
 Active Directory (Managed AD). This change affects how Amazon WorkMail interacts with directory
@@ -75,14 +73,12 @@ Whether you create a new organization with Managed AD, or have an existing
 organization that uses Managed AD, if you wish to continue being able to create,
 update, or delete users and groups through the WorkMail console or APIs, you will
 have to complete additional configuration steps to ensure proper functionality with
-the updated authorization model. This is explained in [Configuring AWS Managed Active
-Directory integration](#configure-managed-ad-integration "#configure-managed-ad-integration").
+the updated authorization model. This is explained in [Configuring AWS Managed Active Directory integration](#configure-managed-ad-integration "#configure-managed-ad-integration").
 
 ###### Topics
 
 - [Creating an organization](#create-organization "#create-organization")
-- [Configuring AWS Managed Active
-  Directory integration](#configure-managed-ad-integration "#configure-managed-ad-integration")
+- [Configuring AWS Managed Active Directory integration](#configure-managed-ad-integration "#configure-managed-ad-integration")
 - [Viewing an organization's details](#view-org-details "#view-org-details")
 - [Integrating a WorkSpaces directory](#compatible "#compatible")
 - [Organization states and descriptions](#org-states "#org-states")
@@ -155,9 +151,7 @@ When your organization is **Active**, you can add users to it and
 set up their email clients. For more information, see [Adding a user](add_user.md "add_user.md") and [Setting up email clients for
 Amazon WorkMail](../userguide/clients.md "../userguide/clients.md").
 
-## Configuring AWS Managed Active
-
-Directory integration
+## Configuring AWS Managed Active Directory integration
 
 When using AWS Managed Active Directory with your Amazon WorkMail organization, additional
 configuration steps ensure proper functionality with the updated authorization

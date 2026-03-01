@@ -1,6 +1,4 @@
-# Assigning IAM Identity Center users and groups to Amazon WorkMail
-
-application
+# Assigning IAM Identity Center users and groups to Amazon WorkMail application
 
 When you enable IAM Identity Center in Amazon WorkMail, WorkMail creates an application in IAM Identity Center on your
 behalf. By default, IAM Identity Center users must be assigned to this application or belong to a

@@ -7,8 +7,7 @@ Tagging an Amazon WorkMail organization resource allows you to:
   `Resource` element of AWS Identity and Access Management (IAM) permission policy
   statements.
   For more information about Amazon WorkMail resource-level permissions, see [Resources](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources"). For
-  more information about controlling access based on tags, see [Authorization based on
-  Amazon WorkMail tags](security_iam_service-with-iam.md#security_iam_service-with-iam-tags "security_iam_service-with-iam.md#security_iam_service-with-iam-tags").
+  more information about controlling access based on tags, see [Authorization based on Amazon WorkMail tags](security_iam_service-with-iam.md#security_iam_service-with-iam-tags "security_iam_service-with-iam.md#security_iam_service-with-iam-tags").
 
 Amazon WorkMail administrators can tag organizations using the Amazon WorkMail console.
 

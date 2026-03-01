@@ -1,6 +1,4 @@
-# Monitoring Amazon WorkMail with
-
-CloudWatch metrics
+# Monitoring Amazon WorkMail with CloudWatch metrics
 
 You can monitor Amazon WorkMail using CloudWatch, which collects raw data and processes it into
 readable, near real-time metrics. The no charge metrics are stored for 15 months so that

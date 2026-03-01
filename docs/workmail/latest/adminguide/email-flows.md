@@ -16,8 +16,7 @@ applies to an email when a specified rule [pattern](#email-flows-patterns "#emai
 - [Creating email flow rules](create-email-rules.md "create-email-rules.md")
 - [Editing email flow rules](edit-rules.md "edit-rules.md")
 - [Configuring AWS Lambda for Amazon WorkMail](lambda.md "lambda.md")
-- [Managing access to the Amazon WorkMail Message Flow
-  API](lambda-content-access.md "lambda-content-access.md")
+- [Managing access to the Amazon WorkMail Message Flow API](lambda-content-access.md "lambda-content-access.md")
 - [Testing an email flow rule](test-email-flow-rule.md "test-email-flow-rule.md")
 - [Removing an email flow rule](remove-email-flow-rule.md "remove-email-flow-rule.md")
 

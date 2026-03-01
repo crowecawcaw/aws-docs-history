@@ -1,6 +1,4 @@
-# Retrieving message content with
-
-AWS Lambda
+# Retrieving message content with AWS Lambda
 
 After you configure an AWS Lambda function to manage email flows for Amazon WorkMail,
 you can access the full content of the email messages that are processed

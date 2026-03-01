@@ -1,6 +1,4 @@
-# Amazon WorkMail identity-based
-
-policy examples
+# Amazon WorkMail identity-based policy examples
 
 By default, IAM users and roles don't have permission to create or modify
 Amazon WorkMail resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -15,17 +13,12 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the
-  Amazon WorkMail console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Amazon WorkMail console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Allow users read-only access to Amazon WorkMail resources](#security_iam_id-based-policy-examples-read-only-access "#security_iam_id-based-policy-examples-read-only-access")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon WorkMail resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -58,9 +51,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the
-
-Amazon WorkMail console
+## Using the Amazon WorkMail console
 
 To access the Amazon WorkMail console, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the
@@ -220,9 +211,7 @@ You don't need to allow minimum console permissions for users that are making ca
 only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
 the API operation that you're trying to perform.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.

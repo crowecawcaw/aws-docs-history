@@ -3,8 +3,7 @@
 You enable email event logging in the Amazon WorkMail console in order to track email
 messages for your organization. Email event logging uses an AWS Identity and Access Management service-linked
 role (SLR) to grant permissions to publish the email event logs to Amazon CloudWatch. For more
-information about IAM service-linked roles, see [Using service-linked roles for
-Amazon WorkMail](using-service-linked-roles.md "using-service-linked-roles.md").
+information about IAM service-linked roles, see [Using service-linked roles for Amazon WorkMail](using-service-linked-roles.md "using-service-linked-roles.md").
 
 In the CloudWatch event logs, you can use CloudWatch search tools and metrics to track messages
 and troubleshoot email issues. For more information about the event logs that Amazon WorkMail sends
@@ -14,11 +13,9 @@ about CloudWatch Logs, see the [Amazon CloudWatch Logs User Guide](../../../Amaz
 ###### Topics
 
 - [Turning on email event logging](#enable-tracking "#enable-tracking")
-- [Creating a custom log group and IAM role
-  for email event logging](#custom-tracking-role "#custom-tracking-role")
+- [Creating a custom log group and IAM role for email event logging](#custom-tracking-role "#custom-tracking-role")
 - [Turning off email event logging](#turn-off-tracking "#turn-off-tracking")
-- [Cross-service confused
-  deputy prevention](#cross-service-confused-deputy-prevention "#cross-service-confused-deputy-prevention")
+- [Cross-service confused deputy prevention](#cross-service-confused-deputy-prevention "#cross-service-confused-deputy-prevention")
 
 ## Turning on email event logging
 
@@ -57,16 +54,13 @@ settings**. 4. Choose the **Email flow log settings** tab. 5. In the **Email flo
 
     Choose this option only if you have already created a log
      group and custom IAM role using the AWS CLI. For more
-     information, see [Creating a custom log group and IAM role
-     for email event logging](#custom-tracking-role "#custom-tracking-role").
+     information, see [Creating a custom log group and IAM role for email event logging](#custom-tracking-role "#custom-tracking-role").
 
 8. Select **I authorize Amazon WorkMail to publish logs in my account using this
    configuration**.
 9. Choose **Save**.
 
-## Creating a custom log group and IAM role
-
-for email event logging
+## Creating a custom log group and IAM role for email event logging
 
 We recommend using the default settings when enabling email event logging for
 Amazon WorkMail. If you require a custom monitoring configuration, you can use the AWS CLI to
@@ -153,8 +147,7 @@ aws iam put-role-policy --role-name `workmail-monitoring-role` --policy-name `wo
 
 Turn off email event logging from the Amazon WorkMail console. If you no longer need to use
 email event logging, we recommend that you delete the related CloudWatch log group and
-service-linked role as well. For more information, see [Deleting a service-linked role for
-Amazon WorkMail](using-service-linked-roles.md#delete-slr "using-service-linked-roles.md#delete-slr").
+service-linked role as well. For more information, see [Deleting a service-linked role for Amazon WorkMail](using-service-linked-roles.md#delete-slr "using-service-linked-roles.md#delete-slr").
 
 ###### To turn off email event logging
 
@@ -170,9 +163,7 @@ choose the name of your organization. 3. In the navigation pane, choose **Monito
 **Edit**. 5. Move the **Enable mail events** slider to the off
 position. 6. Choose **Save**.
 
-## Cross-service confused
-
-deputy prevention
+## Cross-service confused deputy prevention
 
 The confused deputy problem is a security issue where an entity that doesn't have
 permission to perform an action can coerce a more-privileged entity to perform the

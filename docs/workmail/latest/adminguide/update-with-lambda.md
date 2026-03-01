@@ -1,13 +1,10 @@
-# Updating message content with AWS
-
-Lambda
+# Updating message content with AWS Lambda
 
 After you configure a synchronous AWS Lambda function to manage email
 flows, you can use the `PutRawMessageContent` action in the Amazon WorkMail
 Message flow API to update the content of in-transit email messages. For
 more information about getting started with Lambda functions for Amazon WorkMail, see
-[Configuring synchronous Run
-Lambda rules](lambda.md#synchronous-rules "lambda.md#synchronous-rules").
+[Configuring synchronous Run Lambda rules](lambda.md#synchronous-rules "lambda.md#synchronous-rules").
 For more information about the API, see [PutRawMessageContent](../APIReference/API_messageflow_PutRawMessageContent.md "../APIReference/API_messageflow_PutRawMessageContent.md").
 
 ###### Note
@@ -34,8 +31,7 @@ use cases.
 As you go, remember the following:
 
 - Use the [GetRawMessageContent](../APIReference/API_messageflow_GetRawMessageContent.md "../APIReference/API_messageflow_GetRawMessageContent.md") API to retrieve the original
-  message content. For more information see [Retrieving message content with
-  AWS Lambda](lambda-content.md "lambda-content.md").
+  message content. For more information see [Retrieving message content with AWS Lambda](lambda-content.md "lambda-content.md").
 - Once you have the original message, change the MIME content. When
   you finish, upload the message to an Amazon Simple Storage Service (Amazon S3) bucket in your
   account. Ensure that the S3 bucket uses the same AWS account as

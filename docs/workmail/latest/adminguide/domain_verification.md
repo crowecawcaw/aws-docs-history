@@ -41,9 +41,7 @@ add records, consult your provider's documentation.
 
 Allow up to 72 hours to complete the verification process.
 
-## Verifying TXT records and MX records
-
-with your DNS service
+## Verifying TXT records and MX records with your DNS service
 
 Confirm that the TXT record that verifies that you own the domain is added
 correctly to your DNS service. This procedure uses the [nslookup](http://en.wikipedia.org/wiki/Nslookup "http://en.wikipedia.org/wiki/Nslookup") tool, which is
@@ -171,9 +169,7 @@ dig +short `example.com` mx
 `10` represents the MX preference number or
 priority.
 
-## Troubleshooting domain
-
-verification
+## Troubleshooting domain verification
 
 To troubleshoot common issues with domain verification, see the following
 suggestions:
@@ -213,8 +209,7 @@ failed
 
 Amazon WorkMail can't find the necessary TXT record for your DNS service. Verify
 that the required TXT record is correctly added to your DNS service by
-following the procedure in [Verifying TXT records and MX records
-with your DNS service](#domain-verification-check-dns "#domain-verification-check-dns").
+following the procedure in [Verifying TXT records and MX records with your DNS service](#domain-verification-check-dns "#domain-verification-check-dns").
 
 Your DNS provider appended the domain name to the end of
 the TXT record

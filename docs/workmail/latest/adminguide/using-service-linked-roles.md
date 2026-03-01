@@ -1,6 +1,4 @@
-# Using service-linked roles for
-
-Amazon WorkMail
+# Using service-linked roles for Amazon WorkMail
 
 Amazon WorkMail uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to Amazon WorkMail. Service-linked roles are predefined by Amazon WorkMail and
@@ -22,9 +20,7 @@ IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md 
 **Service-linked role** column. Choose a **Yes** with a link to view the service-linked role documentation for that
 service.
 
-## Service-linked role permissions for
-
-Amazon WorkMail
+## Service-linked role permissions for Amazon WorkMail
 
 Amazon WorkMail uses the service-linked role named **AmazonWorkMailEvents** –
 Amazon WorkMail uses this service-linked role to enable access to AWS services and
@@ -48,9 +44,7 @@ specified resources:
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
-## Creating a service-linked role for
-
-Amazon WorkMail
+## Creating a service-linked role for Amazon WorkMail
 
 You don't need to manually create a service-linked role. When you
 turn on Amazon WorkMail event logging and use the default settings in the Amazon WorkMail console, Amazon WorkMail
@@ -60,9 +54,7 @@ If you delete this service-linked role, and then need to create it again, you ca
 same process to recreate the role in your account. When you turn on Amazon WorkMail event logging and use the default settings,
 Amazon WorkMail creates the service-linked role for you again.
 
-## Editing a service-linked role for
-
-Amazon WorkMail
+## Editing a service-linked role for Amazon WorkMail
 
 Amazon WorkMail does not allow you to edit the AmazonWorkMailEvents service-linked role. After you
 create a service-linked role, you can't change the name of the role because various entities
@@ -70,9 +62,7 @@ might reference the role. However, you can edit the description of the role usin
 more information, see [Editing a
 Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
-## Deleting a service-linked role for
-
-Amazon WorkMail
+## Deleting a service-linked role for Amazon WorkMail
 
 If you no longer need to use a feature or service that requires a service-linked role, we
 recommend that you delete that role. That way you don’t have an unused entity that is not
@@ -111,9 +101,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AmazonWorkMailEve
 service-linked role. For more information, see [Deleting a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 
-## Supported Regions for
-
-Amazon WorkMail service-linked roles
+## Supported Regions for Amazon WorkMail service-linked roles
 
 Amazon WorkMail supports using service-linked roles in all of the Regions where the service
 is available. For more information, see [Amazon WorkMail Regions and Endpoints](../../../general/latest/gr/rande.md#wm_region "../../../general/latest/gr/rande.md#wm_region").

@@ -27,8 +27,7 @@ messages.
 Whether you choose a synchronous or asynchronous configuration, the event
 object passed to your Lambda function contains metadata for the inbound or
 outbound email event. You can also use the message ID in the metadata to access
-the full content of the email message. For more information, see [Retrieving message content with
-AWS Lambda](lambda-content.md "lambda-content.md"). For more
+the full content of the email message. For more information, see [Retrieving message content with AWS Lambda](lambda-content.md "lambda-content.md"). For more
 information about email events, see [Lambda event data](#lambda-data "#lambda-data").
 
 For more information about inbound and outbound email flow rules, see [Managing email flows](email-flows.md "email-flows.md"). For more information
@@ -40,9 +39,7 @@ Currently, Lambda email flow rules reference only Lambda functions in the
 same AWS Region and AWS account as the Amazon WorkMail organization being
 configured.
 
-## Getting started with AWS Lambda for
-
-Amazon WorkMail
+## Getting started with AWS Lambda for Amazon WorkMail
 
 To start using AWS Lambda with Amazon WorkMail, we recommend deploying the [WorkMail Hello World Lambda function](https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:489970191081:applications/workmail-hello-world-python "https://console.aws.amazon.com/lambda/home#/create/app?applicationId=arn:aws:serverlessrepo:us-east-1:489970191081:applications/workmail-hello-world-python") from the AWS Serverless Application Repository to
 your account. The function has all the necessary resources, and the
@@ -75,9 +72,7 @@ do the following:
 
 For more information about using the AWS CLI, see the [_AWS Command Line Interface User Guide_](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md").
 
-## Configuring synchronous \*\*Run
-
-Lambda\*\* rules
+## Configuring synchronous **Run Lambda** rules
 
 To configure a synchronous **Run Lambda** rule, create an
 email flow rule with the **Run Lambda** action and select
@@ -215,9 +210,7 @@ Applies to the payload size, not the subject line length. When
 limit, so the list of recipients is truncated in order to meet
 the limit.
 
-## Synchronous \*\*Run
-
-Lambda\*\* response schema
+## Synchronous **Run Lambda** response schema
 
 When an email flow rule with a synchronous **Run Lambda**
 action matches an inbound or outbound email message, Amazon WorkMail calls the
@@ -296,9 +289,7 @@ When true, applies the action to all the recipients that are
 not subject to another specific action in the Lambda
 response.
 
-### Synchronous \*\*Run
-
-Lambda\*\* action limits
+### Synchronous **Run Lambda** action limits
 
 The following limits apply when Amazon WorkMail invokes Lambda functions for
 synchronous **Run Lambda** actions:
@@ -321,21 +312,16 @@ timeout** interval that you specify.
   minutes. If the minimum value of 0 is configured, there are no
   retries before Amazon WorkMail applies the fallback action.
 
-### Synchronous \*\*Run
-
-Lambda\*\* action failures
+### Synchronous **Run Lambda** action failures
 
 If Amazon WorkMail can't invoke your Lambda function due to an error, invalid
 response, or Lambda timeout, Amazon WorkMail retries the invocation with exponential
 backoff that decreases the processing rate until the **Rule
 timeout** period completes. Then, the **Fallback
 action** is applied to all recipients of the email message.
-For more information, see [Configuring synchronous Run
-Lambda rules](#synchronous-rules "#synchronous-rules").
+For more information, see [Configuring synchronous Run Lambda rules](#synchronous-rules "#synchronous-rules").
 
-## Example synchronous \*\*Run
-
-Lambda\*\* responses
+## Example synchronous **Run Lambda** responses
 
 The following examples demonstrate the structure of common synchronous
 **Run Lambda** responses.
@@ -420,10 +406,7 @@ email message. This does not update the **To** or
 For more code examples to use when creating Lambda functions for
 **Run Lambda** actions, see [Amazon WorkMail Lambda templates](https://github.com/aws-samples/amazon-workmail-lambda-templates "https://github.com/aws-samples/amazon-workmail-lambda-templates").
 
-## More information about using Lambda with
-
-Amazon WorkMail
+## More information about using Lambda with Amazon WorkMail
 
 You can also access the full content of the email message that triggers
-the Lambda function. For more information, see [Retrieving message content with
-AWS Lambda](lambda-content.md "lambda-content.md").
+the Lambda function. For more information, see [Retrieving message content with AWS Lambda](lambda-content.md "lambda-content.md").

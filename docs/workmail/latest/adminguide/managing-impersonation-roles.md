@@ -51,8 +51,7 @@ consider when you create an impersonation role:
   `AssumeImpersonationRole` action to a particular Amazon WorkMail
   organization and impersonation role by using the
   `workmail:ImpersonationRoleId` condition. To see an IAM
-  policy example, see [How Amazon WorkMail works with
-  IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
+  policy example, see [How Amazon WorkMail works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 
 ## Creating impersonation roles
 

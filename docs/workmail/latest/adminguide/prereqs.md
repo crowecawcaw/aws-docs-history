@@ -7,8 +7,7 @@ AWS yet, complete the following tasks to get set up.
 
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
-- [Grant IAM users permissions for
-  Amazon WorkMail](#iam_policies_workmail "#iam_policies_workmail")
+- [Grant IAM users permissions for Amazon WorkMail](#iam_policies_workmail "#iam_policies_workmail")
 
 ## Sign up for an AWS account
 
@@ -68,9 +67,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Grant IAM users permissions for
-
-Amazon WorkMail
+## Grant IAM users permissions for Amazon WorkMail
 
 By default, IAM users don't have permissions to manage Amazon WorkMail resources. You
 must attach an AWS managed policy (**AmazonWorkMailFullAccess** or

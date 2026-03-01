@@ -67,9 +67,7 @@ When you change an access rule for an Amazon WorkMail organization, the affected
 devices can take five minutes to follow the updated rule, and devices may show inconsistent behavior during that time. However, you immediately see correct behavior when you test rules.
 For more information, see [Testing mobile device access rules](#test-mobile-rule "#test-mobile-rule").
 
-######
-
-Listing mobile device access rules
+###### Listing mobile device access rules
 
 The following example shows how to list mobile device access rules.
 
@@ -108,9 +106,7 @@ The following example deletes the mobile device access rule with the given ident
 aws workmail `delete-mobile-device-access-rule` --`organization-id` m-`a123b4c5de678fg9h0ij1k2lm234no56` --mobile-device-access-rule-id `1a2b3c4d`
 ```
 
-######
-
-Testing mobile device access rules
+###### Testing mobile device access rules
 
 To test access rules, you can use the [GetMobileDeviceAccessEffect](../APIReference/API_GetMobileDeviceAccessEffect.md "../APIReference/API_GetMobileDeviceAccessEffect.md") API, or the
 get-mobile-device-access-effect command in the AWS CLI . For more information about the AWS CLI, see the
@@ -125,9 +121,7 @@ access a mailbox.
 aws workmail `get-mobile-device-access-effect` --`organization-id` m-`a123b4c5de678fg9h0ij1k2lm234no56` --device-type "`iPhone`" --device-model "`iPhone10C1`" --device-operating-system "`iOS 14.2.1 16F203`" --device-user-agent "`iOS/14.2 (18B92) exchangesyncd/1.0`"
 ```
 
-######
-
-Dealing with empty fields
+###### Dealing with empty fields
 
 Some mobile devices or clients may not report information for one or more fields, leaving
 the values empty. Rules can match against these devices by using the special value
