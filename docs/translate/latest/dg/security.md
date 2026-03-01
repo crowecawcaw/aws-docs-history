@@ -31,7 +31,5 @@ _in_ the cloud:
 - [Monitoring Amazon Translate](monitoring-translate.md "monitoring-translate.md")
 - [Compliance validation for Amazon Translate](compliance.md "compliance.md")
 - [Resilience in Amazon Translate](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in
-  Amazon Translate](infrastructure-security.md "infrastructure-security.md")
-- [Amazon Translate and interface VPC endpoints
-  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Infrastructure security in Amazon Translate](infrastructure-security.md "infrastructure-security.md")
+- [Amazon Translate and interface VPC endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")

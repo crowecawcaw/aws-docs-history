@@ -21,9 +21,7 @@ To get a high-level view of how Amazon Translate and other AWS services work wit
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Amazon Translate
+## Identity-based policies for Amazon Translate
 
 **Supports identity-based policies:**
 
@@ -40,15 +38,11 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-###
-
-Identity-based policy examples for Amazon Translate
+### Identity-based policy examples for Amazon Translate
 
 To view examples of Amazon Translate identity-based policies, see [Identity-based policy examples for Amazon Translate](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies within Amazon Translate
+## Resource-based policies within Amazon Translate
 
 **Supports resource-based policies:**
 
@@ -64,9 +58,7 @@ To enable cross-account access, you can specify an entire account or IAM entitie
 in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Amazon Translate
+## Policy actions for Amazon Translate
 
 **Supports policy actions:**
 
@@ -109,9 +101,7 @@ granting least privilege when you specify the permissions in a policy.
 
 To view examples of Amazon Translate identity-based policies, see [Identity-based policy examples for Amazon Translate](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Amazon Translate
+## Policy resources for Amazon Translate
 
 **Supports policy resources:**
 
@@ -134,9 +124,7 @@ which actions you can specify the ARN of each resource, see
 For examples of how to use resources in Amazon Translate policies,
 see [Specify resources in a policy](security_iam_id-based-policy-examples.md#iam_id-policy-examples-resource-permissions "security_iam_id-based-policy-examples.md#iam_id-policy-examples-resource-permissions").
 
-## Policy
-
-condition keys for Amazon Translate
+## Policy condition keys for Amazon Translate
 
 **Supports service-specific policy condition keys:**
 
@@ -186,9 +174,7 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 For more information about tagging Amazon Translate
 resources, see [Tagging your resources](tagging.md "tagging.md").
 
-## Using temporary
-
-credentials with Amazon Translate
+## Using temporary credentials with Amazon Translate
 
 **Supports temporary credentials:**
 
@@ -200,9 +186,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Forward access
-
-sessions for Amazon Translate
+## Forward access sessions for Amazon Translate
 
 **Supports forward access sessions (FAS):**
 
@@ -211,9 +195,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Amazon Translate
+## Service roles for Amazon Translate
 
 **Supports service roles:**
 
@@ -234,9 +216,7 @@ trust the Amazon Translate service principal.
 
 For a policy example, see [Prerequisites for batch translation jobs](async-prereqs.md "async-prereqs.md").
 
-## Service-linked
-
-roles for Amazon Translate
+## Service-linked roles for Amazon Translate
 
 **Supports service-linked roles:**
 

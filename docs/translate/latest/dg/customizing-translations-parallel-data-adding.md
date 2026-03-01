@@ -1,6 +1,4 @@
-# Adding your parallel data to
-
-Amazon Translate
+# Adding your parallel data to Amazon Translate
 
 To add parallel data to Amazon Translate, you import a parallel data input file from Amazon S3. Afterwards,
 you can use the parallel data to customize the output produced by a batch translation job.
@@ -9,16 +7,13 @@ you can use the parallel data to customize the output produced by a batch transl
 
 Before you can add parallel data to Amazon Translate, you must:
 
-- Have a parallel data input file. To create one, see [Parallel data input
-  files for Amazon Translate](customizing-translations-parallel-data-input-files.md "customizing-translations-parallel-data-input-files.md").
+- Have a parallel data input file. To create one, see [Parallel data input files for Amazon Translate](customizing-translations-parallel-data-input-files.md "customizing-translations-parallel-data-input-files.md").
 - Have an Amazon S3 bucket in your AWS account. To create one, see [How do I create an S3 Bucket?](../../../AmazonS3/latest/user-guide/create-bucket.md "../../../AmazonS3/latest/user-guide/create-bucket.md") in
   the _Amazon Simple Storage Service User Guide_.
 - Upload your input file to an Amazon S3 bucket. For more information, see [How do I upload
   files and folders to an S3 bucket?](../../../AmazonS3/latest/user-guide/upload-objects.md "../../../AmazonS3/latest/user-guide/upload-objects.md") in the _Amazon Simple Storage Service User Guide_.
 
-## Adding parallel data
-
-(Amazon Translate console)
+## Adding parallel data (Amazon Translate console)
 
 To add parallel data by using the Amazon Translate console, use the **Parallel data**
 page:
@@ -78,9 +73,7 @@ data resource is shown in the table. When the value in the **Status**
 column is **Active**, the parallel data is ready for you to use in a
 batch translation job.
 
-### Error file
-
-for troubleshooting
+### Error file for troubleshooting
 
 If Amazon Translate generates any errors or warnings while processing your input file, the console
 provides an error file that you can download to review the error messages. The contents of this
@@ -101,9 +94,7 @@ file resemble the following example:
 }
 ```
 
-## Adding parallel data
-
-(AWS CLI)
+## Adding parallel data (AWS CLI)
 
 To add parallel data by using the AWS CLI, use the `create-parallel-data`
 command.
@@ -132,12 +123,9 @@ object:
 You can monitor the ongoing status of the parallel data by using the
 `get-parallel-data` command. When the status is `ACTIVE`, the parallel
 data is ready for you to use in a batch translation job. For an example of the
-`get-parallel-data` command, see [To view
-the details for a parallel data object](customizing-translations-parallel-data-managing.md#customizing-translations-parallel-data-managing-cli-get "customizing-translations-parallel-data-managing.md#customizing-translations-parallel-data-managing-cli-get").
+`get-parallel-data` command, see [To view the details for a parallel data object](customizing-translations-parallel-data-managing.md#customizing-translations-parallel-data-managing-cli-get "customizing-translations-parallel-data-managing.md#customizing-translations-parallel-data-managing-cli-get").
 
-## Using your parallel
-
-data
+## Using your parallel data
 
 Now that you have created a parallel data resource, you can apply it to a batch translation
 job to customize the output. To run a batch job, see [Running a batch translation job](async-start.md "async-start.md").

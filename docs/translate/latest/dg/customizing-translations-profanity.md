@@ -1,6 +1,4 @@
-# Masking profane words and phrases in
-
-Amazon Translate
+# Masking profane words and phrases in Amazon Translate
 
 When you run translations with Amazon Translate, you can enable the _profanity_ setting to mask profane words and phrases in your translation output.
 

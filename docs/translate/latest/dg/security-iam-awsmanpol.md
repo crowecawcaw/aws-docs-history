@@ -17,16 +17,11 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [AWS managed policy:
-  TranslateFullAccess](#security-iam-awsmanpol-TranslateFullAccess "#security-iam-awsmanpol-TranslateFullAccess")
-- [AWS managed policy:
-  TranslateReadOnly](#security-iam-awsmanpol-TranslateReadOnly "#security-iam-awsmanpol-TranslateReadOnly")
-- [Amazon Translate updates to AWS managed
-  policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
+- [AWS managed policy: TranslateFullAccess](#security-iam-awsmanpol-TranslateFullAccess "#security-iam-awsmanpol-TranslateFullAccess")
+- [AWS managed policy: TranslateReadOnly](#security-iam-awsmanpol-TranslateReadOnly "#security-iam-awsmanpol-TranslateReadOnly")
+- [Amazon Translate updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## AWS managed policy:
-
-TranslateFullAccess
+## AWS managed policy: TranslateFullAccess
 
 This policy grants full access to Amazon Translate resources, the Amazon Comprehend DetectDominantLanguage
 API operation, and required CloudWatch API operations. The policy also grants list and get
@@ -58,9 +53,7 @@ JSON
 
 ```
 
-## AWS managed policy:
-
-TranslateReadOnly
+## AWS managed policy: TranslateReadOnly
 
 This policy grants permission to access the Amazon Translate API operations that do not modify
 resources associated with your account. The policy also grants permission to access the
@@ -94,9 +87,7 @@ JSON
 
 ```
 
-## Amazon Translate updates to AWS managed
-
-policies
+## Amazon Translate updates to AWS managed policies
 
 View details about updates to AWS managed policies for Amazon Translate since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe

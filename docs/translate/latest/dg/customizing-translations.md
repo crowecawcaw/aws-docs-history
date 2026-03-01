@@ -20,11 +20,8 @@ Amazon Translate:
 ###### Topics
 
 - [Using do-not-translate in Amazon Translate](customizing-translations-tags.md "customizing-translations-tags.md")
-- [Customizing your translations with custom
-  terminology](how-custom-terminology.md "how-custom-terminology.md")
+- [Customizing your translations with custom terminology](how-custom-terminology.md "how-custom-terminology.md")
 - [Using brevity in Amazon Translate](customizing-translations-brevity.md "customizing-translations-brevity.md")
-- [Masking profane words and phrases in
-  Amazon Translate](customizing-translations-profanity.md "customizing-translations-profanity.md")
+- [Masking profane words and phrases in Amazon Translate](customizing-translations-profanity.md "customizing-translations-profanity.md")
 - [Setting formality in Amazon Translate](customizing-translations-formality.md "customizing-translations-formality.md")
-- [Customizing your translations with
-  parallel data (Active Custom Translation)](customizing-translations-parallel-data.md "customizing-translations-parallel-data.md")
+- [Customizing your translations with parallel data (Active Custom Translation)](customizing-translations-parallel-data.md "customizing-translations-parallel-data.md")

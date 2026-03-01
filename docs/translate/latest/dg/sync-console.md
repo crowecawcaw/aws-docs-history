@@ -12,8 +12,7 @@ see [Automatic language detection](how-it-works.md#how-to-auto "how-it-works.md#
 
 - [Translate text](#sync-console-text "#sync-console-text")
 - [Translate a document](#sync-console-document "#sync-console-document")
-- [View equivalent API request and response
-  data](#sync-console-output "#sync-console-output")
+- [View equivalent API request and response data](#sync-console-output "#sync-console-output")
 - [Use translation features](#sync-console-features "#sync-console-features")
 
 ## Translate text
@@ -55,9 +54,7 @@ translation** to download the translated document to your local
 hard drive. The format of the translated document (text, HTML, or Word) matches the
 input document.
 
-## View equivalent API request and response
-
-data
+## View equivalent API request and response data
 
 After you use the console to translate the input text or document, you can view the
 equivalent API request data and response data in JSON format.
@@ -88,8 +85,7 @@ Select a custom terminology file.
 If the file has an entry for a source term in the input text,
 Amazon Translate uses the translation from the terminology file.
 
-For more information, see [Customizing your translations with custom
-terminology](how-custom-terminology.md "how-custom-terminology.md").
+For more information, see [Customizing your translations with custom terminology](how-custom-terminology.md "how-custom-terminology.md").
 
 **Brevity**
 
@@ -106,8 +102,7 @@ For information about supported languages, see [Using brevity in Amazon Translat
 Masks profane words and phrases in your translation output. Amazon Translate
 doesn't support profanity masking in all supported languages.
 
-For more information, see [Masking profane words and phrases in
-Amazon Translate](customizing-translations-profanity.md "customizing-translations-profanity.md").
+For more information, see [Masking profane words and phrases in Amazon Translate](customizing-translations-profanity.md "customizing-translations-profanity.md").
 
 **Formality**
 

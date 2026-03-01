@@ -1,6 +1,4 @@
-# Customizing your translations with
-
-parallel data (Active Custom Translation)
+# Customizing your translations with parallel data (Active Custom Translation)
 
 Add _parallel data_ to Amazon Translate to customize the output of your
 batch translations jobs. Parallel data consists of examples that show how you want segments of
@@ -75,9 +73,6 @@ Active Custom Translation is available in the following regions:
 
 ###### Topics
 
-- [Parallel data input
-  files for Amazon Translate](customizing-translations-parallel-data-input-files.md "customizing-translations-parallel-data-input-files.md")
-- [Adding your parallel data to
-  Amazon Translate](customizing-translations-parallel-data-adding.md "customizing-translations-parallel-data-adding.md")
-- [Viewing and managing your
-  parallel data in Amazon Translate](customizing-translations-parallel-data-managing.md "customizing-translations-parallel-data-managing.md")
+- [Parallel data input files for Amazon Translate](customizing-translations-parallel-data-input-files.md "customizing-translations-parallel-data-input-files.md")
+- [Adding your parallel data to Amazon Translate](customizing-translations-parallel-data-adding.md "customizing-translations-parallel-data-adding.md")
+- [Viewing and managing your parallel data in Amazon Translate](customizing-translations-parallel-data-managing.md "customizing-translations-parallel-data-managing.md")

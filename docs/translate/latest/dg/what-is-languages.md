@@ -113,7 +113,6 @@ The following sections describe the languages supported by Amazon Translate feat
 - Brevity – For the languages supported by this feature,
   see [Using brevity in Amazon Translate](customizing-translations-brevity.md "customizing-translations-brevity.md").
 - Profanity masking – For the languages supported by this feature,
-  see [Masking profane words and phrases in
-  Amazon Translate](customizing-translations-profanity.md "customizing-translations-profanity.md").
+  see [Masking profane words and phrases in Amazon Translate](customizing-translations-profanity.md "customizing-translations-profanity.md").
 - Formality – For the languages supported by this feature,
   see [Setting formality in Amazon Translate](customizing-translations-formality.md "customizing-translations-formality.md").

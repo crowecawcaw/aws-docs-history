@@ -37,5 +37,4 @@ characters.
 ###### Topics
 
 - [Tagging a new resource](tagging-newtags.md "tagging-newtags.md")
-- [Viewing, updating, and deleting tags associated with a
-  resource](tagging-existingtags.md "tagging-existingtags.md")
+- [Viewing, updating, and deleting tags associated with a resource](tagging-existingtags.md "tagging-existingtags.md")

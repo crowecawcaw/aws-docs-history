@@ -48,8 +48,7 @@ create, own, and manage in your AWS account.
 Before you can use your own KMS key, you must add permissions to the
 IAM service role that Amazon Translate uses to access your output bucket in Amazon S3. If
 you want to use a KMS key that's in a different AWS account, you must
-also update the key policy in AWS KMS. For more information, see [Prerequisite permissions
-to customize encryption](async-prereqs.md#async-prereqs-permissions-custom-encryption "async-prereqs.md#async-prereqs-permissions-custom-encryption").
+also update the key policy in AWS KMS. For more information, see [Prerequisite permissions to customize encryption](async-prereqs.md#async-prereqs-permissions-custom-encryption "async-prereqs.md#async-prereqs-permissions-custom-encryption").
 
 You can choose to use your customer managed key when you run a batch translation
 job. For more information, see [Running a batch translation job](async-start.md "async-start.md").

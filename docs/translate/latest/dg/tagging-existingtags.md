@@ -1,6 +1,4 @@
-# Viewing, updating, and deleting tags associated with a
-
-resource
+# Viewing, updating, and deleting tags associated with a resource
 
 You can view, update or delete the tags associated with a `Parallel data` or
 `Custom terminology` resource.

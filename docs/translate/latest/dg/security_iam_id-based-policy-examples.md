@@ -1,6 +1,4 @@
-#
-
-Identity-based policy examples for Amazon Translate
+# Identity-based policy examples for Amazon Translate
 
 By default, users and roles don't have permission to create or modify
 Amazon Translate resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or
@@ -15,19 +13,13 @@ _IAM User Guide_.
 
 ###### Topics
 
-- [Identity-based
-  policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Allow access to the
-  Amazon Translate console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Allow users
-  to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Identity-based policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Allow access to the Amazon Translate console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
 - [Specify resources in a policy](#iam_id-policy-examples-resource-permissions "#iam_id-policy-examples-resource-permissions")
-- [Permissions
-  for using customer managed keys with custom terminologies](#kms-permissions "#kms-permissions")
+- [Permissions for using customer managed keys with custom terminologies](#kms-permissions "#kms-permissions")
 
-## Identity-based
-
-policy best practices
+## Identity-based policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Amazon Translate resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -60,9 +52,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Allow access to the
-
-Amazon Translate console
+## Allow access to the Amazon Translate console
 
 To access the Amazon Translate console, you must have a minimum set of
 permissions. These permissions must allow you to list and view details about the
@@ -107,9 +97,7 @@ that match the API operation that they're trying to perform. For more informatio
 see [Adding Permissions to a User](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
 _IAM User Guide_.
 
-## Allow users
-
-to view their own permissions
+## Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -195,9 +183,7 @@ The following example policy denies access to a specific parallel data resource 
 }
 ```
 
-## Permissions
-
-for using customer managed keys with custom terminologies
+## Permissions for using customer managed keys with custom terminologies
 
 If you use AWS Key Management Service (AWS KMS) customer managed keys with Amazon Translate custom terminologies, you might
 need additional permissions in your KMS key policy.

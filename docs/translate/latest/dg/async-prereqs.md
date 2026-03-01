@@ -128,9 +128,7 @@ JSON
 
 ```
 
-## Prerequisite permissions
-
-to customize encryption
+## Prerequisite permissions to customize encryption
 
 You can customize your encryption settings in Amazon Translate, but first you must add
 permissions to the service role in IAM.

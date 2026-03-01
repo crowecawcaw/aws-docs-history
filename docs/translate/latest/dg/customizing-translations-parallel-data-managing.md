@@ -1,14 +1,10 @@
-# Viewing and managing your
-
-parallel data in Amazon Translate
+# Viewing and managing your parallel data in Amazon Translate
 
 You can view all of the parallel data resources that you have added to Amazon Translate, and you can
 access detailed summaries for each one. As your translation requirements change, you can
 refine your translation output by updating your parallel data.
 
-## Viewing and
-
-managing parallel data (Amazon Translate console)
+## Viewing and managing parallel data (Amazon Translate console)
 
 To view and manage your parallel data in the Amazon Translate console, use the **Parallel
 data** page:
@@ -55,15 +51,11 @@ Translation Memory eXchange (TMX), comma-separated values (CSV), and
 tab-separated values (TSV). 5. Choose **Save**. Amazon Translate replaces the old parallel data with
 the new input file.
 
-## Viewing and
-
-managing parallel data (AWS CLI)
+## Viewing and managing parallel data (AWS CLI)
 
 You can use the AWS CLI to view and update your parallel data resources.
 
-### To view a
-
-list of your parallel data resources
+### To view a list of your parallel data resources
 
 To view a list of the parallel data resources that you have added to Amazon Translate, use
 the `list-parallel-data` command.
@@ -106,9 +98,7 @@ If the command succeeds, Amazon Translate returns an array like the following:
 }
 ```
 
-### To view
-
-the details for a parallel data object
+### To view the details for a parallel data object
 
 To look up the details for a single parallel data resource, use the
 `get-parallel-data` command. This command returns the properties of
@@ -157,9 +147,7 @@ location:
 }
 ```
 
-### To
-
-update a parallel data resource
+### To update a parallel data resource
 
 To update a parallel data resource, first, upload a new input file to an Amazon S3
 input bucket. Then, use the `update-parallel-data` command and specify

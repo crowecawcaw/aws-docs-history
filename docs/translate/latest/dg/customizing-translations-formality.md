@@ -24,14 +24,10 @@ formality parameter, the translation job ignores the formality setting.
 
 ###### Topics
 
-- [Using the formality
-  setting](#customizing-translations-formality-using "#customizing-translations-formality-using")
-- [Supported
-  languages](#customizing-translations-formality-languages "#customizing-translations-formality-languages")
+- [Using the formality setting](#customizing-translations-formality-using "#customizing-translations-formality-using")
+- [Supported languages](#customizing-translations-formality-languages "#customizing-translations-formality-languages")
 
-## Using the formality
-
-setting
+## Using the formality setting
 
 To set formality in a real-time translation request, do one of the following:
 
@@ -52,9 +48,7 @@ includes the formality setting (if any) from the request. If the target language
 support formality, the `AppliedSettings` value in the response is
 NULL.
 
-## Supported
-
-languages
+## Supported languages
 
 Amazon Translate supports the formality setting for translation from any source language to the
 following target languages.

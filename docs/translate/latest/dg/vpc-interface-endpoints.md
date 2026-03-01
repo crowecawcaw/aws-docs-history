@@ -1,6 +1,4 @@
-# Amazon Translate and interface VPC endpoints
-
-(AWS PrivateLink)
+# Amazon Translate and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and Amazon Translate by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you
@@ -16,9 +14,7 @@ For more information, see [Interface VPC
 endpoints (AWS PrivateLink)](../../../vpc/latest/userguide/vpce-interface.md "../../../vpc/latest/userguide/vpce-interface.md") in the _Amazon VPC User
 Guide_.
 
-## Considerations for Amazon Translate VPC
-
-endpoints
+## Considerations for Amazon Translate VPC endpoints
 
 Before you set up an interface VPC endpoint for Amazon Translate, ensure that you
 review [Interface
@@ -27,9 +23,7 @@ endpoint properties and limitations](../../../vpc/latest/userguide/vpce-interfac
 Amazon Translate supports making calls to
 all of its API actions from your VPC.
 
-## Creating an interface VPC endpoint for
-
-Amazon Translate
+## Creating an interface VPC endpoint for Amazon Translate
 
 You can create a VPC endpoint for the Amazon Translate service using either the Amazon VPC console
 or the AWS Command Line Interface (AWS CLI). For more information, see [Creating an
@@ -46,9 +40,7 @@ default DNS name for the Region, for example,
 For more information, see [Accessing a service through an interface endpoint](../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint "../../../vpc/latest/userguide/vpce-interface.md#access-service-though-endpoint") in the
 _Amazon VPC User Guide_.
 
-## Creating a VPC endpoint policy for
-
-Amazon Translate
+## Creating a VPC endpoint policy for Amazon Translate
 
 You can attach an endpoint policy to your VPC endpoint that controls access to
 Amazon Translate. The policy specifies the following information:

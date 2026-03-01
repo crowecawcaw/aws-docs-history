@@ -16,8 +16,7 @@ To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../aws
 ###### Topics
 
 - [Amazon Translate information in CloudTrail](#translate-info-in-cloudtrail "#translate-info-in-cloudtrail")
-- [Understanding Amazon Translate log file
-  entries](#understanding-translate-entries "#understanding-translate-entries")
+- [Understanding Amazon Translate log file entries](#understanding-translate-entries "#understanding-translate-entries")
 
 ## Amazon Translate information in CloudTrail
 
@@ -60,9 +59,7 @@ information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding Amazon Translate log file
-
-entries
+## Understanding Amazon Translate log file entries
 
 A _trail_ is a configuration that enables delivery of
 events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or

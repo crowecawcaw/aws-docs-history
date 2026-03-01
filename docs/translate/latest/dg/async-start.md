@@ -60,8 +60,7 @@ translation** page to create the job:
    Before you can use your own KMS key, you must add
    permissions to the service role for Amazon Translate in IAM. If you want
    to use a KMS key from a different account, you must also
-   update the key policy in AWS KMS. For more information, see [Prerequisite permissions
-   to customize encryption](async-prereqs.md#async-prereqs-permissions-custom-encryption "async-prereqs.md#async-prereqs-permissions-custom-encryption").
+   update the key policy in AWS KMS. For more information, see [Prerequisite permissions to customize encryption](async-prereqs.md#async-prereqs-permissions-custom-encryption "async-prereqs.md#async-prereqs-permissions-custom-encryption").
 
 7. Under **Customizations - optional**, you can choose to
    customize the output of your translation job with the following
@@ -76,8 +75,7 @@ target languages don't support profanity masking, the
 translation job won't mask profanity for any target
 language.
 
-For more information, see [Masking profane words and phrases in
-Amazon Translate](customizing-translations-profanity.md "customizing-translations-profanity.md").
+For more information, see [Masking profane words and phrases in Amazon Translate](customizing-translations-profanity.md "customizing-translations-profanity.md").
 
 **Brevity**
 
@@ -104,8 +102,7 @@ job, translate uses the designated terminology for each
 requested target language that has an entry for the source term
 in the terminology file.
 
-For more information, see [Customizing your translations with custom
-terminology](how-custom-terminology.md "how-custom-terminology.md").
+For more information, see [Customizing your translations with custom terminology](how-custom-terminology.md "how-custom-terminology.md").
 
 **Parallel data**
 
@@ -123,8 +120,7 @@ Translation_ job.
 Active Custom Translation jobs are priced at a higher rate than other jobs
 that don't use parallel data. For more information, see [Amazon Translate pricing](https://aws.amazon.com/translate/pricing/ "https://aws.amazon.com/translate/pricing/").
 
-For more information, see [Customizing your translations with
-parallel data (Active Custom Translation)](customizing-translations-parallel-data.md "customizing-translations-parallel-data.md"). 8. Under **Access permissions**, provide Amazon Translate with an IAM
+For more information, see [Customizing your translations with parallel data (Active Custom Translation)](customizing-translations-parallel-data.md "customizing-translations-parallel-data.md"). 8. Under **Access permissions**, provide Amazon Translate with an IAM
 role that grants the required permissions to your input and output files in
 Amazon S3:
 
@@ -148,8 +144,7 @@ Amazon S3:
      IAM role, and your KMS key must have a key policy that
      allows the role to use the key.
 
-    For more information, see [Prerequisite permissions
-     to customize encryption](async-prereqs.md#async-prereqs-permissions-custom-encryption "async-prereqs.md#async-prereqs-permissions-custom-encryption")
+    For more information, see [Prerequisite permissions to customize encryption](async-prereqs.md#async-prereqs-permissions-custom-encryption "async-prereqs.md#async-prereqs-permissions-custom-encryption")
 
 9. Choose **Create job**.
 
@@ -207,8 +202,7 @@ For more information, see [Using brevity in Amazon Translate](customizing-transl
 
 Enable profanity to mask profane words and phrases. To enable, set
 the profanity parameter to `Profanity=MASK`. For more
-information, see [Masking profane words and phrases in
-Amazon Translate](customizing-translations-profanity.md "customizing-translations-profanity.md"). If any of
+information, see [Masking profane words and phrases in Amazon Translate](customizing-translations-profanity.md "customizing-translations-profanity.md"). If any of
 the target languages don't support profanity masking, the
 translation job won't mask profanity for any target language.
 
@@ -233,8 +227,7 @@ resource.
 For a list of available custom terminology resources, use the
 [`list-terminologies`](../../../cli/latest/reference/translate/list-terminologies.md "../../../cli/latest/reference/translate/list-terminologies.md") command.
 
-For more information, see [Customizing your translations with custom
-terminology](how-custom-terminology.md "how-custom-terminology.md").
+For more information, see [Customizing your translations with custom terminology](how-custom-terminology.md "how-custom-terminology.md").
 
 `--parallel-data-names`
 
@@ -257,8 +250,7 @@ that don't use parallel data. For more information, see [Amazon Translate pricin
 
 For a list of available parallel data resources, use the [`list-parallel-data`](../../../cli/latest/reference/translate/list-parallel-data.md "../../../cli/latest/reference/translate/list-parallel-data.md") command.
 
-For more information, see [Customizing your translations with
-parallel data (Active Custom Translation)](customizing-translations-parallel-data.md "customizing-translations-parallel-data.md").
+For more information, see [Customizing your translations with parallel data (Active Custom Translation)](customizing-translations-parallel-data.md "customizing-translations-parallel-data.md").
 
 To check the status of your translation job, use the [`describe-text-translation-job`](../../../cli/latest/reference/translate/describe-text-translation-job.md "../../../cli/latest/reference/translate/describe-text-translation-job.md") command.
 

@@ -1,14 +1,10 @@
-# Parallel data input
-
-files for Amazon Translate
+# Parallel data input files for Amazon Translate
 
 Before you can create a parallel data resource in Amazon Translate, you must create an input file
 that contains your translation examples. Your parallel data input file must use languages
 that Amazon Translate supports. For a list of these languages, see [Supported languages and language codes](what-is-languages.md "what-is-languages.md").
 
-## Example
-
-parallel data
+## Example parallel data
 
 The text in the following table provides examples of translation segments that can be
 formatted into a parallel data input file:
@@ -25,9 +21,7 @@ Chinese (zh) are the target languages. The first column provides examples of sou
 text. The other columns contain examples of translations. When this parallel data
 customizes a batch job, Amazon Translate adapts the translation to reflect the examples.
 
-## Input file
-
-formats
+## Input file formats
 
 Amazon Translate supports the following formats for parallel data input files:
 
