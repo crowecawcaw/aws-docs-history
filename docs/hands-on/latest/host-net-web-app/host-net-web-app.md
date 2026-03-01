@@ -1,6 +1,4 @@
-# Publish a .NET Application to a Windows Server 2022 Instance
-
-in Amazon Lightsail
+# Publish a .NET Application to a Windows Server 2022 Instance in Amazon Lightsail
 
 |                              |                                                             |
 | ---------------------------- | ----------------------------------------------------------- |
