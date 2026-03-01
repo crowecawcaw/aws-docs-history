@@ -1,6 +1,4 @@
-# Adding a standard source to an existing
-
-MediaConnect flow
+# Adding a standard source to an existing MediaConnect flow
 
 You can add a second source to an existing flow for failover. Both sources on the
 flow must use

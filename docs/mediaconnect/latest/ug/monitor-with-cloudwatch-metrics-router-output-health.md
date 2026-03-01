@@ -9,12 +9,9 @@ monitor flow health](monitor-with-cloudwatch-metrics-flow-health.md "monitor-wit
 
 ###### Topics
 
-- [Router output
-  metrics](#monitor-with-cloudwatch-metrics-router-output "#monitor-with-cloudwatch-metrics-router-output")
+- [Router output metrics](#monitor-with-cloudwatch-metrics-router-output "#monitor-with-cloudwatch-metrics-router-output")
 
-## Router output
-
-metrics
+## Router output metrics
 
 The following table lists router output metrics that AWS Elemental MediaConnect sends
 to CloudWatch.

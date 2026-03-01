@@ -1,6 +1,4 @@
-# AWS Elemental MediaConnect
-
-metrics to monitor content quality
+# AWS Elemental MediaConnect metrics to monitor content quality
 
 AWS Elemental MediaConnect sends metrics to CloudWatch. You can review specific metrics to
 evaluate the quality of the content that's transmitted by MediaConnect.

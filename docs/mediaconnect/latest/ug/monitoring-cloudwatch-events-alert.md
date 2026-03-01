@@ -1,6 +1,4 @@
-# MediaConnect alert
-
-event
+# MediaConnect alert event
 
 MediaConnect publishes an alert event when a resource encounters an error. The event
 contains an error code and a message that describes the issue. These alerts are

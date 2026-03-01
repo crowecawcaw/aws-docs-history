@@ -1,6 +1,4 @@
-# MediaConnect output
-
-health event
+# MediaConnect output health event
 
 AWS Elemental MediaConnect publishes output health events after an output health indicator state
 changes.

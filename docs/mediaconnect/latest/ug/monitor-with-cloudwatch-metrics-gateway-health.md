@@ -1,6 +1,4 @@
-# AWS Elemental MediaConnect
-
-metrics to monitor gateway health
+# AWS Elemental MediaConnect metrics to monitor gateway health
 
 AWS Elemental MediaConnect sends metrics to CloudWatch. You can review specific metrics to
 evaluate the health of your gateways. If the flow in or out of the gateway is
@@ -14,18 +12,12 @@ must select a period of at least one minute.
 
 ###### Topics
 
-- [Gateway
-  ingress metrics](#monitor-with-cloudwatch-metrics-gateway-ingress "#monitor-with-cloudwatch-metrics-gateway-ingress")
-- [Gateway
-  ingress source metrics](#monitor-with-cloudwatch-metrics-gateway-ingress-source "#monitor-with-cloudwatch-metrics-gateway-ingress-source")
-- [Gateway egress
-  metrics](#monitor-with-cloudwatch-metrics-gateway-egress "#monitor-with-cloudwatch-metrics-gateway-egress")
-- [Gateway
-  egress source metrics](#monitor-with-cloudwatch-metrics-gateway-egress-source "#monitor-with-cloudwatch-metrics-gateway-egress-source")
+- [Gateway ingress metrics](#monitor-with-cloudwatch-metrics-gateway-ingress "#monitor-with-cloudwatch-metrics-gateway-ingress")
+- [Gateway ingress source metrics](#monitor-with-cloudwatch-metrics-gateway-ingress-source "#monitor-with-cloudwatch-metrics-gateway-ingress-source")
+- [Gateway egress metrics](#monitor-with-cloudwatch-metrics-gateway-egress "#monitor-with-cloudwatch-metrics-gateway-egress")
+- [Gateway egress source metrics](#monitor-with-cloudwatch-metrics-gateway-egress-source "#monitor-with-cloudwatch-metrics-gateway-egress-source")
 
-## Gateway
-
-ingress metrics
+## Gateway ingress metrics
 
 The following table lists gateway ingress metrics that AWS Elemental MediaConnect sends
 to CloudWatch.
@@ -53,9 +45,7 @@ to CloudWatch.
 | `IngressBridgeTotalPackets`        | The total number of packets that were received.Units:<br>CountValid dimension sets:<br>• Bridge ARN<br>• Gateway ARN, Instance ID                                                                                                                                                                                                                                                                                                                                                           |
 | `IngressBridgeTransportError`      | The number of times that a primary transport error occurred.<br>This error indicates that the transport stream packet is<br>unusable. When this error occurs, ignore all other TR 101 290<br>errors for this packet.Units: CountValid<br>dimension sets:<br>• Bridge ARN<br>• Gateway ARN, Instance ID                                                                                                                                                                                      |
 
-## Gateway
-
-ingress source metrics
+## Gateway ingress source metrics
 
 The following table lists gateway ingress source metrics that
 AWS Elemental MediaConnect sends to CloudWatch.
@@ -89,9 +79,7 @@ AWS Elemental MediaConnect sends to CloudWatch.
 | `IngressBridgeSourceTotalPackets`        | The total number of packets that were received.Units:<br>CountValid dimension sets:<br>• Bridge ARN, Bridge Source Name<br>• Gateway ARN, Instance ID, Network Name                                                                                                                                                                                                                                                                                                                                                                                |
 | `IngressBridgeSourceTransportError`      | The number of times that a primary transport error occurred.<br>This error indicates that the transport stream packet is<br>unusable. When this error occurs, ignore all other TR 101 290<br>errors for this packet.Units: CountValid<br>dimension sets:<br>• Bridge ARN, Bridge Source Name<br>• Gateway ARN, Instance ID, Network Name                                                                                                                                                                                                           |
 
-## Gateway egress
-
-metrics
+## Gateway egress metrics
 
 The following table lists gateway egress metrics that AWS Elemental MediaConnect sends
 to CloudWatch.
@@ -119,9 +107,7 @@ to CloudWatch.
 | `EgressBridgeTotalPackets`        | The total number of packets that were received.Units:<br>CountValid dimension sets:<br>• Bridge ARN<br>• Gateway ARN, Instance ID                                                                                                                                                                                                                                                                                                                                                              |
 | `EgressBridgeTransportError`      | The number of times that a primary transport error occurred.<br>This error indicates that the transport stream packet is<br>unusable. When this error occurs, ignore all other TR 101 290<br>errors for this packet.Units: CountValid<br>dimension sets:<br>• Bridge ARN<br>• Gateway ARN, Instance ID                                                                                                                                                                                         |
 
-## Gateway
-
-egress source metrics
+## Gateway egress source metrics
 
 The following table lists gateway egress source metrics that AWS Elemental MediaConnect
 sends to CloudWatch.

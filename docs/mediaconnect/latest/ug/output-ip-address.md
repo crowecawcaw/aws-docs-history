@@ -42,9 +42,7 @@ Private internet
      address. This is the IP address that the receiver
      needs.
 
-## Finding an output’s peer IP
-
-address
+## Finding an output’s peer IP address
 
 You can view the current peer IP address for each of your flow outputs in the
 MediaConnect console, or by using the [DescribeFlow](../api/API_DescribeFlow.md "../api/API_DescribeFlow.md") API
@@ -79,9 +77,7 @@ For other protocols (like RIST outputs and SRT Listener outputs), the peer IP
 address is dynamic and shows the current address of the device that's receiving
 traffic from your output.
 
-### Important information
-
-about peer IP addresses
+### Important information about peer IP addresses
 
 ###### Peer IP display and updates
 

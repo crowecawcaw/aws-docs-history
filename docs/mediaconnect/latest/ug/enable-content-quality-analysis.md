@@ -1,6 +1,4 @@
-# Enabling content quality analysis
-
-and configuring thresholds
+# Enabling content quality analysis and configuring thresholds
 
 You enable content quality analysis for each flow in MediaConnect individually.
 You can do this when you create a new flow, or when you update an existing one. For
@@ -24,9 +22,7 @@ Console, the AWS CLI, and the MediaConnect API.
 
 Console
 
-###### To enable content quality analysis when you create a
-
-flow
+###### To enable content quality analysis when you create a flow
 
 Follow the instructions for [Creating a flow](flows-create.md "flows-create.md"). In the **Source monitoring
 configuration** step, make sure to turn on
@@ -45,9 +41,7 @@ default threshold is 30 seconds.
 
 AWS CLI
 
-###### To enable content quality analysis with default
-
-settings
+###### To enable content quality analysis with default settings
 
 Run the [create-flow](../../../cli/latest/reference/mediaconnect/create-flow.md "../../../cli/latest/reference/mediaconnect/create-flow.md") command as shown in the
 following example:
@@ -96,9 +90,7 @@ below:
 }
 ```
 
-###### To enable content quality analysis with custom
-
-thresholds
+###### To enable content quality analysis with custom thresholds
 
 Run the [create-flow](../../../cli/latest/reference/mediaconnect/create-flow.md "../../../cli/latest/reference/mediaconnect/create-flow.md") command with the
 `--source-monitoring-config` parameter
@@ -143,9 +135,7 @@ Keep in mind the following:
 
 Console
 
-###### To enable content quality analysis in an existing
-
-flow
+###### To enable content quality analysis in an existing flow
 
 Follow the instructions for [Updating a flow](flows-update.md "flows-update.md"). In the
 **Source monitoring
@@ -165,9 +155,7 @@ seconds. The default threshold is 30 seconds.
 
 AWS CLI
 
-###### To enable content quality analysis with default
-
-settings
+###### To enable content quality analysis with default settings
 
 Run the [update-flow](../../../cli/latest/reference/mediaconnect/update-flow.md "../../../cli/latest/reference/mediaconnect/update-flow.md") command as shown in the
 following example:
@@ -214,9 +202,7 @@ below:
 }
 ```
 
-###### To enable content quality analysis with custom
-
-thresholds
+###### To enable content quality analysis with custom thresholds
 
 Run the [update-flow](../../../cli/latest/reference/mediaconnect/update-flow.md "../../../cli/latest/reference/mediaconnect/update-flow.md") command with the
 `--source-monitoring-config` parameter

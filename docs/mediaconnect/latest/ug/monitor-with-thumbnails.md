@@ -43,10 +43,8 @@ generation rate).
 
 - [Requirements for thumbnails](thumbnails-specifications.md "thumbnails-specifications.md")
 - [Limit on thumbnails in MediaConnect](#thumbnails-api-limits "#thumbnails-api-limits")
-- [Enabling and viewing thumbnails in the
-  console](thumbnails-enable-view-console.md "thumbnails-enable-view-console.md")
-- [Enabling and retrieving
-  thumbnails programmatically](thumbnails-enable-retrieve-programatically.md "thumbnails-enable-retrieve-programatically.md")
+- [Enabling and viewing thumbnails in the console](thumbnails-enable-view-console.md "thumbnails-enable-view-console.md")
+- [Enabling and retrieving thumbnails programmatically](thumbnails-enable-retrieve-programatically.md "thumbnails-enable-retrieve-programatically.md")
 
 ## Limit on thumbnails in MediaConnect
 

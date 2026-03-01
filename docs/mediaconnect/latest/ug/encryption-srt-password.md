@@ -1,6 +1,4 @@
-# SRT password encryption in
-
-AWS Elemental MediaConnect
+# SRT password encryption in AWS Elemental MediaConnect
 
 You can use the Secure Reliable Transport (SRT) password encryption option to
 encrypt sources, outputs and router I/O when using the SRT protocols. SRT protocols are a highly
@@ -10,7 +8,5 @@ obtain the encryption password from Secrets Manager.
 
 ###### Topics
 
-- [Password
-  management for SRT password encryption](encryption-srt-password-password-management.md "encryption-srt-password-password-management.md")
-- [Setting up SRT password
-  encryption using AWS Elemental MediaConnect](encryption-srt-password-set-up.md "encryption-srt-password-set-up.md")
+- [Password management for SRT password encryption](encryption-srt-password-password-management.md "encryption-srt-password-password-management.md")
+- [Setting up SRT password encryption using AWS Elemental MediaConnect](encryption-srt-password-set-up.md "encryption-srt-password-set-up.md")

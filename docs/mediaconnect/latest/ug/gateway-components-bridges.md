@@ -12,8 +12,7 @@ to the AWS Cloud.
   - [Bridge sources](#gateway-components-bridges-sources "#gateway-components-bridges-sources")
   - [Bridge outputs](#gateway-components-bridges-outputs "#gateway-components-bridges-outputs")
 
-- [Next
-  steps](#gateway-components-bridges-next-steps "#gateway-components-bridges-next-steps")
+- [Next steps](#gateway-components-bridges-next-steps "#gateway-components-bridges-next-steps")
 
 ## Key points
 
@@ -56,9 +55,7 @@ of sources:
   premises. You don't need to select the protocol. The source will use the
   same protocol as the existing flow.
 
-#### Bridge source
-
-failover
+#### Bridge source failover
 
 If you create multiple bridge sources, you can enhance the resiliency of
 your bridge by activating failover during the creation process. The failover
@@ -94,8 +91,6 @@ the two types of outputs:
   delivered to your premises. Egress bridge outputs support RTP, RTP-FEC,
   and UDP protocols.
 
-## Next
-
-steps
+## Next steps
 
 - To create a bridge, see [Creating a MediaConnect Gateway bridge](gateway-components-bridges-create.md "gateway-components-bridges-create.md").

@@ -1,6 +1,4 @@
-# Creating a transport stream flow that
-
-uses a standard source
+# Creating a transport stream flow that uses a standard source
 
 Transport stream flows transport compressed content that is muxed into a single
 stream.
@@ -50,9 +48,7 @@ servers, but it doesn't create them for you.
 
 ## Procedure
 
-### Create a transport stream flow that
-
-uses a standard source (console)
+### Create a transport stream flow that uses a standard source (console)
 
 1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/ "https://console.aws.amazon.com/mediaconnect/").
 2. On the **Flows** page, choose **Create
@@ -609,9 +605,7 @@ and MediaLive to complete these steps.
 9. At the bottom of the page, choose **Create
    flow**.
 
-### Create a transport stream flow that
-
-uses a standard source (AWS CLI)
+### Create a transport stream flow that uses a standard source (AWS CLI)
 
 1. Create a JSON file that contains the details of the flow that you want to
    create.

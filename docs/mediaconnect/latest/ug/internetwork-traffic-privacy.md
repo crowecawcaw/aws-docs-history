@@ -9,9 +9,7 @@ maintaining network isolation. For more information, see [What is AWS
 Site-to-Site VPN?](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md") and [What
 is Direct Connect?](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md")
 
-###### To route traffic directly between MediaConnect and your corporate network
-
-via a virtual private cloud (VPC)
+###### To route traffic directly between MediaConnect and your corporate network via a virtual private cloud (VPC)
 
 1. Set up a private connection between your Amazon VPC and your corporate network. You can choose between an IPsec VPN connection over the internet or a private
    physical connection using Direct Connect connection.

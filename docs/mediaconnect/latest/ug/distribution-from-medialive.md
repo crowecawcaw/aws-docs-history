@@ -1,6 +1,4 @@
-# Distributing content from an AWS Elemental MediaLive
-
-Multiplex
+# Distributing content from an AWS Elemental MediaLive Multiplex
 
 An AWS Elemental MediaLive [multiplex](../../../medialive/latest/ug/eml-multiplex.md "../../../medialive/latest/ug/eml-multiplex.md") creates a UDP transport stream (TS) that carries multiple programs,
 also known as a multi-program transport stream (MPTS). When you create a multiplex, MediaLive automatically grants an entitlement in MediaConnect for your

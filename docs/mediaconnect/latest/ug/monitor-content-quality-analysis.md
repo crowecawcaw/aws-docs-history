@@ -1,6 +1,4 @@
-# Monitoring with content quality
-
-analysis in AWS Elemental MediaConnect
+# Monitoring with content quality analysis in AWS Elemental MediaConnect
 
 You can use MediaConnect content quality analysis to monitor your source streams more
 effectively. This feature enables you to track specific audio and video metrics, helping
@@ -15,17 +13,14 @@ reliable media delivery workflow.
 ###### Contents
 
 - [Key points](#monitor-content-quality-analysis-key-points "#monitor-content-quality-analysis-key-points")
-  - [How content quality
-    analysis works](#how-content-quality-analysis-works "#how-content-quality-analysis-works")
+  - [How content quality analysis works](#how-content-quality-analysis-works "#how-content-quality-analysis-works")
   - [Considerations](#content-quality-analysis-considerations "#content-quality-analysis-considerations")
 
 - [Next steps](#content-quality-analysis-next-steps "#content-quality-analysis-next-steps")
 
 ## Key points
 
-### How content quality
-
-analysis works
+### How content quality analysis works
 
 You can monitor for the following content quality issues:
 
@@ -62,5 +57,4 @@ when issues occur in the areas you've chosen to monitor.
 
 ## Next steps
 
-To get started with this feature, see [Enabling content quality analysis
-and configuring thresholds](enable-content-quality-analysis.md "enable-content-quality-analysis.md").
+To get started with this feature, see [Enabling content quality analysis and configuring thresholds](enable-content-quality-analysis.md "enable-content-quality-analysis.md").

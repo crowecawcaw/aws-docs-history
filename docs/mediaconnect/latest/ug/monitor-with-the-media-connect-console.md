@@ -1,6 +1,4 @@
-# Monitoring with the
-
-AWS Elemental MediaConnect console
+# Monitoring with the AWS Elemental MediaConnect console
 
 AWS Elemental MediaConnect offers several ways to monitor your resources directly within the
 MediaConnect console. This allows you to quickly view the status and health of your
@@ -25,9 +23,7 @@ MediaConnect console.
 
 ###### Contents
 
-- [Monitoring with content quality
-  analysis in AWS Elemental MediaConnect](monitor-content-quality-analysis.md "monitor-content-quality-analysis.md")
+- [Monitoring with content quality analysis in AWS Elemental MediaConnect](monitor-content-quality-analysis.md "monitor-content-quality-analysis.md")
 - [Viewing thumbnails of the source video](monitor-with-thumbnails.md "monitor-with-thumbnails.md")
 - [Monitoring using source metadata](monitor-with-source-stream-monitoring.md "monitor-with-source-stream-monitoring.md")
-- [Monitoring flow and source
-  health](monitor-flow-and-source-health.md "monitor-flow-and-source-health.md")
+- [Monitoring flow and source health](monitor-flow-and-source-health.md "monitor-flow-and-source-health.md")

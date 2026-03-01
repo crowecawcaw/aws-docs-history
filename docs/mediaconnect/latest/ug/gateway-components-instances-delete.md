@@ -1,6 +1,4 @@
-# Deregistering a MediaConnect Gateway
-
-instance
+# Deregistering a MediaConnect Gateway instance
 
 You can deregister an instance you no longer want to use within MediaConnect Gateway. By
 deregistering the instance, it will no longer support bridges and will not be a part

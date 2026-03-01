@@ -1,6 +1,4 @@
-# Source failover and merge for router inputs in
-
-MediaConnect
+# Source failover and merge for router inputs in MediaConnect
 
 MediaConnect supports two types of redundancy configurations for router inputs:
 **Failover** and **Merge**.

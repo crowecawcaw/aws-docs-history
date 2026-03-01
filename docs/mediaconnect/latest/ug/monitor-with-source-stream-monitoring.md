@@ -12,16 +12,12 @@ Reference._
 If you are using more than one source for your flow, source metadata is only
 displayed for the source currently used by the flow.
 
-## Source metadata
-
-details
+## Source metadata details
 
 The following sections provide details about the type of information displayed by
 source metadata monitoring.
 
-### Alerts
-
-and messages
+### Alerts and messages
 
 The **active alerts** section of the **Source
 metadata** console tab and the **messages**
@@ -60,9 +56,7 @@ transport stream program. This section contains the following fields:
 | Sample rate      | The sample rate of the audio stream. In the API/CLI response,<br>the sample rate is displayed in hertz (Hz). In the console, the<br>sample rate is displayed in Hz, unless it exceeds 1000 Hz, then<br>it is displayed in kilohertz (kHz).                                                                                                  |
 | Sample size      | The sample size of the audio stream. The sample size is<br>displayed in bits.                                                                                                                                                                                                                                                               |
 
-## Using source
-
-metadata monitoring (console)
+## Using source metadata monitoring (console)
 
 You can retrieve the latest source metadata from MediaConnect by using the
 console.
@@ -75,9 +69,7 @@ console.
    of every active alert, program, and stream for the selected flow's
    source.
 
-## Using source metadata
-
-monitoring (AWS CLI)
+## Using source metadata monitoring (AWS CLI)
 
 You can retrieve the latest source metadata from MediaConnect by using the AWS CLI. The
 following example shows the AWS CLI command and return value for a typical
@@ -137,9 +129,7 @@ aws mediaconnect describe-flow-source-metadata --flow-arn `arn:aws:mediaconnect:
 }
 ```
 
-### Example
-
-source metadata API/CLI response
+### Example source metadata API/CLI response
 
 The following is another example of the response from the
 `DescribeFlowSourceMetadata` API/CLI. In this example, there are

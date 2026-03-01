@@ -1,6 +1,4 @@
-# Deleting a router network interface in
-
-MediaConnect
+# Deleting a router network interface in MediaConnect
 
 You can delete router network interfaces that are no longer needed for your workflow.
 This helps you to maintain a clean network configuration and reduce unused resources.
@@ -44,9 +42,7 @@ After deleting a network interface, you can:
 - [Review your remaining network
   interfaces](viewing-router-network-interfaces.md "viewing-router-network-interfaces.md") to ensure your network setup is complete.
 
-## Additional
-
-resources
+## Additional resources
 
 To delete network interfacesprogrammatically, see the following page in the
 _MediaConnect API Reference_:

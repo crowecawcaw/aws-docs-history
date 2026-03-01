@@ -1,6 +1,4 @@
-# Registering a MediaConnect Gateway
-
-instance
+# Registering a MediaConnect Gateway instance
 
 You can register an instance by running a custom Linux command on the device that
 will be hosting the instance. You generate the command by following the instance
@@ -63,5 +61,4 @@ on that instance. For instructions, see [Creating a MediaConnect Gateway bridge]
 
 ## Additional resources
 
-- [Deregistering a MediaConnect Gateway
-  instance](gateway-components-instances-delete.md "gateway-components-instances-delete.md")
+- [Deregistering a MediaConnect Gateway instance](gateway-components-instances-delete.md "gateway-components-instances-delete.md")

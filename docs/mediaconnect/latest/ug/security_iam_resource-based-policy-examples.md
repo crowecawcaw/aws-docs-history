@@ -1,6 +1,4 @@
-# AWS Elemental MediaConnect
-
-resource-based policy examples
+# AWS Elemental MediaConnect resource-based policy examples
 
 To access the AWS Elemental MediaConnect console, you must have a minimum set of permissions that
 allows you to list and view details about the MediaConnect resources in your AWS account. The
@@ -136,9 +134,7 @@ JSON
 
 ```
 
-## Allow AWS Elemental MediaConnect to create
-
-and manage network interfaces in your VPC
+## Allow AWS Elemental MediaConnect to create and manage network interfaces in your VPC
 
 This example IAM policy allows AWS Elemental MediaConnect to create and manage network
 interfaces in your VPC so that content can flow from your VPC to MediaConnect. If

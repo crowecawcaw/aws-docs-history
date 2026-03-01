@@ -1,6 +1,4 @@
-# Creating a transport stream flow that
-
-uses an entitled source
+# Creating a transport stream flow that uses an entitled source
 
 Transport stream flows transport compressed content that is muxed into a single
 stream. An entitled source is content that comes from another AWS account.
@@ -37,9 +35,7 @@ servers, but it doesn't create them for you.
 
 ## Procedure
 
-###### To create a transport stream flow that uses an entitled source
-
-(console)
+###### To create a transport stream flow that uses an entitled source (console)
 
 1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/ "https://console.aws.amazon.com/mediaconnect/").
 2. On the **Flows** page, choose **Create

@@ -1,6 +1,4 @@
-# MediaConnect flow
-
-state change event
+# MediaConnect flow state change event
 
 This event is published when a flow's state has changed from or to any of the
 following states: Standby, Active, Updating, Deleting, Starting, Stopping, or Error.

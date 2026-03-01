@@ -1,6 +1,4 @@
-# Setting up SRT password
-
-encryption using AWS Elemental MediaConnect
+# Setting up SRT password encryption using AWS Elemental MediaConnect
 
 Before you can create a flow or a router I/O that uses SRT password encryption,
 you must perform the following steps:
@@ -16,9 +14,7 @@ you created in step 2. Next, set up AWS Elemental MediaConnect as a trusted enti
 is allowed to assume this role and make requests on behalf of your
 account.
 
-##
-
-Step 1: Store your encryption password in AWS Secrets Manager
+## Step 1: Store your encryption password in AWS Secrets Manager
 
 To use SRT password encryption to encrypt your AWS Elemental MediaConnect content,
 you must use AWS Secrets Manager to create a secret that stores the password. You must
@@ -67,19 +63,14 @@ The details page for your new secret appears, showing information
 such as the secret ARN. 11. Make a note of the secret ARN from Secrets Manager. You will need this
 information in the next procedure.
 
-## Step 2:
-
-Create an IAM policy to allow AWS Elemental MediaConnect to access your
-secret
+## Step 2: Create an IAM policy to allow AWS Elemental MediaConnect to access your secret
 
 In [step 1](encryption-static-key-set-up.md#encryption-static-key-set-up-store-key "encryption-static-key-set-up.md#encryption-static-key-set-up-store-key"),
 you created a secret and stored it in AWS Secrets Manager. In this step, you create an
 IAM policy that allows AWS Elemental MediaConnect to read the secret that you
 stored.
 
-###### To create an IAM policy that allows MediaConnect to access your
-
-secret
+###### To create an IAM policy that allows MediaConnect to access your secret
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -118,9 +109,7 @@ the previous procedure. Choose **Next:
 Tags**. 5. Choose **Next: Review**. 6. For **Name**, enter a name for your policy such
 as `SecretsManagerForMediaConnect`. 7. Choose **Create policy**.
 
-## Step 3:
-
-Create an IAM role with a trusted relationship
+## Step 3: Create an IAM role with a trusted relationship
 
 In [step
 2](encryption-static-key-set-up.md#encryption-static-key-set-up-create-iam-policy "encryption-static-key-set-up.md#encryption-static-key-set-up-create-iam-policy"), you created an IAM policy that allows read access to the

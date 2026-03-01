@@ -1,6 +1,4 @@
-# Viewing router network interfaces in
-
-MediaConnect
+# Viewing router network interfaces in MediaConnect
 
 You can view your router network interfaces in the MediaConnect console. For each interface,
 you can see the configuration details, status, and associated resources.
@@ -43,9 +41,7 @@ After reviewing your network interfaces, you can:
 - [Delete unused router network
   interfaces](deleting-router-network-interface.md "deleting-router-network-interface.md")
 
-## Additional
-
-resources
+## Additional resources
 
 To view network interfaces programmatically, see the following pages in the _MediaConnect API Reference_:
 

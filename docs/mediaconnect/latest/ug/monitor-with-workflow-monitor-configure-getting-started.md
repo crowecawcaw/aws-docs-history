@@ -1,6 +1,4 @@
-# Getting
-
-started with workflow monitor
+# Getting started with workflow monitor
 
 The following steps provide a basic overview of using workflow monitor for the first time.
 

@@ -10,9 +10,7 @@ For example, you can use the source peer IP address to do the following:
 - Troubleshoot connection issues
 - Monitor security by ensuring content is coming from expected IPs
 
-## Finding a source’s peer IP
-
-address
+## Finding a source’s peer IP address
 
 You can view the current peer IP address for each of your flow sources in the
 MediaConnect console, or by using the [DescribeFlow](../api/API_DescribeFlow.md "../api/API_DescribeFlow.md") API
@@ -40,9 +38,7 @@ listener sources), the peer IP address reflects the current state of the flow,
 showing the address of the device currently sending traffic to your
 source.
 
-### Important information
-
-about peer IP addresses
+### Important information about peer IP addresses
 
 ###### Peer IP display and updates
 

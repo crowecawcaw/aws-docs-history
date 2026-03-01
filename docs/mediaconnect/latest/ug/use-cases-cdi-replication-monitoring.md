@@ -1,6 +1,4 @@
-# MediaConnect use case: replication and
-
-monitoring for CDI flows
+# MediaConnect use case: replication and monitoring for CDI flows
 
 You can use AWS Elemental MediaConnect to replicate and distribute video to multiple
 destinations and monitor the multiple video signals in real time.

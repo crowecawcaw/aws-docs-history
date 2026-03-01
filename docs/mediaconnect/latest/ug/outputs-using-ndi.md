@@ -1,6 +1,4 @@
-# Using NDI® outputs in a MediaConnect
-
-flow
+# Using NDI® outputs in a MediaConnect flow
 
 AWS Elemental MediaConnect can convert MPEG transport streams into [Network Device Interface (NDI®)](https://ndi.video/tech/ "https://ndi.video/tech/"), a
 protocol for high-quality, low-latency video and audio over IP networks. This
@@ -17,9 +15,7 @@ no modifications to your current VPC setup.
 
 ## Key points
 
-### Understanding NDI
-
-terminology
+### Understanding NDI terminology
 
 In video and audio workflows, the terms _source_ and _output_ have
 specific meanings that vary between contexts. Understanding these
@@ -47,9 +43,7 @@ In summary: Your MediaConnect flow takes video and audio from a flow source and,
 with an NDI flow output enabled, it creates an NDI source that your
 production systems can receive from.
 
-### How NDI outputs
-
-work
+### How NDI outputs work
 
 At a high level, here’s how your content moves through MediaConnect when you use
 NDI outputs:
@@ -67,9 +61,7 @@ This workflow maintains compatibility with existing broadcast
 infrastructure while adding the flexibility and networking advantages of NDI
 distribution.
 
-### White screen
-
-generation for NDI outputs
+### White screen generation for NDI outputs
 
 When you configure a transport stream flow with NDI outputs, MediaConnect
 automatically generates white video frames to provide a valid source signal
@@ -102,9 +94,7 @@ When your source starts sending content to your flow, the source content
 automatically replaces the white frames. MediaConnect stops generating silent audio
 frames, and the audio passes through from the source.
 
-### Considerations and
-
-limitations
+### Considerations and limitations
 
 When planning your NDI output implementation in MediaConnect, keep in mind the
 following.
@@ -117,6 +107,7 @@ following.
 | Supported source protocols                                                                                                                                                                                                                                                                                                                                                                            | NDI outputs are compatible with all supported source<br>protocols (RTP, RTP+FEC, SRT, Zixi, and RIST).                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Transport protocols                                                                                                                                                                                                                                                                                                                                                                                   | MediaConnect uses TCP as the transport protocol for NDI.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Multi-program source handling                                                                                                                                                                                                                                                                                                                                                                         | NDI outputs can only be created using single program<br>transport stream sources.<br>For multi-program transport stream sources, the NDI output<br>only transmits the first program available to downstream<br>receivers.                                                                                                                                                                                                                                                                                                                  |
+| Timecode processing                                                                                                                                                                                                                                                                                                                                                                                   | MediaConnect uses the UTC system clock to generate NDI<br>timecodes. Timecodes that are embedded in the source transport stream won't be<br>preserved in the NDI output.                                                                                                                                                                                                                                                                                                                                                                   |
 | Output configuration                                                                                                                                                                                                                                                                                                                                                                                  | You can add one NDI output to each large-sized<br>flow.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | At least one NDI discovery server is required for each<br>flow (up to a maximum of three).                                                                                                                                                                                                                                                                                                            |
 | You can combine an NDI output with transport stream<br>outputs in the same flow.<br>NoteKeep in mind that NDI outputs are resource intensive,<br>and adding an NDI output will reduce the number of<br>transport stream outputs you can run<br>simultaneously.<br>For more information about best practices for using<br>NDI outputs, see [Best<br>practices](best-practices.md "best-practices.md"). |
@@ -132,9 +123,7 @@ following.
 | Discovery and connection methods                                                                                                                                                                                                                                                                                                                                                                      | MediaConnect supports connections to NDI outputs through NDI<br>discovery servers only. Direct mDNS discovery or manual<br>connection to NDI outputs isn't supported.                                                                                                                                                                                                                                                                                                                                                                      |
 | Cross-Region support                                                                                                                                                                                                                                                                                                                                                                                  | NDI outputs are VPC-bound and can't span across different<br>AWS Regions. Each flow can only transmit NDI traffic to<br>the target VPC subnet that's in the same AWS Region as<br>your flow.<br>For NDI outputs across multiple AWS Regions, we<br>recommend using separate flows with dedicated NDI ecosystems<br>in each Region/VPC.<br>Alternatively, if you need to send NDI traffic to<br>different AWS Regions, you can set up a downstream<br>solution that uses networking services to route the NDI<br>traffic where you need it. |
 
-### Supported
-
-decoding parameters
+### Supported decoding parameters
 
 The following table outlines the supported decoding parameters for NDI
 outputs in MediaConnect.
@@ -156,9 +145,7 @@ To get started with NDI outputs, first [create a
 flow](flows-create.md "flows-create.md") with NDI enabled, then [add an
 NDI output](outputs-add-ndi.md "outputs-add-ndi.md") to your flow.
 
-## Additional
-
-resources
+## Additional resources
 
 - [Flow sizes and
   capabilities](flow-sizes-capabilities.md "flow-sizes-capabilities.md")

@@ -1,6 +1,4 @@
-# Setting up AWS Elemental MediaConnect as a trusted
-
-service
+# Setting up AWS Elemental MediaConnect as a trusted service
 
 You can use AWS Identity and Access Management (IAM) to control which AWS resources can be accessed by which users and applications. This includes setting up
 permissions to allow AWS Elemental MediaConnect to communicate with other services on behalf of your account. To set up AWS Elemental MediaConnect as a trusted
@@ -15,9 +13,7 @@ trusted
 relationship, and attach the policy that you created in the previous
 step.
 
-## Step 1: Create an IAM
-
-policy to allow specific actions
+## Step 1: Create an IAM policy to allow specific actions
 
 In this step, you create an IAM policy that governs which actions you want to
 allow.
@@ -40,9 +36,7 @@ allow.
 6. For **Name**, enter a name for your policy.
 7. Choose **Create policy**.
 
-## Step 2: Create an IAM
-
-role with a trusted relationship
+## Step 2: Create an IAM role with a trusted relationship
 
 In [step 1](#security-iam-trusted-entity-create-policy "#security-iam-trusted-entity-create-policy"), you
 created an IAM policy that governs which actions you want to allow. In this step,

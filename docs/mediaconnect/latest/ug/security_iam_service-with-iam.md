@@ -1,6 +1,4 @@
-# How AWS Elemental MediaConnect works with
-
-IAM
+# How AWS Elemental MediaConnect works with IAM
 
 Before you use IAM to manage access to MediaConnect, you should understand what
 IAM features are available to use with MediaConnect. To get a high-level view of
@@ -9,17 +7,12 @@ That Work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 
 ###### Topics
 
-- [MediaConnect
-  identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
+- [MediaConnect identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")
 - [MediaConnect resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")
-- [Authorization based on
-  MediaConnect tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
-- [MediaConnect IAM
-  roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
+- [Authorization based on MediaConnect tags](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")
+- [MediaConnect IAM roles](#security_iam_service-with-iam-roles "#security_iam_service-with-iam-roles")
 
-## MediaConnect
-
-identity-based policies
+## MediaConnect identity-based policies
 
 With IAM identity-based policies, you can specify allowed or denied actions and
 resources as well as the conditions under which actions are allowed or denied.
@@ -137,30 +130,23 @@ _IAM User Guide_.
 
 ### Examples
 
-To view examples of MediaConnect identity-based policies, see [AWS Elemental MediaConnect
-identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of MediaConnect identity-based policies, see [AWS Elemental MediaConnect identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
 ## MediaConnect resource-based policies
 
 AWS Elemental MediaConnect does not support resource-based policies.
 
-## Authorization based on
-
-MediaConnect tags
+## Authorization based on MediaConnect tags
 
 AWS Elemental MediaConnect does not support tagging resources or controlling access based on
 tags.
 
-## MediaConnect IAM
-
-roles
+## MediaConnect IAM roles
 
 An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
 your AWS account that has specific permissions.
 
-### Using temporary
-
-credentials with MediaConnect
+### Using temporary credentials with MediaConnect
 
 You can use temporary credentials to sign in with federation, assume an IAM
 role, or to assume a cross-account role. You obtain temporary security
@@ -177,9 +163,7 @@ view but not edit the permissions for service-linked roles.
 
 MediaConnect does not support service-linked roles.
 
-### Service
-
-roles
+### Service roles
 
 This feature allows a service to assume a [service role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role") on your behalf. This role allows the service to access
 resources in other services to complete an action on your behalf. Service roles

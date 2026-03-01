@@ -1,6 +1,4 @@
-# Using NDI®
-
-sources in a MediaConnect flow
+# Using NDI® sources in a MediaConnect flow
 
 AWS Elemental MediaConnect can ingest [Network Device
 Interface (NDI®)](https://ndi.video/tech/ "https://ndi.video/tech/"), a protocol for high-quality, low-latency video and audio
@@ -18,9 +16,7 @@ to your current VPC setup.
 
 ## Key points
 
-### Understanding NDI
-
-terminology
+### Understanding NDI terminology
 
 In video and audio workflows, the terms **source** and **output** have specific
 meanings that vary between contexts. Understanding these differences helps you
@@ -66,9 +62,7 @@ This workflow maintains compatibility with NDI-based production systems while
 adding the flexibility and networking advantages of traditional broadcast
 distribution.
 
-### Considerations and
-
-limitations
+### Considerations and limitations
 
 When planning your NDI source implementation in MediaConnect, keep in mind the
 following.
@@ -87,6 +81,7 @@ following.
 | Cross-Region support                                                                                                                                                    | NDI sources are VPC-bound and can't span across different<br>AWS Regions. Each flow can only receive NDI traffic from a<br>source VPC subnet that's in the same AWS Region as your<br>flow.                                  |
 | Technical specifications                                                                                                                                                | Transport protocols                                                                                                                                                                                                          | When using NDI as your flow source, the content is<br>transported using TCP.                                                                                                                                                                                                                                                                     |
 | NDI protocols                                                                                                                                                           | Only NDI high quality (HQ) is supported. NDI HX isn't<br>supported.                                                                                                                                                          |
+| Timecode processing                                                                                                                                                     | Timecodes that are embedded in the NDI source will be<br>inserted to the encoded AVC (H.264) video in an SEI message<br>of type pic_timing, in accordance with section D.1.2 of<br>ISO/IEC 14496-10-2005.                    |
 | Discovery and connection methods                                                                                                                                        | MediaConnect supports connections to NDI sources through NDI<br>discovery servers only. Direct mDNS discovery or manual<br>connection to NDI sources isn't supported.                                                        |
 | NDI feature support                                                                                                                                                     | NDI groups aren't supported.                                                                                                                                                                                                 |
 | NDI genlock isn't supported.                                                                                                                                            |
@@ -96,9 +91,7 @@ following.
 To get started, [create a flow](flows-create-ndi.md "flows-create-ndi.md") with an NDI
 source.
 
-## Additional
-
-resources
+## Additional resources
 
 - [Flow sizes and
   capabilities](flow-sizes-capabilities.md "flow-sizes-capabilities.md")

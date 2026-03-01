@@ -1,6 +1,4 @@
-# Setting up SPEKE encryption using
-
-AWS Elemental MediaConnect
+# Setting up SPEKE encryption using AWS Elemental MediaConnect
 
 Before you can grant an entitlement that uses SPEKE encryption, you must
 perform the following steps:
@@ -20,9 +18,7 @@ policy that you created in step 2. Next, set up AWS Elemental MediaConnect as a 
 entity that is allowed to assume this role and access the API Gateway endpoint on your
 behalf.
 
-## Step 1: Get
-
-on board with a CA provider
+## Step 1: Get on board with a CA provider
 
 To use SPEKE with AWS Elemental MediaConnect, you must have a CA platform key
 provider. The following AWS partners provide conditional access (CA)
@@ -55,9 +51,7 @@ During the onboarding process, make a note of the following:
 
 You need these values later, when you configure the [entitlement](entitlements-grant.md "entitlements-grant.md") in MediaConnect.
 
-## Step 2: Create
-
-an IAM policy to allow API Gateway to act as your proxy
+## Step 2: Create an IAM policy to allow API Gateway to act as your proxy
 
 In [step
 1](#encryption-speke-set-up-on-board-key-provider "#encryption-speke-set-up-on-board-key-provider"), you worked with a CA platform key provider who manages your
@@ -99,9 +93,7 @@ request that you created in API Gateway with the CA platform key
 provider. 4. Choose **Review policy**. 5. For **Name**, enter
 `APIGateway-Proxy-Access`. 6. Choose **Create policy**.
 
-## Step 3: Create an
-
-IAM role with a trusted relationship
+## Step 3: Create an IAM role with a trusted relationship
 
 In [step
 2](#encryption-speke-set-up-create-iam-policy "#encryption-speke-set-up-create-iam-policy"), you created an **APIGateway-Proxy-Access** policy that allows API Gateway to act as a

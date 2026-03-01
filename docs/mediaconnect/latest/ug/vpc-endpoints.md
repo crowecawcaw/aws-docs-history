@@ -1,6 +1,4 @@
-# MediaConnect interface VPC endpoints
-
-(AWS PrivateLink)
+# MediaConnect interface VPC endpoints (AWS PrivateLink)
 
 You can use an interface VPC endpoint to keep all MediaConnect API request traffic
 between your VPC and MediaConnect in the Amazon network, thus improving the security of
@@ -11,9 +9,7 @@ use to privately access MediaConnect APIs with private IP addresses.
 For more information about AWS PrivateLink and VPC endpoints, see [VPC endpoints](../../../vpc/latest/userguide/vpc-endpoints.md "../../../vpc/latest/userguide/vpc-endpoints.md") in the
 _Amazon VPC User Guide_.
 
-## Considerations for
-
-MediaConnect VPC endpoints
+## Considerations for MediaConnect VPC endpoints
 
 Before you set up an interface endpoint for MediaConnect, be sure to review [Interface endpoint properties and limitations](../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations") in the _Amazon VPC User Guide_, and be aware of the following
 considerations:
@@ -28,17 +24,13 @@ considerations:
 - The security group attached to the VPC endpoint must allow incoming
   connections on port 443 from the private subnet of the VPC.
 
-## Creating the VPC Endpoints for
-
-MediaConnect
+## Creating the VPC Endpoints for MediaConnect
 
 You can create an interface endpoint for MediaConnect using either the Amazon VPC
 console or the AWS Command Line Interface (AWS CLI). Follow the procedure outlined in [Creating
 an interface endpoint](../../../vpc/latest/privatelink/vpce-interface.md#create-interface-endpoint "../../../vpc/latest/privatelink/vpce-interface.md#create-interface-endpoint") in the _Amazon VPC User Guide_.
 
-## Controlling Access to VPC Endpoints for
-
-MediaConnect
+## Controlling Access to VPC Endpoints for MediaConnect
 
 You can control access to MediaConnect by attaching an endpoint policy to your VPC
 endpoint. The policy specifies the following information:

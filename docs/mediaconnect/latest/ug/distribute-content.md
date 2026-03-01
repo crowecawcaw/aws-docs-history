@@ -18,9 +18,6 @@ are closer to the receivers, which are located in various cities around the worl
 
 ###### Topics
 
-- [Distributing content across
-  Regions](distribution-across-regions.md "distribution-across-regions.md")
-- [Distributing content from MediaConnect to
-  MediaLive](distribution-to-medialive.md "distribution-to-medialive.md")
-- [Distributing content from an AWS Elemental MediaLive
-  Multiplex](distribution-from-medialive.md "distribution-from-medialive.md")
+- [Distributing content across Regions](distribution-across-regions.md "distribution-across-regions.md")
+- [Distributing content from MediaConnect to MediaLive](distribution-to-medialive.md "distribution-to-medialive.md")
+- [Distributing content from an AWS Elemental MediaLive Multiplex](distribution-from-medialive.md "distribution-from-medialive.md")

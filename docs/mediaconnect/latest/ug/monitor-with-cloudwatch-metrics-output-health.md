@@ -1,6 +1,4 @@
-# AWS Elemental MediaConnect
-
-metrics to monitor flow output health
+# AWS Elemental MediaConnect metrics to monitor flow output health
 
 AWS Elemental MediaConnect sends metrics to CloudWatch. You can review specific metrics to
 evaluate the health of the output of your flow.
@@ -12,16 +10,11 @@ Metrics tracked by MediaConnect adhere to the standard as defined by the TR
 
 ###### Topics
 
-- [Output
-  metrics for transport stream protocols](#monitor-with-cloudwatch-metrics-output-health-ts "#monitor-with-cloudwatch-metrics-output-health-ts")
-- [Output
-  metrics for NDI®](#monitor-with-cloudwatch-metrics-output-health-ndi "#monitor-with-cloudwatch-metrics-output-health-ndi")
-- [Output
-  metrics for CDI protocols](#monitor-with-cloudwatch-metrics-output-health-cdi "#monitor-with-cloudwatch-metrics-output-health-cdi")
+- [Output metrics for transport stream protocols](#monitor-with-cloudwatch-metrics-output-health-ts "#monitor-with-cloudwatch-metrics-output-health-ts")
+- [Output metrics for NDI®](#monitor-with-cloudwatch-metrics-output-health-ndi "#monitor-with-cloudwatch-metrics-output-health-ndi")
+- [Output metrics for CDI protocols](#monitor-with-cloudwatch-metrics-output-health-cdi "#monitor-with-cloudwatch-metrics-output-health-cdi")
 
-## Output
-
-metrics for transport stream protocols
+## Output metrics for transport stream protocols
 
 | Metric                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -35,9 +28,7 @@ metrics for transport stream protocols
 | `OutputRoundTripTime`       | The amount of time it takes for the output to send a<br>signal and receive an acknowledgment from the output<br>destination.<br>This metric applies to outputs that use the SRT protocol<br>or output to MediaLive.<br>Units: Milliseconds<br>Valid dimensions:<br>• Output ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `OutputTotalPackets`        | The total number of packets that were sent to the output.<br>This metric applies to outputs that use the SRT protocols<br>or output to MediaLive.<br>Units: Count<br>Valid dimensions:<br>• Output ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
-## Output
-
-metrics for NDI®
+## Output metrics for NDI®
 
 | Metric                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -45,9 +36,7 @@ metrics for NDI®
 | `OutputGeneratedAudioSamples` | The number of audio samples that are sent to each<br>individual NDI receiver.<br>This metric applies to NDI outputs only.<br>This metric is published even if no receivers are<br>currently connected. If multiple receivers are connected,<br>keep in mind this value represents the number sent to each<br>receiver, not the total across all receivers. The value is<br>not multiplied based on the number of receivers.<br>Valid dimensions:<br>• Output ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows |
 | `OutputGeneratedVideoFrames`  | The number of video frames that are sent to each<br>individual NDI receiver.<br>This metric applies to NDI outputs only.<br>This metric is published even if no receivers are<br>currently connected. If multiple receivers are connected,<br>keep in mind this value represents the number sent to each<br>receiver, not the total across all receivers. The value is<br>not multiplied based on the number of receivers.<br>Valid dimensions:<br>• Output ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows  |
 
-## Output
-
-metrics for CDI protocols
+## Output metrics for CDI protocols
 
 | Metric                  | Description                                                                                                                                                                                                                                                                                                                                                 |
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -11,7 +11,5 @@ This section covers the fundamental procedures for working with gateways.
 
 ###### Contents
 
-- [Registering a MediaConnect Gateway
-  instance](gateway-components-instances-create.md "gateway-components-instances-create.md")
-- [Deregistering a MediaConnect Gateway
-  instance](gateway-components-instances-delete.md "gateway-components-instances-delete.md")
+- [Registering a MediaConnect Gateway instance](gateway-components-instances-create.md "gateway-components-instances-create.md")
+- [Deregistering a MediaConnect Gateway instance](gateway-components-instances-delete.md "gateway-components-instances-delete.md")

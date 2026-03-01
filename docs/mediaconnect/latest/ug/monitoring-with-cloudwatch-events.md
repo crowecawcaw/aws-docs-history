@@ -1,6 +1,4 @@
-# Monitoring with Amazon EventBridge
-
-events
+# Monitoring with Amazon EventBridge events
 
 EventBridge enables you to automate your AWS services and respond automatically to system
 events such as application availability issues or resource changes. Events from AWS
@@ -21,16 +19,10 @@ following:
 
 ###### EventBridge in MediaConnect
 
-- [MediaConnect flow
-  state change event](monitoring-cloudwatch-events-flow-state-change.md "monitoring-cloudwatch-events-flow-state-change.md")
-- [MediaConnect flow
-  maintenance event](monitoring-cloudwatch-events-flow-maintenance.md "monitoring-cloudwatch-events-flow-maintenance.md")
-- [MediaConnect flow health
-  event](monitoring-cloudwatch-events-flow-health.md "monitoring-cloudwatch-events-flow-health.md")
-- [MediaConnect alert
-  event](monitoring-cloudwatch-events-alert.md "monitoring-cloudwatch-events-alert.md")
-- [MediaConnect source
-  health event](monitoring-cloudwatch-events-source-health.md "monitoring-cloudwatch-events-source-health.md")
-- [MediaConnect output
-  health event](monitoring-cloudwatch-events-output-health.md "monitoring-cloudwatch-events-output-health.md")
+- [MediaConnect flow state change event](monitoring-cloudwatch-events-flow-state-change.md "monitoring-cloudwatch-events-flow-state-change.md")
+- [MediaConnect flow maintenance event](monitoring-cloudwatch-events-flow-maintenance.md "monitoring-cloudwatch-events-flow-maintenance.md")
+- [MediaConnect flow health event](monitoring-cloudwatch-events-flow-health.md "monitoring-cloudwatch-events-flow-health.md")
+- [MediaConnect alert event](monitoring-cloudwatch-events-alert.md "monitoring-cloudwatch-events-alert.md")
+- [MediaConnect source health event](monitoring-cloudwatch-events-source-health.md "monitoring-cloudwatch-events-source-health.md")
+- [MediaConnect output health event](monitoring-cloudwatch-events-output-health.md "monitoring-cloudwatch-events-output-health.md")
 - [MediaConnect flow content quality event](monitoring-eventbridge-events-content-quality.md "monitoring-eventbridge-events-content-quality.md")

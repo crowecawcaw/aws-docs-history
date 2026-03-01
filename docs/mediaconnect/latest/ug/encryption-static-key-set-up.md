@@ -1,6 +1,4 @@
-# Setting up static key encryption
-
-using AWS Elemental MediaConnect
+# Setting up static key encryption using AWS Elemental MediaConnect
 
 Before you can create a flow or a router I/O with an encrypted source or an output,
 or an entitlement that uses static key encryption, you must perform the following
@@ -21,9 +19,7 @@ account.
 MediaConnect supports encryption only for entitlements, flow sources and outputs that use the Zixi or SRT protocols, and for router I/O that use the SRT protocol.
 Your stored key in Secrets Manager for the Zixi protocol is a static key in a hexadecimal format. SRT uses a passkey for encryption.
 
-## Step 1: Store your
-
-encryption key in AWS Secrets Manager
+## Step 1: Store your encryption key in AWS Secrets Manager
 
 To use static key encryption to encrypt your AWS Elemental MediaConnect content,
 you must use AWS Secrets Manager to create a secret that stores the encryption key.
@@ -67,19 +63,14 @@ The details page for your new secret appears, showing information
 such as the secret ARN. 12. Make a note of the secret ARN from Secrets Manager. You will need this
 information in the next procedure.
 
-## Step 2:
-
-Create an IAM policy to allow AWS Elemental MediaConnect to access your
-secret
+## Step 2: Create an IAM policy to allow AWS Elemental MediaConnect to access your secret
 
 In [step 1](#encryption-static-key-set-up-store-key "#encryption-static-key-set-up-store-key"),
 you created a secret and stored it in AWS Secrets Manager. In this step, you create an
 IAM policy that allows AWS Elemental MediaConnect to read the secret that you
 stored.
 
-###### To create an IAM policy that allows MediaConnect to access your
-
-secret
+###### To create an IAM policy that allows MediaConnect to access your secret
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -113,13 +104,10 @@ JSON
 ```
 
 In the `Resource` section, each line represents the ARN
-of a different secret that you created. For more examples, see [Policy examples for accessing MediaConnect
-encryption keys in Secrets Manager](iam-policy-examples-asm-secrets.md "iam-policy-examples-asm-secrets.md"). 5. Choose **Review policy**. 6. For **Name**, enter a name for your policy such
+of a different secret that you created. For more examples, see [Policy examples for accessing MediaConnect encryption keys in Secrets Manager](iam-policy-examples-asm-secrets.md "iam-policy-examples-asm-secrets.md"). 5. Choose **Review policy**. 6. For **Name**, enter a name for your policy such
 as `SecretsManagerForMediaConnect`. 7. Choose **Create policy**.
 
-## Step 3:
-
-Create an IAM role with a trusted relationship
+## Step 3: Create an IAM role with a trusted relationship
 
 In [step
 2](#encryption-static-key-set-up-create-iam-policy "#encryption-static-key-set-up-create-iam-policy"), you created an IAM policy that allows read access to the

@@ -1,6 +1,4 @@
-# Security group considerations for VPC
-
-interfaces
+# Security group considerations for VPC interfaces
 
 When you set up a virtual private cloud (VPC) in Amazon Virtual Private Cloud, you create security groups
 that control inbound and outbound traffic.

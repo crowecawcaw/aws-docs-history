@@ -8,8 +8,7 @@ select.
 
 - [Prerequisites](gateway-components-bridges-create.md#gateway-components-bridges-create-prerequisites "gateway-components-bridges-create.md#gateway-components-bridges-create-prerequisites")
 - [Procedure](gateway-components-bridges-create.md#gateway-components-bridges-create-procedure "gateway-components-bridges-create.md#gateway-components-bridges-create-procedure")
-- [Next
-  steps](gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps "gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps")
+- [Next steps](gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps "gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps")
   - [Starting a bridge](gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps-start-bridge "gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps-start-bridge")
   - [Updating a bridge](gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps-update-bridge "gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps-update-bridge")
 
@@ -358,9 +357,7 @@ aws --profile `<yourprofile>` --region `<region>` mediaconnect create-bridge
 }
 ```
 
-## Next
-
-steps
+## Next steps
 
 ### Starting a bridge
 

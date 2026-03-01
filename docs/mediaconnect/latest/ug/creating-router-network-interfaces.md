@@ -1,6 +1,4 @@
-# Creating a router network interface in
-
-MediaConnect
+# Creating a router network interface in MediaConnect
 
 Router network interfaces determine how your router communicates with other network
 resources and the internet. You can configure these interfaces to connect either through the
@@ -89,9 +87,7 @@ After creating a network interface, you can:
 - [Delete unused router network
   interfaces](deleting-router-network-interface.md "deleting-router-network-interface.md")
 
-## Additional
-
-resources
+## Additional resources
 
 To create network interfaces programmatically, see the following page in the
 _MediaConnect API Reference_:

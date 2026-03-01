@@ -1,7 +1,4 @@
-# Adding a
-
-second
-source to an existing MediaConnect flow
+# Adding a second source to an existing MediaConnect flow
 
 For transport stream flows, you can add a second source for failover. Both sources on
 the flow must use

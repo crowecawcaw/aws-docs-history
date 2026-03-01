@@ -1,6 +1,4 @@
-# Adding a VPC source to an existing MediaConnect
-
-flow
+# Adding a VPC source to an existing MediaConnect flow
 
 You can add a second source to an existing transport stream flow for failover.
 Both sources on the flow must be binary identical (come from the same encoder) and

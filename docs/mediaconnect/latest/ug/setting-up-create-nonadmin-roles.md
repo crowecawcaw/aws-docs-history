@@ -9,16 +9,11 @@ grant secure and temporary credentials.
 
 ###### Topics
 
-- [Step 1: Create a
-  non-admin policy](#setting-up-create-nonadmin-IAM-policies "#setting-up-create-nonadmin-IAM-policies")
-- [Step 2: Create
-  non-admin roles](#setting-up-create-nonadmin-roles-create-role "#setting-up-create-nonadmin-roles-create-role")
-- [Step 3: Assume the
-  role](#setting-up-create-nonadmin-roles-assume-role "#setting-up-create-nonadmin-roles-assume-role")
+- [Step 1: Create a non-admin policy](#setting-up-create-nonadmin-IAM-policies "#setting-up-create-nonadmin-IAM-policies")
+- [Step 2: Create non-admin roles](#setting-up-create-nonadmin-roles-create-role "#setting-up-create-nonadmin-roles-create-role")
+- [Step 3: Assume the role](#setting-up-create-nonadmin-roles-assume-role "#setting-up-create-nonadmin-roles-assume-role")
 
-## Step 1: Create a
-
-non-admin policy
+## Step 1: Create a non-admin policy
 
 Create two policies for AWS Elemental MediaConnect: one to provide read/write access and
 one to provide read-only access. Perform these steps one time only for each policy.
@@ -142,9 +137,7 @@ assumed by users to grant access to MediaConnect.
       `MediaConnectReadOnlyAccess`, and then
       choose **Create policy**.
 
-## Step 2: Create
-
-non-admin roles
+## Step 2: Create non-admin roles
 
 You can create a role for each policy and users can assume that role, rather than
 attaching individual policies to each user. Using the following procedure, create
@@ -215,9 +208,7 @@ the **MediaConnectReadOnlyAccess** policy.
       description for the role. Select **Create
       role**.
 
-## Step 3: Assume the
-
-role
+## Step 3: Assume the role
 
 After creating a policy and attaching that policy to a role, your users will need
 to assume that role to be granted secure and temporary access to MediaConnect.

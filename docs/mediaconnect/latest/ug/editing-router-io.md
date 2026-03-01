@@ -11,13 +11,9 @@ configuration parameters at any time.
 - If you want to update a router I/O's maintenance configuration, you must ensure
   that the router I/O is in **Standby** state.
 - If you want to connect your router I/O to a MediaConnect flow, your flow must be
-  set up for router integration. For more information, see [Integrating router
-  I/Os with MediaConnect
-  flows](integrate-flow-with-router.md "integrate-flow-with-router.md").
+  set up for router integration. For more information, see [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md "integrate-flow-with-router.md").
 - If you want to connect your router output to a MediaLive input, your MediaLive
-  input must be set up for router integration. For more information, see [Integrating router
-  outputs
-  with MediaLive inputs](integrate-eml-with-router.md "integrate-eml-with-router.md").
+  input must be set up for router integration. For more information, see [Integrating router outputs with MediaLive inputs](integrate-eml-with-router.md "integrate-eml-with-router.md").
 
 ## Procedure
 

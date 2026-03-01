@@ -47,13 +47,9 @@ global, which allows cross-Region routing (additional data transfer costs might 
 - You have [created a network
   interface](creating-router-network-interfaces.md "creating-router-network-interfaces.md").
 - If you want to connect your router I/O to a MediaConnect flow, your flow must be
-  set up for router integration. For more information, see [Integrating router
-  I/Os with MediaConnect
-  flows](integrate-flow-with-router.md "integrate-flow-with-router.md").
+  set up for router integration. For more information, see [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md "integrate-flow-with-router.md").
 - If you want to connect your router output to a MediaLive input, your MediaLive
-  input must be set up for router integration. For more information, see [Integrating router
-  outputs
-  with MediaLive inputs](integrate-eml-with-router.md "integrate-eml-with-router.md").
+  input must be set up for router integration. For more information, see [Integrating router outputs with MediaLive inputs](integrate-eml-with-router.md "integrate-eml-with-router.md").
 
 ## Procedure
 
@@ -202,9 +198,7 @@ Follow these procedures to create a router input or a router output.
     ###### Note
 
     This option requires a flow with an output that's been set up for router
-    integration. For more information, see [Integrating router
-    I/Os with MediaConnect
-    flows](integrate-flow-with-router.md "integrate-flow-with-router.md").
+    integration. For more information, see [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md "integrate-flow-with-router.md").
 
     If you want to create the router input and connect the flow at a later time,
     select the **Do not connect to a MediaConnect flow** option
@@ -590,9 +584,7 @@ output and destination.
     ###### Note
 
     This option requires a flow with a source that's been set up for router
-    integration. For more information, see [Integrating router
-    I/Os with MediaConnect
-    flows](integrate-flow-with-router.md "integrate-flow-with-router.md").
+    integration. For more information, see [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md "integrate-flow-with-router.md").
 
     If you want to create the router output and connect the flow at a later time,
     select the **Do not connect to a MediaConnect flow** option
@@ -635,9 +627,7 @@ output and destination.
     ###### Note
 
     This option requires a MediaLive input that's been set up for router
-    integration. For more information, see [Integrating router
-    outputs
-    with MediaLive inputs](integrate-eml-with-router.md "integrate-eml-with-router.md").
+    integration. For more information, see [Integrating router outputs with MediaLive inputs](integrate-eml-with-router.md "integrate-eml-with-router.md").
 
     If you want to create the router output and connect the MediaLive input at a later time,
     select the **Do not connect to a MediaLive input** option

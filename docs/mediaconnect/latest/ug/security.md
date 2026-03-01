@@ -27,8 +27,7 @@ _in_ the cloud:
 ###### Topics
 
 - [Data protection for AWS Elemental MediaConnect](data-protection.md "data-protection.md")
-- [Identity and access management for
-  AWS Elemental MediaConnect](security-iam.md "security-iam.md")
+- [Identity and access management for AWS Elemental MediaConnect](security-iam.md "security-iam.md")
 - [Logging and monitoring](incident-response.md "incident-response.md")
 - [Compliance validation for AWS Elemental MediaConnect](mediaconnect-compliance.md "mediaconnect-compliance.md")
 - [Resilience in AWS Elemental MediaConnect](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")

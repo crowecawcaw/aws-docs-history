@@ -1,6 +1,4 @@
-# AWS Elemental MediaConnect
-
-metrics to monitor router input health
+# AWS Elemental MediaConnect metrics to monitor router input health
 
 AWS Elemental MediaConnect sends metrics to CloudWatch. You can review specific metrics to evaluate the
 health of your router inputs. For details about each metric, see the
@@ -11,16 +9,11 @@ monitor flow health](monitor-with-cloudwatch-metrics-flow-health.md "monitor-wit
 
 ###### Topics
 
-- [Router input
-  metrics](#monitor-with-cloudwatch-metrics-router-input "#monitor-with-cloudwatch-metrics-router-input")
-- [Failover
-  metrics for router inputs](#monitor-with-cloudwatch-metrics-router-input-failover "#monitor-with-cloudwatch-metrics-router-input-failover")
-- [Merge
-  metrics for router inputs](#monitor-with-cloudwatch-metrics-router-input-merge "#monitor-with-cloudwatch-metrics-router-input-merge")
+- [Router input metrics](#monitor-with-cloudwatch-metrics-router-input "#monitor-with-cloudwatch-metrics-router-input")
+- [Failover metrics for router inputs](#monitor-with-cloudwatch-metrics-router-input-failover "#monitor-with-cloudwatch-metrics-router-input-failover")
+- [Merge metrics for router inputs](#monitor-with-cloudwatch-metrics-router-input-merge "#monitor-with-cloudwatch-metrics-router-input-merge")
 
-## Router input
-
-metrics
+## Router input metrics
 
 The following table lists router input metrics that AWS Elemental MediaConnect sends to
 CloudWatch.
@@ -45,17 +38,13 @@ CloudWatch.
 | `RouterInputTR101TSSyncLoss`       | The number of transport stream sync loss errors.<br>Units: Count<br>Valid dimensions:<br>• RouterInputName, RouterInputID, AvailabilityZone<br>• RouterInputARN<br>• AvailabilityZone<br>Protocols: All                                                                                                                    |
 | `RouterInputUptime`                | The amount of time the input has been receiving data.<br>Units: Seconds<br>Valid dimensions:<br>• RouterInputName, RouterInputID, AvailabilityZone<br>• RouterInputARN<br>• AvailabilityZone<br>Protocols: All                                                                                                             |
 
-## Failover
-
-metrics for router inputs
+## Failover metrics for router inputs
 
 When you configure a router input for failover, MediaConnect collects two sets
 of metrics: aggregate metrics for the overall router input, as well as
 source-level metrics to track the individual failover sources.
 
-### Aggregate failover
-
-metrics
+### Aggregate failover metrics
 
 These metrics give you a view of the failover router input's performance.
 
@@ -71,9 +60,7 @@ These metrics give you a view of the failover router input's performance.
 | `RouterInputPostFailoverTR101TSByteError`      | The number of times that a transport stream byte error<br>occurred after failover. This error indicates that the sync byte did not<br>appear after the prescribed number of bytes.<br>Units: Count<br>Valid dimensions:<br>• RouterInputARN<br>• AvailabilityZone<br>Protocols: All |
 | `RouterInputPostFailoverTR101TSSyncLoss`       | The number of transport stream sync loss errors after failover.<br>Units: Count<br>Valid dimensions:<br>• RouterInputARN<br>• AvailabilityZone<br>Protocols: All                                                                                                                    |
 
-### Source-level failover
-
-metrics
+### Source-level failover metrics
 
 For router inputs that are configured for failover, the basic router input
 metrics are also available with an additional `RouterInputFailoverSourceIndex`
@@ -101,9 +88,7 @@ source (`RouterInputFailoverSourceIndex=1`) separately.
 | `RouterInputTR101TSSyncLoss`       | The number of transport stream sync loss errors.<br>Units: Count<br>Valid dimensions:<br>• RouterInputARN, RouterInputFailoverSourceIndex<br>• AvailabilityZone<br>Protocols: All                                                                                                                    |
 | `RouterInputUptime`                | The amount of time the input has been receiving data.<br>Units: Seconds<br>Valid dimensions:<br>• RouterInputARN, RouterInputFailoverSourceIndex<br>• AvailabilityZone<br>Protocols: All                                                                                                             |
 
-## Merge
-
-metrics for router inputs
+## Merge metrics for router inputs
 
 Similar to failover, when you configure a router input for merge, MediaConnect
 provides both aggregate and source-level metrics.

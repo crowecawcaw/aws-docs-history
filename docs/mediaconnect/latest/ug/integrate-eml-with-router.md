@@ -1,7 +1,4 @@
-# Integrating router
-
-outputs
-with MediaLive inputs
+# Integrating router outputs with MediaLive inputs
 
 You set up a router output in AWS Elemental MediaConnect so that it can send content to AWS Elemental MediaLive. With
 this setup, your router output can serve as an upstream input for a MediaLive channel,

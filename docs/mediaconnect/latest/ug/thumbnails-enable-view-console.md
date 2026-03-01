@@ -1,6 +1,4 @@
-# Enabling and viewing thumbnails in the
-
-console
+# Enabling and viewing thumbnails in the console
 
 You enable thumbnails separately in each flow. You can enable thumbnails when you are
 creating the flow, or you can enable them in an existing flow.
@@ -8,9 +6,7 @@ creating the flow, or you can enable them in an existing flow.
 After you have enabled thumbnails, MediaConnect automatically starts to generate them
 whenever the flow is active.
 
-## Enabling when you create a
-
-flow
+## Enabling when you create a flow
 
 In the flow that you are creating, go to the **Source monitor
 configuration** section, and move the **Thumbnails

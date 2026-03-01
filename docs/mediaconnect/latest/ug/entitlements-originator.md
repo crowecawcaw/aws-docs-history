@@ -42,5 +42,4 @@ on transport stream flows, with the exception of TR-07 sources.
 - [Managing tags on an entitlement](entitlements-manage-tags.md "entitlements-manage-tags.md")
 - [Revoking an entitlement](entitlements-revoke.md "entitlements-revoke.md")
 - [Disabling an entitlement temporarily](entitlements-disable.md "entitlements-disable.md")
-- [Enabling an entitlement that has been
-  temporarily disabled](entitlements-enable.md "entitlements-enable.md")
+- [Enabling an entitlement that has been temporarily disabled](entitlements-enable.md "entitlements-enable.md")

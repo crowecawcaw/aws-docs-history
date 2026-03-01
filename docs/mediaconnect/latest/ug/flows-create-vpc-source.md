@@ -1,6 +1,4 @@
-# Creating a transport stream flow that uses a
-
-VPC source
+# Creating a transport stream flow that uses a VPC source
 
 Transport stream flows transport compressed content that is muxed into a single
 stream.

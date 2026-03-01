@@ -160,9 +160,7 @@ content:
 - [Start your flow](flows-start.md "flows-start.md") to begin content
   delivery
 
-### Selecting NDI senders
-
-after you start your flow
+### Selecting NDI senders after you start your flow
 
 When configuring your flow source, you can specify which upstream NDI sender
 (like a camera or encoder) will provide content to your MediaConnect flow. If you
@@ -192,9 +190,7 @@ can only discover and list available NDI senders when the flow is active.
 
 8. Choose **Update** to save your changes.
 
-## Additional
-
-resources
+## Additional resources
 
 For more information about source monitoring options for your flow, see the
 following pages in this guide:

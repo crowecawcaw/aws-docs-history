@@ -7,7 +7,5 @@ documentation](../../../speke/latest/documentation/what-is.md#services-architect
 
 ###### Topics
 
-- [Key management for
-  SPEKE](encryption-speke-key-management.md "encryption-speke-key-management.md")
-- [Setting up SPEKE encryption using
-  AWS Elemental MediaConnect](encryption-speke-set-up.md "encryption-speke-set-up.md")
+- [Key management for SPEKE](encryption-speke-key-management.md "encryption-speke-key-management.md")
+- [Setting up SPEKE encryption using AWS Elemental MediaConnect](encryption-speke-set-up.md "encryption-speke-set-up.md")

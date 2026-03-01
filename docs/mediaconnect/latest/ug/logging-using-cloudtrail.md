@@ -1,6 +1,4 @@
-# Logging AWS Elemental MediaConnect API calls with
-
-AWS CloudTrail
+# Logging AWS Elemental MediaConnect API calls with AWS CloudTrail
 
 AWS Elemental MediaConnect is integrated with AWS CloudTrail, a service that provides a record of actions taken
 by a user, role, or an AWS service in AWS Elemental MediaConnect. CloudTrail captures all API calls for
@@ -53,9 +51,7 @@ identity information helps you determine the following:
 For more information, see the [CloudTrail userIdentity
 Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-## Understanding AWS Elemental MediaConnect log file
-
-entries
+## Understanding AWS Elemental MediaConnect log file entries
 
 A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
 that you specify. CloudTrail log files contain one or more log entries. An event represents a single

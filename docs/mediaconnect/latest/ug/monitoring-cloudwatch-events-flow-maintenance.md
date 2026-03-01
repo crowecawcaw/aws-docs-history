@@ -1,6 +1,4 @@
-# MediaConnect flow
-
-maintenance event
+# MediaConnect flow maintenance event
 
 This event is published when a flow's maintenance status has changed, either to or
 from any of the following states:

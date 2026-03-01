@@ -69,10 +69,8 @@ different subnets with separate VPC security groups. Note the following:
 You’ll need to complete the following tasks to receive SRT output from MediaLive.
 
 - [1. Request a secret for encryption](#request_encryption_secret "#request_encryption_secret")
-- [2. Create a MediaConnect flow with SRT
-  listener](#create_mediaconnect_flow_srt_listener "#create_mediaconnect_flow_srt_listener")
-- [3. Configure the MediaConnect flow's allowlist with
-  MediaLive source IPs](#configure_flow_allowlist "#configure_flow_allowlist")
+- [2. Create a MediaConnect flow with SRT listener](#create_mediaconnect_flow_srt_listener "#create_mediaconnect_flow_srt_listener")
+- [3. Configure the MediaConnect flow's allowlist with MediaLive source IPs](#configure_flow_allowlist "#configure_flow_allowlist")
 - [4. Start the flow and channel](#start_flow_and_channel "#start_flow_and_channel")
 
 ### 1. Request a secret for encryption
@@ -107,9 +105,7 @@ encryption passphrase in a secret in Secrets Manager.
 4. If you're using one shared secret, ensure that both MediaConnect and MediaLive operators
    receive the secret details.
 
-### 2. Create a MediaConnect flow with SRT
-
-listener
+### 2. Create a MediaConnect flow with SRT listener
 
 You must set up a MediaConnect flow to receive the content from MediaLive. You can then get the
 inbound IP address from your flow and give it to the MediaLive operator, who will need this to
@@ -159,9 +155,7 @@ configure their channel.
 5. Give this IP address to the MediaLive operator. The MediaLive operator can now [create a channel with an SRT caller output group](../../../medialive/latest/ug/creating-srt-caller-output-group.md "../../../medialive/latest/ug/creating-srt-caller-output-group.md") that points to your MediaConnect
    flow.
 
-### 3. Configure the MediaConnect flow's allowlist with
-
-MediaLive source IPs
+### 3. Configure the MediaConnect flow's allowlist with MediaLive source IPs
 
 After the MediaLive channel is created, you must configure the MediaConnect flow to accept traffic
 from the channel.
@@ -187,8 +181,7 @@ from the channel.
 - If you have two sources, apply each IP address to the correct source.
 - The IP addresses might be labeled as `pipeline 0` and
   `pipeline 1`.
-- If you followed the example in the previous task ([2. Create a MediaConnect flow with SRT
-  listener](#create_mediaconnect_flow_srt_listener "#create_mediaconnect_flow_srt_listener")), `pipeline
+- If you followed the example in the previous task ([2. Create a MediaConnect flow with SRT listener](#create_mediaconnect_flow_srt_listener "#create_mediaconnect_flow_srt_listener")), `pipeline
 0` will correspond to the flow source that has
   `source-pipeline-0` in the source description field.
 

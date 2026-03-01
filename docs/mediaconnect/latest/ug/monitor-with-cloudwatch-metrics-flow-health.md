@@ -1,6 +1,4 @@
-# AWS Elemental MediaConnect
-
-metrics to monitor flow health
+# AWS Elemental MediaConnect metrics to monitor flow health
 
 AWS Elemental MediaConnect sends metrics to CloudWatch. You can review specific metrics to
 evaluate the health of your flow. If the flow is unhealthy, these metrics can help
@@ -17,17 +15,12 @@ Metrics tracked by MediaConnect adhere to the standard as defined by the TR
 
 ###### Topics
 
-- [Flow
-  metrics](#monitor-with-cloudwatch-metrics-flow-health-flow "#monitor-with-cloudwatch-metrics-flow-health-flow")
-- [TR 101 290
-  Priority 1 metrics](#monitor-with-cloudwatch-metrics-flow-health-p1 "#monitor-with-cloudwatch-metrics-flow-health-p1")
-- [TR 101 290
-  Priority 2 metrics](#monitor-with-cloudwatch-metrics-flow-health-p2 "#monitor-with-cloudwatch-metrics-flow-health-p2")
+- [Flow metrics](#monitor-with-cloudwatch-metrics-flow-health-flow "#monitor-with-cloudwatch-metrics-flow-health-flow")
+- [TR 101 290 Priority 1 metrics](#monitor-with-cloudwatch-metrics-flow-health-p1 "#monitor-with-cloudwatch-metrics-flow-health-p1")
+- [TR 101 290 Priority 2 metrics](#monitor-with-cloudwatch-metrics-flow-health-p2 "#monitor-with-cloudwatch-metrics-flow-health-p2")
 - [Maintenance metrics](#monitor-with-cloudwatch-metrics-flow-health-maintenance "#monitor-with-cloudwatch-metrics-flow-health-maintenance")
 
-## Flow
-
-metrics
+## Flow metrics
 
 The following table lists network metrics that AWS Elemental MediaConnect sends to
 CloudWatch.
@@ -52,9 +45,7 @@ CloudWatch.
 | `TotalPackets`        | The total number of packets that were received.<br>Units: Count<br>Valid dimensions:<br>• Flow ARN<br>• Availability Zone<br>• All flows                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `FailoverSwitches`    | The total number of times the flow switches back and forth<br>between sources when using the \*Failover<br>• mode for source failover.                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-## TR 101 290
-
-Priority 1 metrics
+## TR 101 290 Priority 1 metrics
 
 The following table lists TR 101 290 Priority 1 metrics that AWS Elemental MediaConnect
 sends to CloudWatch.
@@ -68,9 +59,7 @@ sends to CloudWatch.
 | `TSByteError`       | The number of times that a transport stream byte error<br>occurred. This error indicates that the sync byte did not<br>appear after the prescribed number of bytes.<br>Units: Count<br>Valid dimensions:<br>• Flow ARN<br>• Availability Zone<br>• All flows                                                                                                                                                                             |
 | `TSSyncLoss`        | The number of times that a TS sync loss error occurred.<br>This error happens after two or more consecutive TS byte<br>errors.<br>Units: Count<br>Valid dimensions:<br>• Flow ARN<br>• Availability Zone<br>• All flows                                                                                                                                                                                                                  |
 
-## TR 101 290
-
-Priority 2 metrics
+## TR 101 290 Priority 2 metrics
 
 The following table lists TR 101 290 Priority 2 metrics that AWS Elemental MediaConnect
 sends to CloudWatch.

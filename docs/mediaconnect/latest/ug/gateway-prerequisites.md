@@ -1,6 +1,4 @@
-# Supported operating systems and system
-
-architectures for using MediaConnect Gateway
+# Supported operating systems and system architectures for using MediaConnect Gateway
 
 Before you can use AWS Elemental MediaConnect Gateway, you need an AWS account and the appropriate
 permissions to access, view, and edit MediaConnect components. Additionally, you will
@@ -10,8 +8,7 @@ sections.
 ###### Contents
 
 - [General information](gateway-prerequisites.md#system-requirements-general "gateway-prerequisites.md#system-requirements-general")
-- [Supported system
-  architectures](gateway-prerequisites.md#system-requirements-hardware "gateway-prerequisites.md#system-requirements-hardware")
+- [Supported system architectures](gateway-prerequisites.md#system-requirements-hardware "gateway-prerequisites.md#system-requirements-hardware")
 - [Supported operating systems](gateway-prerequisites.md#system-requirements-os "gateway-prerequisites.md#system-requirements-os")
 
 ## General information
@@ -42,9 +39,7 @@ The following table contains the default quotas for each MediaConnect Gateway co
 | Maximum number of bridges for each gateway     | 40            | No                           |
 | Maximum bitrate for each bridge                | 100 Mbps      | No                           |
 
-## Supported system
-
-architectures
+## Supported system architectures
 
 The following table contains the recommended system architectures for your
 individual gateway instances. The system will determine the maximum number of

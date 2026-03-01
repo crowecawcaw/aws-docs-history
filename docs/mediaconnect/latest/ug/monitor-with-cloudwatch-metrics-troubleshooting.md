@@ -8,20 +8,15 @@ below, which are sorted by source protocol.
 
 ###### Topics
 
-- [Metrics
-  to watch if your source uses the RIST protocol](#monitor-with-cloudwatch-metrics-troubleshooting-rist "#monitor-with-cloudwatch-metrics-troubleshooting-rist")
-- [Metrics to
-  watch if your source uses the RTP protocol](#monitor-with-cloudwatch-metrics-troubleshooting-rtp "#monitor-with-cloudwatch-metrics-troubleshooting-rtp")
+- [Metrics to watch if your source uses the RIST protocol](#monitor-with-cloudwatch-metrics-troubleshooting-rist "#monitor-with-cloudwatch-metrics-troubleshooting-rist")
+- [Metrics to watch if your source uses the RTP protocol](#monitor-with-cloudwatch-metrics-troubleshooting-rtp "#monitor-with-cloudwatch-metrics-troubleshooting-rtp")
 - [Metrics to watch if your source uses the RTP-FEC protocol](#monitor-with-cloudwatch-metrics-troubleshooting-rtp-fec "#monitor-with-cloudwatch-metrics-troubleshooting-rtp-fec")
-- [Metrics to
-  watch if your source uses the SRT protocol](#monitor-with-cloudwatch-metrics-troubleshooting-SRT "#monitor-with-cloudwatch-metrics-troubleshooting-SRT")
+- [Metrics to watch if your source uses the SRT protocol](#monitor-with-cloudwatch-metrics-troubleshooting-SRT "#monitor-with-cloudwatch-metrics-troubleshooting-SRT")
 - [Metrics to watch if your source uses the Zixi push protocol](#monitor-with-cloudwatch-metrics-troubleshooting-zixi-push "#monitor-with-cloudwatch-metrics-troubleshooting-zixi-push")
 - [Metrics to watch if your source comes from an entitlement](#monitor-with-cloudwatch-metrics-troubleshooting-entitlement "#monitor-with-cloudwatch-metrics-troubleshooting-entitlement")
 - [Metrics to watch if you are using gateways](#monitor-with-cloudwatch-metrics-troubleshooting-gateway "#monitor-with-cloudwatch-metrics-troubleshooting-gateway")
 
-## Metrics
-
-to watch if your source uses the RIST protocol
+## Metrics to watch if your source uses the RIST protocol
 
 If the protocol of your source is RIST, watch the metrics below to evaluate
 the health of your source.
@@ -36,9 +31,7 @@ the health of your source.
 - `RoundTripTime`
 - `TotalPackets`
 
-## Metrics to
-
-watch if your source uses the RTP protocol
+## Metrics to watch if your source uses the RTP protocol
 
 If the protocol of your source is RTP, watch the metrics below to evaluate the
 health of your source.
@@ -62,9 +55,7 @@ the health of your source.
 - `RoundTripTime`
 - `TotalPackets`
 
-## Metrics to
-
-watch if your source uses the SRT protocol
+## Metrics to watch if your source uses the SRT protocol
 
 If the protocol of your source is SRT (listener or caller), watch the metrics
 below to evaluate the health of your source.
@@ -115,9 +106,7 @@ source.
 
 Watch the metrics below to evaluate the health of your gateway.
 
-### Metrics to watch if you are using a gateway with an ingress
-
-bridge
+### Metrics to watch if you are using a gateway with an ingress bridge
 
 Watch the metrics below to evaluate the health of your gateway's ingress
 bridge. The recommended ingress bridge troubleshooting metrics are separated
@@ -150,9 +139,7 @@ by protocol.
   - `IngressBridgeSourceTotalPackets`
   - `IngressBridgeSourceOverflowPackets`
 
-### Metrics to watch if you are using a gateway with an egress
-
-bridge
+### Metrics to watch if you are using a gateway with an egress bridge
 
 Watch the metrics below to evaluate the health of your gateway's egress
 bridge.

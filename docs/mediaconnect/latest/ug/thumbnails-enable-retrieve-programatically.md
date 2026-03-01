@@ -1,6 +1,4 @@
-# Enabling and retrieving
-
-thumbnails programmatically
+# Enabling and retrieving thumbnails programmatically
 
 You can use the AWS CLI to work with thumbnails programmatically. The following
 information assumes that you are familiar with the basics of using the AWS CLI. For

@@ -1,6 +1,4 @@
-# Using the router control panel view in
-
-MediaConnect
+# Using the router control panel view in MediaConnect
 
 The router control panel view provides an intuitive interface for taking inputs
 and monitoring your routes in real time, similar to a traditional broadcast router.

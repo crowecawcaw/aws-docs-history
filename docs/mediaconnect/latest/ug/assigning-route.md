@@ -36,6 +36,5 @@ manage your route assignments.
 
 ###### Topics
 
-- [Using the router control panel view in
-  MediaConnect](using-router-control-panel.md "using-router-control-panel.md")
+- [Using the router control panel view in MediaConnect](using-router-control-panel.md "using-router-control-panel.md")
 - [Using the router matrix view in MediaConnect](using-router-matrix-editor.md "using-router-matrix-editor.md")

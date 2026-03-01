@@ -1,6 +1,4 @@
-# Password
-
-management for SRT password encryption
+# Password management for SRT password encryption
 
 In AWS Elemental MediaConnect, you can use SRT password encryption to secure content in
 sources, outputs and router I/O. To use this method, you store an SRT password as a

@@ -16,8 +16,7 @@ flows. The tutorial is based on a scenario where you want to do all of the follo
 - [Step 2: Create a flow](#getting-started-create-flow "#getting-started-create-flow")
 - [Step 3: Add an output](#getting-started-add-output "#getting-started-add-output")
 - [Step 4: Grant an entitlement](#getting-started-add-entitlement "#getting-started-add-entitlement")
-- [Step 5: Share details with your
-  affiliates](#getting-started-share-with-affiliates "#getting-started-share-with-affiliates")
+- [Step 5: Share details with your affiliates](#getting-started-share-with-affiliates "#getting-started-share-with-affiliates")
 - [Step 6: Clean up](#getting-started-clean-up "#getting-started-clean-up")
 
 ## Prerequisites
@@ -110,9 +109,7 @@ purposes of this tutorial, we use the following details:
 4. For **Subscriber**, enter `222233334444`.
 5. Choose **Grant entitlement**.
 
-## Step 5: Share details with your
-
-affiliates
+## Step 5: Share details with your affiliates
 
 Now that you've created your AWS Elemental MediaConnect flow with an output for your Boston affiliate and an entitlement for your Philadelphia affiliate,
 you need to communicate details about the flow.

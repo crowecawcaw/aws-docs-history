@@ -1,6 +1,4 @@
-# Monitoring AWS Elemental MediaConnect with Amazon CloudWatch
-
-metrics
+# Monitoring AWS Elemental MediaConnect with Amazon CloudWatch metrics
 
 You can monitor AWS Elemental MediaConnect using CloudWatch, which collects raw data and processes it
 into readable, near real-time metrics. These metrics are kept for 15 months, so that you

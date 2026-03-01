@@ -6,9 +6,7 @@ MediaConnect complies with and implements many media industry standards from dif
 organizations. This reference is not intended to be a comprehensive list, but contains
 highlighted standards from specific organizations.
 
-## Video Services Forum: technical
-
-recommendations
+## Video Services Forum: technical recommendations
 
 AWS Elemental MediaConnect supports _technical recommendations (TR)_
 from the _Video Services Forum (VSF)_ for some

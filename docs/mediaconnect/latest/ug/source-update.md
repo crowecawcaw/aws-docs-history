@@ -10,9 +10,7 @@ Depending
 on the type of update you want to make, there are some steps to complete before you
 get started.
 
-###### If
-
-you're updating a flow with an entitled source
+###### If you're updating a flow with an entitled source
 
 You can't update an entitled flow while it's active.
 Before
@@ -20,10 +18,7 @@ you update the flow source, you must [stop the
 flow first](flows-stop.md "flows-stop.md"). After you make your updates, you can then restart the
 flow.
 
-###### If
-
-you're switching between an NDI® source and a transport stream
-source
+###### If you're switching between an NDI® source and a transport stream source
 
 You can update the flow source while it's either active or on standby.
 

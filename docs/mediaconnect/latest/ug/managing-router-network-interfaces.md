@@ -1,6 +1,4 @@
-# Managing router network interfaces in
-
-MediaConnect
+# Managing router network interfaces in MediaConnect
 
 Router network interfaces control how the router communicates with the outside world.
 Router I/Os that connect to a public or VPC endpoints need a network interface, which determines
@@ -26,11 +24,7 @@ This chapter shows you everything you need to know about working with router net
 
 ###### Topics
 
-- [Creating a router network interface in
-  MediaConnect](creating-router-network-interfaces.md "creating-router-network-interfaces.md")
-- [Viewing router network interfaces in
-  MediaConnect](viewing-router-network-interfaces.md "viewing-router-network-interfaces.md")
-- [Updating a router network interface in
-  MediaConnect](editing-router-network-interface.md "editing-router-network-interface.md")
-- [Deleting a router network interface in
-  MediaConnect](deleting-router-network-interface.md "deleting-router-network-interface.md")
+- [Creating a router network interface in MediaConnect](creating-router-network-interfaces.md "creating-router-network-interfaces.md")
+- [Viewing router network interfaces in MediaConnect](viewing-router-network-interfaces.md "viewing-router-network-interfaces.md")
+- [Updating a router network interface in MediaConnect](editing-router-network-interface.md "editing-router-network-interface.md")
+- [Deleting a router network interface in MediaConnect](deleting-router-network-interface.md "deleting-router-network-interface.md")

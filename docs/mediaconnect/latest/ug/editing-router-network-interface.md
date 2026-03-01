@@ -1,6 +1,4 @@
-# Updating a router network interface in
-
-MediaConnect
+# Updating a router network interface in MediaConnect
 
 After creating a router network interface in MediaConnect, you can modify its configuration to
 adapt to changing network requirements. This enables you to update the properties of your
@@ -42,9 +40,7 @@ up-to-date.
 After you update a network interface, you can [review the updated network interface](viewing-router-network-interfaces.md "viewing-router-network-interfaces.md")
 to verify that your updates were successful.
 
-## Additional
-
-resources
+## Additional resources
 
 To update a router network interface programmatically, see the following page in the
 _MediaConnect API Reference_:

@@ -1,6 +1,4 @@
-# Policy examples for accessing MediaConnect
-
-encryption keys in Secrets Manager
+# Policy examples for accessing MediaConnect encryption keys in Secrets Manager
 
 You can create IAM policies that allow AWS Elemental MediaConnect to read encryption keys that are
 stored as secrets in AWS Secrets Manager.
@@ -24,16 +22,11 @@ documentation](../../../secretsmanager/latest/userguide/intro.md "../../../secre
 
 ###### Topics
 
-- [Allow read access to
-  specific secrets in Secrets Manager](#iam-policy-examples-asm-specific-secrets "#iam-policy-examples-asm-specific-secrets")
-- [Allow read access to
-  all secrets created in a specific AWS Region in Secrets Manager](#iam-policy-examples-asm-secrets-in-a-region "#iam-policy-examples-asm-secrets-in-a-region")
-- [Allow read access to all
-  resources in Secrets Manager](#iam-policy-examples-asm-secrets-all "#iam-policy-examples-asm-secrets-all")
+- [Allow read access to specific secrets in Secrets Manager](#iam-policy-examples-asm-specific-secrets "#iam-policy-examples-asm-specific-secrets")
+- [Allow read access to all secrets created in a specific AWS Region in Secrets Manager](#iam-policy-examples-asm-secrets-in-a-region "#iam-policy-examples-asm-secrets-in-a-region")
+- [Allow read access to all resources in Secrets Manager](#iam-policy-examples-asm-secrets-all "#iam-policy-examples-asm-secrets-all")
 
-## Allow read access to
-
-specific secrets in Secrets Manager
+## Allow read access to specific secrets in Secrets Manager
 
 The following example IAM policy allows read access to specific resources
 (secrets) that you create in Secrets Manager.
@@ -72,9 +65,7 @@ JSON
 
 ```
 
-## Allow read access to
-
-all secrets created in a specific AWS Region in Secrets Manager
+## Allow read access to all secrets created in a specific AWS Region in Secrets Manager
 
 The following IAM policy allows read access to all secrets that you create in a
 specific AWS Region in Secrets Manager, including any encryption keys used for MediaConnect. This
@@ -112,9 +103,7 @@ JSON
 
 ```
 
-## Allow read access to all
-
-resources in Secrets Manager
+## Allow read access to all resources in Secrets Manager
 
 The following IAM policy allows read access to all resources that you create in
 Secrets Manager, including any encryption keys used for MediaConnect. This policy applies to

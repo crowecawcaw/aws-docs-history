@@ -1,6 +1,4 @@
-# Distributing content from MediaConnect to
-
-MediaLive
+# Distributing content from MediaConnect to MediaLive
 
 You can set up
 a flow in AWS Elemental MediaConnect so that it can distribute content to AWS Elemental MediaLive. With this setup,
@@ -24,11 +22,9 @@ they have the necessary permissions.
 ## Procedure
 
 - [Step 1: Verify MediaLive permissions](#verify-permissions "#verify-permissions")
-- [Step 2: Get the MediaLive channel
-  details](#get-channel-details "#get-channel-details")
+- [Step 2: Get the MediaLive channel details](#get-channel-details "#get-channel-details")
 - [Step 3. Set up MediaConnect flows](#set-up-flows "#set-up-flows")
-- [Step 4: Connect with MediaLive
-  and start your flows](#connect-to-medialive-and-start-flow "#connect-to-medialive-and-start-flow")
+- [Step 4: Connect with MediaLive and start your flows](#connect-to-medialive-and-start-flow "#connect-to-medialive-and-start-flow")
 - [Step 5: Start the MediaLive channels](#start-channels "#start-channels")
 
 ### Step 1: Verify MediaLive permissions
@@ -62,9 +58,7 @@ MediaLive now has the permissions needed to work with your flows, including
 creating and removing outputs and reading flow information. You can reuse
 this role for multiple channels and flows.
 
-### Step 2: Get the MediaLive channel
-
-details
+### Step 2: Get the MediaLive channel details
 
 Before you configure your flows, you need specific information about the MediaLive
 channel they'll connect to. The channel settings determine which AWS Region
@@ -150,9 +144,7 @@ inputs for the MediaLive channel.
 Your flows are in the correct Region and Availability Zones, and are ready
 to connect to MediaLive inputs.
 
-### Step 4: Connect with MediaLive
-
-and start your flows
+### Step 4: Connect with MediaLive and start your flows
 
 Now that your flows are ready, you can provide their details to MediaLive and
 start them.

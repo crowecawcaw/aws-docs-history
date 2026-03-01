@@ -15,9 +15,7 @@ existing services.
 For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the
 _IAM User Guide_.
 
-## AWS managed policy:
-
-AWSElementalMediaConnectReadOnlyAccess
+## AWS managed policy: AWSElementalMediaConnectReadOnlyAccess
 
 You can attach `AWSElementalMediaConnectReadOnlyAccess` to your users,
 groups, and roles.
@@ -85,9 +83,7 @@ This policy includes the following permissions.
 
 To view the permissions for this policy, see [AWSElementalMediaConnectReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSElementalMediaConnectReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSElementalMediaConnectReadOnlyAccess.md") in the _AWS Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSElementalMediaConnectFullAccess
+## AWS managed policy: AWSElementalMediaConnectFullAccess
 
 You can attach `AWSElementalMediaConnectFullAccess` to your users, groups,
 and roles.
@@ -108,9 +104,7 @@ This policy includes the following permissions.
 
 To view the permissions for this policy, see [AWSElementalMediaConnectFullAccess](../../../aws-managed-policy/latest/reference/AWSElementalMediaConnectFullAccess.md "../../../aws-managed-policy/latest/reference/AWSElementalMediaConnectFullAccess.md") in the _AWS Managed Policy Reference_.
 
-## AWS managed policy:
-
-MediaConnectGatewayInstanceRolePolicy
+## AWS managed policy: MediaConnectGatewayInstanceRolePolicy
 
 You can attach the `MediaConnectGatewayInstanceRolePolicy` policy to your
 IAM identities.
@@ -137,9 +131,7 @@ This policy includes the following permissions.
 To view the permissions for this policy, see [MediaConnectGatewayInstanceRolePolicy](../../../aws-managed-policy/latest/reference/MediaConnectGatewayInstanceRolePolicy.md "../../../aws-managed-policy/latest/reference/MediaConnectGatewayInstanceRolePolicy.md") in the _AWS
 Managed Policy Reference_.
 
-## AWS managed policy:
-
-AWSMediaConnectServicePolicy
+## AWS managed policy: AWSMediaConnectServicePolicy
 
 You can’t attach AWSMediaConnectServicePolicy to your IAM entities. This policy is
 attached to a service-linked role that allows MediaConnect to perform actions on your
@@ -258,9 +250,7 @@ These permissions are restricted to ECS clusters with names starting with
 To view the permissions for this policy, see [AWSMediaConnectServicePolicy](../../../aws-managed-policy/latest/reference/AWSMediaConnectServicePolicy.md "../../../aws-managed-policy/latest/reference/AWSMediaConnectServicePolicy.md") in the _AWS Managed Policy
 Reference_.
 
-## MediaConnect updates to AWS managed
-
-policies
+## MediaConnect updates to AWS managed policies
 
 View details about updates to AWS managed policies for MediaConnect since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

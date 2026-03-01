@@ -17,9 +17,7 @@ changed, see [AWS Service Quotas](../../../general/latest/gr/aws_service_limits.
 To optimize performance, we recommend that you set up your workflow for an aggregate
 output bandwidth of 400 Mb/s or less. For more information, see [Best practices](best-practices.md "best-practices.md").
 
-## Feature-specific output
-
-limitations
+## Feature-specific output limitations
 
 The following features have additional output limitations:
 

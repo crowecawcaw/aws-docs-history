@@ -1,6 +1,4 @@
-# AWS Elemental MediaConnect
-
-metrics to monitor flow source health
+# AWS Elemental MediaConnect metrics to monitor flow source health
 
 AWS Elemental MediaConnect sends metrics to CloudWatch. You can review specific metrics to
 evaluate the health of the source of your flow. If the flow is unhealthy, these
@@ -17,20 +15,13 @@ Metrics tracked by MediaConnect adhere to the standard as defined by the TR
 
 ###### Topics
 
-- [Source
-  metrics for transport stream protocols](#monitor-with-cloudwatch-metrics-source-health-source "#monitor-with-cloudwatch-metrics-source-health-source")
-- [Source
-  metrics for NDI®](#monitor-with-cloudwatch-metrics-source-health-source-ndi "#monitor-with-cloudwatch-metrics-source-health-source-ndi")
-- [Source
-  metrics for CDI](#monitor-with-cloudwatch-metrics-source-health-source-cdi "#monitor-with-cloudwatch-metrics-source-health-source-cdi")
-- [TR 101 290
-  Priority 1 metrics](#monitor-with-cloudwatch-metrics-source-health-p1 "#monitor-with-cloudwatch-metrics-source-health-p1")
-- [TR 101 290
-  Priority 2 metrics](#monitor-with-cloudwatch-metrics-source-health-p2 "#monitor-with-cloudwatch-metrics-source-health-p2")
+- [Source metrics for transport stream protocols](#monitor-with-cloudwatch-metrics-source-health-source "#monitor-with-cloudwatch-metrics-source-health-source")
+- [Source metrics for NDI®](#monitor-with-cloudwatch-metrics-source-health-source-ndi "#monitor-with-cloudwatch-metrics-source-health-source-ndi")
+- [Source metrics for CDI](#monitor-with-cloudwatch-metrics-source-health-source-cdi "#monitor-with-cloudwatch-metrics-source-health-source-cdi")
+- [TR 101 290 Priority 1 metrics](#monitor-with-cloudwatch-metrics-source-health-p1 "#monitor-with-cloudwatch-metrics-source-health-p1")
+- [TR 101 290 Priority 2 metrics](#monitor-with-cloudwatch-metrics-source-health-p2 "#monitor-with-cloudwatch-metrics-source-health-p2")
 
-## Source
-
-metrics for transport stream protocols
+## Source metrics for transport stream protocols
 
 The following table lists source metrics that AWS Elemental MediaConnect sends to
 CloudWatch.
@@ -59,9 +50,7 @@ CloudWatch.
 | `SourceTotalPackets`            | The total number of packets that were received.<br>Units: Count<br>Valid dimensions:<br>• Source ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `SourceTotalBytes`              | Total amount of bytes transferred to MediaConnect from the<br>source.<br>Units: Bytes<br>Valid dimensions:<br>• Source ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-## Source
-
-metrics for NDI®
+## Source metrics for NDI®
 
 The following table lists NDI source metrics that AWS Elemental MediaConnect sends to
 CloudWatch.
@@ -73,9 +62,7 @@ CloudWatch.
 | `SourceDiscoveredSources` | The total number of available NDI senders discovered by the NDI source.<br>This metric applies to NDI sources only.<br>Units: Count<br>Valid dimensions:<br>• Source ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows                                                    |
 | `SourceVideoFrames`       | The number of video frames received by the NDI source.<br>This metric applies to NDI sources only.<br>Units: Count<br>Valid dimensions:<br>• Source ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows                                                                     |
 
-## Source
-
-metrics for CDI
+## Source metrics for CDI
 
 The following table lists CDI source metrics that AWS Elemental MediaConnect sends to
 CloudWatch.
@@ -86,9 +73,7 @@ CloudWatch.
 | `SourceLatePayloads`    | Packets of a payload that arrive outside of the configured \*_Max<br>sync buffer_<br>• time frame. A payload is a frame of<br>video or an audio sample. Payloads can consist of multiple<br>packets. Payload metrics are only applicable when using CDI.<br>Units: Count<br>Valid dimensions:<br>• Source ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows |
 | `SourceTotalPayloads`   | Total amount of payloads delivered to MediaConnect from the<br>source. A payload is a frame of video or an audio sample.<br>Payloads can consist of multiple packets. Payload metrics<br>are only applicable when using CDI.<br>Units: Count<br>Valid dimensions:<br>• Source ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows                             |
 
-## TR 101 290
-
-Priority 1 metrics
+## TR 101 290 Priority 1 metrics
 
 The following table lists TR 101 290 Priority 1 metrics that AWS Elemental MediaConnect
 sends to CloudWatch.
@@ -104,9 +89,7 @@ These metrics apply only to transport stream protocols.
 | `SourceTSByteError`       | The number of times that a TS byte error occurred. This<br>error indicates that the sync byte did not appear after the<br>prescribed number of bytes.<br>Units: Count<br>Valid dimensions:<br>• Source ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows                                                                                                                                                                             |
 | `SourceTSSyncLoss`        | The number of times that a TS sync loss error occurred.<br>This error happens after two or more consecutive TS byte<br>errors.<br>Units: Count<br>Valid dimensions:<br>• Source ARN<br>• Flow ARN<br>• Availability Zone<br>• All flows                                                                                                                                                                                                    |
 
-## TR 101 290
-
-Priority 2 metrics
+## TR 101 290 Priority 2 metrics
 
 The following table lists TR 101 290 Priority 2 metrics that AWS Elemental MediaConnect
 sends to CloudWatch.

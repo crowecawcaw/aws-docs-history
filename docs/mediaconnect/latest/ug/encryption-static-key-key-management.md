@@ -1,6 +1,4 @@
-# Key management for static
-
-key encryption
+# Key management for static key encryption
 
 In AWS Elemental MediaConnect, you can use static key encryption to secure content in
 sources, outputs, entitlements and router I/O. To use this method, you store an encryption

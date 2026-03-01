@@ -8,8 +8,7 @@ permission to obtain the keys from your Secrets Manager account.
 
 This section guides you through the steps required to configure users and roles to access
 AWS Elemental MediaConnect. For background and additional information about identity and access
-management for MediaConnect, see [Identity and access management for
-AWS Elemental MediaConnect](security-iam.md "security-iam.md").
+management for MediaConnect, see [Identity and access management for AWS Elemental MediaConnect](security-iam.md "security-iam.md").
 
 ###### Topics
 

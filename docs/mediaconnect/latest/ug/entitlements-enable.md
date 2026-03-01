@@ -1,6 +1,4 @@
-# Enabling an entitlement that has been
-
-temporarily disabled
+# Enabling an entitlement that has been temporarily disabled
 
 If an entitlement has been [disabled](entitlements-disable.md "entitlements-disable.md"),
 you can enable it to start streaming content to the subscriber’s flow again.

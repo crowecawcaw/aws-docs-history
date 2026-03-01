@@ -1,8 +1,6 @@
 # Requirements for thumbnails
 
-## Requirements for the video
-
-source
+## Requirements for the video source
 
 For MediaConnect to successfully generate thumbnails, make sure that the video source
 meets the following requirements.

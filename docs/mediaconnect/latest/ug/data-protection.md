@@ -57,9 +57,7 @@ SRT protocols, and for router I/O that use the SRT protocol.
 
 ###### Topics
 
-- [Static key encryption in
-  AWS Elemental MediaConnect](encryption-static-key.md "encryption-static-key.md")
+- [Static key encryption in AWS Elemental MediaConnect](encryption-static-key.md "encryption-static-key.md")
 - [SPEKE encryption in AWS Elemental MediaConnect](encryption-speke.md "encryption-speke.md")
-- [SRT password encryption in
-  AWS Elemental MediaConnect](encryption-srt-password.md "encryption-srt-password.md")
+- [SRT password encryption in AWS Elemental MediaConnect](encryption-srt-password.md "encryption-srt-password.md")
 - [Internetwork traffic privacy](internetwork-traffic-privacy.md "internetwork-traffic-privacy.md")

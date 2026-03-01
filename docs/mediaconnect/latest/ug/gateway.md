@@ -87,8 +87,7 @@ terminology.
 ## Next steps
 
 Now that you have a basic understanding of MediaConnect Gateway, we recommend you review the
-[Supported operating systems and system
-architectures for using MediaConnect Gateway](gateway-prerequisites.md "gateway-prerequisites.md").
+[Supported operating systems and system architectures for using MediaConnect Gateway](gateway-prerequisites.md "gateway-prerequisites.md").
 
 ## Additional resources
 

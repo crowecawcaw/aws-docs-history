@@ -12,8 +12,7 @@ CloudFormation.
 
 ## Prerequisites
 
-- Make sure that you’ve reviewed the [Supported operating systems and system
-  architectures for using MediaConnect Gateway](gateway-prerequisites.md "gateway-prerequisites.md").
+- Make sure that you’ve reviewed the [Supported operating systems and system architectures for using MediaConnect Gateway](gateway-prerequisites.md "gateway-prerequisites.md").
 - Before creating a gateway, you will need the name, egress CIDR IP
   information, and network information of the gateway you want to
   create.
@@ -113,5 +112,4 @@ AWS CLI
 ## Next steps
 
 After a MediaConnect Gateway and its networks are created, you can begin registering
-instances to that MediaConnect Gateway. For instructions, see [Registering a MediaConnect Gateway
-instance](gateway-components-instances-create.md "gateway-components-instances-create.md").
+instances to that MediaConnect Gateway. For instructions, see [Registering a MediaConnect Gateway instance](gateway-components-instances-create.md "gateway-components-instances-create.md").

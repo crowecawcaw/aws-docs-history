@@ -1,6 +1,4 @@
-# AWS Elemental MediaConnect
-
-metrics to monitor media health
+# AWS Elemental MediaConnect metrics to monitor media health
 
 AWS Elemental MediaConnect sends metrics to CloudWatch. You can review specific metrics to
 evaluate the health of the media transmitted by MediaConnect. The media health metrics
