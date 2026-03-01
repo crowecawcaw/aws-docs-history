@@ -47,9 +47,7 @@ The combined string.
 
 ## Examples
 
-### Join a simple string
-
-array
+### Join a simple string array
 
 The following example returns: `"a:b:c"`.
 
@@ -65,9 +63,7 @@ The following example returns: `"a:b:c"`.
 !Join [ ":", [ a, b, c ] ]
 ```
 
-### Join using the ref function
-
-with parameters
+### Join using the ref function with parameters
 
 The following example uses `Fn::Join` to construct a string value. It uses
 the `Ref` function with the `AWS::Partition` parameter and the
@@ -108,9 +104,7 @@ the `Ref` function with the `AWS::Partition` parameter and the
 Also see the [Fn::Sub](intrinsic-function-reference-sub.md "intrinsic-function-reference-sub.md") function for similar
 functionality.
 
-## Supported
-
-functions
+## Supported functions
 
 For the `Fn::Join` delimiter, you can't use any functions. You must specify a
 string value.

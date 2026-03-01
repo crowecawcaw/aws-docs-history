@@ -11,16 +11,11 @@ resources during stack update operations.
 
 - [Overview](#aws-resource-update-policies "#aws-resource-update-policies")
 - [WorkSpaces Applications update policy](#aws-attribute-update-policy-app-stream-fleet "#aws-attribute-update-policy-app-stream-fleet")
-- [AutoScalingReplacingUpdate
-  policy](#cfn-attributes-updatepolicy-replacingupdate "#cfn-attributes-updatepolicy-replacingupdate")
-- [AutoScalingRollingUpdate
-  policy](#cfn-attributes-updatepolicy-rollingupdate "#cfn-attributes-updatepolicy-rollingupdate")
-- [AutoScalingScheduledAction
-  policy](#cfn-attributes-updatepolicy-scheduledactions "#cfn-attributes-updatepolicy-scheduledactions")
-- [UseOnlineResharding
-  policy](#cfn-attributes-updatepolicy-useonlineresharding "#cfn-attributes-updatepolicy-useonlineresharding")
-- [EnableVersionUpgrade
-  policy](#cfn-attributes-updatepolicy-upgradeopensearchdomain "#cfn-attributes-updatepolicy-upgradeopensearchdomain")
+- [AutoScalingReplacingUpdate policy](#cfn-attributes-updatepolicy-replacingupdate "#cfn-attributes-updatepolicy-replacingupdate")
+- [AutoScalingRollingUpdate policy](#cfn-attributes-updatepolicy-rollingupdate "#cfn-attributes-updatepolicy-rollingupdate")
+- [AutoScalingScheduledAction policy](#cfn-attributes-updatepolicy-scheduledactions "#cfn-attributes-updatepolicy-scheduledactions")
+- [UseOnlineResharding policy](#cfn-attributes-updatepolicy-useonlineresharding "#cfn-attributes-updatepolicy-useonlineresharding")
+- [EnableVersionUpgrade policy](#cfn-attributes-updatepolicy-upgradeopensearchdomain "#cfn-attributes-updatepolicy-upgradeopensearchdomain")
 - [CodeDeployLambdaAliasUpdate policy](#cfn-attributes-updatepolicy-codedeploylambdaaliasupdate "#cfn-attributes-updatepolicy-codedeploylambdaaliasupdate")
 - [Examples](#aws-attribute-updatepolicy-examples "#aws-attribute-updatepolicy-examples")
 
@@ -117,9 +112,7 @@ Starts the specified fleet after the update.
 
 _Required_: No
 
-## AutoScalingReplacingUpdate
-
-policy
+## AutoScalingReplacingUpdate policy
 
 To replace the Auto Scaling group and the instances it contains, use the
 `AutoScalingReplacingUpdate` policy.
@@ -171,9 +164,7 @@ _Type_: Boolean
 
 _Required_: No
 
-## AutoScalingRollingUpdate
-
-policy
+## AutoScalingRollingUpdate policy
 
 To perform a rolling update of the instances in an Auto Scaling group rather than wait for scaling
 activities to gradually replace older instances with newer instances, use the
@@ -392,9 +383,7 @@ _Required_: Conditional. If you specify the
 `MinSuccessfulInstancesPercent` property, the
 `WaitOnResourceSignals` property must be set to `true`.
 
-## AutoScalingScheduledAction
-
-policy
+## AutoScalingScheduledAction policy
 
 To specify how CloudFormation handles updates for the `MinSize`,
 `MaxSize`, and `DesiredCapacity` properties when the
@@ -454,9 +443,7 @@ _Type_: Boolean
 
 _Required_: No
 
-## UseOnlineResharding
-
-policy
+## UseOnlineResharding policy
 
 To modify a replication group's shards by adding or removing shards, rather than replacing
 the entire [AWS::ElastiCache::ReplicationGroup](aws-resource-elasticache-replicationgroup.md "aws-resource-elasticache-replicationgroup.md") resource, use the
@@ -547,9 +534,7 @@ UpdatePolicy:
   UseOnlineResharding: `Boolean`
 ```
 
-## EnableVersionUpgrade
-
-policy
+## EnableVersionUpgrade policy
 
 To upgrade an OpenSearch Service domain to a new version of OpenSearch or Elasticsearch rather than
 replacing the entire [AWS::OpenSearchService::Domain](aws-resource-opensearchservice-domain.md "aws-resource-opensearchservice-domain.md") or [AWS::Elasticsearch::Domain](aws-resource-elasticsearch-domain.md "aws-resource-elasticsearch-domain.md")
@@ -662,9 +647,7 @@ For an example that specifies the `UpdatePolicy` attribute for an
 The following examples show how to add an update policy to an Auto Scaling group and how to
 maintain availability when updating metadata.
 
-### Add an `UpdatePolicy` to
-
-an Auto Scaling group
+### Add an `UpdatePolicy` to an Auto Scaling group
 
 The following example shows how to add an update policy. During an update, the Auto Scaling
 group updates instances in batches of two and keeps a minimum of one instance in service.
@@ -787,9 +770,7 @@ CreationPolicy:
     MinSuccessfulInstancesPercent: !Ref 'MinSuccessfulPercentParameter'
 ```
 
-### Maintain availability when
-
-updating the metadata for the cfn-init helper script
+### Maintain availability when updating the metadata for the cfn-init helper script
 
 When you install software applications on your instances, you might use the [AWS::CloudFormation::Init](aws-resource-init.md "aws-resource-init.md") metadata key and the [cfn-init](cfn-init.md "cfn-init.md") helper script to bootstrap the instances in
 your Auto Scaling group. CloudFormation installs the packages, runs the commands, and performs other
@@ -813,9 +794,7 @@ and then update the stack and any references pointing to the original logic ID (
 associated Auto Scaling group). CloudFormation triggers a rolling update on the Auto Scaling group, replacing
 all instances.
 
-### Original
-
-template
+### Original template
 
 ```
 "LaunchConfig": {
@@ -829,9 +808,7 @@ template
 }
 ```
 
-### Updated logical
-
-ID
+### Updated logical ID
 
 ```
 "**LaunchConfigUpdateRubygemsPkg**": {

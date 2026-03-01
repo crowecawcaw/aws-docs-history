@@ -2,9 +2,7 @@ This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-# `AWS::ServiceCatalog`
-
-transform
+# `AWS::ServiceCatalog` transform
 
 This topic describes how to use the `AWS::ServiceCatalog` transform to
 reference outputs from an existing AWS Service Catalog provisioned product in your CloudFormation

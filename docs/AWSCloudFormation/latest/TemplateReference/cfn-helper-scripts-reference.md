@@ -29,12 +29,9 @@ execute specific helper scripts.
 ###### Topics
 
 - [Amazon Linux AMI images](#cfn-helper-scripts-reference-amazon-amis "#cfn-helper-scripts-reference-amazon-amis")
-- [Downloading packages for other
-  platforms](#cfn-helper-scripts-reference-downloads "#cfn-helper-scripts-reference-downloads")
-- [Permissions for helper
-  scripts](#cfn-helper-scripts-reference-permissions "#cfn-helper-scripts-reference-permissions")
-- [Using the latest
-  version](#cfn-helper-scripts-reference-latest-version "#cfn-helper-scripts-reference-latest-version")
+- [Downloading packages for other platforms](#cfn-helper-scripts-reference-downloads "#cfn-helper-scripts-reference-downloads")
+- [Permissions for helper scripts](#cfn-helper-scripts-reference-permissions "#cfn-helper-scripts-reference-permissions")
+- [Using the latest version](#cfn-helper-scripts-reference-latest-version "#cfn-helper-scripts-reference-latest-version")
 - [cfn-init](cfn-init.md "cfn-init.md")
 - [cfn-signal](cfn-signal.md "cfn-signal.md")
 - [cfn-get-metadata](cfn-get-metadata.md "cfn-get-metadata.md")
@@ -55,9 +52,7 @@ scripts installed.
 The helper scripts are pre-installed on the latest versions of the Amazon Linux AMI and not
 on Optimized AMIs, such as ECS Optimized Image that uses Amazon Linux as base.
 
-## Downloading packages for other
-
-platforms
+## Downloading packages for other platforms
 
 For Linux/Unix distributions other than Amazon Linux
 AMI images and for Microsoft Windows (2008 or later), you can download the
@@ -74,9 +69,7 @@ you need helper scripts that support an earlier version of Python, see [Release 
 | ZIP         | [https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.zip](https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.zip "https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.zip")                                                                                                                                                                                                                                                                                                                 |
 | EXE         | 32-bit Windows: [https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.exe](https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.exe "https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.exe")<br>64-bit Windows: [https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-win64-latest.exe](https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-win64-latest.exe "https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-win64-latest.exe") |
 
-## Permissions for helper
-
-scripts
+## Permissions for helper scripts
 
 By default, helper scripts don't require credentials, so you don't need to use the
 `--access-key`, `--secret-key`, `--role`, or
@@ -102,9 +95,7 @@ For more information on using CloudFormation-specific actions and condition cont
 IAM policies, see [Control CloudFormation access with
 AWS Identity and Access Management](../UserGuide/control-access-with-iam.md "../UserGuide/control-access-with-iam.md") in the _AWS CloudFormation User Guide_.
 
-## Using the latest
-
-version
+## Using the latest version
 
 The helper scripts are updated periodically. If you use the helper scripts, ensure that
 your launched instances are using the latest version of the scripts:

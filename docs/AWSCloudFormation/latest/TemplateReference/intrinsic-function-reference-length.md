@@ -9,8 +9,7 @@ array or an intrinsic function that returns an array.
 
 ###### Important
 
-You must use the [AWS::LanguageExtensions
-transform](transform-aws-languageextensions.md "transform-aws-languageextensions.md") to use the
+You must use the [AWS::LanguageExtensions transform](transform-aws-languageextensions.md "transform-aws-languageextensions.md") to use the
 `Fn::Length` intrinsic function.
 
 ## Declaration
@@ -53,9 +52,7 @@ passed to the intrinsic function.
 
 ## Examples
 
-### Return the
-
-number of elements in an intrinsic function that returns an array
+### Return the number of elements in an intrinsic function that returns an array
 
 This example snippet returns the number of elements in an intrinsic function that
 returns an array. The function returns 3.
@@ -84,10 +81,7 @@ Transform: 'AWS::LanguageExtensions'
 #...
 ```
 
-### Return the number of
-
-elements in a Ref intrinsic function that refers to a list parameter
-type
+### Return the number of elements in a Ref intrinsic function that refers to a list parameter type
 
 This example snippet returns the number of elements in a `Ref`
 intrinsic function that refers to a list parameter type. If the parameter with the
@@ -117,9 +111,7 @@ Transform: 'AWS::LanguageExtensions'
 #...
 ```
 
-### Return the number of
-
-elements in an array
+### Return the number of elements in an array
 
 This example snippet returns the number of elements in the array passed to the
 intrinsic function. The function returns 3.

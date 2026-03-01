@@ -51,9 +51,7 @@ Resources:
   `...`
 ```
 
-### Syntax when the transform is embedded
-
-within a section of a template
+### Syntax when the transform is embedded within a section of a template
 
 To declare this transform within a section of your CloudFormation template, use the
 `Fn::Transform` intrinsic function and the following syntax:

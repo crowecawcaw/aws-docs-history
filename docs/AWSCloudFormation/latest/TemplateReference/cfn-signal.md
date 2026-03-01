@@ -20,8 +20,7 @@ you track each signal.
 ###### Topics
 
 - [Syntax for resource signaling (recommended)](#w2aac32c29b9 "#w2aac32c29b9")
-- [Syntax for use with wait condition
-  handle](#cfn-signal-Syntaxwaitcondition "#cfn-signal-Syntaxwaitcondition")
+- [Syntax for use with wait condition handle](#cfn-signal-Syntaxwaitcondition "#cfn-signal-Syntaxwaitcondition")
 - [Options](#cfn-signal-options "#cfn-signal-options")
 - [Examples](#cfn-signal-examples "#cfn-signal-examples")
 - [Related resources](#cfn-signal-related-resources "#cfn-signal-related-resources")
@@ -52,12 +51,9 @@ cfn-signal --success|-s `signal.to.send` \
 `--access-key`, `--secret-key`, `--role`, or
 `--credential-file` options. However, if no credentials are specified,
 CloudFormation checks for stack membership and limits the scope of the call to the stack
-that the instance belongs to. For more information, see [Permissions for helper
-scripts](cfn-helper-scripts-reference.md#cfn-helper-scripts-reference-permissions "cfn-helper-scripts-reference.md#cfn-helper-scripts-reference-permissions").
+that the instance belongs to. For more information, see [Permissions for helper scripts](cfn-helper-scripts-reference.md#cfn-helper-scripts-reference-permissions "cfn-helper-scripts-reference.md#cfn-helper-scripts-reference-permissions").
 
-## Syntax for use with wait condition
-
-handle
+## Syntax for use with wait condition handle
 
 If you want to signal a wait condition handle, use the following syntax.
 

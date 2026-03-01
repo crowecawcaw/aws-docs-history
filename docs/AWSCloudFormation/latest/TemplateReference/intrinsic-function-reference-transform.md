@@ -106,9 +106,7 @@ Fn::Transform:
     Location: !Ref InputValue
 ```
 
-## Supported
-
-functions
+## Supported functions
 
 None.
 

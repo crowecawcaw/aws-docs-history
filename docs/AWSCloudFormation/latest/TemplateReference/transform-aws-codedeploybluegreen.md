@@ -2,9 +2,7 @@ This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-# `AWS::CodeDeployBlueGreen`
-
-transform
+# `AWS::CodeDeployBlueGreen` transform
 
 This topic describes how to use the `AWS::CodeDeployBlueGreen` transform to
 enable ECS blue/green deployments through CodeDeploy on your stack.

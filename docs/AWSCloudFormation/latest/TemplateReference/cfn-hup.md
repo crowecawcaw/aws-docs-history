@@ -17,8 +17,7 @@ _AWS CloudFormation User Guide_.
 - [Syntax](#cfn-hup-Syntax "#cfn-hup-Syntax")
 - [Options](#cfn-hup-options "#cfn-hup-options")
 - [cfn-hup.conf configuration file](#cfn-hup-config-file "#cfn-hup-config-file")
-- [hooks.conf configuration
-  file](#cfn-hup-hook-file "#cfn-hup-hook-file")
+- [hooks.conf configuration file](#cfn-hup-hook-file "#cfn-hup-hook-file")
 - [hooks.d directory](#cfn-hup-hooks-dir "#cfn-hup-hooks-dir")
 - [Examples](#cfn-hup-examples "#cfn-hup-examples")
 - [Related resources](#cfn-hup-related-resources "#cfn-hup-related-resources")
@@ -61,9 +60,7 @@ stack=`<stack-name-or-id>`
 | `interval`        | The interval used to check for changes to the resource metadata in<br>minutes.<br>_Type_: Integer<br>_Default_: `15`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | No       |
 | `verbose`         | Specifies whether to use verbose logging.<br>_Type_: Boolean<br>_Default_: `false`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | No       |
 
-## `hooks.conf` configuration
-
-file
+## `hooks.conf` configuration file
 
 The user actions that the `cfn-hup` daemon calls periodically are defined
 in the `hooks.conf` configuration file. The

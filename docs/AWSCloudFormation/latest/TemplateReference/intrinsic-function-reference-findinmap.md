@@ -60,14 +60,10 @@ function.
 
 ###### Topics
 
-- [Use
-  Fn::FindInMap with region-specific values](#intrinsic-function-reference-findinmap-region-example "#intrinsic-function-reference-findinmap-region-example")
-- [Use
-  Fn::FindInMap for environment-specific configurations](#intrinsic-function-reference-findinmap-environment-example "#intrinsic-function-reference-findinmap-environment-example")
+- [Use Fn::FindInMap with region-specific values](#intrinsic-function-reference-findinmap-region-example "#intrinsic-function-reference-findinmap-region-example")
+- [Use Fn::FindInMap for environment-specific configurations](#intrinsic-function-reference-findinmap-environment-example "#intrinsic-function-reference-findinmap-environment-example")
 
-### Use
-
-Fn::FindInMap with region-specific values
+### Use Fn::FindInMap with region-specific values
 
 The following example shows how to use `Fn::FindInMap` in a template that
 includes two mappings: `AWSInstanceType2Arch` and `AWSRegionArch2AMI`.
@@ -194,9 +190,7 @@ Resources:
           - Arch
 ```
 
-### Use
-
-Fn::FindInMap for environment-specific configurations
+### Use Fn::FindInMap for environment-specific configurations
 
 The following example shows how to use `Fn::FindInMap` for a template with a
 `Mappings` section that contains a single map, `SecurityGroups`. It
@@ -307,8 +301,7 @@ You can use the following functions in a `Fn::FindInMap` function:
 
 To use other intrinsic functions or a default value in a `Fn::FindInMap`
 function, you must declare the `AWS::LanguageExtensions` transform within your
-template. For more information, see [Fn::FindInMap
-enhancements](intrinsic-function-reference-findinmap-enhancements.md "intrinsic-function-reference-findinmap-enhancements.md").
+template. For more information, see [Fn::FindInMap enhancements](intrinsic-function-reference-findinmap-enhancements.md "intrinsic-function-reference-findinmap-enhancements.md").
 
 These related topics can be helpful as you develop templates that use the
 `Fn::FindInMap` function.

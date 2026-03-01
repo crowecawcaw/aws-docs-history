@@ -2,9 +2,7 @@ This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-# Examples of
-
-`Fn::ForEach` in the `Outputs` section
+# Examples of `Fn::ForEach` in the `Outputs` section
 
 These examples demonstrate using the `Fn::ForEach` intrinsic function in the
 `Outputs` section. For more information about this section, see [Outputs](../UserGuide/outputs-section-structure.md "../UserGuide/outputs-section-structure.md") in the
@@ -12,13 +10,10 @@ _AWS CloudFormation User Guide_.
 
 ###### Topics
 
-- [Reference
-  replicated AWS::S3::Bucket resources](#intrinsic-function-reference-foreach-example-replicate-outputs "#intrinsic-function-reference-foreach-example-replicate-outputs")
+- [Reference replicated AWS::S3::Bucket resources](#intrinsic-function-reference-foreach-example-replicate-outputs "#intrinsic-function-reference-foreach-example-replicate-outputs")
 - [Reference replicated AWS::EC2::Instance resources](#intrinsic-function-reference-foreach-example-replicate-conditions "#intrinsic-function-reference-foreach-example-replicate-conditions")
 
-## Reference
-
-replicated `AWS::S3::Bucket` resources
+## Reference replicated `AWS::S3::Bucket` resources
 
 This example uses nested `Fn::ForEach` loops in the `Outputs`
 section to reduce the template length.

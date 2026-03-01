@@ -2,9 +2,7 @@ This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-# `AWS::LanguageExtensions`
-
-transform
+# `AWS::LanguageExtensions` transform
 
 This topic describes how to use the `AWS::LanguageExtensions` transform to
 enable additional functions and capabilities that are not available by default.
@@ -55,9 +53,7 @@ Resources:
 The `AWS::LanguageExtensions` transform is a standalone declaration with no
 additional parameters.
 
-## Support for additional
-
-functions
+## Support for additional functions
 
 The `AWS::LanguageExtensions` transform supports the following additional
 functions:
@@ -165,8 +161,7 @@ For more examples, see the following topics.
 - [Fn::ToJsonString](intrinsic-function-reference-ToJsonString.md "intrinsic-function-reference-ToJsonString.md")
 - [Ref](intrinsic-function-reference-ref.md "intrinsic-function-reference-ref.md")
 - [Fn::GetAtt](intrinsic-function-reference-getatt.md "intrinsic-function-reference-getatt.md")
-- [Fn::FindInMap
-  enhancements](intrinsic-function-reference-findinmap-enhancements.md "intrinsic-function-reference-findinmap-enhancements.md")
+- [Fn::FindInMap enhancements](intrinsic-function-reference-findinmap-enhancements.md "intrinsic-function-reference-findinmap-enhancements.md")
 
 For general information about using macros, see [Perform custom processing on CloudFormation
 templates with template macros](../UserGuide/template-macros.md "../UserGuide/template-macros.md") in the

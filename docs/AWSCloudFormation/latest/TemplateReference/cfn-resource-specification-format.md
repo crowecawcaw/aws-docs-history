@@ -10,10 +10,8 @@ within the specification.
 ###### Topics
 
 - [Specification sections](#w2aac37b9c23b7 "#w2aac37b9c23b7")
-- [Property
-  specification](#cfn-resource-specification-format-propertytypes "#cfn-resource-specification-format-propertytypes")
-- [Resource
-  specification](#cfn-resource-specification-format-resourcetype "#cfn-resource-specification-format-resourcetype")
+- [Property specification](#cfn-resource-specification-format-propertytypes "#cfn-resource-specification-format-propertytypes")
+- [Resource specification](#cfn-resource-specification-format-resourcetype "#cfn-resource-specification-format-resourcetype")
 - [Example resource specification](#w2aac37b9c23c13 "#w2aac37b9c23c13")
 
 ## Specification sections
@@ -39,8 +37,7 @@ example:
 For resources that have properties within a property (also known as
 subproperties), a list of subproperty specifications, such as which properties are
 required, the type of allowed value for each property, and their update behavior. For
-more information, see [Property
-specification](#cfn-resource-specification-format-propertytypes "#cfn-resource-specification-format-propertytypes").
+more information, see [Property specification](#cfn-resource-specification-format-propertytypes "#cfn-resource-specification-format-propertytypes").
 
 If a resource doesn't have subproperties, this section is omitted.
 
@@ -66,17 +63,14 @@ resource property required.
 
 The list of resources and information about each resource's properties, such as
 its property names, which properties are required, and their update behavior. For more
-information, see [Resource
-specification](#cfn-resource-specification-format-resourcetype "#cfn-resource-specification-format-resourcetype").
+information, see [Resource specification](#cfn-resource-specification-format-resourcetype "#cfn-resource-specification-format-resourcetype").
 
 ###### Note
 
 If you view a file that contains the definition of one resource type, this
 property name is `ResourceType` (singular).
 
-## Property
-
-specification
+## Property specification
 
 The specification for each property includes the following fields. For subproperties,
 the property name uses the
@@ -168,9 +162,7 @@ doesn't replace the resource when you change mutable properties. Conditional upd
 can be mutable or immutable, depending on, for example, which other properties you
 updated. For more information, see [AWS resource and property types reference](aws-template-resource-type-ref.md "aws-template-resource-type-ref.md").
 
-## Resource
-
-specification
+## Resource specification
 
 The specification for each resource type includes the following fields.
 
@@ -244,8 +236,7 @@ resource.
 
 `Properties`
 
-A list of property specifications for the resource. For details, see [Property
-specification](#cfn-resource-specification-format-propertytypes "#cfn-resource-specification-format-propertytypes").
+A list of property specifications for the resource. For details, see [Property specification](#cfn-resource-specification-format-propertytypes "#cfn-resource-specification-format-propertytypes").
 
 ## Example resource specification
 

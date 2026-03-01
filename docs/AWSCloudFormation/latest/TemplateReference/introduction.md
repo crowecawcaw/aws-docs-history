@@ -32,8 +32,7 @@ for the following topics:
   part of your stack. For more information, see the [CloudFormation helper scripts reference](cfn-helper-scripts-reference.md "cfn-helper-scripts-reference.md").
 - Resource spec and schemas – Files that
   contain detailed specifications and schemas for each resource type. For more
-  information, see the [Resource spec and
-  schemas reference](resource-spec-and-schemas-reference.md "resource-spec-and-schemas-reference.md").
+  information, see the [Resource spec and schemas reference](resource-spec-and-schemas-reference.md "resource-spec-and-schemas-reference.md").
   If you're new to CloudFormation templates, we recommend that you first review the information
   in the [Working with
   CloudFormation templates](../UserGuide/template-guide.md "../UserGuide/template-guide.md") section of the _AWS CloudFormation User Guide_.

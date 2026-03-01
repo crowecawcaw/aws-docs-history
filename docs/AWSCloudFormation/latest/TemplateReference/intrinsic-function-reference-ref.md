@@ -77,9 +77,7 @@ referenced:
 
 ## Examples
 
-### Create references between
-
-resources
+### Create references between resources
 
 The following resource declaration for an Elastic IP address needs the instance ID
 of an EC2 instance. It uses the `Ref` function to specify the instance ID
@@ -121,9 +119,7 @@ Resources:
       InstanceId: !Ref MyEC2Instance
 ```
 
-### Return a resource
-
-identifier as stack output
+### Return a resource identifier as stack output
 
 The following examples show how to use the `Ref` function to return the
 name of an Amazon S3 bucket with the logical name `MyBucket` as stack output.
@@ -170,10 +166,7 @@ Outputs:
     Value: !Ref MyBucket
 ```
 
-### Use
-
-`Fn::Join` intrinsic function inside `Ref`
-function
+### Use `Fn::Join` intrinsic function inside `Ref` function
 
 ###### Note
 

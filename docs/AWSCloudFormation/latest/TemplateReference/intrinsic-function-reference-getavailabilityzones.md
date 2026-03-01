@@ -131,9 +131,7 @@ mySubnet:
 
  
 
-### Nested functions with short form
-
-YAML
+### Nested functions with short form YAML
 
 The following examples show valid patterns for using nested intrinsic functions using short form YAML. You
 can't nest short form functions consecutively, so a pattern like `!GetAZs !Ref` isn't valid.

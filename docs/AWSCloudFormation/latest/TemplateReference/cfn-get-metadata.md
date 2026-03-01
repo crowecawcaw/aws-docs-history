@@ -33,8 +33,7 @@ cfn-get-metadata --access-key `access.key` \
 use the `--access-key`, `--secret-key`, `--role`, or
 `--credential-file` options. However, if no credentials are specified,
 CloudFormation checks for stack membership and limits the scope of the call to the stack
-that the instance belongs to. For more information, see [Permissions for helper
-scripts](cfn-helper-scripts-reference.md#cfn-helper-scripts-reference-permissions "cfn-helper-scripts-reference.md#cfn-helper-scripts-reference-permissions").
+that the instance belongs to. For more information, see [Permissions for helper scripts](cfn-helper-scripts-reference.md#cfn-helper-scripts-reference-permissions "cfn-helper-scripts-reference.md#cfn-helper-scripts-reference-permissions").
 
 ## Options
 

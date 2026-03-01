@@ -292,9 +292,7 @@ Resources:
             - Name
 ```
 
-## Supported
-
-functions
+## Supported functions
 
 For the `String` parameter, you can't use any functions. You must specify a
 string value.

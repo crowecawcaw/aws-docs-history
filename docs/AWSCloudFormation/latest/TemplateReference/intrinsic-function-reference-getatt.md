@@ -48,9 +48,7 @@ resources, see the documentation for the resources in the [Resource and property
 
 ## Examples
 
-### Return an attribute
-
-value
+### Return an attribute value
 
 The following examples return a string containing the DNS name of the load balancer with
 the logical name `myELB`.
@@ -67,9 +65,7 @@ the logical name `myELB`.
 !GetAtt myELB.DNSName
 ```
 
-#### Return multiple attribute
-
-values
+#### Return multiple attribute values
 
 The following examples return the `SourceSecurityGroup.OwnerAlias` and
 `SourceSecurityGroup.GroupName` of the load balancer with the logical name
@@ -153,9 +149,7 @@ Resources:
 
 ```
 
-#### Use `Fn::Sub`
-
-inside `Fn::GetAtt` function
+#### Use `Fn::Sub` inside `Fn::GetAtt` function
 
 ###### Note
 

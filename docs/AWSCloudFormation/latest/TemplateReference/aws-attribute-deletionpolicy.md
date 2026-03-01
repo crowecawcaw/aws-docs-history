@@ -63,9 +63,7 @@ Resources:
     DeletionPolicy: Retain
 ```
 
-## `DeletionPolicy`
-
-options
+## `DeletionPolicy` options
 
 `Delete`
 

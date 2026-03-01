@@ -2,9 +2,7 @@ This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-# Examples of
-
-`Fn::ForEach` in the `Resources` section
+# Examples of `Fn::ForEach` in the `Resources` section
 
 These examples demonstrate using the `Fn::ForEach` intrinsic function in the
 `Resources` section. For more information about this section, see [Resources](../UserGuide/resources-section-structure.md "../UserGuide/resources-section-structure.md") in
@@ -18,9 +16,7 @@ the _AWS CloudFormation User Guide_.
 - [Replicate multiple resources using a nested Fn::ForEach loops](#intrinsic-function-reference-foreach-example-nested-loop-resources "#intrinsic-function-reference-foreach-example-nested-loop-resources")
 - [Reference replicated properties for an Amazon EC2 resource](#intrinsic-function-reference-foreach-example-reference-replicated-resource "#intrinsic-function-reference-foreach-example-reference-replicated-resource")
 - [Replicate properties for an Amazon EC2 resource](#intrinsic-function-reference-foreach-example-replicate-resource-properties "#intrinsic-function-reference-foreach-example-replicate-resource-properties")
-- [Passing
-  non-alphanumeric characters within the Collection for
-  Fn::ForEach](#intrinsic-function-reference-foreach-example-non-alphanumeric "#intrinsic-function-reference-foreach-example-non-alphanumeric")
+- [Passing non-alphanumeric characters within the Collection for Fn::ForEach](#intrinsic-function-reference-foreach-example-non-alphanumeric "#intrinsic-function-reference-foreach-example-non-alphanumeric")
 
 ## Replicate an Amazon SNS resource
 
@@ -937,10 +933,7 @@ Resources:
       AvailabilityZone: us-east-1a
 ```
 
-## Passing
-
-non-alphanumeric characters within the `Collection` for
-`Fn::ForEach`
+## Passing non-alphanumeric characters within the `Collection` for `Fn::ForEach`
 
 This example uses the `&{}` syntax, which allows the non-alphanumeric
 characters (`.` and `/`) in the IP addresses to be passed within the

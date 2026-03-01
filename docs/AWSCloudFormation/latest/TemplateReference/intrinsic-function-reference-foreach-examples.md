@@ -6,9 +6,6 @@ Please update your bookmarks and links. For help getting started with CloudForma
 
 ###### Topics
 
-- [Examples of
-  Fn::ForEach in the Resources section](intrinsic-function-reference-foreach-example-resource.md "intrinsic-function-reference-foreach-example-resource.md")
-- [Examples of
-  Fn::ForEach in the Outputs section](intrinsic-function-reference-foreach-example-outputs.md "intrinsic-function-reference-foreach-example-outputs.md")
-- [Examples of
-  Fn::ForEach in the Conditions section](intrinsic-function-reference-foreach-example-conditions.md "intrinsic-function-reference-foreach-example-conditions.md")
+- [Examples of Fn::ForEach in the Resources section](intrinsic-function-reference-foreach-example-resource.md "intrinsic-function-reference-foreach-example-resource.md")
+- [Examples of Fn::ForEach in the Outputs section](intrinsic-function-reference-foreach-example-outputs.md "intrinsic-function-reference-foreach-example-outputs.md")
+- [Examples of Fn::ForEach in the Conditions section](intrinsic-function-reference-foreach-example-conditions.md "intrinsic-function-reference-foreach-example-conditions.md")

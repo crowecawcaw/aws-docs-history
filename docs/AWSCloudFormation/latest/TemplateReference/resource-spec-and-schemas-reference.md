@@ -2,9 +2,7 @@ This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-# Resource spec and
-
-schemas reference
+# Resource spec and schemas reference
 
 The following topics contain compressed files (zip files) that include resource
 specifications and schemas for each resource type. They also contain a combined JSON

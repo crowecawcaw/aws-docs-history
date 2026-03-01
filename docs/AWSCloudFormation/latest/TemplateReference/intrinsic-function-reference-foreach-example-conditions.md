@@ -2,9 +2,7 @@ This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-# Examples of
-
-`Fn::ForEach` in the `Conditions` section
+# Examples of `Fn::ForEach` in the `Conditions` section
 
 These examples demonstrate using the `Fn::ForEach` intrinsic function in the
 `Conditions` section. For more information about this section, see [Conditions](../UserGuide/conditions-section-structure.md "../UserGuide/conditions-section-structure.md")

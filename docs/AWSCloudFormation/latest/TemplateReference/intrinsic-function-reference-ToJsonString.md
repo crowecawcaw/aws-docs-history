@@ -9,8 +9,7 @@ corresponding JSON string.
 
 ###### Important
 
-You must use the [AWS::LanguageExtensions
-transform](transform-aws-languageextensions.md "transform-aws-languageextensions.md") to use the
+You must use the [AWS::LanguageExtensions transform](transform-aws-languageextensions.md "transform-aws-languageextensions.md") to use the
 `Fn::ToJsonString` intrinsic function.
 
 ## Declaration
@@ -92,9 +91,7 @@ function resolves to the following JSON string:
 "{\"key1\":\"value1\",\"key2\":\"resolvedValue\"}"
 ```
 
-### Convert an
-
-array to a JSON string
+### Convert an array to a JSON string
 
 This example snippet converts the array passed to the intrinsic function to a JSON
 string.

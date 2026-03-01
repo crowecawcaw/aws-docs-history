@@ -24,9 +24,7 @@ Currently, the only CloudFormation resources that support creation policies are:
   configured. For a detailed example, see [Deploying applications on Amazon EC2 with
   CloudFormation](../UserGuide/deploying.md "../UserGuide/deploying.md") in the _AWS CloudFormation User Guide_.
 
-## WorkSpaces Applications creation
-
-policy
+## WorkSpaces Applications creation policy
 
 Amazon AppStream configuration for a creation policy.
 
@@ -86,9 +84,7 @@ CreationPolicy:
     Timeout: `String`
 ```
 
-### Amazon EC2 Auto Scaling creation
-
-properties
+### Amazon EC2 Auto Scaling creation properties
 
 Amazon EC2 Auto Scaling configuration for a creation policy.
 

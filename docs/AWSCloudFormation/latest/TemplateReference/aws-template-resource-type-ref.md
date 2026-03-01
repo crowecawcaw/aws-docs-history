@@ -72,6 +72,7 @@ Resource type identifiers always take the following form:
 - [AWS CodeStar Notifications](AWS_CodeStarNotifications.md "AWS_CodeStarNotifications.md")
 - [Amazon Cognito](AWS_Cognito.md "AWS_Cognito.md")
 - [Amazon Comprehend](AWS_Comprehend.md "AWS_Comprehend.md")
+- [AWS Compute Optimizer](AWS_ComputeOptimizer.md "AWS_ComputeOptimizer.md")
 - [AWS Config](AWS_Config.md "AWS_Config.md")
 - [Amazon Connect](AWS_Connect.md "AWS_Connect.md")
 - [Amazon Connect Cases](AWS_Cases.md "AWS_Cases.md")

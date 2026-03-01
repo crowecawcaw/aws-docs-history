@@ -15,5 +15,4 @@ behaviors and relationships.
 - [DependsOn attribute](aws-attribute-dependson.md "aws-attribute-dependson.md")
 - [Metadata attribute](aws-attribute-metadata.md "aws-attribute-metadata.md")
 - [UpdatePolicy attribute](aws-attribute-updatepolicy.md "aws-attribute-updatepolicy.md")
-- [UpdateReplacePolicy
-  attribute](aws-attribute-updatereplacepolicy.md "aws-attribute-updatereplacepolicy.md")
+- [UpdateReplacePolicy attribute](aws-attribute-updatereplacepolicy.md "aws-attribute-updatereplacepolicy.md")

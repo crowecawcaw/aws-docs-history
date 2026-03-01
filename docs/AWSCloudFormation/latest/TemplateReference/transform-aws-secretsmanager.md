@@ -2,9 +2,7 @@ This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-# `AWS::SecretsManager`
-
-transform
+# `AWS::SecretsManager` transform
 
 This topic describes how to use the `AWS::SecretsManager` transform and the
 [AWS::SecretsManager::RotationSchedule](aws-resource-secretsmanager-rotationschedule.md "aws-resource-secretsmanager-rotationschedule.md") resource type to specify a Lambda function
@@ -56,9 +54,7 @@ additional parameters. Instead, you configure the [HostedRotationLambda](aws-pro
 The [HostedRotationLambda](aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.md "aws-properties-secretsmanager-rotationschedule-hostedrotationlambda.md") property specifies the Lambda function to perform
 secrets rotation.
 
-## New features in
-
-`AWS::SecretsManager-2024-09-16`
+## New features in `AWS::SecretsManager-2024-09-16`
 
 The latest version of the `AWS::SecretsManager` transform
 (`AWS::SecretsManager-2024-09-16`) introduces the following

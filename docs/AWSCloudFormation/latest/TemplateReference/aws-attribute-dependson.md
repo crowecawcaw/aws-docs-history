@@ -27,8 +27,7 @@ apply:
   _AWS CloudFormation User Guide_.
 - Declare dependencies for resources that must be created or deleted in a specific
   order. For example, you must explicitly declare dependencies on gateway attachments
-  for some resources in a VPC. For more information, see [When a DependsOn attribute is
-  required](#gatewayattachment "#gatewayattachment").
+  for some resources in a VPC. For more information, see [When a DependsOn attribute is required](#gatewayattachment "#gatewayattachment").
 - Override default parallelism when creating, updating, or deleting resources. CloudFormation
   creates, updates, and deletes resources in parallel to the extent possible. It
   automatically determines which resources in a template can be parallelized and which
@@ -108,9 +107,7 @@ Resources:
       MasterUserPassword: '{{resolve:secretsmanager:`MySecret`:SecretString:`password`}}'
 ```
 
-## When a `DependsOn` attribute is
-
-required
+## When a `DependsOn` attribute is required
 
 VPC-gateway attachment
 

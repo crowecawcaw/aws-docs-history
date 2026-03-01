@@ -17,13 +17,9 @@ You can use the following transforms in your CloudFormation templates.
 
 ###### Topics
 
-- [AWS::CodeDeployBlueGreen
-  transform](transform-aws-codedeploybluegreen.md "transform-aws-codedeploybluegreen.md")
+- [AWS::CodeDeployBlueGreen transform](transform-aws-codedeploybluegreen.md "transform-aws-codedeploybluegreen.md")
 - [AWS::Include transform](transform-aws-include.md "transform-aws-include.md")
-- [AWS::LanguageExtensions
-  transform](transform-aws-languageextensions.md "transform-aws-languageextensions.md")
-- [AWS::SecretsManager
-  transform](transform-aws-secretsmanager.md "transform-aws-secretsmanager.md")
+- [AWS::LanguageExtensions transform](transform-aws-languageextensions.md "transform-aws-languageextensions.md")
+- [AWS::SecretsManager transform](transform-aws-secretsmanager.md "transform-aws-secretsmanager.md")
 - [AWS::Serverless transform](transform-aws-serverless.md "transform-aws-serverless.md")
-- [AWS::ServiceCatalog
-  transform](transform-aws-servicecatalog.md "transform-aws-servicecatalog.md")
+- [AWS::ServiceCatalog transform](transform-aws-servicecatalog.md "transform-aws-servicecatalog.md")

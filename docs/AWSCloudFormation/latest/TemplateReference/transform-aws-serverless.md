@@ -124,9 +124,7 @@ role.
 }
 ```
 
-## Using `AWS::Serverless` with
-
-`AWS::LanguageExtensions`
+## Using `AWS::Serverless` with `AWS::LanguageExtensions`
 
 When using both `AWS::Serverless` and `AWS::LanguageExtensions`
 transforms, referencing resources like `AWS::ApiGateway::Stage` requires special

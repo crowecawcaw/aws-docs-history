@@ -15,8 +15,7 @@ It can't be used in any of the following sections, `AWSTemplateFormatVersion`,
 sections.
 
 If you use the `Fn::ForEach` intrinsic function in your template, you must also
-use the [AWS::LanguageExtensions
-transform](transform-aws-languageextensions.md "transform-aws-languageextensions.md") .
+use the [AWS::LanguageExtensions transform](transform-aws-languageextensions.md "transform-aws-languageextensions.md") .
 
 Using the `Fn::ForEach` intrinsic function does not change the quotas, which
 apply to the resultant template. Quotas include the maximum size of a template and the maximum
@@ -80,9 +79,7 @@ resource.
 
 The `&{}` syntax allows non-alphanumeric characters in the
 `Collection` to be used in `OutputKey` parameter. For an example
-of this, see [Passing
-non-alphanumeric characters within the Collection for
-Fn::ForEach](intrinsic-function-reference-foreach-example-resource.md#intrinsic-function-reference-foreach-example-non-alphanumeric "intrinsic-function-reference-foreach-example-resource.md#intrinsic-function-reference-foreach-example-non-alphanumeric").
+of this, see [Passing non-alphanumeric characters within the Collection for Fn::ForEach](intrinsic-function-reference-foreach-example-resource.md#intrinsic-function-reference-foreach-example-non-alphanumeric "intrinsic-function-reference-foreach-example-resource.md#intrinsic-function-reference-foreach-example-non-alphanumeric").
 
 _Output value_
 
@@ -97,9 +94,7 @@ An expanded object that contains the object fragment repeated once for each item
 collection, where the identifier in the fragment is replaced with the item from the
 collection.
 
-## Supported
-
-functions
+## Supported functions
 
 You can use the following functions within `Fn::ForEach`.
 

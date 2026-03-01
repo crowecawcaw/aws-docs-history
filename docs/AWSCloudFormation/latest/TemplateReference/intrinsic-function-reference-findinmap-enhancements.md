@@ -2,9 +2,7 @@ This is the new _CloudFormation Template Reference Guide_.
 Please update your bookmarks and links. For help getting started with CloudFormation, see the
 [AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
 
-# `Fn::FindInMap
-
-enhancements`
+# `Fn::FindInMap enhancements`
 
 The `AWS::LanguageExtensions` transform enhances the functionality of the
 `Fn::FindInMap` intrinsic function in CloudFormation templates.
@@ -79,9 +77,7 @@ The following examples demonstrate how to define the fields of
 `Fn::FindInMap` when you add the `AWS::LanguageExtensions`
 transform.
 
-### Using
-
-a default value
+### Using a default value
 
 The following is an example of using a default value in the
 `Fn::FindInMap` function.
@@ -180,5 +176,4 @@ For more information and examples that show how to use the `Fn::FindInMap`
 intrinsic function, see [Fn::FindInMap](intrinsic-function-reference-findinmap.md "intrinsic-function-reference-findinmap.md").
 
 For more information about the `AWS::LanguageExtensions` transform, see
-[AWS::LanguageExtensions
-transform](transform-aws-languageextensions.md "transform-aws-languageextensions.md").
+[AWS::LanguageExtensions transform](transform-aws-languageextensions.md "transform-aws-languageextensions.md").

@@ -171,9 +171,7 @@ Resources:
       BucketName: !Sub ${EnvType}-bucket-${AWS::StackName}
 ```
 
-## Using `AWS::AccountId` in
-
-conditions
+## Using `AWS::AccountId` in conditions
 
 You can use pseudo parameters like `AWS::AccountId` in your conditions to
 create resources based on the AWS account where the stack is being deployed. This is
