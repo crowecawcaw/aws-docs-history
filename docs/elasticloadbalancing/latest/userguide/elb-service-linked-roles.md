@@ -4,9 +4,7 @@ Elastic Load Balancing uses a service-linked role for the permissions that it re
 AWS services on your behalf. For more information, see [Service-linked
 roles](../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md "../../../IAM/latest/UserGuide/id_roles_create-service-linked-role.md") in the _IAM User Guide_.
 
-## Permissions granted by the
-
-service-linked role
+## Permissions granted by the service-linked role
 
 Elastic Load Balancing uses the service-linked role named
 AWSServiceRoleForElasticLoadBalancing to call other AWS

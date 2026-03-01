@@ -138,9 +138,7 @@ Create a load balancer with a configuration that is equivalent to the Classic Lo
 5. If your Classic Load Balancer has tags, review them and add the relevant tags to your new load
    balancer.
 
-###### Step 2: Gradually redirect traffic to your new load
-
-balancer
+###### Step 2: Gradually redirect traffic to your new load balancer
 
 After your instances are registered with your new load balancer, you can begin the
 process of redirecting traffic from the old load balancer to the new load balancer.
@@ -188,8 +186,7 @@ If you migrated your Classic Load Balancer to an Application Load Balancer or Ne
 
 - [elbv2](../../../cli/latest/reference/elbv2/index.md "../../../cli/latest/reference/elbv2/index.md") in the _AWS CLI Command Reference_
 - [Elastic Load Balancing API Reference version 2015-12-01](../APIReference.md "../APIReference.md")
-- [Identity and access management
-  for Elastic Load Balancing](load-balancer-authentication-access-control.md "load-balancer-authentication-access-control.md")
+- [Identity and access management for Elastic Load Balancing](load-balancer-authentication-access-control.md "load-balancer-authentication-access-control.md")
 - [Application Load Balancer metrics](../application/load-balancer-cloudwatch-metrics.md#load-balancer-metrics-alb "../application/load-balancer-cloudwatch-metrics.md#load-balancer-metrics-alb")
   in the _User Guide for Application Load Balancers_
 - [Network Load Balancer metrics](../network/load-balancer-cloudwatch-metrics.md#load-balancer-metrics-nlb "../network/load-balancer-cloudwatch-metrics.md#load-balancer-metrics-nlb")

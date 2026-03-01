@@ -1,6 +1,4 @@
-# Elastic Load Balancing API permissions to tag resources
-
-during creation
+# Elastic Load Balancing API permissions to tag resources during creation
 
 For users to tag resources during creation, they must have permissions to use the
 action that creates the resource, such as

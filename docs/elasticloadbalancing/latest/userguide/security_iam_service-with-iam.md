@@ -34,9 +34,7 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-## Resource-based
-
-policies within Elastic Load Balancing
+## Resource-based policies within Elastic Load Balancing
 
 **Supports resource-based policies:**
 
@@ -454,9 +452,7 @@ If a service supports all three condition keys for every resource type, then the
 For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
 [Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
 
-## Using temporary
-
-credentials with Elastic Load Balancing
+## Using temporary credentials with Elastic Load Balancing
 
 **Supports temporary credentials:**
 
@@ -468,9 +464,7 @@ more information, see [Temporary
 security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
 that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 
-## Cross-service
-
-principal permissions for Elastic Load Balancing
+## Cross-service principal permissions for Elastic Load Balancing
 
 **Supports forward access sessions (FAS):**
 
@@ -479,9 +473,7 @@ Yes
 Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
 when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
 
-## Service roles for
-
-Elastic Load Balancing
+## Service roles for Elastic Load Balancing
 
 **Supports service roles:**
 
@@ -491,9 +483,7 @@ A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../..
 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
 more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
 
-## Service-linked
-
-roles for Elastic Load Balancing
+## Service-linked roles for Elastic Load Balancing
 
 **Supports service-linked roles:**
 
