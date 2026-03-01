@@ -70,7 +70,7 @@ The Amazon GameLift Servers FleetIQ game hosting solution is designed for game 
   list of Regions, see [Amazon GameLift Servers endpoints and quotas](../../../general/latest/gr/gamelift.md "../../../general/latest/gr/gamelift.md")
   in the _AWS General Reference_.
 
-## Pricing for Amazon GameLift ServersFleetIQ
+## Pricing for Amazon GameLift Servers FleetIQ
 
 Amazon GameLift Servers charges for instances by duration of use and for bandwidth by quantity of data
 transferred. For a complete list of charges and prices for Amazon GameLift Servers, see [Amazon GameLift Servers Pricing](https://aws.amazon.com/gamelift/servers/pricing "https://aws.amazon.com/gamelift/servers/pricing").

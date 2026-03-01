@@ -16,8 +16,7 @@ up users with permissions to manage the Amazon EC2, Auto Scaling, and other AWS 
 with your game. For detailed instructions, see [Set up your AWS account for Amazon GameLift Servers FleetIQ](gsg-iam-permissions.md "gsg-iam-permissions.md"). 2. **Create IAM roles.**
 
 Create roles that allow Amazon GameLift Servers FleetIQ, Amazon EC2, and Auto Scaling resources to communicate with
-each other. See [Create IAM roles for cross-service
-interaction](gsg-iam-permissions-roles.md "gsg-iam-permissions-roles.md") for more details. 3. **Get the AWS SDK and AWS CLI with Amazon GameLift Servers FleetIQ
+each other. See [Create IAM roles for cross-service interaction](gsg-iam-permissions-roles.md "gsg-iam-permissions-roles.md") for more details. 3. **Get the AWS SDK and AWS CLI with Amazon GameLift Servers FleetIQ
 functionality.**
 
     * [Download the latest version of the

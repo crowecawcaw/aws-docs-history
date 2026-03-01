@@ -1,6 +1,4 @@
-# Set up programmatic access for
-
-users
+# Set up programmatic access for users
 
 Users need programmatic access if they want to interact with AWS outside of the AWS Management Console. The way to grant programmatic access depends on the type of user that's accessing AWS.
 

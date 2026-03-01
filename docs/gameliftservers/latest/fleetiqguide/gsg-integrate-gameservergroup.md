@@ -14,5 +14,4 @@ resources prepared:
   Guide_.
 - An IAM role that extends limited access to your AWS account to allow Amazon GameLift Servers FleetIQ
   to create and interact with the Auto Scaling group. For more information,
-  see [Create IAM roles for cross-service
-  interaction](gsg-iam-permissions-roles.md "gsg-iam-permissions-roles.md").
+  see [Create IAM roles for cross-service interaction](gsg-iam-permissions-roles.md "gsg-iam-permissions-roles.md").

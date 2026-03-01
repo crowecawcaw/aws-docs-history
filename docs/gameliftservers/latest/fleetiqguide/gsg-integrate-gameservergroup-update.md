@@ -1,6 +1,4 @@
-# Update a game server
-
-group
+# Update a game server group
 
 You can update game server group properties that affect how Amazon GameLift Servers FleetIQ manages hosting
 for game servers, including resource type optimizations. To update these properties,

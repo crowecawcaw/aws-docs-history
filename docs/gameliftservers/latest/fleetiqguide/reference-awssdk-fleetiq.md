@@ -1,6 +1,4 @@
-# Amazon GameLift Servers FleetIQ service API reference (AWS
-
-SDK)
+# Amazon GameLift Servers FleetIQ service API reference (AWS SDK)
 
 This topic provides a task-based list of API actions for Amazon GameLift Servers FleetIQ. The Amazon GameLift Servers FleetIQ service
 API is packaged into the AWS SDK in the `aws.gamelift` namespace.

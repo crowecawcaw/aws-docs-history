@@ -1,6 +1,4 @@
-# Life of a game server
-
-group
+# Life of a game server group
 
 Game server groups go through the following life cycle, including provisioning and
 status updates. A game server group is expected to be a long-lived resource.

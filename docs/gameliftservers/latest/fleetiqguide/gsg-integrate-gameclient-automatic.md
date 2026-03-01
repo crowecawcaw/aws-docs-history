@@ -1,6 +1,4 @@
-# Let Amazon GameLift Servers FleetIQ choose a game
-
-server
+# Let Amazon GameLift Servers FleetIQ choose a game server
 
 To have Amazon GameLift Servers FleetIQ choose an available game server, call [ClaimGameServer()](../../../gamelift/latest/apireference/API_ClaimGameServer.md "../../../gamelift/latest/apireference/API_ClaimGameServer.md") without
 specifying a game server ID. In this scenario, Amazon GameLift Servers FleetIQ does exercise its logic to find

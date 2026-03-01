@@ -10,9 +10,7 @@ placing new game sessions effectively across the group's available resources.
 
 ![Amazon GameLift Servers FleetIQ works alongside Amazon EC2](images/gsg-howitworks-logic.png)
 
-## Fill Auto Scaling group with
-
-optimal instance types
+## Fill Auto Scaling group with optimal instance types
 
 The job of the Auto Scaling group is to launch new instances and retire old instances,
 maintaining a collection of hosting resources and scaling it to meet your player
@@ -54,9 +52,7 @@ is optimized for game hosting even as the availability of low-cost Spot Instance
 types fluctuates. Balancing activity takes place on game server groups with active
 instances only. Learn more about how this process works in [Spot balancing process](gsg-lifecycle-rebalance.md "gsg-lifecycle-rebalance.md").
 
-## Place game sessions
-
-effectively
+## Place game sessions effectively
 
 Amazon GameLift Servers FleetIQ tracks all active game servers in the game server group and uses this
 information to determine the best placement for new game sessions and

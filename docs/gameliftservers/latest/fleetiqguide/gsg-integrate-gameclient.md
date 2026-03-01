@@ -15,6 +15,5 @@ resource for players. You have a couple of options for how to do this:
 
 ###### Topics
 
-- [Let Amazon GameLift Servers FleetIQ choose a game
-  server](gsg-integrate-gameclient-automatic.md "gsg-integrate-gameclient-automatic.md")
+- [Let Amazon GameLift Servers FleetIQ choose a game server](gsg-integrate-gameclient-automatic.md "gsg-integrate-gameclient-automatic.md")
 - [Choose your own game server](gsg-integrate-gameclient-optimized.md "gsg-integrate-gameclient-optimized.md")
