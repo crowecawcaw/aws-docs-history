@@ -96,9 +96,7 @@ Use the Lambda emitted [IteratorAge](../../../lambda/latest/dg/with-kinesis.md#e
 metric to estimate the latency between when a record is added and when the function
 processes it.
 
-## Serverless Event Submission with Status
-
-Updates
+## Serverless Event Submission with Status Updates
 
 Suppose you have an ecommerce site and a customer submits an
 order that kicks off an inventory deduction and shipment process; or an enterprise application

@@ -1,6 +1,4 @@
-# User management and identity
-
-layer
+# User management and identity layer
 
 The user management and identity layer of your workload provides identity,
 authentication, and authorization for both external and internal customers of your workload’s

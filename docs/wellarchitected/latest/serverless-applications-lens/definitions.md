@@ -13,8 +13,7 @@ should consider when building a serverless workload:
 - [Compute layer](compute-layer.md "compute-layer.md")
 - [Data layer](data-layer.md "data-layer.md")
 - [Messaging and streaming layer](messaging-and-streaming-layer.md "messaging-and-streaming-layer.md")
-- [User management and identity
-  layer](user-management-and-identity-layer.md "user-management-and-identity-layer.md")
+- [User management and identity layer](user-management-and-identity-layer.md "user-management-and-identity-layer.md")
 - [Edge layer](edge-layer.md "edge-layer.md")
 - [Systems monitoring and deployment](systems-monitoring-and-deployment.md "systems-monitoring-and-deployment.md")
 - [Deployment approaches](deployment-approaches.md "deployment-approaches.md")

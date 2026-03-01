@@ -1,6 +1,4 @@
-# Lambda cost and performance
-
-optimization
+# Lambda cost and performance optimization
 
 With Lambda, there are no servers to manage, it scales automatically, and you only pay
 for what you use. However, choosing the right memory size settings for a Lambda function is
