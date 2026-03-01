@@ -1,6 +1,4 @@
-# Configure and create a cluster with the
-
-PCUI
+# Configure and create a cluster with the PCUI
 
 The PCUI is a web-based user interface that mirrors the AWS ParallelCluster
 `pcluster` CLI, while providing a console-like experience. You install and access

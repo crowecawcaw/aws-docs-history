@@ -15,9 +15,7 @@ DeploymentSettings:
       - `string`
 ```
 
-## `DeploymentSettings`
-
-properties
+## `DeploymentSettings` properties
 
 ### `LambdaFunctionsVpcConfig`
 

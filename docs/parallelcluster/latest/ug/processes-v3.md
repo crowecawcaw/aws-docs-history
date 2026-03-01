@@ -23,9 +23,7 @@ The cluster management daemon (`clustermgtd`) performs these tasks:
 - Manage scheduled maintenance events
 - Manage unhealthy scheduler nodes (those that fail scheduler health checks)
 
-### Management of Slurm reservations
-
-and nodes associated with Capacity Blocks
+### Management of Slurm reservations and nodes associated with Capacity Blocks
 
 ParallelCluster supports On-Demand Capacity Reservations (ODCR) and Capacity Blocks for
 Machine Learning (CB). Unlike ODCR, CB can have a future start time and is time-bound.

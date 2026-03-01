@@ -100,12 +100,8 @@ head and compute nodes. Please refer to [Moving from AWS ParallelCluster 2.x to 
 
 ###### Topics
 
-- [Configuration settings to define actions
-  and arguments](custom-bootstrap-actions-config-v3.md "custom-bootstrap-actions-config-v3.md")
+- [Configuration settings to define actions and arguments](custom-bootstrap-actions-config-v3.md "custom-bootstrap-actions-config-v3.md")
 - [Arguments](custom-bootstrap-actions-args-v3.md "custom-bootstrap-actions-args-v3.md")
-- [Example cluster with custom
-  bootstrap actions](custom-bootstrap-actions-example-cluster-v3.md "custom-bootstrap-actions-example-cluster-v3.md")
-- [Example of how to update a custom
-  bootstrap script for IMDSv2](custom-bootstrap-actions-example-imdsv2-v3.md "custom-bootstrap-actions-example-imdsv2-v3.md")
-- [Example of how to update a configuration
-  for IMDSv1](custom-bootstrap-actions-example-imdsv1-v3.md "custom-bootstrap-actions-example-imdsv1-v3.md")
+- [Example cluster with custom bootstrap actions](custom-bootstrap-actions-example-cluster-v3.md "custom-bootstrap-actions-example-cluster-v3.md")
+- [Example of how to update a custom bootstrap script for IMDSv2](custom-bootstrap-actions-example-imdsv2-v3.md "custom-bootstrap-actions-example-imdsv2-v3.md")
+- [Example of how to update a configuration for IMDSv1](custom-bootstrap-actions-example-imdsv1-v3.md "custom-bootstrap-actions-example-imdsv1-v3.md")

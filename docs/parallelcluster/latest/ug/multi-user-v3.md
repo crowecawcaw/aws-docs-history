@@ -20,8 +20,7 @@ You can create, delete, and modify a cluster’s users or groups after your dire
 you can do this in the AWS Management Console or by using the _Active Directory Users and Computers_ tool. This tool is accessible from any
 Amazon EC2 instance that's joined to your Active Directory. For more information, see [Installing the Active Directory administration tools](../../../directoryservice/latest/admin-guide/ms_ad_install_ad_tools.md "../../../directoryservice/latest/admin-guide/ms_ad_install_ad_tools.md").
 
-If you plan to use AWS ParallelCluster in a single subnet with no internet access, see [AWS ParallelCluster in a single subnet with no internet
-access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md "aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md") for additional
+If you plan to use AWS ParallelCluster in a single subnet with no internet access, see [AWS ParallelCluster in a single subnet with no internet access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md "aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md") for additional
 requirements.
 
 ###### Topics
@@ -30,5 +29,4 @@ requirements.
 - [Create a cluster with an AD domain](create-addircluster-v3.md "create-addircluster-v3.md")
 - [Log in to a cluster integrated with an AD domain](login-addircluster-v3.md "login-addircluster-v3.md")
 - [Running MPI jobs](addircluster-MPI-v3.md "addircluster-MPI-v3.md")
-- [Example AWS Managed Microsoft AD over LDAP(S) cluster
-  configurations](examples-addir-v3.md "examples-addir-v3.md")
+- [Example AWS Managed Microsoft AD over LDAP(S) cluster configurations](examples-addir-v3.md "examples-addir-v3.md")

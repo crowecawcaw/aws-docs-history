@@ -1,12 +1,12 @@
-# `pcluster describe-image`
+# `pcluster describe-cluster`
 
-Get detailed information about an image.
+Get detailed information about a cluster.
 
 ```
-pcluster describe-image [-h]
-                 --image-id `IMAGE_ID`
+pcluster describe-cluster [-h]
+                 --cluster-name `CLUSTER_NAME`
                 [--debug]
-                [--query QUERY]
+                [--query `QUERY`]
                 [--region `REGION`]
 ```
 
@@ -14,11 +14,11 @@ pcluster describe-image [-h]
 
 `-h, --help`
 
-Shows the help text for `pcluster describe-image`.
+Shows the help text for `pcluster describe-cluster`.
 
-`--image-id, -i `IMAGE_ID``
+`--cluster-name, -n `CLUSTER_NAME``
 
-Specifies the ID of the image.
+Specifies the name of the cluster.
 
 `--debug`
 
@@ -34,110 +34,86 @@ Specifies the AWS Region to use. The AWS Region must be specified, using the `AW
 environment variable, the `region` setting in the `[default]` section of the
 `~/.aws/config` file, or the `--region` parameter.
 
-**Example using AWS ParallelCluster version 3.1.2:**
+**Examples using AWS ParallelCluster version 3.1.4:**
+
+Describe cluster details:
 
 ````
-`$` `pcluster describe-image --image-id `custom-alinux2-image```{
- "imageConfiguration: {
- "url": "https://parallelcluster-1234abcd5678-v1-do-not-delete.../configs/image-config.yaml"
+`$` `pcluster describe-cluster -n `cluster-v3```{
+ "creationTime": "2022-07-12T17:19:16.101Z",
+ "headNode": {
+ "launchTime": "2022-07-12T17:22:21.000Z",
+ "instanceId": "i-1234567890abcdef0",
+ "publicIpAddress": "198.51.100.44",
+ "instanceType": "t2.micro",
+ "state": "running",
+ "privateIpAddress": "192.0.2.0.196"
  },
- "imageId": "custom-alinux2-image",
- "creationTime": "2022-04-05T20:23:07.000Z"
- "imageBuildStatus": "BUILD_COMPLETE",
- "region": "us-east-1",
- "ec2AmiInfo": {
- "amiName": "custom-alinux2-image 2022-04-05T19-55-22.518Z",
- "amiId": "ami-1234abcd5678efgh",
- "description": "AWS ParallelCluster AMI for alinux2, kernel-4.14.268-205.500.amzn2.x86_64, lustre-2.10.8-5.amzn2.x86_64, efa-1.14.2-1.amzn2.x86_64, dcv-2021.3.11591-1.el7.x86_64, slurm-21-08-6-1",
- "state": "AVAILABLE",
- "tags": [
+ "loginNodes": [
  {
- "value": "arn:aws:imagebuilder:us-east-1:123456789012:image/parallelclusterimage-custom-alinux2-image/3.1.2/1",
- "key": "Ec2ImageBuilderArn"
- },
- {
- "value": "parallelcluster-1234abcd5678efgh-v1-do-not-delete",
- "key": "parallelcluster:amzn-s3-demo-bucket"
+ "status": "active",
+ "poolName": "pool1",
+ "address": "cluster-v3-eMr9BYRKZVDa-e5bb34f40b24f51d.elb.us-east-1.amazonaws.com",
+ "scheme": "internet-facing",
+ "healthyNodes": 1,
+ "unhealthyNodes": 0
  },
  {
- "value": "custom-alinux2-image",
- "key": "parallelcluster:image_name"
- },
- {
- "value": "available",
- "key": "parallelcluster:build_status"
- },
- {
- "value": "s3://`amzn-s3-demo-bucket`/parallelcluster/3.1.2/images/custom-alinux2-image-1234abcd5678efgh/configs/image-config.yaml",
- "key": "parallelcluster:build_config"
- },
- {
- "value": "Amazon EC2 Image Builder",
- "key": "CreatedBy"
- },
- {
- "value": "arn:aws:logs:us-east-1:123456789012:log-group:/aws/imagebuilder/ParallelClusterImage-custom-alinux2-image",
- "key": "parallelcluster:build_log"
- },
- {
- "value": "4.14.268-205.500.amzn2.x86_64",
- "key": "parallelcluster:kernel_version"
- },
- {
- "value": "arn:aws:imagebuilder:us-east-1:444455556666:image/amazon-linux-2-x86/2022.3.16/1",
- "key": "parallelcluster:parent_image"
- },
- {
- "value": "3.1.2",
- "key": "parallelcluster:version"
- },
- {
- "value": "0.5.14",
- "key": "parallelcluster:munge_version"
- },
- {
- "value": "21-08-6-1",
- "key": "parallelcluster:slurm_version"
- },
- {
- "value": "2021.3.11591-1.el7.x86_64",
- "key": "parallelcluster:dcv_version"
- },
- {
- "value": "alinux2-image",
- "key": "parallelcluster:image_id"
- },
- {
- "value": "3.2.3",
- "key": "parallelcluster:pmix_version"
- },
- {
- "value": "parallelcluster/3.14.2/images/alinux2-image-abcd1234efgh56781234",
- "key": "parallelcluster:s3_image_dir"
- },
- {
- "value": "1.14.2-1.amzn2.x86_64",
- "key": "parallelcluster:efa_version"
- },
- {
- "value": "alinux2",
- "key": "parallelcluster:os"
- },
- {
- "value": "aws-parallelcluster-cookbook-3.1.2",
- "key": "parallelcluster:bootstrap_file"
- },
- {
- "value": "1.8.23-10.amzn2.1.x86_64",
- "key": "parallelcluster:sudo_version"
- },
- {
- "value": "2.10.8-5.amzn2.x86_64",
- "key": "parallelcluster:lustre_version"
+ "status": "active",
+ "poolName": "pool2",
+ "address": "cluster-v3-PaQ7GgC27sic-aba10c890247b36b.elb.us-east-1.amazonaws.com",
+ "scheme": "internet-facing",
+ "healthyNodes": 1,
+ "unhealthyNodes": 0
  }
  ],
- "architecture": "x86_64"
+ "version": "3.1.4",
+ "clusterConfiguration": {
+ "url": "https://parallelcluster-e5ca74255d6c3886-v1-do-not-delete..."
  },
- "version": "3.1.2"
+ "tags": [
+ {
+ "value": "3.11",
+ "key": "parallelcluster:version"
+ }
+ ],
+ "cloudFormationStackStatus": "CREATE_COMPLETE",
+ "clusterName": "cluster-v3",
+ "computeFleetStatus": "RUNNING",
+ "cloudformationStackArn": "arn:aws:cloudformation:us-east-1:123456789012:stack/cluster-v3/1234abcd-56ef-78gh-90ij-abcd1234efgh",
+ "lastUpdatedTime": "2022-07-12T17:19:16.101Z",
+ "region": "us-east-1",
+ "clusterStatus": "CREATE_COMPLETE"
 }`
 ````
+
+Use `describe-cluster` to retrieve the cluster configuration:
+
+```
+`$` `curl -o - $(pcluster describe-cluster -n `cluster-v3` --query clusterConfiguration.url | xargs echo)``Region: us-east-1
+Image:
+ Os: alinux2
+HeadNode:
+ InstanceType: t2.micro
+ Networking:
+ SubnetId: subnet-abcdef01234567890
+ Ssh:
+ KeyName: adpc
+ Iam:
+ S3Access:
+ - BucketName: cluster-v3-bucket
+ KeyName: logs
+ EnableWriteAccess: true
+Scheduling:
+ Scheduler: slurm
+ SlurmQueues:
+ - Name: queue1
+ ComputeResources:
+ - Name: t2micro
+ InstanceType: t2.micro
+ MinCount: 0
+ MaxCount: 10
+ Networking:
+ SubnetIds:
+ - subnet-021345abcdef6789`
+```

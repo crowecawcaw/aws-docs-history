@@ -1,6 +1,4 @@
-# Example AWS Managed Microsoft AD over LDAP(S) cluster
-
-configurations
+# Example AWS Managed Microsoft AD over LDAP(S) cluster configurations
 
 AWS ParallelCluster supports multiple user access by integrating with an AWS Directory Service over the Lightweight Directory Access
 Protocol (LDAP), or LDAP over TLS/SSL (LDAPS).
@@ -11,9 +9,7 @@ AWS Managed Microsoft AD over LDAP(S).
 You can use this example to integrate your cluster with an AWS Managed Microsoft AD over LDAPS,
 with certificate verification.
 
-###### Specific definitions for an AWS Managed Microsoft AD over LDAPS with certificates
-
-configuration:
+###### Specific definitions for an AWS Managed Microsoft AD over LDAPS with certificates configuration:
 
 - [DirectoryService](DirectoryService-v3.md "DirectoryService-v3.md") / [LdapTlsReqCert](DirectoryService-v3.md#yaml-DirectoryService-LdapTlsReqCert "DirectoryService-v3.md#yaml-DirectoryService-LdapTlsReqCert")
   must be set to `hard` (default) for LDAPS with certificate

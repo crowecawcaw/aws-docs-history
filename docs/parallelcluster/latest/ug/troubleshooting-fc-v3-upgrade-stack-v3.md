@@ -1,6 +1,4 @@
-# Trying to upgrade the AWS ParallelCluster
-
-API stack
+# Trying to upgrade the AWS ParallelCluster API stack
 
 If you get an error such as `UPDATE_FAILED` when you try to upgrade the
 AWS ParallelCluster API stack, we recommend that you check for a solution in the **Known

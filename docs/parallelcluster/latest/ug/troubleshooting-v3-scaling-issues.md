@@ -35,14 +35,10 @@ or **Log groups**. For more information, see [Integration with Amazon CloudWatch
 ###### Topics
 
 - [Key logs for debugging](#troubleshooting-v3-key-logs "#troubleshooting-v3-key-logs")
-- [Seeing InsufficientInstanceCapacity error in
-  slurm_resume.log when I fail to run a job, or in clustermgtd.log when I fail to create a
-  cluster](#compute-node-initialization-ice-failure-v3-c2 "#compute-node-initialization-ice-failure-v3-c2")
+- [Seeing InsufficientInstanceCapacity error in slurm_resume.log when I fail to run a job, or in clustermgtd.log when I fail to create a cluster](#compute-node-initialization-ice-failure-v3-c2 "#compute-node-initialization-ice-failure-v3-c2")
 - [Troubleshooting node initialization issues](#troubleshooting-v3-node-init "#troubleshooting-v3-node-init")
-- [Troubleshooting unexpected node
-  replacements and terminations](#troubleshooting-v3-unexpected-node-replacements-and-terminations "#troubleshooting-v3-unexpected-node-replacements-and-terminations")
-- [Replacing, terminating, or
-  powering down problematic instances and nodes](#replacing-terminating-or-powering-down-problematic-instances-and-nodes-v3 "#replacing-terminating-or-powering-down-problematic-instances-and-nodes-v3")
+- [Troubleshooting unexpected node replacements and terminations](#troubleshooting-v3-unexpected-node-replacements-and-terminations "#troubleshooting-v3-unexpected-node-replacements-and-terminations")
+- [Replacing, terminating, or powering down problematic instances and nodes](#replacing-terminating-or-powering-down-problematic-instances-and-nodes-v3 "#replacing-terminating-or-powering-down-problematic-instances-and-nodes-v3")
 - [Queue (partition) Inactive status](#troubleshooting-v3-queues "#troubleshooting-v3-queues")
 - [Troubleshooting other known node and job issues](#troubleshooting-v3-other-node-job-issues "#troubleshooting-v3-other-node-job-issues")
 
@@ -79,10 +75,7 @@ These are the key logs for the compute nodes:
 - `/var/log/slurmd.log` - This is the Slurm compute daemon log. Use it to troubleshoot initialization and compute failure
   issues.
 
-## Seeing `InsufficientInstanceCapacity` error in
-
-`slurm_resume.log` when I fail to run a job, or in `clustermgtd.log` when I fail to create a
-cluster
+## Seeing `InsufficientInstanceCapacity` error in `slurm_resume.log` when I fail to run a job, or in `clustermgtd.log` when I fail to create a cluster
 
 If the cluster uses a Slurm scheduler, you are experiencing an insufficient capacity issue. If there aren't enough instances available when
 an instance launch request is made, an `InsufficientInstanceCapacity` error is returned.
@@ -192,9 +185,7 @@ your account using the AWS CLI, run the following command:
 For more information, see [Working with Spot Instances](spot-v3.md "spot-v3.md") in the AWS ParallelCluster User Guide and [Service-linked role for Spot Instance requests](../../../AWSEC2/latest/UserGuide/spot-requests.md#service-linked-roles-spot-instance-requests "../../../AWSEC2/latest/UserGuide/spot-requests.md#service-linked-roles-spot-instance-requests")
 in the _Amazon EC2 User Guide_.
 
-## \*\*Troubleshooting unexpected node
-
-replacements and terminations\*\*
+## **Troubleshooting unexpected node replacements and terminations**
 
 This section continues to explore how you can troubleshoot node related issues, specifically when a node is replaced or terminated
 unexpectedly.
@@ -266,9 +257,7 @@ unexpectedly.
   `$` `aws ec2 get-console-output --instance-id `i-1234567890abcdef0` --output text`
   ```
 
-## \*\*Replacing, terminating, or
-
-powering down problematic instances and nodes\*\*
+## **Replacing, terminating, or powering down problematic instances and nodes**
 
 - **Applicable logs:**
   - `/var/log/parallelcluster/clustermgtd` (head node)
@@ -276,8 +265,7 @@ powering down problematic instances and nodes\*\*
 
 - In most cases, `clustermgtd` handles all expected instance termination action. Check in the `clustermgtd` log to see
   why it failed to replace or terminate a node.
-- For dynamic nodes failing [SlurmSettings
-  Properties](Scheduling-v3.md#Scheduling-v3-SlurmSettings.properties "Scheduling-v3.md#Scheduling-v3-SlurmSettings.properties"), check in the `SuspendProgram` log to see if `SuspendProgram`
+- For dynamic nodes failing [SlurmSettings Properties](Scheduling-v3.md#Scheduling-v3-SlurmSettings.properties "Scheduling-v3.md#Scheduling-v3-SlurmSettings.properties"), check in the `SuspendProgram` log to see if `SuspendProgram`
   was called by `slurmctld` with the specific node as argument. Note that `SuspendProgram` doesn’t actually perform any
   action. Rather, it only logs when it’s called. All instance termination and `NodeAddr` reset is done by `clustermgtd`.
   Slurm puts nodes back into a `POWER_SAVING` state after `SuspendTimeout` automatically.

@@ -139,8 +139,7 @@ This is required for EFA to function properly.
 
 In highly restricted environments, you might want to deploy AWS ParallelCluster in a subnet without internet access.
 In this case, you'll need to configure VPC endpoints to allow the cluster to communicate with AWS services.
-For detailed instructions, see [AWS ParallelCluster in a single subnet with no internet
-access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md "aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md").
+For detailed instructions, see [AWS ParallelCluster in a single subnet with no internet access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md "aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md").
 
 When using VPC endpoints, ensure that your security groups allow traffic to and from the VPC endpoints.
 You can do this by adding the security groups associated with the VPC endpoints to the `AdditionalSecurityGroups`

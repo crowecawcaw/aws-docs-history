@@ -101,9 +101,7 @@ SharedStorage:
       FileCacheId: `string`
 ```
 
-## `SharedStorage` update
-
-policies
+## `SharedStorage` update policies
 
 - For managed/external EBS, managed EFS and managed FSx Lustre, the update policy is
   [Update policy: For this
@@ -180,9 +178,7 @@ EbsSettings:
 [Update policy: If this setting is
 changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
 
-### `EbsSettings`
-
-properties
+### `EbsSettings` properties
 
 When the [DeletionPolicy](#yaml-SharedStorage-EbsSettings-DeletionPolicy "#yaml-SharedStorage-EbsSettings-DeletionPolicy") is set to `Delete`, a managed volume, with its data, is
 deleted if the cluster is deleted or if the volume is removed with a cluster update.
@@ -352,9 +348,7 @@ Raid:
 [Update policy: If this setting is
 changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
 
-#### `Raid`
-
-properties
+#### `Raid` properties
 
 `Type`
 (**Required**, `String`)
@@ -396,9 +390,7 @@ EfsSettings:
 [Update policy: If this setting is
 changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
 
-### `EfsSettings`
-
-properties
+### `EfsSettings` properties
 
 When the [DeletionPolicy](#yaml-SharedStorage-EfsSettings-DeletionPolicy "#yaml-SharedStorage-EfsSettings-DeletionPolicy") set to `Delete`, a managed file system, with its data,
 is deleted if the cluster is deleted, or if the file system is removed with a cluster
@@ -523,18 +515,14 @@ cluster.
 When this is specified, only `MountDir` can be specified. No other
 `EfsSettings` can be specified.
 
-###### If you set this option, the following must be true for the file systems that
-
-you define:
+###### If you set this option, the following must be true for the file systems that you define:
 
 - The file systems have an existing mount target in each of the cluster's
   Availability Zones, with inbound and outbound NFS traffic allowed from the
   `HeadNode` and `ComputeNodes`. Multiple availability zones
   are configured in [Scheduling](Scheduling-v3.md "Scheduling-v3.md") / [SlurmQueues](Scheduling-v3.md#Scheduling-v3-SlurmQueues "Scheduling-v3.md#Scheduling-v3-SlurmQueues") / [Networking](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Networking "Scheduling-v3.md#Scheduling-v3-SlurmQueues-Networking") / [SubnetIds](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Networking-SubnetIds "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Networking-SubnetIds").
 
-###### To make sure traffic is allowed between the cluster and file system, you
-
-can do one of the following:
+###### To make sure traffic is allowed between the cluster and file system, you can do one of the following:
 
     + Configure the security groups of the mount target to allow the traffic to
      and from the CIDR or prefix list of cluster subnets.
@@ -1201,9 +1189,7 @@ FsxOntapSettings:
   VolumeId: `string`
 ```
 
-### `FsxOntapSettings`
-
-properties
+### `FsxOntapSettings` properties
 
 `VolumeId`
 (**Required**, `String`)

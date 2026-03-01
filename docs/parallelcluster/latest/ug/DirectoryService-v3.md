@@ -37,8 +37,7 @@ fleet must be stopped for this setting to be changed for an update.](using-pclus
 ###### Note
 
 If you plan to use AWS ParallelCluster in a single subnet with no internet access, see
-[AWS ParallelCluster in a single subnet with no internet
-access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md "aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md") for additional
+[AWS ParallelCluster in a single subnet with no internet access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md "aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md") for additional
 requirements.
 
 `DomainName` (**Required**,

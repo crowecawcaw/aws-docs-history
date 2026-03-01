@@ -5,15 +5,11 @@ sections, you can learn about the dashboard health metrics, and actions you can 
 
 ###### Topics
 
-- [Seeing the Instance Provisioning Errors
-  graph](#troubleshooting-v3-cluster-health-metrics-instance-provisioning "#troubleshooting-v3-cluster-health-metrics-instance-provisioning")
-- [Seeing the Unhealthy Instance Errors
-  graph](#troubleshooting-v3-cluster-health-metrics-unhealthy-instance "#troubleshooting-v3-cluster-health-metrics-unhealthy-instance")
+- [Seeing the Instance Provisioning Errors graph](#troubleshooting-v3-cluster-health-metrics-instance-provisioning "#troubleshooting-v3-cluster-health-metrics-instance-provisioning")
+- [Seeing the Unhealthy Instance Errors graph](#troubleshooting-v3-cluster-health-metrics-unhealthy-instance "#troubleshooting-v3-cluster-health-metrics-unhealthy-instance")
 - [Seeing the Compute Fleet Idle Time graph](#troubleshooting-v3-cluster-health-metrics-idle-time-errors "#troubleshooting-v3-cluster-health-metrics-idle-time-errors")
 
-## Seeing the **Instance Provisioning Errors**
-
-graph
+## Seeing the **Instance Provisioning Errors** graph
 
 If you see a non-zero value in the `Instance Provisioning Errors` graph, then it means that the Amazon EC2 instance for backing slurm
 nodes failed to launch on the `CreateFleet` or `RunInstance` API.
@@ -82,9 +78,7 @@ The Amazon EC2 instance for backing compute nodes failed to launch with the `Cre
 Check the `clustermgtd` file for static nodes, and check the `slurm_resume.log` file for dynamic nodes to get error
 details.
 
-## Seeing the **Unhealthy Instance Errors**
-
-graph
+## Seeing the **Unhealthy Instance Errors** graph
 
 - What happened?
 
@@ -92,8 +86,7 @@ A number of compute instances were launched but later terminated as unhealthy.
 
 - How to resolve?
 
-For more information about troubleshooting unhealthy nodes, see [Troubleshooting unexpected node
-replacements and terminations](troubleshooting-v3-scaling-issues.md#troubleshooting-v3-unexpected-node-replacements-and-terminations "troubleshooting-v3-scaling-issues.md#troubleshooting-v3-unexpected-node-replacements-and-terminations").
+For more information about troubleshooting unhealthy nodes, see [Troubleshooting unexpected node replacements and terminations](troubleshooting-v3-scaling-issues.md#troubleshooting-v3-unexpected-node-replacements-and-terminations "troubleshooting-v3-scaling-issues.md#troubleshooting-v3-unexpected-node-replacements-and-terminations").
 
 ### Seeing `InstanceBootstrapTimeoutError`
 
@@ -157,9 +150,7 @@ For additional details, check the `/var/log/cloud-init-output.log` for the compu
 
 ## Seeing the **Compute Fleet Idle Time** graph
 
-### Seeing a `MaxDynamicNodeIdleTime` that is significantly longer
-
-than the **Idle Time Scaledown** threshold
+### Seeing a `MaxDynamicNodeIdleTime` that is significantly longer than the **Idle Time Scaledown** threshold
 
 - What happened?
 
@@ -170,6 +161,5 @@ instance. In this case, something is preventing the instance termination.
 
 - How to resolve?
 
-For more information about this issue, see [Replacing, terminating, or
-powering down problematic instances and nodes](troubleshooting-v3-scaling-issues.md#replacing-terminating-or-powering-down-problematic-instances-and-nodes-v3 "troubleshooting-v3-scaling-issues.md#replacing-terminating-or-powering-down-problematic-instances-and-nodes-v3")
+For more information about this issue, see [Replacing, terminating, or powering down problematic instances and nodes](troubleshooting-v3-scaling-issues.md#replacing-terminating-or-powering-down-problematic-instances-and-nodes-v3 "troubleshooting-v3-scaling-issues.md#replacing-terminating-or-powering-down-problematic-instances-and-nodes-v3")
 in [Troubleshooting scaling issues](troubleshooting-v3-scaling-issues.md "troubleshooting-v3-scaling-issues.md").

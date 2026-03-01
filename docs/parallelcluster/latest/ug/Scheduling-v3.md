@@ -217,8 +217,7 @@ that meets your specific requirements and constraints.
 **(Optional)** The AWS Batch queue settings. Only one queue is
 supported. If [Scheduler](#yaml-Scheduling-Scheduler "#yaml-Scheduling-Scheduler") is set
 to `awsbatch`, this section is required. For more information about the
-`awsbatch` scheduler, see [networking setup](network-configuration-v3-batch.md "network-configuration-v3-batch.md") and [Using AWS Batch (awsbatch) scheduler with
-AWS ParallelCluster](awsbatchcli-v3.md "awsbatchcli-v3.md").
+`awsbatch` scheduler, see [networking setup](network-configuration-v3-batch.md "network-configuration-v3-batch.md") and [Using AWS Batch (awsbatch) scheduler with AWS ParallelCluster](awsbatchcli-v3.md "awsbatchcli-v3.md").
 
 ```
 AwsBatchQueues:
@@ -245,9 +244,7 @@ AwsBatchQueues:
 [Update policy: This
 setting can be changed during an update.](using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3 "using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3")
 
-### `AwsBatchQueues`
-
-properties
+### `AwsBatchQueues` properties
 
 **`Name` (**Required**, `String`)**
 
@@ -514,9 +511,7 @@ SlurmQueues:
 values setting, a new value can be added during an update or the compute fleet must be
 stopped when removing an existing value.](using-pcluster-update-cluster-v3.md#update-policy-list-values-v3 "using-pcluster-update-cluster-v3.md#update-policy-list-values-v3")
 
-### `SlurmQueues`
-
-properties
+### `SlurmQueues` properties
 
 **`Name` (**Required**, `String`)**
 
@@ -954,9 +949,7 @@ networking latency and added inter-AZ data transfer costs. For example, this cou
 occur when an instance accesses file storage that's located in a different AZ. For
 more information, see [Data Transfer within the same AWS Region](https://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer_within_the_same_AWS_Region "https://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer_within_the_same_AWS_Region").
 
-###### Cluster updates to change from the use of a single subnet to multiple
-
-subnets:
+###### Cluster updates to change from the use of a single subnet to multiple subnets:
 
 - Suppose the subnet definition of a cluster is defined with a single subnet
   and an AWS ParallelCluster managed FSx for Lustre file system. Then, you can't
@@ -1183,9 +1176,7 @@ Image:
 compute fleet must be stopped or QueueUpdateStrategy must be set for this setting to be changed
 for an update.](using-pcluster-update-cluster-v3.md#update-policy-queue-update-strategy-v3 "using-pcluster-update-cluster-v3.md#update-policy-queue-update-strategy-v3")
 
-##### `Image`
-
-Properties
+##### `Image` Properties
 
 **`CustomAmi`
 (**Optional**, `String`)**
@@ -1947,7 +1938,7 @@ for an update.](using-pcluster-update-cluster-v3.md#update-policy-queue-update-s
 `Boolean`)**
 
 If `true`, the root volume of the nodes in the Slurm
-queue are encrypted. The default value is `false`.
+queue are encrypted. The default value is `true`.
 
 [Update policy: The
 compute fleet must be stopped or QueueUpdateStrategy must be set for this setting to be changed
@@ -2249,9 +2240,7 @@ Iam:
 [Update policy: This
 setting can be changed during an update.](using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3 "using-pcluster-update-cluster-v3.md#update-policy-setting-supported-v3")
 
-##### `Iam`
-
-Properties
+##### `Iam` Properties
 
 **`InstanceProfile` (**Optional**,
 `String`)**
@@ -2396,9 +2385,7 @@ SlurmSettings:
     UseEc2Hostnames: `boolean`
 ```
 
-### `SlurmSettings`
-
-Properties
+### `SlurmSettings` Properties
 
 **`ScaledownIdletime` (**Optional**,
 `Integer`)**
@@ -2718,9 +2705,7 @@ Database:
 [Update policy: The compute
 fleet must be stopped for this setting to be changed for an update.](using-pcluster-update-cluster-v3.md#update-policy-compute-fleet-v3 "using-pcluster-update-cluster-v3.md#update-policy-compute-fleet-v3")
 
-#### `Database`
-
-properties
+#### `Database` properties
 
 **`Uri`
 (**Required**, `String`)**
@@ -2836,9 +2821,7 @@ ExternalSlurmdbd:
   Port: `integer`
 ```
 
-#### `ExternalSlurmdbd`
-
-properties
+#### `ExternalSlurmdbd` properties
 
 **`Host` (**Required**, `String`)**
 
@@ -2867,9 +2850,7 @@ Dns:
   UseEc2Hostnames: `boolean`
 ```
 
-#### `Dns`
-
-properties
+#### `Dns` properties
 
 **`DisableManagedDns` (**Optional**,
 `Boolean`)**
@@ -2883,8 +2864,7 @@ registered when launched. The default value is `false`. If
 created by AWS ParallelCluster.
 
 To learn how to use this setting to deploy clusters in subnets with no internet
-access, see [AWS ParallelCluster in a single subnet with no internet
-access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md "aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md").
+access, see [AWS ParallelCluster in a single subnet with no internet access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md "aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md").
 
 ###### Warning
 
@@ -2916,8 +2896,7 @@ hostname. The Slurm `NodeHostName` is also updated with this
 information. The default is `false`.
 
 To learn how to use this setting to deploy clusters in subnets with no internet
-access, see [AWS ParallelCluster in a single subnet with no internet
-access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md "aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md").
+access, see [AWS ParallelCluster in a single subnet with no internet access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md "aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md").
 
 ###### Note
 

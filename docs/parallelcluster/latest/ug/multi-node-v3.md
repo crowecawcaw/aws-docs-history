@@ -1,6 +1,4 @@
-# Scenario 3: Spot Instance running multi-node jobs is
-
-interrupted
+# Scenario 3: Spot Instance running multi-node jobs is interrupted
 
 The job fails with a state code of `NODE_FAIL`, and the job is requeued (unless
 `--no-requeue` was specified when the job was submitted). If the node is a static node, it's replaced.

@@ -18,9 +18,7 @@ With Slurm accounting, you can integrate an external accounting database to do t
 AWS ParallelCluster supports Slurm accounting for [Slurm supported
 MySQL database servers](https://slurm.schedmd.com/accounting.html#mysql-configuration "https://slurm.schedmd.com/accounting.html#mysql-configuration").
 
-## Working with Slurm accounting using external
-
-Slurmdbd in AWS ParallelCluster v3.10.0 and later
+## Working with Slurm accounting using external Slurmdbd in AWS ParallelCluster v3.10.0 and later
 
 Before you configure Slurm accounting, you must have an existing external Slurmdbd database server, which connects to an existing external database server.
 
@@ -106,9 +104,7 @@ If you need to deploy the database server on a VPC other than the one that the c
   cross-linking between the database side and the cluster side security groups is available. For more information, see [Security Group Rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules") in the _Amazon Virtual Private Cloud User
   Guide_.
 
-### Configuring TLS encryption between `slurmdbd` and the database
-
-server
+### Configuring TLS encryption between `slurmdbd` and the database server
 
 With the default Slurm accounting configuration that AWS ParallelCluster provides, `slurmdbd` establishes a TLS encrypted
 connection to the database server, if the server supports TLS encryption. AWS database services such as Amazon RDS and Amazon Aurora support

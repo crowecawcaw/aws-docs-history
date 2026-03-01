@@ -1,6 +1,4 @@
-# Using `pcluster
-
-update-cluster`
+# Using `pcluster update-cluster`
 
 In AWS ParallelCluster 3.x, [pcluster update-cluster](pcluster.md "pcluster.md") analyzes the settings used to create the current
 cluster and the settings in the configuration file for issues. If any issues are discovered,
@@ -11,8 +9,7 @@ discovered, update process is started and the changes are reported.
 
 You can use the [pcluster update-cluster](pcluster.md "pcluster.md")
 `--dryrun option` to see the changes before their run. For more information, see
-[pcluster update-cluster
-examples](#pcluster-update-cluster-examples "#pcluster-update-cluster-examples").
+[pcluster update-cluster examples](#pcluster-update-cluster-examples "#pcluster-update-cluster-examples").
 
 For troubleshooting guidance, see [AWS ParallelCluster troubleshooting](troubleshooting-v3.md "troubleshooting-v3.md").
 
@@ -198,9 +195,7 @@ group. If you run a cluster update to remove a managed placement group before st
 the compute fleet, an invalid configuration message is returned and the update doesn't
 proceed. Stopping the compute fleet guarantees no instances are running.
 
-## `pcluster update-cluster`
-
-examples
+## `pcluster update-cluster` examples
 
 These settings can be changed, but if the change would reduce the size of the queue, the
 compute fleet must be stopped (using pcluster update-compute-fleet) or

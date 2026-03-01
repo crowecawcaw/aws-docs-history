@@ -1,6 +1,4 @@
-# Configure and create a cluster with the AWS ParallelCluster
-
-command line interface
+# Configure and create a cluster with the AWS ParallelCluster command line interface
 
 After you install AWS ParallelCluster, complete the following configuration steps.
 

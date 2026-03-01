@@ -24,6 +24,5 @@ In this case, you need to manually restart it by executing the following command
 This could be an issue related to `cfn-hup` not running. If the `cfn-hup` demon is terminated by an external cause,
 it's not restarted automatically. If `cfn-hup` isn't running, during a cluster update, the CloudFormation stack starts the update process
 as expected, but the update procedure isn't activated on the head node and the stack deployment eventually times out. For more information, see
-[Troubleshooting a cluster update timeout when cfn-hup isn't
-running](troubleshooting-v3-cluster-update-timeout.md "troubleshooting-v3-cluster-update-timeout.md") to troubleshoot and recover
+[Troubleshooting a cluster update timeout when cfn-hup isn't running](troubleshooting-v3-cluster-update-timeout.md "troubleshooting-v3-cluster-update-timeout.md") to troubleshoot and recover
 from the issue.

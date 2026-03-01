@@ -27,9 +27,6 @@ For illustrations of some networking scenarios, see the following architecture d
 
 - [AWS ParallelCluster in a single public subnet](network-configuration-v3-single-subnet.md "network-configuration-v3-single-subnet.md")
 - [AWS ParallelCluster using two subnets](network-configuration-v3-two-subnets.md "network-configuration-v3-two-subnets.md")
-- [AWS ParallelCluster in a single private subnet connected using
-  AWS Direct Connect](network-configuration-v3-single-subnet-direct-connect.md "network-configuration-v3-single-subnet-direct-connect.md")
-- [AWS ParallelCluster with AWS Batch
-  scheduler](network-configuration-v3-batch.md "network-configuration-v3-batch.md")
-- [AWS ParallelCluster in a single subnet with no internet
-  access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md "aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md")
+- [AWS ParallelCluster in a single private subnet connected using AWS Direct Connect](network-configuration-v3-single-subnet-direct-connect.md "network-configuration-v3-single-subnet-direct-connect.md")
+- [AWS ParallelCluster with AWS Batch scheduler](network-configuration-v3-batch.md "network-configuration-v3-batch.md")
+- [AWS ParallelCluster in a single subnet with no internet access](aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md "aws-parallelcluster-in-a-single-public-subnet-no-internet-v3.md")

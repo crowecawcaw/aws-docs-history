@@ -5,8 +5,7 @@ creating, monitoring, and managing clusters. You install and access the
 PCUI in your AWS account. The PCUI is added with AWS ParallelCluster version 3.5.0.
 
 To install the PCUI and get started, see [Installing the PCUI](install-pcui-v3.md "install-pcui-v3.md") and
-[Configure and create a cluster with the
-PCUI](configure-create-pcui-v3.md "configure-create-pcui-v3.md").
+[Configure and create a cluster with the PCUI](configure-create-pcui-v3.md "configure-create-pcui-v3.md").
 
 ![In the PCUI home page, you can create, edit, and delete a cluster You can also view your list of clusters and selected cluster details, and navigate to clusters, official images, custom images, and users.](images/ui-image.png)
 

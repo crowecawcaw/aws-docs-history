@@ -17,9 +17,7 @@ DeploymentSettings:
   DefaultUserHome: `string` # 'Shared' or 'Local'
 ```
 
-## `DeploymentSettings`
-
-properties
+## `DeploymentSettings` properties
 
 ### `LambdaFunctionsVpcConfig`
 
@@ -56,9 +54,7 @@ changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-
 
 The subnets and security groups must be in the same VPC.
 
-###
-
-DisableSudoAccessForDefaultUser property
+### DisableSudoAccessForDefaultUser property
 
 ###### Note
 
@@ -80,9 +76,7 @@ the compute fleet and all login nodes.
 fleet and login nodes must be stopped for this setting to be changed for an
 update.](using-pcluster-update-cluster-v3.md#update-policy-compute-login-v3 "using-pcluster-update-cluster-v3.md#update-policy-compute-login-v3")
 
-### DefaultUserHome
-
-property
+### DefaultUserHome property
 
 When set to `Shared`, the cluster will use the default setup and share the
 default user’s directory across the cluster by `/home/<default user>`.

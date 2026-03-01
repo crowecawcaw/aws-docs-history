@@ -26,9 +26,7 @@ the Slurm daemons on the compute nodes by requesting a restart of the correspond
 
 This might be an issue with dynamic nodes powering up. For more information, see [Seeing errors in compute node initializations](troubleshooting-fc-v3-compute-node-initialization-v3.md "troubleshooting-fc-v3-compute-node-initialization-v3.md").
 
-## Running large scale jobs and seeing `nfsd: too many open connections, consider increasing
-
-the number of threads in /var/log/messages`
+## Running large scale jobs and seeing `nfsd: too many open connections, consider increasing the number of threads in /var/log/messages`
 
 With a networked file system, when network limits are reached, I/O wait time also increases. This can result in soft lockups because the
 network is used to write data for both networking and I/O metrics.

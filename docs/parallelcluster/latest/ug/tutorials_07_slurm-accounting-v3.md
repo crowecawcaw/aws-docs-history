@@ -33,8 +33,7 @@ It's your responsibility to create a database server with the configuration and 
 ## Step 1: Create the VPC and subnets for AWS ParallelCluster
 
 To use the provided CloudFormation template for the Slurm accounting database, you must have the VPC for the cluster ready. You can do this
-manually or as part of the [Configure and create a cluster with the AWS ParallelCluster
-command line interface](install-v3-configuring.md "install-v3-configuring.md") procedure. If you already used
+manually or as part of the [Configure and create a cluster with the AWS ParallelCluster command line interface](install-v3-configuring.md "install-v3-configuring.md") procedure. If you already used
 AWS ParallelCluster, you might have a VPC ready for the deployment of the cluster and the database server.
 
 ## Step 2: Create the database stack

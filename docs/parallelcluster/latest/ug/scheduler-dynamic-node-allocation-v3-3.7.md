@@ -1,6 +1,4 @@
-# Slurm dynamic node allocation
-
-strategies in version 3.7.x
+# Slurm dynamic node allocation strategies in version 3.7.x
 
 ParallelCluster uses 2 types of dynamic node allocation strategies to scale the
 cluster:

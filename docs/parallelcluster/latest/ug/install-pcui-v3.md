@@ -63,8 +63,7 @@ PCUI. 4. Keep the rest of the form blank or enter values for (optional) paramete
 to access the PCUI. (Remember, if you permanently delete the email before you log in to the PCUI, you must delete the PCUI stack you
 created and reinstall the PCUI. 10. In the CloudFormation console list of stacks, choose the link to the stack name that you noted in a previous step. 11. In **Stack details**, choose **Outputs** and select the link for the key named **`Stackname`URL** to
 open the PCUI (where **`Stackname`** is the name
-that you noted in a previous step). 12. Enter the temporary password. Follow the steps to create your own password and log in again. 13. You are now on the home page of the PCUI in the AWS Region that you selected. 14. To get started using the PCUI, see [Configure and create a cluster with the
-PCUI](configure-create-pcui-v3.md "configure-create-pcui-v3.md").
+that you noted in a previous step). 12. Enter the temporary password. Follow the steps to create your own password and log in again. 13. You are now on the home page of the PCUI in the AWS Region that you selected. 14. To get started using the PCUI, see [Configure and create a cluster with the PCUI](configure-create-pcui-v3.md "configure-create-pcui-v3.md").
 
 ###### Note
 

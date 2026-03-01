@@ -159,8 +159,7 @@ For more information about FSx for Lustre, see [https://aws.amazon.com/fsx/lustr
 ## Amazon FSx for NetApp ONTAP
 
 FSx for ONTAP provides a fully managed shared storage system built on NetApp's popular ONTAP file system. FSx for ONTAP is
-used when [FsxOntapSettings
-properties](SharedStorage-v3.md#SharedStorage-v3-FsxOntapSettings.properties "SharedStorage-v3.md#SharedStorage-v3-FsxOntapSettings.properties")
+used when [FsxOntapSettings properties](SharedStorage-v3.md#SharedStorage-v3-FsxOntapSettings.properties "SharedStorage-v3.md#SharedStorage-v3-FsxOntapSettings.properties")
 are specified. Support for FSx for ONTAP was added in AWS ParallelCluster version 3.2.0.
 
 For more information about FSx for ONTAP, see [https://aws.amazon.com/fsx/netapp-ontap/](https://aws.amazon.com/fsx/netapp-ontap/ "https://aws.amazon.com/fsx/netapp-ontap/") and [https://docs.aws.amazon.com/fsx/](../../../fsx.md "../../../fsx.md").

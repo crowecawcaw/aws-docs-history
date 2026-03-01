@@ -1,6 +1,4 @@
-# Slurm dynamic node allocation strategies
-
-in version 3.8.0
+# Slurm dynamic node allocation strategies in version 3.8.0
 
 Starting with ParallelCluster version 3.8.0, ParallelCluster uses **Job-level resume** or **job-level scaling** as the
 default dynamic node allocation strategy to scale the cluster: ParallelCluster scales up the

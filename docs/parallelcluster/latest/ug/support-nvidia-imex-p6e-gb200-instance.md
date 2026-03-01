@@ -29,9 +29,7 @@ and Ubuntu 24.04. For detailed software versions and an updated list of supporte
 [AWS ParallelCluster
 changelog](https://github.com/aws/aws-parallelcluster/blob/develop/CHANGELOG.md "https://github.com/aws/aws-parallelcluster/blob/develop/CHANGELOG.md").
 
-## Create a Prolog Script to manage
-
-NVIDIA-Imex
+## Create a Prolog Script to manage NVIDIA-Imex
 
 **Limitation:**
 
@@ -190,9 +188,7 @@ function create_default_imex_channel() {
 } 2>&1 | tee -a "${LOG_FILE_PATH}" | logger -t "91_nvidia_imex_prolog"
 ```
 
-## Create the HeadNode
-
-OnNodeStart Custom Action Script
+## Create the HeadNode OnNodeStart Custom Action Script
 
 Create an `install_custom_action.sh` custom action which will download the
 aforementioned prolog script in a shared directory `/opt/slurm/etc/scripts/prolog.d/`

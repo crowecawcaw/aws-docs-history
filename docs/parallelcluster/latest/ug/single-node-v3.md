@@ -1,6 +1,4 @@
-# Scenario 2: Spot Instance running single node jobs is
-
-interrupted
+# Scenario 2: Spot Instance running single node jobs is interrupted
 
 The job fails with a state code of `NODE_FAIL`, and the job is requeued (unless
 `--no-requeue` is specified when the job is submitted). If the node is a static node, it's replaced.

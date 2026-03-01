@@ -31,6 +31,14 @@ configuration file.
   domain certification policy.
   For better security posture, we suggest to use the `HeadNode` / `Ssh` / `AllowedIps` configuration to limit the SSH access to the head node.
 
+Notice that the certificate specified in `LdapTlsCaCert` must be accessible to all cluster nodes.
+
+###### Hard Requirements
+
+- The certificate specified in `LdapTlsCaCert` must be accessible to all cluster nodes.
+
+A node without access to the certificate will not be able to resolve users from the directory.
+
 ```
 Region: `region-id`
 Image:

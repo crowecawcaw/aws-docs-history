@@ -514,8 +514,7 @@ printf ".\n.\n.\n.\n.\ncorp.example.com\n.\n" | openssl req -x509 -sha256 -nodes
 }`
 ```
 
-10. ###### Create a file that's named `recordset-change.json` with the following content. `HostedZoneId` is the canonical
-    hosted zone ID of the load balancer.
+10. ###### Create a file that's named `recordset-change.json` with the following content. `HostedZoneId` is the canonical hosted zone ID of the load balancer.
 
 ```
 {

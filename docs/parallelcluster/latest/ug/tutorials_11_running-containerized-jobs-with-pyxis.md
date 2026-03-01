@@ -1,6 +1,4 @@
-# Running containerized
-
-jobs with Pyxis
+# Running containerized jobs with Pyxis
 
 Learn how to create a cluster that is able to run containerized jobs using Pyxis, which is
 a SPANK plugin to manage containerized jobs in SLURM. Containers in Pyxis are managed by

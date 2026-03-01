@@ -35,8 +35,7 @@ message likely looks like the following output:
 
 - [View CloudFormation events on CREATE_FAILED](#troubleshooting-v3-cluster-deployment-events "#troubleshooting-v3-cluster-deployment-events")
 - [Use the CLI to view log streams](#troubleshooting-v3-cluster-deployment-cli-logstreams "#troubleshooting-v3-cluster-deployment-cli-logstreams")
-- [Re-create the failed cluster with
-  rollback-on-failure](#troubleshooting-v3-cluster-deployment-cli-fail-rollback "#troubleshooting-v3-cluster-deployment-cli-fail-rollback")
+- [Re-create the failed cluster with rollback-on-failure](#troubleshooting-v3-cluster-deployment-cli-fail-rollback "#troubleshooting-v3-cluster-deployment-cli-fail-rollback")
 
 ## View CloudFormation events on `CREATE_FAILED`
 
@@ -181,9 +180,7 @@ You can retrieve the content of the log stream by using the [pcluster get-cluste
 In the previous example, the failure is caused by a `runpostinstall` failure, so it is strictly related to the content of the
 custom bootstrap script used in the `OnNodeConfigured` configuration parameter of the [CustomActions](HeadNode-v3.md#HeadNode-v3-CustomActions "HeadNode-v3.md#HeadNode-v3-CustomActions").
 
-## Re-create the failed cluster with
-
-`rollback-on-failure`
+## Re-create the failed cluster with `rollback-on-failure`
 
 AWS ParallelCluster creates cluster CloudWatch log streams in log groups. You can view these logs in the CloudWatch console **Custom
 Dashboards** or **Log groups**. For more information, see [Integration with Amazon CloudWatch Logs](cloudwatch-logs-v3.md "cloudwatch-logs-v3.md") and [Amazon CloudWatch dashboard](cloudwatch-dashboard-v3.md "cloudwatch-dashboard-v3.md"). If there are no log

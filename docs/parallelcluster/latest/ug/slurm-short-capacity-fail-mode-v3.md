@@ -25,15 +25,12 @@ your queue with multiple compute resources that use different instance types.
    The static and powered up nodes of the disabled compute resource aren't impacted. Jobs can
    complete on these nodes.
 
-This cycle repeats until the job is successfully assigned to a compute resource node or nodes. For information about node states, see the [Slurm guide for multiple
-queue mode](multiple-queue-mode-slurm-user-guide-v3.md "multiple-queue-mode-slurm-user-guide-v3.md").
+This cycle repeats until the job is successfully assigned to a compute resource node or nodes. For information about node states, see the [Slurm guide for multiple queue mode](multiple-queue-mode-slurm-user-guide-v3.md "multiple-queue-mode-slurm-user-guide-v3.md").
 
 If no compute resources are found to run the job, the job is set to the `PENDING` state until the predefined period of time elapses.
 In this case, you can modify the predefined period of time as described in the following section.
 
-## Insufficient capacity timeout
-
-parameter
+## Insufficient capacity timeout parameter
 
 **`insufficient_capacity_timeout`**
 
@@ -77,9 +74,7 @@ There might be a delay of up to one minute between the time when nodes fail with
 management daemon detects the node failures. This is because the cluster management daemon checks for node insufficient capacity failures and sets
 the compute resources to the `down` state at one minute intervals.
 
-## Fast insufficient capacity fail-over
-
-mode status
+## Fast insufficient capacity fail-over mode status
 
 When a cluster is in fast insufficient capacity fail-over mode, you can check its status and
 node states.

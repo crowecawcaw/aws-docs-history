@@ -427,8 +427,7 @@ supports.
 ###### Topics
 
 - [Configuration of multiple queues](configuration-of-multiple-queues-v3.md "configuration-of-multiple-queues-v3.md")
-- [Slurm guide for multiple
-  queue mode](multiple-queue-mode-slurm-user-guide-v3.md "multiple-queue-mode-slurm-user-guide-v3.md")
+- [Slurm guide for multiple queue mode](multiple-queue-mode-slurm-user-guide-v3.md "multiple-queue-mode-slurm-user-guide-v3.md")
 - [Slurm cluster protected mode](slurm-protected-mode-v3.md "slurm-protected-mode-v3.md")
 - [Slurm cluster fast insufficient capacity fail-over](slurm-short-capacity-fail-mode-v3.md "slurm-short-capacity-fail-mode-v3.md")
 - [Slurm memory-based scheduling](slurm-mem-based-scheduling-v3.md "slurm-mem-based-scheduling-v3.md")
@@ -436,5 +435,5 @@ supports.
 - [Cluster scaling for dynamic nodes](scheduler-node-allocation-v3.md "scheduler-node-allocation-v3.md")
 - [Slurm accounting with AWS ParallelCluster](slurm-accounting-v3.md "slurm-accounting-v3.md")
 - [Slurm configuration customization](slurm-configuration-settings-v3.md "slurm-configuration-settings-v3.md")
-- [Slurmprolog and epilog](slurm-prolog-epilog-v3.md "slurm-prolog-epilog-v3.md")
+- [Slurm prolog and epilog](slurm-prolog-epilog-v3.md "slurm-prolog-epilog-v3.md")
 - [Cluster capacity size and update](slurm-cluster-capacity-size-and-update.md "slurm-cluster-capacity-size-and-update.md")

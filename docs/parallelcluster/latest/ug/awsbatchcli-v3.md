@@ -1,6 +1,4 @@
-# Using AWS Batch (`awsbatch`) scheduler with
-
-AWS ParallelCluster
+# Using AWS Batch (`awsbatch`) scheduler with AWS ParallelCluster
 
 ###### Warning
 

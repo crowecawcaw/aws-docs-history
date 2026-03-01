@@ -20,8 +20,7 @@
 - [AWS ParallelCluster API](api-reference-v3.md "api-reference-v3.md")
 - [AWS ParallelCluster for Terraform](terraform-what-is.md "terraform-what-is.md")
 - [Connect to the head and login nodes through Amazon DCV](dcv-v3.md "dcv-v3.md")
-- [Using pcluster
-  update-cluster](using-pcluster-update-cluster-v3.md "using-pcluster-update-cluster-v3.md")
+- [Using pcluster update-cluster](using-pcluster-update-cluster-v3.md "using-pcluster-update-cluster-v3.md")
 - [AWS ParallelCluster AMI customization](custom-ami-v3.md "custom-ami-v3.md")
 - [Launch instances with On-Demand Capacity Reservations (ODCR)](launch-instances-odcr-v3.md "launch-instances-odcr-v3.md")
 - [Launch instances with Capacity Blocks (CB)](launch-instances-capacity-blocks.md "launch-instances-capacity-blocks.md")

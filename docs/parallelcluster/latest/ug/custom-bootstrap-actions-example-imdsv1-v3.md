@@ -1,6 +1,4 @@
-# Example of how to update a configuration
-
-for IMDSv1
+# Example of how to update a configuration for IMDSv1
 
 The following is an example of a cluster configuration that supports IMDSv1 when using AWS ParallelCluster
 versions 3.7.0 and older.

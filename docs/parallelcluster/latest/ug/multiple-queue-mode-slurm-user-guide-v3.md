@@ -1,6 +1,4 @@
-# Slurm guide for multiple
-
-queue mode
+# Slurm guide for multiple queue mode
 
 Here you can learn how AWS ParallelCluster and Slurm manage queue (partition)
 nodes and how you can monitor the queue and node states.
@@ -124,9 +122,7 @@ For nodes that aren't available, the `NodeAddr` field shouldn't
 point to a running Amazon EC2 instance. Rather, it should be the same as the node
 name.
 
-## Job states
-
-and submission
+## Job states and submission
 
 Jobs submitted in most cases are immediately allocated to nodes in the system,
 or placed in pending if all the nodes are allocated.
@@ -394,9 +390,7 @@ the command:
   resets the private IP address and hostname so it is ready to power up
   for future jobs.
 
-###### If things go wrong and an instance for a particular node can't be
-
-launched for some reason, then the following happens:
+###### If things go wrong and an instance for a particular node can't be launched for some reason, then the following happens:
 
 - The scheduler receives a job that requires two nodes.
 - The scheduler transitions two cloud bursting nodes to the
@@ -455,9 +449,7 @@ launched for some reason, then the following happens:
     remains in the `POWER_DOWN` state and isn't available
     for the scheduler's use.
 
-## Logs for the
-
-architecture
+## Logs for the architecture
 
 The following list contains the key logs. The log stream name used with
 Amazon CloudWatch Logs has the format
@@ -481,9 +473,7 @@ where `logIdentifier` follows the log names.
 - `slurmd`: `/var/log/slurmd.log`
   (`slurmd`)
 
-## Common
-
-issues and how to debug:
+## Common issues and how to debug:
 
 **Nodes that failed to launch, power up, or join the
 cluster**

@@ -1,6 +1,4 @@
-# Configuration settings to define actions
-
-and arguments
+# Configuration settings to define actions and arguments
 
 The following configuration settings are used to define
 [HeadNode](HeadNode-v3.md "HeadNode-v3.md") /

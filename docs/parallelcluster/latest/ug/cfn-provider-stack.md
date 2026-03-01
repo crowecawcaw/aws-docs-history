@@ -35,8 +35,7 @@ If you need to attach additional policies to the head node, you must also grant 
 permissions to attach or detach those policies to the IAM role associated with the head node.
 Specifically, you'll need to attach the "iam:AttachRolePolicy" and "iam:DetachRolePolicy"
 permissions (or their equivalent in a managed policy) to the IAM role used by the head node. For
-more information, see [AWS ParallelCluster user example policies for managing IAM
-resources](iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-user-policy-manage-iam "iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-user-policy-manage-iam").
+more information, see [AWS ParallelCluster user example policies for managing IAM resources](iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-user-policy-manage-iam "iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-user-policy-manage-iam").
 
 For more information about the default policies, see [AWS Identity and Access Management permissions in AWS ParallelCluster](iam-roles-in-parallelcluster-v3.md "iam-roles-in-parallelcluster-v3.md").
 

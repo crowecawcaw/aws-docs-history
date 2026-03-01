@@ -1,4 +1,4 @@
-# Slurm`prolog` and `epilog`
+# Slurm `prolog` and `epilog`
 
 Starting with AWS ParallelCluster version 3.6.0, the Slurm configuration that's deployed with AWS ParallelCluster
 includes the `Prolog` and `Epilog` configuration parameters:

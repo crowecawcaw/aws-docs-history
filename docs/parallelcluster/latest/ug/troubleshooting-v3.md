@@ -12,8 +12,7 @@ issues](https://github.com/aws/aws-parallelcluster/wiki#known-issues- "https://g
 - [Trying to update a cluster](troubleshooting-fc-v3-update-cluster.md "troubleshooting-fc-v3-update-cluster.md")
 - [Trying to access storage](troubleshooting-fc-v3-access-storage.md "troubleshooting-fc-v3-access-storage.md")
 - [Trying to delete a cluster](troubleshooting-fc-v3-delete-cluster.md "troubleshooting-fc-v3-delete-cluster.md")
-- [Trying to upgrade the AWS ParallelCluster
-  API stack](troubleshooting-fc-v3-upgrade-stack-v3.md "troubleshooting-fc-v3-upgrade-stack-v3.md")
+- [Trying to upgrade the AWS ParallelCluster API stack](troubleshooting-fc-v3-upgrade-stack-v3.md "troubleshooting-fc-v3-upgrade-stack-v3.md")
 - [Seeing errors in compute node initializations](troubleshooting-fc-v3-compute-node-initialization-v3.md "troubleshooting-fc-v3-compute-node-initialization-v3.md")
 - [Troubleshooting cluster health metrics](troubleshooting-v3-cluster-health-metrics.md "troubleshooting-v3-cluster-health-metrics.md")
 - [Troubleshooting cluster deployment issues](troubleshooting-v3-cluster-deployment.md "troubleshooting-v3-cluster-deployment.md")
@@ -25,8 +24,7 @@ issues](https://github.com/aws/aws-parallelcluster/wiki#known-issues- "https://g
 - [Troubleshooting issues in clusters with AWS Batch integration](troubleshooting-v3-batch.md "troubleshooting-v3-batch.md")
 - [Troubleshooting multi-user integration with Active Directory](troubleshooting-v3-multi-user.md "troubleshooting-v3-multi-user.md")
 - [Troubleshooting custom AMI issues](troubleshooting-v3-custom-amis.md "troubleshooting-v3-custom-amis.md")
-- [Troubleshooting a cluster update timeout when cfn-hup isn't
-  running](troubleshooting-v3-cluster-update-timeout.md "troubleshooting-v3-cluster-update-timeout.md")
+- [Troubleshooting a cluster update timeout when cfn-hup isn't running](troubleshooting-v3-cluster-update-timeout.md "troubleshooting-v3-cluster-update-timeout.md")
 - [Network troubleshooting](troubleshooting-v3-networking.md "troubleshooting-v3-networking.md")
 - [Cluster update failed on onNodeUpdated custom action](troubleshooting-v3-on-node-updated.md "troubleshooting-v3-on-node-updated.md")
 - [Seeing errors with custom Slurm configuration](troubleshooting-v3-custom-slurm-config.md "troubleshooting-v3-custom-slurm-config.md")

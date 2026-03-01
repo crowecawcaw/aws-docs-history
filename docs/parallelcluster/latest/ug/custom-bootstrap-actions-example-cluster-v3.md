@@ -1,6 +1,4 @@
-# Example cluster with custom
-
-bootstrap actions
+# Example cluster with custom bootstrap actions
 
 The following steps create a simple script to be executed after the node is configured,
 that installs the `R,` `curl` and `wget` packages in the

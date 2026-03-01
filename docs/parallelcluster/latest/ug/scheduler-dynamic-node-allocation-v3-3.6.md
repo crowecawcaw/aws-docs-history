@@ -1,6 +1,4 @@
-# Slurm dynamic node allocation
-
-strategies in version 3.6.x and previous
+# Slurm dynamic node allocation strategies in version 3.6.x and previous
 
 AWS ParallelCluster uses only one type of dynamic node allocation strategy to scale the
 cluster:

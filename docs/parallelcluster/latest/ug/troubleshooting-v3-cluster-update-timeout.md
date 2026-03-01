@@ -1,6 +1,4 @@
-# Troubleshooting a cluster update timeout when `cfn-hup` isn't
-
-running
+# Troubleshooting a cluster update timeout when `cfn-hup` isn't running
 
 The `cfn-hup` helper is a daemon that detects changes in resource metadata and runs user-specified actions when a change is detected. This is how you make configuration updates
 on your running Amazon EC2 instances through the `UpdateStack` API action.

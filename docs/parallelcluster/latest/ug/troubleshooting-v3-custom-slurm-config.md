@@ -11,5 +11,5 @@ configured by default to point to:
   epilog script in place.
 
 Slurm runs the scripts in reverse alphabetical order. Both the `Prolog` and
-`Epilog` folder must contain at least one file. For more information, see [Slurmprolog and epilog](slurm-prolog-epilog-v3.md "slurm-prolog-epilog-v3.md") and
+`Epilog` folder must contain at least one file. For more information, see [Slurm prolog and epilog](slurm-prolog-epilog-v3.md "slurm-prolog-epilog-v3.md") and
 [Slurm configuration customization](slurm-configuration-settings-v3.md "slurm-configuration-settings-v3.md").

@@ -1,6 +1,4 @@
-# AWS ParallelCluster in a single private subnet connected using
-
-AWS Direct Connect
+# AWS ParallelCluster in a single private subnet connected using AWS Direct Connect
 
 When [Scheduling](Scheduling-v3.md "Scheduling-v3.md") / [SlurmQueues](Scheduling-v3.md#Scheduling-v3-SlurmQueues "Scheduling-v3.md#Scheduling-v3-SlurmQueues") / [Networking](Scheduling-v3.md#Scheduling-v3-SlurmQueues-Networking "Scheduling-v3.md#Scheduling-v3-SlurmQueues-Networking") / [AssignPublicIp](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Networking-AssignPublicIp "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Networking-AssignPublicIp") is set to `false`, the subnets must be
 correctly set up to use the Proxy for all traffic. Web access is required for both head and

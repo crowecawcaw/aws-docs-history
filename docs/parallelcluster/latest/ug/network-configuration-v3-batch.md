@@ -1,6 +1,4 @@
-# AWS ParallelCluster with AWS Batch
-
-scheduler
+# AWS ParallelCluster with AWS Batch scheduler
 
 When you use `awsbatch` as the scheduler type, AWS ParallelCluster creates an AWS Batch managed compute environment. The AWS Batch
 environment manages Amazon Elastic Container Service (Amazon ECS) container instances. These instances are launched in the subnet configured in

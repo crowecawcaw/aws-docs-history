@@ -72,8 +72,7 @@ or generate custom AMIs.
 When this is set to true it grants IAM admin privileges to the AWS Lambda function
 that processes AWS ParallelCluster operations.
 
-Refer to [AWS ParallelCluster user example policies for managing IAM
-resources](iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-user-policy-manage-iam "iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-user-policy-manage-iam") for additional details
+Refer to [AWS ParallelCluster user example policies for managing IAM resources](iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-user-policy-manage-iam "iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-user-policy-manage-iam") for additional details
 on the features that can be unlocked when you enable this mode.
 
 - **PermissionsBoundaryPolicy** - This optional parameter
@@ -81,8 +80,7 @@ on the features that can be unlocked when you enable this mode.
   IAM roles created by the PC API infrastructure and as a condition on the administrative
   IAM permissions so that only roles with this policy can be created by the PC API.
 
-Refer to [PermissionsBoundary
-mode](iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-permissionsboundary-mode "iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-permissionsboundary-mode") for additional details
+Refer to [PermissionsBoundary mode](iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-permissionsboundary-mode "iam-roles-in-parallelcluster-v3.md#iam-roles-in-parallelcluster-v3-permissionsboundary-mode") for additional details
 on the restrictions imposed by this mode.
 
 - **CreateApiUserRole** - By default, the deployment of

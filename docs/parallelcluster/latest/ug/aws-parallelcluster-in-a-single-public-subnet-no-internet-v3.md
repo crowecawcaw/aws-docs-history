@@ -1,6 +1,4 @@
-# AWS ParallelCluster in a single subnet with no internet
-
-access
+# AWS ParallelCluster in a single subnet with no internet access
 
 A subnet without internet access doesn't allow inbound or outbound connections to the
 internet. This AWS ParallelCluster configuration can help customers concerned with security further

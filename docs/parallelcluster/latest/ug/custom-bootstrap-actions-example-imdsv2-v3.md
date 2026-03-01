@@ -1,6 +1,4 @@
-# Example of how to update a custom
-
-bootstrap script for IMDSv2
+# Example of how to update a custom bootstrap script for IMDSv2
 
 In the following example, we update a custom bootstrap action script that was used with IMDSv1
 for use with IMDSv2. The IMDSv1 script retrieves Amazon EC2 instance AMI ID metadata.
