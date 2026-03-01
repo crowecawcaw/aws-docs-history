@@ -21,9 +21,7 @@ _IAM User Guide_.
 - [AmazonEC2RolePolicyForLaunchWizard](#security-iam-awsmanpol-AmazonEC2RolePolicyForLaunchWizard "#security-iam-awsmanpol-AmazonEC2RolePolicyForLaunchWizard")
 - [Policy updates](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
-## AWS
-
-managed policy: AmazonLaunchWizardFullAccessV2
+## AWS managed policy: AmazonLaunchWizardFullAccessV2
 
 You can attach the `AmazonLaunchWizardFullAccessV2` policy to your
 IAM identities.
@@ -157,9 +155,7 @@ This policy includes the following permissions.
 permissions are present for historical purposes and do not impact
 security.
 
-## AWS
-
-managed policy: AmazonEC2RolePolicyForLaunchWizard
+## AWS managed policy: AmazonEC2RolePolicyForLaunchWizard
 
 This policy grants administrative permissions that allow all AWS Launch Wizard actions to
 be performed. To view the managed policy content, see the [AmazonEC2RolePolicyForLaunchWizard](../../../aws-managed-policy/latest/reference/AmazonEC2RolePolicyForLaunchWizard.md "../../../aws-managed-policy/latest/reference/AmazonEC2RolePolicyForLaunchWizard.md") page in the _AWS Managed
@@ -220,9 +216,7 @@ This policy includes the following permissions.
   retrieve the FSX DNS and administration endpoints to create the FCI SQL
   cluster.
 
-## AWS Launch Wizard updates to AWS managed
-
-policies
+## AWS Launch Wizard updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Launch Wizard since this
 service began tracking these changes. For automatic alerts about changes to this

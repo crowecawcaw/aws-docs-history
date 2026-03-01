@@ -1,6 +1,4 @@
-# High availability and security best practices
-
-for AWS Launch Wizard for SQL Server
+# High availability and security best practices for AWS Launch Wizard for SQL Server
 
 The application architecture created by AWS Launch Wizard supports AWS best practices for high
 availability and security as promoted by the [AWS Well-Architected Framework](https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf "https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf").

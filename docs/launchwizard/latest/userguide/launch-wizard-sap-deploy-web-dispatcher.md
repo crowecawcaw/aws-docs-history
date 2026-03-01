@@ -1,6 +1,4 @@
-# Deploying
-
-SAP Web Dispatcher
+# Deploying SAP Web Dispatcher
 
 AWS Launch Wizard supports the deployment of SAP Web Dispatcher as an optional component for
 Netweaver stack on HANA deployments. SAP Web Dispatcher is deployed in front of your SAP
@@ -15,13 +13,10 @@ SAP Web Dispatcher in systems with the following application stacks:
 
 ###### Topics
 
-- [Architectures
-  for SAP Web Dispatcher](#launch-wizard-sap-deploy-web-dispatcher-architectures "#launch-wizard-sap-deploy-web-dispatcher-architectures")
+- [Architectures for SAP Web Dispatcher](#launch-wizard-sap-deploy-web-dispatcher-architectures "#launch-wizard-sap-deploy-web-dispatcher-architectures")
 - [Post-deployment configuration activities](#launch-wizard-sap-deploy-web-dispatcher-post-deployment "#launch-wizard-sap-deploy-web-dispatcher-post-deployment")
 
-## Architectures
-
-for SAP Web Dispatcher
+## Architectures for SAP Web Dispatcher
 
 SAP Web Dispatcher is available for singe instance, multiple instance, and high
 availability deployments of Netweaver stack on HANA. The deployment type you specify
@@ -57,9 +52,7 @@ balancer.
 
 ![A SAP Web Dispatcher deployment that is highly available and accessible from your intranet.](images/sap-wd-ha-intranet.png)
 
-### Load
-
-balancers for SAP Web Dispatcher
+### Load balancers for SAP Web Dispatcher
 
 You can optionally deploy an Application Load Balancer or Network Load Balancer with all deployment patterns. The load
 balancer can be used to accept internet or intranet traffic based on your
@@ -174,8 +167,7 @@ the load balancer. This traffic is then forwarded to SAP Web Dispatcher
 and your application servers using the HTTP protocol. Launch Wizard can configure
 SSL/TLS termination at the load balancer during deployment. To use this
 option, you will need to specify a load balancer and ACM certificate while
-configuring the deployment. For more information, see [Deploy an SAP application
-with AWS Launch Wizard](launch-wizard-sap-deploying-console.md#deploy-console-launch-wizard-sap "launch-wizard-sap-deploying-console.md#deploy-console-launch-wizard-sap").
+configuring the deployment. For more information, see [Deploy an SAP application with AWS Launch Wizard](launch-wizard-sap-deploying-console.md#deploy-console-launch-wizard-sap "launch-wizard-sap-deploying-console.md#deploy-console-launch-wizard-sap").
 
 With end-to-end HTTPS encryption, traffic is encrypted to the load
 balancer and then traffic is re-encrypted at the SAP Web Dispatcher and

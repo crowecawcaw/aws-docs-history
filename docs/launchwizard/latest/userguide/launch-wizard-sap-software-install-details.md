@@ -1,6 +1,4 @@
-# Make SAP application software
-
-available for AWS Launch Wizard to deploy SAP
+# Make SAP application software available for AWS Launch Wizard to deploy SAP
 
 This section describes steps to upload the SAP application software to Amazon S3 to make it
 available for Launch Wizard to deploy SAP.
@@ -28,14 +26,10 @@ of supported applications to use from SAP manually.
 
 ###### Databases
 
-- [Making software available for SAP HANA based
-  applications](#nw-on-hana "#nw-on-hana")
-- [Making software available for SAP ASE based
-  applications](#nw-on-ase "#nw-on-ase")
+- [Making software available for SAP HANA based applications](#nw-on-hana "#nw-on-hana")
+- [Making software available for SAP ASE based applications](#nw-on-ase "#nw-on-ase")
 
-## Making software available for SAP HANA based
-
-applications
+## Making software available for SAP HANA based applications
 
 ###### Note
 
@@ -403,9 +397,7 @@ available on SAP Software Center.
 | hana-20-sp07 | `51057071` | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW<br>version>`/HANA_DB_Software` |
 | hana-20-sp08 | `51058521` | `S3://`<Your SAP software<br>bucket>`/`<Path representing<br>NW<br>version>`/HANA_DB_Software` |
 
-## Making software available for SAP ASE based
-
-applications
+## Making software available for SAP ASE based applications
 
 NetWeaver 7.52
 

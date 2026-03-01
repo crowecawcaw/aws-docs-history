@@ -1,6 +1,4 @@
-# Create a launch
-
-constraint
+# Create a launch constraint
 
 A launch constraint specifies the AWS Identity and Access Management role that AWS Service Catalog
 assumes when a user launches a product. It is associated with products in the portfolio.

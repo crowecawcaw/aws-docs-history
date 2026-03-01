@@ -1,6 +1,4 @@
-# Repeat SAP application deployments
-
-using deployment artifacts created with AWS Launch Wizard
+# Repeat SAP application deployments using deployment artifacts created with AWS Launch Wizard
 
 This section contains information about how to repeat deployments using deployment
 artifacts created with Launch Wizard. The artifacts include AWS Service Catalog products
@@ -8,22 +6,14 @@ and AWS CloudFormation templates.
 
 ###### Deployment artifact topics
 
-- [How AWS Launch Wizard
-  integration with AWS Service Catalog works](#launch-wizard-sap-service-catalog-how-it-works "#launch-wizard-sap-service-catalog-how-it-works")
-- [Launch AWS Service Catalog
-  products created with AWS Launch Wizard](launch-wizard-sap-service-catalog.md "launch-wizard-sap-service-catalog.md")
-- [Launch
-  AWS Service Catalog products with ServiceNow](launch-wizard-sap-service-catalog-servicenow.md "launch-wizard-sap-service-catalog-servicenow.md")
-- [Launch
-  AWS Service Catalog products with Jira](launch-wizard-sap-service-catalog-jira.md "launch-wizard-sap-service-catalog-jira.md")
-- [Launch
-  AWS Service Catalog products with Terraform](launch-wizard-sap-service-catalog-terraform.md "launch-wizard-sap-service-catalog-terraform.md")
-- [Launch CloudFormation
-  templates created in Launch Wizard](launch-wizard-sap-launch-artifacts-cloudformation.md "launch-wizard-sap-launch-artifacts-cloudformation.md")
+- [How AWS Launch Wizard integration with AWS Service Catalog works](#launch-wizard-sap-service-catalog-how-it-works "#launch-wizard-sap-service-catalog-how-it-works")
+- [Launch AWS Service Catalog products created with AWS Launch Wizard](launch-wizard-sap-service-catalog.md "launch-wizard-sap-service-catalog.md")
+- [Launch AWS Service Catalog products with ServiceNow](launch-wizard-sap-service-catalog-servicenow.md "launch-wizard-sap-service-catalog-servicenow.md")
+- [Launch AWS Service Catalog products with Jira](launch-wizard-sap-service-catalog-jira.md "launch-wizard-sap-service-catalog-jira.md")
+- [Launch AWS Service Catalog products with Terraform](launch-wizard-sap-service-catalog-terraform.md "launch-wizard-sap-service-catalog-terraform.md")
+- [Launch CloudFormation templates created in Launch Wizard](launch-wizard-sap-launch-artifacts-cloudformation.md "launch-wizard-sap-launch-artifacts-cloudformation.md")
 
-## How AWS Launch Wizard
-
-integration with AWS Service Catalog works
+## How AWS Launch Wizard integration with AWS Service Catalog works
 
 AWS Launch Wizard creates AWS Service Catalog products from successful deployments.
 The AWS Service Catalog products contain CloudFormation templates and associated

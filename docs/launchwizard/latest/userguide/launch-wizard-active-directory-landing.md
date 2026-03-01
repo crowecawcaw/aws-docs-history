@@ -1,6 +1,4 @@
-# AWS Launch Wizard for Active
-
-Directory
+# AWS Launch Wizard for Active Directory
 
 AWS Launch Wizard for Active Directory is a service that applies [AWS cloud application best
 practices](../../../wellarchitected/latest/framework/welcome.md "../../../wellarchitected/latest/framework/welcome.md") to guide you through setting up a new Active Directory infrastructure,
@@ -32,19 +30,14 @@ system.
 
 ###### AWS Launch Wizard provides the following features:
 
-- [Simple application
-  deployment](#launch-wizard-ad-features-app-deployment "#launch-wizard-ad-features-app-deployment")
-- [AWS resource
-  selection](#launch-wizard-ad-features-resource-selection "#launch-wizard-ad-features-resource-selection")
+- [Simple application deployment](#launch-wizard-ad-features-app-deployment "#launch-wizard-ad-features-app-deployment")
+- [AWS resource selection](#launch-wizard-ad-features-resource-selection "#launch-wizard-ad-features-resource-selection")
 - [Cost estimation](#launch-wizard-ad-features-cost "#launch-wizard-ad-features-cost")
 - [SNS notification](#launch-wizard-ad-features-sns "#launch-wizard-ad-features-sns")
 - [Early input validation](#launch-wizard-ad-features-input-validation "#launch-wizard-ad-features-input-validation")
-- [Application resource
-  groups for easy discoverability](#launch-wizard-ad-features-resource-groups "#launch-wizard-ad-features-resource-groups")
+- [Application resource groups for easy discoverability](#launch-wizard-ad-features-resource-groups "#launch-wizard-ad-features-resource-groups")
 
-### Simple application
-
-deployment
+### Simple application deployment
 
 AWS Launch Wizard makes it efficient for you to deploy self-managed domain controllers and
 AWS Directory Service for Microsoft Active Directory on AWS. When you enter the domain controller requirements,
@@ -52,9 +45,7 @@ AWS Launch Wizard deploys the necessary AWS resources for a production-ready env
 This means that you do not have to manage separate infrastructure pieces or spend
 time provisioning and configuring your domain controllers.
 
-### AWS resource
-
-selection
+### AWS resource selection
 
 Launch Wizard considers the number of Active Directory users to determine the best instance
 type, EBS volumes, and other resources for your domain controllers. You can modify
@@ -93,9 +84,7 @@ Application Wizard to launch a t2.large EC2 instance in your account for a few
 minutes. After it runs the necessary validations, Launch Wizard terminates the
 instance.
 
-### Application resource
-
-groups for easy discoverability
+### Application resource groups for easy discoverability
 
 Launch Wizard creates a resource group for all of the AWS resources created for your
 domain controllers. You can manage the resources through the Amazon EC2 console or with
@@ -171,8 +160,7 @@ quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/lates
 controllers with AWS Launch Wizard:
 
 - [CloudFormation](#launch-wizard-ad-related-services-cloudformation "#launch-wizard-ad-related-services-cloudformation")
-- [Amazon Simple Notification
-  Service (SNS)](#launch-wizard-ad-related-services-sns "#launch-wizard-ad-related-services-sns")
+- [Amazon Simple Notification Service (SNS)](#launch-wizard-ad-related-services-sns "#launch-wizard-ad-related-services-sns")
 - [Amazon CloudWatch Logs](#launch-wizard-ad-related-services-cloudwatch-logs "#launch-wizard-ad-related-services-cloudwatch-logs")
 - [AWS Secrets Manager](#launch-wizard-ad-related-services-secrets-manager "#launch-wizard-ad-related-services-secrets-manager")
 
@@ -188,9 +176,7 @@ configuration (with an CloudFormation template and PowerShell scripts) to provis
 Active Directory infrastructure or additional domain controllers in your account.
 For more information, see the _[AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md")_.
 
-### Amazon Simple Notification
-
-Service (SNS)
+### Amazon Simple Notification Service (SNS)
 
 [Amazon Simple Notification Service](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md")
 (Amazon SNS) is a highly available, durable, secure, fully managed publish/subscribe

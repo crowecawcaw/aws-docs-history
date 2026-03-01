@@ -12,19 +12,15 @@ deployments on Linux do not support block devices on Xen-virtualized instances.
 
 ###### Contents
 
-- [Active Directory objects and DNS record
-  clean up (deployment on Windows)](#launch-wizard-ad-dns-clean "#launch-wizard-ad-dns-clean")
+- [Active Directory objects and DNS record clean up (deployment on Windows)](#launch-wizard-ad-dns-clean "#launch-wizard-ad-dns-clean")
 - [Launch Wizard provisioning events](#launch-wizard-provisioning "#launch-wizard-provisioning")
 - [CloudWatch Logs](#launch-wizard-logs "#launch-wizard-logs")
 - [CloudFormation stack](#launch-wizard-cloudformation "#launch-wizard-cloudformation")
-- [Pacemaker on Ubuntu (deployment on
-  Linux)](#launch-wizard-pacemaker "#launch-wizard-pacemaker")
+- [Pacemaker on Ubuntu (deployment on Linux)](#launch-wizard-pacemaker "#launch-wizard-pacemaker")
 - [SQL Server Management Studio](#launch-wizard-troubleshooting-ssms "#launch-wizard-troubleshooting-ssms")
 - [Errors](#launch-wizard-errors "#launch-wizard-errors")
 
-## Active Directory objects and DNS record
-
-clean up (deployment on Windows)
+## Active Directory objects and DNS record clean up (deployment on Windows)
 
 When you delete a deployment, you lose all specification settings for the SQL Server
 Always On application. Launch Wizard attempts to delete only the AWS resources that it
@@ -121,9 +117,7 @@ stack also has nested stacks for VPC, AD, the RDGW node, and SQL nodes.
 You can view the status of these CloudFormation stacks. If any of them fail, you can
 view the cause of failure.
 
-## Pacemaker on Ubuntu (deployment on
-
-Linux)
+## Pacemaker on Ubuntu (deployment on Linux)
 
 To troubleshoot Pacemaker cluster resource issues, take the following actions as an
 administrator.
@@ -179,9 +173,7 @@ ALTER AVAILABILITY GROUP `ag-name` ADD DATABASE `db`
   scenario, you must retry the deployment from the initial page of the Launch
   Wizard console.
 
-###### Your requested instance type is not supported in your requested Availability
-
-Zone
+###### Your requested instance type is not supported in your requested Availability Zone
 
 - **Cause:** This failure might happen during the
   launch of either your RDGW instance or your SQL Server instance, or during the
@@ -191,9 +183,7 @@ Zone
   a different Availability Zone and retry the deployment from the initial page of
   the Launch Wizard console.
 
-###### Validate connectivity for subnet. The following resource(s) failed to create:
-
-[ValidationNodeWaitCondition]
+###### Validate connectivity for subnet. The following resource(s) failed to create: [ValidationNodeWaitCondition]
 
 This failure can occur for multiple reasons. The following list shows known causes
 and solutions.
@@ -201,8 +191,7 @@ and solutions.
 - ###### VPC or subnet configuration does not meet prerequisites
   - **Cause:** This failure occurs when your
     VPC or subnet configuration does not meet the prerequisites documented
-    in the VPC Connectivity Section under [Deploy an application with AWS Launch Wizard for SQL Server
-    on Windows (Console)](launch-wizard-deploying.md "launch-wizard-deploying.md"). If the failure message
+    in the VPC Connectivity Section under [Deploy an application with AWS Launch Wizard for SQL Server on Windows (Console)](launch-wizard-deploying.md "launch-wizard-deploying.md"). If the failure message
     points to your selected public subnet, then the public subnet is not
     configured for outbound internet access. If the failure message points
     to one of your selected private subnets, then the specified private
@@ -216,8 +205,7 @@ and solutions.
     console, when you select a private subnet for the public subnet dropdown
     or you select a public subnet for the private subnet dropdown, you will
     encounter the same error. Please refer to the VPC Connectivity section
-    under [Deploy an application with AWS Launch Wizard for SQL Server
-    on Windows (Console)](launch-wizard-deploying.md "launch-wizard-deploying.md") for more information about
+    under [Deploy an application with AWS Launch Wizard for SQL Server on Windows (Console)](launch-wizard-deploying.md "launch-wizard-deploying.md") for more information about
     how to configure your VPC.
 
 - ###### EC2 instance stabilization error

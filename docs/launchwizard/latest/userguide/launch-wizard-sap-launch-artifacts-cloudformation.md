@@ -1,6 +1,4 @@
-# Launch CloudFormation
-
-templates created in Launch Wizard
+# Launch CloudFormation templates created in Launch Wizard
 
 You can launch CloudFormation stacks from the CloudFormation templates that you saved from your
 successful Launch Wizard deployments. Perform the following steps to find and launch your CloudFormation

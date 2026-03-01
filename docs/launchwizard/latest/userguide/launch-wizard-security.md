@@ -30,16 +30,14 @@ Amazon VPC, see the security sections in the [Amazon EC2 Getting Started Guide](
 
 This section of the Launch Wizard User Guide provides security information that pertains to
 AWS Launch Wizard. For security topics specific to AWS Launch Wizard for SQL Server, see [Security groups and firewalls](launch-wizard-best-practices.md#launch-wizard-sql-security "launch-wizard-best-practices.md#launch-wizard-sql-security"). For
-security topics specific to AWS Launch Wizard for SAP, see [Security groups in AWS Launch Wizard for
-SAP](launch-wizard-sap-security-groups.md "launch-wizard-sap-security-groups.md").
+security topics specific to AWS Launch Wizard for SAP, see [Security groups in AWS Launch Wizard for SAP](launch-wizard-sap-security-groups.md "launch-wizard-sap-security-groups.md").
 
 ###### Launch Wizard security topics
 
 - [Infrastructure security in Launch Wizard](#infrastructure-security "#infrastructure-security")
 - [Resilience in Launch Wizard](#disaster-recovery-resiliency "#disaster-recovery-resiliency")
 - [Data protection in Launch Wizard](#data-protection "#data-protection")
-- [Identity and Access Management for
-  AWS Launch Wizard](#identity-access-management "#identity-access-management")
+- [Identity and Access Management for AWS Launch Wizard](#identity-access-management "#identity-access-management")
 - [Update management in Launch Wizard](#update-management "#update-management")
 - [AWS managed policies for AWS Launch Wizard](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 
@@ -101,9 +99,7 @@ tags or free-form text fields used for names may be used for billing or diagnost
 provide a URL to an external server, we strongly recommend that you do not include credentials
 information in the URL to validate your request to that server.
 
-### Encryption with AWS managed keys and
-
-customer managed keys
+### Encryption with AWS managed keys and customer managed keys
 
 AWS Launch Wizard for Active Directory, SQL Server, and SAP use the default
 AWS managed keys to encrypt Amazon EBS volumes. Launch Wizard for SAP also supports the use of
@@ -113,8 +109,7 @@ If you don't specify a customer managed key, Launch Wizard for SAP automatically
 AWS managed key in your AWS account.
 
 If you want to use a customer managed key for Launch Wizard for SAP, see the steps for adding
-permissions to your KMS key policy for Launch Wizard to use your KMS key at [Add permissions to use
-AWS KMS keys](launch-wizard-sap-setting-up.md#launch-wizard-sap-iam-encryption "launch-wizard-sap-setting-up.md#launch-wizard-sap-iam-encryption") in the _Launch Wizard for SAP
+permissions to your KMS key policy for Launch Wizard to use your KMS key at [Add permissions to use AWS KMS keys](launch-wizard-sap-setting-up.md#launch-wizard-sap-iam-encryption "launch-wizard-sap-setting-up.md#launch-wizard-sap-iam-encryption") in the _Launch Wizard for SAP
 User Guide_.
 
 Creating your own customer managed CMK gives you more flexibility and control. For
@@ -123,9 +118,7 @@ controls and audit the customer managed keys that you use to protect your data. 
 information about customer managed keys and AWS managed keys, see [AWS KMS
 concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") in the AWS Key Management Service Developer Guide.
 
-## Identity and Access Management for
-
-AWS Launch Wizard
+## Identity and Access Management for AWS Launch Wizard
 
 AWS Launch Wizard uses the following AWS managed policies to grant permissions to users and
 services.
@@ -165,20 +158,16 @@ actions, such as validation of route tables and perform pre-configuration and
 configuration tasks for HA mode enabling.
 
 - To run custom pre- and post-configuration deployment scripts, you must
-  manually add the permissions provided in [Add permissions to run custom
-  pre- and post-deployment configuration scripts](launch-wizard-sap-setting-up.md#launch-wizard-sap-iam-scripts "launch-wizard-sap-setting-up.md#launch-wizard-sap-iam-scripts") to the
+  manually add the permissions provided in [Add permissions to run custom pre- and post-deployment configuration scripts](launch-wizard-sap-setting-up.md#launch-wizard-sap-iam-scripts "launch-wizard-sap-setting-up.md#launch-wizard-sap-iam-scripts") to the
   `AmazonEC2RoleForLaunchWizard` role.
 - To save generated artifacts from Launch Wizard for SAP to Amazon S3, and your S3 bucket name
   does not include the prefix `launchwizard`, you must attach the
-  policy provided in [Add permissions to save
-  deployment artifacts to Amazon S3](launch-wizard-sap-setting-up.md#launch-wizard-sap-iam-s3-artifacts "launch-wizard-sap-setting-up.md#launch-wizard-sap-iam-s3-artifacts") to the IAM user.
+  policy provided in [Add permissions to save deployment artifacts to Amazon S3](launch-wizard-sap-setting-up.md#launch-wizard-sap-iam-s3-artifacts "launch-wizard-sap-setting-up.md#launch-wizard-sap-iam-s3-artifacts") to the IAM user.
 - To grant permissions for users to launch AWS Service Catalog
-  products created with Launch Wizard for SAP, follow the steps in [Set up to launch
-  AWS Service Catalog products created with AWS Launch Wizard](launch-wizard-sap-service-catalog-setup.md "launch-wizard-sap-service-catalog-setup.md").
+  products created with Launch Wizard for SAP, follow the steps in [Set up to launch AWS Service Catalog products created with AWS Launch Wizard](launch-wizard-sap-service-catalog-setup.md "launch-wizard-sap-service-catalog-setup.md").
 - To grant permissions to AWS Service Catalog to create a launch
   constraint for users who want to launch an AWS Service Catalog product
-  created by Launch Wizard for SAP, follow the steps in [Create a launch
-  constraint](launch-wizard-sap-service-catalog-constraint.md "launch-wizard-sap-service-catalog-constraint.md").
+  created by Launch Wizard for SAP, follow the steps in [Create a launch constraint](launch-wizard-sap-service-catalog-constraint.md "launch-wizard-sap-service-catalog-constraint.md").
 
 If you deploy domain controllers into an existing VPC with an existing Active
 Directory, Launch Wizard for Active Directory requires domain administrator credentials

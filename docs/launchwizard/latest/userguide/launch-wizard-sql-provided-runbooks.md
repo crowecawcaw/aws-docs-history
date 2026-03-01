@@ -1,6 +1,4 @@
-# AWS Launch Wizard Systems Manager Automation
-
-documents
+# AWS Launch Wizard Systems Manager Automation documents
 
 A Systems Manager Automation document defines the actions that Systems Manager performs on your managed
 instances and other AWS resources when an automation workflow runs. A document contains
@@ -55,9 +53,7 @@ following is in place:
 - The size of the backup file for uploading to an S3 bucket is 500 GB or
   less.
 
-###### Required IAM actions that must be added to your IAM policy to successfully
-
-run `AWSSQLServer-Backup`:
+###### Required IAM actions that must be added to your IAM policy to successfully run `AWSSQLServer-Backup`:
 
 - `s3:GetBucketPolicyStatus`
 - `s3:PutObject`
@@ -86,9 +82,7 @@ to successfully restore a database:
 - There must be at least one full backup that occurred during the specified time
   range.
 
-###### Required IAM actions that must be added to your IAM policy to successfully
-
-run `AWSSQLServer-Restore`:
+###### Required IAM actions that must be added to your IAM policy to successfully run `AWSSQLServer-Restore`:
 
 - `s3:GetBucketPolicyStatus`
 - `s3:PutObject`

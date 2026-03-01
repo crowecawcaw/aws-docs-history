@@ -42,13 +42,11 @@ Launch Wizard.
   workflow.
 
 - To run custom pre- and post-configuration deployment scripts, you must add
-  the permissions listed in [Add permissions to run custom
-  pre- and post-deployment configuration scripts](#launch-wizard-sap-iam-scripts "#launch-wizard-sap-iam-scripts") to the
+  the permissions listed in [Add permissions to run custom pre- and post-deployment configuration scripts](#launch-wizard-sap-iam-scripts "#launch-wizard-sap-iam-scripts") to the
   `AmazonEC2RoleForLaunchWizard` role.
 - If you want to install SAP software, you must download the software from
   the SAP Software Download page and upload it to an Amazon S3 bucket. For steps on
-  how to download the software and upload it to an Amazon S3 bucket, see [Make SAP HANA software available for AWS Launch Wizard
-  to deploy a HANA database](launch-wizard-sap-structure.md "launch-wizard-sap-structure.md").
+  how to download the software and upload it to an Amazon S3 bucket, see [Make SAP HANA software available for AWS Launch Wizard to deploy a HANA database](launch-wizard-sap-structure.md "launch-wizard-sap-structure.md").
 - Depending on the operating system version you want to use for the SAP
   deployment, an SAP Marketplace subscription may be required. For a complete
   list of supported operating system versions, see [Operating systems](launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os "launch-wizard-sap-versions.md#launch-wizard-sap-ascs-support-os").
@@ -68,15 +66,11 @@ administrator** for your organization. The steps are as follows:
 
 - [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Create a user with administrative access](#create-an-admin "#create-an-admin")
-- [One-time creation of IAM
-  role](#launch-wizard-sap-iam-role "#launch-wizard-sap-iam-role")
+- [One-time creation of IAM role](#launch-wizard-sap-iam-role "#launch-wizard-sap-iam-role")
 - [Enable users to use Launch Wizard](#launch-wizard-user-setup "#launch-wizard-user-setup")
-- [Add permissions to use
-  AWS KMS keys](#launch-wizard-sap-iam-encryption "#launch-wizard-sap-iam-encryption")
-- [Add permissions to run custom
-  pre- and post-deployment configuration scripts](#launch-wizard-sap-iam-scripts "#launch-wizard-sap-iam-scripts")
-- [Add permissions to save
-  deployment artifacts to Amazon S3](#launch-wizard-sap-iam-s3-artifacts "#launch-wizard-sap-iam-s3-artifacts")
+- [Add permissions to use AWS KMS keys](#launch-wizard-sap-iam-encryption "#launch-wizard-sap-iam-encryption")
+- [Add permissions to run custom pre- and post-deployment configuration scripts](#launch-wizard-sap-iam-scripts "#launch-wizard-sap-iam-scripts")
+- [Add permissions to save deployment artifacts to Amazon S3](#launch-wizard-sap-iam-s3-artifacts "#launch-wizard-sap-iam-s3-artifacts")
 
 ### Sign up for an AWS account
 
@@ -136,9 +130,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-### One-time creation of IAM
-
-role
+### One-time creation of IAM role
 
 On the **Choose Application** page of Launch Wizard, under
 **Permissions**, Launch Wizard displays the IAM role
@@ -198,9 +190,7 @@ in the _IAM User Guide_.
 You must log in with the user or assume the role associated with this
 IAM policy when you use Launch Wizard.
 
-### Add permissions to use
-
-AWS KMS keys
+### Add permissions to use AWS KMS keys
 
 AWS Launch Wizard uses AWS default encryption keys to encrypt Amazon EBS volumes. In
 addition, Launch Wizard supports the use of KMS keys created and maintained in AWS KMS.
@@ -208,9 +198,7 @@ You can choose to either create new keys or use preexisting keys to encrypt your
 EBS volumes. You must add permissions to the KMS key policy for your key so
 that Launch Wizard can use your KMS key for encryption.
 
-###### How to add permissions to your KMS key policy so that Launch Wizard can use your
-
-key for encryption
+###### How to add permissions to your KMS key policy so that Launch Wizard can use your key for encryption
 
 1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
@@ -227,9 +215,7 @@ key for encryption
    Launch Wizard full access permissions appear in the **Key
    users** list.
 
-### Add permissions to run custom
-
-pre- and post-deployment configuration scripts
+### Add permissions to run custom pre- and post-deployment configuration scripts
 
 To run custom pre- and post-configuration deployment scripts, you must add the
 following permissions to the `AmazonEC2RoleForLaunchWizard` role. The
@@ -287,9 +273,7 @@ to run additional AWS services, the permissions to use the services must also
 be manually added as policy to the
 `AmazonEC2RoleForLaunchWizard`.
 
-### Add permissions to save
-
-deployment artifacts to Amazon S3
+### Add permissions to save deployment artifacts to Amazon S3
 
 To create AWS Service Catalog products from successful deployments,
 which include CloudFormation templates and application configuration scripts, you must

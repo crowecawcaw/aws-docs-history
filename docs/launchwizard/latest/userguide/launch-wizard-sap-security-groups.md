@@ -1,6 +1,4 @@
-# Security groups in AWS Launch Wizard for
-
-SAP
+# Security groups in AWS Launch Wizard for SAP
 
 This section describes the security groups that Launch Wizard for SAP creates and assigns to the
 database and application instances. It also describes how the entries in the outbound and
@@ -9,8 +7,7 @@ inbound communication rules for database and application security groups are upd
 ###### Topics
 
 - [Security groups](#launchwizard-sap-security-groups-configuration "#launchwizard-sap-security-groups-configuration")
-- [Connectivity to
-  external systems and users](#launchwizard-sap-security-groups-connectivity "#launchwizard-sap-security-groups-connectivity")
+- [Connectivity to external systems and users](#launchwizard-sap-security-groups-connectivity "#launchwizard-sap-security-groups-connectivity")
 
 ## Security groups
 
@@ -100,9 +97,7 @@ outbound access from the load balancer for SAP Web Dispatcher servers.
 | All             | _ID of the<br>WD_Security_Group_    | all      | 8000-8097  |
 | All             | _ID of the<br>WD_LB_Security_Group_ | all      | 1-65535    |
 
-## Connectivity to
-
-external systems and users
+## Connectivity to external systems and users
 
 CIDR/IP address and security group entries are entered in the infrastructure
 configuration. This allows access to SAP systems by front end users and

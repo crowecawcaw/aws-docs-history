@@ -1,6 +1,4 @@
-# Manage application resources with AWS Launch Wizard for SQL
-
-Server
+# Manage application resources with AWS Launch Wizard for SQL Server
 
 After your SQL Server Always On application is deployed, you can manage it by following
 these steps.
@@ -60,8 +58,7 @@ Directory domain user password over time, which is required to clean up Active
 Directory objects or DNS records. We recommend that you remove these entries
 from your Active Directory after Launch Wizard deletes the deployment. For key
 operations performed against your Active Directory resulting in new records or
-entries, see [AWS Managed Active
-Directory](launch-wizard-getting-started.md#launch-wizard-ad-managed "launch-wizard-getting-started.md#launch-wizard-ad-managed"). 4. To drill down into details regarding your SQL Server Always On application
+entries, see [AWS Managed Active Directory](launch-wizard-getting-started.md#launch-wizard-ad-managed "launch-wizard-getting-started.md#launch-wizard-ad-managed"). 4. To drill down into details regarding your SQL Server Always On application
 resources, select the **Application name**. You can then view the
 **Deployment events** and **Configuration
 summary** details for your application by using the tabs at the top of

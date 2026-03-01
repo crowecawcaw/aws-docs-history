@@ -42,9 +42,7 @@ controllers.
 Launch Wizard supports the following deployment path for provisioning self-managed domain
 controllers or AWS Managed Microsoft AD.
 
-### Deploy and manage your
-
-own domain controllers on Amazon EC2 instances
+### Deploy and manage your own domain controllers on Amazon EC2 instances
 
 Launch Wizard builds the AWS Cloud infrastructure, and sets up and configures Active
 Directory Domain Services (AD DS) and Active Directory-integrated DNS on the AWS
@@ -66,8 +64,7 @@ VPC.
 - [Security groups](#launch-wizard-ad-implementation-sg "#launch-wizard-ad-implementation-sg")
 - [Remote Desktop Gateway](#launch-wizard-ad-implementation-rdg "#launch-wizard-ad-implementation-rdg")
 - [Active Directory](#launch-wizard-ad-implementation-ad "#launch-wizard-ad-implementation-ad")
-- [Self-managed domain controller
-  architecture](#launch-wizard-ad-architecture "#launch-wizard-ad-architecture")
+- [Self-managed domain controller architecture](#launch-wizard-ad-architecture "#launch-wizard-ad-architecture")
 
 ### VPC
 
@@ -171,18 +168,12 @@ AWS.
 
 ###### Active Directory deployment topics
 
-- [Highly available directory
-  domain services](#launch-wizard-ad-implementation-domain-controllers "#launch-wizard-ad-implementation-domain-controllers")
-- [Active Directory DNS
-  and DHCP inside the VPC](#launch-wizard-ad-implementation-dns-dhcp "#launch-wizard-ad-implementation-dns-dhcp")
-- [DNS settings on Windows Servers
-  instances](#launch-wizard-ad-dns-settings "#launch-wizard-ad-dns-settings")
-- [Active Directory Certificate
-  Services](#launch-wizard-ad-adcs "#launch-wizard-ad-adcs")
+- [Highly available directory domain services](#launch-wizard-ad-implementation-domain-controllers "#launch-wizard-ad-implementation-domain-controllers")
+- [Active Directory DNS and DHCP inside the VPC](#launch-wizard-ad-implementation-dns-dhcp "#launch-wizard-ad-implementation-dns-dhcp")
+- [DNS settings on Windows Servers instances](#launch-wizard-ad-dns-settings "#launch-wizard-ad-dns-settings")
+- [Active Directory Certificate Services](#launch-wizard-ad-adcs "#launch-wizard-ad-adcs")
 
-#### Highly available directory
-
-domain services
+#### Highly available directory domain services
 
 Launch Wizard deploys two domain controllers in your AWS environment in two
 Availability Zones. This design provides fault tolerance and prevents a single
@@ -200,9 +191,7 @@ For information about creating sites, adding global catalog servers, and
 creating and managing site links, see the [Microsoft Active
 Directory Sites and Services](http://technet.microsoft.com/library/cc730868.aspx "http://technet.microsoft.com/library/cc730868.aspx") documentation.
 
-#### Active Directory DNS
-
-and DHCP inside the VPC
+#### Active Directory DNS and DHCP inside the VPC
 
 Dynamic Host Configuration Protocol (DHCP) services are provided by default
 for your instances within a VPC. DHCP scopes do not need to be managed; they are
@@ -252,9 +241,7 @@ The DNS settings on the local server point to the IP address of the first
 domain controller for all of the domain controllers in the
 infrastructure.
 
-#### DNS settings on Windows Servers
-
-instances
+#### DNS settings on Windows Servers instances
 
 To ensure that domain-joined Windows instances automatically register host (A)
 and reverse lookup (PTR) records with Active Directory-integrated DNS, set the
@@ -276,18 +263,14 @@ out to all of your Windows instances by using Active Directory Group Policy. For
 instructions about how to do this, see [IPv4 and IPv6
 Advanced DNS Tab](http://technet.microsoft.com/library/cc754143.aspx "http://technet.microsoft.com/library/cc754143.aspx") in the Microsoft TechNet Library.
 
-#### Active Directory Certificate
-
-Services
+#### Active Directory Certificate Services
 
 Launch Wizard sets up and deploys Active Directory Certificate Services (AD CS) with a
 new Active Directory infrastructure to issue and manage digital certificates in
 systems that use public key technologies. For more information about AD CS, see
 the [Microsoft documentation](<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)#role-description> "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)#role-description").
 
-### Self-managed domain controller
-
-architecture
+### Self-managed domain controller architecture
 
 The Launch Wizard self-managed domain controller deployment sets up the following
 architecture.
@@ -314,8 +297,7 @@ Services on AWS](https://aws.amazon.com/quickstart/architecture/active-directory
 A single Launch Wizard deployment for Active Directory launches two domain controllers per each
 AWS Region. If you want to add more domain controllers, you can create additional Launch Wizard
 for Active Directory deployments to add them to the same Active Directory
-infrastructure. For more information, see [Extend on-premises
-Active Directory to an existing VPC](launch-wizard-ad-deploying-existing-vpc-extend.md "launch-wizard-ad-deploying-existing-vpc-extend.md").
+infrastructure. For more information, see [Extend on-premises Active Directory to an existing VPC](launch-wizard-ad-deploying-existing-vpc-extend.md "launch-wizard-ad-deploying-existing-vpc-extend.md").
 
 ## AWS Regions
 

@@ -7,9 +7,7 @@ Amazon Elastic Compute Cloud instances running Windows, without needing to confi
 This helps reduce the attack surface on your Windows instances while providing a remote
 administration solution for administrators.
 
-## Deployment
-
-options
+## Deployment options
 
 This Launch Wizard application provides two deployment options:
 
@@ -32,20 +30,14 @@ workload can be provisioned, see [AWS Launch Wizard workload availability](launc
 
 ###### AWS Launch Wizard provides the following features:
 
-- [Simple
-  application deployment](#launch-wizard-remote-desktop-gateway-features-app-deployment "#launch-wizard-remote-desktop-gateway-features-app-deployment")
-- [Application Resource Groups for
-  discoverability](#launch-wizard-remote-desktop-gateway-resource-groups "#launch-wizard-remote-desktop-gateway-resource-groups")
-- [AWS
-  resource selection](#launch-wizard-remote-desktop-gateway-features-resource-selection "#launch-wizard-remote-desktop-gateway-features-resource-selection")
+- [Simple application deployment](#launch-wizard-remote-desktop-gateway-features-app-deployment "#launch-wizard-remote-desktop-gateway-features-app-deployment")
+- [Application Resource Groups for discoverability](#launch-wizard-remote-desktop-gateway-resource-groups "#launch-wizard-remote-desktop-gateway-resource-groups")
+- [AWS resource selection](#launch-wizard-remote-desktop-gateway-features-resource-selection "#launch-wizard-remote-desktop-gateway-features-resource-selection")
 - [Cost estimation](#launch-wizard-remote-desktop-gateway-features-cost "#launch-wizard-remote-desktop-gateway-features-cost")
 - [SNS notification](#launch-wizard-remote-desktop-gateway-features-sns "#launch-wizard-remote-desktop-gateway-features-sns")
-- [Early input
-  validation](#launch-wizard-remote-desktop-gateway-input-validation "#launch-wizard-remote-desktop-gateway-input-validation")
+- [Early input validation](#launch-wizard-remote-desktop-gateway-input-validation "#launch-wizard-remote-desktop-gateway-input-validation")
 
-### Simple
-
-application deployment
+### Simple application deployment
 
 AWS Launch Wizard makes it more efficient for you to deploy third-party applications on AWS, such
 as Remote Desktop Gateway. When you input the application requirements, AWS Launch Wizard deploys the
@@ -53,9 +45,7 @@ necessary AWS resources for a production-ready application. This means that you 
 manage separate infrastructure pieces or spend as much time provisioning and configuring your
 Remote Desktop Gateway application.
 
-### Application Resource Groups for
-
-discoverability
+### Application Resource Groups for discoverability
 
 Launch Wizard creates a Resource Group for all of the AWS resources created for your Remote
 Desktop Gateway application. You can manage the resources through the Amazon EC2 console or with
@@ -63,9 +53,7 @@ AWS Systems Manager. When you access Systems Manager through Launch Wizard, the 
 based on your Resource Group. You can manage, patch, and maintain your Remote Desktop Gateway
 applications in Systems Manager.
 
-### AWS
-
-resource selection
+### AWS resource selection
 
 Launch Wizard considers performance, memory, bandwidth, and other application features to determine
 the most appropriate instance type for your Remote Desktop Gateway application. You can modify
@@ -85,13 +73,9 @@ You can provide an [Amazon SNS
 topic](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md") so that Launch Wizard will send you notifications and alerts about the status of a
 deployment.
 
-### Early input
+### Early input validation
 
-validation
-
-###### Launch Wizard performs the following resource limit validations at the AWS account
-
-level:
+###### Launch Wizard performs the following resource limit validations at the AWS account level:
 
 - VPC
 - Internet gateway

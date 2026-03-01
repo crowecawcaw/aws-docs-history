@@ -1,6 +1,4 @@
-# Deploy an application with AWS Launch Wizard for SQL
-
-Server on Ubuntu (Console)
+# Deploy an application with AWS Launch Wizard for SQL Server on Ubuntu (Console)
 
 ###### Topics
 
@@ -251,9 +249,7 @@ community.
      at least 8 characters long, and then reenter the password to
      verify it. See [Password Policy](https://docs.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=sql-server-2017") for more information.
 
-###### SQL - Pacemaker cluster connection settings (HA deployments
-
-only)
+###### SQL - Pacemaker cluster connection settings (HA deployments only)
 
 After you configure Pacemaker cluster and SQL Server, you must
 create a user in SQL Server to communicate with

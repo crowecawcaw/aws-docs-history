@@ -1,6 +1,4 @@
-# Monitoring SQL Server Always On
-
-deployments
+# Monitoring SQL Server Always On deployments
 
 You can monitor your SQL Server Always On deployments using Amazon CloudWatch Application Insights.
 When you [select the option to monitor your

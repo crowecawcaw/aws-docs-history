@@ -1,6 +1,4 @@
-# Troubleshoot AWS Launch Wizard for Active
-
-Directory
+# Troubleshoot AWS Launch Wizard for Active Directory
 
 Each deployment in your account in the same AWS Region can be uniquely identified by the
 name specified at the time of a deployment. The deployment name can be used to view the
@@ -12,14 +10,11 @@ Launch Wizard for Active Directory.
 
 ###### Contents
 
-- [Launch Wizard provisioning
-  events](#launch-wizard-ad-provisioning "#launch-wizard-ad-provisioning")
+- [Launch Wizard provisioning events](#launch-wizard-ad-provisioning "#launch-wizard-ad-provisioning")
 - [CloudWatch Logs](#launch-wizard-ad-logs "#launch-wizard-ad-logs")
 - [CloudFormation stack](#launch-wizard-ad-cloudformation "#launch-wizard-ad-cloudformation")
 
-## Launch Wizard provisioning
-
-events
+## Launch Wizard provisioning events
 
 Launch Wizard captures events from CloudFormation to track the status of an ongoing application
 deployment. If an application deployment fails, you can view the deployment events for

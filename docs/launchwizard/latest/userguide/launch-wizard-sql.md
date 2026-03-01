@@ -47,29 +47,19 @@ and BYOL AMIs.
 
 ###### AWS Launch Wizard provides the following features:
 
-- [Simple application
-  deployment](#launch-wizard-features-app-deployment "#launch-wizard-features-app-deployment")
-- [AWS resource
-  selection](#launch-wizard-features-resource-selection "#launch-wizard-features-resource-selection")
+- [Simple application deployment](#launch-wizard-features-app-deployment "#launch-wizard-features-app-deployment")
+- [AWS resource selection](#launch-wizard-features-resource-selection "#launch-wizard-features-resource-selection")
 - [Cost estimation](#launch-wizard-features-cost "#launch-wizard-features-cost")
-- [Reusable code
-  templates](#launch-wizard-features-code-templates "#launch-wizard-features-code-templates")
+- [Reusable code templates](#launch-wizard-features-code-templates "#launch-wizard-features-code-templates")
 - [SNS notification](#launch-wizard-features-sns "#launch-wizard-features-sns")
-- [Always On Availability Groups
-  (SQL Server)](#launch-wizard-features-allways-on "#launch-wizard-features-allways-on")
-- [Dedicated Hosts (deployment
-  on Windows)](#launch-wizard-features-dedicated-hosts "#launch-wizard-features-dedicated-hosts")
+- [Always On Availability Groups (SQL Server)](#launch-wizard-features-allways-on "#launch-wizard-features-allways-on")
+- [Dedicated Hosts (deployment on Windows)](#launch-wizard-features-dedicated-hosts "#launch-wizard-features-dedicated-hosts")
 - [Early input validation](#launch-wizard-features-input-validation "#launch-wizard-features-input-validation")
-- [Application resource groups
-  for easy discoverability](#launch-wizard-features-resource-groups "#launch-wizard-features-resource-groups")
-- [One-click
-  monitoring](#launch-wizard-features-application-insights "#launch-wizard-features-application-insights")
-- [Amazon FSx for Failover Clustering
-  (FCI)](#launch-wizard-features-fci "#launch-wizard-features-fci")
+- [Application resource groups for easy discoverability](#launch-wizard-features-resource-groups "#launch-wizard-features-resource-groups")
+- [One-click monitoring](#launch-wizard-features-application-insights "#launch-wizard-features-application-insights")
+- [Amazon FSx for Failover Clustering (FCI)](#launch-wizard-features-fci "#launch-wizard-features-fci")
 
-### Simple application
-
-deployment
+### Simple application deployment
 
 AWS Launch Wizard makes it easy for you to deploy third-party applications on AWS, such
 as Microsoft SQL Server. When you input the application requirements, AWS Launch Wizard
@@ -77,9 +67,7 @@ deploys the necessary AWS resources for a production-ready application. This mea
 that you do not have to manage separate infrastructure pieces or spend time
 provisioning and configuring your SQL Server application.
 
-### AWS resource
-
-selection
+### AWS resource selection
 
 Launch Wizard considers performance, memory, bandwidth, and other application features to
 determine the best instance type, EBS volumes, and other resources for your SQL
@@ -93,9 +81,7 @@ updates each time you change a resource type configuration in the wizard. The
 provided estimates are for general comparisons only. The estimates are based on
 On-Demand costs and actual costs may be lower.
 
-### Reusable code
-
-templates
+### Reusable code templates
 
 Launch Wizard creates a CloudFormation stack that can be reused to customize and replicate
 your infrastructure in multiple environments. Code in the template helps you
@@ -109,9 +95,7 @@ stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloud
 You can provide an [SNS topic](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md") so that Launch Wizard will send you notifications and alerts about the
 status of a deployment.
 
-### Always On Availability Groups
-
-(SQL Server)
+### Always On Availability Groups (SQL Server)
 
 Always On Availability Groups (AG) is a Microsoft SQL Server feature that is
 supported by the AWS SQL Server installation. AG augments the availability of a
@@ -122,9 +106,7 @@ availability. Always On Availability improves database availability, enabling mo
 efficient resource usage. For more information about the concepts and benefits of
 Always On Availability, see [Always On Availability Groups (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017").
 
-### Dedicated Hosts (deployment
-
-on Windows)
+### Dedicated Hosts (deployment on Windows)
 
 You can deploy SQL Server Always On Availability Groups (AG) or basic availability
 groups on your Dedicated Hosts to leverage your existing SQL Server Licenses (BYOL).
@@ -156,9 +138,7 @@ Launch Wizard performs the following infrastructure validations:
 - Internet gateway
 - Number of CloudFormation stacks
 
-###### Additionally, Launch Wizard performs the following application-specific
-
-validations:
+###### Additionally, Launch Wizard performs the following application-specific validations:
 
 - Active Directory credentials (deployment on Windows)
 - Public subnet outbound connectivity
@@ -183,9 +163,7 @@ Application Wizard to launch a `t2.large` EC2 instance in your
 account for a few minutes. After it runs the necessary validations, Launch Wizard
 terminates the instance.
 
-### Application resource groups
-
-for easy discoverability
+### Application resource groups for easy discoverability
 
 Launch Wizard creates a resource group for all of the AWS resources created for your SQL
 Server application. You can manage the resources through the EC2 console or with
@@ -193,9 +171,7 @@ Systems Manager. When you access Systems Manager through Launch Wizard, the reso
 automatically filtered for you based on your resource group. You can manage, patch,
 and maintain your SQL Server applications in Systems Manager.
 
-### One-click
-
-monitoring
+### One-click monitoring
 
 Launch Wizard integrates with [CloudWatch Application Insights](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md") to provide a one-click monitoring setup
 experience for deploying SQL Server HA workloads on AWS. When you select the
@@ -215,9 +191,7 @@ Counters that you can configure using Application Insights include:
 You can also get automated insights when a failover event or problem, such as a
 restricted access to query a target database, is detected on your workload.
 
-### Amazon FSx for Failover Clustering
-
-(FCI)
+### Amazon FSx for Failover Clustering (FCI)
 
 Launch Wizard uses Amazon FSx to provide Failover Clustering for SQL Server deployments.
 Failover Clustering is a high availability solution for SQL that puts all database
@@ -238,12 +212,9 @@ ONTAP.
 application with AWS Launch Wizard:
 
 - [CloudFormation](#launch-wizard-related-services-cloudformation "#launch-wizard-related-services-cloudformation")
-- [Amazon Simple Notification
-  Service (SNS)](#launch-wizard-related-services-sns "#launch-wizard-related-services-sns")
-- [Amazon CloudWatch
-  Application Insights](#launch-wizard-related-services-application-insights "#launch-wizard-related-services-application-insights")
-- [Linux-only
-  technologies](#launch-wizard-related-services-linux "#launch-wizard-related-services-linux")
+- [Amazon Simple Notification Service (SNS)](#launch-wizard-related-services-sns "#launch-wizard-related-services-sns")
+- [Amazon CloudWatch Application Insights](#launch-wizard-related-services-application-insights "#launch-wizard-related-services-application-insights")
+- [Linux-only technologies](#launch-wizard-related-services-linux "#launch-wizard-related-services-linux")
 
 ### CloudFormation
 
@@ -259,9 +230,7 @@ configure the application) into a unified SSM Automation document. The SSM docum
 is then invoked by Launch Wizard’s backend service to provision a SQL Server application in
 your account. For more information, see the _[AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md")_.
 
-### Amazon Simple Notification
-
-Service (SNS)
+### Amazon Simple Notification Service (SNS)
 
 [Amazon Simple
 Notification Service (SNS)](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md") is a highly available, durable, secure, fully
@@ -272,9 +241,7 @@ notifications to end users using mobile push, SMS, and email. You can use SNS to
 for your Launch Wizard deployments to stay up-to-date on deployment progress. For
 more information, see the [_Amazon Simple Notification Service Developer Guide_](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md").
 
-### Amazon CloudWatch
-
-Application Insights
+### Amazon CloudWatch Application Insights
 
 [Amazon CloudWatch Application Insights](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md") facilitates observability for
 .NET and SQL Server applications. It can help you set up the best monitors for your
@@ -287,9 +254,7 @@ applications that Application Insights provides can help you reduce your mean ti
 to repair (MTTR) so that you don't have to pull in multiple teams and experts to
 troubleshoot your application issues.
 
-### Linux-only
-
-technologies
+### Linux-only technologies
 
 The following key technologies are used when you deploy a SQL Server application
 with Amazon Launch Wizard to the Linux platform.

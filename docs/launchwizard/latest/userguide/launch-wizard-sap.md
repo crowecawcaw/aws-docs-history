@@ -14,15 +14,12 @@ selected resources. It then optionally installs SAP application/database softwar
 customer-provided software.
 
 You can create deployments from the Launch Wizard console or AWS Launch Wizard APIs. For more information,
-see [Get started with AWS Launch Wizard for
-SAP](launch-wizard-sap-getting-started.md "launch-wizard-sap-getting-started.md").
+see [Get started with AWS Launch Wizard for SAP](launch-wizard-sap-getting-started.md "launch-wizard-sap-getting-started.md").
 
 After you deploy an SAP application, you can access it from the Amazon EC2 console. You can
 manage your SAP applications with [AWS Systems Manager](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md").
 
-## Supported deployments and features of
-
-AWS Launch Wizard
+## Supported deployments and features of AWS Launch Wizard
 
 ###### Supported deployments
 
@@ -63,42 +60,28 @@ software are optionally installed and provided by the customer.
 
 ###### AWS Launch Wizard provides the following features:
 
-- [Instance selection and
-  configuration](#launch-wizard-sap-features-app-deployment "#launch-wizard-sap-features-app-deployment")
-- [AWS resource
-  selection](#launch-wizard-sap-features-resource-selection "#launch-wizard-sap-features-resource-selection")
+- [Instance selection and configuration](#launch-wizard-sap-features-app-deployment "#launch-wizard-sap-features-app-deployment")
+- [AWS resource selection](#launch-wizard-sap-features-resource-selection "#launch-wizard-sap-features-resource-selection")
 - [Cost estimation](#launch-wizard-sap-features-cost "#launch-wizard-sap-features-cost")
-- [Reusable infrastructure
-  settings](#launch-wizard-sap-features-code-templates "#launch-wizard-sap-features-code-templates")
+- [Reusable infrastructure settings](#launch-wizard-sap-features-code-templates "#launch-wizard-sap-features-code-templates")
 - [SNS notification](#launch-wizard-sap-features-sns "#launch-wizard-sap-features-sns")
-- [Application resource
-  groups](#launch-wizard-sap-features-resource-groups "#launch-wizard-sap-features-resource-groups")
-- [AWS Data Provider for
-  SAP](#launch-wizard-sap-features-data-provider "#launch-wizard-sap-features-data-provider")
-- [AWS Backint Agent for SAP
-  HANA](#launch-wizard-sap-features-backint "#launch-wizard-sap-features-backint")
-- [Custom deployment configuration
-  scripts](#launch-wizard-sap-features-scripts "#launch-wizard-sap-features-scripts")
-- [Application software
-  installation](#launch-wizard-sap-features-software-install "#launch-wizard-sap-features-software-install")
-- [Creation of
-  AWS Service Catalog products](#launch-wizard-features-service-catalog "#launch-wizard-features-service-catalog")
-- [AWS Systems Manager for
-  SAP](#launch-wizard-features-systems-manager-for-sap "#launch-wizard-features-systems-manager-for-sap")
+- [Application resource groups](#launch-wizard-sap-features-resource-groups "#launch-wizard-sap-features-resource-groups")
+- [AWS Data Provider for SAP](#launch-wizard-sap-features-data-provider "#launch-wizard-sap-features-data-provider")
+- [AWS Backint Agent for SAP HANA](#launch-wizard-sap-features-backint "#launch-wizard-sap-features-backint")
+- [Custom deployment configuration scripts](#launch-wizard-sap-features-scripts "#launch-wizard-sap-features-scripts")
+- [Application software installation](#launch-wizard-sap-features-software-install "#launch-wizard-sap-features-software-install")
+- [Creation of AWS Service Catalog products](#launch-wizard-features-service-catalog "#launch-wizard-features-service-catalog")
+- [AWS Systems Manager for SAP](#launch-wizard-features-systems-manager-for-sap "#launch-wizard-features-systems-manager-for-sap")
 - [AWS Regions](#launch-wizard-sap-regions "#launch-wizard-sap-regions")
 
-### Instance selection and
-
-configuration
+### Instance selection and configuration
 
 When you input the application requirements, Launch Wizard deploys the necessary AWS
 resources for a production-ready application. This means that you do not have to
 figure out how to select the right instances and configure them to run supported SAP
 applications.
 
-### AWS resource
-
-selection
+### AWS resource selection
 
 Launch Wizard considers CPU/Memory or SAPS requirements that you provide to determine the
 most appropriate instance types and other resources for your SAP application. You
@@ -112,9 +95,7 @@ each time you change a resource type configuration in the wizard. The provided
 estimates are only for general comparisons. They are based on On-Demand Instance
 costs. Actual costs may be lower.
 
-### Reusable infrastructure
-
-settings
+### Reusable infrastructure settings
 
 You can save the settings for your AWS infrastructure for the SAP landscape to
 reuse when you want to deploy SAP systems that function similarly within a
@@ -141,17 +122,13 @@ You can provide an [SNS
 topic](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md") so that Launch Wizard will send you notifications and alerts about the
 status of a deployment.
 
-### Application resource
-
-groups
+### Application resource groups
 
 Launch Wizard creates a resource group for all of the AWS resources created for your SAP
 system. You can manage the resources through the Amazon EC2 console or by using Systems
 Manager.
 
-### AWS Data Provider for
-
-SAP
+### AWS Data Provider for SAP
 
 Deploying and running the Amazon Web Services (AWS) Data Provider for SAP is a
 prerequisite for running SAP systems on AWS. Launch Wizard automatically deploys AWS Data
@@ -162,9 +139,7 @@ of business transactions. AWS Data Provider for SAP uses operating system,
 network, and storage data that is most relevant to the operation of the SAP
 infrastructure. Its data sources include Amazon EC2 and Amazon CloudWatch.
 
-### AWS Backint Agent for SAP
-
-HANA
+### AWS Backint Agent for SAP HANA
 
 Launch Wizard deploys and configures AWS Backint Agent for SAP HANA, an SAP-certified
 backup and restore application for SAP HANA workloads running on Amazon EC2 instances in
@@ -182,32 +157,24 @@ HANA with latest releases and updated configurations. For more information, see
 [AWS Backint Agent
 for SAP HANA](../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md "../../../sap/latest/sap-hana/aws-backint-agent-sap-hana.md").
 
-### Custom deployment configuration
-
-scripts
+### Custom deployment configuration scripts
 
 You can provide custom pre-deployment and post-deployment configuration scripts
 that can run on various instance tiers, such as SAP HANA Database, Primary
 Application Server, and Enqueue Replication Server during the pre-deployment and
 post-deployment configuration phases. Launch Wizard uses a standalone component manager
-application (AWSTOE) to run the scripts. For more information, see [Custom deployment configuration
-scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
+application (AWSTOE) to run the scripts. For more information, see [Custom deployment configuration scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
 
-### Application software
-
-installation
+### Application software installation
 
 Launch Wizard can install SAP application software that you have made available on Amazon S3,
 including SAP NetWeaver ABAP on SAP HANA and SAP ASE databases, SAP NetWeaver JAVA
 on SAP HANA and SAP ASE databases, SAP Solution Manager on SAP HANA and SAP ASE
 databases, SAP S/4HANA, and SAP BW/4HANA. For more details about which operating
 systems and database versions are supported for each deployment pattern, see [SAP applications](launch-wizard-sap-versions.md#launch-wizard-sap-versions-application "launch-wizard-sap-versions.md#launch-wizard-sap-versions-application"). For supported software
-versions and installation details, see [Make SAP application software
-available for AWS Launch Wizard to deploy SAP](launch-wizard-sap-software-install-details.md "launch-wizard-sap-software-install-details.md").
+versions and installation details, see [Make SAP application software available for AWS Launch Wizard to deploy SAP](launch-wizard-sap-software-install-details.md "launch-wizard-sap-software-install-details.md").
 
-### Creation of
-
-AWS Service Catalog products
+### Creation of AWS Service Catalog products
 
 AWS Launch Wizard can create AWS Service Catalog products from successful
 deployments. The AWS Service Catalog products contain CloudFormation templates and
@@ -226,9 +193,7 @@ use the code in its current form for consistent repeated deployments, or you can
 the code as a baseline and update it to meet specific application
 requirements.
 
-### AWS Systems Manager for
-
-SAP
+### AWS Systems Manager for SAP
 
 You can register SAP HANA databases and SAP applications based on SAP HANA
 database with AWS Systems Manager for SAP. It enables you to configure managed backups with
@@ -285,8 +250,7 @@ Launch Wizard creates optional security groups to ensure that all of the systems
 the same configuration template can communicate with each other and with systems and
 end users who access the SAP systems from an IP CIDR range, an external IP address,
 or security groups. For more information about how Launch Wizard creates security groups and
-how they are configured, see [Security groups in AWS Launch Wizard for
-SAP](launch-wizard-sap-security-groups.md "launch-wizard-sap-security-groups.md").
+how they are configured, see [Security groups in AWS Launch Wizard for SAP](launch-wizard-sap-security-groups.md "launch-wizard-sap-security-groups.md").
 
 ###### SAP transport group configuration
 
@@ -302,15 +266,12 @@ AWS Launch Wizard.
 ###### Services
 
 - [CloudFormation](#launch-wizard-sap-related-services-cloudformation "#launch-wizard-sap-related-services-cloudformation")
-- [Amazon Virtual Private Cloud security
-  groups](#launch-wizard-sap-related-services-vpc "#launch-wizard-sap-related-services-vpc")
+- [Amazon Virtual Private Cloud security groups](#launch-wizard-sap-related-services-vpc "#launch-wizard-sap-related-services-vpc")
 - [Amazon Elastic File System](#launch-wizard-sap-related-services-efs "#launch-wizard-sap-related-services-efs")
 - [AWS Systems Manager](#launch-wizard-sap-related-services-SSM "#launch-wizard-sap-related-services-SSM")
-- [Amazon Simple Notification
-  Service (SNS)](#launch-wizard-related-services-sns "#launch-wizard-related-services-sns")
+- [Amazon Simple Notification Service (SNS)](#launch-wizard-related-services-sns "#launch-wizard-related-services-sns")
 - [Amazon Route 53](#launch-wizard-related-services-route53 "#launch-wizard-related-services-route53")
-- [AWS Backint Agent for SAP
-  HANA](#launch-wizard-related-services-backint "#launch-wizard-related-services-backint")
+- [AWS Backint Agent for SAP HANA](#launch-wizard-related-services-backint "#launch-wizard-related-services-backint")
 - [AWS Task Orchestrator and Executor](#launch-wizard-related-services-ec2toe "#launch-wizard-related-services-ec2toe")
 - [Amazon FSx for NetApp ONTAP](#launch-wizard-sap-related-services-fsx "#launch-wizard-sap-related-services-fsx")
 - [Elastic Load Balancing](#launch-wizard-sap-related-services-alb "#launch-wizard-sap-related-services-alb")
@@ -329,9 +290,7 @@ on EC2 instances to configure the application) into a unified CloudFormation tem
 CloudFormation template is then invoked by AWS Launch Wizard’s backend service to provision an
 application in your account.
 
-### Amazon Virtual Private Cloud security
-
-groups
+### Amazon Virtual Private Cloud security groups
 
 [Amazon Virtual Private Cloud security groups](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md") act as a virtual firewall for your instance
 to control inbound and outbound traffic. When you launch an instance in a VPC, you
@@ -355,9 +314,7 @@ resources. Systems Manager helps you maintain security and compliance by scannin
 instances and reporting on, or taking corrective action on, any policy violations
 that it detects.
 
-### Amazon Simple Notification
-
-Service (SNS)
+### Amazon Simple Notification Service (SNS)
 
 [Amazon Simple Notification
 Service (SNS)](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md") is a highly available, durable, secure, fully managed
@@ -380,9 +337,7 @@ zones: public and private hosted zones. We recommend that you use private hosted
 zones for SAP applications unless an application must be directly accessible from
 the internet.
 
-### AWS Backint Agent for SAP
-
-HANA
+### AWS Backint Agent for SAP HANA
 
 [AWS Backint Agent for
 SAP HANA](../../../sap/latest/sap-hana/aws-backint-agent-what-is.md "../../../sap/latest/sap-hana/aws-backint-agent-what-is.md") is an SAP-certified backup and restore application for SAP HANA

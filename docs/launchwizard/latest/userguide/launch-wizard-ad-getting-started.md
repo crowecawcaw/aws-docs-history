@@ -1,6 +1,4 @@
-# Get started with AWS Launch Wizard for Active
-
-Directory
+# Get started with AWS Launch Wizard for Active Directory
 
 This section contains information to set up your environment for Launch Wizard to deploy domain
 controllers.
@@ -120,9 +118,7 @@ domain controllers into a new or existing VPC. You can deploy a new Active Direc
 infrastructure on Amazon EC2, deploy a new AWS Managed Microsoft AD, or extend an existing on-premises
 Active Directory into the AWS Cloud.
 
-### Active Directory
-
-configurations
+### Active Directory configurations
 
 When you use Launch Wizard to deploy Active Directory, the following key operations are
 performed. These operations result in the creation of new records or entries in
@@ -138,9 +134,7 @@ Active Directory.
 - All deployment types create ingress and egress rules to communicate with
   your domain controllers.
 
-### On-premises Active Directory through
-
-Direct Connect
+### On-premises Active Directory through Direct Connect
 
 If you are deploying domain controllers to extend an on-premises Active Directory
 into an existing VPC, ensure that the following prerequisites are in place.

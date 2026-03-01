@@ -1,6 +1,4 @@
-# Manage application resources with AWS Launch Wizard for
-
-Active Directory
+# Manage application resources with AWS Launch Wizard for Active Directory
 
 After you deploy your self-managed domain controllers, you can manage them by following
 these steps.
@@ -37,8 +35,7 @@ over your Active Directory domain user password over time, which is required to
 clean up Active Directory objects or DNS records. We recommend that you remove
 these entries from your Active Directory after Launch Wizard deletes the
 deployment. For key operations performed against your Active Directory resulting
-in new records or entries, see [Active Directory
-configurations](launch-wizard-ad-getting-started.md#launch-wizard-ad-setup-managed "launch-wizard-ad-getting-started.md#launch-wizard-ad-setup-managed"). 4. To further investigate details regarding your domain controller resources, select
+in new records or entries, see [Active Directory configurations](launch-wizard-ad-getting-started.md#launch-wizard-ad-setup-managed "launch-wizard-ad-getting-started.md#launch-wizard-ad-setup-managed"). 4. To further investigate details regarding your domain controller resources, select
 the **Application name**. You can then view the
 **Deployment events** and **Summary** details
 for your application by using the tabs at the top of the page.

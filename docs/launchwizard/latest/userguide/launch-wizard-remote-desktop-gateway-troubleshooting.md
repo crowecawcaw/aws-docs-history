@@ -1,6 +1,4 @@
-# Troubleshoot AWS Launch Wizard for
-
-Remote Desktop Gateway
+# Troubleshoot AWS Launch Wizard for Remote Desktop Gateway
 
 Each application in your account in the same AWS Region can be uniquely identified by the
 application name specified at the time of a deployment. The application name can be used to view
@@ -8,17 +6,13 @@ the details related to the application launch.
 
 ###### Contents
 
-- [Launch Wizard provisioning
-  events](#launch-wizard-remote-desktop-gateway-provisioning "#launch-wizard-remote-desktop-gateway-provisioning")
+- [Launch Wizard provisioning events](#launch-wizard-remote-desktop-gateway-provisioning "#launch-wizard-remote-desktop-gateway-provisioning")
 - [CloudFormation stack](#launch-wizard-remote-desktop-gateway-cloudformation "#launch-wizard-remote-desktop-gateway-cloudformation")
 - [Application launch quotas](#launch-wizard-remote-desktop-gateway-quotas "#launch-wizard-remote-desktop-gateway-quotas")
-- [Enable termination
-  protection](#launch-wizard-remote-desktop-gateway-terminate-protection "#launch-wizard-remote-desktop-gateway-terminate-protection")
+- [Enable termination protection](#launch-wizard-remote-desktop-gateway-terminate-protection "#launch-wizard-remote-desktop-gateway-terminate-protection")
 - [Errors](#launch-wizard-remote-desktop-gateway-errors "#launch-wizard-remote-desktop-gateway-errors")
 
-## Launch Wizard provisioning
-
-events
+## Launch Wizard provisioning events
 
 Launch Wizard captures events from CloudFormation to track the status of an ongoing application deployment. If
 an application deployment fails, you can access the CloudFormation console to view the deployment events
@@ -45,9 +39,7 @@ time. The combined maximum amount of `in progress` and `completed` active
 applications is 25 for any given application type. If you want to increase this limit, contact
 [Support](https://aws.amazon.com/contact-us "https://aws.amazon.com/contact-us").
 
-## Enable termination
-
-protection
+## Enable termination protection
 
 If you encounter errors when you deploy Remote Desktop Gateway with Launch Wizard, and the log
 information provided by Launch Wizard or CloudFormation is not sufficient to determine your issue, you must [connect to the instance](../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md") within the Amazon EC2 Auto Scaling group to determine the cause of the

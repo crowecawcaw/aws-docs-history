@@ -1,23 +1,18 @@
-# Deploying an SAP application
-
-(Console)
+# Deploying an SAP application (Console)
 
 You can deploy an SAP application using the AWS Launch Wizard console.
 
 ###### Topics
 
 - [Access AWS Launch Wizard](#accessing-launch-wizard-sap "#accessing-launch-wizard-sap")
-- [Deploy an SAP application
-  with AWS Launch Wizard](#deploy-console-launch-wizard-sap "#deploy-console-launch-wizard-sap")
+- [Deploy an SAP application with AWS Launch Wizard](#deploy-console-launch-wizard-sap "#deploy-console-launch-wizard-sap")
 - [Clone deployment](#clone-deployment-sap "#clone-deployment-sap")
 
 ## Access AWS Launch Wizard
 
 You can launch AWS Launch Wizard from the AWS Launch Wizard console located at [https://console.aws.amazon.com/launchwizard](https://console.aws.amazon.com/launchwizard "https://console.aws.amazon.com/launchwizard").
 
-## Deploy an SAP application
-
-with AWS Launch Wizard
+## Deploy an SAP application with AWS Launch Wizard
 
 The following steps guide you through deploying an SAP application with
 AWS Launch Wizard after you have launched it from the console.
@@ -30,13 +25,10 @@ AWS Launch Wizard after you have launched it from the console.
 3. Under **Permissions**, Launch Wizard displays the
    AWS Identity and Access Management (IAM) roles required for Launch Wizard to access other AWS
    services on your behalf. For more information about these roles and
-   setting up IAM for Launch Wizard, see [Identity and Access Management for
-   AWS Launch Wizard](launch-wizard-security.md#identity-access-management "launch-wizard-security.md#identity-access-management"). Choose
+   setting up IAM for Launch Wizard, see [Identity and Access Management for AWS Launch Wizard](launch-wizard-security.md#identity-access-management "launch-wizard-security.md#identity-access-management"). Choose
    **Next**.
 
-### Define
-
-infrastructure
+### Define infrastructure
 
 On the **Define infrastructure** page, define your
 deployment name and infrastructure settings.
@@ -316,8 +308,7 @@ following information.
     ```
 
 
-    ###### Default `NO_PROXY` URL
-     details
+    ###### Default `NO_PROXY` URL details
 
 
 
@@ -393,23 +384,18 @@ following information.
     * After you specify the infrastructure settings,
      choose **Next**.
 
-### Application and
-
-deployment settings
+### Application and deployment settings
 
 The following steps show the deployment paths for **NetWeaver stack on SAP HANA database** and **SAP HANA database**. Please follow the deployment
 steps for your deployment path.
 
 ###### Topics
 
-- [NetWeaver stack on SAP HANA
-  database](#netweaver-on-hana "#netweaver-on-hana")
+- [NetWeaver stack on SAP HANA database](#netweaver-on-hana "#netweaver-on-hana")
 - [SAP HANA database](#launch-wizard-hana "#launch-wizard-hana")
 - [NetWeaver stack on SAP ASE database](#netweaver-on-ase "#netweaver-on-ase")
 
-#### NetWeaver stack on SAP HANA
-
-database
+#### NetWeaver stack on SAP HANA database
 
 Application settings
 On the **Configure application settings**
@@ -598,18 +584,14 @@ deployment.
      systems. The displayed default values are based on
      your selection of the instance type.
 
-3. ###### Pre- and post-deployment configuration scripts
-   — optional
+3. ###### Pre- and post-deployment configuration scripts — optional
 
 You can run pre- and post-deployment configuration
 scripts during application provisioning. For more
 information about how Launch Wizard accesses and deploys
-these scripts, see [Custom deployment configuration
-scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
+these scripts, see [Custom deployment configuration scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
 
-###### Pre-deployment configuration script —
-
-optional
+###### Pre-deployment configuration script — optional
 
     * **Deployment settings**. In
      the event of a configuration script failure or
@@ -627,9 +609,7 @@ optional
      configuration script, choose **Remove
      script**.
 
-###### Post-deployment configuration script —
-
-optional
+###### Post-deployment configuration script — optional
 
     * **Deployment settings**. In
      the event of a configuration script failure or
@@ -964,18 +944,14 @@ a distributed instance deployment.
        does not include any applicable taxes or
        discounts.
 
-6. ###### Pre- and post-deployment configuration scripts
-   — optional
+6. ###### Pre- and post-deployment configuration scripts — optional
 
 You can run pre- and post-deployment configuration
 scripts during application provisioning. For more
 information about how Launch Wizard accesses and deploys
-these scripts, see [Custom deployment configuration
-scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
+these scripts, see [Custom deployment configuration scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
 
-###### Pre-deployment configuration script —
-
-optional
+###### Pre-deployment configuration script — optional
 
     * **Deployment settings**. In
      the event of a configuration script failure or
@@ -1011,9 +987,7 @@ optional
     	 configuration scripts, choose **Add
     	 another script**.
 
-###### Post-deployment configuration script —
-
-optional
+###### Post-deployment configuration script — optional
 
     * **Deployment settings**. In
      the event of a configuration script failure,
@@ -1502,18 +1476,14 @@ the high availability deployment.
         does not include any applicable taxes or
         discounts.
 
-8.  ###### Pre- and post-deployment configuration scripts
-    — optional
+8.  ###### Pre- and post-deployment configuration scripts — optional
 
 You can run pre- and post-deployment configuration
 scripts during application provisioning. For more
 information about how Launch Wizard accesses and deploys
-these scripts, see [Custom deployment configuration
-scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
+these scripts, see [Custom deployment configuration scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
 
-###### Pre-deployment configuration script —
-
-optional
+###### Pre-deployment configuration script — optional
 
     * **Deployment settings**.
      Choose whether to proceed with the deployment if a
@@ -1552,9 +1522,7 @@ optional
     	 configuration scripts, choose **Add
     	 another script**.
 
-###### Post-deployment configuration script —
-
-optional
+###### Post-deployment configuration script — optional
 
     * **Deployment settings**.
      Choose whether to proceed with the deployment if a
@@ -1636,12 +1604,10 @@ instance, or high availability deployment.
    SAP Web Dispatcher instances.
    - **Load balancer type**.
      Choose the type of load balancer to deploy. For
-     more information, see [Load
-     balancers for SAP Web Dispatcher](launch-wizard-sap-deploy-web-dispatcher.md#launch-wizard-sap-deploy-web-dispatcher-load-balancers "launch-wizard-sap-deploy-web-dispatcher.md#launch-wizard-sap-deploy-web-dispatcher-load-balancers").
+     more information, see [Load balancers for SAP Web Dispatcher](launch-wizard-sap-deploy-web-dispatcher.md#launch-wizard-sap-deploy-web-dispatcher-load-balancers "launch-wizard-sap-deploy-web-dispatcher.md#launch-wizard-sap-deploy-web-dispatcher-load-balancers").
    - **Scheme**. Choose whether
      the load balancer should be internet-facing or
-     intranet-facing. For more information, see [Architectures
-     for SAP Web Dispatcher](launch-wizard-sap-deploy-web-dispatcher.md#launch-wizard-sap-deploy-web-dispatcher-architectures "launch-wizard-sap-deploy-web-dispatcher.md#launch-wizard-sap-deploy-web-dispatcher-architectures").
+     intranet-facing. For more information, see [Architectures for SAP Web Dispatcher](launch-wizard-sap-deploy-web-dispatcher.md#launch-wizard-sap-deploy-web-dispatcher-architectures "launch-wizard-sap-deploy-web-dispatcher.md#launch-wizard-sap-deploy-web-dispatcher-architectures").
    - **Load balancer secure
      communication**. You can enable this
      option to configure an HTTPS/TLS listener for your
@@ -1669,8 +1635,7 @@ instance, or high availability deployment.
    application software, Launch Wizard requires access to the
    relevant software and files. For instructions to
    provide Launch Wizard access to the application software and
-   associated files, see [Make SAP application software
-   available for AWS Launch Wizard to deploy SAP](launch-wizard-sap-software-install-details.md "launch-wizard-sap-software-install-details.md").
+   associated files, see [Make SAP application software available for AWS Launch Wizard to deploy SAP](launch-wizard-sap-software-install-details.md "launch-wizard-sap-software-install-details.md").
    - **SAPCAR location**. Enter
      the Amazon S3 path where the SAPCAR is located.
    - **Software Provisioning Manager
@@ -1764,9 +1729,7 @@ application selected.
       the AWS Backint Agent version you want to
       install.
 
-8. ###### \*\*Additional
-
-   preferences\*\*.
+8. ###### **Additional preferences**.
    1. When you use AWS Backint Agent, the HANA
       backup files are stored in Amazon S3, which eliminates
       the requirement for local EBS backup volumes. If
@@ -1879,8 +1842,7 @@ settings.
        that the Launch Wizard IAM role policy for EC2 has
        read-only access to the bucket. For steps to set
        up the folder structure for your S3 bucket, see
-       [Make SAP HANA software available for AWS Launch Wizard
-       to deploy a HANA database](launch-wizard-sap-structure.md "launch-wizard-sap-structure.md").
+       [Make SAP HANA software available for AWS Launch Wizard to deploy a HANA database](launch-wizard-sap-structure.md "launch-wizard-sap-structure.md").
        Enter a password to use for your SAP HANA
        installation.
        - **AWS Backint Agent.**
@@ -2013,18 +1975,14 @@ deployment.
      systems. The displayed default values are based on
      your selection of the instance type.
 
-3. ###### Pre- and post-deployment configuration scripts
-   — optional
+3. ###### Pre- and post-deployment configuration scripts — optional
 
 You can run pre- and post-deployment configuration
 scripts during application provisioning. For more
 information about how Launch Wizard accesses and deploys
-these scripts, see [Custom deployment configuration
-scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
+these scripts, see [Custom deployment configuration scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
 
-###### Pre-deployment configuration script —
-
-optional
+###### Pre-deployment configuration script — optional
 
     * **Deployment settings**. In
      the event of a configuration script failure or
@@ -2042,9 +2000,7 @@ optional
      configuration script, choose **Remove
      script**.
 
-###### Post-deployment configuration script —
-
-optional
+###### Post-deployment configuration script — optional
 
     * **Deployment settings**. In
      the event of a configuration script failure or
@@ -2146,18 +2102,14 @@ deployment.
      systems. The displayed default values are based on
      your selection of the instance type.
 
-3. ###### Pre- and post-deployment configuration scripts
-   — optional
+3. ###### Pre- and post-deployment configuration scripts — optional
 
 You can run pre- and post-deployment configuration
 scripts during application provisioning. For more
 information about how Launch Wizard accesses and deploys
-these scripts, see [Custom deployment configuration
-scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
+these scripts, see [Custom deployment configuration scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
 
-###### Pre-deployment configuration script —
-
-optional
+###### Pre-deployment configuration script — optional
 
     * **Deployment settings**. In
      the event of a configuration script failure or
@@ -2175,9 +2127,7 @@ optional
      configuration script, choose **Remove
      script**.
 
-###### Post-deployment configuration script —
-
-optional
+###### Post-deployment configuration script — optional
 
     * **Deployment settings**. In
      the event of a configuration script failure or
@@ -2285,18 +2235,14 @@ deployment.
      systems. The displayed default values are based on
      your selection of the instance type.
 
-3. ###### Pre- and post-deployment configuration scripts
-   — optional
+3. ###### Pre- and post-deployment configuration scripts — optional
 
 You can run pre- and post-deployment configuration
 scripts during application provisioning. For more
 information about how Launch Wizard accesses and deploys
-these scripts, see [Custom deployment configuration
-scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
+these scripts, see [Custom deployment configuration scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
 
-###### Pre-deployment configuration script —
-
-optional
+###### Pre-deployment configuration script — optional
 
     * **Deployment settings**. In
      the event of a configuration script failure or
@@ -2314,9 +2260,7 @@ optional
      configuration script, choose **Remove
      script**.
 
-###### Post-deployment configuration script —
-
-optional
+###### Post-deployment configuration script — optional
 
     * **Deployment settings**. In
      the event of a configuration script failure or
@@ -2496,13 +2440,11 @@ deployment details for a single instance deployment.
       resources and does not include any image costs, EC2
       reservations, applicable taxes, or discounts.
 
-2.  ###### Pre- and post-deployment configuration scripts —
-    optional
+2.  ###### Pre- and post-deployment configuration scripts — optional
 
 You can run pre- and post-deployment configuration scripts during
 application provisioning. For more information about how Launch Wizard accesses
-and deploys these scripts, see [Custom deployment configuration
-scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
+and deploys these scripts, see [Custom deployment configuration scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
 
 ###### Pre-deployment configuration script — optional
 
@@ -2557,8 +2499,7 @@ software and version selections. For supported application versions, see
 [SAP applications](launch-wizard-sap-versions.md#launch-wizard-sap-versions-application "launch-wizard-sap-versions.md#launch-wizard-sap-versions-application"). 3. **SAP application software location**. In order to
 install the SAP application software, Launch Wizard requires access to the
 relevant software and files. For instructions to provide Launch Wizard access to
-the application software and associated files, see [Make SAP application software
-available for AWS Launch Wizard to deploy SAP](launch-wizard-sap-software-install-details.md "launch-wizard-sap-software-install-details.md").
+the application software and associated files, see [Make SAP application software available for AWS Launch Wizard to deploy SAP](launch-wizard-sap-software-install-details.md "launch-wizard-sap-software-install-details.md").
 
     * **SAPCAR location**. Enter the Amazon S3 path
      where the SAPCAR is located.
@@ -2780,13 +2721,11 @@ deployment details for an SAP ASE deployment.
       resources and does not include any image costs, EC2
       reservations, applicable taxes, or discounts.
 
-3.  ###### Pre- and post-deployment configuration scripts —
-    optional
+3.  ###### Pre- and post-deployment configuration scripts — optional
 
 You can run pre- and post-deployment configuration scripts during
 application provisioning. For more information about how Launch Wizard accesses
-and deploys these scripts, see [Custom deployment configuration
-scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
+and deploys these scripts, see [Custom deployment configuration scripts](how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts "how-launch-wizard-sap-works.md#launch-wizard-sap-how-it-works-scripts").
 
 ###### Pre-deployment configuration script — optional
 

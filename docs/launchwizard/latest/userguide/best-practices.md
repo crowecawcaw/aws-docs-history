@@ -11,8 +11,7 @@ AWS.
 - [Security groups](#security-groups "#security-groups")
 - [Initial Remote Administration Architecture](#remote-admin-arch "#remote-admin-arch")
 - [SSL Certificates](#ssl-certs "#ssl-certs")
-- [Connection and Resource Authorization
-  Policies](#connect-resource-auth-policy "#connect-resource-auth-policy")
+- [Connection and Resource Authorization Policies](#connect-resource-auth-policy "#connect-resource-auth-policy")
 
 ## The Principle of Least Privilege
 
@@ -40,9 +39,7 @@ own premises. You control your virtual networking environment. This includes the
 your own IP address range, creation of subnets, and configuration of route tables and network
 gateways.
 
-###### When deploying Windows architecture on the AWS Cloud, we recommend a VPC configuration
-
-that supports the following requirements:
+###### When deploying Windows architecture on the AWS Cloud, we recommend a VPC configuration that supports the following requirements:
 
 - Place critical workloads in a minimum of two Availability Zones to provide high
   availability.
@@ -136,11 +133,7 @@ the desktop of the RD Gateway. The following diagram illustrates this configurat
 
 ## SSL Certificates
 
-###### The RD Gateway role uses Transport Layer Security (TLS) to encrypt communications over the
-
-internet between administrators and gateway servers. To support TLS, a valid X.509 SSL
-certificate must be installed on each RD Gateway. Certificates can be acquired in a number of
-ways, including:
+###### The RD Gateway role uses Transport Layer Security (TLS) to encrypt communications over the internet between administrators and gateway servers. To support TLS, a valid X.509 SSL certificate must be installed on each RD Gateway. Certificates can be acquired in a number of ways, including:
 
 - Your own PKI infrastructure, such as a Microsoft Enterprise Certificate Authority
   (CA)
@@ -154,9 +147,7 @@ self-signed certificate for RD Gateway.
 However, if you have a large number of varying administrative devices that need to establish
 a connection to your gateways, we recommend using a public certificate.
 
-###### For an RDP client to establish a secure connection with an RD Gateway, the following
-
-certificate and DNS requirements must be met:
+###### For an RDP client to establish a secure connection with an RD Gateway, the following certificate and DNS requirements must be met:
 
 - The issuing CA of the certificate installed on the gateway must be trusted by the RDP
   client. For example, the root CA certificate must be installed in the client machine’s Trusted
@@ -172,9 +163,7 @@ the majority of client devices that need to connect to your gateways. However, y
 use your own PKI infrastructure to ensure that only the machines that are part of your
 organization will trust the issuing CA.
 
-## Connection and Resource Authorization
-
-Policies
+## Connection and Resource Authorization Policies
 
 ###### Users must meet specific requirements to connect to RD Gateway instances:
 

@@ -1,6 +1,4 @@
-# Set up to launch
-
-AWS Service Catalog products created with AWS Launch Wizard
+# Set up to launch AWS Service Catalog products created with AWS Launch Wizard
 
 This section provides the required steps to grant permissions to the user group. This
 requirement must be met to access AWS Service Catalog products created with

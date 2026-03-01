@@ -1,6 +1,4 @@
-# Deploy SQL Server to
-
-a new or existing VPC (AWS CLI)
+# Deploy SQL Server to a new or existing VPC (AWS CLI)
 
 You can use the AWS Launch Wizard [CreateDeployment](../APIReference/API_CreateDeployment.md "../APIReference/API_CreateDeployment.md") API operation to deploy SQL Server. To create
 a deployment, you must provide values for various
@@ -11,9 +9,7 @@ specifications.
 If you want to use the **Clone deployment** action on your
 deployment, you must create your deployment using the Launch Wizard console.
 
-## Prerequisites for deploying
-
-SQL Server with the AWS CLI
+## Prerequisites for deploying SQL Server with the AWS CLI
 
 Before deploying SQL Server with the AWS CLI, ensure you have met the following prerequisites:
 
@@ -22,9 +18,7 @@ Before deploying SQL Server with the AWS CLI, ensure you have met the following 
 - Complete the steps in the previous section titled **Set up**. Some
   deployment patterns have requirements that must be met for a deployment to be successful.
 
-## Create a SQL Server
-
-deployment with the AWS CLI
+## Create a SQL Server deployment with the AWS CLI
 
 You can create a deployment for your SQL Server application using the
 `CreateDeployment` Launch Wizard API operation.

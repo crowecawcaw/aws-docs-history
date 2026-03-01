@@ -1,6 +1,4 @@
-# Deploy SAP applications with AWS Launch Wizard for
-
-SAP using a proxy server
+# Deploy SAP applications with AWS Launch Wizard for SAP using a proxy server
 
 AWS Launch Wizard for SAP launches and configures Amazon EC2 instances to deploy an SAP system on AWS.
 The launched instances must have outbound connectivity to internet to download operating

@@ -1,6 +1,4 @@
-# Get Started with AWS Launch Wizard
-
-for Remote Desktop Gateway
+# Get Started with AWS Launch Wizard for Remote Desktop Gateway
 
 This section contains information to help you set up your environment to deploy RD Gateway
 with Launch Wizard. When your environment is set up, you can deploy RD Gateway application with Launch Wizard by
@@ -9,21 +7,17 @@ following the steps and parameter specification details provided in this section
 ###### Topics to help you get started:
 
 - [Access AWS Launch Wizard](#launch-wizard-remote-desktop-gateway-access "#launch-wizard-remote-desktop-gateway-access")
-- [Specialized
-  knowledge](#launch-wizard-remote-desktop-gateway-specialized-knowledge "#launch-wizard-remote-desktop-gateway-specialized-knowledge")
+- [Specialized knowledge](#launch-wizard-remote-desktop-gateway-specialized-knowledge "#launch-wizard-remote-desktop-gateway-specialized-knowledge")
 - [Amazon Web Services account](#launch-wizard-remote-desktop-gateway-aws-account "#launch-wizard-remote-desktop-gateway-aws-account")
 - [Service Quotas](#launch-wizard-remote-desktop-gateway-resource-quotas "#launch-wizard-remote-desktop-gateway-resource-quotas")
 - [Amazon Elastic Compute Cloud key pairs](#launch-wizard-remote-desktop-gateway-key-pairs "#launch-wizard-remote-desktop-gateway-key-pairs")
-- [AWS Identity and Access Management
-  permissions](#launch-wizard-remote-desktop-gateway-iam-permissions "#launch-wizard-remote-desktop-gateway-iam-permissions")
+- [AWS Identity and Access Management permissions](#launch-wizard-remote-desktop-gateway-iam-permissions "#launch-wizard-remote-desktop-gateway-iam-permissions")
 
 ## Access AWS Launch Wizard
 
 You can launch AWS Launch Wizard from the AWS Launch Wizard console located at [https://console.aws.amazon.com/launchwizard](https://console.aws.amazon.com/launchwizard "https://console.aws.amazon.com/launchwizard").
 
-## Specialized
-
-knowledge
+## Specialized knowledge
 
 This deployment requires a moderate level of familiarity with AWS services. If you’re new
 to AWS, see [Getting Started Resource
@@ -134,9 +128,7 @@ deployment. To create a key pair, see [Amazon EC2 key pairs and EC2 instances](.
 For testing or proof-of-concept purposes, we recommend creating a new key pair instead of
 using one that’s already being used by a production instance.
 
-## AWS Identity and Access Management
-
-permissions
+## AWS Identity and Access Management permissions
 
 Before deploying the Launch Wizard application, you must sign in to the AWS Management Console with IAM
 permissions for the resources that the templates deploy. The _AdministratorAccess_ managed policy within IAM provides sufficient permissions,

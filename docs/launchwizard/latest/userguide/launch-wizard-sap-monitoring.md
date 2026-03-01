@@ -5,14 +5,10 @@ AWS CLI.
 
 ###### Topics
 
-- [Monitoring SAP deployments
-  (Console)](#launch-wizard-sap-monitoring-console "#launch-wizard-sap-monitoring-console")
-- [Monitor SAP deployments
-  (AWS CLI)](#launch-wizard-sap-monitoring-cli "#launch-wizard-sap-monitoring-cli")
+- [Monitoring SAP deployments (Console)](#launch-wizard-sap-monitoring-console "#launch-wizard-sap-monitoring-console")
+- [Monitor SAP deployments (AWS CLI)](#launch-wizard-sap-monitoring-cli "#launch-wizard-sap-monitoring-cli")
 
-## Monitoring SAP deployments
-
-(Console)
+## Monitoring SAP deployments (Console)
 
 Once you have deployed an application, you can monitor it using the Launch Wizard
 console.
@@ -28,9 +24,7 @@ console.
    pane and the **Deployment events** for your
    application.
 
-## Monitor SAP deployments
-
-(AWS CLI)
+## Monitor SAP deployments (AWS CLI)
 
 You can monitor your Launch Wizard for SAP deployments using the AWS CLI.
 
@@ -47,9 +41,7 @@ your Launch Wizard deployment.
   the name using the Launch Wizard console, or the `GetDeployment`
   operation.
 
-### Monitoring SAP
-
-deployments (AWS CLI)
+### Monitoring SAP deployments (AWS CLI)
 
 You can use the `DescribeLogStreams` operation to find the
 available log streams for the deployment. Once you have the log stream names,

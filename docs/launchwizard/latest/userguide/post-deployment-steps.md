@@ -42,9 +42,7 @@ deployment, you must install the root certificate on your administrative clients
 configure the RDP client to connect to your RD gateway instances. The root certificate will
 automatically be stored as `c:\servername.cer`.
 
-###### To distribute this file to administrator workstations and install it, follow these
-
-steps:
+###### To distribute this file to administrator workstations and install it, follow these steps:
 
 1. Open a Command Prompt window using administrative credentials.
 2. Type `mmc` and press **Enter**.
@@ -105,9 +103,7 @@ credentials.)
 
 ## Run Windows Updates
 
-###### In order to ensure the deployed servers' operating systems and installed applications
-
-have the latest Microsoft updates, run Windows Update on each server.
+###### In order to ensure the deployed servers' operating systems and installed applications have the latest Microsoft updates, run Windows Update on each server.
 
 1. Create an RDP session to the Remote Desktop Gateway server(s).
 2. Open the **Settings** application.

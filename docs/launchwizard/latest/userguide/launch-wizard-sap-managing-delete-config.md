@@ -1,6 +1,4 @@
-# Delete infrastructure
-
-configuration
+# Delete infrastructure configuration
 
 1. From the left navigation pane, choose **SAP**.
 2. Under **Saved infrastructure configurations** tab, select the

@@ -1,6 +1,4 @@
-# Deploying an SAP application
-
-(AWS CLI)
+# Deploying an SAP application (AWS CLI)
 
 You can deploy, describe, and delete SAP applications you create using Launch Wizard with
 the AWS CLI. For more information on the AWS Launch Wizard APIs, see the [AWS Launch Wizard API reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
@@ -8,8 +6,7 @@ the AWS CLI. For more information on the AWS Launch Wizard APIs, see the [AWS La
 ###### Topics
 
 - [Prerequisites](#launch-wizard-sap-deploying-cli-prerequisites "#launch-wizard-sap-deploying-cli-prerequisites")
-- [AWS CLI
-  examples](#launch-wizard-sap-deploying-cli-examples "#launch-wizard-sap-deploying-cli-examples")
+- [AWS CLI examples](#launch-wizard-sap-deploying-cli-examples "#launch-wizard-sap-deploying-cli-examples")
 
 ## Prerequisites
 
@@ -20,9 +17,7 @@ Launch Wizard deployments.
   update the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 - Complete the getting started requirements in [Set up for AWS Launch Wizard for SAP](launch-wizard-sap-setting-up.md "launch-wizard-sap-setting-up.md").
 
-## AWS CLI
-
-examples
+## AWS CLI examples
 
 The following examples demonstrate how you can use the Launch Wizard API operations
 with the AWS CLI.

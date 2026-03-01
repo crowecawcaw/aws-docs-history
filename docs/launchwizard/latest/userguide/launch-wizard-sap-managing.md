@@ -1,6 +1,4 @@
-# Manage application resources with AWS Launch Wizard for
-
-SAP
+# Manage application resources with AWS Launch Wizard for SAP
 
 After you have deployed an SAP application, you can manage and update it as
 follows:
@@ -8,5 +6,4 @@ follows:
 ###### Topics
 
 - [Manage deployments](launch-wizard-sap-managing-manage.md "launch-wizard-sap-managing-manage.md")
-- [Delete infrastructure
-  configuration](launch-wizard-sap-managing-delete-config.md "launch-wizard-sap-managing-delete-config.md")
+- [Delete infrastructure configuration](launch-wizard-sap-managing-delete-config.md "launch-wizard-sap-managing-delete-config.md")

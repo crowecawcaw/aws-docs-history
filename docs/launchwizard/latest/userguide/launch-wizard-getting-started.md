@@ -1,6 +1,4 @@
-# Get started with AWS Launch Wizard for SQL
-
-Server
+# Get started with AWS Launch Wizard for SQL Server
 
 This section contains information to help you set up your environment to deploy SQL
 Server with Launch Wizard, including:
@@ -18,10 +16,8 @@ Server with Launch Wizard, including:
 - [AWS Identity and Access Management (IAM)](#launch-wizard-iam "#launch-wizard-iam")
 - [Active Directory (Windows deployment)](#launch-wizard-ad "#launch-wizard-ad")
 - [Requirements for Windows and Linux AMIs](#launch-wizard-amis "#launch-wizard-amis")
-- [Requirements for using
-  Amazon FSx](#launch-wizard-sql-prerequisites-fsx "#launch-wizard-sql-prerequisites-fsx")
-- [Configuration settings (deployment on
-  Windows)](#launch-wizard-config "#launch-wizard-config")
+- [Requirements for using Amazon FSx](#launch-wizard-sql-prerequisites-fsx "#launch-wizard-sql-prerequisites-fsx")
+- [Configuration settings (deployment on Windows)](#launch-wizard-config "#launch-wizard-config")
 
 ## AWS Identity and Access Management (IAM)
 
@@ -33,8 +29,7 @@ permissions are typically performed by an IAM administrator for your organizatio
 - [Sign up for an AWS account](#launch-wizard-sql-aws-account "#launch-wizard-sql-aws-account")
 - [Assign permissions to use Launch Wizard](#launch-wizard-user-setup "#launch-wizard-user-setup")
 - [One-time creation of IAM Role](#launch-wizard-iam-role "#launch-wizard-iam-role")
-- [AWS Secrets Manager
-  permissions](#launch-wizard-sql-prerequisites-secrets-manager "#launch-wizard-sql-prerequisites-secrets-manager")
+- [AWS Secrets Manager permissions](#launch-wizard-sql-prerequisites-secrets-manager "#launch-wizard-sql-prerequisites-secrets-manager")
 
 ### Sign up for an AWS account
 
@@ -139,9 +134,7 @@ IAM administrator can delegate the application deployment process to another use
 who, in turn, must have the Launch Wizard IAM managed policy described in the following
 section.
 
-### AWS Secrets Manager
-
-permissions
+### AWS Secrets Manager permissions
 
 Launch Wizard uses AWS Secrets Manager to manage your domain and SQL Server account passwords. Your
 username and password is stored in Secrets Manager and is retrieved during the build
@@ -335,9 +328,7 @@ requirements:
 - The SQL Server for Linux version must be 2019.
 - The latest Microsoft SQL tools must be installed.
 
-## Requirements for using
-
-Amazon FSx
+## Requirements for using Amazon FSx
 
 Launch Wizard uses continuously available Amazon FSx file shares to host clustered databases. The
 Amazon FSx file shares are accessible from within an instance joined to the domain. You can
@@ -411,9 +402,7 @@ ONTAP volume before deleting the file system. You can delete the backup from the
 Amazon FSx console if it is not required. For more information, see [Deleting
 backups](../../../fsx/latest/ONTAPGuide/using-backups.md#delete-backups "../../../fsx/latest/ONTAPGuide/using-backups.md#delete-backups") in the _FSx for ONTAP User Guide_.
 
-## Configuration settings (deployment on
-
-Windows)
+## Configuration settings (deployment on Windows)
 
 The following configuration settings are applied when deploying a SQL Server Always On
 application with Launch Wizard.

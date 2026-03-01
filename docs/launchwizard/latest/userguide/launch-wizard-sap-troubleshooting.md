@@ -9,12 +9,10 @@ to view the details related to the application launch.
 - [Launch Wizard provisioning events](#launch-wizard-sap-provisioning "#launch-wizard-sap-provisioning")
 - [CloudWatch Logs](#launch-wizard-sap-logs "#launch-wizard-sap-logs")
 - [CloudFormation stack](#launch-wizard-sap-cloudformation "#launch-wizard-sap-cloudformation")
-- [Pre- and post-deployment
-  configuration scripts](#launch-wizard-sap-troubleshooting-scripts "#launch-wizard-sap-troubleshooting-scripts")
+- [Pre- and post-deployment configuration scripts](#launch-wizard-sap-troubleshooting-scripts "#launch-wizard-sap-troubleshooting-scripts")
 - [Application launch quotas](#launch-wizard-sap-quotas "#launch-wizard-sap-quotas")
 - [Instance level logs](#launch-wizard-sap-instance-level-logs "#launch-wizard-sap-instance-level-logs")
-- [SAP application software deployment
-  logs](#launch-wizard-sap-application-logs "#launch-wizard-sap-application-logs")
+- [SAP application software deployment logs](#launch-wizard-sap-application-logs "#launch-wizard-sap-application-logs")
 - [Errors](#launch-wizard-sap-errors "#launch-wizard-sap-errors")
 - [AWS Systems Manager for SAP](#launch-wizard-sap-troubleshoot-ssm "#launch-wizard-sap-troubleshoot-ssm")
 - [Support](#launch-wizard-sap-support "#launch-wizard-sap-support")
@@ -78,9 +76,7 @@ the [describe-stacks](../../../AWSCloudFormation/latest/UserGuide/using-cfn-desc
 You can view the status of these CloudFormation stacks. If any of them fail, you
 can view the cause of the failure.
 
-## Pre- and post-deployment
-
-configuration scripts
+## Pre- and post-deployment configuration scripts
 
 ###### Can't find the output of my scripts
 
@@ -128,9 +124,7 @@ following paths for further evaluation.
 | `/var/log/pacemaker/pacemaker.log` |
 | `/var/log/cluster/corosync.log`    |
 
-## SAP application software deployment
-
-logs
+## SAP application software deployment logs
 
 Depending on which SAP components are deployed on an instance, Launch Wizard creates a folder
 in `/tmp` to log all of the SAP software application deployment logs. If a
@@ -142,9 +136,7 @@ the different components deployed on the instance.
 
 ## Errors
 
-###### Your requested instance type is not supported in your requested Availability
-
-Zone
+###### Your requested instance type is not supported in your requested Availability Zone
 
 - **Cause:** This failure might occur during the
   launch of your instance, or during the validation of the instances that Launch Wizard

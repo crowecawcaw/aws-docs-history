@@ -1,6 +1,4 @@
-# Manage Launch Wizard application resources with
-
-AWS Systems Manager Application Manager
+# Manage Launch Wizard application resources with AWS Systems Manager Application Manager
 
 AWS Systems Manager Application Manager, a capability of AWS Systems Manager, helps you to investigate and
 remediate issues with your AWS resources that make up an application. Application Manager
@@ -22,13 +20,10 @@ the Application Manager console.
 
 - [Use
   runbooks](#launch-wizard-sql-app-manager-runbooks "#launch-wizard-sql-app-manager-runbooks")
-- [Onboard existing
-  applications](#launch-wizard-sql-app-manager-ops-metadata "#launch-wizard-sql-app-manager-ops-metadata")
+- [Onboard existing applications](#launch-wizard-sql-app-manager-ops-metadata "#launch-wizard-sql-app-manager-ops-metadata")
 - [Patch management](#launch-wizard-sql-app-manager-patch-manager "#launch-wizard-sql-app-manager-patch-manager")
 
-## Use SSM Application Manager
-
-to run Automation workflows on your Launch Wizard applications
+## Use SSM Application Manager to run Automation workflows on your Launch Wizard applications
 
 You can perform operations tasks and remediate issues with your Launch Wizard application
 resources by using AWS Systems Manager Automation runbooks.
@@ -46,8 +41,7 @@ When you select a runbook, you are taken to the SSM Automation document console,
 where the resource group that makes up your application is preselected.
 
 For descriptions of the runbooks provided by **Launch Wizard**, see
-[AWS Launch Wizard Systems Manager Automation
-documents](launch-wizard-sql-provided-runbooks.md "launch-wizard-sql-provided-runbooks.md").
+[AWS Launch Wizard Systems Manager Automation documents](launch-wizard-sql-provided-runbooks.md "launch-wizard-sql-provided-runbooks.md").
 
 ###### Add custom runbooks
 
@@ -130,9 +124,7 @@ specific application.
 
 Verify that you use the correct Region for the added document ARNs.
 
-## Onboard existing
-
-applications
+## Onboard existing applications
 
 When you deploy an application with Launch Wizard, the resource groups that make up the
 application are automatically assigned metadata showing that they are provisioned by

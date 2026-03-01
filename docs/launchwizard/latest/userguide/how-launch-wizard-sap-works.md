@@ -47,17 +47,14 @@ AWS Launch Wizard implements SAP deployments as follows.
 
 - [Storage for SAP systems](#launch-wizard-sap-storage "#launch-wizard-sap-storage")
 - [Amazon Elastic File System setup for transport directory](#launch-wizard-sap-efs "#launch-wizard-sap-efs")
-- [Amazon Elastic File System setup for SAP Central Services
-  instances configured for high availability](#launch-wizard-sap-efs-ha "#launch-wizard-sap-efs-ha")
+- [Amazon Elastic File System setup for SAP Central Services instances configured for high availability](#launch-wizard-sap-efs-ha "#launch-wizard-sap-efs-ha")
 - [Bring your own image (BYOI)](#launch-wizard-sap-byoi "#launch-wizard-sap-byoi")
 - [Specify private IP address](#launch-wizard-sap-private-ip "#launch-wizard-sap-private-ip")
 - [Configuration settings](#launch-wizard-sap-config "#launch-wizard-sap-config")
-- [Custom deployment configuration
-  scripts](#launch-wizard-sap-how-it-works-scripts "#launch-wizard-sap-how-it-works-scripts")
+- [Custom deployment configuration scripts](#launch-wizard-sap-how-it-works-scripts "#launch-wizard-sap-how-it-works-scripts")
 - [Manual cleanup activities](#launch-wizard-sap-manual-cleanup "#launch-wizard-sap-manual-cleanup")
 - [Default Quotas](#launch-wizard-sap-default-quotas "#launch-wizard-sap-default-quotas")
-- [AWS Regions and
-  Endpoints](#launch-wizard-sap-regions-endpoints "#launch-wizard-sap-regions-endpoints")
+- [AWS Regions and Endpoints](#launch-wizard-sap-regions-endpoints "#launch-wizard-sap-regions-endpoints")
 
 ## Storage for SAP systems
 
@@ -130,9 +127,7 @@ When a transport files system is created with Amazon Elastic File System, Launch
 shared resource and will not delete it when you delete the deployment or if the
 deployment is rolled back.
 
-## Amazon Elastic File System setup for SAP Central Services
-
-instances configured for high availability
+## Amazon Elastic File System setup for SAP Central Services instances configured for high availability
 
 The SAP Central Services instances that make up a NetWeaver high availability
 deployment, ABAP Central Server (ASCS) and Enqueue Replication Server (ERS) instances,
@@ -209,9 +204,7 @@ with Launch Wizard.
 | SSM Session Manager to remotely access the server for<br>administrator activities                            | All SAP systems and patterns |
 | Time zone settings at the OS level                                                                           | All SAP systems and patterns |
 
-## Custom deployment configuration
-
-scripts
+## Custom deployment configuration scripts
 
 You can use custom shell scripts during the pre-deployment and post-deployment
 configuration phases. You provide the scripts stored on Amazon S3 or locally. During
@@ -283,9 +276,7 @@ Amazon Elastic File System or Amazon EC2 consoles, or by using APIs.
 To view the default quotas for AWS Launch Wizard, see [AWS Launch Wizard Endpoints and
 Quotas](../../../general/latest/gr/launchwizard.md "../../../general/latest/gr/launchwizard.md").
 
-## AWS Regions and
-
-Endpoints
+## AWS Regions and Endpoints
 
 To view the service endpoints for AWS Launch Wizard, see [AWS Launch Wizard Endpoints and
 Quotas](../../../general/latest/gr/launchwizard.md "../../../general/latest/gr/launchwizard.md").

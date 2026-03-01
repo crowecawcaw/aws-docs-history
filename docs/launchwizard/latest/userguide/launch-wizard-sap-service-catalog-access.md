@@ -1,6 +1,4 @@
-# Access
-
-AWS Service Catalog products created with AWS Launch Wizard
+# Access AWS Service Catalog products created with AWS Launch Wizard
 
 Perform the following steps to access AWS Service Catalog products created
 with AWS Launch Wizard.

@@ -1,6 +1,4 @@
-# Deploy an application with AWS Launch Wizard for SQL Server
-
-on Windows (Console)
+# Deploy an application with AWS Launch Wizard for SQL Server on Windows (Console)
 
 ## Access AWS Launch Wizard
 
@@ -294,9 +292,7 @@ you selected the **Create new Virtual Private Cloud
 deployments, you must select **Create a new Active
 Directory**.
 
-###### Connecting to existing AWS Managed Active Directory
-
-or Self Managed Active Directory
+###### Connecting to existing AWS Managed Active Directory or Self Managed Active Directory
 
 From the dropdown list, select whether you want to use
 **AWS Managed Active Directory**,
@@ -335,9 +331,7 @@ Active Directory Default Organizational Unit (OU).
      Directory, Launch Wizard creates a domain admin user on your
      Active Directory.
 
-###### Creating a new AWS Managed Active Directory through
-
-Launch Wizard
+###### Creating a new AWS Managed Active Directory through Launch Wizard
 
     * **Domain user name and
      password**. The domain user name is
@@ -355,9 +349,7 @@ Launch Wizard
      Launch Wizard creates a domain admin user on your Active
      Directory.
 
-###### Connecting to a Self Managed Active Directory through
-
-Launch Wizard
+###### Connecting to a Self Managed Active Directory through Launch Wizard
 
 Launch Wizard allows you to connect to a Self Managed Active
 Directory environment during deployment. For more
@@ -480,9 +472,7 @@ assigned.
      recommended resources, select different
      infrastructure requirements.
 
-###### Infrastructure requirements based on instance
-
-type
+###### Infrastructure requirements based on instance type
 
 You can choose to select your instance and volume
 type, or to use AWS recommended resources. If no
@@ -838,9 +828,7 @@ Private Cloud (VPC)** option for high
 availability deployments, you must select **Create a
 new Active Directory**.
 
-###### Connecting to existing AWS Managed Active Directory
-
-or Self Managed Active Directory
+###### Connecting to existing AWS Managed Active Directory or Self Managed Active Directory
 
 From the dropdown list, select whether you want to use
 **AWS Managed Active Directory**,
@@ -884,9 +872,7 @@ Active Directory Default Organizational Unit (OU).
      The prerequisites for adding security groups can be
      viewed by selecting **Info**.
 
-###### Creating a new AWS Managed Active Directory through
-
-Launch Wizard
+###### Creating a new AWS Managed Active Directory through Launch Wizard
 
     * **Domain user name and
      password**. The domain user name is
@@ -904,9 +890,7 @@ Launch Wizard
      Launch Wizard creates a domain admin user on your Active
      Directory.
 
-###### Connecting to a Self Managed Active Directory through
-
-Launch Wizard
+###### Connecting to a Self Managed Active Directory through Launch Wizard
 
 Launch Wizard allows you to connect to a Self Managed Active
 Directory environment during deployment. For more
@@ -1008,9 +992,7 @@ performance**
      recommended resources, select different
      infrastructure requirements.
 
-###### Infrastructure requirements based on instance
-
-type
+###### Infrastructure requirements based on instance type
 
 You can choose to select your instance and storage
 capacity, or to use AWS recommended resources. If no
@@ -1334,9 +1316,7 @@ selected the **Create new Virtual Private Cloud
 Directory, you must select **Create a new Active
 Directory**.
 
-###### Connecting to existing AWS Managed Active Directory
-
-or Self Managed Active Directory
+###### Connecting to existing AWS Managed Active Directory or Self Managed Active Directory
 
 From the dropdown list, select whether you want to use
 **AWS Managed Active Directory**,
@@ -1380,9 +1360,7 @@ Active Directory.
      which you want to join for the Active Directory. For
      example: OU=org,DC=example,DC=com
 
-###### Creating a new AWS Managed Active Directory through
-
-Launch Wizard
+###### Creating a new AWS Managed Active Directory through Launch Wizard
 
     * **Domain user name and
      password**. The domain user name is
@@ -1405,9 +1383,7 @@ Launch Wizard
      which you want to join for the Active Directory. For
      example: OU=org,DC=example,DC=com
 
-###### Connecting to a Self Managed Active Directory through
-
-Launch Wizard
+###### Connecting to a Self Managed Active Directory through Launch Wizard
 
 Launch Wizard allows you to connect to a Self Managed Active
 Directory environment during deployment. For more
@@ -1573,9 +1549,7 @@ assigned.
      recommended resources, select different
      infrastructure requirements.
 
-###### Infrastructure requirements based on instance
-
-type
+###### Infrastructure requirements based on instance type
 
 You can choose to select your instance and volume
 type, or to use AWS recommended resources. If no

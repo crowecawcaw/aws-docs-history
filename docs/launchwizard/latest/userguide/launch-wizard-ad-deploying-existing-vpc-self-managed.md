@@ -1,6 +1,4 @@
-# Deploy
-
-self-managed Active Directory to an existing VPC
+# Deploy self-managed Active Directory to an existing VPC
 
 The following steps guide you through an Active Directory deployment with AWS Launch Wizard
 after you have launched it from the console for an existing VPC.
@@ -13,8 +11,7 @@ after you have launched it from the console for an existing VPC.
    self-managed AD into an existing VPC**, then select
    **Create deployment.**
 3. Review and acknowledge the required IAM permissions are met before
-   proceeding. For more information, see [Identity and Access Management for
-   AWS Launch Wizard](launch-wizard-security.md#identity-access-management "launch-wizard-security.md#identity-access-management").
+   proceeding. For more information, see [Identity and Access Management for AWS Launch Wizard](launch-wizard-security.md#identity-access-management "launch-wizard-security.md#identity-access-management").
 4. You are prompted to enter the specifications for the new deployment. The
    following tabs provide information about the specification fields of the
    deployment model.

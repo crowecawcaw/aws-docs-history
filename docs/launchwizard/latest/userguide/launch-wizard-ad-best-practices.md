@@ -1,6 +1,4 @@
-# High availability and security best
-
-practices for AWS Launch Wizard for Active Directory
+# High availability and security best practices for AWS Launch Wizard for Active Directory
 
 The domain controller architecture created by AWS Launch Wizard supports AWS best practices for
 high availability and security as promoted by the [AWS Well-Architected
@@ -9,8 +7,7 @@ Framework](../../../wellarchitected/latest/framework/welcome.md "../../../wellar
 ###### Topics
 
 - [High availability](#launch-wizard-ad-ha "#launch-wizard-ad-ha")
-- [Security in Launch Wizard for Active
-  Directory](#launch-wizard-ad-security "#launch-wizard-ad-security")
+- [Security in Launch Wizard for Active Directory](#launch-wizard-ad-security "#launch-wizard-ad-security")
 
 ## High availability
 
@@ -26,9 +23,7 @@ controllers to be closer to specific customers, or to meet legal or other requir
 When you launch your instances in different Availability Zones, you can protect your
 domain controllers from the failure of a single location.
 
-## Security in Launch Wizard for Active
-
-Directory
+## Security in Launch Wizard for Active Directory
 
 Launch Wizard creates a number of security groups and rules for you. When your directory
 resources are launched, they must be associated with a security group, which acts as a
