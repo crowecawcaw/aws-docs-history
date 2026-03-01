@@ -32,7 +32,7 @@ Kelvin’s solution, built on AWS Cloud, allows enterprises to scale faster, opt
 8. **Amazon Simple Storage Service** (Amazon S3) can be used to store asset
    hierarchy and time-series data that is ingested by Kelvin Nodes. Kelvin can
    push data to **AWS IoT SiteWise**. It integrates with
-   **Amazon Quick Suite** as an alternative to Kelvin Maps.
+   **Amazon Quick** as an alternative to Kelvin Maps.
    Integration with **Amazon SageMaker AI** allows for creating
    and importing customer algorithms to deploy on Kelvin Nodes.
 9. The Kelvin platform in the cloud stores asset information and user profiles
