@@ -1,6 +1,4 @@
-# Integration with Amazon OpenSearch Service
-
-Ingestion pipeline
+# Integration with Amazon OpenSearch Service Ingestion pipeline
 
 **Integration type:**Subscriber, Source
 

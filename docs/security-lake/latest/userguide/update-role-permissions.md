@@ -40,9 +40,7 @@ update permissions using the AWS CLI, run the [update-data-lake](../../../cli/la
 To update your role permissions, you must attach the [AmazonSecurityLakeMetastoreManager](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSecurityLakeMetastoreManager "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSecurityLakeMetastoreManager") policy to
 the role.
 
-## Deleting the
-
-AmazonSecurityLakeMetaStoreManager role
+## Deleting the AmazonSecurityLakeMetaStoreManager role
 
 ###### Important
 

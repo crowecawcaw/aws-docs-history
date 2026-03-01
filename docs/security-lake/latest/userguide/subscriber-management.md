@@ -23,7 +23,5 @@ The maximum number of sources that Security Lake allows to add per subscriber is
 
 ###### Topics
 
-- [Managing data access for Security Lake
-  subscribers](subscriber-data-access.md "subscriber-data-access.md")
-- [Managing query access for Security Lake
-  subscribers](subscriber-query-access.md "subscriber-query-access.md")
+- [Managing data access for Security Lake subscribers](subscriber-data-access.md "subscriber-data-access.md")
+- [Managing query access for Security Lake subscribers](subscriber-query-access.md "subscriber-query-access.md")

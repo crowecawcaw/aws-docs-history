@@ -1,6 +1,4 @@
-# Creating a subscriber with data
-
-access in Security Lake
+# Creating a subscriber with data access in Security Lake
 
 Choose one of the following access methods to create a subscriber with access to data
 in the current AWS Region.

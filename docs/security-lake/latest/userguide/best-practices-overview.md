@@ -2,15 +2,12 @@
 
 See the following best practices for working with Amazon Security Lake.
 
-## Grant Security Lake users minimum possible
-
-permissions
+## Grant Security Lake users minimum possible permissions
 
 Follow the principle of least privilege by granting the minimum set of access policy
 permissions for your AWS Identity and Access Management (IAM) users, user groups, and roles. For example, you might allow
 an IAM user to view a list of log sources in Security Lake but not to create sources or
-subscribers. For more information, see [Identity-based policy examples for
-Security Lake](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+subscribers. For more information, see [Identity-based policy examples for Security Lake](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
 
 You can also use AWS CloudTrail to track API usage in Security Lake. CloudTrail provides a record of
 API actions taken by a user, group, or role in Security Lake. For more information, see

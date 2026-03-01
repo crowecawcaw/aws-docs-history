@@ -1,6 +1,4 @@
-# Managing query access for Security Lake
-
-subscribers
+# Managing query access for Security Lake subscribers
 
 Subscribers with query access can query data that Security Lake collects. These subscribers
 directly query AWS Lake Formation tables in your S3 bucket with services like Amazon Athena. Although the

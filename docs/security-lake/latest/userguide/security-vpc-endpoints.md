@@ -1,6 +1,4 @@
-# Amazon Security Lake and interface VPC endpoints
-
-(AWS PrivateLink)
+# Amazon Security Lake and interface VPC endpoints (AWS PrivateLink)
 
 You can establish a private connection between your VPC and Amazon Security Lake by creating an
 _interface VPC endpoint_. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink "https://aws.amazon.com/privatelink"), a technology that enables you
@@ -14,9 +12,7 @@ subnets.
 
 For more information, see [Interface VPC endpoints (AWS PrivateLink)](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md") in the _AWS PrivateLink Guide_.
 
-## Considerations for Security Lake VPC
-
-endpoints
+## Considerations for Security Lake VPC endpoints
 
 Before you set up an interface VPC endpoint for Security Lake, ensure that you review [Interface endpoint properties and limitations](../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations "../../../vpc/latest/privatelink/vpce-interface.md#vpce-interface-limitations") in the _AWS PrivateLink Guide_.
 
@@ -29,9 +25,7 @@ Security Lake supports FIPS VPC endpoints only in the following Regions where FI
 - US West (N. California)
 - US West (Oregon)
 
-## Creating an interface VPC endpoint for
-
-Security Lake
+## Creating an interface VPC endpoint for Security Lake
 
 You can create a VPC endpoint for the Security Lake service using either the Amazon VPC console or
 the AWS Command Line Interface (AWS CLI). For more information, see [Create an interface endpoint](../../../vpc/latest/privatelink/vpce-interface.md#create-interface-endpoint "../../../vpc/latest/privatelink/vpce-interface.md#create-interface-endpoint") in the _AWS PrivateLink Guide_.

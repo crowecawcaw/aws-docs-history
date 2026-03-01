@@ -45,8 +45,7 @@ create third-party subscribers in the Security Lake console, API, or AWS Command
 The Lake Formation data lake administrator must grant `SELECT` permissions on the
 relevant databases and tables to the IAM identity that queries the data. You must
 create a subscriber in Security Lake before querying data. For more information about how to
-create a subscriber with query access, see [Managing query access for Security Lake
-subscribers](subscriber-query-access.md "subscriber-query-access.md").
+create a subscriber with query access, see [Managing query access for Security Lake subscribers](subscriber-query-access.md "subscriber-query-access.md").
 
 You can configure query integration with Security Lake for the following third-party
 partners.
@@ -61,9 +60,7 @@ partners.
 - [Splunk](https://www.splunk.com/en_us/blog/conf-splunklive/federated-analytics-balancing-cost-efficiency-and-performance-with-data-lakes.html "https://www.splunk.com/en_us/blog/conf-splunklive/federated-analytics-balancing-cost-efficiency-and-performance-with-data-lakes.html") – Federated Analytics
 - Tego Cyber
 
-## Accenture –
-
-MxDR
+## Accenture – MxDR
 
 **Integration type:** Subscriber, Service
 
@@ -85,9 +82,7 @@ Security Lake. The audit events are converted into OCSF schema and Parquet forma
 
 [Integration documentation](https://support.aquasec.com/support/solutions/articles/16000151820-amazon-security-lake-integration "https://support.aquasec.com/support/solutions/articles/16000151820-amazon-security-lake-integration")
 
-## Barracuda – Email
-
-Protection
+## Barracuda – Email Protection
 
 **Integration type:** Source
 
@@ -97,9 +92,7 @@ security data in your data lake.
 
 [Integration documentation](https://campus.barracuda.com/product/emailprotection/doc/98214513/integrate-amazon-security-lake-with-email-protection/ "https://campus.barracuda.com/product/emailprotection/doc/98214513/integrate-amazon-security-lake-with-email-protection/")
 
-## Booz Allen
-
-Hamilton
+## Booz Allen Hamilton
 
 **Integration type:** Service
 
@@ -131,9 +124,7 @@ environments and persistent threats.
 
 [Integration documentation](https://www.chaossearch.io/platform/integrations/amazon-security-lake "https://www.chaossearch.io/platform/integrations/amazon-security-lake")
 
-## Cisco Security –
-
-Secure Firewall
+## Cisco Security – Secure Firewall
 
 **Integration type:** Source
 
@@ -144,9 +135,7 @@ schema, and stores them in Security Lake.
 
 [Integration documentation](https://github.com/CiscoSecurity/fp-05-firepower-cli/tree/ocsf "https://github.com/CiscoSecurity/fp-05-firepower-cli/tree/ocsf")
 
-## Claroty –
-
-xDome
+## Claroty – xDome
 
 **Integration type:** Source
 
@@ -170,9 +159,7 @@ Security Lake in your organization.
 [Partner
 link](https://www.cmdsolutions.com.au/service/security/ "https://www.cmdsolutions.com.au/service/security/")
 
-## Confluent – Amazon S3
-
-Sink Connector
+## Confluent – Amazon S3 Sink Connector
 
 **Integration type:** Source
 
@@ -197,9 +184,7 @@ Security Lake to help provide centralized visibility for all your workloads.
 [Integration
 documentation](https://docs.contrastsecurity.com/en/aws-security-lake.html "https://docs.contrastsecurity.com/en/aws-security-lake.html")
 
-## Cribl –
-
-Search
+## Cribl – Search
 
 **Integration type:** Subscriber
 
@@ -208,9 +193,7 @@ You can use Cribl Search to search Security Lake data.
 [Integration
 documentation](https://docs.cribl.io/search/set-up-amazon-security-lake/ "https://docs.cribl.io/search/set-up-amazon-security-lake/")
 
-## Cribl –
-
-Stream
+## Cribl – Stream
 
 **Integration type:** Source
 
@@ -220,9 +203,7 @@ supported third-party sources to Security Lake in OCSF schema.
 [Integration
 documentation](https://docs.cribl.io/stream/usecase-security-lake/ "https://docs.cribl.io/stream/usecase-security-lake/")
 
-## CrowdStrike –
-
-Falcon Data Replicator
+## CrowdStrike – Falcon Data Replicator
 
 **Integration type:** Source
 
@@ -233,9 +214,7 @@ Security Lake.
 [Integration
 documentation](https://github.com/CrowdStrike/aws-security-lake "https://github.com/CrowdStrike/aws-security-lake")
 
-## CrowdStrike –
-
-Next Gen SIEM
+## CrowdStrike – Next Gen SIEM
 
 **Integration type:** Subscriber
 
@@ -247,9 +226,7 @@ together unmatched security depth and breadth in one unified platform to stop br
 [Integration
 documentation](https://marketplace.crowdstrike.com/listings/amazon-security-lake-data-connector " https://marketplace.crowdstrike.com/listings/amazon-security-lake-data-connector")
 
-## CyberArk – Unified
-
-Identify Security Platform
+## CyberArk – Unified Identify Security Platform
 
 **Integration type:** Source
 
@@ -278,9 +255,7 @@ DataBahn’s Security Data Fabric.
 [Integration documentation (sign in to the DataBahn portal to review
 the documentation)](https://app.cp-us01-prod01-aws.databahn.app/help/docs/highway/destinations/amazon-web-services/aws-security-lake "https://app.cp-us01-prod01-aws.databahn.app/help/docs/highway/destinations/amazon-web-services/aws-security-lake")
 
-## Darktrace – Cyber
-
-AI Loop
+## Darktrace – Cyber AI Loop
 
 **Integration type:** Source
 
@@ -304,9 +279,7 @@ platform.
 [Integration
 documentation](https://docs.datadoghq.com/integrations/amazon_security_lake "https://docs.datadoghq.com/integrations/amazon_security_lake")
 
-## Deloitte – MXDR
-
-Cyber Analytics and AI Engine (CAE)
+## Deloitte – MXDR Cyber Analytics and AI Engine (CAE)
 
 **Integration type:** Subscriber, Service
 
@@ -330,9 +303,7 @@ threat detection, investigation, and incident response.
 
 [Integration documentation](https://docs.devo.com/space/latest/324337730/Amazon+Security+Lake+collector "https://docs.devo.com/space/latest/324337730/Amazon+Security+Lake+collector")
 
-## DXC –
-
-SecMon
+## DXC – SecMon
 
 **Integration type:** Subscriber, Service
 
@@ -347,9 +318,7 @@ your organization.
 [Integration
 documentation](https://dxc.com/us/en/about-us/partner-ecosystem/aws "https://dxc.com/us/en/about-us/partner-ecosystem/aws")
 
-## Eviden –
-
-AIsaac (formerly Atos)
+## Eviden – AIsaac (formerly Atos)
 
 **Integration type:** Subscriber
 
@@ -358,9 +327,7 @@ in Security Lake and utilizes AI models for detecting threats.
 
 [Integration documentation](https://eviden.com/solutions/digital-security/managed-security-services/managed-detection-and-response/ "https://eviden.com/solutions/digital-security/managed-security-services/managed-detection-and-response/")
 
-## ExtraHop – Reveal(x)
-
-360
+## ExtraHop – Reveal(x) 360
 
 **Integration type:** Source
 
@@ -390,9 +357,7 @@ Amazon Security Lake as a log output destination.
 
 [Integration documentation](https://docs.fortinet.com/document/fortigate-cnf/latest/administration-guide/248370 "https://docs.fortinet.com/document/fortigate-cnf/latest/administration-guide/248370")
 
-## Gigamon – Application
-
-Metadata Intelligence
+## Gigamon – Application Metadata Intelligence
 
 **Integration type:** Source
 
@@ -414,9 +379,7 @@ integrations offered through Security Lake.
 [Partner
 link](https://aws.amazon.com/marketplace/pp/prodview-5dm5aecyvpn2i "https://aws.amazon.com/marketplace/pp/prodview-5dm5aecyvpn2i")
 
-## HTCD –
-
-AI-First Cloud Security Platform
+## HTCD – AI-First Cloud Security Platform
 
 **Integration type:** Subscriber
 
@@ -424,9 +387,7 @@ Gain instantaneous compliance automation, prioritization of security findings, a
 
 [Integration documentation](https://www.htcd.com/post/secdataops-with-aws-security-lake "https://www.htcd.com/post/secdataops-with-aws-security-lake")
 
-## IBM –
-
-QRadar
+## IBM – QRadar
 
 **Integration type:** Subscriber
 
@@ -456,9 +417,7 @@ understand how to implement Security Lake in your organization.
 
 [Partner link](https://insbuilt.com/en/security-lake-eng/ "https://insbuilt.com/en/security-lake-eng/")
 
-## Kyndryl –
-
-AIOps
+## Kyndryl – AIOps
 
 **Integration type:** Subscriber, Service
 
@@ -472,9 +431,7 @@ in your organization.
 
 [Integration documentation](https://www.kyndryl.com/us/en/about-us/news/2022/11/kyndryl-aws-data-security "https://www.kyndryl.com/us/en/about-us/news/2022/11/kyndryl-aws-data-security")
 
-## Lacework –
-
-Polygraph
+## Lacework – Polygraph
 
 **Integration type:** Source
 
@@ -517,9 +474,7 @@ to your Security Lake data lake.
 [Integration
 documentation](https://docs.monad.security/output/security-lake/ "https://docs.monad.security/output/security-lake/")
 
-## NETSCOUT – Omnis
-
-Cyber Intelligence
+## NETSCOUT – Omnis Cyber Intelligence
 
 **Integration type:** Source
 
@@ -534,9 +489,7 @@ source, including format, schema, partitioning, and performance-related aspects.
 [Integration
 documentation](https://www.netscout.com/resources/amazon-data-lake "https://www.netscout.com/resources/amazon-data-lake")
 
-## Netskope –
-
-CloudExchange
+## Netskope – CloudExchange
 
 **Integration type:** Source
 
@@ -557,9 +510,7 @@ New Relic license keys
 
 [Integration documentation](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-security-lake-monitoring-integration/ "https://docs.newrelic.com/docs/infrastructure/amazon-integrations/aws-integrations-list/aws-security-lake-monitoring-integration/")
 
-## Okta – Workforce
-
-Identity Cloud
+## Okta – Workforce Identity Cloud
 
 **Integration type:** Source
 
@@ -575,9 +526,7 @@ consistent schema.
 [AWS CloudFormation template to add
 Okta as a custom source in Security Lake](https://github.com/okta/okta-ocsf-syslog "https://github.com/okta/okta-ocsf-syslog")
 
-## Orca – Cloud Security
-
-Platform
+## Orca – Cloud Security Platform
 
 **Integration type:** Source
 
@@ -587,9 +536,7 @@ Security Lake by sending Cloud Detection and Response (CDR) events in OCSF schem
 [Integration documentation (sign in to the Orca portal to review the
 documentation)](https://docs.orcasecurity.io/v1/docs/integrating-amazon-security-lake "https://docs.orcasecurity.io/v1/docs/integrating-amazon-security-lake")
 
-## Palo Alto
-
-Networks – Prisma Cloud
+## Palo Alto Networks – Prisma Cloud
 
 **Integration type:** Source
 
@@ -619,9 +566,7 @@ search and detection.
 [Integration
 documentation](https://docs.panther.com/data-onboarding/supported-logs/aws/security-lake "https://docs.panther.com/data-onboarding/supported-logs/aws/security-lake")
 
-## Ping Identity –
-
-PingOne
+## Ping Identity – PingOne
 
 **Integration type:** Source
 
@@ -630,9 +575,7 @@ and Parquet format, allowing you to discover and act upon account changes.
 
 [Integration documentation](https://github.com/pingone-davinci/pingone-amazon-security-lake/blob/main/README.md "https://github.com/pingone-davinci/pingone-amazon-security-lake/blob/main/README.md")
 
-## PwC – Fusion
-
-center
+## PwC – Fusion center
 
 **Integration type:** Subscriber, Service
 
@@ -651,9 +594,7 @@ Query Federated Search can directly query any Security Lake table via Amazon Ath
 
 [Integration documentation](https://docs.query.ai/docs/amazon-security-lake#overview "https://docs.query.ai/docs/amazon-security-lake#overview")
 
-## Rapid7 –
-
-InsightIDR
+## Rapid7 – InsightIDR
 
 **Integration type:** Subscriber
 
@@ -663,9 +604,7 @@ logs in Security Lake for threat detection and investigation of suspicious activ
 [Integration
 documentation](https://docs.rapid7.com/insightidr/aws-security-lake/ "https://docs.rapid7.com/insightidr/aws-security-lake/")
 
-## RipJar – Labyrinth for
-
-Threat Investigations
+## RipJar – Labyrinth for Threat Investigations
 
 **Integration type:** Subscriber
 
@@ -712,9 +651,7 @@ Amazon Elastic Kubernetes Service (Amazon EKS).
 [Integration documentation (sign in to the SentinelOne portal to
 review the documentation)](https://support.sentinelone.com/hc/en-us/articles/10249372394519 "https://support.sentinelone.com/hc/en-us/articles/10249372394519")
 
-## Sentra – Data Lifecyle
-
-Security Platform
+## Sentra – Data Lifecyle Security Platform
 
 **Integration type:** Source
 
@@ -771,9 +708,7 @@ tools.
 
 [Integration documentation](https://help.sumologic.com/docs/send-data/hosted-collectors/amazon-aws/amazon-security-lake-source/ "https://help.sumologic.com/docs/send-data/hosted-collectors/amazon-aws/amazon-security-lake-source/")
 
-## Swimlane –
-
-Turbine
+## Swimlane – Turbine
 
 **Integration type:** Subscriber
 
@@ -842,9 +777,7 @@ in threat detection and investigations.
 [Integration
 documentation](https://www.tegocyber.com/product/amazon/aws-technical "https://www.tegocyber.com/product/amazon/aws-technical")
 
-## Tines – No-code
-
-security automation
+## Tines – No-code security automation
 
 **Integration type:** Subscriber
 
@@ -853,9 +786,7 @@ decisions by leveraging security data centralized in Security Lake.
 
 [Integration documentation](https://explained.tines.com "https://explained.tines.com")
 
-## Torq – Enterprise
-
-Security Automation Platform
+## Torq – Enterprise Security Automation Platform
 
 **Integration type:** Source, Subscriber
 
@@ -866,9 +797,7 @@ orchestration with a simple no-code platform.
 [Integration
 documentation](https://torq.io/blog/secops-pipelines-aws/ "https://torq.io/blog/secops-pipelines-aws/")
 
-## Trellix –
-
-XDR
+## Trellix – XDR
 
 **Integration type:** Source, Subscriber
 
@@ -882,9 +811,7 @@ timely manner.
 
 [Integration documentation](https://www.trellix.com/en-us/assets/docs/trellix-helix-amazon-security-lake-instructions.pdf "https://www.trellix.com/en-us/assets/docs/trellix-helix-amazon-security-lake-instructions.pdf")
 
-## Trend Micro –
-
-CloudOne
+## Trend Micro – CloudOne
 
 **Integration type:** Source
 
@@ -900,9 +827,7 @@ to Security Lake from your Amazon Elastic Compute Cloud (EC2) instances:
 
 [Integration documentation](https://cloudone.trendmicro.com/docs/integrations/aws-security-lake/ "https://cloudone.trendmicro.com/docs/integrations/aws-security-lake/")
 
-## Uptycs – Uptycs
-
-XDR
+## Uptycs – Uptycs XDR
 
 **Integration type:** Source
 
@@ -914,9 +839,7 @@ misconfigurations, and vulnerabilities.
 [Integration
 documentation](https://www.uptycs.com/partners/aws "https://www.uptycs.com/partners/aws")
 
-## Vectra AI – Vectra
-
-Detect for AWS
+## Vectra AI – Vectra Detect for AWS
 
 **Integration type:** Source
 
@@ -926,9 +849,7 @@ Security Lake as a custom source using a dedicated CloudFormation template.
 [Integration
 documentation](https://support.vectra.ai/s/article/KB-VS-1621 "https://support.vectra.ai/s/article/KB-VS-1621")
 
-## VMware Aria Automation for Secure
-
-Clouds
+## VMware Aria Automation for Secure Clouds
 
 **Integration type:** Source
 
@@ -959,9 +880,7 @@ in your organization.
 
 [Integration documentation](https://www.wipro.com/newsroom/press-releases/2022/wipro-to-support-new-aws-cybersecurity-data-lake-service/ "https://www.wipro.com/newsroom/press-releases/2022/wipro-to-support-new-aws-cybersecurity-data-lake-service/")
 
-## Wiz –
-
-CNAPP
+## Wiz – CNAPP
 
 **Integration type:** Source
 
@@ -973,9 +892,7 @@ source standard designed for extensible and normalized security data exchange.
 documentation (sign in to the Wiz portal to review the
 documentation)](https://docs.wiz.io/wiz-docs/docs/security-lake-integration "https://docs.wiz.io/wiz-docs/docs/security-lake-integration")
 
-## Zscaler – Zscaler
-
-Posture Control
+## Zscaler – Zscaler Posture Control
 
 **Integration type:** Source
 

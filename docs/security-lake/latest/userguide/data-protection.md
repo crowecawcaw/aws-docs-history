@@ -68,8 +68,7 @@ Security Lake requires the grant to use your customer managed key for the follow
 Security Lake doesn't need `Decrypt` permissions. When authorized users of the key read Security Lake data,
 S3 manages the decryption, and the authorized users are able to read data in unencrypted form. However, a subscriber
 needs `Decrypt` permissions to consume source data. For more information about
-subscriber permissions, see [Managing data access for Security Lake
-subscribers](subscriber-data-access.md "subscriber-data-access.md").
+subscriber permissions, see [Managing data access for Security Lake subscribers](subscriber-data-access.md "subscriber-data-access.md").
 
 If you want to use an existing KMS key to encrypt Security Lake data, you must modify the key
 policy for the KMS key. The key policy must allow the IAM role associated with the Lake Formation

@@ -38,9 +38,7 @@ Use the [OCSF
 Validation tool](https://github.com/aws-samples/amazon-security-lake-ocsf-validation "https://github.com/aws-samples/amazon-security-lake-ocsf-validation") to verify if the custom source is compatible with the `OCSF Schema`.
 For custom sources, Security Lake supports OCSF version 1.3 and earlier.
 
-## Partitioning requirements for ingesting custom
-
-sources in Security Lake
+## Partitioning requirements for ingesting custom sources in Security Lake
 
 To facilitate efficient data processing and querying, we require meeting the partitioning and object and size requirements when adding a custom source to Security Lake:
 
@@ -77,9 +75,7 @@ The following list describes the parameters used in the S3 path partition:
   formatted as an eight character string
   (`YYYYMMDD`). If records specify a different timezone in the event timestamp, you must convert the timestamp into UTC for this partition key.
 
-## Prerequisites to adding a custom
-
-source in Security Lake
+## Prerequisites to adding a custom source in Security Lake
 
 When adding a custom source, Security Lake creates an IAM role that permits the source
 to write data to the correct location in the data lake. The name of the role follows the
@@ -94,8 +90,7 @@ called [AmazonSecurityLakePermissionsBoundary](security-iam-awsmanpol.md#securit
 ###### Topics
 
 - [Verify permissions](#add-custom-sources-permissions "#add-custom-sources-permissions")
-- [Create IAM role to permit write access
-  to Security Lake bucket location (API and AWS CLI-only step)](#iam-roles-glue-crawler "#iam-roles-glue-crawler")
+- [Create IAM role to permit write access to Security Lake bucket location (API and AWS CLI-only step)](#iam-roles-glue-crawler "#iam-roles-glue-crawler")
 
 ### Verify permissions
 
@@ -137,9 +132,7 @@ existing roles on your behalf.
 If you plan to use Security Lake API or AWS CLI to add a custom source, continue with
 the next step to create an IAM role to permit write access to Security Lake bucket location.
 
-### Create IAM role to permit write access
-
-to Security Lake bucket location (API and AWS CLI-only step)
+### Create IAM role to permit write access to Security Lake bucket location (API and AWS CLI-only step)
 
 If you're using Security Lake API or AWS CLI to add a custom source, add this IAM role to
 grant AWS Glue permission to crawl your custom source data and

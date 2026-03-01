@@ -20,9 +20,7 @@ _don't_ need to change your logging configuration to add them as
 log sources in Security Lake. Security Lake pulls data directly from these services through an independent
 and duplicated stream of events.
 
-## Prerequisite: Verify
-
-permissions
+## Prerequisite: Verify permissions
 
 To add an AWS service as a source in Security Lake, you must have the necessary permissions.
 Verify that the AWS Identity and Access Management (IAM) policy attached to the role that you use to add a
@@ -142,9 +140,7 @@ to specify only those Regions in which you've enabled Security Lake.
 --sources sourceName=`VPC_FLOW`,accounts=`'["123456789012", "111122223333"]'`,regions=`["us-east-2"]`,sourceVersion=`"2.0"`
 ```
 
-## Getting the status of source
-
-collection
+## Getting the status of source collection
 
 Choose your access method, and follow the steps to get a snapshot of the accounts and
 sources for which log collection is enabled in the current Region.

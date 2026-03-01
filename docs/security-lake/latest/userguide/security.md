@@ -29,6 +29,5 @@ _of_ the cloud and security _in_ the cloud:
 - [Resilience in Amazon Security Lake](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Security Lake](infrastructure-security.md "infrastructure-security.md")
 - [Configuration and vulnerability analysis in Security Lake](configuration-vulnerability-analysis.md "configuration-vulnerability-analysis.md")
-- [Amazon Security Lake and interface VPC endpoints
-  (AWS PrivateLink)](security-vpc-endpoints.md "security-vpc-endpoints.md")
+- [Amazon Security Lake and interface VPC endpoints (AWS PrivateLink)](security-vpc-endpoints.md "security-vpc-endpoints.md")
 - [Monitoring Amazon Security Lake](monitoring-overview.md "monitoring-overview.md")

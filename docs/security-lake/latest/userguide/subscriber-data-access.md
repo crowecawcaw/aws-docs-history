@@ -1,6 +1,4 @@
-# Managing data access for Security Lake
-
-subscribers
+# Managing data access for Security Lake subscribers
 
 Subscribers with data access to source data in Amazon Security Lake are notified of new objects
 for the source as the data is written to the S3 bucket. By default, subscribers are notified

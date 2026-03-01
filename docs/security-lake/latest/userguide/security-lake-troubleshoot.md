@@ -14,5 +14,4 @@ Consult the following topics if you encounter issues while using Security Lake.
 - [Troubleshooting Lake Formation issues](securitylake-lf-troubleshoot.md "securitylake-lf-troubleshoot.md")
 - [Troubleshooting querying in Amazon Athena](querying-troubleshoot.md "querying-troubleshoot.md")
 - [Troubleshooting Organizations issues](securitylake-orgs-troubleshoot.md "securitylake-orgs-troubleshoot.md")
-- [Troubleshooting Amazon Security Lake identity and
-  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
+- [Troubleshooting Amazon Security Lake identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")

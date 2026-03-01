@@ -161,9 +161,7 @@ You can't attach the `SecurityLakeServiceLinkedRole` managed policy to your IAM 
 attached to a service-linked role that permits Security Lake to perform actions on your behalf. For more information, see
 [Service-linked role permissions for Security Lake](slr-permissions.md "slr-permissions.md").
 
-## AWS managed policy:
-
-SecurityLakeResourceManagementServiceRolePolicy
+## AWS managed policy: SecurityLakeResourceManagementServiceRolePolicy
 
 Security Lake uses the service-linked role named
 `AWSServiceRoleForSecurityLakeResourceManagement` to perform ongoing monitoring
@@ -196,9 +194,7 @@ source data and identify partition metadata. This metadata is necessary to creat
 
 For more information, see [Collecting data from custom sources in Security Lake](custom-sources.md "custom-sources.md").
 
-## Security Lake updates to AWS managed
-
-policies
+## Security Lake updates to AWS managed policies
 
 View details about updates to AWS managed policies for Security Lake since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to

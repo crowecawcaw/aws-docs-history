@@ -60,9 +60,7 @@ For instructions, see [Create a permission set](../../../singlesignon/latest/use
 
 For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the _AWS IAM Identity Center User Guide_.
 
-## Identify the account that you'll use to
-
-enable Security Lake
+## Identify the account that you'll use to enable Security Lake
 
 Security Lake integrates with AWS Organizations to manage log collection across multiple
 accounts in an organization. If you want to use Security Lake for an organization, you

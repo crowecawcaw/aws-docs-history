@@ -1,13 +1,9 @@
-# Prerequisites to create a subscriber
-
-with data access in Security Lake
+# Prerequisites to create a subscriber with data access in Security Lake
 
 You must complete the following prerequisites before you can create a subscriber with
 data access in Security Lake.
 
-## Verify
-
-permissions
+## Verify permissions
 
 To verify your permissions, use IAM to review the IAM policies that are
 attached to your IAM identity. Then, compare the information in those policies to
@@ -61,17 +57,14 @@ party](../../../IAM/latest/UserGuide/id_roles_create_for-user_externalid.md "../
 ###### Important
 
 If you plan to use the Security Lake console to add a subscriber, you can
-skip the next step and proceed to [Creating a subscriber with data
-access in Security Lake](create-subscriber-data-access.md "create-subscriber-data-access.md"). The Security Lake console offers a
+skip the next step and proceed to [Creating a subscriber with data access in Security Lake](create-subscriber-data-access.md "create-subscriber-data-access.md"). The Security Lake console offers a
 streamlined process for getting started, and creates all necessary IAM roles or uses
 existing roles on your behalf.
 
 If you plan to use Security Lake API or AWS CLI to add a subscriber, continue with
 the next step to create an IAM role to invoke EventBridge API destinations.
 
-## Create IAM role to invoke EventBridge API
-
-destinations (API and AWS CLI-only step)
+## Create IAM role to invoke EventBridge API destinations (API and AWS CLI-only step)
 
 If you're using Security Lake through API or AWS CLI, create a role in AWS Identity and Access Management (IAM)
 that grants Amazon EventBridge permissions to invoke API destinations and send object
@@ -80,8 +73,7 @@ notifications to the correct HTTPS endpoints.
 After creating this IAM role, you'll need the Amazon Resource Name (ARN) of the
 role in order to create the subscriber. This IAM role isn't necessary if the
 subscriber polls data from an Amazon Simple Queue Service (Amazon SQS) queue or directly queries data from
-AWS Lake Formation. For more information about this type of data access method (access type), see [Managing query access for Security Lake
-subscribers](subscriber-query-access.md "subscriber-query-access.md").
+AWS Lake Formation. For more information about this type of data access method (access type), see [Managing query access for Security Lake subscribers](subscriber-query-access.md "subscriber-query-access.md").
 
 Attach the following policy to your IAM role:
 

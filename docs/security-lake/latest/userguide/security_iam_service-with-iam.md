@@ -21,9 +21,7 @@ To get a high-level view of how Security Lake and other AWS services work with m
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.
 
-## Identity-based
-
-policies for Security Lake
+## Identity-based policies for Security Lake
 
 **Supports identity-based policies:**
 
@@ -40,12 +38,9 @@ JSON policy, see [IAM JSON
 policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
 _IAM User Guide_.
 
-Security Lake supports identity-based policies. For more information, see [Identity-based policy examples for
-Security Lake](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+Security Lake supports identity-based policies. For more information, see [Identity-based policy examples for Security Lake](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Resource-based
-
-policies within Security Lake
+## Resource-based policies within Security Lake
 
 **Supports resource-based policies:**
 
@@ -126,9 +121,7 @@ To learn more about resource-based policies, see [Identity-based
 policies and resource-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") in the
 _IAM User Guide_.
 
-## Policy actions
-
-for Security Lake
+## Policy actions for Security Lake
 
 **Supports policy actions:**
 
@@ -164,12 +157,9 @@ To specify multiple actions in a single statement, separate them with commas.
 ]
 ```
 
-To view examples of Security Lake identity-based policies, see [Identity-based policy examples for
-Security Lake](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Security Lake identity-based policies, see [Identity-based policy examples for Security Lake](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-resources for Security Lake
+## Policy resources for Security Lake
 
 **Supports policy resources:**
 
@@ -193,12 +183,9 @@ For a list of Security Lake resource types and the ARN syntax for each one, see
 actions you can specify for each type of resource, see [Actions defined by Amazon Security Lake](../../../IAM/latest/UserGuide/list_amazonsecuritylake.md#amazonsecuritylake-actions-as-permissions "../../../IAM/latest/UserGuide/list_amazonsecuritylake.md#amazonsecuritylake-actions-as-permissions") in the
 _Service Authorization Reference_.
 
-To view examples of Security Lake identity-based policies, see [Identity-based policy examples for
-Security Lake](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of Security Lake identity-based policies, see [Identity-based policy examples for Security Lake](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Policy
-
-condition keys for Security Lake
+## Policy condition keys for Security Lake
 
 **Supports service-specific policy condition keys:**
 
@@ -217,12 +204,9 @@ For a list of Security Lake condition keys, see [Condition keys for Amazon Secur
 _Service Authorization Reference_. To learn which actions and resources you can
 use a condition key with, see [Actions defined by Amazon Security Lake](../../../IAM/latest/UserGuide/list_amazonsecuritylake.md#amazonsecuritylake-actions-as-permissions "../../../IAM/latest/UserGuide/list_amazonsecuritylake.md#amazonsecuritylake-actions-as-permissions") in the
 _Service Authorization Reference_. For examples of policies that use condition
-keys, see [Identity-based policy examples for
-Security Lake](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+keys, see [Identity-based policy examples for Security Lake](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Access control lists (ACLs) in
-
-Security Lake
+## Access control lists (ACLs) in Security Lake
 
 **Supports ACLs:**
 
@@ -234,9 +218,7 @@ similar to resource-based policies, although they do not use the JSON policy doc
 Security Lake doesn't support ACLs, which means you can't attach an ACL to a Security Lake
 resource.
 
-## Attribute-based access control
-
-(ABAC) with Security Lake
+## Attribute-based access control (ABAC) with Security Lake
 
 **Supports ABAC (tags in policies):**
 
@@ -259,12 +241,9 @@ access to these types of resources by providing tag information in the
 `Condition` element of a policy. For information about tagging Security Lake
 resources, see [Tagging Security Lake resources](tagging-resources.md "tagging-resources.md").
 For an example of an identity-based policy that controls access to a resource based on
-the tags for that resource, see [Identity-based policy examples for
-Security Lake](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+the tags for that resource, see [Identity-based policy examples for Security Lake](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
-## Using temporary
-
-credentials with Security Lake
+## Using temporary credentials with Security Lake
 
 **Supports temporary credentials:**
 
@@ -278,9 +257,7 @@ that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-wo
 
 Security Lake supports the use of temporary credentials.
 
-## Forward access
-
-sessions for Security Lake
+## Forward access sessions for Security Lake
 
 **Supports forward access sessions (FAS):**
 
@@ -293,9 +270,7 @@ Some Security Lake actions require permissions for additional, dependent actions
 AWS services. For a list of these actions, see [Actions defined by Amazon Security Lake](../../../IAM/latest/UserGuide/list_amazonsecuritylake.md#amazonsecuritylake-actions-as-permissions "../../../IAM/latest/UserGuide/list_amazonsecuritylake.md#amazonsecuritylake-actions-as-permissions") in the
 _Service Authorization Reference_.
 
-## Service roles for
-
-Security Lake
+## Service roles for Security Lake
 
 **Supports service roles:**
 
@@ -315,9 +290,7 @@ Changing the permissions for a service role may create operational issues with
 your use of Security Lake. Edit service roles only when Security Lake provides guidance to do
 so.
 
-## Service-linked
-
-roles for Security Lake
+## Service-linked roles for Security Lake
 
 **Supports service-linked roles:**
 
@@ -335,5 +308,4 @@ predefined by Security Lake, and it includes all the permissions that Security L
 call other AWS services on your behalf. Security Lake uses this service-linked role in all
 the AWS Regions where Security Lake is available.
 
-For details about creating or managing the Security Lake service-linked role, see [Using service-linked roles for
-Security Lake](using-service-linked-roles.md "using-service-linked-roles.md").
+For details about creating or managing the Security Lake service-linked role, see [Using service-linked roles for Security Lake](using-service-linked-roles.md "using-service-linked-roles.md").

@@ -9,8 +9,7 @@ notifications or take actions when those thresholds are met.
 
 - [Security Lake metrics and dimensions](#available-securitylake-metrics "#available-securitylake-metrics")
 - [Viewing CloudWatch metrics for Security Lake](#view-securitylake-metrics "#view-securitylake-metrics")
-- [Setting CloudWatch alarms for Security Lake
-  metrics](#securitylake-alarm-metrics "#securitylake-alarm-metrics")
+- [Setting CloudWatch alarms for Security Lake metrics](#securitylake-alarm-metrics "#securitylake-alarm-metrics")
 
 ## Security Lake metrics and dimensions
 
@@ -65,9 +64,7 @@ To access Security Lake metrics using the AWS CLI, run the [`get-metric-statisti
 For more information about monitoring using metrics, see [Use Amazon CloudWatch
 metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") in the _Amazon CloudWatch User Guide_.
 
-## Setting CloudWatch alarms for Security Lake
-
-metrics
+## Setting CloudWatch alarms for Security Lake metrics
 
 CloudWatch also allows you to set alarms when a threshold is met for a metric. For example,
 you could set an alarm for the **ProcessedSize** metric, so that you're notified

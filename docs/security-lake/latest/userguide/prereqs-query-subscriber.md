@@ -1,6 +1,4 @@
-# Prerequisites to create a subscriber with
-
-query access in Security Lake
+# Prerequisites to create a subscriber with query access in Security Lake
 
 You must complete the following prerequisites before you can create a subscriber with
 data access in Security Lake.
@@ -34,15 +32,12 @@ subscriber with query access.
 After you have verified the permissions:
 
 - If you plan to use Security Lake console to add a subscriber with query access, you can skip the
-  next step and proceed to [Grant Lake Formation administrator
-  permissions](#permissions-lf-admin "#permissions-lf-admin").
+  next step and proceed to [Grant Lake Formation administrator permissions](#permissions-lf-admin "#permissions-lf-admin").
   Security Lake creates all the necessary IAM roles or uses existing roles on your behalf.
 - If you plan to use Security Lake API or CLI to add a subscriber with query access, continue
   with the next step to create an IAM role to query Security Lake data.
 
-## Create IAM role to query Security Lake
-
-data (API and AWS CLI-only step)
+## Create IAM role to query Security Lake data (API and AWS CLI-only step)
 
 When using Security Lake API or AWS CLI to grant query access to a subscriber, you'll need to create a role named
 `AmazonSecurityLakeMetaStoreManager`. Security Lake uses this role to
@@ -50,9 +45,7 @@ register AWS Glue partitions and update AWS Glue tables. You may have already cr
 this role while [Create necessary IAM
 roles](getting-started.md#prerequisite-iam-roles "getting-started.md#prerequisite-iam-roles").
 
-## Grant Lake Formation administrator
-
-permissions
+## Grant Lake Formation administrator permissions
 
 You'll also need to add Lake Formation administrator permissions to the IAM role that you
 use to access the Security Lake console and add subscribers.

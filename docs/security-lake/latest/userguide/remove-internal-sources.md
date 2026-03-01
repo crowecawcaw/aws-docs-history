@@ -1,6 +1,4 @@
-# Removing an AWS service as a source from
-
-Security Lake
+# Removing an AWS service as a source from Security Lake
 
 Choose your access method, and follow these steps to remove a natively-supported
 AWS service as a Security Lake source. You can remove a source for one or more Regions. When

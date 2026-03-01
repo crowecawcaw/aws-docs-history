@@ -40,9 +40,7 @@ Review the following considerations when managing data retention in Security Lak
 - While retention settings are applied only to the data stored in the S3 bucket,
   Apache Iceberg metadata is excluded from the retention policy.
 
-### Configuring retention settings when
-
-enabling Security Lake
+### Configuring retention settings when enabling Security Lake
 
 Follow these instructions to configure retention settings for one or more Regions
 when you're onboarding to Security Lake.

@@ -5,8 +5,7 @@ AWS CLI. Third-party subscribers can also query Lake Formation data from the sou
 
 The Lake Formation data lake administrator must grant `SELECT` permissions on the relevant databases and
 tables to the IAM identity that queries the data. A subscriber must also be created in Security Lake before it can query
-data. For more information about how to create a subscriber with query access, see [Managing query access for Security Lake
-subscribers](subscriber-query-access.md "subscriber-query-access.md").
+data. For more information about how to create a subscriber with query access, see [Managing query access for Security Lake subscribers](subscriber-query-access.md "subscriber-query-access.md").
 
 **Querying data with retention settings**
 

@@ -1,6 +1,4 @@
-# Identity-based policy examples for
-
-Security Lake
+# Identity-based policy examples for Security Lake
 
 By default, users and roles don't have permission to create or modify Security Lake
 resources. To grant users permission to perform actions on the
@@ -14,21 +12,13 @@ For details about actions and resource types defined by Security Lake, including
 
 ###### Topics
 
-- [Policy best
-  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
-- [Using the Security Lake
-  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
-- [Example:
-  Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
-- [Example: Allow the
-  organization management account to designate and remove a delegated
-  administrator](#security_iam_id-based-policy-examples-orgs "#security_iam_id-based-policy-examples-orgs")
-- [Example:
-  Allow users to review subscribers based on tags](#security_iam_id-based-policy-examples-review-subscribers-tags "#security_iam_id-based-policy-examples-review-subscribers-tags")
+- [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the Security Lake console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Example: Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+- [Example: Allow the organization management account to designate and remove a delegated administrator](#security_iam_id-based-policy-examples-orgs "#security_iam_id-based-policy-examples-orgs")
+- [Example: Allow users to review subscribers based on tags](#security_iam_id-based-policy-examples-review-subscribers-tags "#security_iam_id-based-policy-examples-review-subscribers-tags")
 
-## Policy best
-
-practices
+## Policy best practices
 
 Identity-based policies determine whether someone can create, access, or delete Security Lake resources in your
 account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
@@ -61,9 +51,7 @@ recommendations:
 
 For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 
-## Using the Security Lake
-
-console
+## Using the Security Lake console
 
 To access the Amazon Security Lake console, you must have a minimum set of permissions.
 These permissions must allow you to list and view details about the Security Lake resources
@@ -99,9 +87,7 @@ perform these actions:
 - `s3:ListBucket`
 - `s3:PutObject`
 
-## Example:
-
-Allow users to view their own permissions
+## Example: Allow users to view their own permissions
 
 This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
 identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
@@ -141,10 +127,7 @@ identity. This policy includes permissions to complete this action on the consol
 }
 ```
 
-## Example: Allow the
-
-organization management account to designate and remove a delegated
-administrator
+## Example: Allow the organization management account to designate and remove a delegated administrator
 
 This example shows how you might create a policy that allows a user of an
 AWS Organizations management account to designate and remove the delegated Security Lake administrator for their organization.
@@ -168,9 +151,7 @@ JSON
 
 ```
 
-## Example:
-
-Allow users to review subscribers based on tags
+## Example: Allow users to review subscribers based on tags
 
 In identity-based policies, you can use conditions to control access to Security Lake
 resources based on tags. This example shows how you might create a policy that allows a

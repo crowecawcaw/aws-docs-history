@@ -232,9 +232,7 @@ You can also add a rollup Region when you onboard to Security Lake. To do
 this, use the [CreateDataLake](../APIReference/API_CreateDataLake.md "../APIReference/API_CreateDataLake.md") operation (or, if using the AWS CLI, the
 [create-data-lake](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securitylake/update-data-lake.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securitylake/update-data-lake.html") command). For more information about configuring rollup Regions during onboarding, see [Getting started with Amazon Security Lake](getting-started.md "getting-started.md").
 
-## Updating or removing rollup
-
-Regions
+## Updating or removing rollup Regions
 
 Choose your preferred access method, and follow these steps to update or remove
 rollup Regions in Security Lake.

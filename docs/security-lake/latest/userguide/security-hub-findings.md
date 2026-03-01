@@ -18,9 +18,7 @@ AWS Security Hub CSPM](../../../securityhub/latest/userguide/securityhub-finding
 The following list provides GitHub repository links to the mapping reference for how
 Security Lake normalizes Security Hub CSPM findings to OCSF.
 
-###### \*\*GitHub OCSF repository for Security Hub CSPM
-
-findings\*\*
+###### **GitHub OCSF repository for Security Hub CSPM findings**
 
 - Source version 1 [(v1.0.0-rc.2)](https://github.com/ocsf/examples/tree/main/mappings/markdown/AWS/v1.0.0-rc.2/Security%20Hub "https://github.com/ocsf/examples/tree/main/mappings/markdown/AWS/v1.0.0-rc.2/Security%20Hub")
 - Source version 2 [(v1.1.0)](https://github.com/ocsf/examples/tree/main/mappings/markdown/AWS/v1.1.0/Security%20Hub "https://github.com/ocsf/examples/tree/main/mappings/markdown/AWS/v1.1.0/Security%20Hub")
