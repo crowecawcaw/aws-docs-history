@@ -1,6 +1,4 @@
-# GAMEREL03-BP03 Monitor infrastructure events over time to
-
-measure impact on player behavior
+# GAMEREL03-BP03 Monitor infrastructure events over time to measure impact on player behavior
 
 Monitor your game server process, game server instance metrics,
 and game experience metrics to determine the root cause of issues.

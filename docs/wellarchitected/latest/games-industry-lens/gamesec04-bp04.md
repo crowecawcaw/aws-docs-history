@@ -1,6 +1,4 @@
-# GAMESEC04-BP04 Restrict access to content with digital rights
-
-management (DRM) solutions
+# GAMESEC04-BP04 Restrict access to content with digital rights management (DRM) solutions
 
 Consider restricting access to your game content by using strong
 encryption tools such as a

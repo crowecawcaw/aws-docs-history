@@ -1,6 +1,4 @@
-# GAMEREL01-BP01 Distribute game infrastructure across multiple
-
-Availability Zones and Regions to improve resiliency
+# GAMEREL01-BP01 Distribute game infrastructure across multiple Availability Zones and Regions to improve resiliency
 
 To minimize the impact of localized infrastructure impairments on
 your players, you should distribute your infrastructure deployment

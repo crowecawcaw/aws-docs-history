@@ -1,6 +1,4 @@
-# GAMEPERF07-BP02 Run a separate matchmaking service for each
-
-gameplay mode and game hosting Region
+# GAMEPERF07-BP02 Run a separate matchmaking service for each gameplay mode and game hosting Region
 
 If your game offers multiple gameplay modes for players to choose
 from, you should separate the matchmaking systems for each of them

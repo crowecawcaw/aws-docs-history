@@ -1,6 +1,4 @@
-# GAMESEC01-BP02 Use AWS Control Tower to quickly set up a
-
-multi-account environment on AWS
+# GAMESEC01-BP02 Use AWS Control Tower to quickly set up a multi-account environment on AWS
 
 If you start using AWS with just a single account, you might find
 your game studio growing out of it as your game development

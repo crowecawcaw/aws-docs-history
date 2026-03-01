@@ -19,5 +19,4 @@ the proper tools and automation can deliver safe and secure games.
 
 ###### Best practices
 
-- [GAMESEC09-BP01 Integrate tooling and automation to reduce the
-  mean time of security reviews](gamesec09-bp01.md "gamesec09-bp01.md")
+- [GAMESEC09-BP01 Integrate tooling and automation to reduce the mean time of security reviews](gamesec09-bp01.md "gamesec09-bp01.md")

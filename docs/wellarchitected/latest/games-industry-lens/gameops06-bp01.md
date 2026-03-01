@@ -1,7 +1,4 @@
-# GAMEOPS06-BP01 Monitor key game metrics to identify player
-
-trends and patterns, and use the information to improve the
-game
+# GAMEOPS06-BP01 Monitor key game metrics to identify player trends and patterns, and use the information to improve the game
 
 In addition to game client system usage, app usage, exceptions,
 and crash data, capture game telemetry data that is sent to a game

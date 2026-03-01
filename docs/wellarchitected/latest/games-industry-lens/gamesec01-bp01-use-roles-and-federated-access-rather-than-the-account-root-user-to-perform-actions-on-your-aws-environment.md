@@ -1,6 +1,4 @@
-# GAMESEC01-BP01 Use roles and federated access, rather than the
-
-account root user, to perform actions on your AWS environment
+# GAMESEC01-BP01 Use roles and federated access, rather than the account root user, to perform actions on your AWS environment
 
 When you first create an AWS account, you begin with an identity
 known as the root user, which is accessed using the email address

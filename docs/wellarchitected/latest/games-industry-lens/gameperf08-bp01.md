@@ -1,6 +1,4 @@
-# GAMEPERF08-BP01 Inform and include the player in your
-
-process
+# GAMEPERF08-BP01 Inform and include the player in your process
 
 Provide an option to display in game metrics like latency, frames
 per second and dropped packets. Surface infrastructure issues and

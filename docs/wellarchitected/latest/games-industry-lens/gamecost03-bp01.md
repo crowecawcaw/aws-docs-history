@@ -1,6 +1,4 @@
-# GAMECOST03-BP01 Choose the appropriate type of storage for user
-
-generated content to reduce costs
+# GAMECOST03-BP01 Choose the appropriate type of storage for user generated content to reduce costs
 
 Each type of data generated and stored in your game has unique
 characteristics that you should consider when determining the right

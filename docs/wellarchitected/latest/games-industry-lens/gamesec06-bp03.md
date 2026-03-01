@@ -1,6 +1,4 @@
-# GAMESEC06-BP03 Use insights from system-level logs to
-
-continuously improve your infrastructure protection strategy
+# GAMESEC06-BP03 Use insights from system-level logs to continuously improve your infrastructure protection strategy
 
 Capture and store system-level logs from relevant services, such
 as [S3

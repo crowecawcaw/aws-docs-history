@@ -16,10 +16,6 @@ operations.
 
 ###### Best practices
 
-- [GAMESEC06-BP01 Use tools for detecting and responding to
-  threats to your infrastructure](gamesec06-bp01.md "gamesec06-bp01.md")
-- [GAMESEC06-BP02 Use artificial intelligence and machine learning
-  tools to automate aspects of your infrastructure protection
-  strategy](gamesec06-bp02.md "gamesec06-bp02.md")
-- [GAMESEC06-BP03 Use insights from system-level logs to
-  continuously improve your infrastructure protection strategy](gamesec06-bp03.md "gamesec06-bp03.md")
+- [GAMESEC06-BP01 Use tools for detecting and responding to threats to your infrastructure](gamesec06-bp01.md "gamesec06-bp01.md")
+- [GAMESEC06-BP02 Use artificial intelligence and machine learning tools to automate aspects of your infrastructure protection strategy](gamesec06-bp02.md "gamesec06-bp02.md")
+- [GAMESEC06-BP03 Use insights from system-level logs to continuously improve your infrastructure protection strategy](gamesec06-bp03.md "gamesec06-bp03.md")

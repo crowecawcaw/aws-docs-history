@@ -1,6 +1,4 @@
-# GAMEPERF05-BP01 Benchmark your game performance across multiple
-
-compute types
+# GAMEPERF05-BP01 Benchmark your game performance across multiple compute types
 
 For game server workloads, there is no singular approach to
 identifying the optimal compute solution for hosting your game

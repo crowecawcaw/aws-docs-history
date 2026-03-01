@@ -1,6 +1,4 @@
-# GAMECOST02-BP03 Select the appropriate compute pricing option
-
-to reduce costs
+# GAMECOST02-BP03 Select the appropriate compute pricing option to reduce costs
 
 Run performance tests of your game server software across a
 variety of instance types and compute options to determine which

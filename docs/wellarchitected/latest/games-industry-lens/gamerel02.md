@@ -13,7 +13,5 @@ capacity to accommodate fluctuations in player population.
 
 ###### Best practices
 
-- [GAMEREL02-BP01 Implement a scaling strategy that incorporates
-  the state of active player game sessions](gamerel02-bp01.md "gamerel02-bp01.md")
-- [GAMEREL02-BP02 Support the use of multiple EC2 instance types
-  for your game](gamerel02-bp02.md "gamerel02-bp02.md")
+- [GAMEREL02-BP01 Implement a scaling strategy that incorporates the state of active player game sessions](gamerel02-bp01.md "gamerel02-bp01.md")
+- [GAMEREL02-BP02 Support the use of multiple EC2 instance types for your game](gamerel02-bp02.md "gamerel02-bp02.md")

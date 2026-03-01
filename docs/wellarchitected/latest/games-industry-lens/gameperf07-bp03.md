@@ -1,6 +1,4 @@
-# GAMEPERF07-BP03 Regularly monitor matchmaking
-
-performance
+# GAMEPERF07-BP03 Regularly monitor matchmaking performance
 
 One of the most noticeable ways to optimize the performance of a
 game for players is to reduce the time that they must wait before

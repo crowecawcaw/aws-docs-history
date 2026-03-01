@@ -1,6 +1,4 @@
-# GAMESEC03-BP03 Use your game backend service to validate player
-
-requests to join a multiplayer game
+# GAMESEC03-BP03 Use your game backend service to validate player requests to join a multiplayer game
 
 Typically, in multiplayer games, a player will join a game session
 by selecting an option directly from a list of available sessions,

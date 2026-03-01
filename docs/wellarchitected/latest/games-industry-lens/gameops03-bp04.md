@@ -1,6 +1,4 @@
-# GAMEOPS03-BP04 Adopt a deployment strategy that minimizes
-
-impact to players
+# GAMEOPS03-BP04 Adopt a deployment strategy that minimizes impact to players
 
 Incorporate a deployment strategy for your game software and
 infrastructure that minimizes the amount of downtime that keeps

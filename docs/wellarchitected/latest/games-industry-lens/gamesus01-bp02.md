@@ -1,7 +1,4 @@
-# GAMESUS01-BP02 Use lifecycle policies or TTL expiration to
-
-delete unnecessary games user data, log files, or deprecated
-assets
+# GAMESUS01-BP02 Use lifecycle policies or TTL expiration to delete unnecessary games user data, log files, or deprecated assets
 
 You can use tags and data type to create lifecycle policies or TTL's
 to move data to archival storage or remove completely from the

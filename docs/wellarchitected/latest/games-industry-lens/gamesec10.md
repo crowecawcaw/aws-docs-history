@@ -14,6 +14,4 @@ not only in the initial design phase but as the game continues to grow and evolv
 
 ###### Best practices
 
-- [GAMESEC10-BP01 Determine when and how to complete threat
-  modeling exercises throughout your application development
-  lifecycle](gamesec10-bp01.md "gamesec10-bp01.md")
+- [GAMESEC10-BP01 Determine when and how to complete threat modeling exercises throughout your application development lifecycle](gamesec10-bp01.md "gamesec10-bp01.md")

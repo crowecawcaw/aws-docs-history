@@ -1,6 +1,4 @@
-# GAMESEC08-BP01 Apply security at every stage of the CI/CD
-
-pipeline
+# GAMESEC08-BP01 Apply security at every stage of the CI/CD pipeline
 
 Guardrails such as access controls, separation of duties, and
 audit trails provide protection against unauthorized access or

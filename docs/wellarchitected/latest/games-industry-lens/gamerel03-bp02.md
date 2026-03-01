@@ -1,6 +1,4 @@
-# GAMEREL03-BP02 Implement loose coupling of game features to
-
-handle failures with minimal impact to player experience
+# GAMEREL03-BP02 Implement loose coupling of game features to handle failures with minimal impact to player experience
 
 Decoupling components refers to the concept of designing server
 components so that they can operate as independently as possible.

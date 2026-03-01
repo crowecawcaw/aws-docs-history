@@ -1,6 +1,4 @@
-# GAMEOPS03-BP05 Pre-scale infrastructure required to support
-
-peak requirements
+# GAMEOPS03-BP05 Pre-scale infrastructure required to support peak requirements
 
 Scale infrastructure ahead of large-scale game events to make sure
 that you can handle the sudden increase in player demand.

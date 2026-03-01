@@ -1,6 +1,4 @@
-# GAMEOPS02-BP02 Organize infrastructure resources using resource
-
-tagging
+# GAMEOPS02-BP02 Organize infrastructure resources using resource tagging
 
 To effectively manage and track your
 [infrastructure

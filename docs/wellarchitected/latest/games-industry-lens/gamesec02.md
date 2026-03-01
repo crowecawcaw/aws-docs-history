@@ -19,8 +19,7 @@ foster a level playing field for participants.
 
 ###### Best practices
 
-- [GAMESEC02-BP01 Use ready to deploy templates for standard
-  security practices](gamesec02-bp01.md "gamesec02-bp01.md")
+- [GAMESEC02-BP01 Use ready to deploy templates for standard security practices](gamesec02-bp01.md "gamesec02-bp01.md")
 - [GAMESEC02-BP02 Use automated remediation techniques when a security event does arise](#gamesec02-bp02 "#gamesec02-bp02")
 
 ## GAMESEC02-BP02 Use automated remediation techniques when a security event does arise

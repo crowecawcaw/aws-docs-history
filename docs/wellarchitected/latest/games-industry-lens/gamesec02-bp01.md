@@ -1,6 +1,4 @@
-# GAMESEC02-BP01 Use ready to deploy templates for standard
-
-security practices
+# GAMESEC02-BP01 Use ready to deploy templates for standard security practices
 
 Ready-to-deploy templates provide a proactive and agile way to assess your security posture
 in the cloud. Pre-configured templates evaluate your cloud security and implement necessary

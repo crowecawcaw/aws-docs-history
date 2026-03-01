@@ -1,6 +1,4 @@
-# GAMESEC03-BP04 Enforce a strict security policy for player user
-
-accounts by requiring a strong password
+# GAMESEC03-BP04 Enforce a strict security policy for player user accounts by requiring a strong password
 
 If a game provides players with the ability to create a user
 account with a password, you should require players' passwords to

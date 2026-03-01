@@ -10,5 +10,4 @@ with business stakeholders.
 
 ###### Best practices
 
-- [GAMEOPS01-BP01 Use game objectives and business performance
-  metrics to develop your live operations strategy](gameops01-bp01.md "gameops01-bp01.md")
+- [GAMEOPS01-BP01 Use game objectives and business performance metrics to develop your live operations strategy](gameops01-bp01.md "gameops01-bp01.md")

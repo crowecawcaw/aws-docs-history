@@ -1,6 +1,4 @@
-# GAMEPERF08-BP02 Align solution selection with engineering team
-
-skills and expertise
+# GAMEPERF08-BP02 Align solution selection with engineering team skills and expertise
 
 Assess your team's skills and expertise in managing and optimizing
 game server performance when choosing your hosting option.

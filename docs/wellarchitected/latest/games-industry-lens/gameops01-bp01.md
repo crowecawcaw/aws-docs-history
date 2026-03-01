@@ -1,6 +1,4 @@
-# GAMEOPS01-BP01 Use game objectives and business performance
-
-metrics to develop your live operations strategy
+# GAMEOPS01-BP01 Use game objectives and business performance metrics to develop your live operations strategy
 
 Consult business stakeholders, such as game producers and publishing
 partners, to determine objectives and performance metrics for a

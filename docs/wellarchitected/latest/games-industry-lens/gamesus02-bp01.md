@@ -1,6 +1,4 @@
-# GAMESUS02-BP01 Select managed services for appropriate compute
-
-workloads
+# GAMESUS02-BP01 Select managed services for appropriate compute workloads
 
 Architect your game backend services to use managed services for
 event driven or highly variable traffic workloads. Managed services

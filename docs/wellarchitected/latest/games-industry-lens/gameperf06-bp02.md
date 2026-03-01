@@ -1,6 +1,4 @@
-# GAMEPERF06-BP02 Categorize and store game data based on access
-
-patterns
+# GAMEPERF06-BP02 Categorize and store game data based on access patterns
 
 Categorize your game data into different types based on their
 access patterns and storage requirements.

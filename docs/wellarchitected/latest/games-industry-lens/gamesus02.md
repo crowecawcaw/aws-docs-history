@@ -12,7 +12,5 @@ number of unneeded resources.
 
 ###### Best practices
 
-- [GAMESUS02-BP01 Select managed services for appropriate compute
-  workloads](gamesus02-bp01.md "gamesus02-bp01.md")
-- [GAMESUS02-BP02 Right-size your compute and deploy GPU
-  performance only where needed](gamesus02-bp02.md "gamesus02-bp02.md")
+- [GAMESUS02-BP01 Select managed services for appropriate compute workloads](gamesus02-bp01.md "gamesus02-bp01.md")
+- [GAMESUS02-BP02 Right-size your compute and deploy GPU performance only where needed](gamesus02-bp02.md "gamesus02-bp02.md")

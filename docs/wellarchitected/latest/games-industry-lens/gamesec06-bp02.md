@@ -1,7 +1,4 @@
-# GAMESEC06-BP02 Use artificial intelligence and machine learning
-
-tools to automate aspects of your infrastructure protection
-strategy
+# GAMESEC06-BP02 Use artificial intelligence and machine learning tools to automate aspects of your infrastructure protection strategy
 
 [Amazon
 Lookout for Metrics](https://aws.amazon.com/lookout-for-metrics/ "https://aws.amazon.com/lookout-for-metrics/") uses machine learning to automatically

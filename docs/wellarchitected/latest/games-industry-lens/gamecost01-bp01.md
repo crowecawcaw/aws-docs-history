@@ -1,6 +1,4 @@
-# GAMECOST01-BP01 Implement attribution of cost per player, game
-
-feature, and environment
+# GAMECOST01-BP01 Implement attribution of cost per player, game feature, and environment
 
 Cost attribution for game servers is usually simpler to perform than
 game backend services because a game server is usually optimized to

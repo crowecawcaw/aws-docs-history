@@ -1,6 +1,4 @@
-# GAMEOPS02-BP01 Adopt a multi-account strategy to isolate
-
-different games and applications into their own accounts
+# GAMEOPS02-BP01 Adopt a multi-account strategy to isolate different games and applications into their own accounts
 
 Design an account structure that would guide the infrastructure
 deployment to comply to each environment's security, isolation, and

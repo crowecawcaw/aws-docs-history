@@ -23,13 +23,8 @@ appropriate access to iterate quickly on their projects.
 
 ###### Best practices
 
-- [GAMESEC01-BP01 Use roles and federated access, rather than the
-  account root user, to perform actions on your AWS environment](gamesec01-bp01-use-roles-and-federated-access-rather-than-the-account-root-user-to-perform-actions-on-your-aws-environment.md "gamesec01-bp01-use-roles-and-federated-access-rather-than-the-account-root-user-to-perform-actions-on-your-aws-environment.md")
-- [GAMESEC01-BP02 Use AWS Control Tower to quickly set up a
-  multi-account environment on AWS](gamesec01-bp02-use-aws-control-tower-to-quickly-set-up-a-multi-account-environment-on-aws.md "gamesec01-bp02-use-aws-control-tower-to-quickly-set-up-a-multi-account-environment-on-aws.md")
-- [GAMESEC01-BP03 Use least privilege role policies that are tailored to specific job
-  functions](gamesec01-bp03-use-least-privilege-role-policies-that-are-tailored-to-specific-job-functions.md "gamesec01-bp03-use-least-privilege-role-policies-that-are-tailored-to-specific-job-functions.md")
-- [GAMESEC01-BP04 Use roles and federated access policies together
-  with account level access policies to grant access to your AWS
-  resources](gamesec01-bp04.md "gamesec01-bp04.md")
+- [GAMESEC01-BP01 Use roles and federated access, rather than the account root user, to perform actions on your AWS environment](gamesec01-bp01-use-roles-and-federated-access-rather-than-the-account-root-user-to-perform-actions-on-your-aws-environment.md "gamesec01-bp01-use-roles-and-federated-access-rather-than-the-account-root-user-to-perform-actions-on-your-aws-environment.md")
+- [GAMESEC01-BP02 Use AWS Control Tower to quickly set up a multi-account environment on AWS](gamesec01-bp02-use-aws-control-tower-to-quickly-set-up-a-multi-account-environment-on-aws.md "gamesec01-bp02-use-aws-control-tower-to-quickly-set-up-a-multi-account-environment-on-aws.md")
+- [GAMESEC01-BP03 Use least privilege role policies that are tailored to specific job functions](gamesec01-bp03-use-least-privilege-role-policies-that-are-tailored-to-specific-job-functions.md "gamesec01-bp03-use-least-privilege-role-policies-that-are-tailored-to-specific-job-functions.md")
+- [GAMESEC01-BP04 Use roles and federated access policies together with account level access policies to grant access to your AWS resources](gamesec01-bp04.md "gamesec01-bp04.md")
 - [GAMESEC01-BP05 Use a central identity provider](gamesec01-bp05.md "gamesec01-bp05.md")

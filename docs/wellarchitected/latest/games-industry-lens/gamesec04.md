@@ -13,11 +13,7 @@ played. Regardless of a game's system, protect the game's content from unauthori
 
 ###### Best practices
 
-- [GAMESEC04-BP01 Restrict access of downloadable content to
-  authorized clients and users](gamesec04-bp01.md "gamesec04-bp01.md")
-- [GAMESEC04-BP02 Limit origin access to authorized content
-  delivery networks (CDNs)](gamesec04-bp02.md "gamesec04-bp02.md")
-- [GAMESEC04-BP03 Implement geographic restrictions to limit
-  unauthorized access](gamesec04-bp03.md "gamesec04-bp03.md")
-- [GAMESEC04-BP04 Restrict access to content with digital rights
-  management (DRM) solutions](gamesec04-bp04.md "gamesec04-bp04.md")
+- [GAMESEC04-BP01 Restrict access of downloadable content to authorized clients and users](gamesec04-bp01.md "gamesec04-bp01.md")
+- [GAMESEC04-BP02 Limit origin access to authorized content delivery networks (CDNs)](gamesec04-bp02.md "gamesec04-bp02.md")
+- [GAMESEC04-BP03 Implement geographic restrictions to limit unauthorized access](gamesec04-bp03.md "gamesec04-bp03.md")
+- [GAMESEC04-BP04 Restrict access to content with digital rights management (DRM) solutions](gamesec04-bp04.md "gamesec04-bp04.md")

@@ -76,7 +76,7 @@ in Amazon S3.
   flexible analytics tools.
 - **Interactive analytics:** End
   users can use Amazon Athena to perform ad-hoc interactive
-  queries on the datasets stored in Amazon S3, and Quick Suite can be used to build dashboards.
+  queries on the datasets stored in Amazon S3, and Quick can be used to build dashboards.
 
 Refer to the
 [Game

@@ -1,6 +1,4 @@
-# GAMEPERF04-BP01 Monitor game server processes to detect
-
-issues
+# GAMEPERF04-BP01 Monitor game server processes to detect issues
 
 You might run multiple game server processes per instance to
 efficiently utilize the resources on your game server instances.

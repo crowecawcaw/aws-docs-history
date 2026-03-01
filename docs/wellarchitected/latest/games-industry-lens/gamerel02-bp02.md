@@ -1,6 +1,4 @@
-# GAMEREL02-BP02 Support the use of multiple EC2 instance types
-
-for your game
+# GAMEREL02-BP02 Support the use of multiple EC2 instance types for your game
 
 When hosting your game using EC2 instances, or if you use
 containers hosted on EC2 instances in your AWS account, use

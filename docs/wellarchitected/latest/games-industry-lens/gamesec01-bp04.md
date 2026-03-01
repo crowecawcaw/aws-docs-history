@@ -1,7 +1,4 @@
-# GAMESEC01-BP04 Use roles and federated access policies together
-
-with account level access policies to grant access to your AWS
-resources
+# GAMESEC01-BP04 Use roles and federated access policies together with account level access policies to grant access to your AWS resources
 
 New AWS users often use IAM policies only when granting access to
 others. However, if you are using AWS Organizations, consider how

@@ -1,6 +1,4 @@
-# GAMEPERF06-BP03 Enable efficient log formatting and
-
-batching
+# GAMEPERF06-BP03 Enable efficient log formatting and batching
 
 Configure your game server processes to generate logs in a structured and in a format that
 can be parsed, such as JSON.

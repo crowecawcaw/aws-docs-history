@@ -13,5 +13,4 @@ focus.
 
 ###### Best practices
 
-- [GAMEREL01-BP01 Distribute game infrastructure across multiple
-  Availability Zones and Regions to improve resiliency](gamerel01-bp01.md "gamerel01-bp01.md")
+- [GAMEREL01-BP01 Distribute game infrastructure across multiple Availability Zones and Regions to improve resiliency](gamerel01-bp01.md "gamerel01-bp01.md")

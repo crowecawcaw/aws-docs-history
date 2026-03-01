@@ -14,8 +14,6 @@ integration.
 
 ###### Best practices
 
-- [GAMEPERF01-BP01 Evaluate game server resource requirements and
-  scalability needs](gameperf01-bp01.md "gameperf01-bp01.md")
-- [GAMEPERF01-BP02 Consider operational overhead for scaling game
-  servers](gameperf01-bp02.md "gameperf01-bp02.md")
+- [GAMEPERF01-BP01 Evaluate game server resource requirements and scalability needs](gameperf01-bp01.md "gameperf01-bp01.md")
+- [GAMEPERF01-BP02 Consider operational overhead for scaling game servers](gameperf01-bp02.md "gameperf01-bp02.md")
 - [GAMEPERF01-BP03 Evaluate integration with other AWS services, development environments, target CPU architectures, and features](gameperf01-bp03.md "gameperf01-bp03.md")

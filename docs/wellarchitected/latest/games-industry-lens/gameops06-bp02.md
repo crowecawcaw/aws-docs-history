@@ -1,6 +1,4 @@
-# GAMEOPS06-BP02 Update and adapt the load testing approach as
-
-the game changes
+# GAMEOPS06-BP02 Update and adapt the load testing approach as the game changes
 
 Optimizing the load testing approach is a continuous process that
 should evolve alongside the game development cycle. As the game

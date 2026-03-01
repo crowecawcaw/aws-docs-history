@@ -15,5 +15,4 @@ and development goals.
 
 ###### Best practices
 
-- [GAMEOPS05-BP01 Choose the right stage, architecture, and load
-  testing framework to meet your goals](gameops05-bp01.md "gameops05-bp01.md")
+- [GAMEOPS05-BP01 Choose the right stage, architecture, and load testing framework to meet your goals](gameops05-bp01.md "gameops05-bp01.md")

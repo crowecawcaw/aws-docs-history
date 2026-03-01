@@ -1,6 +1,4 @@
-# GAMESEC09-BP01 Integrate tooling and automation to reduce the
-
-mean time of security reviews
+# GAMESEC09-BP01 Integrate tooling and automation to reduce the mean time of security reviews
 
 To identify security vulnerabilities, organizations can use a variety of different tools
 and services like Static Application Security Testing (SAST) and Dynamic Application Security

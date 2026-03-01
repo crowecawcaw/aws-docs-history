@@ -22,5 +22,4 @@ coding practices.
 
 ###### Best practices
 
-- [GAMESEC08-BP01 Apply security at every stage of the CI/CD
-  pipeline](gamesec08-bp01.md "gamesec08-bp01.md")
+- [GAMESEC08-BP01 Apply security at every stage of the CI/CD pipeline](gamesec08-bp01.md "gamesec08-bp01.md")

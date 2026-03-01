@@ -1,6 +1,4 @@
-# GAMESUS02-BP02 Right-size your compute and deploy GPU
-
-performance only where needed
+# GAMESUS02-BP02 Right-size your compute and deploy GPU performance only where needed
 
 Architect your game servers and backend to efficiently utilize
 compute resources. Over-provisioning compute can lead to unnecessary

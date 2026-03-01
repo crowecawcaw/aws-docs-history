@@ -1,6 +1,4 @@
-# GAMECOST02-BP02 Optimize the number of game sessions hosted on
-
-each game server instance to optimize costs
+# GAMECOST02-BP02 Optimize the number of game sessions hosted on each game server instance to optimize costs
 
 Optimize the number of game sessions hosted per server instance to
 achieve better compute utilization and reduce compute infrastructure

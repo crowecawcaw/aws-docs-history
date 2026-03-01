@@ -1,6 +1,4 @@
-# GAMEPERF03-BP01 Use Amazon GameLift Anywhere and a GameLift
-
-testing toolkit
+# GAMEPERF03-BP01 Use Amazon GameLift Anywhere and a GameLift testing toolkit
 
 To enhance performance efficiency through an iterative development
 process, utilize Amazon GameLift Anywhere along with the Amazon

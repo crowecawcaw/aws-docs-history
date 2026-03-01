@@ -23,6 +23,5 @@ consider the following best practices:
 
 ###### Best practices
 
-- [GAMECOST03-BP01 Choose the appropriate type of storage for user
-  generated content to reduce costs](gamecost03-bp01.md "gamecost03-bp01.md")
+- [GAMECOST03-BP01 Choose the appropriate type of storage for user generated content to reduce costs](gamecost03-bp01.md "gamecost03-bp01.md")
 - [GAMECOST03-BP02 Optimize databases for game backends](gamecost03-bp02.md "gamecost03-bp02.md")

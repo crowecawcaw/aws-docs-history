@@ -1,6 +1,4 @@
-# GAMEPERF07-BP05 Use network acceleration technology to improve
-
-performance across the internet
+# GAMEPERF07-BP05 Use network acceleration technology to improve performance across the internet
 
 In addition to physically placing latency-sensitive game
 infrastructure closer to players, you can also improve the player

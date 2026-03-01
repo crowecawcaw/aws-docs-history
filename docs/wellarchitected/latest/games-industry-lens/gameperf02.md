@@ -16,8 +16,5 @@ to host your game.
 
 ###### Best practices
 
-- [GAMEPERF02-BP01 Select a home Region that is near your
-  players](gameperf02-bp01.md "gameperf02-bp01.md")
-- [GAMEPERF02-BP02 Design an approach that supports placing
-  latency-sensitive game infrastructure close to players to improve
-  performance](gameperf02-bp02.md "gameperf02-bp02.md")
+- [GAMEPERF02-BP01 Select a home Region that is near your players](gameperf02-bp01.md "gameperf02-bp01.md")
+- [GAMEPERF02-BP02 Design an approach that supports placing latency-sensitive game infrastructure close to players to improve performance](gameperf02-bp02.md "gameperf02-bp02.md")

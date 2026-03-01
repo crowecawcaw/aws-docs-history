@@ -1,7 +1,4 @@
-# GAMEPERF02-BP02 Design an approach that supports placing
-
-latency-sensitive game infrastructure close to players to improve
-performance
+# GAMEPERF02-BP02 Design an approach that supports placing latency-sensitive game infrastructure close to players to improve performance
 
 Separate placement for latency sensitive infrastructure like game
 servers minimizes the impact of long network routes. Repeatable

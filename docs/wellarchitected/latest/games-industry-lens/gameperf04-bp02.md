@@ -1,6 +1,4 @@
-# GAMEPERF04-BP02 Performance test your game server with
-
-simulated and real gameplay scenarios
+# GAMEPERF04-BP02 Performance test your game server with simulated and real gameplay scenarios
 
 Conduct performance testing and evaluate various
 gameplay scenarios to determine whether the game server process

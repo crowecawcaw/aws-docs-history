@@ -13,8 +13,5 @@ optimal performance and player experience as your game evolves.
 
 ###### Best practices
 
-- [GAMEOPS06-BP01 Monitor key game metrics to identify player
-  trends and patterns, and use the information to improve the
-  game](gameops06-bp01.md "gameops06-bp01.md")
-- [GAMEOPS06-BP02 Update and adapt the load testing approach as
-  the game changes](gameops06-bp02.md "gameops06-bp02.md")
+- [GAMEOPS06-BP01 Monitor key game metrics to identify player trends and patterns, and use the information to improve the game](gameops06-bp01.md "gameops06-bp01.md")
+- [GAMEOPS06-BP02 Update and adapt the load testing approach as the game changes](gameops06-bp02.md "gameops06-bp02.md")

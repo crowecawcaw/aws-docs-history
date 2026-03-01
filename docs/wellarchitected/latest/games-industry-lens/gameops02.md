@@ -12,7 +12,5 @@ policies and tagging on deployed resources. 
 
 ###### Best practices
 
-- [GAMEOPS02-BP01 Adopt a multi-account strategy to isolate
-  different games and applications into their own accounts](gameops02-bp01.md "gameops02-bp01.md")
-- [GAMEOPS02-BP02 Organize infrastructure resources using resource
-  tagging](gameops02-bp02.md "gameops02-bp02.md")
+- [GAMEOPS02-BP01 Adopt a multi-account strategy to isolate different games and applications into their own accounts](gameops02-bp01.md "gameops02-bp01.md")
+- [GAMEOPS02-BP02 Organize infrastructure resources using resource tagging](gameops02-bp02.md "gameops02-bp02.md")

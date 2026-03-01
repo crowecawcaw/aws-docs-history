@@ -1,6 +1,4 @@
-# GAMESEC05-BP01 Implement a comprehensive data collection
-
-strategy to monitor player behavior
+# GAMESEC05-BP01 Implement a comprehensive data collection strategy to monitor player behavior
 
 To maintain a positive player experience, implement a
 comprehensive data collection and analysis strategy. Capturing,

@@ -1,6 +1,4 @@
-# GAMESEC03-BP05 Provide an option for players to set up
-
-multi-factor authentication (MFA) on their accounts
+# GAMESEC03-BP05 Provide an option for players to set up multi-factor authentication (MFA) on their accounts
 
 Player accounts can be an asset to bad actors, particularly in
 games that support in-game currency and purchases. Due to the

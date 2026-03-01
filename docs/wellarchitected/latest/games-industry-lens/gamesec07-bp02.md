@@ -1,6 +1,4 @@
-# GAMESEC07-BP02 Ban accounts that are associated with bad
-
-actors
+# GAMESEC07-BP02 Ban accounts that are associated with bad actors
 
 If left unmitigated, abusive behaviors in a game can continue to
 have a negative impact on the gaming experience for others and

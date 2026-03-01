@@ -1,7 +1,4 @@
-# GAMESEC10-BP01 Determine when and how to complete threat
-
-modeling exercises throughout your application development
-lifecycle
+# GAMESEC10-BP01 Determine when and how to complete threat modeling exercises throughout your application development lifecycle
 
 There is no one single best way to approach threat modeling. Details for when and how to do this will vary based on the unique needs of your game studio. For example, depending on the size of your studio, you may have team members who are involved in one or multiple aspects of the threat modeling process.
 

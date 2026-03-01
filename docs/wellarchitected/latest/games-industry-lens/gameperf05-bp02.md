@@ -1,6 +1,4 @@
-# GAMEPERF05-BP02 Move non-latency-sensitive compute tasks to
-
-asynchronous workflows
+# GAMEPERF05-BP02 Move non-latency-sensitive compute tasks to asynchronous workflows
 
 When you are optimizing the performance for your game, it is
 important to keep in mind that only some of the interactions

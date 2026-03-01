@@ -1,6 +1,4 @@
-# GAMEPERF02-BP01 Select a home Region that is near your
-
-players
+# GAMEPERF02-BP01 Select a home Region that is near your players
 
 For an initial game launch, you should determine where to deploy
 infrastructure based on discussions with your business

@@ -1,6 +1,4 @@
-# GAMEOPS03-BP01 Validate and test your existing core game
-
-systems and infrastructure before reusing it in your game
+# GAMEOPS03-BP01 Validate and test your existing core game systems and infrastructure before reusing it in your game
 
 Organizations tend to reuse existing components and source code
 from previous games to save on development time and cost. These

@@ -13,7 +13,5 @@ significantly impact the player experience.
 
 ###### Best practices
 
-- [GAMESEC05-BP01 Implement a comprehensive data collection
-  strategy to monitor player behavior](gamesec05-bp01.md "gamesec05-bp01.md")
-- [GAMESEC05-BP02 Collect, store, and analyze player usage logs to
-  detect inappropriate behavior](gamsec05-bp02.md "gamsec05-bp02.md")
+- [GAMESEC05-BP01 Implement a comprehensive data collection strategy to monitor player behavior](gamesec05-bp01.md "gamesec05-bp01.md")
+- [GAMESEC05-BP02 Collect, store, and analyze player usage logs to detect inappropriate behavior](gamsec05-bp02.md "gamsec05-bp02.md")

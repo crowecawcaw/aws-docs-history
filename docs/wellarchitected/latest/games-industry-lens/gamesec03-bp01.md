@@ -1,6 +1,4 @@
-# GAMESEC03-BP01 Determine your approach to identify and control
-
-player access to your game's environment and resources
+# GAMESEC03-BP01 Determine your approach to identify and control player access to your game's environment and resources
 
 This decision is influenced by your player acquisition and
 monetization strategy, player experience, and other factors such

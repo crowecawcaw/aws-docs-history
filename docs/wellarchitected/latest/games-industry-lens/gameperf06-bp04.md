@@ -1,6 +1,4 @@
-# GAMEPERF06-BP04 Implement log rotation and retention
-
-policies
+# GAMEPERF06-BP04 Implement log rotation and retention policies
 
 Establish log rotation and retention policies to manage the growth
 of log data and optimize storage utilization.

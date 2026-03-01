@@ -1,6 +1,4 @@
-# GAMEPERF07-BP01 Define network latency thresholds for your
-
-game
+# GAMEPERF07-BP01 Define network latency thresholds for your game
 
 When developing a multiplayer game, verify that your game
 infrastructure does not introduce unnecessary latency for players.

@@ -1,6 +1,4 @@
-# GAMESEC07-BP01 Implement an incident response plan to handle
-
-bad actors and abusive behavior
+# GAMESEC07-BP01 Implement an incident response plan to handle bad actors and abusive behavior
 
 Create a plan of action for responding to bad actors and abusive
 behavior in your game.

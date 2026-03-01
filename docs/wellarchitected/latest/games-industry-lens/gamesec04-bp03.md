@@ -1,6 +1,4 @@
-# GAMESEC04-BP03 Implement geographic restrictions to limit
-
-unauthorized access
+# GAMESEC04-BP03 Implement geographic restrictions to limit unauthorized access
 
 When a player requests your content, Amazon CloudFront serves the
 requested content from the nearest edge location, regardless of

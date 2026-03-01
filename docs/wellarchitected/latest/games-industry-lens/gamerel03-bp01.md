@@ -1,7 +1,4 @@
-# GAMEREL03-BP01 Monitor game server disruptions, and use the
-
-data to improve hosting architecture to achieve reliability
-goals
+# GAMEREL03-BP01 Monitor game server disruptions, and use the data to improve hosting architecture to achieve reliability goals
 
 Monitor game server metrics and the impact of failures or
 degradations in performance, such as increased latency under load,

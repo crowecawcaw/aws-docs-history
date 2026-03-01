@@ -14,7 +14,5 @@ will enforce these policies.
 
 ###### Best practices
 
-- [GAMESEC07-BP01 Implement an incident response plan to handle
-  bad actors and abusive behavior](gamesec07-bp01.md "gamesec07-bp01.md")
-- [GAMESEC07-BP02 Ban accounts that are associated with bad
-  actors](gamesec07-bp02.md "gamesec07-bp02.md")
+- [GAMESEC07-BP01 Implement an incident response plan to handle bad actors and abusive behavior](gamesec07-bp01.md "gamesec07-bp01.md")
+- [GAMESEC07-BP02 Ban accounts that are associated with bad actors](gamesec07-bp02.md "gamesec07-bp02.md")

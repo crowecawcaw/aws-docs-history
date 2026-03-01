@@ -10,9 +10,6 @@ environment.
 
 ###### Best practices
 
-- [GAMEPERF03-BP01 Use Amazon GameLift Anywhere and a GameLift
-  testing toolkit](gameperf03-bp01.md "gameperf03-bp01.md")
-- [GAMEPERF03-BP02 Test performance and scalability of game
-  servers](gameperf03-bp02.md "gameperf03-bp02.md")
-- [GAMEPERF03-BP03 Optimize resource utilization of GameLift
-  containers](gameperf03-bp03.md "gameperf03-bp03.md")
+- [GAMEPERF03-BP01 Use Amazon GameLift Anywhere and a GameLift testing toolkit](gameperf03-bp01.md "gameperf03-bp01.md")
+- [GAMEPERF03-BP02 Test performance and scalability of game servers](gameperf03-bp02.md "gameperf03-bp02.md")
+- [GAMEPERF03-BP03 Optimize resource utilization of GameLift containers](gameperf03-bp03.md "gameperf03-bp03.md")

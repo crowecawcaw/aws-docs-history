@@ -1,6 +1,4 @@
-# GAMEREL02-BP01 Implement a scaling strategy that incorporates
-
-the state of active player game sessions
+# GAMEREL02-BP01 Implement a scaling strategy that incorporates the state of active player game sessions
 
 Implement a solution for automatically scaling your game
 infrastructure in a manner that incorporates the stateful nature

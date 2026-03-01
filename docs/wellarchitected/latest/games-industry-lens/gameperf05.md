@@ -12,7 +12,5 @@ diversity to avoid insufficient capacity errors.
 
 ###### Best practices
 
-- [GAMEPERF05-BP01 Benchmark your game performance across multiple
-  compute types](gameperf05-bp01.md "gameperf05-bp01.md")
-- [GAMEPERF05-BP02 Move non-latency-sensitive compute tasks to
-  asynchronous workflows](gameperf05-bp02.md "gameperf05-bp02.md")
+- [GAMEPERF05-BP01 Benchmark your game performance across multiple compute types](gameperf05-bp01.md "gameperf05-bp01.md")
+- [GAMEPERF05-BP02 Move non-latency-sensitive compute tasks to asynchronous workflows](gameperf05-bp02.md "gameperf05-bp02.md")

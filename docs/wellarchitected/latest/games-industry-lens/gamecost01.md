@@ -12,6 +12,5 @@ different game environments.
 
 ###### Best practices
 
-- [GAMECOST01-BP01 Implement attribution of cost per player, game
-  feature, and environment](gamecost01-bp01.md "gamecost01-bp01.md")
+- [GAMECOST01-BP01 Implement attribution of cost per player, game feature, and environment](gamecost01-bp01.md "gamecost01-bp01.md")
 - [GAMECOST01-BP02 Discover opportunities for optimization](gamecost01-bp02.md "gamecost01-bp02.md")

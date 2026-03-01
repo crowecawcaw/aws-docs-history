@@ -1,6 +1,4 @@
-# GAMESEC04-BP02 Limit origin access to authorized content
-
-delivery networks (CDNs)
+# GAMESEC04-BP02 Limit origin access to authorized content delivery networks (CDNs)
 
 Block users from circumventing your content delivery
 networks to directly access content from your origin, such as your

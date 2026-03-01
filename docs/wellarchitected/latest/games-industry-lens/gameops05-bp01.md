@@ -1,6 +1,4 @@
-# GAMEOPS05-BP01 Choose the right stage, architecture, and load
-
-testing framework to meet your goals
+# GAMEOPS05-BP01 Choose the right stage, architecture, and load testing framework to meet your goals
 
 The approach to load testing a game can vary significantly
 depending on many factors, including the stage of the development

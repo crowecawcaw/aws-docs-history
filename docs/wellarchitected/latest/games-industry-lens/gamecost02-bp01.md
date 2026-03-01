@@ -1,6 +1,4 @@
-# GAMECOST02-BP01 Optimize the cost of data transfer across the
-
-internet
+# GAMECOST02-BP01 Optimize the cost of data transfer across the internet
 
 While AWS primarily charges for outbound (egress) data transfer from
 your AWS resources to the internet, game companies can face high

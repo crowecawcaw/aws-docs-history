@@ -1,6 +1,4 @@
-# GAMESEC06-BP01 Use tools for detecting and responding to
-
-threats to your infrastructure
+# GAMESEC06-BP01 Use tools for detecting and responding to threats to your infrastructure
 
 To continuously monitor for malicious activities and unauthorized
 behaviors within your AWS environment, consider

@@ -1,6 +1,4 @@
-# GAMEPERF03-BP02 Test performance and scalability of game
-
-servers
+# GAMEPERF03-BP02 Test performance and scalability of game servers
 
 To test the performance and scalability of your game servers,
 implement a robust testing framework using the Amazon GameLift

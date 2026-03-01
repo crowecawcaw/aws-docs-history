@@ -1,6 +1,4 @@
-# GAMESEC04-BP01 Restrict access of downloadable content to
-
-authorized clients and users
+# GAMESEC04-BP01 Restrict access of downloadable content to authorized clients and users
 
 Restrict access to game content by authorized applications and
 clients. Consider using Amazon S3 as a cost-effective and scalable
