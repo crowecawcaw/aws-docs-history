@@ -21,6 +21,5 @@ Plan to upgrade during a maintenance window. All activity on the nodes stops dur
 ###### Summary steps
 
 - [Step A: Get Ready](upgrades-sm-upg-single-ver-version.md "upgrades-sm-upg-single-ver-version.md")
-- [Step B: Copy the AWS Elemental Statmux
-  Installer](upgrades-sm-upg-single-locate-sw.md "upgrades-sm-upg-single-locate-sw.md")
+- [Step B: Copy the AWS Elemental Statmux Installer](upgrades-sm-upg-single-locate-sw.md "upgrades-sm-upg-single-locate-sw.md")
 - [Step D: Upgrade the Node](upgrades-sm-upg-single-up-cond.md "upgrades-sm-upg-single-up-cond.md")

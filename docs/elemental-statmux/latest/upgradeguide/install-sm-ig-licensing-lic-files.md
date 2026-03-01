@@ -3,9 +3,7 @@ This is the latest version. For prior versions, see the
 _Previous Versions_ section of [AWS Elemental Statmux
 and AWS Elemental Live Documentation](../../../elemental-live.md "../../../elemental-live.md").
 
-# Step d: Install the License
-
-Files
+# Step d: Install the License Files
 
 Now that you have a `.tgz` compressed license file for each instance of the software you are
 running, you must point the software to it.

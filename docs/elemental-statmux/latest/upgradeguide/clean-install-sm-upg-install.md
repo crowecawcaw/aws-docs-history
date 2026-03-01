@@ -3,9 +3,7 @@ This is the latest version. For prior versions, see the
 _Previous Versions_ section of [AWS Elemental Statmux
 and AWS Elemental Live Documentation](../../../elemental-live.md "../../../elemental-live.md").
 
-# Step B: Install (Kickstart) the Operating System
-
-Software
+# Step B: Install (Kickstart) the Operating System Software
 
 You must install a configured operating system from an `.iso` file onto each physical machine that will be running AWS Elemental software. Doing so is referred to as “kickstarting the system”.
 

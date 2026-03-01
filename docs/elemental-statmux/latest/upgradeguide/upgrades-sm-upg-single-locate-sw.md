@@ -3,9 +3,7 @@ This is the latest version. For prior versions, see the
 _Previous Versions_ section of [AWS Elemental Statmux
 and AWS Elemental Live Documentation](../../../elemental-live.md "../../../elemental-live.md").
 
-# Step B: Copy the AWS Elemental Statmux
-
-Installer
+# Step B: Copy the AWS Elemental Statmux Installer
 
 1. From your regular workstation, open a web browser, go to [AWS Elemental Support Center Activations](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations") and download the software for the version that
    you're going to.

@@ -3,9 +3,7 @@ This is the latest version. For prior versions, see the
 _Previous Versions_ section of [AWS Elemental Statmux
 and AWS Elemental Live Documentation](../../../elemental-live.md "../../../elemental-live.md").
 
-# Step b: Generate a License Activation Key
-
-File
+# Step b: Generate a License Activation Key File
 
 The operating system that you installed on your hardware has a utility you can use to generate an activation key file.
 

@@ -48,8 +48,7 @@ steps:
 
     Look for the file named similar to this `...elemental_production_statmux_2.17.0.123456.run...`
 
-2. If you find the software, skip to [Step B: Install (Kickstart) the Operating System
-   Software](clean-install-sm-upg-install.md "clean-install-sm-upg-install.md").
+2. If you find the software, skip to [Step B: Install (Kickstart) the Operating System Software](clean-install-sm-upg-install.md "clean-install-sm-upg-install.md").
 
 If the software isn't on the hardware unit, go to the next step. 3. From your regular workstation, open a web browser, go to [AWS Elemental Support Center Activations](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations "https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations") and download the software for the version that
 you're going to. 4. Make a note of where downloads are stored on your workstation. For example:
