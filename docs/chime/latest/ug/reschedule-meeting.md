@@ -16,5 +16,4 @@ former host's meeting ID. You must reschedule the meeting.
 2. Create and schedule a new meeting, and invite the attendees from the old
    meeting. You can host the meeting, or ask someone else to host.
    For more information about canceling meetings, see [Canceling meetings](cancel-meeting.md "cancel-meeting.md"). For more information about scheduling meetings,
-   see the topics in [Scheduling meetings using
-   Amazon Chime](chime-schedule-meetings.md "chime-schedule-meetings.md").
+   see the topics in [Scheduling meetings using Amazon Chime](chime-schedule-meetings.md "chime-schedule-meetings.md").

@@ -14,10 +14,8 @@ invite.
 - [Joining an auto-call meeting](join-auto-call.md "join-auto-call.md")
 - [Joining meetings in the web app](join-web-client.md "join-web-client.md")
 - [Joining moderated meetings](moderated-meetings.md "moderated-meetings.md")
-- [Joining a meeting using the Amazon Chime
-  mobile app](chime-join-meeting-mobile-app.md "chime-join-meeting-mobile-app.md")
-- [Joining a meeting using an
-  in-room conference system](chime-join-meeting-conference-room.md "chime-join-meeting-conference-room.md")
+- [Joining a meeting using the Amazon Chime mobile app](chime-join-meeting-mobile-app.md "chime-join-meeting-mobile-app.md")
+- [Joining a meeting using an in-room conference system](chime-join-meeting-conference-room.md "chime-join-meeting-conference-room.md")
 - [Joining meetings without an Amazon Chime user account](join-anonymous.md "join-anonymous.md")
 - [Joining meetings as an external user](join-as-external.md "join-as-external.md")
 - [Joining a meeting early](join-meeting-early.md "join-meeting-early.md")

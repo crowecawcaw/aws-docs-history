@@ -17,5 +17,4 @@ connection improves, Amazon Chime resumes playing any paused video share tiles.
 - [Running the device troubleshooters](run-troubleshooters.md "run-troubleshooters.md")
 - [Using other audio features](use-other-audio-features.md "use-other-audio-features.md")
 - [Using Amazon Voice Focus](voice-focus.md "voice-focus.md")
-- [Switching from VoIP
-  to dial-in](dial-switch.md "dial-switch.md")
+- [Switching from VoIP to dial-in](dial-switch.md "dial-switch.md")

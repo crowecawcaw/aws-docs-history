@@ -19,7 +19,6 @@ features. The following steps menu item.
    - **Switch to dial-in** – Starts a dialog box that allows you to
      choose a phone number and dial in to a meeting. As a best practice, you should dial in to
      meetings hosted in conference rooms, or when you don't have a stable network connection. For
-     more information, see [Switching from VoIP
-     to dial-in](dial-switch.md "dial-switch.md").
+     more information, see [Switching from VoIP to dial-in](dial-switch.md "dial-switch.md").
    - **Disable mic and speakers** – Turns off your microphone and
      stops playing meeting audio through your speakers.

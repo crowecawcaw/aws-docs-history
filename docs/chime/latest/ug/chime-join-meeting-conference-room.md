@@ -1,6 +1,4 @@
-# Joining a meeting using an
-
-in-room conference system
+# Joining a meeting using an in-room conference system
 
 To join Amazon Chime meetings with audio and video from an in-room system, you enter
 either an SIP address or an H.323 address.. These addresses allow your conference

@@ -1,6 +1,4 @@
-# Switching from VoIP
-
-to dial-in
+# Switching from VoIP to dial-in
 
 When attending Amazon Chime meetings, you can switch from VoIP to dial-in at any time. You typically switch when you join from a conference room, or when you have a poor network
 connection.
