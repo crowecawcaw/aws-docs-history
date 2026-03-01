@@ -11,7 +11,5 @@ benefits and risks for your use case.
 
 ###### Best practices
 
-- [RAIUC02-BP01 Identify downstream
-  stakeholders](raiuc02-bp01.md "raiuc02-bp01.md")
-- [RAIUC02-BP02 Identify contributing and other upstream
-  stakeholders](raiuc02-bp02.md "raiuc02-bp02.md")
+- [RAIUC02-BP01 Identify downstream stakeholders](raiuc02-bp01.md "raiuc02-bp01.md")
+- [RAIUC02-BP02 Identify contributing and other upstream stakeholders](raiuc02-bp02.md "raiuc02-bp02.md")

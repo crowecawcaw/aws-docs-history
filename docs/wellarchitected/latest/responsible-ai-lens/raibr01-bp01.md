@@ -1,6 +1,4 @@
-# RAIBR01-BP01 Aggregate beneficial events into intended
-
-benefits
+# RAIBR01-BP01 Aggregate beneficial events into intended benefits
 
 Identify the specific beneficial events that could assist each type
 of downstream stakeholder. Translate these events into specific

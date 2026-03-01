@@ -1,6 +1,4 @@
-# RAISP03-BP04 Implement output filtering to detect and block
-
-hallucinations
+# RAISP03-BP04 Implement output filtering to detect and block hallucinations
 
 Build filtering mechanisms that automatically detect and block
 factually incorrect outputs, hallucinations, and misleading

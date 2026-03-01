@@ -1,6 +1,4 @@
-# RAISP02-BP08 Consider core AI system designs that improve
-
-factual accuracy
+# RAISP02-BP08 Consider core AI system designs that improve factual accuracy
 
 Design your system to produce more accurate information by
 incorporating techniques that distinguish facts from speculation,

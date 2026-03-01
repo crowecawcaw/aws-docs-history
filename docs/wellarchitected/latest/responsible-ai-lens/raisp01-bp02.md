@@ -1,6 +1,4 @@
-# RAISP01 BP02 Consider design trade-offs across competing
-
-objectives
+# RAISP01 BP02 Consider design trade-offs across competing objectives
 
 Analyze how meeting one release requirement could impact others and
 establish clear protocols for managing these situations. Your

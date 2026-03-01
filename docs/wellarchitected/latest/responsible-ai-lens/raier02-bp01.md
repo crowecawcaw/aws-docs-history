@@ -1,6 +1,4 @@
-# RAIER02-BP01 Add statistical confidence to your release
-
-decision
+# RAIER02-BP01 Add statistical confidence to your release decision
 
 Move beyond simple averages and point estimates to understand how
 confident you can be that your system will meet its release

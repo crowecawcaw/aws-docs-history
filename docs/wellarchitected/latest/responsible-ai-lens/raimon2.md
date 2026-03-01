@@ -9,5 +9,4 @@ reported incidents.
 
 ###### Best practices
 
-- [RAIMON02-BP01 Create feedback loops to apply monitoring results
-  to system improvement](raimon02-bp01.md "raimon02-bp01.md")
+- [RAIMON02-BP01 Create feedback loops to apply monitoring results to system improvement](raimon02-bp01.md "raimon02-bp01.md")

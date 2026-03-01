@@ -1,6 +1,4 @@
-# RAISP03-BP03 Implement output filtering to catch unsafe content
-
-before it reaches users
+# RAISP03-BP03 Implement output filtering to catch unsafe content before it reaches users
 
 Build screening mechanisms that automatically review and filter your
 system's outputs to catch potentially harmful content before users

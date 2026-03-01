@@ -16,5 +16,4 @@ technical capabilities alone.
 
 ###### Best practices
 
-- [RAIBR01-BP01 Aggregate beneficial events into intended
-  benefits](raibr01-bp01.md "raibr01-bp01.md")
+- [RAIBR01-BP01 Aggregate beneficial events into intended benefits](raibr01-bp01.md "raibr01-bp01.md")

@@ -1,6 +1,4 @@
-# RAISP01-BP01 Detail your core AI system design in a system
-
-registry
+# RAISP01-BP01 Detail your core AI system design in a system registry
 
 Detail how your AI system works, including the components and the
 data flows between them. When issues come up, you need to know

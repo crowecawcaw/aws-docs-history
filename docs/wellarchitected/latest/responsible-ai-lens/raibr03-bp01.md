@@ -1,6 +1,4 @@
-# RAIBR03-BP01 Identify the likelihood of each potential
-
-harm
+# RAIBR03-BP01 Identify the likelihood of each potential harm
 
 Establish a risk rating methodology that considers the likelihood of
 the event occurring. The risk likelihood indicates the probability

@@ -1,6 +1,4 @@
-# RAIGT01-BP04 Guide users on how to understand system
-
-outputs
+# RAIGT01-BP04 Guide users on how to understand system outputs
 
 Provide accessible guidance on how a user should interpret system
 outputs. Provide guidance on features the user can use to better

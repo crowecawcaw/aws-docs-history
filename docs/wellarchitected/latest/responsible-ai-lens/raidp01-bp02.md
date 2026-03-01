@@ -1,6 +1,4 @@
-# RAIDP01-BP02 Identify the datasets needed for training and
-
-customizing your system
+# RAIDP01-BP02 Identify the datasets needed for training and customizing your system
 
 Identify and plan datasets needed to train your AI system to meet
 your release criteria. Determine which dataset types (training,

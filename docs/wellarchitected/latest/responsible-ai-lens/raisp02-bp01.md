@@ -1,6 +1,4 @@
-# RAISP02-BP01 Design the core AI system to directly address your
-
-release criteria
+# RAISP02-BP01 Design the core AI system to directly address your release criteria
 
 Build your system with your release criteria in mind from the
 beginning, choosing components and designing processes that directly

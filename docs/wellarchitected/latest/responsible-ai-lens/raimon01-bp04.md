@@ -1,6 +1,4 @@
-# RAIMON01-BP04 Create monitoring dashboards for operational
-
-visibility
+# RAIMON01-BP04 Create monitoring dashboards for operational visibility
 
 Design role-based monitoring dashboards that present relevant system
 health, performance, and risk indicators tailored to each

@@ -1,6 +1,4 @@
-# RAIUC02-BP02 Identify contributing and other upstream
-
-stakeholders
+# RAIUC02-BP02 Identify contributing and other upstream stakeholders
 
 Identify the full set of people involved in designing, developing,
 deploying, operating, funding, supplying, and approving an AI system

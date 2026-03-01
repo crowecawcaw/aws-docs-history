@@ -1,6 +1,4 @@
-# RAIBR02-BP03 Identify potential harmful events impacting
-
-robustness
+# RAIBR02-BP03 Identify potential harmful events impacting robustness
 
 Mishandling foreseeable variations in inputs can create harmful
 events. Input variations come in two kinds. Intrinsic variations

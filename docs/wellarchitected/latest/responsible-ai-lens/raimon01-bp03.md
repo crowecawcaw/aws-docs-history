@@ -1,6 +1,4 @@
-# RAIMON01-BP03 Preserve data privacy and set access controls on
-
-monitored data
+# RAIMON01-BP03 Preserve data privacy and set access controls on monitored data
 
 Apply data governance processes that specify what monitoring data
 can be collected, processed, stored, and accessed throughout the

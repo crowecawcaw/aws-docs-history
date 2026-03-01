@@ -1,6 +1,4 @@
-# RAIDP04-BP03 Protect data from being manipulated or accessed
-
-for unintended purposes
+# RAIDP04-BP03 Protect data from being manipulated or accessed for unintended purposes
 
 Implement the principle of least privilege, only providing access to
 relevant data to those who really need it for both automated systems

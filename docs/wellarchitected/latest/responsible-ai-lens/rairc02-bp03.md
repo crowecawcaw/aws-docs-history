@@ -1,6 +1,4 @@
-# RAIRC02-BP03 Design a custom metric if no suitable metric
-
-exists
+# RAIRC02-BP03 Design a custom metric if no suitable metric exists
 
 When creating custom metrics for benefits or potential harmful
 events, define what you need to measure and its key characteristics.

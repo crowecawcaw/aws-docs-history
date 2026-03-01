@@ -1,6 +1,4 @@
-# RAIRC04-BP03 Set confidence requirements for your quantitative
-
-release criteria
+# RAIRC04-BP03 Set confidence requirements for your quantitative release criteria
 
 Decide how certain you need to be that your system meets each
 performance threshold before each release criterion question can be

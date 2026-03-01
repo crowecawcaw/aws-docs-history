@@ -1,6 +1,4 @@
-# RAIBR02-BP01 Identify potential harmful events impacting
-
-fairness
+# RAIBR02-BP01 Identify potential harmful events impacting fairness
 
 Examine how the proposed AI system might affect different
 stakeholder groups and subgroups throughout the entire system

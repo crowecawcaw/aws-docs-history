@@ -12,5 +12,4 @@ organizational experts to identify and clarify requirements.
 
 ###### Best practices
 
-- [RAIUC05-BP01 Engage your organization in approving your use
-  case](raiuc05-bp01.md "raiuc05-bp01.md")
+- [RAIUC05-BP01 Engage your organization in approving your use case](raiuc05-bp01.md "raiuc05-bp01.md")

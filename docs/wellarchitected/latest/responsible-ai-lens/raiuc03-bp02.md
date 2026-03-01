@@ -1,6 +1,4 @@
-# RAIUC03-BP02 Identify how your expected inputs could vary in
-
-their content
+# RAIUC03-BP02 Identify how your expected inputs could vary in their content
 
 Identify the ways in which inputs to the AI system might
 systematically vary under real-world conditions. For example, the

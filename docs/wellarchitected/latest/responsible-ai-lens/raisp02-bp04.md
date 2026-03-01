@@ -1,6 +1,4 @@
-# RAISP02-BP04 Build security protections directly into the core
-
-AI system design
+# RAISP02-BP04 Build security protections directly into the core AI system design
 
 Follow "secure by design" and "defense in depth" principles and
 build security protections into your system from the beginning to

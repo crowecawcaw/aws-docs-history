@@ -16,11 +16,7 @@ AI use cases.
 
 ###### Best practices
 
-- [RAIBR03-BP01 Identify the likelihood of each potential
-  harm](raibr03-bp01.md "raibr03-bp01.md")
-- [RAIBR03-BP02 Identify the severity of each potential
-  harm](raibr03-bp02.md "raibr03-bp02.md")
-- [RAIBR03-BP03 Assign an overall risk level to each potential
-  harm](raibr03-bp03.md "raibr03-bp03.md")
-- [RAIBR03-BP04 Use a risk registry to track and calibrate
-  potential harms and risks](raibr03-bp04.md "raibr03-bp04.md")
+- [RAIBR03-BP01 Identify the likelihood of each potential harm](raibr03-bp01.md "raibr03-bp01.md")
+- [RAIBR03-BP02 Identify the severity of each potential harm](raibr03-bp02.md "raibr03-bp02.md")
+- [RAIBR03-BP03 Assign an overall risk level to each potential harm](raibr03-bp03.md "raibr03-bp03.md")
+- [RAIBR03-BP04 Use a risk registry to track and calibrate potential harms and risks](raibr03-bp04.md "raibr03-bp04.md")

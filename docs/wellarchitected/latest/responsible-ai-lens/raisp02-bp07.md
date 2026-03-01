@@ -1,6 +1,4 @@
-# RAISP02-BP07 Incorporate explainability mechanisms into the
-
-core AI system
+# RAISP02-BP07 Incorporate explainability mechanisms into the core AI system
 
 Adding explainability to your AI system assists to address
 explainability release criteria by verifying stakeholders can

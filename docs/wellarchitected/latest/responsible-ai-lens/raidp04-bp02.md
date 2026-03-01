@@ -1,6 +1,4 @@
-# RAIDP04-BP02 Periodically evaluate and update datasets in the
-
-registry
+# RAIDP04-BP02 Periodically evaluate and update datasets in the registry
 
 Schedule regular review cycles that assess whether existing datasets
 still meet your evolving requirements and quality standards.

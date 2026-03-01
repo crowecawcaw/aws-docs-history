@@ -14,9 +14,6 @@ results for each release criterion.
 
 ###### Best practices
 
-- [RAIER01-BP01 Validate that release criteria still align with
-  current industry standards](raier01-bp01.md "raier01-bp01.md")
-- [RAIER01-BP02 Independently corroborate more critical and
-  subjective evaluations](raier01-bp02.md "raier01-bp02.md")
-- [RAIER01-BP03 For each system update, re-run the evaluation and
-  update the system registry](raier01-bp03.md "raier01-bp03.md")
+- [RAIER01-BP01 Validate that release criteria still align with current industry standards](raier01-bp01.md "raier01-bp01.md")
+- [RAIER01-BP02 Independently corroborate more critical and subjective evaluations](raier01-bp02.md "raier01-bp02.md")
+- [RAIER01-BP03 For each system update, re-run the evaluation and update the system registry](raier01-bp03.md "raier01-bp03.md")

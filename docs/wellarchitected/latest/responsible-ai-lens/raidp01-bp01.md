@@ -1,6 +1,4 @@
-# RAIDP01-BP01 Identify evaluation datasets needed to measure
-
-system performance against release criteria
+# RAIDP01-BP01 Identify evaluation datasets needed to measure system performance against release criteria
 
 Work backwards from your release criteria to identify the specific
 evaluation datasets needed to test each one. Validate that each

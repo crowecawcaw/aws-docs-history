@@ -1,6 +1,4 @@
-# RAIMON03-BP01 Establish mechanisms for honoring stakeholder
-
-obligations
+# RAIMON03-BP01 Establish mechanisms for honoring stakeholder obligations
 
 Consider how to honor obligations you many have to upstream
 stakeholders (such as people who contributed content to an

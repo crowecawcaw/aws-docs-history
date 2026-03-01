@@ -19,7 +19,5 @@ compliance-aligned requirements.
 
 - [RAISP03-BP01 Add privacy-preserving filters](raisp03-bp01.md "raisp03-bp01.md")
 - [RAISP03-BP02 Add security filters](raisp03-bp02.md "raisp03-bp02.md")
-- [RAISP03-BP03 Implement output filtering to catch unsafe content
-  before it reaches users](raisp03-bp03.md "raisp03-bp03.md")
-- [RAISP03-BP04 Implement output filtering to detect and block
-  hallucinations](raisp03-bp04.md "raisp03-bp04.md")
+- [RAISP03-BP03 Implement output filtering to catch unsafe content before it reaches users](raisp03-bp03.md "raisp03-bp03.md")
+- [RAISP03-BP04 Implement output filtering to detect and block hallucinations](raisp03-bp04.md "raisp03-bp04.md")

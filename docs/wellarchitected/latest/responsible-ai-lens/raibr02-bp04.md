@@ -1,6 +1,4 @@
-# RAIBR02-BP04 Identify potential harmful events impacting
-
-privacy
+# RAIBR02-BP04 Identify potential harmful events impacting privacy
 
 Harmful events can result from using data that is confidential or
 personal in ways that do not align with the rules for correctly

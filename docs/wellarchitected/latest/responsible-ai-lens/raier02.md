@@ -14,7 +14,5 @@ with accountability assignments.
 
 ###### Best practices
 
-- [RAIER02-BP01 Add statistical confidence to your release
-  decision](raier02-bp01.md "raier02-bp01.md")
-- [RAIER02-BP02 Summarize critical information and review with
-  appropriate internal stakeholders](raier02-bp02.md "raier02-bp02.md")
+- [RAIER02-BP01 Add statistical confidence to your release decision](raier02-bp01.md "raier02-bp01.md")
+- [RAIER02-BP02 Summarize critical information and review with appropriate internal stakeholders](raier02-bp02.md "raier02-bp02.md")

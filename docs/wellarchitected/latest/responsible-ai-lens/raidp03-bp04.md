@@ -1,6 +1,4 @@
-# RAIDP03-BP04 Include both intrinsic and confounding variations
-
-in your datasets
+# RAIDP03-BP04 Include both intrinsic and confounding variations in your datasets
 
 Revisit your release criteria and use case description to confirm
 that your definitions of intrinsic and confounding input variations

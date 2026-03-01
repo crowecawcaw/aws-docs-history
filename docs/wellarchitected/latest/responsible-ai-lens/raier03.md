@@ -13,7 +13,5 @@ identified residual risks.
 
 ###### Best practices
 
-- [RAIER03-BP01 For each failed release criterion, re-assess the
-  implementation strategy](raier03-bp01.md "raier03-bp01.md")
-- [RAIER03-BP02 Identify release criteria that cannot be met and
-  narrow your use case](raier03-bp02.md "raier03-bp02.md")
+- [RAIER03-BP01 For each failed release criterion, re-assess the implementation strategy](raier03-bp01.md "raier03-bp01.md")
+- [RAIER03-BP02 Identify release criteria that cannot be met and narrow your use case](raier03-bp02.md "raier03-bp02.md")

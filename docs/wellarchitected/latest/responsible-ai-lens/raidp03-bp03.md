@@ -1,6 +1,4 @@
-# RAIDP03-BP03 Protect the privacy of individuals represented in
-
-your datasets
+# RAIDP03-BP03 Protect the privacy of individuals represented in your datasets
 
 Translate the guidance of your legal counsel on what constitutes
 personal information into technical definitions appropriate to your

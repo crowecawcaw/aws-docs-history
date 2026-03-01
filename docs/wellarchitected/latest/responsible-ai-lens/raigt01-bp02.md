@@ -1,6 +1,4 @@
-# RAIGT01-BP02 Create a system card that communicates intended
-
-usage and limitations
+# RAIGT01-BP02 Create a system card that communicates intended usage and limitations
 
 AI system cards are a form of responsible AI documentation that
 provide stakeholders with a single place to find information on the

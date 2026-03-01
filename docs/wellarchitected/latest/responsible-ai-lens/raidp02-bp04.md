@@ -1,6 +1,4 @@
-# RAIDP02-BP04 Validate the quality and reliability of augmented
-
-or synthetic datasets
+# RAIDP02-BP04 Validate the quality and reliability of augmented or synthetic datasets
 
 Assess the quality of model-generated labels and synthetic examples
 against human evaluation standards. Identify potential sources of

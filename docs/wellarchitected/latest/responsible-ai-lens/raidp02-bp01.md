@@ -1,6 +1,4 @@
-# RAIDP02-BP01 Validate the representativeness of datasets for
-
-the use case
+# RAIDP02-BP01 Validate the representativeness of datasets for the use case
 
 Consider whether your datasets accurately reflect the real-world
 conditions where your system will be used. Gather examples that

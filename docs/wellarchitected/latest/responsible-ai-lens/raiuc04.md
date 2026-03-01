@@ -10,8 +10,6 @@ where transparency and human oversight may be most useful.
 
 ###### Best practices
 
-- [RAIUC04-BP01 Map the user journey to identify AI interaction
-  requirements](raiuc04-bp01.md "raiuc04-bp01.md")
+- [RAIUC04-BP01 Map the user journey to identify AI interaction requirements](raiuc04-bp01.md "raiuc04-bp01.md")
 - [RAIUC04-BP02 Identify human oversight opportunities](raiuc04-bp02.md "raiuc04-bp02.md")
-- [RAIUC04-BP03 Identify accessibility requirements for different
-  user groups](raiuc04-bp03.md "raiuc04-bp03.md")
+- [RAIUC04-BP03 Identify accessibility requirements for different user groups](raiuc04-bp03.md "raiuc04-bp03.md")

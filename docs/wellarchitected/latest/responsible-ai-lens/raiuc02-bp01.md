@@ -1,6 +1,4 @@
-# RAIUC02-BP01 Identify downstream
-
-stakeholders
+# RAIUC02-BP01 Identify downstream stakeholders
 
 Identify a person, group, or entity involved in or affected by the
 operation of the proposed AI system. Consider different stakeholder

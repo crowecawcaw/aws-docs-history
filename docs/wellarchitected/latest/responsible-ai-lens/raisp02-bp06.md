@@ -1,6 +1,4 @@
-# RAISP02-BP06 Enable users to customize core AI system
-
-behaviors
+# RAISP02-BP06 Enable users to customize core AI system behaviors
 
 Design your system so users can adjust how it works to better fit
 their particular requirements and preferences, while keeping those

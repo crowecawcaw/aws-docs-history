@@ -1,6 +1,4 @@
-# RAIRC02-BP02 Consider strength and limitation trade-offs when
-
-choosing metrics
+# RAIRC02-BP02 Consider strength and limitation trade-offs when choosing metrics
 
 Before selecting a metric to measure a release criterion, assess its
 strengths and weaknesses. Validate model-derived metrics (such as

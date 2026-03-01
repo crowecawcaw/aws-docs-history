@@ -1,6 +1,4 @@
-# RAIBR02-BP07 Identify potential harmful events impacting
-
-explainability
+# RAIBR02-BP07 Identify potential harmful events impacting explainability
 
 Users may want or need to understand why their input produced the
 system output that it did. Consider, for example, what harm might

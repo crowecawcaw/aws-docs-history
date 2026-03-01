@@ -1,6 +1,4 @@
-# RAIRC04-BP02 Consider trade-offs between release
-
-criteria
+# RAIRC04-BP02 Consider trade-offs between release criteria
 
 Consider trade-offs where meeting your criteria thresholds for one
 potential harm may reduce your ability to meet the criteria for

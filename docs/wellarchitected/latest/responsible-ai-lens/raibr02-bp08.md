@@ -1,6 +1,4 @@
-# RAIBR02-BP08 Identify potential harmful events impacting
-
-transparency
+# RAIBR02-BP08 Identify potential harmful events impacting transparency
 
 _Transparency_ is the degree to which
 stakeholders can make informed choices in their engagement with an

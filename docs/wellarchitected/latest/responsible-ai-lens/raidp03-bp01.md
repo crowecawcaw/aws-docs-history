@@ -1,6 +1,4 @@
-# RAIDP03-BP01 Address data that may be unsafe or inappropriate
-
-for your use case
+# RAIDP03-BP01 Address data that may be unsafe or inappropriate for your use case
 
 To perpetuate dataset safety throughout the AI system lifecycle,
 establish definitions of safe and unsafe content for your use case.

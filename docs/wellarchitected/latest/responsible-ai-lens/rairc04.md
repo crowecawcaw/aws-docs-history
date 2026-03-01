@@ -9,7 +9,5 @@ After identifying key metrics, establish target thresholds and statistical metho
 ###### Best practices
 
 - [RAIRC04-BP01 Identify baseline performance targets](rairc04-bp01.md "rairc04-bp01.md")
-- [RAIRC04-BP02 Consider trade-offs between release
-  criteria](rairc04-bp02.md "rairc04-bp02.md")
-- [RAIRC04-BP03 Set confidence requirements for your quantitative
-  release criteria](rairc04-bp03.md "rairc04-bp03.md")
+- [RAIRC04-BP02 Consider trade-offs between release criteria](rairc04-bp02.md "rairc04-bp02.md")
+- [RAIRC04-BP03 Set confidence requirements for your quantitative release criteria](rairc04-bp03.md "rairc04-bp03.md")

@@ -1,6 +1,4 @@
-# RAIGT01-BP03 Create a plan for publishing and updating
-
-documentation
+# RAIGT01-BP03 Create a plan for publishing and updating documentation
 
 Identify which documents require updates based on stakeholder
 feedback, new use-cases, new system releases, and industry best

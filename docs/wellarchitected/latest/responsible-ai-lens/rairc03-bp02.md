@@ -1,6 +1,4 @@
-# RAIRC03-BP02 Measure fairness as unwanted bias across
-
-stakeholder groups
+# RAIRC03-BP02 Measure fairness as unwanted bias across stakeholder groups
 
 Measure variations across relevant stakeholder groups based on your
 specific use case and context. This evaluation may include

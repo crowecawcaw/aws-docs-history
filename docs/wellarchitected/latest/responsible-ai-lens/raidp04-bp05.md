@@ -1,6 +1,4 @@
-# RAIDP04-BP05 Document the characteristics of each dataset using
-
-a datasheet
+# RAIDP04-BP05 Document the characteristics of each dataset using a datasheet
 
 Create datasheets that document the intended uses, composition, and
 collection process for each dataset. Include information about data

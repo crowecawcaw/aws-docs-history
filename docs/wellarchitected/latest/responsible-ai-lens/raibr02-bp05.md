@@ -1,6 +1,4 @@
-# RAIBR02-BP05 Identify potential harmful events impacting
-
-safety
+# RAIBR02-BP05 Identify potential harmful events impacting safety
 
 System outputs (content or actions) might create unintended impacts
 on the health or well-being of individuals, groups, society or the

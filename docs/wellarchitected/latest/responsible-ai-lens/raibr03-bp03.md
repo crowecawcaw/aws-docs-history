@@ -1,6 +1,4 @@
-# RAIBR03-BP03 Assign an overall risk level to each potential
-
-harm
+# RAIBR03-BP03 Assign an overall risk level to each potential harm
 
 Risk ratings are typically determined by using a risk matrix that
 combines the likelihood (probability of occurrence) and severity

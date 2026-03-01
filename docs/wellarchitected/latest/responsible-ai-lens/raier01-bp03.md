@@ -1,6 +1,4 @@
-# RAIER01-BP03 For each system update, re-run the evaluation and
-
-update the system registry
+# RAIER01-BP03 For each system update, re-run the evaluation and update the system registry
 
 Record evaluation activities in logs that capture test conditions,
 system configurations, data inputs, raw results, and methodological

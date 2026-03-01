@@ -1,6 +1,4 @@
-# RAIER03-BP01 For each failed release criterion, re-assess the
-
-implementation strategy
+# RAIER03-BP01 For each failed release criterion, re-assess the implementation strategy
 
 Re-evaluate the original implementation strategy assigned to each
 release criteria. Either improve the execution of the implementation

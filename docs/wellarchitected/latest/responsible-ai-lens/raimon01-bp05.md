@@ -1,6 +1,4 @@
-# RAIMON01-BP05 Design protocols that trigger human oversight of
-
-automated monitoring alerts
+# RAIMON01-BP05 Design protocols that trigger human oversight of automated monitoring alerts
 
 Set protocols for when human reviewers should be involved in system
 oversight decisions. Create sampling-based human review processes

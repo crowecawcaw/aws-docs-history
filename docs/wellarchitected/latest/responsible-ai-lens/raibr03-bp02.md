@@ -1,6 +1,4 @@
-# RAIBR03-BP02 Identify the severity of each potential
-
-harm
+# RAIBR03-BP02 Identify the severity of each potential harm
 
 Risk severity estimates the magnitude of the negative on affected
 stakeholder groups if it were to occur. Severity also considers the

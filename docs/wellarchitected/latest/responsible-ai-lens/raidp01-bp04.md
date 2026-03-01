@@ -1,6 +1,4 @@
-# RAIDP01-BP04 Identify potential overlaps between
-
-datasets
+# RAIDP01-BP04 Identify potential overlaps between datasets
 
 Check for unintended data overlap between your training, evaluation,
 and auxiliary datasets. Ideally, evaluation datasets will contain

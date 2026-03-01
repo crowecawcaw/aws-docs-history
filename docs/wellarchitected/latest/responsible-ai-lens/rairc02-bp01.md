@@ -1,6 +1,4 @@
-# RAIRC02-BP01 Select metrics to measure the properties tested by
-
-the release criteria
+# RAIRC02-BP01 Select metrics to measure the properties tested by the release criteria
 
 For each release criterion you defined, choose specific metrics that
 can reliably measure the information needed to answer the question.

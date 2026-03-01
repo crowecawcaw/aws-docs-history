@@ -1,6 +1,4 @@
-# RAIMON02-BP01 Create feedback loops to apply monitoring results
-
-to system improvement
+# RAIMON02-BP01 Create feedback loops to apply monitoring results to system improvement
 
 Translate monitoring results, incident patterns, and performance
 trends into actionable system improvements and risk mitigation

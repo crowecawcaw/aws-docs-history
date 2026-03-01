@@ -1,6 +1,4 @@
-# RAIBR02-BP02 Identify potential harmful events impacting
-
-veracity
+# RAIBR02-BP02 Identify potential harmful events impacting veracity
 
 _Veracity_ harms arise when AI systems produce
 factual errors, as measured against an established base set of

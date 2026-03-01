@@ -18,5 +18,4 @@ measurements and release decisions.
 
 ###### Best practices
 
-- [RAISP04-BP01 Use paired tests to choose from candidate
-  designs](raisp04-bp01.md "raisp04-bp01.md")
+- [RAISP04-BP01 Use paired tests to choose from candidate designs](raisp04-bp01.md "raisp04-bp01.md")

@@ -1,6 +1,4 @@
-# RAIBR04-BP03 Assign your potential harm mitigations to
-
-implementation strategies
+# RAIBR04-BP03 Assign your potential harm mitigations to implementation strategies
 
 As input to your system design, consider whether potential harms can
 be addressed through technical features or stakeholder guidance.

@@ -1,6 +1,4 @@
-# RAIBR02-BP06 Identify potential harmful events impacting system
-
-and data security
+# RAIBR02-BP06 Identify potential harmful events impacting system and data security
 
 Because AI systems process inputs and generate responses based on
 patterns learned from data, they have the potential for issues that

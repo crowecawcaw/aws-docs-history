@@ -1,6 +1,4 @@
-# RAIUC05-BP01 Engage your organization in approving your use
-
-case
+# RAIUC05-BP01 Engage your organization in approving your use case
 
 Identify the geographic locations in which the proposed AI system
 will operate. Consult with your legal team to identify applicable

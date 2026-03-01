@@ -1,6 +1,4 @@
-# RAIDP02-BP03 Validate the quality of human and generated labels
-
-and features in your dataset
+# RAIDP02-BP03 Validate the quality of human and generated labels and features in your dataset
 
 Implement quality control mechanisms for human annotators including
 training processes, unwanted bias identification, and inter-rater

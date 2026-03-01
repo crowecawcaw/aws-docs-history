@@ -1,6 +1,4 @@
-# RAISP04-BP01 Use paired tests to choose from candidate
-
-designs
+# RAISP04-BP01 Use paired tests to choose from candidate designs
 
 Test different candidate configurations of your system, including
 different versions of your components or models during development

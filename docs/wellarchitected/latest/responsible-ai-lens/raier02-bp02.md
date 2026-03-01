@@ -1,6 +1,4 @@
-# RAIER02-BP02 Summarize critical information and review with
-
-appropriate internal stakeholders
+# RAIER02-BP02 Summarize critical information and review with appropriate internal stakeholders
 
 Organize evidence from your use case, risk assessments, release
 criteria testing, datasets, and system design evidence into a single

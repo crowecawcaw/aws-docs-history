@@ -1,6 +1,4 @@
-# RAIMON01-BP02 Set operational performance baselines and apply
-
-methods for drift detection
+# RAIMON01-BP02 Set operational performance baselines and apply methods for drift detection
 
 Set performance trend baselines by collecting initial production
 data over a representative time period to capture your system's

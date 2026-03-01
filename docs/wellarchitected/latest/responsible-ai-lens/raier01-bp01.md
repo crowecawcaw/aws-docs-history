@@ -1,6 +1,4 @@
-# RAIER01-BP01 Validate that release criteria still align with
-
-current industry standards
+# RAIER01-BP01 Validate that release criteria still align with current industry standards
 
 At the start of a release evaluation, check that the release
 criteria and associated evaluation tests are still aligned with the

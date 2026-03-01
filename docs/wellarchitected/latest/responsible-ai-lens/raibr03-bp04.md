@@ -1,6 +1,4 @@
-# RAIBR03-BP04 Use a risk registry to track and calibrate
-
-potential harms and risks
+# RAIBR03-BP04 Use a risk registry to track and calibrate potential harms and risks
 
 Establish a risk registry to track and calibrate categories of risks
 across your ML lifecycle and other use cases your team or

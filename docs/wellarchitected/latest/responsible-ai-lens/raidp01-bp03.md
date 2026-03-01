@@ -1,6 +1,4 @@
-# RAIDP01-BP03 Identify auxiliary datasets needed to operate your
-
-system
+# RAIDP01-BP03 Identify auxiliary datasets needed to operate your system
 
 Auxiliary data covers additional data that affects your system
 behavior beyond the training, validation, and evaluation datasets,

@@ -1,6 +1,4 @@
-# RAISP02-BP10 Build safety protections into the core AI
-
-system
+# RAISP02-BP10 Build safety protections into the core AI system
 
 Follow the safety-by-design principle and design your system from
 the start to block harmful outputs and unsafe behaviors through

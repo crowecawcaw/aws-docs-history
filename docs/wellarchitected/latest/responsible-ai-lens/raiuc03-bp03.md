@@ -1,6 +1,4 @@
-# RAIUC03-BP03 Identify the type of AI required by your AI use
-
-case
+# RAIUC03-BP03 Identify the type of AI required by your AI use case
 
 Selecting the appropriate type of AI solution is a critical decision
 that fundamentally shapes your project's success and risk profile.

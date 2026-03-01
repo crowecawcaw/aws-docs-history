@@ -1,6 +1,4 @@
-# RAIGT01-BP06 Guide users on how to responsibly change system
-
-behavior
+# RAIGT01-BP06 Guide users on how to responsibly change system behavior
 
 Provide guidance that informs users how to effectively alter system
 behaviors and interpret results. Include user interface elements

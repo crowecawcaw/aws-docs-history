@@ -1,6 +1,4 @@
-# RAIRC01-BP01 Turn your expected benefits and potential harms
-
-into testable release criteria
+# RAIRC01-BP01 Turn your expected benefits and potential harms into testable release criteria
 
 Turn your identified potential harms and expected benefits into
 clear yes or no questions that determine if your system is ready for

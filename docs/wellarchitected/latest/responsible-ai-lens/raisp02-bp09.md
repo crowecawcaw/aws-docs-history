@@ -1,6 +1,4 @@
-# RAISP02-BP09 Design your core AI system to handle input
-
-variations
+# RAISP02-BP09 Design your core AI system to handle input variations
 
 Design your system to be more resilient by building in the ability
 to handle input variations and edge cases that could cause it to

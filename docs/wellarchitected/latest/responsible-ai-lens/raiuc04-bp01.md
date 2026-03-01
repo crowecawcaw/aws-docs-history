@@ -1,6 +1,4 @@
-# RAIUC04-BP01 Map the user journey to identify AI interaction
-
-requirements
+# RAIUC04-BP01 Map the user journey to identify AI interaction requirements
 
 Map the user journey to identify interaction requirements and risks.
 During pre-interaction, assist users in learning about the system's

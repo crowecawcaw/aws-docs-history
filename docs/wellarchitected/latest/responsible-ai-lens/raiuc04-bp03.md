@@ -1,6 +1,4 @@
-# RAIUC04-BP03 Identify accessibility requirements for different
-
-user groups
+# RAIUC04-BP03 Identify accessibility requirements for different user groups
 
 Identifying accessibility points assists to generate requirements
 for people with different capabilities and disabilities to use the

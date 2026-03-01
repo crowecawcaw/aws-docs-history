@@ -9,5 +9,4 @@ upstream and downstream stakeholders.
 
 ###### Best practices
 
-- [RAIMON03-BP01 Establish mechanisms for honoring stakeholder
-  obligations](raimon03-bp01.md "raimon03-bp01.md")
+- [RAIMON03-BP01 Establish mechanisms for honoring stakeholder obligations](raimon03-bp01.md "raimon03-bp01.md")

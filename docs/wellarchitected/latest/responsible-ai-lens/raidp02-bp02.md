@@ -1,6 +1,4 @@
-# RAIDP02-BP02 Set dataset quality requirements based on your
-
-release criteria
+# RAIDP02-BP02 Set dataset quality requirements based on your release criteria
 
 Work backwards from your release criteria to define the quality
 standards for each dataset, then select metrics and thresholds to

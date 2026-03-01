@@ -1,6 +1,4 @@
-# RAIBR02-BP09 Choose multiple strategies to identify potential
-
-harmful events
+# RAIBR02-BP09 Choose multiple strategies to identify potential harmful events
 
 In addition to assessing potential harmful events for each
 responsible AI dimension independently, employ complementary

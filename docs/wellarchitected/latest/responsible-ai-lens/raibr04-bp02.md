@@ -1,6 +1,4 @@
-# RAIBR04-BP02 Weigh trade-offs across competing use case
-
-objectives
+# RAIBR04-BP02 Weigh trade-offs across competing use case objectives
 
 Evaluate and balance trade-offs between benefits and risks. If not
 already available from your organization, develop explicit trade-off

@@ -1,6 +1,4 @@
-# RAIUC03-BP01 Identify the expected input and outputs for the AI
-
-system
+# RAIUC03-BP01 Identify the expected input and outputs for the AI system
 
 Imagine the AI system solving the use case as a box containing an
 unknown mechanism. Describe the inputs to the AI system. Stay at a

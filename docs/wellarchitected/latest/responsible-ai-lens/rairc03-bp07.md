@@ -1,6 +1,4 @@
-# RAIRC03-BP07 Measure user controllability of system
-
-behavior
+# RAIRC03-BP07 Measure user controllability of system behavior
 
 To verify that users can effectively control your AI system when
 they need to override, adjust, or roll back its behavior, develop

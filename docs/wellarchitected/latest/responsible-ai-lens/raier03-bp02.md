@@ -1,6 +1,4 @@
-# RAIER03-BP02 Identify release criteria that cannot be met and
-
-narrow your use case
+# RAIER03-BP02 Identify release criteria that cannot be met and narrow your use case
 
 Assess which of your release criteria you cannot meet with your
 current system design and implementation strategies, no matter how

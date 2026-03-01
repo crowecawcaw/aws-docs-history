@@ -1,6 +1,4 @@
-# RAIER01-BP02 Independently corroborate more critical and
-
-subjective evaluations
+# RAIER01-BP02 Independently corroborate more critical and subjective evaluations
 
 Consider getting second opinions on release criteria that are highly
 critical or more subjective. Such opinions can come from internal or
